@@ -1,0 +1,67 @@
+EFRONT VERSION 3.5.0 QUICK INSTALLATION GUIDE
+-----------------------------------------
+
+Prerequisites
+=============
+
+Latest version of XAMPP or:
+- PHP 5.2.0 or higher (PHP 5.x is supported but using version earlier than 5.2 is not recommended)
+- Mysql 5.0 (MySQL 4.1 can be used but is not recommended)
+- Apache 2 (Apache 1.3.xx can be used but is not recommended)
+
+Microsoft Windows
+=================
+
+1. Uncompress eFront files in the desired folder, for example c:\eFront, thus creating the following structure:
+C:\eFront\backups
+C:\eFront\libraries
+C:\eFront\PEAR
+C:\eFront\upload
+C:\eFront\www
+2. Download and install XAMPP for Windows, from http://www.apachefriends.org/en/xampp-windows.html 
+3. After installing XAMPP, you must edit the file c:\xampp\apache\conf\httpd.conf (with any text editor, like Notepad) 
+and perform the following chages:
+   - Change the line where it says:
+     DocumentRoot "C:/xampp/htdocs"
+     to:
+     DocumentRoot "C:/eFront/www"
+   - Change the line where it says:
+     <Directory "C:/xampp/htdocs">
+     to:
+     <Directory "C:/eFront/www">
+4. Using the XAMPP control panel (or manually) restart Apache service     
+5. Using Microsoft Internet Explorer 7 or Mozilla Firefox, point to http://localhost/install/install.php
+6. Follow the on-screen instructions to setup eFront
+
+Linux
+=====
+
+1. Uncompress eFront files in the desired folder, for example /opt/lampp/eFront, thus creating the following structure:
+/opt/lampp/eFront/backups
+/opt/lampp/eFront/libraries
+/opt/lampp/eFront/modules
+/opt/lampp/eFront/PEAR
+/opt/lampp/eFront/upload
+/opt/lampp/eFront/www
+2. Download and install XAMPP for Linux, from http://www.apachefriends.org/en/xampp-linux.html 
+3. After installing XAMPP, you must edit the file /opt/lampp/etc/httpd.conf (with any text editor) 
+and perform the following chages:
+   - Change the line where it says:
+     DocumentRoot "/opt/lampp/htdocs/"
+     to:
+     DocumentRoot "/opt/lampp/eFront/www"
+   - Change the line where it says:
+     <Directory "/opt/lampp/htdocs">
+     to:
+     <Directory "/opt/lampp/eFront/www">
+4. Using the XAMPP control panel (or manually) restart Apache service     
+5. Using Mozilla Firefox, point to http://localhost/install/install.php
+6. Follow the on-screen instructions to setup eFront
+7. Note: Several directories should be writable by the web server, but the most important is libraries/smarty, 
+since it is needed in order to perform installation
+
+More information
+================
+
+You may find more information on eFront installation and usage at docs/index.html and http://www.efrontlearning.com
+

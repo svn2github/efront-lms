@@ -1,0 +1,2943 @@
+<?php
+if (is_file($GLOBALS['path']."language/custom-hindi.php.inc")) {
+include($GLOBALS['path']."language/custom-hindi.php.inc");
+}
+define("_HEADERLANGUAGEHTMLTAG","hi");//en
+define("_CURRENTLANGUAGESYMBOL","hi");//en
+define("_HEADERLANGUAGETAG","hindi");//english
+define("_CHARSET","ISO-8859-1");//ISO-8859-1
+define("_LANGUAGE","भाषा");//Language
+define("_PASSWORD","पासवर्ड");//Password
+define("_SUBMIT","जमा करें");//Submit
+define("_REGISTER","रजिस्टर");//Register
+define("_CONTACT","हमसे संपर्क करें");//Contact us
+define("_FROM","से");//From
+define("_SENDSUCCESS","आपका संदेश सफलतापूर्वक भेजा गया था . हमसे सम्पर्क करने के लिए धन्यवाद !");//Your message was sent successfully. Thank you for contacting us!
+define("_SENDFAILURE","एक समस्या आ गया है . कृपया पुनः प्रयास करें .");//A problem has come up. Please try again.
+define("_LOGIN","लॉग इन");//Login
+define("_NAME","नाम");//Name
+define("_SURNAME","उपनाम");//Surname
+define("_ADDRESS","पता");//Address
+define("_POSTCODE","पोस्ट कोड");//Post code
+define("_CITY","नगर");//City
+define("_HOMEPHONE","फोन नंबर");//Phone number
+define("_EMAILADDRESS","ईमेल पता");//Email address
+define("_COMMENTS","टिप्पणियाँ");//Comments
+define("_TIME","समय");//Time
+define("_BACK","← वापस");//&larr;&nbsp;Back
+define("_CONFIGURATIONVARIABLES","सिस्टम कॉन्फ़िगरेशन");//System configuration
+define("_CHANGESITELOGO","बदलें लोगो साइट");//Change site logo
+define("_ONLYONELANGUAGE","सहायता से केवल एक ही ( डिफ़ॉल्ट ) भाषा");//Support only one (the default) Language
+define("_YES","हाँ");//Yes
+define("_NO","नहीं");//No
+define("_UPDATELESSONS","अद्यतन का सबक");//Update lessons
+define("_ADMINEMAIL","प्रशासक ईमेल");//Administrator email
+define("_LESSONSDELETED","इस सबक नष्ट कर दिया गया");//The lesson was deleted
+define("_SHOWFOOTER","दिखाएँ पाद लेख");//Show footer
+define("_DEFAULTLANGUAGE","डिफ़ॉल्ट भाषा");//Default language
+define("_DIGITALLIBRARY","फ़ाइल डिजिटल लाइब्रेरी");//Digital file library
+define("_BACKUP","बैकअप सिस्टम");//Backup system
+define("_RESTORE","पुनर्स्थापित प्रणाली");//Restore system
+define("_FREE","यह सबक सभी के लिए स्वतंत्र है");//This lesson is free for all
+define("_SUCCESSREGISTER","आपने सफलतापूर्वक पंजीकृत");//You have registered successfully
+define("_LESSONSREGISTRATION","पंजीकरण नालचिक");//Lesson registration
+define("_YOUREMAIL","आपकी ईमेल");//Your e-mail 
+define("_MESSAGESUBJECT","संदेश का विषय है");//Message subject
+define("_PASSWORDLEAVEBLANK","कूटशब्द ( रिक्त छोड़ अपरिवर्तित करने के लिए )");//Password (blank to leave unchanged)
+define("_PERSONALDATACHANGESUCCESS","आपकी व्यक्तिगत जानकारी को सफलतापूर्वक बदल दिया गया है");//Your personal info has been successfully altered
+define("_REGISTRATIONDATE","पंजीकरण की तारीख");//Registration date
+define("_SAVECHANGES","परिवर्तन सहेजें");//Save changes
+define("_PERSONALDATA","निजी जानकारी");//Personal info
+define("_LESSONOPTIONS","नालचिक विकल्प");//Lesson options
+define("_PERSONALOPTIONS","उपकरण");//Tools
+define("_QUESTIONWEIGHT","प्रश्न वजन ( 1-10 )");//Question weight (1-10)
+define("_WEIGHT","वजन");//Weight
+define("_NONEWLESSONREGISTRATIONS","नए सबक नहीं पंजीकरण");//No new lesson registration
+define("_LESSONS","सबक");//Lessons
+define("_RECREATESEARCHTABLE","फिर खोज की मेज");//Recreate search table
+define("_LESSONSREGISTRATIONS","पंजीकरण नालचिक");//Lesson registrations
+define("_TOOLS","उपकरण");//Tools
+define("_ONLINEUSERS","आन लाइन प्रयोक्ताओं");//On line users
+define("_DATE","तिथि");//Date
+define("_STUDENT","छात्र");//Student
+define("_LINE","रेखा");//Line
+define("_SOMEPROBLEMEMERGED","कुछ समस्या हुई है");//Some problem has occured
+define("_CORRECTION","यह सही");//Correct it
+define("_LESSONNAME","नालचिक नाम");//Lesson name
+define("_DIRECTION","श्रेणियाँ");//Categories
+define("_DIRECTIONNAME","श्रेणी नाम");//Category name
+define("_NEWLESSON","नई सबक");//New lesson
+define("_NEWDIRECTION","नई श्रेणी");//New category
+define("_EMAILSENDAT","ईमेल को भेजा गया था");//Email was sent to 
+define("_CHOOSELESSON","पाठ चुनें");//Choose lesson
+define("_SUBJECT","विषय");//Subject
+define("_RECIPIENTSSELECTION","प्राप्तकर्ता का चयन");//Recipients selection
+define("_EMAILBODY","ई मेल से शरीर");//E-mail body
+define("_SENDEMAIL","ई मेल भेजें");//Send E-mail
+define("_EXIT","बाहर निकलें");//Exit
+define("_MORE","अधिक");//more
+define("_DELETE","मिटाना");//Delete
+define("_MESSAGES","संदेश");// Messages
+define("_THEORY","सिद्धांत");//Theory
+define("_PROJECTS","परियोजनाएं");//Projects
+define("_TESTS","टेस्ट");//Tests
+define("_PREVIOUS","&lt; पिछला");//&lt; Previous
+define("_NEXT","अगला &gt;");//Next &gt;
+define("_CANNOTACCESSTHISUNIT","आप देख नहीं सकता है क्योंकि इस इकाई :");//You cannot see this unit because:
+define("_SENDPERSONALMESSAGE","व्यक्तिगत संदेश भेजें");//Send personal message
+define("_SEND","भेजना");//Send
+define("_STATISTICS","रिपोर्टें");//Reports
+define("_OPTIONS","विकल्प");//Options
+define("_THEFIELD","इस क्षेत्र");//The field
+define("_WELCOMETO","आपका स्वागत है");//Welcome to the
+define("_LESSONANNOUNCEMENT","घोषणा के लिए सबक");//Announcement for the lesson
+define("_COLOR","रंग");//Color
+define("_HOUR","घंटा");//hour
+define("_HOURS","घंटे");//hours
+define("_MINUTE","मिनट");//minute
+define("_MINUTES","मिनट");//minutes
+define("_SECONDS","सेकंड");//seconds
+define("_LASTLOGIN","पिछले में प्रवेश");//Last log-in
+define("_MEAN","औसत");//Average
+define("_LOGINAT","इन पर लॉग इन करें");//Log-in at
+define("_TESTHADAT","पूरा टेस्ट में");//Test completed at
+define("_HASMAXIMUMDURATION","यह अधिकतम अवधि का था");//It had maximum duration
+define("_YOURSCOREIS","आपका स्कोर है");//Your score is
+define("_FINALSCOREWILLBEFROM","अंतिम स्कोर से किया जाएगा");//Final score will be from
+define("_ANDYOUDIDITIN","और आप इसे पूरा में");//and you completed it in
+define("_TO","को");//to
+define("_DEPENDSONQUESTIONS","के आधार पर अपने प्रश्नों के उत्तर के जवाब पर खुले हैं .");//depending on your answers on open-answer questions.
+define("_EXAMPLEANSWER","उदाहरण उत्तर");//Example answer
+define("_SCORE","स्कोर");//Score
+define("_THISQUESTIONCORRECTEDPROFESSOR","इस प्रश्न के द्वारा प्रोफेसर ठीक हो जाएगा .");//This question will be corrected by the professor
+define("_RIGHTANSWER","सही जवाब");//Correct answer
+define("_TESTSHOULDCOMPLETEIN","यह परीक्षण में पूरा किया जाना चाहिए");//This test must be completed in
+define("_TIMELEFT","बाकी समय");//Time remaining
+define("_YOUCANNOTLOGINAS","लॉगिन के साथ मौजूद नहीं उपयोगकर्ता का नाम :");//No user exists with login name:
+define("_WRONGPASSWORDTRYAGAIN","आप ने एक पासवर्ड गलत है . कृपया पुनः प्रयास करें .");//You gave a wrong password. Please try again.
+define("_NOTACTIVATEDACCOUNTTRYAGAINLATER","आपका खाता अभी तक सक्रिय नहीं किया गया है . कृपया बाद में पुनः प्रयास करें .");//Your account has not been activated yet. Please try again later.
+define("_YOUHAVEBEENEXCLUDEDBYPROFESSOR","आप प्रोफेसर के द्वारा हटा दिया गया");//You are excluded by professor
+define("_MUSTFIRSTREADUNIT","पहले आपको पढ़ने की इकाई");//You must first read unit
+define("_MUSTFIRSTTAKEATLEAST","आप पहली बार में कम से कम होना चाहिए");//You must first take at least
+define("_YOURTIMEISUP","आपका समय है");//Your time is up
+define("_ATTEST","पर परीक्षण");//at test
+define("_WANTTOREDOTEST","मैं चाहता हूं कि इस परीक्षण को &#39; पुनः करें &#39;");//I want to redo this test
+define("_PERCENT","प्रतिशत");//Percent
+define("_CANNOTREDOTEST","आप &#39; पुनः करें &#39; इस परीक्षण नहीं कर सकते !");//You cannot redo this test!
+define("_LESSON","नालचिक");//Lesson
+define("_ALL","सभी सामग्री");//All content
+define("_GOTOFORUM","मंच पर जाएँ");//Go to forum
+define("_SENDMESSAGEATFORUM","संदेश पोस्ट");//Post message
+define("_SENDMESSAGE","संदेश भेजें");//Send message
+define("_ANNOUNCEMENTS","घोषणाएँ");//Announcements
+define("_MESSAGESATFORUM","फोरम संदेश");//Forum messages
+define("_PERSONALMESSAGES","निजी संदेश");//Personal messages
+define("_SOLVEDTESTS","हल परीक्षण");//Solved tests
+define("_ATFORUM","मंच पर");//At forum
+define("_PRINTERFRIENDLY","प्रिंट यूनिट");//Print unit
+define("_PRINTERFRIENDLYALLCONTENT","मुद्रण के सभी सामग्री");//Print all the content
+define("_ADDCOMMENT","टिप्पणी जोड़ें");//Add comment
+define("_LESSONSELECT","पाठ का चयन करें");//Select lesson
+define("_CURRENTCONTENT","वर्तमान सामग्री");//Current content
+define("_COMMENTDELETED","इस टिप्पणी को हटा दिया गया है");//The comment has been deleted
+define("_COMMENTADD","टिप्पणी जोड़ें");//Add comment
+define("_ADDYOURCOMMENT","अपनी टिप्पणी जोड़ें");//Add your comment
+define("_SUCCESFULLYADDEDCOMMENT","इस टिप्पणी को सफलतापूर्वक जोड़ा गया है");//The comment was added successfully
+define("_SUCCESFULLYUPDATEDCOMMENT","इस टिप्पणी को सफलतापूर्वक अपडेट किया गया");//The comment was updated successfully
+define("_SUCCESFULLYDELETEDFILEWINDOWCLOSE5SECONDS","फ़ाइल नष्ट कर दिया गया . इस विंडो में स्वतः बंद 5 सेकंड है .");//The file was deleted. This window will automatically close in 5 seconds.
+define("_SUCCESFULLYDELETEDFOLDERWINDOWCLOSE5SECONDS","इस फ़ोल्डर में नष्ट कर दिया गया . इस विंडो में स्वतः बंद 5 सेकंड है .");//The folder was deleted. This window will automatically close in 5 seconds.
+define("_NOTSUCCESFULLYDELETEDFOLDERWINDOWCLOSE5SECONDS","इस फ़ोल्डर नहीं था नष्ट कर दिया गया . यह नहीं होना चाहिए या कोई फ़ाइलें फ़ोल्डर को नष्ट कर दिया गया . इस विंडो में स्वतः बंद 5 सेकंड है .");//The folder was not deleted. It must not contain any files or folders to be deleted. This window will automatically close in 5 seconds.
+define("_SUCCESFULLYCREATEDFOLDERWINDOWCLOSE5SECONDS","इस फ़ोल्डर में बनाया गया था . इस विंडो में स्वतः बंद 5 सेकंड है .");//The folder was created. This window will automatically close in 5 seconds.
+define("_FOLDERNAME","फ़ोल्डर का नाम");//Folder name
+define("_CREATE","बनाएँ");//Create
+define("_LESSONNOTSET","इस सेट सबक नहीं था .");//The lesson was not set.
+define("_COPYNAMESFROMLEFTTORIGHTTOSAVEIMAGES","नाम से कॉपी करने के लिए बचे हुए स्तम्भ का अधिकार है , ताकि छवि फ़ाइलों को बचाने के लिए अपने दस्तावेज़ में है .");//Copy names from the left to the right column, in order to save the image files in your document.
+define("_THEFILE","फ़ाइल");//The file
+define("_MUSTBESMALLERTHAN","इससे छोटी होनी चाहिए");//must be smaller than
+define("_KILOBYTES","Kbytes .");//Kbytes.
+define("_HASBEENSEND","भेजा गया था .");//was sent.
+define("_SENDFILE","फ़ाइल भेजें");//Send file
+define("_CLOSEWINDOW","विंडो बंद करें");//Close window
+define("_UPDATE","अद्यतन करना");//Update
+define("_SUCCESFULLYDELETEDANNOUNCEMENTWINDOWCLOSE5SECONDS","इस घोषणा से सफलतापूर्वक नष्ट कर दिया गया");//The announcement was deleted successfully
+define("_ANNOUNCEMENTADD","घोषणा में जोड़ें");//Add announcement
+define("_ANNOUNCEMENTTITLE","शीर्षक घोषणा");//Announcement title
+define("_ANNOUNCEMENTBODY","शरीर की घोषणा");//Announcement body
+define("_SUCCESFULLYADDEDANNOUNCEMENTWINDOWCLOSE5SECONDS","इस घोषणा से सफलतापूर्वक जोड़ा गया है");//The announcement was added successfully
+define("_SUCCESFULLYUPDATEDANNOUNCEMENTWINDOWCLOSE5SECONDS","इस घोषणा से सफलतापूर्वक अपडेट किया गया");//The announcement was updated successfully
+define("_ENDDATEMUSTBEBEFORESTARTDATE","अंतिम तिथि के बाद आरंभ तिथि का होना चाहिए .");//End date must be after start date.
+define("_SAVE","बचाना");//Save
+define("_SUCCESFULLYUPDATEDQUESTION","इस प्रश्न को सफलतापूर्वक अपडेट किया गया");//The question was updated successfully
+define("_SUCCESFULLYADDEDQUESTION","इस प्रश्न को सफलतापूर्वक जोड़ा गया है");//The question was added successfully
+define("_QUESTIONTEXT","प्रश्न पाठ");//Question text
+define("_SAVEQUESTION","प्रश्न सहेजें");//Save question
+define("_UNIT","यूनिट");//Unit
+define("_QUESTIONTYPE","प्रश्न प्रकार");//Type
+define("_DIFFICULTY","कठिनाई");//Difficulty
+define("_RATEMUSTBEBETWEEN0100","यह स्कोर 0 और 100 के बीच होना चाहिए श्रेणी");//The score must range between 0 and 100
+define("_ALLOFTHEM","सभी उपयोगकर्ता");//All users
+define("_VALIDFOR","के लिए वैध");//Valid for
+define("_TOBEEXCLUDEDFROMUNIT","जाने से बाहर रखा गया यूनिट");//to be excluded from the unit
+define("_THEUNIT","यूनिट");//the unit
+define("_TESTNAME","टेस्ट का नाम");//Test name
+define("_UNITPARENT","जनक इकाई");//Parent unit
+define("_SAVETEST","सहेजें परीक्षण");//Save test
+define("_SUCCESFULLYADDEDRATE","दर डाला था सफलतापूर्वक");//The rate was inserted successfully
+define("_STUDENTANSWER","उत्तर छात्र");//Student answer
+define("_SEARCHTABLERECREATED","सारणी की खोज की गई recreated");//The search table was recreated
+define("_SAVETHE","सहेजें");//Save the
+define("_OFTHELESSONATYOURCOMPUTER","आपके कंप्यूटर के सबक पर है .");//of the lesson at your computer.
+define("_ATYOURCOMPUTER","अपने कंप्यूटर पर है .");//at your computer.
+define("_DATAFILE","डेटा फ़ाइल");//Data file
+define("_NOTGIVEFILENAME","आप नहीं की आपूर्ति एक फ़ाइल नाम");//You did not supply a file name
+define("_LESSONDATAFILE","डेटा फ़ाइल नालचिक");//Lesson data file
+define("_INSERTDATA","डेटा आयात");//Import data
+define("_OFLESSON","के सबक");//Of the lesson
+define("_CATEGORY","श्रेणी");//Category
+define("_SEARCH","खोज");//Search
+define("_DESCRIPTION","वर्णन");//Description
+define("_TYPE","प्रकार");//Type
+define("_POSITION","स्थान");//Position
+define("_LESSONCONTENT","नालचिक सामग्री");//Lesson content
+define("_TITLE","शीर्षक");//Title
+define("_TEXT","पाठ");//Text
+define("_NORESULTSFOUNDINFORUM","कोई परिणाम नहीं मिले में मंच");//No results found in forum
+define("_SEARCHRESULTSINLESSONS","खोज परिणामों में सबक");//Search results in lessons
+define("_SEARCHRESULTSINFORUM","फोरम में खोज परिणाम");//Search results in forum
+define("_SEARCHRESULTSINUSERS","खोज परिणामों में उपयोगकर्ताओं");//Search results in users
+define("_NOSEARCHRESULTSFOUND","खोज के दौरान कोई परिणाम नहीं मिला");//No results found during the search
+define("_PRINTIT","यह प्रिंट !");//Print it!
+define("_LANGUAGEADMINISTRATION","भाषाओं में सेट करें");//Set languages
+define("_INTERMEDIATESELLER","मध्यवर्ती सेल्समैन");//Intermediate salesman
+define("_PROFESSOR","प्रोफेसर");//Professor
+define("_ADMINSTRATOR","प्रशासक");//Administrator
+define("_CONTROLCENTER","नियंत्रण केंद्र");//Control center
+define("_EXAMPLES","उदाहरण");//Examples
+define("_FORUM","फोरम");//Forum
+define("_NOCONTENT","यूनिट के बिना सामग्री");//Unit without content
+define("_INACTIVE","निष्क्रिय इकाई");//Inactive unit
+define("_CONTENTMANAGEMENT","सामग्री");//Content
+define("_SCHEDULING","समय सारिणी");//Scheduling
+define("_OFDEVELOPMENT","विकास");//development
+define("_MULTIPLECHOICEONESELECTION","एकाधिक विकल्प , एक सही जवाब");//Multiple choices, single correct answer
+define("_MULTIPLECHOICEMULTIPLESELECTIONS","एकाधिक विकल्प , एकाधिक सही उत्तरों");//Multiple choices, multiple correct answers
+define("_OFMATCH","मिलान");//matching
+define("_OFEMPTYSPACES","भरण में ब्लैंक");//Fill in the blanks
+define("_LOW","नीचा");//Low
+define("_MEDIUM","मध्यम");//Medium
+define("_HIGH","ऊँचा");//High
+define("_PERIODSPERSTUDENT","प्रति छात्र काल");//Periods per student
+define("_NETMEETINGSUPPORT","नेटमीटिंग समर्थन");//Netmeeting support
+define("_IFSTUDENTHASNOTSEEN","यदि छात्र ने नहीं देखा");//If student has not seen
+define("_IFSTUDENTHASNOTPASSED","यदि छात्र ने पारित नहीं");//If student has not passed
+define("_STUDENTALLWAYS","छात्र allways");//Student allways
+define("_ACCESSRULES","नालचिक नियम");//Lesson rules
+define("_EMAILS","ईमेल");//Emails
+define("_CHAT","चैट करें");//Chat
+define("_OFJANUARY","जनवरी");//January
+define("_OFFEBRUARY","फरवरी");//February
+define("_OFMARCH","मार्च");//March
+define("_OFAPRIL","अप्रैल");//April
+define("_OFMAY","सकना");//May
+define("_OFJUNE","जून");//June
+define("_OFJULY","जुलाई");//July
+define("_OFAUGUST","अगस्त");//August
+define("_OFSEPTEMBER","सितम्बर");//September
+define("_OFOCTOBER","अक्टूबर");//October
+define("_OFNOVEMBER","नवम्बर");//November
+define("_OFDECEMBER","दिसम्बर");//December
+define("_ADDLANGUAGE","भाषा जोड़ें");//Add language
+define("_CURRENTLANGUAGES","वर्तमान भाषाओं");//Current languages
+define("_CHANGE","बदलना");//Change
+define("_RETURN","वापस");//Return
+define("_UPDATESUCCESFULLYMADE","इस अद्यतन को सफलतापूर्वक पूरा किया गया");//The update was completed successfully
+define("_LESSONMATERIAL","नालचिक सामग्री");//Lesson material
+define("_NOQUESTIONSSETFORTHISUNIT","प्रश्न परिभाषित नहीं हैं");//There are no questions defined
+define("_ADDQUESTION","प्रश्न जोड़ें");//Add question
+define("_PREVIEW","पूर्वावलोकन");//Preview
+define("_NOTESTSSETFORTHISUNIT","परीक्षण नहीं मिला");//No tests found
+define("_ADDTEST","परीक्षण में जोड़ें");//Add test
+define("_UNITANDSUBUNITSTESTS","यूनिट और subunits परीक्षण");//Unit and subunits tests
+define("_NORESULTSFOUND","कोई परिणाम नहीं मिला !");//No results found!
+define("_PAGES","पृष्ठ");//pages
+define("_UPLOADFILESANDIMAGES","फ़ाइलें और छवियाँ अपलोड करें");//Upload files and images
+define("_COPYFROMANOTHERLESSON","कॉपी से एक और सबक");//Copy from another lesson
+define("_UNITNAME","यूनिट का नाम");//Unit name
+define("_CONTENTTYPE","सामग्री प्रकार");//Content type
+define("_CONTENT","सामग्री");//Content
+define("_UPDATEUNIT","अद्यतन इकाई");//Update unit
+define("_CREATESUBUNIT","सबयूनिट बनाएँ");//Create subunit
+define("_CREATETEST","परीक्षण बनाएँ");//Create test
+define("_ADDPERIOD","अवधि जोड़ें");//Add period
+define("_LESSONPERIODS","नालचिक अवधि");//Lesson periods
+define("_COPY","प्रतिलिपि");//Copy
+define("_EXCLUDECONSTRAINT","अपवर्जन बाधा");//Exclusion constraint
+define("_EXCLUSIONUNIT","अपवर्जन इकाई");//Exclusion unit
+define("_FUNCTIONS","कार्य");//Functions
+define("_THETEST","परीक्षण");//the test
+define("_WITHSCOREATLEAST","कम से कम दर के साथ");//with rate at least
+define("_NOQUESTIONSTOCORRECTFORTHISLESSON","कोई प्रश्न नहीं इस को सुधारने के लिए सबक है .");//No questions to correct for this lesson.
+define("_QUESTIONSTOCORRECT","प्रश्न करने के लिए सही है");//Questions to correct
+define("_DELETESELECTED","चुने हुए को हटाएँ");//Delete selected
+define("_REDOABLE","टेस्ट repetitions");//Test repetitions
+define("_PROFESSORS","प्रोफेसर");//Professors
+define("_CANNOTOPENFOLDER","इस फ़ोल्डर में खोला नहीं जा सकता");//The folder can&#039;t be opened
+define("_CREATEFOLDER","फ़ोल्डर बनाएँ");//Create folder
+define("_OPENFOLDER","फ़ोल्डर खोलें");//Open folder
+define("_CUT","काटना");//Cut
+define("_PASTE","चिपकाएँ");//Paste
+define("_UNDO","पूर्ववत करें");//Undo
+define("_REDO","फिर से करें");//Redo
+define("_FIND","ढूँढना");//Find
+define("_INSERTHYPERLINK","हाइपरलिंक डालें");//Insert hyperlink
+define("_INSERTIMAGE","छवि डालें");//Insert image
+define("_NORMAL","सामान्य");//Normal
+define("_DEFAULT","चूक");//Default
+define("_BOLD","बोल्ड");//Bold
+define("_ITALIC","तिरछे");//Italics
+define("_UNDERLINED","रेखांकित");//Underlined
+define("_FONTCOLOR","फ़ॉन्ट रंग");//Font color
+define("_DIMENSIONS","आयाम");//Dimensions
+define("_CANCEL","रद्द करें");//Cancel
+define("_OR","या");//or
+define("_LEFT","छोड़ा");//Left
+define("_RIGHT","सही");//Right
+define("_UP","ऊपर");//Up
+define("_MIDDLE","मध्य");//Middle
+define("_DOWN","नीचे");//Down
+define("_FILE","फ़ाइल");//File
+define("_SELECTTHEONEYOUWANTASLINK","किसी एक को चुनें जो आप चाहते हैं कि हाइपरलिंक के रूप में डाला");//Select the one you want inserted as hyperlink
+define("_SELECTTHEONEYOUWANTAS","किसी एक को चुनें जो आप चाहते हैं कि डाला के रूप में");//Select the one you want inserted as
+define("_SMALLCAPSHYPERLINK","हाइपरलिंक");//hyperlink
+define("_ADD","जोड़ना");//Add
+define("_NOTE","नोट");//Note
+define("_SELECTLESSON","पाठ चुनें");//Choose lesson
+define("_STUDENTS","छात्र");//Students
+define("_ADMINISTRATORS","प्रशासक");//Administrators
+define("_LESSONSTATISTICS","नालचिक रिपोर्टें");//Lesson reports
+define("_FILES","फ़ाइलें");//Files
+define("_TOTALSIZE","कुल आकार");//Total size
+define("_NEWMESSAGE","नया संदेश");//New message
+define("_PARTICIPATION","भागीदारी");//Participation
+define("_AVERAGE","unremarkable");//unremarkable
+define("_ACTIVE","सक्रिय");//Active
+define("_PASSWORDLOST","अपना कूटशब्द भूल गये ?");//Forgot your password?
+define("_ANEMAILHASBEENSENT","अनुदेशों के साथ एक ईमेल भेजा गया था आप पर है .");//An email with instructions was sent to you.
+define("_PASSWORDRECOVERY","अपना पासवर्ड पुनर्प्राप्त");//Recover your password
+define("_THENEWPASSWORDIS","आपका नया पासवर्ड है :");//Your new password is: 
+define("_EMAILWITHPASSWORDSENT","एक ईमेल के साथ अपने आपको नया पासवर्ड को भेजा गया था .");//An email with your new password was sent to you.
+define("_LINEARCONTENT","सामग्री आदेश");//Content order
+define("_ONEBYONE","प्रश्नों के एक एक करके दिखाएँ");//Show questions one by one
+define("_NEXTQUESTION","अगला प्रश्न");//Next question
+define("_IDONOTWANTTODOTHETEST","मैं मेरे मन बदल . कृपया मुझे वापस लेना");//I changed my mind. Please take me back
+define("_YOUHAVE","आपने");//You have
+define("_SENDFILEASANSWER","एक उत्तर के रूप में एक फ़ाइल अपलोड करें");//Upload a file as an answer
+define("_FILEUPLOADED","फ़ाइल अपलोड");//File uploaded
+define("_PREVIOUSQUESTION","पिछला प्रश्न");//Previous question
+define("_RESTARTLESSON","नालचिक प्रारंभन");//Lesson initialization
+define("_RESTARTLESSONCOMPLETED","इस सबक दिया गया है initialized");//The lesson has been initialized
+define("_UPLOADFILE","फ़ाइल अपलोड करें");//Upload file
+define("_PROBLEMUPLOADINGFILE","कोई समस्या थी , जबकि फ़ाइल अपलोड");//There was a problem while uploading file
+define("_SHOW","दिखाना");//Show
+define("_URL","URL");//URL
+define("_TARGET","लक्ष्य");//Target
+define("_NONE","कोई नहीं");//None
+define("_OTHER","अन्य");//Other
+define("_TEXTTOP","Texttop");//Texttop
+define("_ABSMIDDLE","Absmiddle");//Absmiddle
+define("_ABSBOTTOM","Absbottom");//Absbottom
+define("_BASELINE","बेसलाइन");//Baseline
+define("_CELLSPACING","सेल अंतरालन");//Cell spacing
+define("_CELLPADDING","सेल padding");//Cell padding
+define("_EM","टुस्कानी");//Em
+define("_WIDTH","चौड़ाई");//Width
+define("_ALIGN","संरेखित करें");//Align
+define("_BORDER","सीमा");//Border
+define("_BOTTOM","तली");//Bottom
+define("_CSS","सीएसएस");//CSS
+define("_CAPTION","कैप्शन");//Caption
+define("_CENTER","केन्द्र");//Center
+define("_CHAR","चार");//Char
+define("_HEIGHT","ऊँचाई");//Height
+define("_JUSTIFY","उचित ठहराया");//Justify
+define("_MARGIN","मार्जिन");//Margin
+define("_PADDING","Padding");//Padding
+define("_RULES","नियमावली");//Rules
+define("_SUMMARY","सारांश");//Summary
+define("_TEXTALIGN","पाठ उतरने");//Text align
+define("_TOP","चोटी");//Top
+define("_ENTER","लॉग इन");//Login
+define("_HASBEENLOGGEDOUT","लॉग आउट हो गया है");//has been logged out
+define("_LOGOUT","लॉग आउट");//Log out
+define("_EACHFILESIZEMUSTBESMALLERTHAN","प्रत्येक फ़ाइल इससे छोटी होनी चाहिए");//Each file must be smaller than
+define("_DONE","हो गया");//Done
+define("_UPLOADTHESCORMFILEINZIPFORMAT","फ़ाइल अपलोड करें SCORM ज़िप प्रारूप में");//Upload SCORM file in ZIP format
+define("_SCORMEXPORT","निर्यात करने के लिए सबक SCORM");//Export lesson to SCORM
+define("_SCORMIMPORT","SCORM सामग्री का आयात");//Import SCORM content
+define("_FORUMPOSTS","फोरम संदेश");//Forum messages
+define("_TOTAL","कुल");//Total
+define("_ALLLESSONS","सभी सबक");//All lessons
+define("_STUDENTSOFLESSON","छात्रों के सबक");//Students of lesson
+define("_REVIEWSCORMDATA","SCORM डेटा की समीक्षा करें");//Review SCORM data
+define("_IMPORTOFUNIT","आयात की इकाई");//Import of unit
+define("_SELECTFILE","एक फ़ाइल चुनें");//Select a file
+define("_THESYSTEMSUGGESTSTHEFILES","फाइल को इस प्रणालियों से पता चलता है");//The systems suggests the files
+define("_CHECKIFITISASINGLESCO","जाँच करें तो यह एक एकल एससीओ");//Check if it is a single SCO
+define("_CHOOSESTUDENT","एक छात्र का चयन करें");//Select a student
+define("_NOSCORMDATAFOUNDFORTHISSTUDENT","SCORM के लिए डेटा नहीं मिला इस छात्र");//No SCORM data found for this student
+define("_ENTRY","प्रविष्टि");//Entry
+define("_TOTALTIME","कुल समय");//Total time
+define("_MINSCORE","न्यूनतम स्कोर");//Minimum score
+define("_MAXSCORE","अधिकतम स्कोर");//Maximum score
+define("_FINALSCORE","अंतिम स्कोर");//Final score
+define("_TOCAPITAL","को");//To
+define("_NOTEPUBLICROOMSARESTOREDANDACCESSED","नोट : वार्तालापों सार्वजनिक कमरे में दर्ज की हैं और सभी उपयोगकर्ताओं को उपलब्ध कराई");//Note: Conversations in public rooms are recorded and made available to all users
+define("_PRIVATEROOM","निजी कमरा");//Private room
+define("_ENTEREDROOM","कमरे में प्रवेश किया");//entered the room
+define("_LEFTTHEROOM","बाएँ कमरे");//left the room
+define("_WRONGROOMID","ग़लत कमरा id");//Wrong room id
+define("_EXITCHAT","चैट के बाहर निकलें");//Exit chat
+define("_ADJUSTTOPAGE","समायोजित करने के लिए पृष्ठ");//Adjust to page
+define("_CREATEPUBLICROOM","सार्वजनिक कमरा बनाएँ");//Create public room
+define("_CREATEPRIVATEROOM","निजी कमरे बनाएँ");//Create private room
+define("_OPENROOMS","कमरे खोलें");//Open rooms
+define("_NEWPUBLICROOM","नई सार्वजनिक कमरा");//New public room
+define("_NEWPRIVATEROOM","नई निजी कमरे");//New private room
+define("_SHOWPASTCOVERSATIONS","पिछले वार्तालाप दिखाएँ");//Show past conversations
+define("_PUBLICROOMS","सार्वजनिक कमरे");//Public rooms
+define("_PRIVATEROOMS","निजी कमरे");//Private rooms
+define("_PARTICIPANTS","सहभागियों");//participants
+define("_NOROOMSFOUND","कमरे नहीं पाया");//No rooms found
+define("_DEACTIVATE","निष्क्रिय करें");//Deactivate
+define("_ACTIVATE","सक्रिय");//Activate
+define("_SYSTEMMESSAGE","सिस्टम संदेश");//System message
+define("_ROOMALREADYEXISTS","इस नाम के एक कमरे के साथ पहले से मौजूद है");//A room with this name already exists
+define("_ROOMNAME","कक्ष नाम");//Room name
+define("_ACTIVENEUTRAL","सक्रिय");//Active
+define("_SHOWCONVERSATIONSFORROOM","वार्तालाप दिखाएँ के लिए कमरा");//Show conversations for the room
+define("_NOMESSAGESFOUNDFORTHISINTERVAL","इस कमरे में नहीं पाया वार्तालाप के लिए निर्दिष्ट अंतराल");//No conversations found in this room for the specified interval
+define("_MESSAGE","संदेश");//Message
+define("_FILESIZE","फ़ाइल का आकार");//File size
+define("_ILLEGALFILENAME","अवैध फ़ाइल नाम");//Illegal file name
+define("_IRREVERSIBLEACTIONAREYOUSURE","इस आपरेशन के अपरिवर्तनीय है ! क्या आप सुनिश्चित हैं ?");//This operation is irreversible! Are you sure?
+define("_FILENAME","फ़ाइल का नाम");//File name
+define("_SUCCESFULLYDELETEDFILE","फ़ाइल सफलतापूर्वक हटा दिया गया");//Successfully deleted file
+define("_TAKEBACKUP","संरक्षा !");//Backup!
+define("_SUCCESFULLYBACKEDUP","संरक्षा सफलतापूर्वक पूरा");//Backup successfully completed
+define("_NONEXISTINGMAIL","यह ईमेल उपयोगकर्ता किसी भी नहीं है");//This email/login does not belong to any user
+define("_PORT","सर्वर का पोर्ट");//Server port
+define("_DATABASE","डाटाबेस के नाम");//Database name
+define("_ACTIVATELDAP","LDAP समर्थन सक्रिय");//Activate LDAP support
+define("_LDAPSERVER","LDAP सर्वर");//LDAP server
+define("_LDAPBINDDN","LDAP बाध्य DN");//LDAP bind DN
+define("_LDAPPASSWORD","LDAP बाध्य पासवर्ड");//LDAP bind password
+define("_SUPPORTONLYLDAP","सहायता केवल LDAP पंजीकरण");//Support only LDAP registration
+define("_LOGINATTRIBUTE","प्रवेश नाम गुण");//Login name attribute
+define("_LDAPCOMMONNAME","पूरा नाम गुण");//Full name attribute
+define("_LDAPADDRESS","पता विशेषता");//Address attribute
+define("_LDAPLOCALITY","सिटी विशेषता");//City attribute
+define("_LDAPTELEPHONENUMBER","फ़ोन नंबर विशेषता");//Phone number attribute
+define("_LDAPMAIL","ईमेल विशेषता");//Email attribute
+define("_LDAPLANGUAGE","भाषा विशेषता");//Language attribute
+define("_CHECKSETTINGS","सेटिंग की जाँच करें");//Check settings
+define("_LDAPPORT","LDAP सर्वर पोर्ट");//LDAP server port
+define("_USESSL","SSL संबंधन का उपयोग करें");//Use SSL connection
+define("_CANNOTCONNECTLDAPSERVER","इस प्रणाली से कनेक्ट करने में असमर्थ था LDAP सर्वर");//The system was unable to connect to LDAP server
+define("_CANNOTBINDLDAPSERVER","इस प्रणाली के लिए बाध्य करने में असमर्थ रहा LDAP सर्वर");//The system was unable to bind to LDAP server
+define("_LDAPCONFIGURATION","LDAP विन्यास");//LDAP configuration
+define("_LDAPBASEDN","LDAP Base DN");//LDAP Base DN
+define("_YOUHAVEALREADYCORRECTEDTHISQUESTION","आपके पास पहले से ही सही इस प्रश्न");//You have already corrected this question
+define("_SHOWALL","सभी दिखाएँ");//Show all
+define("_TOTALLOGINS","कुल सिस्टम लॉगिन");//Total system logins
+define("_ALLOWEDIPS","अनुमति आईपी");//Allowed IPs
+define("_COMMASEPARATEDLISTASTERISKEXAMPLE","कॉमा से अलग सूची में शामिल है . * asterisk की अनुमति दे दी है . उदाहरण : 192.168.0 .* , 192.168.1.1 , 192.168.1.100");//Comma separated list. The asterisk * is allowed. Example: 192.168.0.*, 192.168.1.1, 192.168.1.100
+define("_DISALLOWEDIPS","आईपी अस्वीकार");//Disallowed IPs
+define("_ALLOWEDEXTENSIONS","अनुमति फ़ाइल एक्सटेंशन");//Allowed file extensions
+define("_DISALLOWEDEXTENSIONS","अस्वीकार फ़ाइल एक्सटेंशन");//Disallowed file extensions
+define("_COMMASEPARATEDLISTASTERISKEXTENSIONEXAMPLE","कॉमा से अलग सूची में शामिल है . उदाहरण : php , js , exe , cgi");//Comma separated list. Example: php, js, exe, cgi
+define("_DENIALTAKESPRECEDENCE","डेनियल पहले की अनुमति है . यदि दोनों क्षेत्रों को खाली छोड़ रहे हैं , तो सब कुछ है अनुमति");//Denial precedes permission. If both fields are left blank, then everything is allowed
+define("_EFRONT","eFront");//eFront
+define("_CONTACTUS","हमसे संपर्क करें");//Contact us
+define("_EFRONTLOGIN","लॉगइन करने के लिए eFront");//Login to eFront
+define("_LDAPPROTOCOLVERSION","LDAP प्रोटोकॉल संस्करण");//LDAP Protocol Version
+define("_GOTOINBOX","इनबॉक्स पर जाएँ");//Go to inbox
+define("_RECENTCOMMENTS","पिछले टिप्पणियाँ");//Last comments
+define("_CONTROLPANEL","नियंत्रण कक्ष");//Control panel
+define("_YOUCANNOTCREATETHISFOLDER","आप इस तरह के किसी फ़ोल्डर नहीं बना सकते हैं");//You cannot create such a folder
+define("_INVALIDID","अवैध id");//Invalid id
+define("_UNPRIVILEGEDATTEMPT","आप नहीं है कि यह कार्य करने के लिए विशेषाधिकार");//You do not have the priviledges to perform this action
+define("_INVALIDLOGIN","अवैध प्रवेश नाम");//Invalid login name
+define("_DOWNLOADLANGUAGEFILE","भाषा संचिका डाउनलोड");//Download language file
+define("_SOMEPROBLEMOCCURED","कुछ समस्या हुई");//Some problem occured
+define("_ALTERNATIVELYCOPYANDPASTEBROWSER","वैकल्पिक रूप से , हो सकता है आप इसे कॉपी और पेस्ट के लिंक को अपने ब्राउज़र की पता क्षेत्र");//Alternatively, you may copy the link and paste it in your browser&#039;s address field
+define("_YOUCANNOTACCESSTHISFOLDER","आप को उपलब्ध नहीं हैं इस फ़ोल्डर");//You do not have access to this folder
+define("_YOUCANNOTDELETETHISFILE","आप इस फ़ाइल को नष्ट नहीं कर सकते");//You cannot delete this file
+define("_TRIEDTODELETE","फ़ाइल नष्ट करने की कोशिश की");//Tried to delete file
+define("_ACTION","क्रिया");//Action
+define("_NOTES","नोट्स");//Notes
+define("_SENDFILES","फ़ाइलों को भेजें");//Send files
+define("_YOUCANNOTUPLOADFILESWITHTHISEXTENSION","आप नहीं कर सकते हैं इस विस्तार के साथ फाइल अपलोड");//You cannot upload files with this extension
+define("_YOUMAYONLYUPLOADFILESWITHEXTENSION","आप शायद ही विस्तार के साथ फाइल अपलोड");//You may only upload files with extension
+define("_COULDNOTCREATEFOLDER","फ़ोल्डर नहीं बना सका . कृपया जाँचें कि फ़ोल्डर नाम और फ़ोल्डर में पहले से मौजूद नहीं है");//Could not create folder. Please check the folder name and that the folder does not already exist
+define("_REGISTERANEWACCOUNT","नई उपयोगकर्ता खाते");//New user account
+define("_REC","ग्रामीण विद्युतीकरण निगम");//rec
+define("_SUCESSFULLYCONNECTEDTOLDAPSERVER","LDAP सर्वर से कनेक्ट करने के लिए सफलतापूर्वक");//Successfully connected to LDAP server
+define("_DIRECTIONDELETED","श्रेणी नष्ट कर दिया गया");//Category deleted
+define("_NOANNOUNCEMENTSPOSTED","इस पोस्ट के लिए सबक नहीं घोषणाएँ");//No announcements posted for this lesson
+define("_NONEWFORUMMESSAGES","इस संदेश के बारे में कोई सबक मंच");//No forum messages regarding this lesson
+define("_NONEWPERSONALMESSAGES","कोई नई व्यक्तिगत संदेश आपके इनबॉक्स में");//No new personal messages in your inbox
+define("_NONEWCOMMENTS","कोई नई टिप्पणियाँ");//No new comments
+define("_NOMATERIALINTHISLESSON","इस सबक वर्तमान में खाली है");//The lesson is currently empty
+define("_NOSOLVEDTESTSFOUND","कोई हल परीक्षण");//No solved tests
+define("_NORELATEDPOSTSFOUND","इस इकाई के पदों के लिए प्रासंगिक नहीं है .");//No posts relevant to this unit.
+define("_SUCCESSFULLYCREATEDLESSON","इस सबक को सफलतापूर्वक बनाया गया");//The lesson was created successfully
+define("_SORRYNEEDIFRAME","क्षमा करें , आपको चैट का उपयोग करने का समर्थन iframe");//Sorry, you need iframe support to use the Chat
+define("_TOPICSUBJECT","विषय विषय");//Topic subject
+define("_SEARCHRESULTS","खोज परिणाम");//Search results
+define("_NORESULTSFOUNDINPERSONALMESSAGES","निजी संदेश में कोई परिणाम नहीं मिला");//No results found in personal messages
+define("_SEARCHRESULTSINPERSONALMESSAGES","निजी संदेश में खोज परिणाम");//Search results in personal messages
+define("_SEARCHRESULTSINCOURSES","पाठ्यक्रमों में खोज परिणाम");//Search results in courses
+define("_MESSAGEFOLDER","फ़ोल्डर संदेश");//Message folder
+define("_EMAIL","ई मेल से");//e-mail
+define("_RESETPASSWORD","पासवर्ड रीसेट");//Reset password
+define("_JOINED","शामिल");//Joined
+define("_MOREINFO","अधिक जानकारी");//More info
+define("_AVERAGESCORE","औसत स्कोर");//Average score
+define("_CHATMESSAGES","चैट संदेश");//Chat messages
+define("_MONTHLOGINS","पिछले महीने लॉगइन");//Logins last month
+define("_WEEKLOGINS","पिछले सप्ताह लॉगइन");//Logins last week
+define("_MEANDURATION","औसत अवधि का सत्र");//Mean session duration
+define("_MONTHMEANDURATION","औसत पिछले महीने की अवधि का सत्र");//Mean session duration last month
+define("_WEEKMEANDURATION","औसत पिछले सप्ताह की अवधि का सत्र");//Mean session duration last week
+define("_MONTH","महीना");//Month
+define("_WEEK","सप्ताह");//Week
+define("_PRICE","मूल्य");//Price
+define("_DURATION","सत्र की अवधि");//Session duration
+define("_MAINTENANCE","अनुरक्षण");//Maintenance
+define("_FORUMLASTMESSAGE","पिछले संदेश में मंच");//Last message in forum
+define("_MESSAGESFOLDERS","निजी संदेश फ़ोल्डर्स");//Personal messages folders
+define("_FOLDERS","फ़ोल्डर");//Folders
+define("_CHATLASTMESSAGE","पिछले संदेश में चैट");//Last message in chat
+define("_INFO","सूचना");//Information
+define("_LASTPOST","पिछले पोस्ट");//Last post
+define("_TOTALQUESTIONS","कुल प्रश्न");//Total questions
+define("_DEVELOPMENT","विकास");//Development
+define("_MULTIPLEONE","एकाधिक विकल्पों -- एकल सही जवाब");//Multiple choices - Single correct answer
+define("_MULTIPLEMANY","एकाधिक विकल्पों -- बहुत सही उत्तरों");//Multiple choices - Many correct answers
+define("_MATCH","मेल");//Match
+define("_EMPTYSPACES","रिक्त स्थान खाली");//Empty spaces
+define("_LOWDIFFICULTY","कम कठिनाई");//Low difficulty
+define("_MEDIUMDIFFICULTY","मध्यम कठिनाई");//Medium difficulty
+define("_HIGHDIFFICULTY","उच्च कठिनाई");//High difficulty
+define("_CATEGORIES","श्रेणियाँ");//Categories
+define("_OVERALL","कुल मिलाकर");//Overall
+define("_BACKTOTOP","शीर्ष पर वापस जाएँ");//Back to top
+define("_STATISTICSFORLESSON","रिपोर्ट के लिए सबक");//Reports for lesson
+define("_GENERALLESSONINFO","जनरल सबक जानकारी");//General lesson information
+define("_LESSONPARTICIPATIONINFO","नालचिक भागीदारी जानकारी");//Lesson participation information
+define("_LESSONCONTENTINFO","नालचिक सामग्री जानकारी");//Lesson content information
+define("_TESTINFO","टेस्ट जानकारी");//Test information
+define("_QUESTIONINFO","प्रश्न जानकारी");//Question information
+define("_VIEWTEST","देखें परीक्षण");//View test
+define("_SYSTEMSTATISTICS","सिस्टम रिपोर्टें");//System reports
+define("_ORDER","आदेश");//Order
+define("_TEST","परीक्षण");//Test
+define("_TOPICSUCCESFULLYCREATED","इस विषय बनाया गया था सफलतापूर्वक");//The topic was created successfully
+define("_SUCCESFULLYPOSTEDMESSAGE","आपका संदेश में पोस्ट किया गया है सफलतापूर्वक");//Your message was posted successfully
+define("_SUCCESFULLYUPDATEDTOPIC","इस विषय को सफलतापूर्वक अपडेट किया गया");//The topic was updated successfully
+define("_SUCCESFULLYUPDATEDMESSAGE","आपका संदेश सफलतापूर्वक अपडेट किया गया");//Your message was updated successfully
+define("_INVISIBLE","अदृश्य");//Invisible
+define("_LOCKED","लॉक");//Locked
+define("_PUBLIC","सार्वजनिक");//Public
+define("_PREVIEWMESSAGE","संदेश पूर्वावलोकन");//Preview message
+define("_BODY","शरीर");//Body
+define("_ATTACHMENT","अनुलग्नक");//Attachment
+define("_RECENTMESSAGESATFORUM","पिछले संदेश फोरम");//Last messages at Forum
+define("_RECENTUNREADPERSONALMESSAGES","हाल ही में व्यक्तिगत अपठित संदेश");//Recent unread personal messages
+define("_NOCONTENTAVAILABLE","कोई इकाइयों के इस प्रकार वर्तमान में उपलब्ध सामग्री");//No units of this content-type currently available
+define("_THEREWASAPROBLEMDELETETINGFILEWINDOWCLOSE5SECONDS","एक फाइल हटाने के दौरान समस्या हुई है . इस विंडो को बंद करेगा स्वतः ही में 5 सेकंड");//A problem occured during the file deletion. This window will close automatically in 5 seconds
+define("_TRIEDTOCREATEFOLDER","फ़ोल्डर को बनाने की कोशिश की है :");//Tried to create folder:
+define("_COULDNOTCREATEFOLDERWINDOWCLOSE5SECONDS","इस फ़ोल्डर नहीं बनाया जा सकता है . इस विंडो को बंद करेगा स्वतः ही में 5 सेकंड");//The folder could not be created. This window will close automatically in 5 seconds
+define("_INVALIDNAME","अमान्य नाम");//Invalid name
+define("_THISFOLDERCONTAINS","इस फ़ोल्डर में");//This folder contains
+define("_TOPICS","विषय");//Topics
+define("_FILEDOESNOTEXIST","फ़ाइल मौजूद नहीं है");//File does not exist
+define("_ADDLINK","कड़ी जोड़ें");//Add link
+define("_CONTENTUNITS","सामग्री इकाइयों");//Content units
+define("_MAINPAGE","मुख्य पृष्ठ");//Main page
+define("_PLEASEGIVEYOURLOGINOREMAIL","कृपया अपने लॉगिन या ईमेल");//Please give your login or email
+define("_LESSONSETTINGS","प्रशासन");//Administration
+define("_ADMINISTRATOR","प्रशासक");//Administrator
+define("_PROGRESS","प्रगति");//Progress
+define("_IMAGEFILE","छवि फ़ाइल");//Image file
+define("_SETAVATAR","सेट अवतार");//Set avatar
+define("_CURRENTAVATAR","वर्तमान अवतार");//Current avatar
+define("_DELETECURRENTAVATAR","हटाएँ वर्तमान अवतार");//Delete current avatar
+define("_ONLYIMAGEFILESAREVALID","केवल छवि फ़ाइलों को मान्य हैं . कृपया छवि फ़ाइल चुनें .");//Only image files are valid. Please select an image file.
+define("_VIEWLIST","सूची देखें");//View list
+define("_SUCCESFULLYSETAVATAR","नई अवतार सफलतापूर्वक स्थापित होता है");//New avatar is successfully set
+define("_TOPICDELETEDSUCCESSFULLY","विषय नष्ट कर दिया गया सफलतापूर्वक");//Topic deleted successfully
+define("_MESSAGEDELETEDSUCCESSFULLY","संदेश सफलतापूर्वक नष्ट कर दिया गया");//Message deleted successfully
+define("_POSTS","डाक");//Posts
+define("_BY","के द्वारा");//by
+define("_NEWCATEGORY","नई श्रेणी");//New category
+define("_FORUMCONFIGURATIONPANEL","फोरम विन्यास पैनल");//Forum configuration panel
+define("_VIEWS","दृश्य");//Views
+define("_STICKY","चिपचिपा");//Sticky
+define("_NOTOPICSFOUND","विषय नहीं मिला");//No topics found
+define("_NEWTOPIC","नया विषय");//New topic
+define("_POSTEDBY","द्वारा पोस्ट किया");//Posted by
+define("_ON","नहीं");//on
+define("_INREPLYTO","उत्तर में");//in reply to
+define("_REPLYWITHQUOTE","उद्धरण के साथ उत्तर दें");//Reply with quote
+define("_QUOTE","कथन");//quote
+define("_REPLY","उत्तर");//Reply
+define("_AREYOUSUREYOUWNATTODELETEMESSAGE","क्या आप सुनिश्चित हैं कि आप को नष्ट करना चाहते हैं संदेश");//Are you sure you want to delete message
+define("_EDIT","संपादित करें");//Edit
+define("_STATUS","स्थिति");//Status
+define("_NOMESSAGESFOUND","कोई संदेश नहीं मिला");//No messages found
+define("_GOTOCHATROOMSLIST","चैट के कमरे की सूची पर जाएँ");//Go to chat rooms list
+define("_ROOM","कमरा");//Room
+define("_INVITE","आमंत्रित करें");//Invite
+define("_INVITESYOUCLICKLINK","आप निमंत्रण को एक बातचीत सत्र है . नीचे दिए गए लिंक पर क्लिक करने के लिए ले जाया जा चैट रूम .");//invites you to a chat session. Click the link below to be taken to the chat room.
+define("_GOTOCHATROOM","चैट रूम पर जाएँ");//Go to chat room
+define("_CHATINVITATION","चैट का निमंत्रण");//Chat invitation
+define("_NEWCONTENT","नई सामग्री");//New content
+define("_NONEWCONTENT","कोई नई सामग्री");//No new content
+define("_TEMPLATE","टेम्पलेट");//Template
+define("_APPLY","लागू करना");//Apply
+define("_PRIVATECONVERSATIONWITH","निजी बातचीत");//Private conversation with
+define("_TORESPOND","का जवाब ...");//to respond...
+define("_TOAPRIVATECONVERSATION","वार्तालाप करने के लिए एक निजी");//to a private conversation
+define("_INVITESYOUTOPRIVATECONVERSATION","है आमंत्रित करने के लिए आप एक निजी वार्तालाप");//is inviting you to a private conversation
+define("_DOYOU","क्या आप");//Do you
+define("_QUESTIONMARK","?");//?
+define("_CONVERSATIONINVITATIONACCEPTED","इस वार्तालाप था निमंत्रण स्वीकार किए जाते हैं");//The conversation invitation was accepted
+define("_CONVERSATIONINVITATIONDENIED","इस वार्तालाप निमंत्रण देने से इनकार किया गया था");//The conversation invitation was denied
+define("_YOUACCEPT","स्वीकार");//accept
+define("_YOUDENY","नकारना");//deny
+define("_THEMAILCOULDNOTBESENDTRYLATER","ईमेल भेज नहीं किया जा सका है . कृपया बाद में फिर कोशिश करें या सिस्टम व्यवस्थापक से संपर्क");//The email could not be send. Please try again later or contact the system administrator
+define("_AUTOMATEDEMAILSENTFROM","स्वचालित ईमेल से भेजा पता :");//Automated email sent from address:
+define("_CLIKCINGONTHELINKWILLCONFIRM","लिंक पर क्लिक करना होगा कि आपके ईमेल पते की पुष्टि मान्य है ताकि एक नया कूटशब्द आप को भेजा जा सकता है .");//Clicking on the link will confirm that your email address is valid so a new password can be sent to you.
+define("_FORFURTHERCONTACTADMINAT","आगे जानकारी के लिए , आप सिस्टम व्यवस्थापक से संपर्क कर सकते हैं , पर");//For further information, you may contact the system administrator, at
+define("_KINDREGARDSEFRONT","दयालु संबंध है , eFront प्रणाली");//Kind regards, eFront system
+define("_THISISANAUTOMATEDEMAILSENTFROM","यह एक स्वचालित ईमेल से भेजा");//This is an automated email sent from
+define("_BECAUSEYOUASKEDTORECOVERPASSWORD","क्योंकि आप अपना कूटशब्द पुनः प्राप्त करने के लिए कहा .");//because you asked to recover your password.
+define("_PLEASECLICKTHECONFIRMATIONLINKBELOW","कृपया नीचे दिए गए लिंक पर क्लिक करें पुष्टि :");//Please click the confirmation link below:
+define("_WITHTHENEWPASSWORD","eFront अपने नये खाते के पासवर्ड के साथ .");//with your new eFront account password.
+define("_REGISTRATIONEMAIL","पंजीकरण ईमेल");//Registration email
+define("_CURRENCYSYMBOL","€");//&euro;
+define("_ELEARNINGPLATFORM","eLearning मंच");//eLearning platform
+define("_ACCOUNTACTIVATEDWITHPERSONALINFORMATION","आपका खाता सफलतापूर्वक बनाया गया था व्यक्तिगत जानकारी के साथ निम्नलिखित हैं :");//Your account was successfully created with the following personal information:
+define("_YOUHAVEAPPLIEDFORTHELESSONS","आपने लागू करने के लिए निम्नलिखित में भाग लेने के सबक :");//You have applied to attend the following lessons:
+define("_YOUMAYSTARTUSINGFREEIMMEDIATELYBUTNOTNONFREE","शुरू में भाग ले सकता है कि आप स्वतंत्र हैं तुरंत सबक है . यदि आपका चयन सबक शामिल नहीं हैं कि मुफ़्त है , प्रशासक को लागू करना चाहिए अपने चयन का उपयोग करने से पहले उन्हें .");//You may start attending lessons that are free immediately. If your selection includes lessons that are not free, the administrator must apply your selection before using them.
+define("_YOUMAYALTERPERSONALINFORMATIONFROMSETTINGS","सभी व्यक्तिगत जानकारी आपके द्वारा भेजी , आपके पाठ चयन के साथ ही , हो सकता है किसी भी समय बदल से आपकी व्यक्तिगत सेटिंग पृष्ठ पर जाएँ .");//All the personal info you have submitted, as well as your lessons selection, may be altered at any time from your personal settings page.
+define("_YOUMAYLOGINIMMEDIATELY","आप लॉगिन कर सकते हैं और तुरंत का उपयोग आरंभ कर प्रणाली");//You may login and start using the system immediately
+define("_YOUMAYLOGINWHENADMINACTIVATESYOU","आप इस प्रणाली का उपयोग आरंभ कर सकते हैं जैसे ही आपका खाता सक्रिय हो व्यवस्थापक");//You may start using the system as soon as the administrator activates your account
+define("_EMAILSENTFROM","ईमेल से भेजा");//Email sent from
+define("_STUDENTSOFLESSONSMALL","छात्रों के सबक");//students of lesson
+define("_DIRECTIONDEACTIVATED","श्रेणी निष्क्रिय");//Category deactivated
+define("_DIRECTIONACTIVATED","श्रेणी सक्रिय");//Category activated
+define("_LESSONUPDATED","नालचिक अद्यतन");//Lesson updated
+define("_LESSONDEACTIVATED","निष्क्रिय नालचिक");//Lesson deactivated
+define("_LESSONACTIVATED","सक्रिय नालचिक");//Lesson activated
+define("_VIEWALL","सभी देखें");//View all
+define("_FILESANDSUBFOLDERS","फ़ाइलें और subfolders");//files and subfolders
+define("_ATTACHMENTS","अनुलग्नक");//Attachments
+define("_PROBLEMQUERYINGDATABASE","समस्या querying डेटाबेस");//Problem querying database
+define("_FIRSTNAME","प्रथम नाम");//First name
+define("_LASTNAME","अंतिम नाम");//Last name
+define("_LESSONSTATUS","नालचिक स्थिति");//Lesson status
+define("_SPACEUSAGE","अंतरिक्ष उपयोग");//Space usage
+define("_NEWFOLDER","नया फ़ोल्डर");//New folder
+define("_VIEWFOLDERSTATISTICS","फ़ोल्डर के आँकड़े देखें");//View folder statistics
+define("_VIEWMESSAGE","संदेश देखें");//View message
+define("_OFTOTAL","कुल");//of total
+define("_KBYTESUSED","Kbytes का इस्तेमाल किया");//Kbytes used
+define("_MARK","मार्क");//Mark
+define("_WITHSELECTED","चयन के साथ");//With selected
+define("_MARKASREAD","पढ़ने के रूप में चिह्नित करें");//Mark&nbsp;as&nbsp;read
+define("_MARKASUNREAD","अपठित के रूप में चिह्नित करें");//Mark&nbsp;as&nbsp;unread
+define("_MOVETOFOLDER","फ़ोल्डर में ले जाएँ");//Move to folder
+define("_MOVE","चलना");//Move
+define("_PERSONALMESSAGE","निजी संदेश");//Personal message
+define("_FROM2","प्रेषक :");//From:
+define("_TO2","करने के लिए :");//To:
+define("_SUBJECT2","विषय :");//Subject:
+define("_BECAUSEYOURMESSAGEBOXISFULL","क्योंकि आपके संदेश बॉक्स से भरा है");//because your message box is full
+define("_YOURMESSAGETO","आपका संदेश के लिए");//Your message to
+define("_COULDNOTBEDELIVERED","वितरित नहीं किया जा सका");//could not be delivered
+define("_BECAUSEHISMESSAGEBOXISFULL","क्योंकि अपने संदेश बॉक्स से भरा है");//because his message box is full
+define("_THEMESSAGE","संदेश");//Message
+define("_MESSAGEWASSENT","संदेश भेजा गया था");//Message was sent 
+define("_INVALIDFOLDERNAME","अवैध फ़ोल्डर का नाम");//Invalid folder name
+define("_SORRYYOUCANNOTCREATEANYMOREFOLDERS","क्षमा करें , लेकिन आप किसी भी अन्य फ़ोल्डर नहीं बना सकते हैं");//Sorry but you cannot create any other folders
+define("_FOLDERWITHSAMENAMEALREADYEXISTS","एक ही नाम के साथ एक फ़ोल्डर में पहले से मौजूद है");//A folder with the same name already exists
+define("_FOLDERCREATED","फ़ोल्डर बनाया");//Folder created
+define("_FOLDERUPDATED","फ़ोल्डर अद्यतन");//Folder updated
+define("_FOLDERDELETED","फ़ोल्डर नष्ट कर दिया गया");//Folder deleted
+define("_NEWFOLDERNAME","नया फ़ोल्डर नाम");//New folder name
+define("_THISFOLDERDOESNOTEXIT","इस फ़ोल्डर में मौजूद नहीं है");//This folder does not exist
+define("_MODIFY","बदलें");//Modify
+define("_FOLDER","फ़ोल्डर");//Folder
+define("_SIZE","आकार");//Size
+define("_YOUMUSTSPECIFYANACTION","आपको निर्दिष्ट एक कार्य");//You must specify an action
+define("_ALLOWHTMLFPM","फोरम में HTML की अनुमति दें और निजी संदेश");//Allow HTML in Forum and Personal messages
+define("_ACTIVATEPOLLS","चुनावों में सक्रिय");//Activate polls
+define("_ALLOWATTACHMENTSINF","संलग्नक में मंच की अनुमति दें");//Allow attachments in forum
+define("_PMQUOTA","निजी संदेश कोटा");//Personal messages quota
+define("_PMATTACHMENTSQUOTA","निजी संदेश संलग्नक कोटा");//Personal messages attachments quota
+define("_YOUMUSTSELECTMESSAGESTODELETE","आप चुनना होगा संदेशों को हटाना");//You must select messages to delete
+define("_YOUMUSTSELECTMESSAGESTOMOVE","आप संदेशों को स्थानांतरित करने के लिए चुनना होगा");//You must select messages to move
+define("_YOUMUSTSELECTMESSAGESTOMARK","आप संदेशों को चुनना होगा चिह्न");//You must select messages to mark
+define("_SUCCESSFULLYDELETEDMESSAGES","संदेश सफलतापूर्वक हटा दिया गया");//Messages were successfully deleted
+define("_AREYOUSURETODELETEFOLDER","क्या आप सुनिश्चित हैं कि आप को नष्ट करना चाहते हैं फ़ोल्डर");//Are you sure you want to delete folder
+define("_ANDALLCONTENTS","और अपने सभी घटक है ?");//and all its components?
+define("_APPROACHINGMESSAGEQUOTA","आप अपना संदेश कोटा निकट हैं .");//You are approaching your message quota.
+define("_DELETEOLDMESSAGES","कृपया किसी भी नष्ट पुराने संदेश को बचाने के लिए स्थान है .");//Please delete any old messages to save space.
+define("_MESSAGEBOXSIZECRITICAL","आपका संदेश बॉक्स के आकार के महत्वपूर्ण हो गया है .");//Your messages box size is critical.
+define("_ERASEMESSAGESNOTRECEIVENEW","यदि आप कोई संदेश नहीं मिटाना , आप नहीं कर सकेंगे प्राप्त करने के लिए नए हैं .");//If you don&#039;t erase any messages, you will not be able to receive new ones.
+define("_NOMESSAGESINFOLDER","इस फ़ोल्डर में कोई संदेश नहीं");//No messages in this folder
+define("_AREYOUSURETODELETEMESSAGE","क्या आप सुनिश्चित हैं कि आप इस संदेश को हटाना चाहते हैं ?");//Are you sure you want to delete this message?
+define("_TRIEDACCESSMESSAGEMALFORMEDID","विकृत करने की कोशिश की पहुँच के साथ संदेश id");//Tried to access messages with malformed id
+define("_THISMESSAGEDOESNOTEXIST","यह संदेश मौजूद नहीं है");//This message does not exist
+define("_RETURNFOLDERSLIST","फ़ोल्डर सूची पर वापस जाएँ");//Return to folders list
+define("_TOFORUM","को");//To
+define("_RE","पुनः");//Re
+define("_INCOMING","आने वाले");//Incoming
+define("_SENT","भेजा");//Sent
+define("_DRAFTS","ड्राफ़्ट");//Drafts
+define("_CALENDAR","कैलेंडर");//Calendar
+define("_JANUARY","जनवरी");//January
+define("_FEBRUARY","फरवरी");//February
+define("_MARCH","मार्च");//March
+define("_APRIL","अप्रैल");//April
+define("_MAY","सकना");//May
+define("_JUNE","जून");//June
+define("_JULY","जुलाई");//July
+define("_AUGUST","अगस्त");//August
+define("_SEPTEMBER","सितम्बर");//September
+define("_OCTOBER","अक्टूबर");//October
+define("_NOVEMBER","नवम्बर");//November
+define("_DECEMBER","दिसम्बर");//December
+define("_MON","एम");//M
+define("_TUE","टी");//T
+define("_WED","W");//W
+define("_THU","टी");//T
+define("_FRI","एफ");//F
+define("_SAT","S");//S
+define("_SUN","S");//S
+define("_VALUE","मान");//Value
+define("_PERSONALDATACHANGESUCCESSADMIN","प्रयोक्ता की व्यक्तिगत जानकारी को सफलतापूर्वक बदल दिया गया है");//User&#039;s personal info have been successfully altered
+define("_CONTINUE","जारी रखें");//Continue
+define("_WEB","निजी पृष्ठ");//Personal page
+define("_DATA","डाटा");//Data
+define("_USERNAMEERROR","कृपया एक प्रदर्शन नाम दर्ज करें !");//Please enter the a display name!
+define("_CVERROR","कृपया भर में आपके बारे में कुछ जानकारी है !");//Please fill in some information about you!
+define("_NUM","टिकर संख्या");//Ticker number
+define("_SCORM","SCORM");//SCORM
+define("_MYSETTINGS","मेरी सेटिंग्स");//my Settings
+define("_MYLESSONS","मेरे सबक");//my Lessons
+define("_MYOPTIONS","मेरे विकल्प");//my Options
+define("_YOUHAVENOBOOKMARKS","आपने नहीं बुकमार्क्स");//You have no bookmarks
+define("_ADDCONTENT","सामग्री जोड़ें");//Add content
+define("_NEWMESSAGES","नए संदेश");//New messages
+define("_DOYOUWANTTOADDTHISPAGETOYOURBOOKMARKS","क्या आप चाहते हैं कि जोड़ने के लिए इस पेज को अपने बुकमार्क ?");//Do you want to add this page to your bookmarks?
+define("_BOOKMARKS","बुकमार्क्स");//Bookmarks
+define("_SHOWBOOKMARKS","बुकमार्क दिखाएँ");//Show bookmarks
+define("_ADDTHISPAGETOYOURBOOKMARKS","इस पृष्ठ को अपने बुकमार्क में जोड़ें");//Add this page to your bookmarks
+define("_YOUCANDOTEST","आप कर सकते हैं परीक्षण");//You can do test
+define("_TIMESMORE","गुना अधिक");//times more
+define("_FIELDNAME","फील्ड का नाम");//Field name
+define("_FIELDDESCRIPTION","फील्ड विवरण");//Field description
+define("_DBTYPE","डाटाबेस के प्रकार");//Database type
+define("_ADDFIELD","क्षेत्र जोड़ें");//Add field
+define("_TREESAVEDSUCCESSFULLY","ट्री सहेजी succefully");//Tree saved succefully
+define("_ERROROCCURED","एक त्रुटि हो गई . कृपया पुनः प्रयास करें .");//An error occured. Please try again.
+define("_EXPORTSTATS","निर्यात की रिपोर्ट :");//Export reports:
+define("_MATHTYPEHELP1","आप गणित अभिव्यक्ति में डालने के संपादक का उपयोग करके एक विशेष कोड tranlates जो एक संकेतन ASCII गणित को mathematic अभिव्यक्ति है . eFront में बनाई संपादक ने इस विशेष कोड . तब प्रयोक्ताओं को आसानी से जोड़ने के गणित प्रकार कर सकते हैं . आप इस कोड के बारे में जानने के नीचे दी गई तालिका से या <a target=\"_blank\" href=\"http://www1.chapman.edu/~jipsen/mathml/asciimath.html\">इस पेज</a> से");//You can insert math expressions in the editor by using a special code which tranlates an ASCII math notation to mathematic expressions. eFront has built into editor this special code. So users can easily add math types. You can learn about this code from the table below or from <a target=\"_blank\" href=\"http://www1.chapman.edu/~jipsen/mathml/asciimath.html\">this page</a>
+define("_MATHTYPEHELP2","<p> आप का उपयोग करने से बचना चाहिए प्रतीक &#39; का प्रतिनिधित्व करता है क्योंकि यह एक विशेष चरित्र के लिए कूटबन्धन . यदि आप चाहते हैं कि इसका इस्तेमाल करते हैं , का प्रयोग से बच चरित्र से पहले ही , जैसे \\ &#39; </p>");//<p>You should  avoid to use symbol \` because it represents a special character for the encoding. In case you want to use it, use escape character \ before it, e.g. \\\`</p>
+define("_PERCENTCORRECT","प्रतिशत सही है");//percent correct
+define("_GLOSSARY","शब्दकोष");//Glossary
+define("_ADDDEFINITION","परिभाषा में जोड़ें");//Add definition
+define("_SUCCESFULLYADDEDDEFINITION","इस परिभाषा को सफलतापूर्वक जोड़ा गया है");//The definition was added successfully
+define("_DEFINITION","परिभाषा");//Definition
+define("_NODEFINITIONSFOUNDFORTHISLESSON","इस सबक के लिए कोई परिभाषा नहीं मिली");//No definitions found for this lesson
+define("_CHOOSEWHATTOEXPORT","निर्यात करने के लिए क्या चुनें ( सामग्री के अलावा )");//Choose what to export (apart from content)
+define("_CREATED","निर्मित");//Created
+define("_CANCELTEST","परीक्षा रद्द करें");//Cancel test
+define("_DELETEEXISTINGDATAFROM","मौजूदा आंकड़ों से हटाएँ :");//Delete existing data from:
+define("_CLOSE","बंद करना");//Close
+define("_SHOWHIDE","दिखाएँ / छुपाएँ");//Show/Hide
+define("_EFRONTLOGO","लोगो eFront");//eFront logo
+define("_READ","पढ़ना");//Read
+define("_UNREAD","अपठित");//Unread
+define("_SUCCESFULLYADDEDROOM","सफलतापूर्वक जोड़ा कमरा");//Succesfully added room
+define("_AND","और");//and
+define("_TRUEFALSE","यह सच है / झूठा");//True/False
+define("_DROPDOWN","सूची में से चुनें");//Select from list
+define("_TRUE","सच्चा");//True
+define("_FALSE","मिथ्या");//False
+define("_QUESTIONNUMBER","प्रश्न संख्या");//Question number
+define("_QUESTIONTITLE","प्रश्न शीर्षक");//Question title
+define("_NUMBEROFOPTIONS","विकल्पों की संख्या");//Number of options
+define("_YOUHAVELOGGEDOUTBECAUSEYOURSESSIONHASTIMEDOUT","आपने लॉग आउट हो क्योंकि आपके सत्र की समय समाप्त हो गया");//You have logged out because your session has timed out
+define("_ORSELECTONEFROMLIST","सूची में से किसी एक को चुनें या फिर");//Or select one from list
+define("_EXPLANATION","स्पष्टीकरण");//Explanation
+define("_QUESTION","प्रश्न");//Question
+define("_CHANGESTYLE","विषय बदलें");//Change theme
+define("_PREDEFINED","पूर्वनिर्धारित");//Predefined
+define("_SELECTNEWSTYLE","नया विषय चुनें");//Select new theme
+define("_SETSTYLE","विषय में सेट करें");//Set theme
+define("_NOPREVIEWIMAGEFOUND","छवि पूर्वावलोकन नहीं मिला");//Preview image not found
+define("_EDITOR_BOLD_DESC","बोल्ड ( Ctrl + B )");//Bold (Ctrl+B)
+define("_EDITOR_ITALIC_DESC","इटैलिक ( Ctrl + I )");//Italic (Ctrl+I)
+define("_EDITOR_UNDERLINE_DESC","रेखांकित ( Ctrl + यू )");//Underline (Ctrl+U)
+define("_EDITOR_STRIKETROUGH_DESC","Strikethrough");//Strikethrough
+define("_EDITOR_JUSTIFYLEFT_DESC","बाएँ संरेखित करें");//Align left
+define("_EDITOR_JUSTIFYCENTER_DESC","मध्य में समंजित करें");//Align center
+define("_EDITOR_JUSTIFYRIGHT_DESC","दाएँ संरेखित करें");//Align right
+define("_EDITOR_JUSTIFYFULL_DESC","पूर्ण संरेखित करें");//Align full
+define("_EDITOR_BULLIST_DESC","Unordered सूची");//Unordered list
+define("_EDITOR_NUMLIST_DESC","आदेश दिया सूची");//Ordered list
+define("_EDITOR_OUTDENT_DESC","Outdent");//Outdent
+define("_EDITOR_INDENT_DESC","इंडेंट");//Indent
+define("_EDITOR_UNDO_DESC","पूर्ववत् करें ( Ctrl + Z )");//Undo (Ctrl+Z)
+define("_EDITOR_REDO_DESC","फिर से करें ( Ctrl + वाई )");//Redo (Ctrl+Y)
+define("_EDITOR_LINK_DESC","डालें / संपादित करें कड़ी");//Insert/edit link
+define("_EDITOR_UNLINK_DESC","हटाना");//Unlink
+define("_EDITOR_IMAGE_DESC","डालें / छवि संपादित करें");//Insert/edit image
+define("_EDITOR_CLEANUP_DESC","क्लीनअप झंझट कोड");//Cleanup messy code
+define("_EDITOR_FOCUS_ALERT","एक उदाहरण के संपादक का उपयोग करने से पहले ध्यान केंद्रित किया जाना चाहिए इस कमान है .");//A editor instance must be focused before using this command.
+define("_EDITOR_EDIT_CONFIRM","क्या आप चाहते हैं कि WYSIWYG मोड का प्रयोग करने के लिए इस textarea ?");//Do you want to use the WYSIWYG mode for this textarea?
+define("_EDITOR_INSERT_LINK_TITLE","डालें / संपादित करें कड़ी");//Insert/edit link
+define("_EDITOR_INSERT","डालें");//Insert
+define("_EDITOR_UPDATE","अद्यतन करना");//Update
+define("_EDITOR_CANCEL","रद्द करें");//Cancel
+define("_EDITOR_INSERT_LINK_URL","कड़ी यूआरएल");//Link URL
+define("_EDITOR_INSERT_LINK_TARGET","लक्ष्य");//Target
+define("_EDITOR_INSERT_LINK_TARGET_SAME","एक ही विंडो में लिंक खोलें");//Open link in the same window
+define("_EDITOR_INSERT_LINK_TARGET_BLANK","एक नई विंडो में लिंक खोलें");//Open link in a new window
+define("_EDITOR_INSERT_IMAGE_TITLE","डालें / छवि संपादित करें");//Insert/edit image
+define("_EDITOR_INSERT_IMAGE_SRC","छवि URL");//Image URL
+define("_EDITOR_INSERT_IMAGE_ALT","छवि विवरण");//Image description
+define("_EDITOR_HELP_DESC","मदद");//Help
+define("_EDITOR_BOLD_IMG","bold.gif");//bold.gif
+define("_EDITOR_ITALIC_IMG","italic.gif");//italic.gif
+define("_EDITOR_UNDERLINE_IMG","underline.gif");//underline.gif
+define("_EDITOR_CLIPBOARD_MSG","कॉपी / काटें / चिपकाएँ में उपलब्ध नहीं है और मोज़िला फ़ायरफ़ॉक्स . क्या आप चाहते हैं कि इस मुद्दे के बारे में अधिक जानकारी है ?");//Copy/Cut/Paste is not available in Mozilla and Firefox.Do you want more information about this issue?
+define("_EDITOR_POPUP_BLOCKED","क्षमा करें , लेकिन हमने देखा है कि आपका - पॉपअप ब्लॉकर निष्क्रिय कर दिया है कि एक विंडो आवेदन सुविधा प्रदान करता है . आप पॉपअप को निष्क्रिय करने की जरूरत है इस साइट पर रोकने में पूरी तरह से उपयोग करने के लिए इस उपकरण का प्रयोग करें .");//Sorry, but we have noticed that your popup-blocker has disabled a window that provides application functionality. You will need to disable popup blocking on this site in order to fully utilize this tool.
+define("_EDITOR_JAVA_TITLE","डालें / संपादित जावा");//Insert / edit Java
+define("_EDITOR_JAVA_DESC","डालें / संपादित जावा");//Insert / edit Java
+define("_EDITOR_JAVA_FILE","जावा की फ़ाइल ( . वर्ग )");//Java-File (.class)
+define("_EDITOR_JAVA_SIZE","आकार");//Size
+define("_EDITOR_JAVA_LIST","जावा फ़ाइलें");//Java files
+define("_EDITOR_JAVA_PROPS","जावा गुण");//Java properties
+define("_EDITOR_JAVA_GENERAL","जनरल");//General
+define("_EDITOR_JAVA_CODEBASE","Codebase");//Codebase
+define("_EDITOR_ADVHR_INSERT_ADVHR_DESC","Horizontale नियम");//Horizontale rule
+define("_EDITOR_ADVHR_INSERT_ADVHR_WIDTH","चौड़ाई");//Width
+define("_EDITOR_ADVHR_INSERT_ADVHR_SIZE","ऊँचाई");//Height
+define("_EDITOR_ADVHR_INSERT_ADVHR_NOSHADE","छाया नहीं");//No shadow
+define("_EDITOR_ADVIMAGE_TAB_GENERAL","जनरल");//General
+define("_EDITOR_ADVIMAGE_TAB_APPEARANCE","प्रकटन");//Appearance
+define("_EDITOR_ADVIMAGE_TAB_ADVANCED","उन्नत");//Advanced
+define("_EDITOR_ADVIMAGE_GENERAL","जनरल");//General
+define("_EDITOR_ADVIMAGE_TITLE","शीर्षक");//Title
+define("_EDITOR_ADVIMAGE_PREVIEW","पूर्वावलोकन");//Preview
+define("_EDITOR_ADVIMAGE_CONSTRAIN_PROPORTIONS","विवश अनुपात");//Constrain proportions
+define("_EDITOR_ADVIMAGE_LANGDIR","भाषा दिशा");//Language direction
+define("_EDITOR_ADVIMAGE_LANGCODE","भाषा कोड");//Language code
+define("_EDITOR_ADVIMAGE_LONG_DESC","लंबे समय तक विवरण कड़ी");//Long description link
+define("_EDITOR_ADVIMAGE_STYLE","शैली");//Style
+define("_EDITOR_ADVIMAGE_CLASSES","कक्षा");//Classes
+define("_EDITOR_ADVIMAGE_LTR","दाएँ से बाएँ");//Left to right
+define("_EDITOR_ADVIMAGE_RTL","बाएँ अधिकार");//Right to left
+define("_EDITOR_ADVIMAGE_ID","क्रमांक");//Id
+define("_EDITOR_ADVIMAGE_IMAGE_MAP","छवि मानचित्र");//Image map
+define("_EDITOR_ADVIMAGE_SWAP_IMAGE","स्वैप छवि");//Swap image
+define("_EDITOR_ADVIMAGE_ALT_IMAGE","वैकल्पिक छवि");//Alternative image
+define("_EDITOR_ADVIMAGE_MOUSEOVER","के लिए माउस को");//for mouse over
+define("_EDITOR_ADVIMAGE_MOUSEOUT","के लिए माउस से बाहर");//for mouse out
+define("_EDITOR_ADVIMAGE_MISC","विविध");//Miscellaneous
+define("_EDITOR_ADVIMAGE_EXAMPLE_IMG","प्रकटन छवि पूर्वावलोकन");//Appearance&nbsp;preview&nbsp;image
+define("_EDITOR_ADVIMAGE_MISSING_ALT","क्या आप सुनिश्चित हैं कि आप बिना जारी रखना चाहते हैं विवरण सहित एक छवि है ? यह छवि के बिना नहीं किया जा सकता है सुलभ करने के लिए कुछ प्रयोक्ताओं के साथ विकलांग , या उन लोगों के लिए एक पाठ ब्राउज़र का उपयोग करके , या ब्राउज़िंग के साथ वेब छवियाँ बंद है .");//Are you sure you want to continue without including an Image description? Without  it the image may not be accessible to some users with disabilities, or to those using a text browser, or browsing the Web with images turned off.
+define("_EDITOR_ADVLINK_GENERAL_TAB","जनरल");//General
+define("_EDITOR_ADVLINK_POPUP_TAB","पॉपअप");//Popup
+define("_EDITOR_ADVLINK_ADVANCED_TAB","उन्नत");//Advanced
+define("_EDITOR_ADVLINK_GENERAL_PROPS","जनरल गुण");//General properties
+define("_EDITOR_ADVLINK_POPUP_PROPS","पॉपअप गुण");//Popup properties
+define("_EDITOR_ADVLINK_EVENT_PROPS","घटनाएँ");//Events
+define("_EDITOR_ADVLINK_ADVANCED_PROPS","उन्नत गुण");//Advanced properties
+define("_EDITOR_ADVLINK_POPUP_OPTS","विकल्प");//Options
+define("_EDITOR_ADVLINK_ANCHOR_NAMES","एंकरों");//Anchors
+define("_EDITOR_ADVLINK_TARGET_SAME","इस विंडो में खोलें / फ्रेम");//Open in this window / frame
+define("_EDITOR_ADVLINK_TARGET_PARENT","मूल विंडो में खोलें / फ्रेम");//Open in parent window / frame
+define("_EDITOR_ADVLINK_TARGET_TOP","चोटी के फ्रेम में खोलें ( सभी जगह फ्रेम )");//Open in top frame (replaces all frames)
+define("_EDITOR_ADVLINK_TARGET_BLANK","नई विंडो में खोलें");//Open in new window
+define("_EDITOR_ADVLINK_POPUP","जावास्क्रिप्ट पॉपअप");//Javascript popup
+define("_EDITOR_ADVLINK_POPUP_URL","पॉपअप URL");//Popup URL
+define("_EDITOR_ADVLINK_POPUP_NAME","विंडो का नाम");//Window name
+define("_EDITOR_ADVLINK_POPUP_RETURN","डालें \\ \" झूठे वापसी \\ \"");//Insert \\\"return false\\\"
+define("_EDITOR_ADVLINK_POPUP_SCROLLBARS","scrollbars दिखाएँ");//Show scrollbars
+define("_EDITOR_ADVLINK_POPUP_STATUSBAR","स्थिति पट्टी दिखाएँ");//Show status bar
+define("_EDITOR_ADVLINK_POPUP_TOOLBAR","दिखाएँ टूलबार");//Show toolbars
+define("_EDITOR_ADVLINK_POPUP_MENUBAR","मेनू बार दिखाएँ");//Show menu bar
+define("_EDITOR_ADVLINK_POPUP_LOCATION","स्थान पट्टी दिखाएँ");//Show location bar
+define("_EDITOR_ADVLINK_POPUP_RESIZABLE","विंडो resizable बनाएँ");//Make window resizable
+define("_EDITOR_ADVLINK_POPUP_DEPENDENT","आश्रित ( मोज़िला / Firefox केवल )");//Dependent (Mozilla/Firefox only)
+define("_EDITOR_ADVLINK_POPUP_SIZE","आकार");//Size
+define("_EDITOR_ADVLINK_POPUP_POSITION","स्थान ( X / वाई )");//Position (X/Y)
+define("_EDITOR_ADVLINK_ID","क्रमांक");//Id
+define("_EDITOR_ADVLINK_STYLE","शैली");//Style
+define("_EDITOR_ADVLINK_CLASSES","कक्षा");//Classes
+define("_EDITOR_ADVLINK_TARGET_NAME","लक्ष्य का नाम");//Target name
+define("_EDITOR_ADVLINK_LANGDIR","भाषा दिशा");//Language direction
+define("_EDITOR_ADVLINK_TARGET_LANGCODE","लक्ष्य भाषा");//Target language
+define("_EDITOR_ADVLINK_LANGCODE","भाषा कोड");//Language code
+define("_EDITOR_ADVLINK_ENCODING","लक्ष्य चरित्र कूटबन्धन");//Target character encoding
+define("_EDITOR_ADVLINK_MIME","माइम प्रकार लक्ष्य");//Target MIME type
+define("_EDITOR_ADVLINK_REL","संबंध पेज को लक्ष्य");//Relationship page to target
+define("_EDITOR_ADVLINK_REV","संबंध को लक्ष्य पृष्ठ");//Relationship target to page
+define("_EDITOR_ADVLINK_TABINDEX","Tabindex");//Tabindex
+define("_EDITOR_ADVLINK_ACCESSKEY","Accesskey");//Accesskey
+define("_EDITOR_ADVLINK_LTR","दाएँ से बाएँ");//Left to right
+define("_EDITOR_ADVLINK_RTL","बाएँ अधिकार");//Right to left
+define("_EDITOR_EMOTIONS_TITLE","भावनाओं डालें");//Insert emotion
+define("_EDITOR_EMOTIONS_DESC","भावनाएँ");//Emotions
+define("_EDITOR_EMOTIONS_COOL","ठंडा");//Cool
+define("_EDITOR_EMOTIONS_CRY","रोना");//Cry
+define("_EDITOR_EMOTIONS_EMBARASSED","झिझकते");//Embarassed
+define("_EDITOR_EMOTIONS_FOOT_IN_MOUTH","मुँह फुट में");//Foot in mouth
+define("_EDITOR_EMOTIONS_FROWN","Frown");//Frown
+define("_EDITOR_EMOTIONS_INNOCENT","निर्दोष");//Innocent
+define("_EDITOR_EMOTIONS_KISS","चुम्बन");//Kiss
+define("_EDITOR_EMOTIONS_LAUGHING","लाफिंग");//Laughing
+define("_EDITOR_EMOTIONS_MONEY_MOUTH","धन मुँह");//Money mouth
+define("_EDITOR_EMOTIONS_SEALED","सील");//Sealed
+define("_EDITOR_EMOTIONS_SMILE","मुस्कान");//Smile
+define("_EDITOR_EMOTIONS_SURPRISED","अचंभित");//Surprised
+define("_EDITOR_EMOTIONS_TONGUE_OUT","भाषा से बाहर");//Tongue out
+define("_EDITOR_EMOTIONS_UNDECIDED","अनिर्णीत");//Undecided
+define("_EDITOR_EMOTIONS_WINK","पलक");//Wink
+define("_EDITOR_EMOTIONS_YELL","Yell");//Yell
+define("_EDITOR_IESPELL_IESPELL_DESC","वर्तनी जाँच चलाएँ");//Run spell checking
+define("_EDITOR_IESPELL_IESPELL_DOWNLOAD","ieSpell नहीं पता चला है . ओके क्लिक करें पृष्ठ पर जाने के लिए डाउनलोड करने के लिए .");//ieSpell not detected. Click OK to go to download page.
+define("_EDITOR_INSERTDATETIME_INSERTDATE_DEF_FMT","वाई - % d % % मीटर");//%Y-%m-%d
+define("_EDITOR_INSERTDATETIME_INSERTTIME_DEF_FMT","% H : % M : % S");//%H:%M:%S
+define("_EDITOR_INSERTDATETIME_INSERTDATE_DESC","तिथि डालें");//Insert date
+define("_EDITOR_INSERTDATETIME_INSERTTIME_DESC","समय डालें");//Insert time
+define("_EDITOR_INSERTDATETIME_INSERTTIME_MONTHS_LONG","नई एरे ( &#39; जनवरी &#39; , &#39; फरवरी &#39; , &#39; मार्च &#39; , &#39; अप्रैल &#39; , &#39; मई &#39; , &#39; जून &#39; , &#39; जुलाई &#39; , &#39; अगस्त &#39; , &#39; सितम्बर &#39; , &#39; अक्टूबर &#39; , &#39; नवम्बर &#39; , &#39; दिसम्बर &#39; )");//new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')
+define("_EDITOR_INSERTDATETIME_INSERTTIME_MONTHS_SHORT","नई एरे ( &#39; जन &#39; , &#39; फरवरी &#39; , &#39; मार्च &#39; , &#39; अप्रैल &#39; , &#39; मई &#39; , &#39; जून &#39; , &#39; जुलाई &#39; , &#39; अगस्त &#39; , &#39; सिपाही &#39; , &#39; अक्टूबर &#39; , &#39; नवम्बर &#39; , &#39; दिसम्बर &#39; )");//new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+define("_EDITOR_INSERTDATETIME_INSERTTIME_DAY_LONG","नई एरे ( &#39; रविवार &#39; , &#39; सोमवार &#39; , &#39; मंगलवार &#39; , &#39; बुधवार &#39; , &#39; बृहस्पतिवार &#39; , &#39; शुक्रवार &#39; , &#39; शनिवार &#39; , &#39; रविवार &#39; )");//new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
+define("_EDITOR_INSERTDATETIME_INSERTTIME_DAY_SHORT","नई एरे ( &#39; सूर्य &#39; , &#39; सोम &#39; , &#39; मंगल &#39; , &#39; बुध &#39; , &#39; गुरु &#39; , &#39; शुक्र &#39; , &#39; शनि &#39; , &#39; सूर्य &#39; )");//new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
+define("_EDITOR_MATHTYPE_INSERT_MATHTYPE_TITLE","mathtype डालें");//Insert mathtype
+define("_EDITOR_MATHTYPE_TITLE","mathtype डालें");//Insert mathtype
+define("_EDITOR_MATHTYPE_MATHTYPE_DESC","Mathtype");//Mathtype
+define("_EDITOR_MATHTYPE_DESC","Mathtype");//Mathtype
+define("_EDITOR_MEDIA_TITLE","डालें / संपादित मीडिया एम्बेडेड");//Insert / edit embedded media
+define("_EDITOR_MEDIA_DESC","डालें / संपादित मीडिया एम्बेडेड");//Insert / edit embedded media
+define("_EDITOR_MEDIA_GENERAL","जनरल");//General
+define("_EDITOR_MEDIA_ADVANCED","उन्नत");//Advanced
+define("_EDITOR_MEDIA_FILE","फ़ाइल");//File
+define("_EDITOR_MEDIA_LIST","सूची");//List
+define("_EDITOR_MEDIA_SIZE","आयाम");//Dimensions
+define("_EDITOR_MEDIA_PREVIEW","पूर्वावलोकन");//Preview
+define("_EDITOR_MEDIA_CONSTRAIN_PROPORTIONS","विवश अनुपात");//Constrain proportions
+define("_EDITOR_MEDIA_TYPE","प्रकार");//Type
+define("_EDITOR_MEDIA_ID","क्रमांक");//Id
+define("_EDITOR_MEDIA_NAME","नाम");//Name
+define("_EDITOR_MEDIA_CLASS_NAME","कक्षा");//Class
+define("_EDITOR_MEDIA_VSPACE","अंतरिक्ष - V");//V-Space
+define("_EDITOR_MEDIA_HSPACE","एच अंतरिक्ष");//H-Space
+define("_EDITOR_MEDIA_PLAY","ऑटो खेल");//Auto play
+define("_EDITOR_MEDIA_LOOP","लूप");//Loop
+define("_EDITOR_MEDIA_MENU","मेनू दिखाएँ");//Show menu
+define("_EDITOR_MEDIA_QUALITY","गुणवत्ता");//Quality
+define("_EDITOR_MEDIA_SCALE","स्केल");//Scale
+define("_EDITOR_MEDIA_ALIGN","संरेखित करें");//Align
+define("_EDITOR_MEDIA_SALIGN","SAlign");//SAlign
+define("_EDITOR_MEDIA_WMODE","WMode");//WMode
+define("_EDITOR_MEDIA_BGCOLOR","पृष्ठभूमि");//Background
+define("_EDITOR_MEDIA_BASE","कोष");//Base
+define("_EDITOR_MEDIA_FLASHVARS","Flashvars");//Flashvars
+define("_EDITOR_MEDIA_LIVECONNECT","SWLiveConnect");//SWLiveConnect
+define("_EDITOR_MEDIA_AUTOHREF","AutoHREF");//AutoHREF
+define("_EDITOR_MEDIA_CACHE","Cache");//Cache
+define("_EDITOR_MEDIA_HIDDEN","छुपे हुए");//Hidden
+define("_EDITOR_MEDIA_CONTROLLER","नियंत्रक");//Controller
+define("_EDITOR_MEDIA_KIOSKMODE","कियॉस्क विधा");//Kiosk mode
+define("_EDITOR_MEDIA_PLAYEVERYFRAME","प्ले हर फ्रेम");//Play every frame
+define("_EDITOR_MEDIA_TARGETCACHE","लक्ष्य कैश");//Target cache
+define("_EDITOR_MEDIA_CORRECTION","कोई सुधार");//No correction
+define("_EDITOR_MEDIA_ENABLEJAVASCRIPT","JavaScript सक्षम करें");//Enable JavaScript
+define("_EDITOR_MEDIA_STARTTIME","आरम्भ समय");//Start time
+define("_EDITOR_MEDIA_ENDTIME","समाप्ति समय");//End time
+define("_EDITOR_MEDIA_HREF","Href");//Href
+define("_EDITOR_MEDIA_QTSRCCHOKESPEED","चोक गति");//Choke speed
+define("_EDITOR_MEDIA_TARGET","लक्ष्य");//Target
+define("_EDITOR_MEDIA_VOLUME","खंड");//Volume
+define("_EDITOR_MEDIA_AUTOSTART","ऑटो शुरू");//Auto start
+define("_EDITOR_MEDIA_ENABLED","सक्रिय");//Enabled
+define("_EDITOR_MEDIA_FULLSCREEN","Fullscreen");//Fullscreen
+define("_EDITOR_MEDIA_INVOKEURLS","यूआरएल आह्वान");//Invoke URLs
+define("_EDITOR_MEDIA_MUTE","मौन");//Mute
+define("_EDITOR_MEDIA_STRETCHTOFIT","सीधा करने के लिए फिट");//Stretch to fit
+define("_EDITOR_MEDIA_WINDOWLESSVIDEO","Windowless वीडियो");//Windowless video
+define("_EDITOR_MEDIA_BALANCE","शेष");//Balance
+define("_EDITOR_MEDIA_BASEURL","बेस URL");//Base URL
+define("_EDITOR_MEDIA_CAPTIONINGID","Captioning id");//Captioning id
+define("_EDITOR_MEDIA_CURRENTMARKER","वर्तमान मार्कर");//Current marker
+define("_EDITOR_MEDIA_CURRENTPOSITION","वर्तमान स्थिति");//Current position
+define("_EDITOR_MEDIA_DEFAULTFRAME","डिफ़ॉल्ट फ्रेम");//Default frame
+define("_EDITOR_MEDIA_PLAYCOUNT","प्ले गणना");//Play count
+define("_EDITOR_MEDIA_RATE","दर");//Rate
+define("_EDITOR_MEDIA_UIMODE","UI मोड");//UI Mode
+define("_EDITOR_MEDIA_FLASH_OPTIONS","फ़्लैश विकल्प");//Flash options
+define("_EDITOR_MEDIA_QT_OPTIONS","क्विकटाइम विकल्प");//Quicktime options
+define("_EDITOR_MEDIA_WMP_OPTIONS","विंडोज़ मीडिया प्लेयर के विकल्प");//Windows media player options
+define("_EDITOR_MEDIA_RMP_OPTIONS","रियल मीडिया प्लेयर के विकल्प");//Real media player options
+define("_EDITOR_MEDIA_SHOCKWAVE_OPTIONS","Shockwave विकल्प");//Shockwave options
+define("_EDITOR_MEDIA_AUTOGOTOURL","ऑटो goto URL");//Auto goto URL
+define("_EDITOR_MEDIA_CENTER","केन्द्र");//Center
+define("_EDITOR_MEDIA_IMAGESTATUS","छवि स्थिति");//Image status
+define("_EDITOR_MEDIA_MAINTAINASPECT","पहलू का रखरखाव");//Maintain aspect
+define("_EDITOR_MEDIA_NOJAVA","जावा नहीं");//No java
+define("_EDITOR_MEDIA_PREFETCH","Prefetch");//Prefetch
+define("_EDITOR_MEDIA_SHUFFLE","Shuffle");//Shuffle
+define("_EDITOR_MEDIA_CONSOLE","कंसोल");//Console
+define("_EDITOR_MEDIA_NUMLOOP","Num छोरों");//Num loops
+define("_EDITOR_MEDIA_CONTROLS","नियंत्रित");//Controls
+define("_EDITOR_MEDIA_SCRIPTCALLBACKS","स्क्रिप्ट callbacks");//Script callbacks
+define("_EDITOR_MEDIA_SWSTRETCHSTYLE","पैर शैली");//Stretch style
+define("_EDITOR_MEDIA_SWSTRETCHHALIGN","पैर एच संरेखित करें");//Stretch H-Align
+define("_EDITOR_MEDIA_SWSTRETCHVALIGN","पैर - V संरेखित करें");//Stretch V-Align
+define("_EDITOR_MEDIA_SOUND","ध्वनि");//Sound
+define("_EDITOR_MEDIA_PROGRESS","प्रगति");//Progress
+define("_EDITOR_MEDIA_QTSRC","समय नही");//QT Src
+define("_EDITOR_MEDIA_QT_STREAM_WARN","Streamed में जोड़ा जाना चाहिए rtsp संसाधनों के समय क्षेत्र के अंतर्गत नही उन्नत टैब चुनें . आप भी जोड़ चाहिए संस्करण एक गैर streamed क्षेत्र को नही ..");//Streamed rtsp resources should be added to the QT Src field under the advanced tab.You should also add a non streamed version to the Src field..
+define("_EDITOR_PREVIEW_PREVIEW_DESC","पूर्वावलोकन");//Preview
+define("_EDITOR_PRINT_PRINT_DESC","मुद्रण");//Print
+define("_EDITOR_SAVE_SAVE_DESC","बचाना");//Save
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_SEARCH_DESC","ढूँढना");//Find
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_SEARCHNEXT_DESC","पुन : खोजें");//Find again
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_REPLACE_DESC","ढूँढ़ें / बदलें");//Find/Replace
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_NOTFOUND","खोज पूरा हो गया है . खोज स्ट्रिंग नहीं पाया जा सका .");//The search has been completed. The search string could not be found.
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_SEARCH_TITLE","ढूँढना");//Find
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_REPLACE_TITLE","ढूँढ़ें / बदलें");//Find/Replace
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_ALLREPLACED","सभी घटनाओं की जगह खोज स्ट्रिंग थे .");//All occurrences of the search string were replaced.
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_FINDWHAT","क्या ढूँढ़ें");//Find what
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_REPLACEWITH","बदलें के साथ");//Replace with
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_DIRECTION","निर्देशन");//Direction
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_UP","ऊपर");//Up
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_DOWN","नीचे");//Down
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_CASE","केस मिलाएँ");//Match case
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_FINDNEXT","अगले खोजें");//Find&nbsp;next
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_REPLACE","बदलें");//Replace
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_REPLACEALL","सभी बदलें");//Replace&nbsp;all
+define("_EDITOR_SEARCHREPLACE_SEARCHREPLACE_CANCEL","रद्द करें");//Cancel
+define("_EDITOR_TABLE_GENERAL_TAB","जनरल");//General
+define("_EDITOR_TABLE_ADVANCED_TAB","उन्नत");//Advanced
+define("_EDITOR_TABLE_GENERAL_PROPS","जनरल गुण");//General properties
+define("_EDITOR_TABLE_ADVANCED_PROPS","उन्नत गुण");//Advanced properties
+define("_EDITOR_TABLE_DESC","आवेषण एक नया सारणी");//Inserts a new table
+define("_EDITOR_TABLE_ROW_BEFORE_DESC","पंक्ति डालें से पहले");//Insert row before
+define("_EDITOR_TABLE_ROW_AFTER_DESC","पंक्ति के बाद डालें");//Insert row after
+define("_EDITOR_TABLE_DELETE_ROW_DESC","पंक्ति हटाएँ");//Delete row
+define("_EDITOR_TABLE_COL_BEFORE_DESC","पहले कॉलम डालें");//Insert column before
+define("_EDITOR_TABLE_COL_AFTER_DESC","स्तम्भ के बाद डालें");//Insert column after
+define("_EDITOR_TABLE_DELETE_COL_DESC","स्तंभ हटाएँ");//Remove column
+define("_EDITOR_TABLE_ROWTYPE","तालिका पंक्ति में भाग");//Row in table part
+define("_EDITOR_TABLE_TITLE","डालें / तालिका बदलें");//Insert/Modify table
+define("_EDITOR_TABLE_WIDTH","चौड़ाई");//Width
+define("_EDITOR_TABLE_HEIGHT","ऊँचाई");//Height
+define("_EDITOR_TABLE_COLS","स्तम्भ");//Columns
+define("_EDITOR_TABLE_ROWS","पंक्तियाँ");//Rows
+define("_EDITOR_TABLE_CELLSPACING","Cellspacing");//Cellspacing
+define("_EDITOR_TABLE_CELLPADDING","Cellpadding");//Cellpadding
+define("_EDITOR_TABLE_BORDER","सीमा");//Border
+define("_EDITOR_TABLE_ALIGN","संरेखण");//Alignment
+define("_EDITOR_TABLE_ALIGN_DEFAULT","चूक");//Default
+define("_EDITOR_TABLE_ALIGN_LEFT","छोड़ा");//Left
+define("_EDITOR_TABLE_ALIGN_RIGHT","सही");//Right
+define("_EDITOR_TABLE_ALIGN_MIDDLE","केन्द्र");//Center
+define("_EDITOR_TABLE_ROW_TITLE","तालिका पंक्ति गुण");//Table row properties
+define("_EDITOR_TABLE_CELL_TITLE","तालिका सेल गुण");//Table cell properties
+define("_EDITOR_TABLE_CELL_TYPE","सेल के प्रकार");//Cell type
+define("_EDITOR_TABLE_ROW_DESC","तालिका पंक्ति गुण");//Table row properties
+define("_EDITOR_TABLE_CELL_DESC","तालिका सेल गुण");//Table cell properties
+define("_EDITOR_TABLE_VALIGN","कार्यक्षेत्र संरेखण");//Vertical alignment
+define("_EDITOR_TABLE_ALIGN_TOP","चोटी");//Top
+define("_EDITOR_TABLE_ALIGN_BOTTOM","तली");//Bottom
+define("_EDITOR_TABLE_PROPS_DESC","तालिका गुण");//Table properties
+define("_EDITOR_TABLE_BORDERCOLOR","बॉर्डर का रंग");//Border color
+define("_EDITOR_TABLE_BGCOLOR","पृष्ठभूमि रंग");//Background color
+define("_EDITOR_TABLE_MERGE_CELLS_TITLE","मिलायें तालिका कोशिकाओं");//Merge table cells
+define("_EDITOR_TABLE_SPLIT_CELLS_DESC","भाजित तालिका कोशिकाओं");//Split table cells
+define("_EDITOR_TABLE_MERGE_CELLS_DESC","मिलायें तालिका कोशिकाओं");//Merge table cells
+define("_EDITOR_TABLE_CUT_ROW_DESC","काटें तालिका पंक्ति");//Cut table row
+define("_EDITOR_TABLE_COPY_ROW_DESC","तालिका पंक्ति की प्रतिलिपि बनाएँ");//Copy table row
+define("_EDITOR_TABLE_PASTE_ROW_BEFORE_DESC","चिपकाएँ तालिका पंक्ति से पहले");//Paste table row before
+define("_EDITOR_TABLE_PASTE_ROW_AFTER_DESC","तालिका पंक्ति के बाद चिपकाएँ");//Paste table row after
+define("_EDITOR_TABLE_ID","क्रमांक");//Id
+define("_EDITOR_TABLE_STYLE","शैली");//Style
+define("_EDITOR_TABLE_LANGDIR","भाषा दिशा");//Language direction
+define("_EDITOR_TABLE_LANGCODE","भाषा कोड");//Language code
+define("_EDITOR_TABLE_MIME","माइम प्रकार लक्ष्य");//Target MIME type
+define("_EDITOR_TABLE_LTR","दाएँ से बाएँ");//Left to right
+define("_EDITOR_TABLE_RTL","बाएँ अधिकार");//Right to left
+define("_EDITOR_TABLE_BGIMAGE","पृष्ठभूमि छवि");//Background image
+define("_EDITOR_TABLE_SUMMARY","सारांश");//Summary
+define("_EDITOR_TABLE_TD","डाटा");//Data
+define("_EDITOR_TABLE_TH","हैडर");//Header
+define("_EDITOR_TABLE_CELL_CELL","वर्तमान अद्यतन कोशिका");//Update current cell
+define("_EDITOR_TABLE_CELL_ROW","सभी कोशिकाओं में अद्यतन पंक्ति");//Update all cells in row
+define("_EDITOR_TABLE_CELL_ALL","अद्यतन सभी कोशिकाओं में सारणी");//Update all cells in table
+define("_EDITOR_TABLE_ROW_ROW","अद्यतन वर्तमान पंक्ति");//Update current row
+define("_EDITOR_TABLE_ROW_ODD","अद्यतन पंक्तियों में करीब सारणी");//Update odd rows in table
+define("_EDITOR_TABLE_ROW_EVEN","अद्यतन पंक्तियों में भी सारणी");//Update even rows in table
+define("_EDITOR_TABLE_ROW_ALL","अद्यतन तालिका में सभी पंक्तियाँ");//Update all rows in table
+define("_EDITOR_TABLE_THEAD","तालिका fead");//Table fead
+define("_EDITOR_TABLE_TBODY","शरीर के तालिका");//Table body
+define("_EDITOR_TABLE_TFOOT","तालिका पांव");//Table foot
+define("_EDITOR_TABLE_DEL","तालिका हटाएँ");//Delete table
+define("_EDITOR_TABLE_SCOPE","अवसर");//Scope
+define("_EDITOR_TABLE_ROW","पंक्ति");//Row
+define("_EDITOR_TABLE_COL","कर्नल");//Col
+define("_EDITOR_TABLE_ROWGROUP","पंक्ति समूह");//Row group
+define("_EDITOR_TABLE_COLGROUP","कर्नल समूह");//Col group
+define("_EDITOR_TABLE_COL_LIMIT","आपने पार की अधिकतम संख्या कॉलम शामिल हैं .");//You have exceeded the maximum number of columns.
+define("_EDITOR_TABLE_ROW_LIMIT","आपने पार की अधिकतम संख्या पंक्तियाँ .");//You have exceeded the maximum number of rows.
+define("_EDITOR_TABLE_CELL_LIMIT","आपने कोशिकाओं की अधिकतम संख्या को पार कर .");//You have exceeded the maximum number of cells.
+define("_EDITOR_TABLE_MISSING_SCOPE","क्या आप सुनिश्चित हैं कि आप जारी रखना चाहते हैं बिना यह निर्दिष्ट इस तालिका हेडर के लिए एक प्रकोष्ठ गुंजाइश है . इसके बिना , तो यह हो सकता है कुछ प्रयोक्ताओं के लिए मुश्किल से विकलांग को समझने की सामग्री या प्रदर्शित आंकड़ों की सारणी .");//Are you sure you want to continue without specifying a scope for this table header cell. Without it, it may be difficult for some users with disabilities to understand the content or data displayed of the table.
+define("_EDITOR_AUTOSAVE_AUTOSAVE_UNLOAD_MSG","आप इस बदलाव ने खो जाएगा यदि आप इस पृष्ठ पर जाएँ से दूर है .");//The changes you made will be lost if you navigate away from this page.
+define("_EDITOR_DIRECTIONALITY_DIRECTIONALITY_LTR_DESC","निर्देशन करने के लिए बचे अधिकार");//Direction left to right
+define("_EDITOR_DIRECTIONALITY_DIRECTIONALITY_RTL_DESC","निर्देशन के अधिकार के बाएँ");//Direction right to left
+define("_EDITOR_LAYER_INSERTLAYER_DESC","नई डालें परत");//Insert new layer
+define("_EDITOR_LAYER_FORWARD_DESC","आगे की ओर ले जाएँ");//Move forward
+define("_EDITOR_LAYER_BACKWARD_DESC","पीछे ले जाएँ");//Move backward
+define("_EDITOR_LAYER_ABSOLUTE_DESC","टॉगल निरपेक्ष स्थिति");//Toggle absolute positioning
+define("_EDITOR_LAYER_CONTENT","नई परत ...");//New layer...
+define("_EDITOR_NONBREAKING_DESC","निरंतर रिक्ति डालें चरित्र");//Insert non-breaking space character
+define("_EDITOR_THEME_THEME_STYLE_SELECT","-- शैलियाँ --");//-- Styles --
+define("_EDITOR_THEME_THEME_CODE_DESC","संपादित करें HTML स्रोत");//Edit HTML Source
+define("_EDITOR_THEME_THEME_CODE_TITLE","HTML स्रोत संपादक");//HTML Source Editor
+define("_EDITOR_THEME_THEME_CODE_WORDWRAP","Word कपड़े");//Word wrap
+define("_EDITOR_THEME_THEME_SUB_DESC","Subscript");//Subscript
+define("_EDITOR_THEME_THEME_SUP_DESC","Superscript");//Superscript
+define("_EDITOR_THEME_THEME_HR_DESC","क्षैतिज डालें शासक");//Insert horizontal ruler
+define("_EDITOR_THEME_THEME_REMOVEFORMAT_DESC","निकालें");//Remove formatting
+define("_EDITOR_THEME_THEME_CUSTOM1_DESC","आपका पसंदीदा यहां वर्णन");//Your custom description here
+define("_EDITOR_THEME_INSERT_IMAGE_BORDER","सीमा");//Border
+define("_EDITOR_THEME_INSERT_IMAGE_DIMENSIONS","आयाम");//Dimensions
+define("_EDITOR_THEME_INSERT_IMAGE_VSPACE","अंतरिक्ष कार्यक्षेत्र");//Vertical space
+define("_EDITOR_THEME_INSERT_IMAGE_HSPACE","क्षैतिज स्थान");//Horizontal space
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN","संरेखण");//Alignment
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_DEFAULT","-- निर्धारित नहीं --");//-- Not set --
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_BASELINE","बेसलाइन");//Baseline
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_TOP","चोटी");//Top
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_MIDDLE","मध्य");//Middle
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_BOTTOM","तली");//Bottom
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_TEXTTOP","TextTop");//TextTop
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_ABSMIDDLE","सम्पूर्ण मध्य");//Absolute middle
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_ABSBOTTOM","सम्पूर्ण नीचे");//Absolute bottom
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_LEFT","छोड़ा");//Left
+define("_EDITOR_THEME_INSERT_IMAGE_ALIGN_RIGHT","सही");//Right
+define("_EDITOR_THEME_THEME_FONT_SIZE","-- फ़ॉन्ट आकार --");//-- Font size --
+define("_EDITOR_THEME_THEME_FONTDEFAULT","-- फ़ॉन्ट परिवार --");//-- Font family --
+define("_EDITOR_THEME_THEME_BLOCK","-- स्वरूप है --");//-- Format --
+define("_EDITOR_THEME_THEME_PARAGRAPH","अनुच्छेद");//Paragraph
+define("_EDITOR_THEME_THEME_DIV","Div");//Div
+define("_EDITOR_THEME_THEME_ADDRESS","पता");//Address
+define("_EDITOR_THEME_THEME_PRE","Preformatted");//Preformatted
+define("_EDITOR_THEME_THEME_H1","शीर्षक 1");//Heading 1
+define("_EDITOR_THEME_THEME_H2","2 शीर्षक");//Heading 2
+define("_EDITOR_THEME_THEME_H3","शीर्षक 3");//Heading 3
+define("_EDITOR_THEME_THEME_H4","शीर्षक 4");//Heading 4
+define("_EDITOR_THEME_THEME_H5","शीर्षक 5");//Heading 5
+define("_EDITOR_THEME_THEME_H6","शीर्षक 6");//Heading 6
+define("_EDITOR_THEME_THEME_BLOCKQUOTE","Blockquote");//Blockquote
+define("_EDITOR_THEME_THEME_CODE","संहिता");//Code
+define("_EDITOR_THEME_THEME_SAMP","नमूना कोड");//Code sample
+define("_EDITOR_THEME_THEME_DT","परिभाषा शब्द");//Definition term 
+define("_EDITOR_THEME_THEME_DD","वर्णन परिभाषा");//Definition description
+define("_EDITOR_THEME_THEME_COLORPICKER_TITLE","एक रंग चुनें");//Select a color
+define("_EDITOR_THEME_THEME_COLORPICKER_APPLY","लागू करना");//Apply
+define("_EDITOR_THEME_THEME_FORECOLOR_DESC","पाठ रंग चुनें");//Select text color
+define("_EDITOR_THEME_THEME_BACKCOLOR_DESC","पृष्ठभूमि रंग चुनें");//Select background color
+define("_EDITOR_THEME_THEME_CHARMAP_TITLE","कस्टम चुनें चरित्र");//Select custom character
+define("_EDITOR_THEME_THEME_CHARMAP_DESC","कस्टम डालें चरित्र");//Insert custom character
+define("_EDITOR_THEME_THEME_VISUALAID_DESC","टॉगल दिशा निर्देशों / अदृश्य तत्वों");//Toggle guidelines/invisible elements
+define("_EDITOR_THEME_INSERT_ANCHOR_TITLE","डालें / लंगर संपादित करें");//Insert/edit anchor
+define("_EDITOR_THEME_INSERT_ANCHOR_NAME","ऐंकर नाम");//Anchor name
+define("_EDITOR_THEME_THEME_ANCHOR_DESC","डालें / लंगर संपादित करें");//Insert/edit anchor
+define("_EDITOR_THEME_THEME_INSERT_LINK_TITLEFIELD","शीर्षक");//Title
+define("_EDITOR_THEME_THEME_CLIPBOARD_MSG","कॉपी / काटें / चिपकाएँ में उपलब्ध नहीं है और मोज़िला फ़ायरफ़ॉक्स . क्या आप चाहते हैं कि इस मुद्दे के बारे में अधिक जानकारी है ?");//Copy/Cut/Paste is not available in Mozilla and Firefox.Do you want more information about this issue?
+define("_EDITOR_THEME_THEME_PATH","रास्ता");//Path
+define("_EDITOR_THEME_CUT_DESC","काटना");//Cut
+define("_EDITOR_THEME_COPY_DESC","प्रतिलिपि");//Copy
+define("_EDITOR_THEME_PASTE_DESC","चिपकाएँ");//Paste
+define("_EDITOR_THEME_LINK_LIST","लिंक सूची");//Link list
+define("_EDITOR_THEME_IMAGE_LIST","छवि सूची");//Image list
+define("_EDITOR_THEME_BROWSE","ब्राउज़ करें");//Browse
+define("_EDITOR_THEME_IMAGE_PROPS_DESC","छवि गुण");//Image properties
+define("_EDITOR_THEME_NEWDOCUMENT_DESC","नई दस्तावेज़");//New document
+define("_EDITOR_THEME_CLASS_NAME","कक्षा");//Class
+define("_EDITOR_THEME_NEWDOCUMENT","क्या आप सुनिश्चित हैं कि आप चाहते हैं कि सभी सामग्री स्पष्ट है ?");//Are you sure you want clear all contents?
+define("_EDITOR_THEME_ABOUT_TITLE","TinyMCE के बारे में");//About TinyMCE
+define("_EDITOR_THEME_ABOUT","के बारे में");//About
+define("_EDITOR_THEME_LICENSE","लाइसेंस");//License
+define("_EDITOR_THEME_PLUGINS","Plugins");//Plugins
+define("_EDITOR_THEME_PLUGIN","प्लगइन");//Plugin
+define("_EDITOR_THEME_AUTHOR","लेखक");//Author
+define("_EDITOR_THEME_VERSION","संस्करण");//Version
+define("_EDITOR_THEME_LOADED_PLUGINS","लोड plugins");//Loaded plugins
+define("_EDITOR_THEME_HELP","मदद");//Help
+define("_EDITOR_THEME_NOT_SET","-- निर्धारित नहीं --");//-- Not set --
+define("_EDITOR_THEME_CLOSE","बंद करना");//Close
+define("_EDITOR_THEME_TOOLBAR_FOCUS","Jump करने के लिए उपकरण बटन -- Alt + क्यू , Jump करने के लिए संपादक -- Alt - Z , Jump तत्व करने के लिए पथ -- Alt - X");//Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X
+define("_EDITOR_THEME_INVALID_DATA","त्रुटि : अवैध मान दर्ज किया , ये लाल रंग में चिह्नित हैं .");//Error: Invalid values entered, these are marked in red.
+define("_EDITOR_PASTE_PASTE_TEXT_DESC","सादा पाठ के रूप में चिपकाएँ");//Paste as plain text
+define("_EDITOR_PASTE_PASTE_TEXT_TITLE","Ctrl + V का प्रयोग करें अपने कुंजीपटल पर चस्पा करने के लिए पाठ में विंडो .");//Use CTRL+V on your keyboard to paste the text into the window.
+define("_EDITOR_PASTE_PASTE_TEXT_LINEBREAKS","linebreaks रखें");//Keep linebreaks
+define("_EDITOR_PASTE_PASTE_WORD_DESC","वर्ड से चिपकाएँ");//Paste from Word
+define("_EDITOR_PASTE_PASTE_WORD_TITLE","Ctrl + V का प्रयोग करें अपने कुंजीपटल पर चस्पा करने के लिए पाठ में विंडो .");//Use CTRL+V on your keyboard to paste the text into the window.
+define("_EDITOR_PASTE_SELECTALL_DESC","सभी चुनें");//Select all
+define("_EDITOR_FULLSCREEN_FULLSCREEN_DESC","टॉगल fullscreen मोड");//Toggle fullscreen mode (New)
+define("_EDITOR_LESSONSINFO_LANG_LESSONS_INFO_LINKDESCRIPTION","जाने के लिए: सबक जानकारी");//Go to: lessons info (New)
+define("_EDITOR_LESSONSINFO_LANG_LESSONS_INFO_DESC","सबक जानकारी कड़ी");//Lessons info link (New)
+define("_EDITOR_INDEXLINK_LANG_INDEX_LINK_LINKDESCRIPTION","लॉग इन");//Login (New)
+define("_EDITOR_INDEXLINK_LANG_INDEX_LINK_DESC","लॉगिन कड़ी");//Login link (New)
+define("_CHOOSELANGUGETOSYNC","सिंक्रनाइज़ करने के लिए भाषा चुनें");//Choose language to synchronize
+define("_INSERTJAVA","जावा फ़ाइल डालें");//Insert java file
+define("_INSERTMEDIA","मीडिया फ़ाइल डालें");//Insert media file
+define("_CHANGEORDER","क्रम बदलें");//Change order
+define("_DRAGITEMSTOCHANGEQUESTIONSORDER","खींचें आइटम के प्रदर्शन को बदलने के आदेश के प्रश्न");//Drag items to change the display order of the questions
+define("_TERM","शर्त");//Term
+define("_OPERATIONS","संचालन");//Operations
+define("_AREYOUSUREYOUWANTTODELETELESSON","क्या आप सुनिश्चित हैं कि आप सबक को नष्ट करना चाहते हैं ?");//Are you sure you want to delete lesson?
+define("_EDITLESSON","नालचिक सेटिंग्स");//Edit lesson
+define("_DIRECTIONS","श्रेणियाँ");//Categories
+define("_UPDATEDIRECTIONS","श्रेणियाँ संपादित करें");//Edit categories
+define("_PARENTDIRECTIONS","जनक श्रेणी");//Parent category
+define("_AREYOUSUREYOUWANTTODELETEDIRECTION","क्या आप सुनिश्चित हैं कि आप इस श्रेणी को नष्ट करना चाहते हैं ?");//Are you sure you want to delete the category?
+define("_YOUMUSTDELETEALLLESSONSANDSUBDIRECTIONSINTHISDIRECTIONBEFOREDELETINGIT","आप हटाना होगा और सभी के सभी सबक उपवर्ग है कि इस श्रेणी में संबंधित होने से पहले इसे हटाने");//You must delete all lessons and all subcategories that belong to this category before deleting it
+define("_ROOTDIRECTION","श्रेणी रूट ---- ----");//----Root category----
+define("_CHECK","जांचना");//Check
+define("_REQUIREDNOTE","* अनिवार्य खेतों");//*Mandatory fields
+define("_BEFOREJAVASCRIPTERROR","निम्न त्रुटि आई :");//The following errors occured:
+define("_AFTERJAVASCRIPTERROR","कृपया त्रुटियों को ठीक से ऊपर");//Please correct the above errors
+define("_ISMANDATORY","अनिवार्य है");//is mandatory
+define("_HASINVALIDCHARACTERS","अवैध अक्षर है");//has invalid characters
+define("_ONLYALLOWEDCHARACTERSLOGIN","केवल अक्षर और वर्ण <strong>है . -- @ _</strong> की अनुमति दी जाती है");//Only letters and the characters <strong>. - _ @</strong> are allowed
+define("_ALREADYEXISTS","पहले से मौजूद है");//already exists
+define("_PASSWORDSDONOTMATCH","यह पासवर्ड मेल नहीं खाते");//The passwords do not match
+define("_ONLYALLOWEDCHARACTERSTEXT","कृपया उद्धरण चिह्नों के उपयोग नहीं करते और अन्य विशेष अक्षर .");//Please do not use quotes and other special characters.
+define("_REPEATPASSWORD","पासवर्ड दोहराएँ");//Repeat password
+define("_TERMS","सेवा की शर्तें");//Terms of Service
+define("_REGISTRATIONFAILEDCONTACTADMIN","पंजीयन विफल . कृपया सिस्टम व्यवस्थापक से संपर्क करें .");//Registration failed. Please contact the system administrator.
+define("_THELOGIN","उपयोगकर्ता नाम");//The user name
+define("_THEEMAIL","ईमेल");//The email
+define("_PASSWORDMUSTBE6CHARACTERS","पासवर्ड कम से कम 6 अक्षर होना चाहिए");//Password must be at least 6 characters
+define("_DEFAULTCONTACTMESSAGE","मैं चाहूंगा कि इस पर होने की जानकारी दी और सामग्री के विनिर्देशों के अपने पाठ , और साथ ही साथ भागीदारी की आवश्यकताओं पर किसी भी पाठ्यक्रम");//I would like to be informed on the content and specifications of your lessons, as well as on any course participation requirements
+define("_DEFAULTTERMSOFUSAGE","eFront मंच की दृष्टि से उपयोग करने के लिए हर उपयोगकर्ता पंजीकरण की वर्तमान शिक्षा प्रणाली के ई का अनुपालन करना होगा पढ़ा है और निम्नलिखित उपयोग की दृष्टि से उचित है . 1 . यह प्रणाली के लिए निषिद्ध का उपयोग करने का प्रदर्शन के अलावा अन्य कारणों से सीखने की एक प्रक्रिया के रूप में उदाहरण के लिए : संवर्धन के उत्पादों या सेवाओं या इनमें से किसी भी संयोजन , व्यक्तिगत या अन्य व्यक्ति को प्रोत्साहन प्रथाओं , अपमान करने के लिए अन्य व्यक्ति , या तो पंजीकृत प्रणाली उपयोगकर्ताओं या नहीं");//\teFront platform terms of usage\n\nEvery user registering to the present e-learning system must read and comply with the following terms of proper usage.\n\n1. It is forbidden to use the system for reasons other than performing a learning procedure, as for example: Promotion of products or services or any combination of these, personal or other person promotional practices, affront to other person, either registered system users or not
+define("_YOUMUSTAGREEWITHTERMSOFUSAGETOCONTINUE","आपको इस बात से सहमत में उपयोग की शर्तों के साथ जारी रखने का आदेश");//You must agree with the terms of usage in order to continue
+define("_INVALIDFIELDDATA","अमान्य डेटा क्षेत्र");//Invalid field data
+define("_SUCCESFULLYINSERTEDNEWUNIT","नई इकाई के सफलतापूर्वक डाला");//Succesfully inserted new unit
+define("_ACCEPTTERMS","स्वीकार की दृष्टि से");//Accept terms
+define("_SUCCESFULLYUPDATEDUNIT","अद्यतन सफलतापूर्वक इकाई");//Succesfully updated unit
+define("_ACTIVE2","सक्रिय");//Active
+define("_ACTIVEFEM","सक्रिय");//Active
+define("_LESSONSNUMBER","सबक की संख्या");//Number of lessons
+define("_PARENTDIRECTION","जनक श्रेणी");//Parent category
+define("_EXPANDCOLLAPSE","संक्षिप्त / विस्तृत");//Expand/Collapse
+define("_RAWTEXT","रॉ पाठ");//Raw text
+define("_SUCCESFULLYADDEDTEST","परीक्षण सफलतापूर्वक जोड़ा गया");//Succesfully added test
+define("_SUCESSFULLYDELETEDTEST","परीक्षण सफलतापूर्वक हटा दिया गया");//Succesfully deleted test
+define("_SUCCESFULLYMODIFIEDTEST","संशोधित सफलतापूर्वक परीक्षण");//Succesfully modified test
+define("_USEQUESTION","प्रश्न का प्रयोग करें");//Use question
+define("_SHUFFLEANSWERS","उत्तर Shuffle");//Shuffle answers
+define("_SHUFFLEQUESTIONS","Shuffle प्रश्न");//Shuffle questions
+define("_QUESTIONS","प्रश्न");//Questions
+define("_INSERTMULTIPLEQUESTIONS","कई विकल्पों के डालें");//Insert the multiple choices
+define("_INSERTEXPLANATION","स्पष्टीकरण डालें");//Insert explanation
+define("_THISQUESTIONIS","यह सवाल यह है");//This question is
+define("_CREATEEMPTYSPACES","रिक्त स्थान खाली बनाएँ");//Create empty spaces
+define("_EMPTYSPACESEXPLANATION","प्रश्न लिखें और जहां आप पाठ को डालने की जरूरत है एक रिक्त स्थान , डालने # # # . जब आप काम कर रहे हैं , पर क्लिक करें \" खाली स्थान बनाएँ \" बटन के नीचे");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_INSERTMATCHCOUPLES","मिलान डालें जोड़ी");//Insert matching pairs
+define("_ADDOPTION","विकल्प जोड़ें");//Add option
+define("_GOTOCALENDAR","कैलेंडर पर जाएँ");//Go to calendar
+define("_EXPANDALL","सभी को विस्तृत करें");//Expand all
+define("_COLLAPSEALL","सभी संक्षिप्त करें");//Collapse all
+define("_SURVEY","सर्वेक्षण");//Survey
+define("_SURVEYADDEDSUCCESSFULLY","सर्वेक्षण में सफलतापूर्वक जोड़ा गया");//Survey added successfully
+define("_SURVEYFAILEDTOBEADDED","सर्वेक्षण करने में असफल रहे जोड़ा जा");//Survey failed to be added
+define("_SURVEYDELETEDSUCCESSFULLY","सर्वेक्षण में सफलतापूर्वक नष्ट कर दिया गया");//Survey deleted successfully
+define("_QUESTIONADDEDSUCCESSFULLY","प्रश्न सफलतापूर्वक जोड़ा गया");//Question added successfully
+define("_QUESTIONFAILEDTOBEADDED","जोड़ने के प्रश्न करने में असफल");//Failed to add question
+define("_CREATESURVEYQUESTION","सर्वेक्षण के लिए प्रश्न बनाएँ");//Create question for survey
+define("_CREATESURVEY","सर्वेक्षण बनाएँ");//Create survey
+define("_EDITSURVEY","सर्वेक्षण का संपादन करें");//Edit survey
+define("_NOSURVEYFORLESSON","नहीं है सर्वेक्षण के लिए सबक");//There is no survey for the lesson
+define("_NOQUESTIONSFORSURVEY","कोई प्रश्न के लिए सर्वेक्षण");//There are no questions for the survey
+define("_SURVEYCODE","संहिता");//Code
+define("_SURVEYNAME","नाम");//Name
+define("_SURVEYSTATUS","स्थिति");//Status
+define("_SURVEYNUMBEROFQUESTIONS","प्रश्न प्रमुखता");//Question cardinality
+define("_SURVEYAVALIABLEFROM","से उपलब्ध");//Availiable from
+define("_SURVEYUNTIL","जब तक");//Until
+define("_PUBLISH","प्रकाशित");//Publish
+define("_SURVEYSELECTION","चुनें");//Select
+define("_SELECTALL","सभी चुनें");//Select all
+define("_SURVEYINFO","उपशीर्षक के लिए सर्वेक्षण");//Subtitle for the survey
+define("_SURVEYINTROTEXT","प्रारंभिक सर्वेक्षण पाठ");//Survey introductory text
+define("_SURVEYENDTEXT","सर्वेक्षण को समाप्त पाठ");//Survey ending text
+define("_YES_NO","हाँ / नहीं");//Yes/No
+define("_SURVEYQUESTIONMULTIPLEONE","एकाधिक विकल्पों से एक उत्तर");//Multiple choices-one answer
+define("_SURVEYQUESTIONMULTIPLEMANY","एकाधिक के कई विकल्पों के उत्तर");//Multiple choices-multiple answers
+define("_ENTERMAILMESSAGE","संदेश");//Message
+define("_PLEASESELECTAVALIDTYPEOFQUESTION","कृपया एक मान्य प्रकार के प्रश्न के चयन में पिछले कदम है .");//Please select a valid type of question in the previous step.
+define("_SURVEYDATAUPDATEDSUCCESSFULLY","सर्वेक्षण के आंकड़ों से अद्यतन सफलतापूर्वक");//Survey data updated successfully
+define("_SURVEYDATAFAILEDTOBEUPDATED","सर्वेक्षण के आंकड़ों को अद्यतन करने में विफल रहे हो");//Survey data failed to be updated
+define("_QUESTIONDELETEDSUCCESSFULLY","प्रश्न सफलतापूर्वक नष्ट कर दिया गया");//Question deleted successfully
+define("_THEQUESTIONWASSUCCESSFULLYMOVED","इस प्रश्न के सफलतापूर्वक चला");//The question moved successfully
+define("_THEQUESTIONFAILEDTOBEMOVED","सवाल में स्थानांतरित करने में असफल रहे हो");//The question failed to be moved
+define("_NOSUCHOPERATION","कोई भी इस तरह के ऑपरेशन");//No such operation
+define("_SHOWDATAFORUNIT","यूनिट के लिए डाटा दिखाएँ");//Show data for unit
+define("_ALLUNITS","सभी इकाइयों");//All units
+define("_YOUMUSTUPLOADFILE","आपको एक फ़ाइल अपलोड करने के लिए संकेत");//You must indicate a file to upload
+define("_TOTALINSERTED","पूरी तरह से डाला");//Totally inserted
+define("_PERSONALOPTIONSFOR","निजी विकल्पों के लिए उपयोगकर्ता");//Personal options for user
+define("_LESSONOPTIONSFOR","विकल्प के लिए सबक");//Options for lesson
+define("_NEWLESSONOPTIONS","नई सबक विकल्प");//New lesson options
+define("_ROLES","प्रयोक्ता प्रकार");//User types
+define("_TYPENAME","नाम टाइप करें");//Type name
+define("_UPDATEUSERTYPEFOR","कर्मचारी के लिए अद्यतन का प्रकार");//Update user type for
+define("_SYSTEMANNOUNCEMENTS","सिस्टम घोषणाएँ");//System announcements
+define("_CREATEUNIT","इकाई बनाएँ");//Create unit
+define("_DONETIMES","पूरा टाइम्स");//Times completed
+define("_QUESTIONSTATISTICS","प्रश्न आंकड़े");//Question statistics
+define("_ADDQUESTIONOFTYPE","प्रश्न प्रकार जोड़ें");//Add question of type
+define("_NOSYSTEMANNOUNCEMENTSPOSTED","प्रणाली तैनात नहीं घोषणाएँ");//No system announcements posted
+define("_DURATIONINMINUTES","अवध्ि मिनटों में");//Duration in minutes
+define("_ADDCALENDAR","कैलेंडर में जोड़ें घटना");//Add calendar event
+define("_EVENTS","घटनाएँ");//events
+define("_NOEVENTSPLANNED","घटनाओं की योजना नहीं हैं");//There are no events planned
+define("_UNITOPERATIONS","आपरेशन यूनिट");//Unit operations
+define("_LESSONINFORMATION","नालचिक जानकारी");//Lesson information
+define("_GENERALDESCRIPTION","जनरल विवरण");//General description
+define("_OBJECTIVES","उद्देश्य");//Objectives
+define("_OTHERINFO","अन्य जानकारी");//Other information
+define("_ASSESSMENT","मूल्यांकन");//Assessment
+define("_RESOURCES","संसाधन");//Resources
+define("_LESSONTOPICS","चलिये विषय");//Lesson topics
+define("_NODESCRIPTIONSET","कोई विवरण नहीं है इस सेट के लिए सबक");//There is no description set for this lesson
+define("_HASINVALIDEMAILADDRESS","ईमेल पता अवैध है");//has invalid email address
+define("_SUCCESFULLYADDEDDIRECTION","सफलतापूर्वक जोड़ा श्रेणी");//Succesfully added category
+define("_SUCCESFULLYUPDATEDDIRECTION","श्रेणी सफलतापूर्वक अद्यतन");//Succesfully updated category
+define("_LESSONRULES","नालचिक नियम");//Lesson rules
+define("_BASEDONTERM","शब्द के आधार पर");//Based on term
+define("_HASNOTSEENTHEUNIT","यूनिट ने नहीं देखा");//Has not seen the unit
+define("_HASNOTPASSEDTHETEST","परीक्षण के पूर्ण नहीं है");//Has not completed the test
+define("_ALWAYS","हमेशा");//Always
+define("_WITHNAME","नाम के साथ");//With name
+define("_ANDSCOREGREATEROREQUAL","और स्कोर बराबर या उससे अधिक");//And score greater or equal to
+define("_INVALIDRULE","अवैध प्रकार नियम");//Invalid rule type
+define("_INVALIDSCORE","अवैध स्कोर");//Invalid score
+define("_SUCCESFULLYUPDATEDRULE","Succefully अद्यतन नियम");//Succefully updated rule
+define("_SUCCESFULLYINSERTEDRULE","Succefully डाला नियम");//Succefully inserted rule
+define("_ADDRULE","नियम जोड़ें");//Add rule
+define("_RULEDELETED","नियम सफलतापूर्वक नष्ट कर दिया गया");//Rule deleted successfully
+define("_NEWSURVEYPUBLISHED","सर्वेक्षण :");//Survey:
+define("_DOSURVEY","क्या इस सर्वेक्षण");//Do the survey
+define("_THANKYOU","धन्यवाद");//Thank you
+define("_THISEMAIL","यह ईमेल");//This email
+define("_CONTAINSINFORMATIONABOUTYOURACCOUNTINTHEPLATFORM","अपने खाते के बारे में जानकारी में मंच");//contains information about your account in the platform
+define("_SURVEYPUBLISHEDSUCCESSFULLY","सर्वेक्षण प्रकाशित सफलतापूर्वक");//Survey published sucessfully
+define("_STARTSURVEY","सर्वेक्षण आरंभ");//Start survey
+define("_SURVEYSUBMISSIONSUCCESSFUL","सर्वेक्षण में सफलतापूर्वक प्रस्तुत");//Survey submitted successfully
+define("_YOUCANNOTACCESSTHISPAGE","आप इस पृष्ठ का उपयोग नहीं कर सकते");//You cannot access this page
+define("_NOCONTENTFOUND","कोई सामग्री");//No content
+define("_EDITLESSONSDIRECTION","श्रेणी सबक");//Category lessons
+define("_EXTERNALLYSIGNUP","विदेशी पंजीकरण");//External signup
+define("_EVENT","घटना");//Event
+define("_EDITEVENT","घटना संपादित करें");//Edit event
+define("_DELETEEVENT","हटाएँ घटना");//Delete event
+define("_ADDEVENT","घटना जोड़ें");//Add event
+define("_SUCCESFULLYADDEDEVENT","सफलतापूर्वक जोड़ा घटना");//Succesfully added event
+define("_SUCCESFULLYUPDATEDEDEVENT","अद्यतन सफलतापूर्वक घटना");//Succesfully updated event
+define("_SUCCESFULLYDELETEDEVENT","सफलतापूर्वक हटा दिया गया घटना");//Succesfully deleted event
+define("_SHOWALLEVENTS","सभी दिखाएँ घटनाएँ");//Show all events
+define("_NOEVENTSPLANNEDTHISWEEK","घटनाओं की योजना नहीं हैं इस सप्ताह");//There are no events planned this week
+define("_NOEVENTSPLANNEDTHISMONTH","कोई इस महीने की घटनाओं की योजना बनाई है");//There are no events planned this month
+define("_NOEVENTSPLANNEDTODAY","नहीं हैं इस दिन की घटनाओं की योजना बनाई है");//There are no events planned this day
+define("_SHOWDAYEVENTS","इस दिन की घटनाओं को दिखाएँ");//Show this day&#039;s events
+define("_SHOWWEEKEVENTS","इस सप्ताह की घटनाओं दिखाएँ");//Show this week&#039;s events
+define("_SHOWMONTHEVENTS","इस महीने की घटनाओं दिखाएँ");//Show this month&#039;s events
+define("_SUBTITLE","उपशीर्षक");//Subtitle
+define("_SURVEYSTATISTICS","सर्वेक्षण रिपोर्ट");//Survey reports
+define("_PROJECT","परियोजना");//Project
+define("_DEADLINE","Deadline");//Deadline
+define("_ADDPROJECT","परियोजना में जोड़ें");//Add project
+define("_PROJECTCREATEDSUCCESSFULLY","परियोजना को सफलतापूर्वक बनाया");//Project created successfully
+define("_PROJECTUPDATEDSUCCESSFULLY","परियोजना को सफलतापूर्वक अद्यतन");//Project updated successfully
+define("_CREATOR","निर्माता");//Creator
+define("_EDITPROJECT","परियोजना का संपादन करें");//Edit project
+define("_NOPROJECTS","इस परियोजनाओं के लिए कोई सबक");//There are no projects for this lesson
+define("_SURVEYDONE","सर्वेक्षण किया");//Survey done
+define("_DONESURVEYUSERS","सर्वेक्षण में भाग लेने");//Survey participants
+define("_SURVEYPREVIEWFORUSER","सर्वेक्षण के लिए उपयोगकर्ता पूर्वावलोकन :");//Survey preview for user:
+define("_QUESTIONSKIND","प्रकार का प्रश्न");//Questions types
+define("_QUESTIONUPDATEDSUCCESSFULLY","प्रश्न अद्यतन सफलतापूर्वक");//Question updated successfully
+define("_QUESTIONFAILEDTOBEUPDATED","प्रश्न का अद्यतन करने में विफल रहे हो");//Question failed to be update
+define("_INVALIDPERCENTAGE","अवैध प्रतिशत");//Invalid percentage
+define("_PASSEDALLUNITS","देखा सभी यूनिटों");//Seen all units
+define("_PERCENTAGEUNITS","देखा इकाइयों का एक हिस्सा");//Seen a fraction of units
+define("_SPECIFICUNIT","देखा एक विशेष इकाई");//Seen a specific unit
+define("_PASSEDALLTESTS","सभी परीक्षण उत्तीर्ण");//Passed all tests
+define("_SPECIFICTEST","उत्तीर्ण एक विशिष्ट परीक्षण");//Passed a specific test
+define("_INVALIDCONDITION","अमान्य स्थिति");//Invalid condition
+define("_THEUSERMUSTHAVE","इस छात्र होना चाहिए");//The student must have
+define("_UNITSPERCENTAGE","प्रतिशत");//Percentage
+define("_SUCCESFULLYADDEDCONDITION","सफलतापूर्वक जोड़ा स्थिति");//Succesfully added condition
+define("_SUCCESFULLYUPDATEDCONDITION","सफलतापूर्वक अद्यतन स्थिति");//Succesfully updated condition
+define("_SUCCESFULLYDELETEDCONDITION","सफलतापूर्वक हटा दिया गया स्थिति");//Succesfully deleted condition
+define("_LESSONCONDITIONS","नालचिक पूरा करने की स्थिति");//Lesson completion conditions
+define("_ADDCONDITION","स्थिति जोड़ें");//Add condition
+define("_CONDITION","दशा");//Condition
+define("_CONDITIONTYPE","दशा के प्रकार");//Condition type
+define("_RELATIONTOOTHERS","दूसरों के संबंध");//Relation to others
+define("_SCROLLTOTOPOFPAGE","स्क्रॉल करने के लिए पृष्ठ शीर्ष");//Scroll to top of page
+define("_SCROLLTOBOTTOMOFPAGE","नीचे स्क्रॉल करने के लिए पृष्ठ");//Scroll to bottom of page
+define("_NOUSERHAVEDONETHISSURVEYYET","कर्मचारी ने नहीं किया है फिर भी इस सर्वेक्षण");//No employee has done this survey yet
+define("_SYSTEM","सिस्टम");//System
+define("_EMAILCONFIGURATIONS","ई मेल सर्वर विन्यास");//E-mail server configuration
+define("_SAWUNIT","पूरी यूनिट के रूप में सेट करें");//Set the unit as completed
+define("_NOTSAWUNIT","यूनिट के रूप में सेट पूरा नहीं");//Set the unit as not completed
+define("_CONDITIONSCOMPLETED","शर्तों को पूरा");//Conditions completed
+define("_OUTOF","बाहर");//out of
+define("_LESSONPROGRESS","नालचिक प्रगति");//Lesson progress
+define("_YOUMUSTSEEUNIT","आपको देखना होगा कि इकाई");//You must see unit
+define("_YOUMUSTSEEALLUNITS","आपको देखना होगा कि सभी यूनिटों");//You must see all units
+define("_OFLESSONUNITS","इकाइयों का सबक");//of lesson units
+define("_YOUMUSTSEE","आपको देखना होगा कि");//You must see
+define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","आप सभी को पूरा करना चाहिए परीक्षणों के साथ स्कोर का मतलब है");//You must complete all tests with mean score
+define("_YOUMUSTCOMPLETETEST","आपको पूर्ण परीक्षण");//You must complete test
+define("_WITHSCORE","स्कोर के साथ");//with score
+define("_NOCONDITIONSSET","परिस्थितियों के लिए निर्धारित नहीं हैं इस सबक");//There are no conditions set for this lesson
+define("_CONDITIONS","शर्तें");//conditions
+define("_RESUMELESSON","चालू सबक");//Resume lesson
+define("_STARTLESSON","आरंभ सबक");//Start lesson
+define("_TRACKING","ट्रैकिंग");//Tracking
+define("_FORMATCERTIFICATE","प्रमाण पत्र प्रारूप");//Format certificate
+define("_TRAFFIC","आवागमन");//Traffic
+define("_LESSONTRAFFIC","यातायात नालचिक");//Lesson traffic
+define("_EDITTEST","संपादित करें का परीक्षण");//Edit test
+define("_EDITQUESTION","प्रश्न का संपादन करें");//Edit question
+define("_CERTIFICATE","प्रमाणपत्र");//Certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","प्रमाणपत्र अद्यतन सफलतापूर्वक");//Succesfully updated certificate
+define("_EDITCONDITION","स्थिति संपादित करें");//Edit condition
+define("_SMTPSERVERCONFIGURATIONS","SMTP सर्वर विन्यास");//SMTP server Configuration
+define("_SMTPSERVER","SMTP सर्वर");//SMTP server
+define("_SMTPPASSWORD","SMTP पासवर्ड");//SMTP password
+define("_SMTPPORT","SMTP सर्वर का पोर्ट");//Server SMTP port
+define("_TOTALACCESS","accesses की कुल संख्या");//Total number of accesses
+define("_ACCESSNUMBER","accesses की संख्या");//Number of accesses
+define("_LESSONTRAFFICANALYSIS","विश्लेषण के आवागमन के नालचिक");//Analysis of Lesson&#039;s Traffic
+define("_SETTINGS","रूपरेखा");//Settings
+define("_LESSONACCESS","की संख्या सबक &#39; accesses");//Number of lessons&#039; accesses
+define("_ACCESSPERLESSON","Accesses की संख्या प्रति नालचिक");//Number of Accesses per Lesson
+define("_NOFILESFOUNDDIGITALLIBRARY","किसी भी नहीं हैं फ़ाइलों में डिजिटल लाइब्रेरी");//There aren&#039;t any files in the digital library
+define("_BLANKFORUNLIMITED","असीमित के लिए खाली छोड़ दें");//Leave blank for unlimited
+define("_CERTIFICATES","प्रमाण पत्र");//Certificates
+define("_NOUSERDATAFOUND","कर्मचारी कार्य प्रगति पर डाटा नहीं मिला");//No employee progress data found
+define("_ISSUECERTIFICATE","निर्गम प्रमाणपत्र");//Issue certificate
+define("_LESSONFILES","फाइल नालचिक");//Lesson files
+define("_TOTALACCESSTIME","कुल पहुँच समय");//Total access time
+define("_DEFAULTPAGE","डिफ़ॉल्ट पृष्ठ");//Default page
+define("_NEWPAGE","नई पृष्ठ");//New page
+define("_UPDATEPAGES","अद्यतन पृष्ठों");//Update pages
+define("_PAGECONTENT","सामग्री पृष्ठ");//Page content
+define("_UPDATEPAGE","अद्यतन पृष्ठ");//Update page
+define("_TOTALSTATISTICS","कुल आँकड़े");//Total statistics
+define("_LOGINS","लॉगइन");//Logins
+define("_USENONE","का प्रयोग करें कोई नहीं");//Use none
+define("_PAGEDELETED","पृष्ठ हटा दिया गया");//Page deleted
+define("_AREYOUSUREYOUWANTTODELETEPAGE","क्या आप सुनिश्चित हैं कि आप पृष्ठ को हटाना चाहते हैं ?");//Are you sure you want to delete page?
+define("_SUCCESFULLYADDEDPAGE","पेज सफलतापूर्वक जोड़ा गया");//Page added successfully
+define("_LESSONMAINPAGE","नालचिक मुख्य पृष्ठ");//Lesson main page
+define("_GOTOPROJECTS","परियोजनाओं पर जाएँ");//Go to projects
+define("_ACCESSSTATISTICS","पहुँच आँकड़े");//Access statistics
+define("_ANALYTICLOG","विश्लेषणात्मक लॉग इन");//Analytic log
+define("_SHOWANALYTICLOG","विश्लेषणात्मक लॉग दिखाएँ");//Show analytic log
+define("_SHOWALLLESSONS","सभी दिखाएँ सबक");//Show all lessons
+define("_CHATROOMDEACTIVATEDBYADMIN","चैट रूम प्रशासक के द्वारा निष्क्रिय");//Chat room deactivated by administrator
+define("_IPADDRESS","आईपी पता");//IP address
+define("_YOUHAVEALREADYUPLOADEDAFILE","आपके पास पहले से ही एक फ़ाइल अपलोड");//You have uploaded a file
+define("_FILEDELETEDSUCCESSFULLY","फ़ाइल सफलतापूर्वक नष्ट कर दिया गया");//File deleted successfully
+define("_GRADE","ग्रेड");//Grade
+define("_PROFESSORCOMMENTS","प्रोफेसर टिप्पणियाँ");//Professor comments
+define("_DEADLINEPASSEDYOUCANNOLONGERUPLOADFILES","समय सीमा के पास है . आप फाइल को अपलोड नहीं कर सकते हैं .");//The deadline has passed. You can no longer upload files.
+define("_UPLOADEDFILE","फ़ाइल अपलोड");//Uploaded file
+define("_CMS","विदेश पृष्ठों");//External pages
+define("_YOUMAYNOTSIGNUPCONTACTADMINISTRATOR","आप साइन अप नहीं कर सकते हैं , सिस्टम व्यवस्थापक से संपर्क");//You may not sign up; contact the system administrator
+define("_OPERATIONCOMPLETEDSUCCESFULLY","ऑपरेशन को सफलतापूर्वक पूरा किया");//Operation completed successfully
+define("_REMOVECHOICE","निकालें का चयन");//Remove choice
+define("_SURVEYDISABLEDSUCCESSFULLY","सर्वेक्षण में अक्षम सफलतापूर्वक");//Survey disabled successfully
+define("_SURVEYENABLEDSUCCESSFULLY","सर्वेक्षण में सक्षम है सफलतापूर्वक");//Survey enabled successfully
+define("_SURVEYSUBMIT","सर्वेक्षण भेजें");//Submit survey
+define("_ROWSPERPAGE","पंक्तियाँ प्रति पृष्ठ");//Rows per page
+define("_FILTER","फ़िल्टर");//Filter
+define("_OF","का");//of
+define("_SENDALSOVIAEMAIL","ईमेल के माध्यम से आमंत्रण भेजें");//Send invitation via e-mail
+define("_STYLE","शैली");//Style
+define("_MENU","मेनू");//Menu
+define("_SELECTION","चयन");//Selection
+define("_SMTPCONFIGURATIONARECORRECT","इस configurations के एसएमटीपी सर्वर सही हैं");//The configurations of the Smtp server are correct
+define("_SMTPCONFIGURATIONERROR","यह एक त्रुटि के साथ configurations कृपया एसएमटीपी सर्वर प्रशासक से संपर्क");//There is an error with the configurations please contact Smtp server administrator
+define("_ADDNEWFIELD","नए क्षेत्र में जोड़ें");//Add new field
+define("_FIELDCREATED","इस क्षेत्र बनाया गया था");//The field was created
+define("_FIELDUPDATED","इस क्षेत्र नवीनीकृत हुआ");//The field was updated
+define("_LESSONSCORE","नालचिक स्कोर");//Lesson score
+define("_COMPLETED","पूर्ण");//Completed
+define("_NOTCOMPLETED","पूरा नहीं");//Not completed
+define("_CONDITIONSMET","मुलाकात की और शर्तों की स्वीकृति की प्रतीक्षा कर");//Conditions met and awaiting approval
+define("_STUDENTSTATUSCHANGED","छात्र सबक स्थिति बदल सफलतापूर्वक");//Student lesson status changed successfully
+define("_MUSTBENUMERIC","संख्यात्मक होना चाहिए");//Must be numeric
+define("_DEFAULTCERTIFICATE","eFront elearning मंच संगठन certifies कि user_name # # # # user_surname ने सफलतापूर्वक पूरा course_name # # # ग्रेड ग्रेड के साथ यह प्रमाणपत्र जारी किया गया था पर # # # तारीख");//eFront elearning platform organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
+define("_NOQUESTIONSTOCORRECT","प्रश्न करने के लिए सही नहीं हैं");//There are no questions to correct
+define("_RESTTESTSCORE","शेष के स्कोर पर परीक्षण");//Score at the remaining of the test
+define("_CORRECTQUESTION","सही प्रश्न");//Correct question
+define("_FILEMANAGER","फ़ाइल प्रबंधक");//File manager
+define("_NOFILESFOUND","फाइल नहीं मिला");//No files found
+define("_LASTMODIFIED","अंतिम बदलाव");//Last modified
+define("_KB","KB");//KB
+define("_UPONELEVEL","एक स्तर ऊपर");//Up one level
+define("_DOWNLOADFILE","संचिका डाउनलोड");//Download file
+define("_ZIPANDDOWNLOAD","फ़ाइल डाउनलोड करें और सेक");//Compress file and download
+define("_COMPRESSTOZIP","सेक करने के लिए ज़िप");//Compress to zip
+define("_SELECT","चुनें");//Select
+define("_WITHSELECTEDFILES","चयनित फ़ाइलों के साथ");//With selected files
+define("_UNCOMPRESS","Uncompress");//Uncompress
+define("_UNZIPFILE","फ़ाइल Unzip");//Unzip file
+define("_OVERWRITEFILESWITHSAMENAME","एक ही नाम के साथ फाइल अधिलेखित");//Overwrite files with the same name
+define("_UPLOAD","अपलोड करें");//Upload
+define("_SUCCESFULLYCREATEDFOLDER","फ़ोल्डर को सफलतापूर्वक बनाया");//Folder created successfully
+define("_CANNOTDELETEFILE","फ़ाइल को नष्ट नहीं कर सकता");//Cannot delete file
+define("_FILEWILLUNZIPINFOLDERWITHSAMENAME","फ़ाइल जाएगा असम्पीडित में एक फ़ोल्डर के साथ एक ही नाम");//The file will be uncompressed in a folder with the same name
+define("_FILEALREADYEXISTS","फ़ाइल पहले से मौजूद है");//File already exists
+define("_ROOTDIR","रूट फ़ोल्डर");//Root folder
+define("_GOTOCORRECTQUESTIONS","प्रश्नों के सही पन्ने पर जाएँ");//Go to questions correct page
+define("_THEREARE","हैं");//There are
+define("_YOUCANNOTACCESSTHISLESSONORITDOESNOTEXIST","या तो आप इस सबक नहीं पहुँच सकते हैं , या इस सबक मौजूद नहीं है");//Either you may not access this lesson, or this lesson does not exist
+define("_SHOWSIDEBAR","साइडबार दिखाएँ");//Show sidebar
+define("_HIDESIDEBAR","साइडबार छिपाएँ");//Hide sidebar
+define("_YOURPROJECTSCOREIS","आपका स्कोर");//Your score
+define("_USERSEXPORTUSINGCSVFORMATCOMMA","निर्यात डेटा का उपयोग करते हुए कर्मचारियों csv प्रारूप ( के साथ अलग हो \" , \" \" )");//Export employees data using csv format (separated with &quot;,&quot;)
+define("_USERSEXPORTUSINGCSVFORMATQM","निर्यात डेटा का उपयोग करते हुए कर्मचारियों csv प्रारूप ( अलग से \" \" ; \" )");//Export employees data using csv format (separated with &quot;;&quot;)
+define("_SHOWGIVENANSWERS","उत्तर दिया दिखाएँ");//Show given answers
+define("_SHOWRIGHTANSWERS","सही उत्तरों दिखाएँ");//Show correct answers
+define("_COULDNOTBESEND","भेजा नहीं जा सका");//Could not be sent
+define("_ENVIRONMENTALCHECK","पर्यावरण की जाँच");//Environmental check
+define("_REPAIRTREE","पुनर्स्थापित वृक्ष");//Restore tree
+define("_RULEPROPERTIES","गुण नियम");//Rule properties
+define("_CONDITIONPROPERTIES","दशा गुण");//Condition properties
+define("_ORPHANLESSONFOLDERSCHECK","अनाथ सबक फ़ोल्डर की जाँच");//Orphan lesson folders check
+define("_LESSONSWITHOUTFOLDERSCHECK","सबक फ़ोल्डर की जाँच के बिना");//Lessons without folders check
+define("_FOLDERSWITHOUTALESSONASSOCIATED","निम्न फ़ोल्डर नहीं है सबक संबद्ध");//The following folders do not have a lesson associated
+define("_LESSONSWITHOUTAFOLDER","निम्नलिखित सबक नहीं है फ़ोल्डर");//The following lessons do not have a folder
+define("_PROBLEM","समस्या");//Problem
+define("_CLEANUP","साफ करना");//Clean up
+define("_OK","ठीक है");//OK
+define("_PEMANENTLYDELETEFOLLOWINGFOLDERS","यह क्रिया स्थायी रूप से हटाना होगा निम्न फ़ोल्डर");//This action will permanently delete the following folders
+define("_PEMANENTLYDELETEFOLLOWINGLESSONS","यह क्रिया स्थायी रूप से हटाना होगा निम्नलिखित सबक");//This action will permanently delete the following lessons
+define("_CREATEFOLLOWINGLESSONFOLDERS","इस कार्रवाई के लिए तैयार करेंगे फ़ोल्डर्स में निम्नलिखित सबक");//This action will create folders for the following lessons
+define("_AREYOUSURE","क्या आप सुनिश्चित हैं ?");//Are you sure?
+define("_CHECKAGAIN","फिर से जाँच");//Check again
+define("_GENERICQUERIES","सामान्य प्रश्न");//Generic queries
+define("_SENDINFOVIAEMAIL","ईमेल खाते में प्रवेश जानकारी भेजें");//Send login information in email account
+define("_NOONEHASBEENASSIGNEDTHISPROJECT","इस परियोजना के लिए आवंटित नहीं किया गया है किसी भी छात्र");//This project has not been assigned to any student
+define("_PROJECTINFO","परियोजना जानकारी");//Project information
+define("_ANNOUNCEMENTGO","घोषणाएँ पृष्ठ पर जाएँ");//Go to announcements page
+define("_PROJECTAVERAGESCOREFORLESSON","औसत स्कोर की परियोजनाओं के लिए सबक");//Average score for lesson&#039;s projects
+define("_NEWPOLL","नया जनमत");//New poll
+define("_NOBOOKMARKSFOUND","बुकमार्क नहीं पाया");//No bookmarks found
+define("_FOLDERSTATISTICS","फ़ोल्डर आँकड़े");//Folder statistics
+define("_DROPAUNITTOCOPY","ड्रॉप को कॉपी करने के लिए यह एक इकाई को निर्दिष्ट स्थान");//Drop a unit to copy it to the designated position
+define("_DRAGAUNITTOCOPY","खींचें को कॉपी करने के लिए यह यूनिट");//Drag the unit to copy it
+define("_ERROR","त्रुटि");//Error
+define("_ERRORUPLOADINGFILE","फ़ाइल अपलोड करने में त्रुटि");//Error uploading file
+define("_EDITANNOUNCEMENT","संपादित करें घोषणा");//Edit announcement
+define("_ANNOUNCEMENT","घोषणा");//Announcement
+define("_THEFOLLOWINGFOLDERSCOULDNOTBEDELETED","निम्न फ़ोल्डर नहीं किया जा सका नष्ट कर दिया गया");//The following folders could not be deleted
+define("_SUCCESFULLYCLEANEDUPFOLDERS","साफ तक सफलतापूर्वक फ़ोल्डर्स");//Succesfully cleaned up folders
+define("_THEFOLLOWINGLESSONSCOULDNOTBEDELETED","निम्नलिखित सबक नहीं किया जा सका नष्ट कर दिया गया");//The following lessons could not be deleted
+define("_SUCCESFULLYCLEANEDUPLESSONS","सबक साफ तक सफलतापूर्वक");//Succesfully cleaned up lessons
+define("_SUCCESFULLYCREATEDLESSONFOLDERS","सफलतापूर्वक बनाया सबक फ़ोल्डर्स");//Succesfully created lesson folders
+define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","इस फ़ोल्डर में निम्नलिखित के लिए सबक नहीं बनाया जा सकता है");//The folders for the following lessons could not be created
+define("_EDITCONTENT","सामग्री का संपादन करें");//Edit content
+define("_NORMALSTATUS","सामान्य स्थिति");//Normal status
+define("_APPLICATIONPENDING","आवेदन लंबित है . प्रेस \" भेजें \" को सत्यापित करने के लिए");//Application pending. Press &quot;Submit&quot to verify
+define("_SUCCESS","सफलता");//Success
+define("_WARNING","चेतावनी");//Warning
+define("_DEFINITIONCOULDNOTBEINSERTED","परिभाषा नहीं किया जा सका डाला");//Definition could not be inserted
+define("_SUCCESFULLYUPDATEDDEFINITION","अद्यतन सफलतापूर्वक परिभाषा");//Succesfully updated definition
+define("_SUCCESFULLYDELETEDDEFINITION","सफलतापूर्वक हटा दिया गया परिभाषा");//Succesfully deleted definition
+define("_DEFINITIONCOULDNOTBEUPDATED","Deinition अद्यतन नहीं किया जा सका");//Deinition could not be updated
+define("_SUBMITTERM","शब्द भेजें");//Submit term
+define("_EDITDEFINITION","संपादित करें परिभाषा");//Edit definition
+define("_NOFOLDERSFOUNDTOCOPYTO","फ़ोल्डरों को कॉपी करने के लिए नहीं हैं / स्थानांतरित करने के लिए");//There are no folders to copy/move to
+define("_SCORMFILE","फ़ाइल SCORM");//SCORM file
+define("_SMILIES","Smilies");//Smilies
+define("_SURVEYS","सर्वेक्षण");//Surveys
+define("_MODULES","मॉड्यूल्स");//Modules
+define("_INSTALLMODULE","स्थापित मॉड्यूल");//Install module
+define("_COULDNOTOPENZIPFILE","इस ज़िप फ़ाइल को खोला नहीं जा सका");//The ZIP file could not be opened
+define("_MODULEINFORMATION","मॉड्यूल जानकारी");//Module information
+define("_MODULESUCCESFULLYINSTALLED","इस मॉड्यूल सफलतापूर्वक स्थापित किया गया था");//The module was successfully installed
+define("_DESCRIPTIONFILECOULDNOTBEFOUND","इस मॉड्यूल स्थापित नहीं किया जा सका है क्योंकि फाइल विवरण , module.xml , नहीं मिला .");//The module could not be installed because the description file, module.xml, was not found.
+define("_SUCCESFULLYDELETEDMODULE","इस मॉड्यूल सफलतापूर्वक हटा दिया गया था");//The module was successfully deleted
+define("_AUTHOR","लेखक");//Author
+define("_VERSION","संस्करण");//Version
+define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","csv फ़ाइल के क्षेत्रों में अपने क्षेत्रों में निम्नलिखित शामिल होना चाहिए");//The fields in your csv file must contain the following fields
+define("_IFEMPTYNEWPASSWORD","लाल क्षेत्रों में अनिवार्य हैं . यदि नहीं है पासवर्ड दिया , प्रारम्भिक पासवर्ड सेट किया जाएगा प्रवेश के समान ही है .");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_PLEASECHECKYOURCSVFILEFORMAT","कृपया जाँचें कि आपके CSV फ़ाइल प्रारूप");//Please check the format of your CSV file
+define("_CERTIFICATEINSTRUCTIONS","# # का उपयोग करें user_name के लिए उपयोगकर्ता का नाम , # # user_surname के लिए उपयोगकर्ता के उपनाम , # # course_name के लिए पाठ्यक्रम का नाम , ग्रेड # # # के लिए ग्रेड के लिए तिथि और तिथि # .");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_VOTES","वोट");//Votes
+define("_PERCENTAGE","प्रतिशत");//Percentage
+define("_CERTIFICATEISSUED","प्रमाणपत्र जारी");//Certificate issued
+define("_ISSUE","मुद्दा");//Issue
+define("_PROBLEMISSUINGCERTIFICATE","यह प्रमाणपत्र जारी नहीं किया जा सका");//The certificate could not be issued
+define("_REVOKECERTIFICATE","प्रमाणपत्र रद्द");//Revoke certificate
+define("_VIEWCERTIFICATE","देखें प्रमाणपत्र");//View certificate
+define("_CERTIFICATEREVOKED","यह प्रमाणपत्र रद्द किया गया था सफलतापूर्वक");//The certificate was revoked successfully
+define("_PROBLEMREVOKINGCERTIFICATE","यह प्रमाणपत्र रद्द नहीं किया जा सका");//The certificate could not be revoked
+define("_CHECKFORUPDATES","अद्यतन के लिए जाँचें");//Check for updates
+define("_MODULEUPDATE","अद्यतन मॉड्यूल");//Update module
+define("_PENDING","लम्बित");//Pending
+define("_DEADLINEPASSED","इस समय सीमा में पारित");//The deadline has passed
+define("_PROJECTFINISHED","इस परियोजना के समाप्त हो गया");//The project is finished
+define("_FILEUPLOADEDAWAITINGGRADE","फ़ाइल अपलोड की गई थी , लेकिन इस परियोजना वर्गीकृत अभी तक नहीं किया गया है .");//The file was uploaded, but the project has not been graded yet.
+define("_LOCKDOWN","लॉक डाउन");//Lock down
+define("_LOCKDOWNFROM","लॉक डाउन प्रणाली से");//Lock down system from
+define("_LOCKDOWNTO","सिस्टम को लॉक डाउन");//Lock down system to
+define("_DISPLAYINDEXMESSAGE","सूचना संदेश प्रदर्शित करने के पहले पृष्ठ प्रणाली");//Display notification message to system first page
+define("_SETANNOUNCEMENT","एक सिस्टम सेट घोषणा");//Set a system announcement
+define("_NOLESSONSFOUND","कोई सबक मिला");//No lessons found
+define("_SUCCESFULLYSETORDER","इस आदेश में सबक पाठ्यक्रम को सफलतापूर्वक स्थापित किया गया था");//The lessons order in course was set successfully 
+define("_PROBLEMSETTINGORDER","इस आदेश में इस पाठ्यक्रम को सबक निर्धारित नहीं की जा सकती है");//The lessons order in the course could not be set
+define("_ENABLEDAPI","सक्रिय है XML API");//Enabled XML API
+define("_OLDUPGRADEBACKUPS","पुराने उन्नयन बैकअप");//Old upgrade backups
+define("_CLEANUPALL","सभी को साफ");//Clean up all
+define("_THISOPERATIONALTERSYSTEM","यह ऑपरेशन होगा और डेटा फ़ाइलों से स्थायी रूप से हटाने की व्यवस्था है . क्या आप बिल्कुल सुनिश्चित हैं ?");//This operation will permanently delete data and files from the system. Are you absolutely sure?
+define("_SMTPAUTH","SMTP प्रमाणीकरण");//SMTP authentication
+define("_FLAG","फ्लैग");//Flag
+define("_SETNORMALPRIORITY","प्राथमिकता सेट करने के लिए सामान्य");//Set priority to normal
+define("_SETHIGHPRIORITY","सेट करने के लिए उच्च प्राथमिकता");//Set priority to high
+define("_YOUMUSTSELECTMESSAGESTOFLAG","आप संदेशों को चुनना होगा ध्वज");//You must select messages to flag
+define("_SYSTEMEMAIL","ईमेल प्रणाली");//System email
+define("_MAXFILESIZE","अधिकतम फ़ाइल आकार");//Maximum file size
+define("_SUCCESFULLYUPDATECONFIGURATION","सफलतापूर्वक अद्यतन विन्यास चर");//Succesfully updated configuration variables
+define("_COULDNOTUPDATE","अद्यतन नहीं कर सका");//Could not update
+define("_WITHVALUE","मूल्य से");//with value
+define("_INVALIDFIELDDATAFORFIELD","क्षेत्र के लिए अमान्य डेटा");//Invalid data for field
+define("_LDAPVARIABLES","LDAP सर्वर विन्यास");//LDAP server configuration
+define("_EMAILCOULDNOTBESENDBECAUSE","इस ईमेल को भेजा नहीं जा सका");//The email could not be sent
+define("_EMAILSENDTOYOURADDRESS","यह ईमेल भेजने के लिए अपना ईमेल पता था");//The email was send to your email address
+define("_YOUMUSTFIRSTCREATEDIRECTION","बनाने के लिए एक सबक है , तो आप अवश्य एक प्रथम श्रेणी बनाएँ");//In order to create a lesson, you must first create a category
+define("_SAVEQUESTIONANDCREATENEW","सहेजें और बनाने के एक अन्य प्रश्न");//Save question and create another
+define("_SAVEASNEWQUESTION","नया प्रश्न के रूप में सहेजें");//Save as new question
+define("_SUCCESFULLYUPDATEDPOLL","सर्वेक्षण से सफलतापूर्वक अपडेट किया गया");//The poll was updated successfully
+define("_YOUHAVESEENALLCONTENT","आपने पूरा सभी सामग्री");//You have completed all content
+define("_CONDITIONMET","दशा से मिले");//Condition met
+define("_CONDITIONNOTMET","दशा नहीं मिले");//Condition not met
+define("_OLDMODULES","पुराने मॉड्यूल");//Old modules
+define("_PHPLDAPEXTENSIONISNOTLOADED","PHP का विस्तार LDAP लोड नहीं है");//The PHP LDAP extension is not loaded
+define("_LESSONCONDITIONSCOMPLETED","आप पूरी की शर्तों को पूरा सबक है . यह सबक के रूप में सेट करने की जरूरत है प्रोफेसर के द्वारा पूरी की");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCOMPLETE","पूरा नालचिक");//Lesson completed
+define("_CERTIFICATEISSUEDSUCCESFULLY","प्रमाणपत्र जारी सफलतापूर्वक");//Certificate issued successfully
+define("_NOTITLE","शीर्षक कोई");//No title
+define("_AUTOMATICCERTIFICATES","स्वचालित प्रमाण पत्र");//Automatic certificates
+define("_OFF","बंद");//off
+define("_POLLDELETEDSUCCESSFULLY","सर्वेक्षण से सफलतापूर्वक नष्ट कर दिया गया");//The poll was deleted successfully
+define("_POLLS","मतगणना");//Polls
+define("_TWOOPTIONSATMINIMUMREQUIRED","इस समय कम से कम दो विभिन्न विकल्पों के लिए आवश्यक हैं चुनाव");//At minimum two different options are required for the poll
+define("_POLL","पोल");//Poll
+define("_VOTE","वोट");//Vote
+define("_YOUHAVEALREADYVOTED","आपने पहले ही इस चुनाव के लिए मतदान");//You have already voted for this poll
+define("_SUCCESFULLYVOTED","आपका वोट दिया गया है submited");//Your vote has been submited
+define("_VIEWRESULTS","परिणाम देखें");//View results
+define("_TOTALVOTES","कुल वोट");//Total votes
+define("_SUBMITTEST","परीक्षण भेजें");//Submit test
+define("_RATEMUSTBEBETWEEN1100","यह स्कोर 1 और 100 के बीच होना चाहिए श्रेणी");//The score must range between 1 and 100
+define("_NUMOFQUESTIONS","प्रश्नों की संख्या");//Number of questions
+define("_TESTDURATION","परीक्षण अवधि");//Test duration
+define("_QUESTIONSARESHOWN","प्रश्न दिखाए जाते हैं");//Questions are shown
+define("_YOUCANDOTHETEST","आप कर सकते हैं परीक्षण");//You can do the test
+define("_DONETIMESSOFAR","आपके पास अब तक इस परीक्षण किया");//So far you have done this test
+define("_ALLTOGETHER","सभी एक साथ");//All together
+define("_ONEBYONEQUESTIONS","एक एक करके");//One by one
+define("_TIMES","बार");//times
+define("_LDAPACCOUNTPASSWORD","LDAP खाता पासवर्ड");//LDAP account password
+define("_USELDAPACCOUNT","अपने खाते का उपयोग करें LDAP क्रेडेंशियल्स का उपयोग करने के लिए इस प्रणाली");//Use your LDAP account credentials in order to use the system
+define("_ONLYLDAPREGISTRATIONPERMITTED","केवल एक वैध LDAP खाते का प्रयोग करते हुए पंजीकरण की अनुमति है");//Only registration using a valid LDAP account is permitted
+define("_GENERALLYAVAILABLE","आमतौर पर उपलब्ध है");//is generally available
+define("_DELETECONDITION","स्थिति को हटाएँ");//Delete condition
+define("_ADDFORUMPOSTONTHISUNIT","इस यूनिट के लिए संदेश पोस्ट मंच");//Post forum message for this unit
+define("_AUTOCOMPLETE","स्वतः पूर्ण");//Auto complete
+define("_DUPLICATESARENOTALLOWED","आप का उपयोग नहीं कर सकते सबक में एक दो बार एक ही नियम");//You can&#039;t use twice the same lesson in a rule
+define("_TIMEINLESSON","समय में सबक");//Time in lesson
+define("_ACCOUNTACTIVATIONMAILSUBJECT","खाता सक्रियण ईमेल");//Account activation email
+define("_YOUWILLRECEIVEMAILFORACCOUNTACTIVATION","आप एक ईमेल प्राप्त करेंगे आपके खाते को सक्रिय करने के लिए");//You will receive an email to activate your account
+define("_ACCOUNTACTIVATIONMAILBODY","eFront eLearning मंच में आपका स्वागत है . नीचे दी गई कड़ी का पालन अपने खाते को सक्रिय करने के लिए :");//Welcome to eFront eLearning platform. Follow link below to activate your account:
+define("_ACCOUNTSUCCESSFULLYACTIVATED","आपका खाता सफलतापूर्वक सक्रिय");//Your account was successfully activated
+define("_SUCCESSFULLYINSERTEDVALUES","मूल्यों को सफलतापूर्वक डाला");//Successfully inserted values
+define("_NEWFORUM","नई मंच");//New forum
+define("_FORUMS","मंच");//Forums
+define("_FORUMADDEDSUCCESSFULLY","फोरम में सफलतापूर्वक जोड़ा गया");//Forum added succesfully
+define("_FORUMUPDATEDSUCCESSFULLY","फोरम अद्यतन सफलतापूर्वक");//Forum updated succesfully
+define("_ACCESSIBLEBYUSERSOFLESSON","के लिए सबक");//For lesson
+define("_FORUMDELETEDSUCCESSFULLY","फोरम सफलतापूर्वक नष्ट कर दिया गया");//Forum deleted succesfully
+define("_ACCESSIBLEBY","तक पहुँचा");//Accessible by
+define("_NEWFORUM","नई मंच");//New forum
+define("_ROOTUNIT","--- रूट इकाई ----");//---Root unit----
+define("_GENERICLESSONINFO","सबक सामान्य जानकारी");//Generic lesson info
+define("_LOGRECORD","प्रवेश करें रिकॉर्ड");//Log record
+define("_NOFORUMPOSTSYET","इस पोस्ट में नहीं हैं फिर भी मंच");//There are no posts in this forum yet
+define("_NOTOPICSFOUNDINTHISFORUM","ऐसे में कोई विषय नहीं हैं इस मंच");//There are no topics in this forum
+define("_NOMESSAGESFOUNDINTHISTOPIC","कोई संदेश में इस विषय");//There are no messages in this topic
+define("_AVAILABLEFROM","से उपलब्ध");//Available from
+define("_SUCCESSFULLYADDEDPOLL","चुनाव सफलतापूर्वक जोड़ा गया");//Successfully added poll
+define("_RECIPIENT","प्राप्तकर्ता");//Recipient
+define("_SENDASEMAILALSO","ईमेल के रूप में भी भेजें");//Send also as email
+define("_NOSUBJECT","कोई विषय नहीं");//No subject
+define("_THEMESSAGEWASNOTSENTASEMAIL","ईमेल संदेश नहीं किया जा सका");//The message could not be emailed
+define("_TOTALLOGINTIME","कुल प्रणाली में समय");//Total time in system
+if (defined('MODULE_HCD_INTERFACE') && MODULE_HCD_INTERFACE == 1) {
+define("_THENEWFORMOFADDITIVELEARNING","eLearning विकास और मानव पूंजी");//eLearning and Human Capital Development
+define("_AUTOMATICUSERACTIVATION","स्वचालित कर्मचारी सक्रियण");//Automatic employee activation
+define("_USERSEXPORT","कर्मचारियों का निर्यात");//Export employees
+define("_USERSIMPORT","कर्मचारियों का आयात");//Import employees
+define("_NEWUSERS","नई कर्मचारियों");//New employees
+define("_USER","कर्मचारी");//Employee
+define("_CHOOSEUSER","कर्मचारी चयन");//Select employee
+define("_USERS","कर्मचारी");//Employees
+define("_ALLSYSTEMUSERS","सभी कर्मचारियों प्रणाली");//All system employees
+define("_USERSCONNECTEDTOSPECIFICCOURSE","कर्मचारी शामिल पाठ्यक्रम के साथ");//Employees involved with course
+define("_USERSCONNECTEDTOSPECIFICLESSON","कर्मचारी शामिल से सबक");//Employees involved with lesson
+define("_SPECIFICTYPEUSERS","विशिष्ट प्रकार के कर्मचारियों को");//Specific type of employees
+define("_USERTYPE","शिक्षार्थी मूल के प्रकार");//Basic learner type
+define("_ACTIVEUSER","सक्रिय कर्मचारी");//Active employee
+define("_USERDELETED","कर्मचारी नष्ट कर दिया गया .");//Employee was deleted.
+define("_THEUSER","इस कर्मचारी");//The employee
+define("_CHOOSEUSERTODISCONNECT","कर्मचारी चयन करने के लिए एक डिस्कनेक्ट");//Select a employee to disconnect
+define("_LOGOUTUSER","लॉग आउट कर्मचारी");//Log out employee
+define("_THEREARENOOTHERUSERSRIGHTNOWINTHISROOM","वर्तमान में कोई कर्मचारी इस चैट रूम");//No employee currently in this chat room
+define("_USERSONLINE","कर्मचारी ऑनलाइन");//Employees online
+define("_ANDTHEMESSAGESOFUSER","और संदेशों के कर्मचारी");//And the messages of employee
+define("_ALLUSERS","सभी कर्मचारियों");//All employees
+define("_INVALIDUSER","अवैध कर्मचारी का नाम");//Invalid employee name
+define("_REPLACEEXISTINGUSERS","कर्मचारियों डुप्लिकेट बदलें");//Replace duplicate employees
+define("_KEEPEXISTINGUSERS","डुप्लिकेट कर्मचारियों रखें");//Keep duplicate employees
+define("_NOOTHERUSERSONLINE","वर्तमान में कोई अन्य कर्मचारियों ऑनलाइन");//No other employees currently online
+define("_USERNAME","कर्मचारी का नाम");//Employee name
+define("_STATISTICSFORUSER","रिपोर्ट के लिए कर्मचारी");//Reports for employee
+define("_GENERALUSERINFO","कर्मचारी सामान्य जानकारी");//General employee information
+define("_USERCOMMUNICATIONINFO","कर्मचारी के बारे में जानकारी संचार");//Employee information on communication
+define("_USERUSAGEINFO","कर्मचारी प्रणाली के उपयोग के बारे में जानकारी");//Employee information on system usage
+define("_THEUSERHASNOTDONEANYTESTSINTHISLESSON","पूर्ण नहीं किया गया है किसी भी कर्मचारी के परीक्षणों में इस सबक");//The employee has not completed any tests in this lesson
+define("_USERSTATISTICS","कर्मचारी रिपोर्टें");//Employee reports
+define("_REPORTSFORUSER","कर्मचारी के लिए रिपोर्टें");//Reports for employee (New)
+define("_OTHERUSERSINROOM","अन्य कर्मचारियों के कमरे में");//Other employees in the room
+define("_NOMESSAGESFOUNDFORTHISINTERVALANDUSER","कोई संदेश नहीं मिला अंतराल के लिए निर्दिष्ट है , कक्ष और कर्मचारी");//No messages found for the specified interval, room and employee
+define("_INVITEUSERS","कर्मचारियों को आमंत्रित करें");//Invite employees
+define("_SPECIFICUSER","विशिष्ट कर्मचारी");//Specific employee
+define("_ALLACTIVESYSTEMUSERS","सभी कर्मचारियों को सक्रिय प्रणाली");//All active system employees
+define("_WAITINGFORUSER","कर्मचारी के लिए प्रतीक्षारत");//Waiting for employee
+define("_YOUHAVEINVITEDUSER","आपने आमंत्रित कर्मचारी");//You have invited employee
+define("_DEARUSER","प्रिय कर्मचारी");//Dear employee
+define("_ISVISIBLEFROMOTHERUSERS","दर्शनीय से किसी भी कर्मचारी हैं ?");//Visible from any employee?
+define("_CUSTOMIZEUSERSPROFILE","अनुकूलित कर्मचारी प्रोफ़ाइल");//Customize employee profile
+define("_USERAVERAGESCOREFORLESSON","औसत स्कोर के लिए सबक के परीक्षणों");//Average score for lesson&#039;s tests
+define("_USERISONLINE","इस कर्मचारी है ऑनलाइन");//The employee is online
+define("_USERJUSTLOGGEDIN","यह केवल कर्मचारी लॉग इन");//The employee just logged in
+define("_UPDATEUSERSTOLESSONS","निरुपित कर्मचारियों को सबक");//Assign employees to lesson
+define("_EDITUSERSLESSON","उपयोगकर्ताओं नालचिक");//Lesson users
+define("_NEWUSER","नई कर्मचारी");//New employee
+define("_UPDATEUSERS","कर्मचारियों को अद्यतन");//Update employees
+define("_EDITUSER","कर्मचारी सेटिंग्स");//Employee settings
+define("_EDITUSEREDIT","संपादित करें कर्मचारी");//Edit employee (New)
+define("_ADDUSERSTOSURVEY","कर्मचारियों को इस सर्वेक्षण में जोड़ें");//Add employees to the survey
+define("_UPDATEUSERTYPES","अद्यतन कर्मचारी प्रकार");//Update employee types
+define("_EDITUSERTYPE","संपादित करें कर्मचारी के प्रकार");//Edit employee type (New)
+define("_OPTIONSUSERTYPEFOR","कर्मचारी प्रकार के लिए विकल्प");//Options for employee type (New)
+define("_NEWUSERTYPE","नई कर्मचारी के प्रकार");//New employee type
+define("_BASICUSERTYPE","कर्मचारी मूल के प्रकार");//Basic employee type
+define("_AREYOUSUREYOUWANTTODELETEUSERTYPE","क्या आप सुनिश्चित हैं कि आप प्रकार कर्मचारी को नष्ट करना चाहते हैं ?");//Are you sure you want to delete employee type?
+define("_SUCCESFULLYUPDATEDUSERTYPE","कर्मचारी प्रकार नवीनीकृत हुआ सफलतापूर्वक");//Employee type was updated successfully
+define("_SUCCESFULLYADDEDUSERTYPE","कर्मचारी प्रकार सफलतापूर्वक जोड़ा गया है");//Employee type was added successfully
+define("_USERSMANAGEMENT","कर्मचारी प्रबंध");//Employees management
+define("_AREYOUSUREYOUWANTTODELETEUSER","क्या आप सुनिश्चित हैं कि आप कर्मचारी को नष्ट करना चाहते हैं ?");//Are you sure you want to delete employee?
+define("_USERTYPEDELETED","कर्मचारी प्रकार नष्ट कर दिया गया");//Employee type deleted
+define("_EDITUSERSCOURSE","कर्मचारियों के पाठ्यक्रम");//Course employees
+define("_USERDEACTIVATED","कर्मचारी निष्क्रिय");//Employee deactivated
+define("_USERACTIVATED","कर्मचारी सक्रिय");//Employee activated
+define("_USERSKIND","कर्मचारी प्रकार");//Employee types
+define("_USERTYPES","कर्मचारी प्रकार");//Employee types
+define("_SMTPUSER","SMTP लॉगिन");//SMTP login
+define("_USERCREATED","कर्मचारी बनाया");//Employee created
+define("_USERTRAFFIC","कर्मचारी यातायात");//Employee&#039;s traffic
+define("_USERSPROGRESS","कर्मचारी स्थिति");//Employees status
+define("_THEUSERHASNOTCOMPLETEDTHELESSON","इस कर्मचारी ने इस सबक अभी तक पूरा नहीं");//The employee has not completed this lesson yet
+define("_MOSTACTIVEUSERS","अधिकांश कर्मचारियों को सक्रिय");//Most active employees
+define("_5MOSTACTIVEUSERS","5 सबसे सक्रिय कर्मचारियों");//5 most active employees
+define("_NOUSERFORTHISSURVEYYET","इस सर्वेक्षण के कर्मचारियों के लिए अभी तक नहीं है .");//No employees for this survey yet.
+define("_SHOWALLUSERS","सभी कर्मचारियों को दिखाएँ");//Show all employees
+define("_THEREARENOLESSONSDEFINEDFORTHEUSERLANGUAGE","सबक नहीं हैं परिभाषित के लिए कर्मचारियों की भाषा");//There are no lessons defined for the employees&#39;s language
+define("_VIEWUSERLESSONPROGRESS","देखें प्रगति के छात्र पूरे सबक");//View the student progress throughout the lesson
+define("_USERCAPITAL","कर्मचारी");//Employee
+define("_USERSDATA","आयात / निर्यात कर्मचारियों");//Import/Export employees
+define("_ORPHANUSERFOLDERSCHECK","अनाथ कर्मचारी फ़ोल्डर की जाँच");//Orphan employee folders check
+define("_USERSWITHOUTFOLDERSCHECK","फ़ोल्डर की जाँच के बिना कर्मचारी");//Employees without folders check
+define("_FOLDERSWITHOUTAUSERASSOCIATED","निम्न फ़ोल्डर नहीं है संबंधित कर्मचारी");//The following folders do not have a employee associated
+define("_USERSWITHOUTAFOLDER","निम्नलिखित एक फ़ोल्डर में कर्मचारियों की जरूरत नहीं है");//The following employees do not have a folder
+define("_PEMANENTLYDELETEFOLLOWINGUSERS","इस कार्रवाई करेगा कर्मचारियों को स्थायी रूप से हटाने के निम्नलिखित");//This action will permanently delete the following employees
+define("_CREATEFOLLOWINGUSERFOLDERS","यह क्रिया पैदा होंगे फ़ोल्डर्स के कर्मचारियों के लिए निम्नलिखित");//This action will create folders for the following employees
+define("_USERPROGRESS","कर्मचारी कार्य प्रगति पर");//Employee progress
+define("_LOGOUTUSERS","लॉग आउट कर्मचारियों ऑनलाइन");//Log out employees online
+define("_USERTRACKINGINFORMATION","कर्मचारी ट्रैकिंग जानकारी");//Employee tracking information
+define("_MAILUSERACTIVATION","कर्मचारी ईमेल द्वारा सक्रियकरण");//Employee activation by email
+define("_USERSMAYADDFORUMS","कर्मचारी जोड़ सकते मंचों");//Employees may add forums
+define("_NONEWAPPLICATIONS","नए कर्मचारियों में से कोई आवेदन");//No application from new employees
+define("_EXPORTUSERSDATA","कर्मचारियों डेटा निर्यात");//Export employees data
+define("_IMPORTUSERSDATA","कर्मचारियों डेटा आयात");//Import employees data
+define("_THEUSERHASNOTBEENASSIGNEDANYPROJECT","कोई भी इस परियोजना सौंपी गई है कर्मचारी");//No project has been assigned to this employee
+define("_SUCCESFULLYCLEANEDUPUSERS","सफाई कर्मचारियों तक सफलतापूर्वक");//Succesfully cleaned up employees
+define("_SUCCESFULLYCREATEDUSERFOLDERS","कर्मचारी सफलतापूर्वक बनाया फ़ोल्डर्स");//Succesfully created employee folders
+define("_THEFOLLOWINGUSERFOLDERSCOULDNOTBECREATED","निम्नलिखित कर्मचारी फ़ोल्डर्स नहीं बनाया जा सकता है");//The following employee folders could not be created
+define("_GROUP","कर्मचारी वर्ग");//Employee group
+define("_USERSINFO","कर्मचारी जानकारी");//Employees info
+define("_PROFESSORSINFO","प्रोफेसर जानकारी");//Professors info
+define("_EMPLOYEEWASASSIGNEDGROUP","कर्मचारी वर्ग को सौंपा गया");//Employee was assigned to group
+define("_EMPLOYEEWASRELEASEDFROMGROUP","कर्मचारी समूह से जारी किया गया था");//Employee was released from group
+define("_PROFESSORCAPITAL","प्रोफेसर");//Professor
+define("_STUDENTROLE","कर्मचारी भूमिका");//Employee role
+define("_PROFESSORROLE","प्रोफेसर भूमिका");//Professor role
+} else {
+define("_THENEWFORMOFADDITIVELEARNING","eLearning विकास और मानव पूंजी");//Refreshing eLearning
+define("_AUTOMATICUSERACTIVATION","स्वचालित कर्मचारी सक्रियण");//Automatic user activation
+define("_USERSEXPORT","कर्मचारियों का निर्यात");//Export users
+define("_USERSIMPORT","कर्मचारियों का आयात");//Import users
+define("_NEWUSERS","नई कर्मचारियों");//New users
+define("_USER","कर्मचारी");//User
+define("_CHOOSEUSER","कर्मचारी चयन");//Select user
+define("_USERS","कर्मचारी");//Users
+define("_ALLSYSTEMUSERS","सभी कर्मचारियों प्रणाली");//All system users
+define("_USERSCONNECTEDTOSPECIFICCOURSE","कर्मचारी शामिल पाठ्यक्रम के साथ");//Users involved with specific course
+define("_USERSCONNECTEDTOSPECIFICLESSON","कर्मचारी शामिल से सबक");//Users involved with specific lesson
+define("_SPECIFICTYPEUSERS","विशिष्ट प्रकार के कर्मचारियों को");//Specific type of users
+define("_USERTYPE","शिक्षार्थी मूल के प्रकार");//User type
+define("_ACTIVEUSER","सक्रिय कर्मचारी");//Active user
+define("_USERDELETED","कर्मचारी नष्ट कर दिया गया .");//User deleted.
+define("_THEUSER","इस कर्मचारी");//The user
+define("_CHOOSEUSERTODISCONNECT","कर्मचारी चयन करने के लिए एक डिस्कनेक्ट");//Select a user to disconnect
+define("_LOGOUTUSER","लॉग आउट कर्मचारी");//Log out user
+define("_THEREARENOOTHERUSERSRIGHTNOWINTHISROOM","वर्तमान में कोई कर्मचारी इस चैट रूम");//No user currently in this chat room
+define("_USERSONLINE","कर्मचारी ऑनलाइन");//Users online
+define("_ANDTHEMESSAGESOFUSER","और संदेशों के कर्मचारी");//And the messages of user
+define("_ALLUSERS","सभी कर्मचारियों");//All users
+define("_INVALIDUSER","अवैध कर्मचारी का नाम");//Invalid user name
+define("_REPLACEEXISTINGUSERS","कर्मचारियों डुप्लिकेट बदलें");//Replace duplicate users
+define("_KEEPEXISTINGUSERS","डुप्लिकेट कर्मचारियों रखें");//Keep duplicate users
+define("_NOOTHERUSERSONLINE","वर्तमान में कोई अन्य कर्मचारियों ऑनलाइन");//No other users currently online
+define("_USERNAME","कर्मचारी का नाम");//User name
+define("_STATISTICSFORUSER","रिपोर्ट के लिए कर्मचारी");//Reports for user
+define("_GENERALUSERINFO","कर्मचारी सामान्य जानकारी");//General user information
+define("_USERCOMMUNICATIONINFO","कर्मचारी के बारे में जानकारी संचार");//User information on communication
+define("_USERUSAGEINFO","कर्मचारी प्रणाली के उपयोग के बारे में जानकारी");//User information on system usage
+define("_THEUSERHASNOTDONEANYTESTSINTHISLESSON","पूर्ण नहीं किया गया है किसी भी कर्मचारी के परीक्षणों में इस सबक");//The user has not completed any tests in this lesson
+define("_USERSTATISTICS","कर्मचारी रिपोर्टें");//User reports
+define("_REPORTSFORUSER","उपयोगकर्ता के लिए रिपोर्टें");//Reports for user (New)
+define("_OTHERUSERSINROOM","अन्य कर्मचारियों के कमरे में");//Other users in the room
+define("_NOMESSAGESFOUNDFORTHISINTERVALANDUSER","कोई संदेश नहीं मिला अंतराल के लिए निर्दिष्ट है , कक्ष और कर्मचारी");//No messages found for the specified interval, room and user
+define("_INVITEUSERS","कर्मचारियों को आमंत्रित करें");//Invite users
+define("_SPECIFICUSER","विशिष्ट कर्मचारी");//Specific user
+define("_ALLACTIVESYSTEMUSERS","सभी कर्मचारियों को सक्रिय प्रणाली");//All active system users
+define("_WAITINGFORUSER","कर्मचारी के लिए प्रतीक्षारत");//Waiting for user
+define("_YOUHAVEINVITEDUSER","आपने आमंत्रित कर्मचारी");//You have invited user
+define("_DEARUSER","प्रिय कर्मचारी");//Dear user
+define("_ISVISIBLEFROMOTHERUSERS","दर्शनीय से किसी भी कर्मचारी हैं ?");//Visible from any user?
+define("_CUSTOMIZEUSERSPROFILE","अनुकूलित कर्मचारी प्रोफ़ाइल");//Customize user profile
+define("_USERISONLINE","इस कर्मचारी है ऑनलाइन");//The user is online
+define("_USERJUSTLOGGEDIN","यह केवल कर्मचारी लॉग इन");//The user just logged in
+define("_UPDATEUSERSTOLESSONS","निरुपित कर्मचारियों को सबक");//Select lesson users
+define("_EDITUSERSLESSON","उपयोगकर्ताओं नालचिक");//Lesson users
+define("_NEWUSER","नई कर्मचारी");//New user
+define("_UPDATEUSERS","कर्मचारियों को अद्यतन");//Update users
+define("_EDITUSER","कर्मचारी सेटिंग्स");//User settings
+define("_EDITUSEREDIT","संपादित करें उपयोगकर्ता");//Edit user (New)
+define("_ADDUSERSTOSURVEY","कर्मचारियों को इस सर्वेक्षण में जोड़ें");//Add users to the survey
+define("_UPDATEUSERTYPES","अद्यतन कर्मचारी प्रकार");//Update user types
+define("_EDITUSERTYPE","संपादित करें प्रयोक्ता प्रकार");//Edit user type (New)
+define("_OPTIONSUSERTYPEFOR","प्रयोक्ता प्रकार के लिए विकल्प");//Options for user type (New)
+define("_NEWUSERTYPE","नई कर्मचारी के प्रकार");//New user type
+define("_BASICUSERTYPE","कर्मचारी मूल के प्रकार");//Basic user type
+define("_AREYOUSUREYOUWANTTODELETEUSERTYPE","क्या आप सुनिश्चित हैं कि आप प्रकार कर्मचारी को नष्ट करना चाहते हैं ?");//Are you sure you want to delete user type?
+define("_SUCCESFULLYUPDATEDUSERTYPE","कर्मचारी प्रकार नवीनीकृत हुआ सफलतापूर्वक");//User type was updated successfully
+define("_SUCCESFULLYADDEDUSERTYPE","कर्मचारी प्रकार सफलतापूर्वक जोड़ा गया है");//User type was added successfully
+define("_USERSMANAGEMENT","कर्मचारी प्रबंध");//Users management
+define("_AREYOUSUREYOUWANTTODELETEUSER","क्या आप सुनिश्चित हैं कि आप कर्मचारी को नष्ट करना चाहते हैं ?");//Are you sure you want to delete user?
+define("_USERTYPEDELETED","कर्मचारी प्रकार नष्ट कर दिया गया");//User type deleted
+define("_EDITUSERSCOURSE","कर्मचारियों के पाठ्यक्रम");//Course users
+define("_USERDEACTIVATED","कर्मचारी निष्क्रिय");//User deactivated
+define("_USERACTIVATED","कर्मचारी सक्रिय");//User activated
+define("_USERSKIND","कर्मचारी प्रकार");//User types
+define("_USERTYPES","कर्मचारी प्रकार");//User types
+define("_SMTPUSER","SMTP लॉगिन");//SMTP user
+define("_USERCREATED","कर्मचारी बनाया");//User created
+define("_USERTRAFFIC","कर्मचारी यातायात");//User&#039;s traffic
+define("_USERSPROGRESS","कर्मचारी स्थिति");//Users status
+define("_THEUSERHASNOTCOMPLETEDTHELESSON","इस कर्मचारी ने इस सबक अभी तक पूरा नहीं");//The user has not completed this lesson yet
+define("_MOSTACTIVEUSERS","अधिकांश कर्मचारियों को सक्रिय");//Most active users
+define("_5MOSTACTIVEUSERS","5 सबसे सक्रिय कर्मचारियों");//5 most active users
+define("_NOUSERFORTHISSURVEYYET","इस सर्वेक्षण के कर्मचारियों के लिए अभी तक नहीं है .");//No users for this survey yet.
+define("_SHOWALLUSERS","सभी कर्मचारियों को दिखाएँ");//Show all users
+define("_THEREARENOLESSONSDEFINEDFORTHEUSERLANGUAGE","सबक नहीं हैं परिभाषित के लिए कर्मचारियों की भाषा");//There are no lessons defined for the users&#39;s language
+define("_VIEWUSERLESSONPROGRESS","देखें प्रगति के छात्र पूरे सबक");//View the student progress throughout the lesson
+define("_USERCAPITAL","कर्मचारी");//User
+define("_USERSDATA","आयात / निर्यात कर्मचारियों");//Import/Export users
+define("_ORPHANUSERFOLDERSCHECK","अनाथ कर्मचारी फ़ोल्डर की जाँच");//Orphan user folders check
+define("_USERSWITHOUTFOLDERSCHECK","फ़ोल्डर की जाँच के बिना कर्मचारी");//Users without folders check
+define("_FOLDERSWITHOUTAUSERASSOCIATED","निम्न फ़ोल्डर नहीं है संबंधित कर्मचारी");//The following folders do not have a user associated
+define("_USERSWITHOUTAFOLDER","निम्नलिखित एक फ़ोल्डर में कर्मचारियों की जरूरत नहीं है");//The following users do not have a folder
+define("_PEMANENTLYDELETEFOLLOWINGUSERS","इस कार्रवाई करेगा कर्मचारियों को स्थायी रूप से हटाने के निम्नलिखित");//This action will permanently delete the following users
+define("_CREATEFOLLOWINGUSERFOLDERS","यह क्रिया पैदा होंगे फ़ोल्डर्स के कर्मचारियों के लिए निम्नलिखित");//This action will create folders for the following users
+define("_USERPROGRESS","कर्मचारी कार्य प्रगति पर");//User progress
+define("_LOGOUTUSERS","लॉग आउट कर्मचारियों ऑनलाइन");//Log out users online
+define("_USERTRACKINGINFORMATION","कर्मचारी ट्रैकिंग जानकारी");//User tracking information
+define("_MAILUSERACTIVATION","कर्मचारी ईमेल द्वारा सक्रियकरण");//User activation by email
+define("_USERSMAYADDFORUMS","कर्मचारी जोड़ सकते मंचों");//Users may add forums
+define("_NONEWAPPLICATIONS","नए कर्मचारियों में से कोई आवेदन");//No application from new users
+define("_EXPORTUSERSDATA","कर्मचारियों डेटा निर्यात");//Export users data
+define("_IMPORTUSERSDATA","कर्मचारियों डेटा आयात");//Import users data
+define("_THEUSERHASNOTBEENASSIGNEDANYPROJECT","कोई भी इस परियोजना सौंपी गई है कर्मचारी");//No project has been assigned to this user
+define("_SUCCESFULLYCLEANEDUPUSERS","सफाई कर्मचारियों तक सफलतापूर्वक");//Succesfully cleaned up users
+define("_SUCCESFULLYCREATEDUSERFOLDERS","कर्मचारी सफलतापूर्वक बनाया फ़ोल्डर्स");//Succesfully created user folders
+define("_THEFOLLOWINGUSERFOLDERSCOULDNOTBECREATED","निम्नलिखित कर्मचारी फ़ोल्डर्स नहीं बनाया जा सकता है");//The following user folders could not be created
+define("_GROUP","कर्मचारी वर्ग");//User group
+define("_USERSINFO","कर्मचारी जानकारी");//Users info
+define("_PROFESSORSINFO","प्रोफेसर जानकारी");//Professors info
+define("_EMPLOYEEWASASSIGNEDGROUP","कर्मचारी वर्ग को सौंपा गया");//User was assigned to group
+define("_EMPLOYEEWASRELEASEDFROMGROUP","कर्मचारी समूह से जारी किया गया था");//User was released from group
+define("_PROFESSORCAPITAL","प्रोफेसर");//Professor
+define("_STUDENTROLE","कर्मचारी भूमिका");//Student role
+define("_PROFESSORROLE","प्रोफेसर भूमिका");//Professor role
+}
+define("_COURSES","पाठ्यक्रम");//Courses
+define("_COURSEDELETED","पाठयक्रम नष्ट कर दिया गया");//Course deleted
+define("_COURSEDEACTIVATED","पाठयक्रम निष्क्रिय");//Course deactivated
+define("_COURSEACTIVATED","पाठयक्रम सक्रिय");//Course activated
+define("_COURSENAME","पाठ्यक्रम का नाम");//Course name
+define("_COURSEUPDATED","अद्यतन पाठयक्रम");//Course updated
+define("_SUCCESFULLYCREATEDCOURSE","पाठ्यक्रम को सफलतापूर्वक बनाया गया");//Course was created successfully
+define("_COURSEOPTIONSFOR","पाठयक्रम के लिए विकल्प");//Options for course
+define("_NEWCOURSEOPTIONS","नई पाठ्यक्रम के विकल्प");//New course options
+define("_EDITCOURSE","पाठ्यक्रम का संपादन करें");//Edit course
+define("_EDITLESSONSCOURSE","पाठयक्रम सबक");//Course lessons
+define("_NEWCOURSE","नई पाठ्यक्रम");//New course
+define("_UPDATECOURSES","अद्यतन पाठ्यक्रम");//Update courses
+define("_COURSE","पाठ्यक्रम");//Course
+define("_COURSEONLY","पाठ्यक्रम के माध्यम से विशेष रूप से");//Exclusively through course
+define("_AREYOUSUREYOUWANTTODELETECOURSE","क्या आप सुनिश्चित हैं कि आप पाठ्यक्रम को नष्ट करना चाहते हैं ?");//Are you sure you want to delete course?
+define("_NOCOURSESFOUND","पाठ्यक्रमों में परिभाषित नहीं");//No courses defined
+define("_UPDATEEMPLOYEES","कर्मचारियों को अद्यतन");//Update employees
+define("_NEWJOB","निरुपित नई नौकरी");//Assign new job
+define("_AREYOUSUREYOUWANTTOCANCELJOB","क्या आप सुनिश्चित हैं कि आप चाहते हैं कि इस कर्मचारी को रद्द करने से इस काम है .");//Are you sure you want to cancel this employee from this job.
+define("_AREYOUSUREYOUWANTTOFIREEMPLOYEE","क्या आप सुनिश्चित हैं कि आप चाहते हैं कि इस आग को कंपनी के कर्मचारी से ?");//Are you sure you want to fire this employee from the company?
+define("_FIRE","आग");//Fire
+define("_WAGE","वेज");//Wage
+define("_VATREGNUMBER","वैट Reg.No.");//VAT Reg.No.
+define("_HIREDON","किराए पर");//Hired on
+define("_SUPERVISOR","सुपरवाइजर");//Supervisor
+define("_JOBDESCRIPTIONS","अय्यूब विवरण");//Job descriptions
+define("_EMPLOYEERELEASEDFROMJOB","कर्मचारी से काम जारी");//Employee released from job
+define("_SKILLS","कुशलताएँ");//Skills
+define("_SKILL","कौशल");//Skill
+define("_SPECIFICATION","विशिष्टता");//Specification
+define("_DETAILS","विवरण");//Details
+define("_PLACEMENTS","प्लेसमेंट");//Placements
+define("_JOBALREADYASSIGNED","प्लेसमेंट पहले से ही चुने हुए को सौंप दिए इस कर्मचारी");//Selected placement is already assigned to this employee
+define("_BRANCHNAME","शाखा का नाम");//Branch name
+define("_EMPLOYEEPOSITION","कर्मचारी स्थिति");//Employee position
+define("_JOBDESCRIPTION","अय्यूब विवरण");//Job description
+define("_UPDATEBRANCHES","अद्यतन शाखाओं");//Update branches
+define("_NEWBRANCH","नई शाखा");//New branch
+define("_FATHERBRANCHNAME","पिता शाखा");//Father branch
+define("_BRANCHES","शाखाओं");//Branches
+define("_BRANCHDELETED","शाखा नष्ट कर दिया गया");//Branch deleted
+define("_AREYOUSUREYOUWANTTODISMISSTHEBRANCH","क्या आप सुनिश्चित हैं कि आप चाहते हैं कि शाखा को भंग करने के लिए है ?");//Are you sure you want to dismiss that branch?
+define("_COUNTRY","देश");//Country
+define("_TELEPHONE","टेलीफोन");//Telephone
+define("_BRANCHRECORD","शाखा रिकॉर्ड");//Branch record
+define("_BRANCHDATAUPDATED","शाखा डेटा अद्यतन");//Branch data updated
+define("_FATHERBRANCH","पिता शाखा");//Father branch
+define("_HCD","मानव पूंजी के विकास");//Human Capital Development
+define("_ORGANISATIONCHART","संगठन चार्ट");//Organisation chart
+define("_CANDIDATES","उम्मीदवार");//Candidates
+define("_SUCCSSFULLYCREATEDBRANCH","शाखा सफलतापूर्वक बनाया गया था");//Branch was successfully created
+define("_ATBRANCH","शाखा में");// at branch 
+define("_FATHERBRANCHCOULDNOTBESET","पिता का लक्ष्य निर्धारित नहीं की जा सकती है शाखा है , क्योंकि यह है अवर इस शाखा में पदानुक्रम");//Target father branch could not be set, because it is inferior to this branch in the hierarchy
+define("_JOBSASSIGNED","नौकरियाँ सौंपा");//Jobs assigned
+define("_AREYOUSUREYOUWANTTOREMOVETHATSKILL","क्या आप सुनिश्चित हैं कि आप को हटाना चाहते हैं कि कौशल सूची में से है ?");//Are you sure you want to remove that skill from the list?
+define("_SKILLDATA","कौशल डाटा");//Skill data
+define("_NEWSKILL","नई कौशल");//New skill
+define("_SKILLDESCRIPTION","कौशल विवरण");//Skill description
+define("_HAVINGSKILL","पास के कौशल");// having the skill 
+define("_EMPLOYEESWITHTHATSKILL","कर्मचारी के साथ कौशल");//Employees with skill
+define("_UPDATESKILLS","अद्यतन कौशल");//Update skills
+define("_THISSKILLSELEMENTSCOULDNOTBEDELETED","यह कौशल नहीं किया जा सका नष्ट कर दिया गया");//This skill could not be deleted
+define("_SKILLDATAUPDATED","कौशल अद्यतन का विवरण");//Skill description updated
+define("_SKILLCOULDNOTBECREATED","कौशल नहीं बनाया जा सकता है");//Skill could not be created
+define("_SUCCESSFULLYCREATEDSKILL","कौशल को सफलतापूर्वक बनाया");//Skill created successfully
+define("_SKILLDELETED","कौशल को नष्ट कर दिया गया");//Skill deleted
+define("_NOEMPLOYEESPOSSESSSKILL","कोई भी कर्मचारी के अधिकारी इस कौशल");//No employees possess this skill
+define("_NOEMPLOYEESWORKATBRANCH","कर्मचारियों को काम पर नहीं वर्तमान में इस शाखा");//No employees currently work at this branch
+define("_UPDATEJOBDESCRIPTIONS","अद्यतन कार्य विवरण");//Update job descriptions
+define("_NEWJOBDESCRIPTION","नई नौकरी का विवरण");//New job description
+define("_CURRENTLYEMPLOYEED","वर्तमान में रोजगार");//Currently employed
+define("_VACANCIES","प्लेसमेंट Available");//Available placements
+define("_AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION","क्या आप सुनिश्चित हैं कि आप को हटाना चाहते हैं कि नौकरी के वर्णन है ?");//Are you sure you want to remove that job description?
+define("_JOBDESCRIPTIONDATA","अय्यूब डेटा विवरण");//Job description data
+define("_HAVINGJOBDESCRIPTION","काम करने के वर्णन");// having the job description 
+define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" , "No employees are currently assigned to this job description");
+define("_SUCCESSFULLYCREATEDJOBDESCRIPTION","कार्य सफलतापूर्वक बनाया विवरण");//Successfully created job description
+define("_JOBDESCRIPTIONCOULDNOTBECREATED","अय्यूब वर्णन नहीं किया जा सका बनाया");//Job description could not be created
+define("_JOBDESCRIPTIONDATAUPDATED","अय्यूब सफलतापूर्वक अपडेट किए गए डेटा विवरण");//Job description data were successfully updated
+define("_JOBDESCRIPTIONDELETED","अय्यूब हटा दिया गया विवरण");//Job description deleted
+define("_THISJOBDESCRIPTIONSELEMENTSCOULDNOTBEDELETED","इस काम के तत्वों का वर्णन नहीं किया जा सका नष्ट कर दिया गया");//The job description&#039;s elements could not be deleted
+define("_EDITJOBDESCRIPTION","जॉब वर्णन संपादित करें");//Edit job description
+define("_SKILLSREQUIRED","आवश्यक कौशल");//Skills desired
+define("_EMPLOYEESOFBRANCH","कर्मचारी की शाखा");//Employees of branch
+define("_EMPLOYEESWITHSKILL","कर्मचारी के साथ कौशल");//Employees with skill
+define("_FILERECORD","फ़ाइल का रिकॉर्ड");//File record
+define("_VIEW","दृश्य");//View
+define("_SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION","क्षमा करें आप करने की अनुमति नहीं है कि यह कार्य");//Sorry you do not have the permission to perform this action
+define("_MOBILEPHONE","मोबाइल फ़ोन");//Mobile phone
+define("_EMPLOYEESDATASUCCESSFULLYUPDATED","कर्मचारी डाटा सफलतापूर्वक अद्यतन");//Employee data successfully updated
+define("_EMPLOYEESRECORDCOULDNOTBEUPDATED","कर्मचारी रिकॉर्ड नहीं किया जा सका अद्यतन");//Employee record could not be updated
+define("_NOPLACEMENTSASSIGNEDYET","प्लेसमेंट अभी तक नहीं सौंपा");//No placements assigned yet
+define("_BRANCHCOULDNOTBECREATED","शाखा नहीं बनाया जा सकता है");//Branch could not be created
+define("_NOSKILLSHAVEBEENREGISTERED","कोई कौशल को पंजीकृत किया गया है");//No skills have been registered
+define("_NOJOBDESCRIPTIONSHAVEBEENREGISTERED","कोई नौकरी के वर्णन को पंजीकृत किया गया है");//No job descriptions have been registered
+define("_PLACEMENTCOULDNOTBEASSIGNED","प्लेसमेंट नियत नहीं किया जा सका");//Placement could not be assigned
+define("_NOSKILLSASSIGNED","कौशल नहीं सौंपा");//No skills assigned
+define("_NOSKILLSREGISTEREDASPREREQUISITES","कौशल के रूप में पंजीकृत नहीं आवश्यक शर्तें");//No skills registered as prerequisites
+define("_SATISFYANYCRITERIA","मानदंडों को पूरा करना किसी भी");//Satisfy any criteria
+define("_SATISFYALLCRITERIA","सभी मानदंडों को पूरा करना");//Satisfy all criteria
+define("_WORKINGATBRANCH","पर कार्यकारी शाखा");//Working at branch
+define("_WITHJOBDESCRIPTION" ,"With job description");
+define("_FINDEMPLOYEES","कर्मचारियों का पता लगाएं,");//Find employees (New)
+define("_WITHSKILL","कौशल के साथ");//With skill
+define("_EMPLOYEESFULFILLINGCRITERIA","कर्मचारी को पूरा करने के मानदंड");//Employees fulfilling the criteria
+define("_NOEMPLOYEESFULFILLTHESPECIFIEDCRITERIA","कर्मचारियों के मानदंडों को पूरा नहीं निर्दिष्ट");//No employees fulfill the specified criteria
+define("_ORGANIZATIONCHARTTREE","संगठन चार्ट वृक्ष");//Organization chart tree
+define("_ANYBRANCH","कोई भी शाखा");//Any branch
+define("_ANYJOBDESCRIPTION","कोई भी कार्य विवरण");//Any job description
+define("_EXPORTVACANCIES","निर्यात रिक्तियों");//Export vacancies
+define("_NATIONALSERVICECOMPLETED","राष्ट्रीय सेवा");//National service
+define("_DRIVINGLICENSE","चालक लाइसेंस");//Driver license
+define("_BANKACCOUNT","खाता");//Account
+define("_BANK","बैंक");//Bank
+define("_TAXOFFICE","कर कार्यालय");//Tax office
+define("_POLICEIDNUMBER","पुलिस id");//Police id
+define("_WORKPERMISSIONDATA","कार्य की अनुमति डाटा");//Work permission data
+define("_WAYOFWORKING","कार्यदल के रूप में");//Working as
+define("_EMPLOYMENTTYPE","Employement प्रकार");//Employement type
+define("_MARRIED","विवाहित");//Married
+define("_SINGLE","एकल");//Single
+define("_MARITALSTATUS","वैवाहिक स्थिति");//Marital status
+define("_FEMALE","मादा");//Female
+define("_MALE","नर");//Male
+define("_GENDER","लिंग");//Gender
+define("_FATHERNAME","पिता का नाम");//Father name
+define("_MOTHERTONGUE","मातृभाषा");//Mother tongue
+define("_NATIONALITY","राष्ट्रिकताः");//Nationality
+define("_PARTTIME","भाग समय");//Part time
+define("_FULLTIME","पूर्ण समय");//Full time
+define("_BIRTHDAY","जन्मदिन");//Birthday
+define("_BIRTHPLACE","शहर के जन्म");//City of birth
+define("_BIRTHCOUNTRY","देश के जन्म");//Country of birth
+define("_EMPLOYEES","कर्मचारी");//Employees
+define("_NEWEMPLOYEE","नई कर्मचारी");//New employee
+define("_OFFICE","Office");//Office
+define("_COMPANYINTERNALPHONE","कंपनी के आंतरिक फोन");//Company internal phone
+define("_EMPLOYEECREATED","कर्मचारी सफलतापूर्वक बनाया");//Employee created successfully
+define("_EMPLOYEEDELETED","कर्मचारी हटा दिया");//Employee deleted
+define("_SKILLSOFFERED","कौशल की पेशकश की");//Skills offered
+define("_NOSKILLSOFFERED","कोई कौशल की पेशकश की");//No skills offered
+define("_NOJOBDESCRIPTIONSSHAVEBEENREGISTERED","कोई नौकरी के वर्णन को पंजीकृत किया गया है");//No job descriptions have been registered
+define("_INSERTEDINTOTHESYSTEM","डालनी प्रणाली");//Inserted into the system
+define("_HIRED","किराए");//Hired
+define("_RAISEOF","के ऊपर उठाएँ");//Raise of
+define("_EMPLOYEESNEWWAGEIS","इस कर्मचारी की नई मजदूरी है");//The employee&#039;s new wage is
+define("_DECREASEOF","की कमी");//Decrease of
+define("_EMPLOYEEWASASSIGNEDJOB","कर्मचारी काम सौंपा गया था");//Employee was assigned job
+define("_EMPLOYEEWASRELEASEDFROMDJOB","कर्मचारी नौकरी से जारी किया गया था");//Employee was released from job
+define("_EMPLOYEEWASASSIGNEDSKILL","कर्मचारी सौंपा गया था कौशल");//Employee was assigned skill
+define("_WASRELEASEDFROMEMPLOYEE","कर्मचारी से जारी किया गया था");//was released from employee
+define("_EMPLOYEESSKILLSPECIFICATIONSFORSKILL","कर्मचारी की दक्षता की विशेषताओं के लिए कौशल");//Employee&#039;s skill specifications for skill
+define("_WERECHANGEDTO","परिवर्तित करने के लिए किए गए");//were changed to
+define("_FIRED","गोली");//Fired
+define("_NOHISTORYREGARDINGTHISEMPLOYEE","इतिहास के बारे में कोई कर्मचारी इस रिकॉर्ड");//No history regarding this employee recorded
+define("_HISTORYOFEMPLOYEE","कर्मचारी का इतिहास");//History of employee
+define("_HISTORY","इतिहास");//History
+define("_NOANNOUNCEMENTSPOSTEDADMIN","कोई घोषणाएँ पोस्ट");//No announcements posted
+define("_SEPARATEMULTIPLEUSERS","एकाधिक प्राप्तकर्ताओं के साथ अलग है ;");//Separate multiple recipients with ;
+define("_STARTTYPINGFORRELEVENTMATCHES","टाइप करना आरंभ करें मेल प्राप्त करने के लिए प्रासंगिक ( सभी प्रकार % के लिए )");//Start typing to get relevant matches (Type % for all)
+define("_ADVANCEDSEARCH","उन्नत खोज विकल्प");//Advanced search options
+define("_REGISTERADVANCEDSEARCHFIELDS","उन्नत खोज क्षेत्रों रजिस्टर");//Register advanced search fields
+define("_EDITBRANCH","शाखा का संपादन करें");//Edit branch
+define("_ASSIGNEMPLOYEES","कर्मचारियों को निरुपित");//Assign employees
+define("_ASSIGNEMPLOYEESTOBRANCH","कर्मचारियों को निरुपित शाखा");//Assign employees to branch 
+define("_EDITSKILL","कौशल का संपादन करें");//Edit skill
+define("_ASSIGNSKILL","निरुपित कौशल");//Assign skill
+define("_ASSIGNEMPLOYEESTHESKILL","निरुपित कर्मचारियों के कौशल");//Assign employees the skill 
+define("_NOBRANCHESHAVEBEENREGISTERED","कोई शाखाओं को पंजीकृत किया गया है");//No branches have been registered
+define("_ORGANIZATION","संगठन");//Organization
+define("_SEARCHFOREMPLOYEE","खोज के लिए कर्मचारी [ संगठन मानदंड ]");//Search for employee [Organization criteria]
+define("_SUBFORUMS","Subforums");//Subforums
+define("_NOSUBFORUMSFOUND","subforums में परिभाषित नहीं हैं इस मंच");//There are no subforums defined in this forum
+define("_NONEWMESSAGELOCKED","आप किसी भी नए संदेश पोस्ट नहीं कर सकते क्योंकि इस विषय या मंच से घिरा है");//You cannot post any new messages because this topic or forum is locked
+define("_ACTIVITY","गतिविधि");//Activity
+define("_ISVALID","मान्य");//Valid
+define("_LEFTON","वाम मोर्चे पर");//Left on
+define("_ADVANCED","उन्नत मानदंड");//Advanced criteria
+define("_MYSTUDENTS","मेरा छात्रों");//My students
+define("_EMPLOYEE","कर्मचारी");//Employee
+define("_NOBRANCHJOBSERROR","कोई नौकरी के लिए इस विवरण को पंजीकृत किया गया है शाखा");//No job descriptions have been registered for this branch
+define("_TESTSTATISTICS","टेस्ट की रिपोर्ट");//Tests reports
+define("_CHOOSETEST","परीक्षण चुनें");//Choose test
+define("_USERPROFILE","उपयोगकर्ता प्रोफ़ाइल");//User profile
+define("_VIEWBRANCHES","शाखाओं देखें");//View branches
+define("_NOEMPLOYEESFOUND","कर्मचारी नहीं पाए गए");//No employees were found
+define("_SEARCHEMPLOYEE","खोज कर्मचारी");//Search employee
+define("_ALLBRANCHES","सभी शाखाओं");//All branches
+define("_ANSWERS","उत्तर");//Answers
+define("_GROUPDOESNOTEXIST","इस समूह में मौजूद नहीं है");//The group doesn&#039;t exist
+define("_SUBBRANCHES","उप शाखाओं");//Sub-branches
+define("_OFBRANCH","शाखा की");// of branch 
+define("_NEWSUBBRANCH","नई उप शाखा");//New sub-branch
+define("_SMTPTIMEOUT","SMTP समयसमाप्ति");//SMTP timeout
+define("_ILLEGALPATH","अवैध पथ");//Illegal path
+define("_FILEWASPARTIALLYUPLOADED","फ़ाइल अपलोड की गई थी केवल आंशिक अपलोड");//The uploaded file was only partially uploaded
+define("_NOFILEUPLOADED","फ़ाइल अपलोड नहीं किया गया था");//No file was uploaded
+define("_NOTMPDIR","एक ऐसी प्रणाली अपलोड अस्थायी फ़ोल्डर में गुम है . कृपया सेटिंग्स अद्यतन के बजाय तदनुसार");//Missing a system upload temporary folder. Please update php.ini settings accordingly
+define("_UPLOADCANTWRITE","फ़ाइल को डिस्क पर लिखने में असफल");//Failed to write file to disk
+define("_UPLOADERREXTENSION","फ़ाइल अपलोड रोक विस्तार");//File upload stopped by extension
+define("_CANNOTCOPYFILE","फ़ाइल प्रतिलिपि नहीं बनाई जा सकती");//The file cannot be copied
+define("_CANNOTMOVEFILE","फ़ाइल स्थानांतरित नहीं किया जा सकता");//The file cannot be moved
+define("_DIRECTORYDOESNOTEXIST","इस निर्देशिका में मौजूद नहीं है");//The directory does not exist
+define("_COULDNOTCREATEDIRECTORY","इस निर्देशिका में नहीं बनाया जा सकता है");//The directory could not be created
+define("_CANNOTCOPYDIRECTORY","इस निर्देशिका में कॉपी नहीं किया जा सकता है");//The directory cannot be copied
+define("_DIRECTORYALREADYEXISTS","इस निर्देशिका में पहले से मौजूद है");//The directory already exists
+define("_AUTOASSIGNTONEWUSERS","स्वत : आवंटित करने के लिए नए उपयोगकर्ताओं");//Automatically assign to new users
+define("_CANNOTOPENCOMPRESSEDFILE","इस फ़ाइल को संकुचित नहीं की जा सकती है खोला");//The compressed file cannot be opened
+define("_CHOOSEWHATTODELETE","क्या नष्ट करने के लिए चुनें प्रारंभन के दौरान प्रणाली");//Choose what to delete during system initialization
+define("_PERIODS","काल");//Periods
+define("_IMPORTLESSON","आयात सबक");//Import lesson
+define("_EXPORTLESSON","निर्यात सबक");//Export lesson
+define("_LESSONEXPORTEDSUCCESFULLY","नालचिक में सफलतापूर्वक निर्यात");//Lesson succesfully exported
+define("_LESSONIMPORTEDSUCCESFULLY","नालचिक में सफलतापूर्वक आयात");//Lesson succesfully imported
+define("_FILESIZEMUSTBESMALLERTHAN","फ़ाइल इससे छोटी होनी चाहिए");//The file must be smaller than
+define("_PROBLEMIMPORTINGFILE","फ़ाइल आयात करने में समस्या");//Problem importing file
+define("_PAGE","पृष्ठ");//Page
+define("_ACTIVE_PROJECTS","सक्रिय");//Active
+define("_INACTIVE_PROJECTS","निष्क्रिय");//Inactive
+define("_TIMEREMAIN","शेष रहना");//Remain
+define("_WEEKS","सप्ताह");//weeks
+define("_WEEKs","सप्ताह");//week
+define("_DAYS","दिन");//days
+define("_DAY","दिन");//Day
+define("_EVALUATIONDATAUPDATED","मूल्यांकन डेटा अद्यतन सफलतापूर्वक");//Evaluation data updated successfully
+define("_EVALUATION","मूल्यांकन");//Evaluation
+define("_EVALUATIONOFEMPLOYEE","कर्मचारी मूल्यांकन");//Evaluation of employee
+define("_NEWEVALUATION","नई मूल्यांकन");//New evaluation
+define("_EVALUATIONCOMMENT","मूल्यांकन टिप्पणी");//Evaluation comment
+define("_EVALUATIONDELETED","मूल्यांकन नष्ट कर दिया गया");//Evaluation deleted
+define("_THEEVALUATIONCOULDNOTBEDELETED","इस मूल्यांकन नहीं किया जा सका नष्ट कर दिया गया");//The evaluation could not be deleted
+define("_SUCCESSFULLYCREATEDEVALUATION","सफलतापूर्वक बनाया गया मूल्यांकन");//Successfully created evaluation
+define("_EVALUATIONCOULDNOTBECREATED","मूल्यांकन नहीं बनाया जा सकता है");//Evaluation could not be created
+define("_AREYOUSUREYOUWANTTODELETEEVALUATION","क्या आप सुनिश्चित हैं कि आप मूल्यांकन को नष्ट करना चाहते हैं ?");//Are you sure you want to delete the evaluation?
+define("_NOEVALUATIONSASSIGNEDYET","मूल्यांकन अभी तक नहीं लिखा है");//No evaluation written yet
+define("_BRANCH","शाखा");//Branch
+define("_PLACEMENT","प्लेसमेंट");//Placement
+define("_EVALUATIONS","मूल्यांकन");//Evaluations
+define("_TRANSPORTMEANS","परिवहन के साधन");//Means of transport
+define("_YOUCANNOTDELETESOMEELSESEVALUATION","आप नहीं हटा सकते मूल्यांकन के द्वारा लिखे गए एक दूसरे उपयोगकर्ता");//You cannot delete an evaluation written by another user
+define("_YOUCANNOTEDITSOMEELSESEVALUATION","आप को संपादित नहीं कर सकते मूल्यांकन के द्वारा लिखे गए एक दूसरे उपयोगकर्ता");//You cannot edit an evaluation written by another user
+define("_EMPLOYEEFORM","कर्मचारी रूप");//Employee form
+define("_EMPLOYEEFORMPRINTPREVIEW","मुद्रण पूर्वावलोकन के रूप कर्मचारी");//Employee form print preview
+define("_PRINTPREVIEW","मुद्रण पूर्वावलोकन");//Print preview
+define("_PRINTEMPLOYEEFORM","मुद्रण कर्मचारी रूप");//Print employee form
+define("_PRINT","मुद्रण");//Print
+define("_NOSPECIFICJOB","कोई विशेष कार्य विवरण");//No specific job description
+define("_GROUPS","प्रयोक्ता समूह");//User groups
+define("_NEWGROUP","नई समूह");//New group
+define("_NOGROUPSDEFINED","समूहों को परिभाषित नहीं");//No groups defined
+define("_UPDATEGROUPS","अद्यतन समूह");//Update groups
+define("_GROUPDEACTIVATED","इस समूह निष्क्रिय किया गया था");//The group was deactivated
+define("_GROUPACTIVATED","इस समूह सक्रिय था");//The group was activated
+define("_EDITGROUP","समूह का संपादन करें");//Edit group
+define("_UPDATEGROUP","अद्यतन समूह");//Update group
+define("_SUCCESFULLYADDEDGROUP","इस समूह सफलतापूर्वक जोड़ दिया गया");//The group was succesfully added
+define("_AREYOUSUREYOUWANTTODELETEGROUP","क्या आप सुनिश्चित हैं कि आप समूह को नष्ट करना चाहते हैं ?");//Are you sure you want to delete the group?
+define("_GROUPDELETED","इस समूह नष्ट कर दिया गया");//The group was deleted
+define("_GROUPFILTER","समूह फिल्टर");//Group filter
+define("_NOUSERSFOUND","जहां कोई उपयोगकर्ता नहीं मिला");//No users where found
+define("_SEPARATEALTERNATIVESEXAMPLE","सही उत्तरों के साथ अलग विकल्प | , उदाहरण के लिए : ब्लू | ब्लैक | व्हाइट");//Separate alternative correct answers with |, for example: Blue|Black|White
+define("_CREATERANODOMTEST","यादृच्छिक परीक्षण बनाएँ");//Create random test
+define("_USING","का प्रयोग");//Using
+define("_EASY","सरल");//Easy
+define("_HARD","कठोर");//Hard
+define("_LOCALESETTINGS","लोकेल सेटिंग");//Locale settings
+define("_CURRENCY","मुद्रा");//Currency
+define("_DECIMALPOINT","दशमलव बिंदु");//Decimal point
+define("_THOUSANDSSEPARATOR","हजारों विभाजक");//Thousands separator
+define("_DATEFORMAT","तिथि प्रारूप");//Date format
+define("_SPECIFICLOCALE","विशिष्ट स्थान");//Specific locale
+define("_LOCATION","स्थान");//Location
+define("_TIMEZONE","समय क्षेत्र");//Time zone
+define("_INVALIDRECIPIENT","अमान्य प्राप्तकर्ता");//Invalid recipient
+define("_NOBRANCHSELECTED","शाखा का चयन नहीं किया गया था");//No branch was selected
+define("_AREYOUSUREYOUWANTTODELETEPROJECT","क्या आप सुनिश्चित हैं कि आप इस परियोजना को नष्ट करना चाहते हैं ?");//Are you sure that you want to delete this project?
+define("_TIMESDONE","टाइम्स किया");//Times done
+define("_HASLEFT","छोड़ा");//Left
+define("_EMPLOYEESINGROUP","कर्मचारियों के समूह");//Employees of group
+define("_ERRORRESTORINGFILE","एक समस्या के दौरान आया बहाल");//A problem came up during restore
+define("_DATABASEONLY","डाटाबेस के केवल");//Database only
+define("_ALLDATABACKUP","सभी डेटा बैकअप");//All data backup
+define("_LESSONDIRECTORYCANNOTBCREATED","इस निर्देशिका सबक नहीं बनाया जा सकता है");//The lesson directory could not be created
+define("_YOUHAVENOTCOMPLETEDTHEFOLLOWINGQUESTIONS","आपने पूरा नहीं प्रश्न");//You have not completed questions
+define("_AREYOUSUREYOUWANTTOSUBMITTEST","क्या आप सुनिश्चित हैं कि आप चाहते हैं कि जाँच के लिए प्रस्तुत है ?");//Are you sure you want to submit the test?
+define("_JOBANALYTICALDESCRIPTION","विस्तृत विवरण");//Detailed description
+define("_INCLUDESUBBRANCHES","शामिल subbranches");//Include subbranches
+define("_PDFFORMAT","PDF प्रारूप");//PDF format
+define("_XLSFORMAT","एक्सेल प्रारूप");//EXCEL format
+define("_ATTENDING","भाग");//Attending
+define("_USERAVERAGESCOREFORTESTS","औसत स्कोर के लिए सबक के परीक्षणों");//Average score for lesson&#039;s tests
+define("_PROJECTSCOMPRESSED","परियोजना फ़ाइलों को डाउनलोड करें");//Download project files
+define("_EDUCATIONALROLE","शैक्षिक भूमिका");//Educational role
+define("_ORGANIZATIONALROLE","संगठनात्मक भूमिका");//Organizational role
+define("_TYPEOFUSER","प्रयोक्ता प्रकार");//User type
+define("_MESSAGEBODY","शरीर का संदेश");//Message body
+define("_ONLYRECIPIENTSDEFINEDBELOW","केवल प्राप्तकर्ताओं के क्षेत्र में नीचे परिभाषित");//Only recipients defined in the field below
+define("_NORECIPIENTSHAVEBEENSELECTED","कोई प्राप्तकर्ता को चुना गया है");//No recipients have been selected
+define("_NORECIPIENTSHAVEBEENFOUND","प्राप्तकर्ताओं नहीं पाए गए हैं");//No recipients have been found
+define("_CHANGELESSON","बदलें सबक");//Change lesson
+define("_HOME","घर");//Home
+define("_FFROM","से");//from
+define("_CALENDARTYPE","कैलेंडर के प्रकार");//Calendar type
+define("_ORGANIZATIONPROFILE","संगठन प्रोफ़ाइल");//Organization profile
+define("_CURRENTLESSON","वर्तमान सबक");//Current lesson
+define("_SUBMITANDADDANOTHER","जमा करें और एक अन्य जोड़ें");//Submit and add another
+define("_EDUCATIONAL","शैक्षिक");//Educational
+define("_PAYPALTITLE","पेपैल");//Paypal
+define("_PAYPALCONFIGURATIONPANEL","पेपैल विन्यास पैनल");//Paypal configuration panel
+define("_PAYPALMYTRANSACTIONS","मेरा लेनदेन");//My transactions
+define("_PAYPALTRANSACTION","गतिविधि");//Transaction
+define("_PAYPALCONFIGURATION","विन्यास");//Configuration
+define("_PAYPALBUSINESSMAIL","पेपैल व्यावसायिक पता");//Paypal business address
+define("_PAYPALBUSINESSMAILPLZ","पेपैल में व्यापार का पता भरें");//Fill in the Paypal business address
+define("_PAYPALMAILSTUDENTS","छात्रों को सूचित");//Inform students
+define("_PAYPALMAILPROFESSORS","सूचित प्रोफेसरों");//Inform professors
+define("_PAYPALMAILADMINS","सूचित व्यवस्थापक");//Inform admins
+define("_PAYPALORDERPREVIEW","पूर्वावलोकन आदेश");//Preview order
+define("_PAYPALFINALPRICE","अंतिम मूल्य");//Final price
+define("_PAYPALPAYNOW","वेतन के साथ अब पेपैल");//Pay now with Paypal
+define("_PAYPALNOCONFIGURATION","आप इस सेवा का उपयोग नहीं कर सकते , क्योंकि इसके ठीक से कॉन्फ़िगर नहीं किया गया है .");//You can not use this service because its not configured properly.
+define("_PAYPALORDERPROCESSING","आपका आदेश के माध्यम से किया जा रहा है प्रसंस्करण पेपैल .");//Your order is being processing through Paypal.
+define("_PAYPALORDERPROCESSINGERROR","त्रुटि हुई अपने आदेश के साथ .");//There was an error with your order.
+define("_PAYPALORDERSSUCCESS","समाप्त");//Finished
+define("_PAYPALORDERSNOSUCCESS","समाप्त नहीं");//Not-Finished
+define("_PAYPALTABLEPRICE","मात्रा");//Amount
+define("_PAYPALITEMCODE","संहिता");//Code
+define("_PAYPALTABLEDATESUBMIT","आदेश तिथि");//Order date
+define("_PAYPALTABLEDATEPAYPAL","भुगतान की तारीख");//Payment date
+define("_PAYPALTRANSACTIONCODE","गतिविधि कोड");//Transaction code
+define("_PAYPALTABLEUSER","प्रयोक्ता");//User
+define("_PAYPALTABLESTATUS","भुगतान की स्थिति");//Payment status
+define("_PAYPALTABLELESSONS","सबक");//Lessons
+define("_PAYPALORDERINFO","गतिविधि विवरण");//Transaction details
+define("_PAYPALCUSTOMERINFO","ग्राहक की जानकारी");//Customer&#039;s information
+define("_PAYPALITEMSINFO","आइटम जानकारी");//Items information
+define("_PAYPALPURCHASEORDER","खरीद आदेश");//Purchase order
+define("_PAYPALPURCHASEORDERFOR","भुगतान करने के लिए");//Payment to
+define("_ADDTOCART","गाड़ी में जोड़ें");//Add to cart
+define("_REMOVEFROMCART","गाड़ी से निकालें");//Remove from cart
+define("_REMOVEALLFROMCART","सभी गाड़ी से निकालें");//Remove all from cart
+define("_CART","शॉपिंग गाड़ी");//Shopping cart
+define("_NOCART","इस गाड़ी खाली है");//The cart is empty
+define("_FREEOFCHARGE","स्वतंत्र");//Free
+define("_LOGINFIRST","आगे बढ़ने के पहले की खरीद में प्रवेश करें");//Log in first to proceed purchase
+define("_RESULTS","परिणाम");//results
+define("_RESULT","परिणाम");//result
+define("_PAYPALORDERSUCCESS","इस सौदे को सफलतापूर्वक पूरा किया");//The transaction completed successfully
+define("_PAYPALORDERFAILURE","त्रुटि हुई के साथ सौदा");//There was an error with the transaction
+define("_PAYPALFREEORDERSUCCESS","पंजीकरण सफलतापूर्वक पूरा होने के सबक");//Lessons registration finished successfully
+define("_FREEREGISTRATION","निःशुल्क पंजीकरण");//Free registration
+define("_VIEWDIRECTORY","दिखाएँ सबक / catalog पाठ्यक्रम");//Show lesson/courses catalog
+define("_VIEWDIRECTORYYESAFTERLOGIN","हाँ ( लॉगिन के बाद ही )");//Yes (only after login)
+define("_VIEWDIRECTORYYESONLOGIN","हाँ ( लॉगइन पेज पर और बाद में प्रवेश )");//Yes (on login page and after login)
+define("_VIEWDIRECTORYNO","नहीं");//No
+define("_VIEWDIRECTORYDISABLED","इस calatog निष्क्रिय है इस क्षण");//The calatog is inactive this moment
+define("_INTERFACEVIEW","चुनें अंतरफलक के सूचकांक पृष्ठ");//Select the interface of index page
+define("_INTERFACEVIEWSIMPLE","सरल");//Simple
+define("_INTERFACEVIEWEXTENDED","विस्तारित");//Extended
+define("_PAYPALUSE","पेपैल का उपयोग");//Payments through Paypal
+define("_DIRECTORY","निर्देशिका");//Directory
+define("_LESSONSDIRECTORY","पाठयक्रम catalog");//Course catalog
+define("_ASSOCIATEDLESSONS","एसोसिएटेड सबक");//Associated lessons
+define("_APPLYTOALLDESCRIPTIONSWITHDESCRIPTION","सभी को लागू करने के लिए नौकरियों के साथ वर्णन :");//Apply to all jobs with description: 
+define("_AREYOUSUREYOUWANTTOREMOVETHATSKILLFROMTHISEMPLOYEE","क्या आप सुनिश्चित हैं कि आप को हटाना चाहते हैं कि कौशल से है कि कर्मचारी ?");//Are you sure you want to remove that skill from that employee?
+define("_JOBDESCRIPTIONEXISTSALREADY","अय्यूब विवरण पहले से ही मौजूद है");//Job description exists already
+define("_EVENTFIELDISMANDATORY","घटना फील्ड अनिवार्य है");//Event field is mandatory
+define("_SKILLCATEGORY","कौशल श्रेणी");//Skill category
+define("_ADDSKILLCATEGORY","कौशल श्रेणी में जोड़ें");//Add skill category
+define("_EDITSKILLCATEGORY","कौशल श्रेणी संपादित करें");//Edit skill category
+define("_DELETESKILLCATEGORY","कौशल को नष्ट श्रेणी");//Delete skill category
+define("_AREYOUSUREYOUWANTTODISMISSTHISSKILLCATEGORY","क्या आप सुनिश्चित हैं कि आप चाहते हैं कि कौशल को भंग करने के लिए इस श्रेणी ?");//Are you sure you want to dismiss this skill category?
+define("_UPDATESKILLSCATEGORY","अद्यतन कौशल श्रेणी");//Update skill category
+define("_SKILLCATEGORYDATAUPDATED","कौशल श्रेणी डेटा अद्यतन");//Skill category data updated
+define("_SUCCESSFULLYCREATEDSKILLCATEGORY","कौशल श्रेणी सफलतापूर्वक बनाया गया");//Skill category successfully created
+define("_SKILLCATEGORYDELETED","कौशल को नष्ट कर दिया गया श्रेणी");//Skill category deleted
+define("_USERDOESNOTEXIST","उपयोगकर्ता मौजूद नहीं है");//The user does not exist
+define("_INVALIDSURNAME","उपयोगकर्ता का अंतिम नाम निर्दिष्ट वैध नहीं है");//The user last name specified is not valid
+define("_INVALIDEMAIL","यह निर्दिष्ट उपयोक्ता ईमेल वैध नहीं है");//The user email specified is not valid
+define("_USERALREADYEXISTS","निर्दिष्ट लॉगिन के साथ एक उपयोगकर्ता पहले से मौजूद है");//A user with the specified login already exists
+define("_EMAILALREADYEXISTS","निर्दिष्ट ईमेल के साथ एक उपयोगकर्ता पहले से मौजूद है");//A user with the specified email already exists
+define("_COULDNOTINSERTUSER","उपयोगकर्ता निर्दिष्ट नहीं किया जा सका डाला करने के लिए डाटाबेस");//The user specified could not be inserted to database
+define("_INVALIDUSERTYPE","प्रयोक्ता प्रकार निर्दिष्ट वैध नहीं है");//The specified user type is not valid
+define("_REMEMBERME","मुझे याद रखें");//Remember me
+define("_INVALIDPASSWORD","अमान्य पासवर्ड");//Invalid password
+define("_INVALIDPASSWORDFORUSER","अवैध उपयोगकर्ता के लिए पासवर्ड");//Invalid password for user
+define("_PROBLEMACTIVATINGACCOUNT","खाते के दौरान कोई समस्या थी सक्रियण");//There was a problem during account activation
+define("_THEUSERCOULDNOTBEDELETED","का प्रयोग नहीं किया जा सका नष्ट कर दिया गया");//The use could not be deleted
+define("_THEUSERCOULDNOTBEDEACTIVATED","उपयोक्ता निष्क्रिय नहीं किया जा सका");//The user could not be deactivated
+define("_THEUSERCOULDNOTBEACTIVATED","उपयोगकर्ता सक्रिय नहीं किया जा सका");//The user could not be activated
+define("_USERDIRECTORYCOULDNOTBEDELETED","उपयोगकर्ता निर्देशिका नहीं किया जा सका नष्ट कर दिया गया");//The user directory could not be deleted
+define("_INVALIDLESSONID","अवैध सबक id");//Invalid lesson id
+define("_UNITDOESNOTEXIST","इस यूनिट मौजूद नहीं है");//The unit does not exist
+define("_DOWNLOADEXPORTED","डाउनलोड का निर्यात सबक");//Download exported lesson
+define("_SUCCESFULLYRESTOREDSYSTEM","बहाल करने की प्रक्रिया सफलतापूर्वक पूरी की");//The restoring procedure completed successfully
+define("_LESSONDOESNOTEXIST","यह निर्दिष्ट सबक मौजूद नहीं है");//The lesson specified does not exist
+define("_UNDOCHANGES","परिवर्तनों को पूर्ववत करें");//Undo changes
+define("_CONTENTTREEMANAGEMENT","सामग्री प्रबंधन के पेड़");//Content tree management
+define("_ORDERWILLPERMANENTLYCHANGE","इस आपरेशन के स्थायी रूप से बदल जाएगा इकाई के आदेश और नहीं हो सकती . क्या आप सुनिश्चित हैं ?");//This operation will permanently change unit ordering and cannot be undone. Are you sure?
+define("_ERRORLOADINGCONTENT","लोड करने में त्रुटि सामग्री के लिए सबक");//Error loading content for lesson
+define("_USERROLE","उपयोक्ता भूमिका");//User role
+define("_CANNOTUPDATEUSERLESSONINFORMATION","इस उपयोगकर्ता का सबक के बारे में जानकारी अद्यतन नहीं किया जा सका");//The lesson information on this user could not be updated
+define("_PROBLEMUPDATINGUSERSTOLESSON","अद्यतन करने में कोई समस्या थी सबक प्रयोक्ता जानकारी");//There was a problem updating the user lesson information
+define("_INVALIDPROJECTID","अवैध परियोजना क्रमांक");//Invalid project Id
+define("_PROJECTNOTFOUND","इस परियोजना को निर्दिष्ट नहीं मिला");//The specified project was not found
+define("_USERDOESNOTHAVETHISLESSON","उपयोगकर्ता इस सबक को पंजीकृत नहीं है");//The user is not registered to this lesson
+define("_COURSEDOESNOTEXIST","निर्दिष्ट पाठ्यक्रम मौजूद नहीं है");//The specified course does not exist
+define("_NODEDOESNOTEXIST","निर्दिष्ट नोड मौजूद नहीं है");//The specified node does not exist
+define("_PROJECTCOULDNOTBEDELETED","इस परियोजना से हटाए नहीं जा सकता है");//The project could not be deleted
+define("_FREELESSON","मुक्त सबक");//Free lesson
+define("_BUYCOURSE","खरीदें पाठ्यक्रम");//Buy course
+define("_FREECOURSE","मुक्त पाठ्यक्रम");//Free course
+define("_USERDOESNOTHAVETHISPROJECT","उपयोगकर्ता नहीं है इस परियोजना");//The user does not have this project
+define("_SCOREMUSTBEINTEGERBETWEEN0100","इस परियोजना के स्कोर एक पूर्णांक होना चाहिए करने के लिए 0 से लेकर 100");//The project score must be an integer ranging from 0 to 100
+define("_THEPROJECTGRADECOULDNOTBEUPDATED","इस परियोजना ग्रेड अद्यतन नहीं किया जा सका");//The project grade could not be updated
+define("_INVALIDDATA","अमान्य डेटा");//Invalid data
+define("_UPLOADEDON","पर अपलोड की गई");//Uploaded on
+define("_PROJECTDELETEDSUCCESSFULLY","इस परियोजना को सफलतापूर्वक नष्ट कर दिया गया");//The project was deleted succesfully
+define("_FILESCOULDNOTBEDOWNLOADED","इस परियोजना फ़ाइलों को डाउनलोड नहीं किया जा सका");//The project files could not be downloaded
+define("_RESULTSFORPROJECT","परियोजना के लिए परिणाम");//Results for project
+define("_VIEWPROJECT","परियोजना देखें");//View project
+define("_REMAINING","शेष");//Remaining
+define("_PROJECTEXPIRED","इस परियोजना की समय सीमा समाप्त हो गया है");//The project deadline has expired
+define("_SENDPROJECT","परियोजना भेजें");//Send project
+define("_NEWLESSONS","नई सबक");//New lessons
+define("_YOUMUSTDELETEALLLESSONSANDSUBDIRECTIONSINTHISDIRECTIONBEFOREDEACTIVATINGIT","आप नहीं कर सकते निष्क्रिय एक गैर खाली श्रेणी");//You cannot deactivate a non-empty category
+define("_CANNOTUPDATEUSERCOURSEINFORMATION","इस पाठ्यक्रम के बारे में जानकारी अद्यतन नहीं किया जा सकता है इस उपयोगकर्ता");//The course information on this user could not be updated
+define("_CANNOTADDUSERTOCOURSE","उपयोगकर्ता नहीं किया जा सका पाठ्यक्रम में जोड़ा");//The user could not be added to course
+define("_CANNOTREMOVEUSERFROMCOURSE","उपयोगकर्ता से हटाया नहीं जा सकता है इस पाठ्यक्रम");//The user could not be removed from the course
+define("_USERHASNOTDONETEST","इस उपयोगकर्ता ने इस परीक्षण नहीं किया है");//The user has not done this test
+define("_TESTISNOTDONE","इस परीक्षण नहीं किया है");//The test is not done
+define("_INVALIDQUESTIONTYPE","अवैध प्रकार प्रश्न");//Invalid question type
+define("_YOUCANNOTDEACTIVATEANONEMPTYDIRECTION","आप नहीं कर सकते निष्क्रिय एक गैर खाली श्रेणी");//You cannot deactivate a non-empty category
+define("_YOUCANNOTDELETEANONEMPTYDIRECTION","आप नहीं हटा सकते एक गैर खाली श्रेणी");//You cannot delete a non-empty category
+define("_MAXFILEISAFFECTEDANDIS","फ़ाइल अपलोड अधिकतम आकार भी है PHP ini सेटिंग्स से प्रभावित है . वर्तमान अधिकतम फ़ाइल आकार सही है");//The maximum upload file size is also affected by PHP ini settings. Current true max file size is
+define("_CAREFULNOTLOCKOUT","जब तक पहुँच स्थापित करने आईपी सूची है , सावधान करने के लिए प्रतिबंध अपने आप से बाहर नहीं है !");//When setting ip access lists, be careful not to ban yourself out!
+define("_ADMINISTRATORWILLACTIVATEYOURACCOUNT","पंजीयन पूरा हो गया है . आपका खाता सक्रिय हो जाएगा द्वारा सिस्टम व्यवस्थापक");//Registration is complete. Your account will be activated by the system administrator
+define("_USERPENDING","यह खाता सक्रिय नहीं किया गया है अभी तक व्यवस्थापक के द्वारा");//The account has not been activated yet by the administrator
+define("_DOWNLOADDEFAULTSTYLE","डाउनलोड का डिफ़ॉल्ट शैली");//Download default style
+define("_SETDEFAULTSTYLE","डिफ़ॉल्ट सेट शैली के रूप में सक्रिय");//Set default style as active
+define("_SUCCESFULLYUPDATEDLOGO","लोगो फ़ाइल सफलतापूर्वक अपडेट किया गया");//Logo file was updated successfully
+define("_USEDEFAULTLOGO","डिफ़ॉल्ट लोगो का प्रयोग करें");//Use default logo
+define("_GROUPOPTIONS","समूह के विकल्प");//Group options
+define("_GROUPUSERS","उपयोगकर्ता समूह");//Group users
+define("_USETHIS","इस का प्रयोग करें");//Use this
+define("_PAGESETSUCCESSFULLY","सफलतापूर्वक स्थापित पृष्ठ");//Page set succesfully
+define("_TEXTBOX","पाठ बॉक्स");//Text box
+define("_SELECTBOX","सूची का चयन करें");//Select list
+define("_EDITFIELD","क्षेत्र संपादित करें");//Edit field
+define("_COULDNOTADDFIELD","इस क्षेत्र में जोड़ा नहीं जा सका");//The field could not be added
+define("_COULDNOTUPDATEFIELD","इस क्षेत्र को अद्यतन नहीं किया जा सका");//The field could not be updated
+define("_FIELDALREADYEXISTS","इस नाम का एक क्षेत्र के साथ पहले से मौजूद है");//A field with this name already exists
+define("_INTEGER","पूर्णांक");//Integer
+define("_DEFAULTVALUE","डिफ़ॉल्ट मूल्य");//Default value
+define("_VALUES","मान");//Values
+define("_ADDVALUES","मूल्यों में जोड़ें");//Add values
+define("_DELETEBOOKMARK","बुकमार्क हटाएँ");//Delete bookmark
+define("_SUCCESSFULLYINSERTEDBOOKMARK","इस पृष्ठ पर था बुकमार्क");//The page was bookmarked
+define("_ERRORINSERTINGBOOKMARK","इस पृष्ठ पर नहीं किया जा सका बुकमार्क");//The page could not be bookmarked
+define("_LOADING","लोड हो रहा है ...");//Loading...
+define("_UNITS","इकाइयों");//Units
+define("_USERCOULDNOTBECREATED","उपयोगकर्ता नहीं बनाया जा सकता है");//The user could not be created
+define("_PROCEEDTOTEST","परीक्षण के लिए");//Proceed to test
+define("_OPERATIONWILLAFFECTMANYAREYOUSURE","इस ऑपरेशन को प्रभावित करेगा अपरिवर्तनीय ढंग से बड़ी संख्या में संस्थाओं . सामग्री है ?");//This operation will affect irreversibly a large number of entities. Proceed?
+define("_CLICKTOTOGGLE","टॉगल करने के लिए क्लिक करें");//Click to toggle
+define("_COMPRESSDOWNLOAD","सेक और डाउनलोड");//Compress and download
+define("_SELECTEDENTRYTO","प्रवेश करने के लिए चयनित");//the selected entry to
+define("_YOUWANTTO","आप करना चाहते हैं");//You want to
+define("_UPLOADTODIGITALLIBRARY","अपलोड करने के लिए डिजिटल लाइब्रेरी");//Upload to digital library
+define("_SHARE","हिस्सा");//Share
+define("_OPERATIONSUCCESFULLYAPPLIEDON","ऑपरेशन पर सफलतापूर्वक लागू");//Operation successfully applied on
+define("_BYUSER","उपयोगकर्ता द्वारा");//by user
+define("_VIEWSOLVEDTEST","देखें हल परीक्षण");//View solved test
+define("_VIEWQUESTION","प्रश्न देखें");//View question
+define("_COULDNOTCREATETESTSDIRECTORY","इस परीक्षण फ़ोल्डर नहीं बनाया जा सकता है");//The tests folder could not be created
+define("_SAVEASNEWTEST","नए परीक्षण के रूप में सहेजें");//Save as new test
+define("_SELECTLESSONTOCOPYFROM","चयन को कॉपी करने के लिए एक सबक से");//Select a lesson to copy from
+define("_VIEWCOMMENT","टिप्पणी देखें");//View comment
+define("_SHOWEVALUATIONS","मूल्यांकन दिखाएँ");//Show evaluations
+define("_RECIPIENTS","प्राप्तकर्ता");//Recipients
+define("_SHOWRECIPIENTSCATEGORIES","प्राप्तकर्ता की श्रेणियों पूर्वनिर्धारित दिखाएँ");//Show recipient&#039;s predefined categories
+define("_HIDERECIPIENTSCATEGORIES","पूर्वनिर्धारित श्रेणियों के प्राप्तकर्ता को छिपाएँ");//Hide recipient&#039;s predefined categories
+define("_TOYOURSUPERVISORS","आपके सभी पर्यवेक्षकों");//All your supervisors
+define("_BASICINFO","बुनियादी जानकारी");//Basic info
+define("_TRAININGCAP","प्रशिक्षण");//T R A I N I N G
+define("_COURSESAVERAGE","सभी पाठ्यक्रमों में औसत स्कोर");//Average score in all courses
+define("_LESSONSAVERAGE","औसत स्कोर में सभी सबक");//Average score in all lessons
+define("_TESTSAVERAGE","औसत स्कोर में सभी परीक्षण");//Average score in all tests
+define("_DONTTAKEINTOACCOUNT","को ध्यान में न");//Do not take into account
+define("_CANNOTADDUSERTOLESSON","उपयोगकर्ता को सबक नहीं जोड़ सकते");//Cannot add user to lesson
+define("_UNKNOWNUSER","अज्ञात उपयोगकर्ता");//Unknown user
+define("_DEPENDSON","पर निर्भर करता है");//Depends on
+define("_COURSEINFORMATION","पाठ्यक्रम की जानकारी");//Course information
+define("_NODATAFOUND","कोई डेटा नहीं मिला");//No data found
+define("_ERROROPENINGATTACHMENT","अनुलग्नक खोलने में त्रुटि");//Error opening attachment
+define("_USERAVERAGESCOREFORLESSON","औसत स्कोर के लिए सबक के परीक्षणों");//User&#039;s average score for lesson
+define("_LESSONSINFO","सबक जानकारी");//Lessons info
+define("_USERSINGROUP","प्रयोक्ता समूह में");//Users in group
+define("_PROFESSORSOFLESSON","प्रोफेसर के सबक");//Professors of lesson
+define("_TOBRANCHSUPERVISORS","केवल अपने पर्यवेक्षकों शाखा");//Only your branch supervisors
+define("_OTHERBRANCHJOBS","अय्यूब अन्य शाखाओं से विवरण");//Job descriptions from other branches
+define("_SENDMESSAGETOALLFOUNDEMPLOYEES","सभी कर्मचारियों को संदेश भेजें पाया");//Send messages to all employees found
+define("_SEARCHCOURSEUSERS","खोज के लिए कर्मचारी [ पाठ्यक्रम मानदंडों ]");//Search for employee [Course criteria]
+define("_COMPLETIONDATE","समापन तिथि");//Completion date
+define("_YEAR","साल");//Year
+define("_NOTASSIGNED","अभी तक नहीं सौंपा");//Not assigned yet 
+define("_NEWSEARCHCRITERIUM","खोज criterium जोड़ें");//Add search criterium
+define("_NOSEARCHCRITERIADEFINED","खोज मानदंड निर्धारित नहीं");//No search criteria defined
+define("_ERRORSAVINGTREE","सहेजने में त्रुटि वृक्ष");//Error saving tree
+define("_MAXEXECUTIONTIME","अधिकतम निष्पादन समय");//Maximum execution time
+define("_MEMORYLIMIT","सीमा मेमोरी");//Memory limit
+define("_PHPSETTINGS","PHP सेटिंग्स");//PHP settings
+define("_MEGABYTES","मेगाबाइट");//megabytes
+define("_LEAVEBLANKTOUSEPHPINI","खाली खेतों में छोड़ दिया प्रयोग करने के लिए डिफ़ॉल्ट सेटिंग");//Leave fields blank in order to use php.ini default settings
+define("_DISPLAYERRORS","त्रुटियों के प्रदर्शन");//Display errors
+define("_UPLOADLESSONFILE","पाठ फ़ाइल अपलोड करें");//Upload lesson file
+define("_DCTITLE","शीर्षक");//Title
+define("_DCCREATOR","निर्माता");//Creator
+define("_DCSUBJECT","विषय");//Subject
+define("_DCDESCRIPTION","वर्णन");//Description
+define("_DCPUBLISHER","प्रकाशक");//Publisher
+define("_DCCONTRIBUTOR","योगदानकर्ता");//Contributor
+define("_DCDATE","तिथि");//Date
+define("_DCTYPE","प्रकार");//Type
+define("_DCFORMAT","प्रारूप");//Format
+define("_DCIDENTIFIER","पहचानकर्ता");//Identifier
+define("_DCSOURCE","स्रोत");//Source
+define("_DCLANGUAGE","भाषा");//Language
+define("_DCRELATION","संबंध");//Relation
+define("_DCCOVERAGE","कवरेज");//Coverage
+define("_DCRIGHTS","अधिकार");//Rights
+define("_NOENTRYFOUNDFOR","प्रवेश के लिए नहीं मिला");//No entry found for
+define("_FIELD","मैदान");//field
+define("_COURSECERTIFICATES","प्रमाणपत्र पाठ्यक्रम");//Course certificates
+define("_LDAPUSERMUSTCONTACTADMIN","आपके खाते के माध्यम से LDAP सर्वर तक पहुँचा है . कृपया सिस्टम प्रशासक से संपर्क में");//Your account is accessed through the LDAP server. Please contact the system administrator at 
+define("_COURSEMETADATA","पाठयक्रम मेटाडाटा");//Course metadata
+define("_COURSESTATUS","पाठ्यक्रम की स्थिति");//Course status
+define("_LESSONSCOMPLETED","पूर्ण पाठ");//Completed lessons
+define("_COURSESCORE","पाठयक्रम स्कोर");//Course score
+define("_LESSONSCOMPLETED","पूर्ण पाठ");//Lessons completed and awaiting approval
+define("_VIEWUSERCOURSEPROGRESS","देखें उपयोगकर्ता प्रगति पूरे पाठ्यक्रम");//View the user progress throughout the course
+define("_COURSERULES","पाठयक्रम नियम");//Course rules
+define("_INFORMATIONFORCOURSE","सूचना के लिए पाठ्यक्रम");//Information for course
+define("_CERTIFICATESFORCOURSE","प्रमाण पत्र के लिए पाठ्यक्रम");//Certificates for course
+define("_FORMATCERTIFICATEFORCOURSE","प्रारूप के लिए प्रमाणपत्र पाठ्यक्रम");//Format certificate for course
+define("_RULESFORCOURSE","नियमावली के लिए पाठ्यक्रम");//Rules for course
+define("_CONTENTDONE","सामग्री किया");//Content done
+define("_LESSONSPROGRESS","सबक प्रगति");//Lessons progress
+define("_COMPLETECOURSE","पाठ्यक्रम पूर्ण");//Complete course
+define("_PROPOSEDSCOREISAVERAGELESSONSCORE","प्रस्तावित है स्कोर के औसत स्कोर सबक");//The proposed score is the average lessons score
+define("_INTHESELECTEDLANGUAGE","प्रकार के वर्णन में पसंदीदा भाषा");//Type the description in the prefered language
+define("_SUCCESSFULLYDELETEDFIELD","क्षेत्र सफलतापूर्वक हटा दिया गया");//Successfully deleted field
+define("_COMPLETELESSON","पूर्ण पाठ");//Complete lesson
+define("_AUTOCOMPLETEDCOURSE","यह पाठ्यक्रम पूरा किया गया था जब सभी सबक स्वतः ही पूरी की गई");//The course was automatically completed when all lessons were completed
+define("_INFORMATIONFORLESSON","सूचना के लिए सबक");//Information for lesson
+define("_LESSONMETADATA","नालचिक मेटाडाटा");//Lesson metadata
+define("_DISPLAYINGRESULTS","परिणाम दिखाना");//Displaying results
+define("_LOADINGDATA","डेटा लोड हो रहा है");//Loading data
+define("_COURSESTATISTICS","पाठयक्रम रिपोर्ट");//Course reports
+define("_CHOOSECOURSE","पाठ्यक्रम चुनें");//Choose course
+define("_HISTORYRECORDDELETED","इतिहास रिकॉर्ड नष्ट कर दिया गया");//History record deleted
+define("_AREYOUSUREYOUWANTTODELETETHEHISOTYRECORD","क्या आप सुनिश्चित हैं कि आप रिकार्ड के इतिहास को नष्ट करना चाहते हैं ?");//Are you sure you want to delete the history record?
+define("_HIDEALL","सभी छुपाएँ");//Hide all
+define("_COURSEORDER","पाठयक्रम के आदेश");//Course order
+define("_ORDERFORCOURSE","आदेश के लिए पाठ्यक्रम");//Order for course
+define("_DRAGITEMSTOCHANGELESSONSORDER","खींचें आइटम के प्रदर्शन को बदलने के लिए आदेश इस पाठ्यक्रम के सबक");//Drag items to change the display order of the course lessons
+define("_IRREVERSIBLEACTIONDELETESUBUNITSAREYOUSURE","यह क्रिया irreversably हटाना होगा और कोई भी इस इकाई subunits यह हो सकता है . क्या आप सुनिश्चित हैं ?");//This action will irreversably delete this unit and any subunits it may have. Are you sure?
+define("_CLICKOKTOACTIVATEITEM","सक्रिय करने के लिए ठीक क्लिक करें / निष्क्रिय मद");//Click OK to activate/deactivate item
+define("_ANDITSSUBNODES","और यह उप नोड");//and it&#039;s sub nodes
+define("_ERRORDELETINGUNIT","इकाई को हटाने में त्रुटि");//Error deleting unit
+define("_ERRORACTIVATINGUNIT","सक्रिय करने में त्रुटि इकाई");//Error activating unit
+define("_ERRORDEACTIVATINGUNIT","त्रुटि deactivating इकाई");//Error deactivating unit
+define("_ERRORDEPOSITIONINGUNIT","त्रुटि स्थिति इकाई");//Error positioning unit
+define("_ERRORREPAIRINGTREE","त्रुटि की मरम्मत के पेड़");//Error repairing tree
+define("_DRAGAUNITTOCHANGEITSPOSITION","खींचें अपनी स्थिति को बदलने के लिए एक इकाई");//Drag a unit to change its position
+define("_IFUSESSLTHENPHPOPENSSL","यदि आप प्रयोग करना चाहते हैं ssl , सुनिश्चित करें कि PHP openssl समर्थन सक्षम है");//If you want to use ssl, make sure that PHP openssl support is enabled
+define("_COURSECOMPLETED","पाठयक्रम पूरा");//Course completed
+define("_COURSECERTIFICATE","प्रमाणपत्र पाठ्यक्रम");//Course certificate
+define("_COURSESINFO","पाठ्यक्रम जानकारी");//Courses info
+define("_DRAGTOMOVEMAILTOFOLDER","खींचें को स्थानांतरित करने के लिए इस ईमेल के लिए एक और फ़ोल्डर");//Drag to move this email to another folder
+define("_SCORMOPTIONS","Scorm विकल्प");//Scorm options
+define("_SCORMOPTIONSFOR","Scorm के लिए विकल्प");//Scorm options for
+define("_SCORMREVIEW","SCORM डेटा की समीक्षा करें");//Review SCORM data
+define("_REVIEWSCORMDATAFOR","समीक्षा के लिए डाटा SCORM");//Review SCORM data for
+define("_SCORMFILEINZIPFORMAT","ज़िप फ़ाइल SCORM");//SCORM zip file
+define("_TREEROOT","ट्री रूट");//Tree root
+define("_INVALIDPAGE","अमान्य पृष्ठ");//Invalid page
+define("_VALUEISSMALLERTHATPHPINI","का मूल्य की तुलना में से एक है छोटे द्वारा निर्धारित की बजाय");//The value is smaller than the one set by php.ini
+define("_PERMISSIONS","अनुमति");//Permissions
+define("_UNSHARE","साझा रद्द करें");//Cancel sharing
+define("_UNSHARESELECTED","चयनित फ़ाइलों को साझा करने के रद्द करें");//Cancel sharing of selected files
+define("_SHARESELECTED","चयनित फ़ाइलों को साझा करें");//Share selected files
+define("_YOUDONTHAVEPERMISSION","आप डॉन \" t ने प्रदर्शन करने की अनुमति चयनित कार्रवाई");//You don&quot;t have permission to perform the selected action
+define("_EXPORT","निर्यात");//Export
+define("_NOMODULECLASSFOUND","मॉड्यूल वर्ग के नाम के साथ नहीं पाया");//No module class found with name
+define("_ERRORLOADINGMODULE","मॉड्यूल लोड करने में त्रुटि");//Error loading module
+define("_VERSIONKEYTITLE","कुंजी संस्करण");//Version Key
+define("_VERSIONKEY","मुख्य संस्करण");//Version key
+define("_VERSIONALLOEDUSERS","अनुमति प्राप्त उपयोक्ता");//Allowed Users
+define("_VERSIONTYPE","संस्करण प्रकार");//Version Type
+define("_VERSIONSERIAL","क्रम संख्या");//Serial Number
+define("_USERSEXCEEDED","आपका संस्करण प्रकार की अनुमति नहीं देती की रचना के नए प्रयोक्ताओं");//Your version type does not allow the creation of new users
+define("_BASICCRITERIA","मूल मानदंड");//Basic criteria
+define("_BASICSEARCHOPTIONS","मूल खोज विकल्प");//Basic search options
+define("_DELETEDATA","डाटा मिटाएँ");//Delete data
+define("_ERRORDETAILS","त्रुटि विवरण");//Error Details
+define("_PARTOFTHISGROUP","उपयोगकर्ता इस समूह का हिस्सा है");//The user is part of this group
+define("_SUCCESSFULLYIMPORTEDSCORMFILE","फ़ाइल सफलतापूर्वक आयात किया गया था SCORM");//SCORM file was successfully imported
+define("_CONVERTTOSCORMCONTENT","कन्वर्ट करने के लिए सामग्री SCORM इकाई");//Convert to SCORM content unit
+define("_CONVERTTOSCORMTEST","कन्वर्ट करने के लिए SCORM इकाई परीक्षण");//Convert to SCORM test unit
+define("_SCORMTREE","SCORM वृक्ष");//SCORM tree
+define("_MASTERYSCORE","महारत स्कोर");//Mastery score
+define("_GZHANDLER","संकुचित प्रहस्तक");//GZ handler
+define("_PROJECTPENDING","इस परियोजना लंबित है");//This project is pending
+define("_USERHASNOTDONETEST","इस उपयोगकर्ता ने इस परीक्षण नहीं किया है");//The user has not done this test
+define("_USERHASNOTTHISLESSON","उपयोगकर्ता इस सबक के लिए पंजीकृत नहीं है");//The user is not registered for this lesson
+define("_SHIFTSCHEDULEFORNEWUSERS","नए उपयोगकर्ताओं के लिए Shift अनुसूची");//Shift schedule for new users
+define("_CURRENTSCHEDULE","वर्तमान समय");//Current schedule
+define("_NOSCHEDULESET","कोई कार्यक्रम तय");//No schedule set
+define("_DELETESCHEDULE","हटाएँ अनुसूची");//Delete schedule
+define("_SCHEDULINGFORCOURSE","समयबद्धता के लिए पाठ्यक्रम");//Scheduling for course
+define("_ADDSCHEDULE","अनुसूची में जोड़ें");//Add schedule
+define("_COURSESCHEDULE","पाठयक्रम अनुसूची");//Course schedule
+define("_AVAILABLEUNTIL","जब तक Available");//Available until
+define("_FILETYPE","फ़ाइल का प्रकार");//File type
+define("_FULLPATH","पूर्ण पथ");//Full path
+define("_MIMETYPE","माइम प्रकार");//MIME type
+define("_CANNOTSHAREFILE","फ़ाइल साझा नहीं कर सकते");//Cannot share file
+define("_SHAREDFILES","फ़ाइलों को साझा");//Shared files
+define("_CLICKTOEXPORT","निर्यात करने के लिए सबक बटन पर क्लिक करें");//Click the button to export lesson
+define("_EXISTINGFILE","निम्नलिखित फाइल पहले से मौजूद है");//The following file already exists
+define("_PROBLEMADDINGUSERSTOLESSON","उपयोगकर्ता को जोड़ा नहीं जा सका सबक");//The user could not be added to the lesson
+define("_TRANSLATEFILESYSTEM","लातिनी Encode गैर करने के लिए फ़ाइल नाम");//Encode non-latin file names to
+define("_CANNOTMOVEFILE","फ़ाइल स्थानांतरित नहीं किया जा सकता");//Cannot move file
+define("_INCOMPATIBLEVERSIONS","असंगत संस्करण");//Incompatible versions
+define("_BACKUPVERSION","संरक्षा संस्करण");//Backup version
+define("_CURRENTVERSION","वर्तमान संस्करण");//Current Version
+define("_MAXIMUMUPLOADSIZE","अधिकतम फ़ाइल आकार");//Maximum file size
+define("_BACKUPFAILED","संरक्षा में विफल रहा");//Backup failed
+define("_PERSONALFILES","व्यक्तिगत फाइल");//Personal files
+define("_MAXIMUMUSERSNUMBERREACHED","प्रयोक्ताओं की अधिकतम संख्या तक पहुँच जाता है");//The maximum number of users is reached
+define("_UPLOADING","अपलोड");//Uploading
+define("_SELECTEDFILESTO","चयनित फ़ाइलों को");//selected files to
+define("_CATEGORYDOESNOTEXIST","इस श्रेणी में मौजूद नहीं है");//The category does not exist
+define("_CATEGORIES","श्रेणियाँ");//Categories
+define("_NEWCATEGORY","नई श्रेणी");//New category
+define("_EDITCATEGORY","श्रेणी संपादित करें");//Edit category
+define("_CATEGORYSETTINGS","श्रेणी सेटिंग्स");//Category settings
+define("_YOUWANTTOBEDONE","आप करना चाहते हैं");//You want to
+define("_OVERWRITE","अधिलेखित");//Overwrite
+define("_USERSPROGRESS","कर्मचारी स्थिति");//Users progress
+define("_LESSONUSERS","उपयोगकर्ताओं नालचिक");//Lesson users
+define("_ASSOCIATEDCOURSES","एसोसिएटेड पाठ्यक्रम");//Associated courses
+define("_OUTPUT","आउटपुट");//Output
+define("_TOKEN","टोकन");//Token
+define("_PERMITTEDROLESMODULEERROR","एक या एक से अधिक मॉड्यूल की अनुमति दी भूमिकाओं गलत हैं");//One or more module permitted roles are wrong
+define("_SMARTYTEMPLATEDOESNOTEXIST","इस टेम्पलेट फ़ाइल smarty मौजूद नहीं है");//The smarty template file does not exist
+define("_FOLDERWITHMODULENAMEEXISTSIN","मॉड्यूल नाम के साथ फ़ोल्डर में पहले से मौजूद है");//Folder with module name already exists in 
+define("_SITENAME","साइट नाम");//Site name
+define("_SITEMOTO","ब साइट");//Site moto
+define("_UNKNOWNSEPARATOR","अज्ञात विभाजक");//Unknown separator
+define("_LDAPUSER","यह प्रयोक्ता authenticates LDAP सर्वर के माध्यम से");//This user authenticates through the LDAP server
+define("_EXECUTE","Execute");//Execute
+define("_RECREATE","फिर");//Recreate
+define("_CLICKHERETOREINDEX","फिर खोज के लिए यहाँ क्लिक करें तालिका");//Click here to recreate the search table
+define("_TRANSLATION","अनुवाद");//Translation
+define("_ENGLISHNAME","नाम अंग्रेजी में");//Name in english
+define("_SUCCESSFULLYADDEDLANGUAGE","इस भाषा का सफलतापूर्वक बनाया गया था");//The language was successfully created
+define("_SUCCESSFULLYUPDATEDLANGUAGE","इस भाषा का सफलतापूर्वक अद्यतन किया गया था");//The language was successfully updated
+define("_LANGUAGES","भाषा");//Languages
+define("_SERIALRULE","प्रयोक्ता चाहिए सामग्री देखने के क्रम में एक धारावाहिक");//Users must see content in a serial order
+define("_TREERULE","उपयोगकर्ता एक शाखा को पूरा करना चाहिए \" s नोड से पहले करने के लिए अगले एक चलती");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_ADDCUSTOMRULE","कस्टम नियम जोड़ें");//Add custom rule
+define("_ADDREADYRULE","तैयार नियम जोड़ें");//Add ready rule
+define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","निम्नलिखित प्रयोक्ताओं के आयात नहीं की जा सकती");//The following users could not be imported
+define("_STARTHERE","यहाँ प्रारंभ");//Start here
+define("_COPYSELECTED","चयनित प्रतिलिपि करें");//Copy selected
+define("_USERACCESSESINLESSON","प्रयोक्ता पहुँच में सबक");//User access in lesson
+define("_NUMBEROFFIELDSMUSTBE","खेतों की संख्या में होना चाहिए");//The number of fields must be
+define("_BUTFOUND","लेकिन पाया गया");//but there was found
+define("_APPLYAVATARCHANGES","परिवर्तनों को लागू अवतार");//Apply avatar changes
+define("_TERMFIELDISMANDATORY","क्षेत्र अनिवार्य शर्त है");//Term field is mandatory
+define("_DEFINITIONFIELDISMANDATORY","परिभाषा फील्ड अनिवार्य है");//Definition field is mandatory
+define("_TOPLEFTCORNER","ऊपरी बाएँ कोने");//Top left corner
+define("_TOPRIGHTCORNER","शीर्ष दायें कोने");//Top right corner
+define("_BOTTOMLEFTCORNER","नीचे बाएँ कोने");//Bottom left corner
+define("_BOTTOMRIGHTCORNER","नीचे दायें कोने");//Bottom right corner
+define("_LOGOPOSITION","लोगो की स्थिति");//Logo position
+define("_LOGOFILE","लोगो फ़ाइल");//Logo file
+define("_LESSONSKILLSSELECTION","नालचिक कौशल के चयन की पेशकश की");//Lesson offered skills selection
+define("_TOPCENTER","शीर्ष केन्द्र");//Top center
+define("_BOTTOMCENTER","नीचे केन्द्र");//Bottom center
+define("_HIDECOMPLETEUNITICON","छिपाएँ पूरी यूनिट चिह्न");//Hide complete unit icon
+define("_HIDENAVIGATION","नेविगेशन हैंडल को छिपाएँ");//Hide navigation handles
+define("_AUTOCOMPLETEDAT","ऑटो में पूरा");//Auto completed at
+define("_SECOND","दूसरा");//second
+define("_NOACCESSDATA","डेटा की पहुँच नहीं");//No access data
+define("_USERAVATAR","प्रयोक्ता अवतार");//User avatar
+define("_MOSTACTIVELESSONS","सर्वाधिक सक्रिय सबक");//Most active lessons
+define("_LESSONSACTIVITY","सबक गतिविधि");//Lessons activity
+define("_USERSACTIVITY","प्रयोक्ता गतिविधि");//Users activity
+define("_USERHASNOTTHELESSON","उपयोगकर्ता इस सबक नहीं है");//The user doesn&#039;t have this lesson
+define("_USERHASTHELESSON","इस उपयोगकर्ता ने इस सबक");//The user has this lesson
+define("_TESTSINFORMATION","टेस्ट जानकारी");//Tests information
+define("_QUESTIONSINFORMATION","प्रश्न जानकारी");//Questions information
+define("_PROJECTSINFORMATION","परियोजनाओं की सूचना");//Projects Information
+define("_MCEXPLANATION","* = एकाधिक विकल्पों एम सी -- एकल उत्तर");//* MC = Multiple choices - Single Answers
+define("_MCMAEXPLANATION","* = MCMA एकाधिक विकल्पों -- उत्तर एकाधिक");//* MCMA = Multiple choices - Multiple Answers
+define("_MAEXPLANATION","* MA = मिलान");//* MA = Matching
+define("_FBEXPLANATION","* = FB भरें के रिक्त");//* FB = Fill the blank
+define("_OAEXPLANATION","* = OA उत्तर खोलें");//* OA = Open answer
+define("_YNEXPLANATION","* = है हाँ / नहीं");//* YN = Yes/No
+define("_PROJECTNAME","परियोजना का नाम");//Project name
+define("_STATISTICSFORCOURSE","सांख्यिकी के लिए पाठ्यक्रम");//Statistics for course
+define("_YOUARENOTAUTHORISEDTOSEETHISTEST","आप को देखने के लिए अधिकृत नहीं हैं इस परीक्षण");//You are not authorized to see this test
+define("_YOUCANNOTREDOTHISTEST","आप इस परीक्षण नहीं कर सकते हैं &#39; पुनः करें &#39;");//You cannot redo this test
+define("_ACCESSEDLESSON","सबक तक पहुँचा");//Accessed lesson
+define("_ACCESSEDCONTENT","सामग्री यूनिट तक पहुँचा");//Accessed content unit
+define("_ACCESSEDTEST","परीक्षण तक पहुँचा");//Accessed test
+define("_BEGUNTEST","परीक्षण शुरू कर दिया है");//Begun test
+define("_NAVIGATEDSYSTEM","इस प्रणाली के माध्यम से Navigated");//Navigated through the system
+define("_PROJECTDESCRIPTION","परियोजना का विवरण");//Project description
+define("_CONTENTTRAVERSINGRULES","सामग्री नियमों का प्रवाह");//Content traversing rules
+define("_FILEUPLOADEDON","फ़ाइल अपलोड की गई थी पर");//The file was uploaded on
+define("_DIRECTIONOPTIONSFOR","विकल्प के लिए श्रेणी");//Options for category
+define("_NEWDIRECTIONOPTIONS","नई श्रेणी के विकल्प");//New category options
+define("_COURSELESSONS","पाठयक्रम सबक");//Course lessons
+define("_RELATEDTO","संबंधित");//Related to
+define("_SUCCESSFULLYEXPORTEDSCORMFILE","इस सबक को SCORM प्रारूप में निर्यात किया गया था सफलतापूर्वक");//The lesson was exported to SCORM format succesfully
+define("_LDAPEXTENSIONNOTLOADED","चेतावनी : लोड नहीं LDAP विस्तार");//Warning: LDAP Extension  not loaded
+define("_PERCENTAGEMUSTBEBETWEEN1100","1 प्रतिशत और 100 के बीच होना चाहिए");//Percentage must be between 1 and 100
+define("_MUSTSEECONTENTSERIALSOMUSTFIRSTREADUNIT","आपको देखना होगा कि सामग्री के क्रम में एक सीरियल है , ताकि आप अवश्य पढ़ पहली इकाई");//You must see content in a serial order, so you must first read unit
+define("_YOUDONTHAVEANYLESSONS","आप किसी भी सबक नहीं है या पाठ्यक्रम");//You don&#039;t have any lessons or courses
+define("_THEADMINISTRATORWILLASSIGNYOULESSONS","यह प्रणाली प्रशासक नियुक्त करेगा या आप सबक पाठ्यक्रम");//The system administrator will assign you lessons or courses
+define("_BACKTOINDEX","अनुक्रमणिका पृष्ठ पर वापस जाएँ");//Back to index page
+define("_LESSONAVAILABLE","नालचिक में उपलब्ध है");//Lesson is available
+define("_DIRECTLY","प्रत्यक्ष");//Directly
+define("_ADDFILE","फ़ाइल जोड़ें");//Add file
+define("_DOWNLOADSCORMEXPORTEDFILE","निर्यात SCORM फ़ाइल डाउनलोड करें");//Download exported SCORM file
+define("_EMPTYUNIT","खाली इकाई");//Empty unit
+define("_YOUMUSTPROVIDELOGINLINK","आप एक लॉगिन कड़ी प्रदान करनी चाहिए , अन्यथा आप से कनेक्ट नहीं कर सकेंगे सीधे है . लॉगिन के माध्यम से कड़ी के रूप में उपलब्ध है : ". G_SERVERNAME ."index.php?index_efront");//You must provide a login link, otherwise you will not be able to connect directly. Login form is available through the link: ".G_SERVERNAME."index.php?index_efront
+define("_NOFILEUPLOADED","फ़ाइल अपलोड नहीं किया गया था");//No file was uploaded
+define("_FONTSIZE","फ़ॉन्ट आकार");//Font size
+define("_FONTSTYLE","फ़ॉन्ट शैली");//Font style
+define("_PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS","समस्या डालने के मूल्यों को पार्स XML डाटाबेस है . कृपया जाँचें कि क्या फ़ाइल या अपने विवरण के मॉड्यूल पहले से स्थापित है");//Problem inserting the parsed XML values to the database. Please check your description file or whether the module is already installed
+define("_NOMODULEPERMITTEDROLESDEFINED","मॉड्यूल भूमिकाओं में परिभाषित की अनुमति नहीं है . समारोह की जाँच getPermittedRoles ( )");//No module permitted roles defined. Check function getPermittedRoles()
+define("_MODULECLASSNOTEXISTSIN","मॉड्यूल वर्ग में परिभाषित नहीं है");//module class is not defined in
+define("_MODULEDBERRORONINSTALL","डाटाबेस के कार्य निष्पादन के दौरान त्रुटि onInstall के लिए मॉड्यूल");//Database error during the execution of function onInstall for the module
+define("_MODULEISALREADYINSTALLED","इस मॉड्यूल पहले से स्थापित है");//The module is already installed
+define("_LOGOUTREDIRECT","पुनर्निर्देशन करने के बाद लॉगआउट");//Redirect after logout to
+define("_INFORMATIONFORFILE","फ़ाइल के लिए सूचना");//Information for file
+define("_METADATA","मेटाडाटा");//Metadata
+define("_FILEMETADATA","फ़ाइल मेटाडाटा");//File metadata
+define("_NOENTRYFOUNDFORTHEFIELD","प्रवेश के क्षेत्र के लिए नहीं मिला");//No entry found for the field
+define("_CONTENTMETADATA","सामग्री मेटाडाटा");//Content Metadata
+define("_METADATAFORUNIT","मेटाडाटा के लिए यूनिट");//Metadata for unit
+define("_RESOURCEREQUESTEDREQUIRESLOGIN","संसाधन की आवश्यकता होती है कि आप इस अनुरोध है कि आप पहले लॉगिन");//The resource that you requested requires that you login first
+define("_DATABASEERROR","डेटाबेस त्रुटि");//Database error
+define("_CANNOTACCESSRESOURCE","आप तक पहुँच की अनुमति नहीं है इस संसाधन");//You don&#039;t have permission to access this resource
+define("_RESOURCEISNOTACCESSIBLEFROMOUTSIDE","यह संसाधन सीधे सुलभ नहीं है");//This resource is not directly accessible
+define("_RESOURCEISNOTAVAILABLE","यह संसाधन उपलब्ध नहीं है");//This resource is not available
+define("_DIRECTLYACCESSIBLE","पहुँच के साथ सीधा यूआरएल");//Accessible with a direct URL
+define("_DIRECTLACCESSIBLEEXPLANATION","इसका मतलब यह है कि तक पहुँचा जा सकता है यूनिट का उपयोग करने के बाद सीधे url :");//This means that the unit can be accessed using the following direct url:
+define("_HIDE","छिपना");//Hide
+define("_LESSONOPTIONSET","नालचिक विकल्प सेट");//Lesson option set
+define("_BACKUPRESTORE","बैकअप / बहाल");//Backup/restore
+define("_CONFIGURATIONOPTIONS","विन्यास विकल्प");//Configuration options
+define("_UNAUTHORIZEDACCESS","आप तक पहुँच की अनुमति नहीं है इस अनुभाग");//You do not have permission to access this section
+define("_LESSONUSER","उपयोगकर्ता नालचिक");//Lesson user
+define("_PROGRESSFORUSER","प्रगति के लिए उपयोगकर्ता");//Progress for user
+define("_LESSONSORDER","सबक आदेश");//Lessons order
+define("_COURSEUSER","पाठयक्रम उपयोगकर्ता");//Course user
+define("_COURSELESSON","पाठयक्रम सबक");//Course lesson
+define("_CANNOTDELETEOWNTYPE","आप अपना स्वयं का प्रकार नहीं हटा सकता है");//You may not delete your own type
+define("_GROUPUSER","उपयोगकर्ता समूह");//Group user
+define("_EXPLICITIFRAMESIZE","iframe स्पष्ट आकार");//Explicit iframe size
+define("_EXPLICITSIZEEXPLANATION","यह सामग्री के आकार के SCORM जिसमें फ्रेम . इसे खाली छोड़ दें है कि यह स्वतः ही गणना");//This is the size of the SCORM content containing frame. Leave it blank to have it automatically calculated
+define("_USERROLEINLESSON","उपयोक्ता भूमिका में सबक");//User role in lesson
+define("_LESSONROLE","भूमिका में सबक");//Role in lesson
+define("_COURSEROLE","पाठ्यक्रम की भूमिका में");//Role in course
+define("_PAYPAL","पेपैल");//Paypal
+define("_DOWNLOADEXAMPLE","डाउनलोड का उदाहरण");//Download example
+define("_CONTENTTREEFIRSTPAGE","सामग्री के पेड़ में पहले पृष्ठ");//Content tree in first page
+define("_LAYOUT","लेआउट");//Layout
+define("_CONNECTIONERROR","संबंधन त्रुटि");//Connection error
+define("_ONLYEFRONTNOTSCORM","इस का प्रयोग करें अपलोड करने के लिए सबक eFront प्रारूप में ही है . SCORM अपलोड के लिए , विकल्प का प्रयोग SCORM में प्रोफेसर के नियंत्रण कक्ष");//Use this to upload lessons in eFront format only. For SCORM uploads, use the SCORM option at the professor's control panel
+define("_TESTSMATRIX","टेस्ट मैट्रिक्स");//Tests matrix (New)
+define("_PROJECTSMATRIX","परियोजनाओं मैट्रिक्स");//Projects matrix (New)
+define("_MODULEDBERRORONUPGRADECHECKUPGRADEFUNCTION","इस मॉड्यूल के लिए समारोह onUpgrade के निष्पादन के दौरान डाटाबेस त्रुटि");//Database error during the execution of function onUpgrade for the module (New)
+define("_MODULENOTUPGRADEDFOLDERNOTDELETEDCLOSEALLOPENFILES","क्योंकि मौजूदा डायरेक्टरी को नष्ट नहीं किया जा सका मॉड्यूल upgrade, असफल रहा. Close कि निर्देशिका में सभी फ़ाइलें खोलने और फिर कोशिश करें");//Module upgrade failed, because existing directory could not be deleted. Close all open files in that directory and try again (New)
+define("_MODULESUCCESFULLYUPGRADED","मॉड्यूल सफलतापूर्वक उन्नत");//Module successfully upgraded (New)
+define("_USERRESULTS","प्रयोक्ता परिणाम");//User results (New)
+define("_SKILLSCORES","कौशल स्कोर");//Skill scores (New)
+define("_PROPOSEDASSIGNMENTS","प्रस्तावित कार्य");//Proposed assignments (New)
+define("_THRESHOLD","दहलीज़");//Threshold (New)
+define("_SKILLGAPANALYSISFORUSER","उपयोगकर्ता के लिए दक्षता अंतर विश्लेषण");//Skill gap analysis for user (New)
+define("_ACCORDINGTOTEST","के अनुसार परीक्षण");//according to test (New)
+define("_NOLESSONSPROPOSEDACCORDINGTOANALYSIS","कोई सबक के कौशल अंतर विश्लेषण के अनुसार प्रस्तावित कर रहे हैं");//No lessons are proposed according to the skill gap analysis (New)
+define("_NOCOURSESPROPOSEDACCORDINGTOANALYSIS","नहीं पाठ्यक्रमों के कौशल अंतर विश्लेषण के अनुसार प्रस्तावित कर रहे हैं");//No courses are proposed according to the skill gap analysis (New)
+define("_CERTIFICATETEMPLATE","प्रमाणपत्र (rtf प्रारूप) टेम्पलेट");//Certificate template (rtf format) (New)
+define("_COMMANDS","Commands");//Commands (New)
+define("_SEARCHRESULTSCOMMANDS","आज्ञाओं में खोज परिणाम");//Search results in commands (New)
+define("_TOGGLEHTMLEDITORMODE","टॉगल संपादक / html मोड");//Toggle editor/html mode (New)
+define("_UPLOADFILEFROMURL","Url से फ़ाइल अपलोड करें");//Upload file from url (New)
+define("_OPENCLOSEFILEMANAGER","खुला / बंद प्रबंधक फ़ाइल");//Open/close file manager (New)
+define("_INSERTEDITOR","डालें संपादक करने के लिए");//Insert to editor (New)
+define("_AUTOMATICALLYASSIGNTOALLNEWSTUDENTS","स्वचालित रूप से सभी नए छात्रों के लिए आवंटित");//Automatically assign to all new students (New)
+define("_SKILLGAPTESTSTOBECOMPLETED","कौशल अंतर परीक्षण पूरा कर लिए जाने की");//Skill gap tests to be completed (New)
+define("_SKILLGAPTESTCOMPLETEDSUCCESSFULLY","कौशल अंतर परीक्षण सफलतापूर्वक पूरा");//Skill gap test completed successfully (New)
+define("_RELEVANCE","प्रासंगिकता");//Relevance (New)
+define("_KNOWLEDGEOFLESSON" , "Knowledge of lesson");
+define("_KNOWLEDGEOFCOURSE","ज्ञान पाठ्यक्रम का");//Knowledge of course (New)
+define("_NOSKILLSCORRELATEDWITHTHETESTSQUESTIONS","नहीं कौशल की परीक्षा के प्रश्नों सहसंबद्ध के साथ");//No skills correlated with the test&#039;s questions (New)
+define("_OPENFILEMANAGER","खुली फ़ाइल प्रबंधक");//Open file manager (New)
+define("_CLOSEFILEMANAGER","Close प्रबंधक फ़ाइल");//Close file manager (New)
+define("_CLICKFORHELP","मदद के लिए क्लिक करें");//Click for help (New)
+define("_NOSKILLGAPTESTSASSIGNEDTOYOU","नहीं कौशल अंतर आप को सौंपा परीक्षण");//No skill gap tests assigned to you (New)
+define("_TESTSOLVEDVIEWTOSEESKILLGAPANALYSIS" , "Test solved: View skill gap analysis");
+define("_GENERALTHRESHOLD","सामान्य थ्रेसहोल्ड");//General Threshold (New)
+define("_UPLOADPDFFORCONTENT","टॉगल pdf / कस्टम सामग्री का");//Toggle pdf/custom content (New)
+define("_PDFFILE","नए pdf फ़ाइल अपलोड करें");//Upload new pdf file (New)
+define("_ASSOCIATEDSKILLS","सम्बन्धित कौशल");//Associated skills (New)
+define("_SKILLGAPTESTS","कौशल अंतर परीक्षण");//Skill gap tests (New)
+define("_ASSOCIATEDWITH","एसोसिएटेड के साथ");//Associated with (New)
+define("_NEWSKILLGAPTESTS","नए कौशल अंतर परीक्षण");//New skill gap tests (New)
+define("_CORRELATESKILLSTOQUESTION","प्रश्न के सहसंबंधी कौशल");//Correlate skills to question (New)
+define("_EDITSKILLGAPTEST","संपादित करें कौशल अंतर परीक्षण");//Edit skill gap test (New)
+define("_ADDSKILLGAPTEST","कौशल अंतर परीक्षण जोड़ें");//Add skill gap test (New)
+define("_YOUMUSTUPLOADAPDFFILE","तुम एक pdf फ़ाइल अपलोड करनी चाहिये");//You must upload a pdf file (New)
+define("_RECENTLYCOMPLETEDSKILLGAP","हाल ही में skillgap परीक्षण पूरा");//Recently completed skillgap tests (New)
+define("_NOCOMPLETEDSKILLGAP","नहीं पूरा skillgap परीक्षणों पाया");//No completed skillgap tests found (New)
+define("_SHOWALLSOLVEDSKILLGAPTESTS","सभी दिखाएँ skillgap परीक्षणों हल");//Show all solved skillgap tests (New)
+define("_DELETESKILLGAPTESTRECORD","हटाएँ कौशल अंतर टेस्ट रिकार्ड");//Delete skill gap test record (New)
+define("_ASSIGNTOALLNEWSTUDENTS","निर्दिष्ट सभी नए छात्रों के लिए");//Assign to all new students (New)
+define("_AUTOMATICALLYASSIGNLESSONS","स्वचालित रूप से सबक assign");//Automatically assign lessons (New)
+define("_AUTOMATICASSIGNMENTINFO","परीक्षण पूरा करने के बाद, एक छात्र स्वचालित रूप से सभी के साथ आवंटित किया जाएगा <br> पाठ और पाठ्यक्रमों उसके या उसके शैक्षिक आवश्यकताओं से मेल खाते");//After completing the test, a student will be automatically assigned with all<br> lessons and courses matching his or her educational needs (New)
+define("_SKILLGAPTESTCOMPLETEDSUCCESSFULLYANDTHECORRESPONDING","कौशल अंतर परीक्षण सफलतापूर्वक और इसी पूरा");//Skill gap test completed successfully and the corresponding (New)
+define("_HAVEBEENASSIGNED","आप को निरुपित किया गया है");//have been assigned to you (New)
+define("_SKILLGAPTESTRESULTS","कौशल अंतर परीक्षण के परिणाम");//Skill gap test results (New)
+define("_CURRENTPDFFILE","वर्तमान pdf file");//Current pdf file (New)
+define("_SEARCHTEXTWASINSCRIPT","खोज पाठ एक स्क्रिप्ट के अंदर पाया गया था");//Search text was found inside a script (New)
+define("_NUMBERFROM000TO9999REQUIRED","संख्या 0,00 99,99 करने से अपेक्षित");//Number from 0.00 to 99.99 required (New)
+define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","नीचे पूरा कौशल अंतर परीक्षणों ताकि हम पाठ्यक्रमों सबसे अपने neeeds करने के लिए उपयुक्त निर्दिष्ट कर सकते हैं.");//Complete the skill gap tests below so that we can assign courses most suitable to your neeeds. (New)
+define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","क्या आप को सौंपा परीक्षणों सब कौशल अंतर को पूरा कर लिया है. <br> जब तक अपने प्रोफेसरों के लिए आप अपनी आवश्यकताओं के अनुसार सबसे उपयुक्त पाठ्यक्रमों assign कृपया प्रतीक्षा करें.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs. (New)
+define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","अपने परिणाम है जो जल्दी ही करने के लिए पाठ्यक्रमों निर्दिष्ट करेंगे अपने प्रोफेसरों के लिए भेजा गया है अपनी अपनी आवश्यकताओं के इस परीक्षण से की पहचान के रूप में अनुसार");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test (New)
+define("_JOBPLACEMENTS","नौकरी प्लेसमेंट");//Job placements (New)
+define("_NEWJOBPLACEMENT","नई नौकरी प्लेसमेंट");//New job placements (New)
+define("_UPGRADEMODULE","Upgrade मॉड्यूल");//Upgrade module (New)
+define("_NEWUNITOPTIONS","नई इकाई के विकल्प");//New unit options (New)
+define("_UNITOPTIONSFOR","यूनिट के लिए विकल्प");//Options for unit (New)
+define("_OPTIONSFORSKILLGAPTEST","कौशल अंतर परीक्षण के लिए विकल्प");//Options for skill gap test (New)
+define("_OPTIONSFORTEST","परीक्षण के लिए विकल्प");//Options for test (New)
+define("_REPORTSFORCOURSE","रिपोर्टों पाठ्यक्रम के लिए");//Reports for course (New)
+define("_REPORTSFORTEST","परीक्षण के लिए रिपोर्टें");//Reports for test (New)
+define("_USERISNOTVALIDORYOUCANNOTSEEUSER","उपयोगकर्ता निर्दिष्ट मान्य नहीं है, या आप इस उपयोगकर्ता के डेटा का उपयोग नहीं कर सकते");//The user specified is not valid, or you cannot access this user&#039;s data (New)
+define("_SELECTGROUP","समूह का चयन करें");//Select group (New)
+define("_BLANKFORNOLIMIT","कोई समय सीमा के लिए खाली छोड़ दें");//Leave blank for no time limit (New)
+define("_HARDPLURAL","कठोर");//Hard (New)
+define("_MEDIUMPLURAL","मध्यम");//Medium (New)
+define("_EASYPLURAL","सरल");//Easy (New)
+define("_UNLIMITED","Unilimited");//Unilimited (New)
+define("_INCORRECTQUESTION","सवाल यह गलत है");//The question is incorrect (New)
+define("_QUESTIONISCORRECT","सवाल सही है");//The question is correct (New)
+define("_PARTIALLYCORRECTQUESTION","इस सवाल का आंशिक रूप से सही है");//The question is partially correct (New)
+define("_FAILED","विफल रहा");//Failed (New)
+define("_PASSED","पारित");//Passed (New)
+define("_TESTOPTIONS","परीक्षण के विकल्प");//Test options (New)
+define("_TESTQUESTIONS","जाँच प्रश्न");//Test questions (New)
+define("_SAVETESTANDADDQUESTIONS","सहेजें और चुनें सवाल");//Save and select questions (New)
+define("_RANDOMPOOLTEST","यादृच्छिक पूल परीक्षण");//Random pool test (New)
+define("_SUBMITANDCONTINUEEDITING","जमा करें और संपादन जारी");//Submit and continue editing (New)
+define("_SUBMITANDRETURN","जमा करें और वापसी");//Submit and return (New)
+define("_SUBMITASNEWANDCONTINUEEDITING","भेजें नए और जारी रखने के संपादन के रूप में");//Submit as new and continue editing (New)
+define("_SUBMITASNEWANDRETURN","भेजने के रूप में नए और वापसी");//Submit as new and return (New)
+define("_QUESTIONSINPOOL","पूल में प्रश्न");//Questions in pool (New)
+define("_SELECTRANDOMQUESTIONS","Randomize सवाल");//Randomize questions (New)
+define("_RANDOMIZE","Randomize");//Randomize (New)
+define("_PAUSETEST","विराम दें परीक्षण");//Pause test (New)
+define("_ALLFORUMS","सभी मंचों");//All forums (New)
+define("_USERCANDOTEST","उपयोगकर्ता का परीक्षण कर सकते हैं");//The user can do the test (New)
+define("_ANDUSERDIDITIN","उस में पूरा किया गया");//It was completed in (New)
+define("_TESTSCOREIS","टेस्ट स्कोर है");//Test score is (New)
+define("_USERREDOTEST","फिर से करें परीक्षण");//Redo test (New)
+define("_SOLVEDTEST","परीक्षण हल");//Solved test (New)
+define("_CHANGESCORE","बदलें स्कोर");//Change score (New)
+define("_ADDFEEDBACK","राय जोड़ें");//Add feedback (New)
+define("_EDITFEEDBACK","संपादित करें प्रतिक्रिया");//Edit feedback (New)
+define("_RESETTESTSTATUS","रीसेट इस परीक्षण निष्पादन");//Reset this test execution (New)
+define("_THETESTISDONE","इस परीक्षण किया जाता है");//The test is done (New)
+define("_ANDCANBEDONE","और किया जा सकता है");//and can be done (New)
+define("_TESTCANBEPAUSED","परीक्षण रोक दिया जा सकता है");//Test can be paused (New)
+define("_TESTSTARTEDAT","इस परीक्षण में शुरू");//The test started at (New)
+define("_ANDCOMPLETEDAT","और में पूर्ण");//and completed at (New)
+define("_SCOREINTEST","परीक्षण में स्कोर");//Score in test (New)
+define("_TESTRESULTS","परीक्षण के परिणाम");//Test results (New)
+define("_JUMPTOEXECUTION","कूद निष्पादन करने के लिए");//jump to execution (New)
+define("_LASTEXECUTION","पिछले निष्पादित");//Last execution (New)
+define("_EXECUTION","निष्पादन");//execution (New)
+define("_LAST","अंतिम");//Last (New)
+define("_CORRECTIONPENDING","सुधार लंबित");//Correction pending (New)
+define("_FULLNAME","पूरा नाम");//Full name (New)
+define("_PARTIALLYCORRECT","आंशिक रूप से सही");//Partially correct (New)
+define("_CORRECT","सही");//Correct (New)
+define("_NOUNIT","कोई इकाई");//No unit (New)
+define("_TESTANALYSIS","टेस्ट विश्लेषण");//Test analysis (New)
+define("_THISLEVEL","इस स्तर");//This level (New)
+define("_BELOWLEVELS","नीचे का स्तर");//Below levels (New)
+define("_SUCCESSRATES","सफलता दर");//Success rates (New)
+define("_NOPARENT","माता पिता के बिना");//Without parent (New)
+define("_THEUSERUNDERGOINGTESTSTARTEDAT","उपयोगकर्ता अभी, पर शुरू परीक्षण किया जा रहा है");//The user is right now undergoing the test, started at (New)
+define("_NONEXISTENTTEST","यह एक पूरा परीक्षण नहीं है");//This is not a completed test (New)
+define("_FORTEST","परीक्षण के लिए");//for test (New)
+define("_ANDUSER","और उपयोगकर्ता");//and user (New)
+define("_TESTANALYSISFORTEST","परीक्षण के लिए टेस्ट विश्लेषण");//Test analysis for test (New)
+define("_RESETALLTESTSSTATUS","रीसेट सभी निष्पादन स्थिति");//Reset all execution status (New)
+define("_ADDANOTHERFILE","एक अन्य फ़ाइल जोड़ें");//Add another file (New)
+define("_YOUPAUSEDTHISTESTON","तुम पर इस परीक्षण रोक दिया");//You paused this test on (New)
+define("_RESUMETEST","फिर से शुरू परीक्षण");//Resume test (New)
+define("_DISPLAYQUESTIONWEIGHTS","परीक्षण के दौरान प्रदर्शित वजन");//Display weights during test (New)
+define("_UNAVAILABLEOPTION","यह विकल्प उपलब्ध नहीं है");//This option is not available (New)
+define("_SKILLGAPTESTS","कौशल अंतर परीक्षण");//Skill gap tests (New)
+define("_HOURSSHORTHAND","h");//h (New)
+define("_MINUTESSHORTHAND","मी");//m (New)
+define("_SECONDSSHORTHAND","s");//s (New)
+define("_NONEUNIT","कोई नहीं इकाई");//None unit (New)
+define("_NOSYSTEMANNOUNCEMENTS","वहाँ कोई व्यवस्था नहीं घोषणाएं कर रहे हैं");//There are no system announcements (New)
+define("_NOONELOGGEDIN","कोई नहीं वर्तमान में लॉग इन है");//Noone is currently logged in (New)
+define("_ENTERYOUREMAILADDRESS","आपको ईमेल पता दर्ज करें");//Enter you email address (New)
+define("_ENTERMESSAGESUBJECT","संदेश का विषय प्रविष्ट करें");//Enter the message subject (New)
+define("_ENTERMESSAGE","संदेश प्रविष्ट करें");//Enter the message (New)
+define("_ENTERANYCOMMENTS","तुम हो सकता है कोई टिप्पणी प्रविष्ट करें");//Enter any comments you might have (New)
+define("_LOGINOREMAIL","लॉगिन या ईमेल");//Login or email (New)
+define("_USETHISTORESETPASSWORD","अपना पासवर्ड रीसेट करने के लिए इस प्रपत्र का उपयोग करें");//Use this form to reset your password (New)
+define("_USETHISTOREGISTERANEWACCOUNT","एक नया उपयोक्ता खाता बनाने के लिए इस प्रपत्र का उपयोग करें");//Use this form to create a new user account (New)
+define("_USETHISTOCONTACTUS","इस फार्म का उपयोग करें किसी भी मुद्दे के लिए हमसे संपर्क करने के लिए");//Use this form to contact us for any issue (New)
+define("_AVAILABLELESSONS","पाठ और पाठ्यक्रमों की प्रणाली में उपलब्ध");//Lessons and courses available in the system (New)
+define("_SELECTLAYOUT","चुनें एक लेआउट");//Select a layout (New)
+define("_ENROLL","पंजीकरण");//Enroll (New)
+define("_INFORMATION","जानकारी");//Information (New)
+define("_STARTPAGE","आरम्भ पृष्ठ");//Start page (New)
+define("_SIGNUP","साइन अप");//Sign up (New)
+define("_INFOFORLESSON","जानकारी के लिए सबक");//Information for lesson (New)
+define("_DONTHAVEACCOUNT","मैं एक खाता नहीं है");//I do not have an account (New)
+define("_FORGOTPASSWORD","मैं अपना कूटशब्द भूल गया");//I forgot my password (New)
+define("_LOGINFORM","लॉगिन फॉर्म");//Login form (New)
+define("_SEARCHFORM","खोज फ़ॉर्म");//Search form (New)
+define("_CARTBLOCK","शॉपिंग कार्ट ब्लॉक");//Shopping Cart block (New)
+define("_CUSTOMBLOCK","कस्टम खंड");//Custom block (New)
+define("_LESSONSLIST","सबक सूची");//Lessons list (New)
+define("_SYSTEMNEWS","प्रणाली समाचार");//System news (New)
+define("_REMOVE","हटाना");//Remove (New)
+define("_TWOCOLUMNSRIGHT","दो कॉलम right-मिलान");//Two columns right-aligned (New)
+define("_TWOCOLUMNSLEFT","दो कॉलम बाएँ-मिलान");//Two columns left-aligned (New)
+define("_THREECOLUMNS","तीन कॉलम");//Three columns (New)
+define("_SIMPLE","सरल");//Simple (New)
+define("_SAVELAYOUT","लेआउट सहेजें");//Save layout (New)
+define("_ADDBLOCK","खंड जोड़ें");//Add block (New)
+define("_RESTOREDEFAULTLAYOUT","Restore डिफ़ॉल्ट लेआउट");//Restore default layout (New)
+define("_INFOFORCOURSE","जानकारी पाठ्यक्रम के लिए");//Information for course (New)
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","कृपया पंजीकरण पूरा करने के लिए लॉगिन");//Please login to complete registration (New)
+define("_GOTOLESSONSLIST","पाठ करने के लिए सूची को जाएँ");//Go to lessons list (New)
+define("_PUBLISHED","प्रकाशित");//Published (New)
+define("_NOTPUBLISHED","नहीं प्रकाशित");//Not published (New)
+define("_OPTIONSFORPROJECT","परियोजना के लिए विकल्प");//Options for project (New)
+define("_SKILLGAPTESTRESULTSREMOVEDFROMUSERTHETESTCANBEREPEATED","परीक्षण के परिणाम को सफलतापूर्वक इस प्रयोक्ता के लिए हटा दिया गया है. परीक्षण अब फिर से पूरा किया जा सकता है.");//Test results have been successfully removed for this user. The test can now be completed again. (New)
+define("_HOMEOFLESSON","घर सबक के");//Home of lesson (New)
+define("_OPTIONSFORGROUP","समूह के लिए विकल्प");//Options for group (New)
+define("_SURVEYFAILEDTOBEDELETED","सर्वेक्षण नष्ट होना करने में विफल रहा है");//Survey failed to be deleted (New)
+define("_COURSESNUMBER","कई पाठ्यक्रमों का");//Number of courses (New)
+define("_GROUPSNUMBER","संख्या समूहों की");//Number of groups (New)
+define("_FORUMTITLE","फोरम शीर्षक");//Forum title (New)
+define("_OTHERLESSONS","अन्य सबक");//Other lessons (New)
+define("_CONTENTREPORT","सामग्री त्रुटि रिपोर्ट");//Content error report (New)
+define("_CONTENTREPORTTOPROFS","प्रोफेसरों के लिए रिपोर्ट की सामग्री त्रुटि");//Report content error to professors (New)
+define("_TOPIC","विषय");//Topic (New)
+define("_LINK","जोड़ना");//Link (New)
+define("_REPORT","रिपोर्ट");//Report (New)
+define("_SUCCESFULLYSENDREPORT","अपनी रिपोर्ट को सफलतापूर्वक भेजा गया था");//Your report was successfully sent (New)
+define("_ERRORREPORTFOR","सबक के लिए सामग्री त्रुटि रिपोर्ट");//Content error report for lesson (New)
+define("_YOUSHOULDCHANGEHEADERLANGUAGETAG","तुम में _HEADERLANGUAGETAG बदलना चाहिए");//You should change _HEADERLANGUAGETAG in (New)
+define("_LANGUAGEFILE","भाषा फ़ाइल");//language file (New)
+define("_YOURSYSTEMSUPPORTS","आपके सिस्टम का समर्थन करता है");//Your system supports (New)
+define("_LINKTOTOPIC","विषय से लिंक करें");//Link to topic (New)
+define("_SCOREINEACHUNIT","प्रत्येक इकाई में स्कोर");//Score in each unit (New)
+define("_SCOREINUNIT","यूनिट में स्कोर");//Score in unit (New)
+define("_SHOWDETAILS","विवरण दिखाएँ");//Show details (New)
+define("_DISPLAYORDEREDLIST","प्रदर्शन सूची का आदेश दिया");//Display ordered list (New)
+define("_AVERAGESCOREON","औसत स्कोर पर");//average score on (New)
+define("_SCOREONLASTEXECUTION","पिछले निष्पादित पर स्कोर");//score on last execution (New)
+define("_EXECUTIONS","सज़ाएँ");//Executions (New)
+define("_RECENTLYCOMPLETEDTESTS","हाल ही में परीक्षण पूरा");//Recently completed tests (New)
+define("_IMPORTNOTICE","चेतावनी: सभी मौजूदा सबक जानकारी मिटाना होगा एक सबक आयात");//Warning: importing a lesson will erase all existing lesson information (New)
+define("_RESET","रीसेट");//Reset (New)
+define("_RESETGRAPH","रीसेट ग्राफ");//Reset graph (New)
+define("_CANNOTAUTOMATICALLYLOGIN","आप स्वचालित रूप से प्रवेश नहीं कर सकता");//You cannot login automatically (New)
+define("_LOGINENTRANCE","लॉग इन");//Login (New)
+define("_SELECTEDLESSONS","चयनित पाठ");//Selected lessons (New)
+define("_ADDTOLESSONS","पाठ में जोड़ें");//Add to lessons (New)
+define("_AVAILABLEBLOCKS","उपलब्ध ब्लॉकों");//Available blocks (New)
+define("_ADDCUSTOMBLOCK","कस्टम खंड जोड़ें");//Add custom block (New)
+define("_CURRENTLAYOUT","वर्तमान लेआउट");//Current layout (New)
+define("_UNDOALLCHANGES","सभी परिवर्तनों को पूर्ववत् करें");//Undo all changes (New)
+define("_BLOCKTITLE","खंड शीर्षक");//Block title (New)
+define("_BLOCKCONTENT","ब्लॉक सामग्री");//Block content (New)
+define("_YOUCANNOTACCESSREQUESTEDRESOURCE","आप से अनुरोध संसाधन का उपयोग नहीं कर सकते");//You cannot access the requested resource (New)
+define("_TOTALUNITS","कुल यूनिटों");//Total units (New)
+?>

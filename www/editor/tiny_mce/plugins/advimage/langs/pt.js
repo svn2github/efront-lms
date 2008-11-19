@@ -1,0 +1,26 @@
+ 
+tinyMCE.addToLang('advimage',{
+tab_general : 'Geral',
+tab_appearance : 'Aparência',
+tab_advanced : 'Opções',
+general : 'Geral',
+title : 'Título',
+preview : 'Preview',
+constrain_proportions : 'Restringir proporções',
+langdir : 'Língua direção',
+langcode : 'Língua código',
+long_desc : 'Descrição longa ligação',
+style : 'Estilo',
+classes : 'Classes',
+ltr : 'Da esquerda para a direita',
+rtl : 'Direita para a esquerda',
+id : 'Id',
+image_map : 'Image mapa',
+swap_image : 'Swap imagem',
+alt_image : 'Alternativa imagem',
+mouseover : 'para mouse sobre',
+mouseout : 'mouse para fora',
+misc : 'Diversos',
+example_img : 'Aspecto imagem preview',
+missing_alt : 'Tem certeza de que deseja continuar sem incluindo uma descrição imagem? Sem que a imagem pode não ser acessível a alguns usuários com deficiência, ou para aqueles que utilizam um navegador de texto, ou navegar na Internet com imagens desligado.'
+});

@@ -1,0 +1,26 @@
+ 
+tinyMCE.addToLang('advimage',{
+tab_general : 'Algemeen',
+tab_appearance : 'Uiterlijk',
+tab_advanced : 'Uitgebreid',
+general : 'Algemeen',
+title : 'Titel',
+preview : 'Preview',
+constrain_proportions : 'Handhaaf verhoudingen',
+langdir : 'Taal richting',
+langcode : 'Taal-code',
+long_desc : 'Lange beschrijving link',
+style : 'Stijl',
+classes : 'Klassen',
+ltr : 'Van links naar rechts',
+rtl : 'Van rechts naar links',
+id : 'Id',
+image_map : 'Afbeelding kaart',
+swap_image : 'Swap image',
+alt_image : 'Alternatieve afbeelding',
+mouseover : 'voor de muis over',
+mouseout : 'voor de muis uit',
+misc : 'Miscellaneous',
+example_img : 'Uiterlijk afdrukvoorbeeld',
+missing_alt : 'Weet u zeker dat u verder wilt gaan, zonder inbegrip van een beschrijving Image? Zonder dat het beeld mag niet toegankelijk zijn voor sommige gebruikers met een handicap, of aan die met behulp van een tekst browser, of surfen over het web met afbeeldingen uitgeschakeld.'
+});

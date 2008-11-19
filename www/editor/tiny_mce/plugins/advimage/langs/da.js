@@ -1,0 +1,26 @@
+ 
+tinyMCE.addToLang('advimage',{
+tab_general : 'Almindelige',
+tab_appearance : 'Udseende',
+tab_advanced : 'Advanced',
+general : 'Almindelige',
+title : 'Titel',
+preview : 'Preview',
+constrain_proportions : 'Begrænse andelen',
+langdir : 'Sprog retning',
+langcode : 'Sprog kode',
+long_desc : 'Lang beskrivelse link',
+style : 'Style',
+classes : 'Klasser',
+ltr : 'Venstre mod højre',
+rtl : 'Højre mod venstre',
+id : 'Id',
+image_map : 'Image map',
+swap_image : 'Swap image',
+alt_image : 'Alternativ image',
+mouseover : 'for musen hen over',
+mouseout : 'for mus ud',
+misc : 'Diverse',
+example_img : 'Udseende preview image',
+missing_alt : 'Er du sikker på du vil fortsætte uden at medtage et billede beskrivelse? Uden at det billedet muligvis ikke være tilgængelige for nogle brugere med handicap, eller til dem ved hjælp af en tekst browser, eller surfe på nettet med billeder slukket.'
+});

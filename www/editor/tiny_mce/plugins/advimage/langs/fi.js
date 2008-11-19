@@ -1,0 +1,26 @@
+ 
+tinyMCE.addToLang('advimage',{
+tab_general : 'Yleistä',
+tab_appearance : 'Ulkonäkö',
+tab_advanced : 'Advanced',
+general : 'Yleistä',
+title : 'Osasto',
+preview : 'Esikatselu',
+constrain_proportions : 'Constrain osuudet',
+langdir : 'Kieli suuntaan',
+langcode : 'Kieli-koodi',
+long_desc : 'Pitkä kuvaus linkki',
+style : 'Tyyli',
+classes : 'Classes',
+ltr : 'Vasemmalta oikealle',
+rtl : 'Oikealta vasemmalle',
+id : 'Id',
+image_map : 'Kuvakartta',
+swap_image : 'Swap kuva',
+alt_image : 'Vaihtoehtoiset kuva',
+mouseover : 'varten hiiren',
+mouseout : '- hiiri pois',
+misc : 'Sekalaiset',
+example_img : 'Ulkonäkö esikatsella kuvaa',
+missing_alt : 'Oletko varma että haluat jatkaa ilman, mukaan lukien Kuva kuvaus? Ilman sitä kuva ei voi olla saatavilla joillekin vammaisille käyttäjille, tai jotka käyttävät tekstiselaimessa, tai selaa Web-kuvat pois päältä.'
+});

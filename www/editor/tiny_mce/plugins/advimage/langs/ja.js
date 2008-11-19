@@ -1,0 +1,26 @@
+ 
+tinyMCE.addToLang('advimage',{
+tab_general : '全般',
+tab_appearance : '外観',
+tab_advanced : '高度な',
+general : '全般',
+title : 'タイトル',
+preview : 'プレビュー',
+constrain_proportions : '縦横比を固定',
+langdir : '言語の方向',
+langcode : '言語コード',
+long_desc : '長い説明リンク',
+style : 'スタイル',
+classes : 'クラス',
+ltr : '左から右へ',
+rtl : '右から左へ',
+id : '番号',
+image_map : 'イメージマップ',
+swap_image : 'スワップイメージ',
+alt_image : '代替イメージ',
+mouseover : 'にマウスを置く',
+mouseout : 'マウスアウト',
+misc : 'その他',
+example_img : '外観プレビュー画像',
+missing_alt : 'してもよろしいですを続行するには、説明書の画像を含むですか？なくて、イメージすることはできませんのユーザーがアクセスできるようにいくつかの障害か、またはテキストブラウザを使用しているか、または無効になって画像は、 Webブラウズをします。'
+});

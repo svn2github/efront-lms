@@ -1,0 +1,26 @@
+ 
+tinyMCE.addToLang('advimage',{
+tab_general : 'Ogólne',
+tab_appearance : 'Wygląd',
+tab_advanced : 'Zaawansowane',
+general : 'Ogólne',
+title : 'Tytuł',
+preview : 'Podgląd',
+constrain_proportions : 'Ograniczać rozmiary',
+langdir : 'Język kierunku',
+langcode : 'Kod języka',
+long_desc : 'Długi opis linku',
+style : 'Styl',
+classes : 'Ćwiczenia',
+ltr : 'Od lewej do prawej',
+rtl : 'Od prawej do lewej',
+id : 'Id',
+image_map : 'Obraz mapy',
+swap_image : 'Swap obrazu',
+alt_image : 'Alternatywne graficzne',
+mouseover : 'za myszą',
+mouseout : 'dla myszy,',
+misc : 'Różne',
+example_img : 'Wygląd podgląd obrazu',
+missing_alt : 'Czy na pewno chcesz kontynuować bez obrazu w tym opis? Bez niej obraz nie może być dostępne dla niektórych użytkowników niepełnosprawnych, lub do tych tekstów za pomocą przeglądarki WWW lub przeglądając zdjęcia z wyłączoną.'
+});

@@ -1,0 +1,1215 @@
+-- 
+-- eFront v3.5.0 database creation file
+--
+
+--
+-- Table 'bookmarks'
+--
+-- This table represents a bookmark. A bookmark is a link to a page that a student can save
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_LOGIN: The user that this bookmark belongs to, matching the 'login' field at the 'users' table
+-- users_USER_TYPE: The user this bookmark belongs to user type, matching the 'user_type' field at the 'users' table
+-- name: The stored page title, for example 'Control Panel'
+-- url: The url of the stored page, for example 'http://efront.example.com/student.php?ctg=control_panel'
+CREATE TABLE bookmarks (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(255) NOT NULL,
+  users_USER_TYPE varchar(255) NOT NULL,
+  lessons_ID varchar(255),
+  name text,
+  url text,
+  PRIMARY KEY  (id),
+  KEY users_LOGIN (users_LOGIN)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'calendar'
+--
+-- This table represents a calendar event. 
+-- Fields:
+-- id (primary key): A numerical identifier
+-- lessons_ID: The id of the lesson that the event is for. The value matches the 'id' field in the 'lessons' table. If it's 0, it means that this event is not associated to any lesson 
+-- data: The event itself
+-- timestamp: A 10-digit number representing the event's date and time
+-- active: Whether this event should appear. Valid values are 0 (not active) and 1 (active)
+-- users_LOGIN: The user that posted this event, matching the 'login' field at the 'users' table
+CREATE TABLE calendar (
+  id int(11) NOT NULL auto_increment,
+  lessons_ID int(11) default '0',
+  data text,
+  timestamp varchar(10) NOT NULL,
+  active tinyint(1) NOT NULL default '1',
+  users_LOGIN varchar(255) NOT NULL,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'chatmessages'
+--
+-- This table represent a message posted in the chat
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_LOGIN: The user that posted this event, matching the 'login' field at the 'users' table
+-- users_USER_TYPE: The user's that posted this event type, matching the 'user_type' field at the 'users' table
+-- content: The message body
+-- timestamp: A 10-digit number representing the time that message was posted
+-- chatrooms_ID: The id of the chatroom that the message was posted in, matching the 'id' field of the 'chatrooms' table
+CREATE TABLE chatmessages (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(255) NOT NULL,
+  users_USER_TYPE varchar(255) NOT NULL,
+  content text,
+  timestamp varchar(10) NOT NULL,
+  chatrooms_ID int(11) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'chatrooms'
+--
+-- This table represent a chat room
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The name of the chat room
+-- create_timestamp: A 10-digit number representing the time that room was created
+-- users_LOGIN: The user that created this chat room
+-- type: The chat room type, can be either 'private' or 'public'
+-- active: Whether this room is active. Valid values are 0 (not active) and 1 (active)
+-- lessons_ID: The id of the lesson that this room is associated to, corresponding to the 'id' field of the 'lessons' table. If it's null, then it not associated with any lesson
+CREATE TABLE chatrooms (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  create_timestamp varchar(10) NOT NULL,
+  users_LOGIN varchar(255) NOT NULL,
+  type varchar(255) NOT NULL,
+  active tinyint(1) NOT NULL default '1',
+  lessons_ID int(11) default NULL,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'comments'
+--
+-- This table represent a comment attached to a content unit
+-- Fields:
+-- id (primary key): A numerical identifier
+-- data: The comment body
+-- users_LOGIN: The user that created this chat room
+-- content_ID: The id of the unit this comment was appended to, corresponding to the 'id' field of the 'content' table. 
+-- timestamp: A 10-digit number representing the time that the comment was posted
+-- active: Whether this comment should appear.
+CREATE TABLE comments (
+  id int(11) NOT NULL auto_increment,
+  data text NOT NULL,
+  users_LOGIN varchar(255) NOT NULL,
+  content_ID int(11) NOT NULL default '0',
+  timestamp varchar(10) NOT NULL,
+  active tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'configuration'
+--
+-- This table holds the system's configuration options
+-- Fields:
+-- name (primary key): A word representing the option name
+-- value: A string holding the option value
+CREATE TABLE configuration (
+  name varchar(255) NOT NULL,
+  value text NOT NULL,
+  PRIMARY KEY  (name)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'content'
+--
+-- This table represent a content unit
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The unit name
+-- data: The unit body
+-- parent_content_ID: An id corresponding to a unit that is parent of this unit. If it's 0, then the unit has no parents (it is a 'root node')
+-- lessons_ID: The id of the lesson that this unit is associated to, corresponding to the 'id' field of the 'lessons' table. 
+-- timestamp: A 10-digit number representing the time that the unit was created
+-- ctg_type: The type of the unit. Can be one of: 'theory', 'examples', 'tests', 'scorm', 'scorm_test'
+-- active: Whether this unit is active or not. Possible values are 0 (not active) and 1 (active)
+-- previous_content_ID: An id corresponding to a unit that comes before this unit. If it's 0, then the unit is the first one
+-- options: A string holding a serialized array with unit options
+-- metadata: A string holding a serialized array with unit metadata
+-- publish: Whether the unit created should be visible to students (ie 'published') 
+CREATE TABLE content (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  data longtext,
+  parent_content_ID int(11) default '0',
+  lessons_ID int(11) default '0',
+  timestamp varchar(10) NOT NULL,
+  ctg_type varchar(255) NOT NULL,
+  active tinyint(1) default '1',
+  previous_content_ID int(11) default '0',
+  options text default NULL,
+  metadata text default NULL,
+  publish tinyint(1) default '1',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'courses'
+--
+-- This table represent a course
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The course name
+-- directions_ID: The id of the direction (category) that this course belongs to, corresponding to the 'id' field of the 'directions' table
+-- info: A serialized array holding course information
+-- price: The price of the course, or 0 if it's free
+-- active: Whether this course is active or not. Possible values are 0 (not active) and 1 (active)
+-- languages_NAME: The language that this course supports. It's value corresponds to the 'name' field of the 'languages' table
+-- metadata: A string holding a serialized array with unit metadata
+-- certficate:
+-- auto_certificate: Whether a certificate should be issued automatically when a user auto completes a course. Possible values are 0 (no auto-complete) or 1 (auto-complete)
+-- certificate_tpl:
+-- auto_complete: Whether this course should be completed automatically when a user completed all its lessons. Possible values are 0 (no auto-complete) or 1 (auto-complete)
+-- rules: A serialized array that corresponds to the succession rules applied among lessons in the course
+-- from_timestamp: A timestamp that dictates when the course will become available 
+-- to_timestamp: A timestamp that dictates when the course will stop beeing available
+-- shift: Sets whether shifting based on user registration time should be perform on the 'from_timestamp' and 'to_timestamp' field values
+-- certificate_tpl_id
+-- publish: Whether the course created should be visible to students (ie 'published')
+CREATE TABLE courses (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  directions_ID int(11) NOT NULL default '0',
+  info text,
+  price float default '0',
+  active tinyint(1) NOT NULL default '1',
+  languages_NAME varchar(255) NOT NULL,
+  metadata text,
+  certificate text,
+  auto_certificate tinyint(1) default '0',
+  certificate_tpl text,
+  auto_complete tinyint(1) default '0',
+  rules text,
+  from_timestamp varchar(255) default '',
+  to_timestamp varchar(255) default '',
+  shift tinyint(1) default '0',
+  certificate_tpl_id int(11) default 0,
+  publish tinyint(1) default '1',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+-- 
+-- Table 'directions'
+--
+-- This table represents a system category (direction)
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The category name
+-- active: Whether the category is active. Possible values are 0 (non active) and 1 (active)
+-- parent_direction_ID The id of the category's parent category. If it's 0, then the category is top-most 
+CREATE TABLE directions (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  active tinyint(1) NOT NULL default '1',
+  parent_direction_ID int(11) default 0,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'done_questions'
+--
+-- This table holds data for test questions completed by users
+-- Fields:
+-- id (primary key): A numerical identifier
+-- done_tests_ID: The id of the done test that the question is part of, corresponding to the 'id' field of the 'done_tests' table
+-- questions_ID: The id of the question whos result is stored here, corresponding to the 'id' field of the 'questions' table
+-- answer: The answer that the user gave, represented as a serialized string
+-- score: The user's score in this question. If score is < 0, then it corresponds to a question which will be manually corrected 
+-- timestamp: The time that the question was completed
+CREATE TABLE done_questions (
+  id int(11) NOT NULL auto_increment,
+  done_tests_ID int(11) NOT NULL default '0',
+  questions_ID int(11) NOT NULL default '0',
+  answer text,
+  score float default '0',
+  timestamp varchar(10) NOT NULL,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'done_tests'
+--
+-- This table holds data for tests completed by users
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_LOGIN: The user that completed the test, matching the 'login' field at the 'users' table
+-- tests_ID: The id of the test whos result is stored here, corresponding to the 'id' field of the 'tests' table
+-- timestamp: The time that the test was completed
+-- score: The user's score in the test.
+-- comments: Comments that the professor may have attached to the user
+-- duration: The time (in seconds) that the user spent on the test  
+CREATE TABLE done_tests (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(255) NOT NULL,
+  tests_ID int(11) NOT NULL default '0',
+  timestamp varchar(10) NOT NULL,
+  score float default '0',
+  comments text,
+  duration varchar(10) NOT NULL,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_forums'
+--
+-- This table holds data for forums
+-- Fields:
+-- id (primary key): A numerical identifier
+-- title: The forum's title
+-- lessons_ID: The id of the lesson that this forum is attached to. If it's 0, then the forum is not associated to a lesson
+-- parent_id: The id of the forum's parent forum. If it's 0, then this forum is a 'root' forum
+-- status: May be 'public' (default), 'locked' or 'hidden' and corresponds to the forum's status 
+-- users_LOGIN: The forum's creator, matching the 'login' field at the 'users' table
+-- comments: Comments related to this forum 
+CREATE TABLE f_forums (
+  id int(11) NOT NULL auto_increment,
+  title varchar(255) NOT NULL,
+  lessons_ID int(11) NOT NULL default '0',
+  parent_id int(11) NOT NULL default '0',
+  status varchar(255) NOT NULL default 'public',
+  users_LOGIN varchar(255) NOT NULL,
+  comments text,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_configuration'
+--
+-- This table holds the forum's configuration options
+-- Fields:
+-- name (primary key): A word representing the option name
+-- value: A string holding the option value
+CREATE TABLE f_configuration (
+  name varchar(255) NOT NULL,
+  value varchar(255) NOT NULL,
+  PRIMARY KEY  (name)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_folders'
+--
+-- This table holds the virtual folders for personal messages
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The folder's name
+-- users_LOGIN: The folder's owner, corresponding to the 'login' field at the 'users' table
+-- parent_id: The folder's parent folder, or 0 if it's a root folder
+CREATE TABLE f_folders (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  users_LOGIN varchar(255) NOT NULL,
+  parent_id int(11) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_messages'
+--
+-- This table holds the messages posted to the forum
+-- Fields:
+-- id (primary key): A numerical identifier
+-- f_topics_ID: The id of the topic that this message was posted in
+-- title: The message's (optional) title
+-- body: The message body
+-- timestamp: The time that the message was posted
+-- users_LOGIN: The user that posted the message, corresponding to the 'login' field at the 'users' table
+-- replyto: Whether this message is a reply to another message. If so, then its value is the id of the original message, otherwise it's 0 (deprecated)
+-- rank: deprecated
+CREATE TABLE f_messages (
+  id int(11) NOT NULL auto_increment,
+  f_topics_ID int(11) NOT NULL default '0',
+  title varchar(255) NOT NULL,
+  body text NOT NULL,
+  timestamp varchar(10) NOT NULL,
+  users_LOGIN varchar(255) NOT NULL,
+  replyto int(11) NOT NULL default '0',
+  rank tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_personal_messages'
+--
+-- This table holds the personal messages sent among users
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_LOGIN: The user that the message belongs to, corresponding to the 'login' field at the 'users' table
+-- recipient: The recipent(s) of the message, a comma-seprated list of user logins
+-- sender: The sender of the message, corresponding to the 'login' field at the 'users' table
+-- timestamp: The time that the message was sent
+-- attachments: If the message has an attachment, this field holds its identifier (an id corresponding to the 'files' table, or a full file path)  
+-- title: The message's title
+-- body: The message body
+-- f_folders_ID: The folder that this message displays in, corresponding to the 'id' field in the 'f_folders' table
+-- viewed: Boolean value where 1 means the user has read the message, and 0 he hasn't 
+-- priority: A number indicating the priority of the message, where higher values mean higher priority
+CREATE TABLE f_personal_messages (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(255) NOT NULL,
+  recipient text,
+  sender varchar(255) NOT NULL,
+  timestamp varchar(10) NOT NULL,
+  attachments text,
+  title varchar(255) NOT NULL,
+  body text NOT NULL,
+  f_folders_ID int(11) NOT NULL default '1',
+  viewed tinyint(1) NOT NULL default '0',
+  priority tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_poll'
+--
+-- This table holds the forum polls
+-- Fields:
+-- id (primary key): A numerical identifier
+-- title: The poll title
+-- question: The questions that the poll has
+-- options: Poll options
+-- timestamp_created: The time that this poll was created
+-- users_LOGIN: The user that created the poll
+-- f_forums_ID: The id of the forum that the poll belongs to
+-- timestamp_start: The time that the poll will be available from
+-- timestamp_end: The time that the poll will be available until
+-- views: How many people have seen this poll
+-- sticky: Whether this poll is "sticky" i.e. it is always on top, can be either 0 or 1
+-- comments: Comments that display next to the poll
+CREATE TABLE f_poll (
+  id int(11) NOT NULL auto_increment,
+  title varchar(255) NOT NULL,
+  question text NOT NULL,
+  options text NOT NULL,
+  timestamp_created varchar(10) NOT NULL,
+  users_LOGIN varchar(255) NOT NULL,  
+  f_forums_ID int(11) NOT NULL default '0',
+  timestamp_start varchar(10) NOT NULL,
+  timestamp_end varchar(10) NOT NULL,
+  views int(11) NOT NULL default '0',
+  sticky int(11) NOT NULL default '0',
+  comments text,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_topic'
+--
+-- This table holds the forum topics
+-- Fields:
+-- id (primary key): A numerical identifier
+-- f_forums_ID: The id of the forum that the topic belongs to
+-- timestamp: The time that this topic was created
+-- title: The topic title
+-- users_LOGIN: The user that created the topic
+-- views: How many people have seen this topic
+-- viewed_by: A list of user logins that have seen this topic
+-- status: The status of this topic, for example 'locked'
+-- sticky: Whether this topic is "sticky" i.e. it is always on top, can be either 0 or 1
+-- comments: Comments that display next to the topic
+CREATE TABLE f_topics (
+  id int(11) NOT NULL auto_increment,
+  f_forums_ID int(11) NOT NULL default '0',
+  timestamp varchar(10) NOT NULL,
+  title varchar(255) NOT NULL,
+  users_LOGIN varchar(255) NOT NULL,
+  views int(11) NOT NULL default '0',
+  viewed_by text,
+  status varchar(255) NOT NULL default 'status',
+  sticky varchar(255) NOT NULL default '0',
+  comments text,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'f_users_to_polls'
+--
+-- This table holds people's votes to a poll
+-- Fields:
+-- f_poll_ID: The id of the poll that the vote is for
+-- users_LOGIN: The user that submited the vote
+-- vote: The vote for the poll
+-- timestamp: The time that this vote was submited
+CREATE TABLE f_users_to_polls (
+  f_poll_ID int(11) NOT NULL default '0',
+  users_LOGIN varchar(255) NOT NULL,
+  vote tinyint(4) NOT NULL default '0',
+  timestamp varchar(10) NOT NULL,
+  primary key (f_poll_ID, users_LOGIN)
+) DEFAULT CHARSET=utf8;
+
+
+--
+-- Table 'glossary_words'
+--
+-- This table holds glossary words
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The word in the glossary
+-- lessons_ID: The id of the lesson that the word is for
+-- info: Description of the word
+-- type: The word type, for example 'general'
+-- active: Whether this word should be hightlighted, can be either 1 (active) or 0
+CREATE TABLE glossary_words (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  lessons_ID int(11) NOT NULL default '0',
+  info text,
+  type varchar(255) NOT NULL default 'general',
+  active tinyint(1) NOT NULL default '1',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'languages'
+--
+-- Fields:
+-- name (primary key): The language name
+-- active: Whether this language is available, can be either 1 (active) or 0
+-- translation: The language name in its native language
+CREATE TABLE languages (
+  name varchar(255) NOT NULL,
+  active tinyint(1) NOT NULL default '1',
+  translation varchar(255),
+  PRIMARY KEY  (name)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'lessons'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The lesson name
+-- directions_ID: The id of the direction that this lesson belongs to, corresponds to the 'id' field of the 'directions' table
+-- info: A serialized array that corresponds to the lesson information. Once unserialized, this information can instantiate an EfrontInformation object
+-- price: A number corresponding to the lesson price
+-- active: Whether this lesson is active. Can be either 0 (inactive) or 1 (active)
+-- options: A serialized array that holds the lesson options
+-- languages_NAME: The lesson's language, corresponds to the 'name' field in the 'languages' table
+-- metadata: The lesson metadata, in a serialized array, that can be instantiated to an EfrontInformation object
+-- course_only: A flag that sets whether this lesson will be accessed through a course (1) or not (0)
+-- certificate: A certificate that can be issued for this lesson
+-- from_timestamp: The time that the lesson will be available from
+-- to_timestamp: The time that the lesson will be available until
+-- shift: Whether this lesson supports shifting based on user registration date  
+-- publish: Whether the lesson created should be visible to students (ie 'published')
+CREATE TABLE lessons (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  directions_ID int(11) NOT NULL default '0',
+  info text,
+  price float default '0',
+  active tinyint(1) NOT NULL default '1',
+  options text,
+  languages_NAME varchar(255) NOT NULL,
+  metadata text,
+  course_only tinyint(1) default '0',
+  certificate text,
+  from_timestamp varchar(255) default '',
+  to_timestamp varchar(255) default '',
+  shift tinyint(1) default '0',
+  publish tinyint(1) default '1',  
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'lesson_conditions'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- lessons_ID: The id of the lesson that this condition refers to, corresponds to the 'id' field of the 'lessons' table
+-- type: The type of the condition, can be 'all_units', 'percentage_units', 'specific_unit', 'all_tests', 'specific_test'
+-- options: Options that comprise the condition, depending on its type, for example the percentage or the unit id
+-- relation: The condition's relation to other conditions of the same lesson, can be 'and' or 'or'
+CREATE TABLE lesson_conditions (
+  id int(11) NOT NULL auto_increment,
+  lessons_ID int(11) NOT NULL,
+  type varchar(255) NOT NULL,
+  options text,
+  relation varchar(255) NOT NULL default 'and',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'lesson_conditions'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_LOGIN: The user that this log entry refers to
+-- timestamp: The time that this log entry was triggered
+-- action: The action that triggered the entry, for example 'login', 'logout', 'lesson', 'tests', 'content', 'personal', 'lastmove'
+-- comments: Special data referring to the action, for example the session id, or the content id
+-- session_ip: The ip of the user that initiated the log entry
+-- lessons_ID: The id of the lesson that may has to do with the log entry
+CREATE TABLE logs (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(255) NOT NULL,
+  timestamp varchar(10) NOT NULL,
+  action varchar(255) NOT NULL,
+  comments varchar(255) NOT NULL default '0',
+  session_ip varchar(255) NOT NULL default '0',
+  lessons_ID int(11) default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE modules (
+  className varchar(255) NOT NULL,
+  db_file varchar(255), 
+  name varchar(255) NOT NULL,
+  active tinyint(1) NOT NULL,
+  title varchar(255) NOT NULL,
+  author varchar(255) default NULL,
+  version varchar(255) default NULL,
+  description text,
+  position varchar(255) NOT NULL,
+  menu varchar(255) default NULL,
+  mandatory varchar(255) default NULL,
+  permissions varchar(255) NOT NULL default 'administrator',
+  PRIMARY KEY  (className)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'news'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- title: The announcement's title
+-- data: The annoucnement itself
+-- timestamp: The time that the announcement will be valid from
+-- lessons_ID: The id of the lesson that this announcement concerns. If it's 0, it's a system announcement
+-- users_LOGIN: The user that posted the announcement  
+CREATE TABLE news (
+  id int(11) NOT NULL auto_increment,
+  title varchar(255) default NULL,
+  data text,
+  timestamp int(11) default 0,
+  lessons_ID int(11) default NULL,
+  users_LOGIN varchar(255) NOT NULL,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'periods'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The period name
+-- from_timestamp: The time that the period starts
+-- to_timestamp: The time that the period ends
+-- lessons_ID: The lesson that this period is for
+CREATE TABLE periods (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  from_timestamp varchar(10) NOT NULL,
+  to_timestamp varchar(10) NOT NULL,
+  lessons_ID int(11) NOT NULL default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE projects (
+  id int(11) NOT NULL auto_increment,
+  title varchar(255) default NULL,
+  data text,
+  deadline varchar(255) default NULL,
+  creator_LOGIN varchar(255) NOT NULL,
+  lessons_ID int(11) default NULL,
+  auto_assign int(11) NOT NULL default '0',
+  PRIMARY KEY  (id),
+  KEY creator_LOGIN (creator_LOGIN),
+  KEY deadline (deadline)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'questions'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- text: The question text
+-- type: The question type, may be one out of: 'raw_text', 'multiple_one', 'multiple_many', 'match', 'true_false', 'empty_spaces' 
+-- content_ID: The unit that this question is associated to. Corresponds to the 'id' field of the 'content' table. If 0, then the questions is not associated to any unit  
+-- difficulty: The difficulty of the question, may be one out of: 'easy', 'medium', 'hard'
+-- options: A serialized array with the question options, for example if it's a multiple questions, the different options
+-- answer: The answer(s) of the question, usually in a serialized array
+-- explanation: A default explanation added by the professor that displays when the question is completed 
+CREATE TABLE questions (
+  id int(11) NOT NULL auto_increment,
+  text text NOT NULL,
+  type varchar(255) NOT NULL,
+  content_ID int(11) NOT NULL default '0',
+  lessons_ID int(11) NOT NULL default '0',
+  difficulty varchar(255) NOT NULL,
+  options text,
+  answer text,
+  explanation text,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE questions_to_surveys (
+  id int(11) NOT NULL auto_increment,
+  surveys_ID int(11) default NULL,
+  type varchar(40) default NULL,
+  question mediumtext,
+  answers mediumtext NOT NULL,
+  created int(11) default NULL,
+  info mediumtext NOT NULL,
+  father_ID int(11) default NULL,
+  PRIMARY KEY  (id),
+  KEY surveys_ID (surveys_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE rules (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(255) NOT NULL,
+  content_ID int(11) NOT NULL default '0',
+  rule_type varchar(255) NOT NULL,
+  rule_content_ID int(11) default '0',
+  rule_option float default '0',
+  lessons_ID int(11) default '0',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE scorm_data (
+  id int(11) NOT NULL auto_increment,
+  content_ID int(11) NOT NULL default '0',
+  users_LOGIN varchar(255) default NULL,
+  timestamp varchar(255) default NULL,
+  lesson_location text,
+  maxtimeallowed varchar(255) default NULL,
+  timelimitaction varchar(255) default NULL,
+  masteryscore varchar(255) default NULL,
+  datafromlms text,
+  entry varchar(255) NOT NULL,
+  total_time varchar(255) default NULL,
+  comments varchar(255) default NULL,
+  comments_from_lms text,
+  lesson_status varchar(255) default NULL,
+  score varchar(255) default NULL,
+  scorm_exit varchar(255) default NULL,
+  minscore varchar(255) default NULL,
+  maxscore varchar(255) default NULL,
+  suspend_data text,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE search_keywords (
+  keyword varchar(255) NOT NULL,
+  foreign_ID int(11) NOT NULL default '0',
+  table_name varchar(255) NOT NULL,
+  position varchar(255) NOT NULL
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE surveys (
+  id int(11) NOT NULL auto_increment,
+  survey_code varchar(128) default NULL,
+  survey_name varchar(256) default NULL,
+  survey_info mediumtext,
+  author mediumtext,
+  lang varchar(16) default NULL,
+  start_date int(11) default NULL,
+  end_date int(11) default NULL,
+  lessons_ID int(11) NOT NULL,
+  status tinyint(1) default '0',
+  start_text mediumtext,
+  end_text mediumtext,
+  PRIMARY KEY  (id),
+  KEY survey_code (survey_code)
+) DEFAULT CHARSET=utf8; 
+
+CREATE TABLE survey_questions_done (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(20) NOT NULL,
+  surveys_ID int(11) NOT NULL,
+  question_ID int(11) NOT NULL,
+  user_answers mediumtext NOT NULL,
+  submited int(11) default NULL,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'tests'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- active: Whether this lesson is active. Can be either 0 (inactive) or 1 (active)
+-- content_ID: The unit that this test is associated to. Corresponds to the 'id' field of the 'content' table
+-- lessons_ID: The id of the lesson that this test is associated to, or 0 if it's not associated to any lesson
+-- name: The name of the test
+-- test_active: Whether the test is active  
+-- description: A textual description of the test
+-- mastery_score: A number 0-100 that sets the score above which the test is regarded as "passed"
+-- options: A serialized array of options
+-- publish: Whether the lesson created should be visible to students (ie 'published')
+CREATE TABLE tests (
+  id int(11) NOT NULL auto_increment,
+  active tinyint(1) NOT NULL default '1',
+  content_ID int(11) NOT NULL default '0',
+  lessons_ID int(11) NOT NULL default '0',
+  name varchar(255) NOT NULL default '',
+  mastery_score int(11) NOT NULL default '0',
+  description text,
+  options text,
+  publish tinyint(1) default '1',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE tests_to_questions (
+  tests_ID int(11) NOT NULL default '0',
+  questions_ID int(11) NOT NULL default '0',
+  weight int(11) NOT NULL default '1',
+  previous_question_ID int(11) NOT NULL default '0',
+  primary key (tests_ID, questions_ID)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'completed_tests'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_LOGIN: The user that has done this test, matching the 'login' field at the 'users' table
+-- tests_ID: The id of the test that this instance corresponds to. If 0, the corresponding test no longer exists
+-- test: The serialized EfrontCompletedTest object
+-- status: The completed test status, can be '', 'incomplete', 'failed', 'passed', 'completed' etc
+-- timestamp: The time that the test started
+-- archive: A boolean value that sets whether this completed test is archive. Archived tests are passed tests, and may be accessed only through the corresponding sections
+CREATE TABLE completed_tests (
+  id int(11) NOT NULL auto_increment,
+  users_LOGIN varchar(255) default NULL,
+  tests_ID int(11) NOT NULL default '0',
+  test longtext,
+  status varchar(255),
+  timestamp int(11) not null default 0,
+  archive tinyint(1) NOT NULL default 0,
+  primary key (id)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE userpage (
+  username varchar(255) NOT NULL,
+  cv text,
+  links tinyint(1) default NULL,
+  users_login varchar(255) NOT NULL,
+  link1 varchar(255) NOT NULL,
+  link2 varchar(255) NOT NULL,
+  link3 varchar(255) NOT NULL,
+  link4 varchar(255) NOT NULL,
+  active tinyint(1) NOT NULL,
+  PRIMARY KEY  (username)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'users'
+--
+-- This table represents a user entity
+-- Fields:
+-- login (primary key): The user identification string, for example 'jdoe'
+-- password: The user's password for the system, for example 'a4807fe70ffc6466c7b9bcdeb084d5df'
+-- email: The user's email, for example 'jdoe@example.com'
+-- languages_NAME: A string representing the user's language. This matches the key field 'name' in the 'languages' table. For example, 'english'
+-- name: The user's first name, for example 'John' 
+-- surname: The user's last name, for example 'Doe'
+-- active: Whether this user is active. Possible values are 0 (inactive) and 1 (active)
+-- comments: Any comments that have to do with the user
+-- user_type: The basic user type. Valid values are: 'student', 'professor', 'administrator'
+-- timestamp: A 10-digit number representing the time that the user registered to the system
+-- avatar: A file path or id (corresponding to the 'files' table) that represents a user image
+-- pending: Whether this user has registered to the system, but his registration is not confirmed yet by the administrator. Possible values are 0 (normal) and 1 (pending)
+-- user_types_ID: An id corresponding to the 'user_types' table, that represents a special user type (custom user types based on the predefined 'student', 'professor', 'administrator')
+CREATE TABLE users (
+  login varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  languages_NAME varchar(255) NOT NULL,
+  name varchar(255) NOT NULL,
+  surname varchar(255) NOT NULL,
+  active tinyint(1) NOT NULL default '1',
+  comments text,
+  user_type varchar(255) NOT NULL default 'student',
+  timestamp varchar(10) NOT NULL,
+  avatar varchar(255) default NULL,
+  pending tinyint(1) NOT NULL default '0',
+  user_types_ID int (11) default '0',
+  PRIMARY KEY  (login)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_chatrooms (
+  users_LOGIN varchar(255) NOT NULL,
+  chatrooms_ID int(11) NOT NULL default '0',
+  users_USER_TYPE varchar(255) NOT NULL,
+  timestamp varchar(10) NOT NULL,
+  primary key (users_LOGIN, chatrooms_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_courses (
+  users_LOGIN varchar(255) NOT NULL,
+  courses_ID int(11) NOT NULL default '0',
+  active tinyint(1) NOT NULL default '0',
+  from_timestamp varchar(255) default NULL,
+  user_type varchar(255) default NULL,
+  completed tinyint(1) NOT NULL default '0',
+  score int(11) NOT NULL default '0',
+  issued_certificate varchar(255) default NULL,
+  comments text,
+  to_timestamp varchar(255) default NULL,
+  primary key (users_LOGIN, courses_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE lessons_to_courses (
+  courses_ID int(11) NOT NULL,
+  lessons_ID int(11) NOT NULL,
+  previous_lessons_ID int(11) default 0,
+  PRIMARY KEY  (lessons_ID, courses_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_done_surveys (
+  surveys_ID int(11) default NULL,
+  users_LOGIN varchar(20) default NULL,
+  done tinyint(4) NOT NULL default '0',
+  primary key (users_LOGIN, surveys_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_done_tests (
+  tests_ID int(11) NOT NULL default '0',
+  users_LOGIN varchar(255) NOT NULL,
+  times int(11) NOT NULL default '0',
+  questions_order text,
+  answers_order text,
+  primary key (users_LOGIN, tests_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_lessons (
+  users_LOGIN varchar(255) NOT NULL,
+  lessons_ID int(11) NOT NULL default '0',
+  active tinyint(1) NOT NULL default '0',
+  from_timestamp varchar(10) default NULL,
+  user_type varchar(255) default NULL,
+  positions text,
+  done_content text,
+  current_unit int(11) default 0,
+  completed tinyint(1) NOT NULL default '0',
+  score int(11) NOT NULL default '0',
+  issued_certificate blob,
+  comments text,
+  to_timestamp varchar(255) default NULL,
+  primary key (users_LOGIN, lessons_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_projects (
+  users_LOGIN varchar(255) NOT NULL,
+  projects_ID int(11) NOT NULL default '0',
+  status tinyint(1) NOT NULL default '0',
+  comments text,
+  grade  varchar(50) DEFAULT '',
+  filename varchar(255) default NULL,
+  upload_timestamp varchar(255) NOT NULL default '',
+  primary key (users_LOGIN, projects_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_surveys (
+  surveys_ID int(11) NOT NULL,
+  users_LOGIN varchar(20) NOT NULL,
+  last_access int(11) default NULL,
+  last_post int(11) default NULL,
+  KEY surveys_ID (surveys_ID,users_LOGIN),
+  primary key (users_LOGIN, surveys_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE user_profile (
+  name varchar(255) NOT NULL,
+  description varchar(255) NOT NULL,
+  db_type varchar(255) NOT NULL,
+  size varchar(255) NOT NULL,
+  type varchar(255) default NULL,
+  options text,
+  default_value varchar(255) default NULL,
+  active tinyint(1) NOT NULL default '1',
+  visible tinyint(1) NOT NULL default '1',
+  mandatory tinyint(1) NOT NULL default '1',
+  languages_NAME varchar(255) NOT NULL,
+  PRIMARY KEY  (name)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE user_types (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  basic_user_type varchar(255) NOT NULL,
+  core_access text,
+  modules_access text,
+  active tinyint(1) NOT NULL default '1',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE tokens (
+  token varchar(255) NOT NULL,
+  status text  NOT NULL,
+  users_LOGIN varchar(255),
+  create_timestamp varchar(255) NOT NULL,
+  expired tinyint(1) NOT NULL ,
+  PRIMARY KEY  (token)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE files (
+  id int(11) NOT NULL auto_increment,
+  path text NOT NULL,
+  users_LOGIN varchar(255) NOT NULL,
+  timestamp varchar(255) NOT NULL,
+  description text,
+  groups_ID int not null default 0,
+  access int not null default 755,
+  shared int(11) default 0,
+  metadata text,
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE module_hcd_skills (
+  skill_ID int(11) NOT NULL auto_increment,
+  description varchar(255) NOT NULL default '',
+  categories_ID int(11) NOT NULL,
+  PRIMARY KEY(skill_ID) 
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE module_hcd_skill_categories (
+  id int(11) NOT NULL auto_increment,
+  description varchar(255) NOT NULL default '',
+  PRIMARY KEY(id) 
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_employee_has_skill (
+  users_login varchar(255) NOT NULL,
+  skill_ID int(11) NOT NULL,
+  specification varchar(255) default '',
+  author_login varchar(255) NOT NULL,
+  PRIMARY KEY (users_login, skill_ID)
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE module_hcd_employee_has_job_description (
+  users_login varchar(255) NOT NULL, 
+  job_description_ID int(11) NOT NULL,
+  PRIMARY KEY (users_login, job_description_ID) 
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_lesson_to_job_description (
+  lessons_ID int(11) NOT NULL,
+  job_description_ID int(11) NOT NULL,
+  PRIMARY KEY (lessons_ID, job_description_ID) 
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_course_to_job_description (
+  courses_ID int(11) NOT NULL,
+  job_description_ID int(11) NOT NULL,
+  PRIMARY KEY (courses_ID, job_description_ID) 
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_job_description_requires_skill (
+  skill_ID int(11) NOT NULL,
+  job_description_ID int(11) NOT NULL,
+  PRIMARY KEY (skill_ID, job_description_ID) 
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_branch (
+  branch_ID int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL default 'New Branch',
+  address varchar(255),
+  city varchar(255),
+  country varchar(255),
+  telephone varchar(255),
+  email varchar(255),
+  father_branch_ID int(11) default 0,
+  PRIMARY KEY (branch_ID)
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE module_hcd_job_description (
+  job_description_ID int(11) NOT NULL auto_increment,
+  employees_needed int(11) default '1',
+  description varchar(255) NOT NULL default 'New Job Description',
+  job_role_description text, 
+  branch_ID int(11) default '0',
+  PRIMARY KEY (job_description_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_employee_works_at_branch (
+  users_login varchar(255) NOT NULL,
+  supervisor tinyint(1) default 0,
+  assigned tinyint(1) default 0, 
+  branch_ID int(11) NOT NULL,
+  PRIMARY KEY users_login (users_login, supervisor, assigned, branch_ID) 
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE module_hcd_employees (
+  users_login varchar(255) NOT NULL,
+  wage int(11) default 0,
+  hired_on varchar(10) default NULL,
+  left_on varchar(10) default NULL,
+  address varchar(255) default NULL,
+  city varchar(255) default NULL,
+  country varchar(255) default NULL,
+  father varchar(255) default NULL,
+  homephone varchar(255) default NULL,
+  mobilephone varchar(255) default NULL,
+  sex varchar(255) default NULL,
+  birthday varchar(255) default NULL,
+  birthplace varchar(255) default NULL,
+  birthcountry varchar(255) default NULL,
+  mother_tongue varchar(255) default NULL,
+  nationality varchar(255) default NULL,
+  company_internal_phone varchar(255) default NULL,
+  office varchar(255) default NULL,
+  doy varchar(255) default NULL,
+  police_id_number varchar(255) default NULL,
+  driving_licence tinyint(1) default 0,
+  work_permission_data varchar(255) default NULL,
+  national_service_completed tinyint(1) default 0,
+  employement_type varchar(255) default NULL,
+  bank varchar(255) default NULL,
+  bank_account varchar(255) default NULL,
+  marital_status tinyint(1) default 0,
+  way_of_working tinyint(1) default 0,  
+  afm varchar(255) default NULL,
+  candidate tinyint(1) default 0,
+  transport tinyint(1) default 0,
+  PRIMARY KEY (users_login)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_lesson_offers_skill (
+  lesson_ID int(11) NOT NULL,
+  skill_ID int(11) NOT NULL,
+  specification varchar(255) default NULL, 
+  PRIMARY KEY (lesson_ID, skill_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_course_offers_skill (
+  courses_ID int(11) NOT NULL,
+  skill_ID int(11) NOT NULL,
+  specification varchar(255) default NULL,
+  PRIMARY KEY (courses_ID, skill_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE module_hcd_events (
+  event_ID int(11) NOT NULL auto_increment,
+  event_code int(11) NOT NULL DEFAULT 0,
+  users_login varchar(255) NOT NULL,
+  author varchar(255) NOT NULL default '',
+  specification varchar(255) default '',
+  timestamp varchar(10) NOT NULL,
+  PRIMARY KEY (event_ID) 
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE groups (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  description text,
+  active int(1) NOT NULL default '1',
+  PRIMARY KEY  (id)
+) DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE users_to_groups (
+  groups_ID int(11) NOT NULL,
+  users_LOGIN varchar(255)  NOT NULL,
+  PRIMARY KEY  (groups_ID,users_LOGIN)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_online (
+  users_LOGIN varchar(255) NOT NULL,
+  timestamp varchar(10) NOT NULL,
+  timestamp_now varchar(10) NOT NULL,
+  session_ip varchar(255) NOT NULL,  
+  PRIMARY KEY  (users_LOGIN)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE paypal_configuration (
+  paypalbusiness varchar(255) NOT NULL,
+  mailstudents tinyint(1) NOT NULL default '0',
+  mailprofessors tinyint(1) NOT NULL default '0',
+  mailadmins tinyint(1) NOT NULL default '0'
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE paypal_data (
+  id int(10) unsigned NOT NULL auto_increment,
+  mc_gross varchar(20) default NULL,
+  settle_amount varchar(15) NOT NULL,
+  address_status varchar(10) default NULL,
+  payer_id varchar(20) default NULL,
+  tax varchar(20) default NULL,
+  address_street varchar(150) default NULL,
+  payment_date varchar(30) default NULL,
+  payment_status varchar(10) default NULL,
+  charset varchar(10) default NULL,
+  address_zip varchar(20) default NULL,
+  first_name varchar(30) default NULL,
+  mc_fee varchar(20) default NULL,
+  address_country_code varchar(3) default NULL,
+  exchange_rate varchar(20) NOT NULL,
+  address_name varchar(100) default NULL,
+  notify_version varchar(5) default NULL,
+  settle_currency varchar(5) NOT NULL,
+  custom varchar(60) default NULL,
+  payer_status varchar(10) default NULL,
+  business varchar(60) default NULL,
+  address_country varchar(30) default NULL,
+  address_city varchar(30) default NULL,
+  quantity varchar(6) default NULL,
+  verify_sign varchar(10) default NULL,
+  payer_email varchar(120) default NULL,
+  txn_id varchar(255) default NULL,
+  payment_type varchar(30) default NULL,
+  last_name varchar(120) default NULL,
+  address_state varchar(30) default NULL,
+  receiver_email varchar(120) default NULL,
+  payment_fee varchar(10) default NULL,
+  receiver_id varchar(60) default NULL,
+  txn_type varchar(10) default NULL,
+  item_name text,
+  mc_currency varchar(3) default NULL,
+  item_number text,
+  residence_country varchar(3) default NULL,
+  test_ipn varchar(3) default NULL,
+  payment_gross varchar(20) default NULL,
+  shipping varchar(20) default NULL,
+  transactionID varchar(50) NOT NULL,
+  status varchar(15) NOT NULL,
+  timestamp varchar(10) NOT NULL,
+  timestamp_finish varchar(10) NOT NULL,
+  user varchar(255) NOT NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=utf8;
+
+-- 
+-- Table 'current_content'
+--
+-- This table is deprecated
+CREATE TABLE current_content (
+  content_ID int(11) NOT NULL default '0',
+  periods_ID int(11) NOT NULL default '0',
+  PRIMARY KEY (content_ID, periods_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE questions_to_skills (
+ questions_id int(11) NOT NULL,
+ skills_ID int(11) not null,
+ relevance int(1) default 1,
+ KEY  (questions_id, skills_ID)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE users_to_skillgap_tests (
+  tests_ID int(11) NOT NULL default '0',
+  users_LOGIN varchar(255) NOT NULL,
+  solved tinyint(1) default '0',
+  PRIMARY KEY  (users_LOGIN,tests_ID)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

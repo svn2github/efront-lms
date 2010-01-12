@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+
+<!-- This file contains theme properties that affect its display. 
+All elements are optional, except for the <name> -->
+
+<theme>	
+	<!--The name of the theme, only latin and no special characters. It must match the name of the folder it contains the theme-->
+	<name>blue</name>
+	<!--The title of the theme, as it displays in the themes list-->	
+	<title>Blue eFront Theme</title>
+	<!--The author of the theme, that will be displayed in the themes list-->
+	<author>eFront team</author>
+	<!--The date of the theme good for reference-->
+	<date>2009/11/26</date>
+	<!--The version of the theme, displays in the themes list-->	
+	<version>1.0</version>
+	<!--Put here any additional description for the theme-->
+	<description>Blue eFront theme</description>
+	
+	<!--The default layout, for the index page only, that the theme will be applied with. It can be overriden from within the environment-->
+	<layout>		
+		<positions>
+			<!--layout:simple, left, right, three-->
+			<layout>left</layout>
+			<!--columns boxes. Available boxes are: login, online, lessons, news, selectedLessons-->
+			<leftList>login</leftList>
+			<leftList>online</leftList>
+			<leftList>selectedLessons</leftList>
+			<centerList>news</centerList>
+			<centerList>lessons</centerList>
+		</positions>
+	</layout>	
+	
+	<!--Additional theme properties (that can't be overriden from within the environment)-->	
+	<options>	
+		<!--Whether to hide the index page header. 
+		0 means hide header, 1 means show header on index page, 2 means show header all pages. 
+		The header shows up in inside pages when there is no left sidebar. Defaults to 1-->		
+		<show_header>2</show_header>
+		<!--Whether to hide the footer throughout the system. 
+		0 means 'hide everywhere'. 1 means 'display everywhere'. 2 means 'display only in inside pages'. Defaults to 1-->		
+		<show_footer>1</show_footer>
+		<!--Whether to show the left vertical sidebar or the horizontal menu bar. 
+		0 is for left bar (default), 1 is for horizontal menu, 2 is for limited horizontal menu. Defaults to 0-->
+		<sidebar_interface>2</sidebar_interface>
+		<!--Whether to display images throughout the system. 
+		0 means "all images", 1 means "all images except sidebar images", and 2 means "hide sidebar and block images". Defaults to 0-->
+		<images_displaying>2</images_displaying>
+        <!--Possible values are 'right' and 'left'. Defaults to 'right'-->       
+        <toolbar_position>right</toolbar_position>
+		<!-- Whether to be able to export the theme.
+		0 means "can export", 1 means "can't export"-->
+		<locked>0</locked>
+	</options>
+</theme>

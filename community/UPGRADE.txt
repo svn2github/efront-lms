@@ -1,0 +1,3 @@
+=== Upgrade process for 3.6.0 versions of eFront ===
+
+[pending]

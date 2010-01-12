@@ -1,0 +1,14 @@
+README
+------
+
+phpLiveDocx - the template based document creation platform
+
+
+For an installation guide, technical documentation and downloads, please
+go to the project web site at:
+
+http://www.phpLiveDocx.org
+
+phpLiveDocx depends upon the Zend Framework being installed on your system:
+
+http://www.ZendFramework.com

@@ -1,0 +1,42 @@
+div.moduleblogsTitle {
+font-size:22px;
+}
+.moduleblogsDate{
+font-weight:bold;
+color:#C0C0C0;
+}
+.moduleblogsArticleTitle{
+font-weight:bold;
+font-size: 16px;
+}
+hr.moduleblogsThin{
+border:none 0;
+border-top:1px solid #ADDFFF;
+height:1px;
+padding:0;
+margin:0;
+}
+.moduleblogsItalics{
+font-style:italic;
+}
+
+.moduleblogsRight{
+/*border-left:1px solid #3399ff;*/
+border-color:gray;
+background-color:#f5f5f5;
+}
+.moduleblogsSubTitle{
+font-weight:bold;
+font-size: 14px;
+}
+.moduleblogsGray{
+color:#C0C0C0;
+}
+tr.blogsoddRowColor{
+background:#D7E7F3;
+border:1px dotted #D0D0D0
+}
+tr.blogsevenRowColor{
+background:#C7D7F3;
+}
+

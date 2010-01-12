@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Dimdim conferences</title>
+	<author>Nick Baltas</author>
+	<date>2009 07 22</date>
+	<version>2.6</version>
+	<description>
+		This module is used to connect eFront with DimDim for lesson conferencing according to the new DimDim API
+	</description>
+	<className>module_dimdim</className>
+</module>

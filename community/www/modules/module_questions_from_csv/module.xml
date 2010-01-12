@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Test Questions Uploading</title>
+	<author>Nick Baltas</author>
+	<date>2009 06 06</date>
+	<version>1.0</version>
+	<description>
+		This module parses CSV files for tests questions 
+	</description>
+	<className>module_questions_from_csv</className>
+</module>

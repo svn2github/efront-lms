@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" ?>
+<module>
+	<title>Wiki</title>
+	<author>Michael Makrigiannakis</author>
+	<date>2009 07 17</date>
+	<version>1.2</version>
+	<description>This module is used to place a wiki in eFront lessons</description>
+	<className>module_wiki</className>
+</module>

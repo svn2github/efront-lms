@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Quote of the day</title>
+	<author>Panagiotis Antonellis</author>
+	<date>2009 07 17</date>
+	<version>1.1</version>
+	<description>
+		This module is used to display the quote of the day
+	</description>
+	<className>module_quote</className>
+</module>

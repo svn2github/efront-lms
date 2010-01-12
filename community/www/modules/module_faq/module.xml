@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Frequently Asked Questions</title>
+	<author>Nick Baltas</author>
+	<date>2009 07 17</date>
+	<version>1.4</version>
+	<description>
+		This module is used to create and display FAQ lists for eFront lessons.
+	</description>
+	<className>module_faq</className>
+</module>

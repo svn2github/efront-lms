@@ -1,0 +1,23 @@
+.flashcard {padding:10px 20px 10px 20px;width:700px;height:440px;margin:auto;}
+.flashcard #card_lesson_name{margin:auto;width:100%;background-color:#9966CC;font-size:20px;color:white;font-weight:bold;padding:5px;border:1px solid #9966CC;margin-bottom:10px;}
+.flashcard #card_info{margin:0px 20px 0px 20px;width:100%;color:#999999}
+.flashcard #card_info #card_count{float:right;padding-right:20px;}
+.flashcard #card_tools{margin:auto;width:100%;padding:5px;height:30px;}
+.flashcard #card_tools #got_it_right,
+.flashcard #card_tools #got_it_wrong{color:white;padding:3px;font-size:14px;}
+.flashcard #card_tools #got_it_right{background-color:#99CC66;float:right;}
+.flashcard #card_tools #got_it_wrong{background-color:#ff55ff;float:left;}
+.flashcard #card{position:relative;height:350px;width:100%;background-color:#DDEEFF;border:1px solid #AAAAAA;padding:5px;}
+.flashcard #card #unit_name{font-weight:bold;margin:20px 20px 0px 20px;font-size:16px;}
+.flashcard #card #card_count{margin-right:40px;text-align:right;}
+.flashcard #card #flip_card {top:50%;right:0px;position:absolute;text-align:center;cursor:pointer;}
+.flashcard #card_tools #card_mastery{width:200px;margin:auto;white-space:nowrap}
+.flashcard #card #question,
+.flashcard #card #answer,
+.flashcard #card #explanation{position:relative;margin:0px 40px 20px 20px;background-color:white;height:250px;text-align:center;border:1px solid #aaaaaa}
+.flashcard #card .unsolvedQuestion {height:100%;}
+.flashcard #card .unsolvedQuestion td,
+.flashcard #card .solvedQuestion td{font-size:20px;vertical-align:middle;}
+.flashcard #card .card_explanation{position:absolute;bottom:0px;right:0px;padding:5px;}
+.solvedQuestion {height:100%;width:100%;}
+.solvedQuestion * {vertical-align:middle;}

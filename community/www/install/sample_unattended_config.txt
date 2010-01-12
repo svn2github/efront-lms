@@ -1,0 +1,8 @@
+db_type=mysql
+db_host=localhost
+db_user=root
+db_password=pass
+db_name=efront
+admin_name=admin
+admin_password=admin
+admin_email=admin@example.com

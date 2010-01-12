@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<module>
+	<title>RSS</title>
+	<author>Periklis Venakis</author>
+	<date>2009 07 17</date>
+	<version>1.5</version>
+	<description>An RSS module for eFront</description>
+	<className>module_rss</className>
+</module>

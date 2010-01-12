@@ -1,0 +1,14 @@
+Pick the odd one out
+a. Europe
+b. Asia
+c. Greenland
+d. Australia
+ANSWER: c
+
+	
+Which number completes the series 1, 5, 21, 85, ...?
+A. 149
+B. 253
+C. 341
+D. 405
+ANSWER: C

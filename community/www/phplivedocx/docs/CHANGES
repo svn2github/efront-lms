@@ -1,0 +1,49 @@
+CHANGELOG
+---------
+
+phpLiveDocx - the template based document creation platform
+
+phpLiveDocx version naming convension:
+
+    v{LiveDocx_Version}-{phpLiveDocx_Release_Date[YYYYMMDD]}
+
+#
+# * v1.1-20090512
+#  - Reduced the filesize of PDF files.  
+#
+
+* v1.0-20090515
+  - Added 'convert-batch' sample application.
+    
+* v1.0-20090507
+  - All traffic via LiveDocx is now encrypted with SSL. There is no longer the
+    option to NOT SSL encrypt traffic. This helps developers use phpLiveDocx
+    as safely as possible.
+    
+* v1.0-20090505
+  - Updated autoloader to reflect changes in Zend Framework 1.8.
+    For details, see http://is.gd/wwhC.
+  
+* v1.0-20090421
+  - Added third parameter to constructor, allowing connection to backend service
+    to be encrypted with SSL. 
+  
+* v1.0-20090217
+  - Removed document sharing examples, as per new LiveDocx Service 
+  
+* v1.0-20090204
+  - Added first PHPUnit test cases.
+
+* v1.0-20090202
+  - Split into multiple components:
+    - Tis_Service_LiveDocx
+    - Tis_Service_LiveDocx_MailMerge
+    - Tis_Service_LiveDocx_Convert
+    - Tis_Service_LiveDocx_Exception
+
+* v1.0-20090129
+  - Official start of phpLiveDocx.
+  - Zend Framework proposal.
+
+* v1.0-20090121
+  - Initial release and publication of www.phpLiveDocx.org.

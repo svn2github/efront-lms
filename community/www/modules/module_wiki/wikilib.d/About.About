@@ -1,0 +1,11 @@
+version=pmwiki-2.2.0 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (Windows; U; Windows NT 6.0; el; rv:1.8.1.20) Gecko/20081217 Firefox/2.0.0.20
+author=eFrontWiki
+charset=ISO-8859-1
+csum=
+host=127.0.0.1
+name=Help.Help
+rev=123
+targets=
+text=eFrontWiki module is based in PmWiki.%0a%0aPmWiki is a wiki-based system for collaborative creation and maintenance of websites.%0a%0aYou can find more information and help about PmWiki at [[(http://)pmwiki.org(/)]].%0a
+time=1233908323

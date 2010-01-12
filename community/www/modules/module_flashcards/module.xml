@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Flashcards</title>
+	<author>Michael Makrigiannakis</author>
+	<date>2009 10 19</date>
+	<version>1.0</version>
+	<description>This module is used to place flashcards in eFront questions</description>
+	<className>module_flashcards</className>
+</module>

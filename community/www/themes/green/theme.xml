@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--
+This file contains theme properties that affect the way it is displayed. 
+All elements are optional, except for the <name> 
+-->
+<theme>	
+	<name>green</name><!--The name of the theme, only latin and no special characters. It must match the name of the folder it contains the theme-->
+	<title>Green theme</title><!--The title of the theme, as it displays in the themes list-->	
+	<author>eFront team</author><!--The author of the theme, that will be displayed in the themes list-->
+	<date>2009 07 01</date><!--The date of the theme, does not display but is good for reference-->
+	<version>1.0</version><!--The version of the theme, displays in the themes list-->	
+	<description><!--Put here any additional description for the theme-->
+		eFront green theme
+	</description>
+	<layout><!--The default layout, for the index page only, that the theme will be applied with. It can be overriden from within the environment-->		
+		<positions>
+			<layout>three</layout>
+			<leftList>login</leftList>
+			<leftList>online</leftList>
+			<centerList>lessons</centerList>
+			<rightList>news</rightList>
+			<rightList>selectedLessons</rightList>
+		</positions>
+	</layout>	
+	<options><!--Additional theme properties (that can't be overriden from within the environment)-->		
+		<show_header>1</show_header><!--Whether to hide the index page header. 0 means hide header, 1 means show header. Defaults to 1-->		
+		<show_footer>1</show_footer><!--Whether to hide the footer throughout the system. 0 means 'hide everywhere'. 1 means 'display everywhere'. 2 means 'display only in inside pages'. Defaults to 1-->		
+		<sidebar_width>175</sidebar_width><!--The width of the left sidebar, in pixels, appearing when logged into the system (applicable only when "sidebar_interface" is set to 0). It defaults to 175-->		
+		<sidebar_interface>0</sidebar_interface><!--Whether to show the left vertical sidebar or the horizontal menu bar. 0 is for left bar (default), 1 is for horizontal menu, 2 is for limited horizontal menu. Defaults to 0-->
+		<images_displaying>0</images_displaying><!--Whether to display images throughout the system. 0 means "all images", 1 means "all images except sidebar images", and 2 means "hide sidebar and block images". Defaults to 0-->
+	</options>
+</theme>

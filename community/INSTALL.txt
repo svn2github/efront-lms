@@ -1,0 +1,12 @@
+EFRONT VERSION 3.6.0 QUICK INSTALLATION GUIDE
+-----------------------------------------
+
+Prerequisites
+=============
+Latest version of XAMPP or:
+- PHP 5.2.0 or higher (PHP 5.1.x or 5.0.x are supported but using a version earlier than 5.2 is not recommended)
+- Mysql 5.0 (MySQL 4.1 can be used but is not recommended)
+- Apache 2 (Apache 1.3.xx can be used but is not recommended)
+
+
+[pending]

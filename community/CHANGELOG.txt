@@ -1,0 +1,489 @@
+=== Version 3.6.0 beta 2 build 5555 ===
+- Fixed avatars list issue
+- Fixed globally disabled features not being disabled in certain areas
+- Fixed message folder names issue
+- Auto upgrade fixes
+- Fixed installation adding multiple accounts when no additional users added 
+- Fixed installation not handling correctly editions
+- Fixed scorm reporting issue
+- Fixed bug with control panel timeline block not displaying correctly 
+- Fixed bug with displaying announcements
+- Fixed catalog lesson information issue
+- Added enterprise default theme
+- Refactored paypal payments
+- Merged paypal payments with standard payments
+- Fixed registering payment issue 
+- Many minor fixes and updates
+
+=== Version 3.6.0 beta 1 build 5523 ===
+- Fixed not maintaining course order during export
+- Added option to disable mapped accounts
+- Added option for loading math types as images from admin settings for avoiding crashing of IE 8
+- Added time constraint reports
+- Added certificate reports
+- Cleaned out paid versions code from community edition
+- Removed unused tables from community edition
+- Fixed tests one-by-one issue 
+- Added "lock theme" option
+- Modules are now bundled with source
+- Modules conversion for 3.6 compatibility
+- Fixed SCORM compatibility issues
+- Fixed pdf insert/view
+- Fixed editing of tests/questions file manager
+- Fixed auto-logging out of active users
+- Fixed messages creation error
+- Fixed searching in horizontal themes
+- Removed frameset from horizontal themes
+- Enhanced user types list so that it includes the new features
+- Fixed random pool issue
+- Opera is now supported
+- Fixed compatiblity issues with IE6
+- Fixed global disable issues
+- Altered completion and content rules for tests to match its mastery score
+- Fixed right and left sidebar handles
+- Changed lesson options names to reflect actual status
+- Added new default content during install: "How to be a programmer" course
+- Added handle for not installing default data
+- Fixed 3.5.5 upgrade with custom user profile issue
+- Finalized automatic installation/upgrade 
+- Fixed notifications issues
+- Added automatic update functionality (non-free versions only)
+- Fixed SCORM 2004 compatibility issues (non-free versions only)
+- Added online version key verification (non-free versions only)
+- Participation reports fixes
+- Removed unneeded/deprecated files from codebase
+- Course user types fix  
+- Added database version / code version reporting  
+- Literally hundreds smaller fixes and additions
+
+=== Version 3.6.0 build 4947 ===
+- New themes infrastructure
+- Support for horizontal menu interface
+- New notification infrastructure (Educational/Enterprise versions)
+- New social infrastructure
+- Facebook login integration 
+- Scorm 2004 support (Educational/Enterprise versions)
+- Optional native Filesystem zip file handling 
+- New installation procedure with auto fix
+- Image map (CSS sprites) support
+- Javascripts unification
+- New filesystem engine
+- Global disable options
+- Database exceptions
+- Added student control panel
+- Extensive code refactoring 
+
+=== Version 3.5.5 build 4778 ===
+- Added a random tests wizard and many new options for picking a test's questions
+- Fixed bug with lesson rules excluding all instead of a specific student
+- Fixed bug with new course applications not showing next to new lesson applications
+- Fixed parsing filenames with \ in Linux systems
+- Fixed left sidebar loading issue in IE  
+- Fixed bug with glossary terms containing /
+- Fixed numeric validation in forms to work properly with PHP 5.3
+- Fixed incorrect previewing of certain files in Firefox
+- Fixed announcement issues
+- Added additional sanitization to eliminate xss attacks
+- Fixed problem in insert editor in html mode in blocks
+- Fixed bug in clicking category name with Internet Explorer
+- Fixed inserting wmv in content
+- Fixed popup with select boxes
+- Fixed bug with new course applications not showing next to new lesson applications
+- Removed deprecated reference assignement for objects
+- Fixed issue when using a custom student user type in the "User status" listing
+- Fixed lesson conditions problem in user status
+- Added option for collapsing catalog only for lessons
+- The password input box does not autocomplete in personal info
+- Allow to administrator sub-types to define user types when creating a user
+- Fixed disappearing tabs problem in IE6
+- Improved utf8 compatibility by adding charset header
+- Fixed IE8 js error in page blocks
+- Added convert_urls = false in editor because of prefilling hrefs with http://xxxx
+- Fixed copying tests with wrong lesson id 
+- Fixed wrong user type id in groups table
+- Extended currency list
+- Added new languages in installation code
+- Fixed problem with turkish locales in linux servers 
+- Ensured that array_search has an array as second argument because of http://bugs.php.net/bug.php?id=49657
+- Fixed issue with not keeping random pool option
+- Fixed wrong calculation of score in shuffled drag and drop questions  
+- Fixed issue with questions without estimation time value in import lesson
+- Fixed resetting password for users with the same e-mail address
+- Fixed issue with deleted mapped account message
+- Fixed add group issue
+- Skill gap fixes
+- Added new ipn file
+
+=== Version 3.5.4 build 4237 ===
+- Fixed random pool questions problem
+- Fixed free registration of courses issue
+- Changed index page layout to show up correctly in Internet Explorer
+- Custom footer now displays in index page as well
+- Fixed issue with blocks' images alt text displaying as urlencoded
+- Fixed ##EFRONTINNERLINK## issue for editing projects, tests, questions
+
+=== Version 3.5.4 build 4218 ===
+- Small upgrade fix for SCORM content
+
+=== Version 3.5.4 build 4198 ===
+- Minor visual fixes
+- Fixed glossary issue with special characters in term title
+- Fixed copying SCORM content through lessons
+- Payments fixes
+
+=== Version 3.5.4 build 4173 ===
+- All visual items are now moved to Visual Settings option on admin
+- Ability to modify the header/footer the same way one creates new content boxes
+- Ability to add  your own favicon
+- Unified appearance for external and internal interface
+- Ability to hide sidebar images or boxes images (throughout the system or only on the index page)
+- Added a direct shopping basket icon for every lesson on the catalog
+- Added an option to show the catalog condensed when you have a big number of lessons
+- Refresh (or Control+F5) now keeps the current page of the user
+- Several improvements on ecommerce walkthrough to improve the end-user shopping experience
+- Core improvements on speed for systems with many or big lessons/courses
+- Two way mapping between users. When you map user1 with user2 now by default user2 is mapped to user1
+- New question-time option for questions  [Note:This option works only on one-by-one tests]
+- Much improved random test generator with the ability to set a desired duration for a random test or select questions from multiple categories
+- Option for only-forward tests (you cannot return to a previous question)
+- Detailed feedback per different answer on questions
+- Support for Drag-and-drop questions
+- Improved path row with a new option to return to your lesson list
+- Added search capabilities in tests' questions for professor
+- Fixed issue with displaying large prices
+- Fixed annoying artifact in search box when using IE6
+- Copying tests fixes
+
+
+=== Version 3.5.3 build 3893 ===
+- Added group keys to community Edition
+- Admin sets auto-logout time for users 
+- Performance enhancements when displaying courses/lessons list
+- Tests pending for correction are now easy to manipulate
+- "Digital file library" option does not display in administration if there aren't any shared files
+- GZ handler is now set to enabled by default
+- magic_quotes_gpc setting is now mandatory to be disabled
+- Fixed issues with tests performance and memory utilization
+- Updated API. Operations for create lesson, add course to user, delete course from user, return user courses and catalog. 
+- Applied visual fixes to personal messages, as well as a bcc option
+- Added default exception handler
+- Fixed on-line users synching in sidebar 
+- Deleting a lesson while users are inside is handled correctly
+- Fixd issue during tests upgrade that messed settings
+- Fixed issue not being able to add questions when there is a "content" filter
+- Added distinction between mandatory and recommended php settings 
+- Fixed issue with custom student type breaking the unit completion
+- Removed safe_mode recommendation
+- Added check for session.save_path setting
+- Various surveys fixes
+- Fixed bug in adding forum to all lessons.
+- Fixed bug in "use none" cms page.
+- Fixed problem with issued certificates during upgrade.
+- Added Brazilian Real in currency choices. Fixed selectbox option for IE.
+- Currency symbol order customizable from locale settings
+- Fixed bug with lesson completion conditions
+- Corrected dates in previous day,month,year choices in system reports
+- Popup window in uploading logo does not close any more in order to check changes
+- Fixed problem in switching betwwen mapped accounts in professor
+- Show error message when there is an exception in upload file popup
+- Fixed bug in online users after switching between mapped accounts
+- Disabled activate status icon link in surveys when end date expired
+- Fixed downloaded zip files becoming corrupted when gz_handler was enabled 
+- Added "empty content" note to the student's control panel when a lesson is empty
+- Fixed not being able to continuingly enabling/disabling files.
+
+- Added build number to footer
+- Added questions randomization based on content in tests 
+- Inactive users login fixed
+- Fixed bug in reporting for users not in current lesson
+- Fixed future dates issue
+- Fixed memory overusage during restore
+- Available languages now show only active ones
+- Added active users filter in statistics
+- Fixed loosing current lesson when sidebar opens late
+- Fixed future announcement bug
+- Fixed login issues for inactive users
+- Several additional currencies
+- Over 100 additional fixes and improvements
+
+
+=== Version 3.5.2 build 3470 ===
+- Fixed displaying lessons and courses attended for students and professors
+- Fixed displaying debugging info when sending mails
+- Fixed bug when upgrading from older versions
+- Fixed bug in displaying students' course progress info from professor 
+- Added "force" option when restoring from older backups
+- Fixed a bug in exporting course that prevented lessons from getting imported correctly
+- Rearranging inner tables is possible even when one column is empty
+- Added SCORM reentry customization option 
+- Fixed not being able to create a messages folder in Personal Messages, when a folder with the same name already existed in another user's account
+- Deleting scorm data for user, deletes corresponding content progress information
+
+=== Version 3.5.2 build 3411 ===
+- Fixed corrupted character issue in administrator template file 
+- Fixed users not being able to change own language
+
+=== Version 3.5.2 build 3404 ===
+- Fixed issue with excessive memory usage in statistics
+- Enhanced quotes handling during data submission
+- Fixed open/close file manager while editing content 
+- Fixed sidebar redirection when administrator changes lesson settings 
+- Fixed searching missing file bug 
+- Fixed issue with node reordering
+- Fixed issue with copying content
+- Fixed problem in navigating personal messages folders
+- Extended API, added action efrontlogout 
+- Fixed link to last done test from test reports to jump to last execution instead of first
+- Added magic_quotes restrictions in installation
+- Fixed default open/close status setting in lesson layout 
+- Added "Unit headline" option in content properties
+- Fixed lesson initialization not resetting users' scorm data 
+
+=== Version 3.5.2 build 3335 ===
+- Added "hot swap" functionality, for directly switching among different accounts
+- Added import/export course functionality
+- Added system lock down functionality
+- Added copy glossary among lessons functionality
+- Added support for conditional login based on license agreement
+- Added automatic pre-installation version check for PHP 5 
+- Added minimum password length attribute in system configuration
+- Added conditional concurrent logins functionality
+- Enhanced lesson initialization functionality
+- Added lesson initialization options to lesson import
+- Added additional lesson options and applied options/modules categorization
+- Added possibility of creating textarea fields in user profile  
+- Minor reporting fixes (completed lesson score appearing in list, low/high question types appearing correctly)
+- Fixed bug with reporting projects progress for students in "user progress"
+- User reports information page displays not-completed tests as well
+- Fixed not displaying registration link when LDAP-only registration is enabled
+- Fixed paypal redirection issue
+- Fixed bug with lesson periods not working
+- Lessons in course order are no longer clickable (linked to the index page)
+- Fixed issue with SCORM tests not beeing reported correctly in statistics, when there are no other tests in the lesson.
+- Fixed issue with flash SCORM content overlaying above popups
+- Fixed bug with SCORM export option, when scorm_data directory is absent
+- Fixed issue with SCORM tests score not being canonicalized correctly, thus preventing lessons from auto completing
+- Lesson progress and content status is now dynamically depicted even for SCORM content  
+- Fixed bug with not displaying filesystem contents in editor's media/link/image etc selection, under specific server configurations
+- Fixed issue with glossary not handling specific words, depending on the characters lying before or after the word.
+- Fixed IE issue with non-clickable units
+- Fixed z-indexing issue in statistics' autompleted list.
+- Lesson modules and options display is now separated
+- Fixed issue with redirection after creating lesson that is set to "course-only" mode
+- Reordered enterprise/educational versions files 
+- Fixed issue with SSL https:// support
+- The selected unit is now remembered across calls when editing tests or questions.   
+- Grouped course settings icon under a single option in administrator's courses list
+- When a test includes free text questions, its results may also appear as "pending" instead of just "success" or "failed" 
+- Added missing navigation handles in student's solved test review
+- Fixed wrong link in tests search results
+- Fixed unable to search without logging into a lesson  
+- Embedded Right-to-left option for corresponding languages
+- Changed ZIPARCHIVE::OVERWRITE to ZIPARCHIVE::CREATE for PHP 5.2.8+ compatibility
+- Fixed calendar bug, where a professor could delete other lessons' events when in "show all" mode
+- Fixed certificate preview error in Internet Explorer
+- Fixed node reordering bug
+
+=== Version 3.5.2 build 3257 ===
+- Added ability to complete a unit using a question
+- Added subscription payments support (Educational version only)
+- Added the vertical chat functionality in sidebar
+- Language is no longer a limiting factor for lessons/courses selection 
+- Added time to dates in calendar
+- Added announcements page to administrator
+- Lesson/courses information made asynchronous for increased speed 
+- Added an inline search field for lessons and courses
+- Site name and moto made optional
+- Added the complete unit with question option 
+- Added a brand new layout and custom content functionality for the index page
+- Upgraded tests infrastructure providing a wealth of new features 
+- Fixed glossary UTF8 word boundary handling
+- Fixed a bug with glossary not handling well tags with slashes (/)
+- Fixed bug: When viewing statistics as admin and only one lesson exists, an error occurs
+- Fixed bug: Clicking on the logout icon instead of the text redirects only the left frame
+- 'Save question and add another' preserves difficulty and parent unit
+- Test duration made optional
+- Fixed bug in LDAP check server settings
+- Fixed problem with logging out when cookie is set
+- Fixed a bug when unsetting all courses from a user thourgh the "remove all" checkbox. 
+- Extended user types descending from administrator to allow for more flexibility
+- Fixed bug with chat invitation link
+- Fixed bug with poll post redirection
+- Integrated file manager when mceEditor is loaded
+- Html code in editor is not displayed in popup window but in textarea
+- Inserting file directly from file manager to editor
+- Adding pdf for unit content. Inserting pdf in a frame in a unit.
+- Uploading a file from url.
+- Announcements can also be sent as email.
+- Extending search in order to translate specific eFront "commands" and redirects to the right page.
+- Language files transformed as php.inc
+- Added 21 more languages at installation script
+- Added content error reporting by students
+- Fixed REQUEST_URI problem for IIS
+- Improved show/hide sidebar 
+- Fixed bugs in search and improved interface for displaying results 
+- Added a quick commands interface
+- Added report content/test error option in student
+- Numerous minor bug fixes and enhancements
+
+=== Version 3.5.1 build 2760 ===
+- Fixed an important security issue in uploading files
+
+=== Version 3.5.1 build 2710 ===
+- Fixed a bug in maintenance where all modules displayed as non-existing
+- Fixed bug with default cms page login link pointing to wrong address 
+- Fixed bug with statistics not displaying correct link to solved tests
+- Fixed a bug with not beeing able to set the logo
+
+=== Version 3.5.1 build 2701 ===
+- Added automatic resizing funtionality for logos and avatars, when GD libraries are present
+- Fixed bug with multiline glossary entries not displaying properly in Internet Explorer
+- Fixed issues with Google Chrome browser
+- Default CMS page loads gziped scripts 
+- Fixed bug with users' total login time in statitics
+
+=== Version 3.5.1 build 2677 ===
+- Updated Modules infrastructure
+- Added user types infrastructure
+- Addressed an issue with certain versions of IIS crashing when sending header("location:".$_SERVER['PHP_SELF']);
+- Added a reordering facility for professor to define the student's first page layout
+- Logins starting with numeric characters are from now on prohibited
+- Administrator may set a url that the user will be redirected to after logout
+- Added support for directly accessing resources, such as content, files, etc
+- Restoring from automatic upgrade backups now uses optimised inserting function (speeded up about 100 times)
+- Fixed bug with quotes in content addition
+- Server name is not hard-coded in configuration file anymore; instead, the offset is recorded
+- Fixed a bug in importing lessons, which could cause images not to show correctly
+- Forum messsages show the poster's avatar not the viewer's
+- Added missing link to create unit when a lesson has only tests
+- Changed empty units color so that it doesn't mix with inactive units
+- Fixed a bug in deactivating units in IE6
+- Fixed the link "start lesson" to not point to empty units
+- Fixed user form in hcd not displaying skills and done tests
+- Tests results always display in administrator and professor, regardless of test settings
+- Statistics select lists do not overlap when names are too long
+- Fixed possible problem when activating inactive tests
+- Questions in questions order is not clickable any more
+- Fixed a bug in navigation handles when navigating from tests to inactive units
+- Added default link in CMS page and notice, to inform on lock-out possibility
+- Fixed progress/success icon not displaying properly when deleting units
+- Fixed current user type not selected, when different than default, in user's lessons list in administrator
+- Fixed js error showing up in lesson statistics, when the lesson doesn't have any students
+- Fixed bug when saving a test as new test: If the parent unit was inactive, an error message displayed
+- Fixed wrong redirection when trying to add a content unit to a lesson with only test units 
+- Importing lesson does not reset lesson users
+- Fixed an issue with certificate logos not being saved correctly
+- Added support for setting the font size and style in the course certificates
+- Updated lessons/courses list speed
+- Added file metadata infrastructure
+- Added unit (content) metadata infrastructure
+- Fixed a bug where a student could apply a hack and turn himself to professor
+- Fixed unsharing files bug when mysql in strict mode
+- Setting the course_only flag for lessons is now done directly from the lessons list using an AJAX call
+- Upgrade script updated to be more memory-efficient, better guard existing data and always auto-backup
+- Backup/Restore processes are made more memory-efficient and less error prone
+- Show Printer Friendly operations updated. 
+- Fixed users list in administrator's lesson options to properly sort based on whether they are part of the lesson or not
+- Fixed bug in adding/removing all lessons to/from a user, where course lessons where considered also. 
+- lessons and courses in a different language than the user's are not displayed in the administrator's selection list in user's personal options
+- Fixed bug with mass removal of courses from student, where in certain conditions a lesson may not have been removed
+- Inner tables show/hide status is remembered with cookies   
+- Lesson options now includes a "show content tree" option 
+- Fixed bookmarks bug where bookmarks were not associated with the corresponding lesson
+
+
+==== Version 3.5.0 build 2622 ===
+- Enhanced speed 
+- Added SCORM iframe fixed width option
+- Eliminated browser cache when viewing SCORM content, which could lead to wrong reporting of SCO state
+- Fixed bug with not setting unit options correctly under certain circumstances
+
+==== Version 3.5.0 build 2600 ====
+- Fixed bug with limiting users number
+
+==== Version 3.5.0 build 2580 ====
+- Fixed some issues regarding upgrading from 3.1.x branch
+- Inactive tests results are displayed in statistics 
+- Groups can now be sorted based on membership checkbox status
+- Questions score in excel exports is displayed correctly
+- Excel export lists average score per user
+- When seeing a user's lesson as an administrator, professor accounts do not have completed/score columns
+- A lesson with all units inactive cannot be "started"
+- Fixed a problem when printing trees where starting points are nested deeper than the following ones (i.e. in case their root nodes are deactivated)
+- When visiting a lesson with only tests, clicking on the "content" menu link displays the proper unit
+- A lesson's users in the professor's settings page can now be sorted by membership checkbox status
+- If a user's directory does not exists, it is automatically created
+- A user's overall progress for a lesson is now reported correctly, excluding inactive units 
+- Multiple Questions single answer and True/False questions' color in done tests does not change when "display right answers" option is false
+- Fixed a typo with "EfrontLesssons" class in install script, which appeared at step 4 in case it needed to be repeated
+
+=== Version 3.5.0 ===
+- Based on a new, robust, Object Oriented API which enables for far more stability and extensibility
+- Excessive use of AJAX makes for speed and usability
+- New Modules support
+- Enhanced statistics and reporting operations
+- Improved international filesystems support
+- Enhanced SCORM integration
+- Improved emailing functions
+- Extended courses management
+- New, ajax-based file manager
+- Improved content tree manipulation
+- There is no need to set up the document root
+- Speed is by all means improved, both at server and client, and so is security.
+- Literally hundreds of additions and enhancements
+
+=== Version 3.1.4 ===
+- Fixed various small bugs
+- Fixed many small issues in statistics and excel exports
+- Updated appearance and changed default font
+- Fixed bug with digital library
+- Fixed bug in importing lessons
+
+=== Version 3.1.3 ===
+- Bundled PEAR classes
+- Updated filesystem function 
+- Fixed bug preventing backup page to show up
+- Updated inporting/exporting functions
+- Fixed installation issue with PHP < 5.1
+- Fixed caching pages problem in Internet Explorer
+- Fixed several excel exports and bundled patch for Spreadsheet_Excel_Writer
+- Added extra functionality in user groups
+- Fixed some icons beeing invisible in Internet Explorer 6
+- Fixed personal messages operations not working in Internet Explorer 6
+- Fixed mail server settings check
+- Updated various server messages and language tags
+- Removed "content copy" feature due to potential instable behaviour
+- Removed "user roles" feature due to potential instable behaviour
+- Removed upload link from external pages (cms) operation
+
+=== Version 3.1.2 ===
+- Fixed bug in IE7 preventing control panel to appear
+
+=== Version 3.1.1 ===
+- Fixed an important bug in users lesson registration
+- Updated ajax infrastructure
+- Updated calendar functionality
+- Fixed small bugs in sortedTable
+- Improved IE 6 support
+- Fixed various small bugs, including import/export users, password change, chat issues etc
+
+=== Version 3.1 ===
+- Introduced a full new file system functionality, allowing for true UTF8 filenames in Windows along, increased security and file database abstraction 
+- Ajax enabled potentially long elements list, such as users and lessons 
+- Introduced new user groups functionality 
+- Improved IE6 support, including a new set of GIF icons to replace transparent PNGs when IE6 is used 
+- Updated database connection settings to ensure proper UTF8 data manipulation
+- Added localization variables to system configuration
+- Updated statistics functionality
+- Updated forum functionality
+- Remastered backup functionality
+- Implemented a more robust auto backup procedure during upgrade  
+- New appearance, faster and smaller pages 
+
+=== Version 3.0.1 ===
+- Fixed Lesson rules bug: test units where not affected by "has not seen" rules
+- Fixed wrong reporting of unit children
+- Fixed import lessons bug
+- Complete Forum redesign. It now supports nested forums, comments along with titles and it has many appearance enhancements
+- Enhanced statistics
+- Extended modules infrastructure

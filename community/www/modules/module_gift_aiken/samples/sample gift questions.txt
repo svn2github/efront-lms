@@ -1,0 +1,53 @@
+// Check multiple choice with one answer - no missing text
+Pick the odd one out {
+~Europe
+~Asia
+=Greenland #it is not considered a continent - the rest are
+~Australia
+}
+
+// Check multiple choice with one answer - showing the advantage over AIKEN
+Which number completes the series 1, 5, 21, 85, {
+~149
+~253
+=341 #1 (+4) \= 5 (+4*4) \= 21 (+4*4*4) \= 85 (+4*4*4*4) \=341
+~405
+}?
+
+// Check multiple choice with many answers - missing text put in the text middle
+::Grants tomb::Who is buried in Grant's tomb in New York City? {
+=Grant
+~No one
+#Was true for 12 years, but Grant's remains were buried in the tomb in 1897
+~Napoleon
+#He was buried in France
+=Churchill
+#He was buried in England
+~Mother Teresa
+#She was buried in India
+}
+Pick the correct answers?
+
+// Check true/false simple
+Grant is buried in Grant's tomb.{F}
+
+// Check true/false with comments - sample use of special character #
+Grant is buried in Grant's tomb. {
+FALSE#Wrong, No one is buried in Grant's tomb.
+#Right, \#well\# done.
+}
+
+// Check special characters
+The sun rises in the east \{\=not (sign \~) west\}.{TRUE}
+
+// Duplicate question
+Grant is buried in Grant's tomb.{FALSE}
+
+// Matching question
+Match the capitals {=England -> London =Germany -> Berlin #It used to be Bonn though =Greece -> Athens}
+
+// Development question
+Write about the Spanish civil war. {}
+
+// Empty-spaces question
+{=Der =der} Tisch und {=das} Bett befinden sich in {=dem =einem =meinem #could be} Zimmer.

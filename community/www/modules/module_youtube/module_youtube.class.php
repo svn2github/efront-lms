@@ -19,6 +19,7 @@ class module_youtube extends EfrontModule {
     // Optional functions
     // What should happen on installing the module
     public function onInstall() {
+        eF_executeNew("drop table if exists module_youtube");
         return eF_executeNew("CREATE TABLE module_youtube (
                           id int(11) NOT NULL auto_increment,
                           lessons_ID int(11) NOT NULL,

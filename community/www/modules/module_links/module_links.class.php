@@ -18,6 +18,7 @@ class module_links extends EfrontModule {
     // Optional functions
     // What should happen on installing the module
     public function onInstall() {
+        eF_executeNew("drop table if exists module_links");
         eF_executeNew("CREATE TABLE module_links (
                           id int(11) NOT NULL auto_increment,
                           lessons_ID int(11) not null,

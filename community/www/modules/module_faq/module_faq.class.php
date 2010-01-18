@@ -19,6 +19,7 @@ class module_faq extends EfrontModule {
     // Optional functions
     // What should happen on installing the module
     public function onInstall() {
+        eF_executeNew("drop table if exists module_faq");
         return eF_executeNew("CREATE TABLE module_faq (
                           id int(11) NOT NULL auto_increment,
                           lessons_ID int(11) not null,
@@ -112,7 +113,8 @@ class module_faq extends EfrontModule {
 			
 			//$units['id'] = array_merge(array("0"), $units['id']);
 			//$units['name'] = array_merge(array(_FAQ_GENERAL_LESSON), $units['name']);
-			sizeof($units) > 0 ? $units = array_merge(array("0" => _FAQ_GENERAL_LESSON) , array_combine($units['id'], $units['name'])) : $units = array("0" => _FAQ_GENERAL_LESSON);
+			
+			sizeof($units) > 0 ? $units = array(0 => _FAQ_GENERAL_LESSON) + array_combine($units['id'], $units['name']) : $units = array("0" => _FAQ_GENERAL_LESSON);
 			$form -> addElement('select', 'related_content',    _CONTENT, $units, 'class = "inputSelectLong"');
 	            
             
@@ -236,6 +238,7 @@ class module_faq extends EfrontModule {
         $smarty -> assign("T_FAQ_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_FAQ_MODULE_BASEURL" , $this -> moduleBaseUrl);
 		$smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
+		$smarty -> assign("T_FAQ_IN_UNIT_CONTENT", true);
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
     }    
     

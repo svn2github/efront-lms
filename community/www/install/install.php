@@ -616,14 +616,30 @@ class Installation
 
 	 * 
 
-	 * @return unknown_type
+	 * @since 3.6.0
+
+	 * @access public
+
+	 * @static
 
 	 */
  public static function addModules() {
+     $modulesToInstall = array("dimdim",
+             "billboard",
+             "faq",
+             "rss",
+             "quote",
+             "blogs",
+             "links",
+             "wiki",
+             "quick_mails",
+             "youtube",
+             "flashcards");
      $filesystem = new FileSystemTree(G_MODULESPATH, true);
      foreach (new EfrontNodeFilterIterator($filesystem -> tree) as $moduleDirectory => $value) {
          try {
-             if (is_file($moduleDirectory.'/module.xml')) {
+             //pr(str_replace("module_", "", basename($moduleDirectory)));
+             if (in_array(str_replace("module_", "", basename($moduleDirectory)), $modulesToInstall) && is_file($moduleDirectory.'/module.xml')) {
                  $xml = simplexml_load_file($moduleDirectory.'/module.xml');
                  $className = (string)$xml -> className;
                  $className = str_replace(" ", "", $className);

@@ -274,7 +274,7 @@ if ($_GET['op'] == 'reset_lesson') {
     $modules = eF_loadAllModules();
 
     foreach($modules as $key => $module) {
-        if ($module -> getLessonModule() && $currentLesson -> options[$key]) {
+        if (method_exists($module, 'getLessonModule') && $currentLesson -> options[$key]) {
             $lessonModules[$key] = $moduleInfo[$key];
         }
     }

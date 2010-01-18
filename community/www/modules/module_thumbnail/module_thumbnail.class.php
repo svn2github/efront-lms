@@ -19,6 +19,7 @@ class module_thumbnail extends EfrontModule {
     // Optional functions
     // What should happen on installing the module
     public function onInstall() {
+        eF_executeNew("drop table if exists module_thumbnail");
         return eF_executeNew("CREATE TABLE module_thumbnail (
                           id int(11) NOT NULL auto_increment,
                           filename varchar(255) NOT NULL,

@@ -19,12 +19,14 @@ class module_certificates extends EfrontModule {
     // Optional functions
     // What should happen on installing the module
     public function onInstall() {
+        eF_executeNew("drop table if exists module_certificates ");
         $res1 = eF_executeNew("CREATE TABLE if not exists module_certificates (
                           lessons_ID int(11) not null,
                           certificate_id int(11) not null,
 						  auto_certificate tinyint(1) default '0',
                           PRIMARY KEY  (lessons_ID)
                         ) DEFAULT CHARSET=utf8;");
+        eF_executeNew("drop table if exists module_certificates_users ");
         $res2 = eF_executeNew("CREATE TABLE if not exists module_certificates_users (
                           lessons_ID int(11) not null,
                           users_LOGIN varchar(255) not null,

@@ -492,11 +492,9 @@ class module_blogs extends EfrontModule {
         $smarty -> assign("T_BLOGS_INNERTABLE_OPTIONS", $inner_table_options);
         $smarty -> assign("T_MODULE_BLOGS_BLOGPAGES" , $blogPages);
 
-		$blogs = eF_getTableData("module_blogs","*","lessons_ID=".$_SESSION['s_lessons_ID'],"timestamp desc");
-		//pr($blogs);
+        $blogs = eF_getTableData("module_blogs","*","lessons_ID=".$_SESSION['s_lessons_ID'],"timestamp desc");
+
 		$smarty -> assign("T_BLOGS_BLOGS", $blogs);
-		
-		
 		
         return true;
 	}
@@ -584,7 +582,7 @@ class module_blogs extends EfrontModule {
     }
 	
 	public function onInstall() {
-		
+		eF_executeNew("drop table if exists module_blogs ");
 		$res1 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_blogs` (
 								`id` int(11) NOT NULL auto_increment,
 								`name` varchar(255) NOT NULL,
@@ -596,7 +594,7 @@ class module_blogs extends EfrontModule {
 								`timestamp` varchar(10) NOT NULL,
 								PRIMARY KEY  (`id`)
 								) ENGINE=MyISAM  DEFAULT CHARSET=utf8;");
-        
+        eF_executeNew("drop table if exists module_blogs_articles ");
 		$res2 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_blogs_articles` (
 							`id` int(11) NOT NULL auto_increment,
 							`title` varchar(255) NOT NULL,
@@ -607,7 +605,7 @@ class module_blogs extends EfrontModule {
 							`active` tinyint(1) NOT NULL default '1',
 							PRIMARY KEY  (`id`)
 							) ENGINE=MyISAM  DEFAULT CHARSET=utf8;");
-		
+		eF_executeNew("drop table if exists module_blogs_comments");
 		$res3 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_blogs_comments` (
 							`id` int(11) NOT NULL auto_increment,
 							`blogs_articles_ID` int(11) NOT NULL default '0',
@@ -617,7 +615,7 @@ class module_blogs extends EfrontModule {
 							`active` tinyint(1) NOT NULL default '1',
 							PRIMARY KEY  (`id`)
 							) ENGINE=MyISAM  DEFAULT CHARSET=utf8;");
-						
+        eF_executeNew("drop table if exists module_blogs_users");						
 		$res4 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_blogs_users` (
 							`blogs_ID` int(11) NOT NULL default '0',
 							`users_LOGIN` varchar(255) NOT NULL,

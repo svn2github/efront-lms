@@ -19,6 +19,7 @@ class module_dimdim extends EfrontModule {
     // Optional functions
     // What should happen on installing the module
     public function onInstall() {
+        eF_executeNew("drop table if exists module_dimdim");
         $a = eF_executeNew("CREATE TABLE module_dimdim (
                           id int(11) NOT NULL auto_increment,
                           name varchar(255) NOT NULL,
@@ -34,6 +35,7 @@ class module_dimdim extends EfrontModule {
                           status int(1) default 0,
                           PRIMARY KEY  (id)
                         ) DEFAULT CHARSET=utf8;");
+        eF_executeNew("drop table if exists module_dimdim_users_to_meeting ");
         $b = eF_executeNew("CREATE TABLE module_dimdim_users_to_meeting (
                         users_LOGIN varchar(255) NOT NULL,
                         meeting_ID int(11) NOT NULL,

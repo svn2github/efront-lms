@@ -373,13 +373,15 @@ class module_flashcards extends EfrontModule {
         return 'flashcards_link_id1';
     }
 	
-	public function onInstall() {		
+	public function onInstall() {
+	    eF_executeNew("drop table if exists module_flashcards_decks");		
 		$res1 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_flashcards_decks` (
 								`content_ID` int(10) unsigned NOT NULL,
 								`cards` text,
 								`options` text
 								) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
 	
+		eF_executeNew("drop table if exists module_flashcards_users_to_cards");
 		$res2 = eF_executeNew("CREATE TABLE `module_flashcards_users_to_cards` (
 								`users_LOGIN` VARCHAR( 100 ) NOT NULL ,
 								`content_ID` MEDIUMINT( 11 ) NOT NULL ,

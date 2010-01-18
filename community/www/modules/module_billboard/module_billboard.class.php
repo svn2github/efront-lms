@@ -19,6 +19,7 @@ class module_billboard extends EfrontModule {
     // Optional functions
     // What should happen on installing the module
     public function onInstall() {
+        eF_executeNew("drop table if exists module_billboard");
         return eF_executeNew("CREATE TABLE module_billboard (
                           lessons_ID int(11) not null,
                           data longtext default NULL,

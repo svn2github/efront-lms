@@ -120,59 +120,61 @@ class EfrontStats
             }
         }
 
-        $doneTests = array();
-        //debug_print_backtrace();
-        if (!isset($options['notests']) || !$options['notests']) {
-	        $result    = eF_getTableData("completed_tests ct, tests t", "ct.score, ct.users_LOGIN, t.lessons_ID, t.content_ID", "ct.status != 'incomplete' and ct.status != 'failed' and ct.archive = 0 and t.id=ct.tests_ID and t.lessons_ID in (".implode(",", $lessons).")");
+        if (sizeof($lessons) > 0 && sizeof($users) > 0) {
+	        $doneTests = array();
+	        //debug_print_backtrace();
+	        if (!isset($options['notests']) || !$options['notests']) {
+		        $result    = eF_getTableData("completed_tests ct, tests t", "ct.score, ct.users_LOGIN, t.lessons_ID, t.content_ID", "ct.status != 'incomplete' and ct.status != 'failed' and ct.archive = 0 and t.id=ct.tests_ID and t.lessons_ID in (".implode(",", $lessons).")");
+		        foreach ($result as $value) {
+		            $doneTests[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = $value['score'];
+		        }
+	        }
+
+	        $temp = eF_getTableData("user_types", "*");
+			if (sizeof($temp) == 0) {
+				$result = eF_getTableData("users u, users_to_lessons ul", "u.login, ul.lessons_ID, ul.done_content", "ul.user_type = 'student' and u.login = ul.users_LOGIN and u.login in ('".implode("','", $users)."') and ul.lessons_ID in (".implode(",", $lessons).")") ;        
+			} else {
+				$result = eF_getTableData("users u, users_to_lessons ul, user_types as ut", "u.login, ul.lessons_ID, ul.done_content", "(ul.user_type = 'student' OR (ul.user_type=ut.id AND ut.basic_user_type = 'student')) and u.login = ul.users_LOGIN and u.login in ('".implode("','", $users)."') and ul.lessons_ID in (".implode(",", $lessons).")");        
+    		}
+			//$result           = eF_getTableData("users u, users_to_lessons ul, user_types as ut", "u.login, ul.lessons_ID, ul.done_content", "(ul.user_type = 'student' OR (ul.user_type=ut.id AND ut.basic_user_type = 'student')) and u.login = ul.users_LOGIN");        
+	        //$result           = eF_getTableData("users u, users_to_lessons ul", "u.login, ul.lessons_ID, ul.done_content", "ul.user_type = 'student' and u.login = ul.users_LOGIN");        
+			
+			$usersDoneContent = array();
+	
 	        foreach ($result as $value) {
-	            $doneTests[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = $value['score'];
+	            $usersDoneContent[$value['lessons_ID']][$value['login']] = unserialize($value['done_content']);
+	        }
+	        
+	        //Get lessons content, in case a done unit is not part of a lesson anymore or is inactive
+	        $result        = eF_getTableData("content c", "id, lessons_ID", "lessons_ID in (".implode(",", $lessons).") and active=1");
+	        $lessonContent = array();
+	        foreach ($result as $value) {
+	            $lessonContent[$value['lessons_ID']][] = $value['id'];
+	        }
+	        
+	        $resultScorm = eF_getTableData("scorm_data sd, content c", "c.ctg_type, c.lessons_ID, content_ID, users_LOGIN, lesson_status, score, minscore, maxscore, masteryscore", "c.id=sd.content_ID and c.lessons_ID in (".implode(",", $lessons).") and sd.users_LOGIN in ('".implode("','", $users)."')");
+	
+	        foreach ($resultScorm as $key => $value) {
+	            if ($value['lesson_status'] == 'passed' || $value['lesson_status'] == 'completed') {
+	                if ($value['ctg_type'] == 'scorm') {
+	                    $scormDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = '';
+	                } elseif ($value['ctg_type'] == 'scorm_test') {
+	                    if (is_numeric($value['minscore']) || is_numeric($value['maxscore'])) {
+	                        $value['score'] = 100 * $value['score'] / ($value['minscore'] + $value['maxscore']);
+	                    } else {
+	                        $value['score'] = $value['score'];
+	                    }
+	                    $scormDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = $value['score'];
+	                }
+	            } else { 
+	                //Remove this unit from the seen contents unit, since it is failed
+	                if (isset($usersDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']])) {              
+	                    unset($usersDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']]);
+	                } 
+	            }
 	        }
         }
-
-        $temp = eF_getTableData("user_types", "*");
-		if (sizeof($temp) == 0) {
-			$result           = eF_getTableData("users u, users_to_lessons ul", "u.login, ul.lessons_ID, ul.done_content", "ul.user_type = 'student' and u.login = ul.users_LOGIN and u.login in ('".implode("','", $users)."') and ul.lessons_ID in (".implode(",", $lessons).")") ;        
-		} else {
-			$result           = eF_getTableData("users u, users_to_lessons ul, user_types as ut", "u.login, ul.lessons_ID, ul.done_content", "(ul.user_type = 'student' OR (ul.user_type=ut.id AND ut.basic_user_type = 'student')) and u.login = ul.users_LOGIN and u.login in ('".implode("','", $users)."') and ul.lessons_ID in (".implode(",", $lessons).")");        
-		}
-		//$result           = eF_getTableData("users u, users_to_lessons ul, user_types as ut", "u.login, ul.lessons_ID, ul.done_content", "(ul.user_type = 'student' OR (ul.user_type=ut.id AND ut.basic_user_type = 'student')) and u.login = ul.users_LOGIN");        
-        //$result           = eF_getTableData("users u, users_to_lessons ul", "u.login, ul.lessons_ID, ul.done_content", "ul.user_type = 'student' and u.login = ul.users_LOGIN");        
-		
-		$usersDoneContent = array();
-
-        foreach ($result as $value) {
-            $usersDoneContent[$value['lessons_ID']][$value['login']] = unserialize($value['done_content']);
-        }
-        
-        //Get lessons content, in case a done unit is not part of a lesson anymore or is inactive
-        $result        = eF_getTableData("content c", "id, lessons_ID", "lessons_ID in (".implode(",", $lessons).") and active=1");
-        $lessonContent = array();
-        foreach ($result as $value) {
-            $lessonContent[$value['lessons_ID']][] = $value['id'];
-        }
-        
-        $resultScorm = eF_getTableData("scorm_data sd, content c", "c.ctg_type, c.lessons_ID, content_ID, users_LOGIN, lesson_status, score, minscore, maxscore, masteryscore", "c.id=sd.content_ID and c.lessons_ID in (".implode(",", $lessons).") and sd.users_LOGIN in ('".implode("','", $users)."')");
-
-        foreach ($resultScorm as $key => $value) {
-            if ($value['lesson_status'] == 'passed' || $value['lesson_status'] == 'completed') {
-                if ($value['ctg_type'] == 'scorm') {
-                    $scormDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = '';
-                } elseif ($value['ctg_type'] == 'scorm_test') {
-                    if (is_numeric($value['minscore']) || is_numeric($value['maxscore'])) {
-                        $value['score'] = 100 * $value['score'] / ($value['minscore'] + $value['maxscore']);
-                    } else {
-                        $value['score'] = $value['score'];
-                    }
-                    $scormDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = $value['score'];
-                }
-            } else { 
-                //Remove this unit from the seen contents unit, since it is failed
-                if (isset($usersDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']])) {              
-                    unset($usersDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']]);
-                } 
-            }
-        }
-        
+	        
         foreach ($lessons as $lessonId) {
             !isset($usersDoneContent[$lessonId]) ? $usersDoneContent[$lessonId] = array() : null;
             

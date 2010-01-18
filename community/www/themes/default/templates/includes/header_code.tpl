@@ -55,6 +55,7 @@
 	<div id = "path">
 		<div id = "path_title">{$title}</div>
 		<div id = "path_language">
+
 		{*Search div*}
 	    {if $smarty.session.s_login}
 	        {if $smarty.session.s_type == 'administrator'}

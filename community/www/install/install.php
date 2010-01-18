@@ -22,7 +22,8 @@ $path = "../../libraries/";
 preg_match("/define\('G_VERSION_NUM', '(.*)'\);/", file_get_contents("sample_config.php"), $matches);
 define("G_VERSION_NUM", $matches[1]);
 //Read current build from globals.php file
-preg_match('/\$LastChangedRevision$matches);
+//preg_match('/\$LastChangedRevision$matches);
+preg_match('/\$build = "(\d+)";/', file_get_contents($path."globals.php"), $matches);
 define("G_BUILD", $matches[1]);
 $versionTypes = array('educational' => 'Educational',
                       'enterprise' => 'Enterprise',
@@ -180,7 +181,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
          } else {
              $values = $form -> exportValues();
          }
-//pr($values);exit;	        
             //first, try to connect to the host
          $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password']);
          $db -> Execute("SET NAMES 'UTF8'");
@@ -372,7 +372,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 EfrontConfiguration :: setValue('notifications_messages_per_time', '5');
                 EfrontConfiguration :: setValue('notifications_max_sent_messages', '100');
                 Installation :: addModules();
-                header("location:".$_SERVER['PHP_SELF']."?finish=1");
+                exit;
             }
         } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
@@ -692,25 +692,47 @@ class Installation
                                     'db_name' => $name[1]);
         } else {
         }
-//var_dump($currentVersion);        
         return $currentVersion;
  }
  /**
 
+	 * Automatically fix PHP settings errors
+
 	 * 
 
-	 * @param $settings
+	 * This function is used to automatically apply a suitable php.ini or .htaccess file to correct the most
 
-	 * @param $mode
+	 * usual PHP settings errors: session.save_path, magic_quotes_gpc, register_globals.
 
-	 * @return unknown_type
+	 * 
+
+	 * @param array $settings The settings that need to be fixed 
+
+	 * @param string $mode Can be 'local', which means that the fix will be in a local php.ini file, or 'htaccess', which means that the fix will be performed with a .htaccess file 
+
+	 * @since 3.6.0
+
+	 * @access public
+
+	 * @static
 
 	 */
  public static function fix($settings, $mode = 'local') {
+     //local mode: create and apply a local php.ini file 
      if ($mode == 'local') {
          $localPhpIniString = "";
-         if ($settings['session.save_path'] && function_exists('sys_get_temp_dir')) {
+         if ($settings['session.save_path'] && function_exists('sys_get_temp_dir')) { //If the session.save_path does not exist, set it to system's default temp dir
              $localPhpIniString .= "session.save_path = \"".sys_get_temp_dir()."\"\n";
+         }
+         //When we need to apply a local php.ini file, even if session.save_path is correctly configured in the system, after applying
+         //the php.ini file, for some reason the session.save_path goes away. So, whenever we are in this function, we *must*
+         //include the session.save_path inside the local php.ini file 
+         elseif (!$settings['session.save_path']) {
+             if (ini_get('session.save_path') && is_writable(ini_get('session.save_path'))) {
+                 $localPhpIniString .= "session.save_path = \"".ini_get('session.save_path')."\"\n";
+             } else if (function_exists('sys_get_temp_dir')) {
+                 $localPhpIniString .= "session.save_path = \"".sys_get_temp_dir()."\"\n";
+             }
          }
          if ($settings['magic_quotes_gpc']) {
              $localPhpIniString .= "magic_quotes_gpc = Off\n";
@@ -779,7 +801,6 @@ php_value register_globals Off
          //Get the old database descriptions, it is used in updateDBData(), which however must be called after any connection to the new DB
          //so this line MUST be called before the new connection
          $table_fields = $GLOBALS['db'] -> GetCol("describe $table");
-//pr("table: $table, newtable: $newTable");	        
          if ($oldDB && $newDB) {
              $GLOBALS['db'] -> NConnect($newDB['db_host'], $newDB['db_user'], $newDB['db_password'], $newDB['db_name']);
              $GLOBALS['db'] -> Execute("SET NAMES 'UTF8'");
@@ -793,7 +814,6 @@ php_value register_globals Off
          foreach ($result as $key => $value) {
              $fieldTypes[$value['Field']] = $value['Type'];
          }
-//pr($fieldTypes);exit;	        	         
          $data = self :: updateDBData($table, $data, $table_fields, $fieldTypes);
          if (sizeof($data) > 0) {
              $data = array_values($data); //Reindex array, in case some values where removed

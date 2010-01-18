@@ -80,7 +80,7 @@ function eF_js_addAdditionalChoice(question_type) {
 			var check = document.createElement('input');
 			check.setAttribute('type', 'text');
 			check.setAttribute('class', 'inputText inputText_QuestionChoice');
-			check.setAttribute('name', 'correct_match['+counter+']')
+			check.setAttribute('name', 'correct_match['+counter+']');
 			td_right.appendChild(check);
 		} else if (question_type == 'drag_drop') {
 			var td_middle = document.createElement('td');               //Create a new table cell to hold the new raquos
@@ -92,22 +92,23 @@ function eF_js_addAdditionalChoice(question_type) {
 			var check = document.createElement('input');
 			check.setAttribute('type', 'text');
 			check.setAttribute('class', 'inputText inputText_QuestionChoice');
-			check.setAttribute('name', 'correct_drag_drop['+counter+']')
+			check.setAttribute('name', 'correct_drag_drop['+counter+']');
 			td_right.appendChild(check);
 		}
 
 		var img = document.createElement('img');                        //Create an image element, that will hold the "delete" icon
 		img.setAttribute('alt', removechoice);                       //Set alt and title for this image
 		img.setAttribute('title', removechoice);
-		img.setAttribute('src', 'themes/default/images/16x16/error_delete.png');      //Set the icon source
+		img.setAttribute('src', 'themes/default/images/others/transparent.png');      //Set the icon source
+		img.addClassName('sprite16').addClassName('sprite16-error_delete');
 		img.setAttribute('onclick', 'eF_js_removeImgNode(this, "'+question_type+'")');  //Set the event that will trigger the deletion
-		img.onclick = function () {eF_js_removeImgNode(this, question_type)};  //Set the event that will trigger the deletion
+		img.onclick = function () {eF_js_removeImgNode(this, question_type);};  //Set the event that will trigger the deletion
 		var img_td = document.createElement('td');                      //Create a new table cell to hold the image element
 		img_td.appendChild(img);                                        //Append the image to this cell
 		tr.appendChild(img_td);                                         //Append the <td> to the row
 		//Element.extend(td).insert(new Element('input', {type:'text'}));
-		td = new Element('td').setStyle({paddingLeft:'30px'}).insert(new Element('img', {src:'themes/default/images/16x16/add.png', alt:insertexplanation, title:insertexplanation}).setStyle({marginRight:'5px', verticalAlign:'middle'}).observe('click', function (e) {Element.extend(this).next().toggle()}))
-		.insert(new Element('input', {type:'text', name:'answers_explanation['+counter+']'}).addClassName('inputText').hide());
+		var img = new Element('img', {src:'themes/default/images/others/transparent.png', alt:insertexplanation, title:insertexplanation}).addClassName('sprite16').addClassName('sprite16-add').setStyle({marginRight:'5px', verticalAlign:'middle'}).observe('click', function (e) {Element.extend(this).next().toggle();});
+		td = new Element('td').setStyle({paddingLeft:'30px'}).insert(img).insert(new Element('input', {type:'text', name:'answers_explanation['+counter+']'}).addClassName('inputText').hide());
 		Element.extend(tr).insert(td);
 
 		var parent_node = last_node.parentNode;                         //Find the parent element, that will hold the new element
@@ -267,7 +268,7 @@ function onCheckSuggestedSkills(el, response) {
 		}
 	}
 	
-	$('suggestedSkillsImage').down().writeAttribute('src', 'themes/default/images/16x16/examples.png').show();
+	$('suggestedSkillsImage').down().writeAttribute('src', 'themes/default/images/others/transparent.png').addClassName('sprite16').addClassName('sprite16-examples').show();
 	if (!at_least_one) {
         alert(correlated_message);
 	}

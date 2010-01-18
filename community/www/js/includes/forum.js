@@ -46,7 +46,7 @@ function addAdditionalChoice() {
         input.setAttribute('name', 'options['+counter+']');             //We give the new textboxes names if the form multiple_one[0], multiple_one[1] so we can handle them alltogether
         td.appendChild(input);                                          //Append the text box to the table cell we created above
 
-        var img = new Element('img', {alt: removechoice, title: removechoice, src: 'themes/default/images/16x16/error_delete.png'}).setStyle({whiteSpace: 'nowrap'}).addClassName('ajaxHandle');						//Create an image element, that will hold the "delete" icon
+        var img = new Element('img', {alt: removechoice, title: removechoice, src: 'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-error_delete').setStyle({whiteSpace: 'nowrap'}).addClassName('ajaxHandle');						//Create an image element, that will hold the "delete" icon
         img.onclick = function() {removeImgNode(this, "options");};
         td.appendChild(img);                                            //Append the <td> to the row
 

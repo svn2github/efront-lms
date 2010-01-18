@@ -3443,4 +3443,11 @@ define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED", "Η συναλλαγή ολ�
 define("_PAYPALDEBUG", "Paypal debug mode");
 define("_MYACCOUNT", "Ο λογαριασμός μου");
 define("_MODULE", "Άρθρωμα");
+define("_EMBEDTYPE", "Ενσωμάτωση περιεχομένου ως");
+define("_INLINEIFRAME", "Ενιαίο (iframe)");
+define("_NEWWINDOWPOPUP", "Νέο παράθυρο (popup)");
+define("_POPUPPARAMETERS", "Παράμετροι popup");
+define("_CLICKTOSTARTUNIT", "Πατήστε το κουμπί για να εκκινήσετε την ενότητα");
+define("_STARTUNIT", "Έναρξη ενότητας");
+define("_SCORM2004NOTSUPPORTED", "Δυστυχώς το πρότυπο SCORM 2004 δεν υποστηρίζεται σε αυτήν την έκδοση");
 ?>

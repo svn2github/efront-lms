@@ -96,7 +96,7 @@ class EfrontScorm
      * @return unknown_type
 
      */
-    public static function import($lesson, $manifestFile, $scormFolderName) {
+    public static function import($lesson, $manifestFile, $scormFolderName, $parameters) {
         if ($lesson instanceof EfrontLesson) {
             $currentLesson = $lesson;
         } else {
@@ -106,7 +106,6 @@ class EfrontScorm
         $currentContent = new EfrontContentTree($currentLesson);
         $manifestXML = file_get_contents($manifestFile['path']);
         $tagArray = EfrontScorm :: parseManifest($manifestXML);
-        //pr($tagArray);
         /**
 
          * Now parse XML file as usual
@@ -117,10 +116,13 @@ class EfrontScorm
             switch ($value['tag']) {
                 case 'SCHEMAVERSION':
                     $scormVersion = $value['value'];
+                    if (stripos($scormVersion, '2004') !== false && (G_VERSIONTYPE == 'community' || G_VERSIONTYPE == 'standard')) { //This additional line is used in case we have the community edition                    
+                        throw new EfrontContentException(_SCORM2004NOTSUPPORTED, EfrontContentException::UNSUPPORTED_CONTENT);
+                    }
                     break;
                 case 'TITLE':
                     $cur = $value['parent_index'];
-                    $total_fields[$cur]['name'] = $value['value'];
+                    $total_fields[$cur]['name'] = $value['value'] ? $value['value'] : " ";
                     break;
                 case 'ORGANIZATION':
                     $item_key = $key;
@@ -149,7 +151,7 @@ class EfrontScorm
                     $total_fields[$key]['scorm_version'] = $scormVersion;
                     $total_fields[$key]['identifier'] = $value['attributes']['IDENTIFIER'];
                     $hide_lms_ui[$key]['is_visible'] = $value['attributes']['ISVISIBLE'];
-                    if($scorm2004) {
+                    if ($scorm2004) {
                         $references[$key]['IDENTIFIERREF'] = EfrontContentTreeSCORM :: form_id($value['attributes']['IDENTIFIERREF']);
                         /*SCORM 2004: params in element items must be appended to the url*/
                         $references[$key]['PARAMETERS'] = $value['attributes']['PARAMETERS'];
@@ -351,7 +353,15 @@ class EfrontScorm
                         }
                     }
                     //$total_fields[$key]['data'] = eF_postProcess(str_replace("'","&#039;",$data));
-                    $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "eF_js_setCorrectIframeSize()"></iframe>';
+                    if ($parameters['embed_type'] == 'iframe') {
+                        $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "eF_js_setCorrectIframeSize()"></iframe>';
+                    } else {
+                        $total_fields[$key]['data'] = '
+                            <div style = "text-align:center;height:300px">
+                             <span>'._CLICKTOSTARTUNIT.'</span><br/>
+                          <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
+                         </div>';
+                    }
                 }
             }
             $lastUnit = $currentContent -> getLastNode();

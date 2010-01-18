@@ -424,7 +424,7 @@ try {
                         'links'           => _MENU);
 
         foreach ($customBlocks as $key => $block) {
-            $blocks[$key] = $block['title'];
+            $blocks[$key] = htmlspecialchars($block['title'], ENT_QUOTES);
         }
         $smarty -> assign("T_BLOCKS", json_encode($blocks));
         $currentPositions = $layoutTheme -> layout['positions'] ? $layoutTheme -> layout['positions'] : false;

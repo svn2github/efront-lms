@@ -84,6 +84,74 @@ if (isset($currentUser -> login) && $_SESSION['s_password']) {
     eF_redirect("index.php?message=".urlencode(_YOUCANNOTACCESSTHISPAGE)."&message_type=failure");
     exit;
 }
+if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
+    if (isset($_GET['add_evaluation'])) {
+        $form = new HTML_QuickForm("evaluations_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['edit_user']."&add_evaluation=1", "", "target='_parent'", true);
+    } else {
+        $form = new HTML_QuickForm("evaluations_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['edit_user']."&edit_evaluation=".$_GET['edit_evaluation'], "", "target='_parent'", true);
+    }
+    // Hidden for maintaining the previous_url value
+    $form -> addElement('hidden', 'previous_url', null, 'id="previous_url"');
+    $previous_url = getenv('HTTP_REFERER');
+    if ($position = strpos($previous_url, "&message")) {
+        $previous_url = substr($previous_url, 0, $position);
+    }
+    $form -> setDefaults(array( 'previous_url' => $previous_url));
+    $form -> addElement('text', 'specification', _EVALUATIONCOMMENT, 'class = "inputText"');
+    if(isset($_GET['edit_evaluation'])) {
+        $evaluations = eF_getTableData("module_hcd_events","*","event_ID = '".$_GET['edit_evaluation']."'");
+        if ($currentUser -> getType() != 'administrator' && ($evaluations[0]['author'] != $currentUser -> login)) {
+            $message = _YOUCANNOTEDITSOMEELSESEVALUATION;
+            $message_type = 'failure';
+            eF_redirect("".basename($form->exportValue('previous_url'))."&message=". $message . "&message_type=" . $message_type . "&tab=evaluations");
+            //eF_redirect("".$_SERVER['HTTP_REFERER']."&tab=evaluations&message=". $message . "&message_type=" . $message_type);
+            exit;
+        }
+        $form -> setDefaults( array('specification' => $evaluations[0]['specification']));
+    }
+    $form -> addRule('specification', _THEFIELD.' '._EVALUATIONCOMMENT .' '._ISMANDATORY, 'required', null, 'client');
+    $form -> addElement('submit', 'submit_evaluation_details', _SUBMIT, 'class = "flatButton" tabindex="2"');
+    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+    $renderer -> setRequiredTemplate(
+        '{$html}{if $required}
+            &nbsp;<span class = "formRequired">*</span>
+        {/if}');
+    /*****************************************************
+
+     EVALUATION DATA SUBMISSION
+
+     **************************************************** */
+    if ($form -> isSubmitted()) {
+        if ($form -> validate()) {
+            $evaluation_content = array('specification' => $form->exportValue('specification'),
+                                        'event_code' => 10,
+                                        'users_login' => $_GET['edit_user'],
+                                        'author' => $currentUser -> login,
+                                        'timestamp' => time());
+            if (isset($_GET['add_evaluation'])) {
+                if ($ok = eF_insertTableData("module_hcd_events", $evaluation_content)) {
+                    $message = _SUCCESSFULLYCREATEDEVALUATION;
+                    $message_type = 'success';
+                }
+                else {
+                    $message = _EVALUATIONCOULDNOTBECREATED.": ".$ok;
+                    $message_type = 'failure';
+                }
+            } elseif (isset($_GET['edit_evaluation'])) {
+                eF_updateTableData("module_hcd_events", $evaluation_content, "event_ID = '" . $_GET['edit_evaluation']. "'");
+                $message = _EVALUATIONDATAUPDATED;
+                $message_type = 'success';
+            }
+            // A little risky, but i think that all urls have sth like ?ctg= , so np
+            eF_redirect("".basename($form->exportValue('previous_url'))."&message=". $message . "&message_type=" . $message_type . "&tab=evaluations");
+            exit;
+        }
+    }
+    $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+    $form -> setRequiredNote(_REQUIREDNOTE);
+    $form -> accept($renderer);
+    $smarty -> assign('T_EVALUATIONS_FORM', $renderer -> toArray());
+} else {
     /****************************************************************************************************************************************************/
     /************************************************* ADD USER OR EDIT USER ****************************************************************************/
     /****************************************************************************************************************************************************/
@@ -955,4 +1023,5 @@ if (isset($currentUser -> login) && $_SESSION['s_password']) {
             $smarty -> assign("T_USER_TO_GROUP_FORM", $groups);
         }
     }
+}
 ?>

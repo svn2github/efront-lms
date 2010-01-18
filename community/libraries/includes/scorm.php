@@ -86,61 +86,73 @@ if ($_GET['scorm_review']) {
         $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024);
         
         $form -> addElement('text', 'url_upload', _UPLOADFILEFROMURL, 'class = "inputText"');
+        $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
+        $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
         $form -> addElement('submit', 'submit_upload_scorm', _SUBMIT, 'class = "flatButton"');
 
+        $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no'));
+        
         //@todo: url upload, if not exists, report a human-readable error!
         $timestamp  = time();
-        
+
         if ($form -> isSubmitted() && $form -> validate()) {
-            $urlUpload = $form -> exportValue('url_upload');
+            $values = $form -> exportValues();
+            try {
+                $urlUpload = $form -> exportValue('url_upload');
 
-            $scormFiles = array();
-            if ($urlUpload != "" ) {
-                FileSystemTree :: checkFile($urlUpload);
-                $urlArray    = explode("/", $urlUpload);
-                $urlFile     = urldecode($urlArray[sizeof($urlArray) - 1]);
-                
-                if (!copy($urlUpload, $currentLesson -> getDirectory().$urlFile)) {
-                    throw new Exception(_PROBLEMUPLOADINGFILE);
+                $scormFiles = array();
+                if ($urlUpload != "" ) {
+                    FileSystemTree :: checkFile($urlUpload);
+                    $urlArray    = explode("/", $urlUpload);
+                    $urlFile     = urldecode($urlArray[sizeof($urlArray) - 1]);
+
+                    if (!copy($urlUpload, $currentLesson -> getDirectory().$urlFile)) {
+                        throw new Exception(_PROBLEMUPLOADINGFILE);
+                    } else {
+                        $scormFiles[] = new EfrontFile($currentLesson -> getDirectory().$urlFile);
+                    }
                 } else {
-                    $scormFiles[] = new EfrontFile($currentLesson -> getDirectory().$urlFile);
-                }
-            } else {
-	            $filesystem = new FileSystemTree($currentLesson -> getDirectory(), true);
-                
-	            foreach ($_FILES['scorm_file']['name'] as $key => $value) {
-	                if (!in_array($value, $scormFiles)) {        //This way we bypass duplicates
-	                    try {
-	                        $scormFiles[$value] = $filesystem -> uploadFile("scorm_file", $currentLesson -> getDirectory(), $key);
-	                    } catch (EfrontFileException $e) {
-	                        if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {
-	                            throw $e;
-	                        }
-	                    }
-	                }
-                }
-	            
-            }
-//pr($scormFiles);exit;
-            foreach ($scormFiles as $scormFile) {
-	            /* Imports scorm package to database */           
-	            $scormFolderName = EfrontFile :: encode(basename($scormFile['name'], '.zip'));
-	            $scormPath       = $currentLesson -> getDirectory().$scormFolderName.'/';
-	            is_dir($scormPath) OR mkdir($scormPath, 0755);
-//pr($scormPath.$scormFile['name']);
-//try {
-	            $scormFile -> rename($scormPath.$scormFile['name'], true);
-//} catch (Exception $e) {pr($e);throw $e;}
-	            $fileList   = $scormFile  -> uncompress(false);
-	            $scormFile -> delete();
+                    $filesystem = new FileSystemTree($currentLesson -> getDirectory(), true);
 
-	            $total_fields = array();
-	            $resources    = array();
-	
-	            $manifestFile = new EfrontFile($scormPath.'imsmanifest.xml');
-	            EfrontScorm :: import($currentLesson, $manifestFile, $scormFolderName);
+                    foreach ($_FILES['scorm_file']['name'] as $key => $value) {
+                        if (!in_array($value, $scormFiles)) {        //This way we bypass duplicates
+                            try {
+                                $scormFiles[$value] = $filesystem -> uploadFile("scorm_file", $currentLesson -> getDirectory(), $key);
+                            } catch (EfrontFileException $e) {
+                                if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {
+                                    throw $e;
+                                }
+                            }
+                        }
+                    }
+                     
+                }
+                //pr($scormFiles);exit;
+                foreach ($scormFiles as $scormFile) {
+                    /* Imports scorm package to database */
+                    $scormFolderName = EfrontFile :: encode(basename($scormFile['name'], '.zip'));
+                    $scormPath       = $currentLesson -> getDirectory().$scormFolderName.'/';
+                    is_dir($scormPath) OR mkdir($scormPath, 0755);
+                    //pr($scormPath.$scormFile['name']);
+                    //try {
+                    $scormFile -> rename($scormPath.$scormFile['name'], true);
+                    //} catch (Exception $e) {pr($e);throw $e;}
+                    $fileList   = $scormFile  -> uncompress(false);
+                    $scormFile -> delete();
+
+                    $total_fields = array();
+                    $resources    = array();
+
+                    $manifestFile = new EfrontFile($scormPath.'imsmanifest.xml');
+                    EfrontScorm :: import($currentLesson, $manifestFile, $scormFolderName, array('embed_type' => $values['embed_type'], 'popup_parameters' => $values['popup_parameters']));
+                }
+                eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=scorm&message=".urlencode(_SUCCESSFULLYIMPORTEDSCORMFILE)."&message_type=success");
+            } catch (Exception $e) {
+                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+                $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+                $message_type = failure;
             }
-            eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=scorm&message=".urlencode(_SUCCESSFULLYIMPORTEDSCORMFILE)."&message_type=success");
+
         }
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
         $form -> accept($renderer);

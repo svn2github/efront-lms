@@ -65,10 +65,10 @@
                                     </tr>
                                 {foreach name = 'users_to_projects_list' key = 'key' item = 'user' from = $T_ALL_USERS}
                                     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
-                                        <td>#filter:login-{$user.login}#</td>
+                                        <td>#filter:login-{$user.users_LOGIN}#</td>
                                         <td class = "centerAlign">
                                     {if $_change_}
-                                            <input class = "inputCheckbox" type = "checkbox" name = "checked_{$user.login}" id = "checked_{$user.login}" onclick = "usersAjaxPost('{$user.login}', this);" {if $user.checked}checked = "checked"{/if}/>
+                                            <input class = "inputCheckbox" type = "checkbox" name = "checked_{$user.users_LOGIN}" id = "checked_{$user.users_LOGIN}" onclick = "usersAjaxPost('{$user.users_LOGIN}', this);" {if $user.checked}checked = "checked"{/if}/>
                                     {else}
                                             {if $user.checked}<img src = "images/16x16/success.png" alt = "{$smarty.const._PROJECTUSER}" title = "{$smarty.const._PROJECTUSER}">{/if}
                                     {/if}

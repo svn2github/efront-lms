@@ -1284,3 +1284,20 @@ CREATE TABLE users_to_surveys (
   KEY surveys_ID (surveys_ID,users_LOGIN),
   primary key (users_LOGIN, surveys_ID)
 ) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'carts'
+--
+-- This table is used to store carts.
+-- Fields:
+-- id (primary key): A numerical identifier
+-- timestamp: A 10-digit number representing the carts's last update time
+-- session_id: The session id associated with this cart
+-- contents: The contents of the cart
+CREATE TABLE carts (
+  id mediumint(8) unsigned NOT NULL auto_increment,
+  timestamp int(10) unsigned NOT NULL,
+  session_id varchar(255) NOT NULL,
+  contents text,
+  PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;

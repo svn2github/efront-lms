@@ -97,6 +97,14 @@ class EfrontContentException extends Exception
     const DATABASE_ERROR = 508;
     /**
 
+     * Unsupported content type, for example SCORM 2004 in community edition
+
+     * @since 3.6.0
+
+     */
+    const UNSUPPORTED_CONTENT = 509;
+    /**
+
      * An unspecific error
 
      * @since 3.5.0

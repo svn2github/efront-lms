@@ -320,6 +320,7 @@ class EfrontSystem
                     throw new Exception (_PLEASECHECKYOURCSVFILEFORMAT.': '._NUMBEROFFIELDSMUSTBE.' '.sizeof($fields).' '._BUTFOUND.' '.sizeof($csvUser), EfrontSystemException::ILLEGAL_CSV);
                 }
             $csvUser = array_combine($fields, $csvUser);
+            array_walk($csvUser, create_function('&$v, $k', '$v=trim($v);'));
             if (in_array($csvUser['login'], $existingUsers['login']) && $replaceUsers) {
                 $existingUser = EfrontUserFactory :: factory($csvUser['login']);
                 $existingUser -> delete();

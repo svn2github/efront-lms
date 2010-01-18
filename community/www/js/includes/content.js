@@ -151,7 +151,7 @@ function updateProgress(obj) {
 	    	}
 	    	lesson_passed == true ? w.$('lesson_passed').setStyle({color:'green'}) : w.$('lesson_passed').setStyle({color:'red'});
 	    }
-//alert(unitStatus[52].completion_status);	    
+	    
 	    for (var i in unitStatus) {
 	    	if (unitStatus[i].completion_status == 'completed' || unitStatus[i].success_status == 'passed') {
 	    		status = '_passed';
@@ -162,7 +162,7 @@ function updateProgress(obj) {
 	    	} else {
 	    		status = '';
 	    	}
-	    	//alert("i: "+i+", completion_status: "+unitStatus[i].completion_status+" success_status: "+unitStatus[i].success_status);
+	    	
 	    	if (w.$('tree_image_'+i)) {
 	    		w.$('tree_image_'+i).className.match(/tests/) ? type = 'tests' : type = 'theory';
 	    		setImageSrc(w.$('tree_image_'+i), 16, type+status);

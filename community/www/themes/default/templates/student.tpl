@@ -553,7 +553,7 @@ function changeItemColor(item, color) {
  {if $T_CTG == 'content'}
   <img src = "images/16x16/navigate_{if (!$T_CURRENT_LESSON->options.show_right_bar && $_student_) || $smarty.cookies.rightSideBar == 'hidden'}left{else}right{/if}.png" alt = "{$smarty.const._TOGGLESIDEBAR}" title = "{$smarty.const._TOGGLESIDEBAR}" style = "float:right" onclick = "toggleRightSidebar(this, true)"/>
  {/if}
- {if $smarty.session.s_lessons_ID != '' && !$T_CONFIGURATION.disable_bookmarks && $T_CURRENT_LESSON->options.bookmarks}
+ {if $smarty.session.s_lessons_ID != '' && !$T_CONFIGURATION.disable_bookmarks && $T_CURRENT_LESSON->options.bookmarking}
   <img src = "images/16x16/bookmark.png" alt = "{$smarty.const._SHOWBOOKMARKS}" title = "{$smarty.const._SHOWBOOKMARKS}" style = "float:right" class = "ajaxHandle" onclick = "getBookmarks(this);"/>
  {/if}
 {/capture}

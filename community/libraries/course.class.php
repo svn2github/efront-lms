@@ -562,7 +562,10 @@ class EfrontCourse
   $courseUsers = $this -> getUsers();
         $count = sizeof($this -> getUsers('student'));
         foreach ($login as $key => $value) {
-   if (!in_array($value, array_keys($courseUsers))) { //added this to avoid adding existing user when admin changes his role
+         if ($value instanceof EfrontUser) {
+             $value = $value -> user['login'];
+         }
+            if (!in_array($value, array_keys($courseUsers))) { //added this to avoid adding existing user when admin changes his role
     if (eF_checkParameter($value, 'login')) {
      $fields = array('users_LOGIN' => $value,
          'courses_ID' => $this -> course['id'],
@@ -637,6 +640,9 @@ class EfrontCourse
             $login = array($login);
         }
         foreach ($login as $value) {
+         if ($value instanceof EfrontUser) {
+             $value = $value -> user['login'];
+         }
             if (eF_checkParameter($value, 'login')) {
                 $result = eF_getTableDataFlat("lessons l, users_to_courses uc, users_to_lessons ul, lessons_to_courses lc", "lc.lessons_ID, count(lc.lessons_ID)", "l.course_only = 1 and l.id=lc.lessons_ID and ul.users_LOGIN=uc.users_LOGIN and lc.lessons_ID=ul.lessons_ID and lc.courses_ID=uc.courses_ID and uc.users_LOGIN='".$value."'", "", "lc.lessons_ID, uc.users_LOGIN");
                 $lessonsToCourses = array_combine($result['lessons_ID'], $result['count(lc.lessons_ID)']);
@@ -1022,7 +1028,7 @@ class EfrontCourse
 
      *
 
-     * @param string $login The user to revoke certificate for
+     * @param mixed $login The user to revoke certificate for, either a login string or an EfrontUser object
 
      * @return boolean Whether the certificate was revoked successfully
 
@@ -1032,6 +1038,9 @@ class EfrontCourse
 
      */
     public function revokeCertificate($login) {
+        if ($login instanceof EfrontUser) {
+            $login = $login -> user['login'];
+        }
         if (eF_checkParameter($login, 'login')) {
             eF_updateTableData("users_to_courses", array("issued_certificate" => ""), "users_LOGIN='$login' and courses_ID=".$this -> course['id']);
             EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_CERTIFICATE_REVOKE, "users_LOGIN" => $login, "lessons_ID" => $this -> course['id'], "lessons_name" => $this -> course['name']));
@@ -1638,21 +1647,21 @@ class EfrontCourse
         $filedata = file_get_contents($dataFile['path']);
         $dataFile -> delete();
         $data = unserialize($filedata);
-//pr($data);
-            if ($courseProperties) {
-                unset($data['courses'][0]['id']);
-                unset($data['courses'][0]['directions_ID']);
-                unset($data['courses'][0]['created']);
-                unset($data['courses'][0]['rules']);
-                $this -> course = array_merge($this -> course, $data['courses'][0]);
-                $this -> persist();
-            }
+        //pr($data);
+        if ($courseProperties) {
+            unset($data['courses'][0]['id']);
+            unset($data['courses'][0]['directions_ID']);
+            unset($data['courses'][0]['created']);
+            unset($data['courses'][0]['rules']);
+            $this -> course = array_merge($this -> course, $data['courses'][0]);
+            $this -> persist();
+        }
         foreach ($data['lessons_to_courses'] as $value) {
-                $lesson = EfrontLesson :: createLesson(array('name' => $value['name'], 'course_only' => true, 'directions_ID' => $this -> course['directions_ID']));
-                $file = new EfrontFile($fileDir.'/'.$value['lessons_ID'].'_exported.zip');
-                $newFile = $file -> copy($lesson -> getDirectory());
-                $lesson -> import($newFile);
-                $map[$value['lessons_ID']] = $lesson -> lesson['id'];
+            $lesson = EfrontLesson :: createLesson(array('name' => $value['name'], 'course_only' => true, 'directions_ID' => $this -> course['directions_ID']));
+            $file = new EfrontFile($fileDir.'/'.$value['lessons_ID'].'_exported.zip');
+            $newFile = $file -> copy($lesson -> getDirectory());
+            $lesson -> import($newFile);
+            $map[$value['lessons_ID']] = $lesson -> lesson['id'];
             $previous[$lesson -> lesson['id']] = $value['previous_lessons_ID'];
         }
         if ($data['courses'][0]['rules'] = unserialize($data['courses'][0]['rules'])) {

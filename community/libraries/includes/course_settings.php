@@ -65,7 +65,7 @@ if ($_GET['op'] == 'course_info') {
      $currentCourse -> issueCertificate($key, $certificate);
     }
    }
-   eF_redirect(''.basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates');
+   eF_redirect(basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates');
    exit;
   }
   if (isset($_GET['edit_user']) && in_array($_GET['edit_user'], array_keys($users))) {

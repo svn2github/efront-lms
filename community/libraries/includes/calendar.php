@@ -51,16 +51,16 @@ switch ($show_interval) {
         break;
     case 'month':
         $interval_events = $month_events;
-        $smarty -> assign('T_CALENDAR_TITLE' , _CALENDAR . " " . _FFROM . " " . date("d/m/y",$month_start) . " " . _TO . " " . date("d/m/y",$month_end));
+        $smarty -> assign('T_CALENDAR_TITLE' , _CALENDAR . " " . _FFROM . " " . formatTimestamp($month_start) . " " . _TO . " " . formatTimestamp($month_end));
         break;
     case 'week':
         $interval_events = $week_events;
-        $smarty -> assign('T_CALENDAR_TITLE' , _CALENDAR . " " . _FFROM . " " . date("d/m/y",$week_start) . " " . _TO . " " . date("d/m/y",$week_end));
+        $smarty -> assign('T_CALENDAR_TITLE' , _CALENDAR . " " . _FFROM . " " . formatTimestamp($week_start) . " " . _TO . " " . formatTimestamp($week_end));
         break;
     case 'day':
     default:
         $interval_events = $day_events;
-        $smarty -> assign('T_CALENDAR_TITLE' , _CALENDAR . " " . date("d/m/y",$day_start));
+        $smarty -> assign('T_CALENDAR_TITLE' , _CALENDAR . " " . formatTimestamp($day_start));
         break;
 }
 $smarty -> assign("T_INTERVAL_CALENDAR_EVENTS", $interval_events);

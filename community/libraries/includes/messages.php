@@ -16,6 +16,8 @@ try {
        eF_redirect("".basename($_SERVER['PHP_SELF']));
     }
 
+    formatLogin();
+
     $result = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."'", "priority desc, viewed,timestamp desc");
 
     //An array of legal ids for editing entries
@@ -238,11 +240,11 @@ try {
             $form -> setDefaults(array('subject' => $subject_str, 'body' => $body_str));
         }
         if (isset($_GET['recipient'])) {
-            $form -> setDefaults(array('recipient' => $_GET['recipient']));
+            $form -> setDefaults(array('recipient' => $GLOBALS['_usernames'][$_GET['recipient']]));
         }
         if (isset($_GET['reply']) && in_array($_GET['reply'], $legalValues)) {
             $recipient = eF_getTableData("f_personal_messages", "sender, title, body", "id=".$_GET['reply']);
-            $form -> setDefaults(array('recipient' => $recipient[0]['sender']));
+            $form -> setDefaults(array('recipient' => $GLOBALS['_usernames'][$recipient[0]['sender']]));
             $form -> setDefaults(array('subject' => "Re: " . $recipient[0]['title']));
             $previous_text = "\n\n\n------------------ " . _ORIGINALMESSAGE. " ------------------\n" . $recipient[0]['body'];
             $form -> setDefaults(array('body' => $previous_text));
@@ -259,7 +261,6 @@ try {
             // The field with the recipients is no longer mandatory: we should check if it is empty
             //pr($values['recipient']);
    if ($values['recipient']) {
-    formatLogin();
     $flippedLogins = array_flip($GLOBALS['_usernames']);
     if ($_admin_) {
      $flippedLogins[_ALLUSERS] = "[*]";

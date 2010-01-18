@@ -121,7 +121,7 @@ $settings['max_execution_time']  = array('value'       => $ini_settings['max_exe
                                          'name'        => 'max_execution_time',
                                          'help'        => 'Maximum script execution time can be set to the most suitable value');
 $settings['memory_limit']        = array('value'       => $ini_settings['memory_limit']['local_value'],
-                                         'recommended' => '>32M',
+                                         'recommended' => '128M',
                                          'status'      => (substr($ini_settings['memory_limit']['local_value'], 0, -1) >= 32) || ($ini_settings['memory_limit']['local_value'] == -1) ? 1 : 0,
                                          'name'        => 'memory_limit',
                                          'help'        => 'Memory limit must be set to a high value, at least 32MB, in order for efront to run');

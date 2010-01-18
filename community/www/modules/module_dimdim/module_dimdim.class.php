@@ -225,6 +225,7 @@ class module_dimdim extends EfrontModule {
         }
 
         $dimdimUrl .= $server_host . "/html/envcheck/connect.action?".$url;
+        
         return $dimdimUrl;
     }
 
@@ -360,7 +361,7 @@ class module_dimdim extends EfrontModule {
                     }
                     
                     //echo $dimdimUrl."<BR>";
-                    eF_redirect("". $dimdimUrl);
+                    header("location:".$dimdimUrl);
 
                 } else {
                     $this -> setMessageVar(_DIMDIMMEETINGHASFINISHED, "failure");
@@ -379,13 +380,13 @@ class module_dimdim extends EfrontModule {
             $currentLesson = $this -> getCurrentLesson();
             $_SESSION['previousSideUrl'] = G_SERVERNAME ."new_sidebar.php?new_lesson_id=" . $currentLesson -> lesson['id'] ;
             $_SESSION['previousMainUrl'] = G_SERVERNAME . $currentUser -> getType() . ".php?ctg=control_panel";
-            eF_redirect(" " . $currentUser -> getType() . "page.php");
+            header("location:". $currentUser -> getType() . "page.php");
         }
 
         if (isset($_GET['delete_dimdim']) && eF_checkParameter($_GET['delete_dimdim'], 'id') && $userRole == "professor") {
             eF_deleteTableData("module_dimdim", "id=".$_GET['delete_dimdim']);
             eF_deleteTableData("module_dimdim_users_to_meeting", "meeting_ID=".$_GET['delete_dimdim']);
-            eF_redirect("". $this -> moduleBaseUrl ."&message=".urlencode(_DIMDIM_SUCCESFULLYDELETEDDIMDIMENTRY)."&message_type=success");
+            header("location:". $this -> moduleBaseUrl ."&message=".urlencode(_DIMDIM_SUCCESFULLYDELETEDDIMDIMENTRY)."&message_type=success");
         } else if ($userRole == "professor" && (isset($_GET['add_dimdim']) || (isset($_GET['edit_dimdim']) && eF_checkParameter($_GET['edit_dimdim'], 'id')))) {
 
             // Create ajax enabled table for meeting attendants
@@ -544,22 +545,22 @@ class module_dimdim extends EfrontModule {
 
                     if (isset($_GET['edit_dimdim'])) {
                         if (eF_updateTableData("module_dimdim", $fields, "id=".$_GET['edit_dimdim'])) {
-                            eF_redirect("".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_SUCCESFULLYUPDATEDDIMDIMENTRY)."&message_type=success");
+                            header("location:".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_SUCCESFULLYUPDATEDDIMDIMENTRY)."&message_type=success");
                         } else {
-                            eF_redirect("".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_PROBLEMUPDATINGDIMDIMENTRY)."&message_type=failure");
+                            header("location:".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_PROBLEMUPDATINGDIMDIMENTRY)."&message_type=failure");
                         }
                     } else {
                         // The key will be the current time when the event was set concatenated with the initial timestamp for the meeting
                         // If the latter changes after an event editing the key will not be changed
                         $fields['confKey'] = $currentLesson -> lesson['id'] . time() . $timestamp;
                         if ($result = eF_insertTableData("module_dimdim", $fields)) {
-                            eF_redirect("".$this -> moduleBaseUrl."&edit_dimdim=".$result."&message=".urlencode(_DIMDIM_SUCCESFULLYINSERTEDDIMDIMENTRY)."&message_type=success&tab=users");
+                            header("location:".$this -> moduleBaseUrl."&edit_dimdim=".$result."&message=".urlencode(_DIMDIM_SUCCESFULLYINSERTEDDIMDIMENTRY)."&message_type=success&tab=users");
                         } else {
-                            eF_redirect("".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_PROBLEMINSERTINGDIMDIMENTRY)."&message_type=failure");
+                            header("location:".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_PROBLEMINSERTINGDIMDIMENTRY)."&message_type=failure");
                         }
                     }
                 } else {
-                    eF_redirect("".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_PROBLEMINSERTINGDIMDIMENTRY)."&message_type=failure");
+                    header("location:".$this -> moduleBaseUrl."&message=".urlencode(_DIMDIM_PROBLEMINSERTINGDIMDIMENTRY)."&message_type=failure");
                 }
             }
             $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

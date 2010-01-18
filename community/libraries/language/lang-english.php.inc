@@ -3443,4 +3443,11 @@ define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED", "The transaction was complet
 define("_PAYPALDEBUG", "Paypal debug mode");
 define("_MYACCOUNT", "My account");
 define("_MODULE", "Module");
+define("_EMBEDTYPE", "Embed content as");
+define("_INLINEIFRAME", "Inline (iframe)");
+define("_NEWWINDOWPOPUP", "New window (popup)");
+define("_POPUPPARAMETERS", "Popup parameters");
+define("_CLICKTOSTARTUNIT", "Click on the button to start the unit");
+define("_STARTUNIT", "Start unit");
+define("_SCORM2004NOTSUPPORTED", "Unfortunately SCORM 2004 is not supported in this edition");
 ?>

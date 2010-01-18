@@ -71,9 +71,10 @@ function usePage(el, page) {
  * @return
  */
 function onUsePage(el, response) {
-    $('cms_table').select('img').each(function (s) {if (s.src.match('pin_green.png')) s.src = 'themes/default/images/16x16/pin_red.png'; });
+    $('cms_table').select('img').each(function (s) {if (s.src.match('pin_green.png')) s.src = 'themes/default/images/others/transparent.png'; s.addClassName('sprite16').addClassName('sprite16-pin_red');});
     if (response == '1') {
-        el.src = 'themes/default/images/16x16/pin_green.png';
+        el.src = 'themes/default/images/others/transparent.png';
+        el.addClassName('sprite16').addClassName('sprite16-pin_green');
     }
 }
 /**
@@ -206,9 +207,9 @@ function addBlock(list, block) {
 	li.observe('dblclick', function (event) {if (!this.descendantOf($('toolsList'))) {$('toolsList').insert(this.remove())}});	//On double click, remove blocks frmo layout and put them in the tools list
 	if (!isNaN(parseInt(block))) {		//This means that this is a custom block, since for custom blocks indexes are numeric (as opposed to default blocks, which are 'login', 'online' etc)
 		currentPositions.get('enabled') && currentPositions.get('enabled')[block] ? toggleImg = 'success' : toggleImg = 'forbidden';
-		li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/16x16/'+toggleImg+'.png', alt: toggletag, title: toggletag}).addClassName('tool').observe('click', function (event) {toggleBlockAccess(this, block);}));
-		li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/16x16/edit.png', alt: edittag, title: edittag}).addClassName('tool').observe('click', function (event) {location = location.toString()+'&edit_block='+block;}));
-		li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/16x16/error_delete.png', alt: deletetag, title: deletetag}).addClassName('tool').observe('click', function (event) {if (confirm(irreversible)) deleteBlock(this, block);}));
+		li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.png', alt: toggletag, title: toggletag}).addClassName('sprite16').addClassName('sprite16-'+toggleImg).addClassName('tool').observe('click', function (event) {toggleBlockAccess(this, block);}));
+		li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.png', alt: edittag, title: edittag}).addClassName('sprite16').addClassName('sprite16-edit').addClassName('tool').observe('click', function (event) {location = location.toString()+'&edit_block='+block;}));
+		li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.png', alt: deletetag, title: deletetag}).addClassName('sprite16').addClassName('sprite16-error_delete').addClassName('tool').observe('click', function (event) {if (confirm(irreversible)) deleteBlock(this, block);}));
 	}
 	$(list).insert(li);
 	remainingBlocks.unset(block);		    		
@@ -221,7 +222,7 @@ function toggleBlockAccess(el, block) {
 	//el.src.match('forbidden') ? el.writeAttribute({src:'themes/default/images/16x16/success.png'}) : el.writeAttribute({src:'themes/default/images/16x16/forbidden.png'});
 }
 function onToggleBlockAccess(el, response) {
-	response.evalJSON(true).enabled ? el.writeAttribute({src:'themes/default/images/16x16/success.png'}) : el.writeAttribute({src:'themes/default/images/16x16/forbidden.png'});
+	response.evalJSON(true).enabled ? el.writeAttribute({src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').removeClassName('sprite16-forbidden').addClassName('sprite16-success') : el.writeAttribute({src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').removeClassName('sprite16-success').addClassName('sprite16-forbidden');
 }
 
 /**

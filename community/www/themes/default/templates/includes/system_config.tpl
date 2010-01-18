@@ -216,6 +216,10 @@
         <tr><td class = "labelCell">{$smarty.const._TIMEZONE}:&nbsp;</td>
             <td class = "elementCell">{$T_LOCALE_VARIABLES_FORM.time_zone.html}</td></tr>
         {if $T_LOCALE_VARIABLES_FORM.time_zone.error}<tr><td></td><td class = "formError">{$T_LOCALE_VARIABLES_FORM.time_zone.error}</td></tr>{/if}
+  <tr><td class = "labelCell">{$smarty.const._CURRENCY}:&nbsp;</td>
+         <td class = "elementCell">{$T_LOCALE_VARIABLES_FORM.currency.html}</td></tr>
+        <tr><td class = "labelCell">{$T_LOCALE_VARIABLES_FORM.currency_order.label}:&nbsp;</td>
+         <td class = "elementCell">{$T_LOCALE_VARIABLES_FORM.currency_order.html}</td></tr>
   <tr><td class = "labelCell">{$smarty.const._DECIMALPOINT}:&nbsp;</td>
             <td class = "elementCell">{$T_LOCALE_VARIABLES_FORM.decimal_point.html}</td></tr>
         {if $T_LOCALE_VARIABLES_FORM.decimal_point.error}<tr><td></td><td class = "formError">{$T_LOCALE_VARIABLES_FORM.decimal_point.error}</td></tr>{/if}

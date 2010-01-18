@@ -69,7 +69,7 @@
 					</td>
                 </tr>
 				{foreachelse}
-                <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "5">{$smarty.const._NODATAFOUND}</td></tr>
+                <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "6">{$smarty.const._NODATAFOUND}</td></tr>
 				{/foreach}
 			</table>
 <!--/ajax:paymentsTable-->			

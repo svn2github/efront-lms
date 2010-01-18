@@ -11,7 +11,9 @@ if (!$_change_) {
 }
 
 //This page has a file manager, so bring it on with the correct options
-!$skillgap_tests ? $basedir = $currentLesson -> getDirectory() : $basedir = G_EXTERNALPATH ;
+!$skillgap_tests ? $basedir = $currentLesson -> getDirectory() : $basedir = G_EXTERNALPATH;
+is_dir($basedir) OR mkdir($basedir, 0755);
+
 //Default options for the file manager
 if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
     $options = array('lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 0);

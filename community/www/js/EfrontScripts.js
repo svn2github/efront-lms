@@ -332,7 +332,8 @@ function hideLeftSidebar() {
     top.document.getElementById('framesetId').cols = "18, *";
     top.sideframe.document.body.style.paddingLeft = "130px";
     
-    top.sideframe.$('toggleSidebarImage').src = 'themes/default/images/16x16/navigate_right.png';
+    top.sideframe.$('toggleSidebarImage').src = 'themes/default/images/others/transparent.png';
+    top.sideframe.$('toggleSidebarImage').addClassName('sprite16').removeClassName('sprite16-navigate_left').addClassName('sprite16-navigate_right');
     top.sideframe.$('toggleSidebarImage').setStyle({position:"absolute", left:'0px', top:'4px'});
     top.sideframe.$('toggleSidebarImage').onclick  = showLeftSidebar;
     //top.sideframe.$('logoutImage').setStyle({position:"absolute", left:'1px', top:'45px'});
@@ -362,6 +363,7 @@ function showLeftSidebar() {
 	    top.sideframe.initArrows();
 	
 	    top.sideframe.$('toggleSidebarImage').src = 'themes/default/images/16x16/navigate_left.png';
+	    top.sideframe.$('toggleSidebarImage').addClassName('sprite16').removeClassName('sprite16-navigate_right').addClassName('sprite16-navigate_left');
 	    top.sideframe.$('toggleSidebarImage').setStyle({position:"absolute", left:top.global_sideframe_width-16+'px', top:'4px'});
 	    //top.sideframe.$('logoutImage').setStyle({position:"absolute", left:'1000px', top:'45px'});
 	    //top.sideframe.$('mainPageImage').setStyle({position:"absolute", left:'1000px', top:'25px'});
@@ -482,7 +484,7 @@ function onGetBookmarks(el, response) {
 							new Element('div')
 								.insert(new Element('a', {href:s[1].url}).update(s[1].lesson_name+': '+s[1].name))
 								.insert(new Element('span').update('&nbsp;'))
-								.insert(new Element('img', {src:'themes/default/images/16x16/error_delete.png', onclick:'removeBookmark(this, '+s[1].id+')'}).addClassName('handle'))
+								.insert(new Element('img', {src:'themes/default/images/others/transparent.png', onclick:'removeBookmark(this, '+s[1].id+')'}).addClassName('handle').addClassName('sprite16').addClassName('sprite16-error_delete'))
 							);
 			});
 			//document.body.appendChild(bookmarks);

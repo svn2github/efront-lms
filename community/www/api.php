@@ -19,6 +19,8 @@ Below are the available action arguments an the corresponding arguments needed (
 /api.php?token=<token>&action=group_to_user&login=<login>&group=<group_id>          assigns group with <group_id> to user <login>   
 /api.php?token=<token>&action=group_from_user&login=<login>&lesson=<group_id>       undo assignment for group with <group_id> to user <login>
 /api.php?token=<token>&action=lesson_to_user&login=<login>&lesson=<lesson_id>		assigns lesson with <lesson_id> to user <login>   
+/api.php?token=<token>&action=activate_user_lesson&login=<login>&lesson=<lesson_id> activate assignment for lesson with <lesson_id> to user <login>
+/api.php?token=<token>&action=deactivate_user_lesson&login=<login>&lesson=<lesson_id> deactivate assignment for lesson with <lesson_id> to user <login>
 /api.php?token=<token>&action=lesson_from_user&login=<login>&lesson=<lesson_id>		undo assignment for lesson with <lesson_id> to user <login>
 /api.php?token=<token>&action=course_to_user&login=<login>&course=<course_id>		assigns course with <course_id> to user <login>   
 /api.php?token=<token>&action=course_from_user&login=<login>&courses=<course_id>	undo assignment for course with <course_id> to user <login> 
@@ -31,6 +33,8 @@ Below are the available action arguments an the corresponding arguments needed (
 /api.php?token=<token>&action=course_info&course=<course_id>						returns <course_id> information
 /api.php?token=<token>&action=course_lessons&course=<course_id>						returns lessons containing in <course_id>
 /api.php?token=<token>&action=course_to_user&course=<course_id>&login=<login>		assigns course with <course_id> to user <login>
+/api.php?token=<token>&action=activate_user_course&login=<login>&course=<course_id> activate assignment for all lessons within <course_id> to user <login>
+/api.php?token=<token>&action=deactivate_user_course&login=<login>&course=<course_id> deactivate assignment for all lessons within <course_id> to user <login>
 /api.php?token=<token>&action=course_from_user&course=<course_id>&login=<login>		undo assignment for course with <course_id> to user <login>
 /api.php?token=<token>&action=catalog												returns the list with all courses and lessons of the system
 /api.php?token=<token>&action=logout												logs out from eFront API
@@ -571,6 +575,70 @@ In case of error it returns also a message entity with description of the error 
                     }         
                     break;           
                 }
+                case 'deactivate_user_lesson':{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])){
+                        if (isset($_GET['login']) && isset($_GET['lesson'])){
+                            $update['from_timestamp'] = 0;
+                            if (eF_updateTableData("users_to_lessons",$update, "users_LOGIN='".$_GET['login']."' and lessons_ID=".$_GET['lesson'])){
+                                echo "<xml>";
+                                echo "<status>ok</status>";
+                                echo "</xml>";
+                            }
+                            else{
+                                echo "<xml>";
+                                echo "<status>error</status>";                                
+                                echo "<message>User doesn't exist</message>";
+                                echo "</xml>";
+                            }
+                        }
+                        else{
+                            echo "<xml>";
+                            echo "<status>error</status>";                            
+                            echo "<message>Incomplete arguments</message>";
+                            echo "</xml>";
+                        }
+                        
+                    }
+                    else{
+                        echo "<xml>";
+                        echo "<status>error</status>";                       
+                        echo "<message>Invalid token</message>";
+                        echo "</xml>";
+                    }        
+                    break;            
+                }
+                case 'activate_user_lesson':{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])){
+                        if (isset($_GET['login']) && isset($_GET['lesson'])){
+                            $update['from_timestamp'] = time();
+                            if (eF_updateTableData("users_to_lessons",$update, "users_LOGIN='".$_GET['login']."' and lessons_ID=".$_GET['lesson'])){
+                                echo "<xml>";
+                                echo "<status>ok</status>";
+                                echo "</xml>";
+                            }
+                            else{
+                                echo "<xml>";
+                                echo "<status>error</status>";                                
+                                echo "<message>User doesn't exist</message>";
+                                echo "</xml>";
+                            }
+                        }
+                        else{
+                            echo "<xml>";
+                            echo "<status>error</status>";                            
+                            echo "<message>Incomplete arguments</message>";
+                            echo "</xml>";
+                        }
+                        
+                    }
+                    else{
+                        echo "<xml>";
+                        echo "<status>error</status>";                       
+                        echo "<message>Invalid token</message>";
+                        echo "</xml>";
+                    }        
+                    break;            
+                }
                 case 'lesson_from_user':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])){
                         if (isset($_GET['login']) && isset($_GET['lesson'])){
@@ -934,6 +1002,62 @@ In case of error it returns also a message entity with description of the error 
                     }         
                     break;           
 				}
+                case 'activate_user_course':{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])){
+                        if (isset($_GET['login']) && isset($_GET['course'])){
+                            $update['from_timestamp'] = time();
+                            $courses = eF_getTableData("lessons_to_courses","lessons_id", "courses_ID=".$_GET['course']);
+                            for ($i=0; $i < sizeof($courses);$i++){
+                                if (eF_updateTableData("users_to_lessons",$update, "users_LOGIN='".$_GET['login']."' and lessons_ID=".$courses[$i]['lessons_id'])){
+                                }
+                            }
+                            echo "<xml>";
+                            echo "<status>ok</status>";
+                            echo "</xml>";
+                        }
+                        else{
+                            echo "<xml>";
+                            echo "<status>error</status>";                            
+                            echo "<message>Incomplete arguments</message>";
+                            echo "</xml>";
+                        }
+                    }
+                    else{
+                        echo "<xml>";
+                        echo "<status>error</status>";                       
+                        echo "<message>Invalid token</message>";
+                        echo "</xml>";
+                    }        
+                    break;            
+                }
+                case 'deactivate_user_course':{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])){
+                        if (isset($_GET['login']) && isset($_GET['course'])){
+                            $update['from_timestamp'] = 0;
+                            $courses = eF_getTableData("lessons_to_courses","lessons_id", "courses_ID=".$_GET['course']);
+                            for ($i=0; $i < sizeof($courses);$i++){
+                                if (eF_updateTableData("users_to_lessons",$update, "users_LOGIN='".$_GET['login']."' and lessons_ID=".$courses[$i]['lessons_id'])){
+                                }
+                            }
+                            echo "<xml>";
+                            echo "<status>ok</status>";
+                            echo "</xml>";
+                        }
+                        else{
+                            echo "<xml>";
+                            echo "<status>error</status>";                            
+                            echo "<message>Incomplete arguments</message>";
+                            echo "</xml>";
+                        }
+                    }
+                    else{
+                        echo "<xml>";
+                        echo "<status>error</status>";                       
+                        echo "<message>Invalid token</message>";
+                        echo "</xml>";
+                    }        
+                    break;            
+                }
 				case 'course_from_user':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])){
 							if (isset($_GET['login']) && isset($_GET['course'])){

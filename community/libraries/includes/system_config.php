@@ -320,6 +320,8 @@ $locale_form = new Html_QuickForm("locale_variables", "post", basename($_SERVER[
 // Hard-coded cities per time zone - hopefully all are DST aware
 $timezones = eF_getTimezones();
 $locale_form -> addElement("select", "time_zone", _TIMEZONE, $timezones, 'class = "inputText" style="width:40em"');
+$locale_form -> addElement("select", "currency", _CURRENCY, $CURRENCYNAMES);
+$locale_form -> addElement("select", "currency_order", _SHOWCURRENCYSYMBOL, array(1 => _BEFOREPRICE, 0 => _AFTERPRICE));
 $locale_form -> addElement("text", "decimal_point", _DECIMALPOINT, 'class = "inputText" style = "width:50px"');
 $locale_form -> addElement("text", "thousands_sep", _THOUSANDSSEPARATOR, 'class = "inputText" style = "width:50px"');
 $locale_form -> addElement("select", "date_format", _DATEFORMAT, array("DD/MM/YYYY" => "DD/MM/YYYY", "MM/DD/YYYY" => "MM/DD/YYYY", "YYYY/MM/DD" => "YYYY/MM/DD"));

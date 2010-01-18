@@ -21,10 +21,12 @@ function publish(el, id) {
 }
 function onPublish(el, response) {
 	if (response == 1) {
-		el.src = "themes/default/images/16x16/success.png";
+		el.src = "themes/default/images/others/transparent.png";
+		el.addClassName('sprite16').addClassName('sprite16-success');
 		el.alt = el.title = published;
 	} else {
-		el.src = "themes/default/images/16x16/forbidden.png";
+		el.src = "themes/default/images/others/transparent.png";
+		el.addClassName('sprite16').addClassName('sprite16-forbidden');
 		el.alt = el.title = notpublished;
 	}
 }

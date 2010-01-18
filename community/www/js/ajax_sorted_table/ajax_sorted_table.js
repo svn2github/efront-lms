@@ -174,17 +174,19 @@
 					    	document.getElementById(el.id).className = 'sortDescending';
 							document.getElementById(el.id).setAttribute('order', 'asc');
 		                    if (document.getElementById(el.id).up().select('img').length == 0) {
-		                    	document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/16x16/navigate_down.png'}).setStyle({verticalAlign:'middle'}));
+		                    	document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({verticalAlign:'middle'}));
 		                    } else {
-		                    	document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/16x16/navigate_down.png';
+		                    	document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+		                    	document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_down');
 		                    }
 					    } else {
 							document.getElementById(el.id).className = 'sortAscending';
 							document.getElementById(el.id).setAttribute('order', 'desc');
 		                    if (document.getElementById(el.id).up().select('img').length == 0) {
-		                    	document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/16x16/navigate_up.png'}).setStyle({verticalAlign:'middle'}));
+		                    	document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
 		                    } else {
-		                    	document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/16x16/navigate_up.png';
+		                    	document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+		                    	document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
 		                    }
 	                    }
 		            }         
@@ -271,17 +273,20 @@ function eF_js_sortTable(el, other) {
                 if (el.className == 'sortAscending') {              //Set the icons through the class to reflect the order, ascending or descending
                     el.className = 'sortDescending';
                     if (el.up().select('img').length == 0) {
-                    	el.up().insert(new Element('img', {src:'themes/default/images/16x16/navigate_down.png'}).setStyle({paddingLeft:'6px'}));
+                    	el.up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({paddingLeft:'6px'}));
                     } else {
-                    	el.up().select('img')[0].src = 'themes/default/images/16x16/navigate_up.png';
+                    	el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+                    	el.up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
                     }
                 } else {
 	                tableRowIndex.reverse();                            //If the column clicked is already sorted, we need to reverse the elements order
                     el.className = 'sortAscending';
                     if (el.up().select('img').length == 0) {
-                    	el.up().insert(new Element('img', {src:'themes/default/images/16x16/navigate_up.png'}).setStyle({paddingLeft:'6px'}));
+                    	el.up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({paddingLeft:'6px'}));
                     } else {
-                    	el.up().select('img')[0].src = 'themes/default/images/16x16/navigate_down.png';
+                    	el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+                    	el.up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_down');
+                    	
                     }
                 }
             } else {
@@ -289,9 +294,10 @@ function eF_js_sortTable(el, other) {
                 el.className = 'sortDescending';                    //Update the sorting icon
                 //alert(el.up().select('img'));
                 if (el.up().select('img').length == 0) {
-                	el.insert(new Element('img', {src:'themes/default/images/16x16/navigate_down.png'}).setStyle({paddingLeft:'6px'}));
+                	el.insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({paddingLeft:'6px'}));
                 } else {
-                	el.up().select('img')[0].src = 'themes/default/images/16x16/navigate_up.png';
+                	el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+                	el.up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
                 }
             }		    
 		    //el.insert(new Element)

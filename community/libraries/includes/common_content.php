@@ -305,7 +305,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $currentUser -> user['login']);
             $seenContent = $seenContent[$currentLesson -> lesson['id']][$currentUser -> user['login']];
             $smarty -> assign("T_SEEN_UNIT", in_array($currentUnit['id'], array_keys($seenContent))); //Notify smarty whether the student has seen the current unit
-            $ruleCheck = $currentContent -> checkRules($currentUnit['id'], $seenContent);
+            if ($currentLesson -> options['rules']) {
+                $ruleCheck = $currentContent -> checkRules($currentUnit['id'], $seenContent);
+            }
             if ($ruleCheck !== true) {
                 $message = $ruleCheck;
                 $message_type = 'failure';

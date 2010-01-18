@@ -372,6 +372,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 EfrontConfiguration :: setValue('notifications_messages_per_time', '5');
                 EfrontConfiguration :: setValue('notifications_max_sent_messages', '100');
                 Installation :: addModules();
+                header("location:".$_SERVER['PHP_SELF']."?finish=1");
                 exit;
             }
         } catch (Exception $e) {

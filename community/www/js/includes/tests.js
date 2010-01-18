@@ -836,7 +836,8 @@ function initDragDrop(questionId, keys) {
 
 //These must be run when a test is shown
 if (typeof(showtest) != 'undefined' && showtest) {
-	initTimer();
+	//alert(window.initTimer);
+	if (window.initTimer) {initTimer();};
 	if (typeof(current_question) != 'undefined') {
 		showTestQuestion(current_question);
 	}

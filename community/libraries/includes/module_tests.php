@@ -428,8 +428,9 @@ try {
     if ($_student_) {
         $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $currentUser -> user['login']);
         $seenContent = $seenContent[$currentLesson -> lesson['id']][$currentUser -> user['login']];
-        $ruleCheck = $currentContent -> checkRules($currentUnit['id'], $seenContent);
-
+        if ($currentLesson -> options['rules']) {
+            $ruleCheck = $currentContent -> checkRules($currentUnit['id'], $seenContent);
+        }
         if (isset($_GET['view_unit']) && eF_checkParameter($_GET['view_unit'], 'id') && (!($GLOBALS['currentLesson'] -> options['rules']) || $ruleCheck === true)) {
             $visitableIterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
             $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML(false, 'dhtmlContentTree', array('truncateNames' => 25, 'selectedNode' => $currentUnit['id'])));

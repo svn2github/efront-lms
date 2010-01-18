@@ -278,10 +278,6 @@ try {
 	    /***/
 	    require_once "themes.php";
 	}
-	elseif ($ctg == "content") {
-	    /**File manager*/
-	    require_once "content.php";    
-	}
 	else if ($ctg == 'tests') {
 	    /***/
 	    require_once "module_tests.php";

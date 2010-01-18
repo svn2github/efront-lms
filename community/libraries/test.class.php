@@ -1533,7 +1533,8 @@ class EfrontTest
                     var questionSeconds = new Array();
                     var questionDuration = new Array();
                     var questionMin = new Array();
-                    var questionSec = new Array();                    
+                    var questionSec = new Array();  
+                    var showtest=1;                  
     	</script>';
         if (!$this -> options['duration']) {
             $str .= '
@@ -1544,7 +1545,7 @@ class EfrontTest
                     <td>
                         <table class = "doneTestInfo">
                             <tr><td id = "testName">'.$this -> test['name'].'</td></tr>
-                            <tr><td>'._NUMOFQUESTIONS.': '.sizeof($this -> getQuestions()).'</td></tr>
+                            <tr><td>'._NUMOFQUESTIONS.': '.min(sizeof($this -> getQuestions()), $this -> options['random_pool']).'</td></tr>
                             <tr><td>'.$this -> test['description'].'</td></tr>
                         </table>
                     </td></tr>
@@ -1577,7 +1578,7 @@ class EfrontTest
                 	</td></tr>
                 </table>
                 <script language = "JavaScript" type = "text/javascript">
-                var showtest=1;var timeup = "'._YOURTIMEISUP.'!";var remainingtime = "'._REMAININGQUESTIONTIME.'";
+                var timeup = "'._YOURTIMEISUP.'!";var remainingtime = "'._REMAININGQUESTIONTIME.'";
                 function initTimer() {
                     hours   = "'.$remainingTime['hours'].'";
                     minutes = "'.$remainingTime['minutes'].'";

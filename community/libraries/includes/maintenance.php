@@ -25,6 +25,10 @@ $smarty -> assign("T_PHPINFO", $info);
 //Lock down operations
 if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAccess['maintenance'] == 'change') {
     $load_editor = true;
+    if (G_VERSION_NUM != $GLOBALS['configuration']['database_version']) {
+        $smarty -> assign("T_DIFFERENT_VERSIONS", true);
+    }
+
     $lockdown_form = new HTML_QuickForm("lockdown_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=lock_down", "", null, true);  //Build the form
     $lockdown_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                                                   //Register our custom input check function
 

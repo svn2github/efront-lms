@@ -614,14 +614,17 @@ try {
 
         // Optionally ajaxed request - if not ajaxed then it should show the tests list
         if( isset($_GET['delete_solved_test']) && eF_checkParameter($_GET['delete_solved_test'], 'id')) {
-
             if (isset($currentUser -> coreAccess['skillgaptests']) && $currentUser -> coreAccess['skillgaptests'] != 'change') {
                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
                 exit;
             }
-            // Remove a solved test from the users_to_skillgap list
-            eF_deleteTableData("completed_tests", "id = " . $_GET['delete_solved_test']);
-            eF_updateTableData("users_to_skillgap_tests" , array("solved" => 0), "tests_id = " . $_GET['test_id']. " AND users_login = '".$_GET['users_login']."'");
+            //eF_deleteTableData("completed_tests", "id = " . $_GET['delete_solved_test']);
+            $currentTest = new EfrontTest($_GET['test_id']);
+            $currentTest -> undo($_GET['users_login'], $_GET['delete_solved_test']);
+            if ($skillgap_tests) {
+                // Remove a solved test from the users_to_skillgap list
+                eF_updateTableData("users_to_skillgap_tests" , array("solved" => 0), "tests_id = " . $_GET['test_id']. " AND users_login = '".$_GET['users_login']."'");
+            }
             if ($_GET['postAjaxRequest']) {
                 exit;
             }
@@ -666,7 +669,7 @@ try {
                 $skills = eF_getTableData("module_hcd_skills", "skill_ID, description", "");
                 $smarty -> assign('T_QUESTION_SKILLS', $skills);
             }
-        } elseif (isset($_GET['add_test']) && isset($_GET['create_quick_test'])) {
+        } elseif ($skillgap_tests && isset($_GET['add_test']) && isset($_GET['create_quick_test'])) {
             // Quick test generator code
             if (isset($currentUser -> coreAccess['skillgaptests']) && $currentUser -> coreAccess['skillgaptests'] != 'change') {
                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");

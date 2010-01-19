@@ -8,6 +8,9 @@
     {/if}
 
 	{if $smarty.get.step == 1}
+	    {if $T_CONFIGURATION_EXISTS && !$smarty.get.upgrade && $smarty.get.step == 1}
+	    	{eF_template_printMessageBlock content = "An existing configuration file was found, which probably means an existing installation is already in place. If you continue, it will be overwritten. Perhaps you prefer to <a href = '`$smarty.server.PHP_SELF`?step=`$smarty.get.step`&upgrade=1'>upgrade</a>?" type = "failure"}
+	    {/if}
 		{capture name = 'step_1_code'}
 		{assign var = "path_title" value = "`$path_title`&nbsp;&raquo;&nbsp;<a href = '`$smarty.server.PHP_SELF`?step=1`$upgrade`'>Step 1/2</a>"}	
 		<div class = "headerTools">
@@ -234,9 +237,15 @@
 			<p>Welcome to eFront's installation wizard! Click on a button below to start.</p>
 			<table style = "margin:auto;">
 				<tr><td style = "padding:20px 10px 0px 10px"><img src = "images/others/start.png" alt = "Install" title = "Start installation wizard" style = "cursor:pointer;" onclick = "window.location='{$smarty.server.PHP_SELF}?step=1'"></td>
-					<td style = "padding:20px 10px 0px 10px"><img src = "images/others/upgrade.png" alt = "Upgrade" title = "Start upgrade wizard" style = "cursor:pointer;" onclick = "window.location='{$smarty.server.PHP_SELF}?step=1&upgrade=1'"></td></tr>
+				{if $T_CONFIGURATION_EXISTS}
+					<td style = "padding:20px 10px 0px 10px"><img src = "images/others/upgrade.png" alt = "Upgrade" title = "Start upgrade wizard" style = "cursor:pointer;" onclick = "window.location='{$smarty.server.PHP_SELF}?step=1&upgrade=1'"></td>
+				{/if}
+				</tr>
 				<tr><td style = "padding:0px 10px 20px 10px">New installation</td>
-					<td style = "padding:0px 10px 20px 10px;">Upgrade existing installation</td></tr>
+				{if $T_CONFIGURATION_EXISTS}
+					<td style = "padding:0px 10px 20px 10px;">Upgrade existing installation</td>
+				{/if}
+				</tr>
 			</table>
 			<p>Need help? Check the <a style = "color:blue" target = "new" href = "http://docs.efrontlearning.net/index.php/Main_Page#Installation_.26_upgrading">documentation</a> or ask the <a style = "color:blue" target = "new" href = "http://forum.efrontlearning.net/index.php">support forums</a>!</p>
 		</div>

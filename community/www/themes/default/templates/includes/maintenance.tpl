@@ -78,8 +78,12 @@
 	<table class = "formElements">
 		<tr><td class = "labelCell">{$smarty.const._VERSION}:&nbsp;</td>
 			<td class = "elementCell">{$smarty.const.G_VERSION_NUM}</td></tr>
-		<tr><td class = "labelCell">Database version:&nbsp;</td>
+		<tr><td class = "labelCell">{$smarty.const._DATABASEVERSION}:&nbsp;</td>
 			<td class = "elementCell">{$T_CONFIGURATION.database_version}</td></tr>
+		{if $T_DIFFERENT_VERSIONS}
+		<tr><td></td>
+			<td class = "infoCell" style = "vertical-align:middle"><img src = "images/16x16/warning.png" class = "ajaxHandle" title = "{$smarty.const._WARNING}" alt = "{$smarty.const._WARNING}"/><span style = "vertical-align:middle"> {$smarty.const._DIFFERENTVERSIONSUPGRADENEEDED|replace:"%link":"<a href = 'install/install.php?step=1&upgrade=1' style = 'vertical-align:middle'>`$smarty.const._UPGRADE`</a>"}</span></td></tr>
+		{/if}
 		<tr><td class = "labelCell">{$smarty.const._BUILD}:&nbsp;</td>
 			<td class = "elementCell">{$smarty.const.G_BUILD}</td></tr>
 	</table>      

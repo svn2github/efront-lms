@@ -1362,8 +1362,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                    <img src = "images/16x16/search.png" alt = "{$smarty.const._VIEWTEST}" title = "{$smarty.const._VIEWTEST}"/></a>
                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}&test_analysis=1&user={$item.users_LOGIN}">
                    <img src = "images/16x16/analysis.png" alt = "{$smarty.const._TESTANALYSIS}" title = "{$smarty.const._TESTANALYSIS}"/></a>
-                <a href = "{$smarty.server.PHP_SELF}?ctg=tests&delete_solved_test={$item.id}&test_id={$item.tests_ID}&users_login={$item.users_LOGIN}" onclick = "return confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}');"/>
-              <img src="images/16x16/error_delete.png" alt="{$smarty.const._RESETTESTSTATUS}" title="{$smarty.const._RESETTESTSTATUS}"> </a>
+                  <img class = "ajaxHandle" src="images/16x16/error_delete.png" alt="{$smarty.const._RESETTESTSTATUS}" title="{$smarty.const._RESETTESTSTATUS}" onclick = "ajaxRemoveSolvedTest(this, '{$item.users_LOGIN}', '{$item.id}','{$item.tests_ID}')"> </a>
                </td>
      </tr>
   {foreachelse}

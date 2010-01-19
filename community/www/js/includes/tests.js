@@ -420,7 +420,7 @@ function  ajaxRemoveSolvedTest(el, login, completed_test_id, test_id) {
 function onAjaxRemoveSolvedTest(el, response) {
 	tables = sortedTables.size();
 	for (var i = 0; i < tables; i++) {
-		if (sortedTables[i].id.match('testUsersTable') && ajaxUrl[i]) {
+		if (sortedTables[i].id.match('testUsersTable') || (sortedTables[i].id.match('pendingTable')) && ajaxUrl[i]) {
 			eF_js_rebuildTable(i, 0, 'null', 'desc');
 		}
 	}

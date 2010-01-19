@@ -3452,4 +3452,7 @@ define("_STARTUNIT", "Έναρξη ενότητας");
 define("_SCORM2004NOTSUPPORTED", "Δυστυχώς το πρότυπο SCORM 2004 δεν υποστηρίζεται σε αυτήν την έκδοση");
 define("_RESTOREDEFAULTNOTIFICATIONS","Αποκατάσταση αρχικών ειδοποιήσεων");
 define("_CONTENTPROGRESSEXCLUDINGTESTS", "Πρόοδος περιεχομένου (εκτός αξιολογήσεων)");
+define("_DATABASEVERSION", "Έκδοση βάσης δεδομένων");
+define("_DIFFERENTVERSIONSUPGRADENEEDED", "Η έκδοση της βάσης σας είναι διαφορετική από την έκδοση του κώδικα. Παρακαλώ εκτελέστε %link");
+define("_UPGRADE", "Αναβάθμιση");
 ?>

@@ -3452,4 +3452,7 @@ define("_STARTUNIT", "Start unit");
 define("_SCORM2004NOTSUPPORTED", "Unfortunately SCORM 2004 is not supported in this edition");
 define("_RESTOREDEFAULTNOTIFICATIONS","Restore default notifications");
 define("_CONTENTPROGRESSEXCLUDINGTESTS", "Content progress (excl. tests)");
+define("_DATABASEVERSION", "Database version");
+define("_DIFFERENTVERSIONSUPGRADENEEDED", "Your database version is different than the code version. Please run the %link script");
+define("_UPGRADE", "Upgrade");
 ?>

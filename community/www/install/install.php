@@ -74,6 +74,9 @@ if (isset($_GET['unattended']) && !isset($_GET['config']) && !isset($_GET['upgra
 }
 $smarty -> assign("T_INSTALLATION_OPTIONS", array(array('text' => 'Emergency restore', 'image' => "16x16/undo.png", 'href' => 'install/'.basename($_SERVER['PHP_SELF'])."?restore=1")));
 $smarty -> assign("T_VERSION_TYPE", $versionTypes[G_VERSIONTYPE]);
+if (is_file($path."configuration.php")) {
+    $smarty -> assign("T_CONFIGURATION_EXISTS", true);
+}
 if ((isset($_GET['step']) && $_GET['step'] == 1) || isset($_GET['unattended'])) {
     $exclude_normal = true;
     require_once $path."includes/check_status.php";
@@ -326,7 +329,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                     }
                 }
                 Installation :: createConfigurationFile($values, true);
-                EfrontConfiguration :: setValue('database_version', G_VERSION);
+                EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
 /*		
 
 //@todo: check this part

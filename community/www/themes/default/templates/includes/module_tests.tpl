@@ -1079,7 +1079,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                 }
                                 {/literal}
                                 </script>
-                            {elseif $smarty.get.show_question}
+{elseif $smarty.get.show_question}
         {capture name = "t_show_question_code"}
                                 {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=tests&show_question=`$T_QUESTION.id`'>`$smarty.const._VIEWQUESTION`</a>"}
                                 <br/>
@@ -1093,7 +1093,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
         {eF_template_printBlock title = $smarty.const._PREVIEW data = $smarty.capture.t_show_question_code image = '32x32/search.png'}
                                 <br/><br/>
                             {* Show results for all users of each specific*}
-                            {elseif $smarty.get.test_results}
+{elseif $smarty.get.test_results}
                                 {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=tests&test_results=`$smarty.get.test_results`'>`$T_TEST->test.name` `$smarty.const._RESULTS`</a>"}
                                 {capture name = 't_test_results_code'}
                                     <table class = "sortedTable" style = "width:100%">
@@ -1161,7 +1161,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                 {/literal}
                                 {eF_template_printBlock title = $smarty.const._TESTRESULTS data = $smarty.capture.t_test_results_code image='32x32/tests.png'}
                             {* Show list of all solved tests *}
-                            {elseif $smarty.get.solved_tests}
+{elseif $smarty.get.solved_tests}
                                 {capture name = 't_recently_completed'}
                                                 <table width = "100%" class = "sortedTable">
                                                     <tr class = "defaultRowHeight">
@@ -1326,7 +1326,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {if !$T_SKILLGAP_TEST}
   <div class = "headerTools">
    <span>{$smarty.const._SHOWDATAFORUNIT}:&nbsp;</span>
-   <select name = "select_unit" onchange = "var tab = 'tests';{literal}$$('div.tabbertab').each(function (s) {if (!s.hasClassName('tabbertabhide')) {tab = s.id;} });{/literal}document.location='{$smarty.server.PHP_SELF}?ctg=tests&from_unit='+this.options[this.selectedIndex].value+'&tab='+tab">
+   <select name = "select_unit" onchange = "var tab = 'tests';$$('div.tabbertab').each(function (s) {ldelim}if (!s.hasClassName('tabbertabhide')) {ldelim}tab = s.id;{rdelim}{rdelim});document.location='{$smarty.server.PHP_SELF}?ctg=tests&from_unit='+this.options[this.selectedIndex].value+'&tab='+tab">
           <option value = "-1" {if $smarty.get.from_unit == -1}selected{/if}>{$smarty.const._ALLUNITS}</option>
              <option value = "-2">-----------</option>
    {foreach name = 'unit_options' key = 'id' item = 'unit' from = $T_UNITS}
@@ -1363,7 +1363,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}&test_analysis=1&user={$item.users_LOGIN}">
                    <img src = "images/16x16/analysis.png" alt = "{$smarty.const._TESTANALYSIS}" title = "{$smarty.const._TESTANALYSIS}"/></a>
                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&delete_solved_test={$item.id}&test_id={$item.tests_ID}&users_login={$item.users_LOGIN}" onclick = "return confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}');"/>
-              <img src="images/16x16/error_delete.png" alt="{$smarty.const._DELETESKILLGAPTESTRECORD}" title="{$smarty.const._DELETESKILLGAPTESTRECORD}"> </a>
+              <img src="images/16x16/error_delete.png" alt="{$smarty.const._RESETTESTSTATUS}" title="{$smarty.const._RESETTESTSTATUS}"> </a>
                </td>
      </tr>
   {foreachelse}

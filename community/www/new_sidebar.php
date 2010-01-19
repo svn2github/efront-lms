@@ -419,6 +419,9 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
      if (isset($currentUser -> coreAccess['chat']) && $currentUser -> coreAccess['chat'] == 'view') {
          $smarty -> assign("T_ONLY_VIEW_CHAT", 1);
      }
+     if ($GLOBALS['configuration']['disable_messages'] == 1) {
+      $smarty -> assign ("T_INVITE_DISABLED", 1);
+     }
  } else {
      $smarty -> assign("T_CHATENABLED", 0);
  }

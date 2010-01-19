@@ -3450,4 +3450,6 @@ define("_POPUPPARAMETERS", "Popup parameters");
 define("_CLICKTOSTARTUNIT", "Click on the button to start the unit");
 define("_STARTUNIT", "Start unit");
 define("_SCORM2004NOTSUPPORTED", "Unfortunately SCORM 2004 is not supported in this edition");
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default notifications");
+define("_CONTENTPROGRESSEXCLUDINGTESTS", "Content progress (excl. tests)");
 ?>

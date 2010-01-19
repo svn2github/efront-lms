@@ -136,6 +136,7 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
             $message = _YOUCANNOTACCESSTHISLESSONORITDOESNOTEXIST;
             $message_type = 'failure';
             $ctg = 'personal';
+
         }
     } else if ($_GET['lessons_ID'] == $_SESSION['s_lessons_ID']) {
         $smarty -> assign("T_SHOW_LOADED_LESSON_OPTIONS", 1);

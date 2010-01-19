@@ -282,7 +282,7 @@ try {
                 $controlPanelOptions[] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
             }
             if (!isset($currentUser -> coreAccess['logout_user']) || $currentUser -> coreAccess['logout_user'] == 'view') {
-                $controlPanelOptions[] = array('text' => _LOGOUTUSER, 'image' => "32x32/logout.png", 'href' => "administrator.php?ctg=logout_user&popup=1", 'onClick' => "eF_js_showDivPopup('"._LOGOUTUSER."', 1)", 'target' => 'POPUP_FRAME');
+                $controlPanelOptions[] = array('text' => _LOGOUTUSER, 'image' => "32x32/logout.png", 'href' => "administrator.php?ctg=logout_user&popup=1", 'onClick' => "eF_js_showDivPopup('"._LOGOUTUSER."', 0)", 'target' => 'POPUP_FRAME');
             }
             if (!isset($currentUser -> coreAccess['users']) || $currentUser -> coreAccess['users'] != 'hidden') {
                 $controlPanelOptions[] = array('text' => _EXPORTIMPORTDATA, 'image' => "32x32/import_export.png", 'href' => "administrator.php?ctg=import_export");

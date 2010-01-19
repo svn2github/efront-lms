@@ -1179,7 +1179,6 @@ div.block .content {
 border-top:solid 0px #CCCCCC;
 padding:10px;
 background:#FFFFFF;
-
 }
 div.block .toolbar {
 border-top:solid 1px #2a4562;
@@ -1412,6 +1411,8 @@ vertical-align:middle;
 }
 sup{font-size:xx-small; vertical-align:top!important;}
 sub{font-size:xx-small; vertical-align:bottom!important;}
+.filemanagerBlock{height:100%;text-align:center;width:100%;background-color:white}
+
 /*other deprecated elements*/
 /*.topSubtitle{font-weight:bold;}*/
 

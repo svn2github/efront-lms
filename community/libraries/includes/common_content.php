@@ -288,13 +288,19 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             $smarty -> assign("T_PREVIOUS_UNIT", $previousUnit);
             //Parents are needed for printing the titles
             $smarty -> assign("T_PARENT_LIST", $currentContent -> getNodeAncestors($currentUnit));
-            //Retrieve any comments regarding this unit
-            $comments = comments::getComments($_SESSION['s_lessons_ID'], false, $currentUnit['id']) + comments::getComments($_SESSION['s_lessons_ID'], $currentUser, $currentUnit['id'], false, false);
+            $comments = array();
+            $result = array_merge(comments::getComments($currentLesson -> lesson['id'], false, $currentUnit['id']),
+                                  comments::getComments($currentLesson -> lesson['id'], $currentUser, $currentUnit['id'], false, false));
+            foreach ($result as $value) {
+                if (!isset($comments[$value['id']])) {
+                    $comments[$value['id']] = $value;
+                }
+            }
    foreach($comments as $key => $value) {
        //$user = EfrontUserFactory :: factory($value['users_LOGIN']);
        //$comments[$key]['avatar'] = $user -> getAvatar();
    }
-            $smarty -> assign("T_COMMENTS", $comments);
+            $smarty -> assign("T_COMMENTS", array_values($comments));
         } else {
             $smarty -> assign("T_UNIT", array());
         }

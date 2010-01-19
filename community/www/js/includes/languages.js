@@ -23,5 +23,8 @@ function deleteLanguage(el, language) {
 	ajaxRequest(el, url, parameters, onDeleteLanguage);	
 }
 function onDeleteLanguage(el, response) {
-	new Effect.Fade(el.up().up());
+	//new Effect.Fade(el.up().up());
+	try {
+		eF_js_changePage(0, 0);
+	} catch (e) {alert(e);}
 }

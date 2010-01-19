@@ -47,8 +47,8 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $user_data = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$_GET['edit_user']."' and lessons_ID=".$_SESSION['s_lessons_ID']);
     $userStats = EfrontStats::getUsersLessonStatus($currentLesson, $_GET['edit_user']);
     $form -> setDefaults(array("completed" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['completed'],
-                                       "score" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['score'],
-                                       "comments" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['comments'] ? $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['comments'] : ''));
+                               "score" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['score'],
+                               "comments" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['comments'] ? $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['comments'] : ''));
 
     if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess['progress'] != 'change') {
         $form -> freeze();
@@ -89,8 +89,6 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $userTime = EfrontStats :: getUsersTime($currentLesson -> lesson['id'], $_GET['edit_user']);
     $smarty -> assign("T_USER_LESSONS_INFO", $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]);
     $smarty -> assign("T_USER_TIME", $userTime[$_GET['edit_user']]);
-//pr($userStats);
-
 
 
 

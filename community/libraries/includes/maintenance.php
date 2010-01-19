@@ -170,22 +170,21 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
             }
         }
         if (!isset($errors)) {
-            eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup&message=".urlencode(_SUCCESFULLYCREATEDLESSONFOLDERS).'&message_type=success');
+            eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup&message=".urlencode(_SUCCESFULLYCREATEDLESSONFOLDERS).'&message_type=success');
         } else {
-            eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup&message=".urlencode(_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED).': '.implode(", ", $errors).'&message_type=failure');
+            eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup&message=".urlencode(_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED).': '.implode(", ", $errors).'&message_type=failure');
         }
     }
 
     //Recreate search table
     if (isset($_GET['reindex']) && $_GET['ajax'] == 1) {
         try {
-            //EfrontSearch :: reBuiltIndex();
+            EfrontSearch :: reBuiltIndex();
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");
             echo $e -> getMessage().' ('.$e -> getCode().')';
         }
         exit;
-        //eF_redirect(" administrator.php?ctg=control_panel&message=".urlencode(_SEARCHTABLERECREATED)."&message_type=success");
     }
     if (isset($_GET['cache']) && $_GET['ajax'] == 1) {
         try {

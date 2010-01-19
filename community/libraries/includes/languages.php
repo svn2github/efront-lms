@@ -4,7 +4,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-
+//pr($languages);
 $loadScripts[] = 'includes/languages';
 if (isset($currentUser -> coreAccess['languages']) && $currentUser -> coreAccess['languages'] == 'hidden') {
     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
@@ -126,6 +126,12 @@ if (!isset($currentUser -> coreAccess['languages']) || $currentUser -> coreAcces
     $createForm -> accept($renderer);
     $smarty -> assign("T_CREATE_LANGUAGE_FORM", $renderer -> toArray());
     $smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
+
+    $dataSource = $languages;
+    $tableName  = 'languagesTable';
+    /**Handle sorted table's sorting and filtering*/
+    include("sorted_table.php");
+
 }
 
 $smarty -> assign("T_LANGUAGES", $languages);

@@ -288,7 +288,7 @@
        {/capture}
   {capture name="t_notifications"}
   <div class="tabber" >
-   {eF_template_printBlock tabber = "registered" title = $smarty.const._REGISTERED data = $smarty.capture.t_notifications_code image = "32x32/notifications.png"}
+   {eF_template_printBlock tabber = "registered" title = $smarty.const._REGISTERED data = $smarty.capture.t_notifications_code image = "32x32/notifications.png" options = $T_TABLE_OPTIONS}
    {eF_template_printBlock tabber = "messages_queue" title = $smarty.const._MESSAGESQUEUE data = $smarty.capture.t_queue_messages_code image = "32x32/notifications.png"}
    {eF_template_printBlock tabber = "recent_messages" title = $smarty.const._RECENTLYSENT data = $smarty.capture.t_sent_messages_code image = "32x32/notifications.png"}
    {eF_template_printBlock tabber = "config_tab" title = $smarty.const._CONFIGURATIONOPTIONS data = $smarty.capture.t_configuration_form_code image = "32x32/notifications.png"}

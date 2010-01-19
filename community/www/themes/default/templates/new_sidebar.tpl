@@ -203,7 +203,7 @@
                                             {math assign='T_SB_WIDTH_MINUS_32' equation="x-32" x=$T_SIDEBARWIDTH}
                                             <div id = 'room_users' onclick = "eF_js_showHideDiv(this, 'room_users', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:{$T_SB_WIDTH_MINUS_32}px;position:absolute;left:0px;top:0px;display:none"></div><!-width:143px;-->
                                         </td>
-                                        <td {if $T_ONLY_VIEW_CHAT == 1}style="display:none"{/if}>
+                                        <td {if $T_ONLY_VIEW_CHAT == 1 || $T_INVITE_DISABLED == 1}style="display:none"{/if}>
                                          <a href = "javascript:void(0)" target = "POPUP_FRAME" onclick = "this.href = '{$smarty.session.s_type}.php?ctg=messages&add=1&popup=1&chat_invite='+$('current_chatroom_id').value;eF_js_showDivPopup('{$smarty.const._INVITEUSERS}', 3)">
                                          <img class = "handle" src = "images/16x16/mail.png" alt = "{$smarty.const._INVITEUSERS}" title = "{$smarty.const._INVITEUSERS}" /></a>
                                         </td>

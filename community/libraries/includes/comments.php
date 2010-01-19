@@ -14,7 +14,7 @@ if ($GLOBALS['configuration']['disable_comments'] == 1 || (isset($currentUser ->
 !isset($currentUser -> coreAccess['comments']) || $currentUser -> coreAccess['comments'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 
 $load_editor = true;
-$comments = comments::getComments($currentLesson -> lesson['id'], false, $currentUnit['id']);
+$comments = comments::getComments($currentLesson -> lesson['id'], $currentUser, $currentUnit['id'], false, false);
 
 //An array of legal ids for editing entries
 $legalValues = array();
@@ -23,6 +23,8 @@ foreach ($comments as $value) {
         $legalValues[] = $value['id'];
     }
 }
+
+
 
 //Theses values will be used for the new comment
 $values = array('content_ID' => $currentUnit['id'], 'users_LOGIN' => $currentUser -> user['login']);

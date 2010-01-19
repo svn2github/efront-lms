@@ -631,7 +631,7 @@ class Installation
              "quote",
              "blogs",
              "links",
-             "wiki",
+             //"wiki", 
              "quick_mails",
              "youtube",
              "flashcards");

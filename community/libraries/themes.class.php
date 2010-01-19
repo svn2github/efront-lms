@@ -180,6 +180,16 @@ class themes extends EfrontEntity
     }
     
     /**
+     * (non-PHPdoc)
+     * @see libraries/EfrontEntity#delete()
+     */
+    public function delete() {
+        $directory = new EfrontDirectory(G_THEMESPATH.$this -> {$this -> entity}['path']);
+        $directory -> delete();
+        eF_deleteTableData($this -> entity, "id=".$this -> {$this -> entity}['id']);        
+    }
+    
+    /**
      * 
      * @return unknown_type
      */

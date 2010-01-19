@@ -40,7 +40,7 @@
                       <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.overall_progress}px;">&nbsp;</span>
                   </td><td></td>
               </tr>
-              <tr><td>{$smarty.const._THEORYPROGRESS}:&nbsp;</td>
+              <tr><td>{$smarty.const._CONTENTPROGRESSEXCLUDINGTESTS}:&nbsp;</td>
                   <td class = "progressCell">
                       <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.content_progress}#%</span>
                       <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.content_progress}px;">&nbsp;</span>
@@ -73,7 +73,7 @@
                   </td>
               </tr>
               {foreachelse}
-              <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
+              <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._TESTS}: {$smarty.const._NODATAFOUND}</td></tr>
               {/foreach}
               {if !empty($T_USER_LESSONS_INFO.assigned_projects)}
               <tr><td>{$smarty.const._AVERAGEPROJECTSCORE}:&nbsp;</td>
@@ -98,7 +98,7 @@
                   {/if}
                   </tr>
               {foreachelse}
-                  <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
+                  <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._PROJECTS}: {$smarty.const._NODATAFOUND}</td></tr>
               {/foreach}
           </table>
          </fieldset>

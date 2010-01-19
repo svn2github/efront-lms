@@ -531,6 +531,7 @@ class EfrontStats
 	    } else {
 	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString);
 	    }
+	    
 	    //Unserialize EfrontCompletedTest objects
 	    $testResults = array();
 	    foreach ($result as $value) {
@@ -1585,7 +1586,7 @@ class EfrontStats
 					}
             	}
             }
-            
+            //pr($testInfo['score_categories']);
             //$done_info        = $temp[$id];
             foreach ($doneTests[$id] as $user => $done) {
                 foreach ($done as $dt) {
@@ -1602,16 +1603,20 @@ class EfrontStats
                         
                         // Get the user's score in the correct stats category
                         if ($categories) {
- 	 						$testInfo['score_categories'][$dt['test'] -> completedTest['score'] / $step]["count"]++;                      	                        	
+                        	$stat_cat = $dt['test'] -> completedTest['score'] / $step;
+                        	
+ 	 						$testInfo['score_categories'][($stat_cat >= $categories)?($categories-1):$stat_cat]["count"]++;                      	                        	
                         }
                     }
                 }
             }
             
+            
             // Create results score categories
             if ($categories) {
-            	$doneTestsCount = sizeof($doneTests); 
+            	$doneTestsCount = sizeof($doneTests[$id]) - 1;	// 1 element is the average_count 
             	$sum_count = $doneTestsCount;	// counts how many users have score equal or above each score_category
+            	
             	if ($sum_count > 0) {
 	            	foreach ($testInfo['score_categories'] as $key => $score) {	            		
 	          			$testInfo['score_categories'][$key]['percent'] = round(100 * ($testInfo['score_categories'][$key]['count'] / $doneTestsCount),2);
@@ -2122,6 +2127,8 @@ class EfrontStats
 	        
 	        //pr($completedTest ->questions);
 	        foreach ($completedTest -> questions as $id => $question) {
+	        	
+//	        	pr($question);
 	            $questionStats[$id]['score'][]          = $question -> score;
 	            $questionStats[$id]['completed_test'][] = $value['id'];
 	            $questionStats[$id]['test'][]           = $value['tests_ID'];
@@ -2133,7 +2140,7 @@ class EfrontStats
 		         	$questionStats[$id]['answers_per_option'] = array();
 		        }
 		        
-	            if ($question -> results && !is_array($question -> results)) {
+	            if (!is_array($question -> results)) {
 
 	            	// Single answer MultChoiceQ, True/false 
 		            $selected_option = $question -> userAnswer;
@@ -2143,9 +2150,12 @@ class EfrontStats
 		            } else {
 		            	$questionStats[$id]['answers_per_option'][$selected_option] += 100;
 		            }
+		            
+//		            echo "<BR><BR>single questions<BR>";
+//		            pr($questionStats[$id]);
 	            } else {
 	            	// Emtpy spaces
-	            	//echo "<BR><BR>multiple questions<BR>";
+//	            	echo "<BR><BR>multiple questions<BR>";
 	            	//pr($question);
 	            	foreach ($question -> results as $selected_option => $result) {
 	            		if (!isset($questionStats[$id]['answers_per_option'][$selected_option])) {	
@@ -2156,6 +2166,7 @@ class EfrontStats
 	            	}
 	            
 	            }
+//	            echo "<BR><BR>END OF Q<BR>";
 	        }
 	    }
 //       	
@@ -2170,10 +2181,10 @@ class EfrontStats
 	        //echo "<BR><BR>$id<BR>";
 	        foreach ($questionStats[$id]['answers_per_option'] as $key => $optionAnswers) {
 	        	//echo $key . " " . $optionAnswers ."<BR>";
-	        	$questionStats[$id]['percent_per_option'][$key] = $optionAnswers / sizeof($question['score']);
+	        	$questionStats[$id]['percent_per_option'][$key] = round($optionAnswers / sizeof($question['score']),2);
 	        }
 	        
-	        $questionStats[$id]['correct_percent']  = array_sum($question['correct']) / sizeof($question['score']);
+	        $questionStats[$id]['correct_percent']  = round(array_sum($question['correct']) / sizeof($question['score']),2);
 	        
 	        //echo "<BR><BR>";
 	    }

@@ -12,16 +12,17 @@
                         
                         {assign var = "change_languages" value = "1"}
                     {/if}
-                        <table style = "width:100%" class = "sortedTable">
+<!--ajax:languagesTable-->
+                        <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" id = "languagesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=languages&">
                             <tr class = "defaultRowHeight">
-                                <td class = "topTitle">{$smarty.const._CURRENTLANGUAGES}</td>
-                                <td class = "topTitle">{$smarty.const._TRANSLATION}</td>
-                                <td class = "topTitle centerAlign">{$smarty.const._STATUS}</td>
+                                <td class = "topTitle" name = "name">{$smarty.const._CURRENTLANGUAGES}</td>
+                                <td class = "topTitle" name = "translation">{$smarty.const._TRANSLATION}</td>
+                                <td class = "topTitle centerAlign" name = "active">{$smarty.const._STATUS}</td>
                     {if $change_languages}
                                <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
                     {/if}
                             </tr>
-                    {foreach name = 'language_list' key = "name" item = "language" from = $T_LANGUAGES}
+                    {foreach name = 'language_list' key = "name" item = "language" from = $T_DATA_SOURCE}
                             <tr id="row_{$language.name}" class = "{cycle name = "languages" values = "oddRowColor, evenRowColor"} {if !$language.active}deactivatedTableElement{/if}">
                                 <td>{$language.name}</td>
                                 <td>{$language.translation}</td>
@@ -46,7 +47,7 @@
                             <tr class = "oddRowColor defaultRowHeight"><td class = "emptyCategory" colspan = "3">{$smarty.const._NODATAFOUND}</td></tr>
                     {/foreach}
                         </table>
-
+<!--/ajax:languagesTable-->
                         <div id = "language_table" style = "display:none;">
 						{capture name = "language_code"}
                             {$T_CREATE_LANGUAGE_FORM.javascript}

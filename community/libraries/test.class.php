@@ -3335,6 +3335,74 @@ class MultipleManyQuestion extends Question implements iQuestion
         $score !== false ? $this -> score = $score : null;
         $order !=  false ? $this -> order = $order : null;
     }
+    
+    
+    /**
+     * Display question with correct answer
+     *
+     * This function is used to display the question, together
+     * with its correct answer. 
+     * <br/>Example:
+     * <code>
+     * $question = new MultipleOneQuestion(3);                                      //Instantiate question
+     * $form = new HTML_QuickForm("questionForm", "post", "", "", null, true);      //Create a form
+     * echo $question -> preview($form);                               		        //Output solved question HTML code
+     * </code>
+     *
+     * @param HTML_QuickForm $form The form to add fields to and display
+     * @param boolean $questionStats	 
+     * @return string The HTML code of the solved question
+     * @since 3.6.0
+     * @access public
+     */
+    public function preview(&$form, $questionStats = false) {
+    	
+        $this -> toHTMLQuickForm($form);                                           //Assign proper elements to the form              
+        $results = $this -> correct();                                             //Correct question
+
+        for ($k = 0; $k < sizeof($this -> options); $k++) {
+            $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => ''));
+        }
+                
+        $form               -> freeze();                                           //Freeze the form elements
+        $renderer           = new HTML_QuickForm_Renderer_ArraySmarty($foo);                //Get a smarty renderer, only because it reforms the form in a very convenient way for printing html
+        $form               -> accept($renderer);                                  //Render the form
+        $formArray           = $renderer -> toArray();                             //Get the rendered form fields
+       
+        $innerQuestionString = '';
+        
+        for ($k = 0; $k < sizeof($this -> options); $k++) {                        //Display properly each option. The group can't be used, since we will display each option differently, depending on whether it is correct or not
+            $index = $this -> order[$k];                                           //$index is used to recreate the answers order, for a done test, or to apply the answers shuffle, for an unsolved test
+
+            if ($this -> answer[$index]) {
+                $innerQuestionString .= '<span class = "correctAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+                if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
+                	$innerQuestionString .=  "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
+                } else {
+                	$innerQuestionString .= "   (0%)";
+                }
+            } else {
+                $innerQuestionString .= '<span class = "wrongAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+                if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
+                	$innerQuestionString .=  "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
+                } else {
+                	$innerQuestionString .= "   (0%)";
+                }
+            }
+            
+            $innerQuestionString .= '</span><br>'; 
+        }
+        $questionString = '
+                    <table width = "100%">
+                        <tr><td>'.$this -> question['text'].'</td></tr>
+                        <tr><td style = "vertical-align:middle;padding-bottom:10px">
+                                '.$innerQuestionString.'
+                            </td></tr>                        
+                    </table>';
+
+        return $questionString;
+    }
+        
 }
 
 /**

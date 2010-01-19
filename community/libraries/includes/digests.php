@@ -23,8 +23,10 @@ if (isset($currentUser -> coreAccess['notifications']) && $currentUser -> coreAc
 !isset($currentUser -> coreAccess['notifications']) || $currentUser -> coreAccess['notifications'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
 $loadScripts[] = "administrator/digests";
-// @TODO: delete after testing
-EfrontNotification::addDefaultNotifications();
+ if (isset($_GET['add_default']) && $_GET['add_default'] == 1) {
+  EfrontNotification::addDefaultNotifications();
+ }
+
     if (isset($_GET['activate_notification'])) {
         if (isset($_GET['event']) && $_GET['event']) {
             EfrontNotification::activateEventNotification($_GET['activate_notification']);
@@ -42,6 +44,7 @@ EfrontNotification::addDefaultNotifications();
         }
         exit;
     }
+
     if (isset($_GET['delete_notification']) ) {
         if (isset($_GET['event'])) {
             EfrontNotification::deleteEventNotification($_GET['delete_notification']);
@@ -1017,7 +1020,7 @@ EfrontNotification::addDefaultNotifications();
 
             $message = _NOTIFICATIONCONFIGURATIONSUPDATEDSUCCESSFULLY;
             $message_type = 'success';
-            eF_redirect("".$_SESSION['s_type'].".php?ctg=digests&message=". $message . "&message_type=" . $message_type);
+            eF_redirect("".$_SESSION['s_type'].".php?ctg=digests&message=". urlencode($message) . "&message_type=" . $message_type);
 
         }
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
@@ -1040,6 +1043,9 @@ EfrontNotification::addDefaultNotifications();
 
         // Get recently sent messages - do that after submitting the new global variables
         $smarty -> assign("T_RECENTLY_SENT_NOTIFICATIONS", EfrontNotification::getRecentlySent());
+
+        $options = array(array('image' => '16x16/go_into.png', 'text' => _RESTOREDEFAULTNOTIFICATIONS, 'href' => 'administrator.php?ctg=digests&add_default=1'));
+        $smarty -> assign("T_TABLE_OPTIONS", $options);
 
     }
 

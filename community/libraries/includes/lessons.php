@@ -23,7 +23,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     } catch (Exception $e) {
         $message = _SOMEPROBLEMEMERGED.': '.$e -> getMessage().' ('.$e -> getCode().')';
         header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+        echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
     }
     exit;
 } elseif (isset($_GET['archive_lesson']) && eF_checkParameter($_GET['archive_lesson'], 'login')) { //The administrator asked to delete a lesson
@@ -35,12 +35,12 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
         $lesson -> archive();
     } catch (Exception $e) {
         header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+        echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
     }
     exit;
 } elseif (isset($_GET['deactivate_lesson']) && eF_checkParameter($_GET['deactivate_lesson'], 'id')) { //The administrator asked to deactivate a lesson
     if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['lessons'] != 'hidden') {
-        echo urlencode(_UNAUTHORIZEDACCESS);
+        echo rawurlencode(_UNAUTHORIZEDACCESS);
         exit;
     }
     try {

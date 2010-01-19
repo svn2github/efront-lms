@@ -1589,7 +1589,7 @@ class EfrontCourse
         $data['courses'] = eF_getTableData("courses", "*", "id=".$this -> course['id']);
         //$data['lessons_to_courses'] = eF_getTableData("lessons_to_courses lc, lessons l", "lc.*, l.name", "l.id = lc.lessons_ID and courses_ID=".$this -> course['id']);
         foreach ($this -> getLessons() as $value) {
-            $data['lessons_to_courses'][] = array('courses_ID' => $this -> course['id'], 'lessons_ID' => $value['id'], 'name' => $value['name']);
+            $data['lessons_to_courses'][] = array('courses_ID' => $this -> course['id'], 'lessons_ID' => $value['id']);
         }
         file_put_contents($courseTempDir['path'].'/data.dat', serialize($data));
         $file = $courseTempDir -> compress($this -> course['id'].'_exported.zip', false); //Compress the lesson files

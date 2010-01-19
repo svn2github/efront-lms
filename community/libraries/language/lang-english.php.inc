@@ -3455,4 +3455,5 @@ define("_CONTENTPROGRESSEXCLUDINGTESTS", "Content progress (excl. tests)");
 define("_DATABASEVERSION", "Database version");
 define("_DIFFERENTVERSIONSUPGRADENEEDED", "Your database version is different than the code version. Please run the %link script");
 define("_UPGRADE", "Upgrade");
+define("_DOWNLOADEXPORTEDCOURSE", "Download exported course");
 ?>

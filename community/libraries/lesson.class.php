@@ -536,12 +536,6 @@ class EfrontLesson
             eF_deleteTableData("chatmessages", "chatrooms_ID=".$chatroom[0]['id']); //Delete the chat room messages
             eF_deleteTableData("chatrooms", "id=".$chatroom[0]['id']); //Delete the lesson chatroom
         }
-        // Delete the skills correlated with this lesson - only_own argument = true
-        $skills = $this -> getSkills(true);
-        eF_deleteTableData("module_hcd_lesson_offers_skill", "lesson_ID = '". $this -> lesson['id'] . "'");
-        if (!empty($skills)) {
-            eF_deleteTableData("module_hcd_skills", "skill_ID IN ('". implode("','", array_keys($skills)) . "')");
-        }
         $courses = eF_getTableData("courses");
         for ($i = 0; $i < sizeof($courses); $i++) {
             $course_lessons = unserialize($courses[$i]['lessons']);

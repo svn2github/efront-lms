@@ -84,7 +84,7 @@ try {
                               'courses_link' => basename($_SERVER['PHP_SELF']).'?ctg=lessons&catalog=1&info_course=',
                         'search' => true,
                               'catalog' => true,
-                        'url' => $_SERVER['PHP_SELF'],
+                        'url' => $_SERVER['PHP_SELF'].'?ctg=lessons&catalog=1',
          'collapse' => $GLOBALS['configuration']['collapse_catalog'],
          'buy_link' => true);
              include("directions_tree.php");

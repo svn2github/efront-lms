@@ -884,6 +884,7 @@ CREATE TABLE completed_tests (
 -- short_description: the eFront social short description - CV text
 -- balance: The credit left to the user for getting lessons
 -- archive: A timestamp indicating when this entity was archived. If 0, then the entity is not archived. Archived entities MUST have active = 0 also
+-- dashboard_positions: The positions of the elements on the user's dashboard
 -- need_mod_init: A special flag used by the jfusion plugin
 CREATE TABLE users (
   id mediumint(8) unsigned NOT NULL auto_increment,
@@ -907,6 +908,7 @@ CREATE TABLE users (
   short_description text,
   balance float default 0,
   archive int(10) unsigned default 0,
+  dashboard_positions text,
   need_mod_init tinyint(1) default '0',
   PRIMARY KEY (login),
   KEY (id)

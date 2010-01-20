@@ -485,7 +485,8 @@ class f_folders extends EfrontEntity
      */
     public function handleForm($form) {
         $values = $form -> exportValues();
-        if (!eF_checkParameter($values['name'], 'file')) {
+        
+        if (!eF_checkParameter($values['name'], 'filename')) {
             throw new EfrontFileException(_ILLEGALFILENAME.': '.$values['name'], EfrontFileException :: ILLEGAL_FILE_NAME);
         }
 
@@ -510,7 +511,7 @@ class f_folders extends EfrontEntity
         !isset($fields['users_LOGIN']) || !eF_checkParameter($fields['users_LOGIN'], 'login') ? $fields['users_LOGIN'] = $_SESSION['s_login'] : null;
         
         $directory = G_UPLOADPATH.$fields['users_LOGIN'].'/message_attachments/'.$fields['name'];
-        if (!mkdir($directory, 755)) {
+        if (!mkdir($directory, 0755)) {
             throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$directory, EfrontFileException :: GENERAL_ERROR);
         }        
         eF_insertTableData("f_folders", $fields);

@@ -11,7 +11,7 @@ try {
 
     //id and credit are not stored in any table
     unset ($_POST['credit']);
-    unset ($_POST['session_time']);
+    //unset ($_POST['session_time']);
     unset ($_POST['id']);
     unset ($_POST['popup']);
 

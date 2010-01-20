@@ -302,8 +302,8 @@ $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 /*Horizontal menus*/
 if ((!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest'])) && ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2)) {
  // Used inside new_sidebar_frame to opt out code
- $horizontal_inframe_version = true;
- if ($_GET['ctg'] == "lessons") {
+    $horizontal_inframe_version = true;
+ if ($_GET['ctg'] == "lessons" && $_GET['op'] != 'search') {
   $_SESSION['s_lessons_ID'] = "";
  } else if ($_SESSION['s_lessons_ID']) {
      $_GET['new_lesson_id'] = $_SESSION['s_lessons_ID'];

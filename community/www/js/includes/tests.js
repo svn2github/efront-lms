@@ -108,11 +108,11 @@ function updateSettings(response) {
 		});
 	
 		var totalTime = response.total_duration;			
-		totalTime.hours   ? $('questions_time_hours').update(response.duration.hours + hoursshorthand) : $('questions_time_hours').update(' ');
-		totalTime.minutes ? $('questions_time_minutes').update(response.duration.minutes + minutesshorthand) : $('questions_time_minutes').update(' ');
-		totalTime.seconds ? $('questions_time_seconds').update(response.duration.seconds + secondsshorthand) : $('questions_time_seconds').update(' ');
+		response.duration.hours   ? $('questions_time_hours').update(response.duration.hours + hoursshorthand) : $('questions_time_hours').update(' ');
+		response.duration.minutes ? $('questions_time_minutes').update(response.duration.minutes + minutesshorthand) : $('questions_time_minutes').update(' ');
+		response.duration.seconds ? $('questions_time_seconds').update(response.duration.seconds + secondsshorthand) : $('questions_time_seconds').update(' ');
 		
-		if (!totalTime.seconds && !totalTime.minutes && !totalTime.hours) {
+		if (!response.duration.seconds && !response.duration.minutes && !response.duration.hours) {
 			$('questions_time_seconds').update('0'+minutesshorthand);
 		}
 	

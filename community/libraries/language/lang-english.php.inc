@@ -3456,4 +3456,6 @@ define("_DATABASEVERSION", "Database version");
 define("_DIFFERENTVERSIONSUPGRADENEEDED", "Your database version is different than the code version. Please run the %link script");
 define("_UPGRADE", "Upgrade");
 define("_DOWNLOADEXPORTEDCOURSE", "Download exported course");
+define("_MAXDISCOUNT100", "The maximum discount is 100%");
+define("_REGISTRATIONUPDATE", "Registration/Update");
 ?>

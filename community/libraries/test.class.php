@@ -1545,7 +1545,7 @@ class EfrontTest
                     <td>
                         <table class = "doneTestInfo">
                             <tr><td id = "testName">'.$this -> test['name'].'</td></tr>
-                            <tr><td>'._NUMOFQUESTIONS.': '.min(sizeof($this -> getQuestions()), $this -> options['random_pool']).'</td></tr>
+                            <tr><td>'._NUMOFQUESTIONS.': '.($this -> options['random_pool'] ? min(sizeof($this -> getQuestions()), $this -> options['random_pool']) : sizeof($this -> getQuestions())).'</td></tr>
                             <tr><td>'.$this -> test['description'].'</td></tr>
                         </table>
                     </td></tr>

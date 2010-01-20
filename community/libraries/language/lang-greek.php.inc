@@ -3456,4 +3456,6 @@ define("_DATABASEVERSION", "Έκδοση βάσης δεδομένων");
 define("_DIFFERENTVERSIONSUPGRADENEEDED", "Η έκδοση της βάσης σας είναι διαφορετική από την έκδοση του κώδικα. Παρακαλώ εκτελέστε %link");
 define("_UPGRADE", "Αναβάθμιση");
 define("_DOWNLOADEXPORTEDCOURSE", "Κατεβάστε τη δέσμη");
+define("_MAXDISCOUNT100", "Η μέγιστη έκπτωση είναι 100%");
+define("_REGISTRATIONUPDATE", "Κλειδί έκδοσης/Ενημέρωση");
 ?>

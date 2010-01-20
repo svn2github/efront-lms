@@ -47,12 +47,13 @@
                 anchor.setAttribute('id', tableIndex + '_' + table.rows[0].cells[i].getAttribute('name'));      //The id corresponds to <current table>_<current link>, so that we know which table is sorted, if there are multiple paged tables, and which link was pressed
                 anchor.setAttribute('tableIndex', tableIndex);
                 anchor.setAttribute('order', 'asc');
-                anchor.style.paddingRight = '15px';
+                //anchor.style.paddingRight = '15px';
                 if (Element.hasClassName(table.rows[0].cells[i], 'centerAlign')) {		//For proper alignment, otherwise center-aligned elements display a little to the right. For some strange reason, obj.hasClassName() does not work in IE, and we must use Element.hasclassName() notation
-                	anchor.style.paddingLeft = '15px';
+                	//anchor.style.paddingLeft = '15px';
                 }
+                anchor.style.verticalAlign = 'middle';
                 anchor.setAttribute('column_name', table.rows[0].cells[i].getAttribute('name'));
-                anchor.onclick = function () {eF_js_sortTable(this, other)};       //Add the sorting function to the onclick event
+                anchor.onclick = function () {eF_js_sortTable(this, other);};       //Add the sorting function to the onclick event
                 anchor.innerHTML = table.rows[0].cells[i].innerHTML;        //Copy the cells content inside the link
                 table.rows[0].cells[i].innerHTML = '';                      //Remove the cell content, since it was copied to the link
                 table.rows[0].cells[i].appendChild(anchor);                 //Append the link to the cell
@@ -269,23 +270,24 @@ function eF_js_sortTable(el, other) {
             } else {
             	tableRowIndex.sort();
             }
+        	el.up().up().select('img').each(function(s) {if (s.hasClassName('sprite16-navigate_down') || s.hasClassName('sprite16-navigate_up')) {s.remove();}});
             if (parseInt(document.getElementById(tableIndex+'_sortedTable_sortBy').value) == pressed) {                           //parseInt is needed here, since if inputs[counter].value is empty and pressed is 0, the clause evaluates to true! We need to make sure that if inputs[counter].value is empty is not converted implicitly to 0
                 if (el.className == 'sortAscending') {              //Set the icons through the class to reflect the order, ascending or descending
                     el.className = 'sortDescending';
                     if (el.up().select('img').length == 0) {
-                    	el.up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({paddingLeft:'6px'}));
+                    	el.up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({verticalAlign:'middle',marginLeft:'6px'}));
                     } else {
-                    	el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
-                    	el.up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
+                    	//el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+                    	el.up().select('img')[0].removeClassName('sprite16-navigate_down').addClassName('sprite16-navigate_up');
                     }
                 } else {
 	                tableRowIndex.reverse();                            //If the column clicked is already sorted, we need to reverse the elements order
                     el.className = 'sortAscending';
                     if (el.up().select('img').length == 0) {
-                    	el.up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({paddingLeft:'6px'}));
+                    	el.up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle',marginLeft:'6px'}));
                     } else {
-                    	el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
-                    	el.up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_down');
+                    	//el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+                    	el.up().select('img')[0].removeClassName('sprite16-navigate_up').addClassName('sprite16-navigate_down');
                     	
                     }
                 }
@@ -294,10 +296,10 @@ function eF_js_sortTable(el, other) {
                 el.className = 'sortDescending';                    //Update the sorting icon
                 //alert(el.up().select('img'));
                 if (el.up().select('img').length == 0) {
-                	el.insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({paddingLeft:'6px'}));
+                	el.insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({verticalAlign:'middle',marginLeft:'6px'}));
                 } else {
-                	el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
-                	el.up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
+                	//el.up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+                	el.up().select('img')[0].removeClassName('sprite16-navigate_down').addClassName('sprite16-navigate_up');
                 }
             }		    
 		    //el.insert(new Element)

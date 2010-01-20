@@ -16,7 +16,7 @@ $result_command            = array();
 //associative array with commands and relative urls
 //pr($_SESSION);
 
-if($_SESSION['s_type'] == "administrator") {
+if ($_SESSION['s_type'] == "administrator") {
 	$command_array = array("add user" => G_SERVERNAME."administrator.php?ctg=users&add_user=1",
 						"add lesson" => G_SERVERNAME."administrator.php?ctg=lessons&add_lesson=1",
 						"edit lesson" => G_SERVERNAME."administrator.php?ctg=lessons&edit_lesson=",
@@ -30,7 +30,7 @@ if($_SESSION['s_type'] == "administrator") {
 						"system reports" => G_SERVERNAME."administrator.php?ctg=statistics&option=system"
 						);
 
-}else if($_SESSION['s_type'] == "professor"){
+} else if ($_SESSION['s_type'] == "professor") {
 	$command_array = array("edit unit" => G_SERVERNAME."professor.php?ctg=content&edit_unit=",
 						"edit project" => G_SERVERNAME."professor.php?ctg=projects&edit_project=",
 						"score project" => G_SERVERNAME."professor.php?ctg=projects&project_results=",
@@ -39,7 +39,7 @@ if($_SESSION['s_type'] == "administrator") {
 
 						"edit question" => G_SERVERNAME."professor.php?ctg=tests&edit_question=");
 
-	if($_SESSION['s_lessons_ID']){
+	if ($_SESSION['s_lessons_ID']) {
 		$command_array["add unit"] = G_SERVERNAME."professor.php?ctg=content&add_unit=1";
 		$command_array["add project"] = G_SERVERNAME."professor.php?ctg=projects&add_project=1";
 		$command_array["add test"] = G_SERVERNAME."professor.php?ctg=tests&add_test=1";
@@ -56,7 +56,7 @@ if($_SESSION['s_type'] == "administrator") {
 		$command_array["add question drag"] = G_SERVERNAME."professor.php?ctg=tests&add_question=1&question_type=drag_drop";
 		$command_array["upload file"] = G_SERVERNAME."professor.php?ctg=content&op=file_manager";
 
-	}else{
+	} else {
 		$command_array["add unit"] = G_SERVERNAME."professor.php?ctg=lessons";
 		$command_array["add project"] = G_SERVERNAME."professor.php?ctg=lessons";
 		$command_array["add test"] = G_SERVERNAME."professor.php?ctg=lessons";
@@ -75,13 +75,13 @@ if($_SESSION['s_type'] == "administrator") {
 
 }
 
-if($_SESSION['s_type'] == "professor" || $_SESSION['s_type'] == "administrator"){
+if ($_SESSION['s_type'] == "professor" || $_SESSION['s_type'] == "administrator") {
 	$command_array["reports lesson"] = G_SERVERNAME.$_SESSION['s_type'].".php?ctg=statistics&option=lesson&tab=users&sel_lesson=";
 	$command_array["reports user"] = G_SERVERNAME.$_SESSION['s_type'].".php?ctg=statistics&tab=lessons&option=user&sel_user=";
 	$command_array["reports test"] = G_SERVERNAME.$_SESSION['s_type'].".php?ctg=statistics&option=test&sel_test=";
 }
 
-if($_SESSION['s_type'] == "professor" || $_SESSION['s_type'] == "student"){
+if ($_SESSION['s_type'] == "professor" || $_SESSION['s_type'] == "student") {
 	$command_array["select lesson"]= G_SERVERNAME.$_SESSION['s_type'].".php?ctg=control_panel&lessons_ID=";
 }
 $command_array["send message"]= G_SERVERNAME.basename($_SERVER['PHP_SELF'])."?ctg=messages";
@@ -91,7 +91,7 @@ $command_array["send message"]= G_SERVERNAME.basename($_SERVER['PHP_SELF'])."?ct
 $command_array_values = array_values($command_array);
 $command_array_keys = array_keys($command_array);
 
-if (isset($_POST['search_text']) && mb_strlen(trim($_POST['search_text'])) <= 3){
+if (isset($_POST['search_text']) && mb_strlen(trim($_POST['search_text'])) <= 3) {
         $message = _SEARCHTEXTMUSTBENONEMPTYANDMORETHAN;
         if (sizeof(explode("?", $_POST['current_location'])) > 1) {                                 //Check if there is a query string after the url, so we can append the message using a '&' or a '?'
             eF_redirect(" ".$_POST['current_location']."&message=".urlencode($message));

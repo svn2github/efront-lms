@@ -1,15 +1,8 @@
 
-    {**************** DASHBOARD PAGE ********************}
-    {if $T_OP == 'dashboard'}
-                        <div id="sortableList">
-
-                            {** Right column **}
-                            <div style="float: right; width:49%;height: 100%;">
-                                <ul class="sortable" id="secondlist" style="height:100%;width:100%;">
-
-                                    {if $T_CURRENT_USER->coreAccess.calendar != 'hidden' && $T_CONFIGURATION.disable_calendar != 1}
-                                    <li id="secondlist_calendar">
-                                        <table class = "singleColumnData">
+{**************** DASHBOARD PAGE ********************}
+{if $T_OP == 'dashboard'}
+       {if $T_CURRENT_USER->coreAccess.calendar != 'hidden' && $T_CONFIGURATION.disable_calendar != 1}
+        {capture name = "moduleCalendar"}
                                    <tr><td class = "moduleCell">
                                            {capture name='t_calendar_code'}
                                                     {if $smarty.session.s_type == "administrator"}
@@ -26,13 +19,11 @@
                                           {eF_template_printBlock title=$calendar_title data=$smarty.capture.t_calendar_code image='32x32/calendar.png' options=$T_CALENDAR_OPTIONS link=$T_CALENDAR_LINK}
 
                                    </td></tr>
-                                        </table>
-                                    </li>
-                                    {/if}
+                                {/capture}
+                            {/if}
 
-{if $T_FACEBOOK_ENABLED}
-                                    <li id="secondlist_calendar">
-                                        <table class = "singleColumnData">
+       {if $T_FACEBOOK_ENABLED}
+        {capture name = "moduleFacebook"}
                                    <tr><td class = "moduleCell">
                                            {capture name='t_facebook_code'}
                                               {if isset($T_FB_INFORMATION)}
@@ -49,42 +40,31 @@
                                            {/capture}
                                           {eF_template_printBlock title=$smarty.const._FACEBOOKPROFILE data=$smarty.capture.t_facebook_code image='/32x32/facebook.png' options=$T_FB_OPTIONS}
                                    </td></tr>
-                                        </table>
-                                    </li>
-{/if}
+                                {/capture}
+                            {/if}
 
-
-         {if isset($T_FORUM_MESSAGES) && $T_CONFIGURATION.disable_forum != 1}
-                                    <li id="secondlist_forum_messages">
-                                        <table class = "singleColumnData">
+       {if isset($T_FORUM_MESSAGES) && $T_CONFIGURATION.disable_forum != 1}
+        {capture name = "moduleForumList"}
                                    <tr><td class = "moduleCell">
                                            {capture name='t_forum_messages_code'}
                                                {eF_template_printForumMessages data=$T_FORUM_MESSAGES forum_lessons_ID = $T_FORUM_LESSONS_ID limit = 5}
                                            {/capture}
                                            {eF_template_printBlock title=$smarty.const._RECENTMESSAGESATFORUM data=$smarty.capture.t_forum_messages_code image='32x32/forum.png' options=$T_FORUM_OPTIONS link=$T_FORUM_LINK}
                                    </td></tr>
-                                        </table>
-                                    </li>
-                                    {/if}
-
-
-         {if isset($T_ALL_PROJECTS) && $T_CONFIGURATION.disable_projects != 1}
-                                    <li id="secondlist_projects">
-                                        <table class = "singleColumnData">
+                                {/capture}
+                            {/if}
+       {if isset($T_ALL_PROJECTS) && $T_CONFIGURATION.disable_projects != 1}
+        {capture name = "moduleProjectsList"}
                                    <tr><td class = "moduleCell">
                                            {capture name='t_projects_code'}
                                                {eF_template_printProjects data=$T_ALL_PROJECTS limit=5}
                                            {/capture}
                                            {eF_template_printBlock title=$smarty.const._PROJECTS data=$smarty.capture.t_projects_code image='32x32/projects.png' options=$T_PROJECTS_OPTIONS link=$T_PROJECTS_LINK}
                                    </td></tr>
-                                        </table>
-                                    </li>
-                                    {/if}
-
-
-                                    {if $T_NEWS && $T_CURRENT_USER->coreAccess.news != 'hidden' && $T_CONFIGURATION.disable_news != 1}
-                                    <li id="secondlist_news">
-                                        <table class = "singleColumnData">
+                                {/capture}
+                            {/if}
+                            {if $T_NEWS && $T_CURRENT_USER->coreAccess.news != 'hidden' && $T_CONFIGURATION.disable_news != 1}
+        {capture name = "moduleNewsList"}
                                    <tr><td class = "moduleCell">
                                            {capture name='t_news_code'}
                                          <table class = "cpanelTable">
@@ -98,39 +78,20 @@
                                            {/capture}
                                              {eF_template_printBlock title=$smarty.const._ANNOUNCEMENTS data=$smarty.capture.t_news_code image='32x32/announcements.png' array=$T_NEWS options = $T_NEWS_OPTIONS link = $T_NEWS_LINK}
                                    </td></tr>
-                                        </table>
-                                    </li>
-                                    {/if}
-
-                                    {if $T_LESSON_COMMENTS && $T_CONFIGURATION.disable_comments != 1}
-                                    <li id="secondlist_lesson_comments">
-                                        <table class = "singleColumnData">
+                                {/capture}
+                            {/if}
+                            {if $T_LESSON_COMMENTS && $T_CONFIGURATION.disable_comments != 1}
+        {capture name = "moduleCommentsList"}
                                    <tr><td class = "moduleCell">
                                            {capture name='t_lesson_comments_code'}
                                                {eF_template_printComments data = $T_LESSON_COMMENTS}
                                            {/capture}
                                              {eF_template_printBlock title=$smarty.const._RECENTCOMMENTS data=$smarty.capture.t_lesson_comments_code image='32x32/note.png'}
                                    </td></tr>
-                                        </table>
-                                    </li>
-                                    {/if}
-
-
-
-
-                                    <li id = "second_empty" style = "display:none;height:5px;border:1px dashed gray"></li>
-                                </ul>
-                            </div>
-
-                            {****** Left column ******}
-                            <div style="width:50%; height:100%;margin-left:1px;">
-                                <ul class="sortable" id="firstlist" style="height:100%;width:100%;">
-
-
-                                 {* Wall - Social Comment *}
-                                 {if isset($T_COMMENTS)}
-                                    <li id="firstlist_myInfo" onmousedown = "showBorders(event)" onmouseup = "hideBorders()">
-                                        <table class = "singleColumnData">
+                                {/capture}
+                            {/if}
+                            {if isset($T_COMMENTS)}
+        {capture name = "moduleWall"}
                                             <tr><td class = "moduleCell">
 
                                           {capture name = 't_my_wall'}
@@ -156,14 +117,10 @@
 
 
                                       </td></tr>
-                                        </table>
-                                    </li>
-                                    {/if}
-
-         {* My related users *}
-         {if isset($T_MY_RELATED_USERS)}
-                                    <li id="firstlist_relatedPeople">
-                                        <table class = "singleColumnData">
+                                {/capture}
+                            {/if}
+       {if isset($T_MY_RELATED_USERS)}
+        {capture name = "moduleRelatedPeople"}
                                          <tr><td class = "moduleCell">
                                           {capture name = 't_relatedPeople'}
                                            <table width="100%">
@@ -189,14 +146,11 @@
 
 
                                          </td></tr>
-                                        </table>
-                                    </li>
-         {/if}
+                                {/capture}
+                            {/if}
 
-
-         {if isset($T_EVENTS)}
-                                    <li id="firstlist_timeline">
-                                        <table class = "singleColumnData">
+       {if isset($T_EVENTS)}
+        {capture name = "moduleEventsList"}
                                          <tr><td class = "moduleCell">
                                          {capture name = 't_timeline'}
                                              {foreach key = key item = event from = $T_EVENTS}
@@ -207,13 +161,9 @@
 
 
                                          </td></tr>
-                                        </table>
-                                    </li>
-                                    {/if}
-
-         {* My messages *}
-                                    <li id="firstlist_myMessages">
-                                        <table class = "singleColumnData">
+                                {/capture}
+                            {/if}
+        {capture name = "moduleMessagesList"}
                                          <tr><td class = "moduleCell">
                                           {capture name = 't_messages'}
 <!--ajax:messagesTable-->
@@ -234,8 +184,97 @@
             {eF_template_printBlock title = $smarty.const._RECENTINCOMINGMESSAGES data = $smarty.capture.t_messages image = "32x32/mail.png" options=$T_MY_INCOMING_MESSAGES_OPTIONS}
                                          {/if}
            </td></tr>
-                                        </table>
-                                    </li>
+                                {/capture}
+
+                        <div id="sortableList">
+                            <div style="float: right; width:49%;height: 100%;">
+                                <ul class="sortable" id="secondlist" style="height:100%;width:100%;">
+ {foreach name=positions_first key=key item=module from=$T_POSITIONS_SECOND}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_{$module}">
+                         <table class = "singleColumnData">
+                             {$smarty.capture.$module}
+                         </table>
+                     </li>
+ {/foreach}
+
+ {if !in_array('moduleCalendar', $T_POSITIONS) && $smarty.capture.moduleCalendar && $T_CONFIGURATION.disable_calendar != 1}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleCalendar">
+                         <table class = "singleColumnData">
+                             {$smarty.capture.moduleCalendar}
+                         </table>
+                     </li>
+ {/if}
+ {if !in_array('moduleForumList', $T_POSITIONS) && $smarty.capture.moduleForumList}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleForumList">
+                         <table class = "singleColumnData">
+                             {$smarty.capture.moduleForumList}
+                         </table>
+                     </li>
+ {/if}
+ {if !in_array('moduleProjectsList', $T_POSITIONS) && $smarty.capture.moduleProjectsList && $T_CONFIGURATION.disable_projects != 1}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_moduleProjectsList">
+                         <table class = "singleColumnData">
+                             {$smarty.capture.moduleProjectsList}
+                         </table>
+                     </li>
+ {/if}
+ {if !in_array('moduleNewsList', $T_POSITIONS) && $smarty.capture.moduleNewsList}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleNewsList">
+                         <table class = "singleColumnData">
+                             {$smarty.capture.moduleNewsList}
+                         </table>
+                     </li>
+ {/if}
+ {if !in_array('moduleCommentsList', $T_POSITIONS) && $smarty.capture.moduleCommentsList && $T_CONFIGURATION.disable_comments != 1}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleCommentsList">
+                         <table class = "singleColumnData">
+                          {$smarty.capture.moduleCommentsList}
+                      </table>
+                     </li>
+ {/if}
+                                    <li id = "second_empty" style = "display:none;height:5px;border:1px dashed gray"></li>
+                                </ul>
+                            </div>
+
+                            {****** Left column ******}
+                            <div style="width:50%; height:100%;margin-left:1px;">
+                                <ul class="sortable" id="firstlist" style="height:100%;width:100%;">
+    {foreach name=positions_first key=key item=module from=$T_POSITIONS_FIRST}
+                        <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_{$module}">
+                            <table class = "singleColumnData">
+                                {$smarty.capture.$module}
+                            </table>
+                        </li>
+    {/foreach}
+
+ {if !in_array('moduleWall', $T_POSITIONS) && $smarty.capture.moduleWall}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleWall">
+                         <table class = "singleColumnData">
+                          {$smarty.capture.moduleWall}
+                      </table>
+                     </li>
+ {/if}
+ {if !in_array('moduleRelatedPeople', $T_POSITIONS) && $smarty.capture.moduleRelatedPeople}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleRelatedPeople">
+                         <table class = "singleColumnData">
+                          {$smarty.capture.moduleRelatedPeople}
+                      </table>
+                     </li>
+ {/if}
+ {if !in_array('moduleEventsList', $T_POSITIONS) && $smarty.capture.moduleEventsList}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleEventsList">
+                         <table class = "singleColumnData">
+                          {$smarty.capture.moduleEventsList}
+                      </table>
+                     </li>
+ {/if}
+ {if !in_array('moduleMessagesList', $T_POSITIONS) && $smarty.capture.moduleMessagesList}
+                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleMessagesList">
+                         <table class = "singleColumnData">
+                          {$smarty.capture.moduleMessagesList}
+                      </table>
+                     </li>
+ {/if}
 
          <li id = "first_empty" style = "display:none;height:5px;border:1px dashed gray"></li>
                                 </ul>

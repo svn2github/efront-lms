@@ -1,4 +1,4 @@
-=== Version 3.6.0 beta 2 build 5681 ===
+=== Version 3.6.0 beta 2 build ===
 - SCORM content can now open in a popup box
 - Fixed cleanup lesson folders not removing correctly orphan folders bug
 - Performed additional edition separation fixes
@@ -12,6 +12,8 @@
 - User progress updated
 - Fixed private comments not saved
 - Updated automatic upgrade functionality
+- Fixed "Adjust Test" automatic time update 
+
 
 === Version 3.6.0 beta 2 build 5555 ===
 - Fixed avatars list issue

@@ -884,6 +884,7 @@ border:1px solid #cccccc;
 position:absolute;
 }
 .rawTextQuestion {width:100%;height:100px;}
+.dragDropQuestion .droppable, .dragDropQuestion .draggable{color:white;}
 /*Random test table classes*/
 table .randomTest {text-align:left;margin:5px;}
 table .randomTest td {padding:2px;}

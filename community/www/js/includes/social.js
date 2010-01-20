@@ -17,27 +17,23 @@ function hideBorders() {
     $('second_empty').hide();
 }
 
+function createSortable(list) {
+	Sortable.create(list, {
+		containment:["firstlist", "secondlist"], constraint:false,
+		onUpdate: function() {
+			new Ajax.Request('set_positions.php', {
+				method:'post',
+				asynchronous:true,
+				parameters: { dashboard:true, firstlist: Sortable.serialize('firstlist'), secondlist: Sortable.serialize('secondlist') },
+				onSuccess: function (transport) {},
+				onFailure: function (transport) {alert(decodeURIComponent(transport.responseText));}
+			});
+	}});	
+}
+
 if (currentOperation == 'dashboard') {
-	Sortable.create("firstlist", {
-	    containment:["firstlist", "secondlist"], constraint:false,
-	    onUpdate: function() {
-	    new Ajax.Request('set_positions.php', {
-	        method:'post',
-	        asynchronous:true,
-	        parameters: { firstlist: Sortable.serialize('firstlist'), secondlist: Sortable.serialize('secondlist') },
-	        onSuccess: function (transport) {}
-	    });
-	}});
-	Sortable.create("secondlist",{
-	    containment:["firstlist","secondlist"],constraint:false,
-	    onUpdate: function() {
-	    new Ajax.Request('set_positions.php', {
-	        method:'post',
-	        asynchronous:true,
-	        parameters: { firstlist: Sortable.serialize('firstlist'), secondlist: Sortable.serialize('secondlist') },
-	        onSuccess: function (transport) {}
-	    });
-	}});                                        
+	createSortable('firstlist');
+	createSortable('secondlist');                                        
 }
                                 
 // Used for op=people

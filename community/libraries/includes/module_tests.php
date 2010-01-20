@@ -69,6 +69,14 @@ try {
 
 */
  $smarty -> assign("T_SKILLGAP_TEST", $skillgap_tests);
+ //If we asked to edit the test using the Unit id, then convert to Test id and assign to $_GET['edit_test']
+ if (isset($_GET['edit']) && in_array($_GET['edit'], $legalUnits)) {
+     $unit = new EfrontUnit($_GET['edit']);
+     if ($unit -> isTest()) {
+         $test = new EfrontTest($_GET['edit'], true);
+         $_GET['edit_test'] = $test -> test['id'];
+     }
+ }
     if (isset($_GET['delete_test']) && in_array($_GET['delete_test'], $legalValues)) {
         try {
             if (!$_change_) {
@@ -123,6 +131,7 @@ try {
             $showTest = new EfrontTest($_GET['show_test']);
         }
         $smarty -> assign ("T_CURRENT_TEST", $showTest);
+
         if (isset($_GET['print'])) {
             $printTest = $showTest;
             $printTest -> options['onebyone'] = 0;

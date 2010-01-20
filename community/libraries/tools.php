@@ -918,6 +918,7 @@ function eF_checkParameter($parameter, $type, $correct = false)
             }
             break;
         case 'filename':
+        case 'file':
             if (preg_match("/^.*((\.\.)|(\/)|(\\\)).*$/", $parameter)) { //File name must not contain .. or slashes of any kind
                 return false;
             }
@@ -1985,6 +1986,7 @@ function eF_getTimezones() {
         $timezones['America/Mazatlan'] = "(GMT -07:00) Chihuahua, La Paz, Mazatlan";
         $timezones['America/Phoenix'] = "(GMT -07:00) Mountain Time (US & Canada)";
         $timezones['America/Chicago'] = "(GMT -07:00) Arizona";
+        $timezones['America/Costa_Rica']= "(GMT -6:00) San Jose";
         $timezones['America/Chicago'] = "(GMT -06:00) Central Time (US & Canada)";
         $timezones['America/Mexico_City'] = "(GMT -06:00) Mexico City, Tegucigalpa";
         $timezones['Canada/Saskatchewan'] = "(GMT -06:00) Saskatchewan";

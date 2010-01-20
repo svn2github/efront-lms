@@ -71,7 +71,7 @@
                                                         <tr class = "topTitle">
                                                             <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
                                                             <td class = "topTitle" name = "role">{$smarty.const._USERROLE}</td>
-                                                            <td class = "topTitle centerAlign" name = "basic_user_type">{$smarty.const._CHECK}</td>
+                                                            <td class = "topTitle centerAlign" name = "in_course">{$smarty.const._CHECK}</td>
                                                         </tr>
                                 {foreach name = 'users_to_lessons_list' key = 'login' item = 'user' from = $T_ALL_USERS}
                                                         <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">

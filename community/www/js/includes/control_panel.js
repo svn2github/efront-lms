@@ -25,7 +25,8 @@ function createSortable(list) {
 				method:'post',
 				asynchronous:true,
 				parameters: { firstlist: Sortable.serialize('firstlist'), secondlist: Sortable.serialize('secondlist') },
-				onSuccess: function (transport) {}
+				onSuccess: function (transport) {},
+				onFailure: function (transport) {alert(decodeURIComponent(transport.responseText));}
 			});
 	}});	
 }

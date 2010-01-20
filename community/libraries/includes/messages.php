@@ -98,7 +98,7 @@ try {
 */
 //---------------------------------------End of Volume-------------------------------------------
  if (isset($_GET['folders'])) {
-     $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=messages&folders=true".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit'])."&popup=1", "", null, true);
+     $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=messages&folders=true".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit'])."", "", null, true);
   $legalValues = $legalFolderValues;
      $entityName = 'f_folders';
      //Handle creation, deletion etc uniquely
@@ -172,6 +172,7 @@ try {
         $form -> addElement('select', 'professor', null, $lessons, 'id = "lesson_professor_recipients" class = "inputSelectLong" disabled = "disabled"');
         $form -> addElement('advcheckbox', 'specific_course_completed', _COMPLETED, null, 'class = "inputCheckbox" id="specific_course_completed_check" style="visibility:hidden" checked=""');
         $form -> addRule('lesson', _INVALIDFIELDDATA, 'checkParameter', 'id');
+
         $form -> setDefaults(array('recipients' => 'only_specific_users'));
 
         // Hidden for maintaining the previous_url value
@@ -411,7 +412,7 @@ try {
                     //Upload user avatar file
                     $pm -> sender_attachment_timestamp = time();
                     $user_dir = G_UPLOADPATH.$currentUser -> user['login'].'/message_attachments/Sent/'.$pm -> sender_attachment_timestamp.'/';
-                    mkdir($user_dir,0755);
+                    mkdir($user_dir, 0755);
                     $filesystem = new FileSystemTree($user_dir);
                     try {
                         $uploadedFile = $filesystem -> uploadFile('attachment', $user_dir, 0);

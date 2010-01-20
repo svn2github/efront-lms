@@ -11,6 +11,22 @@
 	/********************* DASHBOARD PAGE ******************/
     if ($_GET['op'] == "dashboard") {
     	
+        //Calculate element positions, so they can be rearreanged accordingly to the user selection
+        //$elementPositions = eF_getTableData("users_to_lessons", "positions", "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
+        $elementPositions = $currentUser -> user['dashboard_positions'];
+        if (sizeof($elementPositions) > 0) {
+            $elementPositions = unserialize($elementPositions);     //Get the inner tables positions, stored by the user.
+            !is_array($elementPositions['first']) ? $elementPositions['first'] = array() : null;
+            !is_array($elementPositions['second']) ? $elementPositions['second'] = array() : null;
+            $smarty -> assign("T_POSITIONS_FIRST", $elementPositions['first']);     //Assign element positions to smarty
+            $smarty -> assign("T_POSITIONS_SECOND", $elementPositions['second']);
+            $smarty -> assign("T_POSITIONS_VISIBILITY", $elementPositions['visibility']);
+            $smarty -> assign("T_POSITIONS", array_merge($elementPositions['first'], $elementPositions['second']));            
+        } else {
+            $smarty -> assign("T_POSITIONS", array());
+        }
+    
+        
 	    // Get *eligible* lessons of interest to this user if he is not administrator
 	    if ($currentUser -> getType() != "administrator" ) {
 	    	

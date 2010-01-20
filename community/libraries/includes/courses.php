@@ -281,6 +281,9 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
         }
         try {
             $courseUsers = $editCourse -> getUsers(); //Get all users that have this course
+            foreach ($courseUsers as $key => $value) {
+                $courseUsers[$key]['in_course'] = 1;
+            }
             $nonCourseUsers = $editCourse -> getNonUsers(); //Get all the users that can, but don't, have this course
             $users = $courseUsers + $nonCourseUsers; //Merge users to a single array, which will be useful for displaying them (+ is used instead of array_merge, for the case that a user has numerical login)
             $roles = EfrontLessonUser :: getLessonsRoles(true);

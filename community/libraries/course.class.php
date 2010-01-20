@@ -1274,7 +1274,7 @@ class EfrontCourse
    }
   }
             //$eligible = array_combine(array_keys($this -> getLessons()), array_fill(0, sizeof($this -> getLessons()), 1));    //All lessons set to true
-        foreach ($eligible as $lessonId => $value) {
+  foreach ($eligible as $lessonId => $value) {
             $eligible[$lessonId] = new EfrontLesson($lessons[$lessonId]);
             $eligible[$lessonId] -> eligible = $value;
             if (!$eligible[$lessonId] -> lesson['active'] || !in_array($lessonId, array_keys($this -> getLessons()))) {

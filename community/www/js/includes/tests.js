@@ -425,7 +425,7 @@ function onAjaxRemoveSolvedTest(el, response) {
 		}
 	}
 }
-
+ 
 function initSlider() {
 	new Control.Slider('slider_handle','slider', {
 	    range: $R(0, 100),

@@ -20,7 +20,7 @@
                                 <td class = "topTitle centerAlign" name = "active">{$smarty.const._STATUS}</td>
                     {if $change_languages}
                                <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
-                    {/if}
+                    {/if} 
                             </tr>
                     {foreach name = 'language_list' key = "name" item = "language" from = $T_DATA_SOURCE}
                             <tr id="row_{$language.name}" class = "{cycle name = "languages" values = "oddRowColor, evenRowColor"} {if !$language.active}deactivatedTableElement{/if}">

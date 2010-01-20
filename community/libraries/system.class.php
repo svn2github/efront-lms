@@ -744,5 +744,40 @@ class EfrontSystem
      //EfrontConfiguration :: setValue('version_paypal', '');
      //EfrontConfiguration :: setValue('version_hcd', '');
  }
+ /**
+
+	 * Print a default error message
+
+	 * 
+
+	 * This function prints an error message. It is used for system errors, when any other chance of normally displaying an error is lost!
+
+	 *  
+
+	 * @param string $message The error message
+
+	 * @return string The HTML code of the formatted message
+
+	 * @since 3.6.0
+
+	 * @access public
+
+	 * @static
+
+	 */
+ public static function printErrorMessage($message) {
+     $str = '
+     <style>
+     .singleMessage{width:100%;font-family:trebuchet ms;font-size:14px;border:1px solid red;background-color:#ffcccc;margin-top:10px}
+     .singleMessage td{padding:10px;}
+     .singleMessage td:first-child{width:1%}
+     </style>
+     <table class = "singleMessage">
+      <tr><td><img src = "'.G_SERVERNAME.'/themes/default/images/32x32/warning.png" alt = "Failure" title = "Failure"></td>
+       <td><div style = "font-size:16px;font-weight:bold">An error occured:</div><div>'.$message.'</div></tr>
+     </table>
+     ';
+     return $str;
+ }
 }
 ?>

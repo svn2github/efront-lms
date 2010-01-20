@@ -13,7 +13,7 @@ $smarty -> assign("_change_", $_change_);
 
 $loadScripts[] = 'scriptaculous/dragdrop';
 $loadScripts[] = 'includes/themes';
-$loadScripts[] = 'includes/entity';
+$loadScripts[] = 'includes/entity'; 
 
 try {
     try {

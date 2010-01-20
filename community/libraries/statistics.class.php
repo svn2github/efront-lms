@@ -1427,9 +1427,12 @@ class EfrontStats
         $info['personal_folders']          = $personal_folders;
         $info['files']                     = $files;
         $info['total_size']                = $size;
-        $info['chat_messages']             = $chat_messages;
-        if (sizeof($info['chat_messages']) > 0) {
-            $info['last_chat']             = current($info['chat_messages']);
+        
+        if ($GLOBALS['configuration']['chat_enabled']) {
+	        $info['chat_messages']             = $chat_messages;
+	        if (sizeof($info['chat_messages']) > 0) {
+	            $info['last_chat']             = current($info['chat_messages']);
+	        }
         }
         $info['comments']                  = $comments;
 

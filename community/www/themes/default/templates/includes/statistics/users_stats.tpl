@@ -306,6 +306,8 @@
                             <td class = "labelCell">{$smarty.const._TOTALSIZE}:</td>
                             <td class = "elementCell">{$T_USER_INFO.communication.total_size}KB</td>
                         </tr>
+                        
+                        {if $T_CONFIGURATION.chat_enabled == 1}
                         <tr class = "{cycle name = 'communication_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._CHATMESSAGES}:</td>
                             <td class = "elementCell">{$T_USER_INFO.communication.chat_messages|@sizeof}</td>
@@ -314,6 +316,7 @@
                             <td class = "labelCell">{$smarty.const._CHATLASTMESSAGE}:</td>
                             <td class = "elementCell">#filter:timestamp-{$T_USER_INFO.communication.last_chat.timestamp}#</td>
                         </tr>
+                        {/if}
 						{if $T_CONFIGURATION.disable_comments != 1}
 							<tr class = "{cycle name = 'communication_info' values = 'oddRowColor, evenRowColor'}">
 								<td class = "labelCell">{$smarty.const._COMMENTS}:</td>

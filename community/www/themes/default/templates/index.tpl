@@ -170,7 +170,7 @@
 {elseif !$layoutClass && $T_POSITIONS.layout == 'right'}{assign var = "layoutClass" value = "hideLeft"}
 {elseif !$layoutClass && $T_POSITIONS.layout == 'simple'}{assign var = "layoutClass" value = "hideBoth"}	
 {/if}
-
+ 
 {if $smarty.session.login_mode == 1 || $smarty.get.login_mode == 1}{assign var = "layoutClass" value = "hideBoth"}{/if}	{*If we are in "buy lessons" mode, hide all other information*}
 
 {if $smarty.get.ctg == 'agreement' && $smarty.session.s_login}

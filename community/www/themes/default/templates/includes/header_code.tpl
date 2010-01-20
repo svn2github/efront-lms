@@ -45,7 +45,7 @@
 			<a href = "index.php?logout=true" class = "headerText">({$smarty.const._LOGOUT})</a>
 		{/if}
 	</div>
-	
+	 
 	{/if}
 	<div id = "info">
 		<div id = "site_name" class= "headerText">{$T_CONFIGURATION.site_name}</div>		

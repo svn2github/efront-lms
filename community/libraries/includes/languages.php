@@ -114,7 +114,7 @@ if (!isset($currentUser -> coreAccess['languages']) || $currentUser -> coreAcces
             $message_type = 'failure';
         }
     }
-
+ 
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
     $renderer -> setRequiredTemplate (
                    '{$html}{if $required}

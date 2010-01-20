@@ -139,9 +139,11 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
 
 	    }
 */
-     if (!isset($GLOBALS['currentUser'] -> coreAccess['chat']) || $GLOBALS['currentUser'] -> coreAccess['chat'] != 'hidden') {
-         $systemMenu[3] = array("id" => "chat_a", "image" => "chat", "link" => $_SESSION['s_type'].".php?ctg=chat", "title" => _CHAT);
-     }
+     if ($GLOBALS['configuration']['chat_enabled']) {
+      if (!isset($GLOBALS['currentUser'] -> coreAccess['chat']) || $GLOBALS['currentUser'] -> coreAccess['chat'] != 'hidden') {
+          $systemMenu[3] = array("id" => "chat_a", "image" => "chat", "link" => $_SESSION['s_type'].".php?ctg=chat", "title" => _CHAT);
+      }
+  }
      if (!isset($currentUser -> coreAccess['statistics']) || $currentUser -> coreAccess['statistics'] != 'hidden') {
          $systemMenu[4] = array("id" => "statistics_system_a", "image" => "reports", "link" => "administrator.php?ctg=statistics&option=system", "title" => _SYSTEMSTATISTICS);
      }

@@ -13,7 +13,7 @@ if ($GLOBALS['configuration']['disable_comments'] == 1 || (isset($currentUser ->
 //Create shorthands for user access rights, to avoid long variable names
 !isset($currentUser -> coreAccess['comments']) || $currentUser -> coreAccess['comments'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 
-$load_editor = true;
+$load_editor = true; 
 $comments = comments::getComments($currentLesson -> lesson['id'], $currentUser, $currentUnit['id'], false, false);
 
 //An array of legal ids for editing entries

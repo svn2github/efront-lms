@@ -108,11 +108,14 @@ if ($infoUser) {
         $userInfo = array();
         $userInfo['general'] = $infoUser -> getInformation();
         $userInfo['communication'] = EfrontStats :: getUserCommunicationInfo($infoUser);
-        if (sizeof($userInfo['communication']['chat_messages'])) {
-            $last = current($userInfo['communication']['chat_messages']);
-            $userInfo['communication']['chat_last_message'] = formatTimestamp($last['timestamp'], 'time');
-        } else {
-            $userInfo['communication']['chat_last_message'] = "";
+
+        if ($GLOBALS['configuration']['chat_enabled']) {
+         if (sizeof($userInfo['communication']['chat_messages'])) {
+             $last = current($userInfo['communication']['chat_messages']);
+             $userInfo['communication']['chat_last_message'] = formatTimestamp($last['timestamp'], 'time');
+         } else {
+             $userInfo['communication']['chat_last_message'] = "";
+         }
         }
         if (sizeof($userInfo['communication']['forum_messages'])) {
             $last = current($userInfo['communication']['forum_messages']);
@@ -340,26 +343,34 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $workSheet -> write($row, 1, _USERCOMMUNICATIONINFO, $headerFormat);
     $workSheet -> mergeCells($row, 1, $row++, 2);
     //$workSheet -> setColumn(10, 10, 35);
-    $workSheet -> write($row, 1, _FORUMPOSTS, $fieldLeftFormat);
-    $workSheet -> write($row++, 2, sizeof($userInfo['communication']['forum_messages']), $fieldRightFormat);
-    $workSheet -> write($row, 1, _FORUMLASTMESSAGE, $fieldLeftFormat);
-    $workSheet -> write($row++, 2, $userInfo['communication']['forum_last_message'], $fieldRightFormat);
-    $workSheet -> write($row, 1, _PERSONALMESSAGES, $fieldLeftFormat);
-    $workSheet -> write($row++, 2, sizeof($userInfo['communication']['personal_messages']), $fieldRightFormat);
-    $workSheet -> write($row, 1, _MESSAGESFOLDERS, $fieldLeftFormat);
-    $workSheet -> write($row++, 2, sizeof($userInfo['communication']['personal_folders']), $fieldRightFormat);
+    if ($GLOBALS['configuration']['disable_forum'] != 1) {
+     $workSheet -> write($row, 1, _FORUMPOSTS, $fieldLeftFormat);
+     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['forum_messages']), $fieldRightFormat);
+     $workSheet -> write($row, 1, _FORUMLASTMESSAGE, $fieldLeftFormat);
+     $workSheet -> write($row++, 2, $userInfo['communication']['forum_last_message'], $fieldRightFormat);
+    }
+    if ($GLOBALS['configuration']['disable_messages'] != 1) {
+     $workSheet -> write($row, 1, _PERSONALMESSAGES, $fieldLeftFormat);
+     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['personal_messages']), $fieldRightFormat);
+     $workSheet -> write($row, 1, _MESSAGESFOLDERS, $fieldLeftFormat);
+     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['personal_folders']), $fieldRightFormat);
+    }
     $workSheet -> write($row, 1, _FILES, $fieldLeftFormat);
     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['files']), $fieldRightFormat);
     $workSheet -> write($row, 1, _FOLDERS, $fieldLeftFormat);
     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['personal_folders']), $fieldRightFormat);
     $workSheet -> write($row, 1, _TOTALSIZE, $fieldLeftFormat);
     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['total_size'])._KB, $fieldRightFormat);
-    $workSheet -> write($row, 1, _CHATMESSAGES, $fieldLeftFormat);
-    $workSheet -> write($row++, 2, sizeof($userInfo['communication']['chat_messages']), $fieldRightFormat);
-    $workSheet -> write($row, 1, _CHATLASTMESSAGE, $fieldLeftFormat);
-    $workSheet -> write($row++, 2, $userInfo['communication']['chat_last_message'], $fieldRightFormat);
-    $workSheet -> write($row, 1, _COMMENTS, $fieldLeftFormat);
-    $workSheet -> write($row++, 2, sizeof($userInfo['communication']['comments']), $fieldRightFormat);
+    if ($GLOBALS['configuration']['chat_enabled']) {
+     $workSheet -> write($row, 1, _CHATMESSAGES, $fieldLeftFormat);
+     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['chat_messages']), $fieldRightFormat);
+     $workSheet -> write($row, 1, _CHATLASTMESSAGE, $fieldLeftFormat);
+     $workSheet -> write($row++, 2, $userInfo['communication']['chat_last_message'], $fieldRightFormat);
+    }
+    if ($GLOBALS['configuration']['disable_comments'] != 1) {
+     $workSheet -> write($row, 1, _COMMENTS, $fieldLeftFormat);
+     $workSheet -> write($row++, 2, sizeof($userInfo['communication']['comments']), $fieldRightFormat);
+    }
     //usage info
     $workSheet -> write($row, 1, _USERUSAGEINFO, $headerFormat);
     $workSheet -> mergeCells($row, 1, $row++, 2);
@@ -398,7 +409,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
         $workSheet -> write($row++, 10, _GRADE, $titleCenterFormat);
         foreach ($userLessonInfo['student'] as $id => $lesson) {
             if ($lesson['active']) {
-                $workSheet -> write($row, 4, $lesson['name'], $fieldLeftFormat);
+                $workSheet -> write($row, 4, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $lesson['name']), $fieldLeftFormat);
                 $workSheet -> write($row, 5, $lesson['time']['hours']."h ".$lesson['time']['minutes']."' ".$lesson['time']['seconds']."''", $fieldCenterFormat);
                 $workSheet -> write($row, 6, formatScore($lesson['overall_progress'])."%", $fieldCenterFormat);
                 if($GLOBALS['configuration']['disable_tests'] != 1) {
@@ -588,16 +599,24 @@ else if (isset($_GET['pdf']) && $_GET['pdf'] == 'user') {
     $pdf -> SetTextColor(0,0,0);
     $pdf -> Cell(100, 10, _USERCOMMUNICATIONINFO, 0, 1, L, 0);
     $pdf -> SetFont("FreeSerif", "", 10);
-    $pdf -> Cell(70, 5, _FORUMPOSTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['forum_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _FORUMLASTMESSAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['forum_last_message'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _PERSONALMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _MESSAGESFOLDERS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_folders']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    if ($GLOBALS['configuration']['disable_forum'] != 1) {
+     $pdf -> Cell(70, 5, _FORUMPOSTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['forum_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+     $pdf -> Cell(70, 5, _FORUMLASTMESSAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['forum_last_message'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    }
+    if ($GLOBALS['configuration']['disable_messages'] != 1) {
+     $pdf -> Cell(70, 5, _PERSONALMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+     $pdf -> Cell(70, 5, _MESSAGESFOLDERS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_folders']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    }
     $pdf -> Cell(70, 5, _FILES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['files']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _FOLDERS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_folders']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _TOTALSIZE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['total_size'].' '._KB, 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _CHATMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['chat_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _CHATLASTMESSAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['chat_last_message'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _COMMENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['comments']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    if ($GLOBALS['configuration']['chat_enabled']) {
+     $pdf -> Cell(70, 5, _CHATMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['chat_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+     $pdf -> Cell(70, 5, _CHATLASTMESSAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['chat_last_message'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    }
+    if ($GLOBALS['configuration']['disable_comments'] != 1) {
+     $pdf -> Cell(70, 5, _COMMENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['comments']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    }
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0,0,0);
     $pdf -> Cell(100, 10, _USERUSAGEINFO, 0, 1, L, 0);
@@ -635,7 +654,7 @@ else if (isset($_GET['pdf']) && $_GET['pdf'] == 'user') {
         $pdf -> SetTextColor(0, 0, 255);
         foreach ($userLessonInfo['student'] as $id => $lesson) {
             if ($lesson['active']) {
-                $pdf -> Cell(100, 5, $lesson['name'], 0, 0, L, 0);
+                $pdf -> Cell(100, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $lesson['name']), 0, 0, L, 0);
                 $pdf -> Cell(50, 5, $lesson['time']['hours']."h ".$lesson['time']['minutes']."' ".$lesson['time']['seconds']."''", 0, 0, L, 0);
                 if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
                     $pdf -> Cell(40, 5, formatScore($lesson['overall_progress'])."%", 0, 0, C, 0);

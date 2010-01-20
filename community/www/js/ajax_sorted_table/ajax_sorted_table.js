@@ -314,7 +314,7 @@ function eF_js_sortTable(el, other) {
         }
     }
 
-
+ 
     function eF_js_refreshPage(tableIndex) {
 
         var parentTable = sortedTables[tableIndex];                           //Get the current table

@@ -1052,7 +1052,7 @@ class EfrontTest
      * @since 3.5.2
      * @access public
      */
-    public function undo($user, $instance = false) {
+    public function undo($user, $instance = false) { 
         if ($user instanceof EfrontUser) {
             $login = $user -> user['login'];
         } elseif (eF_checkParameter($user, 'login')) {

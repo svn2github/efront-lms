@@ -302,8 +302,10 @@ try {
             if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
                 $controlPanelOptions[] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum");
             }
-            if (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden') {
-                $controlPanelOptions[] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=chat");
+            if ($GLOBALS['configuration']['chat_enabled']) {
+             if (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden') {
+                 $controlPanelOptions[] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=chat");
+             }
             }
             if (!isset($currentUser -> coreAccess['modules']) || $currentUser -> coreAccess['modules'] != 'hidden') {
                 $controlPanelOptions[] = array('text' => _MODULES, 'image' => "32x32/addons.png", 'href' => "administrator.php?ctg=modules");

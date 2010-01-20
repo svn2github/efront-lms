@@ -10,7 +10,7 @@
 	{if $smarty.get.step == 1}
 	    {if $T_CONFIGURATION_EXISTS && !$smarty.get.upgrade && $smarty.get.step == 1}
 	    	{eF_template_printMessageBlock content = "An existing configuration file was found, which probably means an existing installation is already in place. If you continue, it will be overwritten. Perhaps you prefer to <a href = '`$smarty.server.PHP_SELF`?step=`$smarty.get.step`&upgrade=1'>upgrade</a>?" type = "failure"}
-	    {/if}
+ 	    {/if}
 		{capture name = 'step_1_code'}
 		{assign var = "path_title" value = "`$path_title`&nbsp;&raquo;&nbsp;<a href = '`$smarty.server.PHP_SELF`?step=1`$upgrade`'>Step 1/2</a>"}	
 		<div class = "headerTools">

@@ -79,7 +79,7 @@ if (eF_checkUser($_SESSION['s_login'], $_SESSION['s_password']) == "administrato
                     $message_type = 'failure';
                 }
             
-        }
+        } 
     }
 
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

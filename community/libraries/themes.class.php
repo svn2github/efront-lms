@@ -188,7 +188,7 @@ class themes extends EfrontEntity
         $directory -> delete();
         eF_deleteTableData($this -> entity, "id=".$this -> {$this -> entity}['id']);        
     }
-    
+     
     /**
      * 
      * @return unknown_type

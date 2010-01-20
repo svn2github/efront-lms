@@ -258,7 +258,7 @@ function setDefines() {
     defined("G_BUILD") OR define("G_BUILD", $build);
 
 */
-    $build = "5641";
+    $build = "5681";
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -289,8 +289,6 @@ function setDefines() {
     isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? $protocol = 'https' : $protocol = 'http';
     /** The protocol currently used*/
     define ("G_PROTOCOL", $protocol);
-    /** The license server for commercial editions */
-    define("LICENSE_SERVER", "http://keys.efrontlearning.net/list.php");
     /** @deprecated The relative path (URL) to the content folder*/
     define("G_RELATIVECONTENTLINK", "content/");
     /** @deprecated The relative path (URL) to the admin folder*/

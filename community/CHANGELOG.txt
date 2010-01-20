@@ -1,3 +1,18 @@
+=== Version 3.6.0 beta 2 build 5681 ===
+- SCORM content can now open in a popup box
+- Fixed cleanup lesson folders not removing correctly orphan folders bug
+- Performed additional edition separation fixes
+- Import users from csv fix
+- Certification expiration fix
+- SCORM import fix
+- Index page layout fixes
+- Fixed displaying of icons through Javascript in non-default themes
+- Fixed bookmark icon not showing correctly
+- Installation update for handling modules list
+- User progress updated
+- Fixed private comments not saved
+- Updated automatic upgrade functionality
+
 === Version 3.6.0 beta 2 build 5555 ===
 - Fixed avatars list issue
 - Fixed globally disabled features not being disabled in certain areas

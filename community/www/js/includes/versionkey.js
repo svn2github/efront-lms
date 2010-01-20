@@ -5,24 +5,28 @@ function showVersionFileDetails() {
 	ajaxRequest(el, url, parameters, onShowVersionFileDetails, onProcessFailure);
 }
 function onShowVersionFileDetails(el, response) {
-	values = response.evalJSON(true);
+	try {
+		values = response.evalJSON(true);
 
-	$('version_contact_server').hide();
-	$('version_filename').update(values.filename);
-	$('version_filesize').update(Math.round(values.size/1024)+' KB');
-	$('version_file_details').show();
+		$('version_contact_server').hide();
+		$('version_filename').update(values.filename);
+		$('version_filesize').update(Math.round(values.size/1024)+' KB');
+		$('version_file_details').show();
+	} catch (e) {alert(e);}
 }
 function downloadVersionFile(el) {
 	url = location.toString();
 	parameters = {download_file:true, method:'get'};
 	ajaxRequest(el, url, parameters, onDownloadVersionFile, onProcessFailure);
-	
+
 	$('progress_cell').show();
 }
 function onDownloadVersionFile(el, response) {
-	values = response.evalJSON(true);
-	$('progress_message').update('Checking file system permissions...');
-	checkPermissions(el);
+	try {
+		values = response.evalJSON(true);
+		$('progress_message').update('Checking file system permissions...');
+		checkPermissions(el);
+	} catch (e) {alert(e);}
 }
 function checkPermissions(el) {
 	url = location.toString();
@@ -30,9 +34,11 @@ function checkPermissions(el) {
 	ajaxRequest(el, url, parameters, onCheckPermissions, onProcessFailure);	
 }
 function onCheckPermissions(el, response) {
-	values = response.evalJSON(true);
-	$('progress_message').update('Locking site and uncompressing downloaded archive...');
-	installVersionFile(el);
+	try {
+		values = response.evalJSON(true);
+		$('progress_message').update('Locking site and uncompressing downloaded archive...');
+		installVersionFile(el);
+	} catch (e) {alert(e);}
 }
 function installVersionFile(el) {
 	url = location.toString();
@@ -40,8 +46,10 @@ function installVersionFile(el) {
 	ajaxRequest(el, url, parameters, onInstallVersionFile, onProcessFailure);	
 }
 function onInstallVersionFile(el, response) {
-	$('progress_message').update('Upgrading...');
-	autoUpgrade(el);
+	try {
+		$('progress_message').update('Upgrading...');
+		autoUpgrade(el);
+	} catch (e) {alert(e);}
 }
 function autoUpgrade(el) {
 	url = "install/install.php";
@@ -49,9 +57,11 @@ function autoUpgrade(el) {
 	ajaxRequest(el, url, parameters, onAutoUpgrade, onProcessFailure);
 }
 function onAutoUpgrade(el, response) {
-	$('progress_message').update('Unlocking site...');
-	unlockSite(el);
-	//location = location.toString()+'&unlock=1&message=Upgrade completed successfully&message_type=success';
+	try {
+		$('progress_message').update('Unlocking site...');
+		unlockSite(el);
+		//location = location.toString()+'&unlock=1&message=Upgrade completed successfully&message_type=success';
+	} catch (e) {alert(e);}
 }
 function unlockSite(el) {
 	url = location.toString();
@@ -59,16 +69,20 @@ function unlockSite(el) {
 	ajaxRequest(el, url, parameters, onUnlockSite, onProcessFailure);		
 }
 function onUnlockSite(el, response) {
-	$('progress_message').update('');
-	$('progress_cell').hide();
-	$('finished_cell').show();
+	try {
+		$('progress_message').update('');
+		$('progress_cell').hide();
+		$('finished_cell').show();
+	} catch (e) {alert(e);}
 }
 
 function onProcessFailure(el, response) {
-	alert(response);
-	$('progress_message').update('');
-	$('progress_cell').hide();
-	$('version_file_details').hide();
-	$('version_contact_server').show();
-	eF_js_showDivPopup('', '');
+	try {
+		alert(response);
+		$('progress_message').update('');
+		$('progress_cell').hide();
+		$('version_file_details').hide();
+		$('version_contact_server').show();
+		eF_js_showDivPopup('', '');
+	} catch (e) {alert(e);}
 }

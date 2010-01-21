@@ -635,7 +635,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'cart') {
         include "catalog.php";
     } catch (Exception $e) {
         header("HTTP/1.0 500 ");
-        echo _INVALIDVOUCHER;
+        echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
     }
     exit;
 }

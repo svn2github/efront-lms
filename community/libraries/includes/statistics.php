@@ -69,27 +69,27 @@ try {
             $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         }
     } else if ($_GET['option'] == 'user') {
-        include("statistics/users_stats.php");
+        require_once("statistics/users_stats.php");
     } else if ($_GET['option'] == 'lesson') {
-        include("statistics/lessons_stats.php");
+        require_once("statistics/lessons_stats.php");
     } else if ($_GET['option'] == 'course') {
-        include("statistics/courses_stats.php");
+        require_once("statistics/courses_stats.php");
     } else if ($_GET['option'] == 'test') {
-        include("statistics/tests_stats.php");
+        require_once("statistics/tests_stats.php");
     } else if ($_GET['option'] == 'system') {
-        include("statistics/system_stats.php");
+        require_once("statistics/system_stats.php");
  } elseif ($_GET['option'] == 'custom') {
-        include("statistics/custom_stats.php");
+        require_once("statistics/custom_stats.php");
  } elseif ($_GET['option'] == 'certificate') {
-        include("statistics/certificate_stats.php");
+        require_once("statistics/certificates_stats.php");
  } elseif ($_GET['option'] == 'events') {
-        include("statistics/events_stats.php");
+        require_once("statistics/events_stats.php");
  } else if ($_GET['option'] == "groups") {
-        include("statistics/groups_stats.php");
+        require_once("statistics/groups_stats.php");
  } else if ($_GET['option'] == "branches") {
-        include("statistics/branches_stats.php");
+        require_once("statistics/branches_stats.php");
  } else if ($_GET['option'] == "participation") {
-        include("statistics/participation_stats.php");
+        require_once("statistics/participation_stats.php");
  }
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());

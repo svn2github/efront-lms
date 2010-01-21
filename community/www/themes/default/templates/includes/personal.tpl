@@ -151,7 +151,6 @@ var enableMyJobSelect = false;
             {$T_AVATAR_FORM.hidden}
             <table class = "formElements">
                 {if ($smarty.get.personal) || ($smarty.get.edit_user == $smarty.session.s_login)}
-                <tr><td></td><td style = "vertical-align:middle"><a title="{$smarty.const._UPLOADFILESANDIMAGES}" href = "{$smarty.server.PHP_SELF}?ctg=file_manager&folder={$smarty.session.s_login}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._UPLOADFILESANDIMAGES}', 3)" target = "POPUP_FRAME" style = "vertical-align:middle"><img src = "images/16x16/export.png" title = "{$smarty.const._UPLOADFILESANDIMAGES}" alt = "{$smarty.const._UPLOADFILESANDIMAGES}" style = "vertical-align:middle" border = "0"/>&nbsp;<span style = "vertical-align:middle">{$smarty.const._UPLOADFILESANDIMAGES}</span></a></td></tr>
                 {/if}
                 <tr><td class = "labelCell">{$T_AVATAR_FORM.short_description.label}:&nbsp;</td>
                     <td class = "elementCell">{$T_AVATAR_FORM.short_description.html}</td></tr>
@@ -436,7 +435,7 @@ var enableMyJobSelect = false;
                 </div>
             {/capture}
   {if $smarty.get.show_avatars_list}
-   <table width = "100%" cellpadding = "5">
+   <table width = "100%" cellpadding = "5" class = "filemanagerBlock">
        <tr>
    {foreach name = "avatars_list" item = "item" key = "key" from = $T_SYSTEM_AVATARS}
            <td align = "center">

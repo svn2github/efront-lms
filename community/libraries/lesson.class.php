@@ -2792,6 +2792,8 @@ class EfrontLesson
 
      * @param boolean $lessonProperties Whether to import lesson properties as well
 
+     * @param boolean $keepName Whether to keep the current (false) or the original name (true)
+
      * @return boolean True if the importing was successful
 
      * @since 3.5.0
@@ -2801,7 +2803,7 @@ class EfrontLesson
      * @see EfrontLesson :: initialize()"
 
      */
-    public function import($file, $deleteEntities = false, $lessonProperties = false) {
+    public function import($file, $deleteEntities = false, $lessonProperties = false, $keepName = false) {
         if ($deleteEntities) {
             $this -> initialize($deleteEntities); //Initialize the lesson aspects that the user specified
         }
@@ -2889,6 +2891,9 @@ class EfrontLesson
                  eF_updateTableData("lessons", array('info' => $data['lessons']['info'],
                                                      'metadata' => $data['lessons']['metadata'],
                                                      'options' => $data['lessons']['options']), "id=".$this -> lesson['id']);
+                }
+                if ($keepName) {
+                    eF_updateTableData("lessons", array("name" => $data['lessons']['name']), "id=".$this -> lesson['id']);
                 }
             } else {
                 if ($table == "questions") {

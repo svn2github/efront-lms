@@ -223,6 +223,19 @@ try {
 	    /***/
 	    require_once "courses.php";
 	}
+	elseif ($ctg == "file_manager") {
+	    //This page has a file manager, so bring it on with the correct options
+	    $basedir    = $currentUser -> getDirectory();
+	    //Default options for the file manager
+	    $options = array('share'         => false, 
+            			 'lessons_ID'    => false, 
+            			 'metadata'      => 0);
+        //Default url for the file manager
+        $url = basename($_SERVER['PHP_SELF']).'?ctg=file_manager';
+        $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+	    
+        include "file_manager.php";
+	}
 	elseif ($ctg == "social") {
 		/**The pages related with the social eFront (3.6.0 on)*/
 	    require_once "social.php";

@@ -14,14 +14,18 @@ if ($GLOBALS['configuration']['disable_comments'] == 1 || (isset($currentUser ->
 !isset($currentUser -> coreAccess['comments']) || $currentUser -> coreAccess['comments'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 
 $load_editor = true; 
-$comments = comments::getComments($currentLesson -> lesson['id'], $currentUser, $currentUnit['id'], false, false);
+if ($_professor_) {
+    $comments = comments::getComments($currentLesson -> lesson['id'], false, $currentUnit['id'], false, false);
+} else {
+    $comments = comments::getComments($currentLesson -> lesson['id'], $GLOBALS['currentUser'], $currentUnit['id'], false, false);
+}
 
 //An array of legal ids for editing entries
 $legalValues = array();
 foreach ($comments as $value) {
-    if ($value['users_LOGIN'] == $GLOBALS['currentUser'] -> user['login'] || $_professor_) {
+    //if ($value['users_LOGIN'] == $GLOBALS['currentUser'] -> user['login'] || $_professor_) {
         $legalValues[] = $value['id'];
-    }
+    //}
 }
 
 

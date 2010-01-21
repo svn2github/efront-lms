@@ -373,6 +373,7 @@ function setupThemes() {
     define("G_CURRENTTHEMEURL", !isset($currentTheme -> remote) || !$currentTheme -> remote ? "themes/".$currentThemeName."/" : $currentTheme -> {$currentTheme -> entity}['path']);
     /** The external pages path*/
     define("G_EXTERNALPATH", G_CURRENTTHEMEPATH."/external/");
+    is_dir(G_EXTERNALPATH) OR mkdir(G_EXTERNALPATH, 0755);
     if ($fp = fopen(G_CURRENTTHEMEPATH."css/css_global.css", 'r')) {
         /** The current theme's css*/
         define("G_CURRENTTHEMECSS", G_CURRENTTHEMEURL."css/css_global.css?build=".G_BUILD);

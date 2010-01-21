@@ -1,7 +1,7 @@
 /**
  * Set unit seen status
  * This function makes an ajax call to the server to set the current unit's status to either 'seen' or 'unseen', based on
- * the status paramater 
+ * the status parameter 
  */
 function setSeenUnit(status) {
     if (typeof(status) == 'undefined') {        //If "status" parameter is not set, then toggle the seen status based on whether the user has seen the lesson
@@ -9,29 +9,45 @@ function setSeenUnit(status) {
     } else {            //If "status" parameter is set, then toggle the seen status based on this parameter
     	status ? status = 1 : status = 0;
     }
-    el = $('seenLink');					//For backwards-compatibility, we don't specify el in the parameters list
-    el.blur();
+    //el = $('seenLink');					//For backwards-compatibility, we don't specify el in the parameters list
+    if ($('seenLink')) {
+    	$('seenLink').blur();
+    	el = $('seenLink').down();
+    } else {
+    	el = new Element('div');
+    }
 
 	parameters = {set_seen:status, method: 'get'};
 	var url    = window.location.toString();
-	ajaxRequest(el.down(), url, parameters, onSetSeenUnit);	
+	ajaxRequest(el, url, parameters, onSetSeenUnit);	
 }
 /*
  * This function is executed when the ajax call of setSeen returns, to set the appropriate text and
  * depict the unit status, both in the 'set seen' icon and the content tree as well 
  */ 
 function onSetSeenUnit(el, response) {
+	try {
 		results = response.evalJSON();
         if (hasSeen) {
-        	setImageSrc($('seenLink').down(), 32, 'unit.png');            
-        	$('seenLink').down().next().update(sawunit);
-            setImageSrc($('tree_image_'+unitId), 16, unitType+'.png');
+        	if ($('seenLink')) {
+	        	setImageSrc($('seenLink').down(), 32, 'unit.png');            
+	        	$('seenLink').down().next().update(sawunit);
+        	}
+        	if ($('tree_image_'+unitId)) {
+        		setImageSrc($('tree_image_'+unitId), 16, unitType+'.png');
+        	}
         } else {
-        	setImageSrc($('seenLink').down(), 32, 'unit_completed.png');
-        	$('seenLink').down().next().update(notsawunit);
-            setImageSrc($('tree_image_'+unitId), 16, unitType+'_passed.png');
+        	if ($('seenLink')) {
+	        	setImageSrc($('seenLink').down(), 32, 'unit_completed.png');
+	        	$('seenLink').down().next().update(notsawunit);
+        	}
+        	if ($('tree_image_'+unitId)) {
+        		setImageSrc($('tree_image_'+unitId), 16, unitType+'_passed.png');
+        	}
         }
-        new Effect.Appear($('seenLink'));
+        if ($('seenLink')) {
+        	new Effect.Appear($('seenLink'));
+        }
         
         hasSeen = !hasSeen;
         if ($('progress_bar')) {
@@ -40,8 +56,11 @@ function onSetSeenUnit(el, response) {
             if ($('passed_conditions')) {
             	$('passed_conditions').update(parseInt(results[1]));
             }
-            results[2] == true ? $('lesson_passed').setStyle({color:'green'}) : $('lesson_passed').setStyle({color:'red'});
+            if ($('lesson_passed')) {
+            	results[2] == true ? $('lesson_passed').setStyle({color:'green'}) : $('lesson_passed').setStyle({color:'red'});
+            }
         }
+	} catch (e) {alert(e);}
 }
 /**
  * This function automatically navigates to the next unit, if any

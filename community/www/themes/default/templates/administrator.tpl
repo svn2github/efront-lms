@@ -176,7 +176,9 @@
     {include file = "includes/lessons.tpl"}
 {/if}
 
-
+{if (isset($T_CTG) && $T_CTG == 'file_manager')}
+ {include file = "includes/file_manager.tpl"}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'social')}
 
     {if $T_OP == 'dashboard'}

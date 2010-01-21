@@ -295,7 +295,7 @@ if ($_GET['op'] == 'course_info') {
             try {
                 $currentCourse -> rules = $_POST['rules'];
                 $currentCourse -> persist();
-                //eF_redirect("".basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=course_rules&message=".urlencode(_SUCCESFULLYSETORDER)."&message_type=success");
+                eF_redirect("".basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=course_rules&message=".urlencode(_SUCCESFULLYSETORDER)."&message_type=success");
             } catch (Exception $e) {
                 $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
                 $message = _PROBLEMSETTINGORDER.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

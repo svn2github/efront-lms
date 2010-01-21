@@ -235,6 +235,41 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
     $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
     // If in personal mode then include the user profile fields
     if ($personal_profile_form) {
+/*        
+
+	    //This page has a file manager, so bring it on with the correct options
+
+	    $basedir    = $currentUser -> getDirectory();
+
+	    //Default options for the file manager
+
+		    $options = array('delete'        => false, 
+
+	            			 'edit'          => false, 
+
+	            			 'share'         => false, 
+
+	            			 'upload'        => false, 
+
+	            			 'create_folder' => false, 
+
+	            			 'zip'           => false, 
+
+	            			 'lessons_ID'    => false, 
+
+	            			 'metadata'      => 0);
+
+        //Default url for the file manager
+
+        $url = basename($_SERVER['PHP_SELF']).'?ctg=users&edit_user='.$_GET['edit_user'];
+
+        $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+
+  
+
+	    include "file_manager.php";
+
+*/
         if (!($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_USERSTATUS)) {
             $smarty -> assign("T_HIDE_USER_STATUS", 1);
         }

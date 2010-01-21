@@ -1825,7 +1825,7 @@ define("_PROJECTDELETEDSUCCESSFULLY", "Η εργασία διαγράφηκε ε
 define("_FILESCOULDNOTBEDOWNLOADED", "Τα αρχεία της εργασίας δεν ήταν δυνατόν να κατέβουν");
 define("_RESULTSFORPROJECT", "Αποτελέσματα εργασίας");
 define("_VIEWPROJECT", "Προβολή εργασίας");
-define("_REMAINING", "Απομένει");
+define("_REMAINING", "Απομένουν");
 define("_PROJECTEXPIRED", "Η προθεσμία της εργασίας έχει παρέλθει");
 define("_SENDPROJECT", "Αποστολή εργασίας");
 define("_NEWLESSONS", "Νέα μαθήματα");
@@ -3458,4 +3458,8 @@ define("_UPGRADE", "Αναβάθμιση");
 define("_DOWNLOADEXPORTEDCOURSE", "Κατεβάστε τη δέσμη");
 define("_MAXDISCOUNT100", "Η μέγιστη έκπτωση είναι 100%");
 define("_REGISTRATIONUPDATE", "Κλειδί έκδοσης/Ενημέρωση");
+define("_ROWS", "Γραμμές");
+define("_COMMANDFAILEDWITHOUTPUT", "Η λειτουργία απέτυχε με το παρακάτω αποτέλεσμα");
+define("_PERHAPSDONTSUPPORTZIP", "Ενδεχομένως το σύστημά σας δεν υποστηρίζει διαχείριση αρχείων zip");
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY", "Πρέπει να δημιουργήσετε πρώτα μία κατηγορία, προτού να δημιουργήσετε δέσμες");
 ?>

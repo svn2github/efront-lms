@@ -134,7 +134,8 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     try { //If there are no direction set, redirect to add direction page
         $directionsTree = new EfrontDirectionsTree();
         if (sizeof($directionsTree -> tree) == 0) {
-            eF_redirect("".basename($_SERVER['PHP_SELF']).'?ctg=directions&add_direction=1&message='.urlencode(_YOUMUSTFIRSTCREATEDIRECTION).'&message_type=failure');
+            eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=directions&add_direction=1&message='.urlencode(_YOUMUSTFIRSTCREATEDIRECTION).'&message_type=failure');
+            exit;
         }
         $form -> addElement('select', 'directions_ID', _DIRECTION, $directionsTree -> toPathString()); //Append a directions select box to the form
     } catch (Exception $e) {
@@ -419,6 +420,11 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     $form -> addElement('submit', 'submit_lesson', _SUBMIT, 'class = "flatButton"');
     try {
         if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
+            $directionsTree = new EfrontDirectionsTree();
+            if (sizeof($directionsTree -> tree) == 0) {
+                eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=directions&add_direction=1&message='.urlencode(_YOUMUSTFIRSTCREATEDIRECTION).'&message_type=failure');
+                exit;
+            }
             $newLesson = EfrontLesson :: createLesson();
             $filesystem = new FileSystemTree($newLesson -> getDirectory(), true);
             $file = $filesystem -> uploadFile('import_content', $newLesson -> getDirectory());

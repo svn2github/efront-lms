@@ -38,7 +38,12 @@ $systemForm -> addElement("text", "phplivedocx_username",_USERNAME);
 $systemForm -> addElement("text", "phplivedocx_password",_PASSWORD);
 $systemForm -> addElement("select", "default_language", _DEFAULTLANGUAGE, EfrontSystem :: getLanguages(true, true), 'class = "inputSelect"');
 $systemForm -> addElement("select", "insert_group_key", _VIEWINSERTGROUPKEY, array(_NO, _YES), 'class = "inputSelect"');
-$systemForm -> addElement("select", "zip_method", _ZIPHANDLING, array('php' => "PHP", 'system' => _SYSTEM), 'class = "inputSelect"');
+//If we are on a windows system, and the zip_method is already PHP, then don't display option to change it
+if (stripos(php_uname(), 'windows') === false || $GLOBALS['configuration']['zip_method'] != "php") {
+    $systemForm -> addElement("select", "zip_method", _ZIPHANDLING, array('php' => "PHP", 'system' => _SYSTEM), 'class = "inputSelect"');
+} else {
+    $systemForm -> addElement("select", "zip_method", _ZIPHANDLING, array('php' => "PHP"), 'class = "inputSelect"');
+}
 $systemForm -> addElement("textarea", "license_note", _LICENSENOTE, 'class = "inputText simpleEditor" style = "height:100px;width:500px;"');
 $systemForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'id');
 $systemForm -> addRule('password_length', _INVALIDFIELDDATA, 'checkParameter', 'id');

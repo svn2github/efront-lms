@@ -15,8 +15,8 @@ function smarty_outputfilter_eF_template_includeScripts($compiled, &$smarty) {
         				sorted_translations["loadingdata"] = "'._LOADINGDATA.'";
         				sorted_translations["operationaffectmany"] = "'._OPERATIONWILLAFFECTMANYAREYOUSURE.'";
         				sorted_translations["filter"] = "'._FILTER.'";
-        				sorted_translations["rowsperpage"] = "'._ROWSPERPAGE.'";
-        				sorted_translations["displayingresults"] = "'._DISPLAYINGRESULTS.'";
+        				sorted_translations["rowsperpage"] = "'._ROWS.'";
+        				sorted_translations["displayingresults"] = "'.mb_convert_case(_RESULTS, MB_CASE_TITLE).'";
         				sorted_translations["outof"] = "'._OUTOF.'";
         			 </script>';
     } 

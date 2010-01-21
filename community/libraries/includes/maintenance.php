@@ -68,8 +68,10 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     $orphan_user_folders = array_diff($users_dir, $users['login']);
     $orphan_users        = array_diff($users['login'], $users_dir);
 
-    $smarty -> assign("T_ORPHAN_USERS", implode(", ", $orphan_users));
-    $smarty -> assign("T_ORPHAN_USER_FOLDERS", implode(", ", $orphan_user_folders));
+    $orphanUserStr = implode(", ", $orphan_user);
+    $smarty -> assign("T_ORPHAN_USERS", mb_strlen($orphanUserStr) > 200 ? mb_substr($orphanUserStr, 0, 200).'...' : $orphanUserStr);
+    $orphanUserFoldersStr = implode(", ", $orphan_user_folders);
+    $smarty -> assign("T_ORPHAN_USER_FOLDERS", mb_strlen($orphanUserFoldersStr) > 200 ? mb_substr($orphanUserFoldersStr, 0, 200).'...' : $orphanUserFoldersStr);
 
     //Lessons check
     $lessons     = eF_getTableDataFlat("lessons", "id, name");
@@ -83,8 +85,11 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     }
     $orphan_lesson_folders = array_diff($lessons_dir, array_keys($lessons));
     $orphan_lessons        = array_diff(array_keys($lessons), $lessons_dir);
-    $smarty -> assign("T_ORPHAN_LESSONS", implode(", ", array_keys($orphan_lessons)));
-    $smarty -> assign("T_ORPHAN_LESSON_FOLDERS", implode(", ", $orphan_lesson_folders));
+
+    $orphanLessonStr = implode(", ", $orphan_lessons);
+    $smarty -> assign("T_ORPHAN_LESSONS", mb_strlen($orphanLessonStr) > 200 ? mb_substr($orphanLessonStr, 0, 200).'...' : $orphanLessonStr);
+    $orphanLessonFoldersStr = implode(", ", $orphan_lesson_folders);
+    $smarty -> assign("T_ORPHAN_LESSON_FOLDERS", mb_strlen($orphanLessonFoldersStr) > 200 ? mb_substr($orphanLessonFoldersStr, 0, 200).'...' : $orphanLessonFoldersStr);
 
     if (isset($_GET['cleanup']) && ($_GET['cleanup'] == 'orphan_user_folders' || $_GET['cleanup'] == 'all')) {
         foreach ($orphan_user_folders as $folder) {

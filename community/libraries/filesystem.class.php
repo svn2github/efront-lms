@@ -554,19 +554,19 @@ class EfrontFile extends ArrayObject
         if ($this['extension'] == 'zip') {
             if ($GLOBALS['configuration']['zip_method'] == 'system') {
                 if ($GLOBALS['configuration']['file_black_list']) {
-                    $blackList = implode(" ", explode(",", $GLOBALS['configuration']['file_black_list']));
+                    $blackList = '-x "*.'.implode('" "*.', explode(",", $GLOBALS['configuration']['file_black_list'])).'"';
                 } else {
                     $blackList = '';
                 }
                 if ($GLOBALS['configuration']['file_white_list']) {
-                    $whiteList = '-x '.implode(" ", explode(",", $GLOBALS['configuration']['file_white_list']));
+                    $whiteList = '"*.'.implode('" "*.', explode(",", $GLOBALS['configuration']['file_white_list'])).'"';
                 } else {
                     $whiteList = '';
                 }                
-                $response = exec('unzip zip/instructions.zip '.$blackList.' '.$whiteList.' -d '.$this['directory'].' 2>&1', $output, $code);
+                $response = exec('unzip "'.$this['path'].'" '.$whiteList.' '.$blackList.' -d "'.$this['directory'].'" 2>&1', $output, $code);
 
-                if ($code != 0) {
-                    throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response, EfrontFileException :: ERROR_ZIP_PROCESSING);
+                if (stripos($response, 'caution') === false && $code != 0) {
+                    throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response.". "._PERHAPSDONTSUPPORTZIP, EfrontFileException :: ERROR_ZIP_PROCESSING);
                 }
             } else {
                 $zip = new ZipArchive;
@@ -615,16 +615,21 @@ class EfrontFile extends ArrayObject
      */
     public function listContents() {
         if ($this['extension'] == 'zip') {
+            $zipFiles = array();
             if ($GLOBALS['configuration']['zip_method'] == 'system') {
                 //@todo: Implement for system calls as well
-                //$response = exec('unzip zip/instructions.zip '.$blackList.' '.$whiteList.' -d '.$this['directory'].' 2>&1', $output, $code);
-
+                $tempfile = tempnam(dirname($this['path']), time());
+                $response = exec('unzip -qql "'.$this['path'].'" | awk \'{print $4}\' > "'.$tempfile.'" 2>&1', $output, $code);
                 if ($code != 0) {
-                    throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response, EfrontFileException :: ERROR_ZIP_PROCESSING);
+                    throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response.". "._PERHAPSDONTSUPPORTZIP, EfrontFileException :: ERROR_ZIP_PROCESSING);
                 }
+                foreach (file($tempfile) as $value) {
+                    $zipFiles[] = trim($value); 
+                }
+                unlink($tempfile);
+                return $zipFiles;
             } else {
                 $zip = new ZipArchive;
-                
                 if ($zip -> open($this['path'])) {
                     for ($i = 0; $i < $zip -> numFiles; $i++) {
                         $zipFiles[] = $zip -> getNameIndex($i);
@@ -1116,10 +1121,15 @@ class EfrontDirectory extends ArrayObject
         } catch (Exception $e) {}
         
         if ($GLOBALS['configuration']['zip_method'] == 'system') {
-            $response = exec('zip '.$zipName.' '.$this['path'].' 2>&1', $output, $code);
+            $dir = getcwd();
+            chdir($this['path']);
+            $response = exec('zip -r "'.$zipName.'" ./* 2>&1', $output, $code);
+            chdir($dir);
+
             if ($code != 0) {
-                throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response, EfrontFileException :: ERROR_ZIP_PROCESSING);
+                throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response.". "._PERHAPSDONTSUPPORTZIP, EfrontFileException :: ERROR_ZIP_PROCESSING);
             }
+            return new EfrontFile($zipName);
         } else {
             $zip = new ZipArchive;
 
@@ -1506,7 +1516,7 @@ class FileSystemTree extends EfrontTree
 	            		
 	            	</table>
 	            	</form>
-	            	<img src = "images/others/progress_big.gif" id = "uploading_image" title = "'._UPLOADING.'" alt = "'._UPLOADING.'" style = "display:none;margin-top:30px;vertical-align:middle;"/>';
+	            	<img src = "images/others/progress_big.gif" id = "uploading_image" title = "'._UPLOADING.'" alt = "'._UPLOADING.'" style = "display:none;margin-left:auto;margin-right:auto;margin-top:30px;vertical-align:middle;"/>';
          
         return $formString;
     }
@@ -1859,7 +1869,7 @@ class FileSystemTree extends EfrontTree
                 }
             }
         } catch (Exception $e) {
-            echo "<script>top.mainframe.document.getElementById('messageError').innerHTML = '".$e -> getMessage()."';parent.$('uploading_image').hide();</script>";
+            echo "<script>if (top && top.mainframe) {w=top.mainframe} else {w=parent;}w.document.getElementById('messageError').innerHTML = '".$e -> getMessage()."';parent.$('uploading_image').hide();</script>";
             //Don't halt for uploading and create directory errors
             $GLOBALS['smarty'] -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
             $GLOBALS['message'] = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

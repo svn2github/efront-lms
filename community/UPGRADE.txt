@@ -1,3 +1,18 @@
-=== Upgrade process for 3.6.0 versions of eFront ===
 
-[pending]
+=== Quick Upgrade guide for eFront version 3.6 Community Edition ===
+
+Upgrading an existing eFront installation is a simple process. A step-by-step guide follows:
+1. Backup your data. You may use efront's "backup/restore" option at the administrator panel. It is a good idea to verify the integrity of the backup file after downloading it. It is safe to take a "database only" backup.
+2. For production sites, you may want to lock down efront until upgrade completes. In order to do so, log in as an administrator and go to Maintenance -> lock down. This will prevent any activity for taking place during the upgrade process
+3. Download the latest version of eFront, you can check http://www.efrontlearning.net/download.php
+4. Navigate to the folder where your existing eFront installation lies, for example, c:\efront or /opt/lampp/efront
+5. Unzip the downloaded file inside the eFront folder, thus overwriting existing files.
+6. Open your web browser and point to the installation script. If, for example, your visit eFront with http://efront.example.com/index.php, then the installation script is at: http://efront.example.com/install/install.php.
+7. Click on the "Upgrade existing installation" icon to proceed to step 1.
+8. Review the new version's prerequisites listed in step 1. If everything is ok, you may proceed to step 2
+9. In step 2, the system reads your configuration file and prepopulates database settings. If you specify another database name, then your current database will be left intact, and the upgraded data will be put inside the new database. This is useful when you want to test a new installation, without the fear of loosing or corrupting any data.
+10. Click on the "Upgrade" button to begin upgrading. This may take a considerable amount of time, depending on your data size and the host speed. After the upgrade finishes, you are ready to use eFront!
+
+Keep in mind that eFront automatically performs a backup of your database (except when upgrading to a new database). If anything goes wrong, or not as expected, you may find this backup at the installation's first page. Clicking on it will restore the previous database.
+
+You can find the latest version of this guide at http://docs.efrontlearning.net/index.php/Upgrading_from_previous_versions

@@ -398,7 +398,6 @@ class EfrontUnit extends ArrayObject
   eF_updateTableData("questions", array("content_ID" => 0), "content_ID=".$this['id']); //Remove association of questions with this unit but not delete them
   EfrontSearch :: removeText('content', $this['id'], ''); //Delete keywords
   //Delete scorm data related to the unit
-  EfrontContentTreeSCORM :: deleteSCORMPackage($this['id']);
     }
     /**
 

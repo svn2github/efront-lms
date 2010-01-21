@@ -1096,10 +1096,12 @@ function changeStatus() {
                 asynchronous:true,
                 onSuccess: function (transport) {
 
-                    $('statusTextProgressImg').hide().setAttribute('src', 'themes/default/images/others/transparent.png').addClassName('sprite16').addClassName('sprite16-success');
+                    $('statusTextProgressImg').hide().src = 'themes/default/images/others/transparent.png';
+                    $('statusTextProgressImg').addClassName('sprite16').addClassName('sprite16-success');
+                    
                     new Effect.Appear($('statusTextProgressImg'));
 
-                    window.setTimeout('Effect.Fade("statusTextProgressImg")', 2500);
+                    window.setTimeout('Effect.Fade("statusTextProgressImg")', 2000);
                     window.setTimeout("$('statusTextProgressImg').writeAttribute('src', 'themes/default/images/others/progress1.gif')", 3500);
 
                     if ($('inputStatusText').value != '') {
@@ -1260,9 +1262,6 @@ function setMenuPositions() {
        for (i = 1; i<= menus; i++) {
             $('menu'+i).status = status;
             if (shouldHide) {
-            	if (i == 1) {
-            		alert('eeeedw ginetai i malakia');
-            	}
                 $('listmenu'+i).hide(); 
             }
             

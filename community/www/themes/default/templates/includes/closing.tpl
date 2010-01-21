@@ -169,8 +169,8 @@ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElement
 <script>
 {literal}
 if (!usingHorizontalInterface) {
-	if (top.sideframe && top.sideframe.$('current_location')) {
-		top.sideframe.$('current_location').value = top.mainframe.location;
+	if (top.sideframe && top.sideframe.document.getElementById('current_location')) {
+		top.sideframe.document.getElementById('current_location').value = top.mainframe.location;
 	}
 } else {
 	if ($('current_location')) {

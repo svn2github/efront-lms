@@ -3458,4 +3458,8 @@ define("_UPGRADE", "Upgrade");
 define("_DOWNLOADEXPORTEDCOURSE", "Download exported course");
 define("_MAXDISCOUNT100", "The maximum discount is 100%");
 define("_REGISTRATIONUPDATE", "Registration/Update");
+define("_ROWS", "Rows");
+define("_COMMANDFAILEDWITHOUTPUT", "The command failed with the following output");
+define("_PERHAPSDONTSUPPORTZIP", "Perhaps your system does not support zip processing?");
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY", "In order to create a course, you must first create a category");
 ?>

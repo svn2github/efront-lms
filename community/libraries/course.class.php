@@ -1647,12 +1647,11 @@ class EfrontCourse
         $filedata = file_get_contents($dataFile['path']);
         $dataFile -> delete();
         $data = unserialize($filedata);
-        //pr($data);
         if ($courseProperties) {
             unset($data['courses'][0]['id']);
             unset($data['courses'][0]['directions_ID']);
             unset($data['courses'][0]['created']);
-            unset($data['courses'][0]['rules']);
+            //unset($data['courses'][0]['rules']);
             $this -> course = array_merge($this -> course, $data['courses'][0]);
             $this -> persist();
         }
@@ -1660,7 +1659,7 @@ class EfrontCourse
             $lesson = EfrontLesson :: createLesson(array('name' => $value['name'], 'course_only' => true, 'directions_ID' => $this -> course['directions_ID']));
             $file = new EfrontFile($fileDir.'/'.$value['lessons_ID'].'_exported.zip');
             $newFile = $file -> copy($lesson -> getDirectory());
-            $lesson -> import($newFile);
+            $lesson -> import($newFile, false, false, true);
             $map[$value['lessons_ID']] = $lesson -> lesson['id'];
             $previous[$lesson -> lesson['id']] = $value['previous_lessons_ID'];
         }

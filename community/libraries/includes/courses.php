@@ -89,7 +89,7 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
     try {
         $directionsTree = new EfrontDirectionsTree();
         if (sizeof($directionsTree -> tree) == 0) {
-            eF_redirect("".basename($_SERVER['PHP_SELF']).'?ctg=directions&add_direction=1&message='.urlencode(_YOUMUSTFIRSTCREATEDIRECTION).'&message_type=failure');
+            eF_redirect("".basename($_SERVER['PHP_SELF']).'?ctg=directions&add_direction=1&message='.urlencode(_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY).'&message_type=failure');
         }
         $directions = $directionsTree -> toPathString();
     } catch (Exception $e) {
@@ -358,6 +358,11 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
     $form -> addElement('submit', 'submit_course', _SUBMIT, 'class = "flatButton"');
     try {
         if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
+            $directionsTree = new EfrontDirectionsTree();
+            if (sizeof($directionsTree -> tree) == 0) {
+                eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=directions&add_direction=1&message='.urlencode(_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY).'&message_type=failure');
+                exit;
+            }
             $userTempDir = $GLOBALS['currentUser'] -> user['directory'].'/temp';
             if (!is_dir($userTempDir)) { //If the user's temp directory does not exist, create it
                 $userTempDir = EfrontDirectory :: createDirectory($userTempDir, false);

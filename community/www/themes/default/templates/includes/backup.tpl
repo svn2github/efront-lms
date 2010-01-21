@@ -15,7 +15,7 @@
                     </script>
 
                    {$T_FILE_MANAGER}
-                   <div id = "backup_table" style = "display:none;">
+                   <div id = "backup_table" style = "display:none;" class = "filemanagerBlock">
                                {$T_BACKUP_FORM.javascript}
                                <form {$T_BACKUP_FORM.attributes}>
                                    {$T_BACKUP_FORM.hidden}

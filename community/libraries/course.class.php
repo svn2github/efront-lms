@@ -572,7 +572,7 @@ class EfrontCourse
          'active' => 1,
          'from_timestamp' => $confirmed ? time() : 0,
          'user_type' => current($role));
-     if ($this -> course['max_users'] && $this -> course['max_users'] < $count++ && ($fields['user_type'] == 'student' || $userTypes[$fields['user_type']]['basic_user_type'] == 'student')) {
+     if ($this -> course['max_users'] && $this -> course['max_users'] <= $count++ && ($fields['user_type'] == 'student' || $userTypes[$fields['user_type']]['basic_user_type'] == 'student')) {
       throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
      }
      try {

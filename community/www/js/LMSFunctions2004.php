@@ -476,7 +476,7 @@ function LMSInitialize(parameter)
 					
 
 					if(!is_null($value['description']['value']))
-						$setInteractions .= "eval('cmi.interactions[" . $cnt . "].description.value =\'".$value['description']['value']."\'');\n";
+						$setInteractions .= "eval('cmi.interactions[" . $cnt . "].description.value =\'".rawurlencode($value['description']['value'])."\'');\n";
 
 
 					$cnt1 = 0;
@@ -3958,7 +3958,7 @@ interactionsObject = function()
 			if (this.value==null)
 				throw new myError('403');
 			else
-				return this.value;
+				return decodeURIComponent(this.value);
 		}
 		this.set = function(param) 
 		{

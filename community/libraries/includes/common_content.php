@@ -100,6 +100,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                                 'questions' => $currentUnit['options']['complete_question'],
                                 'parent_content_ID' => isset($_GET['view_unit']) ? $_GET['view_unit'] : 0));
 
+
      $form -> setDefaults($currentUnit['options']);
 
      //If the "complete with question" option is set, show the selected question
@@ -130,6 +131,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
 
      //You can't change a unit's parent from this form. You must use the content tree management page
      if ($_GET['edit']) {
+         $form -> setDefaults(array('parent_content_ID' => $currentUnit['parent_content_ID']));
          $form -> freeze(array('parent_content_ID'));
      }
 
@@ -280,12 +282,15 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                 $loadScripts[] = 'includes/tests';
                 include("tests/show_unsolved_test.php");
             }
-            $smarty -> assign("T_UNIT", $currentUnit);
-            //Next and previous units are needed for navigation buttons
-            $nextUnit = $currentContent -> getNextNode($currentUnit, $visitableIterator);
-            $smarty -> assign("T_NEXT_UNIT", $nextUnit);
-            $previousUnit = $currentContent -> getPreviousNode($currentUnit, $visitableIterator);
-            $smarty -> assign("T_PREVIOUS_UNIT", $previousUnit);
+   $smarty -> assign("T_UNIT", $currentUnit);
+   //Next and previous units are needed for navigation buttons
+   //package_ID denotes that a SCORM 2004 unit is active.
+   if(!isset($_GET['package_ID'])) {
+    $nextUnit = $currentContent -> getNextNode($currentUnit, $visitableIterator);
+    $smarty -> assign("T_NEXT_UNIT", $nextUnit);
+    $previousUnit = $currentContent -> getPreviousNode($currentUnit, $visitableIterator);
+    $smarty -> assign("T_PREVIOUS_UNIT", $previousUnit);
+   }
             //Parents are needed for printing the titles
             $smarty -> assign("T_PARENT_LIST", $currentContent -> getNodeAncestors($currentUnit));
             $comments = array();
@@ -441,11 +446,16 @@ if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] 
             $bookmark = new bookmarks($_GET['id']);
             $bookmark -> delete();
         } elseif ($_GET['bookmarks'] == 'add') {
-            $fields = array('users_LOGIN' => $currentUser -> user['login'],
-                         'lessons_ID' => $currentLesson -> lesson['id'],
-                         'name' => $currentUnit['name'],
-                         'url' => $_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id']);
-            bookmarks :: create($fields);
+            foreach ($bookmarks as $value) {
+                $urls[] = $value['url'];
+            }
+            if (!in_array($_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id'], $urls)) {
+             $fields = array('users_LOGIN' => $currentUser -> user['login'],
+                          'lessons_ID' => $currentLesson -> lesson['id'],
+                          'name' => $currentUnit['name'],
+                          'url' => $_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id']);
+             bookmarks :: create($fields);
+            }
         } else {
             echo json_encode($bookmarks);
         }

@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Related people");
 define("_LEARNINGACTIVITY","Learning activity");
 define("_TIMELINE","Timeline");
 define("_WASASSIGNEDTHELESSON","was assigned lesson");
-define("_WILLBETEACHINGLESSON","will be teaching lesson");
+define("_WILLBETEACHINGLESSON","will be teaching the lesson");
 define("_HASCOMPLETEDLESSON","has completed lesson");
 define("_NOLONGERATTENDSLESSON","no longer attends lesson");
 define("_WROTEACOMMENTFORUNIT","wrote a comment for unit");

@@ -52,7 +52,7 @@ function ajaxPost(id, el, table_id) {
     table_id == 'skillsTable' ? ajaxLessonSkillUserPost(1, id, el, table_id) : usersAjaxPost(id, el, table_id);
 }
 
-function  usersAjaxPost(login, el, table_id) {
+function usersAjaxPost(login, el, table_id) {
 	var url = location.toString();
 	var parameters = {postAjaxRequest:1, method: 'get'};
 
@@ -65,8 +65,13 @@ function  usersAjaxPost(login, el, table_id) {
         	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
         }
     }
-	ajaxRequest(el, url, parameters);	
+	ajaxRequest(el, url, parameters, false, undoCheck);	
     
+}
+
+function undoCheck(el, response) {
+	el.checked ? el.checked = false : el.checked = true;
+	alert(decodeURIComponent(response));
 }
 
 // type: 1 - inserting/deleting the skill to an employee | 2 - changing the specification

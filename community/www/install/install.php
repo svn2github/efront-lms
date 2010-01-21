@@ -346,7 +346,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 EfrontConfiguration :: setValue('notifications_max_sent_messages', '100');
 
 */
+                Installation :: addModules(true);
                 header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");
+                exit;
             } else {
                 //Create the file libraries/configuration.php
                 Installation :: createConfigurationFile($values);
@@ -626,7 +628,7 @@ class Installation
 	 * @static
 
 	 */
- public static function addModules() {
+ public static function addModules($upgrade = false) {
      $modulesToInstall = array("dimdim",
              "billboard",
              "faq",
@@ -638,6 +640,10 @@ class Installation
              "quick_mails",
              "youtube",
              "flashcards");
+     $modulesList = eF_getTableData("modules", "*");
+     foreach ($modulesList as $module) {
+         $existingModules[] = $module['classname'];
+     }
      $filesystem = new FileSystemTree(G_MODULESPATH, true);
      foreach (new EfrontNodeFilterIterator($filesystem -> tree) as $moduleDirectory => $value) {
          try {
@@ -664,20 +670,28 @@ class Installation
                              }
                          }
                          $fields = array('className' => $className,
-                                  'db_file' => $database_file,
-                                  'name' => $className,
-                                  'active' => 0,
-                                  'title' => ((string)$xml -> title)?(string)$xml -> title:" ",
-                                  'author' => (string)$xml -> author,
-                                  'version' => (string)$xml -> version,
-                                  'description' => (string)$xml -> description,
-                                  'position' => basename($moduleDirectory),
-                                  'permissions' => implode(",", $module -> getPermittedRoles()));
+                                   'db_file' => $database_file,
+                                   'name' => $className,
+                                   'active' => 0,
+                                   'title' => ((string)$xml -> title)?(string)$xml -> title:" ",
+                                   'author' => (string)$xml -> author,
+                                   'version' => (string)$xml -> version,
+                                   'description' => (string)$xml -> description,
+                                   'position' => basename($moduleDirectory),
+                                   'permissions' => implode(",", $module -> getPermittedRoles()));
                          // Install module database
-                         if ($module -> onInstall()) {
-                             eF_insertTableData("modules", $fields);
+                         if ($upgrade && in_array($className, $existingModules)) {
+                             if ($module -> onUpgrade()) {
+                                 eF_updateTableData("modules", $fields, "className ='".$_GET['upgrade']."'");
+                             } else {
+                                 throw new Exception(_MODULEDBERRORONUPGRADECHECKUPGRADEFUNCTION);
+                             }
                          } else {
-                             throw new Exception(_MODULEDBERRORONINSTALL);
+                             if ($module -> onInstall()) {
+                                 eF_insertTableData("modules", $fields);
+                             } else {
+                                 throw new Exception(_MODULEDBERRORONINSTALL);
+                             }
                          }
                      } else {
                          throw new Exception('"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .$moduleDirectory.'/'.$className.'.class.php');

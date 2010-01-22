@@ -1,11 +1,5 @@
 {* smarty template for content_report.php *}
 
-{if $T_MESSAGE_TYPE == 'success'}
-    <script>
-        re = /\?/;
-        !re.test(parent.location) ? parent.location = parent.location+'?message={$T_MESSAGE}&message_type={$T_MESSAGE_TYPE}' : parent.location = parent.location+'&message={$T_MESSAGE}&message_type={$T_MESSAGE_TYPE}';            
-    </script>
-{/if}
 
 {include file = "includes/header.tpl"}          {*The inclusion is put here instead of the beginning in order to speed up reloading, in case of success*}
 
@@ -29,6 +23,10 @@
 </form>
 {/capture}
  {eF_template_printBlock title = $smarty.const._CONTENTREPORT data = $smarty.capture.t_report_code image = '32x32/warning.png'}
+{/if}
+
+{if $T_MESSAGE_TYPE == 'success'}
+    <script>parent.location = parent.location;</script>
 {/if}
 
 {include file = "includes/closing.tpl"}

@@ -14,11 +14,12 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
 {if $T_OP == 'tests'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons&op=tests">'|cat:$smarty.const._SKILLGAPTESTS|cat:'</a>'}
         {capture name = "moduleLessonsList"}
-                              <tr><td class = "moduleCell">
-         {if isset($smarty.get.solve_test)}
+ <tr><td class = "moduleCell">
+  {if isset($smarty.get.solve_test)}
          {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons&op=tests&solve_test='|cat:$smarty.get.solve_test|cat:'">'|cat:$T_TEST_DATA->test.name|cat:'</a>'}
 
-            {if $T_SHOW_CONFIRMATION}
+   {if $T_SHOW_CONFIRMATION}
+    {capture name = "t_unsolved_skill_gap_code"}
                             <table class = "testHeader">
                                 <tr><td id = "testName">{$T_TEST_DATA->test.name}</td></tr>
                                 <tr><td id = "testDescription">{$T_TEST_DATA->test.description}</td></tr>
@@ -41,6 +42,9 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
                                 {/if}
                                 </td></tr>
                             </table>
+    {/capture}
+    {eF_template_printBlock title=$T_TEST_DATA->test.name data = $smarty.capture.t_unsolved_skill_gap_code image='32x32/skill_gap.png'}
+
             {elseif $smarty.get.test_analysis}
                         {capture name = "t_test_analysis_code"}
                             <div class = "headerTools">
@@ -55,6 +59,7 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
 
                         {eF_template_printBlock title = "`$smarty.const._TESTANALYSIS` `$smarty.const._FORTEST` <span class = "innerTableName">&quot;`$T_TEST_DATA->test.name`&quot;</span> `$smarty.const._ANDUSER` <span class = "innerTableName">&quot;#filter:login-`$T_TEST_DATA->completedTest.login`#&quot;</span>" data = $smarty.capture.t_test_analysis_code image='32x32/tests.png'}
             {else}
+    {capture name = "t_skill_gap_test_code"}
                     {if $T_TEST_STATUS.status == '' || $T_TEST_STATUS.status == 'incomplete'}
                         {capture name = "test_footer"}
                         <table class = "formElements" style = "width:100%">
@@ -70,19 +75,25 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
                             {$T_TEST}
                             {$smarty.capture.test_footer}
                         </form>
-                {/if}
+                 {/if}
+    {/capture}
+    {eF_template_printBlock title=$T_TEST_DATA->test.name data = $smarty.capture.t_skill_gap_test_code image='32x32/skill_gap.png'}
             {/if}
          {else}
 
             {if $T_TESTS}
-            {eF_template_printBlock title=$smarty.const._SKILLGAPTESTSTOBECOMPLETED columns=3 links=$T_TESTS image='32x32/skill_gap.png'}
+             {eF_template_printBlock title=$smarty.const._SKILLGAPTESTSTOBECOMPLETED columns=3 links=$T_TESTS image='32x32/skill_gap.png'}
             {else}
-                <table width = "100%">
-                    <tr><td class = "emptyCategory">{$smarty.const._NOSKILLGAPTESTSASSIGNEDTOYOU}</td></tr>
-                </table>
+    {capture name = "t_no_skill_gap_test_code"}
+                 <table width = "100%">
+                     <tr><td class = "emptyCategory">{$smarty.const._NOSKILLGAPTESTSASSIGNEDTOYOU}</td></tr>
+                 </table>
+    {/capture}
+    {eF_template_printBlock title=$smarty.const._NOSKILLGAPTESTSASSIGNEDTOYOU data = $smarty.capture.t_no_skill_gap_test_code image='32x32/skill_gap.png'}
             {/if}
          {/if}
-                                </td></tr>
+
+ </td></tr>
         {/capture}
 {else}
 

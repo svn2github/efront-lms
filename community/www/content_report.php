@@ -33,52 +33,53 @@ if (eF_checkUser($_SESSION['s_login'], $_SESSION['s_password']) == "administrato
 
     //$form -> addElement('text', 'topic', _TOPIC, 'class = "inputText"');
 	//$form -> addRule('topic', _THEFIELD.' "'._TOPIC.'" '._ISMANDATORY, 'required', null, 'client');
-	$form -> addElement('hidden', 'page', http_build_query($_GET));
+	$form -> addElement('hidden', 'page', htmlspecialchars_decode(http_build_query($_GET)));
 	$form -> addElement('textarea', 'notes', _NOTES, 'class = "simpleEditor inputTextArea" style="width:30em;height:10em;"');
 	//$form -> addRule('notes', _THEFIELD.' "'._NOTES.'" '._ISMANDATORY, 'required', null, 'client');
     $form -> addElement('submit', 'submit_report', _REPORT, 'class = "flatButton"');
 
     if ($form -> isSubmitted()) {
         if ($form -> validate()) {
-				$values = $form -> exportValues();
-				$recipients 	= array();
-				$lesson 		= new EfrontLesson($_SESSION['s_lessons_ID']);
-				$lessonProfs    = $lesson -> getUsers("professor");
-				foreach ($lessonProfs as $key => $value) {
-					$recipients[] = $key;
-				}
-				
-				
-				if (strpos($values['page'], "glossary") !== false){
-					$title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._GLOSSARY.']';
-				} elseif (strpos($values['page'], "edit_question") !== false){
-					$title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._QUESTION.']';
-				} else{
-					$contentId 	= mb_substr($values['page'],10);
-					$resultType = eF_getTableData("content", "ctg_type","id=".$contentId);
-					if ($resultType[0]['ctg_type'] == "tests"){
-						$title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._TESTS.']';
-					} else {
-						$title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._CONTENT.']';
-					}
-				}
-				$patterns     = array("/([&|\?])message=[^&]*(&message_type=[^&]*)?(&(.*))*/");
-				$replacements = array("\$1\$4");
-				$values['page'] = preg_replace($patterns, $replacements, $values['page']);
-				
-				
-				$data 			= '<a href="professor.php?lessons_ID='.$_SESSION['s_lessons_ID'].'&'.$values['page'].'">'._LINKTOTOPIC.'</a><br><br>'._NOTES.':&nbsp;'.$values['notes'];
+            $values = $form -> exportValues();
+            $recipients 	= array();
+            $lesson 		= new EfrontLesson($_SESSION['s_lessons_ID']);
+            $lessonProfs    = $lesson -> getUsers("professor");
+            foreach ($lessonProfs as $key => $value) {
+                $recipients[] = $key;
+            }
 
-                $pm = new eF_PersonalMessage($_SESSION['s_login'], $recipients, $title, $data);
-				
-                if ($pm -> send()) {
-                    $message      = _SUCCESFULLYSENDREPORT;
-                    $message_type = 'success';
-                } else { 
-                    $message      = $pm -> errorMessage;
-                    $message_type = 'failure';
+
+            if (strpos($values['page'], "glossary") !== false){
+                $title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._GLOSSARY.']';
+            } elseif (strpos($values['page'], "edit_question") !== false){
+                $title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._QUESTION.']';
+            } else{                
+                $contentId 	= mb_substr($values['page'],10);
+                preg_match("/.*view_unit=(\d+).*/", $values['page'], $matches);
+                
+                $resultType = eF_getTableData("content", "ctg_type", "id=".$matches[1]);
+                if ($resultType[0]['ctg_type'] == "tests"){
+                    $title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._TESTS.']';
+                } else {
+                    $title 			= _ERRORREPORTFOR.'&nbsp;'.$lesson -> lesson['name'].'&nbsp;['._CONTENT.']';
                 }
-            
+            }
+            $patterns     = array("/([&|\?])message=[^&]*(&message_type=[^&]*)?(&(.*))*/");
+            $replacements = array("\$1\$4");
+            $values['page'] = preg_replace($patterns, $replacements, $values['page']);
+
+
+            $data 			= '<a href="professor.php?lessons_ID='.$_SESSION['s_lessons_ID'].'&'.$values['page'].'">'._LINKTOTOPIC.'</a><br><br>'._NOTES.':&nbsp;'.$values['notes'];
+
+            $pm = new eF_PersonalMessage($_SESSION['s_login'], $recipients, $title, $data);
+
+            if ($pm -> send()) {
+                $message      = _SUCCESFULLYSENDREPORT;
+                $message_type = 'success';
+            } else {
+                $message      = $pm -> errorMessage;
+                $message_type = 'failure';
+            }            
         } 
     }
 

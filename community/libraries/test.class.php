@@ -1096,8 +1096,9 @@ class EfrontTest
 	            } catch (EfrontFileException $e) {}
 	        }
 	        
-	        //If the test is the last one (the 'active'), set it as not seen
-	        if ($completedTest -> completedTest['archive'] == 0) {
+	        //If the test is the last one (the 'active'), set it as not seen. 
+	        //If it doesn't have a content id, it is a skill-gap test
+	        if ($completedTest -> completedTest['archive'] == 0 && $this -> test['content_ID']) {
 	        	if (!($user instanceof EfrontUser)) {
 	        		$user = EfrontUserFactory :: factory($login, false, 'student');
 	        	}
@@ -2050,7 +2051,8 @@ class EfrontCompletedTest extends EfrontTest
     	
 //      if (!$url) {
 
-            $url = basename($_SERVER['PHP_SELF']).'?'.http_build_query($_GET);//$_SERVER['QUERY_STRING'];
+            $url = htmlspecialchars_decode(basename($_SERVER['PHP_SELF']).'?'.http_build_query($_GET));//$_SERVER['QUERY_STRING'];
+            
 //      }
 
         $parentTest 	= new EfrontTest($this -> test['id']);

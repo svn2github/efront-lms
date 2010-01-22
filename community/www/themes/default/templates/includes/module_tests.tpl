@@ -437,7 +437,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   {*Interface to ajax-assign users to a test*}
         {if $T_SKILLGAP_TEST && $smarty.get.edit_test}
    {capture name = "t_test_users_code"}
-    <!--ajax:testUsersTable-->
+<!--ajax:testUsersTable-->
          <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "testUsersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=tests&edit_test={$smarty.get.edit_test}&">
              <tr class = "topTitle">
                  <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
@@ -829,9 +829,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       {if $T_SKILLGAP_TEST}
        {literal}
         <script>
-        $('redoLinkHref').href = "{/literal}{$smarty.session.s_type}{literal}.php?ctg=tests&delete_solved_test={/literal}{$smarty.get.show_solved_test}{literal}&test_id={/literal}{$T_TEST_DATA->test.id}{literal}&users_login={/literal}{$T_TEST_DATA->completedTest.login}{literal}";
-        $('redoLinkHref').onclick = "";
-        $('testAnalysisLinkHref').href = $('testAnalysisLinkHref').href + "&user={/literal}{$T_TEST_DATA->completedTest.login}{literal}";
+        if (document.getElementById('redoLinkHref')) {
+         document.getElementById('redoLinkHref').href = "{/literal}{$smarty.session.s_type}{literal}.php?ctg=tests&delete_solved_test={/literal}{$smarty.get.show_solved_test}{literal}&test_id={/literal}{$T_TEST_DATA->test.id}{literal}&users_login={/literal}{$T_TEST_DATA->completedTest.login}{literal}";
+         document.getElementById('redoLinkHref').onclick = "";
+        }
+        document.getElementById('testAnalysisLinkHref').href = document.getElementById('testAnalysisLinkHref').href + "&user={/literal}{$T_TEST_DATA->completedTest.login}{literal}";
         </script>
        {/literal}
       {/if}

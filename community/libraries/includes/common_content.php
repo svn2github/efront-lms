@@ -285,14 +285,18 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
    $smarty -> assign("T_UNIT", $currentUnit);
    //Next and previous units are needed for navigation buttons
    //package_ID denotes that a SCORM 2004 unit is active.
-   if(!isset($_GET['package_ID'])) {
+   if (!isset($_GET['package_ID'])) {
     $nextUnit = $currentContent -> getNextNode($currentUnit, $visitableIterator);
     $smarty -> assign("T_NEXT_UNIT", $nextUnit);
     $previousUnit = $currentContent -> getPreviousNode($currentUnit, $visitableIterator);
     $smarty -> assign("T_PREVIOUS_UNIT", $previousUnit);
+             //Parents are needed for printing the titles
+             $smarty -> assign("T_PARENT_LIST", $currentContent -> getNodeAncestors($currentUnit));
+   } else {
+       //SCORM 2004 content handles navigation on its own, so it's illegal to have additional navigation handles
+       $smarty -> assign("T_PARENT_LIST", $currentContent -> getNodeAncestors($_GET['package_ID']));
+       $smarty -> assign("T_SCORM_2004_TITLE", true);
    }
-            //Parents are needed for printing the titles
-            $smarty -> assign("T_PARENT_LIST", $currentContent -> getNodeAncestors($currentUnit));
             $comments = array();
             $result = array_merge(comments::getComments($currentLesson -> lesson['id'], false, $currentUnit['id']),
                                   comments::getComments($currentLesson -> lesson['id'], $currentUser, $currentUnit['id'], false, false));

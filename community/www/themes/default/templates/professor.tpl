@@ -238,6 +238,8 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
             {assign var = "truncated_name" value = $T_PARENT_LIST[parents_list].name|eF_truncate:40}
             {if $T_PARENT_LIST[parents_list].data != '' || $T_PARENT_LIST[parents_list].ctg_type == 'tests'}
                 {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = \"titleLink\" href = \"`$smarty.server.PHP_SELF`?ctg=content&view_unit=`$T_PARENT_LIST[parents_list].id`\" title = \"`$T_PARENT_LIST[parents_list].name`\">`$truncated_name`</a>"}
+            {elseif $T_SCORM_2004_TITLE}
+             {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = \"inactiveLink\" href = \"javascript:void(0)\" title = \"`$T_PARENT_LIST[parents_list].name`\">`$truncated_name`</a>"}
             {else}
                 {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = \"inactiveLink\" href = \"javascript:void(0)\" title = \"`$T_PARENT_LIST[parents_list].name` (`$smarty.const._EMPTYUNIT`)\">`$truncated_name`</a>"}
             {/if}

@@ -413,7 +413,7 @@ function  ajaxAssignAllNew(el) {
 
 //Function to remove a solved test
 function  ajaxRemoveSolvedTest(el, login, completed_test_id, test_id) {
-	parameters = {postAjaxRequest: 1, delete_solved_test:completed_test_id, test_id: test_id, users_login: login, method: 'get'};
+	parameters = {postAjaxRequest: 1, edit_test:0, delete_solved_test:completed_test_id, test_id: test_id, users_login: login, method: 'get'};//We put edit_test=0 because otherwise we end up in a different branch of the tests page
 	var url    = location.toString();
 	ajaxRequest(el, url, parameters, onAjaxRemoveSolvedTest);		
 } 

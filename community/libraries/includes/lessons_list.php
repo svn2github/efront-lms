@@ -7,6 +7,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $loadScripts[] = 'includes/lessons_list';
 try {
     if (isset($_GET['op']) && $_GET['op'] == 'tests') {
+        $loadScripts[] = 'includes/tests';
     } elseif (isset($_GET['export']) && $_GET['export'] == 'rtf') {
     } elseif (isset($_GET['course']) && in_array($_GET['course'], array_keys($currentUser -> getCourses()))) {
         $userCourses = $currentUser -> getCourses();

@@ -837,7 +837,7 @@ class EfrontContentTree extends EfrontTree
      */
     public function reset() {
         if ($this -> data) {
-            $result = eF_getTableData("content", "*", "lessons_ID = '".$this -> lessonId."'");
+            $result = eF_getTableData("content", "*, data != '' as has_data", "lessons_ID = '".$this -> lessonId."'");
         } else {
             $fields = eF_getTableFields("content");
             unset($fields[array_search('data', $fields)]);
@@ -858,7 +858,9 @@ class EfrontContentTree extends EfrontTree
         //$units   = eF_getTableData("content", "id,name,parent_content_ID,lessons_ID,timestamp,ctg_type,active,previous_content_ID", "lessons_ID = '".$this -> lessonId."'");
         $rejected = array();
         foreach ($units as $node) { //Assign previous content ids as keys to the previousNodes array, which will be used for sorting afterwards
-            $node['has_data'] ? $node['data'] = 'efront#special#text' : $node['data'] = ''; //Eliminate with 'efront#special#text' data for units that don't have any content, and set an empty space ' ' for units that have content. This is done so that the toHTML can handle differently the ones from the others. The efront#special#text is checked by persist() in order to leave data unchanged in case we are updating
+            if (!$this -> data) {
+                $node['has_data'] ? $node['data'] = 'efront#special#text' : $node['data'] = ''; //Eliminate with 'efront#special#text' data for units that don't have any content, and set an empty space ' ' for units that have content. This is done so that the toHTML can handle differently the ones from the others. The efront#special#text is checked by persist() in order to leave data unchanged in case we are updating
+            }
             $node = new EfrontUnit($node); //We convert arrays to array objects, which is best for manipulating data through iterators            
             if (!isset($previousNodes[$node['previous_content_ID']])) {
                 $previousNodes[$node['previous_content_ID']] = $node;
@@ -1832,7 +1834,7 @@ class EfrontContentTree extends EfrontTree
             } else {
                 $newParentUnit = $this -> copySimpleUnit($sourceUnit, false);
             }
-            $sourceTree = new EfrontContentTree($sourceUnit -> offsetGet('lessons_ID'));
+            $sourceTree = new EfrontContentTree($sourceUnit -> offsetGet('lessons_ID'), true);
             $children = $sourceTree -> getNodeChildren($sourceUnit); //$children is a RecursiveArrayIterator
             while ($children -> valid()) {
                 $childUnit = $children -> current();

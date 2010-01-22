@@ -74,14 +74,14 @@ try {
             exit;
         //We asked to copy content
         } else {
-            $currentContent = new EfrontContentTree($currentLesson);
+            $currentContent = new EfrontContentTree($currentLesson, true);
             $iterator       = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
             if (sizeof($currentContent -> tree) == 0) {
                 $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator,       'dhtmlTargetTree', array('noclick' => true, 'drag' => false, 'tree_root' => true)));
             } else {
                 $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator,       'dhtmlTargetTree', array('noclick' => true, 'drag' => false, 'expand' => true)));
             }
-            $sourceContent  = new EfrontContentTree($_GET['from']);
+            $sourceContent  = new EfrontContentTree($_GET['from'], true);
             $sourceIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sourceContent  -> tree), RecursiveIteratorIterator :: SELF_FIRST));
             $smarty -> assign("T_SOURCE_TREE",  $sourceContent  -> toHTML($sourceIterator, 'dhtmlSourceTree',  array('noclick' => true, 'drag' => true, 'expand' => true)));
 

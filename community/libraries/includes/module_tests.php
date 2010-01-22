@@ -410,6 +410,7 @@ try {
             if (isset($_GET['filter'])) {
                 $recentTests = eF_filterData($recentTests, $_GET['filter']);
             }
+
             $smarty -> assign("T_PENDING_SIZE", sizeof($recentTests));
             if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
                 isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
@@ -627,12 +628,23 @@ try {
                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
                 exit;
             }
+            try {
             //eF_deleteTableData("completed_tests", "id = " . $_GET['delete_solved_test']);
-            $currentTest = new EfrontTest($_GET['test_id']);
-            $currentTest -> undo($_GET['users_login'], $_GET['delete_solved_test']);
-            if ($skillgap_tests) {
-                // Remove a solved test from the users_to_skillgap list
-                eF_updateTableData("users_to_skillgap_tests" , array("solved" => 0), "tests_id = " . $_GET['test_id']. " AND users_login = '".$_GET['users_login']."'");
+             $currentTest = new EfrontTest($_GET['test_id']);
+
+             $currentTest -> undo($_GET['users_login'], $_GET['delete_solved_test']);
+             if ($skillgap_tests) {
+                 // Remove a solved test from the users_to_skillgap list
+                 eF_updateTableData("users_to_skillgap_tests" , array("solved" => 0), "tests_id = " . $_GET['test_id']. " AND users_login = '".$_GET['users_login']."'");
+             }
+            } catch (Exception $e) {
+             if ($_GET['postAjaxRequest']) {
+              header("HTTP/1.0 500 ");
+              echo $e -> getMessage().' ('.$e -> getCode().')';
+             } else {
+                 throw ($e);
+             }
+
             }
             if ($_GET['postAjaxRequest']) {
                 exit;

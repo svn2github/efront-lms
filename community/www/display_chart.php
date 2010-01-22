@@ -1,13 +1,14 @@
+<?php
+    $path = "../libraries/";
+    define("NO_OUTPUT_BUFFERING", true);
+    require_once($path."configuration.php");
+?>
 <html>
 <head>
  
 <script type="text/javascript" src="charts/js/swfobject.js"></script>
 <script type="text/javascript">
 <?php
-    $path = "../libraries/";
-    define("NO_OUTPUT_BUFFERING", true);
-    require_once($path."configuration.php");
-
     $id = $_GET['id'];
     switch ($id) {
         case 2:

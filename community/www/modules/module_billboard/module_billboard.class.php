@@ -45,7 +45,6 @@ class module_billboard extends EfrontModule {
 
     // On importing a lesson
     public function onImportLesson($lessonId, $data) {
-
         // Change all external content links to the folder of the newly imported lesson
         if (strpos($data[0]['data'],"lessons/".$data[0]['lessons_ID']."/")) {
             $data[0]['data'] = str_replace("lessons/".$data[0]['lessons_ID']."/", "lessons/".$lessonId."/", $data[0]['data']."/");
@@ -53,7 +52,7 @@ class module_billboard extends EfrontModule {
             $data[0]['data'] = str_replace("lessons\\".$data[0]['lessons_ID']."\\", "lessons\\".$lessonId."\\", $data[0]['data']."\\");
         }
         $data[0]['lessons_ID'] = $lessonId;
-        eF_insertTableData("module_billboard",$data[0]);
+        eF_insertOrupdateTableData("module_billboard",$data[0], "lessons_ID=$lessonId");
         return true;
     }
 

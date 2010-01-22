@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Relaterade personer");//Related people
 define("_LEARNINGACTIVITY","Inlärning");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","tilldelades lektion");//was assigned lesson
-define("_WILLBETEACHINGLESSON","skall lära läxan");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","skall lära läxan");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","har avslutat lektion");//has completed lesson
 define("_NOLONGERATTENDSLESSON","inte längre deltar lektion");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","skrev en kommentar för enhet");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Filialen är inte giltig eller s
 define("_REPORTSFORBRANCH","Rapporter för gren");//Reports for branch
 define("_BRANCHUSERS","Branch användare");//Branch users
 define("_BRANCHUSERTRAFFIC","Branch användare trafik");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Rätt svar procent");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Fråga analys");//Question analysis (New)
-define("_PARTICIPANTSCAP","Deltagare");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Procent med poäng högre eller lika");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Deltagande rapporter");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Betyg distribution");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kumulativ poäng distribution");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Rapporter för en viss");//Reports for a specific (New)
-define("_KEYUSAGE","Nyckelanvändning");//Key usage (New)
-define("_INVALIDVERSIONKEY","Ogiltig version nyckel");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Ställa version nyckel misslyckades med kod");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Det finns en ny version tillgänglig!");//There is a new version available! (New)
-define("_RELEASENOTES","Versionsfakta");//Release notes (New)
-define("_VERSIONUPTODATE","Din version är uppdaterad");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contacting server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Rätt svar procent");//Correct answer percentage
+define("_QUESTIONANALYSIS","Fråga analys");//Question analysis
+define("_PARTICIPANTSCAP","Deltagare");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Procent med poäng högre eller lika");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Deltagande rapporter");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Betyg distribution");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kumulativ poäng distribution");//Cumulative score distribution
+define("_SEARCHTYPE","Rapporter för en viss");//Reports for a specific
+define("_KEYUSAGE","Nyckelanvändning");//Key usage
+define("_INVALIDVERSIONKEY","Ogiltig version nyckel");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Ställa version nyckel misslyckades med kod");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Det finns en ny version tillgänglig!");//There is a new version available!
+define("_RELEASENOTES","Versionsfakta");//Release notes
+define("_VERSIONUPTODATE","Din version är uppdaterad");//Your version is up to date
+define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Ladda ner och installera");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Systemet kunde inte ansluta till licensserver");//The system could not connect to license server (New)
-define("_LICENSESERVER","Licensservern");//License server (New)
-define("_UPGRADESVALIDUNTIL","Uppgraderingar giltigt till");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktiverat på");//Activated on (New)
-define("_SERVERRESPONDED","Servern svarade");//The server responded (New)
-define("_FILEZEROSIZE","Misslyckades med att hämta rätt information om uppgraderingen fil");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Filen kunde inte hämtas");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Den nedladdade filen kan inte skrivas till din hemkatalog");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Visa tomma block");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Du har loggats ut på grund av en lång period av inaktivitet");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Överge alla");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Slutförande procent block");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Enhet alternativ block");//Unit options block (New)
-define("_RIGHTBAR","Right sidebar");//Right sidebar (New)
-define("_LEFTBAR","Left sidebar");//Left sidebar (New)
-define("_STUDENTCPANEL","Student kontrollpanel");//Student control panel (New)
-define("_SMARTCONTENT","Smarta");//Smart content (New)
-define("_ZIPHANDLING","Zip hantering metod");//Zip handling method (New)
-define("_COMPLETION","Slutförande");//Completion (New)
-define("_SETALLTO","Ställ in alla");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Systemet kunde inte ansluta till licensserver");//The system could not connect to license server
+define("_LICENSESERVER","Licensservern");//License server
+define("_UPGRADESVALIDUNTIL","Uppgraderingar giltigt till");//Upgrades valid until
+define("_ACTIVATEDON","Aktiverat på");//Activated on
+define("_SERVERRESPONDED","Servern svarade");//The server responded
+define("_FILEZEROSIZE","Misslyckades med att hämta rätt information om uppgraderingen fil");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Filen kunde inte hämtas");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Den nedladdade filen kan inte skrivas till din hemkatalog");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Visa tomma block");//Show empty blocks
+define("_INACTIVITYLOGOUT","Du har loggats ut på grund av en lång period av inaktivitet");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Överge alla");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Slutförande procent block");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Enhet alternativ block");//Unit options block
+define("_RIGHTBAR","Right sidebar");//Right sidebar
+define("_LEFTBAR","Left sidebar");//Left sidebar
+define("_STUDENTCPANEL","Student kontrollpanel");//Student control panel
+define("_SMARTCONTENT","Smarta");//Smart content
+define("_ZIPHANDLING","Zip hantering metod");//Zip handling method
+define("_COMPLETION","Slutförande");//Completion
+define("_SETALLTO","Ställ in alla");//Set all to
+define("_INADEQUATEBALANCE","Otillräcklig balans");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal mode");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transaction loggfil");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Närvarande fastställd postadress motsvarar inte fått företagsadress");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Unsupported operation typ");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate avslutad betalning");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Unsupported betalningsstatus");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Du har avbrutit affären");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaktionen slutfördes framgångsrikt.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","Kontot");//My account (New)
+define("_MODULE","Modul");//Module (New)
+define("_EMBEDTYPE","Bädda innehåll");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Nytt fönster (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parametrar");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Klicka på knappen för att starta enheten");//Click on the button to start the unit (New)
+define("_STARTUNIT","Start enhet");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Tyvärr SCORM 2004 stöds inte i denna utgåva");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Återställ standard anmälningar");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Innehållet framsteg (exkl. tester)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Databasversion");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Din databas version är annorlunda än koden version. Kör% länken script");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Hämta exporterade kurs");//Download exported course (New)
+define("_MAXDISCOUNT100","Den maximala rabatten är 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registrering / Uppdatering");//Registration/Update (New)
+define("_ROWS","Rows");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Kommandot misslyckades med följande resultat");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Kanske ditt system inte har stöd för zip-behandling?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","För att skapa en kurs, måste du först skapa en kategori");//In order to create a course, you must first create a category (New)
 ?>

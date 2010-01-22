@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Relaterede personer");//Related people
 define("_LEARNINGACTIVITY","Læringsaktivitet");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","blev tildelt lektion");//was assigned lesson
-define("_WILLBETEACHINGLESSON","Der vil blive undervisning lektion");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","Der vil blive undervisning lektion");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","har afsluttet lektion");//has completed lesson
 define("_NOLONGERATTENDSLESSON","ikke længere deltager i lektionen");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","skrev en kommentar til enhed");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Filialen er ikke gyldig eller du
 define("_REPORTSFORBRANCH","Rapporter til filial");//Reports for branch
 define("_BRANCHUSERS","Branch brugere");//Branch users
 define("_BRANCHUSERTRAFFIC","Branch bruger trafik");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Rigtigt svar procent");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Spørgsmål analyse");//Question analysis (New)
-define("_PARTICIPANTSCAP","Deltagere");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Procent med scorer højere end eller lig");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Deltagelse rapporter");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Score distribution");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kumulative score distribution");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Rapporter for en specifik");//Reports for a specific (New)
-define("_KEYUSAGE","Key usage");//Key usage (New)
-define("_INVALIDVERSIONKEY","Ugyldig version nøgle");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Indstilling af version nøgle mislykkedes med kode");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Der er en ny version tilgængelig!");//There is a new version available! (New)
-define("_RELEASENOTES","Release notes");//Release notes (New)
-define("_VERSIONUPTODATE","Din version er up to date");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contacting server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Rigtigt svar procent");//Correct answer percentage
+define("_QUESTIONANALYSIS","Spørgsmål analyse");//Question analysis
+define("_PARTICIPANTSCAP","Deltagere");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Procent med scorer højere end eller lig");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Deltagelse rapporter");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Score distribution");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kumulative score distribution");//Cumulative score distribution
+define("_SEARCHTYPE","Rapporter for en specifik");//Reports for a specific
+define("_KEYUSAGE","Key usage");//Key usage
+define("_INVALIDVERSIONKEY","Ugyldig version nøgle");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Indstilling af version nøgle mislykkedes med kode");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Der er en ny version tilgængelig!");//There is a new version available!
+define("_RELEASENOTES","Release notes");//Release notes
+define("_VERSIONUPTODATE","Din version er up to date");//Your version is up to date
+define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Download og installer");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Systemet kunne ikke forbinde til licens-server");//The system could not connect to license server (New)
-define("_LICENSESERVER","Licensserver");//License server (New)
-define("_UPGRADESVALIDUNTIL","Opgraderinger gyldig indtil");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktiveret");//Activated on (New)
-define("_SERVERRESPONDED","Serveren svarede");//The server responded (New)
-define("_FILEZEROSIZE","Kunne ikke hente ordentlig information om opgraderingen fil");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Filen kunne ikke hentes");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Den downloadede fil kunne ikke skrives til din hjemmemappe");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Vis tomme blokke");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Du er blevet logget ud på grund af en lang periode med inaktivitet");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Opgive alle");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Afslutning procent blok");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Unit muligheder blok");//Unit options block (New)
-define("_RIGHTBAR","Right sidebar");//Right sidebar (New)
-define("_LEFTBAR","Venstre sidebar");//Left sidebar (New)
-define("_STUDENTCPANEL","Student kontrolpanel");//Student control panel (New)
-define("_SMARTCONTENT","Smart indhold");//Smart content (New)
-define("_ZIPHANDLING","Zip håndtering metode");//Zip handling method (New)
-define("_COMPLETION","Afslutning");//Completion (New)
-define("_SETALLTO","Indstil alle til");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Systemet kunne ikke forbinde til licens-server");//The system could not connect to license server
+define("_LICENSESERVER","Licensserver");//License server
+define("_UPGRADESVALIDUNTIL","Opgraderinger gyldig indtil");//Upgrades valid until
+define("_ACTIVATEDON","Aktiveret");//Activated on
+define("_SERVERRESPONDED","Serveren svarede");//The server responded
+define("_FILEZEROSIZE","Kunne ikke hente ordentlig information om opgraderingen fil");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Filen kunne ikke hentes");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Den downloadede fil kunne ikke skrives til din hjemmemappe");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Vis tomme blokke");//Show empty blocks
+define("_INACTIVITYLOGOUT","Du er blevet logget ud på grund af en lang periode med inaktivitet");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Opgive alle");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Afslutning procent blok");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Unit muligheder blok");//Unit options block
+define("_RIGHTBAR","Right sidebar");//Right sidebar
+define("_LEFTBAR","Venstre sidebar");//Left sidebar
+define("_STUDENTCPANEL","Student kontrolpanel");//Student control panel
+define("_SMARTCONTENT","Smart indhold");//Smart content
+define("_ZIPHANDLING","Zip håndtering metode");//Zip handling method
+define("_COMPLETION","Afslutning");//Completion
+define("_SETALLTO","Indstil alle til");//Set all to
+define("_INADEQUATEBALANCE","Utilstrækkelig balance");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal mode");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transaction logfil");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Øjeblikket er fastsat adresse passer ikke modtaget forretningsadresse");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Unsupported operation type");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate afsluttet betaling");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Unsupported betaling status");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Du har annulleret transaktionen");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaktionen blev gennemført med succes.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","Min konto");//My account (New)
+define("_MODULE","Modul");//Module (New)
+define("_EMBEDTYPE","Embed indhold");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Nyt vindue (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parametre");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Klik på knappen for at starte enheden");//Click on the button to start the unit (New)
+define("_STARTUNIT","Start-enhed");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Desværre SCORM 2004 er ikke understøttet i denne udgave");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Gendan standard-meddelelser");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Indhold fremskridt (excl. test)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Database version");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Din database version er anderledes end den kode version. Kør% linket script");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Download eksporteres kursus");//Download exported course (New)
+define("_MAXDISCOUNT100","Den maksimale rabat er 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registrering / Update");//Registration/Update (New)
+define("_ROWS","Rækker");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Kommandoen mislykkedes med følgende output");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Måske dit system ikke understøtter zip behandling?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","For at skabe et kursus, skal du først oprette en kategori");//In order to create a course, you must first create a category (New)
 ?>

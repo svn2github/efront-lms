@@ -50,7 +50,7 @@ class module_faq extends EfrontModule {
     public function onImportLesson($lessonId, $data) {
 //pr($data);
         foreach ($data as $record) {
-            $record['id'] = "";
+            unset($record['id']);
             $record['lessons_ID'] = $lessonId;
 //            pr($record);
             eF_insertTableData("module_faq",$record);

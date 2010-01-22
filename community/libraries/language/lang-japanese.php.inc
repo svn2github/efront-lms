@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","関連のある人");//Related people
 define("_LEARNINGACTIVITY","学習活動");//Learning activity
 define("_TIMELINE","タイムライン");//Timeline
 define("_WASASSIGNEDTHELESSON","レッスンを割り当てられていた");//was assigned lesson
-define("_WILLBETEACHINGLESSON","指導レッスンされる");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","指導レッスンされる");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","レッスンを完了している");//has completed lesson
 define("_NOLONGERATTENDSLESSON","もはや授業に出席");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","ユニットのコメントを書いた。");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","ブランチが有効でない�
 define("_REPORTSFORBRANCH","ブランチのレポート");//Reports for branch
 define("_BRANCHUSERS","支店のユーザー");//Branch users
 define("_BRANCHUSERTRAFFIC","支店ユーザーのトラフィック");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","正しい答えの割合");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","問題の分析");//Question analysis (New)
-define("_PARTICIPANTSCAP","参加者");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","スコアは高く、または等しい割合");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","参加報告");//Participation reports (New)
-define("_YESABBREVIATION","Ý");//Y (New)
-define("_NOABBREVIATION","Ñ");//N (New)
-define("_TOGGLESIDEBAR","トグルサイドバー");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","スコア分布");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","累積的なスコア分布");//Cumulative score distribution (New)
-define("_SEARCHTYPE","特定のレポート");//Reports for a specific (New)
-define("_KEYUSAGE","キーの使用");//Key usage (New)
-define("_INVALIDVERSIONKEY","無効なバージョンのキー");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","バージョンのキーを設定するコードで失敗しました");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","今は新しいバージョンが利用可能です！");//There is a new version available! (New)
-define("_RELEASENOTES","リリースノート");//Release notes (New)
-define("_VERSIONUPTODATE","お使いのバージョンが最新である");//Your version is up to date (New)
-define("_CONTACTINGSERVER","サーバーに連絡する...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","正しい答えの割合");//Correct answer percentage
+define("_QUESTIONANALYSIS","問題の分析");//Question analysis
+define("_PARTICIPANTSCAP","参加者");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","スコアは高く、または等しい割合");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","参加報告");//Participation reports
+define("_YESABBREVIATION","Ý");//Y
+define("_NOABBREVIATION","Ñ");//N
+define("_TOGGLESIDEBAR","トグルサイドバー");//Toggle sidebar
+define("_SCOREDISTRIBUTION","スコア分布");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","累積的なスコア分布");//Cumulative score distribution
+define("_SEARCHTYPE","特定のレポート");//Reports for a specific
+define("_KEYUSAGE","キーの使用");//Key usage
+define("_INVALIDVERSIONKEY","無効なバージョンのキー");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","バージョンのキーを設定するコードで失敗しました");//Setting the version key failed with code
+define("_THEREISNEWVERSION","今は新しいバージョンが利用可能です！");//There is a new version available!
+define("_RELEASENOTES","リリースノート");//Release notes
+define("_VERSIONUPTODATE","お使いのバージョンが最新である");//Your version is up to date
+define("_CONTACTINGSERVER","サーバーに連絡する...");//Contacting server...
 define("_DOWNLOADANDINSTALL","ダウンロードとインストール");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","このシステムは、サーバーライセンスに接続できませんでした。");//The system could not connect to license server (New)
-define("_LICENSESERVER","ライセンスサーバー");//License server (New)
-define("_UPGRADESVALIDUNTIL","アップグレードされるまで有効");//Upgrades valid until (New)
-define("_ACTIVATEDON","上で活性化");//Activated on (New)
-define("_SERVERRESPONDED","サーバーが応答");//The server responded (New)
-define("_FILEZEROSIZE","アップグレードファイルに関する適切な情報取得に失敗しました。");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","ファイルを取得できませんでした");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","ダウンロードしたファイルを自分のホームディレクトリに書き込むことができませんでした");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","地図を表示空のブロック");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","あなたが非アクティブの長い期間のためにログアウトされている");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","放棄");//Abandon (New)
-define("_ABANDONALL","放棄するすべての");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","完了した割合をブロック");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","ユニットのオプションブロック");//Unit options block (New)
-define("_RIGHTBAR","右のサイドバー");//Right sidebar (New)
-define("_LEFTBAR","左側のサイドバー");//Left sidebar (New)
-define("_STUDENTCPANEL","学生のコントロールパネル");//Student control panel (New)
-define("_SMARTCONTENT","スマートコンテンツ");//Smart content (New)
-define("_ZIPHANDLING","郵便番号の処理方法");//Zip handling method (New)
-define("_COMPLETION","完了");//Completion (New)
-define("_SETALLTO","Setは、すべてに");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","このシステムは、サーバーライセンスに接続できませんでした。");//The system could not connect to license server
+define("_LICENSESERVER","ライセンスサーバー");//License server
+define("_UPGRADESVALIDUNTIL","アップグレードされるまで有効");//Upgrades valid until
+define("_ACTIVATEDON","上で活性化");//Activated on
+define("_SERVERRESPONDED","サーバーが応答");//The server responded
+define("_FILEZEROSIZE","アップグレードファイルに関する適切な情報取得に失敗しました。");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","ファイルを取得できませんでした");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","ダウンロードしたファイルを自分のホームディレクトリに書き込むことができませんでした");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","地図を表示空のブロック");//Show empty blocks
+define("_INACTIVITYLOGOUT","あなたが非アクティブの長い期間のためにログアウトされている");//You have been logged out due to a long period of inactivity
+define("_ABANDON","放棄");//Abandon
+define("_ABANDONALL","放棄するすべての");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","完了した割合をブロック");//Completion percentage block
+define("_UNITOPTIONSBLOCK","ユニットのオプションブロック");//Unit options block
+define("_RIGHTBAR","右のサイドバー");//Right sidebar
+define("_LEFTBAR","左側のサイドバー");//Left sidebar
+define("_STUDENTCPANEL","学生のコントロールパネル");//Student control panel
+define("_SMARTCONTENT","スマートコンテンツ");//Smart content
+define("_ZIPHANDLING","郵便番号の処理方法");//Zip handling method
+define("_COMPLETION","完了");//Completion
+define("_SETALLTO","Setは、すべてに");//Set all to
+define("_INADEQUATEBALANCE","不十分なバランス");//Inadequate balance (New)
+define("_PAYPALMODE","ペイパルモード");//Paypal mode (New)
+define("_SANDBOX","サンドボックス");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","トランザクションログファイル");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","現在、受信した会社の住所と一致しないアドレスを設定する");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","されていない操作タイプ");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","重複して支払いを完了");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","サポートされて支払い状況");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","場合は、トランザクションをキャンセルして");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","トランザクションが正常に完了した。");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","ペイパル、デバッグモード");//Paypal debug mode (New)
+define("_MYACCOUNT","マイアカウント");//My account (New)
+define("_MODULE","モジュール");//Module (New)
+define("_EMBEDTYPE","埋め込みコンテンツとして");//Embed content as (New)
+define("_INLINEIFRAME","インライン（インラインフレーム）");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","新しいウィンドウ（ポップアップ）");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popupのパラメータ");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","ボタンをクリックするには、ユニットを開始する");//Click on the button to start the unit (New)
+define("_STARTUNIT","スタートユニット");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","残念ながら、SCORMの2004は、このエディションでサポートされていません");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","復元するデフォルトの通知");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","コンテンツの進捗状況（本体テスト）");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","データベースのバージョン");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","あなたのデータベースのバージョンは、コードのバージョンが異なっている。してくださいスクリプトでは、％のリンクを実行する");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","アップグレード");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","ダウンロードコースのエクスポート");//Download exported course (New)
+define("_MAXDISCOUNT100","最大割引は100％です");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","登録/更新");//Registration/Update (New)
+define("_ROWS","行");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","このコマンドは、次の出力に失敗しました");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","おそらく、あなたのシステムの郵便番号処理をサポートしていないのですか？");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","ためには、まず最初にカテゴリを作成する必要がありますコースを作成する");//In order to create a course, you must first create a category (New)
 ?>

@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Похожие люди");//Related people
 define("_LEARNINGACTIVITY","Учебной деятельности");//Learning activity
 define("_TIMELINE","Хронология");//Timeline
 define("_WASASSIGNEDTHELESSON","Урок был назначен");//was assigned lesson
-define("_WILLBETEACHINGLESSON","Он будет учить уроков");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","Он будет учить уроков");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","завершила урока");//has completed lesson
 define("_NOLONGERATTENDSLESSON","больше не посещает урока");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","написал комментарий на единицу");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Филиал не являетс
 define("_REPORTSFORBRANCH","Отчеты для филиала");//Reports for branch
 define("_BRANCHUSERS","Отделение пользователей");//Branch users
 define("_BRANCHUSERTRAFFIC","Отделение пользовательского трафика");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Правильно Процент ответов");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Вопросы анализа");//Question analysis (New)
-define("_PARTICIPANTSCAP","Участники");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Проценты с оценкой выше или равно");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Участие докладов");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Оценка распределения");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Кумулятивное распределение оценка");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Отчеты по конкретным");//Reports for a specific (New)
-define("_KEYUSAGE","Использование ключей");//Key usage (New)
-define("_INVALIDVERSIONKEY","Неправильная версия Key");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Установка версии ключевые удалось с кодом");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Существует новая версия доступна!");//There is a new version available! (New)
-define("_RELEASENOTES","Release Notes");//Release notes (New)
-define("_VERSIONUPTODATE","Ваша версия до даты");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Связаться со службой сервера ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Правильно Процент ответов");//Correct answer percentage
+define("_QUESTIONANALYSIS","Вопросы анализа");//Question analysis
+define("_PARTICIPANTSCAP","Участники");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Проценты с оценкой выше или равно");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Участие докладов");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Оценка распределения");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Кумулятивное распределение оценка");//Cumulative score distribution
+define("_SEARCHTYPE","Отчеты по конкретным");//Reports for a specific
+define("_KEYUSAGE","Использование ключей");//Key usage
+define("_INVALIDVERSIONKEY","Неправильная версия Key");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Установка версии ключевые удалось с кодом");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Существует новая версия доступна!");//There is a new version available!
+define("_RELEASENOTES","Release Notes");//Release notes
+define("_VERSIONUPTODATE","Ваша версия до даты");//Your version is up to date
+define("_CONTACTINGSERVER","Связаться со службой сервера ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Скачайте и установите");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Системе не удается подключиться к серверу лицензий");//The system could not connect to license server (New)
-define("_LICENSESERVER","Сервер лицензий");//License server (New)
-define("_UPGRADESVALIDUNTIL","Обновления действителен до");//Upgrades valid until (New)
-define("_ACTIVATEDON","Активирована на");//Activated on (New)
-define("_SERVERRESPONDED","Ответ сервера");//The server responded (New)
-define("_FILEZEROSIZE","Не удалось получить надлежащую информацию об обновлении файла");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Файл не может быть восстановлена");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Загруженный файл не может быть записана в свой домашний каталог");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Показать пустые блоки");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Вы вышли из системы из-за долгого периода бездействия");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Оставь все");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Завершение блока в процентах");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Группа параметры блока");//Unit options block (New)
-define("_RIGHTBAR","Правой боковой панели");//Right sidebar (New)
-define("_LEFTBAR","Левой боковой панели");//Left sidebar (New)
-define("_STUDENTCPANEL","Студенческие панель управления");//Student control panel (New)
-define("_SMARTCONTENT","Smart содержание");//Smart content (New)
-define("_ZIPHANDLING","Почтовый метод обработки");//Zip handling method (New)
-define("_COMPLETION","Завершение");//Completion (New)
-define("_SETALLTO","Установить все");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Системе не удается подключиться к серверу лицензий");//The system could not connect to license server
+define("_LICENSESERVER","Сервер лицензий");//License server
+define("_UPGRADESVALIDUNTIL","Обновления действителен до");//Upgrades valid until
+define("_ACTIVATEDON","Активирована на");//Activated on
+define("_SERVERRESPONDED","Ответ сервера");//The server responded
+define("_FILEZEROSIZE","Не удалось получить надлежащую информацию об обновлении файла");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Файл не может быть восстановлена");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Загруженный файл не может быть записана в свой домашний каталог");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Показать пустые блоки");//Show empty blocks
+define("_INACTIVITYLOGOUT","Вы вышли из системы из-за долгого периода бездействия");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Оставь все");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Завершение блока в процентах");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Группа параметры блока");//Unit options block
+define("_RIGHTBAR","Правой боковой панели");//Right sidebar
+define("_LEFTBAR","Левой боковой панели");//Left sidebar
+define("_STUDENTCPANEL","Студенческие панель управления");//Student control panel
+define("_SMARTCONTENT","Smart содержание");//Smart content
+define("_ZIPHANDLING","Почтовый метод обработки");//Zip handling method
+define("_COMPLETION","Завершение");//Completion
+define("_SETALLTO","Установить все");//Set all to
+define("_INADEQUATEBALANCE","Неадекватная баланс");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal режиме");//Paypal mode (New)
+define("_SANDBOX","Песочницы");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Файл журнала транзакций");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","В настоящее время установить адрес не совпадает с адресом визитной");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Неподдерживаемый тип операции");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Повторяющиеся завершена оплата");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Неподдерживаемый статус платежей");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Вы отменили сделку");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделка была завершена успешно.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal режиме отладки");//Paypal debug mode (New)
+define("_MYACCOUNT","Моя учетная запись");//My account (New)
+define("_MODULE","Модуль");//Module (New)
+define("_EMBEDTYPE","Вставить содержание,");//Embed content as (New)
+define("_INLINEIFRAME","Inline (IFRAME)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Новое окно (PopUp)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup параметры");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Нажмите на кнопку, чтобы начать единицу");//Click on the button to start the unit (New)
+define("_STARTUNIT","Начало единицу");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","К сожалению, SCORM 2004 не поддерживается в данном выпуске");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Восстановление уведомления по умолчанию");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Авторские прогресс (без испытаний)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Версия базы данных");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Ваша версия базы данных, отличается от кода версии. Пожалуйста, запустите сценарии ссылки%");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Обновление");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Скачать экспортировала конечно");//Download exported course (New)
+define("_MAXDISCOUNT100","Максимальная скидка 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Регистрация / обновление");//Registration/Update (New)
+define("_ROWS","Строки");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Сбой команды с выходом");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Может быть, ваша система не поддерживает Zip обработки?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","В целях создания Конечно, вы должны сначала создать категорию");//In order to create a course, you must first create a category (New)
 ?>

@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Persoas relacionadas");//Related people
 define("_LEARNINGACTIVITY","Actividade de aprendizaxe");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","foi concedido lección");//was assigned lesson
-define("_WILLBETEACHINGLESSON","será aula de ensino");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","será aula de ensino");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","completou lección");//has completed lesson
 define("_NOLONGERATTENDSLESSON","xa non atende a lección");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","escribiu un comentario para a unidade");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","O sector non é válido ou non p
 define("_REPORTSFORBRANCH","Informes de rama");//Reports for branch
 define("_BRANCHUSERS","Usuarios Branch");//Branch users
 define("_BRANCHUSERTRAFFIC","Rama de tráfico do usuario");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Porcentaxe de resposta correcta");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Análise da Cuestión");//Question analysis (New)
-define("_PARTICIPANTSCAP","Participantes");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Por cento con puntuación maior ou igual");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Informes de Participación");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Distribución Puntuación");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Distribución da puntuación acumulada");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Informes de un específico");//Reports for a specific (New)
-define("_KEYUSAGE","Uso da clave");//Key usage (New)
-define("_INVALIDVERSIONKEY","Clave non válida versión");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Establecer a clave de versión fallou co código");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Hai unha nova versión dispoñible!");//There is a new version available! (New)
-define("_RELEASENOTES","Notas de lanzamento");//Release notes (New)
-define("_VERSIONUPTODATE","A súa versión é actualizada");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contactar co servidor ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Porcentaxe de resposta correcta");//Correct answer percentage
+define("_QUESTIONANALYSIS","Análise da Cuestión");//Question analysis
+define("_PARTICIPANTSCAP","Participantes");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Por cento con puntuación maior ou igual");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Informes de Participación");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Distribución Puntuación");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Distribución da puntuación acumulada");//Cumulative score distribution
+define("_SEARCHTYPE","Informes de un específico");//Reports for a specific
+define("_KEYUSAGE","Uso da clave");//Key usage
+define("_INVALIDVERSIONKEY","Clave non válida versión");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Establecer a clave de versión fallou co código");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Hai unha nova versión dispoñible!");//There is a new version available!
+define("_RELEASENOTES","Notas de lanzamento");//Release notes
+define("_VERSIONUPTODATE","A súa versión é actualizada");//Your version is up to date
+define("_CONTACTINGSERVER","Contactar co servidor ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Baixe e instale");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","O sistema non puido conectar co servidor de licenza");//The system could not connect to license server (New)
-define("_LICENSESERVER","Licenza de servidor");//License server (New)
-define("_UPGRADESVALIDUNTIL","Upgrades válido ata");//Upgrades valid until (New)
-define("_ACTIVATEDON","Activada en");//Activated on (New)
-define("_SERVERRESPONDED","O servidor respondeu");//The server responded (New)
-define("_FILEZEROSIZE","Non se puido recuperar información adecuadas sobre o arquivo de actualización");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","O ficheiro non puido ser recuperada");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","O arquivo baixado non puido ser gravado no seu directorio home");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Amosar bloques baleiros");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Foi desconectado debido a un longo período de inactividade");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandono");//Abandon (New)
-define("_ABANDONALL","Abandonar as");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Bloque de porcentaxe de conclusión");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Unidade de bloque de opcións");//Unit options block (New)
-define("_RIGHTBAR","Lateral dereita");//Right sidebar (New)
-define("_LEFTBAR","Barra lateral esquerda");//Left sidebar (New)
-define("_STUDENTCPANEL","Estudante do panel de control");//Student control panel (New)
-define("_SMARTCONTENT","Advertencias intelixente");//Smart content (New)
-define("_ZIPHANDLING","Zip método de manipulación");//Zip handling method (New)
-define("_COMPLETION","Conclusión");//Completion (New)
-define("_SETALLTO","Define todos");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","O sistema non puido conectar co servidor de licenza");//The system could not connect to license server
+define("_LICENSESERVER","Licenza de servidor");//License server
+define("_UPGRADESVALIDUNTIL","Upgrades válido ata");//Upgrades valid until
+define("_ACTIVATEDON","Activada en");//Activated on
+define("_SERVERRESPONDED","O servidor respondeu");//The server responded
+define("_FILEZEROSIZE","Non se puido recuperar información adecuadas sobre o arquivo de actualización");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","O ficheiro non puido ser recuperada");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","O arquivo baixado non puido ser gravado no seu directorio home");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Amosar bloques baleiros");//Show empty blocks
+define("_INACTIVITYLOGOUT","Foi desconectado debido a un longo período de inactividade");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandono");//Abandon
+define("_ABANDONALL","Abandonar as");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Bloque de porcentaxe de conclusión");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Unidade de bloque de opcións");//Unit options block
+define("_RIGHTBAR","Lateral dereita");//Right sidebar
+define("_LEFTBAR","Barra lateral esquerda");//Left sidebar
+define("_STUDENTCPANEL","Estudante do panel de control");//Student control panel
+define("_SMARTCONTENT","Advertencias intelixente");//Smart content
+define("_ZIPHANDLING","Zip método de manipulación");//Zip handling method
+define("_COMPLETION","Conclusión");//Completion
+define("_SETALLTO","Define todos");//Set all to
+define("_INADEQUATEBALANCE","Saldo insuficiente");//Inadequate balance (New)
+define("_PAYPALMODE","Modo Paypal");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Arquivo de rexistro de transaccións");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Actualmente definir o enderezo non coincide co enderezo da súa empresa recibidas");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Tipo de operación non soportada");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate Feito pagamento");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Estado de pagamento sen soporte");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Lle cancelou o funcionamento");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","A operación foi completada con éxito.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal modo de depuración");//Paypal debug mode (New)
+define("_MYACCOUNT","A miña conta");//My account (New)
+define("_MODULE","Módulo");//Module (New)
+define("_EMBEDTYPE","Incorporar o contido como");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Nova Xanela (emerxentes)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Parámetros Emerxente");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Preme o botón para inicia-la unidade");//Click on the button to start the unit (New)
+define("_STARTUNIT","Unidade Inicio");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Desafortunadamente SCORM 2004 non funciona nesta edición");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Restaurar estándar notificacións");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Progresos contido (excl. probas)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Versión de base de datos");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","A súa versión de base de datos é diferente do que a versión de código. Por favor, executar o script ligazón%");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Download exportar curso");//Download exported course (New)
+define("_MAXDISCOUNT100","O desconto máximo é de 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Inscrición / Actualización");//Registration/Update (New)
+define("_ROWS","Filas");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","O comando fallou co seguinte resultado");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Talvez o seu sistema non soporta o procesamento zip?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","A fin de crear un curso, primeiro debe crear unha categoría");//In order to create a course, you must first create a category (New)
 ?>

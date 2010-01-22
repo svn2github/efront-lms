@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Kaugnay na mga tao");//Related people
 define("_LEARNINGACTIVITY","Learning aktibidad");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","ay itinalaga aral");//was assigned lesson
-define("_WILLBETEACHINGLESSON","ay pagtuturo ng aral");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","ay pagtuturo ng aral");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","natapos aralin");//has completed lesson
 define("_NOLONGERATTENDSLESSON","hindi na dumadalo ang aral");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","wrote isang komento para sa unit");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Ang mga sangay ay hindi wasto o 
 define("_REPORTSFORBRANCH","Ulat para sa mga sangay ng");//Reports for branch
 define("_BRANCHUSERS","Sangay ng gumagamit");//Branch users
 define("_BRANCHUSERTRAFFIC","Sangay ng trapiko ng gumagamit");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Tamang sagot na porsyento");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Tanong sa pagtatasa ng");//Question analysis (New)
-define("_PARTICIPANTSCAP","Ang mga kalahok");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Porsiyento ng may mas mataas na marka o pantay-pantay na");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Paglahok ng mga ulat");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Magpalipat-lipat sa sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Kalidad ng pamamahagi ng");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Pinagsama-samang score ng pamamahagi ng");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Ang mga ulat para sa isang tiyak na");//Reports for a specific (New)
-define("_KEYUSAGE","Key paggamit");//Key usage (New)
-define("_INVALIDVERSIONKEY","Hindi wastong bersyon susi");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Pagse-set ang bersyon key bigo sa code ng");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","May isang bagong bersyon na magagamit!");//There is a new version available! (New)
-define("_RELEASENOTES","Release mga tala");//Release notes (New)
-define("_VERSIONUPTODATE","Ang iyong mga bersyon na ito ay hanggang sa petsa");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Makipag-ugnayan sa server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Tamang sagot na porsyento");//Correct answer percentage
+define("_QUESTIONANALYSIS","Tanong sa pagtatasa ng");//Question analysis
+define("_PARTICIPANTSCAP","Ang mga kalahok");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Porsiyento ng may mas mataas na marka o pantay-pantay na");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Paglahok ng mga ulat");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Magpalipat-lipat sa sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Kalidad ng pamamahagi ng");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Pinagsama-samang score ng pamamahagi ng");//Cumulative score distribution
+define("_SEARCHTYPE","Ang mga ulat para sa isang tiyak na");//Reports for a specific
+define("_KEYUSAGE","Key paggamit");//Key usage
+define("_INVALIDVERSIONKEY","Hindi wastong bersyon susi");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Pagse-set ang bersyon key bigo sa code ng");//Setting the version key failed with code
+define("_THEREISNEWVERSION","May isang bagong bersyon na magagamit!");//There is a new version available!
+define("_RELEASENOTES","Release mga tala");//Release notes
+define("_VERSIONUPTODATE","Ang iyong mga bersyon na ito ay hanggang sa petsa");//Your version is up to date
+define("_CONTACTINGSERVER","Makipag-ugnayan sa server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","I-download at i-install");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Ang sistema ay hindi makakonekta sa lisensiya ng server");//The system could not connect to license server (New)
-define("_LICENSESERVER","License ng server");//License server (New)
-define("_UPGRADESVALIDUNTIL","Upgrade bisa hanggang sa");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktibo sa");//Activated on (New)
-define("_SERVERRESPONDED","Ang server ay tumugon");//The server responded (New)
-define("_FILEZEROSIZE","Nabigong makuha ang tamang impormasyon tungkol sa mag-upgrade ng file");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Ang file ay hindi ma-nakuhang");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Ang mga nai-download na file ay hindi maaaring nakasulat sa iyong tahanan na direktoryo ng");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Ipakita ang mga walang laman na mga bloke");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Ikaw ay nakapag-log out na dahil sa isang mahabang panahon ng hindi aktibo");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Iwan");//Abandon (New)
-define("_ABANDONALL","Iwan ang lahat ng mga");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Pagkumpleto porsyento block");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Unit mga opsyon block");//Unit options block (New)
-define("_RIGHTBAR","Right sidebar");//Right sidebar (New)
-define("_LEFTBAR","Kaliwa sidebar");//Left sidebar (New)
-define("_STUDENTCPANEL","Mag-aaral control panel");//Student control panel (New)
-define("_SMARTCONTENT","Smart nilalaman");//Smart content (New)
-define("_ZIPHANDLING","Zip paraan ng paghawak ng");//Zip handling method (New)
-define("_COMPLETION","Pagkumpleto");//Completion (New)
-define("_SETALLTO","Itakda ang lahat upang");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Ang sistema ay hindi makakonekta sa lisensiya ng server");//The system could not connect to license server
+define("_LICENSESERVER","License ng server");//License server
+define("_UPGRADESVALIDUNTIL","Upgrade bisa hanggang sa");//Upgrades valid until
+define("_ACTIVATEDON","Aktibo sa");//Activated on
+define("_SERVERRESPONDED","Ang server ay tumugon");//The server responded
+define("_FILEZEROSIZE","Nabigong makuha ang tamang impormasyon tungkol sa mag-upgrade ng file");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Ang file ay hindi ma-nakuhang");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Ang mga nai-download na file ay hindi maaaring nakasulat sa iyong tahanan na direktoryo ng");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Ipakita ang mga walang laman na mga bloke");//Show empty blocks
+define("_INACTIVITYLOGOUT","Ikaw ay nakapag-log out na dahil sa isang mahabang panahon ng hindi aktibo");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Iwan");//Abandon
+define("_ABANDONALL","Iwan ang lahat ng mga");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Pagkumpleto porsyento block");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Unit mga opsyon block");//Unit options block
+define("_RIGHTBAR","Right sidebar");//Right sidebar
+define("_LEFTBAR","Kaliwa sidebar");//Left sidebar
+define("_STUDENTCPANEL","Mag-aaral control panel");//Student control panel
+define("_SMARTCONTENT","Smart nilalaman");//Smart content
+define("_ZIPHANDLING","Zip paraan ng paghawak ng");//Zip handling method
+define("_COMPLETION","Pagkumpleto");//Completion
+define("_SETALLTO","Itakda ang lahat upang");//Set all to
+define("_INADEQUATEBALANCE","Hindi sapat na balanse");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal mode");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transaksyon sa log file");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Kasalukuyang naka-set address ay hindi tugma sa natanggap address sa negosyo");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Hindi suportadong uri ng operasyon");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate natapos ang pagbabayad");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Hindi suportadong katayuan ng pagbabayad");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Ikaw ay kinansela ang transaksyon ay");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Ang transaksiyon ay matagumpay na natapos.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","Aking account");//My account (New)
+define("_MODULE","Module");//Module (New)
+define("_EMBEDTYPE","Embed nilalaman bilang");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Bagong window (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parameter");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","I-click ang button upang simulan ang yunit");//Click on the button to start the unit (New)
+define("_STARTUNIT","Simulan ang yunit");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Sa kasamaang palad SCORM 2,004 ay hindi suportado sa edisyon");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Ibalik ang default na mga abiso");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Nilalaman ng pag-unlad (excl. pagsusulit)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Database bersyon");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Ang iyong database ng bersyon na ito ay naiiba kaysa sa bersyon ng code. Mangyaring patakbuhin ang% link sa script");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","I-upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","I-download ang nai-export na kurso");//Download exported course (New)
+define("_MAXDISCOUNT100","Ang maximum na discount ay 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registration / Update");//Registration/Update (New)
+define("_ROWS","Rows");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Ang command na bigo sa mga sumusunod na output");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Marahil ang iyong system ay hindi sumusuporta sa pagpoproseso ng zip?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Upang lumikha ng isang kurso, kailangan mo munang gumawa ng isang kategorya");//In order to create a course, you must first create a category (New)
 ?>

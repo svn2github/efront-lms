@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","אנשים קשורים");//Related people
 define("_LEARNINGACTIVITY","פעילות למידה");//Learning activity
 define("_TIMELINE","ציר זמן");//Timeline
 define("_WASASSIGNEDTHELESSON","הוקצה השיעור");//was assigned lesson
-define("_WILLBETEACHINGLESSON","יהיה שיעור בהוראה");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","יהיה שיעור בהוראה");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","השלימה השיעור");//has completed lesson
 define("_NOLONGERATTENDSLESSON","כבר לא לומד לקח");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","כתב הערה עבור יחידת");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","הסניף אינו חוקי א�
 define("_REPORTSFORBRANCH","דוחות הסניף");//Reports for branch
 define("_BRANCHUSERS","משתמשים סניף");//Branch users
 define("_BRANCHUSERTRAFFIC","סניף התנועה המשתמש");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","אחוז התשובה הנכונה");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","ניתוח שאלה");//Question analysis (New)
-define("_PARTICIPANTSCAP","משתתפים");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","אחוז עם ציון גבוה או שווה");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","דוחות ההשתתפות");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Sidebar Toggle");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","חלוקת ציון");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","חלוקת הניקוד המצטבר");//Cumulative score distribution (New)
-define("_SEARCHTYPE","דוח ות עבור מסוים");//Reports for a specific (New)
-define("_KEYUSAGE","השימוש קי");//Key usage (New)
-define("_INVALIDVERSIONKEY","מפתח גרסה לא חוקית");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","הגדרת המפתח הגרסה נכשלה עם קוד");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","יש גרסה חדשה זמינה!");//There is a new version available! (New)
-define("_RELEASENOTES","הערות למוצר");//Release notes (New)
-define("_VERSIONUPTODATE","הגרסה שלך עדכנית");//Your version is up to date (New)
-define("_CONTACTINGSERVER","יצירת קשר עם השרת ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","אחוז התשובה הנכונה");//Correct answer percentage
+define("_QUESTIONANALYSIS","ניתוח שאלה");//Question analysis
+define("_PARTICIPANTSCAP","משתתפים");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","אחוז עם ציון גבוה או שווה");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","דוחות ההשתתפות");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Sidebar Toggle");//Toggle sidebar
+define("_SCOREDISTRIBUTION","חלוקת ציון");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","חלוקת הניקוד המצטבר");//Cumulative score distribution
+define("_SEARCHTYPE","דוח ות עבור מסוים");//Reports for a specific
+define("_KEYUSAGE","השימוש קי");//Key usage
+define("_INVALIDVERSIONKEY","מפתח גרסה לא חוקית");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","הגדרת המפתח הגרסה נכשלה עם קוד");//Setting the version key failed with code
+define("_THEREISNEWVERSION","יש גרסה חדשה זמינה!");//There is a new version available!
+define("_RELEASENOTES","הערות למוצר");//Release notes
+define("_VERSIONUPTODATE","הגרסה שלך עדכנית");//Your version is up to date
+define("_CONTACTINGSERVER","יצירת קשר עם השרת ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","הורד והתקן");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","המערכת לא הצליחה להתחבר לשרת רישיון");//The system could not connect to license server (New)
-define("_LICENSESERVER","שרת רישיון");//License server (New)
-define("_UPGRADESVALIDUNTIL","שדרוגים בתוקף עד");//Upgrades valid until (New)
-define("_ACTIVATEDON","הופעל על");//Activated on (New)
-define("_SERVERRESPONDED","השרתהשיב");//The server responded (New)
-define("_FILEZEROSIZE","נכשל כדי לאחזר מידע הולם על קובץ השדרוג");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","הקובץ לא יכול להיות מקור");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","את הקובץ שהורדת לא יכול להיות כתוב לספרייה הביתית");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","רחובות הצג ריק");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","היית מתנתק בגלל תקופה ארוכה של חוסר פעילות");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","לנטוש");//Abandon (New)
-define("_ABANDONALL","לנטוש את כל");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","לחסום את אחוזי ההשלמה");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","אפשרויות היחידה לחסום");//Unit options block (New)
-define("_RIGHTBAR","זכות Sidebar");//Right sidebar (New)
-define("_LEFTBAR","הצדדי לשמאל");//Left sidebar (New)
-define("_STUDENTCPANEL","בלוח הבקרה סטודנטים");//Student control panel (New)
-define("_SMARTCONTENT","תוכן חכמים");//Smart content (New)
-define("_ZIPHANDLING","שיטת הטיפול מיקוד");//Zip handling method (New)
-define("_COMPLETION","סיום");//Completion (New)
-define("_SETALLTO","כדי להגדיר את כל");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","המערכת לא הצליחה להתחבר לשרת רישיון");//The system could not connect to license server
+define("_LICENSESERVER","שרת רישיון");//License server
+define("_UPGRADESVALIDUNTIL","שדרוגים בתוקף עד");//Upgrades valid until
+define("_ACTIVATEDON","הופעל על");//Activated on
+define("_SERVERRESPONDED","השרתהשיב");//The server responded
+define("_FILEZEROSIZE","נכשל כדי לאחזר מידע הולם על קובץ השדרוג");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","הקובץ לא יכול להיות מקור");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","את הקובץ שהורדת לא יכול להיות כתוב לספרייה הביתית");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","רחובות הצג ריק");//Show empty blocks
+define("_INACTIVITYLOGOUT","היית מתנתק בגלל תקופה ארוכה של חוסר פעילות");//You have been logged out due to a long period of inactivity
+define("_ABANDON","לנטוש");//Abandon
+define("_ABANDONALL","לנטוש את כל");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","לחסום את אחוזי ההשלמה");//Completion percentage block
+define("_UNITOPTIONSBLOCK","אפשרויות היחידה לחסום");//Unit options block
+define("_RIGHTBAR","זכות Sidebar");//Right sidebar
+define("_LEFTBAR","הצדדי לשמאל");//Left sidebar
+define("_STUDENTCPANEL","בלוח הבקרה סטודנטים");//Student control panel
+define("_SMARTCONTENT","תוכן חכמים");//Smart content
+define("_ZIPHANDLING","שיטת הטיפול מיקוד");//Zip handling method
+define("_COMPLETION","סיום");//Completion
+define("_SETALLTO","כדי להגדיר את כל");//Set all to
+define("_INADEQUATEBALANCE","איזון לקוי");//Inadequate balance (New)
+define("_PAYPALMODE","מצב Paypal");//Paypal mode (New)
+define("_SANDBOX","ארגז החול");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","קובץ יומן עסקה");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","כרגע להגדיר כתובת אינו תואם קיבל כתובת העסק");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","סוג הפעולה לא נתמכת");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","שכפל השלמת התשלום");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","מעמד התשלום לא נתמך");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","יש לך ביטל את העסקה");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","העסקה הושלמה בהצלחה.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","מצב Paypal באגים");//Paypal debug mode (New)
+define("_MYACCOUNT","החשבון שלי");//My account (New)
+define("_MODULE","מודול");//Module (New)
+define("_EMBEDTYPE","התוכן כמו שבץ");//Embed content as (New)
+define("_INLINEIFRAME","מוטבעת (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","חלון חדש (חלונות קופצים)");//New window (popup) (New)
+define("_POPUPPARAMETERS","פרמטרים Popup");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","לחץ על הכפתור כדי להפעיל את יחידת");//Click on the button to start the unit (New)
+define("_STARTUNIT","יחידת התחלה");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","למרבה הצער SCORM 2004 אינו נתמך במהדורה זו");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","שחזור הודעות מחדל");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","התקדמות תוכן (לא כולל מבחנים)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","גירסת מסד הנתונים");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","גירסת מסד הנתונים שלך שונה מזו של גרסת הקוד. אנא הפעל את הקישור% סקריפט");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","שדרג");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","הורד מיוצא כמובן");//Download exported course (New)
+define("_MAXDISCOUNT100","ההנחה המקסימלית היא 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","רישום / עדכון");//Registration/Update (New)
+define("_ROWS","שורות");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","הפקודה נכשל עם הפלט הבא");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","אולי המערכת שלך לא תומך ב-zip עיבוד?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","כדי ליצור כמובן, תחילה עליך ליצור קטגוריה");//In order to create a course, you must first create a category (New)
 ?>

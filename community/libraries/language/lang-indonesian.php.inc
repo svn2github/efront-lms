@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Terkait orang");//Related people
 define("_LEARNINGACTIVITY","Aktivitas Belajar");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","ditugaskan pelajaran");//was assigned lesson
-define("_WILLBETEACHINGLESSON","akan mengajar pelajaran");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","akan mengajar pelajaran");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","telah menyelesaikan pelajaran");//has completed lesson
 define("_NOLONGERATTENDSLESSON","tidak lagi mengikuti pelajaran");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","menulis komentar untuk unit");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Cabang tidak valid atau Anda tid
 define("_REPORTSFORBRANCH","Laporan untuk cabang");//Reports for branch
 define("_BRANCHUSERS","Cabang pengguna");//Branch users
 define("_BRANCHUSERTRAFFIC","Lalu lintas pengguna Cabang");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Persentase jawaban yang benar");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Pertanyaan analisis");//Question analysis (New)
-define("_PARTICIPANTSCAP","Peserta");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Persen dengan skor yang lebih tinggi atau sama");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Partisipasi laporan");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Distribusi skor");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kumulatif distribusi skor");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Laporan untuk spesifik");//Reports for a specific (New)
-define("_KEYUSAGE","Penggunaan kunci");//Key usage (New)
-define("_INVALIDVERSIONKEY","Valid kunci versi");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Menetapkan versi gagal dengan kode kunci");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Ada versi baru tersedia!");//There is a new version available! (New)
-define("_RELEASENOTES","Catatan rilis");//Release notes (New)
-define("_VERSIONUPTODATE","Versi anda up to date");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Menghubungi server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Persentase jawaban yang benar");//Correct answer percentage
+define("_QUESTIONANALYSIS","Pertanyaan analisis");//Question analysis
+define("_PARTICIPANTSCAP","Peserta");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Persen dengan skor yang lebih tinggi atau sama");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Partisipasi laporan");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Distribusi skor");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kumulatif distribusi skor");//Cumulative score distribution
+define("_SEARCHTYPE","Laporan untuk spesifik");//Reports for a specific
+define("_KEYUSAGE","Penggunaan kunci");//Key usage
+define("_INVALIDVERSIONKEY","Valid kunci versi");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Menetapkan versi gagal dengan kode kunci");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Ada versi baru tersedia!");//There is a new version available!
+define("_RELEASENOTES","Catatan rilis");//Release notes
+define("_VERSIONUPTODATE","Versi anda up to date");//Your version is up to date
+define("_CONTACTINGSERVER","Menghubungi server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Download dan menginstal");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Sistem tidak dapat terhubung ke server lisensi");//The system could not connect to license server (New)
-define("_LICENSESERVER","Lisensi server");//License server (New)
-define("_UPGRADESVALIDUNTIL","Upgrade berlaku sampai");//Upgrades valid until (New)
-define("_ACTIVATEDON","Diaktifkan pada");//Activated on (New)
-define("_SERVERRESPONDED","Server menjawab");//The server responded (New)
-define("_FILEZEROSIZE","Gagal untuk mengambil informasi yang tepat tentang file upgrade");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","File ini tidak dapat diambil");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","File yang didownload tidak dapat ditulis ke direktori home");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Tampilkan blok kosong");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Anda telah log out karena waktu tidak aktif lama");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abaikan");//Abandon (New)
-define("_ABANDONALL","Meninggalkan semua");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Persentase penyelesaian blok");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Pilihan unit blok");//Unit options block (New)
-define("_RIGHTBAR","Sidebar kanan");//Right sidebar (New)
-define("_LEFTBAR","Waktu sidebar");//Left sidebar (New)
-define("_STUDENTCPANEL","Siswa panel kontrol");//Student control panel (New)
-define("_SMARTCONTENT","Smart konten");//Smart content (New)
-define("_ZIPHANDLING","Zip metode penanganan");//Zip handling method (New)
-define("_COMPLETION","Penyelesaian");//Completion (New)
-define("_SETALLTO","Set semua");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Sistem tidak dapat terhubung ke server lisensi");//The system could not connect to license server
+define("_LICENSESERVER","Lisensi server");//License server
+define("_UPGRADESVALIDUNTIL","Upgrade berlaku sampai");//Upgrades valid until
+define("_ACTIVATEDON","Diaktifkan pada");//Activated on
+define("_SERVERRESPONDED","Server menjawab");//The server responded
+define("_FILEZEROSIZE","Gagal untuk mengambil informasi yang tepat tentang file upgrade");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","File ini tidak dapat diambil");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","File yang didownload tidak dapat ditulis ke direktori home");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Tampilkan blok kosong");//Show empty blocks
+define("_INACTIVITYLOGOUT","Anda telah log out karena waktu tidak aktif lama");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abaikan");//Abandon
+define("_ABANDONALL","Meninggalkan semua");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Persentase penyelesaian blok");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Pilihan unit blok");//Unit options block
+define("_RIGHTBAR","Sidebar kanan");//Right sidebar
+define("_LEFTBAR","Waktu sidebar");//Left sidebar
+define("_STUDENTCPANEL","Siswa panel kontrol");//Student control panel
+define("_SMARTCONTENT","Smart konten");//Smart content
+define("_ZIPHANDLING","Zip metode penanganan");//Zip handling method
+define("_COMPLETION","Penyelesaian");//Completion
+define("_SETALLTO","Set semua");//Set all to
+define("_INADEQUATEBALANCE","Memadai keseimbangan");//Inadequate balance (New)
+define("_PAYPALMODE","Modus Paypal");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transaksi file log");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Saat ini alamat mengatur diterima tidak sesuai dengan alamat bisnis");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Jenis operasi yang tidak didukung");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Gandakan selesai pembayaran");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Status pembayaran yang tidak didukung");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Anda telah membatalkan transaksi");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksi selesai dengan sukses.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal modus debug");//Paypal debug mode (New)
+define("_MYACCOUNT","Account");//My account (New)
+define("_MODULE","Modul");//Module (New)
+define("_EMBEDTYPE","Embed konten sebagai");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parameter");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Klik pada tombol untuk memulai unit");//Click on the button to start the unit (New)
+define("_STARTUNIT","Mulai unit");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Sayangnya SCORM 2004 ini tidak didukung dalam edisi ini");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Kembalikan default pemberitahuan");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Konten kemajuan (excl. tes)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Database versi");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Versi database Anda berbeda dari versi kode. Silakan menjalankan skrip link%");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Download diekspor saja");//Download exported course (New)
+define("_MAXDISCOUNT100","Diskon maksimum adalah 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registrasi / Update");//Registration/Update (New)
+define("_ROWS","Rows");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Perintah gagal dengan output berikut");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Mungkin sistem Anda tidak mendukung pengolahan zip?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Dalam rangka untuk menciptakan suatu kursus, Anda harus terlebih dahulu membuat sebuah kategori");//In order to create a course, you must first create a category (New)
 ?>

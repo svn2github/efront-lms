@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Liittyvät ihmiset");//Related people
 define("_LEARNINGACTIVITY","Oppimistoiminnan");//Learning activity
 define("_TIMELINE","Aikajana");//Timeline
 define("_WASASSIGNEDTHELESSON","nimettiin opetus");//was assigned lesson
-define("_WILLBETEACHINGLESSON","on opetus opetus");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","on opetus opetus");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","on valmis oppitunti");//has completed lesson
 define("_NOLONGERATTENDSLESSON","enää käy oppitunti");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","kirjoitti kommentti yksikkö");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Sivuliikkeen ei ole pätevä tai
 define("_REPORTSFORBRANCH","Raportit sivuliikkeen");//Reports for branch
 define("_BRANCHUSERS","Branch käyttäjät");//Branch users
 define("_BRANCHUSERTRAFFIC","Branch käyttäjän liikennettä");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Oikea vastaus prosentteina");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Kysymys analyysi");//Question analysis (New)
-define("_PARTICIPANTSCAP","Osallistujat");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Prosentteina pisteet suurempi tai yhtä suuri");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Osallistuminen raportit");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Vaihda Sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Pisteet jakelu");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kumulatiivinen pisteet jakelu");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Raportteja tietylle");//Reports for a specific (New)
-define("_KEYUSAGE","Key Usage");//Key usage (New)
-define("_INVALIDVERSIONKEY","Virheellinen käännös avain");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Asettaminen versio avain epäonnistui koodi");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","On uusi versio saatavilla!");//There is a new version available! (New)
-define("_RELEASENOTES","Julkaisutiedot");//Release notes (New)
-define("_VERSIONUPTODATE","Versio on ajan tasalla");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contacting server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Oikea vastaus prosentteina");//Correct answer percentage
+define("_QUESTIONANALYSIS","Kysymys analyysi");//Question analysis
+define("_PARTICIPANTSCAP","Osallistujat");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Prosentteina pisteet suurempi tai yhtä suuri");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Osallistuminen raportit");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Vaihda Sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Pisteet jakelu");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kumulatiivinen pisteet jakelu");//Cumulative score distribution
+define("_SEARCHTYPE","Raportteja tietylle");//Reports for a specific
+define("_KEYUSAGE","Key Usage");//Key usage
+define("_INVALIDVERSIONKEY","Virheellinen käännös avain");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Asettaminen versio avain epäonnistui koodi");//Setting the version key failed with code
+define("_THEREISNEWVERSION","On uusi versio saatavilla!");//There is a new version available!
+define("_RELEASENOTES","Julkaisutiedot");//Release notes
+define("_VERSIONUPTODATE","Versio on ajan tasalla");//Your version is up to date
+define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Lataa ja asenna");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Järjestelmä ei voinut muodostaa License Server");//The system could not connect to license server (New)
-define("_LICENSESERVER","Käyttöoikeuspalvelinta");//License server (New)
-define("_UPGRADESVALIDUNTIL","Päivitykset voimassa");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktivoitu");//Activated on (New)
-define("_SERVERRESPONDED","Palvelin vastasi");//The server responded (New)
-define("_FILEZEROSIZE","Ole hakea asianmukaista tietoa päivityksen tiedosto");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Tiedostoa ei voitu noutaa");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Ladattua tiedostoa ei voitu kirjoittaa kotihakemistosi");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Näytä tyhjä Blocks");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Olet kirjautunut ulos johtuu pitkästä odotusajasta");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Luopuvat");//Abandon (New)
-define("_ABANDONALL","Luopumaan kaikista");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Täydennys osuus Block");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Yksikkö vaihtoehtoja Block");//Unit options block (New)
-define("_RIGHTBAR","Sivupalkista");//Right sidebar (New)
-define("_LEFTBAR","Vasen sivupalkki");//Left sidebar (New)
-define("_STUDENTCPANEL","Opiskelija ohjauspaneeli");//Student control panel (New)
-define("_SMARTCONTENT","Älykäs sisällön");//Smart content (New)
-define("_ZIPHANDLING","Zip käsittely menetelmä");//Zip handling method (New)
-define("_COMPLETION","Täydennys");//Completion (New)
-define("_SETALLTO","Laita kaikki");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Järjestelmä ei voinut muodostaa License Server");//The system could not connect to license server
+define("_LICENSESERVER","Käyttöoikeuspalvelinta");//License server
+define("_UPGRADESVALIDUNTIL","Päivitykset voimassa");//Upgrades valid until
+define("_ACTIVATEDON","Aktivoitu");//Activated on
+define("_SERVERRESPONDED","Palvelin vastasi");//The server responded
+define("_FILEZEROSIZE","Ole hakea asianmukaista tietoa päivityksen tiedosto");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Tiedostoa ei voitu noutaa");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Ladattua tiedostoa ei voitu kirjoittaa kotihakemistosi");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Näytä tyhjä Blocks");//Show empty blocks
+define("_INACTIVITYLOGOUT","Olet kirjautunut ulos johtuu pitkästä odotusajasta");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Luopuvat");//Abandon
+define("_ABANDONALL","Luopumaan kaikista");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Täydennys osuus Block");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Yksikkö vaihtoehtoja Block");//Unit options block
+define("_RIGHTBAR","Sivupalkista");//Right sidebar
+define("_LEFTBAR","Vasen sivupalkki");//Left sidebar
+define("_STUDENTCPANEL","Opiskelija ohjauspaneeli");//Student control panel
+define("_SMARTCONTENT","Älykäs sisällön");//Smart content
+define("_ZIPHANDLING","Zip käsittely menetelmä");//Zip handling method
+define("_COMPLETION","Täydennys");//Completion
+define("_SETALLTO","Laita kaikki");//Set all to
+define("_INADEQUATEBALANCE","Riittämätön tasapaino");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal tila");//Paypal mode (New)
+define("_SANDBOX","Hiekkalaatikossa");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Tapahtumalokiin tiedosto");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Nykyisin osoite ei vastaa saanut liikeosoite");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Tueta tyyppi");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate päätökseen maksu");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Tueta maksun tila");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Olet peruuttanut kaupan");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Kauppa saatiin päätökseen onnistuneesti.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypalin debug-tila");//Paypal debug mode (New)
+define("_MYACCOUNT","Tililläni");//My account (New)
+define("_MODULE","Moduulissa");//Module (New)
+define("_EMBEDTYPE","Upottamaan sisältö");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parametrit");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Napsauta painiketta Käynnistä yksikkö");//Click on the button to start the unit (New)
+define("_STARTUNIT","Käynnistä yksikkö");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Valitettavasti SCORM 2004 ei tue tätä painos");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default ilmoitukset");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Sisältö kehitykseen (pl. testit)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Tietokantaversio");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Tietokanta versio on erilainen kuin koodin versio. Suorita% linkkiä script");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Päivityksen");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Lataa viedä kurssi");//Download exported course (New)
+define("_MAXDISCOUNT100","Suurin alennus on 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Rekisteröinti / Päivitä");//Registration/Update (New)
+define("_ROWS","Rivien");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Komento epäonnistui seuraavat lähtö");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Ehkä järjestelmä ei tue zip käsittelyä?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Jotta voidaan luoda kurssin, sinun täytyy ensin luoda luokkaan");//In order to create a course, you must first create a category (New)
 ?>

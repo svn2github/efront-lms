@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Súvisiace ľudia");//Related people
 define("_LEARNINGACTIVITY","Vzdelávacej činnosti");//Learning activity
 define("_TIMELINE","Časová os");//Timeline
 define("_WASASSIGNEDTHELESSON","bol priradený lekcie");//was assigned lesson
-define("_WILLBETEACHINGLESSON","Bude vyučovacia hodina");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","Bude vyučovacia hodina");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","po skončení lekcie");//has completed lesson
 define("_NOLONGERATTENDSLESSON","už navštevuje lekcie");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","napísal komentár na jednotku");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Pobočka nie je platný, alebo n
 define("_REPORTSFORBRANCH","Správy na pobočky");//Reports for branch
 define("_BRANCHUSERS","Pobočka užívateľov");//Branch users
 define("_BRANCHUSERTRAFFIC","Pobočka prevádzky užívateľa");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Správna odpoveď percento");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Otázka analýza");//Question analysis (New)
-define("_PARTICIPANTSCAP","Účastníci");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Percentá sa skóre vyššie alebo rovné");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Účasť správy");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Prepnúť sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Prehľad distribúcia");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kumulatívne skóre distribúcia");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Prehľady pre konkrétne");//Reports for a specific (New)
-define("_KEYUSAGE","Key použitie");//Key usage (New)
-define("_INVALIDVERSIONKEY","Neplatná verzia kľúč");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Nastavenie verzia kľúča zlyhalo s kódom");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","K dispozícii je nová verzia k dispozícii!");//There is a new version available! (New)
-define("_RELEASENOTES","Release notes");//Release notes (New)
-define("_VERSIONUPTODATE","Vaša verzia je aktuálna");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Kontaktovanie server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Správna odpoveď percento");//Correct answer percentage
+define("_QUESTIONANALYSIS","Otázka analýza");//Question analysis
+define("_PARTICIPANTSCAP","Účastníci");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Percentá sa skóre vyššie alebo rovné");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Účasť správy");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Prepnúť sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Prehľad distribúcia");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kumulatívne skóre distribúcia");//Cumulative score distribution
+define("_SEARCHTYPE","Prehľady pre konkrétne");//Reports for a specific
+define("_KEYUSAGE","Key použitie");//Key usage
+define("_INVALIDVERSIONKEY","Neplatná verzia kľúč");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Nastavenie verzia kľúča zlyhalo s kódom");//Setting the version key failed with code
+define("_THEREISNEWVERSION","K dispozícii je nová verzia k dispozícii!");//There is a new version available!
+define("_RELEASENOTES","Release notes");//Release notes
+define("_VERSIONUPTODATE","Vaša verzia je aktuálna");//Your version is up to date
+define("_CONTACTINGSERVER","Kontaktovanie server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Stiahnite a nainštalujte");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Systém nemôže pripojiť k licenčnému servera");//The system could not connect to license server (New)
-define("_LICENSESERVER","Licenčné server");//License server (New)
-define("_UPGRADESVALIDUNTIL","Aktualizácia platné do");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktivovaná");//Activated on (New)
-define("_SERVERRESPONDED","Server odpovedal");//The server responded (New)
-define("_FILEZEROSIZE","Nepodarilo sa získať správne informácie o aktualizácii súborov");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Súbor sa nepodarilo získať");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Stiahnutý súbor nemožno zapísať do svojho domovského adresára");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Zobraziť prázdne bloky");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Boli ste odhlásení vzhľadom k dlhej dobe nečinnosti");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Vzdať sa všetkých");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Dokončenie percento blok");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Jednotka možnosti blok");//Unit options block (New)
-define("_RIGHTBAR","Right sidebar");//Right sidebar (New)
-define("_LEFTBAR","Ľavej lište okna");//Left sidebar (New)
-define("_STUDENTCPANEL","Student ovládací panel");//Student control panel (New)
-define("_SMARTCONTENT","Smart obsah");//Smart content (New)
-define("_ZIPHANDLING","Zip spôsob manipulácie");//Zip handling method (New)
-define("_COMPLETION","Dokončenie");//Completion (New)
-define("_SETALLTO","Set všetci");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Systém nemôže pripojiť k licenčnému servera");//The system could not connect to license server
+define("_LICENSESERVER","Licenčné server");//License server
+define("_UPGRADESVALIDUNTIL","Aktualizácia platné do");//Upgrades valid until
+define("_ACTIVATEDON","Aktivovaná");//Activated on
+define("_SERVERRESPONDED","Server odpovedal");//The server responded
+define("_FILEZEROSIZE","Nepodarilo sa získať správne informácie o aktualizácii súborov");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Súbor sa nepodarilo získať");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Stiahnutý súbor nemožno zapísať do svojho domovského adresára");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Zobraziť prázdne bloky");//Show empty blocks
+define("_INACTIVITYLOGOUT","Boli ste odhlásení vzhľadom k dlhej dobe nečinnosti");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Vzdať sa všetkých");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Dokončenie percento blok");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Jednotka možnosti blok");//Unit options block
+define("_RIGHTBAR","Right sidebar");//Right sidebar
+define("_LEFTBAR","Ľavej lište okna");//Left sidebar
+define("_STUDENTCPANEL","Student ovládací panel");//Student control panel
+define("_SMARTCONTENT","Smart obsah");//Smart content
+define("_ZIPHANDLING","Zip spôsob manipulácie");//Zip handling method
+define("_COMPLETION","Dokončenie");//Completion
+define("_SETALLTO","Set všetci");//Set all to
+define("_INADEQUATEBALANCE","Nedostatočné bilancie");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal režim");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transakčné log");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","V súčasnej dobe stanovená adresa nesúhlasí dostal obchodná adresa");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Nepodporovaný typ operácie");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate dokončená platba");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Nepodporované stave platby");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Stornovanie transakcie");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transakcia bola dokončená úspešne.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal ladiaci režim");//Paypal debug mode (New)
+define("_MYACCOUNT","Môj účet");//My account (New)
+define("_MODULE","Modul");//Module (New)
+define("_EMBEDTYPE","Vložiť obsah");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parametre");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Kliknite na tlačidlo pre spustenie jednotky");//Click on the button to start the unit (New)
+define("_STARTUNIT","Štart jednotky");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Bohužiaľ SCORM 2004 nie je podporovaná v tomto vydaní");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Obnoviť predvolené oznámenia");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Obsah pokroku (bez skúšky)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Verziu databázy");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Databáza verzie je iný ako kód verzie. Spustite skript% odkaz");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Stiahnuť vyvážané kurz");//Download exported course (New)
+define("_MAXDISCOUNT100","Maximálna zľava je 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registrácia / Update");//Registration/Update (New)
+define("_ROWS","Řady");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Príkaz zlyhal s týmto výstupom");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Možno že váš systém nepodporuje zips spracovanie?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Za účelom vytvorenia kurze, musíte najprv vytvoriť kategórie");//In order to create a course, you must first create a category (New)
 ?>

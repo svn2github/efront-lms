@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","คนที่เกี่ยวข้อง");//Relat
 define("_LEARNINGACTIVITY","กิจกรรมการเรียนรู้");//Learning activity
 define("_TIMELINE","ระยะเวลา");//Timeline
 define("_WASASSIGNEDTHELESSON","ถูกกำหนดบท");//was assigned lesson
-define("_WILLBETEACHINGLESSON","จะเป็นบทเรียนสอน");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","จะเป็นบทเรียนสอน");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","เสร็จสิ้นการเรียน");//has completed lesson
 define("_NOLONGERATTENDSLESSON","ไม่เข้าเรียน");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","เขียนความคิดเห็นสำหรับหน่วย");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","สาขาไม่ถูก�
 define("_REPORTSFORBRANCH","รายงานสาขา");//Reports for branch
 define("_BRANCHUSERS","ผู้ใช้สาขา");//Branch users
 define("_BRANCHUSERTRAFFIC","ผู้เข้าชมสาขา");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","เปอร์เซ็นต์คำตอบที่ถูกต้อง");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","วิเคราะห์คำถาม");//Question analysis (New)
-define("_PARTICIPANTSCAP","ผู้เข้าร่วม");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","ร้อยละที่มีคะแนนสูงกว่าหรือเท่ากับ");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","รายงานการเข้าร่วม");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","แถบด้านข้างสลับ");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","การกระจายคะแนน");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","การกระจายคะแนนสะสม");//Cumulative score distribution (New)
-define("_SEARCHTYPE","รายงานระบุ");//Reports for a specific (New)
-define("_KEYUSAGE","การใช้ Key");//Key usage (New)
-define("_INVALIDVERSIONKEY","คีย์รุ่นไม่ถูกต้อง");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","การตั้งค่าคีย์รุ่นล้มเหลวด้วยรหัส");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","มีรุ่นใหม่ใช้ได้!");//There is a new version available! (New)
-define("_RELEASENOTES","บันทึก Release");//Release notes (New)
-define("_VERSIONUPTODATE","รุ่นของคุณให้ทันสมัย");//Your version is up to date (New)
-define("_CONTACTINGSERVER","ติดต่อ server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","เปอร์เซ็นต์คำตอบที่ถูกต้อง");//Correct answer percentage
+define("_QUESTIONANALYSIS","วิเคราะห์คำถาม");//Question analysis
+define("_PARTICIPANTSCAP","ผู้เข้าร่วม");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","ร้อยละที่มีคะแนนสูงกว่าหรือเท่ากับ");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","รายงานการเข้าร่วม");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","แถบด้านข้างสลับ");//Toggle sidebar
+define("_SCOREDISTRIBUTION","การกระจายคะแนน");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","การกระจายคะแนนสะสม");//Cumulative score distribution
+define("_SEARCHTYPE","รายงานระบุ");//Reports for a specific
+define("_KEYUSAGE","การใช้ Key");//Key usage
+define("_INVALIDVERSIONKEY","คีย์รุ่นไม่ถูกต้อง");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","การตั้งค่าคีย์รุ่นล้มเหลวด้วยรหัส");//Setting the version key failed with code
+define("_THEREISNEWVERSION","มีรุ่นใหม่ใช้ได้!");//There is a new version available!
+define("_RELEASENOTES","บันทึก Release");//Release notes
+define("_VERSIONUPTODATE","รุ่นของคุณให้ทันสมัย");//Your version is up to date
+define("_CONTACTINGSERVER","ติดต่อ server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","ดาวน์โหลดและติดตั้ง");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","ระบบไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์การอนุญาต");//The system could not connect to license server (New)
-define("_LICENSESERVER","Server License");//License server (New)
-define("_UPGRADESVALIDUNTIL","การอัพเกรดที่ถูกต้องจน");//Upgrades valid until (New)
-define("_ACTIVATEDON","เปิดใช้งานใน");//Activated on (New)
-define("_SERVERRESPONDED","เซิร์ฟเวอร์ตอบ");//The server responded (New)
-define("_FILEZEROSIZE","ไม่สามารถดึงข้อมูลที่ถูกต้องเกี่ยวกับแฟ้มการปรับรุ่น");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","ไฟล์ไม่สามารถเรียกคืน");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","แฟ้มที่ดาวน์โหลดไม่สามารถเขียนไปยังไดเรกทอรีบ้านของคุณ");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","แสดงบล็อกว่างเปล่า");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","คุณได้ออกจากระบบเนื่องจากมีระยะเวลานานอยู่เฉย");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","ละทิ้ง");//Abandon (New)
-define("_ABANDONALL","ละทิ้งทั้งหมด");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","ป้องกันเปอร์เซ็นต์ที่เสร็จสมบูรณ์");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","หน่วยป้องกันตัว");//Unit options block (New)
-define("_RIGHTBAR","แถบด้านข้างขวา");//Right sidebar (New)
-define("_LEFTBAR","แถบด้านข้างซ้าย");//Left sidebar (New)
-define("_STUDENTCPANEL","แผงควบคุมนักศึกษา");//Student control panel (New)
-define("_SMARTCONTENT","เนื้อหา Smart");//Smart content (New)
-define("_ZIPHANDLING","วิธีการไปรษณีย์");//Zip handling method (New)
-define("_COMPLETION","เสร็จสิ้น");//Completion (New)
-define("_SETALLTO","ตั้งทั้งหมด");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","ระบบไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์การอนุญาต");//The system could not connect to license server
+define("_LICENSESERVER","Server License");//License server
+define("_UPGRADESVALIDUNTIL","การอัพเกรดที่ถูกต้องจน");//Upgrades valid until
+define("_ACTIVATEDON","เปิดใช้งานใน");//Activated on
+define("_SERVERRESPONDED","เซิร์ฟเวอร์ตอบ");//The server responded
+define("_FILEZEROSIZE","ไม่สามารถดึงข้อมูลที่ถูกต้องเกี่ยวกับแฟ้มการปรับรุ่น");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","ไฟล์ไม่สามารถเรียกคืน");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","แฟ้มที่ดาวน์โหลดไม่สามารถเขียนไปยังไดเรกทอรีบ้านของคุณ");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","แสดงบล็อกว่างเปล่า");//Show empty blocks
+define("_INACTIVITYLOGOUT","คุณได้ออกจากระบบเนื่องจากมีระยะเวลานานอยู่เฉย");//You have been logged out due to a long period of inactivity
+define("_ABANDON","ละทิ้ง");//Abandon
+define("_ABANDONALL","ละทิ้งทั้งหมด");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","ป้องกันเปอร์เซ็นต์ที่เสร็จสมบูรณ์");//Completion percentage block
+define("_UNITOPTIONSBLOCK","หน่วยป้องกันตัว");//Unit options block
+define("_RIGHTBAR","แถบด้านข้างขวา");//Right sidebar
+define("_LEFTBAR","แถบด้านข้างซ้าย");//Left sidebar
+define("_STUDENTCPANEL","แผงควบคุมนักศึกษา");//Student control panel
+define("_SMARTCONTENT","เนื้อหา Smart");//Smart content
+define("_ZIPHANDLING","วิธีการไปรษณีย์");//Zip handling method
+define("_COMPLETION","เสร็จสิ้น");//Completion
+define("_SETALLTO","ตั้งทั้งหมด");//Set all to
+define("_INADEQUATEBALANCE","ยอดเงินไม่เพียงพอ");//Inadequate balance (New)
+define("_PAYPALMODE","โหมด PayPal");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","แฟ้มบันทึกรายการ");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","ชุดปัจจุบันที่อยู่ไม่ตรงกับที่อยู่ธุรกิจที่ได้รับ");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","ประเภทการทำงานที่ไม่สนับสนุน");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","ซ้ำเสร็จสิ้นการชำระเงิน");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","สถานะการชำระเงินสนับสนุน");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","คุณได้ยกเลิกการทำรายการ");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","ซื้อขายได้เสร็จสมบูรณ์.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","PayPal โหมดดีบัก");//Paypal debug mode (New)
+define("_MYACCOUNT","บัญชีของฉัน");//My account (New)
+define("_MODULE","Module");//Module (New)
+define("_EMBEDTYPE","เนื้อหาฝังเป็น");//Embed content as (New)
+define("_INLINEIFRAME","อินไลน์ (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","หน้าต่างใหม่ (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","พารามิเตอร์ป๊อปอัพ");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","คลิกที่ปุ่มเพื่อเริ่มต้นหน่วย");//Click on the button to start the unit (New)
+define("_STARTUNIT","หน่วย Start");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","อับ SCORM 2,004 ไม่สนับสนุนในรุ่นนี้");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","แจ้งเริ่มต้น Restore");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","ความคืบหน้าเนื้อหา (ทดสอบ excl.)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","รุ่นฐานข้อมูล");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","รุ่นฐานข้อมูลของคุณแตกต่างจากรุ่นรหัส. โปรดใช้ลิงก์% สคริปต์");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","ดาวน์โหลดส่งออกหลักสูตร");//Download exported course (New)
+define("_MAXDISCOUNT100","ส่วนลดสูงสุด 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","จดทะเบียน / Update");//Registration/Update (New)
+define("_ROWS","แถว");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","คำสั่งล้มเหลวกับการส่งออกต่อไปนี้");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","บางทีระบบของคุณไม่สนับสนุนการไปรษณีย์?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","เพื่อสร้างหลักสูตรคุณต้องสร้างชนิด");//In order to create a course, you must first create a category (New)
 ?>

@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Ilgili kişi");//Related people
 define("_LEARNINGACTIVITY","Öğrenme etkinliği");//Learning activity
 define("_TIMELINE","Zaman çizelgesi");//Timeline
 define("_WASASSIGNEDTHELESSON","dersi verildi");//was assigned lesson
-define("_WILLBETEACHINGLESSON","öğretim ders olacak");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","öğretim ders olacak");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","ders tamamladı");//has completed lesson
 define("_NOLONGERATTENDSLESSON","artık ders katılır");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","birimi için bir yorum yazdı");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Dal geçerli değilse veya şube
 define("_REPORTSFORBRANCH","Dal Raporlar");//Reports for branch
 define("_BRANCHUSERS","Şube kullanıcılar");//Branch users
 define("_BRANCHUSERTRAFFIC","Şube kullanıcı trafiği");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Doğru cevap yüzdesi");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Soru analizi");//Question analysis (New)
-define("_PARTICIPANTSCAP","Katılımcılar");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Puanı daha yüksek veya eşit Yüzde");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Katılım raporları");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle kenar çubuğu");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Puan dağılımı");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Toplu puanı dağıtımı");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Belirli için Raporlar");//Reports for a specific (New)
-define("_KEYUSAGE","Anahtar kullanımı");//Key usage (New)
-define("_INVALIDVERSIONKEY","Geçersiz sürümü anahtarı");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Sürüm anahtar ayarlama koduyla başarısız oldu");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Yeni bir versiyonu bulunur!");//There is a new version available! (New)
-define("_RELEASENOTES","Sürüm notları");//Release notes (New)
-define("_VERSIONUPTODATE","Sürümü güncel olduğundan");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Sunucu Contacting ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Doğru cevap yüzdesi");//Correct answer percentage
+define("_QUESTIONANALYSIS","Soru analizi");//Question analysis
+define("_PARTICIPANTSCAP","Katılımcılar");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Puanı daha yüksek veya eşit Yüzde");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Katılım raporları");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle kenar çubuğu");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Puan dağılımı");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Toplu puanı dağıtımı");//Cumulative score distribution
+define("_SEARCHTYPE","Belirli için Raporlar");//Reports for a specific
+define("_KEYUSAGE","Anahtar kullanımı");//Key usage
+define("_INVALIDVERSIONKEY","Geçersiz sürümü anahtarı");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Sürüm anahtar ayarlama koduyla başarısız oldu");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Yeni bir versiyonu bulunur!");//There is a new version available!
+define("_RELEASENOTES","Sürüm notları");//Release notes
+define("_VERSIONUPTODATE","Sürümü güncel olduğundan");//Your version is up to date
+define("_CONTACTINGSERVER","Sunucu Contacting ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Indirin ve kurun");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Sistem sunucu lisansı bağlantısı kurulamadı");//The system could not connect to license server (New)
-define("_LICENSESERVER","Lisans sunucusu");//License server (New)
-define("_UPGRADESVALIDUNTIL","Yükseltmeleri kadar geçerli");//Upgrades valid until (New)
-define("_ACTIVATEDON","Doğum Activated");//Activated on (New)
-define("_SERVERRESPONDED","Sunucu yanıtı");//The server responded (New)
-define("_FILEZEROSIZE","Yükseltme dosyası hakkında doğru bilgi alınamadı");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Dosya alınamadı");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","İndirilen dosya kendi alnınıza yazılmış olamazdı");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Show boş blokları");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Bu işlem uzun süre nedeniyle dışarı çıktınız");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Terk");//Abandon (New)
-define("_ABANDONALL","Terk tüm");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Tamamlanma yüzdesi blok");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Birim seçenekleri blok");//Unit options block (New)
-define("_RIGHTBAR","Sağ kenar çubuğu");//Right sidebar (New)
-define("_LEFTBAR","Sol kenar çubuğu");//Left sidebar (New)
-define("_STUDENTCPANEL","Öğrenci kontrol paneli");//Student control panel (New)
-define("_SMARTCONTENT","Akıllı içerik");//Smart content (New)
-define("_ZIPHANDLING","Zip işleme yöntemi");//Zip handling method (New)
-define("_COMPLETION","Tamamlanma");//Completion (New)
-define("_SETALLTO","Set to all");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Sistem sunucu lisansı bağlantısı kurulamadı");//The system could not connect to license server
+define("_LICENSESERVER","Lisans sunucusu");//License server
+define("_UPGRADESVALIDUNTIL","Yükseltmeleri kadar geçerli");//Upgrades valid until
+define("_ACTIVATEDON","Doğum Activated");//Activated on
+define("_SERVERRESPONDED","Sunucu yanıtı");//The server responded
+define("_FILEZEROSIZE","Yükseltme dosyası hakkında doğru bilgi alınamadı");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Dosya alınamadı");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","İndirilen dosya kendi alnınıza yazılmış olamazdı");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Show boş blokları");//Show empty blocks
+define("_INACTIVITYLOGOUT","Bu işlem uzun süre nedeniyle dışarı çıktınız");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Terk");//Abandon
+define("_ABANDONALL","Terk tüm");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Tamamlanma yüzdesi blok");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Birim seçenekleri blok");//Unit options block
+define("_RIGHTBAR","Sağ kenar çubuğu");//Right sidebar
+define("_LEFTBAR","Sol kenar çubuğu");//Left sidebar
+define("_STUDENTCPANEL","Öğrenci kontrol paneli");//Student control panel
+define("_SMARTCONTENT","Akıllı içerik");//Smart content
+define("_ZIPHANDLING","Zip işleme yöntemi");//Zip handling method
+define("_COMPLETION","Tamamlanma");//Completion
+define("_SETALLTO","Set to all");//Set all to
+define("_INADEQUATEBALANCE","Yetersiz bakiye");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal modu");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","İşlem günlüğü dosyası");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Şu anda alınan iş adresi uyuşmuyorsa adresi ayarlamak");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Desteklenmeyen işletim tipi");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Yinelenen ödeme tamamlandı");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Desteklenmeyen ödeme durumu");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Bu işlem iptal ettiniz");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","İşlem başarıyla tamamlandı.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal hata ayıklama moduna");//Paypal debug mode (New)
+define("_MYACCOUNT","Hesabım");//My account (New)
+define("_MODULE","Modülü");//Module (New)
+define("_EMBEDTYPE","Embed içerik olarak");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Yeni pencere (pop-up)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parametreleri");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Tıklayın düğmesini birim başlatmak için");//Click on the button to start the unit (New)
+define("_STARTUNIT","Start birimi");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Ne yazık ki bu SCORM 2004 sürümü desteklenmiyor");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Varsayılan geri bildirimleri");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","İçerik ilerleme (KDV hariç test)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Veritabanı sürümü");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Veritabanı sürümü kod sürümden daha farklı. Lütfen komut% link çalıştırmak");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Yükseltme");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Download ders ihraç");//Download exported course (New)
+define("_MAXDISCOUNT100","Maksimum indirim% 100&#39;dür");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Kayıt / Güncelleme");//Registration/Update (New)
+define("_ROWS","Satırlar");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Komut aşağıdaki çıktıyı başarısız oldu");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Belki sistem zip işleme desteklemez?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Amacıyla, ilk önce bir kategori yaratmak gereken bir ders oluşturmak için");//In order to create a course, you must first create a category (New)
 ?>

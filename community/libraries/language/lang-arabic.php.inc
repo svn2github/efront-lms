@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","فئات الشعب");//Related people
 define("_LEARNINGACTIVITY","النشاط التعليمي");//Learning activity
 define("_TIMELINE","الجدول الزمني");//Timeline
 define("_WASASSIGNEDTHELESSON","كلف الدرس");//was assigned lesson
-define("_WILLBETEACHINGLESSON","سيكون الدرس التدريس");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","سيكون الدرس التدريس");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","أكملت الدرس");//has completed lesson
 define("_NOLONGERATTENDSLESSON","لم يعد يحضر الدرس");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","كتبت تعليقا على وحدة");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","فرع لا يصح أو لا ي�
 define("_REPORTSFORBRANCH","تقارير لفرع");//Reports for branch
 define("_BRANCHUSERS","فرع المستخدمين");//Branch users
 define("_BRANCHUSERTRAFFIC","فرع المرور مستخدم");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","الإجابة الصحيحة النسبة المئوية");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","مسألة تحليل");//Question analysis (New)
-define("_PARTICIPANTSCAP","المشاركون");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","في المئة مع تسجيل أعلى أو يساوي");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","المشاركة التقارير");//Participation reports (New)
-define("_YESABBREVIATION","ص");//Y (New)
-define("_NOABBREVIATION","ن");//N (New)
-define("_TOGGLESIDEBAR","تبديل الشريط الجانبي");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","توزيع نقاط");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","النتيجة التراكمية التوزيع");//Cumulative score distribution (New)
-define("_SEARCHTYPE","تقارير لمدة محددة");//Reports for a specific (New)
-define("_KEYUSAGE","استخدام مفتاح");//Key usage (New)
-define("_INVALIDVERSIONKEY","إصدار غير صالح مفتاح");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","تعيين مفتاح الإصدار فشلت مع رمز");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","هناك نسخة جديدة متوفرة!");//There is a new version available! (New)
-define("_RELEASENOTES","ملاحظات الإصدار");//Release notes (New)
-define("_VERSIONUPTODATE","الإصدار الخاص بك هو حتى الآن");//Your version is up to date (New)
-define("_CONTACTINGSERVER","الاتصال الخادم...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","الإجابة الصحيحة النسبة المئوية");//Correct answer percentage
+define("_QUESTIONANALYSIS","مسألة تحليل");//Question analysis
+define("_PARTICIPANTSCAP","المشاركون");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","في المئة مع تسجيل أعلى أو يساوي");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","المشاركة التقارير");//Participation reports
+define("_YESABBREVIATION","ص");//Y
+define("_NOABBREVIATION","ن");//N
+define("_TOGGLESIDEBAR","تبديل الشريط الجانبي");//Toggle sidebar
+define("_SCOREDISTRIBUTION","توزيع نقاط");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","النتيجة التراكمية التوزيع");//Cumulative score distribution
+define("_SEARCHTYPE","تقارير لمدة محددة");//Reports for a specific
+define("_KEYUSAGE","استخدام مفتاح");//Key usage
+define("_INVALIDVERSIONKEY","إصدار غير صالح مفتاح");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","تعيين مفتاح الإصدار فشلت مع رمز");//Setting the version key failed with code
+define("_THEREISNEWVERSION","هناك نسخة جديدة متوفرة!");//There is a new version available!
+define("_RELEASENOTES","ملاحظات الإصدار");//Release notes
+define("_VERSIONUPTODATE","الإصدار الخاص بك هو حتى الآن");//Your version is up to date
+define("_CONTACTINGSERVER","الاتصال الخادم...");//Contacting server...
 define("_DOWNLOADANDINSTALL","تحميل وتثبيت");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","النظام تعذر الاتصال ملقم الترخيص");//The system could not connect to license server (New)
-define("_LICENSESERVER","ملقم الترخيص");//License server (New)
-define("_UPGRADESVALIDUNTIL","ترقيات ساري المفعول حتى");//Upgrades valid until (New)
-define("_ACTIVATEDON","على تفعيلها");//Activated on (New)
-define("_SERVERRESPONDED","واستجاب الملقم");//The server responded (New)
-define("_FILEZEROSIZE","فشل في استعادة المعلومات الصحيحة حول ملف الترقية");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","الملف لا يمكن استرجاعها");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","ويمكن أن الملف الذي تم تنزيله لا يمكن كتابة إلى الدليل الرئيسي");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","وتظهر كتل فارغة");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","كنت قد تم تسجيل الخروج نظرا لفترة طويلة من الخمول");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","التخلي عن");//Abandon (New)
-define("_ABANDONALL","التخلي عن كل");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","إنجاز نسبة كتلة");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","كتلة الوحدة خيارات");//Unit options block (New)
-define("_RIGHTBAR","الحق في الشريط الجانبي");//Right sidebar (New)
-define("_LEFTBAR","الشريط الجانبي الأيسر");//Left sidebar (New)
-define("_STUDENTCPANEL","طالب لوحة التحكم");//Student control panel (New)
-define("_SMARTCONTENT","ذكية المحتوى");//Smart content (New)
-define("_ZIPHANDLING","طريقة التعامل مع الرمز البريدي");//Zip handling method (New)
-define("_COMPLETION","الانتهاء");//Completion (New)
-define("_SETALLTO","تعيين جميع ل");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","النظام تعذر الاتصال ملقم الترخيص");//The system could not connect to license server
+define("_LICENSESERVER","ملقم الترخيص");//License server
+define("_UPGRADESVALIDUNTIL","ترقيات ساري المفعول حتى");//Upgrades valid until
+define("_ACTIVATEDON","على تفعيلها");//Activated on
+define("_SERVERRESPONDED","واستجاب الملقم");//The server responded
+define("_FILEZEROSIZE","فشل في استعادة المعلومات الصحيحة حول ملف الترقية");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","الملف لا يمكن استرجاعها");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","ويمكن أن الملف الذي تم تنزيله لا يمكن كتابة إلى الدليل الرئيسي");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","وتظهر كتل فارغة");//Show empty blocks
+define("_INACTIVITYLOGOUT","كنت قد تم تسجيل الخروج نظرا لفترة طويلة من الخمول");//You have been logged out due to a long period of inactivity
+define("_ABANDON","التخلي عن");//Abandon
+define("_ABANDONALL","التخلي عن كل");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","إنجاز نسبة كتلة");//Completion percentage block
+define("_UNITOPTIONSBLOCK","كتلة الوحدة خيارات");//Unit options block
+define("_RIGHTBAR","الحق في الشريط الجانبي");//Right sidebar
+define("_LEFTBAR","الشريط الجانبي الأيسر");//Left sidebar
+define("_STUDENTCPANEL","طالب لوحة التحكم");//Student control panel
+define("_SMARTCONTENT","ذكية المحتوى");//Smart content
+define("_ZIPHANDLING","طريقة التعامل مع الرمز البريدي");//Zip handling method
+define("_COMPLETION","الانتهاء");//Completion
+define("_SETALLTO","تعيين جميع ل");//Set all to
+define("_INADEQUATEBALANCE","عدم كفاية الرصيد");//Inadequate balance (New)
+define("_PAYPALMODE","وضع بايبال");//Paypal mode (New)
+define("_SANDBOX","رمل");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","ملف السجل المعاملة");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","حاليا مجموعة لا يطابق عنوان تلقى عنوان العمل");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","غير معتمد نوع العملية");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","مكررة استكمال الدفع");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","مركز معتمد الدفع");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","قمت بإلغاء الصفقة");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","كانت المعاملة قد أنجزت بنجاح.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","بايبال وضع التصحيح");//Paypal debug mode (New)
+define("_MYACCOUNT","حسابي");//My account (New)
+define("_MODULE","وحدة");//Module (New)
+define("_EMBEDTYPE","المحتوى واعرضها");//Embed content as (New)
+define("_INLINEIFRAME","مضمنة (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","نافذة جديدة (منبثقة)");//New window (popup) (New)
+define("_POPUPPARAMETERS","قافزة المعلمات");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","انقر على زر لبدء تشغيل وحدة");//Click on the button to start the unit (New)
+define("_STARTUNIT","بدء تشغيل وحدة");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","للأسف اس كورم عام 2004 هو غير معتمد في هذه الطبعة");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","الإخطارات استعادة الافتراضي");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","محتوى التقدم (باستثناء اختبارات)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","إصدار قاعدة بيانات");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","قاعدة البيانات الخاصة بك نسخة مختلفة عن النسخة رمز. الرجاء تشغيل الارتباط النصي ٪");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","الترقية");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","تنزيل تصديرها بالطبع");//Download exported course (New)
+define("_MAXDISCOUNT100","الخصم الحد الأقصى هو 100 ٪");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","تسجيل / تحديث");//Registration/Update (New)
+define("_ROWS","الصفوف");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","الأمر فشلت مع الإخراج التالية");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","ربما يكون النظام الخاص بك لا يدعم معالجة البريدي؟");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","من أجل خلق بطبيعة الحال ، يجب عليك أولا إنشاء فئة");//In order to create a course, you must first create a category (New)
 ?>

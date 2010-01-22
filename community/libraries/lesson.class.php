@@ -2876,6 +2876,9 @@ class EfrontLesson
         //tests_to_questions table requires special handling	
   //$testsToQuestions = $data['tests_to_questions'];
   //unset($data['tests_to_questions']);
+        if (!$data['questions'] && $data['tests_to_questions']) {
+            unset($data['tests_to_questions']);
+        }
         foreach ($data as $table => $tabledata) {
             if ($table == "glossary_words") {
                 $table = "glossary";

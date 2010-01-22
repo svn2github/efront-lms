@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Liên quan đến người dân");//Related people
 define("_LEARNINGACTIVITY","Hoạt động học tập");//Learning activity
 define("_TIMELINE","Thời gian biểu");//Timeline
 define("_WASASSIGNEDTHELESSON","được giao bài học");//was assigned lesson
-define("_WILLBETEACHINGLESSON","sẽ được giảng dạy bài học");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","sẽ được giảng dạy bài học");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","đã hoàn thành bài học");//has completed lesson
 define("_NOLONGERATTENDSLESSON","không còn tham dự bài học");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","đã viết một bình luận cho đơn vị");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Các chi nhánh không hợp l�
 define("_REPORTSFORBRANCH","Các báo cáo cho chi nhánh");//Reports for branch
 define("_BRANCHUSERS","Chi nhánh người sử dụng");//Branch users
 define("_BRANCHUSERTRAFFIC","Chi nhánh người sử dụng giao thông");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Câu trả lời đúng tỷ lệ phần trăm");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Câu hỏi phân tích");//Question analysis (New)
-define("_PARTICIPANTSCAP","Những người tham gia");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Phần trăm với điểm số cao hơn hoặc bằng");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Sự tham gia báo cáo");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Số điểm phân phối");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Tích lũy điểm số phân phối");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Báo cáo cho một cụ thể");//Reports for a specific (New)
-define("_KEYUSAGE","Key sử dụng");//Key usage (New)
-define("_INVALIDVERSIONKEY","Không hợp lệ phiên bản trọng điểm");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Thiết lập phím không thành công với phiên bản mã");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Có một phiên bản mới có!");//There is a new version available! (New)
-define("_RELEASENOTES","Release notes");//Release notes (New)
-define("_VERSIONUPTODATE","Phiên bản của bạn là đến ngày");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Liên hệ với máy chủ ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Câu trả lời đúng tỷ lệ phần trăm");//Correct answer percentage
+define("_QUESTIONANALYSIS","Câu hỏi phân tích");//Question analysis
+define("_PARTICIPANTSCAP","Những người tham gia");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Phần trăm với điểm số cao hơn hoặc bằng");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Sự tham gia báo cáo");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Số điểm phân phối");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Tích lũy điểm số phân phối");//Cumulative score distribution
+define("_SEARCHTYPE","Báo cáo cho một cụ thể");//Reports for a specific
+define("_KEYUSAGE","Key sử dụng");//Key usage
+define("_INVALIDVERSIONKEY","Không hợp lệ phiên bản trọng điểm");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Thiết lập phím không thành công với phiên bản mã");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Có một phiên bản mới có!");//There is a new version available!
+define("_RELEASENOTES","Release notes");//Release notes
+define("_VERSIONUPTODATE","Phiên bản của bạn là đến ngày");//Your version is up to date
+define("_CONTACTINGSERVER","Liên hệ với máy chủ ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Download và cài đặt");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Hệ thống không thể kết nối với máy chủ giấy phép");//The system could not connect to license server (New)
-define("_LICENSESERVER","Giấy phép máy chủ");//License server (New)
-define("_UPGRADESVALIDUNTIL","Nâng cấp hiệu lực cho đến khi");//Upgrades valid until (New)
-define("_ACTIVATEDON","Kích hoạt trên");//Activated on (New)
-define("_SERVERRESPONDED","Máy chủ trả lời");//The server responded (New)
-define("_FILEZEROSIZE","Không thể lấy thông tin đúng về các tập tin nâng cấp");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Các tập tin không thể được lấy ra");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Các tập tin đã tải về có thể không được ghi vào thư mục nhà của bạn");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Hiển thị các sản phẩm nào khối");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Bạn đã được đăng trên do một thời gian dài không hoạt động");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Bỏ");//Abandon (New)
-define("_ABANDONALL","Bỏ tất cả");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Hoàn thành phần trăm khối");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Đơn vị lựa chọn khối");//Unit options block (New)
-define("_RIGHTBAR","Bên phải");//Right sidebar (New)
-define("_LEFTBAR","Còn lại bên");//Left sidebar (New)
-define("_STUDENTCPANEL","Học sinh, bảng điều khiển");//Student control panel (New)
-define("_SMARTCONTENT","Thông minh nội dung");//Smart content (New)
-define("_ZIPHANDLING","Zip phương pháp xử lý");//Zip handling method (New)
-define("_COMPLETION","Hoàn thành");//Completion (New)
-define("_SETALLTO","Đặt tất cả để");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Hệ thống không thể kết nối với máy chủ giấy phép");//The system could not connect to license server
+define("_LICENSESERVER","Giấy phép máy chủ");//License server
+define("_UPGRADESVALIDUNTIL","Nâng cấp hiệu lực cho đến khi");//Upgrades valid until
+define("_ACTIVATEDON","Kích hoạt trên");//Activated on
+define("_SERVERRESPONDED","Máy chủ trả lời");//The server responded
+define("_FILEZEROSIZE","Không thể lấy thông tin đúng về các tập tin nâng cấp");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Các tập tin không thể được lấy ra");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Các tập tin đã tải về có thể không được ghi vào thư mục nhà của bạn");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Hiển thị các sản phẩm nào khối");//Show empty blocks
+define("_INACTIVITYLOGOUT","Bạn đã được đăng trên do một thời gian dài không hoạt động");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Bỏ");//Abandon
+define("_ABANDONALL","Bỏ tất cả");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Hoàn thành phần trăm khối");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Đơn vị lựa chọn khối");//Unit options block
+define("_RIGHTBAR","Bên phải");//Right sidebar
+define("_LEFTBAR","Còn lại bên");//Left sidebar
+define("_STUDENTCPANEL","Học sinh, bảng điều khiển");//Student control panel
+define("_SMARTCONTENT","Thông minh nội dung");//Smart content
+define("_ZIPHANDLING","Zip phương pháp xử lý");//Zip handling method
+define("_COMPLETION","Hoàn thành");//Completion
+define("_SETALLTO","Đặt tất cả để");//Set all to
+define("_INADEQUATEBALANCE","Không đủ số dư");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal chế độ");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Giao dịch tập tin đăng nhập");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Hiện nay thiết lập địa chỉ không phù hợp với địa chỉ doanh nghiệp nhận được");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Không được hỗ trợ hoạt động kiểu");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate hoàn thành thanh toán");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Không được hỗ trợ thanh toán tình trạng");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Bạn đã hủy bỏ các giao dịch");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Các giao dịch đã được hoàn tất thành công.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal chế độ gỡ lỗi");//Paypal debug mode (New)
+define("_MYACCOUNT","Tài khoản của tôi");//My account (New)
+define("_MODULE","Module");//Module (New)
+define("_EMBEDTYPE","Nhúng nội dung như");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Cửa sổ mới (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup thông số");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Click vào nút để bắt đầu các đơn vị");//Click on the button to start the unit (New)
+define("_STARTUNIT","Bắt đầu đơn vị");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Thật không may SCORM 2004 không được hỗ trợ trong phiên bản này");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Khôi phục các thông báo mặc định");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Nội dung tiến bộ (trừ các xét nghiệm)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Phiên bản cơ sở dữ liệu");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Phiên bản cơ sở dữ liệu của bạn là khác với phiên bản mã. Hãy chạy tập lệnh liên kết%");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Nâng cấp");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Tải về xuất khẩu khóa học");//Download exported course (New)
+define("_MAXDISCOUNT100","Việc giảm giá tối đa là 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Đăng ký / Cập nhật");//Registration/Update (New)
+define("_ROWS","Rows");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Lệnh không có đầu ra sau");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Có lẽ hệ thống của bạn không hỗ trợ chế biến zip?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Để tạo một khóa học, trước tiên bạn phải tạo một thể loại");//In order to create a course, you must first create a category (New)
 ?>

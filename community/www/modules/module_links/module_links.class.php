@@ -51,7 +51,7 @@ class module_links extends EfrontModule {
     // On importing a lesson
     public function onImportLesson($lessonId, $data) {
         foreach ($data as $record) {
-            $record['id'] = "";
+            unset($record['id']);
             $record['lessons_ID'] = $lessonId;
             eF_insertTableData("module_links",$record);
         }

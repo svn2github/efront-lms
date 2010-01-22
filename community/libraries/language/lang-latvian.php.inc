@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Saistītie cilvēki");//Related people
 define("_LEARNINGACTIVITY","Mācīšanās aktivitāte");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","tika piešķirtas mācība");//was assigned lesson
-define("_WILLBETEACHINGLESSON","būs mācību stunda");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","būs mācību stunda");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","ir pabeigta nodarbību");//has completed lesson
 define("_NOLONGERATTENDSLESSON","vairs apmeklē nodarbību");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","wrote komentāru vienības");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Filiālei nav derīgs vai jūs n
 define("_REPORTSFORBRANCH","Ziņojumi filiāles");//Reports for branch
 define("_BRANCHUSERS","Branch lietotāji");//Branch users
 define("_BRANCHUSERTRAFFIC","Branch lietotājs satiksme");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Pareizo atbildi procentos");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Jautājumu analīze");//Question analysis (New)
-define("_PARTICIPANTSCAP","Dalībnieki");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Procentos ar punktu skaits lielāks vai vienāds");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Līdzdalība ziņojumi");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Score sadale");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kumulatīvo rādītāju sadale");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Ziņojumus par īpašu");//Reports for a specific (New)
-define("_KEYUSAGE","Key izmantošana");//Key usage (New)
-define("_INVALIDVERSIONKEY","Nederīga versija galvenā");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Setting versija taustiņu neizdevās ar kodu");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Ir jauna versija pieejama!");//There is a new version available! (New)
-define("_RELEASENOTES","Laidienu");//Release notes (New)
-define("_VERSIONUPTODATE","Jūsu versija ir aktuāla");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Sazinoties ar serveri ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Pareizo atbildi procentos");//Correct answer percentage
+define("_QUESTIONANALYSIS","Jautājumu analīze");//Question analysis
+define("_PARTICIPANTSCAP","Dalībnieki");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Procentos ar punktu skaits lielāks vai vienāds");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Līdzdalība ziņojumi");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Score sadale");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kumulatīvo rādītāju sadale");//Cumulative score distribution
+define("_SEARCHTYPE","Ziņojumus par īpašu");//Reports for a specific
+define("_KEYUSAGE","Key izmantošana");//Key usage
+define("_INVALIDVERSIONKEY","Nederīga versija galvenā");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Setting versija taustiņu neizdevās ar kodu");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Ir jauna versija pieejama!");//There is a new version available!
+define("_RELEASENOTES","Laidienu");//Release notes
+define("_VERSIONUPTODATE","Jūsu versija ir aktuāla");//Your version is up to date
+define("_CONTACTINGSERVER","Sazinoties ar serveri ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Lejupielādēt un instalēt");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Sistēma nevar izveidot savienojumu ar licenču serveri");//The system could not connect to license server (New)
-define("_LICENSESERVER","Licenču serveri");//License server (New)
-define("_UPGRADESVALIDUNTIL","Upgrades derīga līdz");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktivizētas");//Activated on (New)
-define("_SERVERRESPONDED","Serveris atbildi");//The server responded (New)
-define("_FILEZEROSIZE","Neizdevās iegūt pareizu informāciju par modernizāciju failu");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Failu nevar izgūt");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Lejupielādēto failu nevar ierakstīt jūsu mājas direktorijā");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Show tukšs bloki");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Jūs esat izgājis dēļ ilgstoši bezdarbības");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Atteikties");//Abandon (New)
-define("_ABANDONALL","Atteikties no visu");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Pabeigšanas procentu bloks");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Unit iespējas bloks");//Unit options block (New)
-define("_RIGHTBAR","Right Sidebar");//Right sidebar (New)
-define("_LEFTBAR","Kreisais sānjoslas");//Left sidebar (New)
-define("_STUDENTCPANEL","Student kontroles panelis");//Student control panel (New)
-define("_SMARTCONTENT","Smart saturs");//Smart content (New)
-define("_ZIPHANDLING","Zip apstrādes metode");//Zip handling method (New)
-define("_COMPLETION","Pabeigšana");//Completion (New)
-define("_SETALLTO","Uzstādīt visas");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Sistēma nevar izveidot savienojumu ar licenču serveri");//The system could not connect to license server
+define("_LICENSESERVER","Licenču serveri");//License server
+define("_UPGRADESVALIDUNTIL","Upgrades derīga līdz");//Upgrades valid until
+define("_ACTIVATEDON","Aktivizētas");//Activated on
+define("_SERVERRESPONDED","Serveris atbildi");//The server responded
+define("_FILEZEROSIZE","Neizdevās iegūt pareizu informāciju par modernizāciju failu");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Failu nevar izgūt");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Lejupielādēto failu nevar ierakstīt jūsu mājas direktorijā");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Show tukšs bloki");//Show empty blocks
+define("_INACTIVITYLOGOUT","Jūs esat izgājis dēļ ilgstoši bezdarbības");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Atteikties");//Abandon
+define("_ABANDONALL","Atteikties no visu");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Pabeigšanas procentu bloks");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Unit iespējas bloks");//Unit options block
+define("_RIGHTBAR","Right Sidebar");//Right sidebar
+define("_LEFTBAR","Kreisais sānjoslas");//Left sidebar
+define("_STUDENTCPANEL","Student kontroles panelis");//Student control panel
+define("_SMARTCONTENT","Smart saturs");//Smart content
+define("_ZIPHANDLING","Zip apstrādes metode");//Zip handling method
+define("_COMPLETION","Pabeigšana");//Completion
+define("_SETALLTO","Uzstādīt visas");//Set all to
+define("_INADEQUATEBALANCE","Neatbilstoša bilance");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal mode");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Darījumu žurnālu failu");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Šobrīd noteikts adrese nesakrīt saņēma biznesa adrese");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Neatbalstīts darbības veids");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate izpildītu maksājuma");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Neatbalstīts maksājuma statuss");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Jums ir atcelts darījums");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Darījums tika pabeigts veiksmīgi.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","Mans konts");//My account (New)
+define("_MODULE","Modulis");//Module (New)
+define("_EMBEDTYPE","Iestiprināt saturu");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Jauna loga (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Uznirstošo logu parametri");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Noklikšķiniet uz pogas, lai sāktu vienība");//Click on the button to start the unit (New)
+define("_STARTUNIT","Start vienība");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Diemžēl SCORM 2004 neatbalsta šī izdevuma");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default paziņojumi");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Saturs progress (bez pārbaudēm)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Database versija");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Datu bāzes versija ir savādāka nekā koda versiju. Lūdzu, apskatiet% saite skriptu");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Download eksportē kurss");//Download exported course (New)
+define("_MAXDISCOUNT100","Maksimālo atlaidi 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Reģistrācija / Update");//Registration/Update (New)
+define("_ROWS","Rindas");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Komandu neizdevās ar šādu produkciju");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Iespējams, jūsu sistēma neatbalsta pasta apstrāde?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Lai radītu Protams, vispirms jāizveido kategorijas");//In order to create a course, you must first create a category (New)
 ?>

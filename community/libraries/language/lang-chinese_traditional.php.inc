@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","有關人士");//Related people
 define("_LEARNINGACTIVITY","學習活動");//Learning activity
 define("_TIMELINE","時間軸");//Timeline
 define("_WASASSIGNEDTHELESSON","被指派的教訓");//was assigned lesson
-define("_WILLBETEACHINGLESSON","將教學課");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","將教學課");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","已完成的教訓");//has completed lesson
 define("_NOLONGERATTENDSLESSON","不再出席教訓");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","寫了一個發表意見的單位");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","該分行是無效或您不能�
 define("_REPORTSFORBRANCH","報告為分支機構");//Reports for branch
 define("_BRANCHUSERS","分支機構的用戶");//Branch users
 define("_BRANCHUSERTRAFFIC","分公司用戶流量");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","正確回答率");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","問題分析");//Question analysis (New)
-define("_PARTICIPANTSCAP","與會者");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","與評分的百分比高於或等於");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","參與報告");//Participation reports (New)
-define("_YESABBREVIATION","ý");//Y (New)
-define("_NOABBREVIATION","ñ");//N (New)
-define("_TOGGLESIDEBAR","切換側邊欄");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","分數分佈");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","累積分數分佈");//Cumulative score distribution (New)
-define("_SEARCHTYPE","報告針對特定");//Reports for a specific (New)
-define("_KEYUSAGE","密鑰使用");//Key usage (New)
-define("_INVALIDVERSIONKEY","無效的版本的關鍵");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","設置版本失敗的關鍵代碼");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","有一個新的版本中！");//There is a new version available! (New)
-define("_RELEASENOTES","發行說明");//Release notes (New)
-define("_VERSIONUPTODATE","您的版本是最新的");//Your version is up to date (New)
-define("_CONTACTINGSERVER","聯繫服務器...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","正確回答率");//Correct answer percentage
+define("_QUESTIONANALYSIS","問題分析");//Question analysis
+define("_PARTICIPANTSCAP","與會者");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","與評分的百分比高於或等於");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","參與報告");//Participation reports
+define("_YESABBREVIATION","ý");//Y
+define("_NOABBREVIATION","ñ");//N
+define("_TOGGLESIDEBAR","切換側邊欄");//Toggle sidebar
+define("_SCOREDISTRIBUTION","分數分佈");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","累積分數分佈");//Cumulative score distribution
+define("_SEARCHTYPE","報告針對特定");//Reports for a specific
+define("_KEYUSAGE","密鑰使用");//Key usage
+define("_INVALIDVERSIONKEY","無效的版本的關鍵");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","設置版本失敗的關鍵代碼");//Setting the version key failed with code
+define("_THEREISNEWVERSION","有一個新的版本中！");//There is a new version available!
+define("_RELEASENOTES","發行說明");//Release notes
+define("_VERSIONUPTODATE","您的版本是最新的");//Your version is up to date
+define("_CONTACTINGSERVER","聯繫服務器...");//Contacting server...
 define("_DOWNLOADANDINSTALL","下載並安裝");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","該系統無法連接到許可證服務器");//The system could not connect to license server (New)
-define("_LICENSESERVER","許可證服務器");//License server (New)
-define("_UPGRADESVALIDUNTIL","升級有效期至");//Upgrades valid until (New)
-define("_ACTIVATEDON","激活");//Activated on (New)
-define("_SERVERRESPONDED","服務器響應");//The server responded (New)
-define("_FILEZEROSIZE","沒有正確的信息檢索有關升級文件");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","該文件不能檢索");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","下載的文件不能寫入到您的主目錄");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","顯示空塊");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","您已登出由於長期不活動");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","放棄");//Abandon (New)
-define("_ABANDONALL","放棄一切");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","完成百分比塊");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","股期權塊");//Unit options block (New)
-define("_RIGHTBAR","右側欄");//Right sidebar (New)
-define("_LEFTBAR","左側側邊欄");//Left sidebar (New)
-define("_STUDENTCPANEL","學生控制面板");//Student control panel (New)
-define("_SMARTCONTENT","智能內容");//Smart content (New)
-define("_ZIPHANDLING","郵編處理方法");//Zip handling method (New)
-define("_COMPLETION","完成");//Completion (New)
-define("_SETALLTO","都照");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","該系統無法連接到許可證服務器");//The system could not connect to license server
+define("_LICENSESERVER","許可證服務器");//License server
+define("_UPGRADESVALIDUNTIL","升級有效期至");//Upgrades valid until
+define("_ACTIVATEDON","激活");//Activated on
+define("_SERVERRESPONDED","服務器響應");//The server responded
+define("_FILEZEROSIZE","沒有正確的信息檢索有關升級文件");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","該文件不能檢索");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","下載的文件不能寫入到您的主目錄");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","顯示空塊");//Show empty blocks
+define("_INACTIVITYLOGOUT","您已登出由於長期不活動");//You have been logged out due to a long period of inactivity
+define("_ABANDON","放棄");//Abandon
+define("_ABANDONALL","放棄一切");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","完成百分比塊");//Completion percentage block
+define("_UNITOPTIONSBLOCK","股期權塊");//Unit options block
+define("_RIGHTBAR","右側欄");//Right sidebar
+define("_LEFTBAR","左側側邊欄");//Left sidebar
+define("_STUDENTCPANEL","學生控制面板");//Student control panel
+define("_SMARTCONTENT","智能內容");//Smart content
+define("_ZIPHANDLING","郵編處理方法");//Zip handling method
+define("_COMPLETION","完成");//Completion
+define("_SETALLTO","都照");//Set all to
+define("_INADEQUATEBALANCE","餘額不足");//Inadequate balance (New)
+define("_PAYPALMODE","貝寶模式");//Paypal mode (New)
+define("_SANDBOX","沙盒");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","事務日誌文件");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","目前，設置地址不匹配所獲取的業務報告");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","不支持的操作類型");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","複製完成付款");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","不支持的付款狀態");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","您已取消交易");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","該交易已成功完成。");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","貝寶調試模式");//Paypal debug mode (New)
+define("_MYACCOUNT","我的帳戶");//My account (New)
+define("_MODULE","模塊");//Module (New)
+define("_EMBEDTYPE","嵌入內容，");//Embed content as (New)
+define("_INLINEIFRAME","內聯（iframe中）");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","新窗口（彈出）");//New window (popup) (New)
+define("_POPUPPARAMETERS","彈出式參數");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","點擊按鈕啟動裝置");//Click on the button to start the unit (New)
+define("_STARTUNIT","啟動裝置");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","不幸的是符合SCORM 2004不支持這個版本");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","還原默認的通知");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","內容進展情況（不包括測試）");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","數據庫版本");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","你的數據庫版本是不同的代碼版本。請運行％鏈接腳本");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","升級");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","下載出口課程");//Download exported course (New)
+define("_MAXDISCOUNT100","最高折扣100％");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","註冊/更新");//Registration/Update (New)
+define("_ROWS","行");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","該命令失敗，出現以下輸出");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","也許你的系統不支持壓縮處理？");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","為了創建一門課程，你必須首先創建一個類");//In order to create a course, you must first create a category (New)
 ?>

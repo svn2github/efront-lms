@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Podobni ljudi");//Related people
 define("_LEARNINGACTIVITY","Learning dejavnost");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","je bil dodeljen lekcija");//was assigned lesson
-define("_WILLBETEACHINGLESSON","bodo učne lekcije");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","bodo učne lekcije");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","je dokončal lekcija");//has completed lesson
 define("_NOLONGERATTENDSLESSON","ne obiskuje lekcija");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","napisal komentar za enoto");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Podružnice ni veljavna ali ne v
 define("_REPORTSFORBRANCH","Poročila za podružnice");//Reports for branch
 define("_BRANCHUSERS","Branch uporabnikov");//Branch users
 define("_BRANCHUSERTRAFFIC","Branch uporabnik prometa");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Pravilen odgovor odstotek");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Vprašanje analize");//Question analysis (New)
-define("_PARTICIPANTSCAP","Udeleženci");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Odstotek z oceno višjo ali enako");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Sodelovanje poročila");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Ocena distribucija");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kumulativna ocena distribucija");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Poročila za posebne");//Reports for a specific (New)
-define("_KEYUSAGE","Key uporabe");//Key usage (New)
-define("_INVALIDVERSIONKEY","Neveljavna različica ključnih");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Nastavitev ni ključ različica z oznako");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Na voljo je nova različica na voljo!");//There is a new version available! (New)
-define("_RELEASENOTES","Release ugotavlja");//Release notes (New)
-define("_VERSIONUPTODATE","Vaša različica je do datuma");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contacting server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Pravilen odgovor odstotek");//Correct answer percentage
+define("_QUESTIONANALYSIS","Vprašanje analize");//Question analysis
+define("_PARTICIPANTSCAP","Udeleženci");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Odstotek z oceno višjo ali enako");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Sodelovanje poročila");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Ocena distribucija");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kumulativna ocena distribucija");//Cumulative score distribution
+define("_SEARCHTYPE","Poročila za posebne");//Reports for a specific
+define("_KEYUSAGE","Key uporabe");//Key usage
+define("_INVALIDVERSIONKEY","Neveljavna različica ključnih");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Nastavitev ni ključ različica z oznako");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Na voljo je nova različica na voljo!");//There is a new version available!
+define("_RELEASENOTES","Release ugotavlja");//Release notes
+define("_VERSIONUPTODATE","Vaša različica je do datuma");//Your version is up to date
+define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Prenos in namestitev");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Sistem ni mogel povezati z licenčnim strežnikom");//The system could not connect to license server (New)
-define("_LICENSESERVER","License server");//License server (New)
-define("_UPGRADESVALIDUNTIL","Nadgradnje velja do");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktivirani o");//Activated on (New)
-define("_SERVERRESPONDED","Strežnik se odzvali");//The server responded (New)
-define("_FILEZEROSIZE","Ni uspelo pridobiti ustreznih informacij o nadgradnji datoteko");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Datoteke ni bilo mogoče Vzpostavljeno");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Prenesene datoteke ne more biti napisan v vašem domačem imeniku");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Prikaži prazna bloki");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Ti so bili odjavljeni zaradi dolgem obdobju nedejavnosti");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Abandon vse");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Zaključek odstotek blok");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Unit možnosti blok");//Unit options block (New)
-define("_RIGHTBAR","Pravica sidebar");//Right sidebar (New)
-define("_LEFTBAR","Levi sidebar");//Left sidebar (New)
-define("_STUDENTCPANEL","Student nadzorno ploščo");//Student control panel (New)
-define("_SMARTCONTENT","Smart vsebine");//Smart content (New)
-define("_ZIPHANDLING","Zip ravnanje z metodo");//Zip handling method (New)
-define("_COMPLETION","Zaključek");//Completion (New)
-define("_SETALLTO","Nastavi za vse");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Sistem ni mogel povezati z licenčnim strežnikom");//The system could not connect to license server
+define("_LICENSESERVER","License server");//License server
+define("_UPGRADESVALIDUNTIL","Nadgradnje velja do");//Upgrades valid until
+define("_ACTIVATEDON","Aktivirani o");//Activated on
+define("_SERVERRESPONDED","Strežnik se odzvali");//The server responded
+define("_FILEZEROSIZE","Ni uspelo pridobiti ustreznih informacij o nadgradnji datoteko");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Datoteke ni bilo mogoče Vzpostavljeno");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Prenesene datoteke ne more biti napisan v vašem domačem imeniku");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Prikaži prazna bloki");//Show empty blocks
+define("_INACTIVITYLOGOUT","Ti so bili odjavljeni zaradi dolgem obdobju nedejavnosti");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Abandon vse");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Zaključek odstotek blok");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Unit možnosti blok");//Unit options block
+define("_RIGHTBAR","Pravica sidebar");//Right sidebar
+define("_LEFTBAR","Levi sidebar");//Left sidebar
+define("_STUDENTCPANEL","Student nadzorno ploščo");//Student control panel
+define("_SMARTCONTENT","Smart vsebine");//Smart content
+define("_ZIPHANDLING","Zip ravnanje z metodo");//Zip handling method
+define("_COMPLETION","Zaključek");//Completion
+define("_SETALLTO","Nastavi za vse");//Set all to
+define("_INADEQUATEBALANCE","Neustrezna ravnotežje");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal mode");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transaction log datoteko");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Trenutno je naslov se ne ujema prejeli službeni naslov");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Nepodprta operacija tip");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Podvoji zaključen plačila");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Unsupported plačilo status");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Imate transakcija razveljavljena");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Posel je bil uspešno zaključen.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","Moj račun");//My account (New)
+define("_MODULE","Modul");//Module (New)
+define("_EMBEDTYPE","Embed vsebino kot");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parametri");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Kliknite na gumb za zagon enote");//Click on the button to start the unit (New)
+define("_STARTUNIT","Start enota");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Žal SCORM 2004 ni podprt v tej izdaji");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default obvestila");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Vsebina napredka (razen testov)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Database version");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Vaš baze različica razlikuje od različice kodo. Prosimo, teči% link skript");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Nadgradnja");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Download izvozi tečaj");//Download exported course (New)
+define("_MAXDISCOUNT100","Največji popust je 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registracija / Update");//Registration/Update (New)
+define("_ROWS","Rows");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Ukaz ni z naslednjimi proizvodnja");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Morda vaš sistem ne podpira zip obdelave?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Da bi ustvarili Seveda morate najprej ustvariti kategorijo");//In order to create a course, you must first create a category (New)
 ?>

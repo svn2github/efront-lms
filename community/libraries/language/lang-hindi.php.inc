@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","संबंधित लोगों को");//Relate
 define("_LEARNINGACTIVITY","सीखने की गतिविधि");//Learning activity
 define("_TIMELINE","समयरेखा");//Timeline
 define("_WASASSIGNEDTHELESSON","सबक सौंपा गया");//was assigned lesson
-define("_WILLBETEACHINGLESSON","शिक्षण सबक होगा");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","शिक्षण सबक होगा");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","है सबक पूरा");//has completed lesson
 define("_NOLONGERATTENDSLESSON","अब सबक आती है");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","यूनिट के लिए एक टिप्पणी लिखी");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","शाखा वैध तुम
 define("_REPORTSFORBRANCH","शाखा के लिए रिपोर्ट");//Reports for branch
 define("_BRANCHUSERS","शाखा उपयोगकर्ता");//Branch users
 define("_BRANCHUSERTRAFFIC","शाखा उपयोगकर्ता यातायात");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","सही जवाब प्रतिशत");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","प्रश्न विश्लेषण");//Question analysis (New)
-define("_PARTICIPANTSCAP","प्रतिभागियों");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","स्कोर जितना अधिक या बराबर के साथ प्रतिशत");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","भागीदारी रिपोर्ट");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","टॉगल साइडबार");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","स्कोर वितरण");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","कुल स्कोर वितरण");//Cumulative score distribution (New)
-define("_SEARCHTYPE","एक विशेष रिपोर्ट के लिए");//Reports for a specific (New)
-define("_KEYUSAGE","प्रमुख उपयोग");//Key usage (New)
-define("_INVALIDVERSIONKEY","अमान्य संस्करण कुंजी");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","संस्करण कुंजी कोड के साथ स्थापना विफल");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","वहाँ एक नया संस्करण उपलब्ध है!");//There is a new version available! (New)
-define("_RELEASENOTES","रिलीज नोट्स");//Release notes (New)
-define("_VERSIONUPTODATE","अपने संस्करण की तारीख पर निर्भर है");//Your version is up to date (New)
-define("_CONTACTINGSERVER","सर्वर से संपर्क ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","सही जवाब प्रतिशत");//Correct answer percentage
+define("_QUESTIONANALYSIS","प्रश्न विश्लेषण");//Question analysis
+define("_PARTICIPANTSCAP","प्रतिभागियों");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","स्कोर जितना अधिक या बराबर के साथ प्रतिशत");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","भागीदारी रिपोर्ट");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","टॉगल साइडबार");//Toggle sidebar
+define("_SCOREDISTRIBUTION","स्कोर वितरण");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","कुल स्कोर वितरण");//Cumulative score distribution
+define("_SEARCHTYPE","एक विशेष रिपोर्ट के लिए");//Reports for a specific
+define("_KEYUSAGE","प्रमुख उपयोग");//Key usage
+define("_INVALIDVERSIONKEY","अमान्य संस्करण कुंजी");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","संस्करण कुंजी कोड के साथ स्थापना विफल");//Setting the version key failed with code
+define("_THEREISNEWVERSION","वहाँ एक नया संस्करण उपलब्ध है!");//There is a new version available!
+define("_RELEASENOTES","रिलीज नोट्स");//Release notes
+define("_VERSIONUPTODATE","अपने संस्करण की तारीख पर निर्भर है");//Your version is up to date
+define("_CONTACTINGSERVER","सर्वर से संपर्क ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","डाउनलोड और स्थापित करें");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","लाइसेंस व्यवस्था के लिए सर्वर से कनेक्ट नहीं कर सकता");//The system could not connect to license server (New)
-define("_LICENSESERVER","लाइसेंस सर्वर");//License server (New)
-define("_UPGRADESVALIDUNTIL","उन्नयन वैध जब तक");//Upgrades valid until (New)
-define("_ACTIVATEDON","सक्रिय पर");//Activated on (New)
-define("_SERVERRESPONDED","सर्वर जवाब");//The server responded (New)
-define("_FILEZEROSIZE","के उन्नयन फाइल के बारे में उचित जानकारी पुनः प्राप्त करने में असफल");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","फ़ाइल पुनः प्राप्त नहीं किया जा सकता है");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","डाउनलोड फ़ाइल आपके घर निर्देशिका में नहीं लिखा जा सकता है");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","शो खाली ब्लॉक");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","तुम निष्क्रियता की एक लंबी अवधि की वजह से बाहर लॉग इन किया गया है");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","त्याग");//Abandon (New)
-define("_ABANDONALL","छोड़ सब");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","पूरा प्रतिशत ब्लॉक");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","यूनिट विकल्प खंड");//Unit options block (New)
-define("_RIGHTBAR","सही साइडबार");//Right sidebar (New)
-define("_LEFTBAR","वाम साइडबार");//Left sidebar (New)
-define("_STUDENTCPANEL","छात्र के नियंत्रण कक्ष");//Student control panel (New)
-define("_SMARTCONTENT","स्मार्ट सामग्री");//Smart content (New)
-define("_ZIPHANDLING","ज़िप संभाल विधि");//Zip handling method (New)
-define("_COMPLETION","पूरा");//Completion (New)
-define("_SETALLTO","सभी सेट");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","लाइसेंस व्यवस्था के लिए सर्वर से कनेक्ट नहीं कर सकता");//The system could not connect to license server
+define("_LICENSESERVER","लाइसेंस सर्वर");//License server
+define("_UPGRADESVALIDUNTIL","उन्नयन वैध जब तक");//Upgrades valid until
+define("_ACTIVATEDON","सक्रिय पर");//Activated on
+define("_SERVERRESPONDED","सर्वर जवाब");//The server responded
+define("_FILEZEROSIZE","के उन्नयन फाइल के बारे में उचित जानकारी पुनः प्राप्त करने में असफल");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","फ़ाइल पुनः प्राप्त नहीं किया जा सकता है");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","डाउनलोड फ़ाइल आपके घर निर्देशिका में नहीं लिखा जा सकता है");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","शो खाली ब्लॉक");//Show empty blocks
+define("_INACTIVITYLOGOUT","तुम निष्क्रियता की एक लंबी अवधि की वजह से बाहर लॉग इन किया गया है");//You have been logged out due to a long period of inactivity
+define("_ABANDON","त्याग");//Abandon
+define("_ABANDONALL","छोड़ सब");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","पूरा प्रतिशत ब्लॉक");//Completion percentage block
+define("_UNITOPTIONSBLOCK","यूनिट विकल्प खंड");//Unit options block
+define("_RIGHTBAR","सही साइडबार");//Right sidebar
+define("_LEFTBAR","वाम साइडबार");//Left sidebar
+define("_STUDENTCPANEL","छात्र के नियंत्रण कक्ष");//Student control panel
+define("_SMARTCONTENT","स्मार्ट सामग्री");//Smart content
+define("_ZIPHANDLING","ज़िप संभाल विधि");//Zip handling method
+define("_COMPLETION","पूरा");//Completion
+define("_SETALLTO","सभी सेट");//Set all to
+define("_INADEQUATEBALANCE","अपर्याप्त राशि");//Inadequate balance (New)
+define("_PAYPALMODE","पेपैल मोड");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","लेनदेन लॉग फाइल");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","वर्तमान पता प्राप्त करता है व्यवसाय पते से मेल नहीं सेट");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","असमर्थित आपरेशन प्रकार");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","डुप्लिकेट भुगतान पूरा");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","असमर्थित भुगतान की स्थिति");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","तुम सौदा रद्द कर दिया है");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","लेनदेन को सफलतापूर्वक पूरा किया गया.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","पेपैल डिबग मोड");//Paypal debug mode (New)
+define("_MYACCOUNT","मेरा खाता");//My account (New)
+define("_MODULE","मॉड्यूल");//Module (New)
+define("_EMBEDTYPE","एम्बेड सामग्री के रूप में");//Embed content as (New)
+define("_INLINEIFRAME","इनलाइन iframe ()");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","नई विंडो पॉपअप ()");//New window (popup) (New)
+define("_POPUPPARAMETERS","पॉपअप मानकों");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","बटन पर क्लिक करें इकाई शुरू करने के लिए");//Click on the button to start the unit (New)
+define("_STARTUNIT","शुरू इकाई");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","इस संस्करण में दुर्भाग्य से SCORM 2004 समर्थित नहीं है");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","डिफ़ॉल्ट पुनर्स्थापित सूचनाएँ");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","सामग्री प्रगति (परीक्षण excl.)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","डाटाबेस संस्करण");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","आपके डाटाबेस संस्करण कोड संस्करण से अलग है. कृपया% लिंक स्क्रिप्ट चलाने");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","अद्यतन");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","डाउनलोड पाठ्यक्रम का निर्यात");//Download exported course (New)
+define("_MAXDISCOUNT100","अधिकतम डिस्काउंट 100% है");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","पंजीकरण अद्यतन /");//Registration/Update (New)
+define("_ROWS","पंक्तियाँ");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","आदेश का पालन उत्पादन के साथ असफल");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","शायद आपके सिस्टम ज़िप संसाधन का समर्थन नहीं करता है?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","आदेश में एक कोर्स बनाने के लिए, आपको पहले एक वर्ग पैदा होगा");//In order to create a course, you must first create a category (New)
 ?>

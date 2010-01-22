@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Njerëz Related");//Related people
 define("_LEARNINGACTIVITY","Aktiviteti Learning");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","ishte caktuar mësim");//was assigned lesson
-define("_WILLBETEACHINGLESSON","do të jetë mësim mësim");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","do të jetë mësim mësim");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","ka përfunduar mësim");//has completed lesson
 define("_NOLONGERATTENDSLESSON","nuk merr pjesë më mësim");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","shkroi një koment për njësi");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Dega nuk është e vlefshme, ose
 define("_REPORTSFORBRANCH","Raportet për degë");//Reports for branch
 define("_BRANCHUSERS","Users Dega");//Branch users
 define("_BRANCHUSERTRAFFIC","Dega e trafikut përdorues");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Përqindje Correct përgjigje");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Analiza Pyetje");//Question analysis (New)
-define("_PARTICIPANTSCAP","Pjesëmarrësit");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Për qind me rezultat të lartë ose të barabartë");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Raportet e pjesëmarrjes");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Shpërndarjes Score");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Shpërndarja kumulative Rezultati");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Raportet për një të veçantë");//Reports for a specific (New)
-define("_KEYUSAGE","Përdorimin Key");//Key usage (New)
-define("_INVALIDVERSIONKEY","Kryesore e pavlefshme version");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Vendosja kryesor version dështuar me kodin");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Nuk është në dispozicion një version të ri!");//There is a new version available! (New)
-define("_RELEASENOTES","Release notes");//Release notes (New)
-define("_VERSIONUPTODATE","Version juaj është deri në datën");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contacting server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Përqindje Correct përgjigje");//Correct answer percentage
+define("_QUESTIONANALYSIS","Analiza Pyetje");//Question analysis
+define("_PARTICIPANTSCAP","Pjesëmarrësit");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Për qind me rezultat të lartë ose të barabartë");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Raportet e pjesëmarrjes");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Shpërndarjes Score");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Shpërndarja kumulative Rezultati");//Cumulative score distribution
+define("_SEARCHTYPE","Raportet për një të veçantë");//Reports for a specific
+define("_KEYUSAGE","Përdorimin Key");//Key usage
+define("_INVALIDVERSIONKEY","Kryesore e pavlefshme version");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Vendosja kryesor version dështuar me kodin");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Nuk është në dispozicion një version të ri!");//There is a new version available!
+define("_RELEASENOTES","Release notes");//Release notes
+define("_VERSIONUPTODATE","Version juaj është deri në datën");//Your version is up to date
+define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Shkarkim dhe instalim");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Sistem nuk mund të lidheni me serverin licencës");//The system could not connect to license server (New)
-define("_LICENSESERVER","Server License");//License server (New)
-define("_UPGRADESVALIDUNTIL","Përmirësimet e vlefshme deri");//Upgrades valid until (New)
-define("_ACTIVATEDON","Aktivizuar në");//Activated on (New)
-define("_SERVERRESPONDED","Server përgjigj");//The server responded (New)
-define("_FILEZEROSIZE","Failed to retrieve informacionin e duhur rreth fotografi upgrade");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Skeda nuk mund të shikohet");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Fotografi shkarkuar nuk mund të jetë e shkruar në directory tuaj");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Show blloqe bosh");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Ju keni qenë hyrë jashtë për shkak të një periudhe të gjatë të pasivitetit");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Braktisin");//Abandon (New)
-define("_ABANDONALL","Braktisnin të gjitha");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Përqindje Përfundimi bllok");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Njësia options bllok");//Unit options block (New)
-define("_RIGHTBAR","Drejta sidebar");//Right sidebar (New)
-define("_LEFTBAR","Majtas sidebar");//Left sidebar (New)
-define("_STUDENTCPANEL","Student kontroll panel");//Student control panel (New)
-define("_SMARTCONTENT","Përmbajtjen Smart");//Smart content (New)
-define("_ZIPHANDLING","Mënyra e trajtimit Zip");//Zip handling method (New)
-define("_COMPLETION","Përfundimi");//Completion (New)
-define("_SETALLTO","Gati të");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Sistem nuk mund të lidheni me serverin licencës");//The system could not connect to license server
+define("_LICENSESERVER","Server License");//License server
+define("_UPGRADESVALIDUNTIL","Përmirësimet e vlefshme deri");//Upgrades valid until
+define("_ACTIVATEDON","Aktivizuar në");//Activated on
+define("_SERVERRESPONDED","Server përgjigj");//The server responded
+define("_FILEZEROSIZE","Failed to retrieve informacionin e duhur rreth fotografi upgrade");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Skeda nuk mund të shikohet");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Fotografi shkarkuar nuk mund të jetë e shkruar në directory tuaj");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Show blloqe bosh");//Show empty blocks
+define("_INACTIVITYLOGOUT","Ju keni qenë hyrë jashtë për shkak të një periudhe të gjatë të pasivitetit");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Braktisin");//Abandon
+define("_ABANDONALL","Braktisnin të gjitha");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Përqindje Përfundimi bllok");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Njësia options bllok");//Unit options block
+define("_RIGHTBAR","Drejta sidebar");//Right sidebar
+define("_LEFTBAR","Majtas sidebar");//Left sidebar
+define("_STUDENTCPANEL","Student kontroll panel");//Student control panel
+define("_SMARTCONTENT","Përmbajtjen Smart");//Smart content
+define("_ZIPHANDLING","Mënyra e trajtimit Zip");//Zip handling method
+define("_COMPLETION","Përfundimi");//Completion
+define("_SETALLTO","Gati të");//Set all to
+define("_INADEQUATEBALANCE","Bilanci joadekuat");//Inadequate balance (New)
+define("_PAYPALMODE","Mode Paypal");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transaction log file");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Vendosur Aktualisht adresa nuk përputhet marrë adresën e biznesit");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Lloji Unsupported operacion");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate përfunduar pagesa");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Statusi Unsupported pagesë");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Ju keni anuluar transaksionin");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksioni është përfunduar me sukses.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","My account");//My account (New)
+define("_MODULE","Module");//Module (New)
+define("_EMBEDTYPE","Embed përmbajtje si");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Dritare e re (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Parametrat Popup");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Kliko në butonin për të filluar njësi");//Click on the button to start the unit (New)
+define("_STARTUNIT","Njësi Start");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Për fat të keq scorm 2004 nuk është përfshirë në këtë botim");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Njoftimet Restore default");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Progres Përmbajtja (excl. teste)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Version Database");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Versioni bazës së të dhënave është i ndryshëm nga versioni kodin. Ju lutemi të drejtuar Lidhje% script");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Shkarko eksportuar kurs");//Download exported course (New)
+define("_MAXDISCOUNT100","Ulje maksimale është 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Regjistrim / Update");//Registration/Update (New)
+define("_ROWS","Rreshtave");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Komandën dështuar me prodhimin e mëposhtme");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Ndoshta sistemi juaj nuk ka përkrahje të përpunimit zip?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Në mënyrë që të krijojë një kurs, ju duhet së pari të krijojë një kategori");//In order to create a course, you must first create a category (New)
 ?>

@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Betrokken personen");//Related people
 define("_LEARNINGACTIVITY","Leeractiviteit");//Learning activity
 define("_TIMELINE","Tijdlijn");//Timeline
 define("_WASASSIGNEDTHELESSON","werd toegewezen les");//was assigned lesson
-define("_WILLBETEACHINGLESSON","worden onderwijs les");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","worden onderwijs les");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","heeft voltooid les");//has completed lesson
 define("_NOLONGERATTENDSLESSON","niet langer aanwezig les");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","schreef een reactie voor eenheid");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","De tak is niet geldig of u kunt 
 define("_REPORTSFORBRANCH","Rapporten voor tak");//Reports for branch
 define("_BRANCHUSERS","Branch gebruikers");//Branch users
 define("_BRANCHUSERTRAFFIC","Branch gebruiker verkeer");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Correct antwoord percentage");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Vraag analyse");//Question analysis (New)
-define("_PARTICIPANTSCAP","Deelnemers");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Percentage met een score hoger of gelijk");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Deelname verslagen");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Score distributie");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Cumulatieve score distributie");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Rapporten voor een specifieke");//Reports for a specific (New)
-define("_KEYUSAGE","Key gebruik");//Key usage (New)
-define("_INVALIDVERSIONKEY","Ongeldige versie sleutel");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Instellen van de versie met code sleutel mislukt");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Er is een nieuwe versie beschikbaar!");//There is a new version available! (New)
-define("_RELEASENOTES","Release notes");//Release notes (New)
-define("_VERSIONUPTODATE","Uw versie is up-to-date");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contact opnemen met de server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Correct antwoord percentage");//Correct answer percentage
+define("_QUESTIONANALYSIS","Vraag analyse");//Question analysis
+define("_PARTICIPANTSCAP","Deelnemers");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Percentage met een score hoger of gelijk");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Deelname verslagen");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Toggle sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Score distributie");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Cumulatieve score distributie");//Cumulative score distribution
+define("_SEARCHTYPE","Rapporten voor een specifieke");//Reports for a specific
+define("_KEYUSAGE","Key gebruik");//Key usage
+define("_INVALIDVERSIONKEY","Ongeldige versie sleutel");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Instellen van de versie met code sleutel mislukt");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Er is een nieuwe versie beschikbaar!");//There is a new version available!
+define("_RELEASENOTES","Release notes");//Release notes
+define("_VERSIONUPTODATE","Uw versie is up-to-date");//Your version is up to date
+define("_CONTACTINGSERVER","Contact opnemen met de server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Download en installeer");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Het systeem kan geen verbinding maken met server licentie");//The system could not connect to license server (New)
-define("_LICENSESERVER","Licentieserver");//License server (New)
-define("_UPGRADESVALIDUNTIL","Upgrades geldig tot");//Upgrades valid until (New)
-define("_ACTIVATEDON","Geactiveerd");//Activated on (New)
-define("_SERVERRESPONDED","De server antwoordde");//The server responded (New)
-define("_FILEZEROSIZE","Mislukt ophalen goede informatie over de upgrade bestand");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Het bestand kan niet worden opgehaald");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Het gedownloade bestand kan niet worden geschreven naar je home directory");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Toon lege blokken");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","U bent afgemeld vanwege een lange periode van inactiviteit");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Abandon all");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Afronding percentage blok");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Unit opties blok");//Unit options block (New)
-define("_RIGHTBAR","Right sidebar");//Right sidebar (New)
-define("_LEFTBAR","Linkerzijbalk");//Left sidebar (New)
-define("_STUDENTCPANEL","Student bedieningspaneel");//Student control panel (New)
-define("_SMARTCONTENT","Smart inhoud");//Smart content (New)
-define("_ZIPHANDLING","Zip hanteren methode");//Zip handling method (New)
-define("_COMPLETION","Afronding");//Completion (New)
-define("_SETALLTO","Zet allemaal");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Het systeem kan geen verbinding maken met server licentie");//The system could not connect to license server
+define("_LICENSESERVER","Licentieserver");//License server
+define("_UPGRADESVALIDUNTIL","Upgrades geldig tot");//Upgrades valid until
+define("_ACTIVATEDON","Geactiveerd");//Activated on
+define("_SERVERRESPONDED","De server antwoordde");//The server responded
+define("_FILEZEROSIZE","Mislukt ophalen goede informatie over de upgrade bestand");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Het bestand kan niet worden opgehaald");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Het gedownloade bestand kan niet worden geschreven naar je home directory");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Toon lege blokken");//Show empty blocks
+define("_INACTIVITYLOGOUT","U bent afgemeld vanwege een lange periode van inactiviteit");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Abandon all");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Afronding percentage blok");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Unit opties blok");//Unit options block
+define("_RIGHTBAR","Right sidebar");//Right sidebar
+define("_LEFTBAR","Linkerzijbalk");//Left sidebar
+define("_STUDENTCPANEL","Student bedieningspaneel");//Student control panel
+define("_SMARTCONTENT","Smart inhoud");//Smart content
+define("_ZIPHANDLING","Zip hanteren methode");//Zip handling method
+define("_COMPLETION","Afronding");//Completion
+define("_SETALLTO","Zet allemaal");//Set all to
+define("_INADEQUATEBALANCE","Onvoldoende saldo");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal modus");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Transactie logbestand");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Momenteel set adres komt niet overeen ontvangen kantooradres");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Ondersteunde operatie type");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Dubbele betaling voltooid");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Ondersteunde betaling status");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","U hebt de transactie geannuleerd");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","De transactie werd succesvol afgerond.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","Mijn account");//My account (New)
+define("_MODULE","Module");//Module (New)
+define("_EMBEDTYPE","Embed inhoud");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Nieuw venster (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parameters");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Klik op de knop om te beginnen met de eenheid");//Click on the button to start the unit (New)
+define("_STARTUNIT","Start eenheid");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Helaas SCORM 2004 wordt niet ondersteund in deze editie");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default kennisgevingen");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Inhoud vooruitgang (excl. tests)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Database versie");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Uw database versie is anders dan de code versie. Voer het script% link");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Download uitgevoerd cursus");//Download exported course (New)
+define("_MAXDISCOUNT100","De maximale korting is 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registratie / Update");//Registration/Update (New)
+define("_ROWS","Rijen");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","De opdracht is mislukt met de volgende uitvoer");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Misschien is uw systeem biedt geen ondersteuning voor zip verwerking?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Voor het maken van een cursus, moet u eerst een categorie");//In order to create a course, you must first create a category (New)
 ?>

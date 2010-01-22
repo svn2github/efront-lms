@@ -595,7 +595,7 @@ class EfrontDirectionsTree extends EfrontTree
                                     <img src = "images/32x32/categories.png" >
                                     <span style = "display:none" id = "subtree_children_'.$current['id'].'">'.implode(",", $children).'</span>
                                 </td>
-                                <td><span class = "listName">'.$current['name'].'</span></td>
+                                <td class = "listTitle"><span class = "listName">'.$current['name'].'</span></td>
                             </tr>';
 
             if (sizeof($current['lessons']) > 0) {

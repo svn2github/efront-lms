@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Susijusios žmonių");//Related people
 define("_LEARNINGACTIVITY","Mokymosi veikla");//Learning activity
 define("_TIMELINE","Chronologija");//Timeline
 define("_WASASSIGNEDTHELESSON","buvo paskirtas pamoka");//was assigned lesson
-define("_WILLBETEACHINGLESSON","bus mokymo pamoka");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","bus mokymo pamoka");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","baigė pamoka");//has completed lesson
 define("_NOLONGERATTENDSLESSON","nebėra lanko pamokas");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","parašė komentarą vieneto");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Filialas yra neteisingas arba J�
 define("_REPORTSFORBRANCH","Ataskaitos Filialų");//Reports for branch
 define("_BRANCHUSERS","Filialas vartotojams");//Branch users
 define("_BRANCHUSERTRAFFIC","Filialas vartotojo eismo");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Teisingas atsakymas procentas");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Klausimų analizė");//Question analysis (New)
-define("_PARTICIPANTSCAP","Dalyviai");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Procentais rezultatas didesnis arba lygus");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Dalyvavimas ataskaitos");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","Š");//N (New)
-define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Balą platinimas");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Kaupiamasis balas platinimas");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Ataskaitos apie konkrečius");//Reports for a specific (New)
-define("_KEYUSAGE","Rakto");//Key usage (New)
-define("_INVALIDVERSIONKEY","Negaliojantis versija raktas");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Setting versija raktas nepavyko kodas");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Yra nauja versija!");//There is a new version available! (New)
-define("_RELEASENOTES","Release Notes");//Release notes (New)
-define("_VERSIONUPTODATE","Jūsų versija yra naujausia");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Susisiekti su serveriu ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Teisingas atsakymas procentas");//Correct answer percentage
+define("_QUESTIONANALYSIS","Klausimų analizė");//Question analysis
+define("_PARTICIPANTSCAP","Dalyviai");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Procentais rezultatas didesnis arba lygus");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Dalyvavimas ataskaitos");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","Š");//N
+define("_TOGGLESIDEBAR","Toggle Sidebar");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Balą platinimas");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Kaupiamasis balas platinimas");//Cumulative score distribution
+define("_SEARCHTYPE","Ataskaitos apie konkrečius");//Reports for a specific
+define("_KEYUSAGE","Rakto");//Key usage
+define("_INVALIDVERSIONKEY","Negaliojantis versija raktas");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Setting versija raktas nepavyko kodas");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Yra nauja versija!");//There is a new version available!
+define("_RELEASENOTES","Release Notes");//Release notes
+define("_VERSIONUPTODATE","Jūsų versija yra naujausia");//Your version is up to date
+define("_CONTACTINGSERVER","Susisiekti su serveriu ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Atsisiųsti ir įdiegti");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Sistema negali prisijungti prie serverio licencijas");//The system could not connect to license server (New)
-define("_LICENSESERVER","Serverio licenciją");//License server (New)
-define("_UPGRADESVALIDUNTIL","Atnaujinimai galioja iki");//Upgrades valid until (New)
-define("_ACTIVATEDON","Çjungta");//Activated on (New)
-define("_SERVERRESPONDED","Serverio atsakas");//The server responded (New)
-define("_FILEZEROSIZE","Nepavyko gauti tinkamą informaciją apie atnaujinimo failas");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Failas negali būti Naujausi");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Įkeltas failas negali būti parašyta, kad jūsų namų kataloge");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Rodyti tuščias blokai");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Jūs buvote atsijungęs dėl ilgo neaktyvumo");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Atsisakyti visų");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Baigimas procentas blokas");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Vnt puslapį blokas");//Unit options block (New)
-define("_RIGHTBAR","Teisė Sidebar");//Right sidebar (New)
-define("_LEFTBAR","Liko Sidebar");//Left sidebar (New)
-define("_STUDENTCPANEL","Studentų valdymo skydelis");//Student control panel (New)
-define("_SMARTCONTENT","Smart turinio");//Smart content (New)
-define("_ZIPHANDLING","Zip tvarkymo metodas");//Zip handling method (New)
-define("_COMPLETION","Baigimas");//Completion (New)
-define("_SETALLTO","Nustatyti visiems");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Sistema negali prisijungti prie serverio licencijas");//The system could not connect to license server
+define("_LICENSESERVER","Serverio licenciją");//License server
+define("_UPGRADESVALIDUNTIL","Atnaujinimai galioja iki");//Upgrades valid until
+define("_ACTIVATEDON","Çjungta");//Activated on
+define("_SERVERRESPONDED","Serverio atsakas");//The server responded
+define("_FILEZEROSIZE","Nepavyko gauti tinkamą informaciją apie atnaujinimo failas");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Failas negali būti Naujausi");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Įkeltas failas negali būti parašyta, kad jūsų namų kataloge");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Rodyti tuščias blokai");//Show empty blocks
+define("_INACTIVITYLOGOUT","Jūs buvote atsijungęs dėl ilgo neaktyvumo");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Atsisakyti visų");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Baigimas procentas blokas");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Vnt puslapį blokas");//Unit options block
+define("_RIGHTBAR","Teisė Sidebar");//Right sidebar
+define("_LEFTBAR","Liko Sidebar");//Left sidebar
+define("_STUDENTCPANEL","Studentų valdymo skydelis");//Student control panel
+define("_SMARTCONTENT","Smart turinio");//Smart content
+define("_ZIPHANDLING","Zip tvarkymo metodas");//Zip handling method
+define("_COMPLETION","Baigimas");//Completion
+define("_SETALLTO","Nustatyti visiems");//Set all to
+define("_INADEQUATEBALANCE","Nepakankamas likutis");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal būdas");//Paypal mode (New)
+define("_SANDBOX","Smėlio");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Sandorio failą");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Šiuo metu nustatyti adresas nesutampa gavo verslo adresas");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Nepalaikoma operacija tipas");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Dviem egzemplioriais užpildytas mokėjimo");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Nepalaikomas mokėjimo statuso");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Jūs atšaukti sandorį");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Sandoris buvo baigtas sėkmingai.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
+define("_MYACCOUNT","Mano sąskaita");//My account (New)
+define("_MODULE","Modulis");//Module (New)
+define("_EMBEDTYPE","Įterpti turinį");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Naujame lange (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Popup parametrai");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Paspauskite mygtuką, norėdami pradėti vienetas");//Click on the button to start the unit (New)
+define("_STARTUNIT","Pradėti vienetas");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Deja, SCORM 2004 nėra palaikoma šiame leidimas");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default pranešimai");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Turinio pažanga (be bandymų)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Duomenų bazės versija");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Jūsų duomenų bazės versija yra kitokia nei kodo versijai. Paleiskite% nuorodą scenarijus");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Atnaujinti");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Parsisiųsti eksportuotų kursas");//Download exported course (New)
+define("_MAXDISCOUNT100","Maksimali nuolaida 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registracija / Atnaujinti");//Registration/Update (New)
+define("_ROWS","Eilutės");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Komanda nepavyko po išėjimo");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Patikrinkite ar jūsų sistema nepalaiko ZIP apdorojimo?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Siekiant sukurti, žinoma, pirmiausia turite sukurti kategorija");//In order to create a course, you must first create a category (New)
 ?>

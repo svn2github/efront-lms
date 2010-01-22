@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","افراد مرتبط");//Related people
 define("_LEARNINGACTIVITY","فعالیت های یادگیری");//Learning activity
 define("_TIMELINE","گاهشمار");//Timeline
 define("_WASASSIGNEDTHELESSON","درس اختصاص داده شد");//was assigned lesson
-define("_WILLBETEACHINGLESSON","درس تدریس خواهد شد");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","درس تدریس خواهد شد");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","درس را تکمیل کرده است");//has completed lesson
 define("_NOLONGERATTENDSLESSON","دیگر حضور درس");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","نظر واحد نوشت :");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","شعبه معتبر است نی�
 define("_REPORTSFORBRANCH","گزارش ها را برای شعبه");//Reports for branch
 define("_BRANCHUSERS","اعضای واحد");//Branch users
 define("_BRANCHUSERTRAFFIC","شعبه ترافیک کاربر");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","درصد پاسخ درست");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","تجزیه و تحلیل سوال");//Question analysis (New)
-define("_PARTICIPANTSCAP","شرکت کنندگان");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","درصد با نمره بالاتر یا مساوی");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","گزارشات شرکت");//Participation reports (New)
-define("_YESABBREVIATION","ý");//Y (New)
-define("_NOABBREVIATION","ñ");//N (New)
-define("_TOGGLESIDEBAR","خوانده ضامن");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","توزیع امتیاز");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","نمره توزیع تجمعی");//Cumulative score distribution (New)
-define("_SEARCHTYPE","گزارش ها را برای خاص");//Reports for a specific (New)
-define("_KEYUSAGE","استفاده از کلید");//Key usage (New)
-define("_INVALIDVERSIONKEY","اشتباه کلیدی نسخه");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","تنظیمات کلیدی نسخه شکست خورده با کد");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","یک نسخه جدید در دسترس است!");//There is a new version available! (New)
-define("_RELEASENOTES","یادداشت های انتشار");//Release notes (New)
-define("_VERSIONUPTODATE","شما در نسخه تا تاریخ");//Your version is up to date (New)
-define("_CONTACTINGSERVER","تماس با سرور...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","درصد پاسخ درست");//Correct answer percentage
+define("_QUESTIONANALYSIS","تجزیه و تحلیل سوال");//Question analysis
+define("_PARTICIPANTSCAP","شرکت کنندگان");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","درصد با نمره بالاتر یا مساوی");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","گزارشات شرکت");//Participation reports
+define("_YESABBREVIATION","ý");//Y
+define("_NOABBREVIATION","ñ");//N
+define("_TOGGLESIDEBAR","خوانده ضامن");//Toggle sidebar
+define("_SCOREDISTRIBUTION","توزیع امتیاز");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","نمره توزیع تجمعی");//Cumulative score distribution
+define("_SEARCHTYPE","گزارش ها را برای خاص");//Reports for a specific
+define("_KEYUSAGE","استفاده از کلید");//Key usage
+define("_INVALIDVERSIONKEY","اشتباه کلیدی نسخه");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","تنظیمات کلیدی نسخه شکست خورده با کد");//Setting the version key failed with code
+define("_THEREISNEWVERSION","یک نسخه جدید در دسترس است!");//There is a new version available!
+define("_RELEASENOTES","یادداشت های انتشار");//Release notes
+define("_VERSIONUPTODATE","شما در نسخه تا تاریخ");//Your version is up to date
+define("_CONTACTINGSERVER","تماس با سرور...");//Contacting server...
 define("_DOWNLOADANDINSTALL","دریافت و نصب");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","سیستم نمی تواند اتصال به سرور مجوز");//The system could not connect to license server (New)
-define("_LICENSESERVER","سرور مجوز");//License server (New)
-define("_UPGRADESVALIDUNTIL","ارتقا معتبر تا");//Upgrades valid until (New)
-define("_ACTIVATEDON","فعال در");//Activated on (New)
-define("_SERVERRESPONDED","سرور در پاسخ");//The server responded (New)
-define("_FILEZEROSIZE","قادر به بازیابی اطلاعات صحیح در مورد فایل ارتقا");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","نمی تواند فایل بازیابی شده");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","فایل دانلود شده می تواند به دایرکتوری خانگی شما نیست نوشته شود");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","نمایش بلوک خالی");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","شما را به خاطر یک دوره طولانی عدم فعالیت وارد سایت شده است");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","رها");//Abandon (New)
-define("_ABANDONALL","رها کن");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","اتمام بلوک درصد");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","واحد بلوک گزینه");//Unit options block (New)
-define("_RIGHTBAR","حق خوانده");//Right sidebar (New)
-define("_LEFTBAR","چپ خوانده");//Left sidebar (New)
-define("_STUDENTCPANEL","کنترل پنل دانشجویی");//Student control panel (New)
-define("_SMARTCONTENT","محتوی هوشمند");//Smart content (New)
-define("_ZIPHANDLING","پستی استفاده از روش پردازش");//Zip handling method (New)
-define("_COMPLETION","اتمام");//Completion (New)
-define("_SETALLTO","تنظیم همه");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","سیستم نمی تواند اتصال به سرور مجوز");//The system could not connect to license server
+define("_LICENSESERVER","سرور مجوز");//License server
+define("_UPGRADESVALIDUNTIL","ارتقا معتبر تا");//Upgrades valid until
+define("_ACTIVATEDON","فعال در");//Activated on
+define("_SERVERRESPONDED","سرور در پاسخ");//The server responded
+define("_FILEZEROSIZE","قادر به بازیابی اطلاعات صحیح در مورد فایل ارتقا");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","نمی تواند فایل بازیابی شده");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","فایل دانلود شده می تواند به دایرکتوری خانگی شما نیست نوشته شود");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","نمایش بلوک خالی");//Show empty blocks
+define("_INACTIVITYLOGOUT","شما را به خاطر یک دوره طولانی عدم فعالیت وارد سایت شده است");//You have been logged out due to a long period of inactivity
+define("_ABANDON","رها");//Abandon
+define("_ABANDONALL","رها کن");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","اتمام بلوک درصد");//Completion percentage block
+define("_UNITOPTIONSBLOCK","واحد بلوک گزینه");//Unit options block
+define("_RIGHTBAR","حق خوانده");//Right sidebar
+define("_LEFTBAR","چپ خوانده");//Left sidebar
+define("_STUDENTCPANEL","کنترل پنل دانشجویی");//Student control panel
+define("_SMARTCONTENT","محتوی هوشمند");//Smart content
+define("_ZIPHANDLING","پستی استفاده از روش پردازش");//Zip handling method
+define("_COMPLETION","اتمام");//Completion
+define("_SETALLTO","تنظیم همه");//Set all to
+define("_INADEQUATEBALANCE","تعادل ناکافی");//Inadequate balance (New)
+define("_PAYPALMODE","حالت پیش پرداخت");//Paypal mode (New)
+define("_SANDBOX","کاربران");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","معامله در پرونده ثبت");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","در حال حاضر تنظیم آدرس آدرس نشانی از دریافت مطابقت نداشته باشد کسب و کار");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","نوع عملیات پشتیبانی نشده");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","تکراری به پایان پرداخت");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","وضعیت پرداخت پشتیبانی نشده");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","شما باید لغو معامله");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","معامله با موفقیت به پایان رسید.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","حالت دیباگ پیش پرداخت");//Paypal debug mode (New)
+define("_MYACCOUNT","حساب من");//My account (New)
+define("_MODULE","ماژول");//Module (New)
+define("_EMBEDTYPE","مطالب به عنوان اشتراک");//Embed content as (New)
+define("_INLINEIFRAME","درون خطی (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","در پنجره جدید (پنجره)");//New window (popup) (New)
+define("_POPUPPARAMETERS","پارامترهای پاپاپ");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","کلیک کنید بر روی دکمه شروع واحد");//Click on the button to start the unit (New)
+define("_STARTUNIT","واحد شروع");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","متاسفانه SCORM یدلایمخیرات 2004 می باشد در این نسخه پشتیبانی نمی شود");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","پیش فرض بازگرداندن اطلاعیه ها");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","پیشرفت های محتوا (excl. آزمون)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","نسخه بانک اطلاعات");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","نسخه بانک اطلاعاتی شما از نسخه کد متفاوت است. لطفا لینک ٪ اجرای اسکریپت");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","ارتقا");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","دانلود دوره صادر");//Download exported course (New)
+define("_MAXDISCOUNT100","تخفیف ویژه حداکثر 100 درصد است");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","ثبت نام / بروز رسانی");//Registration/Update (New)
+define("_ROWS","سطرها");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","فرمان نتوانست با خروجی زیر");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","شاید شما از سیستم پردازش وبلاگ را پشتیبانی نمی کند؟");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","به منظور ایجاد یک دوره ، باید ابتدا آن را ایجاد یک رده");//In order to create a course, you must first create a category (New)
 ?>

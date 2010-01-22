@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Persoanele înrudite");//Related people
 define("_LEARNINGACTIVITY","Activitate de învăţare");//Learning activity
 define("_TIMELINE","Timeline");//Timeline
 define("_WASASSIGNEDTHELESSON","a fost repartizat lecţie");//was assigned lesson
-define("_WILLBETEACHINGLESSON","va fi lecţie de predare");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","va fi lecţie de predare");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","sa terminat lecţia");//has completed lesson
 define("_NOLONGERATTENDSLESSON","nu mai participă la lecţie");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","a scris un comentariu pentru unitate");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Ramura nu este valabil sau nu pu
 define("_REPORTSFORBRANCH","Rapoarte pentru sfera");//Reports for branch
 define("_BRANCHUSERS","Utilizatorii Filiala");//Branch users
 define("_BRANCHUSERTRAFFIC","Sucursala de trafic de utilizator");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Procentaj Corect răspundă");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Analiza Întrebare");//Question analysis (New)
-define("_PARTICIPANTSCAP","Participantii");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Procentul cu punctaj mai mare sau egală");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Rapoartele de participare");//Participation reports (New)
-define("_YESABBREVIATION","D");//Y (New)
-define("_NOABBREVIATION","Nr");//N (New)
-define("_TOGGLESIDEBAR","Sidebar Toggle");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Scor de distribuţie");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Scorul de distribuţie cumulativă");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Rapoarte pentru un anumit");//Reports for a specific (New)
-define("_KEYUSAGE","De utilizare cheie");//Key usage (New)
-define("_INVALIDVERSIONKEY","Invalid cheie versiunea");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Setarea cheie versiune a eşuat cu codul de");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Există o nouă versiune disponibilă!");//There is a new version available! (New)
-define("_RELEASENOTES","Note de publicare");//Release notes (New)
-define("_VERSIONUPTODATE","Versiunea dvs. este de până la data de");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Contacting server ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Procentaj Corect răspundă");//Correct answer percentage
+define("_QUESTIONANALYSIS","Analiza Întrebare");//Question analysis
+define("_PARTICIPANTSCAP","Participantii");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Procentul cu punctaj mai mare sau egală");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Rapoartele de participare");//Participation reports
+define("_YESABBREVIATION","D");//Y
+define("_NOABBREVIATION","Nr");//N
+define("_TOGGLESIDEBAR","Sidebar Toggle");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Scor de distribuţie");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Scorul de distribuţie cumulativă");//Cumulative score distribution
+define("_SEARCHTYPE","Rapoarte pentru un anumit");//Reports for a specific
+define("_KEYUSAGE","De utilizare cheie");//Key usage
+define("_INVALIDVERSIONKEY","Invalid cheie versiunea");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Setarea cheie versiune a eşuat cu codul de");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Există o nouă versiune disponibilă!");//There is a new version available!
+define("_RELEASENOTES","Note de publicare");//Release notes
+define("_VERSIONUPTODATE","Versiunea dvs. este de până la data de");//Your version is up to date
+define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Descărcaţi şi instalaţi");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Sistemul nu a putut conecta la licenţă server");//The system could not connect to license server (New)
-define("_LICENSESERVER","Server License");//License server (New)
-define("_UPGRADESVALIDUNTIL","Upgrade-uri valabile până la");//Upgrades valid until (New)
-define("_ACTIVATEDON","Activat pe");//Activated on (New)
-define("_SERVERRESPONDED","Serverul a răspuns");//The server responded (New)
-define("_FILEZEROSIZE","Esec pentru a prelua informaţii corecte despre fişierul de upgrade");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Fişierul nu a putut fi recuperate");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Fişierul descărcat nu a putut fi scrise in directorul de acasă");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Blocuri Show gol");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Aţi fost deconectat din cauza o lungă perioadă de inactivitate");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Abandon toate");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Finalizarea bloc procentuale");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Unitatea de bloc de opţiuni");//Unit options block (New)
-define("_RIGHTBAR","Dreptul de bara laterală");//Right sidebar (New)
-define("_LEFTBAR","Sidebar Left");//Left sidebar (New)
-define("_STUDENTCPANEL","Student panoul de control");//Student control panel (New)
-define("_SMARTCONTENT","Conţinutul de Smart");//Smart content (New)
-define("_ZIPHANDLING","Zip metoda de manipulare");//Zip handling method (New)
-define("_COMPLETION","Completare");//Completion (New)
-define("_SETALLTO","Set toate pentru a");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Sistemul nu a putut conecta la licenţă server");//The system could not connect to license server
+define("_LICENSESERVER","Server License");//License server
+define("_UPGRADESVALIDUNTIL","Upgrade-uri valabile până la");//Upgrades valid until
+define("_ACTIVATEDON","Activat pe");//Activated on
+define("_SERVERRESPONDED","Serverul a răspuns");//The server responded
+define("_FILEZEROSIZE","Esec pentru a prelua informaţii corecte despre fişierul de upgrade");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Fişierul nu a putut fi recuperate");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Fişierul descărcat nu a putut fi scrise in directorul de acasă");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Blocuri Show gol");//Show empty blocks
+define("_INACTIVITYLOGOUT","Aţi fost deconectat din cauza o lungă perioadă de inactivitate");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Abandon toate");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Finalizarea bloc procentuale");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Unitatea de bloc de opţiuni");//Unit options block
+define("_RIGHTBAR","Dreptul de bara laterală");//Right sidebar
+define("_LEFTBAR","Sidebar Left");//Left sidebar
+define("_STUDENTCPANEL","Student panoul de control");//Student control panel
+define("_SMARTCONTENT","Conţinutul de Smart");//Smart content
+define("_ZIPHANDLING","Zip metoda de manipulare");//Zip handling method
+define("_COMPLETION","Completare");//Completion
+define("_SETALLTO","Set toate pentru a");//Set all to
+define("_INADEQUATEBALANCE","Echilibru Inadecvat");//Inadequate balance (New)
+define("_PAYPALMODE","Mod de Paypal");//Paypal mode (New)
+define("_SANDBOX","Nisip");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Tranzacţie fişier de log");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","În prezent, stabilit adresă nu se potriveşte cu adresa de afaceri a primit");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Tipul de neacceptat operaţiune");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate completat de plată");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Statutul de neacceptat de plată");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Aţi anulat tranzacţia");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Tranzacţia a fost finalizată cu succes.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal modul de depanare");//Paypal debug mode (New)
+define("_MYACCOUNT","Contul meu");//My account (New)
+define("_MODULE","Module");//Module (New)
+define("_EMBEDTYPE","Conţinutul de Embed ca");//Embed content as (New)
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","New window (pop-up)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Parametrii de tip pop-up");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Faceţi clic pe buton pentru a porni unitatea de");//Click on the button to start the unit (New)
+define("_STARTUNIT","Unitate de Start");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Din păcate, SCORM 2004 nu este acceptat în această ediţie");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Notificări implicit Restaurare");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Progresele înregistrate de conţinut (exclusiv teste)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Versiune Baza de date");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Versiunea dvs. în baza de date este diferit decât versiunea de cod. Vă rugăm să curgă pe link-ul script-ul%");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Descărcaţi exportate în cursul");//Download exported course (New)
+define("_MAXDISCOUNT100","Discount maxim este de 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Inregistrare / Update");//Registration/Update (New)
+define("_ROWS","Rânduri");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Comanda a eşuat, cu ieşire următoarele");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Poate că sistemul dvs. nu are suport de prelucrare a zip?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","În scopul de a crea un curs, trebuie să creaţi mai întâi o categorie");//In order to create a course, you must first create a category (New)
 ?>

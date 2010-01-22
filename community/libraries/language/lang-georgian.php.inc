@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","");//Related people
 define("_LEARNINGACTIVITY","");//Learning activity
 define("_TIMELINE","");//Timeline
 define("_WASASSIGNEDTHELESSON","");//was assigned lesson
-define("_WILLBETEACHINGLESSON","");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","");//has completed lesson
 define("_NOLONGERATTENDSLESSON","");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","");//The branch is not valid or 
 define("_REPORTSFORBRANCH","");//Reports for branch
 define("_BRANCHUSERS","");//Branch users
 define("_BRANCHUSERTRAFFIC","");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","");//Question analysis (New)
-define("_PARTICIPANTSCAP","");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","");//Participation reports (New)
-define("_YESABBREVIATION","");//Y (New)
-define("_NOABBREVIATION","");//N (New)
-define("_TOGGLESIDEBAR","");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","");//Cumulative score distribution (New)
-define("_SEARCHTYPE","");//Reports for a specific (New)
-define("_KEYUSAGE","");//Key usage (New)
-define("_INVALIDVERSIONKEY","");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","");//There is a new version available! (New)
-define("_RELEASENOTES","");//Release notes (New)
-define("_VERSIONUPTODATE","");//Your version is up to date (New)
-define("_CONTACTINGSERVER","");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","");//Correct answer percentage
+define("_QUESTIONANALYSIS","");//Question analysis
+define("_PARTICIPANTSCAP","");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","");//Participation reports
+define("_YESABBREVIATION","");//Y
+define("_NOABBREVIATION","");//N
+define("_TOGGLESIDEBAR","");//Toggle sidebar
+define("_SCOREDISTRIBUTION","");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","");//Cumulative score distribution
+define("_SEARCHTYPE","");//Reports for a specific
+define("_KEYUSAGE","");//Key usage
+define("_INVALIDVERSIONKEY","");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","");//Setting the version key failed with code
+define("_THEREISNEWVERSION","");//There is a new version available!
+define("_RELEASENOTES","");//Release notes
+define("_VERSIONUPTODATE","");//Your version is up to date
+define("_CONTACTINGSERVER","");//Contacting server...
 define("_DOWNLOADANDINSTALL","");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","");//The system could not connect to license server (New)
-define("_LICENSESERVER","");//License server (New)
-define("_UPGRADESVALIDUNTIL","");//Upgrades valid until (New)
-define("_ACTIVATEDON","");//Activated on (New)
-define("_SERVERRESPONDED","");//The server responded (New)
-define("_FILEZEROSIZE","");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","");//Abandon (New)
-define("_ABANDONALL","");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","");//Unit options block (New)
-define("_RIGHTBAR","");//Right sidebar (New)
-define("_LEFTBAR","");//Left sidebar (New)
-define("_STUDENTCPANEL","");//Student control panel (New)
-define("_SMARTCONTENT","");//Smart content (New)
-define("_ZIPHANDLING","");//Zip handling method (New)
-define("_COMPLETION","");//Completion (New)
-define("_SETALLTO","");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","");//The system could not connect to license server
+define("_LICENSESERVER","");//License server
+define("_UPGRADESVALIDUNTIL","");//Upgrades valid until
+define("_ACTIVATEDON","");//Activated on
+define("_SERVERRESPONDED","");//The server responded
+define("_FILEZEROSIZE","");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","");//Show empty blocks
+define("_INACTIVITYLOGOUT","");//You have been logged out due to a long period of inactivity
+define("_ABANDON","");//Abandon
+define("_ABANDONALL","");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","");//Completion percentage block
+define("_UNITOPTIONSBLOCK","");//Unit options block
+define("_RIGHTBAR","");//Right sidebar
+define("_LEFTBAR","");//Left sidebar
+define("_STUDENTCPANEL","");//Student control panel
+define("_SMARTCONTENT","");//Smart content
+define("_ZIPHANDLING","");//Zip handling method
+define("_COMPLETION","");//Completion
+define("_SETALLTO","");//Set all to
+define("_INADEQUATEBALANCE","");//Inadequate balance (New)
+define("_PAYPALMODE","");//Paypal mode (New)
+define("_SANDBOX","");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","");//Paypal debug mode (New)
+define("_MYACCOUNT","");//My account (New)
+define("_MODULE","");//Module (New)
+define("_EMBEDTYPE","");//Embed content as (New)
+define("_INLINEIFRAME","");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","");//New window (popup) (New)
+define("_POPUPPARAMETERS","");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","");//Click on the button to start the unit (New)
+define("_STARTUNIT","");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","");//Download exported course (New)
+define("_MAXDISCOUNT100","");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","");//Registration/Update (New)
+define("_ROWS","");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","");//In order to create a course, you must first create a category (New)
 ?>

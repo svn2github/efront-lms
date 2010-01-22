@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Persones relacionades");//Related people
 define("_LEARNINGACTIVITY","Activitat d&#39;aprenentatge");//Learning activity
 define("_TIMELINE","Línia de temps");//Timeline
 define("_WASASSIGNEDTHELESSON","se li va assignar la lliçó");//was assigned lesson
-define("_WILLBETEACHINGLESSON","Es lliçó d&#39;ensenyament");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","Es lliçó d&#39;ensenyament");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","ha completat la lliçó");//has completed lesson
 define("_NOLONGERATTENDSLESSON","ja no assisteix a classe");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","va escriure un comentari per a la unitat");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","La sucursal no és vàlid o no e
 define("_REPORTSFORBRANCH","Informes de la branca");//Reports for branch
 define("_BRANCHUSERS","Usuaris de la sucursal");//Branch users
 define("_BRANCHUSERTRAFFIC","Subdivisió de trànsit dels usuaris");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Percentatge Resposta correcta");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","L&#39;anàlisi de preguntes");//Question analysis (New)
-define("_PARTICIPANTSCAP","Participants");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Per cent amb major puntuació igual o");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Els informes de Participació");//Participation reports (New)
-define("_YESABBREVIATION","I");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Sidebar Toggle");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Distribució de puntuacions");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Distribució de com s&#39;ha puntuat acumulat");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Informes d&#39;un específic");//Reports for a specific (New)
-define("_KEYUSAGE","L&#39;ús de claus");//Key usage (New)
-define("_INVALIDVERSIONKEY","Clau de la versió no vàlid");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Establir la clau no la versió amb el codi de");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Hi ha una nova versió disponible!");//There is a new version available! (New)
-define("_RELEASENOTES","Notes de la versió");//Release notes (New)
-define("_VERSIONUPTODATE","La seva versió està actualitzada");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Per contactar amb el servidor ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Percentatge Resposta correcta");//Correct answer percentage
+define("_QUESTIONANALYSIS","L&#39;anàlisi de preguntes");//Question analysis
+define("_PARTICIPANTSCAP","Participants");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Per cent amb major puntuació igual o");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Els informes de Participació");//Participation reports
+define("_YESABBREVIATION","I");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Sidebar Toggle");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Distribució de puntuacions");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Distribució de com s&#39;ha puntuat acumulat");//Cumulative score distribution
+define("_SEARCHTYPE","Informes d&#39;un específic");//Reports for a specific
+define("_KEYUSAGE","L&#39;ús de claus");//Key usage
+define("_INVALIDVERSIONKEY","Clau de la versió no vàlid");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Establir la clau no la versió amb el codi de");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Hi ha una nova versió disponible!");//There is a new version available!
+define("_RELEASENOTES","Notes de la versió");//Release notes
+define("_VERSIONUPTODATE","La seva versió està actualitzada");//Your version is up to date
+define("_CONTACTINGSERVER","Per contactar amb el servidor ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Descarregar i instal lar");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","El sistema no pot connectar-se al servidor de llicències");//The system could not connect to license server (New)
-define("_LICENSESERVER","Servidor de llicències");//License server (New)
-define("_UPGRADESVALIDUNTIL","Actualitzacions vàlida fins al");//Upgrades valid until (New)
-define("_ACTIVATEDON","Activat en");//Activated on (New)
-define("_SERVERRESPONDED","El servidor respondre");//The server responded (New)
-define("_FILEZEROSIZE","No es pot recuperar la informació adequada sobre l&#39;arxiu d&#39;actualització");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","L&#39;arxiu no pot recuperar");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","L&#39;arxiu descarregat no es va poder escriure al seu directori home");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Mostra els blocs de buit");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Vostè ha estat desconnectat degut a un llarg període d&#39;inactivitat");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Abandonar tot");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Bloc de percentatge de finalització");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Opcions d&#39;Unitat bloc de");//Unit options block (New)
-define("_RIGHTBAR","Lateral dret");//Right sidebar (New)
-define("_LEFTBAR","Barra lateral esquerra");//Left sidebar (New)
-define("_STUDENTCPANEL","Tauler de control dels estudiants");//Student control panel (New)
-define("_SMARTCONTENT","Contingut de Smart");//Smart content (New)
-define("_ZIPHANDLING","Mètode de control de postal");//Zip handling method (New)
-define("_COMPLETION","Finalització");//Completion (New)
-define("_SETALLTO","Tot al");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","El sistema no pot connectar-se al servidor de llicències");//The system could not connect to license server
+define("_LICENSESERVER","Servidor de llicències");//License server
+define("_UPGRADESVALIDUNTIL","Actualitzacions vàlida fins al");//Upgrades valid until
+define("_ACTIVATEDON","Activat en");//Activated on
+define("_SERVERRESPONDED","El servidor respondre");//The server responded
+define("_FILEZEROSIZE","No es pot recuperar la informació adequada sobre l&#39;arxiu d&#39;actualització");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","L&#39;arxiu no pot recuperar");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","L&#39;arxiu descarregat no es va poder escriure al seu directori home");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Mostra els blocs de buit");//Show empty blocks
+define("_INACTIVITYLOGOUT","Vostè ha estat desconnectat degut a un llarg període d&#39;inactivitat");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Abandonar tot");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Bloc de percentatge de finalització");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Opcions d&#39;Unitat bloc de");//Unit options block
+define("_RIGHTBAR","Lateral dret");//Right sidebar
+define("_LEFTBAR","Barra lateral esquerra");//Left sidebar
+define("_STUDENTCPANEL","Tauler de control dels estudiants");//Student control panel
+define("_SMARTCONTENT","Contingut de Smart");//Smart content
+define("_ZIPHANDLING","Mètode de control de postal");//Zip handling method
+define("_COMPLETION","Finalització");//Completion
+define("_SETALLTO","Tot al");//Set all to
+define("_INADEQUATEBALANCE","Equilibri inadequat");//Inadequate balance (New)
+define("_PAYPALMODE","Mode de Paypal");//Paypal mode (New)
+define("_SANDBOX","Sandbox");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Arxiu de registre de transaccions");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","En l&#39;actualitat establir la direcció no coincideix amb l&#39;adreça professional rebuda");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Tipus d&#39;operació no admesa");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicar acabat de pagar");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","L&#39;estat de pagament no admesos");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","S&#39;ha cancel l&#39;operació");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transacció es va completar amb èxit.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal mode de depuració");//Paypal debug mode (New)
+define("_MYACCOUNT","El meu compte");//My account (New)
+define("_MODULE","Mòdul");//Module (New)
+define("_EMBEDTYPE","Insereix el contingut com");//Embed content as (New)
+define("_INLINEIFRAME","En línia (iframe)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Nova finestra (popup)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Paràmetres d&#39;elements emergents");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Feu clic al botó per iniciar la unitat");//Click on the button to start the unit (New)
+define("_STARTUNIT","La unitat d&#39;inici");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","Lamentablement SCORM 2004 no s&#39;admet en aquesta edició");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Notificacions per defecte Restaura");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","El progrés de contingut (sense proves)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","Versió de base de dades");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","La versió de la base de dades és diferent de la versió de codi. Si us plau, executeu l&#39;enllaç% script");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Upgrade");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Descarregar exportats curs");//Download exported course (New)
+define("_MAXDISCOUNT100","El descompte màxim és de 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Registre / Actualització");//Registration/Update (New)
+define("_ROWS","Files");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","La comanda ha fallat amb el següent resultat");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Potser el vostre sistema no suporta el processament postal?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Per tal de crear un curs, primer ha de crear una categoria de");//In order to create a course, you must first create a category (New)
 ?>

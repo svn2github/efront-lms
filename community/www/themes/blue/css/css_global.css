@@ -259,6 +259,7 @@ tr.lessonsList td{
 }
 tr.lessonsList td.listPadding{border-width:1px;background:#A1B6C8;}
 tr.lessonsList td.listIcon{border-left: 0px solid #AAAAAA;width:1px;}
+tr.lessonsList td.listTitle{width:100%;}
 tr.lessonsList td.listToggle{border-right: 0px solid #AAAAAA;width:1px;}
 tr.lessonsList span.listName{font-weight:bold;font-size:14px;}
 tr.lessonsList span.courseActions{margin-left:20px;}

@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","Хора, свързани");//Related people
 define("_LEARNINGACTIVITY","Учебна дейност");//Learning activity
 define("_TIMELINE","Хронология");//Timeline
 define("_WASASSIGNEDTHELESSON","е прехвърлен урок");//was assigned lesson
-define("_WILLBETEACHINGLESSON","ще бъде урок обучение");//will be teaching lesson
+define("_WILLBETEACHINGLESSON","ще бъде урок обучение");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","е завършил урок");//has completed lesson
 define("_NOLONGERATTENDSLESSON","вече не присъства урок");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","писа в коментар за единица");//wrote a comment for unit
@@ -3390,44 +3390,76 @@ define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","Клонът не е валид�
 define("_REPORTSFORBRANCH","Доклади за клон");//Reports for branch
 define("_BRANCHUSERS","Клон на потребителите");//Branch users
 define("_BRANCHUSERTRAFFIC","Клон потребителския трафик");//Branch user traffic
-define("_CORRECTANSWERPERCENTAGE","Точен отговор процент");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","Въпроси анализ");//Question analysis (New)
-define("_PARTICIPANTSCAP","Участници");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","Процент с резултат по-висока или равна");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","Участие доклади");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","Превключване лента");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","Резултат разпределение");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","Кумулативен резултат разпределение");//Cumulative score distribution (New)
-define("_SEARCHTYPE","Доклади за конкретна");//Reports for a specific (New)
-define("_KEYUSAGE","Ключови ползване");//Key usage (New)
-define("_INVALIDVERSIONKEY","Невалидна версия ключ");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","Задаване на ключ версия не е с код");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","Налице е нова версия!");//There is a new version available! (New)
-define("_RELEASENOTES","Бележки");//Release notes (New)
-define("_VERSIONUPTODATE","Вашата версия е актуална");//Your version is up to date (New)
-define("_CONTACTINGSERVER","Връзка с сървъра ...");//Contacting server... (New)
+define("_CORRECTANSWERPERCENTAGE","Точен отговор процент");//Correct answer percentage
+define("_QUESTIONANALYSIS","Въпроси анализ");//Question analysis
+define("_PARTICIPANTSCAP","Участници");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","Процент с резултат по-висока или равна");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","Участие доклади");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","Превключване лента");//Toggle sidebar
+define("_SCOREDISTRIBUTION","Резултат разпределение");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","Кумулативен резултат разпределение");//Cumulative score distribution
+define("_SEARCHTYPE","Доклади за конкретна");//Reports for a specific
+define("_KEYUSAGE","Ключови ползване");//Key usage
+define("_INVALIDVERSIONKEY","Невалидна версия ключ");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","Задаване на ключ версия не е с код");//Setting the version key failed with code
+define("_THEREISNEWVERSION","Налице е нова версия!");//There is a new version available!
+define("_RELEASENOTES","Бележки");//Release notes
+define("_VERSIONUPTODATE","Вашата версия е актуална");//Your version is up to date
+define("_CONTACTINGSERVER","Връзка с сървъра ...");//Contacting server...
 define("_DOWNLOADANDINSTALL","Изтеглете и инсталирайте");//Download and install
-define("_ERRORCONNECTINGTOLICENSESERVER","Системата не може да се свърже с лиценз сървър");//The system could not connect to license server (New)
-define("_LICENSESERVER","License Server");//License server (New)
-define("_UPGRADESVALIDUNTIL","Ъпгрейди валидна до");//Upgrades valid until (New)
-define("_ACTIVATEDON","Активният на");//Activated on (New)
-define("_SERVERRESPONDED","Сървърът отговори");//The server responded (New)
-define("_FILEZEROSIZE","Неуспешно изтегляне точна информация за ъпгрейд файл");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","Файлът не може да бъде Взето");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Изтегления файл не може да бъде написано на вашата домашна директория");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","Показвай блокове");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","Вие сте излезли в резултат на дълъг период на бездействие");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","Abandon");//Abandon (New)
-define("_ABANDONALL","Abandon всички");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","Групово изпълнение процент");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","Единична опции блок");//Unit options block (New)
-define("_RIGHTBAR","Право на страничната лента");//Right sidebar (New)
-define("_LEFTBAR","Ляв лента");//Left sidebar (New)
-define("_STUDENTCPANEL","Студентски контролния панел");//Student control panel (New)
-define("_SMARTCONTENT","Smart съдържание");//Smart content (New)
-define("_ZIPHANDLING","Пощенски метод на работа");//Zip handling method (New)
-define("_COMPLETION","Приключване");//Completion (New)
-define("_SETALLTO","Комплект за всички");//Set all to (New)
+define("_ERRORCONNECTINGTOLICENSESERVER","Системата не може да се свърже с лиценз сървър");//The system could not connect to license server
+define("_LICENSESERVER","License Server");//License server
+define("_UPGRADESVALIDUNTIL","Ъпгрейди валидна до");//Upgrades valid until
+define("_ACTIVATEDON","Активният на");//Activated on
+define("_SERVERRESPONDED","Сървърът отговори");//The server responded
+define("_FILEZEROSIZE","Неуспешно изтегляне точна информация за ъпгрейд файл");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","Файлът не може да бъде Взето");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","Изтегления файл не може да бъде написано на вашата домашна директория");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","Показвай блокове");//Show empty blocks
+define("_INACTIVITYLOGOUT","Вие сте излезли в резултат на дълъг период на бездействие");//You have been logged out due to a long period of inactivity
+define("_ABANDON","Abandon");//Abandon
+define("_ABANDONALL","Abandon всички");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","Групово изпълнение процент");//Completion percentage block
+define("_UNITOPTIONSBLOCK","Единична опции блок");//Unit options block
+define("_RIGHTBAR","Право на страничната лента");//Right sidebar
+define("_LEFTBAR","Ляв лента");//Left sidebar
+define("_STUDENTCPANEL","Студентски контролния панел");//Student control panel
+define("_SMARTCONTENT","Smart съдържание");//Smart content
+define("_ZIPHANDLING","Пощенски метод на работа");//Zip handling method
+define("_COMPLETION","Приключване");//Completion
+define("_SETALLTO","Комплект за всички");//Set all to
+define("_INADEQUATEBALANCE","Недостатъчен баланс");//Inadequate balance (New)
+define("_PAYPALMODE","Paypal режим");//Paypal mode (New)
+define("_SANDBOX","Пясък");//Sandbox (New)
+define("_VIEWTRANSACTIONLOGFILE","Регистър на операциите на файла");//Transaction log file (New)
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","В момента в стаята адрес не съвпада получи служебен адрес");//Currently set address does not match received business address (New)
+define("_UNSUPPORTEDOPERATIONTYPE","Неподдържан тип операция");//Unsupported operation type (New)
+define("_DUPLICATECOMPLETEDPAYMENT","Дублиране извършено плащане");//Duplicate completed payment (New)
+define("_UNSUPPORTEDPAYMENTSTATUS","Неподдържан плащане статут");//Unsupported payment status (New)
+define("_YOUHAVECANCELLEDTHETRANSACTION","Имате право анулиране на сделката");//You have cancelled the transaction (New)
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделката е завършило успешно.");//The transaction was completed successfully. (New)
+define("_PAYPALDEBUG","Paypal Debug режим");//Paypal debug mode (New)
+define("_MYACCOUNT","Моят профил");//My account (New)
+define("_MODULE","Модул");//Module (New)
+define("_EMBEDTYPE","Постави съдържание");//Embed content as (New)
+define("_INLINEIFRAME","Вграден (вградена рамка)");//Inline (iframe) (New)
+define("_NEWWINDOWPOPUP","Нов прозорец (масите)");//New window (popup) (New)
+define("_POPUPPARAMETERS","Изскачащи параметри");//Popup parameters (New)
+define("_CLICKTOSTARTUNIT","Кликнете върху бутона, за да стартирате единица");//Click on the button to start the unit (New)
+define("_STARTUNIT","Начало единица");//Start unit (New)
+define("_SCORM2004NOTSUPPORTED","За съжаление SCORM 2004 г., не се поддържа в тази версия");//Unfortunately SCORM 2004 is not supported in this edition (New)
+define("_RESTOREDEFAULTNOTIFICATIONS","Възстановяване уведомления по подразбиране");//Restore default notifications (New)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Съдържание прогрес (excl. тестове)");//Content progress (excl. tests) (New)
+define("_DATABASEVERSION","База данни версия");//Database version (New)
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Вашата база данни версия е различен от кода версия. Стартирайте връзката% скрипт");//Your database version is different than the code version. Please run the %link script (New)
+define("_UPGRADE","Ъпгрейд");//Upgrade (New)
+define("_DOWNLOADEXPORTEDCOURSE","Изтегляне изнесени курс");//Download exported course (New)
+define("_MAXDISCOUNT100","Максималната отстъпка е 100%");//The maximum discount is 100% (New)
+define("_REGISTRATIONUPDATE","Регистрация / Обновяване");//Registration/Update (New)
+define("_ROWS","Редове");//Rows (New)
+define("_COMMANDFAILEDWITHOUTPUT","Командата не е със следните продукция");//The command failed with the following output (New)
+define("_PERHAPSDONTSUPPORTZIP","Може би вашата система не поддържа обработка цип?");//Perhaps your system does not support zip processing? (New)
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","С цел да се създаде Разбира се, трябва първо да се създаде категория");//In order to create a course, you must first create a category (New)
 ?>

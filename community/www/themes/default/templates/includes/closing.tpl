@@ -81,9 +81,8 @@ $$('div.block').ancestors().each(function (s) {
         <td class = "topTitle" id = "popup_close_cell"><img src = "images/16x16/close.png" alt = "{$smarty.const._CLOSE}" name = "" id = "popup_close" title = "{$smarty.const._CLOSE}" onclick = "if (document.getElementById('reloadHidden') && document.getElementById('reloadHidden').value == '1')  {ldelim}parent.frames[1].location = parent.frames[1].location{rdelim};eF_js_showDivPopup('', '', this.name);"/>
     </td></tr>
     <tr><td colspan = "2" id = "popup_data" style = ""></td></tr>
-
-    <tr><td colspan = "2" id = "frame_data">
-			<iframe style = "display:none;" name = "POPUP_FRAME" id = "popup_frame" src = "about:blank" >Sorry, but your browser needs to support iframes to see this</iframe>
+    <tr><td colspan = "2" id = "frame_data" style = "display:none;">
+			<iframe  name = "POPUP_FRAME" id = "popup_frame" src = "about:blank" >Sorry, but your browser needs to support iframes to see this</iframe>
     </td></tr>
 </table>
 <div id = "error_details" style = "display:none">{eF_template_printBlock title=$smarty.const._ERRORDETAILS data="<pre>`$T_EXCEPTION_TRACE`</pre>" image='32x32/error_delete.png'}</div>

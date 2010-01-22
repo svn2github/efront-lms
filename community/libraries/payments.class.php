@@ -141,15 +141,22 @@ class cart
         if (isset($cart['lesson'])) {
             foreach ($cart['lesson'] as $key => $entry) {
                 $lesson = new EfrontLesson($entry);
-                $lesson -> lesson['price_string'] = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true);                
-                $cart['lesson'][$key] = $lesson -> lesson;
-                $cart['lesson'][$key]['recurring']          = $lesson -> options['recurring'];
-                $cart['lesson'][$key]['recurring_duration'] = $lesson -> options['recurring_duration'];
-                if ($GLOBALS['configuration']['discount_start'] < time() && $GLOBALS['configuration']['discount_start'] + $GLOBALS['configuration']['discount_period']*3600*24 > time()) {
-                    $cartTotal += $lesson -> lesson['price'] - $lesson -> lesson['price'] * $GLOBALS['configuration']['total_discount']/100;
+                //Recurring items cannot coexist with anything else in the cart. For this reason, when a recurring item is added in the cart,
+                //everything else is removed. If we reached this point and there are recurring items alongside non-recurring, this means that we
+                //first added a recurring item and then a non-recurring. In this case, we must remove any recurring items from the cart. 
+                if ($lesson -> options['recurring'] && (sizeof($cart['lesson']) > 1 || !empty($cart['course']))) {
+                    unset($cart['lesson'][$key]);
                 } else {
-                    $cartTotal += $lesson -> lesson['price'];
-                }                
+	                $lesson -> lesson['price_string'] = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true);                
+	                $cart['lesson'][$key] = $lesson -> lesson;
+	                $cart['lesson'][$key]['recurring']          = $lesson -> options['recurring'];
+	                $cart['lesson'][$key]['recurring_duration'] = $lesson -> options['recurring_duration'];
+	                if ($GLOBALS['configuration']['discount_start'] < time() && $GLOBALS['configuration']['discount_start'] + $GLOBALS['configuration']['discount_period']*3600*24 > time()) {
+	                    $cartTotal += $lesson -> lesson['price'] - $lesson -> lesson['price'] * $GLOBALS['configuration']['total_discount']/100;
+	                } else {
+	                    $cartTotal += $lesson -> lesson['price'];
+	                }       
+                }         
             }
         } else {
             $cart['lesson'] = array();
@@ -157,14 +164,21 @@ class cart
         if (isset($cart['course'])) {
             foreach ($cart['course'] as $key => $entry) {
                 $course = new EfrontCourse($entry);
-                $course -> course['price_string'] = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true);                
-                $cart['course'][$key] = $course -> course;
-                $cart['course'][$key]['recurring']          = $course -> options['recurring'];
-                $cart['course'][$key]['recurring_duration'] = $course -> options['recurring_duration'];
-                if ($GLOBALS['configuration']['discount_start'] < time() && $GLOBALS['configuration']['discount_start'] + $GLOBALS['configuration']['discount_period']*3600*24 > time()) {
-                    $cartTotal += $course -> course['price'] - $course -> course['price'] * $GLOBALS['configuration']['total_discount']/100;
+                //Recurring items cannot coexist with anything else in the cart. For this reason, when a recurring item is added in the cart,
+                //everything else is removed. If we reached this point and there are recurring items alongside non-recurring, this means that we
+                //first added a recurring item and then a non-recurring. In this case, we must remove any recurring items from the cart. 
+                if ($course -> options['recurring'] && (sizeof($cart['course']) > 1 || !empty($cart['lesson']))) {
+                    unset($cart['course'][$key]);
                 } else {
-                    $cartTotal += $course -> course['price'];
+	                $course -> course['price_string'] = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true);                
+	                $cart['course'][$key] = $course -> course;
+	                $cart['course'][$key]['recurring']          = $course -> options['recurring'];
+	                $cart['course'][$key]['recurring_duration'] = $course -> options['recurring_duration'];
+	                if ($GLOBALS['configuration']['discount_start'] < time() && $GLOBALS['configuration']['discount_start'] + $GLOBALS['configuration']['discount_period']*3600*24 > time()) {
+	                    $cartTotal += $course -> course['price'] - $course -> course['price'] * $GLOBALS['configuration']['total_discount']/100;
+	                } else {
+	                    $cartTotal += $course -> course['price'];
+	                }
                 }
             }
         } else {

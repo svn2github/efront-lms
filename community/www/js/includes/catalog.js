@@ -4,8 +4,18 @@ function updateVoucher(el) {
 	ajaxRequest(el, url, parameters, onUpdateVoucher);					
 }
 function onUpdateVoucher(el, response) {
-	$('voucher_code').value = $('voucher_bogus').value;
-	$('total_price_string').update(response.evalJSON().price); 
+	try {
+		$('voucher_code').value = $('voucher_bogus').value;
+		$('total_price_string').update(response.evalJSON().price_string);
+		if ($('paypal_form')) { 
+			if ($('paypal_form')['amount']) {
+				$('paypal_form')['amount'].value = response.evalJSON().price;
+			} else if ($('paypal_form')['a3']) {
+				$('paypal_form')['a3'].value = response.evalJSON().price;
+			}
+			
+		}
+	} catch (e) {alert(e);}
 }
 
 function addToCart(el, id, type) {

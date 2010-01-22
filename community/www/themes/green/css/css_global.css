@@ -271,7 +271,7 @@ font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 .inputContentTextarea{height:500px;width:100%;}
 .inputProjectTextarea{height:350px;width:100%;}
 .inputTestTextarea{height:200px;width:100%;}
-.inputSelectMed{width:150px;min-width:150px;}
+.inputSelectMed{width:170px;min-width:150px;}
 .inputSelectLong{width:336px;max-width:336px;}
 .inputText_QuestionChoice{width:250px;}
 .formError,.formRequired,.severeWarning{color:#FF0000;}

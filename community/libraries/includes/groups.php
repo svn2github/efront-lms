@@ -149,6 +149,7 @@ $loadScripts[] = 'includes/groups';
                         $currentGroup -> persist();
                         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=user_groups&message=".urlencode(_SUCCESFULLYUPDATEDGROUP)."&message_type=success");
                     } catch (Exception $e){
+                    	$e->getTraceAsString();
                         $message      = _SOMEPROBLEMEMERGED;
                         $message_type = 'failure';
                     }

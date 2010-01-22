@@ -21,12 +21,13 @@ $load_editor = true;
 
 	//An array of legal ids for editing entries
 	$legalValues = array();
-	foreach ($news as $value) {
-	    if ($value['users_LOGIN'] == $GLOBALS['currentUser'] -> user['login']) {
+
+	foreach ($news as $value) {	    
+	    if ($value['users_LOGIN'] == $GLOBALS['currentUser'] -> user['login'] || $GLOBALS['currentUser'] -> user['user_type'] == 'administrator') {
 	        $legalValues[] = $value['id'];
 	    }
 	}
-
+	
 	if ($_GET['view']) {
 	    $smarty -> assign("T_NEWS", $news[$_GET['view']]);
 	} else {	

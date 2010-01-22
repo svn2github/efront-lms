@@ -111,11 +111,11 @@ function eF_js_showDivPopup(popup_title, size, popup_data_id) {
             main_frame.$('popup_data').show();
             //main_frame.$('frame_data').setStyle({height:'100%'});
             //alert(main_frame.$('frame_data').down());//.down().addClassName("popup");
-            main_frame.$('popup_frame').hide();
+            main_frame.$('frame_data').hide();
             main_frame.$('popup_close').name = popup_data_id;
         } else {
             main_frame.$('popup_data').hide();
-            main_frame.$('popup_frame').show();
+            main_frame.$('frame_data').show();
             //main_frame.$('frame_data').setStyle({height:'100%'});
         }
         $$('select.hideSelectBox').each(function(s) {s.setStyle({visibility:'hidden'});});	//fix for IE overlay problem with <select> elements: The elements that have the class name 'hideSelectBox' will disappear automatically when the popup is visible
@@ -133,8 +133,8 @@ function eF_js_showDivPopup(popup_title, size, popup_data_id) {
             dimmer_side.style.height  = side_frame.document.body.scrollHeight+'px';
             dimmer_side.show();
         }
-        popup_table.show();
         popup_table.setStyle({width:popup_dim[0], height:popup_dim[1]});
+        popup_table.show();
         //.style.width      = popup_dim[0];
         //popup_table.style.height     = popup_dim[1];
         //popup_table.style.height     = popup_table.down().getDimensions().height;

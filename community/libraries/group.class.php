@@ -676,7 +676,7 @@ class EfrontGroup
     public function persist() {
         // Remove the current default group
         if ($this -> group['is_default']) {
-            eF_updateTableData("groups", array("is_default" => 0), "");
+            eF_updateTableData("groups", array("is_default" => 0), "1=1");
         }
         
         $ok = eF_updateTableData("groups", $this -> group, "id=".$this -> group['id']);
@@ -723,11 +723,27 @@ class EfrontGroup
            // Assign default group type
            $groupLessons = $group -> getLessons();
            $lessonIds = array_keys($groupLessons);
-           $user -> addLessons($lessonIds, $updatedUser -> user['user_types_ID'],1);
+
+           if ($updatedUser -> user['user_types_ID'] != 0) {
+               $user_type = $updatedUser -> user['user_types_ID']; 
+           } else {
+           	   $user_type = $updatedUser -> user['user_type'];
+           }
+           
+           $user_types = array();
+           foreach($lessonIds as $lesson) {
+               $user_types[] = $user_type;
+           }
+           $user -> addLessons($lessonIds, $user_types, 1);
            
            $groupCourses = $group -> getCourses();
-           $courseIds = array_keys($groupCourses);                          
-           $user -> addCourses($courseIds, $updatedUser -> user['user_types_ID'],1);     
+           $courseIds = array_keys($groupCourses);      
+           
+           $user_types = array();                    
+           foreach($courseIds as $course) {
+               $user_types[] = $user_type;
+           }
+           $user -> addCourses($courseIds, $user_types, 1);     
 
        } // otherwise no default group has been defined
        return true;

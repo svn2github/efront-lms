@@ -1382,6 +1382,8 @@ vertical-align:middle;
 }
 sup{font-size:xx-small; vertical-align:top!important;}
 sub{font-size:xx-small; vertical-align:bottom!important;}
+.filemanagerBlock{height:100%;text-align:center;width:100%;background-color:white}
+
 /*other deprecated elements*/
 /*.topSubtitle{font-weight:bold;}*/
 

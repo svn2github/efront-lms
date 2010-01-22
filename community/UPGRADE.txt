@@ -16,3 +16,6 @@ Upgrading an existing eFront installation is a simple process. A step-by-step gu
 Keep in mind that eFront automatically performs a backup of your database (except when upgrading to a new database). If anything goes wrong, or not as expected, you may find this backup at the installation's first page. Clicking on it will restore the previous database.
 
 You can find the latest version of this guide at http://docs.efrontlearning.net/index.php/Upgrading_from_previous_versions
+Please note that if you are upgrading from version 3.5 of eFront, then you are strongly recommended
+to first upgrade to the latest version (3.5.5) and then upgrade to 3.6. Upgrading from older versions may be possible
+but is not guaranteed to work

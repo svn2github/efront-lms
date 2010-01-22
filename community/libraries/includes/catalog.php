@@ -28,9 +28,17 @@ if (isset($_GET['fct'])) {
     if ($_GET['fct'] == 'addToCart') {
         if ($_GET['type'] == 'lesson' && isset($_GET['id']) && in_array($_GET['id'], $legalLessonValues)) {
             $lesson = new EfrontLesson($lessons[$_GET['id']]);
+            //Recurring items cannot coexist with anything else in the cart!
+            if ($lesson -> options['recurring']) {
+                unset($cart);
+            }
             $cart['lesson'][$_GET['id']] = $_GET['id'];
         } elseif ($_GET['type'] == 'course' && isset($_GET['id']) && in_array($_GET['id'], $legalCourseValues)) {
             $course = new EfrontCourse($courses[$_GET['id']]);
+            //Recurring items cannot coexist with anything else in the cart!
+            if ($course -> options['recurring']) {
+                unset($cart);
+            }
             $cart['course'][$_GET['id']] = $_GET['id'];
         } elseif ($_GET['type'] == 'credit' && isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0) {
             $cart['credit'] += $_GET['id'];
@@ -94,7 +102,7 @@ if (isset($_GET['fct'])) {
     if (isset($_GET['voucher'])) {
         if ($_GET['voucher'] && $GLOBALS['configuration']['voucher'] && $_GET['voucher'] == $GLOBALS['configuration']['voucher']) {
             $totalPrice = $totalPrice * (1 - $GLOBALS['configuration']['voucher_discount'] / 100);
-            echo json_encode(array('price' => formatPrice($totalPrice)));
+            echo json_encode(array('price' => $totalPrice, 'price_string' => formatPrice($totalPrice)));
         } else {
             header("HTTP/1.0 500 ");
             echo _INVALIDVOUCHER;

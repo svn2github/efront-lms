@@ -104,7 +104,7 @@ class EfrontEvent
  const LESSON_PROGRAMMED_START = 39; // users_LOGIN, lessons_ID, lessons_name
  const LESSON_PROGRAMMED_EXPIRY = 40;
     const PROJECT_EXPIRY = 41; // users_LOGIN, lessons_ID, lessons_name, entity_ID = project_ID, entity_name = project_name
-    // Course codes: [50-74]	
+    // Course codes: [50-74] - IMPORTANT KEEP COURSE-EVENTS STRICTLY WITHIN THESE LIMITS
                // 	For courses we have lessons_name -> courses_name
     const COURSE_ACQUISITION_AS_STUDENT = 50; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_ACQUISITION_AS_PROFESSOR = 51; // users_LOGIN, lessons_ID, lessons_name
@@ -162,6 +162,7 @@ class EfrontEvent
            // the type of each event inside each module class is [type_value] - 1000
            // the class of the module involved is defined in the entity_ID field 
            // For these events: (entity_ID => className, entity_name => serialized(data from module - view addEvent module method)
+ const SAME_USER_INTERVAL = 600; // time after which a new event of the same type from the same user will be reported
     /**
 
      * The event variable

@@ -50,6 +50,7 @@ try {
 	                unset($result[$key]['content_ID']);
 	                unset($result[$key]['id']);
 	            }
+
 	            eF_insertTableDataMultiple("questions", $result);
 	            glossary :: clearDuplicates($currentLesson);
             } catch (Exception $e) {

@@ -56,21 +56,6 @@
         <div class = "cartDelete">
             <span>{if $cartlist.price}{$cartlist.price_string}{else}{$smarty.const._FREEOFCHARGE}{/if}</span>
             <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMCART}" title = "{$smarty.const._REMOVEFROMCART}" onclick = "removeFromCart(this, '{$cartlist.id}', 'course');" id = "{$cartlist.id}">
-		{if $T_PAYPAL_SUBSCRIPTION_FORMS.course[$cartlist.id]}
-			{$T_PAYPAL_SUBSCRIPTION_FORMS.course[$cartlist.id].javascript}
-			<form {$T_PAYPAL_SUBSCRIPTION_FORMS.course[$cartlist.id].attributes}>
-			{$T_PAYPAL_SUBSCRIPTION_FORMS.course[$cartlist.id].hidden}
-			{if $T_CONFIGURATION.paypaldebug}
-				<table class = "formElements">					
-				{foreach name = "paypal_form_loop" item = "item" key = "key" from = $T_PAYPAL_SUBSCRIPTION_FORMS.course[$cartlist.id]}
-					{if $item|is_array}<tr><td class = "labelCell">{$item.name}:</td><td class = "elementCell">{$item.html}</td></tr>{/if}
-				{/foreach}
-				</table>
-			{else}
-				{$T_PAYPAL_SUBSCRIPTION_FORMS.course[$cartlist.id].submit_checkout_subscription.html}
-			{/if}
-			</form>
-		{/if}
         </div>
     &nbsp;</div>
     {/if}
@@ -122,7 +107,23 @@
 			    {$T_CHECKOUT_FORM.submit_order.html}
 			    {$T_CHECKOUT_FORM.submit_checkout_balance.html}			    
 			</form>    	
-			
+{*			
+		{if $T_PAYPAL_SUBSCRIPTION_FORM}
+			{$T_PAYPAL_SUBSCRIPTION_FORM.javascript}
+			<form {$T_PAYPAL_SUBSCRIPTION_FORM.attributes}>
+			{$T_PAYPAL_SUBSCRIPTION_FORM.hidden}
+			{if $T_CONFIGURATION.paypaldebug}
+				<table class = "formElements">					
+				{foreach name = "paypal_form_loop" item = "item" key = "key" from = $T_PAYPAL_SUBSCRIPTION_FORM}
+					{if $item|is_array}<tr><td class = "labelCell">{$item.name}:</td><td class = "elementCell">{$item.html}</td></tr>{/if}
+				{/foreach}
+				</table>
+			{else}
+				{$T_PAYPAL_SUBSCRIPTION_FORM.submit_checkout_subscription.html}
+			{/if}
+			</form>
+		{/if}
+*}
 		{if $T_PAYPAL_FORM}
 			{$T_PAYPAL_FORM.javascript}
 			<form {$T_PAYPAL_FORM.attributes}>

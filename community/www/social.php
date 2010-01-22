@@ -848,7 +848,11 @@
 	            }
   			
 	            if(!isset($_GET['topics_ID']) || $_GET['topics_ID'] == 0) {
-	            	$related_events = $editedLesson -> getEvents(false,true, $avatarNormalDims, 5);
+	            	if (isset($_GET['all'])) {
+	            		$related_events = $editedLesson -> getEvents(false,true, $avatarNormalDims);
+	            	} else {
+	            		$related_events = $editedLesson -> getEvents(false,true, $avatarNormalDims, 5);
+	            	}
 	            } else {	            	
 	            	$related_events = $editedLesson -> getEvents($_GET['topics_ID'] ,true, $avatarNormalDims, 5);
 	            }

@@ -1512,12 +1512,13 @@ class EfrontStats
      * </code>
      * @param mixed $tests Either an array of tests id or false (request information for all existing tests)
      * @param mixed $categories denotes in how many categories will the scores from 0-100% be divided (if not false)
+     * @param mixed $show_all: denotes whether the function should return the stats for all the times a user took a test (default=no: just return for the active test)
      * @return array the tests' statistinc info
      * @since 3.5.0
      * @access public
      * @static
      */
-    public static function getTestInfo($tests = false, $categories = false) {
+    public static function getTestInfo($tests = false, $categories = false, $show_all = false) {
         if ($tests == false) {
             $tests = eF_getTableDataFlat("tests, content", "tests.id", "tests.content_ID=content.id and tests.lessons_ID != 0");    //This way we get tests that have a corresponding unit
             $tests = $tests['id'];
@@ -1591,9 +1592,12 @@ class EfrontStats
             }
             //pr($testInfo['score_categories']);
             //$done_info        = $temp[$id];
+            //pr($doneTests);
             foreach ($doneTests[$id] as $user => $done) {
-                foreach ($done as $dt) {
-                    if ($dt['archive'] == 0 && $dt['status'] != 'incomplete' && $dt['status'] != '' && $dt['test'] = unserialize($dt['test'])) {
+            	
+                foreach ($done as $key => $dt) {	
+                	// Check that this $dt refers to a test occurence - and not average scores etc
+                    if (eF_checkParameter($key,"id") && ($show_all || $dt['archive'] == 0) && $dt['status'] != 'incomplete' && $dt['status'] != '' && $dt['test'] = unserialize($dt['test'])) {
                         $done_test = array('id'            => $dt['id'],
                                            'users_LOGIN'   => $dt['users_LOGIN'],
                                            'name'		   => $users[$dt['users_LOGIN']]['name'],
@@ -1606,6 +1610,7 @@ class EfrontStats
                         
                         // Get the user's score in the correct stats category
                         if ($categories) {
+                        	
                         	$stat_cat = $dt['test'] -> completedTest['score'] / $step;
                         	
  	 						$testInfo['score_categories'][($stat_cat >= $categories)?($categories-1):$stat_cat]["count"]++;                      	                        	
@@ -1613,11 +1618,10 @@ class EfrontStats
                     }
                 }
             }
-            
-            
+  
             // Create results score categories
             if ($categories) {
-            	$doneTestsCount = sizeof($doneTests[$id]) - 1;	// 1 element is the average_count 
+            	$doneTestsCount = sizeof($doneTests[$id]);	 
             	$sum_count = $doneTestsCount;	// counts how many users have score equal or above each score_category
             	
             	if ($sum_count > 0) {
@@ -1629,7 +1633,6 @@ class EfrontStats
 	            	}
             	}
             }
-                        
             $testsInfo[$id] = $testInfo;
             
 

@@ -37,7 +37,7 @@ $debug_TimeStart = microtime(true);
  */
 $debugMode = 0;
 //Set the default content type to be utf-8, as everything in the system
-//header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: text/html; charset=utf-8');
 error_reporting( E_ERROR );
 //error_reporting( E_ALL );ini_set("display_errors", true);        //Uncomment this to get a full list of errors
 //Prepend the include path with efront folders

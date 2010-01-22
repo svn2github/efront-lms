@@ -329,6 +329,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                     }
                 }
                 Installation :: createConfigurationFile($values, true);
+                EfrontSearch::reBuiltIndex();
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
 /*		
 
@@ -505,7 +506,7 @@ class Installation
                   '${1}'.$values['db_password'].'${2}',
                   '${1}'.$values['db_name'].'${2}',
                   '${1}'.$values['db_prefix'].'${2}',
-            '${1}'.'http://'.$_SERVER["HTTP_HOST"].rtrim($servername, "/").'/${2}',
+            '${1}'.'http://\'.$_SERVER["HTTP_HOST"].\''.rtrim($servername, "/").'/${2}',
                            '${1}'.G_VERSION_NUM.'${2}');
      $new_file_contents = preg_replace($patterns, $replacements, $file_contents, -1, $count); //Replace sample settings with current settings
      return file_put_contents($GLOBALS['path'].'configuration.php', $new_file_contents);
@@ -756,7 +757,7 @@ class Installation
      if ($mode == 'local') {
          $localPhpIniString = "";
          if ($settings['session.save_path'] && function_exists('sys_get_temp_dir')) { //If the session.save_path does not exist, set it to system's default temp dir
-             $localPhpIniString .= "session.save_path = \"".sys_get_temp_dir()."\"\n";
+             $localPhpIniString .= "session.save_path = \"".trim(sys_get_temp_dir(), '\\')."\"\n";
          }
          //When we need to apply a local php.ini file, even if session.save_path is correctly configured in the system, after applying
          //the php.ini file, for some reason the session.save_path goes away. So, whenever we are in this function, we *must*
@@ -765,7 +766,7 @@ class Installation
              if (ini_get('session.save_path') && is_writable(ini_get('session.save_path'))) {
                  $localPhpIniString .= "session.save_path = \"".ini_get('session.save_path')."\"\n";
              } else if (function_exists('sys_get_temp_dir')) {
-                 $localPhpIniString .= "session.save_path = \"".sys_get_temp_dir()."\"\n";
+                 $localPhpIniString .= "session.save_path = \"".trim(sys_get_temp_dir(), '\\')."\"\n";
              }
          }
          if ($settings['magic_quotes_gpc']) {
@@ -780,7 +781,7 @@ class Installation
          $localHtaccess = "<IfModule mod_php5.c>
 php_value magic_quotes_gpc Off
 php_value register_globals Off
-".(function_exists('sys_get_temp_dir') ? "php_value session.save_path \"".sys_get_temp_dir()."\"" : "")."
+".(function_exists('sys_get_temp_dir') ? "php_value session.save_path \"".trim(sys_get_temp_dir(), '\\')."\"" : "")."
 </IfModule>";
          file_put_contents("../.htaccess", $localHtaccess);
      }

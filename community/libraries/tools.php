@@ -117,12 +117,14 @@ function debug($mode = true) {
 
  * @param $fields If set, the function will not query database but will use instead this array. $login is not used in this case
 
+ * @param boolean $duplicate Whether to resolve duplicates by adding the login in the end of the string
+
  * @return string The formatted string
 
  * @since 3.6.0
 
  */
-function formatLogin($login, $fields = array()) {
+function formatLogin($login, $fields = array(), $duplicate = true) {
     //The function is usually called by a filter, which passes a preg matches array, where index 1 holds the login
     !is_array($login) OR $login = $login[1];
     $tags = array('#surname#', '#name#', '#login#', '#n#');
@@ -132,11 +134,20 @@ function formatLogin($login, $fields = array()) {
         return $format;
     } else {
      if (!isset($GLOBALS['_usernames'])) {
-      $result = eF_getTableData("users", "login, name, surname");
-   foreach ($result as $value) {
-       $replacements = array($value['surname'], $value['name'], $value['login'], mb_substr($value['name'], 0, 1));
-       $format = str_replace($tags, $replacements, $GLOBALS['configuration']['username_format']);
-       $GLOBALS['_usernames'][$value['login']] = trim($format);
+      $GLOBALS['_usernames'] = array();
+      $result = eF_getTableDataFlat("users", "login, name, surname");
+   foreach ($result['login'] as $key => $value) {
+       $replacements = array($result['surname'][$key], $result['name'][$key], $value, mb_substr($result['name'][$key], 0, 1));
+       $format = trim(str_replace($tags, $replacements, $GLOBALS['configuration']['username_format']));
+       $GLOBALS['_usernames'][$value] = $format;
+   }
+   if ($GLOBALS['configuration']['username_format_resolve'] && $duplicate) {
+    $common = array_diff_assoc($GLOBALS['_usernames'], array_unique($GLOBALS['_usernames']));
+    foreach ($common as $key => $value) {
+     $originalKey = array_search($value, $GLOBALS['_usernames']);
+     $GLOBALS['_usernames'][$originalKey] = $value.' ('.$originalKey.')';
+     $GLOBALS['_usernames'][$key] = $value.' ('.$key.')';
+    }
    }
      }
      return $GLOBALS['_usernames'][$login];

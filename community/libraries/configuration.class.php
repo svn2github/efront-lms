@@ -69,6 +69,7 @@ class EfrontConfiguration
         'logo'                   => '',
         'favicon'                => '',
         'username_format'		 => '#surname# #n#. (#login#)',    //Possible values: #name#, #n#, #surname#, #login#
+        'username_format_resolve'=> 1,		//If 2 formatted usernames are the same, include the login too
         'display_empty_blocks'	 => 1,                    //0 means 'no', 1 means 'yes'
         
         //LDAP

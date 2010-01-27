@@ -353,7 +353,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * <code>
 
-     * EfrontNotification :: addNotification("1241253445", "Dear user,\n\nHi", array("lessons_ID" => 2), 259200);
+     * EfrontNotification :: addNotification("1241253445", "Dear user,<br><br>Hi", array("lessons_ID" => 2), 259200);
 
      * </code>
 
@@ -399,7 +399,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * <code>
 
-     * EfrontNotification :: editNotification(2, "1241253445", "Dear user,\n\nHi", array("lessons_ID" => 2), 259200);
+     * EfrontNotification :: editNotification(2, "1241253445", "Dear user,<br><br>Hi", array("lessons_ID" => 2), 259200);
 
      * </code>
 
@@ -642,7 +642,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * <code>
 
-     * EfrontNotification :: addEventNotification(EfrontEvent::LESSON_ACQUISITION_AS_STUDENT, "Dear user,\n\nWelcome to our lesson Greedy algorithms", array("lessons_ID" => 1));
+     * EfrontNotification :: addEventNotification(EfrontEvent::LESSON_ACQUISITION_AS_STUDENT, "Dear user,<br><br>Welcome to our lesson Greedy algorithms", array("lessons_ID" => 1));
 
      * </code>
 
@@ -697,7 +697,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * <code>
 
-     * EfrontNotification :: editEventNotification(2, EfrontEvent::LESSON_ACQUISITION_AS_STUDENT, "Dear user,\n\nWelcome to our lesson Greedy algorithms", array("lessons_ID" => 1));
+     * EfrontNotification :: editEventNotification(2, EfrontEvent::LESSON_ACQUISITION_AS_STUDENT, "Dear user,<br><br>Welcome to our lesson Greedy algorithms", array("lessons_ID" => 1));
 
      * </code>
 

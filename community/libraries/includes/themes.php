@@ -30,6 +30,10 @@ try {
 	$allBrowsers  = themes :: $browsers;
     $usedBrowsers = array();
         
+    foreach ($themes as $value) {
+        $themeNames[] = $value['name'];
+    }
+    
     $filesystem = new FileSystemTree(G_THEMESPATH, true);
     foreach (new EfrontDirectoryOnlyFilterIterator(new ArrayIterator($filesystem -> tree)) as $key => $value) {
         //Automatically import themes that don't have an equivalent database representation

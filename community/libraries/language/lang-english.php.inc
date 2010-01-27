@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER", "Bottom left corner");
 define("_BOTTOMRIGHTCORNER", "Bottom right corner");
 define("_LOGOPOSITION", "Logo position");
 define("_LOGOFILE", "Logo file");
-define("_LESSONSKILLSSELECTION","Lesson offered skills selection");
+define("_LESSONSKILLSSELECTION","Select skills offered by the lesson");
 define("_TOPCENTER", "Top center");
 define("_BOTTOMCENTER", "Bottom center");
 define("_HIDECOMPLETEUNITICON", "Hide complete unit icon");
@@ -3462,4 +3462,7 @@ define("_ROWS", "Rows");
 define("_COMMANDFAILEDWITHOUTPUT", "The command failed with the following output");
 define("_PERHAPSDONTSUPPORTZIP", "Perhaps your system does not support zip processing?");
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY", "In order to create a course, you must first create a category");
+define("_LESSONBRANCHESSELECTION","Select lesson branches");
+define("_LESSONBRANCHES","Lesson branches");
+define("_COURSEBRANCHES","Course branches");
 ?>

@@ -3902,6 +3902,46 @@ if ($element == 'data') $value = htmlentities($value);
     }
    /**
 
+     * Get all branches: for the branches this lesson offers the lesson_ID value will be filled
+
+     * 
+
+     * <br/>Example:
+
+     * <code>
+
+     * $branchesOfLesson = $lesson -> getBranches();
+
+     * </code>
+
+     *
+
+     * @param $only_own set true if only the branches of this lesson are to be returned and not all branches
+
+     * @return an array with branches where each record has the form [branch_ID] => [lesson_ID]
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function getBranches($only_own = false) {
+        if (!isset($this -> branches) || !$this -> branches) {
+            $this -> branches = false; //Initialize branches to something
+            $branches = eF_getTableData("module_hcd_branch LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID LEFT OUTER JOIN module_hcd_lesson_to_branch ON (module_hcd_lesson_to_branch.branches_ID = module_hcd_branch.branch_ID AND module_hcd_lesson_to_branch.lessons_ID='".$this -> lesson['id']."')", "module_hcd_branch.*, module_hcd_branch.branch_ID as branches_ID, module_hcd_lesson_to_branch.lessons_ID, branch1.name as father","");
+            foreach ($branches as $key => $branch) {
+                if ($only_own && $branch['lessons_ID'] != $this -> lesson['id']) {
+                    unset($branches[$key]);
+                } else {
+                 $bID = $branch['branches_ID'];
+                    $this -> branches[$bID] = $branch;
+                }
+            }
+        }
+        return $this -> branches;
+    }
+   /**
+
      * Insert the skill corresponding to this lesson: Every lesson is mapped to a skill like "Knowledge of that lesson"
 
      * This insertion takes place when a lesson is changed from course_only to regular lesson
@@ -4106,6 +4146,90 @@ if ($element == 'data') $value = htmlentities($value);
             if ($ok = eF_deleteTableData("module_hcd_lesson_offers_skill", "skill_ID = '".$skill_ID."' AND lesson_ID = '". $this -> lesson['id'] ."'") ) {
                 $this -> skills[$skill_ID]['specification'] = "";
                 $this -> skills[$skill_ID]['lesson_ID'] = "";
+            } else {
+                throw new EfrontLessonException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontLessonException :: DATABASE_ERROR);
+            }
+        }
+        return true;
+    }
+   /**
+
+     * Assign a branch to this lesson 
+
+     *
+
+     * This function is used to correlate a branch to the lesson
+
+     * All users of the branch should be assigned to this lesson
+
+     *
+
+     * <br/>Example:
+
+     * <code>
+
+     * $lesson -> assignBranch(2);   // The lesson will be assigned to branch with id 2 
+
+     * </code>
+
+     *
+
+     * @param $branch_ID the id of the branch to be assigned
+
+     * @return boolean true/false
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function assignBranch($branch_ID, $specification) {
+        $this -> getBranches();
+        // Check if the branch is not assigned as offered by this lesson
+        if ($this -> branches[$branch_ID]['lessons_ID'] == "") {
+            if ($ok = eF_insertTableData("module_hcd_lesson_to_branch", array("branches_ID" => $branch_ID, "lessons_ID" => $this -> lesson['id']))) {
+                $this -> branches[$branch_ID]['lessons_ID'] = $this -> lesson['id'];
+            } else {
+                throw new EfrontLessonException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontLessonException :: DATABASE_ERROR);
+            }
+        }
+        return true;
+    }
+   /**
+
+     * Remove association of a branch with this lesson
+
+     *
+
+     * This function is used to stop the correlation of a branch to the lesson
+
+     *
+
+     * <br/>Example:
+
+     * <code>
+
+     * $lesson -> removeBranch(2);   // The lesson will stop offering branch with id 2
+
+     * </code>
+
+     *
+
+     * @param $branch_ID the id of the branch to be removed from the lesson
+
+     * @return boolean true/false
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function removeBranch($branch_ID) {
+        $this -> getBranches();
+        // Check if the branch is not assigned as offered by this lesson
+        if ($this -> branches[$branch_ID]['lessons_ID'] == $this -> lesson['id']) {
+            if ($ok = eF_deleteTableData("module_hcd_lesson_to_branch", "branches_ID = '".$branch_ID."' AND lessons_ID = '". $this -> lesson['id'] ."'") ) {
+                $this -> branches[$branch_ID]['lessons_ID'] = "";
             } else {
                 throw new EfrontLessonException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontLessonException :: DATABASE_ERROR);
             }

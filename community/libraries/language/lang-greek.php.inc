@@ -3462,4 +3462,7 @@ define("_ROWS", "Γραμμές");
 define("_COMMANDFAILEDWITHOUTPUT", "Η λειτουργία απέτυχε με το παρακάτω αποτέλεσμα");
 define("_PERHAPSDONTSUPPORTZIP", "Ενδεχομένως το σύστημά σας δεν υποστηρίζει διαχείριση αρχείων zip");
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY", "Πρέπει να δημιουργήσετε πρώτα μία κατηγορία, προτού να δημιουργήσετε δέσμες");
+define("_LESSONBRANCHESSELECTION","Επιλογή τμημάτων μαθήματος");
+define("_LESSONBRANCHES","Τμήματα μαθήματος");
+define("_COURSEBRANCHES","Τμήματα δέσμης");
 ?>

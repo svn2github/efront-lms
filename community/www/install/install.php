@@ -247,8 +247,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                     foreach ($tables as $table) {
                         try {
                             $result = $db -> Execute("drop table install_$table"); //Delete temporary installation tables, if such exist
-                        } catch (Exception $e) {
-                        } //If the table could not be deleted, it doesn't exist
+                        } catch (Exception $e) {} //If the table could not be deleted, it doesn't exist
                     }
                     //Create temporary tables with the 'install_' prefix
                     foreach ($file_contents as $query) {
@@ -270,6 +269,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                         throw new Exception(implode(', ', $failed_tables));
                     }
                     $existingTables = array_diff($tables, $newTables); //These are tables pre-existing in the database, which should remain intact
+                    $userProfile = eF_getTableData("user_profile", "*"); //Get any additional user profile fields
                 } else {
                  //The inclusion of configuration.php triggered the creation of a new configuration file. Truncate it in the new database	           
      $result = $db -> Execute("truncate configuration");
@@ -284,21 +284,35 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                         $moduleTableQueries[$table] = $result -> getAll();
                         $tables[] = $table;
                     }
+                    $userProfile = eF_getTableData("user_profile", "*"); //Get any additional user profile fields
                     $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
                     $db -> Execute("SET NAMES 'UTF8'");
+                    //Delete old temporary installation tables
+                    foreach ($tables as $table) {
+                        try {
+                            $result = $db -> Execute("drop table install_$table"); //Delete temporary installation tables, if such exist
+                        } catch (Exception $e) {} //If the table could not be deleted, it doesn't exist
+                    }
+                    //Create missing tables in the target database
                     foreach ($moduleTableQueries as $query) {
                         $db -> execute($query[0]['Create Table']);
                     }
+                    //For every table that already exists in the target database, we must empty otherwise we may end up with duplicate values
+                    $commonTables = array_intersect($existingTables, $tables);
+                    foreach ($commonTables as $table) {
+                        $db -> Execute("truncate table $table");
+                    }
                 }
-                $result = eF_getTableData("user_profile", "*");
-                for ($i = 0; $i < sizeof($result); $i++) {
-                    $result[$i]['mandatory'] ? $mandatory = "NOT NULL" : $mandatory = "NULL";
-                    $result[$i]['default_value'] ? $default = $result[$i]['default_value'] : $default = false;
+                //$result = eF_getTableData("user_profile", "*");
+//                pr($result);debug();
+                for ($i = 0; $i < sizeof($userProfile); $i++) {
+                    $userProfile[$i]['mandatory'] ? $mandatory = "NOT NULL" : $mandatory = "NULL";
+                    $userProfile[$i]['default_value'] ? $default = $userProfile[$i]['default_value'] : $default = false;
                     try {
                         if ($values['old_db_name'] == $values['db_name']) {
-                            $db -> Execute("ALTER TABLE install_users ADD ".$result[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
+                            $db -> Execute("ALTER TABLE install_users ADD ".$userProfile[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
                         } else {
-                            $db -> Execute("ALTER TABLE users ADD ".$result[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
+                            $db -> Execute("ALTER TABLE users ADD ".$userProfile[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
                         }
                     } catch (Exception $e) {
                         $failed_updates[] = $e -> msg;
@@ -330,23 +344,50 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 }
                 Installation :: createConfigurationFile($values, true);
                 EfrontSearch::reBuiltIndex();
+                $options = EfrontConfiguration :: getValues();
+                //This means that the version upgrading from is 3.5
+                //Try to restore custom blocks
+                try {
+                    if ($options['custom_blocks']) {
+                        $basedir = G_EXTERNALPATH;
+                        if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
+                            throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
+                        }
+                        $blocks = unserialize($options['custom_blocks']);
+                        foreach ($blocks as $value) {
+                            $value['name'] = time(); //Use the timestamp as name
+                            $block = array('name' => $value['name'],
+                            'title' => $value['title']);
+                            file_put_contents($basedir.$value['name'].'.tpl', $value['content']);
+                            sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
+                        }
+                        $currentSetTheme = new themes($GLOBALS['configuration']['theme']);
+                        $currentSetTheme -> layout['custom_blocks'] = $customBlocks;
+                        $currentSetTheme -> persist();
+                    }
+                } catch (Exception $e) {}
+                //Try to restore custom logo
+                try {
+                    $logoFile = new EfrontFile($options['logo']);
+                    if (strpos($logoFile['path'], G_LOGOPATH) === false) {
+                        copy ($logoFile['path'], G_LOGOPATH.$logoFile['name']);
+                    }
+                } catch (Exception $e) {}
+                //Try to restore custom favicon
+                try {
+                    if (strpos($faviconFile['path'], G_LOGOPATH) === false) {
+                        $faviconFile = new EfrontFile($options['logo']);
+                    }
+                    copy ($faviconFile['path'], G_LOGOPATH.$faviconFile['name']);
+                } catch (Exception $e) {}
+                //Try to restore paypalbusiness addres
+                try {
+                    $result = eF_getTableData("paypal_configuration", "paypalbusiness");
+                    if (!empty($result)) {
+                        EfrontConfiguration :: setValue('paypalbusiness', $result[0]['paypalbusiness']);
+                    }
+                } catch (Exception $e) {}
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
-/*		
-
-//@todo: check this part
-
-*/
-/*                
-
-                EfrontNotification::addDefaultNotifications();
-
-                EfrontConfiguration :: setValue('notifications_pageloads', '10');
-
-                EfrontConfiguration :: setValue('notifications_messages_per_time', '5');
-
-                EfrontConfiguration :: setValue('notifications_max_sent_messages', '100');
-
-*/
                 Installation :: addModules(true);
                 header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");
                 exit;
@@ -840,7 +881,6 @@ php_value register_globals Off
              $GLOBALS['db'] -> NConnect($newDB['db_host'], $newDB['db_user'], $newDB['db_password'], $newDB['db_name']);
              $GLOBALS['db'] -> Execute("SET NAMES 'UTF8'");
              $result = $GLOBALS['db'] -> getAll("describe $table");
-         //} else if ($table ==)
          } else {
              $result = $GLOBALS['db'] -> getAll("describe install_$table");
          }
@@ -873,44 +913,23 @@ php_value register_globals Off
 	 */
  public static function updateDBData($table, $data, $table_fields, $fieldTypes) {
         $table_size = sizeof($data);
-     for ($i = 0; $i < $table_size; $i++) {
+        //Copy old stupid 'site moto' to correct 'site motto' to avoid hilarious confusions
+        if ($table == 'configuration') {
+            foreach ($data as $k => $v) {
+                if ($v['name'] == 'site_moto') {
+                    $sitemotoKey = $k;
+                } elseif ($v['name'] == 'site_motto') {
+                    $sitemottoKey = $k;
+                }
+            }
+            if ($sitemotoKey) {
+                isset($sitemottoKey) ? $data[$sitemottoKey]['value'] = $data[$sitemotoKey]['value'] : $data[] = array('name' => 'site_motto', 'value' => $data[$sitemotoKey]);
+                unset($data[$sitemotoKey]);
+            }
+        }
+        for ($i = 0; $i < $table_size; $i++) {
          if ($table == 'search_keywords') {
              $data = array();
-             /*if($data[$i]['position'] == "title" || $data[$i]['position'] == "data") { //only for upgrade to v 3.6
-
-	             $tableAssoc = array('content'				=> 0,
-
-	             'lessons'        		=> 1,
-
-	             'courses'               => 2,
-
-	             'f_forum'            	=> 3,
-
-	             'f_topics'       		=> 4,
-
-	             'f_messages'        	=> 5,
-
-	             'f_personal_messages'   => 6,
-
-	             'news'          		=> 7,
-
-	             'files'          		=> 8);
-
-
-
-	             $data[$i]['table_name'] = $tableAssoc[$data[$i]['table_name']];
-
-	             if ($data[$i]['position'] == "title") {
-
-	             $data[$i]['position'] = 0;
-
-	             } else {
-
-	             $data[$i]['position'] = 1;
-
-	             }
-
-	             } */
          } else if ($table == 'f_forums' || $table == 'f_topics') {
              if ($data[$i]['status'] == 'invisible') {
                  $data[$i]['status'] = 3;
@@ -918,11 +937,6 @@ php_value register_globals Off
                  $data[$i]['status'] = 2;
              } else {
                  $data[$i]['status'] = 1; //public
-             }
-         } else if ($table == 'configuration') {
-             if (isset($data[$i]['site_moto']) && $data[$i]['site_moto']) {
-                 $data[$i]['site_motto'] = $data[$i]['site_moto'];
-                 unset($data[$i]['site_moto']);
              }
          } else if ($table == 'themes') {
              $GLOBALS['db'] -> Execute("truncate themes");

@@ -215,7 +215,7 @@ $faviconForm -> accept($renderer);
 $smarty -> assign('T_UPLOAD_FAVICON_FORM', $renderer -> toArray());
 $customizationForm = new HTML_QuickForm("customization_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&tab=appearance", "", null, true);
 $customizationForm -> addElement("advcheckbox", "show_footer", _SHOWFOOTER, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationForm -> addElement("textarea", "additional_footer", _ADDITIONALFOOTER, 'style = "height:100px;width:500px;"');
+$customizationForm -> addElement("textarea", "additional_footer", _EDITFOOTER, 'style = "height:100px;width:500px;"');
 $customizationForm -> addElement("text", "site_name", _SITENAME, 'class = "inputText"');
 $customizationForm -> addElement("text", "site_motto", _SITEMOTO, 'class = "inputText"');
 $customizationForm -> addElement("text", "username_format", _USERNAMEFORMAT, 'class = "inputText"');

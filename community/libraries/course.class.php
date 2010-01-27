@@ -1487,6 +1487,46 @@ class EfrontCourse
         }
         return $courseArray;
     }
+   /**
+
+     * Get all branches: for the branches this course offers the course_ID value will be filled
+
+     * 
+
+     * <br/>Example:
+
+     * <code>
+
+     * $branchesOfCourse = $course -> getBranches();
+
+     * </code>
+
+     *
+
+     * @param $only_own set true if only the branches of this course are to be returned and not all branches
+
+     * @return an array with branches where each record has the form [branch_ID] => [course_ID]
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function getBranches($only_own = false) {
+        if (!isset($this -> branches) || !$this -> branches) {
+            $this -> branches = false; //Initialize branches to something
+            $branches = eF_getTableData("module_hcd_branch LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID LEFT OUTER JOIN module_hcd_course_to_branch ON (module_hcd_course_to_branch.branches_ID = module_hcd_branch.branch_ID AND module_hcd_course_to_branch.courses_ID='".$this -> course['id']."')", "module_hcd_branch.*, module_hcd_branch.branch_ID as branches_ID, module_hcd_course_to_branch.courses_ID, branch1.name as father","");
+            foreach ($branches as $key => $branch) {
+                if ($only_own && $branch['courses_ID'] != $this -> course['id']) {
+                    unset($branches[$key]);
+                } else {
+                 $bID = $branch['branches_ID'];
+                    $this -> branches[$bID] = $branch;
+                }
+            }
+        }
+        return $this -> branches;
+    }
     /**
 
      * Get course information
@@ -2037,6 +2077,90 @@ class EfrontCourse
                 $this -> skills[$skill_ID]['courses_ID'] = "";
             } else {
                 throw new EfrontcourseException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontcourseException :: DATABASE_ERROR);
+            }
+        }
+        return true;
+    }
+   /**
+
+     * Assign a branch to this course 
+
+     *
+
+     * This function is used to correlate a branch to the course
+
+     * All users of the branch should be assigned to this course
+
+     *
+
+     * <br/>Example:
+
+     * <code>
+
+     * $course -> assignBranch(2);   // The course will be assigned to branch with id 2 
+
+     * </code>
+
+     *
+
+     * @param $branch_ID the id of the branch to be assigned
+
+     * @return boolean true/false
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function assignBranch($branch_ID, $specification) {
+        $this -> getBranches();
+        // Check if the branch is not assigned as offered by this course
+        if ($this -> branches[$branch_ID]['courses_ID'] == "") {
+            if ($ok = eF_insertTableData("module_hcd_course_to_branch", array("branches_ID" => $branch_ID, "courses_ID" => $this -> course['id']))) {
+                $this -> branches[$branch_ID]['courses_ID'] = $this -> course['id'];
+            } else {
+                throw new EfrontCourseException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontCourseException :: DATABASE_ERROR);
+            }
+        }
+        return true;
+    }
+   /**
+
+     * Remove association of a branch with this course
+
+     *
+
+     * This function is used to stop the correlation of a branch to the course
+
+     *
+
+     * <br/>Example:
+
+     * <code>
+
+     * $course -> removeBranch(2);   // The course will stop offering branch with id 2
+
+     * </code>
+
+     *
+
+     * @param $branch_ID the id of the branch to be removed from the course
+
+     * @return boolean true/false
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function removeBranch($branch_ID) {
+        $this -> getBranches();
+        // Check if the branch is not assigned as offered by this course
+        if ($this -> branches[$branch_ID]['courses_ID'] == $this -> course['id']) {
+            if ($ok = eF_deleteTableData("module_hcd_course_to_branch", "branches_ID = '".$branch_ID."' AND courses_ID = '". $this -> course['id'] ."'") ) {
+                $this -> branches[$branch_ID]['courses_ID'] = "";
+            } else {
+                throw new EfrontCourseException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontCourseException :: DATABASE_ERROR);
             }
         }
         return true;

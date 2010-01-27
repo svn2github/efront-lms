@@ -48,8 +48,13 @@ function onSetLessonAccess(el, response) {
 }
 
 function ajaxPost(id, el, table_id) {
+	
     //Since in the same page there are 2 ajax post lists, we create a "wrapper" which decides which one to call
-    table_id == 'skillsTable' ? ajaxLessonSkillUserPost(1, id, el, table_id) : usersAjaxPost(id, el, table_id);
+	if (table_id == 'branchesTable') {
+		ajaxLessonBranchPost(id, el, table_id);	
+	} else {
+		table_id == 'skillsTable' ? ajaxLessonSkillUserPost(1, id, el, table_id) : usersAjaxPost(id, el, table_id);
+	}
 }
 
 function usersAjaxPost(login, el, table_id) {
@@ -109,6 +114,25 @@ function ajaxLessonSkillUserPost(type, id, el, table_id) {
 	ajaxRequest(el, url, parameters);	
 
 }
+
+// Used to associate lessons and branches
+function ajaxLessonBranchPost(id, el, table_id) {
+	var url = location.toString();
+	var parameters = {postAjaxRequest:1, method: 'get'};
+
+    if (id) {
+    	Object.extend(parameters, {add_branch: id, insert: el.checked});
+    } else if (table_id && table_id == 'branchesTable') {
+        el.checked ? Object.extend(parameters, {add_branch:1, addAll: 1}) : Object.extend(parameters, {add_branch:1, removeAll: 1});
+        if ($(table_id+'_currentFilter')) {
+        	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+        }
+    }
+ 
+	ajaxRequest(el, url, parameters);	
+
+}
+
 
 function show_hide_spec(i)
 {

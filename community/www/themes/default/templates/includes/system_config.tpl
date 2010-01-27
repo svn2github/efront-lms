@@ -111,7 +111,7 @@
   <form {$T_CUSTOMIZATION_FORM.attributes}>
       {$T_CUSTOMIZATION_FORM.hidden}
       <table style = "width:100%">
-          <tr><td class = "labelCell">{$smarty.const._ADDITIONALFOOTER}:&nbsp;</td>
+          <tr><td class = "labelCell">{$T_CUSTOMIZATION_FORM.additional_footer.label}:&nbsp;</td>
               <td class = "elementCell">{$T_CUSTOMIZATION_FORM.additional_footer.html}</td></tr>
           <tr><td class = "labelCell">{$smarty.const._SITENAME}:&nbsp;</td>
               <td class = "elementCell">{$T_CUSTOMIZATION_FORM.site_name.html}</td></tr>

@@ -245,4 +245,6 @@
 {/if}
 
 {/strip}
+
+
 {include file = "includes/closing.tpl"}

@@ -32,7 +32,9 @@ function ajaxPost(id, el, table_id) {
     if (table_id == 'lessonsTable') {
         lessonsAjaxPost(id, el, table_id);
     } else if(table_id == 'skillsTable') {
-        ajaxCourseSkillUserPost(1, id, el, table_id)
+        ajaxCourseSkillUserPost(1, id, el, table_id);
+    } else if(table_id == 'branchesTable') {
+    	ajaxCourseBranchPost(id, el, table_id);        
     } else {
         usersAjaxPost(id, el, table_id);
     }
@@ -70,6 +72,25 @@ function usersAjaxPost(login, el, table_id) {
 	ajaxRequest(el, url, parameters);	
     
 }
+
+//Used to associate courses and branches
+function ajaxCourseBranchPost(id, el, table_id) {
+	var url = location.toString();
+	var parameters = {postAjaxRequest:1, method: 'get'};
+
+    if (id) {
+    	Object.extend(parameters, {add_branch: id, insert: el.checked});
+    } else if (table_id && table_id == 'branchesTable') {
+        el.checked ? Object.extend(parameters, {add_branch:1, addAll: 1}) : Object.extend(parameters, {add_branch:1, removeAll: 1});
+        if ($(table_id+'_currentFilter')) {
+        	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+        }
+    }
+ 
+	ajaxRequest(el, url, parameters);	
+
+}
+
 
 // type: 1 - inserting/deleting the skill to an employee | 2 - changing the specification
 // id: the users_login of the employee to get the skill

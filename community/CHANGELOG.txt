@@ -1,3 +1,9 @@
+=== Version 3.6.0 build ===
+- Installation fixes to better support 3.5.x upgrades (logo, motto, custom blocks)
+- Edition separation in statistics fix
+- Fixed custom footer to replace default
+- When duplicate formatted user names appear, the login is displayed in order to tell who is who 
+
 === Version 3.6.0 build 5751 ===
 eFront 3.6.0 is a completely new version, introducing many important new features
 and important enhancements in all aspects of the platform. The hightlights of this 

@@ -29,6 +29,9 @@
                             <td class = "elementCell">{$T_LESSON_FORM.show_catalog.html}</td></tr>
                         <tr id = "price_row" class = "only_lesson" {if $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.price.label}:&nbsp;</td>
                             <td>{$T_LESSON_FORM.price.html} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}</td></tr>
+
+                        <tr><td class = "labelCell">{$T_LESSON_FORM.location.label}:&nbsp;</td>
+                            <td class = "elementCell">{$T_LESSON_FORM.location.html}</td></tr>
                         <tr><td></td>
                          <td class = "submitCell">{$T_LESSON_FORM.submit_lesson.html}</td></tr>
                     </table>

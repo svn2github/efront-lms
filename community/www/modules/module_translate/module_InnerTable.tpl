@@ -7,7 +7,7 @@
       <table width=100%>
       	<tr>
       		<td>
-      			<input class="translate_query-input" id="source" type="text" value="{$smarty.const._TRANSLATE_HELLOWORLD}" />
+      			<input class="translate_query-input" id="source" type="text" value="{$smarty.const._TRANSLATE_HELLOWORLD}" onclick = "if (firstClick) {ldelim}firstClick=false;this.value = ''{rdelim}"/>
       		</td>
       		<td>
       			<select name="dst" id="dst"></select>

@@ -14,7 +14,7 @@ Installation step-by-step guide
 1. Download eFront zip archive, from https://sourceforge.net/projects/efrontlearning/ (or from the provided URL, if you are using a commercial version)
 2. Follow the "Microsoft Windows" or the "Linux" instructions at the next sections, to setup a working environment for efront
 3. Using your browser, access the location http://localhost/install/install.php. If you are setting efront on a host that has a domain name, for example "www.example.com", then you should access it with this name, http://www.example.com/install/install.php 
-4. Click the «Install» button
+4. Click the "Install" button
 5. The first step lists the prerquisites and settings required in order for the system to work correctly. If there aren't any errors, you may click on continue. If you see red "forbidden" icons or yellow "warning" icons, please consult the "troubleshooting" section below
 6. At the second step, you must insert the database settings. Database type is always "MySQL". Database host is usually "localhost" (in some cases it may be a single dot "."). For default XAMPP installations, the database user is "root" and password may be left blank. You can set any name for the database, preferrably "efront".Finally, in this step you must provide the administrator account details. Also you may click on the checkbox to allow the system to create default lessons and users. Clicking "Install" will finalize installation
 7. Installation is now complete. You may click on the provided link to automatically delete the installation directory and redirect to the system's first page, http://localhost/index.php

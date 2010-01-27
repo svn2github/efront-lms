@@ -102,18 +102,29 @@ $str = '<ul>';
 for ($k = 0; $k < sizeof($users); $k++){
     /*$hilogin = highlight_search($users[$k]['login'], $preffix);
 
-    $hiname = highlight_search($users[$k]['name'], $preffix);
+     $hiname = highlight_search($users[$k]['name'], $preffix);
 
-    $hisurname = highlight_search($users[$k]['surname'], $preffix);  */
- $hilogin = $users[$k]['login'];
+     $hisurname = highlight_search($users[$k]['surname'], $preffix);  */
+    $hilogin = $users[$k]['login'];
     $hiname = $users[$k]['name'];
     $hisurname = $users[$k]['surname'];
     if ($users[$k]['login'] == '[*]') {
-       $formattedLogin = $hiname;
+        $formattedLogins[$users[$k]['login']] = $hiname;
     } else {
-     $formattedLogin = formatLogin(false, array('login' => $hilogin, 'name' => $hiname, 'surname' => $hisurname));
+        $formattedLogins[$users[$k]['login']] = formatLogin(false, array('login' => $hilogin, 'name' => $hiname, 'surname' => $hisurname));
     }
- $str = $str.'<li id='.$users[$k]['login'].'>'.$formattedLogin.'</li>';
+    //$str = $str.'<li id='.$users[$k]['login'].'>'.$formattedLogin.'</li>';
+}
+if ($GLOBALS['configuration']['username_format_resolve']) {
+    $common = array_diff_assoc($formattedLogins, array_unique($formattedLogins));
+    foreach ($common as $key => $value) {
+        $originalKey = array_search($value, $formattedLogins);
+        $formattedLogins[$originalKey] = $value.' ('.$originalKey.')';
+        $formattedLogins[$key] = $value.' ('.$key.')';
+    }
+}
+for ($k = 0; $k < sizeof($users); $k++){
+    $str = $str.'<li id='.$users[$k]['login'].'>'.$formattedLogins[$users[$k]['login']].'</li>';
 }
 $str = $str.'</ul>';
 echo $str;

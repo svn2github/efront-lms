@@ -1350,7 +1350,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      */
     public static function shouldSendNextNotifications() {
-        global $GLOBALS;
         if ($GLOBALS['configuration']['notifications_use_cron'] == 1) {
             return false;
         }

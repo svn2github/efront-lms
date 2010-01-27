@@ -1,9 +1,4 @@
 <?php
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS", "Allow students to specify number of questions in each test execution");
-define("_MAXIMUM", "Maximum");
-define("_MINIMUM", "Minimum");
-define("_REPETITIONS", "Repetitions");
-define("_MAINTAINHISTORY", "Maintain history");
 
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {

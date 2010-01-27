@@ -3465,4 +3465,10 @@ define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY", "In order to create a course
 define("_LESSONBRANCHESSELECTION","Select lesson branches");
 define("_LESSONBRANCHES","Lesson branches");
 define("_COURSEBRANCHES","Course branches");
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS", "Allow students to specify number of questions in each test execution");
+define("_MAXIMUM", "Maximum");
+define("_MINIMUM", "Minimum");
+define("_REPETITIONS", "Repetitions");
+define("_MAINTAINHISTORY", "Maintain history");
+define("_KEYISNOTFORTHISEDITION", "The key is not suitable for this edition");
 ?>

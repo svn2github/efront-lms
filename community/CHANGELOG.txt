@@ -5,6 +5,9 @@
 - When duplicate formatted user names appear, the login is displayed in order to tell who is who 
 - Added maintain test history setting
 - Added user configurable random pool option  
+- Added optional prerequisite for php_soap, which is needed by phplivedocx
+- Fixed custom header propagating from 3.5.5 to 3.6.0, even though it's not supported there
+ 
 
 === Version 3.6.0 build 5751 ===
 eFront 3.6.0 is a completely new version, introducing many important new features

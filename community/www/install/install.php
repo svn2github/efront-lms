@@ -226,6 +226,12 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
              try {
                  $db -> Execute("truncate cache");
              } catch (Exception $e) {} //If the table could not be emptied, it doesn't exist, which is ok
+                $dbVersion = $db -> getCol("select value from configuration where name = 'database_version'");
+                if (!empty($dbVersion)) {
+                    $dbVersion = $dbVersion[0];
+                } else {
+                    $dbVersion = '3.5';
+                }
              Installation :: createTable('themes', $file_contents);
              //Include old configuration file in order to perform the automatic backup, use database functions, etc
              require_once($path."configuration.php");
@@ -346,47 +352,56 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 EfrontSearch::reBuiltIndex();
                 $options = EfrontConfiguration :: getValues();
                 //This means that the version upgrading from is 3.5
-                //Try to restore custom blocks
-                try {
-                    if ($options['custom_blocks']) {
-                        $basedir = G_EXTERNALPATH;
-                        if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
-                            throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
-                        }
-                        $blocks = unserialize($options['custom_blocks']);
-                        foreach ($blocks as $value) {
-                            $value['name'] = time(); //Use the timestamp as name
-                            $block = array('name' => $value['name'],
-                            'title' => $value['title']);
-                            file_put_contents($basedir.$value['name'].'.tpl', $value['content']);
-                            sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
-                        }
-                        $currentSetTheme = new themes($GLOBALS['configuration']['theme']);
-                        $currentSetTheme -> layout['custom_blocks'] = $customBlocks;
-                        $currentSetTheme -> persist();
-                    }
-                } catch (Exception $e) {}
-                //Try to restore custom logo
-                try {
-                    $logoFile = new EfrontFile($options['logo']);
-                    if (strpos($logoFile['path'], G_LOGOPATH) === false) {
-                        copy ($logoFile['path'], G_LOGOPATH.$logoFile['name']);
-                    }
-                } catch (Exception $e) {}
-                //Try to restore custom favicon
-                try {
-                    if (strpos($faviconFile['path'], G_LOGOPATH) === false) {
-                        $faviconFile = new EfrontFile($options['logo']);
-                    }
-                    copy ($faviconFile['path'], G_LOGOPATH.$faviconFile['name']);
-                } catch (Exception $e) {}
-                //Try to restore paypalbusiness addres
-                try {
-                    $result = eF_getTableData("paypal_configuration", "paypalbusiness");
-                    if (!empty($result)) {
-                        EfrontConfiguration :: setValue('paypalbusiness', $result[0]['paypalbusiness']);
-                    }
-                } catch (Exception $e) {}
+                if ($dbVersion == '3.5') {
+                 //Try to restore custom blocks
+                 try {
+                     if ($options['custom_blocks']) {
+                         $basedir = G_EXTERNALPATH;
+                         if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
+                             throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
+                         }
+                         $blocks = unserialize($options['custom_blocks']);
+                         foreach ($blocks as $value) {
+                             $value['name'] = time(); //Use the timestamp as name
+                             $block = array('name' => $value['name'],
+                             'title' => $value['title']);
+                             file_put_contents($basedir.$value['name'].'.tpl', $value['content']);
+                             sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
+                         }
+                         $currentSetTheme = new themes($GLOBALS['configuration']['theme']);
+                         $currentSetTheme -> layout['custom_blocks'] = $customBlocks;
+                         $currentSetTheme -> persist();
+                     }
+                 } catch (Exception $e) {}
+                 //Try to restore custom logo
+                 try {
+                     $logoFile = new EfrontFile($options['logo']);
+                     if (strpos($logoFile['path'], G_LOGOPATH) === false) {
+                         copy ($logoFile['path'], G_LOGOPATH.$logoFile['name']);
+                     }
+                 } catch (Exception $e) {}
+                 //Try to restore custom favicon
+                 try {
+                     if (strpos($faviconFile['path'], G_LOGOPATH) === false) {
+                         $faviconFile = new EfrontFile($options['logo']);
+                     }
+                     copy ($faviconFile['path'], G_LOGOPATH.$faviconFile['name']);
+                 } catch (Exception $e) {}
+                 //Try to restore paypalbusiness addres
+                 try {
+                     $result = eF_getTableData("paypal_configuration", "paypalbusiness");
+                     if (!empty($result)) {
+                         EfrontConfiguration :: setValue('paypalbusiness', $result[0]['paypalbusiness']);
+                     }
+                 } catch (Exception $e) {}
+                 //Reset certain version options
+                 try {
+                     EfrontConfiguration :: setValue('version_key', '');
+                     if ($options['version_type'] == 'standard') {
+                         EfrontConfiguration :: setValue('version_type', 'community');
+                     }
+                 } catch (Exception $e) {}
+                }
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
                 Installation :: addModules(true);
                 header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");
@@ -415,9 +430,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 include_once "insert_languages.php";
                 addLanguagesDB();
                 EfrontNotification::addDefaultNotifications();
-                EfrontConfiguration :: setValue('notifications_pageloads', '10');
-                EfrontConfiguration :: setValue('notifications_messages_per_time', '5');
-                EfrontConfiguration :: setValue('notifications_max_sent_messages', '100');
                 Installation :: addModules();
                 header("location:".$_SERVER['PHP_SELF']."?finish=1");
                 exit;
@@ -923,7 +935,11 @@ php_value register_globals Off
                 }
             }
             if ($sitemotoKey) {
-                isset($sitemottoKey) ? $data[$sitemottoKey]['value'] = $data[$sitemotoKey]['value'] : $data[] = array('name' => 'site_motto', 'value' => $data[$sitemotoKey]);
+                if (isset($sitemottoKey)) {
+                    $data[$sitemottoKey]['value'] = $data[$sitemotoKey]['value'];
+                } else {
+                     $data[] = array('name' => 'site_motto', 'value' => $data[$sitemotoKey]['value']);
+                }
                 unset($data[$sitemotoKey]);
             }
         }

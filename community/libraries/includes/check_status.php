@@ -73,6 +73,9 @@ $smarty -> assign("T_MANDATORY", $mandatory);
 $optional['gd'] = array('enabled' => in_array('gd', $extensions),
                           'name' => 'GD Libraries functions',
                           'help' => 'GD Libraries extension is needed for advanced image manipulation');
+$optional['soap'] = array('enabled' => in_array('soap', $extensions),
+                          'name' => 'SOAP libraries',
+                          'help' => 'SOAP libraries are used for creating PDF certificates using phplivedocx');
 foreach ($optional as $key => $value) {
     if (isset($exclude_normal) && $exclude_normal && $value['enabled']) { //Use $exclude_normal in order to not list sections without problem
         unset($optional[$key]);

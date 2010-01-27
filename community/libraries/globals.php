@@ -42,9 +42,9 @@ error_reporting( E_ERROR );
 //error_reporting( E_ALL );ini_set("display_errors", true);        //Uncomment this to get a full list of errors
 //Prepend the include path with efront folders
 set_include_path(G_ROOTPATH.'Zend/libraries/'
-                . PATH_SEPARATOR . $path
                 . PATH_SEPARATOR . $path.'../PEAR/'
                 . PATH_SEPARATOR . $path.'includes/'
+                . PATH_SEPARATOR . $path
                 . PATH_SEPARATOR . get_include_path());
 //Set global defines for the system
 setDefines();

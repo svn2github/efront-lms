@@ -23,20 +23,18 @@ if ($currentUser -> user['user_type'] == 'administrator') {
     }
 
 } else { //if the system user is a simple student
-    if ($_SESSION['s_type'] == 'student') {
-        if (!$isSupervisor) {
-            $smarty -> assign("T_SINGLE_USER", true);
-            $_GET['sel_user'] = $currentUser -> user['login'];
-        }
+    if ($_student_ && !$isSupervisor) {
+        $smarty -> assign("T_SINGLE_USER", true);
+        $_GET['sel_user'] = $currentUser -> user['login'];
+        $validUsers = array($currentUser -> user['login'] => $currentUser -> user['login']);
+    } else {
+     $userLessons = $currentUser -> getLessons(true);
+     $users = array();
+     foreach ($userLessons as $lesson) {
+         $users = $users + $lesson -> getUsers();
+     }
+     $validUsers = $users;
     }
-
-    $userLessons = $currentUser -> getLessons(true);
-    $users = array();
-    foreach ($userLessons as $lesson) {
-        $users = $users + $lesson -> getUsers();
-    }
-    $validUsers = $users;
-
 }
 
 if ($currentUser -> user['user_type'] != 'administrator' && $isSupervisor) {

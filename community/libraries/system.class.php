@@ -689,6 +689,9 @@ class EfrontSystem
      }
      //$versionData = eF_checkVersionKey($key);
      $versionData = self :: checkVersionKey($key);
+        if (G_VERSIONTYPE != $versionData['type']) {
+            throw new EfrontSystemException(_KEYISNOTFORTHISEDITION, EfrontSystemException::INVALID_VERSION_KEY);
+        }
      if ((!$versionData['users'] || !eF_checkParameter($versionData['users'], 'int')) ||
          (!$versionData['type'] || !isset($versionData['type'])) ||
          (!$versionData['serial'] || !eF_checkParameter($versionData['serial'], 'int'))) {

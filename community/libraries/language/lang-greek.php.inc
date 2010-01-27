@@ -3465,4 +3465,10 @@ define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY", "Πρέπει να δημι�
 define("_LESSONBRANCHESSELECTION","Επιλογή τμημάτων μαθήματος");
 define("_LESSONBRANCHES","Τμήματα μαθήματος");
 define("_COURSEBRANCHES","Τμήματα δέσμης");
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS", "Οι χρήστες μπορούν να προσδιορίσουν πόσες ερωτήσεις θα έχει η αξιολόγηση");
+define("_MAXIMUM", "Μέγιστο");
+define("_MINIMUM", "Ελάχιστο");
+define("_REPETITIONS", "Επαναλήψεις");
+define("_MAINTAINHISTORY", "Διατήρηση ιστορικού");
+define("_KEYISNOTFORTHISEDITION", "Το κλειδί δεν είναι κατάλληλο για αυτήν την έκδοση");
 ?>

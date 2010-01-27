@@ -151,6 +151,11 @@ class EfrontConfiguration
     	'theme'					 => 1,    //Default theme id, in a clean install this is 1
         'database_version'		 => G_VERSION_NUM,
         
+        //Notifications
+        'notifications_pageloads' => 10,
+        'notifications_messages_per_time' => 5,
+        'notifications_max_sent_messages' => 100,
+    
         //Unclassified - deprecated
         'cms_page'               => '',
         'css'                    => '',

@@ -1,7 +1,3 @@
-{if $T_CONFIGURATION.custom_header}
-	{eval var=$T_CONFIGURATION.custom_header}
-{else}
-
 	<div id = "logo">
 		<a href = "{if $smarty.session.s_login}{$smarty.server.PHP_SELF}{else}index.php{/if}"><img src = "{$T_LOGO}" title = "{$T_CONFIGURATION.site_name}" alt = "{$T_CONFIGURATION.site_name}" border = "0"></a>
 	</div>
@@ -77,4 +73,3 @@
 		<div id = "path_extra">{$smarty.capture.t_path_additional_code}</div>
 	</div>
 	{/if}	
-{/if}

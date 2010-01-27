@@ -1,5 +1,8 @@
 {if $T_SHOW_CONFIRMATION}
             {assign var = 't_show_side_menu' value = true}
+            	{if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
+            		{assign var = "resume_test" value = "1"}	{*This means we are resuming a paused test, rather than starting a new one*}
+            	{/if}
                 <table class = "testHeader">
                     <tr><td id = "testName">{$T_TEST_DATA->test.name}</td></tr>
                     <tr><td id = "testDescription">{$T_TEST_DATA->test.description}</td></tr>
@@ -19,7 +22,13 @@
                                     {/if}
                                     </td></tr>
                                 <tr><td>{$smarty.const._NUMOFQUESTIONS}:&nbsp;</td>
-                                    <td>{$T_TEST_QUESTIONS_NUM}</td></tr>
+                                    <td>
+							{if $T_TEST_DATA->options.user_configurable && !$resume_test}
+										<input type = "text" id = "user_configurable" value = "{$T_TEST_QUESTIONS_NUM}" onclick = "this.value = ''" size = "3"> ({$smarty.const._MAXIMUM} {$T_TEST_QUESTIONS_NUM})
+							{else}
+								{$T_TEST_QUESTIONS_NUM}
+							{/if}
+									</td></tr>
                                 <tr><td>{$smarty.const._QUESTIONSARESHOWN}:&nbsp;</td>
                                     <td>{if $T_TEST_DATA->options.onebyone}{$smarty.const._ONEBYONEQUESTIONS}{else}{$smarty.const._ALLTOGETHER}{/if}</td></tr>
                             {if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
@@ -34,10 +43,10 @@
                             </table>
                         </td>
                     <tr><td id = "testProceed">
-                    {if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
+                    {if $resume_test}
                         <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._RESUMETEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&resume=1'" />
                     {else}
-                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'" />
+                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1&user_configurable='+parseInt($('user_configurable').value)" />
                     {/if}
                     </td></tr>
                 </table>

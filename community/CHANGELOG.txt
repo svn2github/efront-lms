@@ -3,6 +3,8 @@
 - Edition separation in statistics fix
 - Fixed custom footer to replace default
 - When duplicate formatted user names appear, the login is displayed in order to tell who is who 
+- Added maintain test history setting
+- Added user configurable random pool option  
 
 === Version 3.6.0 build 5751 ===
 eFront 3.6.0 is a completely new version, introducing many important new features

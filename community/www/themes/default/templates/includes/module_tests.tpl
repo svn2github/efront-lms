@@ -115,6 +115,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <tr><td class = "labelCell">{$smarty.const._REDOABLE}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.redoable.html} <span class = "infoCell">{$smarty.const._BLANKFORUNLIMITED}</span></td></tr>
                 {if $T_TEST_FORM.redoable.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redoable.error}</td></tr>{/if}
+                <tr><td class = "labelCell">{$smarty.const._MAINTAINHISTORY}:&nbsp;</td>
+                    <td class = "elementCell">{$T_TEST_FORM.maintain_history.html}<span> {$smarty.const._REPETITIONS} </span><span class = "infoCell">({$smarty.const._BLANKFORUNLIMITED})</span></td></tr>
+                {if $T_TEST_FORM.mastery_score.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.mastery_score.error}</td></tr>{/if}
                 <tr><td class = "labelCell">{$smarty.const._MASTERYSCORE}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.mastery_score.html} %</td></tr>
                 {if $T_TEST_FORM.mastery_score.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.mastery_score.error}</td></tr>{/if}
@@ -150,8 +153,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <tr><td class = "labelCell">{$smarty.const._SHUFFLEQUESTIONS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.shuffle_questions.html}</td></tr>
                 <tr><td class = "labelCell">{$smarty.const._DISPLAYORDEREDLIST}:&nbsp;</td>
-                    <td class = "elementCell"><table><tr><td>{$T_TEST_FORM.display_list.html}</td>
-                    <td class = "leftAlign"><img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, 'display_ordered', event)"><div id = 'display_ordered' onclick = "eF_js_showHideDiv(this, 'display_ordered', event)" class = "popUpInfoDiv" style = "display:none">{$smarty.const._DISPLAYORDEREDLISTINFO}</div></td></tr></table></td></tr>
+                    <td class = "elementCell">{$T_TEST_FORM.display_list.html} <span class = "infoCell">{$smarty.const._DISPLAYORDEREDLISTINFO}</span></td></tr>
             {if !$T_SKILLGAP_TEST}
                 {if $T_TEST_FORM.shuffle_questions.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_questions.error}</td></tr>{/if}
                 <tr><td class = "labelCell">{$smarty.const._TESTCANBEPAUSED}:&nbsp;</td>
@@ -315,6 +317,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       <table class = "randomTest" style = "width:100%">
        <tr><td>{$smarty.const._SELECTOPTION}:</td></tr>
        <tr><td>{$smarty.const._USE} <input name = "random_pool" type = "text" size = "5" value = "{$T_TEST_QUESTIONS_STATISTICS.random_pool}"> {$smarty.const._QUESTIONSINEACHEXECUTION}</td></tr>
+       <tr><td><input type = "checkbox" name = "user_configurable" {if $T_TEST_QUESTIONS_STATISTICS.user_configurable}checked{/if}> {$smarty.const._ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS}</td></tr>
        <tr><td><input type = "checkbox" name = "update_test_time"> {$smarty.const._UPDATETOTALTESTTIME}</td></tr>
        <tr><td><input type = "button" class = "flatButton" value = "{$smarty.const._OK}" onclick = "setRandomPool(this)"></td></tr>
       </table>
@@ -327,7 +330,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     {$smarty.const._QUESTIONSOFTOTALTIME}
     <span id = "questions_time_hours">{if $T_TEST_QUESTIONS_STATISTICS.duration.hours}{$T_TEST_QUESTIONS_STATISTICS.duration.hours}{$smarty.const._HOURSSHORTHAND} {/if}</span>
           <span id = "questions_time_minutes">{if $T_TEST_QUESTIONS_STATISTICS.duration.minutes}{$T_TEST_QUESTIONS_STATISTICS.duration.minutes}{$smarty.const._MINUTESSHORTHAND} {/if}</span>
-          <span id = "questions_time_seconds">{if $T_TEST_QUESTIONS_STATISTICS.duration.seconds}{$T_TEST_QUESTIONS_STATISTICS.duration.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}</span>
+          <span id = "questions_time_seconds">{if $T_TEST_QUESTIONS_STATISTICS.duration.seconds}{$T_TEST_QUESTIONS_STATISTICS.duration.seconds}{$smarty.const._SECONDSSHORTHAND}{/if} {if !$T_TEST_QUESTIONS_STATISTICS.duration.seconds && !$T_TEST_QUESTIONS_STATISTICS.duration.minutes && !$T_TEST_QUESTIONS_STATISTICS.duration.hours}0{$smarty.const._MINUTESSHORTHAND}{/if}</span>
     <span {if !$T_TEST_QUESTIONS_STATISTICS.random_pool}style = "display:none"{/if}>{$smarty.const._WHEREARANDOMPOOLOF} <span>{$T_TEST_QUESTIONS_STATISTICS.random_pool}</span> {$smarty.const._QUESTIONSISUSEDEACHTIME}</span>
    </div>
   {/capture}

@@ -1,4 +1,10 @@
 <?php
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS", "Allow students to specify number of questions in each test execution");
+define("_MAXIMUM", "Maximum");
+define("_MINIMUM", "Minimum");
+define("_REPETITIONS", "Repetitions");
+define("_MAINTAINHISTORY", "Maintain history");
+
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
@@ -72,6 +78,7 @@ $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])
 $form -> addElement('text', 'name', null, 'class = "inputText"');
 $form -> addElement('text', 'duration', null, 'id = "test_duration" size = "5"');
 $form -> addElement('text', 'redoable', null, 'size = "5"');
+$form -> addElement('text', 'maintain_history', null, 'size = "5"');
 $form -> addElement('text', 'mastery_score', _MASTERYSCORE, 'size = "5"');
 $form -> addElement('advcheckbox', 'onebyone',          null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'only_forward',      null, null, null, array(0, 1));
@@ -155,11 +162,12 @@ $smarty -> assign("T_QUESTION_TYPES_ICONS", Question::$questionTypesIcons);
 
 if (isset($_GET['add_test'])) {
     $form -> addElement('submit', 'submit_test', _SAVETESTANDADDQUESTIONS, 'class = "flatButton"');
-    $form -> setDefaults(array('given_answers' => 1,
-                                       'answers'       => 1,
-                                       'publish'       => 1,
-                                       'mastery_score' => 50,
-            						   'redoable'	   => 1));
+    $form -> setDefaults(array('given_answers'    => 1,
+                               'answers'          => 1,
+                               'maintain_history' => 5,
+                               'publish'          => 1,
+                               'mastery_score'    => 50,
+            				   'redoable'	      => 1));
     if (isset($_GET['from_unit'])) {
         $form -> setDefaults(array('parent_content' => $_GET['from_unit']));
     }
@@ -174,11 +182,11 @@ if (isset($_GET['add_test'])) {
     $form -> freeze('parent_content');
     $form -> setDefaults($currentTest -> options);
     $form -> setDefaults(array('name'              => $currentTest -> test['name'],
-                                       'duration'          => $currentTest -> options['duration'] ? round($currentTest -> options['duration'] / 60) : '',   //Duration is displayed in minutes, but is stored in seconds
-                                       'redoable'          => $currentTest -> options['redoable'] ? $currentTest -> options['redoable'] : '',
-                                       'publish'           => $currentTest -> test['publish'],
-                                       'description'       => $currentTest -> test['description'],
-                                       'mastery_score'     => $currentTest -> test['mastery_score']));
+                               'duration'          => $currentTest -> options['duration'] ? round($currentTest -> options['duration'] / 60) : '',   //Duration is displayed in minutes, but is stored in seconds
+                               'redoable'          => $currentTest -> options['redoable'] ? $currentTest -> options['redoable'] : '',
+                               'publish'           => $currentTest -> test['publish'],
+                               'description'       => $currentTest -> test['description'],
+                               'mastery_score'     => $currentTest -> test['mastery_score']));
 
     if (!$skillgap_tests) {
         $form -> setDefaults(array('parent_content'    => $testUnit['parent_content_ID']));
@@ -190,6 +198,7 @@ if (isset($_GET['add_test'])) {
     $stats = $currentTest -> questionsInfo();
     $stats['duration'] 	  = eF_convertIntervalToTime($stats['total_duration']);
     $stats['random_pool'] = $currentTest -> options['random_pool'];
+    $stats['user_configurable'] = $currentTest -> options['user_configurable'];
 
     $smarty -> assign("T_TEST_QUESTIONS_STATISTICS", $stats);
 }
@@ -608,6 +617,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'randomize') {
 
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['random_pool'])) {
     try {
+        //Set the random pool option
         $randomPool = 0;
         if (is_numeric($_GET['random_pool']) && $_GET['random_pool'] > 0) {
             $randomPool = $_GET['random_pool'];
@@ -615,10 +625,13 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['rando
         if (sizeof($currentTest -> getQuestions()) < $randomPool) {
             $randomPool = sizeof($currentTest -> getQuestions());
         }
-         
         $currentTest -> options['random_pool'] = $randomPool;
-        $currentTest -> persist();
 
+        //Set the user configurable option
+        isset($_GET['user_configurable']) && $_GET['user_configurable'] ? $currentTest -> options['user_configurable'] = 1 : $currentTest -> options['user_configurable'] = 0;
+        
+        $currentTest -> persist();
+        
         //ArrayObject is required in order for json to work well with prototype
         $stats 	   = new ArrayObject($currentTest -> questionsInfo());
         $stats['difficulties']  = new ArrayObject($stats['difficulties']);
@@ -626,6 +639,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['rando
         $stats['percentage']    = new ArrayObject($stats['percentage']);
         $stats['duration'] 	    = eF_convertIntervalToTime($stats['total_duration']);
         $stats['random_pool']   = $currentTest -> options['random_pool'];
+        //Set the test time to match questions time
         if ($_GET['update_test_time'] && $stats['total_duration'] > 0) {
             $currentTest -> options['duration'] = $stats['total_duration'];
             $currentTest -> persist();

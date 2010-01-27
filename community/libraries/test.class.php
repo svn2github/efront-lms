@@ -86,6 +86,7 @@ class EfrontTest
 
 
     public $options = array('duration'          => 0,
+                            'master_score'		=> 50,
                             'redoable'          => 0,
                             'onebyone'          => 0,
                             'answers'           => 1,
@@ -93,6 +94,8 @@ class EfrontTest
                             'shuffle_answers'   => 0,
                             'given_answers'     => 1,
                             'random_pool'       => 0,
+                            'user_configurable' => 0,
+                            'maintain_history'  => 5,
                             'display_list'      => 0,
                             'pause_test'        => 1,
                             'display_weights'   => 1,
@@ -1986,12 +1989,18 @@ class EfrontCompletedTest extends EfrontTest
             				'time_spent'  => $this -> time['spent'] 		   ? $this -> time['spent'] 		  	: null,
             				'pending'     => $this -> completedTest['pending'] ? $this -> completedTest['pending']  : 0,
         					'score' 	  => $this -> completedTest['score']   ? $this -> completedTest['score'] 	: null);          
-        	if ($id = eF_insertTableData("completed_tests", $fields)) {        	    
-                $this -> completedTest['id'] = $id;
-                $this -> save();
-            } else {
-                throw new EfrontTestException(_SOMEPROBLEMOCCURED, EfrontTestException :: DATABASE_ERROR);
+        	$id = eF_insertTableData("completed_tests", $fields);        	    
+        	$this -> completedTest['id'] = $id;
+        	$this -> save();
+            
+        	if ($this -> options['maintain_history']) {    
+	        	$result = eF_getTableDataFlat("completed_tests", "id", "tests_ID=".$this -> completedTest['testsId'], "timestamp desc");
+	        	if (sizeof($result['id']) > $this -> options['maintain_history']) {
+	        	    $deleteThreshold = $result['id'][$this -> options['maintain_history']];
+	        	    eF_deleteTableData("completed_tests", "id <= $deleteThreshold");
+	        	}
             }
+        	
         }
     }
     

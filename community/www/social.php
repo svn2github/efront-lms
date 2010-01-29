@@ -87,7 +87,7 @@
 		// Users see forum messages from the system forum and their own lessons while administrators for all 
 	    if (!empty($lessons_list)) {
 			$forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID IN ('0', '".implode("','", $lessons_list)."')", "fm.timestamp desc LIMIT 5");	    	
-	    } else {
+	    } elseif ($_admin_) { //This is the admin speaking
 	    	$forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id", "fm.timestamp desc LIMIT 5");
 	    }        
         $smarty -> assign("T_FORUM_MESSAGES", $forum_messages);                                             //Assign forum messages and categoru information to smarty

@@ -74,7 +74,7 @@ class f_forums extends EfrontEntity
      * @return unknown_type
      */
     public static function getForumTree($forums = false) {
-        if (!$forums) {
+        if ($forums === false) {
             $forums = f_forums :: getAll("f_forums");
         }
         

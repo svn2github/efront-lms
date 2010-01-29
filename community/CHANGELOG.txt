@@ -14,7 +14,9 @@
 - Fixed default notifications missing in upgrades 
 - Fixed students not to have access to lessons that are not activated, from the dashboard
 - Fixed dashboard results not to list information for ineligible lessons
-
+- Fixed forum list not displaying when the user does not have lessons
+- Fixed complete unit with question issue
+ 
 
 === Version 3.6.0 build 5751 ===
 eFront 3.6.0 is a completely new version, introducing many important new features

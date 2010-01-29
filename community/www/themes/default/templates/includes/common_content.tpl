@@ -200,11 +200,11 @@
 	            {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests'}
                 	{if $T_QUESTION}
                                 <form id = "question_form" method = "post" action = "{$smarty.server.PHP_SELF}?view_unit={$smarty.get.view_unit}">{$T_QUESTION}</form>
-                                <div id = "contentQuestionAnswer">
-                                    <img id = "correct_answer" src = "images/32x32/success.png" alt = "{$smarty.const._CORRECTANSWER}" title = "{$smarty.const._CORRECTANSWER}">
-                                    <img id = "wrong_answer" src = "images/32x32/error_delete.png" alt = "{$smarty.const._WRONGANSWER}" title = "{$smarty.const._WRONGANSWER}">
+                                <span id = "contentQuestionAnswer">
                                     <input class = "flatButton" type = "button" value = "{$smarty.const._SUBMIT}" onclick = "answerQuestion(this)">
-                                </div>
+                                    <img class = "ajaxHandle" style = "display:none" id = "correct_answer" src = "images/32x32/success.png" alt = "{$smarty.const._CORRECTANSWER}" title = "{$smarty.const._CORRECTANSWER}">
+                                    <img class = "ajaxHandle" style = "display:none" id = "wrong_answer" src = "images/32x32/error_delete.png" alt = "{$smarty.const._WRONGANSWER}" title = "{$smarty.const._WRONGANSWER}">
+                                </span>
                 	{elseif $_change_ && $_student_}
                                 <a id = "seenLink" href = "javascript:void(0)" onclick = "setSeenUnit();">
                                      {if $T_SEEN_UNIT}

@@ -52,7 +52,7 @@ try {
     $smarty -> assign("T_FORUM_CONFIG", $forum_config);
 
     $user_type = eF_getUserBasicType($_SESSION['s_login']);
-    $smarty ->assign("T_USER",$user_type);
+    $smarty -> assign("T_USER",$user_type);
 
     if ($_GET['type'] == 'forum' && isset($_GET['delete']) && in_array($_GET['delete'], $legalForumValues)) {
         try {

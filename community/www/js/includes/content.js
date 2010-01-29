@@ -118,20 +118,20 @@ function answerQuestion(el) {
 	Element.extend(el);
 	$('correct_answer').hide();
 	$('wrong_answer').hide();
-	el.up().insert(new Element('img', {src:'images/others/progress1.gif', id:'progress_image'}).setStyle({verticalAlign:'middle', marginLeft:'5px'}));
+	el.up().insert(new Element('img', {src:'themes/default/images/others/progress1.gif', id:'progress_image'}).setStyle({verticalAlign:'middle', marginLeft:'5px'}));
 	$('question_form').request({
 		onFailure: function(transport) {
 		$('progress_image').remove();
 		showMessage(transport.responseText, 'failure');
 	},
 	onSuccess:function(transport) {
-		$('progress_image').remove();
-
 		if (transport.responseText == 'correct') {
 			new Effect.Appear($('correct_answer'));
 		} else {
 			new Effect.Appear($('wrong_answer'));
 		}
+		$('progress_image').remove();
+		setSeenUnit();
 	}
 	});
 }

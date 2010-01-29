@@ -192,9 +192,15 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
     {capture name = "t_empty_lessons_list_code"}
      <table class = "emptyLessonsList">
          <tr><td class = "mediumHeader">{$smarty.const._YOUDONTHAVEANYLESSONS}</td></tr>
+
+               <tr><td class = "lessonListOption">
+        <a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}"><img class = "handle" src = "images/32x32/user.png" title = "{$smarty.const._MYACCOUNT}" alt = "{$smarty.const._MYACCOUNT}" ></a>
+                <div><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}">{$smarty.const._MYACCOUNT}</a></div>
+               </td></tr>
+
      {if $T_CONFIGURATION.lessons_directory}
                <tr><td class = "lessonListOption">
-                   <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1"><img class = "handle" src = "images/32x32/catalog.png" title = "{$smarty.const._LESSONSDIRECTORY}" alt = "{$smarty.const._LESSONSDIRECTORY}"></a>
+                   <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1" title = "{$smarty.const._LESSONSDIRECTORY}"><img class = "handle" src = "images/32x32/catalog.png" title = "{$smarty.const._LESSONSDIRECTORY}" alt = "{$smarty.const._LESSONSDIRECTORY}"></a>
                    <div><a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1">{$smarty.const._LESSONSDIRECTORY}</a></div>
                </td></tr>
            {/if}

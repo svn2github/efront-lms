@@ -299,7 +299,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
    }
             $comments = array();
             $result = array_merge(comments::getComments($currentLesson -> lesson['id'], false, $currentUnit['id']),
-                                  comments::getComments($currentLesson -> lesson['id'], $currentUser, $currentUnit['id'], false, false));
+                                    comments::getComments($currentLesson -> lesson['id'], $currentUser, $currentUnit['id'], false, false));
             foreach ($result as $value) {
                 if (!isset($comments[$value['id']])) {
                     $comments[$value['id']] = $value;

@@ -17,7 +17,7 @@ try {
     $forums = f_forums :: getAll("f_forums");
     //@todo: if forum of lesson deactivated by professor not display it in list
     if (!$_admin_) {
-        $userLessons = $currentUser -> getLessons();
+        $userLessons = $currentUser -> getEligibleLessons();
         foreach ($forums as $key => $value) {
             //This takes the forum that belongs to this lesson, as well as general forums
             if ($value['lessons_ID'] && !in_array($value['lessons_ID'], array_keys($userLessons))) {

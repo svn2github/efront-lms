@@ -62,7 +62,7 @@
         {if ($smarty.const.G_VERSIONTYPE == 'enterprise' && $T_TYPE != "4") || ($smarty.const.G_VERSIONTYPE != 'enterprise')}
                 <td class = "topTitle" width="25%">{$smarty.const._LESSON}</td>
         {/if}
-        {if $smarty.const.G_VERSIONTYPE == 'enterprise' && $T_TYPE == "0" || $smarty.session.s_type != "student"}
+        {if $smarty.const.G_VERSIONTYPE == 'enterprise' && ($T_TYPE == "0" || $T_TYPE == "4") || $smarty.session.s_type != "student"}
                 <td class = "topTitle centerAlign noSort">{$smarty.const._FUNCTIONS}</td></tr>
   {/if}
         {foreach name = 'timestamps_list' key = timestamp item = events from = $T_INTERVAL_CALENDAR_EVENTS}
@@ -73,10 +73,12 @@
                 {if ($smarty.const.G_VERSIONTYPE == 'enterprise' && $T_TYPE != "4") || ($smarty.const.G_VERSIONTYPE != 'enterprise')}
                 <td>{$events.lesson_name[events_list]}</td>
                 {/if}
-                {if $smarty.const.G_VERSIONTYPE == 'enterprise' && $T_TYPE == "0" || $smarty.session.s_type != "student"}
+                {if $smarty.const.G_VERSIONTYPE == 'enterprise' && ($T_TYPE == "0" || $T_TYPE == "4") || $smarty.session.s_type != "student"}
                 <td style = "text-align:center">
+                {if $smarty.session.s_type != "student" || $smarty.session.s_login == $events.users_login[events_list]}
                     <a href = "{$smarty.server.PHP_SELF}?ctg=calendar&view_calendar={$T_VIEW_CALENDAR}{if $smarty.get.show_interval}&show_interval={$smarty.get.show_interval}{/if}&edit_calendar={$events.id[events_list]}{$T_CALENDAR_TYPE_LINK}" onclick = "eF_js_showDivPopup('{$smarty.const._EDITEVENT}', 2)" target = "POPUP_FRAME"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDITEVENT}" title = "{$smarty.const._EDITEVENT}" border = "0"></a>
                     <a href = "{$smarty.server.PHP_SELF}?ctg=calendar&view_calendar={$T_VIEW_CALENDAR}{if $smarty.get.show_interval}&show_interval={$smarty.get.show_interval}{/if}&delete_calendar={$events.id[events_list]}{$T_CALENDAR_TYPE_LINK}" onclick = "return confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')"><img src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEEVENT}" title = "{$smarty.const._DELETEEVENT}" border = "0"></a>
+                {/if}
                 </td>
                 {/if}
             </tr>

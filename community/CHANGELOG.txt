@@ -11,7 +11,10 @@
 - Fixed issue with not displaying media list properly in edit theme block
 - Fixed issue with editor link popup window not displaying content list correctly 
 - Security fix for editor browsing popup
- 
+- Fixed default notifications missing in upgrades 
+- Fixed students not to have access to lessons that are not activated, from the dashboard
+- Fixed dashboard results not to list information for ineligible lessons
+
 
 === Version 3.6.0 build 5751 ===
 eFront 3.6.0 is a completely new version, introducing many important new features

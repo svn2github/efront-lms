@@ -67,6 +67,16 @@ $smarty -> assign("T_INTERVAL_CALENDAR_EVENTS", $interval_events);
 $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
 $smarty -> assign("T_TYPE", $type);
 $smarty -> assign("T_CALENDAR_TYPE_SELECT", $calendar_type);
+if (isset($_GET['delete_calendar']) || isset($_GET['edit_calendar'])) {
+ $id = isset($_GET['delete_calendar'])?$_GET['delete_calendar']:$_GET['edit_calendar'];
+    $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, l.id as lessons_ID, c.users_login", "c.id = " . $id);
+    if (!(!empty($result) && ($currentUser -> getType() == "administrator" || $currentUser -> user['login'] == $result[0]['users_login'] || ($result[0]['lessons_ID'] != "" && $currentUser -> getRole($result[0]['lessons_ID']) == "professor") ))) {
+     unset($_GET['delete_calendar']);
+     unset($_GET['edit_calendar']);
+        $message = _UNPRIVILEGEDATTEMPT;
+        $message_type = 'failure';
+    }
+}
 if (isset($_GET['delete_calendar']) && eF_checkParameter($_GET['delete_calendar'], 'id')) {
     if (isset($currentUser -> coreAccess['calendar']) && $currentUser -> coreAccess['calendar'] != 'change') {
         exit;

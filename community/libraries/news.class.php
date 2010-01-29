@@ -199,19 +199,42 @@ class news extends EfrontEntity
 	*)
 	* </code>
 	*
-	* @param int $lessons_ID The lesson id
+	* @param mixed $lessonId The lesson id or an array of ids
 	* @param boolean $check_expire Whether to return only announcements that are valid for the current date
 	* @return array The news array
 	* @since 3.6.0
 	* @static
 	* @access public
 	*/
-    public static function getNews($lessonId = 0, $checkExpire = false) {
+    public static function getNews($lessonId, $checkExpire = false) {
 		if ($checkExpire) {
 			//$expireString = " and (n.expire=0 OR n.expire >=".time().") AND n.timestamp<=".time();
 			$expireString = " AND n.timestamp<=".time();
 		}
-			
+		
+		if (is_array($lessonId) && !empty($lessonId)) {
+			foreach ($lessonId as $key => $value) {
+			    if (!eF_checkParameter($value, 'id')) {
+				    unset($lessonId[$key]);
+				}
+			}
+			if (!empty($lessonId)) {
+				$result = eF_getTableData("news n, users u", "n.*, u.surname, u.name", "n.users_LOGIN = u.login".$expireString." and n.lessons_ID in (".implode(",", $lessonId).")", "n.timestamp desc, n.id desc");
+				$news   = array();
+				foreach ($result as $value) {
+				    $interval = time() - $value['timestamp'];
+				    $value['time_since'] = eF_convertIntervalToTime(abs($interval), true).' '.($interval > 0 ? _AGO : _REMAININGPLURAL);
+				    $news[$value['id']] = $value;
+				}
+			}
+			return $news;
+		} 
+		//We don't have an "else" statement here, because in case the check in the above if removed all elements of lessonId (they were not ids), this part of code will be executed and the function won't fail 
+		
+		if (!eF_checkParameter($lessonId, 'id')) {
+		    $lessonId = 0;
+		}
+
 		$result = eF_getTableData("news n, users u", "n.*, u.surname, u.name", "n.users_LOGIN = u.login".$expireString." and n.lessons_ID=$lessonId", "n.timestamp desc, n.id desc");
 		$news   = array();
 		foreach ($result as $value) {
@@ -219,6 +242,7 @@ class news extends EfrontEntity
 		    $value['time_since'] = eF_convertIntervalToTime(abs($interval), true).' '.($interval > 0 ? _AGO : _REMAININGPLURAL);
 		    $news[$value['id']] = $value;
 		}
+
 		return $news;
         
     }

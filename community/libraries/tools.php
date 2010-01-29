@@ -427,27 +427,26 @@ function eF_getCalendar($timestamp = false, $type = 1) {
     if (sizeof($lessons) > 0) {
      $l = implode(",", $lessons);
      if (!$timestamp || !eF_checkParameter($timestamp, 'timestamp')) {
-             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name", "c.lessons_ID in (".$l.") AND c.active=1", "timestamp");
+             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "c.lessons_ID in (".$l.") AND c.active=1", "timestamp");
  //            $result = eF_getTableData("calendar c, lessons l", "c.id, c.timestamp, c.data, l.name", "c.lessons_ID in (".$l.") AND c.active=1 AND c.lessons_ID = l.ID", "timestamp");
      } else {
          $timestamp_info = getdate($timestamp);
          $timestamp_from = mktime(0, 0, 0, $timestamp_info['mon'], $timestamp_info['mday'], $timestamp_info['year']); //today first sec
          $timestamp_to = mktime(23, 23, 59, $timestamp_info['mon'], $timestamp_info['mday'], $timestamp_info['year']); //today last sec
-             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name", "l.id in (".$l.") AND c.active=1 AND timestamp >= ".($timestamp_from)." AND timestamp <= ".($timestamp_to), "timestamp");
+             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "l.id in (".$l.") AND c.active=1 AND timestamp >= ".($timestamp_from)." AND timestamp <= ".($timestamp_to), "timestamp");
  //            $result = eF_getTableData("calendar c, lessons l", "c.id, c.timestamp, c.data, l.name", "c.lessons_ID in (".$l.") AND c.active=1 AND c.lessons_ID = l.ID AND timestamp >= ".($timestamp_from)." AND timestamp <= ".($timestamp_to), "timestamp");
      }
     }
     $events = array();
     foreach ($result as $event) {
+     $events[$event['timestamp']]['id'][] = $event['id'];
+     $events[$event['timestamp']]['data'][] = $event['data'];
+     $events[$event['timestamp']]['users_login'][] = $event['users_login'];
         if ($event['name'] != "") {
-            $events[$event['timestamp']]['data'][] = $event['data'];
    $events[$event['timestamp']]['lesson_name'][] = $event['name']; //leson name in individual column
         } else {
-            $events[$event['timestamp']]['data'][] = $event['data'];
    $events[$event['timestamp']]['lesson_name'][] = "";
         }
-        $events[$event['timestamp']]['id'][] = $event['id'];
-        //$events[$event['timestamp']]['lesson'][]   = $event['name'];
     }
     return $events;
 }

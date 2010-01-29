@@ -2230,6 +2230,58 @@ abstract class EfrontLessonUser extends EfrontUser
     }
     /**
 
+     * Get user's eligible lessons
+
+     * 
+
+     * This function is used to filter the user's lessons, excluding all the lessons
+
+     * that he is enrolled to, but cannot access for some reason (rules, schedule, active, etc)
+
+     * 
+
+     * <br/>Example:
+
+     * <code>
+
+     * $eligibleLessons = $user -> getEligibleLessons();                         //Returns an array of EfrontLesson objects
+
+     * </code>
+
+     *
+
+     * @return array An array of lesson objects
+
+     * @since 3.6.0
+
+     * @access public
+
+     * @see libraries/EfrontLessonUser#getLessons($returnObjects, $basicType)
+
+     */
+    public function getEligibleLessons() {
+        $userLessons = $this -> getLessons(true);
+        $userCourses = $this -> getCourses(true);
+        $roles = self :: getLessonsRoles();
+        $roleNames = self :: getLessonsRoles(true);
+        foreach ($userCourses as $course) {
+            $eligible = $course -> checkRules($this -> user['login']);
+            foreach ($eligible as $lessonId => $value) {
+                if (!$value) {
+                    unset($userLessons[$lessonId]);
+                }
+            }
+        }
+        $eligibleLessons = array();
+        foreach ($userLessons as $lesson) {
+            if ($lesson -> userStatus['from_timestamp'] && (!isset($lesson -> lesson['eligible']) || (isset($lesson -> lesson['eligible']) && $lesson -> lesson['eligible']))) {
+                $eligibleLessons[$lesson -> lesson['id']] = $lesson;
+            }
+        }
+        return $eligibleLessons;
+    }
+    /**
+
      * Get user potential lessons
 
      *

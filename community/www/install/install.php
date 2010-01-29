@@ -401,6 +401,8 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                          EfrontConfiguration :: setValue('version_type', 'community');
                      }
                  } catch (Exception $e) {}
+                 //Add default notifications to 3.5
+                 EfrontNotification::addDefaultNotifications();
                 }
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
                 Installation :: addModules(true);

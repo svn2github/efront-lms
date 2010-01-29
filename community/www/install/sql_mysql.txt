@@ -936,7 +936,7 @@ CREATE TABLE users_to_chatrooms (
 -- users_LOGIN: user's login that is assiciated with the course
 -- courses_ID: id of the course
 -- active: shows if user is still related to the course
--- from_timestamp: Time when user enrolled to course
+-- from_timestamp: Time when user enrolled to course. If it's 0, the user has the course but has yet to be activated by the admin
 -- user_type: Type that user enrolled to course as (student, professor, etc)
 -- completed: shows if course is completed by user (for student types)
 -- score: shows the score that user has for the course
@@ -965,6 +965,21 @@ CREATE TABLE lessons_to_courses (
 ) DEFAULT CHARSET=utf8;
 
 
+--
+-- Table 'users_to_lessons'
+--
+-- This table represents the relation between a user and a lesson
+-- Fields:
+-- users_LOGIN: user's login that is assiciated with the lesson
+-- lessons_ID: id of the lesson
+-- active: shows if user is still related to the lesson
+-- from_timestamp: Time when user enrolled to lesson. If it's 0, the user has the lesson but has yet to be activated by the admin
+-- user_type: Type that user enrolled to lesson as (student, professor, etc)
+-- completed: shows if lesson is completed by user (for student types)
+-- score: shows the score that user has for the lesson
+-- issued_certificate: stores data about the certificate that user takes for the lesson
+-- comments: stores comments from professor or admininstrator when user completes lesson
+-- to_timestamp: time that user completes lesson
 CREATE TABLE users_to_lessons (
   users_LOGIN varchar(100) NOT NULL,
   lessons_ID mediumint(8) unsigned NOT NULL default '0',

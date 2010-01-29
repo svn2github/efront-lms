@@ -10,12 +10,24 @@ $load_editor = true;
     //Create shorthands for user access rights, to avoid long variable names	
 	!isset($currentUser -> coreAccess['news']) || $currentUser -> coreAccess['news'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 	
+	if (isset($_GET['lessons_ID'])) {
+	    $eligibleLessons = $currentUser -> getEligibleLessons();
+	    if (in_array($_GET['lessons_ID'], array_keys($eligibleLessons))) {
+	        $lessonId = $_GET['lessons_ID'];
+	    } else {
+	        $lessonId = array_keys($eligibleLessons);
+	    }	    
+	} else {
+	    $lessonId = $currentLesson -> lesson['id'];
+	}
+	
+	
 	if ($_admin_) {
 	    $news = news :: getNews(0);
 	} else if ($_professor_) {
-	    $news = news :: getNews(0, true) + news :: getNews($currentLesson -> lesson['id'], false);
+	    $news = news :: getNews(0, true) + news :: getNews($lessonId, false);
 	} else if ($_student_) {
-	    $news = news :: getNews(0, true) + news :: getNews($currentLesson -> lesson['id'], true);
+	    $news = news :: getNews(0, true) + news :: getNews($lessonId, true);
 	}
 	$smarty -> assign("T_NEWS", $news);
 

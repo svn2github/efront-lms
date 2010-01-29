@@ -395,6 +395,7 @@ class EfrontUnit extends ArrayObject
         eF_deleteTableData("scorm_data", "content_ID=".$this['id']); //Delete Unit from scorm_data
   eF_deleteTableData("comments", "content_ID=".$this['id']); //Delete comments of this unit
   eF_deleteTableData("rules", "content_ID=".$this['id']." OR rule_content_ID=".$this['id']); //Delete rules associated with this unit
+  //eF_deleteTableData("conditions", "content_ID=".$this['id']." OR rule_content_ID=".$this['id']); 		//Delete rules associated with this unit
   eF_updateTableData("questions", array("content_ID" => 0), "content_ID=".$this['id']); //Remove association of questions with this unit but not delete them
   EfrontSearch :: removeText('content', $this['id'], ''); //Delete keywords
   //Delete scorm data related to the unit

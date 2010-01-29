@@ -843,6 +843,7 @@ class EfrontLesson
                                                         'name' => $value['name'],
                                                         'surname' => $value['surname'],
                                                         'basic_user_type' => $value['user_type'],
+                                                        'user_type' => $value['user_type'],
                                                         'user_types_ID' => $value['user_types_ID'],
                                                         'role' => $value['role'],
               'from_timestamp' => $value['from_timestamp'],

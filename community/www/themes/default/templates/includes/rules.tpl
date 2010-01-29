@@ -119,7 +119,7 @@
                             {elseif $item.type == 'specific_unit'}
 						        {$T_TREE_NAMES[$item.options.0]}
                             {elseif $item.type == 'all_tests'}
-						        {$item.options.0}%
+						        {$item.options.0}
                             {elseif $item.type == 'specific_test'}
         						{$T_TREE_NAMES[$item.options.0]}
                             {/if}

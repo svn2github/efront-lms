@@ -222,6 +222,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     $contentIterator = new EfrontContentFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));    //Get active units that are anything but tests (false negates both rules)
     $noTestUnits     = $currentContent -> toHTMLSelectOptions($contentIterator);
 
+    if (!empty($noTestUnits)) {
+	    $form -> addElement('select', 'specific_unit', null, $noTestUnits, 'class = "inputSelect"');
+	    $form -> addRule('specific_unit', _INVALIDID, 'numeric', null, 'client');
+    } else {
+        unset($condition_types['specific_unit']);
+    }
+    
+    if (!empty($testUnits) && $GLOBALS['configuration']['disable_tests'] != 1) {
+	    $form -> addElement('select', 'specific_test', null, $testUnits, 'class = "inputSelect"');
+	    $form -> addRule('specific_test', _INVALIDID, 'numeric', null, 'client');
+    } else {
+        unset($condition_types['specific_test']);
+    }
+    
     $form -> addElement('select', 'condition_types', null, $condition_types, 'class = "inputSelect" onchange = "selectCondition(this)"');
     $form -> addRule('condition_types', _INVALIDCONDITION, 'in_array', array_keys($condition_types));
 
@@ -229,12 +243,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     $form -> setDefaults(array('percentage_units' => 50));
     $form -> addRule('percentage_units', _THEFIELD.' '._ISMANDATORY, 'required', null, 'client');
     $form -> addRule('percentage_units', _INVALIDPERCENTAGE, 'numeric');
-
-    $form -> addElement('select', 'specific_unit', null, $noTestUnits, 'class = "inputSelect"');
-    $form -> addRule('specific_test', _INVALIDID, 'numeric', null, 'client');
-
-    $form -> addElement('select', 'specific_test', null, $testUnits, 'class = "inputSelect"');
-    $form -> addRule('test_unit', _INVALIDID, 'numeric', null, 'client');
 
     $form -> addElement('select', 'relation', null, array('and' => _AND, 'or' => _OR));
 
@@ -268,11 +276,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
             switch ($form -> exportValue('condition_types')) {
                 case 'percentage_units': $fields['options'] = serialize(array(0 => $form -> exportValue('percentage_units')));    break;
                 case 'specific_unit':    $fields['options'] = serialize(array(0 => $form -> exportValue('specific_unit')));       break;
-                case 'all_tests':        $fields['options'] = serialize(array(0 => $form -> exportValue('all_tests')));           break;
+                //case 'all_tests':        $fields['options'] = serialize(array(0 => $form -> exportValue('all_tests')));           break;
                 case 'specific_test':    $fields['options'] = serialize(array(0 => $form -> exportValue('specific_test')));       break;
                 default: break;
             }
-//pr($form -> exportValues());exit;
+
             if (isset($_GET['add_condition'])) {
                 if (eF_insertTableData('lesson_conditions', $fields)) {
                     $message      = _SUCCESFULLYADDEDCONDITION;

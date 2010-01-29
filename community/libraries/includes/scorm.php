@@ -249,10 +249,9 @@ if ($_GET['scorm_review']) {
         //Reset scorm data
         if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid2004Units)) {
             if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
-                //EfrontContentTreeSCORM :: resetSCORMContentOrganization($_GET['id'], $_GET['login']);
+                //EfrontContentTreeSCORM :: resetSCORMContentOrganization($currentLesson, $_GET['id'], $_GET['login']);
 			} else {
-				echo "bbb";
-                EfrontContentTreeSCORM :: resetSCORMContentOrganization($_GET['id']);
+                EfrontContentTreeSCORM :: resetSCORMContentOrganization($currentLesson, $_GET['id']);
             }
         }
     } catch (Exception $e) {

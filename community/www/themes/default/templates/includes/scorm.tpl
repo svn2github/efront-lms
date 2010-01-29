@@ -45,28 +45,6 @@
                                         {/foreach}
                                             </table>
 <!--/ajax:scormUsersTable-->
-                                            <script>
-                                            {literal}
-                                            function deleteData(el, id) {
-                                                Element.extend(el);
-                                                url = 'professor.php?ctg=scorm&scorm_review=1&delete='+id;
-                                                el.down().src = 'images/others/progress1.gif';
-                                                new Ajax.Request(url, {
-                                                        method:'get',
-                                                        asynchronous:true,
-                                                        onFailure: function (transport) {
-                                                            el.down().writeAttribute({src:'images/16x16/error_delete.png', title: transport.responseText}).hide();
-                                                            new Effect.Appear(el.down().identify());
-                                                            window.setTimeout('Effect.Fade("'+el.down().identify()+'")', 10000);
-                                                        },
-                                                        onSuccess: function (transport) {
-                                                            new Effect.Fade(el.up().up());
-                                                            }
-                                                    });
-
-                                            }
-                                            {/literal}
-                                            </script>
                             {/capture}
                             {eF_template_printBlock title = $smarty.const._REVIEWSCORMDATAFOR|cat:' &quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;' data = $smarty.capture.scorm_review_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
 

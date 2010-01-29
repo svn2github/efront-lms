@@ -151,6 +151,14 @@ function onRemoveBookmark(el, response) {
 	new Effect.Fade(el.up());
 }
 
+/**
+* This function prevents a link from loading upon click.
+*/
+function disableLink (s)
+{
+	s.stop()
+}
+
 function updateProgress(obj) {
 	if (!(w = findFrame(top, 'mainframe'))) {
 		w = window;
@@ -185,16 +193,19 @@ function updateProgress(obj) {
 	    	if (w.$('tree_image_'+i)) {
 	    		w.$('tree_image_'+i).className.match(/tests/) ? type = 'tests' : type = 'theory';
 	    		setImageSrc(w.$('tree_image_'+i), 16, type+status);
-	    	}
-	    	
+	    	}	
 	    }
 	    
 	    if (nodesStatus = obj[3]) {
 		    if ($('navigate_continue')) {
 			    if (nodesStatus['continue'] == 'enabled') {
 			    	$('navigate_continue').removeClassName('inactiveImage').show();
+					Event.stopObserving($('navigate_continue').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['continue'] == 'disabled') {
 			    	$('navigate_continue').addClassName('inactiveImage').show();
+					Event.observe($('navigate_continue').id, 'click', disableLink);
+
 			    } else if (nodesStatus['continue'] == 'hidden') {
 			    	$('navigate_continue').hide();
 			    }
@@ -202,8 +213,12 @@ function updateProgress(obj) {
 		    if ($('navigate_previous')) {
 			    if (nodesStatus['previous'] == 'enabled') {
 			    	$('navigate_previous').removeClassName('inactiveImage').show();
+					Event.stopObserving($('navigate_previous').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['previous'] == 'disabled') {
 			    	$('navigate_previous').addClassName('inactiveImage').show();
+					Event.observe($('navigate_previous').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['previous'] == 'hidden') {
 			    	$('navigate_previous').hide();
 			    }
@@ -211,8 +226,12 @@ function updateProgress(obj) {
 		    if ($('navigate_exitAll')) {
 			    if (nodesStatus['exitAll'] == 'enabled') {
 			    	$('navigate_exitAll').removeClassName('inactiveImage').show();
+					Event.stopObserving($('navigate_exitAll').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['exitAll'] == 'disabled') {
 			    	$('navigate_exitAll').addClassName('inactiveImage').show();
+					Event.observe($('navigate_exitAll').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['exitAll'] == 'hidden') {
 			    	$('navigate_exitAll').hide();
 			    }
@@ -220,8 +239,12 @@ function updateProgress(obj) {
 		    if ($('navigate_suspendAll')) {
 			    if (nodesStatus['suspendAll'] == 'enabled') {
 			    	$('navigate_suspendAll').removeClassName('inactiveImage').show();
+					Event.stopObserving($('navigate_suspendAll').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['suspendAll'] == 'disabled') {
 			    	$('navigate_suspendAll').addClassName('inactiveImage').show();
+					Event.observe($('navigate_suspendAll').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['suspendAll'] == 'hidden') {
 			    	$('navigate_suspendAll').hide();
 			    }
@@ -229,8 +252,12 @@ function updateProgress(obj) {
 		    if ($('navigate_abandon')) {
 			    if (nodesStatus['abandon'] == 'enabled') {
 			    	$('navigate_abandon').removeClassName('inactiveImage').show();
+					Event.stopObserving($('navigate_abandon').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['abandon'] == 'disabled') {
 			    	$('navigate_abandon').addClassName('inactiveImage').show();
+					Event.observe($('navigate_abandon').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['abandon'] == 'hidden') {
 			    	$('navigate_abandon').hide();
 			    }
@@ -238,8 +265,12 @@ function updateProgress(obj) {
 		    if ($('navigate_abandonAll')) {
 			    if (nodesStatus['abandonAll'] == 'enabled') {
 			    	$('navigate_abandonAll').removeClassName('inactiveImage').show();
+					Event.stopObserving($('navigate_abandonAll').id, 'click', disableLink);
+					
 			    } else if (nodesStatus['abandonAll'] == 'disabled') {
 			    	$('navigate_abandonAll').addClassName('inactiveImage').show();
+					Event.observe($('navigate_abandonAll').id, 'click', disableLink);
+
 			    } else if (nodesStatus['abandonAll'] == 'hidden') {
 			    	$('navigate_abandonAll').hide();
 			    }
@@ -249,9 +280,13 @@ function updateProgress(obj) {
 		    	if (nodesStatus['choice'][i] == 'enabled') {
 		    		$('node'+i).show();
 		    		$('node'+i).select('a')[0].removeClassName('inactiveLink');
-		    	} else if (nodesStatus['choice'][i] == 'disabled') {
+					Event.stopObserving($('node'+i).select('a')[0].id, 'click', disableLink);
+					
+				} else if (nodesStatus['choice'][i] == 'disabled') {
 		    		$('node'+i).show();
 		    		$('node'+i).select('a')[0].addClassName('inactiveLink');
+					Event.observe($('node'+i).select('a')[0].id, 'click', disableLink);
+					
 		    	} else if (nodesStatus['choice'][i] == 'hidden') {
 		    		$('node'+i).hide();
 		    	}

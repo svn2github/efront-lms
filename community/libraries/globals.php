@@ -258,7 +258,7 @@ function setDefines() {
     defined("G_BUILD") OR define("G_BUILD", $build);
 
 */
-    $build = "5751";
+    $build = "5780";
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

@@ -214,9 +214,10 @@ if ($_GET['scorm_review']) {
 
 } else {
     $loadScripts[] = "includes/scorm";
-        
-    $iterator   = new EfrontSCORMFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));    //Default iterator excludes non-active units
-    $validUnits = array();
+    
+    $iterator       = new EfrontSCORMFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));    //Default iterator excludes non-active units
+    $valid12Units   = array();
+    $valid2004Units = array();
     foreach ($iterator as $value) {
         if (!$value['scorm_version'] || $value['scorm_version'] == '1.2') {
             if ($value['ctg_type'] == 'scorm') {
@@ -224,25 +225,37 @@ if ($_GET['scorm_review']) {
             } else if ($value['ctg_type'] == 'scorm_test') {
                 $options['custom'][$value['id']] = '<img style = "margin-left:30px" src = "images/16x16/theory.png" alt = "'._CONVERTTOSCORMTEST.'" title = "'._CONVERTTOSCORMCONTENT.'" onclick = "convertScorm(this, '.$value['id'].')" class = "ajaxHandle"/>';
             }
-            $validUnits[] = $value['id'];
+            $valid12Units[] = $value['id'];
+        } else if ($value['package_ID'] == $value['content_ID']) { //This is SCORM 2004 content's root (package) unit
+            $options['custom'][$value['id']] = '<img style = "margin-left:30px" src = "images/16x16/refresh.png" alt = "'._CONVERTTOSCORMTEST.'" title = "'._CONVERTTOSCORMTEST.'" onclick = "resetScorm(this, '.$value['id'].')" class = "ajaxHandle"/>';
+            $valid2004Units[] = $value['id'];
         }
     }
     
-    //Set scorm content type through AJAX call
-    if (isset($_GET['set_type']) && isset($_GET['id']) && in_array($_GET['id'], $validUnits)) {  
-        try {            
+    try {
+        //Set scorm content type through AJAX call
+        if (isset($_GET['set_type']) && isset($_GET['id']) && in_array($_GET['id'], $valid12Units)) {
             $unit = new EfrontUnit($_GET['id']);
             $unit['ctg_type'] == 'scorm_test' ? $unit['ctg_type'] = 'scorm' : $unit['ctg_type'] = 'scorm_test';
             $unit -> persist();
             echo json_encode(array('id' => $unit['id'], 'ctg_type' => $unit['ctg_type']));
             exit;
-        } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
-
         }
+        //Reset scorm data
+        if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid2004Units)) {
+            if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
+                //EfrontContentTreeSCORM :: resetSCORMContentOrganization($_GET['id'], $_GET['login']);
+            } else {
+                EfrontContentTreeSCORM :: resetSCORMContentOrganization($_GET['id']);
+            }
+            exit;
+        }
+    } catch (Exception $e) {
+        header("HTTP/1.0 500 ");
+        echo $e -> getMessage().' ('.$e -> getCode().')';
+        exit;
     }
-            
+
     $smarty -> assign("T_SCORM_TREE", $currentContent -> toHTML($iterator, false, $options));
 }
 

@@ -1688,7 +1688,7 @@ class EfrontContentTree extends EfrontTree
 
      * $currentContent -> markSeenNodes($currentUser);       //Mark the seen content for user in object $currentUser
 
-     * </code>
+     * </cod>
 
      *
 
@@ -2202,23 +2202,40 @@ class EfrontContentTree extends EfrontTree
                 $ctgType = 'tests';
             } else {
                 $ctgType = $current['ctg_type'];
-            }
-   //pr($ctgType);
+   }
+            if (isset($current['incomplete']) && $current['incomplete']) {
+                $liClass[] = $ctgType.'_incomplete';
+                $tooltip[] = '('._TESTSTARTEDAT.': '.formatTimestamp($current['incomplete'], 'time').')';
+            } else if (isset($current['failed']) && $current['failed']) {
+                $liClass[] = $ctgType.'_failed';
+            } else if ((isset($current['seen']) && $current['seen']) || isset($current['completed']) && $current['completed']) {
+                $liClass[] = $ctgType.'_passed';
+            } else {
+                $liClass[] = $ctgType;
+   }
    /*
 
-            if (isset($current['incomplete']) && $current['incomplete']) {
 
-                $liClass[] = $ctgType.'_incomplete';
 
-                $tooltip[] = '('._TESTSTARTEDAT.': '.formatTimestamp($current['incomplete'], 'time').')';
+            if ((isset($current['seen']) && $current['seen']) ||(isset($current['completed']) && $current['completed']) || (isset($current['passed']) && $current['passed'])) {
+
+				$liClass[] = $ctgType.'_passed';
+
+
+
+            } else if (isset($current['incomplete']) && $current['incomplete'] && !$current['failed']) {
+
+				$liClass[] = $ctgType.'_incomplete';
+
+				$tooltip[] = '('._TESTSTARTEDAT.': '.formatTimestamp($current['incomplete'], 'time').')';				
+
+
 
             } else if (isset($current['failed']) && $current['failed']) {
 
-                $liClass[] = $ctgType.'_failed';
+				$liClass[] = $ctgType.'_failed';
 
-            } else if ((isset($current['seen']) && $current['seen']) || isset($current['completed']) && $current['completed']) {
 
-                $liClass[] = $ctgType.'_passed';
 
             } else {
 
@@ -2226,40 +2243,7 @@ class EfrontContentTree extends EfrontTree
 
 			}
 
-			*/
-            if ((isset($current['seen']) && $current['seen']) ||(isset($current['completed']) && $current['completed']) || (isset($current['passed']) && $current['passed'])) {
-    $liClass[] = $ctgType.'_passed';
-            } else if (isset($current['incomplete']) && $current['incomplete'] && !isset($current['passed']) && !isset($current['failed'])) {
-    $liClass[] = $ctgType.'_incomplete';
-    $tooltip[] = '('._TESTSTARTEDAT.': '.formatTimestamp($current['incomplete'], 'time').')';
-            } else if ((isset($current['seen']) && $current['seen']) || (isset($current['completed']) && $current['completed'])) {
-    $liClass[] = $ctgType.'_failed';
-            } else {
-                $liClass[] = $ctgType;
-   }
-   /*
-
-			if (unitStatus[i].completion_status == 'completed' || unitStatus[i].success_status == 'passed') {
-
-	    		status = '_passed';
-
-	    	} else if (unitStatus[i].completion_status == 'incomplete' && unitStatus[i].success_status == 'unknown') {
-
-	    		status = '_incomplete';
-
-	    	} else if (unitStatus[i].completion_status == 'completed' || unitStatus[i].success_status == 'failed') {
-
-	    		status = '_failed';
-
-	    	} else {
-
-	    		status = '';
-
-	    	}
-
-			*/
-   //unset($current['data']);pr($current);            
-   //$linkClass
+ */
             if ($options['onclick']) {
                 $onclick = $options['onclick'];
             } else if (in_array('treeUnclickable', $linkClass)) {

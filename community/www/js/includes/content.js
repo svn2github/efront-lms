@@ -184,7 +184,7 @@ function updateProgress(obj) {
 	    		status = '_passed';
 	    	} else if (unitStatus[i].completion_status == 'incomplete' && unitStatus[i].success_status == 'unknown') {
 	    		status = '_incomplete';
-	    	} else if (unitStatus[i].completion_status == 'completed' || unitStatus[i].success_status == 'failed') {
+	    	} else if (unitStatus[i].success_status == 'failed') {
 	    		status = '_failed';
 	    	} else {
 	    		status = '';

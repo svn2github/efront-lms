@@ -241,14 +241,19 @@ if ($_GET['scorm_review']) {
             echo json_encode(array('id' => $unit['id'], 'ctg_type' => $unit['ctg_type']));
             exit;
         }
+        if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid12Units)) {
+	        //eF_deleteTableData("scorm_data", "id=".$_GET['delete']);
+	        //$user = EfrontUserFactory::factory($scormData[0]['users_LOGIN']);
+	        //$user -> setSeenUnit($scormData[0]['content_ID'], $currentLesson, false);            
+        }
         //Reset scorm data
         if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid2004Units)) {
             if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
                 //EfrontContentTreeSCORM :: resetSCORMContentOrganization($_GET['id'], $_GET['login']);
-            } else {
+			} else {
+				echo "bbb";
                 EfrontContentTreeSCORM :: resetSCORMContentOrganization($_GET['id']);
             }
-            exit;
         }
     } catch (Exception $e) {
         header("HTTP/1.0 500 ");

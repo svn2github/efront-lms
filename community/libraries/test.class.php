@@ -1995,11 +1995,11 @@ class EfrontCompletedTest extends EfrontTest
         	$this -> completedTest['id'] = $id;
         	$this -> save();
             if ($this -> options['maintain_history']) {    
-	        	$result = eF_getTableDataFlat("completed_tests", "id", "tests_ID=".$this -> completedTest['testsId'], "timestamp desc");
+	        	$result = eF_getTableDataFlat("completed_tests", "id", "users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId'], "timestamp desc");
 
 	        	if (sizeof($result['id']) > $this -> options['maintain_history']) {
 	        	    $deleteThreshold = $result['id'][$this -> options['maintain_history']];
-	        	    eF_updateTableData("completed_tests", array("test" => '', 'status' => 'deleted'), "id <= $deleteThreshold");
+	        	    eF_updateTableData("completed_tests", array("test" => '', 'status' => 'deleted'), "users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId']." and id <= $deleteThreshold");
 	        	}
             }
         	

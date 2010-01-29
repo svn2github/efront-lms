@@ -87,14 +87,24 @@ if (!$_student_) {
         default:
             if (isset($_GET['confirm'])) {
                 //The user specified himself the size of the test
-                if ($_GET['user_configurable'] && $test -> options['user_configurable']) {
+                if ($test -> options['user_configurable']) {
                     //Get the size of the test, so that we can verify that the value specified is at most equal to it  
 	                $test  -> getQuestions();                                    //This way the test's questions are populated, and we will be needing this information
-	                $test -> options['random_pool'] && $test -> options['random_pool'] >= sizeof($test -> questions) ? $questionsNumber = $test -> options['random_pool'] : $questionsNumber = sizeof($test -> questions);
-                    //Assigning the 'user_configurable' value to the 'random_pool' option gives us a test instance with the appropriate number of questions 
-	                if (is_numeric($_GET['user_configurable']) && $_GET['user_configurable'] <= $questionsNumber) {                    
+	                $test -> options['random_pool'] && $test -> options['random_pool'] <= sizeof($test -> questions) ? $questionsNumber = $test -> options['random_pool'] : $questionsNumber = sizeof($test -> questions);
+
+	                //Assigning the 'user_configurable' value to the 'random_pool' option gives us a test instance with the appropriate number of questions 
+	                if (is_numeric($_GET['user_configurable']) && $_GET['user_configurable'] <= $questionsNumber && $_GET['user_configurable'] > 0) {                    
                         $test -> options['random_pool'] = $_GET['user_configurable'];
-                    }
+	                } else if (!isset($_GET['user_configurable']) || !$_GET['user_configurable']) {
+	                    eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_MUSTSPECIFYQUESTIONNUMBER));
+	                    exit;
+	                } else if ($_GET['user_configurable'] > $questionsNumber || $_GET['user_configurable'] <= 0) {
+	                    eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_MUSTSPECIFYVALUEFROM.' 1 '._TO.' '.$questionsNumber));
+	                    exit;
+	                } else {
+	                    eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_INVALIDFIELDDATA));
+	                    exit;
+	                }
                 }
                 $testInstance = $test -> start($currentUser -> user['login']);
                 eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);

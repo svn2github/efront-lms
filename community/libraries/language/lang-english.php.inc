@@ -3471,4 +3471,7 @@ define("_MINIMUM", "Minimum");
 define("_REPETITIONS", "Repetitions");
 define("_MAINTAINHISTORY", "Maintain history");
 define("_KEYISNOTFORTHISEDITION", "The key is not suitable for this edition");
+define("_ILLEGALMODE", "Illegal mode");
+define("_MUSTSPECIFYQUESTIONNUMBER", "You must specify the number of questions");
+define("_MUSTSPECIFYVALUEFROM", "You must specify a value from")
 ?>

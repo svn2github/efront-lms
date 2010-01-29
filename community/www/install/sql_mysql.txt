@@ -226,6 +226,9 @@ CREATE TABLE courses (
   show_catalog tinyint(1) NOT NULL default '1',
   options text,
   max_users int(10) unsigned default NULL,
+
+
+
   archive int(10) unsigned default 0,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
@@ -562,6 +565,9 @@ CREATE TABLE lessons (
   share_folder int(10) default 0,
   created int(10) unsigned default NULL,
   max_users int(10) unsigned default NULL,
+
+
+
   archive int(10) unsigned default 0,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
@@ -828,7 +834,7 @@ CREATE TABLE tests_to_questions (
 -- users_LOGIN: The user that has done this test, matching the 'login' field at the 'users' table
 -- tests_ID: The id of the test that this instance corresponds to. If 0, the corresponding test no longer exists
 -- test: The serialized EfrontCompletedTest object
--- status: The completed test status, can be '', 'incomplete', 'failed', 'passed', 'completed' etc
+-- status: The completed test status, can be '', 'incomplete', 'failed', 'passed', 'completed', 'deleted'
 -- timestamp: The time that the test started
 -- archive: A boolean value that sets whether this completed test is archive. Archived tests are passed tests, and may be accessed only through the corresponding sections
 -- time_start: The time that the test started

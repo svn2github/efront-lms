@@ -3471,4 +3471,7 @@ define("_MINIMUM", "Ελάχιστο");
 define("_REPETITIONS", "Επαναλήψεις");
 define("_MAINTAINHISTORY", "Διατήρηση ιστορικού");
 define("_KEYISNOTFORTHISEDITION", "Το κλειδί δεν είναι κατάλληλο για αυτήν την έκδοση");
+define("_ILLEGALMODE", "Μη έγκυρη κατάσταση");
+define("_MUSTSPECIFYQUESTIONNUMBER", "Πρέπει να προσδιορίσετε τον αριθμό των ερωτήσεων");
+define("_MUSTSPECIFYVALUEFROM", "Πρέπει να προσδιορίσετε μία τιμή από")
 ?>

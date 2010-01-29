@@ -7,6 +7,15 @@ $path = "../../../../../libraries/";
 
 /** The configuration file.*/
 include_once $path."configuration.php";
+
+if ($_SESSION['s_lessons_ID']) {
+    $iframeUrl = G_SERVERNAME.'editor/browse.php?for_type=image&mode=lesson';
+} elseif (strpos($_SERVER['HTTP_REFERER'], "themes") !== false) {
+    $iframeUrl = G_SERVERNAME.'editor/browse.php?for_type=image&mode=external';
+}
+
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,40 +31,11 @@ include_once $path."configuration.php";
 	<base target="_self" />
 </head>
 <body id="advimage"  style="display: none">
-<?php 
-// Set to personal folder
-if (strpos($_SERVER['HTTP_REFERER'], "personal")) {
-    $show_personal_folder = $_SESSION['s_login'];
-}
-/*
-else if($pos = strpos($_SERVER['HTTP_REFERER'], "edit_user=")) {
-    $end_pos = strpos($_SERVER['HTTP_REFERER'], "&", $pos);
-    $pos += 10; // strlen("edit_user");
-    if ($end_pos) {
-        $show_personal_folder = substr($_SERVER['HTTP_REFERER'], $pos, $end_pos - $pos);
-    } else {
-        $show_personal_folder = substr($_SERVER['HTTP_REFERER'], $pos);
-    }
-}
-*/
-?>
+
 <div class="title">{#advimage_dlg.insert_image}</div>
 <!--- new stuff --->
-
-<?php  if (isset($show_personal_folder)) { ?>
-
 {#advanced_dlg.select_file}:<br>
-<iframe name="IMGPICK" src="<?php echo G_SERVERNAME?>editor/browse.php?for_type=image&user_dir=<?php echo $show_personal_folder;?>" style="border: solid black 1px;  width: 500px; height:200px; z-index:1"></iframe>
-
-<?php  } else { ?>
-<?php  if ($_SESSION['s_lessons_ID'] != "") { ?>
-{#advanced_dlg.select_file}:<br>
-<iframe name="IMGPICK" src="<?php echo G_SERVERNAME?>editor/browse.php?lessons_ID=<?php  echo $_SESSION['s_lessons_ID'];?>&for_type=image&dir=<?php echo urlencode($_SESSION['s_lessons_ID']);?>" style="border: solid black 1px;  width: 500px; height:200px; z-index:1"></iframe>
-<?php  }elseif($_SESSION['s_type'] == "administrator"){ ?>
-{#advanced_dlg.select_file}:<br>
-<iframe name="IMGPICK" src="<?php echo G_SERVERNAME?>editor/browse.php?for_type=image" style="border: solid black 1px;  width: 450px; height:200px; z-index:1"></iframe>
-<?php   }?>
-<?php   }?>
+<iframe name="IMGPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px;  width: 500px; height:200px; z-index:1"></iframe>
 <br/><br/>
     <form onsubmit="ImageDialog.insert();return false;" action="#"> 
 		<div class="tabs">

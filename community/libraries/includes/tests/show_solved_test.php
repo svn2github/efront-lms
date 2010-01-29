@@ -5,7 +5,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-        $result   = eF_getTableData("completed_tests", "*", "id=".$_GET['show_solved_test']);
+        $result   = eF_getTableData("completed_tests", "*", "status != 'deleted' and id=".$_GET['show_solved_test']);
         if (sizeof($result) == 0) {
             throw new EfrontTestException(_NONEXISTENTTEST.': '.$_GET['show_solved_test'], EfrontTestException :: NOT_DONE_TEST);
         }
@@ -340,7 +340,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 }
 
                 // We change a bit the following typical query to acquire the latest options values for the test - in case a threshold has been changed
-                $result = eF_getTableData("completed_tests JOIN tests ON tests.id = completed_tests.tests_ID", "completed_tests.*, tests.options", "completed_tests.id = '".$_GET['show_solved_test']."'");
+                $result = eF_getTableData("completed_tests JOIN tests ON tests.id = completed_tests.tests_ID", "completed_tests.*, tests.options", "completed_tests.status != 'deleted' and completed_tests.id = '".$_GET['show_solved_test']."'");
                 $completedTest = unserialize($result[0]['test']);
 
                 // Take the most recent set general threshold for this test

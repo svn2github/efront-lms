@@ -133,7 +133,7 @@ try {
             if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] != 'hidden') {
                 $testIds = $currentLesson -> getTests(false, true);
                 if (sizeof($testIds) > 0) {
-                    $result = eF_getTableData("completed_tests ct, tests t", "ct.*, ct.id, ct.users_LOGIN, ct.timestamp, ct.status, t.name", "ct.pending=1 and ct.status != 'incomplete' and ct.archive = 0 and ct.tests_ID = t.id and ct.tests_ID in (".implode(",", $testIds).")", "", "ct.timestamp DESC limit 10");
+                    $result = eF_getTableData("completed_tests ct, tests t", "ct.*, ct.id, ct.users_LOGIN, ct.timestamp, ct.status, t.name", "ct.status != 'deleted' and ct.pending=1 and ct.status != 'incomplete' and ct.archive = 0 and ct.tests_ID = t.id and ct.tests_ID in (".implode(",", $testIds).")", "", "ct.timestamp DESC limit 10");
                     $smarty -> assign("T_COMPLETED_TESTS", $result);
                 }
             }

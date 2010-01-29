@@ -283,6 +283,13 @@ if ($('branchJobsTable')) {
 	function ajaxPost(id, el, table_id) {
 	    Element.extend(el);
 	
+	    if (table_id == "lessonsTable") {
+	    	ajaxBranchLessonPost(id, el, table_id);
+	    	return;
+	    } else if (table_id == "coursesTable") {
+	    	ajaxBranchCoursePost(id, el, table_id);
+	    	return;
+	    }
 	    var baseUrl =  sessionType + '.php?ctg=module_hcd&op=branches&edit_branch='+editBranch+'&postAjaxRequest=1';
 	    if (id) {
 	        var default_position_n_job = document.getElementById('position_select_' +id).name;
@@ -500,7 +507,7 @@ if ($('skillEmployeesTable')) {
 	}
 }
 
-if ($('skillsTable') || $('lessonsTable') || $('coursesTable')) {
+if ($('skillsTable') || (!$('branchJobsTable') &&  ($('lessonsTable') || $('coursesTable')))) {
 	function ajaxPost(id, el, table_id) {
 	    Element.extend(el);
 	
@@ -653,3 +660,49 @@ function delete_criterium_row(id, el)
     */
     return false;
 }	
+
+
+//Used to associate branches to lessons
+function onBranchLessonAssignment(el, response) {
+	//$('participation' + el.name).innerHTML = parseInt($('participation' + el.name).innerHTML) + parseInt(response); 
+	
+//    var tables = sortedTables.size();
+//
+//    for (i = 0; i < tables; i++) {
+//        if (sortedTables[i].id == 'lessonsTable') {
+//            eF_js_rebuildTable(i, 0, 'null', 'desc');
+//        }
+//    }
+}
+function ajaxBranchLessonPost(id, el, table_id) {
+	var url = location.toString();
+	var parameters = {postAjaxRequest:1, method: 'get'};
+
+    if (id) {
+    	Object.extend(parameters, {add_lesson: id, insert: el.checked});
+    } else if (table_id && table_id == 'lessonsTable') {
+        el.checked ? Object.extend(parameters, {add_lesson:1, addAll: 1}) : Object.extend(parameters, {add_lesson:1, removeAll: 1});
+        if ($(table_id+'_currentFilter')) {
+        	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+        }
+    }
+ 
+	ajaxRequest(el, url, parameters, onBranchLessonAssignment);
+}
+
+function ajaxBranchCoursePost(id, el, table_id) {
+	var url = location.toString();
+	var parameters = {postAjaxRequest:1, method: 'get'};
+
+    if (id) {
+    	Object.extend(parameters, {add_course: id, insert: el.checked});
+    } else if (table_id && table_id == 'coursesTable') {
+        el.checked ? Object.extend(parameters, {add_course:1, addAll: 1}) : Object.extend(parameters, {add_course:1, removeAll: 1});
+        if ($(table_id+'_currentFilter')) {
+        	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+        }
+    }
+ 
+	ajaxRequest(el, url, parameters);//, onBranchCourseAssignment);
+}
+

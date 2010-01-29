@@ -1,3 +1,4 @@
+
     {capture name = 'user_statistics'}
     	{if !$T_SINGLE_USER}
             <table class = "statisticsSelectList">
@@ -504,7 +505,6 @@
 		                <span class = "progressNumber">#filter:score-{$test.score}#%</span>
 		                <span class = "progressBar" style = "width:{$test.score}px;">&nbsp;</span>
 		                <span style = "margin-left:120px">(#filter:timestamp_time-{$test.timestamp}#)</span>
-		                {if $test.active && !$test.scorm}<a href = "view_test.php?test_id={$test.tests_ID}&user={$smarty.get.user}"><img src="images/16x16/search.png" title="{$smarty.const._VIEWTEST}" alt="{$smarty.const._VIEWTEST}" border="0px"/></a>{elseif !$test.active}<span class = "emptyCategory">({$smarty.const._INACTIVE})</span>{/if}
 		            </td>
 		        </tr>    
 		    {/foreach}   
@@ -592,11 +592,11 @@
 	{/capture}
 		
     {if $smarty.get.specific_lesson_info}
-    	{eF_template_printBlock title = $smarty.const._DETAILS data = $smarty.capture.t_specific_lesson_info_code image = '32x32/lesson.png'}
+    	{eF_template_printBlock title = $smarty.const._DETAILS data = $smarty.capture.t_specific_lesson_info_code image = '32x32/lessons.png'}
     {elseif $smarty.get.specific_course_info}
-    	{eF_template_printBlock title = $smarty.const._DETAILS data = $smarty.capture.t_specific_course_info_code image = '32x32/course.png'}
+    	{eF_template_printBlock title = $smarty.const._DETAILS data = $smarty.capture.t_specific_course_info_code image = '32x32/courses.png'}
     {elseif $T_USER_LOGIN != ""}
-    	{eF_template_printBlock title = "`$smarty.const._REPORTSFORUSER` <span class='innerTableName'>&quot;#filter:login-`$T_USER_LOGIN`#&quot;</span>" data = $smarty.capture.user_statistics image = '32x32/user.png'}   
+    	{eF_template_printBlock title = "`$smarty.const._REPORTSFORUSER` <span class='innerTableName'>&quot;#filter:login-`$T_USER_LOGIN`#&quot;</span>" data = $smarty.capture.user_statistics image = '32x32/users.png'}   
     {else}
-    	{eF_template_printBlock title = $smarty.const._USERSTATISTICS data = $smarty.capture.user_statistics image = '32x32/user.png'}  
+    	{eF_template_printBlock title = $smarty.const._USERSTATISTICS data = $smarty.capture.user_statistics image = '32x32/users.png'}  
 	{/if}

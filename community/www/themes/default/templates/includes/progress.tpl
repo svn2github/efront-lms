@@ -54,7 +54,7 @@
                   </td><td></td>
               </tr>
               {/if}
-             {foreach name = 'done_tests_list' item = "test" key = "id" from = $T_USER_LESSONS_INFO.done_tests}
+              {foreach name = 'done_tests_list' item = "test" key = "id" from = $T_USER_LESSONS_INFO.done_tests}
               <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span> ({$smarty.const._AVERAGESCOREON} {$test.times_done} {if $test.times_done == 1}{$smarty.const._EXECUTION|@mb_strtolower}{else}{$smarty.const._EXECUTIONS|@mb_strtolower}{/if}):&nbsp;</td>
                   <td class = "progressCell">
                       <span class = "progressNumber">#filter:score-{$test.score}#%</span>
@@ -74,6 +74,14 @@
               </tr>
               {foreachelse}
               <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._TESTS}: {$smarty.const._NODATAFOUND}</td></tr>
+              {/foreach}
+              {foreach name = 'scorm_done_tests_list' item = "test" key = "id" from = $T_USER_LESSONS_INFO.scorm_done_tests}
+              <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span></td>
+                  <td class = "progressCell">
+                      <span class = "progressNumber">#filter:score-{$test.score}#%</span>
+                      <span class = "progressBar" style = "width:{$test.score}px;">&nbsp;</span>
+                  </td><td></td>
+              </tr>
               {/foreach}
               {if !empty($T_USER_LESSONS_INFO.assigned_projects)}
               <tr><td>{$smarty.const._AVERAGEPROJECTSCORE}:&nbsp;</td>

@@ -24,7 +24,7 @@
                                 <tr><td>{$smarty.const._NUMOFQUESTIONS}:&nbsp;</td>
                                     <td>
 							{if $T_TEST_DATA->options.user_configurable && !$resume_test}
-										<input type = "text" id = "user_configurable" value = "{$T_TEST_QUESTIONS_NUM}" onclick = "this.value = ''" size = "3"> ({$smarty.const._MAXIMUM} {$T_TEST_QUESTIONS_NUM})
+										<input type = "text" id = "user_configurable" value = "" size = "3"> ({$smarty.const._MAXIMUM} {$T_TEST_QUESTIONS_NUM})
 							{else}
 								{$T_TEST_QUESTIONS_NUM}
 							{/if}
@@ -45,8 +45,10 @@
                     <tr><td id = "testProceed">
                     {if $resume_test}
                         <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._RESUMETEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&resume=1'" />
+                    {elseif $T_TEST_DATA->options.user_configurable}
+                    	<input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1&user_configurable='+parseInt($('user_configurable').value ? $('user_configurable').value : 0)" />
                     {else}
-                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1&user_configurable='+parseInt($('user_configurable').value)" />
+                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'" />
                     {/if}
                     </td></tr>
                 </table>

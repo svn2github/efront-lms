@@ -205,6 +205,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'onebyone'          => $values['onebyone'],
                         		'only_forward'      => $values['only_forward'],
                                 'given_answers'     => $values['given_answers'],
+                                'maintain_history'  => $values['maintain_history'],
                                 'answers'           => $values['answers'],
                                 'shuffle_answers'   => $values['shuffle_answers'],
                                 'shuffle_questions' => $values['shuffle_questions'],
@@ -296,7 +297,7 @@ if ($skillgap_tests) {
         }
 
         $testUsers = eF_getTableData("users LEFT OUTER JOIN users_to_skillgap_tests ON login = users_login AND tests_ID = '".$_GET['edit_test']."'", "distinct login, name,surname,tests_ID as partof, solved", "users.user_type = 'student'");
-        $test_info = eF_getTableData("completed_tests", "id, users_LOGIN", "tests_ID = " . $_GET['edit_test']);
+        $test_info = eF_getTableData("completed_tests", "id, users_LOGIN", "status != 'deleted' and tests_ID = " . $_GET['edit_test']);
 
         if (isset($_GET['sort'])) {
             isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
@@ -329,7 +330,7 @@ if ($skillgap_tests) {
         exit;
     } elseif (isset($_GET['edit_test'])) {
         $testUsers = eF_getTableData("users LEFT OUTER JOIN users_to_skillgap_tests ON login = users_login AND tests_ID = '".$_GET['edit_test']."'", "distinct login, name,surname,tests_ID,solved", "users.user_type = 'student'");
-        $test_info = eF_getTableData("completed_tests", "id, users_LOGIN", "tests_ID = " . $_GET['edit_test']);
+        $test_info = eF_getTableData("completed_tests", "id, users_LOGIN", "status != 'deleted' and tests_ID = " . $_GET['edit_test']);
         // Find the completed test for each user
         foreach ($testUsers as $uid => $user) {
             foreach($test_info as $info) {

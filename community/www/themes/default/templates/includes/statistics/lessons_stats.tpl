@@ -204,7 +204,7 @@
                                     <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._TRUEFALSE}:</td><td>{$test_info.questions.true_false}</td></tr>
                                     <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._MATCH}:</td><td>{$test_info.questions.match}</td></tr>
                                     <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._EMPTYSPACES}:</td><td>{$test_info.questions.empty_spaces}</td></tr>
-                                    <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._DRAGDROP}:</td><td>{$test_info.questions.drag_drop}</td></tr>
+                                    <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._DRAGNDROP}:</td><td>{$test_info.questions.drag_drop}</td></tr>
                                     <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._LOWDIFFICULTY}:</td><td>{$test_info.questions.low}</td></tr>
                                     <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._MEDIUMDIFFICULTY}:</td><td>{$test_info.questions.medium}</td></tr>
                                     <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._HIGHDIFFICULTY}:</td><td>{$test_info.questions.high}</td></tr>
@@ -270,7 +270,7 @@
                                 {elseif $question.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
                                 {elseif $question.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
                                 {elseif $question.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
-                                {elseif $question.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_and_drop.png" title = "{$smarty.const._DRAGDROP}" alt = "{$smarty.const._DRAGDROP}" />
+                                {elseif $question.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_and_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
                                 {/if}
                             </td>
                             <td class = "centerAlign">

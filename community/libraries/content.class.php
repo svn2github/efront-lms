@@ -1705,7 +1705,7 @@ class EfrontContentTree extends EfrontTree
         $seenNodes = array_keys($seenContent[$this -> lessonId][$login]);
         $resultScorm = eF_getTabledataFlat("scorm_data", "content_ID, lesson_status", "users_LOGIN='$login'");
         $resultScorm = array_combine($resultScorm['content_ID'], $resultScorm['lesson_status']);
-        $result = eF_getTableData("content c, completed_tests ct, tests t", "t.content_ID, ct.status, ct.timestamp", "ct.archive = 0 and c.id = t.content_ID and c.lessons_ID = ".$this -> lessonId." and ct.tests_ID = t.id and ct.users_LOGIN='$login'");
+        $result = eF_getTableData("content c, completed_tests ct, tests t", "t.content_ID, ct.status, ct.timestamp", "ct.status != 'deleted' and ct.archive = 0 and c.id = t.content_ID and c.lessons_ID = ".$this -> lessonId." and ct.tests_ID = t.id and ct.users_LOGIN='$login'");
         foreach ($result as $value) {
             $resultTests[$value['content_ID']] = $value['status'];
             $resultTestsTimes[$value['content_ID']] = $value['timestamp'];
@@ -2227,7 +2227,7 @@ class EfrontContentTree extends EfrontTree
 			}
 
 			*/
-            if ((isset($current['completed']) && $current['completed']) || (isset($current['passed']) && $current['passed'])) {
+            if ((isset($current['seen']) && $current['seen']) ||(isset($current['completed']) && $current['completed']) || (isset($current['passed']) && $current['passed'])) {
     $liClass[] = $ctgType.'_passed';
             } else if (isset($current['incomplete']) && $current['incomplete'] && !isset($current['passed']) && !isset($current['failed'])) {
     $liClass[] = $ctgType.'_incomplete';

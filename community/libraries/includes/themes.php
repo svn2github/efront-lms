@@ -203,7 +203,8 @@ try {
             if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
                 throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
             }
-            
+            $smarty -> assign("T_EDITOR_PATH", $basedir);    //This is used for the browse.php method to know where to look
+                
             $filesystem = new FileSystemTree($basedir);
             $filesystem -> handleAjaxActions($currentUser);
 
@@ -240,144 +241,39 @@ try {
         									'{$smarty.const.G_VERSION_NUM}');
 
         $load_editor = true;
-/*        
-        if (isset($_GET['edit_header'])) {
-            if (isset($_GET['reset'])) {
-                $layoutTheme -> options['custom_header'] = false;
-                $layoutTheme -> persist();
-                exit;
-            }
-            if (isset($_GET['hide'])) {
-                $layoutTheme -> options['show_header'] ? $layoutTheme -> options['show_header'] = 0 : $layoutTheme -> options['show_header'] = 1;
-                $layoutTheme -> persist();
-                echo $layoutTheme -> options['show_header'];
-                exit;
-            }
-            $layout_form = new HTML_QuickForm("edit_header_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']."&edit_header=1", "", null, true);
 
-            $layout_form -> addElement('textarea', 'content', _HEADERCONTENT, 'id="editor_data" class = "mceEditor" style = "width:100%;height:300px;"');
-            $layout_form -> addElement('submit', 'submit_block',_SAVE, 'class = "flatButton"');
+        $layout_form = new HTML_QuickForm("add_block_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id'].(isset($_GET['edit_block']) ? '&edit_block='.$_GET['edit_block'] : '&add_block=1'), "", null, true);
+        $layout_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 
-            if ($layoutTheme -> options['custom_header']) {
-                $defaultHeader = $layoutTheme -> options['custom_header'];
+        $layout_form -> addElement('text', 'title', _BLOCKTITLE, 'class = "inputText"');
+        $layout_form -> addElement('textarea', 'content', _BLOCKCONTENT, 'id="editor_data" class = "mceEditor" style = "width:100%;height:300px;"');
+        $layout_form -> addElement('submit', 'submit_block',_SAVE, 'class = "flatButton"');
+        $layout_form -> addRule('title', _THEFIELD.' "'._BLOCKTITLE.'" '._ISMANDATORY, 'required', null, 'client');
+
+        if (isset($_GET['edit_block'])) {
+            $customBlocks[$_GET['edit_block']]['content'] = file_get_contents($basedir.$customBlocks[$_GET['edit_block']]['name'].'.tpl');
+            $layout_form -> setDefaults($customBlocks[$_GET['edit_block']]);
+            $layout_form -> freeze(array('name'));
+        }
+
+        if ($layout_form -> isSubmitted() && $layout_form -> validate()) {
+            $values = $layout_form -> exportValues();
+            $values['name'] = time();                //Use the timestamp as name
+            $block = array('name'   => $values['name'],
+                		   'title'  => $values['title']);
+            file_put_contents($basedir.$values['name'].'.tpl', $values['content']);
+
+            if (isset($_GET['edit_block'])) {
+                $customBlocks[$_GET['edit_block']] = $block;
             } else {
-                $defaultHeader = '
-		<div id = "logo">
-			<a href = "index.php"><img src = "images/{$T_LOGO}" title = "{$T_CONFIGURATION.site_name}" alt = "{$T_CONFIGURATION.site_name}" border = "0"></a>
-		</div>
-		<div id = "info">
-			<div id = "siteName">{$T_CONFIGURATION.site_name}</div>		
-			<div id = "site_motto">{$T_CONFIGURATION.site_motto}</div>
-		</div>
-		<div id = "path">
-			<div id = "path_title">{$title}</div>
-			<div id = "path_language">{$smarty.capture.header_language_code}</div>
-		</div>';
+                sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
             }
+            $layoutTheme -> layout['custom_blocks'] = $customBlocks;
+            $layoutTheme -> persist();
 
-            $defaultHeader = str_replace($systemEntitiesReplacements, $systemEntities, $defaultHeader);
-            $defaultHeader = '
-				<table class = "layout index {$layoutClass}"><tr><td class = "header" colspan = "3">
-				<!-- Do not remove this message. Text above this line will be ignored :start:-->
-				'.$defaultHeader.'
-				<!--:end:Do not remove this message. Text below this line will be ignored-->		
-				</td></tr></table>';
-            $layout_form -> setDefaults(array('content' => $defaultHeader));
+            eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']);
+        }
 
-            if ($layout_form -> isSubmitted() && $layout_form -> validate()) {
-                $customHeader = $layout_form -> exportValue('content');
-                $customHeader = str_replace($systemEntities, $systemEntitiesReplacements, $customHeader);
-                $customHeader = preg_replace(array('/(.*:start:-->/s', '/<!--:end:.*)/s'), array('', ''), $customHeader);
-                 
-                $layoutTheme -> options['custom_header'] = $customHeader;
-                $layoutTheme -> persist();
-                eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']."&tab=layout");
-            }
-        } else if (isset($_GET['edit_footer'])) {
-            if (isset($_GET['reset'])) {
-                $layoutTheme -> options['custom_footer'] = false;
-                $layoutTheme -> persist();
-                exit;
-            }
-            if (isset($_GET['hide'])) {
-                $layoutTheme -> options['show_footer'] ? $layoutTheme -> options['show_footer'] = 0 : $layoutTheme -> options['show_footer'] = 1;
-                $layoutTheme -> persist();
-                echo $layoutTheme -> options['show_footer'];
-                exit;
-            }
-            $layout_form = new HTML_QuickForm("edit_footer_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']."&edit_footer=1", "", null, true);
-
-            $layout_form -> addElement('textarea', 'content', _FOOTERCONTENT, 'id="editor_data" class = "mceEditor" style = "width:100%;height:300px;"');
-            $layout_form -> addElement('submit', 'submit_block',_SAVE, 'class = "flatButton"');
-            if ($layoutTheme -> options['custom_footer']) {
-                $defaultFooter = $layoutTheme -> options['custom_footer'];
-            } else {
-                $defaultFooter = '
-	        			<a href = "http://www.efrontlearning.net">eFront</a> (version {$smarty.const.G_VERSION_NUM}) &bull; {$smarty.const.G_VERSIONTYPE} Edition &bull; <a href = "index.php?ctg=contact">{$smarty.const._CONTACTUS}</a>';
-            }
-
-            $defaultFooter = str_replace($systemEntitiesReplacements, $systemEntities, $defaultFooter);
-            $defaultFooter = '
-				<table class = "layout index {$layoutClass}"><tr><td class = "footer" colspan = "3">
-				<!-- Do not remove this message. Text above this line will be ignored :start:-->
-				'.$defaultFooter.'
-				<!--:end:Do not remove this message. Text below this line will be ignored-->		
-				</td></tr></table>';
-            $layout_form -> setDefaults(array('content' => $defaultFooter));
-
-            if ($layout_form -> isSubmitted() && $layout_form -> validate()) {
-                $customFooter = $layout_form -> exportValue('content');
-                $customFooter = str_replace($systemEntities, $systemEntitiesReplacements, $customFooter);
-                $customFooter = preg_replace(array('/(.*:start:-->/s', '/<!--:end:.*)/s'), array('', ''), $customFooter);
-
-                $layoutTheme -> options['custom_footer'] =  $customFooter;
-                $layoutTheme -> persist();
-                eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']."&tab=layout");
-            }
-        
-        } else {
-*/            
-        
-            $layout_form = new HTML_QuickForm("add_block_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id'].(isset($_GET['edit_block']) ? '&edit_block='.$_GET['edit_block'] : '&add_block=1'), "", null, true);
-            $layout_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-            
-            //$layout_form -> addElement('text', 'name', _BLOCKFILENAME, 'class = "inputText"');
-            //$layout_form -> addElement('checkbox', 'smarty', _SMARTYBLOCK);
-            $layout_form -> addElement('text', 'title', _BLOCKTITLE, 'class = "inputText"');
-            $layout_form -> addElement('textarea', 'content', _BLOCKCONTENT, 'id="editor_data" class = "mceEditor" style = "width:100%;height:300px;"');
-            $layout_form -> addElement('submit', 'submit_block',_SAVE, 'class = "flatButton"');
-            $layout_form -> addRule('title', _THEFIELD.' "'._BLOCKTITLE.'" '._ISMANDATORY, 'required', null, 'client');
-            //$layout_form -> addRule('name', _THEFIELD.' "'._BLOCKFILENAME.'" '._ISMANDATORY, 'required', null, 'client');
-            //$layout_form -> addRule('name', _THEFIELD.' "'._BLOCKFILENAME.'" '._ISMANDATORY, 'required', null, 'client');
-            //$layout_form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'filename');
-
-            if (isset($_GET['edit_block'])) {    
-                $customBlocks[$_GET['edit_block']]['content'] = file_get_contents($basedir.$customBlocks[$_GET['edit_block']]['name'].'.tpl');
-                $layout_form -> setDefaults($customBlocks[$_GET['edit_block']]);
-                $layout_form -> freeze(array('name'));
-            }
-
-            if ($layout_form -> isSubmitted() && $layout_form -> validate()) {
-                $values = $layout_form -> exportValues();
-                $values['name'] = time();                //Use the timestamp as name
-                $block = array('name'   => $values['name'],
-                			   'title'  => $values['title']);
-//                if (!$values['smarty']) {
-//                    $values['content'] = '{literal}'.$values['content'].'{/literal}';
-//                }
-                file_put_contents($basedir.$values['name'].'.tpl', $values['content']);
-
-                if (isset($_GET['edit_block'])) {
-                    $customBlocks[$_GET['edit_block']] = $block;
-                } else {
-                    sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
-                }
-                $layoutTheme -> layout['custom_blocks'] = $customBlocks;
-                $layoutTheme -> persist();
-
-                eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']);
-            }
-        //}
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
         $layout_form -> accept($renderer);
         $smarty -> assign('T_ADD_BLOCK_FORM', $renderer -> toArray());
@@ -558,6 +454,10 @@ try {
                 echo basename($_SERVER['PHP_SELF']).'?ctg=themes';
             } else {
                 echo basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes';
+            }
+            
+            if (!isset($_GET['ajax'])) {
+                eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes");
             }
             
         } catch (Exception $e) {

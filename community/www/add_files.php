@@ -106,7 +106,7 @@ if (isset($_GET['op']) && $_GET['op'] == "delete") {                            
             exit;
         }
 
-        if (@mkdir(G_LESSONSPATH.$dir_to_create)) {
+        if (@mkdir(G_LESSONSPATH.$dir_to_create, 0755)) {
             $smarty -> assign("T_CREATEFOLDER_MESSAGE", _SUCCESFULLYCREATEDFOLDERWINDOWCLOSE5SECONDS);
             $smarty -> assign("T_CREATEFOLDER_MESSAGE_TYPE", 'success');
         } else {
@@ -120,7 +120,7 @@ if (isset($_GET['op']) && $_GET['op'] == "delete") {                            
 
     if (($GLOBALS['currentLesson'] -> options['digital_library'])) {                                          
         if (!is_dir(G_LESSONSPATH.$_SESSION['s_lessons_ID']."/Digital Library")) {
-            @mkdir(G_LESSONSPATH.$_SESSION['s_lessons_ID']."/Digital Library");
+            @mkdir(G_LESSONSPATH.$_SESSION['s_lessons_ID']."/Digital Library", 0755);
         }
     }
 

@@ -211,7 +211,7 @@ class EfrontLesson
             $this -> lesson = $lesson;
         }
         if (!is_dir(G_LESSONSPATH.$this -> lesson['id'])) {
-            mkdir(G_LESSONSPATH.$this -> lesson['id']);
+            mkdir(G_LESSONSPATH.$this -> lesson['id'], 0755);
         }
         if ($this -> lesson['options'] && $options = unserialize($this -> lesson['options'])) {
             $newOptions = array_diff_key($this -> options, $options); //$newOptions are lesson options that were added to the EfrontLesson object AFTER the lesson options serialization took place
@@ -767,8 +767,6 @@ class EfrontLesson
 
      * @access public
 
-     * @todo create if not exists
-
      */
     public function getDirectory($returnObject = false) {
         if ($returnObject) {
@@ -776,6 +774,29 @@ class EfrontLesson
         } else {
             return $this -> directory;
         }
+    }
+    /**
+
+     * Get url to lesson's directory
+
+     * 
+
+     * This function is used to return the public url that this lesson uses
+
+     * Since we may have shadow lessons, this url depends on the lesson directory
+
+     * 
+
+     * @return string The lesson url
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function getDirectoryUrl() {
+        $url = G_RELATIVELESSONSLINK.str_replace(G_LESSONSPATH, '', $this -> getDirectory());
+        return $url;
     }
     /**
 
@@ -4183,12 +4204,15 @@ if ($element == 'data') $value = htmlentities($value);
      * @access public
 
      */
-    public function assignBranch($branch_ID, $specification) {
+    public function assignBranch($branch_ID) {
         $this -> getBranches();
         // Check if the branch is not assigned as offered by this lesson
         if ($this -> branches[$branch_ID]['lessons_ID'] == "") {
             if ($ok = eF_insertTableData("module_hcd_lesson_to_branch", array("branches_ID" => $branch_ID, "lessons_ID" => $this -> lesson['id']))) {
                 $this -> branches[$branch_ID]['lessons_ID'] = $this -> lesson['id'];
+                $newBranch = new EfrontBranch($branch_ID);
+                $employees = $newBranch ->getEmployees(false,true); //get data flat
+                $this -> addUsers($employees['login'], $employees['user_type']);
             } else {
                 throw new EfrontLessonException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontLessonException :: DATABASE_ERROR);
             }

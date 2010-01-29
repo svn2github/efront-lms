@@ -7,6 +7,13 @@ $path = "../../../../../libraries/";
 
 /** The configuration file.*/
 include_once $path."configuration.php";
+
+if ($_SESSION['s_lessons_ID']) {
+    $iframeUrl = G_SERVERNAME.'editor/browse.php?for_type=media&mode=lesson';
+} elseif (strpos($_SERVER['HTTP_REFERER'], "themes") !== false) {
+    $iframeUrl = G_SERVERNAME.'editor/browse.php?for_type=media&mode=external';
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,14 +30,8 @@ include_once $path."configuration.php";
 </head>
 <body style="display: none">
 <div class="title">{#media_dlg.insert_media}</div>
-<!--- new stuff --->
-<?php  if ($_SESSION['s_lessons_ID'] != "") { ?>
 {#advanced_dlg.select_file}:<br>
-<iframe name="IMGPICK" src="<?php echo G_SERVERNAME?>editor/browse.php?lessons_ID=<?php  echo $_SESSION['s_lessons_ID'];?>&for_type=media&dir=<?php echo urlencode($_SESSION['s_lessons_ID']);?>" style="border: solid black 1px;  width: 500px; height:200px; z-index:1"></iframe>
-<?php  }elseif($_SESSION['s_type'] == "administrator"){ ?>
-{#advanced_dlg.select_file} :<br>
-<iframe name="IMGPICK" src="<?php echo G_SERVERNAME?>editor/browse.php?for_type=media" style="border: solid black 1px;  width: 500px; height:200px; z-index:1"></iframe>
-<?php	}?>
+<iframe name="IMGPICK" src="<?php echo $iframeUrl?>" style="border: solid black 1px;  width: 500px; height:200px; z-index:1"></iframe>
 <br/><br/>
     <form onsubmit="insertMedia();return false;" action="#">
 		<div class="tabs">

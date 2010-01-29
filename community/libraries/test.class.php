@@ -1262,11 +1262,13 @@ class EfrontTest
         }
 
         if ($onlySolved) {
-            $result = eF_getTableData("completed_tests", "*", "status != '' and status != 'incomplete' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
+            $result = eF_getTableData("completed_tests", "*", "status != '' and status != 'incomplete' and status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         } else {
-            $result = eF_getTableData("completed_tests", "*", "users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
+            $result = eF_getTableData("completed_tests", "*", "status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         }
-        $timesDone     = sizeof($result);
+        
+        $timesDone     = eF_getTableData("completed_tests", "count(*)", "users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
+        $timesDone     = $timesDone[0]['count(*)'];
         $status        = '';
         $lastTest      = false;
         $completedTest = '';
@@ -1992,12 +1994,12 @@ class EfrontCompletedTest extends EfrontTest
         	$id = eF_insertTableData("completed_tests", $fields);        	    
         	$this -> completedTest['id'] = $id;
         	$this -> save();
-            
-        	if ($this -> options['maintain_history']) {    
+            if ($this -> options['maintain_history']) {    
 	        	$result = eF_getTableDataFlat("completed_tests", "id", "tests_ID=".$this -> completedTest['testsId'], "timestamp desc");
+
 	        	if (sizeof($result['id']) > $this -> options['maintain_history']) {
 	        	    $deleteThreshold = $result['id'][$this -> options['maintain_history']];
-	        	    eF_deleteTableData("completed_tests", "id <= $deleteThreshold");
+	        	    eF_updateTableData("completed_tests", array("test" => '', 'status' => 'deleted'), "id <= $deleteThreshold");
 	        	}
             }
         	

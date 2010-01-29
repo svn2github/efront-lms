@@ -39,7 +39,7 @@ ini_set("memory_limit", "-1");
 ini_get("max_execution_time") < 600 ? ini_set("max_execution_time", "600") : null;
 //It is imperative that the smarty directory is writable in order to continue
 if (!is_writable($path.'smarty/themes_cache')) {
-    echo "Directory <b>".realpath($path.'smarty/themes_cache')."</b> must be writable by the server in order to continue";
+    echo Installation :: printErrorMessage("Directory <b>".realpath($path.'smarty/themes_cache')."</b> must be writable by the server in order to continue");
     exit;
 }
 //Check whether we are on http or https
@@ -65,7 +65,7 @@ if (is_file($path."smarty/smarty_config.php") && is_file($path."language/lang-en
  /**The default language file*/
  require_once $path."language/lang-english.php.inc";
 } else {
-    echo "Mandatory files not found!";
+    echo Installation :: printErrorMessage("Some files are missing, installation cannot continue");
     exit;
 }
 //If we asked for unattended installation, there must be a 2nd parameter with the configuration details or performing an upgrade
@@ -1029,6 +1029,19 @@ php_value register_globals Off
          return true;
      }
  }
+ /**
+
+	 * Set error reporting for installation
+
+	 * 
+
+	 * @since 3.6.0
+
+	 * @access public
+
+	 * @static
+
+	 */
  public static function setErrorReporting() {
   if (!isset($_SESSION['error_level']) && !isset($_GET['debug'])) {
    //Set error level to display all except for notices
@@ -1051,6 +1064,41 @@ php_value register_globals Off
    echo $_SESSION['error_level'];
    exit;
   }
+ }
+ /**
+
+	 * Print a default error message
+
+	 * 
+
+	 * This function prints an error message. 
+
+	 *  
+
+	 * @param string $message The error message
+
+	 * @return string The HTML code of the formatted message
+
+	 * @since 3.6.0
+
+	 * @access public
+
+	 * @static
+
+	 */
+ public static function printErrorMessage($message) {
+     $str = '
+     <style>
+     .singleMessage{width:100%;font-family:trebuchet ms;font-size:14px;border:1px solid red;background-color:#ffcccc;margin-top:10px}
+     .singleMessage td{padding:10px;}
+     .singleMessage td:first-child{width:1%}
+     </style>
+     <table class = "singleMessage">
+      <tr><td><img src = "../themes/default/images/32x32/warning.png" alt = "Failure" title = "Failure"></td>
+       <td><div style = "font-size:16px;font-weight:bold">An error occured:</div><div>'.$message.'</div></tr>
+     </table>
+     ';
+     return $str;
  }
 }
 ?>

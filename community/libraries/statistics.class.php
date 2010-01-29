@@ -124,7 +124,7 @@ class EfrontStats
 	        $doneTests = array();
 	        //debug_print_backtrace();
 	        if (!isset($options['notests']) || !$options['notests']) {
-		        $result    = eF_getTableData("completed_tests ct, tests t", "ct.score, ct.users_LOGIN, t.lessons_ID, t.content_ID", "ct.status != 'incomplete' and ct.status != 'failed' and ct.archive = 0 and t.id=ct.tests_ID and t.lessons_ID in (".implode(",", $lessons).")");
+		        $result    = eF_getTableData("completed_tests ct, tests t", "ct.score, ct.users_LOGIN, t.lessons_ID, t.content_ID", "ct.status != 'deleted' and ct.status != 'incomplete' and ct.status != 'failed' and ct.archive = 0 and t.id=ct.tests_ID and t.lessons_ID in (".implode(",", $lessons).")");
 		        foreach ($result as $value) {
 		            $doneTests[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = $value['score'];
 		        }
@@ -412,13 +412,13 @@ class EfrontStats
 	    }
 
 	    if ($user && $test) {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.tests_ID=t.id and ct.tests_ID=$test and ct.users_LOGIN in ('$user')");
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.tests_ID=$test and ct.users_LOGIN in ('$user')");
 	    } else if ($user) {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.tests_ID=t.id and ct.users_LOGIN in ('$user')");
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.users_LOGIN in ('$user')");
 	    } else if ($test) {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.tests_ID=t.id and ct.tests_ID=$test");
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.tests_ID=$test");
 	    } else {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.tests_ID=t.id");
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id");
 	    }
 
 	    //Unserialize EfrontCompletedTest objects
@@ -523,13 +523,13 @@ class EfrontStats
 	    }
 	    
 	    if ($user && $test) {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test and ct.users_LOGIN in ('$user')");
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test and ct.users_LOGIN in ('$user')");
 	    } else if ($user) {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.users_LOGIN in ('$user')");
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.users_LOGIN in ('$user')");
 	    } else if ($test) {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test");
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test");
 	    } else {
-	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString);
+	        $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString);
 	    }
 	    
 	    //Unserialize EfrontCompletedTest objects
@@ -1747,7 +1747,7 @@ class EfrontStats
             $questionIds[$question_id] = $question_id;
         }
         
-        $completedTests = eF_getTableData("completed_tests", "*");
+        $completedTests = eF_getTableData("completed_tests", "*", "status != 'deleted'");
         foreach ($completedTests as $test) {
             $test['test'] = unserialize($test['test']);
             $testQuestions = $test['test'] -> questions;
@@ -1904,7 +1904,7 @@ class EfrontStats
         if (is_array($testInfo)) {
             $doneTests = $testInfo;        
         } elseif (eF_checkParameter($testInfo, 'id')) {
-            $results = eF_getTableData("completed_tests", "*", "tests_ID=$testInfo");
+            $results = eF_getTableData("completed_tests", "*", "status != 'deleted' and tests_ID=$testInfo");
             foreach ($results as $value) {
                 $value['test']           = unserialize($value['test']);
                 $doneTests[$value['id']] = $value;
@@ -2117,13 +2117,13 @@ class EfrontStats
 	 */
 	public static function getQuestionsStatistics($test = false) {
 	    if (!$test) {
-	        $result = eF_getTableData("completed_tests", "*");
+	        $result = eF_getTableData("completed_tests", "*", "status != 'deleted'");
 	    } else {
 	        $test instanceof EfrontTest ? $testId = $test -> test['id'] : $testId = $test;
 	        if (!eF_checkParameter($testId, 'id')) {
 	            throw new EfrontTestException(_INVALIDID, EfrontLessonException :: INVALID_ID);
 	        }
-	        $result = eF_getTableData("completed_tests", "*", "tests_ID = $testId");
+	        $result = eF_getTableData("completed_tests", "*", "status != 'deleted' and tests_ID = $testId");
 	    }
 	    
 	    $questionStats = array();

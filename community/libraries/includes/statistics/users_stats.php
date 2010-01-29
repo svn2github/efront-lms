@@ -61,6 +61,7 @@ $directionsTree = new EfrontDirectionsTree();
 $directionsTreePaths = $directionsTree -> toPathString();
 
 if ($infoUser) {
+    $smarty -> assign("T_USER_LOGIN", $infoUser -> user['login']);
     if ($_GET['specific_lesson_info'] && $_GET['lesson']) {
         $status = EfrontStats :: getUsersLessonStatus($_GET['lesson'], $infoUser -> user['login']);
         $userTimes = EfrontStats :: getUsersTime($_GET['lesson'], $infoUser -> user['login']);
@@ -102,7 +103,6 @@ if ($infoUser) {
         }
         $smarty -> assign("T_LESSON_COMPLETED", $lessonCompleted);
     } else {
-        $smarty -> assign("T_USER_LOGIN", $infoUser -> user['login']);
         $userInfo = array();
         $userInfo['general'] = $infoUser -> getInformation();
         $userInfo['communication'] = EfrontStats :: getUserCommunicationInfo($infoUser);

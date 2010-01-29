@@ -7,6 +7,14 @@ $path = "../../../../../libraries/";
 
 /** The configuration file.*/
 include_once $path."configuration.php";
+
+if ($_SESSION['s_lessons_ID']) {
+    $iframeUrl        = G_SERVERNAME.'editor/browse.php?for_type=files&mode=lesson';
+    $contentIframeUrl = G_SERVERNAME.'editor/browsecontent.php?lesson='.$_SESSION['s_lessons_ID'];
+} elseif (strpos($_SERVER['HTTP_REFERER'], "themes") !== false) {
+    $iframeUrl = G_SERVERNAME.'editor/browse.php?for_type=files&mode=external';
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,29 +32,18 @@ include_once $path."configuration.php";
 <div class="title">{#advlink_dlg.insert_hyperlink}</div>
 
 <table border="0" style="width: 100%;">
-<?php  if ($_SESSION['s_lessons_ID'] != "") { ?>
 <TR>
-    <TD VALIGN="top" align="left" width="30%">{#advanced_dlg.file} :
-        <span class="help">{#advlink_dlg.selectonewantaslink}.</span>
-        <br>
-        <iframe name="LNKPICK" src="<?php echo G_SERVERNAME?>editor/browse.php?lessons_ID=<?php  echo $_SESSION['s_lessons_ID'];?>&for_type=files&dir=<?php echo urlencode($_SESSION['s_lessons_ID']."/");?>" style="border: solid black 1px; width: 270px; height:240px; z-index:1"></iframe>
+    <TD style = "vertical-align:top;width:50%">{#advanced_dlg.file}: <span class="help">{#advlink_dlg.selectonewantaslink}.</span><br>
+        <iframe name="LNKPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px; width: 300px; height:240px; z-index:1"></iframe>
     </TD>
-    <TD VALIGN="top" align="left">{#advanced_dlg.unit} :
-        <span class="help">{#advlink_dlg.selectonewantaslink}.</span>
-        <br>
-        <iframe name="LNKPICKCONTENT" src="<?php echo G_SERVERNAME?>editor/browsecontent.php?lesson=<?php echo $_SESSION['s_lessons_ID']; ?>" style="border: solid black 1px; width: 340px; height:240px; z-index:1"></iframe>
+<?php if ($_SESSION['s_lessons_ID']) {?>    
+    <TD style = "vertical-align:top;width:50%">{#advanced_dlg.unit}: <span class="help">{#advlink_dlg.selectonewantaslink}.</span><br>
+        <iframe name="LNKPICKCONTENT" src="<?php echo $contentIframeUrl;?>" style="border: solid black 1px; width: 300px; height:240px; z-index:1"></iframe>
     </TD>
+<?php }?>    
 </TR>
-<?php  }elseif($_SESSION['s_type'] == "administrator"){ ?>
-<TR>
-    <TD VALIGN="top" align="left">{#advanced_dlg.unit} :
-        <span class="help">{#advlink_dlg.selectonewantaslink}.</span>
-        <br>
-        <iframe name="LNKPICK" src="<?php echo G_SERVERNAME?>editor/browse.php?for_type=files" style="border: solid black 1px; width: 500px; height:240px; z-index:1"></iframe>
-    </TD>
-</TR>
-<?php  } ?>
 </table>
+
     <form onsubmit="insertAction();return false;" action="#">
 		<div class="tabs">
 			<ul>

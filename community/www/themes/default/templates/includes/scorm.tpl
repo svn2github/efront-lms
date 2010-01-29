@@ -129,52 +129,9 @@
                             {eF_template_printBlock title = $smarty.const._SCORMEXPORT data = $smarty.capture.scorm_export_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
 
                         {else}
-                            {capture name = 't_scorm_tree_code'}
-                                <script>
-                                {literal}
-                                    function convertScorm(el, id) {
-                                        Element.extend(el);
-                                        if (el.up().previous().previous().src.match('scorm_test')) {
-                                            newSrc = 'images/drag-drop-tree/scorm.png';
-                                            url    = 'professor.php?ctg=scorm&set_type=scorm&id='+id;
-                                            button = 'images/16x16/scorm_to_test.png';
-                                        } else {
-                                            newSrc = 'images/drag-drop-tree/scorm_test.png';
-                                            url    = 'professor.php?ctg=scorm&set_type=scorm_test&id='+id;
-                                            button = 'images/16x16/test_to_scorm.png';
-                                        }
-                                        el.down().src = 'images/others/progress1.gif';
-
-                                        new Ajax.Request(url, {
-                                                method:'get',
-                                                asynchronous:true,
-                                                onFailure: function (transport) {
-                                                    el.down().writeAttribute({src:'images/16x16/error_delete.png', title: transport.responseText}).hide();
-                                                    new Effect.Appear(el.down().identify());
-                                                    window.setTimeout('Effect.Fade("'+el.down().identify()+'")', 10000);
-                                                },
-                                                onSuccess: function (transport) {
-                                                    el.up().previous().previous().src = newSrc;
-                                                    el.down().src = button;
-                                                    img    = new Element('img', {src:'images/16x16/success.png'}).setStyle({verticalAlign:'middle'}).hide();
-                                                    el.up().insert(img);
-                                                    new Effect.Appear(img.identify());
-                                                    window.setTimeout('Effect.Fade("'+img.identify()+'")', 2500);
-                                                    }
-                                            });
-                                    }
-                                {/literal}
-                                </script>
-{*                                
-                                <div id = "expand_collapse_div" expand = "true">
-                                    <b><a id = "expand_collapse_link" href = "javascript:void(0)" onclick = "expandCollapse(this)">{$smarty.const._EXPANDALL}</a></b><br/>
-                                </div>
-*}                                
+                            {capture name = 't_scorm_tree_code'}                               
                                 <table>
                                     <tr><td>
-                                {*        <ul id = "dhtmlContentTree" class = "dhtmlgoodies_tree">
-                                            
-                                        </ul>*}
                                         {$T_SCORM_TREE}
                                     </td></tr>
                                 </table>

@@ -149,30 +149,27 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     $form -> addElement('advcheckbox', 'show_catalog', _SHOWLESSONINCATALOG, null, null, array(0, 1));
     $form -> addElement('radio', 'course_only', _LESSONAVAILABLE, _COURSEONLY, 1, 'onclick = "$$(\'tr.only_lesson\').each(function(s) {s.hide()})"');
     $form -> addElement('radio', 'course_only', _LESSONAVAILABLE, _DIRECTLY, 0, 'onclick = "$$(\'tr.only_lesson\').each(function(s) {s.show()});if ($(\'recurring\').options[$(\'recurring\').selectedIndex].value == 0) {$(\'duration_row\').hide();}"');
-
-
-    // @todo: add location field as branches ID in lessons
-     $recurringOptions = array(0 => _NO, 'D' => _DAILY, 'W' => _WEEKLY, 'M' => _MONTHLY, 'Y' => _YEARLY);
-     $recurringDurations = array('D' => array_combine(range(1, 90), range(1, 90)),
-                                     'W' => array_combine(range(1, 52), range(1, 52)),
-                                     'M' => array_combine(range(1, 24), range(1, 24)),
-                                     'Y' => array_combine(range(1, 5), range(1, 5))); //Imposed by paypal interface
-     $form -> addElement('select', 'recurring', _SUBSCRIPTION, $recurringOptions, 'id = "recurring" onchange = "$(\'duration_row\').show();$$(\'span\').each(function (s) {if (s.id.match(\'_duration\')) {s.hide();}});if (this.selectedIndex) {$(this.options[this.selectedIndex].value+\'_duration\').show();} else {$(\'duration_row\').hide();}"');
-     $form -> addElement('select', 'D_duration', _DAYSCONDITIONAL, $recurringDurations['D']);
-     $form -> addElement('select', 'W_duration', _WEEKSCONDITIONAL, $recurringDurations['W']);
-     $form -> addElement('select', 'M_duration', _MONTHSCONDITIONAL, $recurringDurations['M']);
-     $form -> addElement('select', 'Y_duration', _YEARSCONDITIONAL, $recurringDurations['Y']);
-     $lessons = EfrontLesson :: getLessons();
-     $lessonsList = array(0 => _SELECTLESSON, -1 => '---------------');
-     foreach ($lessons as $value) {
-         $lessonsList[$value['id']] = $value['name'];
-     }
-     $form -> addElement('text', 'max_users', _MAXIMUMUSERS, 'class = "inputText" style = "width:50px"');
-     $form -> addElement('select', 'copy_properties', _COPYPROPERTIESFROM, $lessonsList);
-     $form -> addElement('select', 'share_folder', _SHAREFOLDERWITH, $lessonsList, 'id = "share_folder" onchange = "$(\'clone_lesson\').options.selectedIndex=0;this.options.selectedIndex ? $(\'clone_lesson\').disabled = \'disabled\' : $(\'clone_lesson\').disabled = \'\'"');
-     $form -> addElement('select', 'clone_lesson', _CLONELESSON, $lessonsList, 'id = "clone_lesson" onchange = "$(\'share_folder\').options.selectedIndex=0;this.options.selectedIndex ? $(\'share_folder\').disabled = \'disabled\' : $(\'share_folder\').disabled = \'\'"');
-     $form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
-     $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+    $recurringOptions = array(0 => _NO, 'D' => _DAILY, 'W' => _WEEKLY, 'M' => _MONTHLY, 'Y' => _YEARLY);
+    $recurringDurations = array('D' => array_combine(range(1, 90), range(1, 90)),
+                                    'W' => array_combine(range(1, 52), range(1, 52)),
+                                    'M' => array_combine(range(1, 24), range(1, 24)),
+                                    'Y' => array_combine(range(1, 5), range(1, 5))); //Imposed by paypal interface
+    $form -> addElement('select', 'recurring', _SUBSCRIPTION, $recurringOptions, 'id = "recurring" onchange = "$(\'duration_row\').show();$$(\'span\').each(function (s) {if (s.id.match(\'_duration\')) {s.hide();}});if (this.selectedIndex) {$(this.options[this.selectedIndex].value+\'_duration\').show();} else {$(\'duration_row\').hide();}"');
+    $form -> addElement('select', 'D_duration', _DAYSCONDITIONAL, $recurringDurations['D']);
+    $form -> addElement('select', 'W_duration', _WEEKSCONDITIONAL, $recurringDurations['W']);
+    $form -> addElement('select', 'M_duration', _MONTHSCONDITIONAL, $recurringDurations['M']);
+    $form -> addElement('select', 'Y_duration', _YEARSCONDITIONAL, $recurringDurations['Y']);
+    $lessons = EfrontLesson :: getLessons();
+    $lessonsList = array(0 => _SELECTLESSON, -1 => '---------------');
+    foreach ($lessons as $value) {
+        $lessonsList[$value['id']] = $value['name'];
+    }
+    $form -> addElement('text', 'max_users', _MAXIMUMUSERS, 'class = "inputText" style = "width:50px"');
+    $form -> addElement('select', 'copy_properties', _COPYPROPERTIESFROM, $lessonsList);
+    $form -> addElement('select', 'share_folder', _SHAREFOLDERWITH, $lessonsList, 'id = "share_folder" onchange = "$(\'clone_lesson\').options.selectedIndex=0;this.options.selectedIndex ? $(\'clone_lesson\').disabled = \'disabled\' : $(\'clone_lesson\').disabled = \'\'"');
+    $form -> addElement('select', 'clone_lesson', _CLONELESSON, $lessonsList, 'id = "clone_lesson" onchange = "$(\'share_folder\').options.selectedIndex=0;this.options.selectedIndex ? $(\'share_folder\').disabled = \'disabled\' : $(\'share_folder\').disabled = \'\'"');
+    $form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
+    $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
     if (isset($_GET['edit_lesson'])) { //If we are editing a lesson, we set the default form values to the ones stored in the database
         $editLesson = new EfrontLesson($_GET['edit_lesson']);
         $form -> setDefaults(array('name' => $editLesson -> lesson['name'],

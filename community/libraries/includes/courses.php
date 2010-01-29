@@ -97,18 +97,14 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
         $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
         $message_type = 'failure';
     }
-
     $form -> addElement('select', 'directions_ID', _DIRECTION, $directions); //Append a directions select box to the form
-
     if ($GLOBALS['configuration']['onelanguage'] != true){
         $languages = EfrontSystem :: getLanguages(true, true);
         $form -> addElement('select', 'languages_NAME', _LANGUAGE, array_combine(array_keys($languages), $languages));
     }
-
     $form -> addElement('text', 'price', _PRICE, 'class = "inputText" style = "width:50px"');
     $form -> addElement('advcheckbox', 'active', _ACTIVEFEM, null, null, array(0, 1));
     $form -> addElement('advcheckbox', 'show_catalog', _SHOWCOURSEINCATALOG, null, null, array(0, 1));
-
     $recurringOptions = array(0 => _NO, 'D' => _DAILY, 'W' => _WEEKLY, 'M' => _MONTHLY, 'Y' => _YEARLY);
     $recurringDurations = array('D' => array_combine(range(1, 90), range(1, 90)),
                                     'W' => array_combine(range(1, 52), range(1, 52)),
@@ -119,14 +115,11 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
     $form -> addElement('select', 'W_duration', _WEEKSCONDITIONAL, $recurringDurations['W']);
     $form -> addElement('select', 'M_duration', _MONTHSCONDITIONAL, $recurringDurations['M']);
     $form -> addElement('select', 'Y_duration', _YEARSCONDITIONAL, $recurringDurations['Y']);
-
     $form -> addElement('text', 'max_users', _MAXIMUMUSERS, 'class = "inputText" style = "width:50px"');
     $form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
     $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
-
     if (isset($_GET['edit_course'])) {
         $editCourse = new EfrontCourse($_GET['edit_course']);
-
         $smarty -> assign('T_EDIT_COURSE', $editCourse);
         $form -> setDefaults(array('name' => $editCourse -> course['name'],
                                    'active' => $editCourse -> course['active'],
@@ -144,15 +137,12 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
                  'price' => 0,
                                    'languages_NAME' => $GLOBALS['configuration']['default_language']));
     }
-
     if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['lessons'] != 'change') {
         $form -> freeze();
     } else {
         $form -> addElement('submit', 'submit_course', _SUBMIT, 'class = "flatButton"');
-
         if ($form -> isSubmitted() && $form -> validate()) {
             if (isset($_GET['edit_course'])) {
-
                 $GLOBALS['configuration']['onelanguage'] == true ? $languages_NAME = $GLOBALS['configuration']['default_language'] : $languages_NAME = $form -> exportValue('languages_NAME');
                 $fields_update = array('name' => $form -> exportValue('name'),
                                        'languages_NAME' => $languages_NAME,
@@ -173,7 +163,6 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
                         unset($editCourse -> options['recurring']);
                     }
                     $editCourse -> persist();
-
                     if ($courseSk = $editCourse -> getCourseSkill()) {
                         eF_updateTableData("module_hcd_skills", array("description" => _KNOWLEDGEOFCOURSE . " " .$form -> exportValue('name')), "skill_ID = " .$courseSk['skill_ID']) ;
                     }
@@ -183,7 +172,6 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
                     $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
                     $message_type = 'failure';
                 }
-
             } elseif (isset($_GET['add_course'])) {
                 $GLOBALS['configuration']['onelanguage'] == true ? $languages_NAME = $GLOBALS['configuration']['default_language'] : $languages_NAME = $form -> exportValue('languages_NAME');
                 $fields_insert = array('name' => $form -> exportValue('name'),
@@ -194,7 +182,6 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
                                        'active' => $form -> exportValue('active'),
                                        'directions_ID' => $form -> exportValue('directions_ID'),
                                        'price' => $form -> exportValue('price'));
-
                 try {
                     $newCourse = EfrontCourse :: createCourse($fields_insert);
                     if ($form -> exportValue('price') && $form -> exportValue('recurring') && in_array($form -> exportValue('recurring'), array_keys($recurringOptions))) {
@@ -213,16 +200,11 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
             }
         }
     }
-
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-
     $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
     $form -> setRequiredNote(_REQUIREDNOTE);
     $form -> accept($renderer);
-
     $smarty -> assign('T_COURSE_FORM', $renderer -> toArray());
-
-
     if (isset($_GET['edit_course'])) {
         $loadScripts[] = 'scriptaculous/scriptaculous';
         $loadScripts[] = 'scriptaculous/effects';

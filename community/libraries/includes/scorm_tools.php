@@ -502,7 +502,7 @@ function eF_local_buildDirectories($new_absolute_dir, $scorm_dir)
         for ($i = 1; $i < sizeof($path_parts); $i++) {
             if (!file_exists($this_dir.$path_parts[$i]."/")) {
                 chdir($this_dir);
-                mkdir($path_parts[$i]);
+                mkdir($path_parts[$i], 0755);
             }
             $this_dir .= $path_parts[$i]."/";
         }
@@ -747,13 +747,13 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
     $html_dirname  = $main_dirname ."/". $second_dir_token;
     $files_dirname = $html_dirname ."/". $third_dir_token;
 
-    mkdir($main_dirname);
-    mkdir($html_dirname);
+    mkdir($main_dirname, 0755);
+    mkdir($html_dirname, 0755);
     $dir_parts = explode("/", $files_dirname);
     $cur_dir = getcwd();
     foreach ($dir_parts as $value) {
         if (!is_dir($value)) {
-            mkdir($value);
+            mkdir($value, 0755);
         }
         chdir($value);
     }
@@ -844,7 +844,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
         chdir($cur_dir."/".$files_dirname."/");
         foreach($dir_parts as $dir_value) {
             if ($dir_value != '.' & $dir_value != '..' & !is_dir($dir_value)) {
-                mkdir($dir_value);
+                mkdir($dir_value, 0755);
             }
             chdir($dir_value);
         }

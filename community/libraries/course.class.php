@@ -2112,12 +2112,15 @@ class EfrontCourse
      * @access public
 
      */
-    public function assignBranch($branch_ID, $specification) {
+    public function assignBranch($branch_ID) {
         $this -> getBranches();
         // Check if the branch is not assigned as offered by this course
         if ($this -> branches[$branch_ID]['courses_ID'] == "") {
             if ($ok = eF_insertTableData("module_hcd_course_to_branch", array("branches_ID" => $branch_ID, "courses_ID" => $this -> course['id']))) {
                 $this -> branches[$branch_ID]['courses_ID'] = $this -> course['id'];
+                $newBranch = new EfrontBranch($branch_ID);
+                $employees = $newBranch ->getEmployees(false,true); //get data flat
+                $this -> addUsers($employees['login'], $employees['user_type']);
             } else {
                 throw new EfrontCourseException(_EMPLOYEESRECORDCOULDNOTBEUPDATED, EfrontCourseException :: DATABASE_ERROR);
             }

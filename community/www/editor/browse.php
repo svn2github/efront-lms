@@ -12,39 +12,55 @@ $path = "../../libraries/";
 /** Configuration file.*/
 include_once $path."configuration.php";
 
-//error_reporting(E_ALL);
-try {
-    
-    if (isset($_GET['user_dir'])) {
-        $user_directory = G_CONTENTPATH . $_GET['user_dir'] . "/";
-        $directory = EfrontDirectory :: normalize($user_directory);
-        
-        if (!is_dir($directory)) {
-            mkdir($directory); 
-        }
-        $rootDir = new EfrontDirectory($user_directory);    
-    } else {
-	    
-	    if ($_SESSION['s_type'] == 'administrator') {
-	        $rootDir = new EfrontDirectory(G_ADMINPATH);
-	    } else {
-	        $rootDir = new EfrontDirectory(G_LESSONSPATH.$_SESSION['s_lessons_ID'].'/');
-	    }
+//Access is not allowed to users that are not logged in
+if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
+    try {
+        $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+    } catch (EfrontException $e) {
+        $message = $e -> getMessage().' ('.$e -> getCode().')';
+        eF_redirect("index.php?message=".urlencode($message)."&message_type=failure");
+        exit;
     }
-    
+} else {
+    eF_redirect("index.php?message=".urlencode(_YOUCANNOTACCESSTHISPAGE)."&message_type=failure");
+    exit;
+}
+
+
+try {
+    //There are 2 legal modes: 'lessons' and 'external'. In the first case, we read the legitimate directory from the session. In the second case, we take it from global constant    
+    if ($_GET['mode'] == 'lesson') {
+        $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
+        $rootDir       = new EfrontDirectory($currentLesson -> getDirectory());
+        $filesBaseUrl  = $currentLesson -> getDirectoryUrl();
+        
+    } elseif ($_GET['mode'] == 'external') {
+        $rootDir       = new EfrontDirectory(G_EXTERNALPATH);
+        $filesBaseUrl  = G_EXTERNALURL;
+    } else {
+        throw new Exception(_ILLEGALMODE);
+    }
+
+    //We are inside a directory. Verify that this directory is below the $rootDir, as defined previously
     if (isset($_GET['directory'])) {
         $directory = new EfrontDirectory($_GET['directory']);
         if (strpos($directory['path'], $rootDir['path']) === false) {
             $directory = $rootDir;
         } else {
-            EfrontDirectory :: normalize($directory['directory']) == EfrontDirectory :: normalize($rootDir['path']) ? $smarty -> assign("T_PARENT_DIR", '') : $smarty -> assign("T_PARENT_DIR", $directory['directory']);
+            if (EfrontDirectory :: normalize($directory['directory']) == EfrontDirectory :: normalize($rootDir['path'])) {
+                $smarty -> assign("T_PARENT_DIR", '');
+            } else {
+                $smarty -> assign("T_PARENT_DIR", $directory['directory']);
+            }
         }
     } else {
         $directory = $rootDir;
     }
 
-    $offset = str_replace(G_CONTENTPATH, '', $directory['path']);
-    
+    $offset = str_replace($rootDir['path'], '', $directory['path'].'/');
+    $smarty -> assign("T_OFFSET", $filesBaseUrl.$offset);
+  
+    //for_type defines which kind of files we need.
     switch ($_GET['for_type']) {
         case 'image': $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('image')); break;
         case 'java' : $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('java'));  break;
@@ -53,7 +69,7 @@ try {
         default     : $mode = true; $filter = array(); break;        
     }
 
-    $filesystem =  new FileSystemTree($directory['path']);
+    $filesystem = new FileSystemTree($directory['path']);
     $directory != $rootDir ? $tree = $filesystem -> seekNode($directory['path']) : $tree = $filesystem -> tree;
     foreach (new EfrontDirectoryOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($tree, RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
         $value['image']    = $value -> getTypeImage();
@@ -73,7 +89,5 @@ try {
 
 $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
-$smarty -> assign("T_OFFSET", $offset);
-//pr($offset);
 $smarty -> display("browse.tpl");
 ?>

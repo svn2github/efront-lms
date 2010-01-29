@@ -62,7 +62,7 @@ function display_directory($dir, $valid_file_types, $type, $lessons_ID)
 //echo $dir;   
 
     if (!($d = dir($dir))) {
-        mkdir($dir);
+        mkdir($dir, 0755);
         if (!($d = dir($dir))) {
             echo "\t "._CANNOTOPENFOLDER." - [$dir]";
             return;

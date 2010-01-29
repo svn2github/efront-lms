@@ -74,6 +74,14 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 
     $smarty -> assign('T_COMPLETE_LESSON_FORM', $renderer -> toArray());
     $doneTests = EfrontStats :: getDoneTestsPerUser($_GET['edit_user']);
+
+    $result = EfrontStats :: getStudentsDoneTests($currentLesson -> lesson['id'], $_GET['edit_user']);
+    foreach ($result[$_GET['edit_user']] as $key => $value) {
+        if ($value['scorm']) {
+            $scormDoneTests[$key] = $value;
+        }
+    }
+
     $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID and c.lessons_ID=".$currentLesson -> lesson['id']);
     $testNames = array_combine($testNames['id'], $testNames['name']);
 
@@ -82,6 +90,9 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
             $lastTest = unserialize($doneTests[$_GET['edit_user']][$value['last_test_id']]);
             $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['done_tests'][$key] = array('name' => $testNames[$key], 'score' => $value['average_score'], 'last_test_id' => $value['last_test_id'], 'last_score' => $value['scores'][$value['last_test_id']], 'times_done' => $value['times_done'], 'content_ID' => $value[$value['last_test_id']]['content_ID']);
         }
+    }
+    foreach($scormDoneTests as $key => $value) {
+        $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['scorm_done_tests'][$key] = array('name' => $value['name'], 'score' => $value['score'], 'content_ID' => $key);
     }
 
     unset($userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['done_tests']['average_score']);

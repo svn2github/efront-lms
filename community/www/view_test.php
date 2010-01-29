@@ -31,16 +31,16 @@ if (!eF_checkUser($_SESSION['s_login'], $_SESSION['s_password'])) {             
 try {    
     if (isset($_GET['test_id'])) {
         $test      = new EfrontTest($_GET['test_id']);
-        $doneTests = eF_getTableData("completed_tests", "*", "users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);        
+        $doneTests = eF_getTableData("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);        
 //        $test -> setDone($_GET['user']);
     } else if (isset($_GET['content_id'])) {
         $test         = new EfrontTest($_GET['content_id'], true);
-        $doneTests    = eF_getTableData("completed_tests", "*", "users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
+        $doneTests    = eF_getTableData("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
 //        $test -> setDone($_GET['user']);
     } else if (isset($_GET['done_test_id'])) {
-        $result       = eF_getTableData("completed_tests", "*", "id=".$_GET['done_test_id']);
+        $result       = eF_getTableData("completed_tests", "*", "status != 'deleted' and id=".$_GET['done_test_id']);
         $test         = new EfrontTest($result[0]['tests_ID']); 
-        $doneTests    = eF_getTableData("completed_tests", "*", "users_LOGIN = '".$result[0]['users_LOGIN']."' and tests_ID=".$test -> test['id']);
+        $doneTests    = eF_getTableData("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$result[0]['users_LOGIN']."' and tests_ID=".$test -> test['id']);
         $_GET['user'] = $result[0]['users_LOGIN'];       
         //        $test -> setDone($result[0]['users_LOGIN']);    
     } else {

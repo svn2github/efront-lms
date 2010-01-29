@@ -158,11 +158,11 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     }
     if (isset($_GET['create'])  && $_GET['create']  == 'user_folders') {
         foreach ($orphan_users as $login) {
-            if (!mkdir(G_ROOTPATH.'upload/'.$login)                           ||
-            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments')        ||
-            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Drafts') ||
-            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Sent')   ||
-            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Incoming')) {
+            if (!mkdir(G_ROOTPATH.'upload/'.$login, 0755)                           ||
+            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments', 0755)        ||
+            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Drafts', 0755) ||
+            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Sent', 0755)   ||
+            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Incoming', 0755)) {
                 $errors[] = $login;
             }
         }

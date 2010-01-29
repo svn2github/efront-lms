@@ -181,7 +181,7 @@ class module_thumbnail extends EfrontModule {
 // check if image file
 				$lessonImgsDir = $currentLesson -> getDirectory() . "module_thumbnail";
 				if (!is_dir($lessonImgsDir)) {
-					mkdir($lessonImgsDir);
+					mkdir($lessonImgsDir, 0755);
 				}
 
 				try {

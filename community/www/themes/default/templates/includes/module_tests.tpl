@@ -396,7 +396,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                     {elseif $item.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
                     {elseif $item.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
                     {elseif $item.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
-     {elseif $item.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGDROP}" alt = "{$smarty.const._DRAGDROP}" />
+     {elseif $item.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
                     {/if}
                     <span style = "display:none">{$item.type}</span>{*We put this here in order to be able to sort by type*}
                 </td>
@@ -1297,7 +1297,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                  {elseif $question.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
                  {elseif $question.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
                  {elseif $question.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
-     {elseif $question.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGDROP}" alt = "{$smarty.const._DRAGDROP}" />
+     {elseif $question.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
                  {/if}
                  <span style = "display:none">{$question.type}</span>
              </td>

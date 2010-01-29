@@ -213,49 +213,37 @@ if ($_GET['scorm_review']) {
     $smarty -> assign('T_EXPORT_SCORM_FORM', $renderer -> toArray());
 
 } else {
-/*    
-    $iterator = new EfrontSCORMFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
-
-    $iterator   -> rewind();
-    $current    = $iterator -> current();
-    $depth      = $iterator -> getDepth();
-    $treeString = '';
-    $count      = 0;                                //Counts the total number of nodes, used to signify whether the tree has content
-    while ($iterator -> valid()) {
-        $scormUnitIds[] = $current['id'];
-        $iterator -> next();
-        if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] == 'change') {
-            if ($current['ctg_type'] == 'scorm') {
-                $toolsString = '<span><a href = "javascript:void(0)" onclick = "convertScorm(this, '.$current['id'].')"><img style = "vertical-align:middle" src = "images/16x16/scorm_to_test.png" title = "'._CONVERTTOSCORMTEST.'" alt = "'._CONVERTTOSCORMTEST.'" border = "0" /></a></span>';
-            } else {
-                $toolsString = '<span><a href = "javascript:void(0)" onclick = "convertScorm(this, '.$current['id'].')"><img style = "vertical-align:middle" src = "images/16x16/test_to_scorm.png" title = "'._CONVERTTOSCORMCONTENT.'" alt = "'._CONVERTTOSCORMCONTENT.'" border = "0" /></a></span>';
+    $loadScripts[] = "includes/scorm";
+        
+    $iterator   = new EfrontSCORMFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));    //Default iterator excludes non-active units
+    $validUnits = array();
+    foreach ($iterator as $value) {
+        if (!$value['scorm_version'] || $value['scorm_version'] == '1.2') {
+            if ($value['ctg_type'] == 'scorm') {
+                $options['custom'][$value['id']] = '<img style = "margin-left:30px" src = "images/16x16/tests.png" alt = "'._CONVERTTOSCORMTEST.'" title = "'._CONVERTTOSCORMTEST.'" onclick = "convertScorm(this, '.$value['id'].')" class = "ajaxHandle"/>';
+            } else if ($value['ctg_type'] == 'scorm_test') {
+                $options['custom'][$value['id']] = '<img style = "margin-left:30px" src = "images/16x16/theory.png" alt = "'._CONVERTTOSCORMTEST.'" title = "'._CONVERTTOSCORMCONTENT.'" onclick = "convertScorm(this, '.$value['id'].')" class = "ajaxHandle"/>';
             }
+            $validUnits[] = $value['id'];
         }
-        $treeString  .= '
-                    <li style = "white-space:nowrap;" class = "'.($current['ctg_type'] == 'scorm' ? 'scorm' : 'scorm_test').'" id = "node'.$current['id'].'" noDrag = "true" noRename = "true" noDelete = "true">
-                        <a class = "treeLink" href = "javascript:void(0)" title = "'.$current['name'].'">'.$current['name']."</a>&nbsp;".$toolsString;
-
-        $iterator -> getDepth() > $depth ? $treeString .= '<ul>' : $treeString .= '</li>';
-        for ($i = $depth; $i > $iterator -> getDepth(); $i--) {
-            $treeString .= '</ul></li>';
-        }
-        $current = $iterator -> current();
-        $depth   = $iterator -> getDepth();
-        $count++;
     }
-
-    if (isset($_GET['set_type']) && isset($_GET['id']) && in_array($_GET['id'], $scormUnitIds)) {        //Set scorm content type through AJAX call
-        $unit = new EfrontUnit($_GET['id']);
-        $_GET['set_type'] == 'scorm' ? $unit['ctg_type'] = 'scorm' : $unit['ctg_type'] = 'scorm_test';
-        $unit -> persist();
-        exit;
-    }
-    //$smarty -> assign("T_SCORM_TREE", $currentContent -> toHTML($iterator, 'dhtmlContentTree', array('expand' => true)));
-    $smarty -> assign("T_SCORM_TREE", $treeString);
-*/    
     
-    $iterator = new EfrontSCORMFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));    //Default iterator excludes non-active units
-    $smarty -> assign("T_SCORM_TREE", $currentContent -> toHTML($iterator));
+    //Set scorm content type through AJAX call
+    if (isset($_GET['set_type']) && isset($_GET['id']) && in_array($_GET['id'], $validUnits)) {  
+        try {            
+            $unit = new EfrontUnit($_GET['id']);
+            $unit['ctg_type'] == 'scorm_test' ? $unit['ctg_type'] = 'scorm' : $unit['ctg_type'] = 'scorm_test';
+            $unit -> persist();
+            echo json_encode(array('id' => $unit['id'], 'ctg_type' => $unit['ctg_type']));
+            exit;
+        } catch (Exception $e) {
+            header("HTTP/1.0 500 ");
+            echo $e -> getMessage().' ('.$e -> getCode().')';
+
+        }
+    }
+            
+    $smarty -> assign("T_SCORM_TREE", $currentContent -> toHTML($iterator, false, $options));
 }
 
 //$scormOptions[] = array('text' => _SCORMEXPORT,       'image' => "32x32/export.png",         'href' => "scorm_export.php?lessons_ID=".$_SESSION['s_lessons_ID'], 'onClick' => "eF_js_showDivPopup('"._SCORMEXPORT."',     2)", 'target' => 'POPUP_FRAME');

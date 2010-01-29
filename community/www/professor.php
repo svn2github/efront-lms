@@ -342,7 +342,7 @@ $smarty -> assign("_admin_", $_admin_);
      if (isset($_GET['folder'])) {
          $basedir = G_CONTENTPATH . $_GET['folder']. "/";
          if (!is_dir($basedir)) {
-             mkdir($basedir);
+             mkdir($basedir, 0755);
          }
      } else {
          $basedir = $currentLesson -> getDirectory();

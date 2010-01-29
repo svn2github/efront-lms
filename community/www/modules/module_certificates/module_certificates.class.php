@@ -259,7 +259,7 @@ class module_certificates extends EfrontModule {
                 if ($form -> isSubmitted() && $form -> validate()) {
                     $certificateDirectory = $this -> moduleBaseDir."templates/";
                     if (!is_dir($certificateDirectory)) {
-                        mkdir($certificateDirectory);
+                        mkdir($certificateDirectory, 0755);
                     }
                     $logoid = 0;
                     try {

@@ -7,6 +7,10 @@
 - Added user configurable random pool option  
 - Added optional prerequisite for php_soap, which is needed by phplivedocx
 - Fixed custom header propagating from 3.5.5 to 3.6.0, even though it's not supported there
+- Fixed user names not displaying in project assignment list
+- Fixed issue with not displaying media list properly in edit theme block
+- Fixed issue with editor link popup window not displaying content list correctly 
+- Security fix for editor browsing popup
  
 
 === Version 3.6.0 build 5751 ===

@@ -1,4 +1,7 @@
-=== Version 3.6.0 build ===
+=== Version 3.6.0 build 5831 ===
+- Added missing scorm.js file in latest build
+
+=== Version 3.6.0 build 5830 ===
 - Installation fixes to better support 3.5.x upgrades (logo, motto, custom blocks)
 - Edition separation in statistics fix
 - Fixed custom footer to replace default

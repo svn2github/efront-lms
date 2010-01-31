@@ -2,6 +2,7 @@
 -- eFront v3.6.0 database creation file
 --
 
+
 --
 -- Table 'bookmarks'
 --

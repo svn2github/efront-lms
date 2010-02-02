@@ -1,3 +1,10 @@
+=== Version 3.6.0 build ===
+- Fixed phplivedocx configuration file creation
+- Fixed upgrading from 3.5.5 not retaining all kinds of custom blocks
+- Fixed community ++ issue where users where archived instead of being deleted
+- Fixed issue with error appearing when deleting users  
+
+
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build
 

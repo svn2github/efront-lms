@@ -362,11 +362,11 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                          }
                          $blocks = unserialize($options['custom_blocks']);
                          foreach ($blocks as $value) {
-                             $value['name'] = time(); //Use the timestamp as name
+                             $value['name'] = rand().time(); //Use a random name
                              $block = array('name' => $value['name'],
                              'title' => $value['title']);
                              file_put_contents($basedir.$value['name'].'.tpl', $value['content']);
-                             sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
+                             isset($customBlocks) && sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
                          }
                          $currentSetTheme = new themes($GLOBALS['configuration']['theme']);
                          $currentSetTheme -> layout['custom_blocks'] = $customBlocks;

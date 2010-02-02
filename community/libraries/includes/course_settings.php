@@ -263,6 +263,7 @@ if ($_GET['op'] == 'course_info') {
     $filenamePdf = G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".pdf";
     file_put_contents(G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".rtf", $certificate);
     $RetValues = file(G_SERVERNAME."phplivedocx/samples/mail-merge/convert/convert-document.php?filename=certificate_".$_GET['user']);
+
     if ($RetValues[0] == "true") {
      header("Content-type: application/pdf");
      header("Content-disposition: inline; filename=$filename");

@@ -41,8 +41,7 @@ header('Content-Type: text/html; charset=utf-8');
 error_reporting( E_ERROR );
 //error_reporting( E_ALL );ini_set("display_errors", true);        //Uncomment this to get a full list of errors
 //Prepend the include path with efront folders
-set_include_path(G_ROOTPATH.'Zend/libraries/'
-                . PATH_SEPARATOR . $path.'../PEAR/'
+set_include_path($path.'../PEAR/'
                 . PATH_SEPARATOR . $path.'includes/'
                 . PATH_SEPARATOR . $path
                 . PATH_SEPARATOR . get_include_path());
@@ -372,10 +371,10 @@ function setupThemes() {
     /** The current theme url*/
     define("G_CURRENTTHEMEURL", !isset($currentTheme -> remote) || !$currentTheme -> remote ? "themes/".$currentThemeName."/" : $currentTheme -> {$currentTheme -> entity}['path']);
     /** The external pages path*/
-    define("G_EXTERNALPATH", trim(G_CURRENTTHEMEPATH, '/')."/external/");
+    define("G_EXTERNALPATH", rtrim(G_CURRENTTHEMEPATH, '/')."/external/");
     is_dir(G_EXTERNALPATH) OR mkdir(G_EXTERNALPATH, 0755);
     /** The external pages link*/
-    define("G_EXTERNALURL", trim(G_CURRENTTHEMEURL, '/')."/external/");
+    define("G_EXTERNALURL", rtrim(G_CURRENTTHEMEURL, '/')."/external/");
     if ($fp = fopen(G_CURRENTTHEMEPATH."css/css_global.css", 'r')) {
         /** The current theme's css*/
         define("G_CURRENTTHEMECSS", G_CURRENTTHEMEURL."css/css_global.css?build=".G_BUILD);

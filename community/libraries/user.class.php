@@ -3121,8 +3121,7 @@ class EfrontStudent extends EfrontLessonUser
         eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users_to_projects", "users_LOGIN='".$this -> user['login']."'");
-        eF_deleteTableData("users_to_done_tests", "users_LOGIN='".$this -> user['login']."'");
-        eF_deleteTableData("users_to_skillgap_tests", "users_LOGIN='".$this -> user['login']."'");
+        //eF_deleteTableData("users_to_done_tests",   "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("completed_tests", "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users_to_groups", "users_LOGIN='".$this -> user['login']."'");
     }

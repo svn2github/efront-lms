@@ -80,11 +80,26 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
         if ($values['reset_license_note']) {
             eF_updateTableData("users", array("viewed_license" => 0), "viewed_license = 1");
         }
+        $phplivedocxConfig = '<?php
+define("PATH_ZF","'.G_ROOTPATH.'Zend/library/'.'");
+define("USERNAME","'.$values['phplivedocx_username'].'");
+define("PASSWORD","'.$values['phplivedocx_password'].'");
+define("PHPLIVEDOCXAPI","'.$values['phplivedocx_server'].'");
+?>';
+        file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
+/*        
+
         $file = file_get_contents($path."phplivedocx_config.php");
+
         $file = preg_replace("/(define\(\"USERNAME\",\").*(\"\);)/", "\${1}".$values['phplivedocx_username'].'$2', $file);
+
         $file = preg_replace("/(define\(\"PASSWORD\",\").*(\"\);)/", "\${1}".$values['phplivedocx_password'].'$2', $file);
+
         $file = preg_replace("/(define\(\"PHPLIVEDOCXAPI\",\").*(\"\);)/", "\${1}".$values['phplivedocx_server'].'$2', $file);
+
         file_put_contents($path."phplivedocx_config.php", $file);
+
+*/
         unset($values['reset_license_note']); //Unset it, since we don't need to store this value to the database
         unset($values['submit_system_variables']);
         foreach ($values as $key => $value) {

@@ -740,12 +740,22 @@ CREATE TABLE themes (
 ) DEFAULT CHARSET=utf8;
 
 
-
+--
+-- Table 'rules'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_LOGIN: student that rule is refered to
+-- content_ID: The unit that rule is refered to
+-- rule_type: type of the rule may be one out of: 'always','hasnot_seen'
+-- rule_content_ID: The unit that rule depends on
+-- rule_option: deprecated
+-- lessons_ID: The lesson that the rule belongs to
 CREATE TABLE rules (
   id mediumint(8) unsigned NOT NULL auto_increment,
   users_LOGIN varchar(100) NOT NULL,
   content_ID mediumint(8) unsigned NOT NULL default '0',
-   rule_type varchar(255) NOT NULL,
+  rule_type varchar(255) NOT NULL,
   rule_content_ID mediumint(8) unsigned default '0',
   rule_option float default '0',
   lessons_ID mediumint(8) unsigned default '0',

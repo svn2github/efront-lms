@@ -24,11 +24,11 @@
                                                      <tr><td colspan = "2">&nbsp;</td></tr>
                                                      <tr><td class = "labelCell">{$smarty.const._SETALLTO}:&nbsp;</td>
                                                          <td class = "elementCell">
-                                                         	<select id = "set_options_selected" onchange = "$('user_type_options').select('select').each(function(s) {ldelim}(s.options.selectedIndex = $('set_options_selected').options.selectedIndex);{rdelim})">
-                                                         		<option>{$smarty.const._CHANGE}</option>
-                                                         		<option>{$smarty.const._VIEW}</option>
-                                                         		<option>{$smarty.const._HIDE}</option>
-                                                         	</select>
+                                                           <select id = "set_options_selected" onchange = "$('user_type_options').select('select').each(function(s)  {ldelim}if (s.id != 'basic_user_type') s.options.selectedIndex = $('set_options_selected').options.selectedIndex; {rdelim});">
+                                                           <option>{$smarty.const._CHANGE}</option>
+                                                           <option>{$smarty.const._VIEW}</option>
+                                                           <option>{$smarty.const._HIDE}</option>
+                                                          </select>
                                                          </td></tr>
                                                      <tr><td></td>
                                                          <td class = "submitCell">{$T_USERTYPES_FORM.submit_type.html}</td></tr>
@@ -46,16 +46,16 @@
 
                         {else}
                             {capture name = 't_roles_code'}
-                            	<script>var activate = '{$smarty.const._ACTIVATE}';var deactivate = '{$smarty.const._DEACTIVATE}';</script>
+                             <script>var activate = '{$smarty.const._ACTIVATE}';var deactivate = '{$smarty.const._DEACTIVATE}';</script>
                                 {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
-			                                <div class = "headerTools">
-			                                    <span>
-			                                        <img src = "images/16x16/add.png" title = "{$smarty.const._NEWUSERTYPE}" alt = "{$smarty.const._NEWUSERTYPE}">
-			                                        <a href = "administrator.php?ctg=user_types&add_user_type=1" title = "{$smarty.const._NEWUSERTYPE}" >{$smarty.const._NEWUSERTYPE}</a>                                                    
-			                                    </span>
-			                                </div>
-			                                
-			                                {assign var = "change_user_types" value = 1}
+                                   <div class = "headerTools">
+                                       <span>
+                                           <img src = "images/16x16/add.png" title = "{$smarty.const._NEWUSERTYPE}" alt = "{$smarty.const._NEWUSERTYPE}">
+                                           <a href = "administrator.php?ctg=user_types&add_user_type=1" title = "{$smarty.const._NEWUSERTYPE}" >{$smarty.const._NEWUSERTYPE}</a>
+                                       </span>
+                                   </div>
+
+                                   {assign var = "change_user_types" value = 1}
                                 {/if}
                                                     <table style = "width:100%" class = "sortedTable" sortBy = "0">
                                                         <tr class = "topTitle">
@@ -69,19 +69,19 @@
                                 {foreach name = 'usertype_list' key = 'key' item = 'type' from = $T_USERTYPES_DATA}
                                                         <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
                                                             <td>
-                                                                <a href = "administrator.php?ctg=user_types&edit_user_type={$type.id}"  class = "editLink">{$type.name}</a>
+                                                                <a href = "administrator.php?ctg=user_types&edit_user_type={$type.id}" class = "editLink">{$type.name}</a>
                                                             </td>
                                                             <td>{$T_BASIC_USER_TYPES[$type.basic_user_type]}</td>
                                                             <td class = "centerAlign">
                                                             {if $type.active == 1}
                                                                 <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $change_user_types}onclick = "activateUserType(this, '{$type.id}')"{/if}>
                                                             {else}
-                                                                <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png"   alt = "{$smarty.const._ACTIVATE}"   title = "{$smarty.const._ACTIVATE}"   {if $change_user_types}onclick = "activateUserType(this, '{$type.id}')"{/if}>
+                                                                <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $change_user_types}onclick = "activateUserType(this, '{$type.id}')"{/if}>
                                                             {/if}
                                                             </td>
                                                         {if $change_user_types}
                                                             <td class = "centerAlign">
-                                                                <a href = "administrator.php?ctg=user_types&edit_user_type={$type.id}"  class = "editLink"><img src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                                                                <a href = "administrator.php?ctg=user_types&edit_user_type={$type.id}" class = "editLink"><img src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
                                                                 {if $type.id != $T_CURRENT_USER->user.user_types_ID}
                                                                     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETEUSERTYPE}')) deleteUserType(this, '{$type.id}');"/>
                                                                 {else}

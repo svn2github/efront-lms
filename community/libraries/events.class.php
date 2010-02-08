@@ -268,6 +268,8 @@ class EfrontEvent
              //EfrontEvent::COURSE_VISITED => array("text" => _COURSE_VISITED, "category" => "courses", "canBeNegated" => _COURSE_NOT_VISITED),
              EfrontEvent::COURSE_REMOVAL => array("text" => _COURSE_REMOVAL, "category" => "courses"),
              EfrontEvent::COURSE_COMPLETION => array("text" => _COURSE_COMPLETION, "category" => "courses", "canBeNegated" => _COURSE_NOT_COMPLETED, "afterEvent" => 1),
+          EfrontEvent::COURSE_CERTIFICATE_ISSUE => array("text" => _CERTIFICATEISSUE, "category" => "courses", "afterEvent" => 1),
+          EfrontEvent::COURSE_CERTIFICATE_REVOKE => array("text" => _CERTIFICATEREVOKE, "category" => "courses"),
              EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC => array("text" => _NEW_POST_FOR_LESSON_TIMELINE_TOPIC, "category" => "social"),
              EfrontEvent::DELETE_POST_FROM_LESSON_TIMELINE => array("text" => _DELETE_POST_FROM_LESSON_TIMELINE, "category" => "social"),
              EfrontEvent::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "lessons"),
@@ -292,9 +294,8 @@ class EfrontEvent
              EfrontEvent::NEW_LESSON_ANNOUNCEMENT => array("text" => _NEWLESSONANNOUNCEMENT, "category" => "news", "priority" => 1),
              EfrontEvent::NEW_ASSIGNMENT_TO_GROUP => array("text" => _GROUPASSIGNMENT, "category" => "groups"),
              EfrontEvent::REMOVAL_FROM_GROUP => array("text" => _REMOVALFROMGROUP, "category" => "groups"),
-             EfrontEvent::NEW_SURVEY => array("text" => _NEWSURVEY, "category" => "survey", "afterEvent" => 1),
-          EfrontEvent::COURSE_CERTIFICATE_ISSUE => array("text" => _CERTIFICATEISSUE, "category" => "certificate", "afterEvent" => 1),
-          EfrontEvent::COURSE_CERTIFICATE_REVOKE => array("text" => _CERTIFICATEREVOKE, "category" => "certificate", "afterEvent" => 1));
+             EfrontEvent::NEW_SURVEY => array("text" => _NEWSURVEY, "category" => "survey", "afterEvent" => 1)
+          );
 //2222222222222222222222222
      return $system_events;
     }
@@ -762,6 +763,10 @@ class EfrontEvent
          $event_notification['recipient'] = "";
         } else if ($event_notification['send_recipients'] == EfrontNotification::LESSONPROFESSORS) {
          $event_notification['send_conditions'] = serialize(array("lessons_ID" => $this -> event['lessons_ID'],
+                        "user_type" => "professor"));
+         $event_notification['recipient'] = "";
+        } else if ($event_notification['send_recipients'] == EfrontNotification::COURSEPROFESSORS) {
+         $event_notification['send_conditions'] = serialize(array("courses_ID" => $this -> event['lessons_ID'],
                         "user_type" => "professor"));
          $event_notification['recipient'] = "";
         } else if ($event_notification['send_recipients'] == EfrontNotification::LESSONUSERSNOTCOMPLETED) {

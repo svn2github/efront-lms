@@ -79,6 +79,7 @@ class EfrontNotification
  const LESSONPROFESSORS = 5; // the professors of a lesson
  const SYSTEMADMINISTRATOR = 6; // system administrator
  const LESSONUSERSNOTCOMPLETED = 7; // all users that haven't completed the lesson
+ const COURSEPROFESSORS = 8; // all course professors
     /**
 
      * The notification variable
@@ -568,8 +569,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
             $users_to_notify = eF_getTableData("projects JOIN lessons ON lessons.id = projects.lessons_ID", "projects.lessons_ID, lessons.name as lessons_name, ". $timestamp_column ." as timestamp, projects.id as entity_ID, projects.title as entity_name", $extra_condition . $timestamp_column . "> " . $timediff);
         } else if (EfrontEvent::COURSE_ACQUISITION_AS_STUDENT == $event_notification['event_type'] ||
                    EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR == $event_notification['event_type'] ||
-                   EfrontEvent::COURSE_COMPLETION == abs($event_notification['event_type'])
-                   ) {
+                   EfrontEvent::COURSE_COMPLETION == abs($event_notification['event_type'])) {
             $conditions = unserialize($event_notification['send_conditions']);
             $extra_condition = "";
             if (EfrontEvent::COURSE_ACQUISITION_AS_STUDENT == $event_notification['event_type']) {
@@ -578,7 +578,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
             } else if (EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR == $event_notification['event_type']) {
                 $extra_condition = "users_to_courses.user_type = 'professor' AND ";
                 $timestamp_column = "users_to_courses.from_timestamp";
-            } else if (EfrontEvent::COURSE_COMPLETION == $event_notification['event_type']) {
+            } else if (EfrontEvent::COURSE_COMPLETION == $event_notification['event_type'] || EfrontEvent::COURSE_CERTIFICATE_ISSUE == $event_notification['event_type']) {
                 $extra_condition = "users_to_courses.completed = '1' AND ";
                 $timestamp_column = "users_to_courses.to_timestamp";
             } else if (EfrontEvent::COURSE_COMPLETION == (-1) * $event_notification['event_type']) {
@@ -589,6 +589,16 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
                 $extra_condition .= " courses.id = " . $conditions['courses_ID'] . " AND ";
             }
             $users_to_notify = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
+  } else if (EfrontEvent::COURSE_CERTIFICATE_ISSUE == $event_notification['event_type']) {
+   $users_result = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, users_to_courses.issued_certificate", "users_to_courses.completed = '1' AND users_to_courses.issued_certificate <> ''");
+      $users_to_notify = array();
+            foreach ($users_result as $key => $user) {
+             $certificate = unserialize($user['issued_certificate']);
+             if ($certificate['date'] > $timediff) {
+              $user['timestamp'] = $certificate['date'];
+              $users_to_notify[] = $user;
+             }
+            }
         } else if (EfrontEvent::COURSE_VISITED == abs($event_notification['event_type'])) {
             $conditions = unserialize($event_notification['send_conditions']);
             if ($conditions['courses_ID'] != 0) {
@@ -802,7 +812,10 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         $recipients_list[$recipient['login']] = $recipient;
        }
    } else {
-    $this -> notification['send_conditions']= unserialize($this -> notification['send_conditions']);
+    // the send_conditions field contains the information which identify the recipients 
+    // it is defined in ....
+    //digests.php during the definition of the event notification
+    $this -> notification['send_conditions'] = unserialize($this -> notification['send_conditions']);
     //echo $this -> notification['send_conditions'];
     //pr($this -> notification['send_conditions']);
        if (is_array($this -> notification['send_conditions'])) {
@@ -822,8 +835,10 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
           $recipients = $lesson -> getUsers();
          }
         } else if (isset($this -> recipients["courses_ID"])) {
-         ////pr($this->recipients);
-         if ($this -> recipients['completed'] == "1") {
+         //pr($this->recipients);
+         if ($this -> recipients['user_type'] == "professor") {
+       $completed_condition = " AND uc.user_type = 'professor'";
+         } else if ($this -> recipients['completed'] == "1") {
           $completed_condition = " AND completed = '1'";
          } else {
           $completed_condition = "";
@@ -1192,6 +1207,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     $event_notification_recipients = _LESSONPROFESSORS;
    } else if ($notification['send_recipients'] == EfrontNotification::LESSONUSERSNOTCOMPLETED) {
        $event_notification_recipients = _LESSONUSERSNOTCOMPLETED;
+   } else if ($notification['send_recipients'] == EfrontNotification::COURSEPROFESSORS) {
+    $event_notification_recipients = _COURSEPROFESSORS;;
       } else {
     $event_notification_recipients = "";
       }

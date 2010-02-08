@@ -216,7 +216,7 @@ $loadScripts[] = "administrator/digests";
         $load_editor = true;
         $form -> addElement('textarea', 'message', _BODY, 'class = "digestEditor" id="messageBody" onActivate="myActiveElement=\'\';" style = "width:100%;height:200px"');
         // Get available lessons
-        $lessons = eF_getTableDataFlat("lessons", "id,name", "", "name");
+        $lessons = eF_getTableDataFlat("lessons", "id,name", "archive=0", "name");
         sizeof($lessons) > 0 ? $av_lessons = array_combine(array_merge(array("0"), $lessons['id']), array_merge(array(_ANYLESSON), $lessons['name'])): $av_lessons = array(0 => _ANYLESSON);
         sizeof($lessons) > 0 ? $lessons = array_combine($lessons['id'], $lessons['name']) : $lessons = array();
         // Get available courses
@@ -265,6 +265,7 @@ $loadScripts[] = "administrator/digests";
         sizeof($units) > 0 ? $units = array_merge(array("0" => _ANYUNIT) , array_combine($units['id'], $units['name'])) : $units = array("0" => _ANYUNIT);
 
         */
+
 
 
 
@@ -320,9 +321,12 @@ $loadScripts[] = "administrator/digests";
                                         EfrontNotification::SYSTEMADMINISTRATOR => _SYSTEMADMINISTRATOR,
                                         EfrontNotification::EXPLICITLYSEL => _EXPLICITLYSELECTED);
         $smarty -> assign("T_BASIC_EVENT_RECIPIENTS" , sizeof($basic_event_recipients));
+
         if ($_GET['edit_notification'] && $_GET['event'] == "1") {
             // $mode variable set before
-            if ($mode != "system") {
+            if ($mode == "courses") {
+             $basic_event_recipients[EfrontNotification::COURSEPROFESSORS] = _COURSEPROFESSORS;
+            } else if ($mode != "system") {
                 $basic_event_recipients[EfrontNotification::ALLLESSONUSERS] = _ALLLESSONUSERS;
                 $basic_event_recipients[EfrontNotification::LESSONUSERSNOTCOMPLETED] = _LESSONUSERSNOTCOMPLETED;
                 $basic_event_recipients[EfrontNotification::LESSONPROFESSORS] = _LESSONPROFESSORS;
@@ -330,6 +334,8 @@ $loadScripts[] = "administrator/digests";
         }
 
         $smarty -> assign("T_LESSON_EVENT_RECIPIENTS",array( "alllesson" => EfrontNotification::ALLLESSONUSERS, "lessonprof" => EfrontNotification::LESSONPROFESSORS, "lessonnotcompleted" => EfrontNotification::LESSONUSERSNOTCOMPLETED));
+        $smarty -> assign("T_COURSE_EVENT_RECIPIENTS",array( "courseprof" => EfrontNotification::COURSEPROFESSORS));
+
         $form -> addElement('select', 'event_recipients', _RECIPIENTS, $basic_event_recipients, 'class="inputSelectMed" id = "event_recipients"');
 
         $form -> addElement('advcheckbox', 'send_immediately', _SENDIMMEDIATELY, null, 'class = "inputCheckbox" id="send_immediately"');
@@ -783,9 +789,13 @@ $loadScripts[] = "administrator/digests";
                         } else if (isset($sending_queue_msg['send_conditions']['courses_ID'])) {
                             if ($sending_queue_msg['send_conditions']['courses_ID'] != 0) {
                                 $course = new EfrontCourse($sending_queue_msg['send_conditions']['courses_ID']);
-                                $sending_queue_msgs[$key]['recipients'] = _COURSE . ": " . $course -> course['name'];
-                                if (isset($sending_queue_msg['send_conditions']['completed'])) {
-                                    $sending_queue_msgs[$key]['recipients'] .= " " . _COMPLETED;
+                                if (isset($sending_queue_msg['send_conditions']['user_type'])) {
+                                 $sending_queue_msgs[$key]['recipients'] = _PROFESSORSOFCOURSE . ": " . $course -> course['name'];
+                                } else {
+                                 $sending_queue_msgs[$key]['recipients'] = _COURSE . ": " . $course -> course['name'];
+                                 if (isset($sending_queue_msg['send_conditions']['completed'])) {
+                                     $sending_queue_msgs[$key]['recipients'] .= " " . _COMPLETED;
+                                 }
                                 }
                             } else {
                                 $sending_queue_msgs[$key]['recipients'] = _ANYCOURSE;
@@ -902,6 +912,7 @@ $loadScripts[] = "administrator/digests";
 
                 // recipients
                 $notification['send_conditions'] = unserialize($notification['send_conditions']);
+
                 if (isset($notification['send_conditions']['lessons_ID'])) {
                     if ($notification['send_conditions']['lessons_ID'] != 0) {
                         $lesson = new EfrontLesson($notification['send_conditions']['lessons_ID']);
@@ -941,12 +952,19 @@ $loadScripts[] = "administrator/digests";
                         $notifications[$key]['recipients'] = _ANYCOURSE;
                     }
                 } else if (isset($notification['send_conditions']['courses_ID'])) {
+
                     if ($notification['send_conditions']['courses_ID'] != 0) {
                         $course = new EfrontCourse($notification['send_conditions']['courses_ID']);
-                        $notifications[$key]['recipients'] = _COURSE . ": " . $course -> course['name'];
 
-                        if (isset($notification['send_conditions']['completed'])) {
-                            $notifications[$key]['recipients'] .= " " . _COMPLETED;
+                        if (isset($notification['send_conditions']['user_type'])) {
+                         $notifications[$key]['recipients'] = _PROFESSORSOFCOURSE . ": " . $course -> course['name'];
+                        } else {
+
+                         $notifications[$key]['recipients'] .= _COURSE . ": " . $course -> course['name'];
+
+                         if (isset($notification['send_conditions']['completed'])) {
+                             $notifications[$key]['recipients'] .= " " . _COMPLETED;
+                         }
                         }
                     } else {
                         $notifications[$key]['recipients'] = _ANYCOURSE;

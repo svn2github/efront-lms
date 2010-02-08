@@ -299,8 +299,6 @@
             <td class = "elementCell">{$T_DISABLE_VARIABLES_FORM.disable_glossary.html}</td></tr>
   <tr><td class = "labelCell">{$smarty.const._CALENDAR}:&nbsp;</td>
             <td class = "elementCell">{$T_DISABLE_VARIABLES_FORM.disable_calendar.html}</td></tr>
-  <tr><td class = "labelCell">{$smarty.const._SURVEYS}:&nbsp;</td>
-            <td class = "elementCell">{$T_DISABLE_VARIABLES_FORM.disable_surveys.html}</td></tr>
   <tr><td class = "labelCell">{$smarty.const._ANNOUNCEMENTS}:&nbsp;</td>
             <td class = "elementCell">{$T_DISABLE_VARIABLES_FORM.disable_news.html}</td></tr>
   <tr><td class = "labelCell">{$smarty.const._MESSAGES}:&nbsp;</td>

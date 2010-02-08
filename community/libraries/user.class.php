@@ -1237,6 +1237,20 @@ abstract class EfrontUser
         eF_updateTableData("files", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("f_folders", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("f_personal_messages", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("bookmarks", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("comments", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("f_users_to_polls", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("logs", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("rules", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("users_online", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("users_to_surveys", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("users_to_done_surveys", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("survey_questions_done", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("lessons_timeline_topics_data", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("events", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("profile_comments", "users_LOGIN='".$this -> user['login']."'");
+  //This line was in EfrontProfessor and EfrontStudent without an obvious reason. Admins may also be members of groups
+  eF_deleteTableData("users_to_groups", "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users", "login='".$this -> user['login']."'");
         eF_deleteTableData("notifications", "recipient='".$this -> user['login']."'");
         EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_REMOVAL, "users_LOGIN" => $this -> user['login'], "users_name" => $this -> user['name'], "users_surname" => $this -> user['surname']));
@@ -3064,11 +3078,8 @@ class EfrontProfessor extends EfrontLessonUser
      */
     public function delete() {
         parent :: delete();
-        eF_updateTableData("rules", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
-        eF_deleteTableData("users_to_groups", "users_LOGIN='".$this -> user['login']."'");
-        eF_deleteTableData("users_to_groups", "users_LOGIN='".$this -> user['login']."'");
     }
 }
 /**
@@ -3123,7 +3134,6 @@ class EfrontStudent extends EfrontLessonUser
         eF_deleteTableData("users_to_projects", "users_LOGIN='".$this -> user['login']."'");
         //eF_deleteTableData("users_to_done_tests",   "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("completed_tests", "users_LOGIN='".$this -> user['login']."'");
-        eF_deleteTableData("users_to_groups", "users_LOGIN='".$this -> user['login']."'");
     }
     /**
 

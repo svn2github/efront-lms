@@ -1,84 +1,110 @@
-<?php 
+<?php
 /**
- * 
- */
 
+ * 
+
+ */
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
-
 /**
+
  * 
+
  * @author user
+
  *
+
  */
 class EfrontThemesException extends Exception
 {
     const ALREADY_EXISTS = 1201;
-    const THEME_LOCKED   = 1202;
+    const THEME_LOCKED = 1202;
 }
-
 /**
+
  * 
+
  * @author user
+
  *
+
  */
 class themes extends EfrontEntity
 {
     /**
+
      * 
+
      * @var unknown_type
+
      */
     public $options = array();
     /**
+
      * 
+
      * @var unknown_type
+
      */
-    public $layout  = array();
+    public $layout = array();
     /**
+
      * 
+
      * @var unknown_type
+
      */
     public $directory = false;
-
-    
-    public static $browsers = array('ie'     => 'Internet Explorer',
-		                            'ie6'    => 'Internet Explorer 6',
-		                            'firefox'=> 'Mozilla Firefox',
-		                            'safari' => 'Apple Safari',
-		                            'chrome' => 'Google Chrome',
-		                            'opera'  => 'Opera',
-		                            'mobile' => _MOBILECLIENT);
+    public static $browsers = array('ie' => 'Internet Explorer',
+                              'ie6' => 'Internet Explorer 6',
+                              'firefox'=> 'Mozilla Firefox',
+                              'safari' => 'Apple Safari',
+                              'chrome' => 'Google Chrome',
+                              'opera' => 'Opera',
+                              'mobile' => _MOBILECLIENT);
     /**
+
      * 
+
      * @param $param
+
      * @return unknown_type
+
      */
     public function __construct($param) {
         //Special handling in case we are instantiating with string (name) instead of id
         if (!eF_checkParameter($param, 'id') && eF_checkParameter($param, 'alnum_general')) {
-	        $result = eF_getTableData("themes", "id", "name='".$param."'");
-	        if (sizeof($result) == 0) {
-	            throw new EfrontEntityException(_ENTITYNOTFOUND.': '.htmlspecialchars($param), EfrontEntityException :: ENTITY_NOT_EXIST);
-	        }
-	        $param = $result[0]['id'];
-        } 
+         $result = eF_getTableData("themes", "id", "name='".$param."'");
+         if (sizeof($result) == 0) {
+             throw new EfrontEntityException(_ENTITYNOTFOUND.': '.htmlspecialchars($param), EfrontEntityException :: ENTITY_NOT_EXIST);
+         }
+         $param = $result[0]['id'];
+        }
         parent :: __construct($param);
-
         if (strpos($this -> {$this -> entity}['path'], 'http') === 0) {
             $this -> remote = 1;
         }
 /*        
+
         //Check whether this is a remote theme
+
         if (!is_dir($this -> {$this -> entity}['path']) && !is_file($this -> {$this -> entity}['path'])) {
+
             if (!fopen($this -> {$this -> entity}['path'].'theme.xml', 'r')) {
+
                 throw new EfrontEntityException(_ENTITYNOTFOUND.': '.htmlspecialchars($this -> {$this -> entity}['path']), EfrontEntityException :: ENTITY_NOT_EXIST);
+
             } else {
+
                 $this -> remote = 1;
+
             }
+
         }            
-*/        
+
+*/
         $this -> options = unserialize($this -> {$this -> entity}['options']);
         if (!$this -> options) {
             $this -> options = array();
@@ -107,27 +133,28 @@ class themes extends EfrontEntity
         } catch (Exception $e) {
             $this -> options['favicon'] = false;
         }
-
     }
-    
     /**
+
      * (non-PHPdoc)
+
      * @see libraries/EfrontEntity#getForm($form)
+
      */
     public function getForm($form) {
         //$system_form = new HTML_QuickForm("customization_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&tab=customization", "", null, true);
-		$form -> addElement('file', 'theme_file', _UPLOADTHEMEFILEZIPFORMAT);
-		$form -> addElement('text', 'remote_theme', _ORSPECIFYREMOTETHEME, 'class = "inputText"');
-		$form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024);
-        
-		$form -> addElement("submit", "submit_theme", _INSTALL, 'class = "flatButton"');
-
-		return $form;
+  $form -> addElement('file', 'theme_file', _UPLOADTHEMEFILEZIPFORMAT);
+  $form -> addElement('text', 'remote_theme', _ORSPECIFYREMOTETHEME, 'class = "inputText"');
+  $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024);
+  $form -> addElement("submit", "submit_theme", _INSTALL, 'class = "flatButton"');
+  return $form;
     }
-    
     /**
+
      * (non-PHPdoc)
+
      * @see libraries/EfrontEntity#handleForm($form)
+
      */
     public function handleForm($form) {
         if ($form -> exportValue('remote_theme')) {
@@ -136,62 +163,72 @@ class themes extends EfrontEntity
                 throw new EfrontFileException(_FILEDOESNOTEXIST.': '.$file, EfrontFileException :: FILE_NOT_EXIST);
             }
         } else {
-	        try {
-	            $filesystem = new FileSystemTree(G_THEMESPATH, true);
-				$themeFile = $filesystem -> uploadFile('theme_file', G_THEMESPATH);
-				$themeFile -> uncompress(false);
-				//$pathInfo = pathinfo($themeFile['path']);
-				//copy(G_DEFAULTTHEMEPATH.'css/css_global.php', $pathInfo['dirname'].'/'.$pathInfo['filename'].'/css/css_global.php');
-				$themeFile -> delete();
-				
+         try {
+             $filesystem = new FileSystemTree(G_THEMESPATH, true);
+    $themeFile = $filesystem -> uploadFile('theme_file', G_THEMESPATH);
+    $themeFile -> uncompress(false);
+    //$pathInfo = pathinfo($themeFile['path']);
+    //copy(G_DEFAULTTHEMEPATH.'css/css_global.php', $pathInfo['dirname'].'/'.$pathInfo['filename'].'/css/css_global.php');
+    $themeFile -> delete();
                 $file = new EfrontFile($themeFile['directory'].'/'.str_replace('.zip', '', $themeFile['name'])."/theme.xml");
-	        } catch (EfrontFileException $e) {
-	            //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
-	            if ($e -> getCode() != 4) {
-	                throw $e;
-	            }
-	        }
+         } catch (EfrontFileException $e) {
+             //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
+             if ($e -> getCode() != 4) {
+                 throw $e;
+             }
+         }
         }
         if ($file) {
-	        $xmlValues = themes::parseFile($file);
-	        if ($_GET['add']) {
-	            $theme = self :: create($xmlValues);
-	        }
-	         /*
+         $xmlValues = themes::parseFile($file);
+         if ($_GET['add']) {
+             $theme = self :: create($xmlValues);
+         }
+          /*
+
 	        else {
+
 	            $this -> options = array_merge($this -> options, $xmlValues);
+
 	            $this -> layout  = 
+
 	            $this -> persist();
+
 	        }
+
 	        */
         }
-         
         //$smarty -> assign("T_RELOAD_ALL", 1);
     }
-    
     /**
+
      * (non-PHPdoc)
+
      * @see libraries/EfrontEntity#persist()
+
      */
     public function persist() {
         $this -> {$this -> entity}['options'] = serialize($this -> options);
-        $this -> {$this -> entity}['layout']  = serialize($this -> layout);
+        $this -> {$this -> entity}['layout'] = serialize($this -> layout);
         parent :: persist();
     }
-    
     /**
+
      * (non-PHPdoc)
+
      * @see libraries/EfrontEntity#delete()
+
      */
     public function delete() {
         $directory = new EfrontDirectory(G_THEMESPATH.$this -> {$this -> entity}['path']);
         $directory -> delete();
-        eF_deleteTableData($this -> entity, "id=".$this -> {$this -> entity}['id']);        
+        eF_deleteTableData($this -> entity, "id=".$this -> {$this -> entity}['id']);
     }
-     
     /**
+
      * 
+
      * @return unknown_type
+
      */
     public function applySettings($mode = false) {
         $file = G_THEMESPATH.$this -> {$this -> entity}['path'].'theme.xml';
@@ -203,43 +240,46 @@ class themes extends EfrontEntity
             $fields['options']['favicon'] = $fields['path'].'images/favicon.png';
         }
         $fields = self :: validateFields($fields);
-        
         if ($mode == 'layout') {
             eF_updateTableData($this -> entity, array('layout' => $fields['layout']), "id=".$this -> {$this -> entity}['id']);
         } else {
             eF_updateTableData($this -> entity, $fields, "id=".$this -> {$this -> entity}['id']);
         }
     }
-
     /**
+
      * 
+
      * @return unknown_type
+
      */
     public function export() {
         if (!$this -> remote) {
-            $directory = new EfrontDirectory($this -> {$this -> entity}['path']);
+            $directory = new EfrontDirectory(G_THEMESPATH.$this -> {$this -> entity}['path']);
             $file = $directory -> compress();
             //pr($file);
         }
         return $file;
     }
-    
     /**
+
      * 
+
      * @param $fields
+
      * @return unknown_type
+
      */
     public static function validateFields($fields) {
         //Check validity of parameters        
         if (!isset($fields['name']) || !eF_checkParameter($fields['name'], 'alnum_general')) {
             throw new Exception(_INVALIDNAME, EfrontEntityException :: INVALID_PARAMETER);
         }
-        
         if (!isset($fields['options'])) {
             $fields['options'] = array();
         }
         //!isset($fields['active']) ? $fields['active'] = 1 : null;        
-        if (!isset($fields['options']['sidebar_width']) || $fields['options']['sidebar_width'] < 50 || $fields['options']['sidebar_width'] > 500)  {
+        if (!isset($fields['options']['sidebar_width']) || $fields['options']['sidebar_width'] < 50 || $fields['options']['sidebar_width'] > 500) {
             $fields['options']['sidebar_width'] = 175;
         }
         if (!isset($fields['options']['sidebar_interface']) || !in_array($fields['options']['sidebar_interface'], array(0, 1, 2))) {
@@ -265,7 +305,7 @@ class themes extends EfrontEntity
         }
         if (!isset($fields['layout']['positions']['leftList'])) {
             $fields['layout']['positions']['leftList'] = array();
-        } else if (isset($fields['layout']['positions']['leftList']) && !is_array($fields['layout']['positions']['leftList'])) {            
+        } else if (isset($fields['layout']['positions']['leftList']) && !is_array($fields['layout']['positions']['leftList'])) {
             $fields['layout']['positions']['leftList'] = array($fields['layout']['positions']['leftList']);
         }
         if (!isset($fields['layout']['positions']['centerList'])) {
@@ -278,18 +318,20 @@ class themes extends EfrontEntity
         } else if (isset($fields['layout']['positions']['rightList']) && !is_array($fields['layout']['positions']['rightList'])) {
             $fields['layout']['positions']['rightList'] = array($fields['layout']['positions']['rightList']);
         }
-        
         //$fields['layout']['positions']['layout'] = $fields['layout']['selected_layout'];
 //pr($fields);exit;        
-        $fields['options'] = serialize($fields['options']);  
-        $fields['layout']  = serialize($fields['layout']);
-        
+        $fields['options'] = serialize($fields['options']);
+        $fields['layout'] = serialize($fields['layout']);
         return $fields;
     }
     /**
+
      * 
+
      * @param $fields
+
      * @return unknown_type
+
      */
     public static function create($fields = array()) {
         if (is_file(G_THEMESPATH.$fields['path'].'images/logo.png')) {
@@ -298,63 +340,59 @@ class themes extends EfrontEntity
         if (is_file(G_THEMESPATH.$fields['path'].'images/favicon.png')) {
             $fields['options']['favicon'] = $fields['path'].'images/favicon.png';
         }
-        
         $fields = self :: validateFields($fields);
-        
         $result = eF_getTableDataFlat("themes", "name");
         if (in_array($fields['name'], $result['name'])) {
             throw new Exception(_THEMEALREADYEXISTS, EfrontThemesException :: ALREADY_EXISTS);
         }
-        
         $id = eF_insertTableData("themes", $fields);
-        
         $newTheme = new themes($id);
         return $newTheme;
     }
-
     /**
+
      * 
+
      * @param $file
+
      * @return unknown_type
+
      */
-    public static function parseFile($file) {        
+    public static function parseFile($file) {
         if ($file instanceof EfrontFile) {
             $file = $file['path'];
-        }        
-        
+        }
         $xml = new SimpleXMLIterator(file_get_contents($file));
-        
         //Remove comment nodes        
         foreach (new RecursiveIteratorIterator($xml, RecursiveIteratorIterator :: SELF_FIRST) as $key => $value) {
             unset($value->comment);
         }
-        $fields = array('name'    => (string)$xml -> name ? (string)$xml -> name: basename($file),
-                		'title'   => (string)$xml -> title,
-        				'version' => (string)$xml -> version,
-	            		'author'  => (string)$xml -> author,
-                        'path'	  => str_replace(G_THEMESPATH, "", str_replace("\\", "/", dirname($file)).'/'),
-	            		'description'  => (string)$xml -> description,
-			    		'options' => (array)$xml -> options,
-                        'layout'  => array('positions'   => (array)$xml -> layout -> positions));
-        
+        $fields = array('name' => (string)$xml -> name ? (string)$xml -> name: basename($file),
+                  'title' => (string)$xml -> title,
+            'version' => (string)$xml -> version,
+               'author' => (string)$xml -> author,
+                        'path' => str_replace(G_THEMESPATH, "", str_replace("\\", "/", dirname($file)).'/'),
+               'description' => (string)$xml -> description,
+         'options' => (array)$xml -> options,
+                        'layout' => array('positions' => (array)$xml -> layout -> positions));
         return $fields;
     }
-    
     /**
+
      * 
+
      * @return unknown_type
+
      */
     public static function getAll() {
         $themes = parent :: getAll("themes", false);
         foreach ($themes as $key => $value) {
-	        unserialize($value['options']) ? $themes[$key]['options'] = unserialize($value['options']) : $themes[$key]['options'] = array();
+         unserialize($value['options']) ? $themes[$key]['options'] = unserialize($value['options']) : $themes[$key]['options'] = array();
             if (strpos($value['path'], 'http') === 0) {
-	            $themes[$key]['remote'] = 1;
-	        }
+             $themes[$key]['remote'] = 1;
+         }
         }
-        
         return $themes;
     }
 }
-
 ?>

@@ -68,6 +68,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addElement('text', 'pdf_content', _CURRENTPDFFILE, 'class = "inputText inactive" readonly');
      $form -> addElement('textarea', 'data', _CONTENT, 'id = "editor_content_data" class = "inputContentTextarea mceEditor" style = "width:100%;height:50em;"'); //The unit content itself
      $form -> addElement('advcheckbox', 'hide_complete_unit', _HIDECOMPLETEUNITICON, null, 'class = "inputCheckbox"', array(0, 1));
+     $form -> addElement('advcheckbox', 'auto_complete', _AUTOCOMPLETE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'indexed', _DIRECTLYACCESSIBLE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'maximize_viewport', _MAXIMIZEVIEWABLEAREA, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'no_before_unload', _NOBEFOREUPLOAD, null, 'class = "inputCheckbox"', array(0, 1));
@@ -157,7 +158,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          }
 
          $options = serialize(array('hide_complete_unit' => $values['hide_complete_unit'],
-                                    'hide_navigation' => $values['hide_navigation'],
+                                    'auto_complete' => $values['auto_complete'],
+                  'hide_navigation' => $values['hide_navigation'],
                                     'indexed' => $values['indexed'],
             'maximize_viewport' => $values['maximize_viewport'],
                                     'no_before_unload' => $values['no_before_unload'],
@@ -254,6 +256,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         $treeOptions = array('truncateNames' => 25, 'selectedNode' => $currentUnit['id']);
         //$_professor_ ? $treeOptions['edit'] = 1 : $treeOptions['edit'] = 0;
         if ($_student_) {
+            if ($_change_ && $currentLesson -> options['tracking'] && $currentUnit['options']['auto_complete']) {
+                $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
+                $currentContent -> markSeenNodes($currentUser);
+            }
             //This is an iterator with only valid units plus empty units, and is used for the navigation tree
             $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML(new EfrontVisitableAndEmptyFilterIterator($visitableIterator), 'dhtmlContentTree', $treeOptions, $scormState));
             //This is an iterator with only valid units, and is used for students to navigate back and forth
@@ -315,6 +321,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         }
         $ruleCheck = true;
         if ($_student_ && $_change_ && $currentLesson -> options['tracking']) {
+            //$currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
+            //$currentContent -> markSeenNodes($currentUser);
             $userProgress = EfrontStats :: getUsersLessonStatus($currentLesson, $currentUser -> user['login']);
             $userProgress = $userProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']];
             $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $currentUser -> user['login']);

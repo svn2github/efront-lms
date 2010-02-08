@@ -44,6 +44,6 @@ define("_MODULE_QUESTIONS_WRONGINPUTFILETYPE","Wrong input file type");
 define("_MODULE_QUESTIONS_REPORTALREADYEXISTINGQUESTIONS","Report already existing questions");
 define("_MODULE_QUESTIONS_QUESTIONREPLACEDPREVIOUSEXISTING","Question replaced previous existing one with the same text");
 define("_MODULE_QUESTIONS_PLEASESELECTALESSON","Please select a lesson");
-
+define("_MODULE_QUESTIONS_NOQUESTIONSWEREINSERTED","No questions were inserted");
 
 ?>

@@ -151,7 +151,7 @@ try {
         $form -> addRule('name', _THEFIELD.' '._TYPENAME.' '._ISMANDATORY, 'required', null, 'client');
         //$form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
         //$form -> addRule('name', _USERTYPE.' &quot;'.($form -> exportValue('name')).'&quot; '._ALREADYEXISTS, 'checkNotExist', 'user_type');
-        $form -> addElement('select', 'basic_user_type', _BASICUSERTYPE, $basicTypes, 'class = "inputSelect" onchange = "location = \'administrator.php?ctg=user_types&'.$postTarget.'&basic_type=\'+this.options[this.selectedIndex].value+\'&name=\'+document.getElementsByName(\'name\')[0].value"');
+        $form -> addElement('select', 'basic_user_type', _BASICUSERTYPE, $basicTypes, 'id="basic_user_type" class = "inputSelect" onchange = "location = \'administrator.php?ctg=user_types&'.$postTarget.'&basic_type=\'+this.options[this.selectedIndex].value+\'&name=\'+document.getElementsByName(\'name\')[0].value"');
         foreach ($options as $key => $value){
             $form -> addElement("select", "core_access[$key]", $value, array('change' => _CHANGE, 'view' => _VIEW, 'hidden' => _HIDE));
         }

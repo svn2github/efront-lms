@@ -30,7 +30,7 @@ C:\efront\upload
 C:\efront\www
 C:\efront\Zend
 2. If you don't have already a working Apache/Mysql/PHP environment, download and install XAMPP for Windows, from http://www.apachefriends.org/en/xampp-windows.html 
-3. After installing XAMPP, you must edit the file c:\xampp\apache\conf\httpd.conf (with any text editor, like Notepad) 
+3. After installing XAMPP, you must edit the file c:\xampp\apache\conf\httpd.conf (with any text editor, like Notepad)
 and perform the following chages:
    - Change the line where it says:
      DocumentRoot "C:/xampp/htdocs"
@@ -40,7 +40,7 @@ and perform the following chages:
      <Directory "C:/xampp/htdocs">
      to:
      <Directory "C:/efront/www">
-4. Using the XAMPP control panel (or manually) restart Apache service     
+4. Using the XAMPP control panel (or manually) restart Apache service
 
 
 Setup a working environment (Linux)
@@ -53,7 +53,7 @@ Setup a working environment (Linux)
 /opt/lampp/efront/www
 /opt/lampp/efront/Zend
 2. If you don't have already a working Apache/Mysql/PHP environment, download and install XAMPP for Linux, from http://www.apachefriends.org/en/xampp-linux.html 
-3. After installing XAMPP, you must edit the file /opt/lampp/etc/httpd.conf (with any text editor) 
+3. After installing XAMPP, you must edit the file /opt/lampp/etc/httpd.conf (with any text editor)
 and perform the following chages:
    - Change the line where it says:
      DocumentRoot "/opt/lampp/htdocs/"
@@ -63,52 +63,52 @@ and perform the following chages:
      <Directory "/opt/lampp/htdocs">
      to:
      <Directory "/opt/lampp/efront/www">
-4. Using the XAMPP control panel (or manually) restart Apache service     
+4. Using the XAMPP control panel (or manually) restart Apache service
 
-Note: Several directories should be writable by the web server, but the most important is libraries/smarty, 
+Note: Several directories should be writable by the web server, but the most important is libraries/smarty,
 since it is needed in order to perform installation
 
 Troubleshooting
 ===============
 1. One or more red "forbidden" icons appear in step 1 of Installation, at the "Mandatory PHP extesions" section (usually the ZIP extension)
-	This means that a mandatory PHP extension is missing. These extensions are needed by efront to function correctly, and are all default
-	in PHP 5.2+ installations. If you are on a hosted environment, then ask your hosting provider to install them. If you are on a local windows
-	environment, then visit www.php.net and download the corresponding .dll file, which you should place inside PHP's ext/ folder. If you 
-	are on a linux environment, running "pecl install <extension name>" should do the job
+ This means that a mandatory PHP extension is missing. These extensions are needed by efront to function correctly, and are all default
+ in PHP 5.2+ installations. If you are on a hosted environment, then ask your hosting provider to install them. If you are on a local windows
+ environment, then visit www.php.net and download the corresponding .dll file, which you should place inside PHP's ext/ folder. If you 
+ are on a 1 environment, running "pecl install <extension name>" should do the job
 2. One or more red "forbidden" icons appear in step 1 of Installation, at the "Mandatory PHP Settings" section (usually the magic_quotes_gpc setting)
-	This means that some PHP settings that are mandatory for efront to function properly are not set or are set in different values than the recommended, and the system failed to fix them automatically
-	Recommended settings are:
-	magic_quotes_gpc = Off
-	register_globals = Off
-	session.save_path = "/path/to/writable/dir/"		(where /path/to/writable/dir/ is a directory where the web server can write, for example /tmp for Linux or C:\WINDOWS\Temp for windows)
-	Please note that these are the default values for PHP installations and any other setting is strongly advised against from the PHP community
-	There are many ways to fix this situation:
-	a) If you are installing efront on your own server or locally, edit the file php.ini and change the settings accordingly. For windows xampp installations, the correct php.ini is located inside c:\xampp\apache\bin. Remember to restart your apache server after any changes in this file	 
-	b) If you are installing efront on a shared hosting environment, then you can do the following:
-		- Create a file called "php.ini"
-		- Place the above recommended settings inside this file. Set /path/to/writable/dir/ to something writable, usually /tmp will work
-		- Upload the file php.ini inside efront's www/ and www/install/ folders
-		- Reload the page with step 1 to see if the settings changed 
-	c) If the above method does not work, try the following:
-		- Create a file called ".htaccess"
-		- Place the following commands inside it:		
-			php_flag register_globals off
-			php_flag magic_quotes_gpc off
-			php_flag session.save_path "/path/to/writable/dir/"
-		- Upload this file inside efront's www/ folder
-		- Reload the page with step 1 to see if the settings changed. If you get a "Server Error" message, remove the file you uploaded
-	d) If none of the above methods work, contact your hosting provider and ask them how to set them
+ This means that some PHP settings that are mandatory for efront to function properly are not set or are set in different values than the recommended, and the system failed to fix them automatically
+ Recommended settings are:
+ magic_quotes_gpc = Off
+ register_globals = Off
+ session.save_path = "/path/to/writable/dir/" (where /path/to/writable/dir/ is a directory where the web server can write, for example /tmp for Linux or C:\WINDOWS\Temp for windows)
+ Please note that these are the default values for PHP installations and any other setting is strongly advised against from the PHP community
+ There are many ways to fix this situation:
+ a) If you are installing efront on your own server or locally, edit the file php.ini and change the settings accordingly. For windows xampp installations, the correct php.ini is located inside c:\xampp\apache\bin. Remember to restart your apache server after any changes in this file
+ b) If you are installing efront on a shared hosting environment, then you can do the following:
+  - Create a file called "php.ini"
+  - Place the above recommended settings inside this file. Set /path/to/writable/dir/ to something writable, usually /tmp will work
+  - Upload the file php.ini inside efront's www/ and www/install/ folders
+  - Reload the page with step 1 to see if the settings changed
+ c) If the above method does not work, try the following:
+  - Create a file called ".htaccess"
+  - Place the following commands inside it:
+   php_flag register_globals off
+   php_flag magic_quotes_gpc off
+   php_flag session.save_path "/path/to/writable/dir/"
+  - Upload this file inside efront's www/ folder
+  - Reload the page with step 1 to see if the settings changed. If you get a "Server Error" message, remove the file you uploaded
+ d) If none of the above methods work, contact your hosting provider and ask them how to set them
 3. One or more red "forbidden" icons appear in step 1 of Installation, at the "Filesystem Permissions" section (usually in Linux installations)
-	These are the folders that efront must have write access to, so you should edit these folder's permissions to "writable" for the web server (for example, by changing ownership). 
-	The "libraries/" folder may be set to non-writable after the installation finishes
+ These are the folders that efront must have write access to, so you should edit these folder's permissions to "writable" for the web server (for example, by changing ownership). 
+ The "libraries/" folder may be set to non-writable after the installation finishes
 4. One or more yellow "warning" icons appear in step 1 of Installation, at the "Optional PHP extesions" section
-	These are PHP extensions that are not mandatory for efront. If you don't have them installed, you may safely ignore them and proceed with the installation
+ These are PHP extensions that are not mandatory for efront. If you don't have them installed, you may safely ignore them and proceed with the installation
 5. One or more yellow "warning" icons appear in step 1 of Installation, at the "Recommended PHP Settings" section
- 	These are PHP settings that are recommended to be set in specific values or ranges, but efront will work anyway. The most important is "memory_limit" which may give you errors if it is set too low 
+  These are PHP settings that are recommended to be set in specific values or ranges, but efront will work anyway. The most important is "memory_limit" which may give you errors if it is set too low
 6. I get a "Parse error: syntax error, unexpected '{' in some/dir/efront/www/index.php on line 34"
-	This means that your server is set to execute scripts with PHP4. eFront requires PHP 5 to work, contact your system administrator to resolve this issue 
+ This means that your server is set to execute scripts with PHP4. eFront requires PHP 5 to work, contact your system administrator to resolve this issue
 7. After installing XAMPP, I can't start apache, what's wrong?
-	If you are running skype, it might be blocking apache's default port. Try restarting your computer
+ If you are running skype, it might be blocking apache's default port. Try restarting your computer
 
 More information
 ================

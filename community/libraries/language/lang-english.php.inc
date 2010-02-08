@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Job assignment");
 define("_ONJOBREMOVAL","Remove job from user");
 define("_JOBDESCRIPTIONNAME", "Job position name");
 define("_ENCRYPTURL", "Encrypt URL");
-define("_USERNAMEFORMATINFO", "Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter");
+define("_USERNAMEFORMATINFO", "Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter");
 define("_USERNAMEFORMAT", "Username format");
 define("_LDAP", "LDAP");
 define("_SMTP", "SMTP");
@@ -3473,5 +3473,7 @@ define("_MAINTAINHISTORY", "Maintain history");
 define("_KEYISNOTFORTHISEDITION", "The key is not suitable for this edition");
 define("_ILLEGALMODE", "Illegal mode");
 define("_MUSTSPECIFYQUESTIONNUMBER", "You must specify the number of questions");
-define("_MUSTSPECIFYVALUEFROM", "You must specify a value from")
+define("_MUSTSPECIFYVALUEFROM", "You must specify a value from");
+define("_COURSEPROFESSORS","Course professors");
+define("_PROFESSORSOFCOURSE","Professors of course");
 ?>

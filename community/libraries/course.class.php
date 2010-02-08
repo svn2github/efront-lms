@@ -1923,7 +1923,7 @@ class EfrontCourse
 
      * <code>
 
-     * $lessons = EFrontLesson :: getLessons();
+     * $lessons = EFrontCourse :: getCourses();
 
      * </code>
 

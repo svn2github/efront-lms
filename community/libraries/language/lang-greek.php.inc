@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Ανάθεση θέσης εργασίας");
 define("_ONJOBREMOVAL","Διαγραφή χρήστη από θέση εργασίας");
 define("_JOBDESCRIPTIONNAME", "Τίτλος θέσης εργασίας");
 define("_ENCRYPTURL", "Κρυπτογράφηση URL");
-define("_USERNAMEFORMATINFO", "Διαμόρφωση του τρόπου που εμφανίζονται τα ονόματα χρήστη στο σύστημα. Χρησιμοποιήστε #name# για το όνομα, #surname# για το επώνυμο, #login# για το όνομα χρήστη και #n# για το αρχικό γράμμα του ονόματος");
+define("_USERNAMEFORMATINFO", "Διαμόρφωση του τρόπου που εμφανίζονται τα ονόματα χρήστη στο σύστημα. Χρησιμοποιήστε #name# για το όνομα, #surname# για το επώνυμο, #login# για το όνομα χρήστη, #type# για τον τύπο χρήστη και #n# για το αρχικό γράμμα του ονόματος");
 define("_USERNAMEFORMAT", "Διαμόρφωση ονόματος χρήστη");
 define("_LDAP", "LDAP");
 define("_SMTP", "SMTP");
@@ -3473,5 +3473,7 @@ define("_MAINTAINHISTORY", "Διατήρηση ιστορικού");
 define("_KEYISNOTFORTHISEDITION", "Το κλειδί δεν είναι κατάλληλο για αυτήν την έκδοση");
 define("_ILLEGALMODE", "Μη έγκυρη κατάσταση");
 define("_MUSTSPECIFYQUESTIONNUMBER", "Πρέπει να προσδιορίσετε τον αριθμό των ερωτήσεων");
-define("_MUSTSPECIFYVALUEFROM", "Πρέπει να προσδιορίσετε μία τιμή από")
+define("_MUSTSPECIFYVALUEFROM", "Πρέπει να προσδιορίσετε μία τιμή από");
+define("_COURSEPROFESSORS","Καθηγητές δέσμης");
+define("_PROFESSORSOFCOURSE","Καθηγητές της δέσμης");
 ?>

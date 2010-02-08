@@ -142,6 +142,11 @@ $settings['zlib.output_compression'] = array('value' => $ini_settings['zlib.outp
                                          'status' => $ini_settings['zlib.output_compression']['local_value'] ? 0 : 1,
                                          'name' => 'zlib.output_compression',
                                          'help' => 'Zlib output compression must not be enabled in order to transparently compress files at run-time');
+$settings['allow_url_fopen'] = array('value' => $ini_settings['allow_url_fopen']['local_value'],
+                                         'recommended' => 'On',
+                                         'status' => $ini_settings['allow_url_fopen']['local_value'] ? 1 : 0,
+                                         'name' => 'allow_url_fopen',
+                                         'help' => 'allow_url_fopen must be enabled in order to use PDF certificates');
 foreach ($settings_mandatory as $key => $value) {
     if (isset($exclude_normal) && $exclude_normal && $value['status']) { //Use $exclude_normal in order to not list sections without problem
         unset($settings_mandatory[$key]);

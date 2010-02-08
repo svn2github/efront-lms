@@ -225,7 +225,7 @@
                                         {/foreach}
                                         </table>
                                     {/capture}
-                                    {eF_template_printBlock title = $smarty.const._COURSEORDER data = $smarty.capture.t_course_scheduling_code image = '32x32/calendar.png' main_options = $T_TABLE_OPTIONS options = $T_COURSE_OPTIONS}
+                                    {eF_template_printBlock title = $smarty.const._COURSESCHEDULE data = $smarty.capture.t_course_scheduling_code image = '32x32/calendar.png' main_options = $T_TABLE_OPTIONS options = $T_COURSE_OPTIONS}
                             {elseif $T_OP == 'export_course'}
                                 {capture name = 't_export_course_code'}
                                     <fieldset class = "fieldsetSeparator">

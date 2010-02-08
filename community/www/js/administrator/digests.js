@@ -215,6 +215,7 @@
   }
   if (mode == "courses") {
    addValueToSelect ("courses_name", courseNameConst, select_item);
+   addValueToSelect (courseProf, courseProfessorsConst, recipients_select_item);
   }
   if (mode == "tests") {
    addValueToSelect("tests_name", testNameConst, select_item);

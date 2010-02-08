@@ -11,14 +11,14 @@ if (isset($currentUser -> coreAccess['files']) && $currentUser -> coreAccess['fi
 
 try {
     if (isset($_GET['display_metadata']) && (eF_checkParameter($_GET['display_metadata'], 'id') || strpos($_GET['display_metadata'], $currentLesson -> getDirectory()) !== false)) {
-        $form         = new HTML_QuickForm("empty_form", "post", null, null, null, true);
-        $file         = new EfrontFile(urldecode($_GET['display_metadata']));
+        $form = new HTML_QuickForm("empty_form", "post", null, null, null, true);
+        $file = new EfrontFile(urldecode($_GET['display_metadata']));
         if ($file['id'] == -1) {
             $imported = FileSystemTree :: importFiles($file['path']);
-            $file     = new EfrontFile(key($imported));
+            $file = new EfrontFile(key($imported));
         }
         $fileMetadata = unserialize($file['metadata']);
-        $metadata     = new DublinCoreMetadata($fileMetadata);
+        $metadata = new DublinCoreMetadata($fileMetadata);
         $smarty -> assign("T_FILE_METADATA", $file);
         if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
             $smarty -> assign("T_FILE_METADATA_HTML", $metadata -> toHTML($form));
@@ -41,8 +41,8 @@ try {
     } else if (isset($_GET['insert_editor_file'])) {
         //Input a file that was picked by clicking on the "insert to editor" arrow, in the file manager
         try {
-            $file_id 		= urldecode($_GET['file_id']);
-            $file_insert 	= new EfrontFile($file_id);		
+            $file_id = urldecode($_GET['file_id']);
+            $file_insert = new EfrontFile($file_id);
             if (strpos($file_insert['mime_type'] , "image") !== false) {
                 $img_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
                 echo "<img src=\"".$img_return."\" border=0 />";
@@ -55,12 +55,12 @@ try {
                     echo '<img width="400" height="400" src="editor/tiny_mce/plugins/media/img/trans.gif"  title="src:\''.$flash_return.'\',width:\'400\',height:\'400\'" alt="'.$flash_return.'" class="mceItemFlash" />';
                 } else {
                     echo '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="400" height="400">
-							<param name="src" value="'.$flash_return.'" />
-							<param name="url" value="'.$flash_return.'" />
-							<param name="width" value="400" />
-							<param name="height" value="400" />
-							<embed type="application/x-shockwave-flash" url="'.$flash_return.'" src="'.$flash_return.'" width="400" height="400"></embed>
-							</object>';
+       <param name="src" value="'.$flash_return.'" />
+       <param name="url" value="'.$flash_return.'" />
+       <param name="width" value="400" />
+       <param name="height" value="400" />
+       <embed type="application/x-shockwave-flash" url="'.$flash_return.'" src="'.$flash_return.'" width="400" height="400"></embed>
+       </object>';
                 }
             } elseif (strpos($file_insert['mime_type'] , "audio") !== false) {
                 $audio_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
@@ -68,14 +68,14 @@ try {
                     echo '<img width=400 height=400 src="editor/tiny_mce/plugins/media/img/trans.gif" title="src:\''.$audio_return.'\',width:\'200\',height:\'200\'" alt="'.$audio_return.'" class="mceItemWindowsMedia" />';exit;
                 } else {
                     echo '
-						<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="100" height="30" data="editor/tiny_mce/plugins/media/player.swf" id="audioplayer1">
-						<param name="movie" value="editor/tiny_mce/plugins/media/player.swf">
-						<param name="FlashVars" value="playerID=1&amp;soundFile='.$audio_return.'">
-						<param name="quality" value="high">
-						<param name="menu" value="false">
-						<param name="wmode" value="transparent">
-						<embed type="application/x-shockwave-flash" id="audioplayer1" flashvars="playerID=1&amp;soundFile='.$audio_return.'" quality="high" menu="false" wmode="transparent" src="editor/tiny_mce/plugins/media/player.swf"></embed>
-						</object>';
+      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="100" height="30" data="editor/tiny_mce/plugins/media/player.swf" id="audioplayer1">
+      <param name="movie" value="editor/tiny_mce/plugins/media/player.swf">
+      <param name="FlashVars" value="playerID=1&amp;soundFile='.$audio_return.'">
+      <param name="quality" value="high">
+      <param name="menu" value="false">
+      <param name="wmode" value="transparent">
+      <embed type="application/x-shockwave-flash" id="audioplayer1" flashvars="playerID=1&amp;soundFile='.$audio_return.'" quality="high" menu="false" wmode="transparent" src="editor/tiny_mce/plugins/media/player.swf"></embed>
+      </object>';
                     exit;
                 }
             } elseif (strpos($file_insert['mime_type'] , "flv") !== false) {
@@ -87,12 +87,12 @@ try {
                     echo '<img width=400 height=400 src="editor/tiny_mce/plugins/media/img/trans.gif" title="src:\''.$wmv_return.'\',width:\'400\',height:\'400\'" alt="'.$wmv_return.'" class="mceItemWindowsMedia" />';exit;
                 } else {
                     echo '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701" width="300" height="300">
-							<param name="width" value="300" />
-							<param name="height" value="300" />
-							<param name="src" value="'.$wmv_return.'" />
-							<param name="url" value="'.$wmv_return.'" />
-							<embed type="application/x-mplayer2" width="300" height="300" url="'.$wmv_return.'" src="'.$wmv_return.'"></embed>
-						</object>';
+       <param name="width" value="300" />
+       <param name="height" value="300" />
+       <param name="src" value="'.$wmv_return.'" />
+       <param name="url" value="'.$wmv_return.'" />
+       <embed type="application/x-mplayer2" width="300" height="300" url="'.$wmv_return.'" src="'.$wmv_return.'"></embed>
+      </object>';
                 }
             } elseif (strpos($file_insert['mime_type'] , "html") !== false) {
                 $html_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
@@ -106,28 +106,31 @@ try {
             } elseif (strpos($file_insert['mime_type'] , "mp4") !== false) {
                 $video_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
                 echo '<object height="400" width="400" codebase="http://www.apple.com/qtactivex/qtplugin.cab#version=6,0,2,0" classid="clsid:02bf25d5-8c17-4b23-bc80-d3488abddc6b"><param name="src" value="'.$video_return.'" /><embed height="400" width="400" src="'.$video_return.'" type="video/quicktime"></embed></object>';
-            } else {
+            } elseif (strpos($file_insert['mime_type'] , "x-m4v") !== false) {
+                $video_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
+    echo '<object height="400" width="500" codebase="http://www.apple.com/qtactivex/qtplugin.cab#version=6,0,2,0" classid="clsid:02bf25d5-8c17-4b23-bc80-d3488abddc6b"><param name="src" value="'.$video_return.'" /><embed height="400" width="400" src="'.$video_return.'" type="video/quicktime"></embed></object>';
+   } else {
                 echo "<a href=view_file.php?action=download&file=".$file_id.">".$file_insert['physical_name']."</a>";
             }
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");
             echo $e -> getMessage().' ('.$e -> getCode().')';
         }
-        exit;        
-        
+        exit;
+
     } else {
         if (!isset($filesystem)) {
             $filesystem = new FileSystemTree($basedir, true);
         }
         $filesystem -> handleAjaxActions($currentUser);
         !isset($filesystemIterator) ? $filesystemIterator = '' : null;
-        
+
         if (!isset($options['table_id']) || !$options['table_id']) {
             $options['table_id'] = 'filesTable';
         }
-        isset($extraFileTools)     OR $extraFileTools     = array();
+        isset($extraFileTools) OR $extraFileTools = array();
         isset($extraHeaderOptions) OR $extraHeaderOptions = array();
-        
+
         if (isset($_GET['ajax']) && $_GET['ajax'] == $options['table_id']) {
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
@@ -142,8 +145,8 @@ try {
                 isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
             }
             isset($_GET['filter']) ? $filter = $_GET['filter'] : $filter = false;
-            isset($_GET['other'])  ? $other  = $_GET['other']  : $other  = '';
-            
+            isset($_GET['other']) ? $other = $_GET['other'] : $other = '';
+
             $ajaxOptions = array('sort' => $sort, 'order' => $order, 'limit' => $limit, 'offset' => $offset, 'filter' => $filter);
             //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
             $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false);
@@ -155,9 +158,9 @@ try {
     }
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
 
-              
+
 ?>

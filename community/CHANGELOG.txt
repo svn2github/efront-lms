@@ -2,8 +2,14 @@
 - Fixed phplivedocx configuration file creation
 - Fixed upgrading from 3.5.5 not retaining all kinds of custom blocks
 - Fixed community ++ issue where users where archived instead of being deleted
-- Fixed issue with error appearing when deleting users  
-
+- Fixed issue with error appearing when deleting users
+- Fixed issue with listing archived lessons in new notification list
+- Fixed theme exporting problem
+- Added allow_url_fopen = on to recommended PHP settings
+- Fixed manual payments error
+- Added option for automatically completing unit
+- Added m4v files in filemanager insert to editor
+- Fixed issue with ie6 theme and css path
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build
@@ -12,16 +18,16 @@
 - Installation fixes to better support 3.5.x upgrades (logo, motto, custom blocks)
 - Edition separation in statistics fix
 - Fixed custom footer to replace default
-- When duplicate formatted user names appear, the login is displayed in order to tell who is who 
+- When duplicate formatted user names appear, the login is displayed in order to tell who is who
 - Added maintain test history setting
-- Added user configurable random pool option  
+- Added user configurable random pool option
 - Added optional prerequisite for php_soap, which is needed by phplivedocx
 - Fixed custom header propagating from 3.5.5 to 3.6.0, even though it's not supported there
 - Fixed user names not displaying in project assignment list
 - Fixed issue with not displaying media list properly in edit theme block
-- Fixed issue with editor link popup window not displaying content list correctly 
+- Fixed issue with editor link popup window not displaying content list correctly
 - Security fix for editor browsing popup
-- Fixed default notifications missing in upgrades 
+- Fixed default notifications missing in upgrades
 - Fixed students not to have access to lessons that are not activated, from the dashboard
 - Fixed dashboard results not to list information for ineligible lessons
 - Fixed forum list not displaying when the user does not have lessons
@@ -31,7 +37,7 @@
 
 === Version 3.6.0 build 5751 ===
 eFront 3.6.0 is a completely new version, introducing many important new features
-and important enhancements in all aspects of the platform. The hightlights of this 
+and important enhancements in all aspects of the platform. The hightlights of this
 version are:
 * 3x Faster than the 3.5.x branch
 * Greater interoperability

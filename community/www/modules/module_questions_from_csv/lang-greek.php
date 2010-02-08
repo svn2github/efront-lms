@@ -38,5 +38,6 @@ define("_MODULE_QUESTIONS_WRONGINPUTFILETYPE","Λανθασμένος τύπος
 define("_MODULE_QUESTIONS_REPORTALREADYEXISTINGQUESTIONS","Ανάφερε ήδη υπάρχουσες ερωτήσεις");
 define("_MODULE_QUESTIONS_QUESTIONREPLACEDPREVIOUSEXISTING","Η ερώτηση αντικατέστησε προηγούμενη με ίδια εκφώνηση");
 define("_MODULE_QUESTIONS_PLEASESELECTALESSON","Παρακαλώ επιλέξτε ένα μάθημα");
+define("_MODULE_QUESTIONS_NOQUESTIONSWEREINSERTED","Δεν εισήχθησαν ερωτήσεις");
 
 ?>

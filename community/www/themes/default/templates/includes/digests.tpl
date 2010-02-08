@@ -24,6 +24,9 @@
  var lessonNotCompleted = "{$T_LESSON_EVENT_RECIPIENTS.lessonnotcompleted}";
  var lessonNotCompletedConst = "{$smarty.const._LESSONUSERSNOTCOMPLETED}";
 
+ var courseProf = "{$T_COURSE_EVENT_RECIPIENTS.courseprof}";
+ var courseProfessorsConst = "{$smarty.const._COURSEPROFESSORS}";
+
  var lessonsNameConst = "{$smarty.const._LESSONNAME}";
  var courseNameConst = "{$smarty.const._COURSENAME}";
  var testNameConst = "{$smarty.const._TESTNAME}";

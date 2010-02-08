@@ -1,45 +1,45 @@
-	{capture name = "t_scorm_form_code"}
-			<script language="JavaScript" type="text/javascript" src="js/LMSFunctions{if $T_SCORM_VERSION == '1.3'}2004{/if}.php?view_unit={if $smarty.get.view_unit}{$smarty.get.view_unit}{elseif $smarty.get.target}{$smarty.get.target}{else}{$smarty.get.package_ID}{/if}"></script>
-			<form id = "scorm_form" name = "scorm_form" method = "post" action = "{$smarty.server.PHP_SELF}?ctg=content&ajax=1&commit_lms=1&scorm_version={if $T_SCORM_VERSION == '1.3'}2004{else}1.2{/if}" style = "display:none">			
-			    <input type = "hidden" name = "id"                id = "id"                />
-			    <input type = "hidden" name = "content_ID"        id = "content_ID"        />
-			    <input type = "hidden" name = "users_LOGIN"       id = "users_LOGIN"       />
-			    <input type = "hidden" name = "lesson_location"   id = "lesson_location"   />
-			    <input type = "hidden" name = "maxtimeallowed"    id = "maxtimeallowed"    />
-			    <input type = "hidden" name = "timelimitaction"   id = "timelimitaction"   />
-			    <input type = "hidden" name = "masteryscore"      id = "masteryscore"      />
-			    <input type = "hidden" name = "datafromlms"       id = "datafromlms"       />
-			    <input type = "hidden" name = "entry"             id = "entry"             />
-			    <input type = "hidden" name = "total_time"        id = "total_time"        />
-			    <input type = "hidden" name = "comments"          id = "comments"          />
-			    <input type = "hidden" name = "comments_from_lms" id = "comments_from_lms" />
-			    <input type = "hidden" name = "completion_status" id = "completion_status" />
-			    <input type = "hidden" name = "lesson_status"     id = "lesson_status"     />
-			    <input type = "hidden" name = "score"             id = "score"             />
-			    <input type = "hidden" name = "scorm_exit"        id = "scorm_exit"        />
-			    <input type = "hidden" name = "minscore"          id = "minscore"          />
-			    <input type = "hidden" name = "maxscore"          id = "maxscore"          />
-			    <input type = "hidden" name = "suspend_data"      id = "suspend_data"      />
-			    <input type = "hidden" name = "session_time"      id = "session_time"      />
-			    <input type = "hidden" name = "credit"            id = "credit"            />
-				
-			    <input type = "hidden" name = "navigation"        id = "navigation"        />
-			    <input type = "hidden" name = "success_status"    id = "success_status"    />
-			    <input type = "hidden" name = "score_scaled"	  id = "score_scaled"	   />
-			    <input type = "hidden" name = "progress_measure"  id = "progress_measure"  />
-			    <input type = "hidden" name = "objectives"		  id = "objectives"		   />
-			    <input type = "hidden" name = "shared_data"		  id = "shared_data"	   />
-				
-				<input type = "hidden" name = "comments_from_lms" id = "comments_from_lms" />
-				<input type = "hidden" name = "interactions"  	  id = "interactions" />
-				<input type = "hidden" name = "comments_from_learner" id = "comments_from_learner" />
-				<input type = "hidden" name = "learner_preferences"   id = "learner_preferences" />
-				<input type = "hidden" name = "finish"				  id = "finish" />
-				
-			</form>
-	{/capture}
+ {capture name = "t_scorm_form_code"}
+   <script language="JavaScript" type="text/javascript" src="js/LMSFunctions{if $T_SCORM_VERSION == '1.3'}2004{/if}.php?view_unit={if $smarty.get.view_unit}{$smarty.get.view_unit}{elseif $smarty.get.target}{$smarty.get.target}{else}{$smarty.get.package_ID}{/if}"></script>
+   <form id = "scorm_form" name = "scorm_form" method = "post" action = "{$smarty.server.PHP_SELF}?ctg=content&ajax=1&commit_lms=1&scorm_version={if $T_SCORM_VERSION == '1.3'}2004{else}1.2{/if}" style = "display:none">
+       <input type = "hidden" name = "id" id = "id" />
+       <input type = "hidden" name = "content_ID" id = "content_ID" />
+       <input type = "hidden" name = "users_LOGIN" id = "users_LOGIN" />
+       <input type = "hidden" name = "lesson_location" id = "lesson_location" />
+       <input type = "hidden" name = "maxtimeallowed" id = "maxtimeallowed" />
+       <input type = "hidden" name = "timelimitaction" id = "timelimitaction" />
+       <input type = "hidden" name = "masteryscore" id = "masteryscore" />
+       <input type = "hidden" name = "datafromlms" id = "datafromlms" />
+       <input type = "hidden" name = "entry" id = "entry" />
+       <input type = "hidden" name = "total_time" id = "total_time" />
+       <input type = "hidden" name = "comments" id = "comments" />
+       <input type = "hidden" name = "comments_from_lms" id = "comments_from_lms" />
+       <input type = "hidden" name = "completion_status" id = "completion_status" />
+       <input type = "hidden" name = "lesson_status" id = "lesson_status" />
+       <input type = "hidden" name = "score" id = "score" />
+       <input type = "hidden" name = "scorm_exit" id = "scorm_exit" />
+       <input type = "hidden" name = "minscore" id = "minscore" />
+       <input type = "hidden" name = "maxscore" id = "maxscore" />
+       <input type = "hidden" name = "suspend_data" id = "suspend_data" />
+       <input type = "hidden" name = "session_time" id = "session_time" />
+       <input type = "hidden" name = "credit" id = "credit" />
 
-	{assign var = "category" value = 'lessons'}
+       <input type = "hidden" name = "navigation" id = "navigation" />
+       <input type = "hidden" name = "success_status" id = "success_status" />
+       <input type = "hidden" name = "score_scaled" id = "score_scaled" />
+       <input type = "hidden" name = "progress_measure" id = "progress_measure" />
+       <input type = "hidden" name = "objectives" id = "objectives" />
+       <input type = "hidden" name = "shared_data" id = "shared_data" />
+
+    <input type = "hidden" name = "comments_from_lms" id = "comments_from_lms" />
+    <input type = "hidden" name = "interactions" id = "interactions" />
+    <input type = "hidden" name = "comments_from_learner" id = "comments_from_learner" />
+    <input type = "hidden" name = "learner_preferences" id = "learner_preferences" />
+    <input type = "hidden" name = "finish" id = "finish" />
+
+   </form>
+ {/capture}
+
+ {assign var = "category" value = 'lessons'}
     {if $smarty.get.add || $smarty.get.edit}
         {*moduleInsertContent: Print the page that is used to add or update content*}
         {capture name = "moduleInsertContent"}
@@ -65,15 +65,17 @@
                                 <td class = "elementCell">{$T_ENTITY_FORM.hide_navigation.html}</td></tr>
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.hide_complete_unit.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.hide_complete_unit.html}</td></tr>
+                            <tr><td class = "labelCell">{$T_ENTITY_FORM.auto_complete.label}:&nbsp;</td>
+                                <td class = "elementCell">{$T_ENTITY_FORM.auto_complete.html}</td></tr>
                         {if $T_ENTITY_FORM.complete_question}
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_question.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.complete_question.html}&nbsp;{$T_ENTITY_FORM.questions.html}</td></tr>
                         {/if}
-							{if !$T_SCORM}
-								<tr><td class = "labelCell">{$T_ENTITY_FORM.pdf_check.label}:&nbsp;</td>
-									<td class = "elementCell">{$T_ENTITY_FORM.pdf_check.html}</td></tr>
+       {if !$T_SCORM}
+        <tr><td class = "labelCell">{$T_ENTITY_FORM.pdf_check.label}:&nbsp;</td>
+         <td class = "elementCell">{$T_ENTITY_FORM.pdf_check.html}</td></tr>
                             {/if}
-							<tr style="display:none;" id="pdf_content"><td class = "labelCell">{$T_ENTITY_FORM.pdf_content.label}:&nbsp;</td>
+       <tr style="display:none;" id="pdf_content"><td class = "labelCell">{$T_ENTITY_FORM.pdf_content.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.pdf_content.html}</td></tr>
                             <tr style="display:none;" id="pdf_upload"><td class = "labelCell">{$T_ENTITY_FORM.pdf_upload.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.pdf_upload.html}</td></tr>
@@ -92,34 +94,34 @@
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.reentry_action.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.reentry_action.html}</td></tr>
                             {if $T_ENTITY_FORM.reentry_action.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.reentry_action.error}</td></tr>{/if}
-						{else}
-							<tr id = "toggleTools"><td colspan = "2" id = "toggleeditor_cell1">
-								<div class = "headerTools">
-									<span>
-										<img class = "handle" id = "arrow_down" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._OPENCLOSEFILEMANAGER}" title = "{$smarty.const._OPENCLOSEFILEMANAGER}"/>&nbsp;
-										<a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
-									</span>
-									<span>
-										<img src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-										<a href = "javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
-									</span>
-								</div>
-								</td></tr>
-	                        <tr><td colspan = "2" id = "filemanager_cell"></td></tr>
-                            <tr id = "nonPdfTable"><td colspan = "2" class = "elementCell">{$T_ENTITY_FORM.data.html}</td></tr>						
+      {else}
+       <tr id = "toggleTools"><td colspan = "2" id = "toggleeditor_cell1">
+        <div class = "headerTools">
+         <span>
+          <img class = "handle" id = "arrow_down" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._OPENCLOSEFILEMANAGER}" title = "{$smarty.const._OPENCLOSEFILEMANAGER}"/>&nbsp;
+          <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
+         </span>
+         <span>
+          <img src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+          <a href = "javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+         </span>
+        </div>
+        </td></tr>
+                         <tr><td colspan = "2" id = "filemanager_cell"></td></tr>
+                            <tr id = "nonPdfTable"><td colspan = "2" class = "elementCell">{$T_ENTITY_FORM.data.html}</td></tr>
                             {if $T_ENTITY_FORM.data.error}<tr><td colspan = "2" class = "formError">{$T_ENTITY_FORM.data.error}</td></tr>{/if}
                         {/if}
-	                        <tr><td colspan = "2" class = "submitCell">{$T_ENTITY_FORM.submit_insert_content.html}</td></tr>						
+                         <tr><td colspan = "2" class = "submitCell">{$T_ENTITY_FORM.submit_insert_content.html}</td></tr>
                         </table>
                     </form>
-					<script>var editPdfContent = {if $T_EDITPDFCONTENT}true{else}false{/if};</script>
+     <script>var editPdfContent = {if $T_EDITPDFCONTENT}true{else}false{/if};</script>
                     <div id = "fmInitial"><div id = "filemanager_div" style = "display:none;">{$T_FILE_MANAGER}</div></div>
                 {/capture}
-				{eF_template_printBlock title=$smarty.const._UNITPROPERTIES data=$smarty.capture.t_insert_content_code image='32x32/edit.png' }
+    {eF_template_printBlock title=$smarty.const._UNITPROPERTIES data=$smarty.capture.t_insert_content_code image='32x32/edit.png' }
             </td></tr>
         {/capture}
-    
-	{elseif !$T_UNIT && $_student_}
+
+ {elseif !$T_UNIT && $_student_}
         {if $smarty.get.type == 'theory'}
             {assign var = "specific_title" value = $smarty.const._THEORY}
             {assign var = "image" value = "32x32/theory.png"}
@@ -141,34 +143,34 @@
                 {/capture}
                 {eF_template_printBlock title=$specific_title data=$smarty.capture.t_theory_tree_code image=$image}
             </td></tr>
-        {/capture}    
-	{elseif $smarty.get.bare}
-		{if $T_SCORM}
-			{$smarty.capture.t_scorm_form_code}
-		{/if}        
-		{$T_UNIT.data}
-	{else}
+        {/capture}
+ {elseif $smarty.get.bare}
+  {if $T_SCORM}
+   {$smarty.capture.t_scorm_form_code}
+  {/if}
+  {$T_UNIT.data}
+ {else}
         {capture name = 't_content_code'}
-        		{*Variables needed in js functions*}
-        		<script>var sawunit  = '{$smarty.const._SAWUNIT}';var notsawunit = '{$smarty.const._NOTSAWUNIT}';var unitId   = '{$T_UNIT.id}'; 
-        				var unitType = '{$T_UNIT.ctg_type}';var hasSeen = '{$T_SEEN_UNIT}';var nextId = '{$T_NEXT_UNIT.id}';var previousId = '{$T_PREVIOUS_UNIT.id}';</script>
-        		            
+          {*Variables needed in js functions*}
+          <script>var sawunit = '{$smarty.const._SAWUNIT}';var notsawunit = '{$smarty.const._NOTSAWUNIT}';var unitId = '{$T_UNIT.id}';
+            var unitType = '{$T_UNIT.ctg_type}';var hasSeen = '{$T_SEEN_UNIT}';var nextId = '{$T_NEXT_UNIT.id}';var previousId = '{$T_PREVIOUS_UNIT.id}';</script>
+
                 {if $_change_ && !$_student_}
                     <div class = "headerTools">
                         <span>
                             <img src = "images/16x16/add.png" title = "{$smarty.const._CREATEUNIT}" alt = "{$smarty.const._CREATEUNIT}"/>
-                            <a href = "{$smarty.server.PHP_SELF}?ctg=content&add=1" title = "{$smarty.const._CREATEUNIT}">{$smarty.const._CREATEUNIT}</a>                            
+                            <a href = "{$smarty.server.PHP_SELF}?ctg=content&add=1" title = "{$smarty.const._CREATEUNIT}">{$smarty.const._CREATEUNIT}</a>
                         </span>
                     {if $T_UNIT}
-                    	{if !$T_SCORM}
+                     {if !$T_SCORM}
                         <span>
                             <img src = "images/16x16/add.png" title = "{$smarty.const._CREATESUBUNIT}" alt = "{$smarty.const._CREATESUBUNIT}"/>
-                            <a href = "{$smarty.server.PHP_SELF}?ctg=content&add=1&view_unit={$smarty.get.view_unit}" title = "{$smarty.const._CREATESUBUNIT}">{$smarty.const._CREATESUBUNIT}</a>                            
+                            <a href = "{$smarty.server.PHP_SELF}?ctg=content&add=1&view_unit={$smarty.get.view_unit}" title = "{$smarty.const._CREATESUBUNIT}">{$smarty.const._CREATESUBUNIT}</a>
                         </span>
                         {/if}
                         <span>
                             <img src = "images/16x16/edit.png" title = "{$smarty.const._UPDATEUNIT}" alt = "{$smarty.const._UPDATEUNIT}"/>
-                            <a href = "{$smarty.server.PHP_SELF}?ctg={if $T_UNIT.ctg_type == 'tests'}tests{else}content{/if}&edit={$smarty.get.view_unit}" title = "{$smarty.const._UPDATEUNIT}">{$smarty.const._UPDATEUNIT}</a>                            
+                            <a href = "{$smarty.server.PHP_SELF}?ctg={if $T_UNIT.ctg_type == 'tests'}tests{else}content{/if}&edit={$smarty.get.view_unit}" title = "{$smarty.const._UPDATEUNIT}">{$smarty.const._UPDATEUNIT}</a>
                         </span>
                     {/if}
                     </div>
@@ -176,46 +178,46 @@
                     <table id = "unitContent">
             {if !$_student_ || !$T_RULE_CHECK_FAILED}
                         <tr><td class = "unitContent">
-                        		{if $T_UNIT.ctg_type == 'tests'}
-                        			{include file = "includes/tests/show_unsolved_test.tpl"}
-                        		{else}
-                        			{if $T_UNIT.data}
-										{$T_UNIT.data}
-									{elseif $T_NO_START}
-										{$smarty.const._CHOOSEUNIT}: {$T_SUBTREE}
-									{else}
-										<div class = "emptyCategory">{$smarty.const._NODATAFOUND}</div>
-									{/if}
-                        		{/if}
-                        	</td></tr>
+                          {if $T_UNIT.ctg_type == 'tests'}
+                           {include file = "includes/tests/show_unsolved_test.tpl"}
+                          {else}
+                           {if $T_UNIT.data}
+          {$T_UNIT.data}
+         {elseif $T_NO_START}
+          {$smarty.const._CHOOSEUNIT}: {$T_SUBTREE}
+         {else}
+          <div class = "emptyCategory">{$smarty.const._NODATAFOUND}</div>
+         {/if}
+                          {/if}
+                         </td></tr>
                         <tr><td id = "completeUnit" >
-    	        {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
-				            	<div id = "navigationHandlesBottom">
-				                    <div id = "nextUnitHandle">{eF_template_printPreviousNext next = $T_NEXT_UNIT}</div>
-				                </div>
-				            	<div id = "navigationHandlesBottom">
-				                    <div id = "previousUnitHandle">{eF_template_printPreviousNext previous = $T_PREVIOUS_UNIT }</div>
-				                </div>
-	            {/if}
-	            {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests'}
-                	{if $T_QUESTION}
+             {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
+                 <div id = "navigationHandlesBottom">
+                        <div id = "nextUnitHandle">{eF_template_printPreviousNext next = $T_NEXT_UNIT}</div>
+                    </div>
+                 <div id = "navigationHandlesBottom">
+                        <div id = "previousUnitHandle">{eF_template_printPreviousNext previous = $T_PREVIOUS_UNIT }</div>
+                    </div>
+             {/if}
+             {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests'}
+                 {if $T_QUESTION}
                                 <form id = "question_form" method = "post" action = "{$smarty.server.PHP_SELF}?view_unit={$smarty.get.view_unit}">{$T_QUESTION}</form>
                                 <span id = "contentQuestionAnswer">
                                     <input class = "flatButton" type = "button" value = "{$smarty.const._SUBMIT}" onclick = "answerQuestion(this)">
                                     <img class = "ajaxHandle" style = "display:none" id = "correct_answer" src = "images/32x32/success.png" alt = "{$smarty.const._CORRECTANSWER}" title = "{$smarty.const._CORRECTANSWER}">
                                     <img class = "ajaxHandle" style = "display:none" id = "wrong_answer" src = "images/32x32/error_delete.png" alt = "{$smarty.const._WRONGANSWER}" title = "{$smarty.const._WRONGANSWER}">
                                 </span>
-                	{elseif $_change_ && $_student_}
+                 {elseif $_change_ && $_student_}
                                 <a id = "seenLink" href = "javascript:void(0)" onclick = "setSeenUnit();">
                                      {if $T_SEEN_UNIT}
                                          <img class = "handle" src = "images/32x32/unit_completed.png" title = "{$smarty.const._NOTSAWUNIT}" alt = "{$smarty.const._NOTSAWUNIT}" />
                                          <div>{$smarty.const._NOTSAWUNIT}</div>
                                      {else}
-                                         <img class = "handle" src = "images/32x32/unit.png"    title = "{$smarty.const._SAWUNIT}" alt = "{$smarty.const._SAWUNIT}" />
+                                         <img class = "handle" src = "images/32x32/unit.png" title = "{$smarty.const._SAWUNIT}" alt = "{$smarty.const._SAWUNIT}" />
                                          <div>{$smarty.const._SAWUNIT}</div>
                                      {/if}
                                 </a>
-                	{/if}
+                 {/if}
                 {/if}
                         </td></tr>
             {/if}
@@ -226,7 +228,7 @@
                                 <div style = "float:right">
                                 {if $T_COMMENTS[comments_list].users_LOGIN == $T_CURRENT_USER->user.login}
                                     <a href = "{$smarty.server.PHP_SELF}?ctg=comments&edit={$T_COMMENTS[comments_list].id}&popup=1", onclick = "eF_js_showDivPopup('{$smarty.const._EDITCOMMENT}', 1)" target = "POPUP_FRAME"><img class = "handle" src = "images/16x16/edit.png" alt = "{$smarty.const._CORRECTION}" title = "{$smarty.const._CORRECTION}"/></a>&nbsp;
-								{/if}
+        {/if}
                                 {if $T_COMMENTS[comments_list].users_LOGIN == $T_CURRENT_USER->user.login || $_professor_}
                                     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteComment(this, '{$T_COMMENTS[comments_list].id}')"/>
                                 {/if}
@@ -234,13 +236,13 @@
                                 #filter:login-{$T_COMMENTS[comments_list].users_LOGIN}#: {$T_COMMENTS[comments_list].data}
                         </td></tr>
                 {/section}
-                            {*<tr><td colspan = "2"><input type = "text" name = "comment" id = "commentBox" value = "{$smarty.const._ADDCOMMENT}" onclick = "this.value = '';this.style.color='inherit'">&nbsp;<img src = "images/16x16/success.png" class = "ajaxHandle" onclick = "postComment()"></td></tr>*}                    
+                            {*<tr><td colspan = "2"><input type = "text" name = "comment" id = "commentBox" value = "{$smarty.const._ADDCOMMENT}" onclick = "this.value = '';this.style.color='inherit'">&nbsp;<img src = "images/16x16/success.png" class = "ajaxHandle" onclick = "postComment()"></td></tr>*}
             {/if}
                     </table>
         {/capture}
 
         {capture name = 't_progress_bar'}
-	        {if $T_CURRENT_LESSON->options.tracking && $_change_ && $_student_}
+         {if $T_CURRENT_LESSON->options.tracking && $_change_ && $_student_}
                 <div id = "progress_bar">
                 {$smarty.const._PROGRESS}:&nbsp;
                     <span class = "progressNumber">{$T_USER_PROGRESS.overall_progress}%</span>
@@ -254,7 +256,7 @@
                     <div><script>var nocredit = false</script>{$smarty.const._YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT}</div>
                 {/if}
                 </div>
-	        {/if}
+         {/if}
         {/capture}
 
         {capture name = 't_unit_operations'}
@@ -270,15 +272,15 @@
                 <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=forum&add=1&type=topic&forum_id={$T_LESSON_FORUM}&subject={$T_UNIT.name}", onclick = "eF_js_showDivPopup('{$smarty.const._ADDFORUMPOSTONTHISUNIT}', 2)" target = "POPUP_FRAME" title="{$smarty.const._ADDFORUMPOSTONTHISUNIT}">{$smarty.const._ADDFORUMPOSTONTHISUNIT|eF_truncate:25:"...":true}</a></div>
             {/if}
         {/capture}
-        
-		{capture name = "t_content_tools"}        
-        	<div>{counter name = "content_tools"}. <a title = "{$smarty.const._UPLOADFILESANDIMAGES}" href = "{$smarty.server.PHP_SELF}?ctg=file_manager&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._UPLOADFILESANDIMAGES}', 3)" target = "POPUP_FRAME">{$smarty.const._UPLOADFILESANDIMAGES|eF_truncate:40}</a></div> 
-        	<div>{counter name = "content_tools"}. <a title = "{$smarty.const._COPYFROMANOTHERLESSON}" href = "{$smarty.server.PHP_SELF}?ctg=copy">{$smarty.const._COPYFROMANOTHERLESSON|eF_truncate:40}</a></div> 
-        	<div>{counter name = "content_tools"}. <a title = "{$smarty.const._CONTENTTREEMANAGEMENT}" href = "{$smarty.server.PHP_SELF}?ctg=order">{$smarty.const._CONTENTTREEMANAGEMENT|eF_truncate:40}</a></div> 
-        	<div>{counter name = "content_tools"}. <a title = "{$smarty.const._SCORMIMPORT}" href = "{$smarty.server.PHP_SELF}?ctg=scorm&scorm_import=1">{$smarty.const._SCORMIMPORT}</a></div> 
-        	{if $T_UNIT}
-        	<div>{counter name = "content_tools"}. <a title = "{$smarty.const._CONTENTMETADATA}" href = "{$smarty.server.PHP_SELF}?ctg=metadata&unit={$T_UNIT.id}">{$smarty.const._CONTENTMETADATA|eF_truncate:40}</a></div>
-        	{/if} 
+
+  {capture name = "t_content_tools"}
+         <div>{counter name = "content_tools"}. <a title = "{$smarty.const._UPLOADFILESANDIMAGES}" href = "{$smarty.server.PHP_SELF}?ctg=file_manager&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._UPLOADFILESANDIMAGES}', 3)" target = "POPUP_FRAME">{$smarty.const._UPLOADFILESANDIMAGES|eF_truncate:40}</a></div>
+         <div>{counter name = "content_tools"}. <a title = "{$smarty.const._COPYFROMANOTHERLESSON}" href = "{$smarty.server.PHP_SELF}?ctg=copy">{$smarty.const._COPYFROMANOTHERLESSON|eF_truncate:40}</a></div>
+         <div>{counter name = "content_tools"}. <a title = "{$smarty.const._CONTENTTREEMANAGEMENT}" href = "{$smarty.server.PHP_SELF}?ctg=order">{$smarty.const._CONTENTTREEMANAGEMENT|eF_truncate:40}</a></div>
+         <div>{counter name = "content_tools"}. <a title = "{$smarty.const._SCORMIMPORT}" href = "{$smarty.server.PHP_SELF}?ctg=scorm&scorm_import=1">{$smarty.const._SCORMIMPORT}</a></div>
+         {if $T_UNIT}
+         <div>{counter name = "content_tools"}. <a title = "{$smarty.const._CONTENTMETADATA}" href = "{$smarty.server.PHP_SELF}?ctg=metadata&unit={$T_UNIT.id}">{$smarty.const._CONTENTMETADATA|eF_truncate:40}</a></div>
+         {/if}
         {/capture}
 
 
@@ -294,17 +296,17 @@
             <table class = "contentArea">
                 <tr>
                     <td id = "centerColumn">
-                   	{if $smarty.get.print}
-                   		<p style = "text-align:center"><input class = "flatButton" type = "submit" onClick = "window.print()" value = "{$smarty.const._PRINTIT}"/></p>
-                   		{eF_template_printBlock title = $T_UNIT.name data = $T_UNIT.data image = '32x32/printer.png'}
-                   	{else}
-                    	{eF_template_printBlock title = $unit_name data=$smarty.capture.t_content_code image=$image options = $unit_options settings = $T_UNIT_SETTINGS}
-                   	{/if}
+                    {if $smarty.get.print}
+                     <p style = "text-align:center"><input class = "flatButton" type = "submit" onClick = "window.print()" value = "{$smarty.const._PRINTIT}"/></p>
+                     {eF_template_printBlock title = $T_UNIT.name data = $T_UNIT.data image = '32x32/printer.png'}
+                    {else}
+                     {eF_template_printBlock title = $unit_name data=$smarty.capture.t_content_code image=$image options = $unit_options settings = $T_UNIT_SETTINGS}
+                    {/if}
                     </td>
                     </tr>
             </table>
         {/capture}
-		{capture name = "moduleSideOperations"}
+  {capture name = "moduleSideOperations"}
                     <td id = "sideColumn">
                     {if !$_student_}
                         {eF_template_printBlock title = $smarty.const._CONTENTTOOLS data = $smarty.capture.t_content_tools image = "32x32/tools.png"}
@@ -315,24 +317,24 @@
                     {/if}
                     {if !isset($T_CURRENT_LESSON->options.show_content_tools) || $T_CURRENT_LESSON->options.show_content_tools}
                         {eF_template_printBlock title = $smarty.const._UNITOPERATIONS data = $smarty.capture.t_unit_operations image = "32x32/options.png"}
-				        {*Content side table modules *}
-				        {foreach name = 'module_content_side_list' key = key item = moduleItem from = $T_CONTENT_SIDE_MODULES}
-				        	{capture name = $key|replace:"_":""}                    {*We cut off the underscore, since scriptaculous does not seem to like them*}
-					            {assign var = module_name value = $key|replace:"_":""}
-			                    {if $moduleItem.smarty_file}{include file = $moduleItem.smarty_file}{else}{$moduleItem.html_code}{/if}
-				            {/capture}
-				            {eF_template_printBlock title = $moduleItem.title data = $smarty.capture.$module_name id = $module_name|cat:'_id'}
-				        {/foreach}                     
-				    {/if}
+            {*Content side table modules *}
+            {foreach name = 'module_content_side_list' key = key item = moduleItem from = $T_CONTENT_SIDE_MODULES}
+             {capture name = $key|replace:"_":""} {*We cut off the underscore, since scriptaculous does not seem to like them*}
+                 {assign var = module_name value = $key|replace:"_":""}
+                       {if $moduleItem.smarty_file}{include file = $moduleItem.smarty_file}{else}{$moduleItem.html_code}{/if}
+                {/capture}
+                {eF_template_printBlock title = $moduleItem.title data = $smarty.capture.$module_name id = $module_name|cat:'_id'}
+            {/foreach}
+        {/if}
                     </td>
-		{/capture}
+  {/capture}
 
         <script>
-            var show_left_bar = {if $_student_}'{$T_CURRENT_LESSON->options.show_left_bar}'{else}1{/if};                
+            var show_left_bar = {if $_student_}'{$T_CURRENT_LESSON->options.show_left_bar}'{else}1{/if};
         </script>
-        
-		{if $T_SCORM}
-			{$smarty.capture.t_scorm_form_code}
-		{/if}        
-		
+
+  {if $T_SCORM}
+   {$smarty.capture.t_scorm_form_code}
+  {/if}
+
     {/if}

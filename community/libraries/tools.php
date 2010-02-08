@@ -142,17 +142,18 @@ function debug($mode = true) {
 function formatLogin($login, $fields = array(), $duplicate = true) {
     //The function is usually called by a filter, which passes a preg matches array, where index 1 holds the login
     !is_array($login) OR $login = $login[1];
-    $tags = array('#surname#', '#name#', '#login#', '#n#');
+ $roles = EfrontUser :: getRoles(true);
+    $tags = array('#surname#', '#name#', '#login#', '#n#', '#type#');
     if (!empty($fields)) {
-        $replacements = array($fields['surname'], $fields['name'], $fields['login'], mb_substr($fields['name'], 0, 1));
+        $replacements = array($fields['surname'], $fields['name'], $fields['login'], mb_substr($fields['name'], 0, 1), $roles[$fields['user_type']]);
         $format = str_replace($tags, $replacements, $GLOBALS['configuration']['username_format']);
         return $format;
     } else {
      if (!isset($GLOBALS['_usernames'])) {
       $GLOBALS['_usernames'] = array();
-      $result = eF_getTableDataFlat("users", "login, name, surname");
+      $result = eF_getTableDataFlat("users", "login, name, surname, user_type");
    foreach ($result['login'] as $key => $value) {
-       $replacements = array($result['surname'][$key], $result['name'][$key], $value, mb_substr($result['name'][$key], 0, 1));
+       $replacements = array($result['surname'][$key], $result['name'][$key], $value, mb_substr($result['name'][$key], 0, 1), $roles[$result['user_type'][$key]]);
        $format = trim(str_replace($tags, $replacements, $GLOBALS['configuration']['username_format']));
        $GLOBALS['_usernames'][$value] = $format;
    }

@@ -404,6 +404,37 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                  //Add default notifications to 3.5
                  EfrontNotification::addDefaultNotifications();
                 }
+    //the following lines remove some old editor files that prevent editor from loading in version 3.6
+    $removedDir = array();
+    $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/themes/advanced/langs';
+    $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/zoom';
+    $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/flash';
+    $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/devkit';
+    $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/mathtype';
+    $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/lessons_info';
+    foreach ($removedDir as $key => $value) {
+     if (is_dir($value)) {
+      try {
+       $directory = new EfrontDirectory($value);
+       $directory -> delete();
+      } catch (EfrontFileException $e) {} //Don't stop on filesystem errors
+     }
+    }
+    $fileSystemTree = new FileSystemTree(G_ROOTPATH.'www/editor/tiny_mce/plugins', true);
+    foreach (new EfrontDirectoryOnlyFilterIterator($fileSystemTree -> tree) as $key => $value) {
+     if (is_dir($key.'/langs')) {
+      try {
+       $directory = new EfrontDirectory($key.'/langs');
+       $directory -> delete();
+      } catch (EfrontFileException $e) {} //Don't stop on filesystem errors
+     }
+     if (is_dir($key.'/jscripts')) {
+      try {
+       $directory = new EfrontDirectory($key.'/jscripts');
+       $directory -> delete();
+      } catch (EfrontFileException $e) {} //Don't stop on filesystem errors
+     }
+    }
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
                 Installation :: addModules(true);
                 header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");

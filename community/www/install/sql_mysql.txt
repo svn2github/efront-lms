@@ -227,9 +227,6 @@ CREATE TABLE courses (
   show_catalog tinyint(1) NOT NULL default '1',
   options text,
   max_users int(10) unsigned default NULL,
-
-
-
   archive int(10) unsigned default 0,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
@@ -566,9 +563,6 @@ CREATE TABLE lessons (
   share_folder int(10) default 0,
   created int(10) unsigned default NULL,
   max_users int(10) unsigned default NULL,
-
-
-
   archive int(10) unsigned default 0,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;

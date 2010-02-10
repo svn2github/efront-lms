@@ -510,8 +510,6 @@ $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
 //Operation/file specific scripts
 $loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates
 $smarty -> assign("T_HEADER_LOAD_SCRIPTS", implode(",", array_unique($loadScripts))); //array_unique, so it doesn't send duplicate entries
-$formatDate = eF_dateFormat(false);
-$smarty -> assign("T_DATE_FORMATGENERAL", $formatDate);
 $smarty -> assign("T_CURRENT_CTG", $ctg);
 $smarty -> assign("T_MENUCTG", $ctg);
 //$smarty -> assign("T_MENU", eF_getMenu());

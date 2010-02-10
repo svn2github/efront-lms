@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Στατιστικά συμβάντων");
 define("_EVENTSMATCHINGTHECRITERIA","Συμβάντα που ταιριάζουν με τα κριτήρια");
 define("_NOEVENTSFOUND", "Δε βρέθηκαν συμβάντα που να ταιριάζουν με τα κριτήρια αναζήτησης");
 define("_VISITEDTHESYSTEM","επισκέφθηκε το σύστημα");
-define("_VISITEDLESSON","επισκέφθηκε το μάθημα");
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","έθεσε την ημερομηνία προγραμματισμένης έναρξης για το μάθημα");
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","έθεσε την ημερομηνία προγραμματισμένης λήξης για το μάθημα");
 define("_HASPUBLISHEDTHEANNOUNCEMENT", "δημοσίευσε την ανακοίνωση");
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION", "Μία νέα έκδοση είναι διαθέσ
 define("_RELEASENOTES", "Πληροφορίες έκδοσης");
 define("_VERSIONUPTODATE", "Η έκδοσή σας είναι ενημερωμένη");
 define("_CONTACTINGSERVER", "Επικοινωνία με το διακομιστή...");
-define("_DOWNLOADANDINSTALL", "Κατέβασμα κι εγκατάσταση");
 define("_ERRORCONNECTINGTOLICENSESERVER", "Το σύστημα δεν μπόρεσε να συνδεθεί στο διακομιστή αδειών");
 define("_LICENSESERVER", "Διακομιστής αδειών");
 define("_UPGRADESVALIDUNTIL", "Αναβαθμίσεις ισχύουν έως");

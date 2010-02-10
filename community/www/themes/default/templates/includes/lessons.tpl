@@ -20,14 +20,15 @@
                         <tr><td class = "labelCell">{$T_LESSON_FORM.directions_ID.label}:&nbsp;</td>
                             <td>{$T_LESSON_FORM.directions_ID.html}</td></tr>
 
+{*
                         <tr><td class = "labelCell">{$T_LESSON_FORM.location.label}:&nbsp;</td>
                          <td class = "elementCell">
                          {$T_LESSON_FORM.location.html}
                             {if $smarty.session.employee_type != _EMPLOYEE}
                             <a href="{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&add_branch=1&returntab=basic" title = "{$smarty.const._NEWBRANCH}" ><img src = "images/16x16/add.png" title = "{$smarty.const._NEWBRANCH}" alt = "{$smarty.const._NEWBRANCH}" ></a>
        {/if}
-
                             </td></tr>
+*}
 
                         <tr><td class = "labelCell">{$T_LESSON_FORM.course_only.0.label}:&nbsp;</td>
                             <td>{$T_LESSON_FORM.course_only.0.html}</td></tr>

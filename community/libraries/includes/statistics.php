@@ -10,8 +10,6 @@ $loadScripts[] = 'includes/statistics';
 $smarty -> assign("T_CATEGORY", 'statistics');
 $smarty -> assign("T_BASIC_TYPE", $currentUser -> user['user_type']);
 
-$formatDate = eF_dateFormat(false);
-$smarty -> assign("T_DATE_FORMATGENERAL", $formatDate);
 $isProfessor = 0;
 $isStudent = 0;
 

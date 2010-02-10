@@ -76,6 +76,9 @@ isset($GLOBALS['configuration']['time_zone']) && isset($GLOBALS['configuration']
 
 //handleSEO();
 
+//Setup the current version
+setupVersion();
+
 //query decryption
 if (G_VERSIONTYPE != 'community') { #cpp#ifndef COMMUNITY
     if ($GLOBALS['configuration']['encrypt_url'] && $_GET['cru']) {
@@ -170,8 +173,6 @@ try {
     $smarty -> assign("T_FAVICON", "images/favicon.png");
 }
 
-//Setup the current version
-setupVersion();
 
 /**Initialize valid currencies
  * @todo: remove from here, move to a function or class*/
@@ -217,6 +218,7 @@ if (isset($smarty)) {
     $smarty -> assign("T_BROWSER", $browser);
 
     $smarty -> assign("T_VERSION_TYPE", $GLOBALS['versionTypes'][G_VERSIONTYPE]);
+    $smarty -> assign("T_DATE_FORMATGENERAL", eF_dateFormat(false));
 }
 
 // eFront social activation codes
@@ -294,7 +296,7 @@ function setDefines() {
     /*Get the build number*/
 
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 5921;
+    $build = 5936;
     defined("G_BUILD") OR define("G_BUILD", $build);
   
     defined("G_BUILD") OR define("G_BUILD", $build);

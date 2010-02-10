@@ -27,6 +27,8 @@ $importForm -> setDefaults(array('replace_users' => 0));
 $admin = '"'.$_SESSION['s_login'].'"';
 $usersTable = eF_getTableData("users", "*", "");
 $tableFields = array_keys($usersTable[0]);
+//exclude additional accounts that destroy csv format because of serialized data
+$tableFields = array_values(array_diff($tableFields, array("additional_accounts")));
 $smarty -> assign("T_FIELDS", $tableFields);
 if (isset($_GET['csv_sample']) && $_GET['csv_sample']==1) {
     header("content-type:text/plain");

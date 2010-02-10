@@ -395,6 +395,7 @@ class EfrontSystem
      foreach ($users as $user) {
          unset($user['password']);
          unset($user['user_types_ID']);
+   unset($user['additional_accounts']);
          $lines[] = implode($separator, $user);
      }
      array_unshift($lines, implode($separator, array_keys($user)));

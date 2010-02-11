@@ -11,6 +11,7 @@
 - Added m4v files in filemanager insert to editor
 - Fixed issue with ie6 theme and css path
 - Fixed editor loading issue when upgrading to 3.6
+- Fixed auto completion of courses for IE7
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build

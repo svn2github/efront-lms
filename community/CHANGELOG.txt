@@ -1,4 +1,4 @@
-=== Version 3.6.0 build ===
+=== Version 3.6.0 build 5982 ===
 - Fixed phplivedocx configuration file creation
 - Fixed upgrading from 3.5.5 not retaining all kinds of custom blocks
 - Fixed community ++ issue where users where archived instead of being deleted

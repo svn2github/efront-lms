@@ -83,6 +83,13 @@
                   </td><td></td>
               </tr>
               {/foreach}
+              {foreach name = 'pending_tests_list' item = "name" key = "id" from = $T_PENDING_TESTS}
+                  <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$name}&quot;</span>:</td>
+                      <td class = "emptyCategory" colspan = "2">{$smarty.const._USERHASNOTDONETEST}</td>
+                  </tr>
+              {/foreach}
+
+
               {if !empty($T_USER_LESSONS_INFO.assigned_projects)}
               <tr><td>{$smarty.const._AVERAGEPROJECTSCORE}:&nbsp;</td>
                   <td class = "progressCell">

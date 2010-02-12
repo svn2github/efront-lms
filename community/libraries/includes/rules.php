@@ -13,8 +13,8 @@ $currentContent = new EfrontContentTree($currentLesson);
 $rules = $currentContent -> getRules();
 $units = array();
 foreach ($iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
-    $units['id'][]     = $value['id'];
-    $units['name'][]   = $value['name'];
+    $units['id'][] = $value['id'];
+    $units['name'][] = $value['name'];
     $units['active'][] = $value['active'];
 }
 
@@ -22,12 +22,12 @@ $smarty -> assign("T_TREE_ACTIVE", array_combine($units['id'], $units['active'])
 $smarty -> assign("T_TREE_NAMES", array_combine($units['id'], $units['name']));
 $smarty -> assign("T_RULES", $rules);
 
-$conditions      = $currentLesson -> getConditions();
-$condition_types = array('all_units'        => _PASSEDALLUNITS,
+$conditions = $currentLesson -> getConditions();
+$condition_types = array('all_units' => _PASSEDALLUNITS,
                          'percentage_units' => _PERCENTAGEUNITS,
-                         'specific_unit'    => _SPECIFICUNIT,
-                         'all_tests'        => _PASSEDALLTESTS,
-                         'specific_test'    => _SPECIFICTEST
+                         'specific_unit' => _SPECIFICUNIT,
+                         'all_tests' => _PASSEDALLTESTS,
+                         'specific_test' => _SPECIFICTEST
                          );
 $smarty -> assign("T_LESSON_CONDITIONS", $conditions);
 $smarty -> assign("T_CONDITION_TYPES", $condition_types);
@@ -76,8 +76,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     $testsIterator = new EfrontTestsFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));
     $testUnits = $currentContent -> toHTMLSelectOptions($testsIterator);
 
-    $contentIterator = new EfrontContentFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));    //Get active units that are anything but tests (false negates both rules)
-    $noTestUnits     = $currentContent -> toHTMLSelectOptions($contentIterator);
+    $contentIterator = (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))); //Get active units that are anything but tests (false negates both rules)
+    $noTestUnits = $currentContent -> toHTMLSelectOptions($contentIterator);
 
     $form -> addElement('select', 'exclusion_unit', null, $currentContent -> toHTMLSelectOptions(), 'class = "inputSelect"');
     $form -> addRule('exclusion_unit', _INVALIDID, null, 'numeric');
@@ -99,12 +99,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     $form -> addElement('submit', 'submit_rule', _SUBMIT, 'class = "flatButton"');
 
     if ($_GET['edit_rule']) {
-        $form -> setDefaults(array('scope'          => $rules[$_GET['edit_rule']]['users_LOGIN'],
+        $form -> setDefaults(array('scope' => $rules[$_GET['edit_rule']]['users_LOGIN'],
                                    'exclusion_unit' => $rules[$_GET['edit_rule']]['content_ID'],
-                                   'rule_type'      => $rules[$_GET['edit_rule']]['rule_type'],
-                                   'rule_unit'      => $rules[$_GET['edit_rule']]['rule_content_ID'],
-                                   'test_unit'      => $rules[$_GET['edit_rule']]['rule_content_ID'],
-                                   'score'          => $rules[$_GET['edit_rule']]['rule_option'] * 100));
+                                   'rule_type' => $rules[$_GET['edit_rule']]['rule_type'],
+                                   'rule_unit' => $rules[$_GET['edit_rule']]['rule_content_ID'],
+                                   'test_unit' => $rules[$_GET['edit_rule']]['rule_content_ID'],
+                                   'score' => $rules[$_GET['edit_rule']]['rule_option'] * 100));
         $smarty -> assign("T_CURRENT_RULE", $rules[$_GET['edit_rule']]['rule_type']);
     } else {
         $form -> setDefaults(array('score' => 50));
@@ -113,21 +113,21 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     if ($form -> isSubmitted()) {
         if ($form -> validate()) {
             $fields = array('users_LOGIN' => $form -> exportValue('scope'),
-                            'content_ID'  => $form -> exportValue('exclusion_unit'),
-                            'lessons_ID'  => $currentLesson -> lesson['id']);
+                            'content_ID' => $form -> exportValue('exclusion_unit'),
+                            'lessons_ID' => $currentLesson -> lesson['id']);
 
             switch ($form -> exportValue('rule_type')) {
                 case 'always':
                     $fields['rule_type'] = 'always';
                     break;
                 case 'hasnot_seen':
-                    $fields['rule_type']       = 'hasnot_seen';
+                    $fields['rule_type'] = 'hasnot_seen';
                     $fields['rule_content_ID'] = $form -> exportValue('rule_unit');
                     break;
                 case 'hasnot_passed':
-                    $fields['rule_type']       = 'hasnot_passed';
+                    $fields['rule_type'] = 'hasnot_passed';
                     $fields['rule_content_ID'] = $form -> exportValue('test_unit');
-                   $fields['rule_option']     = round($form -> exportValue('score') / 100, 2);
+                   $fields['rule_option'] = round($form -> exportValue('score') / 100, 2);
                   break;
                 default:
                     break;
@@ -135,20 +135,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
 
             if (isset($_GET['edit_rule'])) {
                 if (eF_updateTableData("rules", $fields, "id=".$_GET['edit_rule'])) {
-                    $message      = _SUCCESFULLYUPDATEDRULE;
+                    $message = _SUCCESFULLYUPDATEDRULE;
                     $message_type = 'success';
                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=rules&message=".$message."&message_type=".$message_type);
                 } else {
-                    $message      = _SOMEPROBLEMEMERGED;
+                    $message = _SOMEPROBLEMEMERGED;
                     $message_type = 'failure';
                 }
             } else {
                 if (eF_insertTableData("rules", $fields)) {
-                    $message      = _SUCCESFULLYINSERTEDRULE;
+                    $message = _SUCCESFULLYINSERTEDRULE;
                     $message_type = 'success';
                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=rules&message=".$message."&message_type=".$message_type);
                 } else {
-                    $message      = _SOMEPROBLEMEMERGED;
+                    $message = _SOMEPROBLEMEMERGED;
                     $message_type = 'failure';
                 }
             }
@@ -171,8 +171,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
 
     if ($form -> isSubmitted() && $form -> validate()) {
         $fields = array('users_LOGIN' => '*',
-                        'content_ID'  => 0,
-                        'lessons_ID'  => $currentLesson -> lesson['id']);
+                        'content_ID' => 0,
+                        'lessons_ID' => $currentLesson -> lesson['id']);
         switch ($form -> exportValue('ready_rule')) {
             case 'tree':
                 $fields['rule_type'] = 'tree';
@@ -182,11 +182,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
                 break;
         }
         if (eF_insertTableData("rules", $fields)) {
-            $message      = _SUCCESFULLYINSERTEDRULE;
+            $message = _SUCCESFULLYINSERTEDRULE;
             $message_type = 'success';
             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=rules&message=".$message."&message_type=".$message_type);
         } else {
-            $message      = _SOMEPROBLEMEMERGED;
+            $message = _SOMEPROBLEMEMERGED;
             $message_type = 'failure';
         }
 
@@ -213,29 +213,29 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     isset($_GET['add_condition']) ? $post_target = 'add_condition=1' : $post_target = 'edit_condition='.$_GET['edit_condition'];
 
     $form = new HTML_QuickForm("complete_lesson_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=rules&tab=conditions&'.$post_target, "", null, true);
-    $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+    $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
     $form -> registerRule('in_array', 'callback', 'in_array');
 
     $testsIterator = new EfrontTestsFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));
     $testUnits = $currentContent -> toHTMLSelectOptions($testsIterator);
 
-    $contentIterator = new EfrontContentFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));    //Get active units that are anything but tests (false negates both rules)
-    $noTestUnits     = $currentContent -> toHTMLSelectOptions($contentIterator);
+    $contentIterator = new EfrontContentFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))); //Get active units that are anything but tests (false negates both rules)
+    $noTestUnits = $currentContent -> toHTMLSelectOptions($contentIterator);
 
     if (!empty($noTestUnits)) {
-	    $form -> addElement('select', 'specific_unit', null, $noTestUnits, 'class = "inputSelect"');
-	    $form -> addRule('specific_unit', _INVALIDID, 'numeric', null, 'client');
+     $form -> addElement('select', 'specific_unit', null, $noTestUnits, 'class = "inputSelect"');
+     $form -> addRule('specific_unit', _INVALIDID, 'numeric', null, 'client');
     } else {
         unset($condition_types['specific_unit']);
     }
-    
+
     if (!empty($testUnits) && $GLOBALS['configuration']['disable_tests'] != 1) {
-	    $form -> addElement('select', 'specific_test', null, $testUnits, 'class = "inputSelect"');
-	    $form -> addRule('specific_test', _INVALIDID, 'numeric', null, 'client');
+     $form -> addElement('select', 'specific_test', null, $testUnits, 'class = "inputSelect"');
+     $form -> addRule('specific_test', _INVALIDID, 'numeric', null, 'client');
     } else {
         unset($condition_types['specific_test']);
     }
-    
+
     $form -> addElement('select', 'condition_types', null, $condition_types, 'class = "inputSelect" onchange = "selectCondition(this)"');
     $form -> addRule('condition_types', _INVALIDCONDITION, 'in_array', array_keys($condition_types));
 
@@ -256,7 +256,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
         $options = $conditions[$_GET['edit_condition']]['options'];
         switch ($conditions[$_GET['edit_condition']]['type']) {
             case 'percentage_units': $defaults = array('percentage_units' => $options[0]); break;
-            case 'specific_unit':    $defaults = array('specific_unit'    => $options[0]); break; 
+            case 'specific_unit': $defaults = array('specific_unit' => $options[0]); break;
             //case 'all_tests':        $defaults = array('all_tests'        => $options[0]); break;
             //case 'specific_test':    $defaults = array('specific_test'    => $options[0]); break;
             default: break;
@@ -266,37 +266,37 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
 
     if ($form -> isSubmitted()) {
         if ($form -> exportValue('condition_types') == 'percentage_units' && ($form -> exportValue('percentage_units') < 1 || $form -> exportValue('percentage_units') > 100)) {
-            $message      = _PERCENTAGEMUSTBEBETWEEN1100;
+            $message = _PERCENTAGEMUSTBEBETWEEN1100;
             $message_type = 'failure';
         } elseif ($form -> validate()) {
             $fields = array('lessons_ID' => $_SESSION['s_lessons_ID'],
-                            'type'       => $form -> exportValue('condition_types'),
-                            'relation'   => $form -> exportValue('relation'));
+                            'type' => $form -> exportValue('condition_types'),
+                            'relation' => $form -> exportValue('relation'));
 
             switch ($form -> exportValue('condition_types')) {
-                case 'percentage_units': $fields['options'] = serialize(array(0 => $form -> exportValue('percentage_units')));    break;
-                case 'specific_unit':    $fields['options'] = serialize(array(0 => $form -> exportValue('specific_unit')));       break;
+                case 'percentage_units': $fields['options'] = serialize(array(0 => $form -> exportValue('percentage_units'))); break;
+                case 'specific_unit': $fields['options'] = serialize(array(0 => $form -> exportValue('specific_unit'))); break;
                 //case 'all_tests':        $fields['options'] = serialize(array(0 => $form -> exportValue('all_tests')));           break;
-                case 'specific_test':    $fields['options'] = serialize(array(0 => $form -> exportValue('specific_test')));       break;
+                case 'specific_test': $fields['options'] = serialize(array(0 => $form -> exportValue('specific_test'))); break;
                 default: break;
             }
 
             if (isset($_GET['add_condition'])) {
                 if (eF_insertTableData('lesson_conditions', $fields)) {
-                    $message      = _SUCCESFULLYADDEDCONDITION;
+                    $message = _SUCCESFULLYADDEDCONDITION;
                     $message_type = 'success';
                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=rules&tab=conditions&message=".$message."&message_type=".$message_type);
                 } else {
-                    $message      = _SOMEPROBLEMEMERGED;
+                    $message = _SOMEPROBLEMEMERGED;
                     $message_type = 'failure';
                 }
             } else {
                 if (eF_updateTableData('lesson_conditions', $fields, "id=".$_GET['edit_condition'])) {
-                    $message      = _SUCCESFULLYUPDATEDCONDITION;
+                    $message = _SUCCESFULLYUPDATEDCONDITION;
                     $message_type = 'success';
                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=rules&tab=conditions&message=".$message."&message_type=".$message_type);
                 } else {
-                    $message      = _SOMEPROBLEMEMERGED;
+                    $message = _SOMEPROBLEMEMERGED;
                     $message_type = 'failure';
                 }
             }

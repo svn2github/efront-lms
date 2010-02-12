@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Cantonada inferior esquerra");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Cantonada inferior dreta");//Bottom right corner
 define("_LOGOPOSITION","Logo posició");//Logo position
 define("_LOGOFILE","D&#39;arxiu de logotip");//Logo file
-define("_LESSONSKILLSSELECTION","Lliçó ofereix capacitats de selecció");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Lliçó ofereix capacitats de selecció");//Select skills offered by the lesson
 define("_TOPCENTER","Començament de la pàgina central");//Top center
 define("_BOTTOMCENTER","La part inferior central");//Bottom center
 define("_HIDECOMPLETEUNITICON","Amaga icona d&#39;unitat completa");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Deixar en blanc per cap termini");//Leave blank for n
 define("_HARDPLURAL","Dur");//Hard
 define("_MEDIUMPLURAL","Medi");//Medium
 define("_EASYPLURAL","Fàcil");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","La pregunta és incorrecta");//The question is incorrect
 define("_QUESTIONISCORRECT","La pregunta és correcta");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","La pregunta és parcialment correcte");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Els meus Grups");//my Groups
 define("_AVAILABLE","Disponible");//Available
 define("_NEVER","Mai");//Never
 define("_CLASSMATES","Companys de classe");//Classmates
-define("_LESSONPEOPLE","Lliçó de persones");//Lesson people
+define("_LESSONPEOPLE","Lliçó de persones");//Lesson users
 define("_NORMALIZEDIMENSIONS","Dimensions normalitzats");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","va ser assignat el curs");//was assigned the course
 define("_WILLBETEACHINGCOURSE","estaran ensenyant el curs");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Assignació d&#39;Ocupació");//Job assignment
 define("_ONJOBREMOVAL","Eliminar de treball de l&#39;usuari");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Nom Càrrec");//Job position name
 define("_ENCRYPTURL","Xifrar URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Format de la forma en els inicis de sessió apareixen en el sistema. Utilitzeu # # nom per el nom, cognom # # per el cognom, login # # per a l&#39;inici de sessió i # n # per a la lletra inicial del nom de pila de");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Format de la forma en els inicis de sessió apareixen en el sistema. Utilitzeu # # nom per el nom, cognom # # per el cognom, login # # per a l&#39;inici de sessió i # n # per a la lletra inicial del nom de pila de");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Format d&#39;usuari");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Reportatges");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Esdeveniments criteris coincidents");//Events matching criteria
 define("_NOEVENTSFOUND","No hi ha esdeveniments coincideixen amb els seus criteris de cerca");//No events match your search criteria
 define("_VISITEDTHESYSTEM","va visitar el sistema de");//visited the system
-define("_VISITEDLESSON","va visitar la lliçó");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","s&#39;ha fixat la data d&#39;inici prevista per a la Lliçó");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","s&#39;ha fixat la data d&#39;expiració del termini assenyalat per a la lliçó");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","ha publicat l&#39;anunci de");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Hi ha una nova versió disponible!");//There is a n
 define("_RELEASENOTES","Notes de la versió");//Release notes
 define("_VERSIONUPTODATE","La seva versió està actualitzada");//Your version is up to date
 define("_CONTACTINGSERVER","Per contactar amb el servidor ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Descarregar i instal lar");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","El sistema no pot connectar-se al servidor de llicències");//The system could not connect to license server
 define("_LICENSESERVER","Servidor de llicències");//License server
 define("_UPGRADESVALIDUNTIL","Actualitzacions vàlida fins al");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Contingut de Smart");//Smart content
 define("_ZIPHANDLING","Mètode de control de postal");//Zip handling method
 define("_COMPLETION","Finalització");//Completion
 define("_SETALLTO","Tot al");//Set all to
-define("_INADEQUATEBALANCE","Equilibri inadequat");//Inadequate balance (New)
-define("_PAYPALMODE","Mode de Paypal");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Arxiu de registre de transaccions");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","En l&#39;actualitat establir la direcció no coincideix amb l&#39;adreça professional rebuda");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Tipus d&#39;operació no admesa");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicar acabat de pagar");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","L&#39;estat de pagament no admesos");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","S&#39;ha cancel l&#39;operació");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transacció es va completar amb èxit.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal mode de depuració");//Paypal debug mode (New)
-define("_MYACCOUNT","El meu compte");//My account (New)
-define("_MODULE","Mòdul");//Module (New)
-define("_EMBEDTYPE","Insereix el contingut com");//Embed content as (New)
-define("_INLINEIFRAME","En línia (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Nova finestra (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Paràmetres d&#39;elements emergents");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Feu clic al botó per iniciar la unitat");//Click on the button to start the unit (New)
-define("_STARTUNIT","La unitat d&#39;inici");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Lamentablement SCORM 2004 no s&#39;admet en aquesta edició");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Notificacions per defecte Restaura");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","El progrés de contingut (sense proves)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Versió de base de dades");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","La versió de la base de dades és diferent de la versió de codi. Si us plau, executeu l&#39;enllaç% script");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Descarregar exportats curs");//Download exported course (New)
-define("_MAXDISCOUNT100","El descompte màxim és de 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Registre / Actualització");//Registration/Update (New)
-define("_ROWS","Files");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","La comanda ha fallat amb el següent resultat");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Potser el vostre sistema no suporta el processament postal?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Per tal de crear un curs, primer ha de crear una categoria de");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Equilibri inadequat");//Inadequate balance
+define("_PAYPALMODE","Mode de Paypal");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Arxiu de registre de transaccions");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","En l&#39;actualitat establir la direcció no coincideix amb l&#39;adreça professional rebuda");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Tipus d&#39;operació no admesa");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicar acabat de pagar");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","L&#39;estat de pagament no admesos");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","S&#39;ha cancel l&#39;operació");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transacció es va completar amb èxit.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal mode de depuració");//Paypal debug mode
+define("_MYACCOUNT","El meu compte");//My account
+define("_MODULE","Mòdul");//Module
+define("_EMBEDTYPE","Insereix el contingut com");//Embed content as
+define("_INLINEIFRAME","En línia (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Nova finestra (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Paràmetres d&#39;elements emergents");//Popup parameters
+define("_CLICKTOSTARTUNIT","Feu clic al botó per iniciar la unitat");//Click on the button to start the unit
+define("_STARTUNIT","La unitat d&#39;inici");//Start unit
+define("_SCORM2004NOTSUPPORTED","Lamentablement SCORM 2004 no s&#39;admet en aquesta edició");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Notificacions per defecte Restaura");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","El progrés de contingut (sense proves)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Versió de base de dades");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","La versió de la base de dades és diferent de la versió de codi. Si us plau, executeu l&#39;enllaç% script");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Descarregar exportats curs");//Download exported course
+define("_MAXDISCOUNT100","El descompte màxim és de 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Registre / Actualització");//Registration/Update
+define("_ROWS","Files");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","La comanda ha fallat amb el següent resultat");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Potser el vostre sistema no suporta el processament postal?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Per tal de crear un curs, primer ha de crear una categoria de");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Branques lliçó Seleccioneu");//Select lesson branches (New)
+define("_LESSONBRANCHES","Lliçó branques");//Lesson branches (New)
+define("_COURSEBRANCHES","Branques de golf");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permetre als estudiants per especificar el nombre de preguntes a cada prova d&#39;execució");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Màxim");//Maximum (New)
+define("_MINIMUM","Mínim");//Minimum (New)
+define("_REPETITIONS","Repeticions");//Repetitions (New)
+define("_MAINTAINHISTORY","Mantenir la història");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","La clau no és adequat per a aquesta edició");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Mode il.legal");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Vostè ha d&#39;especificar el nombre de preguntes");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Vostè ha d&#39;especificar un valor de");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Els professors del curs");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Professors de curs");//Professors of course (New)
+define("_PRINTCONTENT","Imprimir contingut");//Print content (New)
+define("_USERHASNOTDONETEST","L&#39;usuari no ha fet aquesta prova");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Si us plau, verifiqueu que la següent informació és correcta");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","No hi ha categories definides");//There are no categories defined (New)
 ?>

@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Linkeronderhoek");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Rechteronderhoek");//Bottom right corner
 define("_LOGOPOSITION","Logo positie");//Logo position
 define("_LOGOFILE","Logo-bestand");//Logo file
-define("_LESSONSKILLSSELECTION","Les biedt vaardigheden selectie");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Les biedt vaardigheden selectie");//Select skills offered by the lesson
 define("_TOPCENTER","Bovenkant midden");//Top center
 define("_BOTTOMCENTER","Onderkant midden");//Bottom center
 define("_HIDECOMPLETEUNITICON","Verberg volledige eenheid pictogram");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Laat leeg voor geen tijdslimiet");//Leave blank for n
 define("_HARDPLURAL","Moeilijk");//Hard
 define("_MEDIUMPLURAL","Middel");//Medium
 define("_EASYPLURAL","Gemakkelijk");//Easy
-define("_UNLIMITED","Onbeperkt");//Unilimited
+define("_UNLIMITED","Onbeperkt");//Unlimited
 define("_INCORRECTQUESTION","De vraag is onjuist");//The question is incorrect
 define("_QUESTIONISCORRECT","De vraag is juist");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","De vraag is ten dele juist");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Mijn groepen");//my Groups
 define("_AVAILABLE","Beschikbaar");//Available
 define("_NEVER","Nooit");//Never
 define("_CLASSMATES","Klasgenoten");//Classmates
-define("_LESSONPEOPLE","Les mensen");//Lesson people
+define("_LESSONPEOPLE","Les mensen");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normale afmetingen");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","werd toegewezen de cursus");//was assigned the course
 define("_WILLBETEACHINGCOURSE","zal de cursus");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Job opdracht");//Job assignment
 define("_ONJOBREMOVAL","Verwijder de taak van de gebruiker");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Vacature naam");//Job position name
 define("_ENCRYPTURL","Encrypt URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Formatteer de manier logins verschijnen in het systeem. Gebruik # # naam voor de voornaam, achternaam # # voor de laatste naam, # login # voor de login en # n # voor een eerste brief van de voornaam&#39;s");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Formatteer de manier logins verschijnen in het systeem. Gebruik # # naam voor de voornaam, achternaam # # voor de laatste naam, # login # voor de login en # n # voor een eerste brief van de voornaam&#39;s");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Gebruikersnaam formaat");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Evenementen verslagen");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Evenementen matching criteria");//Events matching criteria
 define("_NOEVENTSFOUND","Geen evenementen gevonden die aan uw zoekcriteria");//No events match your search criteria
 define("_VISITEDTHESYSTEM","bezocht het systeem");//visited the system
-define("_VISITEDLESSON","bezocht les");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","heeft de geplande begindatum voor de les");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","heeft de geplande einddatum voor de les");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","heeft bekendgemaakt de aankondiging");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Er is een nieuwe versie beschikbaar!");//There is a
 define("_RELEASENOTES","Release notes");//Release notes
 define("_VERSIONUPTODATE","Uw versie is up-to-date");//Your version is up to date
 define("_CONTACTINGSERVER","Contact opnemen met de server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Download en installeer");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Het systeem kan geen verbinding maken met server licentie");//The system could not connect to license server
 define("_LICENSESERVER","Licentieserver");//License server
 define("_UPGRADESVALIDUNTIL","Upgrades geldig tot");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart inhoud");//Smart content
 define("_ZIPHANDLING","Zip hanteren methode");//Zip handling method
 define("_COMPLETION","Afronding");//Completion
 define("_SETALLTO","Zet allemaal");//Set all to
-define("_INADEQUATEBALANCE","Onvoldoende saldo");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal modus");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Transactie logbestand");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Momenteel set adres komt niet overeen ontvangen kantooradres");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Ondersteunde operatie type");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Dubbele betaling voltooid");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Ondersteunde betaling status");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","U hebt de transactie geannuleerd");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","De transactie werd succesvol afgerond.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
-define("_MYACCOUNT","Mijn account");//My account (New)
-define("_MODULE","Module");//Module (New)
-define("_EMBEDTYPE","Embed inhoud");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Nieuw venster (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parameters");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Klik op de knop om te beginnen met de eenheid");//Click on the button to start the unit (New)
-define("_STARTUNIT","Start eenheid");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Helaas SCORM 2004 wordt niet ondersteund in deze editie");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Restore default kennisgevingen");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Inhoud vooruitgang (excl. tests)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Database versie");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Uw database versie is anders dan de code versie. Voer het script% link");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Download uitgevoerd cursus");//Download exported course (New)
-define("_MAXDISCOUNT100","De maximale korting is 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Registratie / Update");//Registration/Update (New)
-define("_ROWS","Rijen");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","De opdracht is mislukt met de volgende uitvoer");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Misschien is uw systeem biedt geen ondersteuning voor zip verwerking?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Voor het maken van een cursus, moet u eerst een categorie");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Onvoldoende saldo");//Inadequate balance
+define("_PAYPALMODE","Paypal modus");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Transactie logbestand");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Momenteel set adres komt niet overeen ontvangen kantooradres");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Ondersteunde operatie type");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Dubbele betaling voltooid");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Ondersteunde betaling status");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","U hebt de transactie geannuleerd");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","De transactie werd succesvol afgerond.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
+define("_MYACCOUNT","Mijn account");//My account
+define("_MODULE","Module");//Module
+define("_EMBEDTYPE","Embed inhoud");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Nieuw venster (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parameters");//Popup parameters
+define("_CLICKTOSTARTUNIT","Klik op de knop om te beginnen met de eenheid");//Click on the button to start the unit
+define("_STARTUNIT","Start eenheid");//Start unit
+define("_SCORM2004NOTSUPPORTED","Helaas SCORM 2004 wordt niet ondersteund in deze editie");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default kennisgevingen");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Inhoud vooruitgang (excl. tests)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Database versie");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Uw database versie is anders dan de code versie. Voer het script% link");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Download uitgevoerd cursus");//Download exported course
+define("_MAXDISCOUNT100","De maximale korting is 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Registratie / Update");//Registration/Update
+define("_ROWS","Rijen");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","De opdracht is mislukt met de volgende uitvoer");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Misschien is uw systeem biedt geen ondersteuning voor zip verwerking?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Voor het maken van een cursus, moet u eerst een categorie");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Selecteer les branches");//Select lesson branches (New)
+define("_LESSONBRANCHES","Les branches");//Lesson branches (New)
+define("_COURSEBRANCHES","Cursus filialen");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Laat studenten aantal vragen in elke test specificeren uitvoering");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maximale");//Maximum (New)
+define("_MINIMUM","Minimum");//Minimum (New)
+define("_REPETITIONS","Herhalingen");//Repetitions (New)
+define("_MAINTAINHISTORY","Handhaving geschiedenis");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","De sleutel is niet geschikt voor deze editie");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Illegale modus");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","U moet het aantal vragen");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","U moet een waarde");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Cursus hoogleraren");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Hoogleraren natuurlijk");//Professors of course (New)
+define("_PRINTCONTENT","Print content");//Print content (New)
+define("_USERHASNOTDONETEST","De gebruiker heeft deze proef niet gedaan");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Controleer of de volgende informatie juist");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Er zijn geen categorieën gedefinieerd");//There are no categories defined (New)
 ?>

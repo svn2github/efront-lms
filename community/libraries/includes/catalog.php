@@ -85,11 +85,14 @@ if (isset($_GET['fct'])) {
     }
 
     $cart = cart :: prepareCart(false);
+ if (!cart :: compactCart($cart)) {
+  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
+ }
     $cart = cart :: filterCart($cart, $lessons, $courses);
     cart :: storeCart($cart);
 
     if (empty($cart)) {
-        eF_redirect(basename($_SESSION['s_type'])."page.php?ctg=lessons&message=".rawurlencode(_SORRYYOUALREADYHAVETHELESSONSYOUSELECTED)."&message_type=failure");
+        eF_redirect(basename($_SESSION['s_type'])."page.php?ctg=lessons&message=".rawurlencode(_SORRYYOUALREADYHAVETHELESSONSYOUSELECTED)."&message_type=failure", true);
     }
 
     $cart = cart :: prepareCart(false);

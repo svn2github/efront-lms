@@ -244,6 +244,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
    } else {
     $result = eF_checkUserLdap($form -> exportValue('login'), $form -> exportValue('password'));
     if ($result) { //The user exists in the LDAP server
+     $_SESSION['ldap_user_pwd'] = $form -> exportValue('password'); //Keep the password temporarily in the session, it will be used in the next step
      eF_redirect("index.php?ctg=signup&ldap=1&login=".$form -> exportValue('login'));
     } else {
      $message = _LOGINERRORPLEASEMAKESURECAPSLOCKISOFF;
@@ -403,7 +404,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
  $form -> removeAttribute('name');
  $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
  $form -> registerRule('checkNotExist', 'callback', 'eF_checkNotExist'); //This rule is using our function, eF_checkNotExist, to ensure that no duplicate values are inserted in unique fields, such as login and email
-    $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
+    $form -> addElement('text', 'login', _LOGIN, (isset($_GET['ldap']) ? 'class = "inputText inactiveElement" readonly' : 'class = "inputText"'));
     $form -> addRule('login', _THEFIELD.' '._LOGIN.' '._ISMANDATORY, 'required', null, 'client');
     $form -> addRule('login', _THEFIELD.' "'._LOGIN.'" '._MUSTBESMALLERTHAN.' 50 '.mb_strtolower(_CHARACTERS), 'maxlength', 50, 'client');
     $form -> addRule('login', _THEFIELD.' '._LOGIN.' '._HASINVALIDCHARACTERS.'. '._ONLYALLOWEDCHARACTERSLOGIN, 'checkParameter', 'login');
@@ -413,7 +414,9 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
  $form -> addRule('password', _THEFIELD.' '._PASSWORD.' '._ISMANDATORY, 'required', null, 'client');
  $form -> addRule('passrepeat', _THEFIELD.' '._REPEATPASSWORD.' '._ISMANDATORY, 'required', null, 'client');
  $form -> addRule(array('password', 'passrepeat'), _PASSWORDSDONOTMATCH, 'compare', null, 'client');
- $form -> addRule('passrepeat', str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS), 'minlength', $GLOBALS['configuration']['password_length'], 'client');
+ if (!$_GET['ldap']) { //For LDAP registrations, this rule does not hold true
+  $form -> addRule('passrepeat', str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS), 'minlength', $GLOBALS['configuration']['password_length'], 'client');
+ }
     $form -> addElement('text', 'firstName', _FIRSTNAME, 'class = "inputText"');
     $form -> addRule('firstName', _THEFIELD.' '._FIRSTNAME.' '._ISMANDATORY, 'required', null, 'client');
     $form -> addRule('firstName', _THEFIELD.' "'._FIRSTNAME.'" '._MUSTBESMALLERTHAN.' 50 '.mb_strtolower(_CHARACTERS), 'maxlength', 50, 'client');
@@ -459,11 +462,16 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
                                    "email" => $result[0]['mail'][0],
                                    "firstName" => $first_name,
                                    "lastName" => $last_name));
-  $form -> freeze(array('login', 'password', 'passrepeat'));
+  //$form -> freeze(array('login', 'password', 'passrepeat'));
+  $smarty -> assign("T_LDAP_USER", true);
+  if (!$form -> isSubmitted()) {
+   $message = _VERIFYFOLLOWINGINFOISCORRECT;
+   $message_type = 'success';
+  }
  } elseif ($configuration['only_ldap']) {
   $message = _ONLYLDAPREGISTRATIONPERMITTED;
   $message_type = 'failure';
-  eF_redirect("".basename($_SERVER['PHP_SELF'])."?message=".urlencode($message)."&message_type=$message_type");
+  eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".urlencode($message)."&message_type=$message_type");
  }
  if ($form -> isSubmitted()) {
   if ($form -> validate()) {
@@ -504,13 +512,18 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
      $message = _SUCCESSREGISTER;
      $message_type = 'success';
      //Automatic registration trigers login as well, unless login_mode is enabled
-     $newUser -> login($user_data['password'], true);
+     if ($_GET['ldap']) {
+      $newUser -> login($_SESSION['ldap_user_pwd'], true);
+      unset($_SESSION['ldap_user_pwd']);
+     } else {
+      $newUser -> login($user_data['password'], true);
+     }
      if ($GLOBALS['configuration']['show_license_note'] && $newUser -> user['viewed_license'] == 0) {
       eF_redirect("index.php?ctg=agreement&message=".urlencode($message)."&message_type=".$message_type);
      } else if ($_SESSION['login_mode']) {
          eF_redirect("index.php?ctg=checkout&checkout=1&message=".urlencode($message)."&message_type=".$message_type);
      } else {
-      eF_redirect("".$newUser -> user['user_type']."page.php?message=".urlencode($message)."&message_type=".$message_type);
+      eF_redirect($newUser -> user['user_type']."page.php?message=".urlencode($message)."&message_type=".$message_type);
      }
     }
    } catch (Exception $e) {

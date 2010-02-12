@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","มุมซ้ายสุด ระดับล่
 define("_BOTTOMRIGHTCORNER","มุมขวาสุด ระดับล่าง");//Bottom right corner
 define("_LOGOPOSITION","ตำแหน่งการจัดวางภาพ");//Logo position
 define("_LOGOFILE","ไฟล์ตราสัญลักษณ์");//Logo file
-define("_LESSONSKILLSSELECTION","เนื้อหา-หน่วยเรียนวิชาที่เหมาะสมกับความถนัด");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","เนื้อหา-หน่วยเรียนวิชาที่เหมาะสมกับความถนัด");//Select skills offered by the lesson
 define("_TOPCENTER","กึ่งกลาง ระดับบน");//Top center
 define("_BOTTOMCENTER","กึ่งกลาง ระดับล่าง");//Bottom center
 define("_HIDECOMPLETEUNITICON","ซ่อนสัญรูปการเรียนจบบทเรียน");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","ว่างไว้หากไม่กำหน�
 define("_HARDPLURAL","ยาก");//Hard
 define("_MEDIUMPLURAL","ปานกลาง");//Medium
 define("_EASYPLURAL","ง่าย");//Easy
-define("_UNLIMITED","ไม่จำกัด");//Unilimited
+define("_UNLIMITED","ไม่จำกัด");//Unlimited
 define("_INCORRECTQUESTION","คำถามที่ตอบไม่ถูก");//The question is incorrect
 define("_QUESTIONISCORRECT","ข้อคำถามที่ตอบถูกต้อง");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","คำถามที่ตอบถูกเป็นบางส่วน");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","กลุ่มของฉัน");//my Groups
 define("_AVAILABLE","การใช้");//Available
 define("_NEVER","ไม่เคย");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","คนบทเรียน");//Lesson people
+define("_LESSONPEOPLE","คนบทเรียน");//Lesson users
 define("_NORMALIZEDIMENSIONS","ขนาดปกติ");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","ได้กำหนดหลักสูตร");//was assigned the course
 define("_WILLBETEACHINGCOURSE","จะมีการสอนหลักสูตร");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","การมอบหมายงาน");//Job assig
 define("_ONJOBREMOVAL","งานลบออกจากผู้ใช้");//Remove job from user
 define("_JOBDESCRIPTIONNAME","ชื่อตำแหน่งงาน");//Job position name
 define("_ENCRYPTURL","URL เข้ารหัส");//Encrypt URL
-define("_USERNAMEFORMATINFO","รูปแบบวิธีการที่ปรากฏในการเข้าสู่ระบบ. ใช้ชื่อ # # ชื่อแรกนามสกุล # # ชื่อที่ผ่านมาการเข้าสู่ระบบ # # สำหรับการเข้าสู่ระบบและ n # # สำหรับตัวอักษรแรกของชื่อ");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","รูปแบบวิธีการที่ปรากฏในการเข้าสู่ระบบ. ใช้ชื่อ # # ชื่อแรกนามสกุล # # ชื่อที่ผ่านมาการเข้าสู่ระบบ # # สำหรับการเข้าสู่ระบบและ n # # สำหรับตัวอักษรแรกของชื่อ");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","รูปแบบชื่อผู้ใช้");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","รายงานกิจกรรม");//Events re
 define("_EVENTSMATCHINGTHECRITERIA","กิจกรรมเกณฑ์การจับคู่");//Events matching criteria
 define("_NOEVENTSFOUND","ไม่มีกิจกรรมตรงกับเกณฑ์การค้นหาของคุณ");//No events match your search criteria
 define("_VISITEDTHESYSTEM","เยี่ยมชมระบบ");//visited the system
-define("_VISITEDLESSON","เข้าเรียน");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","ได้กำหนดวันที่เริ่มต้นกำหนดไว้สำหรับการเรียน");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","ได้กำหนดวันหมดอายุกำหนดไว้สำหรับการเรียน");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","ได้เผยแพร่ประกาศ");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","มีรุ่นใหม่ใช้ได้!")
 define("_RELEASENOTES","บันทึก Release");//Release notes
 define("_VERSIONUPTODATE","รุ่นของคุณให้ทันสมัย");//Your version is up to date
 define("_CONTACTINGSERVER","ติดต่อ server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","ดาวน์โหลดและติดตั้ง");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","ระบบไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์การอนุญาต");//The system could not connect to license server
 define("_LICENSESERVER","Server License");//License server
 define("_UPGRADESVALIDUNTIL","การอัพเกรดที่ถูกต้องจน");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","เนื้อหา Smart");//Smart content
 define("_ZIPHANDLING","วิธีการไปรษณีย์");//Zip handling method
 define("_COMPLETION","เสร็จสิ้น");//Completion
 define("_SETALLTO","ตั้งทั้งหมด");//Set all to
-define("_INADEQUATEBALANCE","ยอดเงินไม่เพียงพอ");//Inadequate balance (New)
-define("_PAYPALMODE","โหมด PayPal");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","แฟ้มบันทึกรายการ");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","ชุดปัจจุบันที่อยู่ไม่ตรงกับที่อยู่ธุรกิจที่ได้รับ");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","ประเภทการทำงานที่ไม่สนับสนุน");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","ซ้ำเสร็จสิ้นการชำระเงิน");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","สถานะการชำระเงินสนับสนุน");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","คุณได้ยกเลิกการทำรายการ");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","ซื้อขายได้เสร็จสมบูรณ์.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","PayPal โหมดดีบัก");//Paypal debug mode (New)
-define("_MYACCOUNT","บัญชีของฉัน");//My account (New)
-define("_MODULE","Module");//Module (New)
-define("_EMBEDTYPE","เนื้อหาฝังเป็น");//Embed content as (New)
-define("_INLINEIFRAME","อินไลน์ (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","หน้าต่างใหม่ (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","พารามิเตอร์ป๊อปอัพ");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","คลิกที่ปุ่มเพื่อเริ่มต้นหน่วย");//Click on the button to start the unit (New)
-define("_STARTUNIT","หน่วย Start");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","อับ SCORM 2,004 ไม่สนับสนุนในรุ่นนี้");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","แจ้งเริ่มต้น Restore");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","ความคืบหน้าเนื้อหา (ทดสอบ excl.)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","รุ่นฐานข้อมูล");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","รุ่นฐานข้อมูลของคุณแตกต่างจากรุ่นรหัส. โปรดใช้ลิงก์% สคริปต์");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","ดาวน์โหลดส่งออกหลักสูตร");//Download exported course (New)
-define("_MAXDISCOUNT100","ส่วนลดสูงสุด 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","จดทะเบียน / Update");//Registration/Update (New)
-define("_ROWS","แถว");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","คำสั่งล้มเหลวกับการส่งออกต่อไปนี้");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","บางทีระบบของคุณไม่สนับสนุนการไปรษณีย์?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","เพื่อสร้างหลักสูตรคุณต้องสร้างชนิด");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","ยอดเงินไม่เพียงพอ");//Inadequate balance
+define("_PAYPALMODE","โหมด PayPal");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","แฟ้มบันทึกรายการ");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","ชุดปัจจุบันที่อยู่ไม่ตรงกับที่อยู่ธุรกิจที่ได้รับ");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","ประเภทการทำงานที่ไม่สนับสนุน");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","ซ้ำเสร็จสิ้นการชำระเงิน");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","สถานะการชำระเงินสนับสนุน");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","คุณได้ยกเลิกการทำรายการ");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","ซื้อขายได้เสร็จสมบูรณ์.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","PayPal โหมดดีบัก");//Paypal debug mode
+define("_MYACCOUNT","บัญชีของฉัน");//My account
+define("_MODULE","Module");//Module
+define("_EMBEDTYPE","เนื้อหาฝังเป็น");//Embed content as
+define("_INLINEIFRAME","อินไลน์ (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","หน้าต่างใหม่ (popup)");//New window (popup)
+define("_POPUPPARAMETERS","พารามิเตอร์ป๊อปอัพ");//Popup parameters
+define("_CLICKTOSTARTUNIT","คลิกที่ปุ่มเพื่อเริ่มต้นหน่วย");//Click on the button to start the unit
+define("_STARTUNIT","หน่วย Start");//Start unit
+define("_SCORM2004NOTSUPPORTED","อับ SCORM 2,004 ไม่สนับสนุนในรุ่นนี้");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","แจ้งเริ่มต้น Restore");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","ความคืบหน้าเนื้อหา (ทดสอบ excl.)");//Content progress (excl. tests)
+define("_DATABASEVERSION","รุ่นฐานข้อมูล");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","รุ่นฐานข้อมูลของคุณแตกต่างจากรุ่นรหัส. โปรดใช้ลิงก์% สคริปต์");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","ดาวน์โหลดส่งออกหลักสูตร");//Download exported course
+define("_MAXDISCOUNT100","ส่วนลดสูงสุด 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","จดทะเบียน / Update");//Registration/Update
+define("_ROWS","แถว");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","คำสั่งล้มเหลวกับการส่งออกต่อไปนี้");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","บางทีระบบของคุณไม่สนับสนุนการไปรษณีย์?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","เพื่อสร้างหลักสูตรคุณต้องสร้างชนิด");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","เลือกสาขาการเรียน");//Select lesson branches (New)
+define("_LESSONBRANCHES","สาขาบทเรียน");//Lesson branches (New)
+define("_COURSEBRANCHES","สาขาหลักสูตร");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","ให้นักเรียนระบุจำนวนคำถามในการทดสอบในแต่ละการกระทำ");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","สูงสุด");//Maximum (New)
+define("_MINIMUM","ขั้นต่ำ");//Minimum (New)
+define("_REPETITIONS","Repetitions");//Repetitions (New)
+define("_MAINTAINHISTORY","รักษาประวัติ");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","คีย์ไม่เหมาะสำหรับรุ่นนี้");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","โหมดผิดกฎหมาย");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","คุณต้องระบุจำนวนคำถาม");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","คุณต้องระบุค่าจาก");//You must specify a value from (New)
+define("_COURSEPROFESSORS","อาจารย์หลักสูตร");//Course professors (New)
+define("_PROFESSORSOFCOURSE","อาจารย์ของหลักสูตร");//Professors of course (New)
+define("_PRINTCONTENT","เนื้อหา Print");//Print content (New)
+define("_USERHASNOTDONETEST","สมาชิก-ผู้เรียนที่ทำแบบทดสอบไม่เสร็จ");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","โปรดตรวจสอบว่าข้อมูลต่อไปนี้ถูกต้อง");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","มีประเภทไม่กำหนดคือ");//There are no categories defined (New)
 ?>

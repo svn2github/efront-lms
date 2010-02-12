@@ -398,7 +398,7 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
     $directionsTree = new EfrontDirectionsTree();
     $directions = $directionsTree -> toPathString(true, true);
     $languages = EfrontSystem :: getLanguages(true);
-    $result = eF_getTableData("lessons_to_courses", "*");
+    $result = eF_getTableData("lessons_to_courses lc, lessons l", "*", "l.id=lc.lessons_ID and l.archive=0");
     foreach ($result as $value) {
         $courseLessons[$value['courses_ID']][] = $value['lessons_ID'];
     }

@@ -11,7 +11,7 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 
 try {
     if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
-        $lesson            = new EfrontLesson($_GET['lessons_ID']);
+        $lesson = new EfrontLesson($_GET['lessons_ID']);
         $lessonInformation = $lesson -> getInformation();
 
         $languages = EfrontSystem::getLanguages(true);
@@ -32,21 +32,21 @@ try {
         foreach ($lessonInformation as $key => $value) {
             if ($value) {
                 switch ($key) {
-                    case 'language'			  : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LANGUAGE."</span><span>: $languages[$value]</span></div>"; break;
-                    case 'professors'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>";         break;
-                    case 'content'            : $tooltipInfo[] = '<div class = "infoEntry"><span>'._CONTENTUNITS."</span><span>: $value</span></div>";       break;
-                    case 'tests'              : $GLOBALS['configuration']['disable_tests'] 		!= 1 ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._TESTS."</span><span>: $value</span></div>" 	: null;           break;
-                    case 'projects'           : $GLOBALS['configuration']['disable_projects'] 	!= 1 ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROJECTS."</span><span>: $value</span></div>" 	: null;           break;
-                    case 'course_dependency'  : $tooltipInfo[] = '<div class = "infoEntry"><span>'._DEPENDSON."</span><span>: $value</span></div>";          break;
-                    case 'from_timestamp'     : $tooltipInfo[] = '<div class = "infoEntry"><span>'._AVAILABLEFROM."</span><span>: ".formatTimestamp($value, 'time_nosec')."</span></div>";break;
-                    case 'to_timestamp'       : $tooltipInfo[] = '<div class = "infoEntry"><span>'._AVAILABLEUNTIL."</span><span>: ".formatTimestamp($value, 'time_nosec')."</span></div>"; break;
+                    case 'language' : $GLOBALS['configuration']['onelanguage'] OR $tooltipInfo[] = '<div class = "infoEntry"><span>'._LANGUAGE."</span><span>: $languages[$value]</span></div>"; break;
+                    case 'professors' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>"; break;
+                    case 'content' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._CONTENTUNITS."</span><span>: $value</span></div>"; break;
+                    case 'tests' : $GLOBALS['configuration']['disable_tests'] != 1 ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._TESTS."</span><span>: $value</span></div>" : null; break;
+                    case 'projects' : $GLOBALS['configuration']['disable_projects'] != 1 ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROJECTS."</span><span>: $value</span></div>" : null; break;
+                    case 'course_dependency' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._DEPENDSON."</span><span>: $value</span></div>"; break;
+                    case 'from_timestamp' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._AVAILABLEFROM."</span><span>: ".formatTimestamp($value, 'time_nosec')."</span></div>";break;
+                    case 'to_timestamp' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._AVAILABLEUNTIL."</span><span>: ".formatTimestamp($value, 'time_nosec')."</span></div>"; break;
                     case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._GENERALDESCRIPTION."</span><span>: $value</span></div>"; break;
-                    case 'assessment'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>";         break;
-                    case 'objectives'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>";         break;
-                    case 'lesson_topics'      : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONTOPICS."</span><span>: $value</span></div>";       break;
-                    case 'resources'          : $tooltipInfo[] = '<div class = "infoEntry"><span>'._RESOURCES."</span><span>: $value</span></div>";          break;
-                    case 'other_info'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>";          break;
-                    case 'price_string'       : !$lesson -> lesson['course_only'] ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>" : null; break;
+                    case 'assessment' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>"; break;
+                    case 'objectives' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>"; break;
+                    case 'lesson_topics' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONTOPICS."</span><span>: $value</span></div>"; break;
+                    case 'resources' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._RESOURCES."</span><span>: $value</span></div>"; break;
+                    case 'other_info' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>"; break;
+                    case 'price_string' : !$lesson -> lesson['course_only'] ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>" : null; break;
                     default: break;
                 }
             }
@@ -57,9 +57,9 @@ try {
             echo _NODATAFOUND;
         }
     } if (isset($_GET['courses_ID']) && eF_checkParameter($_GET['courses_ID'], 'id')) {
-        $course            = new EfrontCourse($_GET['courses_ID']);
+        $course = new EfrontCourse($_GET['courses_ID']);
         $courseInformation = $course -> getInformation();
-        $languages         = EfrontSystem::getLanguages(true);
+        $languages = EfrontSystem::getLanguages(true);
 
         if ($courseInformation['professors']) {
             foreach ($courseInformation['professors'] as $value) {
@@ -71,16 +71,16 @@ try {
         foreach ($courseInformation as $key => $value) {
             if ($value) {
                 switch ($key) {
-                    case 'language'			  : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LANGUAGE."</span><span>: $languages[$value]</span></div>"; break;
-                    case 'professors'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>";         break;
-                    case 'lessons_number'     : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONS."</span><span>: $value</span></div>";            break;
+                    case 'language' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LANGUAGE."</span><span>: $languages[$value]</span></div>"; break;
+                    case 'professors' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>"; break;
+                    case 'lessons_number' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONS."</span><span>: $value</span></div>"; break;
                     case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._GENERALDESCRIPTION."</span><span>: $value</span></div>"; break;
-                    case 'assessment'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>";         break;
-                    case 'objectives'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>";         break;
-                    case 'lesson_topics'      : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONTOPICS."</span><span>: $value</span></div>";       break;
-                    case 'resources'          : $tooltipInfo[] = '<div class = "infoEntry"><span>'._RESOURCES."</span><span>: $value</span></div>";          break;
-                    case 'other_info'         : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>";          break;
-                    case 'price_string'       : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>";              break;
+                    case 'assessment' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>"; break;
+                    case 'objectives' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>"; break;
+                    case 'lesson_topics' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONTOPICS."</span><span>: $value</span></div>"; break;
+                    case 'resources' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._RESOURCES."</span><span>: $value</span></div>"; break;
+                    case 'other_info' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>"; break;
+                    case 'price_string' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>"; break;
                     default: break;
                 }
             }
@@ -105,7 +105,7 @@ try {
                 }
                 $tooltipInfo[] = '<div class = "infoEntry"><span>'.$lesson['name']."</span><span></span></div>";
             }
-            
+
             if ($string = implode("", $tooltipInfo)) {
                 echo $string;
             } else {

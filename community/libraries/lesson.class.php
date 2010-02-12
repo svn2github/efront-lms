@@ -41,6 +41,7 @@ class EfrontLessonException extends Exception
     const FILESYSTEM_ERROR = 207;
     const DIRECTION_NOT_EXISTS = 208;
     const MAX_USERS_LIMIT = 209;
+    const CATEGORY_NOT_EXISTS = 210;
     const GENERAL_ERROR = 299;
 }
 /**
@@ -155,6 +156,7 @@ class EfrontLesson
                             'lesson_info' => 1,
        'bookmarking' => 1,
        'content_report' => 0,
+          'print_content' => 1,
           'start_resume' => 1,
                             'show_percentage' => 1,
                             'show_right_bar' => 1,
@@ -410,7 +412,19 @@ class EfrontLesson
     public function unarchive() {
         $this -> lesson['archive'] = 0;
         $this -> lesson['active'] = 1;
-        $this -> persist();
+        //Check whether the original category exists
+        $result = eF_getTableDataFlat("directions", "id");
+        if (in_array($this -> lesson['directions_ID'], $result['id'])) {
+         // If the original category exists, no problem
+         $this -> persist();
+        } elseif (empty($result)) {
+         //If no categories exist in the system, throw exception
+         throw new EfrontLessonException(_NOCATEGORIESDEFINED, EfrontLessonException::CATEGORY_NOT_EXISTS);
+        } else {
+         //If some other category exists, assign it there
+         $this -> lesson['directions_ID'] = $result['id'][0];
+         $this -> persist();
+        }
     }
     /**
 
@@ -452,27 +466,25 @@ class EfrontLesson
 
      * @access public
 
+     * @todo: add getForums() to OO delete
+
+     * @todo: add getChatrooms to OO delete
+
      */
     public function delete() {
-        $result = eF_getTableDataFlat("content", "id", "lessons_ID=".$this -> lesson['id']);
-        $list = implode(",", $result['id']);
         $id = $this -> lesson['id'];
-        ///MODULES2 - Module lesson delete events - Before anything else
-        // Get all modules (NOT only the ones that have to do with the user type)
-        $modules = eF_loadAllModules();
-        // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
-        foreach ($modules as $module) {
-            $module -> onDeleteLesson($id);
+        $this -> initialize('all');
+        foreach ($this -> getCourses(true) as $course) {
+         $course -> removeLessons($this -> lesson['id']);
         }
-        eF_deleteTableData("lessons", "id=$id");
-        eF_deleteTableData("content", "lessons_ID=$id");
-        eF_deleteTableData("news", "lessons_ID=$id");
-        eF_deleteTableData("periods", "lessons_ID=$id");
-        eF_deleteTableData("glossary", "lessons_ID=$id");
-        eF_deleteTableData("rules", "lessons_ID=$id"); // for serial type rules
-        eF_deleteTableData("users_to_lessons", "lessons_ID=$id");
-  eF_deleteTableData("lessons_to_courses", "lessons_ID=$id");
-        EfrontSearch :: removeText('lessons', $id, '');
+        eF_deleteTableData("events", "lessons_ID=".$this -> lesson['id']);
+        eF_deleteTableData("lessons_to_groups", "lessons_ID=".$this -> lesson['id']);
+        eF_deleteTableData("lessons_timeline_topics", "lessons_ID=".$this -> lesson['id']);
+        $chatroom = eF_getTableData("chatrooms", "id", "lessons_ID=".$this -> lesson['id']); //Get the lesson chat room
+        if (sizeof($chatroom) > 0) {
+            eF_deleteTableData("chatmessages", "chatrooms_ID=".$chatroom[0]['id']); //Delete the chat room messages
+            eF_deleteTableData("chatrooms", "id=".$chatroom[0]['id']); //Delete the lesson chatroom
+        }
         //delete the forums of this lesson
         $lessons_forums = eF_getTableData("f_forums", "id","lessons_ID=$id");
         foreach($lessons_forums as $value) {
@@ -510,49 +522,8 @@ class EfrontLesson
                 eF_deleteTableData("f_forums", "id in (".implode(",", $children).")"); //Finally, delete forums themselves
             }
         }
-        if ($list) {
-            eF_deleteTableData("scorm_data", "content_ID IN ($list)");
-            eF_deleteTableData("comments", "content_ID IN ($list)");
-            $questions = eF_getTableDataFlat("questions", "id", "lessons_ID = ". $this ->lesson['id']);
-            eF_deleteTableData("questions_to_skills", "questions_id IN ('".implode("','",$questions['id'])."')");
-            eF_deleteTableData("questions", "content_ID IN ($list)");
-            eF_deleteTableData("rules", "content_ID IN ($list)");
-            eF_deleteTableData("rules", "rule_content_ID IN ($list)");
-            eF_deleteTableData("logs", "comments IN ($list)");
-            EfrontSearch :: removeText('content', $list, '', true);
-            //$list_as_text = "'".str_replace(", ", "', '", $list)."'";
-            //eF_deleteTableData("logs", "comments IN ($list_as_text)");
-            $result = eF_getTableDataFlat("tests", "id", "content_ID IN ($list)");
-            $tests_list = implode(",", $result['id']);
-            eF_deleteTableData("tests", "content_ID IN ($list)");
-            if ($tests_list) {
-                eF_deleteTableData("tests_to_questions", "tests_ID IN ($tests_list)");
-                eF_deleteTableData("completed_tests", "tests_ID IN ($tests_list)");
-                eF_deleteTableData("logs", "action='tests' AND comments IN ($list)");
-            }
-        }
-        $chatroom = eF_getTableData("chatrooms", "id", "lessons_ID=".$this -> lesson['id']); //Get the lesson chat room
-        if (sizeof($chatroom) > 0) {
-            eF_deleteTableData("chatmessages", "chatrooms_ID=".$chatroom[0]['id']); //Delete the chat room messages
-            eF_deleteTableData("chatrooms", "id=".$chatroom[0]['id']); //Delete the lesson chatroom
-        }
-        $courses = eF_getTableData("courses");
-        for ($i = 0; $i < sizeof($courses); $i++) {
-            $course_lessons = unserialize($courses[$i]['lessons']);
-            if (is_array($course_lessons) && ($key = array_search($this -> lesson['id'], $course_lessons)) !== false) {
-                $course_rules = unserialize($courses[$i]['rules']);
-                unset($course_rules[$this -> lesson['id']]);
-                unset($course_lessons[$key]);
-                $course_rules ? $course_rules = serialize($course_rules) : $course_rules = '';
-                $course_lessons ? $course_lessons = serialize($course_lessons) : $course_lessons = '';
-                eF_updateTableData("courses", array("lessons" => $course_lessons, "rules" => $course_rules), "id=".$courses[$i]['id']);
-            }
-        }
-        try {
-            $directory = new EfrontDirectory($this -> directory);
-            $directory -> delete();
-        } catch (EfrontFileException $e) {
-        }
+        eF_deleteTableData("lessons", "id=$id");
+        EfrontSearch :: removeText('lessons', $id, '');
         return true;
     }
     /**
@@ -1975,11 +1946,12 @@ class EfrontLesson
                     $this -> deleteNews(array_keys($lessonNews));
                     break;
                 case 'files':
-                    $filesystem = new FileSystemTree($this -> getDirectory());
-                    foreach (new ArrayIterator($filesystem -> tree) as $key => $value) {
-                        $value -> delete();
-                    }
-                    break;
+                 //Only delete files if this lesson is not sharing its folder
+                 if (!$this -> lesson['share_folder']) {
+                  $directory = new EfrontDirectory($this -> directory);
+                  $directory -> delete();
+                 }
+                 break;
                 case 'calendar':
                     in_array('calendar', $deleteEntities) ? eF_deleteTableData("calendar", "lessons_ID=".$this -> lesson['id']) : null;
                     break;
@@ -2019,11 +1991,13 @@ class EfrontLesson
                 case 'surveys':
                     $surveys = eF_getTableDataFlat("surveys", "id", "lessons_ID=".$this -> lesson['id']);
                     $surveys_list = implode(",", $surveys['id']);
-                    eF_deleteTableData("questions_to_surveys", "surveys_ID IN ($surveys_list)");
-                    eF_deleteTableData("survey_questions_done", "surveys_ID IN ($surveys_list)");
-                    eF_deleteTableData("users_to_surveys", "surveys_ID IN ($surveys_list)");
-                    eF_deleteTableData("users_to_done_surveys", "surveys_ID IN ($surveys_list)");
-                    eF_deleteTableData("surveys", "lessons_ID=".$this -> lesson['id']);
+                    if (!empty($surveys_list)) {
+                     eF_deleteTableData("questions_to_surveys", "surveys_ID IN ($surveys_list)");
+                     eF_deleteTableData("survey_questions_done", "surveys_ID IN ($surveys_list)");
+                     eF_deleteTableData("users_to_surveys", "surveys_ID IN ($surveys_list)");
+                     eF_deleteTableData("users_to_done_surveys", "surveys_ID IN ($surveys_list)");
+                     eF_deleteTableData("surveys", "lessons_ID=".$this -> lesson['id']);
+                    }
                     break;
                 case 'modules':
                     $modules = eF_loadAllModules();

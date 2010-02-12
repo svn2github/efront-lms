@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Долу в левия ъгъл");//Bottom left corn
 define("_BOTTOMRIGHTCORNER","Долния десен ъгъл");//Bottom right corner
 define("_LOGOPOSITION","Лого позиция");//Logo position
 define("_LOGOFILE","Лого файл");//Logo file
-define("_LESSONSKILLSSELECTION","Урок, предлагани умения за подбор");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Урок, предлагани умения за подбор");//Select skills offered by the lesson
 define("_TOPCENTER","Най-център");//Top center
 define("_BOTTOMCENTER","Долу в центъра");//Bottom center
 define("_HIDECOMPLETEUNITICON","Скрий завърши единица икона");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Оставете празно за нула врем�
 define("_HARDPLURAL","Труден");//Hard
 define("_MEDIUMPLURAL","Среден");//Medium
 define("_EASYPLURAL","Лесно");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Въпросът е неправилен");//The question is incorrect
 define("_QUESTIONISCORRECT","Въпросът е правилен");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Въпросът е частично вярна");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Моите групи");//my Groups
 define("_AVAILABLE","Наличен");//Available
 define("_NEVER","Никога");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","Урок хора");//Lesson people
+define("_LESSONPEOPLE","Урок хора");//Lesson users
 define("_NORMALIZEDIMENSIONS","Нормализирали размери");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","възлагане на курс");//was assigned the course
 define("_WILLBETEACHINGCOURSE","ще бъде преподаването на курс");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Работа задача");//Job assignment
 define("_ONJOBREMOVAL","Премахване на работа от потребител");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Длъжност име");//Job position name
 define("_ENCRYPTURL","Шифроване на URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Формат начина, по който изглежда данни за вход в системата. Използвайте името # # за първото име, презиме # # за фамилното име, # # вход за влизане и N # # за началната буква на първото име");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Формат начина, по който изглежда данни за вход в системата. Използвайте името # # за първото име, презиме # # за фамилното име, # # вход за влизане и N # # за началната буква на първото име");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Потребителско име формат");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Събития доклади");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Събития съвпадение на критериите");//Events matching criteria
 define("_NOEVENTSFOUND","Няма събития съвпадат с вашите критерии за търсене");//No events match your search criteria
 define("_VISITEDTHESYSTEM","посети система");//visited the system
-define("_VISITEDLESSON","посетен урок");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","създаде график за начална дата за урок");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","създаде график за срока на годност за урок");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","публикува обява");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Налице е нова версия!");//There is
 define("_RELEASENOTES","Бележки");//Release notes
 define("_VERSIONUPTODATE","Вашата версия е актуална");//Your version is up to date
 define("_CONTACTINGSERVER","Връзка с сървъра ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Изтеглете и инсталирайте");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Системата не може да се свърже с лиценз сървър");//The system could not connect to license server
 define("_LICENSESERVER","License Server");//License server
 define("_UPGRADESVALIDUNTIL","Ъпгрейди валидна до");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart съдържание");//Smart content
 define("_ZIPHANDLING","Пощенски метод на работа");//Zip handling method
 define("_COMPLETION","Приключване");//Completion
 define("_SETALLTO","Комплект за всички");//Set all to
-define("_INADEQUATEBALANCE","Недостатъчен баланс");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal режим");//Paypal mode (New)
-define("_SANDBOX","Пясък");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Регистър на операциите на файла");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","В момента в стаята адрес не съвпада получи служебен адрес");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Неподдържан тип операция");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Дублиране извършено плащане");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Неподдържан плащане статут");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Имате право анулиране на сделката");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделката е завършило успешно.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal Debug режим");//Paypal debug mode (New)
-define("_MYACCOUNT","Моят профил");//My account (New)
-define("_MODULE","Модул");//Module (New)
-define("_EMBEDTYPE","Постави съдържание");//Embed content as (New)
-define("_INLINEIFRAME","Вграден (вградена рамка)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Нов прозорец (масите)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Изскачащи параметри");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Кликнете върху бутона, за да стартирате единица");//Click on the button to start the unit (New)
-define("_STARTUNIT","Начало единица");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","За съжаление SCORM 2004 г., не се поддържа в тази версия");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Възстановяване уведомления по подразбиране");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Съдържание прогрес (excl. тестове)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","База данни версия");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Вашата база данни версия е различен от кода версия. Стартирайте връзката% скрипт");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Ъпгрейд");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Изтегляне изнесени курс");//Download exported course (New)
-define("_MAXDISCOUNT100","Максималната отстъпка е 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Регистрация / Обновяване");//Registration/Update (New)
-define("_ROWS","Редове");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Командата не е със следните продукция");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Може би вашата система не поддържа обработка цип?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","С цел да се създаде Разбира се, трябва първо да се създаде категория");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Недостатъчен баланс");//Inadequate balance
+define("_PAYPALMODE","Paypal режим");//Paypal mode
+define("_SANDBOX","Пясък");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Регистър на операциите на файла");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","В момента в стаята адрес не съвпада получи служебен адрес");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Неподдържан тип операция");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Дублиране извършено плащане");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Неподдържан плащане статут");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Имате право анулиране на сделката");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделката е завършило успешно.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal Debug режим");//Paypal debug mode
+define("_MYACCOUNT","Моят профил");//My account
+define("_MODULE","Модул");//Module
+define("_EMBEDTYPE","Постави съдържание");//Embed content as
+define("_INLINEIFRAME","Вграден (вградена рамка)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Нов прозорец (масите)");//New window (popup)
+define("_POPUPPARAMETERS","Изскачащи параметри");//Popup parameters
+define("_CLICKTOSTARTUNIT","Кликнете върху бутона, за да стартирате единица");//Click on the button to start the unit
+define("_STARTUNIT","Начало единица");//Start unit
+define("_SCORM2004NOTSUPPORTED","За съжаление SCORM 2004 г., не се поддържа в тази версия");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Възстановяване уведомления по подразбиране");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Съдържание прогрес (excl. тестове)");//Content progress (excl. tests)
+define("_DATABASEVERSION","База данни версия");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Вашата база данни версия е различен от кода версия. Стартирайте връзката% скрипт");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Ъпгрейд");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Изтегляне изнесени курс");//Download exported course
+define("_MAXDISCOUNT100","Максималната отстъпка е 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Регистрация / Обновяване");//Registration/Update
+define("_ROWS","Редове");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Командата не е със следните продукция");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Може би вашата система не поддържа обработка цип?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","С цел да се създаде Разбира се, трябва първо да се създаде категория");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Изберете урок клонове");//Select lesson branches (New)
+define("_LESSONBRANCHES","Урок клонове");//Lesson branches (New)
+define("_COURSEBRANCHES","Учебната клонове");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Позволяват на учениците да определят броя на въпроси във всеки тест изпълнение");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Максимална");//Maximum (New)
+define("_MINIMUM","Минимална");//Minimum (New)
+define("_REPETITIONS","Повторения");//Repetitions (New)
+define("_MAINTAINHISTORY","Поддържане на история");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Ключът не е подходящ за тази версия");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Незаконен режим");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Трябва да зададете броя на въпросите,");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Трябва да зададете стойност от");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Учебната професори");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Професори разбира се");//Professors of course (New)
+define("_PRINTCONTENT","Печат на съдържанието");//Print content (New)
+define("_USERHASNOTDONETEST","Потребителят не е направено този тест");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Моля, потвърдете, че следната информация е вярна");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Там не са определени категории");//There are no categories defined (New)
 ?>

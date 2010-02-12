@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Nederst til venstre");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Nederst i høyre hjørne");//Bottom right corner
 define("_LOGOPOSITION","Logo plassering");//Logo position
 define("_LOGOFILE","Logo fil");//Logo file
-define("_LESSONSKILLSSELECTION","Leksjon tilbys ferdigheter utvalg");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Leksjon tilbys ferdigheter utvalg");//Select skills offered by the lesson
 define("_TOPCENTER","Øverst i midten");//Top center
 define("_BOTTOMCENTER","Nederst i midten");//Bottom center
 define("_HIDECOMPLETEUNITICON","Skjul komplett enhet ikon");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","La stå tomt for ingen tidsgrense");//Leave blank for
 define("_HARDPLURAL","Hard");//Hard
 define("_MEDIUMPLURAL","Middels");//Medium
 define("_EASYPLURAL","Enkelt");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Spørsmålet er feil");//The question is incorrect
 define("_QUESTIONISCORRECT","Spørsmålet er riktig");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Spørsmålet er delvis riktig");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Mine grupper");//my Groups
 define("_AVAILABLE","Tilgjengelig");//Available
 define("_NEVER","Aldri");//Never
 define("_CLASSMATES","Klassekamerater");//Classmates
-define("_LESSONPEOPLE","Leksjon folk");//Lesson people
+define("_LESSONPEOPLE","Leksjon folk");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normaliserte dimensjoner");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","ble tildelt kurset");//was assigned the course
 define("_WILLBETEACHINGCOURSE","vil bli undervisning i emnet");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Job oppdrag");//Job assignment
 define("_ONJOBREMOVAL","Fjern jobb fra brukeren");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Stilling navn");//Job position name
 define("_ENCRYPTURL","Krypter URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Format måten innlogginger vises i systemet. Bruk # # navn på fornavn, etternavn # # for etternavn, # # logikk for pålogging og # n # for første navnet er første bokstav");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Format måten innlogginger vises i systemet. Bruk # # navn på fornavn, etternavn # # for etternavn, # # logikk for pålogging og # n # for første navnet er første bokstav");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Brukernavn format");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Events rapporter");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Events matchende kriterier");//Events matching criteria
 define("_NOEVENTSFOUND","Ingen arrangementer passer til søkekriteriene");//No events match your search criteria
 define("_VISITEDTHESYSTEM","besøkte systemet");//visited the system
-define("_VISITEDLESSON","besøkte leksjon");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","har satt planlagt startdato for leksjonen");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","har satt den planlagte utløpsdatoen for leksjonen");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","har publisert kunngjøring");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Det er en ny versjon tilgjengelig!");//There is a n
 define("_RELEASENOTES","Release Notes");//Release notes
 define("_VERSIONUPTODATE","Din versjon er oppdatert");//Your version is up to date
 define("_CONTACTINGSERVER","Kontakt server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Last ned og installer");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Systemet kan ikke koble til lisens server");//The system could not connect to license server
 define("_LICENSESERVER","Lisens server");//License server
 define("_UPGRADESVALIDUNTIL","Oppgraderinger gyldig til");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart innhold");//Smart content
 define("_ZIPHANDLING","Zip håndtering metode");//Zip handling method
 define("_COMPLETION","Fullføring");//Completion
 define("_SETALLTO","Sett alle til");//Set all to
-define("_INADEQUATEBALANCE","Utilstrekkelig balanse");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal modus");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Transaction loggfil");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Foreløpig satt adressen samsvarer ikke mottatt forretningsadresse");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Uegnet drift type");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate fullført betaling");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Uegnet betaling status");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Du har kansellert transaksjonen");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksjonen ble fullført.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal feilsøkingsmodus");//Paypal debug mode (New)
-define("_MYACCOUNT","Min konto");//My account (New)
-define("_MODULE","Modul");//Module (New)
-define("_EMBEDTYPE","Embed innhold som");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Nytt vindu (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parametere");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Klikk på knappen for å starte enheten");//Click on the button to start the unit (New)
-define("_STARTUNIT","Start enhet");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Dessverre SCORM 2004 støttes ikke i denne utgaven");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Gjenopprett standard varsler");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Innhold fremdrift (eks. tester)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Database versjon");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Databasen versjon er annerledes enn koden versjonen. Vennligst kjør% link script");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Oppgradering");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Last ned eksportert kurs");//Download exported course (New)
-define("_MAXDISCOUNT100","Den maksimale rabatten er 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Registrering / oppdatering");//Registration/Update (New)
-define("_ROWS","Rader");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Kommandoen mislyktes med følgende output");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Kanskje systemet ikke støtter zip behandling?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","For å lage et kurs, må du først opprette en kategori");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Utilstrekkelig balanse");//Inadequate balance
+define("_PAYPALMODE","Paypal modus");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Transaction loggfil");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Foreløpig satt adressen samsvarer ikke mottatt forretningsadresse");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Uegnet drift type");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate fullført betaling");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Uegnet betaling status");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Du har kansellert transaksjonen");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksjonen ble fullført.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal feilsøkingsmodus");//Paypal debug mode
+define("_MYACCOUNT","Min konto");//My account
+define("_MODULE","Modul");//Module
+define("_EMBEDTYPE","Embed innhold som");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Nytt vindu (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parametere");//Popup parameters
+define("_CLICKTOSTARTUNIT","Klikk på knappen for å starte enheten");//Click on the button to start the unit
+define("_STARTUNIT","Start enhet");//Start unit
+define("_SCORM2004NOTSUPPORTED","Dessverre SCORM 2004 støttes ikke i denne utgaven");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Gjenopprett standard varsler");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Innhold fremdrift (eks. tester)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Database versjon");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Databasen versjon er annerledes enn koden versjonen. Vennligst kjør% link script");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Oppgradering");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Last ned eksportert kurs");//Download exported course
+define("_MAXDISCOUNT100","Den maksimale rabatten er 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Registrering / oppdatering");//Registration/Update
+define("_ROWS","Rader");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Kommandoen mislyktes med følgende output");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Kanskje systemet ikke støtter zip behandling?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","For å lage et kurs, må du først opprette en kategori");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Velg leksjon grener");//Select lesson branches (New)
+define("_LESSONBRANCHES","Leksjon grener");//Lesson branches (New)
+define("_COURSEBRANCHES","Course grener");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Tillat studentene å spesifisere antall spørsmål i hver test kjøring");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maksimal");//Maximum (New)
+define("_MINIMUM","Minimum");//Minimum (New)
+define("_REPETITIONS","Repetisjoner");//Repetitions (New)
+define("_MAINTAINHISTORY","Opprettholde historien");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Nøkkelen er ikke egnet for denne utgaven");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Ulovlig modus");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Du må angi antall spørsmål");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Du må angi en verdi fra");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Course professorer");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Professorer selvfølgelig");//Professors of course (New)
+define("_PRINTCONTENT","Skriv ut innhold");//Print content (New)
+define("_USERHASNOTDONETEST","Brukeren har ikke gjort denne testen");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Kontroller at følgende informasjon er korrekt");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Det er ingen kategorier definert");//There are no categories defined (New)
 ?>

@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","左下隅");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","右下隅");//Bottom right corner
 define("_LOGOPOSITION","ロゴの位置");//Logo position
 define("_LOGOFILE","ロゴファイル");//Logo file
-define("_LESSONSKILLSSELECTION","レッスンを提供スキルの選択");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","レッスンを提供スキルの選択");//Select skills offered by the lesson
 define("_TOPCENTER","トップへセンター");//Top center
 define("_BOTTOMCENTER","下部センター");//Bottom center
 define("_HIDECOMPLETEUNITICON","完全な単位のアイコンを非表示");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","時間制限なしに空白のままに");//Leave bla
 define("_HARDPLURAL","辛い");//Hard
 define("_MEDIUMPLURAL","媒体");//Medium
 define("_EASYPLURAL","簡単な");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","という質問が間違っています");//The question is incorrect
 define("_QUESTIONISCORRECT","という質問が正しいことを");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","問題部分が正しいことを");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","私のグループ");//my Groups
 define("_AVAILABLE","利用可能な");//Available
 define("_NEVER","決してない");//Never
 define("_CLASSMATES","クラスメート");//Classmates
-define("_LESSONPEOPLE","レッスンの人");//Lesson people
+define("_LESSONPEOPLE","レッスンの人");//Lesson users
 define("_NORMALIZEDIMENSIONS","正規化寸法");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","もちろん、割り当てられていた");//was assigned the course
 define("_WILLBETEACHINGCOURSE","もちろん、教育される");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","仕事の割り当て");//Job assignment
 define("_ONJOBREMOVAL","ユーザーからの削除の仕事");//Remove job from user
 define("_JOBDESCRIPTIONNAME","役職名");//Job position name
 define("_ENCRYPTURL","暗号化のURL");//Encrypt URL
-define("_USERNAMEFORMATINFO","ログインには、システム内の方法で表示される形式。最初の名前の最初の文字＃の最後の名＃姓＃の最初の名は＃を使用して＃名、ログイン＃＃のログイン名とは＃n");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","ログインには、システム内の方法で表示される形式。最初の名前の最初の文字＃の最後の名＃姓＃の最初の名は＃を使用して＃名、ログイン＃＃のログイン名とは＃n");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","ユーザー名の形式");//Username format
 define("_LDAP","LDAPの");//LDAP
 define("_SMTP","のSMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","イベントレポート");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","イベントの一致条件");//Events matching criteria
 define("_NOEVENTSFOUND","イベントは、お客様の検索条件に一致する");//No events match your search criteria
 define("_VISITEDTHESYSTEM","システムを訪問");//visited the system
-define("_VISITEDLESSON","レッスンを訪問");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","レッスンの予定開始日を設定している");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","レッスンのスケジュールされた有効期限を設定している");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","発表を公開しています");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","今は新しいバージョンが利用可能です
 define("_RELEASENOTES","リリースノート");//Release notes
 define("_VERSIONUPTODATE","お使いのバージョンが最新である");//Your version is up to date
 define("_CONTACTINGSERVER","サーバーに連絡する...");//Contacting server...
-define("_DOWNLOADANDINSTALL","ダウンロードとインストール");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","このシステムは、サーバーライセンスに接続できませんでした。");//The system could not connect to license server
 define("_LICENSESERVER","ライセンスサーバー");//License server
 define("_UPGRADESVALIDUNTIL","アップグレードされるまで有効");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","スマートコンテンツ");//Smart content
 define("_ZIPHANDLING","郵便番号の処理方法");//Zip handling method
 define("_COMPLETION","完了");//Completion
 define("_SETALLTO","Setは、すべてに");//Set all to
-define("_INADEQUATEBALANCE","不十分なバランス");//Inadequate balance (New)
-define("_PAYPALMODE","ペイパルモード");//Paypal mode (New)
-define("_SANDBOX","サンドボックス");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","トランザクションログファイル");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","現在、受信した会社の住所と一致しないアドレスを設定する");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","されていない操作タイプ");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","重複して支払いを完了");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","サポートされて支払い状況");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","場合は、トランザクションをキャンセルして");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","トランザクションが正常に完了した。");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","ペイパル、デバッグモード");//Paypal debug mode (New)
-define("_MYACCOUNT","マイアカウント");//My account (New)
-define("_MODULE","モジュール");//Module (New)
-define("_EMBEDTYPE","埋め込みコンテンツとして");//Embed content as (New)
-define("_INLINEIFRAME","インライン（インラインフレーム）");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","新しいウィンドウ（ポップアップ）");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popupのパラメータ");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","ボタンをクリックするには、ユニットを開始する");//Click on the button to start the unit (New)
-define("_STARTUNIT","スタートユニット");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","残念ながら、SCORMの2004は、このエディションでサポートされていません");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","復元するデフォルトの通知");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","コンテンツの進捗状況（本体テスト）");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","データベースのバージョン");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","あなたのデータベースのバージョンは、コードのバージョンが異なっている。してくださいスクリプトでは、％のリンクを実行する");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","アップグレード");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","ダウンロードコースのエクスポート");//Download exported course (New)
-define("_MAXDISCOUNT100","最大割引は100％です");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","登録/更新");//Registration/Update (New)
-define("_ROWS","行");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","このコマンドは、次の出力に失敗しました");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","おそらく、あなたのシステムの郵便番号処理をサポートしていないのですか？");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","ためには、まず最初にカテゴリを作成する必要がありますコースを作成する");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","不十分なバランス");//Inadequate balance
+define("_PAYPALMODE","ペイパルモード");//Paypal mode
+define("_SANDBOX","サンドボックス");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","トランザクションログファイル");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","現在、受信した会社の住所と一致しないアドレスを設定する");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","されていない操作タイプ");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","重複して支払いを完了");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","サポートされて支払い状況");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","場合は、トランザクションをキャンセルして");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","トランザクションが正常に完了した。");//The transaction was completed successfully.
+define("_PAYPALDEBUG","ペイパル、デバッグモード");//Paypal debug mode
+define("_MYACCOUNT","マイアカウント");//My account
+define("_MODULE","モジュール");//Module
+define("_EMBEDTYPE","埋め込みコンテンツとして");//Embed content as
+define("_INLINEIFRAME","インライン（インラインフレーム）");//Inline (iframe)
+define("_NEWWINDOWPOPUP","新しいウィンドウ（ポップアップ）");//New window (popup)
+define("_POPUPPARAMETERS","Popupのパラメータ");//Popup parameters
+define("_CLICKTOSTARTUNIT","ボタンをクリックするには、ユニットを開始する");//Click on the button to start the unit
+define("_STARTUNIT","スタートユニット");//Start unit
+define("_SCORM2004NOTSUPPORTED","残念ながら、SCORMの2004は、このエディションでサポートされていません");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","復元するデフォルトの通知");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","コンテンツの進捗状況（本体テスト）");//Content progress (excl. tests)
+define("_DATABASEVERSION","データベースのバージョン");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","あなたのデータベースのバージョンは、コードのバージョンが異なっている。してくださいスクリプトでは、％のリンクを実行する");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","アップグレード");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","ダウンロードコースのエクスポート");//Download exported course
+define("_MAXDISCOUNT100","最大割引は100％です");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","登録/更新");//Registration/Update
+define("_ROWS","行");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","このコマンドは、次の出力に失敗しました");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","おそらく、あなたのシステムの郵便番号処理をサポートしていないのですか？");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","ためには、まず最初にカテゴリを作成する必要がありますコースを作成する");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","選択してレッスン支店");//Select lesson branches (New)
+define("_LESSONBRANCHES","レッスンの枝");//Lesson branches (New)
+define("_COURSEBRANCHES","コースの枝");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","実行は、各テストの質問の数を指定する学生を許可する");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","最大");//Maximum (New)
+define("_MINIMUM","最小");//Minimum (New)
+define("_REPETITIONS","繰り返し");//Repetitions (New)
+define("_MAINTAINHISTORY","履歴を維持する");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","キーは、このエディションは適していません");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","不正なモード");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","あなたの質問の数を指定する必要があります");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","あなたからの値を指定する必要があります");//You must specify a value from (New)
+define("_COURSEPROFESSORS","コース教授");//Course professors (New)
+define("_PROFESSORSOFCOURSE","教授コース");//Professors of course (New)
+define("_PRINTCONTENT","印刷内容");//Print content (New)
+define("_USERHASNOTDONETEST","このテストは、ユーザーがいない");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","してくださいには、次の情報が正しいことを確認する");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","ない種類が定義され");//There are no categories defined (New)
 ?>

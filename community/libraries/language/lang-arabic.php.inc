@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","اسفل الزاويه اليسرى");//Bottom left
 define("_BOTTOMRIGHTCORNER","اسفل الزاويه اليمني");//Bottom right corner
 define("_LOGOPOSITION","شعار موقف");//Logo position
 define("_LOGOFILE","ملف الشعار");//Logo file
-define("_LESSONSKILLSSELECTION","درس اختيار عرض المهارات");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","درس اختيار عرض المهارات");//Select skills offered by the lesson
 define("_TOPCENTER","أعلى مركز");//Top center
 define("_BOTTOMCENTER","اسفل الوسط");//Bottom center
 define("_HIDECOMPLETEUNITICON","اخفاء ايقونه وحدة كاملة");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","ترك فراغ للحد من أي وقت");//Leave b
 define("_HARDPLURAL","صعب");//Hard
 define("_MEDIUMPLURAL","متوسطة");//Medium
 define("_EASYPLURAL","سهل");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","والسؤال هو غير صحيح");//The question is incorrect
 define("_QUESTIONISCORRECT","والسؤال هو الصحيح");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","والسؤال هو صحيح جزئيا");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","مجموعاتي");//my Groups
 define("_AVAILABLE","متوفر");//Available
 define("_NEVER","أبدا");//Never
 define("_CLASSMATES","زملاء الدراسة");//Classmates
-define("_LESSONPEOPLE","الناس الدرس");//Lesson people
+define("_LESSONPEOPLE","الناس الدرس");//Lesson users
 define("_NORMALIZEDIMENSIONS","تطبيع الأبعاد");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","تم تعيين مسار");//was assigned the course
 define("_WILLBETEACHINGCOURSE","سيتم تدريس الدورة");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","وظيفة مهمة");//Job assignment
 define("_ONJOBREMOVAL","إزالة وظيفة من المستخدم");//Remove job from user
 define("_JOBDESCRIPTIONNAME","موقف اسم الوظيفة");//Job position name
 define("_ENCRYPTURL","تشفير رابط");//Encrypt URL
-define("_USERNAMEFORMATINFO","شكل الطريقة تسجيلات تظهر في النظام. # # استخدام اسم لاسم الأول ، اللقب # # للحصول على اسم آخر ، الدخول # # لتسجيل الدخول ون # # للحصول على اسم أول خطاب الأولي");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","شكل الطريقة تسجيلات تظهر في النظام. # # استخدام اسم لاسم الأول ، اللقب # # للحصول على اسم آخر ، الدخول # # لتسجيل الدخول ون # # للحصول على اسم أول خطاب الأولي");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","الشكل المستخدم");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","بروتوكول نقل البريد الإلكتروني");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","الأحداث التقارير");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","أحداث مطابقة للمعايير");//Events matching criteria
 define("_NOEVENTSFOUND","الأحداث لا تطابق معايير البحث الخاصة بك");//No events match your search criteria
 define("_VISITEDTHESYSTEM","زار نظام");//visited the system
-define("_VISITEDLESSON","زار الدرس");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","وقد حدد الموعد المقرر لبدء الدرس");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","وقد حدد الموعد المقرر لانتهاء الدرس");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","وقد نشر هذا الاعلان");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","هناك نسخة جديدة متوفرة!");//Ther
 define("_RELEASENOTES","ملاحظات الإصدار");//Release notes
 define("_VERSIONUPTODATE","الإصدار الخاص بك هو حتى الآن");//Your version is up to date
 define("_CONTACTINGSERVER","الاتصال الخادم...");//Contacting server...
-define("_DOWNLOADANDINSTALL","تحميل وتثبيت");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","النظام تعذر الاتصال ملقم الترخيص");//The system could not connect to license server
 define("_LICENSESERVER","ملقم الترخيص");//License server
 define("_UPGRADESVALIDUNTIL","ترقيات ساري المفعول حتى");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","ذكية المحتوى");//Smart content
 define("_ZIPHANDLING","طريقة التعامل مع الرمز البريدي");//Zip handling method
 define("_COMPLETION","الانتهاء");//Completion
 define("_SETALLTO","تعيين جميع ل");//Set all to
-define("_INADEQUATEBALANCE","عدم كفاية الرصيد");//Inadequate balance (New)
-define("_PAYPALMODE","وضع بايبال");//Paypal mode (New)
-define("_SANDBOX","رمل");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","ملف السجل المعاملة");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","حاليا مجموعة لا يطابق عنوان تلقى عنوان العمل");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","غير معتمد نوع العملية");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","مكررة استكمال الدفع");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","مركز معتمد الدفع");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","قمت بإلغاء الصفقة");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","كانت المعاملة قد أنجزت بنجاح.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","بايبال وضع التصحيح");//Paypal debug mode (New)
-define("_MYACCOUNT","حسابي");//My account (New)
-define("_MODULE","وحدة");//Module (New)
-define("_EMBEDTYPE","المحتوى واعرضها");//Embed content as (New)
-define("_INLINEIFRAME","مضمنة (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","نافذة جديدة (منبثقة)");//New window (popup) (New)
-define("_POPUPPARAMETERS","قافزة المعلمات");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","انقر على زر لبدء تشغيل وحدة");//Click on the button to start the unit (New)
-define("_STARTUNIT","بدء تشغيل وحدة");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","للأسف اس كورم عام 2004 هو غير معتمد في هذه الطبعة");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","الإخطارات استعادة الافتراضي");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","محتوى التقدم (باستثناء اختبارات)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","إصدار قاعدة بيانات");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","قاعدة البيانات الخاصة بك نسخة مختلفة عن النسخة رمز. الرجاء تشغيل الارتباط النصي ٪");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","الترقية");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","تنزيل تصديرها بالطبع");//Download exported course (New)
-define("_MAXDISCOUNT100","الخصم الحد الأقصى هو 100 ٪");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","تسجيل / تحديث");//Registration/Update (New)
-define("_ROWS","الصفوف");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","الأمر فشلت مع الإخراج التالية");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","ربما يكون النظام الخاص بك لا يدعم معالجة البريدي؟");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","من أجل خلق بطبيعة الحال ، يجب عليك أولا إنشاء فئة");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","عدم كفاية الرصيد");//Inadequate balance
+define("_PAYPALMODE","وضع بايبال");//Paypal mode
+define("_SANDBOX","رمل");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","ملف السجل المعاملة");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","حاليا مجموعة لا يطابق عنوان تلقى عنوان العمل");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","غير معتمد نوع العملية");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","مكررة استكمال الدفع");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","مركز معتمد الدفع");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","قمت بإلغاء الصفقة");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","كانت المعاملة قد أنجزت بنجاح.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","بايبال وضع التصحيح");//Paypal debug mode
+define("_MYACCOUNT","حسابي");//My account
+define("_MODULE","وحدة");//Module
+define("_EMBEDTYPE","المحتوى واعرضها");//Embed content as
+define("_INLINEIFRAME","مضمنة (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","نافذة جديدة (منبثقة)");//New window (popup)
+define("_POPUPPARAMETERS","قافزة المعلمات");//Popup parameters
+define("_CLICKTOSTARTUNIT","انقر على زر لبدء تشغيل وحدة");//Click on the button to start the unit
+define("_STARTUNIT","بدء تشغيل وحدة");//Start unit
+define("_SCORM2004NOTSUPPORTED","للأسف اس كورم عام 2004 هو غير معتمد في هذه الطبعة");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","الإخطارات استعادة الافتراضي");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","محتوى التقدم (باستثناء اختبارات)");//Content progress (excl. tests)
+define("_DATABASEVERSION","إصدار قاعدة بيانات");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","قاعدة البيانات الخاصة بك نسخة مختلفة عن النسخة رمز. الرجاء تشغيل الارتباط النصي ٪");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","الترقية");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","تنزيل تصديرها بالطبع");//Download exported course
+define("_MAXDISCOUNT100","الخصم الحد الأقصى هو 100 ٪");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","تسجيل / تحديث");//Registration/Update
+define("_ROWS","الصفوف");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","الأمر فشلت مع الإخراج التالية");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","ربما يكون النظام الخاص بك لا يدعم معالجة البريدي؟");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","من أجل خلق بطبيعة الحال ، يجب عليك أولا إنشاء فئة");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","حدد فروع الدرس");//Select lesson branches (New)
+define("_LESSONBRANCHES","فروع الدرس");//Lesson branches (New)
+define("_COURSEBRANCHES","طبعا الفروع");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","السماح للطلاب لتحديد عدد من الأسئلة في كل اختبار التنفيذ");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","الحد الأقصى");//Maximum (New)
+define("_MINIMUM","الحد الأدنى");//Minimum (New)
+define("_REPETITIONS","التكرار");//Repetitions (New)
+define("_MAINTAINHISTORY","الحفاظ على التاريخ");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","المفتاح ليست مناسبة لهذه الطبعة");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","وضع غير قانوني");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","يجب عليك تحديد عدد من الأسئلة");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","يجب عليك تحديد قيمة من");//You must specify a value from (New)
+define("_COURSEPROFESSORS","طبعا الأساتذة");//Course professors (New)
+define("_PROFESSORSOFCOURSE","أساتذة بالطبع");//Professors of course (New)
+define("_PRINTCONTENT","طباعة المحتوى");//Print content (New)
+define("_USERHASNOTDONETEST","مستخدم لم يفعل هذا الاختبار");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","يرجى التحقق من أن المعلومات التالية صحيحة");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","لا توجد فئات محددة");//There are no categories defined (New)
 ?>

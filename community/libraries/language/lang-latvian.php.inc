@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Apakšā kreisajā stūrī");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Apakšā labajā stūrī");//Bottom right corner
 define("_LOGOPOSITION","Logo nostāju");//Logo position
 define("_LOGOFILE","Logo failu");//Logo file
-define("_LESSONSKILLSSELECTION","Nodarbība piedāvātās prasmes atlase");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Nodarbība piedāvātās prasmes atlase");//Select skills offered by the lesson
 define("_TOPCENTER","Top centrs");//Top center
 define("_BOTTOMCENTER","Grunts centrs");//Bottom center
 define("_HIDECOMPLETEUNITICON","Hide skaitlim ikona");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Atstājiet tukšu, ne termiņā");//Leave blank for n
 define("_HARDPLURAL","Grūts");//Hard
 define("_MEDIUMPLURAL","Vidēja");//Medium
 define("_EASYPLURAL","Ērts");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Jautājums ir nepareizs");//The question is incorrect
 define("_QUESTIONISCORRECT","Jautājums ir pareizs");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Jautājums ir daļēji pareizs");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Manas grupas");//my Groups
 define("_AVAILABLE","Pieejams");//Available
 define("_NEVER","Nekad");//Never
 define("_CLASSMATES","Klasesbiedriem");//Classmates
-define("_LESSONPEOPLE","Nodarbību cilvēki");//Lesson people
+define("_LESSONPEOPLE","Nodarbību cilvēki");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalizētiem izmēri");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","tika nodota kurss");//was assigned the course
 define("_WILLBETEACHINGCOURSE","būs mācību kurss");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Darbs uzdevums");//Job assignment
 define("_ONJOBREMOVAL","Noņemt darbs no lietotāja");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Amats vārds");//Job position name
 define("_ENCRYPTURL","Šifrēt URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Formāts veids logins parādās sistēmā. Izmantojiet # nosaukums #, lai vārds, # uzvārds # par uzvārdu, # login # par pieteikšanās un # n # par pirmo vārda sākuma burts");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Formāts veids logins parādās sistēmā. Izmantojiet # nosaukums #, lai vārds, # uzvārds # par uzvārdu, # login # par pieteikšanās un # n # par pirmo vārda sākuma burts");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Lietotājvārds formāts");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Notikumi ziņojumi");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Notikumi atbilstības kritēriji");//Events matching criteria
 define("_NOEVENTSFOUND","Nav notikumu atbilst jūsu meklēšanas kritērijiem");//No events match your search criteria
 define("_VISITEDTHESYSTEM","apmeklēja sistēma");//visited the system
-define("_VISITEDLESSON","apmeklēto nodarbību");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","ir noteikts regulāras sākuma datums stunda");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","ir noteikts regulāras derīguma termiņš stunda");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","ir publicējusi paziņojumu");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Ir jauna versija pieejama!");//There is a new versi
 define("_RELEASENOTES","Laidienu");//Release notes
 define("_VERSIONUPTODATE","Jūsu versija ir aktuāla");//Your version is up to date
 define("_CONTACTINGSERVER","Sazinoties ar serveri ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Lejupielādēt un instalēt");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Sistēma nevar izveidot savienojumu ar licenču serveri");//The system could not connect to license server
 define("_LICENSESERVER","Licenču serveri");//License server
 define("_UPGRADESVALIDUNTIL","Upgrades derīga līdz");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart saturs");//Smart content
 define("_ZIPHANDLING","Zip apstrādes metode");//Zip handling method
 define("_COMPLETION","Pabeigšana");//Completion
 define("_SETALLTO","Uzstādīt visas");//Set all to
-define("_INADEQUATEBALANCE","Neatbilstoša bilance");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal mode");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Darījumu žurnālu failu");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Šobrīd noteikts adrese nesakrīt saņēma biznesa adrese");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Neatbalstīts darbības veids");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate izpildītu maksājuma");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Neatbalstīts maksājuma statuss");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Jums ir atcelts darījums");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Darījums tika pabeigts veiksmīgi.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
-define("_MYACCOUNT","Mans konts");//My account (New)
-define("_MODULE","Modulis");//Module (New)
-define("_EMBEDTYPE","Iestiprināt saturu");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Jauna loga (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Uznirstošo logu parametri");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Noklikšķiniet uz pogas, lai sāktu vienība");//Click on the button to start the unit (New)
-define("_STARTUNIT","Start vienība");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Diemžēl SCORM 2004 neatbalsta šī izdevuma");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Restore default paziņojumi");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Saturs progress (bez pārbaudēm)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Database versija");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Datu bāzes versija ir savādāka nekā koda versiju. Lūdzu, apskatiet% saite skriptu");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Download eksportē kurss");//Download exported course (New)
-define("_MAXDISCOUNT100","Maksimālo atlaidi 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Reģistrācija / Update");//Registration/Update (New)
-define("_ROWS","Rindas");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Komandu neizdevās ar šādu produkciju");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Iespējams, jūsu sistēma neatbalsta pasta apstrāde?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Lai radītu Protams, vispirms jāizveido kategorijas");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Neatbilstoša bilance");//Inadequate balance
+define("_PAYPALMODE","Paypal mode");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Darījumu žurnālu failu");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Šobrīd noteikts adrese nesakrīt saņēma biznesa adrese");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Neatbalstīts darbības veids");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate izpildītu maksājuma");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Neatbalstīts maksājuma statuss");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Jums ir atcelts darījums");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Darījums tika pabeigts veiksmīgi.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
+define("_MYACCOUNT","Mans konts");//My account
+define("_MODULE","Modulis");//Module
+define("_EMBEDTYPE","Iestiprināt saturu");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Jauna loga (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Uznirstošo logu parametri");//Popup parameters
+define("_CLICKTOSTARTUNIT","Noklikšķiniet uz pogas, lai sāktu vienība");//Click on the button to start the unit
+define("_STARTUNIT","Start vienība");//Start unit
+define("_SCORM2004NOTSUPPORTED","Diemžēl SCORM 2004 neatbalsta šī izdevuma");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default paziņojumi");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Saturs progress (bez pārbaudēm)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Database versija");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Datu bāzes versija ir savādāka nekā koda versiju. Lūdzu, apskatiet% saite skriptu");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Download eksportē kurss");//Download exported course
+define("_MAXDISCOUNT100","Maksimālo atlaidi 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Reģistrācija / Update");//Registration/Update
+define("_ROWS","Rindas");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Komandu neizdevās ar šādu produkciju");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Iespējams, jūsu sistēma neatbalsta pasta apstrāde?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Lai radītu Protams, vispirms jāizveido kategorijas");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Izvēlieties nodarbību filiāles");//Select lesson branches (New)
+define("_LESSONBRANCHES","Nodarbību filiāles");//Lesson branches (New)
+define("_COURSEBRANCHES","Kurss filiāles");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Ļauj skolēniem precizēt vairākus jautājumus, katra testa izpildes");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maximum");//Maximum (New)
+define("_MINIMUM","Minimālais");//Minimum (New)
+define("_REPETITIONS","Atkārtojumus");//Repetitions (New)
+define("_MAINTAINHISTORY","Uzturēt vēsture");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Atslēga nav piemērota šāda izdevuma");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Illegal mode");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Jums jānorāda vairāki jautājumi");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Jums jānorāda vērtību");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Protams, profesori");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Profesori protams");//Professors of course (New)
+define("_PRINTCONTENT","Drukāt saturs");//Print content (New)
+define("_USERHASNOTDONETEST","Lietotājam nav izdarījusi šo testu");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Lūdzu, pārbaudiet, ka šāda informācija ir pareiza");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Nav definētajām kategorijām");//There are no categories defined (New)
 ?>

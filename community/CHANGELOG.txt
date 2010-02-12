@@ -12,6 +12,18 @@
 - Fixed issue with ie6 theme and css path
 - Fixed editor loading issue when upgrading to 3.6
 - Fixed auto completion of courses for IE7
+- Fixed multiple instances of sidebar appearing when users enrolled to a lesson they already had (EF-512)
+- Fixed import/export users page dropping off page borders (EF-507)
+- The lesson language no longer appears in the lesson info, when a single language is set to be used throughout the system (EF-496)
+- Added "Print content" lesson property
+- Added list of not solved tests in user progress
+- List of category now does not include other categories' lessons and courses (EF-500)
+- Fixed issue with tags and scripts when printing a unit
+- Fixed deleting categories containing archived items
+- Fixed SCORM content alert box popping up after error
+- Fixed bug in content management when more than one possible action was set
+- Fixed leaving orphaned entities while deleting lesson
+- Fixed bug about new message link for user types with only view permissions in messages
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build

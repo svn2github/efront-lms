@@ -123,7 +123,7 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
        {if $smarty.get.catalog}
     {if $smarty.get.checkout}
      {include file = "includes/blocks/cart.tpl" assign = "cart"}
-     {eF_template_printBlock title = $smarty.const._COURSECATALOG data = $cart image = '32x32/catalog.png'}
+     {eF_template_printBlock title = $smarty.const._SELECTEDLESSONS data = $cart image = '32x32/catalog.png'}
     {else}
      {if $smarty.get.info_lesson || $smarty.get.info_course}
          {capture name = 't_lesson_info_code'}

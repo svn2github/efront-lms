@@ -20,7 +20,7 @@ if (isset($user) && $user) {
     $preffix = $user;
     if ($_GET['type'] == 1) {
         if ($_SESSION['s_type'] == "administrator") {
-            $users = eF_getTableData("users", "login,name,surname", "active = 1 and (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
+            $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "active = 1 and (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
   } else {
             $user = EfrontUserFactory :: factory($_SESSION['s_login']);
             if (!$_SESSION['s_lessons_ID']) {
@@ -40,11 +40,11 @@ if (isset($user) && $user) {
             $logins[] = $_SESSION['s_login'];
 //pr($logins);
             $students_list = "'".implode("','", $logins)."'";
-            $users = eF_getTableData("users", "login,name,surname", "login IN ($students_list) AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
+            $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "login IN ($students_list) AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
         }
     } else {
         if($_SESSION['s_type'] == "administrator"){
-            $users = eF_getTableData("users", "login,name,surname", "login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%'", "login");
+            $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%'", "login");
    $users[] = array('login' => "[*]",'name' => _ALLUSERS, 'surname' => _ALLUSERS);
         } else {
             $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
@@ -90,10 +90,10 @@ if (isset($user) && $user) {
                 }
                 //echo "TELIKA<BR><BR><BR>";pr($logins);
    $related_users_list = "'".implode("','", $logins)."'";
-            $users = eF_getTableData("users", "distinct login,name,surname", "(login IN (". $related_users_list . ") OR user_type <> 'student') AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%')", "login");
+            $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "(login IN (". $related_users_list . ") OR user_type <> 'student') AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%')", "login");
         }
         if($_SESSION['s_type'] == "professor"){
-            $users[] = array('login' => "[*]",'name' => _MYSTUDENTS, 'surname' => _MYSTUDENTS);
+            $users[] = array('login' => "[*]",'name' => _MYSTUDENTS, 'surname' => _MYSTUDENTS, 'user_type' => '[*]');
         }
             //pr($users);
     }
@@ -108,10 +108,11 @@ for ($k = 0; $k < sizeof($users); $k++){
     $hilogin = $users[$k]['login'];
     $hiname = $users[$k]['name'];
     $hisurname = $users[$k]['surname'];
+    $hiusertype = $users[$k]['user_types_ID'] ? $users[$k]['user_types_ID'] : $users[$k]['user_type'];
     if ($users[$k]['login'] == '[*]') {
         $formattedLogins[$users[$k]['login']] = $hiname;
     } else {
-        $formattedLogins[$users[$k]['login']] = formatLogin(false, array('login' => $hilogin, 'name' => $hiname, 'surname' => $hisurname));
+        $formattedLogins[$users[$k]['login']] = formatLogin(false, array('login' => $hilogin, 'name' => $hiname, 'surname' => $hisurname, 'user_type' => $hiusertype));
     }
     //$str = $str.'<li id='.$users[$k]['login'].'>'.$formattedLogin.'</li>';
 }

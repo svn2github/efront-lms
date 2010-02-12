@@ -4,14 +4,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
+$loadScripts[] = "includes/scorm";
 
 if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] == 'change') {
-    $options = array(array('image' => '16x16/scorm.png',  'title' => _SCORMTREE,   'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm',                'selected' => $_GET['scorm_review'] || $_GET['scorm_import'] || $_GET['scorm_export'] ? false : true),
-    array('image' => '16x16/unit.png',   'title' => _SCORMREVIEW, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_review=1', 'selected' => !$_GET['scorm_review'] ? false : true),
+    $options = array(array('image' => '16x16/scorm.png', 'title' => _SCORMTREE, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm', 'selected' => $_GET['scorm_review'] || $_GET['scorm_import'] || $_GET['scorm_export'] ? false : true),
+    array('image' => '16x16/unit.png', 'title' => _SCORMREVIEW, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_review=1', 'selected' => !$_GET['scorm_review'] ? false : true),
     array('image' => '16x16/import.png', 'title' => _SCORMIMPORT, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_import=1', 'selected' => !$_GET['scorm_import'] ? false : true),
     array('image' => '16x16/export.png', 'title' => _SCORMEXPORT, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_export=1', 'selected' => !$_GET['scorm_export'] ? false : true));
 } else {
-    $options = array(array('image' => '16x16/scorm.png',      'title' => _SCORMTREE,   'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm',                'selected' => $_GET['scorm_review'] || $_GET['scorm_import'] || $_GET['scorm_export'] ? false : true),
+    $options = array(array('image' => '16x16/scorm.png', 'title' => _SCORMTREE, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm', 'selected' => $_GET['scorm_review'] || $_GET['scorm_import'] || $_GET['scorm_export'] ? false : true),
     array('image' => '16x16/unit.png', 'title' => _SCORMREVIEW, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_review=1', 'selected' => !$_GET['scorm_review'] ? false : true));
 }
 $smarty -> assign("T_TABLE_OPTIONS", $options);
@@ -22,7 +23,7 @@ if ($_GET['scorm_review']) {
         $scormContentIds[] = $key;
     }
     if (sizeof($scormContentIds)) {
-        $result    = eF_getTableData("scorm_data, content, users", "scorm_data.*, content.name as content_name, users.name, users.surname", "scorm_data.users_LOGIN != '' and scorm_data.content_ID IN (".implode(",", $scormContentIds).") and content_ID=content.id and users.login=scorm_data.users_LOGIN");
+        $result = eF_getTableData("scorm_data, content, users", "scorm_data.*, content.name as content_name, users.name, users.surname", "scorm_data.users_LOGIN != '' and scorm_data.content_ID IN (".implode(",", $scormContentIds).") and content_ID=content.id and users.login=scorm_data.users_LOGIN");
         $scormData = $result;
     } else {
         $scormData = array();
@@ -73,27 +74,27 @@ if ($_GET['scorm_review']) {
     try {
         $smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
         $maxUploads = 100;
-        
-        $form = new HTML_QuickForm("upload_scorm_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_import=1', "", null, true);
-        $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
-        
-		$form -> addElement('file', 'scorm_file[0]', _UPLOADTHESCORMFILEINZIPFORMAT);
-		for ($i = 1; $i < $maxUploads; $i++) {
-		    $form -> addElement('file', "scorm_file[$i]", null);
-		}
 
-		//$form -> addElement('file', 'scorm_file', _SCORMFILEINZIPFORMAT);
+        $form = new HTML_QuickForm("upload_scorm_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_import=1', "", null, true);
+        $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
+
+  $form -> addElement('file', 'scorm_file[0]', _UPLOADTHESCORMFILEINZIPFORMAT);
+  for ($i = 1; $i < $maxUploads; $i++) {
+      $form -> addElement('file', "scorm_file[$i]", null);
+  }
+
+  //$form -> addElement('file', 'scorm_file', _SCORMFILEINZIPFORMAT);
         $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024);
-        
+
         $form -> addElement('text', 'url_upload', _UPLOADFILEFROMURL, 'class = "inputText"');
         $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
         $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
         $form -> addElement('submit', 'submit_upload_scorm', _SUBMIT, 'class = "flatButton"');
 
         $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no'));
-        
+
         //@todo: url upload, if not exists, report a human-readable error!
-        $timestamp  = time();
+        $timestamp = time();
 
         if ($form -> isSubmitted() && $form -> validate()) {
             $values = $form -> exportValues();
@@ -103,8 +104,8 @@ if ($_GET['scorm_review']) {
                 $scormFiles = array();
                 if ($urlUpload != "" ) {
                     FileSystemTree :: checkFile($urlUpload);
-                    $urlArray    = explode("/", $urlUpload);
-                    $urlFile     = urldecode($urlArray[sizeof($urlArray) - 1]);
+                    $urlArray = explode("/", $urlUpload);
+                    $urlFile = urldecode($urlArray[sizeof($urlArray) - 1]);
 
                     if (!copy($urlUpload, $currentLesson -> getDirectory().$urlFile)) {
                         throw new Exception(_PROBLEMUPLOADINGFILE);
@@ -115,7 +116,7 @@ if ($_GET['scorm_review']) {
                     $filesystem = new FileSystemTree($currentLesson -> getDirectory(), true);
 
                     foreach ($_FILES['scorm_file']['name'] as $key => $value) {
-                        if (!in_array($value, $scormFiles)) {        //This way we bypass duplicates
+                        if (!in_array($value, $scormFiles)) { //This way we bypass duplicates
                             try {
                                 $scormFiles[$value] = $filesystem -> uploadFile("scorm_file", $currentLesson -> getDirectory(), $key);
                             } catch (EfrontFileException $e) {
@@ -125,23 +126,23 @@ if ($_GET['scorm_review']) {
                             }
                         }
                     }
-                     
+
                 }
                 //pr($scormFiles);exit;
                 foreach ($scormFiles as $scormFile) {
                     /* Imports scorm package to database */
                     $scormFolderName = EfrontFile :: encode(basename($scormFile['name'], '.zip'));
-                    $scormPath       = $currentLesson -> getDirectory().$scormFolderName.'/';
+                    $scormPath = $currentLesson -> getDirectory().$scormFolderName.'/';
                     is_dir($scormPath) OR mkdir($scormPath, 0755);
                     //pr($scormPath.$scormFile['name']);
                     //try {
                     $scormFile -> rename($scormPath.$scormFile['name'], true);
                     //} catch (Exception $e) {pr($e);throw $e;}
-                    $fileList   = $scormFile  -> uncompress(false);
+                    $fileList = $scormFile -> uncompress(false);
                     $scormFile -> delete();
 
                     $total_fields = array();
-                    $resources    = array();
+                    $resources = array();
 
                     $manifestFile = new EfrontFile($scormPath.'imsmanifest.xml');
                     EfrontScorm :: import($currentLesson, $manifestFile, $scormFolderName, array('embed_type' => $values['embed_type'], 'popup_parameters' => $values['popup_parameters']));
@@ -149,7 +150,7 @@ if ($_GET['scorm_review']) {
                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=scorm&message=".urlencode(_SUCCESSFULLYIMPORTEDSCORMFILE)."&message_type=success");
             } catch (Exception $e) {
                 $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+                $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
                 $message_type = failure;
             }
 
@@ -159,7 +160,7 @@ if ($_GET['scorm_review']) {
         $smarty -> assign('T_UPLOAD_SCORM_FORM', $renderer -> toArray());
     } catch (Exception $e) {
         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-        $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+        $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
         $message_type = failure;
     }
 } else if ($_GET['scorm_export']) {
@@ -167,7 +168,7 @@ if ($_GET['scorm_review']) {
         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
     }
     $form = new HTML_QuickForm("export_scorm_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_export=1', "", null, true);
-    $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+    $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
     $form -> addElement('submit', 'submit_export_scorm', _EXPORT, 'class = "flatButton"');
     if ($form -> isSubmitted() && $form -> validate()) {
         define ('SCORM_FOLDER', G_ROOTPATH."www/content/scorm_data");
@@ -193,7 +194,7 @@ if ($_GET['scorm_review']) {
             require_once("scorm_tools.php");
             create_manifest($lessons_id, $lesson_entries, $filelist, SCORM_FOLDER);
 
-            $scormDirectory = new EfrontDirectory(SCORM_FOLDER  ."/lesson". $lessons_id."/");
+            $scormDirectory = new EfrontDirectory(SCORM_FOLDER ."/lesson". $lessons_id."/");
 
             $compressedFile = $scormDirectory -> compress(false, false, true);
             $scormDirectory -> delete();
@@ -203,7 +204,7 @@ if ($_GET['scorm_review']) {
             $smarty -> assign("T_MESSAGE_TYPE", "success");
         } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message      = _SOMEPROBLEMEMERGED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+            $message = _SOMEPROBLEMEMERGED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
             $message_type = "failure";
         }
     }
@@ -213,10 +214,10 @@ if ($_GET['scorm_review']) {
     $smarty -> assign('T_EXPORT_SCORM_FORM', $renderer -> toArray());
 
 } else {
-    $loadScripts[] = "includes/scorm";
-    
-    $iterator       = new EfrontSCORMFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));    //Default iterator excludes non-active units
-    $valid12Units   = array();
+
+
+    $iterator = new EfrontSCORMFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST))); //Default iterator excludes non-active units
+    $valid12Units = array();
     $valid2004Units = array();
     foreach ($iterator as $value) {
         if (!$value['scorm_version'] || $value['scorm_version'] == '1.2') {
@@ -231,7 +232,7 @@ if ($_GET['scorm_review']) {
             $valid2004Units[] = $value['id'];
         }
     }
-    
+
     try {
         //Set scorm content type through AJAX call
         if (isset($_GET['set_type']) && isset($_GET['id']) && in_array($_GET['id'], $valid12Units)) {
@@ -242,15 +243,15 @@ if ($_GET['scorm_review']) {
             exit;
         }
         if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid12Units)) {
-	        //eF_deleteTableData("scorm_data", "id=".$_GET['delete']);
-	        //$user = EfrontUserFactory::factory($scormData[0]['users_LOGIN']);
-	        //$user -> setSeenUnit($scormData[0]['content_ID'], $currentLesson, false);            
+         //eF_deleteTableData("scorm_data", "id=".$_GET['delete']);
+         //$user = EfrontUserFactory::factory($scormData[0]['users_LOGIN']);
+         //$user -> setSeenUnit($scormData[0]['content_ID'], $currentLesson, false);            
         }
         //Reset scorm data
         if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid2004Units)) {
             if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
                 //EfrontContentTreeSCORM :: resetSCORMContentOrganization($currentLesson, $_GET['id'], $_GET['login']);
-			} else {
+   } else {
                 EfrontContentTreeSCORM :: resetSCORMContentOrganization($currentLesson, $_GET['id']);
             }
         }

@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","בפינה השמאלית התחתונה");//Bottom 
 define("_BOTTOMRIGHTCORNER","בפינה הימנית התחתונה");//Bottom right corner
 define("_LOGOPOSITION","מיקום הלוגו");//Logo position
 define("_LOGOFILE","קובץ הלוגו");//Logo file
-define("_LESSONSKILLSSELECTION","שיעור כישורי הבחירה המוצעים");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","שיעור כישורי הבחירה המוצעים");//Select skills offered by the lesson
 define("_TOPCENTER","במרכז למעלה");//Top center
 define("_BOTTOMCENTER","במרכז למטה");//Bottom center
 define("_HIDECOMPLETEUNITICON","הסתר להשלים יחידת סמל");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","השאר ריק ללא מגבלת זמן");//Leave bl
 define("_HARDPLURAL","קשה");//Hard
 define("_MEDIUMPLURAL","בינוני");//Medium
 define("_EASYPLURAL","קל");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","השאלה אינה נכונה");//The question is incorrect
 define("_QUESTIONISCORRECT","השאלה היא נכונה");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","השאלה היא נכונה באופן חלקי");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","קבוצות שלי");//my Groups
 define("_AVAILABLE","זמין");//Available
 define("_NEVER","אף פעם");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","שיעור האנשים");//Lesson people
+define("_LESSONPEOPLE","שיעור האנשים");//Lesson users
 define("_NORMALIZEDIMENSIONS","מנורמל מימדים");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","הוטלה כמובן");//was assigned the course
 define("_WILLBETEACHINGCOURSE","יהיה ללמד את הקורס");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","הקצאה איוב");//Job assignment
 define("_ONJOBREMOVAL","עבודה הסר המשתמש");//Remove job from user
 define("_JOBDESCRIPTIONNAME","שם איוב מיקום");//Job position name
 define("_ENCRYPTURL","הצפנת כתובת");//Encrypt URL
-define("_USERNAMEFORMATINFO","עיצוב הדרך מופיעים שמות משתמש במערכת. # # שם השתמש עבור השם הפרטי, שם המשפחה # # עבור שם המשפחה, כניסה # # עבור הכניסה ואת n # # עבור המכתב הראשוני את השם הראשון של");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","עיצוב הדרך מופיעים שמות משתמש במערכת. # # שם השתמש עבור השם הפרטי, שם המשפחה # # עבור שם המשפחה, כניסה # # עבור הכניסה ואת n # # עבור המכתב הראשוני את השם הראשון של");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","תבנית משתמש");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","דוחות אירועים");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","אירועים קריטריונים התאמה");//Events matching criteria
 define("_NOEVENTSFOUND","אין אירועים התאמה קריטריון החיפוש שלך");//No events match your search criteria
 define("_VISITEDTHESYSTEM","ביקר מערכת");//visited the system
-define("_VISITEDLESSON","ביקר השיעור");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","יש להגדיר את תאריך ההתחלה המתוכנן עבור השיעור");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","יש להגדיר את מועד התפוגה המתוכנן השיעור");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","פרסמה את ההודעה");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","יש גרסה חדשה זמינה!");//There is a n
 define("_RELEASENOTES","הערות למוצר");//Release notes
 define("_VERSIONUPTODATE","הגרסה שלך עדכנית");//Your version is up to date
 define("_CONTACTINGSERVER","יצירת קשר עם השרת ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","הורד והתקן");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","המערכת לא הצליחה להתחבר לשרת רישיון");//The system could not connect to license server
 define("_LICENSESERVER","שרת רישיון");//License server
 define("_UPGRADESVALIDUNTIL","שדרוגים בתוקף עד");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","תוכן חכמים");//Smart content
 define("_ZIPHANDLING","שיטת הטיפול מיקוד");//Zip handling method
 define("_COMPLETION","סיום");//Completion
 define("_SETALLTO","כדי להגדיר את כל");//Set all to
-define("_INADEQUATEBALANCE","איזון לקוי");//Inadequate balance (New)
-define("_PAYPALMODE","מצב Paypal");//Paypal mode (New)
-define("_SANDBOX","ארגז החול");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","קובץ יומן עסקה");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","כרגע להגדיר כתובת אינו תואם קיבל כתובת העסק");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","סוג הפעולה לא נתמכת");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","שכפל השלמת התשלום");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","מעמד התשלום לא נתמך");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","יש לך ביטל את העסקה");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","העסקה הושלמה בהצלחה.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","מצב Paypal באגים");//Paypal debug mode (New)
-define("_MYACCOUNT","החשבון שלי");//My account (New)
-define("_MODULE","מודול");//Module (New)
-define("_EMBEDTYPE","התוכן כמו שבץ");//Embed content as (New)
-define("_INLINEIFRAME","מוטבעת (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","חלון חדש (חלונות קופצים)");//New window (popup) (New)
-define("_POPUPPARAMETERS","פרמטרים Popup");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","לחץ על הכפתור כדי להפעיל את יחידת");//Click on the button to start the unit (New)
-define("_STARTUNIT","יחידת התחלה");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","למרבה הצער SCORM 2004 אינו נתמך במהדורה זו");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","שחזור הודעות מחדל");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","התקדמות תוכן (לא כולל מבחנים)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","גירסת מסד הנתונים");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","גירסת מסד הנתונים שלך שונה מזו של גרסת הקוד. אנא הפעל את הקישור% סקריפט");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","שדרג");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","הורד מיוצא כמובן");//Download exported course (New)
-define("_MAXDISCOUNT100","ההנחה המקסימלית היא 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","רישום / עדכון");//Registration/Update (New)
-define("_ROWS","שורות");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","הפקודה נכשל עם הפלט הבא");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","אולי המערכת שלך לא תומך ב-zip עיבוד?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","כדי ליצור כמובן, תחילה עליך ליצור קטגוריה");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","איזון לקוי");//Inadequate balance
+define("_PAYPALMODE","מצב Paypal");//Paypal mode
+define("_SANDBOX","ארגז החול");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","קובץ יומן עסקה");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","כרגע להגדיר כתובת אינו תואם קיבל כתובת העסק");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","סוג הפעולה לא נתמכת");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","שכפל השלמת התשלום");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","מעמד התשלום לא נתמך");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","יש לך ביטל את העסקה");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","העסקה הושלמה בהצלחה.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","מצב Paypal באגים");//Paypal debug mode
+define("_MYACCOUNT","החשבון שלי");//My account
+define("_MODULE","מודול");//Module
+define("_EMBEDTYPE","התוכן כמו שבץ");//Embed content as
+define("_INLINEIFRAME","מוטבעת (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","חלון חדש (חלונות קופצים)");//New window (popup)
+define("_POPUPPARAMETERS","פרמטרים Popup");//Popup parameters
+define("_CLICKTOSTARTUNIT","לחץ על הכפתור כדי להפעיל את יחידת");//Click on the button to start the unit
+define("_STARTUNIT","יחידת התחלה");//Start unit
+define("_SCORM2004NOTSUPPORTED","למרבה הצער SCORM 2004 אינו נתמך במהדורה זו");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","שחזור הודעות מחדל");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","התקדמות תוכן (לא כולל מבחנים)");//Content progress (excl. tests)
+define("_DATABASEVERSION","גירסת מסד הנתונים");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","גירסת מסד הנתונים שלך שונה מזו של גרסת הקוד. אנא הפעל את הקישור% סקריפט");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","שדרג");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","הורד מיוצא כמובן");//Download exported course
+define("_MAXDISCOUNT100","ההנחה המקסימלית היא 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","רישום / עדכון");//Registration/Update
+define("_ROWS","שורות");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","הפקודה נכשל עם הפלט הבא");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","אולי המערכת שלך לא תומך ב-zip עיבוד?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","כדי ליצור כמובן, תחילה עליך ליצור קטגוריה");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","סניפים בחר השיעור");//Select lesson branches (New)
+define("_LESSONBRANCHES","שיעור הענפים");//Lesson branches (New)
+define("_COURSEBRANCHES","ענפים קורס");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","לאפשר לתלמידים לציין מספר השאלות במבחן כל ביצוע");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","מקסימום");//Maximum (New)
+define("_MINIMUM","מינימום");//Minimum (New)
+define("_REPETITIONS","חזרות");//Repetitions (New)
+define("_MAINTAINHISTORY","לשמור על ההיסטוריה");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","המפתח אינו מתאים למהדורה זו");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","מצב בלתי חוקיים");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","עליך לציין את מספר השאלות");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","עליך לציין ערך מ");//You must specify a value from (New)
+define("_COURSEPROFESSORS","פרופסורים קורס");//Course professors (New)
+define("_PROFESSORSOFCOURSE","פרופסורים כמובן");//Professors of course (New)
+define("_PRINTCONTENT","תוכן הדפסה");//Print content (New)
+define("_USERHASNOTDONETEST","המשתמש לא נעשה במבחן הזה");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","נא לוודא כי המידע הבא נכון");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","אין קטגוריות מוגדרות");//There are no categories defined (New)
 ?>

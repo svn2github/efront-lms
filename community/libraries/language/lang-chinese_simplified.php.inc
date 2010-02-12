@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","左下角");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","右下角");//Bottom right corner
 define("_LOGOPOSITION","徽标的立场");//Logo position
 define("_LOGOFILE","Logo文件");//Logo file
-define("_LESSONSKILLSSELECTION","的节，所提供的技能选择");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","的节，所提供的技能选择");//Select skills offered by the lesson
 define("_TOPCENTER","顶端中心");//Top center
 define("_BOTTOMCENTER","底部的中心");//Bottom center
 define("_HIDECOMPLETEUNITICON","隐藏完成单元图标");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","留空为没有时间限制");//Leave blank for no ti
 define("_HARDPLURAL","硬的");//Hard
 define("_MEDIUMPLURAL","中等");//Medium
 define("_EASYPLURAL","容易的");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","现在的问题是不正确");//The question is incorrect
 define("_QUESTIONISCORRECT","现在的问题是正确的");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","现在的问题是部分正确的");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","我的群组");//my Groups
 define("_AVAILABLE","可用的");//Available
 define("_NEVER","从不");//Never
 define("_CLASSMATES","同学录");//Classmates
-define("_LESSONPEOPLE","教训人");//Lesson people
+define("_LESSONPEOPLE","教训人");//Lesson users
 define("_NORMALIZEDIMENSIONS","归层面");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","被指定课程");//was assigned the course
 define("_WILLBETEACHINGCOURSE","将教学课程");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","分配工作");//Job assignment
 define("_ONJOBREMOVAL","从用户的工作中删除");//Remove job from user
 define("_JOBDESCRIPTIONNAME","招聘职位名称");//Job position name
 define("_ENCRYPTURL","加密网址");//Encrypt URL
-define("_USERNAMEFORMATINFO","格式的方式登录系统中出现。使用＃姓名＃第一名称，＃＃姓为姓，＃＃为登录用户名和返回＃N＃首名的首字母");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","格式的方式登录系统中出现。使用＃姓名＃第一名称，＃＃姓为姓，＃＃为登录用户名和返回＃N＃首名的首字母");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","用户名格式");//Username format
 define("_LDAP","的LDAP");//LDAP
 define("_SMTP","的SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","活动报告");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","事件匹配标准");//Events matching criteria
 define("_NOEVENTSFOUND","没有事件符合您的搜索标准");//No events match your search criteria
 define("_VISITEDTHESYSTEM","访问系统");//visited the system
-define("_VISITEDLESSON","访问教训");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","确立了教训，预定开始日期");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","确立了教训预定日期");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","已经公布了公布");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","有一个新的版本中！");//There is a new vers
 define("_RELEASENOTES","发行说明");//Release notes
 define("_VERSIONUPTODATE","您的版本是最新的");//Your version is up to date
 define("_CONTACTINGSERVER","联系服务器...");//Contacting server...
-define("_DOWNLOADANDINSTALL","下载并安装");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","该系统无法连接到许可证服务器");//The system could not connect to license server
 define("_LICENSESERVER","许可证服务器");//License server
 define("_UPGRADESVALIDUNTIL","升级有效期至");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","智能内容");//Smart content
 define("_ZIPHANDLING","邮编处理方法");//Zip handling method
 define("_COMPLETION","完成");//Completion
 define("_SETALLTO","都照");//Set all to
-define("_INADEQUATEBALANCE","余额不足");//Inadequate balance (New)
-define("_PAYPALMODE","贝宝模式");//Paypal mode (New)
-define("_SANDBOX","沙盒");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","事务日志文件");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","目前，设置地址不匹配所获取的业务报告");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","不支持的操作类型");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","复制完成付款");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","不支持的付款状态");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","您已取消交易");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","该交易已成功完成。");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","贝宝调试模式");//Paypal debug mode (New)
-define("_MYACCOUNT","我的帐户");//My account (New)
-define("_MODULE","模块");//Module (New)
-define("_EMBEDTYPE","嵌入内容，");//Embed content as (New)
-define("_INLINEIFRAME","内联（iframe中）");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","新窗口（弹出）");//New window (popup) (New)
-define("_POPUPPARAMETERS","弹出式参数");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","在按钮启动装置");//Click on the button to start the unit (New)
-define("_STARTUNIT","启动装置");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","不幸的是符合SCORM 2004不支持这个版本");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","还原默认的通知");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","内容进展情况（不包括测试）");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","数据库版本");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","你的数据库版本是不同的代码版本。请运行％链接脚本");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","升级");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","下载出口课程");//Download exported course (New)
-define("_MAXDISCOUNT100","最高折扣100％");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","注册/更新");//Registration/Update (New)
-define("_ROWS","行");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","该命令失败，出现以下输出");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","也许你的系统不支持压缩处理？");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","为了创建一门课程，你必须首先创建一个类");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","余额不足");//Inadequate balance
+define("_PAYPALMODE","贝宝模式");//Paypal mode
+define("_SANDBOX","沙盒");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","事务日志文件");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","目前，设置地址不匹配所获取的业务报告");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","不支持的操作类型");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","复制完成付款");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","不支持的付款状态");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","您已取消交易");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","该交易已成功完成。");//The transaction was completed successfully.
+define("_PAYPALDEBUG","贝宝调试模式");//Paypal debug mode
+define("_MYACCOUNT","我的帐户");//My account
+define("_MODULE","模块");//Module
+define("_EMBEDTYPE","嵌入内容，");//Embed content as
+define("_INLINEIFRAME","内联（iframe中）");//Inline (iframe)
+define("_NEWWINDOWPOPUP","新窗口（弹出）");//New window (popup)
+define("_POPUPPARAMETERS","弹出式参数");//Popup parameters
+define("_CLICKTOSTARTUNIT","在按钮启动装置");//Click on the button to start the unit
+define("_STARTUNIT","启动装置");//Start unit
+define("_SCORM2004NOTSUPPORTED","不幸的是符合SCORM 2004不支持这个版本");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","还原默认的通知");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","内容进展情况（不包括测试）");//Content progress (excl. tests)
+define("_DATABASEVERSION","数据库版本");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","你的数据库版本是不同的代码版本。请运行％链接脚本");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","升级");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","下载出口课程");//Download exported course
+define("_MAXDISCOUNT100","最高折扣100％");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","注册/更新");//Registration/Update
+define("_ROWS","行");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","该命令失败，出现以下输出");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","也许你的系统不支持压缩处理？");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","为了创建一门课程，你必须首先创建一个类");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","选择教训分行");//Select lesson branches (New)
+define("_LESSONBRANCHES","教训分行");//Lesson branches (New)
+define("_COURSEBRANCHES","当然分行");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","让学生在指定每个测试执行的若干问题");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","最大");//Maximum (New)
+define("_MINIMUM","最低");//Minimum (New)
+define("_REPETITIONS","重复");//Repetitions (New)
+define("_MAINTAINHISTORY","维护历史");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","关键是不适合这个版本");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","非法模式");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","您必须指定一些问题");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","您必须指定一个值从");//You must specify a value from (New)
+define("_COURSEPROFESSORS","课程教授");//Course professors (New)
+define("_PROFESSORSOFCOURSE","当然，教授");//Professors of course (New)
+define("_PRINTCONTENT","打印内容");//Print content (New)
+define("_USERHASNOTDONETEST","该用户已没有这样做的测试");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","请确认以下信息是正确的");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","没有类别定义");//There are no categories defined (New)
 ?>

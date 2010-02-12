@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Sa ilalim-kaliwang sulok");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Ibabang kanang sulok");//Bottom right corner
 define("_LOGOPOSITION","Logo posisyon");//Logo position
 define("_LOGOFILE","Logo file");//Logo file
-define("_LESSONSKILLSSELECTION","Lesson inaalok kasanayan sa pagpili");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Lesson inaalok kasanayan sa pagpili");//Select skills offered by the lesson
 define("_TOPCENTER","Top center");//Top center
 define("_BOTTOMCENTER","Ibabang center");//Bottom center
 define("_HIDECOMPLETEUNITICON","Itago ang kumpletong yunit icon");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Iwanang blangko para sa mga oras na walang hangganan"
 define("_HARDPLURAL","Matigas");//Hard
 define("_MEDIUMPLURAL","Katamtamang");//Medium
 define("_EASYPLURAL","Madali");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Ang tanong ay hindi tama");//The question is incorrect
 define("_QUESTIONISCORRECT","Ang tanong ay tama");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Ang tanong ay bahagyang tama");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","ang aking mga Grupo");//my Groups
 define("_AVAILABLE","Magagamit");//Available
 define("_NEVER","Hindi kailanman");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","Lesson tao");//Lesson people
+define("_LESSONPEOPLE","Lesson tao");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalized sukat");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","ay itinalaga kurso ng");//was assigned the course
 define("_WILLBETEACHINGCOURSE","ay nagtuturo sa mga kurso");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Job assignment");//Job assignment
 define("_ONJOBREMOVAL","Alisin ang trabaho mula sa gumagamit");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Trabaho sa posisyon ng pangalan");//Job position name
 define("_ENCRYPTURL","Encrypt URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Format ng ang paraan ng pag-login lalabas sa system. Gamitin ang # # pangalan para sa unang pangalan, apelyido # # para sa huling pangalan, # # login para sa login at n # # para sa unang titik ng unang pangalan");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Format ng ang paraan ng pag-login lalabas sa system. Gamitin ang # # pangalan para sa unang pangalan, apelyido # # para sa huling pangalan, # # login para sa login at n # # para sa unang titik ng unang pangalan");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Username format");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Events ulat");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Events na tumutugma sa mga pamantayan");//Events matching criteria
 define("_NOEVENTSFOUND","Walang mga kaganapan tumugma sa iyong mga pamantayan sa paghahanap");//No events match your search criteria
 define("_VISITEDTHESYSTEM","bumisita sa sistema");//visited the system
-define("_VISITEDLESSON","binisita aral");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","ay i-set ang naka-iskedyul na simula ng petsa para sa aral");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","ay i-set ang naka-schedule na pagtapos ng petsa para sa aral");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","ay nai-publish ang announcement");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","May isang bagong bersyon na magagamit!");//There is
 define("_RELEASENOTES","Release mga tala");//Release notes
 define("_VERSIONUPTODATE","Ang iyong mga bersyon na ito ay hanggang sa petsa");//Your version is up to date
 define("_CONTACTINGSERVER","Makipag-ugnayan sa server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","I-download at i-install");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Ang sistema ay hindi makakonekta sa lisensiya ng server");//The system could not connect to license server
 define("_LICENSESERVER","License ng server");//License server
 define("_UPGRADESVALIDUNTIL","Upgrade bisa hanggang sa");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart nilalaman");//Smart content
 define("_ZIPHANDLING","Zip paraan ng paghawak ng");//Zip handling method
 define("_COMPLETION","Pagkumpleto");//Completion
 define("_SETALLTO","Itakda ang lahat upang");//Set all to
-define("_INADEQUATEBALANCE","Hindi sapat na balanse");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal mode");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Transaksyon sa log file");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Kasalukuyang naka-set address ay hindi tugma sa natanggap address sa negosyo");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Hindi suportadong uri ng operasyon");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate natapos ang pagbabayad");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Hindi suportadong katayuan ng pagbabayad");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Ikaw ay kinansela ang transaksyon ay");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Ang transaksiyon ay matagumpay na natapos.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
-define("_MYACCOUNT","Aking account");//My account (New)
-define("_MODULE","Module");//Module (New)
-define("_EMBEDTYPE","Embed nilalaman bilang");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Bagong window (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parameter");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","I-click ang button upang simulan ang yunit");//Click on the button to start the unit (New)
-define("_STARTUNIT","Simulan ang yunit");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Sa kasamaang palad SCORM 2,004 ay hindi suportado sa edisyon");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Ibalik ang default na mga abiso");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Nilalaman ng pag-unlad (excl. pagsusulit)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Database bersyon");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Ang iyong database ng bersyon na ito ay naiiba kaysa sa bersyon ng code. Mangyaring patakbuhin ang% link sa script");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","I-upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","I-download ang nai-export na kurso");//Download exported course (New)
-define("_MAXDISCOUNT100","Ang maximum na discount ay 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Registration / Update");//Registration/Update (New)
-define("_ROWS","Rows");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Ang command na bigo sa mga sumusunod na output");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Marahil ang iyong system ay hindi sumusuporta sa pagpoproseso ng zip?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Upang lumikha ng isang kurso, kailangan mo munang gumawa ng isang kategorya");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Hindi sapat na balanse");//Inadequate balance
+define("_PAYPALMODE","Paypal mode");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Transaksyon sa log file");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Kasalukuyang naka-set address ay hindi tugma sa natanggap address sa negosyo");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Hindi suportadong uri ng operasyon");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate natapos ang pagbabayad");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Hindi suportadong katayuan ng pagbabayad");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Ikaw ay kinansela ang transaksyon ay");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Ang transaksiyon ay matagumpay na natapos.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
+define("_MYACCOUNT","Aking account");//My account
+define("_MODULE","Module");//Module
+define("_EMBEDTYPE","Embed nilalaman bilang");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Bagong window (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parameter");//Popup parameters
+define("_CLICKTOSTARTUNIT","I-click ang button upang simulan ang yunit");//Click on the button to start the unit
+define("_STARTUNIT","Simulan ang yunit");//Start unit
+define("_SCORM2004NOTSUPPORTED","Sa kasamaang palad SCORM 2,004 ay hindi suportado sa edisyon");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Ibalik ang default na mga abiso");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Nilalaman ng pag-unlad (excl. pagsusulit)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Database bersyon");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Ang iyong database ng bersyon na ito ay naiiba kaysa sa bersyon ng code. Mangyaring patakbuhin ang% link sa script");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","I-upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","I-download ang nai-export na kurso");//Download exported course
+define("_MAXDISCOUNT100","Ang maximum na discount ay 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Registration / Update");//Registration/Update
+define("_ROWS","Rows");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Ang command na bigo sa mga sumusunod na output");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Marahil ang iyong system ay hindi sumusuporta sa pagpoproseso ng zip?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Upang lumikha ng isang kurso, kailangan mo munang gumawa ng isang kategorya");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Piliin ang aral na sanga");//Select lesson branches (New)
+define("_LESSONBRANCHES","Lesson sanga");//Lesson branches (New)
+define("_COURSEBRANCHES","Course na sanga");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Payagan ang mga mag-aaral upang tukuyin ang bilang ng mga katanungan sa bawat pagsubok pagpapatupad");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Pinakamataas na");//Maximum (New)
+define("_MINIMUM","Pinakamababang");//Minimum (New)
+define("_REPETITIONS","Repetitions");//Repetitions (New)
+define("_MAINTAINHISTORY","Ipanatili ang kasaysayan");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Ang susi ay hindi angkop para sa edition na ito");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Iligal na mode");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Dapat mong tukuyin ang bilang ng mga katanungan");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Kailangan mong tukuyin ang isang halaga mula sa");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Course professors");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Professors ng kurso");//Professors of course (New)
+define("_PRINTCONTENT","I-print nilalaman");//Print content (New)
+define("_USERHASNOTDONETEST","Ang user na ito ay hindi ginawa sa pagsusulit na ito");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Mangyaring patunayan na ang mga sumusunod na impormasyon ay tama");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Walang mga kategorya tinukoy");//There are no categories defined (New)
 ?>

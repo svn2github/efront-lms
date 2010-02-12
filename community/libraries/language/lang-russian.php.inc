@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Левый нижний угол");//Bottom left cor
 define("_BOTTOMRIGHTCORNER","Нижний правый угол окна");//Bottom right corner
 define("_LOGOPOSITION","Позиция логотипа");//Logo position
 define("_LOGOFILE","Файл логотипа");//Logo file
-define("_LESSONSKILLSSELECTION","Урок, на основе указанных навыков");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Урок, на основе указанных навыков");//Select skills offered by the lesson
 define("_TOPCENTER","Вверху по центру");//Top center
 define("_BOTTOMCENTER","Внизу по центру");//Bottom center
 define("_HIDECOMPLETEUNITICON","Скрыть значок выполнения блока");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Оставьте пустым, чтобы не огр
 define("_HARDPLURAL","Тяжелый");//Hard
 define("_MEDIUMPLURAL","Средний");//Medium
 define("_EASYPLURAL","Простой");//Easy
-define("_UNLIMITED","Неограниченно");//Unilimited
+define("_UNLIMITED","Неограниченно");//Unlimited
 define("_INCORRECTQUESTION","Вопрос неверный");//The question is incorrect
 define("_QUESTIONISCORRECT","Этот вопрос правильный");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Этот вопрос частично правильный");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Мои группы");//my Groups
 define("_AVAILABLE","Доступность");//Available
 define("_NEVER","Никогда");//Never
 define("_CLASSMATES","Кто?");//Classmates
-define("_LESSONPEOPLE","Урок люди");//Lesson people
+define("_LESSONPEOPLE","Урок люди");//Lesson users
 define("_NORMALIZEDIMENSIONS","Размер изображения \"как есть\"");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","Было назначено конечно");//was assigned the course
 define("_WILLBETEACHINGCOURSE","будет преподавание курса");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Рабочего задания");//Job assignment
 define("_ONJOBREMOVAL","Удалите задание из пользователей");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Должность имя");//Job position name
 define("_ENCRYPTURL","Шифровать URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Формат путем входа в системе появляются. Используйте # # название на имя, фамилию # # для Фамилия, Имя, # # для Логин Логин и п # # для первоначального письма первого зовут");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Формат путем входа в системе появляются. Используйте # # название на имя, фамилию # # для Фамилия, Имя, # # для Логин Логин и п # # для первоначального письма первого зовут");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Имя пользователя формат");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","События Отчеты");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","События соответствия критериям");//Events matching criteria
 define("_NOEVENTSFOUND","События не соответствуют вашим критериям поиска");//No events match your search criteria
 define("_VISITEDTHESYSTEM","посетил система");//visited the system
-define("_VISITEDLESSON","посетил урока");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","установил дату начала запланированного на уроке");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","создал запланированного срока для урока");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","опубликовал объявление");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Существует новая версия дос
 define("_RELEASENOTES","Release Notes");//Release notes
 define("_VERSIONUPTODATE","Ваша версия до даты");//Your version is up to date
 define("_CONTACTINGSERVER","Связаться со службой сервера ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Скачайте и установите");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Системе не удается подключиться к серверу лицензий");//The system could not connect to license server
 define("_LICENSESERVER","Сервер лицензий");//License server
 define("_UPGRADESVALIDUNTIL","Обновления действителен до");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart содержание");//Smart content
 define("_ZIPHANDLING","Почтовый метод обработки");//Zip handling method
 define("_COMPLETION","Завершение");//Completion
 define("_SETALLTO","Установить все");//Set all to
-define("_INADEQUATEBALANCE","Неадекватная баланс");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal режиме");//Paypal mode (New)
-define("_SANDBOX","Песочницы");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Файл журнала транзакций");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","В настоящее время установить адрес не совпадает с адресом визитной");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Неподдерживаемый тип операции");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Повторяющиеся завершена оплата");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Неподдерживаемый статус платежей");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Вы отменили сделку");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделка была завершена успешно.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal режиме отладки");//Paypal debug mode (New)
-define("_MYACCOUNT","Моя учетная запись");//My account (New)
-define("_MODULE","Модуль");//Module (New)
-define("_EMBEDTYPE","Вставить содержание,");//Embed content as (New)
-define("_INLINEIFRAME","Inline (IFRAME)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Новое окно (PopUp)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup параметры");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Нажмите на кнопку, чтобы начать единицу");//Click on the button to start the unit (New)
-define("_STARTUNIT","Начало единицу");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","К сожалению, SCORM 2004 не поддерживается в данном выпуске");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Восстановление уведомления по умолчанию");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Авторские прогресс (без испытаний)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Версия базы данных");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Ваша версия базы данных, отличается от кода версии. Пожалуйста, запустите сценарии ссылки%");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Обновление");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Скачать экспортировала конечно");//Download exported course (New)
-define("_MAXDISCOUNT100","Максимальная скидка 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Регистрация / обновление");//Registration/Update (New)
-define("_ROWS","Строки");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Сбой команды с выходом");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Может быть, ваша система не поддерживает Zip обработки?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","В целях создания Конечно, вы должны сначала создать категорию");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Неадекватная баланс");//Inadequate balance
+define("_PAYPALMODE","Paypal режиме");//Paypal mode
+define("_SANDBOX","Песочницы");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Файл журнала транзакций");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","В настоящее время установить адрес не совпадает с адресом визитной");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Неподдерживаемый тип операции");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Повторяющиеся завершена оплата");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Неподдерживаемый статус платежей");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Вы отменили сделку");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделка была завершена успешно.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal режиме отладки");//Paypal debug mode
+define("_MYACCOUNT","Моя учетная запись");//My account
+define("_MODULE","Модуль");//Module
+define("_EMBEDTYPE","Вставить содержание,");//Embed content as
+define("_INLINEIFRAME","Inline (IFRAME)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Новое окно (PopUp)");//New window (popup)
+define("_POPUPPARAMETERS","Popup параметры");//Popup parameters
+define("_CLICKTOSTARTUNIT","Нажмите на кнопку, чтобы начать единицу");//Click on the button to start the unit
+define("_STARTUNIT","Начало единицу");//Start unit
+define("_SCORM2004NOTSUPPORTED","К сожалению, SCORM 2004 не поддерживается в данном выпуске");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Восстановление уведомления по умолчанию");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Авторские прогресс (без испытаний)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Версия базы данных");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Ваша версия базы данных, отличается от кода версии. Пожалуйста, запустите сценарии ссылки%");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Обновление");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Скачать экспортировала конечно");//Download exported course
+define("_MAXDISCOUNT100","Максимальная скидка 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Регистрация / обновление");//Registration/Update
+define("_ROWS","Строки");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Сбой команды с выходом");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Может быть, ваша система не поддерживает Zip обработки?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","В целях создания Конечно, вы должны сначала создать категорию");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Выберите филиалы урока");//Select lesson branches (New)
+define("_LESSONBRANCHES","Урок филиалы");//Lesson branches (New)
+define("_COURSEBRANCHES","Курс филиалы");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Позволяют студентам задать ряд вопросов в каждом тесте исполнения");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Максимальное");//Maximum (New)
+define("_MINIMUM","Минимальные");//Minimum (New)
+define("_REPETITIONS","Повторения");//Repetitions (New)
+define("_MAINTAINHISTORY","Поддержание история");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Ключ не подходит для этого издания");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Незаконные режиме");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Вы должны задать ряд вопросов");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Вы должны указать значение от");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Курс профессора");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Профессор, конечно,");//Professors of course (New)
+define("_PRINTCONTENT","Распечатать содержание");//Print content (New)
+define("_USERHASNOTDONETEST","Пользователь не выполнил этот тест");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Убедитесь, что следующие сведения верны");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Есть категория не определена");//There are no categories defined (New)
 ?>

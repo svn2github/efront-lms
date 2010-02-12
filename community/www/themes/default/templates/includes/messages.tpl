@@ -225,10 +225,12 @@
  {else}
   {capture name = "t_messages_code"}
    <div class = "headerTools">
-    <span>
-     <img src = "images/16x16/add.png" title = "{$smarty.const._NEWMESSAGE}" alt = "{$smarty.const._NEWMESSAGE}" />
-     <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1" title = "{$smarty.const._NEWMESSAGE}">{$smarty.const._NEWMESSAGE}</a>
-    </span>
+    {if !isset($T_CURRENT_USER->coreAccess.personal_messages) || $T_CURRENT_USER->coreAccess.personal_messages == 'change'}
+     <span>
+      <img src = "images/16x16/add.png" title = "{$smarty.const._NEWMESSAGE}" alt = "{$smarty.const._NEWMESSAGE}" />
+      <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1" title = "{$smarty.const._NEWMESSAGE}">{$smarty.const._NEWMESSAGE}</a>
+     </span>
+    {/if}
    </div>
 <!--ajax:messagesTable-->
             <table class = "sortedTable" width = "100%" sortBy = "0" useAjax = "1" id = "messagesTable" url="{$smarty.server.PHP_SELF}?ctg=messages&folder={$T_FOLDER}&">

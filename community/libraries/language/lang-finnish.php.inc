@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Vasemmassa alakulmassa");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Alhaalla oikeassa alakulmassa");//Bottom right corner
 define("_LOGOPOSITION","Logo kannan");//Logo position
 define("_LOGOFILE","Logo-tiedoston");//Logo file
-define("_LESSONSKILLSSELECTION","Oppitunnin tarjotaan taidot valinta");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Oppitunnin tarjotaan taidot valinta");//Select skills offered by the lesson
 define("_TOPCENTER","Ylhäällä keskellä");//Top center
 define("_BOTTOMCENTER","Alhaalla keskellä");//Bottom center
 define("_HIDECOMPLETEUNITICON","Piilota täydellinen yksikkö kuvake");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Jätä tyhjä ei ole määräaikaa");//Leave blank fo
 define("_HARDPLURAL","Kova");//Hard
 define("_MEDIUMPLURAL","Medium");//Medium
 define("_EASYPLURAL","Helppo");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Kysymys on virheellinen");//The question is incorrect
 define("_QUESTIONISCORRECT","Kysymys on oikea");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Kysymys on osittain oikeassa");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Omat");//my Groups
 define("_AVAILABLE","Saatavissa");//Available
 define("_NEVER","Ei koskaan");//Never
 define("_CLASSMATES","Luokkatoveriensa");//Classmates
-define("_LESSONPEOPLE","Oppitunti ihmiset");//Lesson people
+define("_LESSONPEOPLE","Oppitunti ihmiset");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalized mitat");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","nimettiin kurssin");//was assigned the course
 define("_WILLBETEACHINGCOURSE","on opetuksen aikana");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Työhönosoitusmääräysten");//Job assignment
 define("_ONJOBREMOVAL","Poista Työn käyttäjä");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Asema nimi");//Job position name
 define("_ENCRYPTURL","Salaa URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Muodossa miten kirjautumiset näkyvät järjestelmässä. Käytä # nimi # ja etunimi, # sukunimi # ja sukunimi, # kirjautunut # varten käyttäjätunnuksen ja # n # ensimmäisen nimeni alkukirjain");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Muodossa miten kirjautumiset näkyvät järjestelmässä. Käytä # nimi # ja etunimi, # sukunimi # ja sukunimi, # kirjautunut # varten käyttäjätunnuksen ja # n # ensimmäisen nimeni alkukirjain");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Käyttäjätunnus muodossa");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Tapahtumat raportit");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Tapahtumat Vastaavat kriteerit");//Events matching criteria
 define("_NOEVENTSFOUND","O Ottelun hakukriteereitä");//No events match your search criteria
 define("_VISITEDTHESYSTEM","vieraili järjestelmä");//visited the system
-define("_VISITEDLESSON","joissa opetus");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","on asettanut suunniteltu alkamispäivä oppitunti");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","on asettanut suunniteltu päättymispäivä oppitunti");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","on julkaistu ilmoitus");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","On uusi versio saatavilla!");//There is a new versi
 define("_RELEASENOTES","Julkaisutiedot");//Release notes
 define("_VERSIONUPTODATE","Versio on ajan tasalla");//Your version is up to date
 define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Lataa ja asenna");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Järjestelmä ei voinut muodostaa License Server");//The system could not connect to license server
 define("_LICENSESERVER","Käyttöoikeuspalvelinta");//License server
 define("_UPGRADESVALIDUNTIL","Päivitykset voimassa");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Älykäs sisällön");//Smart content
 define("_ZIPHANDLING","Zip käsittely menetelmä");//Zip handling method
 define("_COMPLETION","Täydennys");//Completion
 define("_SETALLTO","Laita kaikki");//Set all to
-define("_INADEQUATEBALANCE","Riittämätön tasapaino");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal tila");//Paypal mode (New)
-define("_SANDBOX","Hiekkalaatikossa");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Tapahtumalokiin tiedosto");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Nykyisin osoite ei vastaa saanut liikeosoite");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Tueta tyyppi");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate päätökseen maksu");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Tueta maksun tila");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Olet peruuttanut kaupan");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Kauppa saatiin päätökseen onnistuneesti.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypalin debug-tila");//Paypal debug mode (New)
-define("_MYACCOUNT","Tililläni");//My account (New)
-define("_MODULE","Moduulissa");//Module (New)
-define("_EMBEDTYPE","Upottamaan sisältö");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parametrit");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Napsauta painiketta Käynnistä yksikkö");//Click on the button to start the unit (New)
-define("_STARTUNIT","Käynnistä yksikkö");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Valitettavasti SCORM 2004 ei tue tätä painos");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Restore default ilmoitukset");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Sisältö kehitykseen (pl. testit)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Tietokantaversio");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Tietokanta versio on erilainen kuin koodin versio. Suorita% linkkiä script");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Päivityksen");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Lataa viedä kurssi");//Download exported course (New)
-define("_MAXDISCOUNT100","Suurin alennus on 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Rekisteröinti / Päivitä");//Registration/Update (New)
-define("_ROWS","Rivien");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Komento epäonnistui seuraavat lähtö");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Ehkä järjestelmä ei tue zip käsittelyä?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Jotta voidaan luoda kurssin, sinun täytyy ensin luoda luokkaan");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Riittämätön tasapaino");//Inadequate balance
+define("_PAYPALMODE","Paypal tila");//Paypal mode
+define("_SANDBOX","Hiekkalaatikossa");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Tapahtumalokiin tiedosto");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Nykyisin osoite ei vastaa saanut liikeosoite");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Tueta tyyppi");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate päätökseen maksu");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Tueta maksun tila");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Olet peruuttanut kaupan");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Kauppa saatiin päätökseen onnistuneesti.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypalin debug-tila");//Paypal debug mode
+define("_MYACCOUNT","Tililläni");//My account
+define("_MODULE","Moduulissa");//Module
+define("_EMBEDTYPE","Upottamaan sisältö");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parametrit");//Popup parameters
+define("_CLICKTOSTARTUNIT","Napsauta painiketta Käynnistä yksikkö");//Click on the button to start the unit
+define("_STARTUNIT","Käynnistä yksikkö");//Start unit
+define("_SCORM2004NOTSUPPORTED","Valitettavasti SCORM 2004 ei tue tätä painos");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Restore default ilmoitukset");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Sisältö kehitykseen (pl. testit)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Tietokantaversio");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Tietokanta versio on erilainen kuin koodin versio. Suorita% linkkiä script");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Päivityksen");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Lataa viedä kurssi");//Download exported course
+define("_MAXDISCOUNT100","Suurin alennus on 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Rekisteröinti / Päivitä");//Registration/Update
+define("_ROWS","Rivien");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Komento epäonnistui seuraavat lähtö");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Ehkä järjestelmä ei tue zip käsittelyä?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Jotta voidaan luoda kurssin, sinun täytyy ensin luoda luokkaan");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Valitse opetus oksat");//Select lesson branches (New)
+define("_LESSONBRANCHES","Oppitunti oksat");//Lesson branches (New)
+define("_COURSEBRANCHES","Course oksat");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Annetaan opiskelijoille täsmentää joitakin kysymyksiä kunkin testin toteuttamiseen");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Enimmäismäärän");//Maximum (New)
+define("_MINIMUM","Minimi");//Minimum (New)
+define("_REPETITIONS","Toistosta");//Repetitions (New)
+define("_MAINTAINHISTORY","Säilyttää historia");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Avain ei sovi tähän painos");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Laiton tila");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Sinun on määritettävä useita kysymyksiä");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Sinun on määritettävä arvo");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Course professorit");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Professorit tietenkin");//Professors of course (New)
+define("_PRINTCONTENT","Tulosta sisältö");//Print content (New)
+define("_USERHASNOTDONETEST","Käyttäjällä ei ole tehnyt tätä testiä");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Tarkista, että seuraavat tiedot ovat oikeita");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Ole määriteltyihin ryhmiin");//There are no categories defined (New)
 ?>

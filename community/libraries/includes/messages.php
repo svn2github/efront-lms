@@ -137,6 +137,7 @@ try {
      }
         exit;
     } elseif (isset($_GET['add'])) {
+  if ($currentUser -> coreAccess['personal_messages'] && $currentUser -> coreAccess['forum'] !== 'change') {exit;}
         $load_editor = true;
         $grant_full_access = false;
         if ($currentUser -> getType() == "administrator") {
@@ -171,6 +172,7 @@ try {
         $form -> addElement('select', 'lesson', null, $lessons, 'id = "lesson_recipients" 			 class = "inputSelectLong" disabled = "disabled"');
         $form -> addElement('select', 'professor', null, $lessons, 'id = "lesson_professor_recipients" class = "inputSelectLong" disabled = "disabled"');
         $form -> addElement('advcheckbox', 'specific_course_completed', _COMPLETED, null, 'class = "inputCheckbox" id="specific_course_completed_check" style="visibility:hidden" checked=""');
+
         $form -> addRule('lesson', _INVALIDFIELDDATA, 'checkParameter', 'id');
 
         $form -> setDefaults(array('recipients' => 'only_specific_users'));

@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Pojok kiri bawah");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Bawah kanan");//Bottom right corner
 define("_LOGOPOSITION","Logo posisi");//Logo position
 define("_LOGOFILE","Logo file");//Logo file
-define("_LESSONSKILLSSELECTION","Pelajaran keterampilan pilihan yang ditawarkan");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Pelajaran keterampilan pilihan yang ditawarkan");//Select skills offered by the lesson
 define("_TOPCENTER","Atas pusat");//Top center
 define("_BOTTOMCENTER","Bawah pusat");//Bottom center
 define("_HIDECOMPLETEUNITICON","Lengkap unit menyembunyikan icon");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Biarkan kosong untuk tidak ada batasan waktu");//Leav
 define("_HARDPLURAL","Keras");//Hard
 define("_MEDIUMPLURAL","Sedang");//Medium
 define("_EASYPLURAL","Mudah");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Pertanyaannya adalah salah");//The question is incorrect
 define("_QUESTIONISCORRECT","Pertanyaannya adalah benar");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Pertanyaannya adalah sebagian benar");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Grup saya");//my Groups
 define("_AVAILABLE","Tersedia");//Available
 define("_NEVER","Tak pernah");//Never
 define("_CLASSMATES","Sekelas");//Classmates
-define("_LESSONPEOPLE","Pelajaran orang");//Lesson people
+define("_LESSONPEOPLE","Pelajaran orang");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalized dimensi");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","ditugaskan kursus");//was assigned the course
 define("_WILLBETEACHINGCOURSE","akan mengajar kursus");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Tugas pekerjaan");//Job assignment
 define("_ONJOBREMOVAL","Hapus pekerjaan dari pengguna");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Nama posisi pekerjaan");//Job position name
 define("_ENCRYPTURL","URL encrypt");//Encrypt URL
-define("_USERNAMEFORMATINFO","Format cara login muncul di sistem. Gunakan # nama # untuk nama pertama, # nama # untuk nama terakhir, # login # untuk login dan # n # untuk pertama huruf awal nama");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Format cara login muncul di sistem. Gunakan # nama # untuk nama pertama, # nama # untuk nama terakhir, # login # untuk login dan # n # untuk pertama huruf awal nama");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Username Format");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Laporan peristiwa");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Events kriteria yang sesuai");//Events matching criteria
 define("_NOEVENTSFOUND","Tidak ada peristiwa sesuai dengan kriteria pencarian");//No events match your search criteria
 define("_VISITEDTHESYSTEM","mengunjungi sistem");//visited the system
-define("_VISITEDLESSON","mengunjungi pelajaran");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","telah menetapkan tanggal awal dijadwalkan untuk pelajaran");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","telah menetapkan tanggal kadaluwarsa dijadwalkan untuk pelajaran");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","telah menerbitkan pengumuman");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Ada versi baru tersedia!");//There is a new version
 define("_RELEASENOTES","Catatan rilis");//Release notes
 define("_VERSIONUPTODATE","Versi anda up to date");//Your version is up to date
 define("_CONTACTINGSERVER","Menghubungi server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Download dan menginstal");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Sistem tidak dapat terhubung ke server lisensi");//The system could not connect to license server
 define("_LICENSESERVER","Lisensi server");//License server
 define("_UPGRADESVALIDUNTIL","Upgrade berlaku sampai");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart konten");//Smart content
 define("_ZIPHANDLING","Zip metode penanganan");//Zip handling method
 define("_COMPLETION","Penyelesaian");//Completion
 define("_SETALLTO","Set semua");//Set all to
-define("_INADEQUATEBALANCE","Memadai keseimbangan");//Inadequate balance (New)
-define("_PAYPALMODE","Modus Paypal");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Transaksi file log");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Saat ini alamat mengatur diterima tidak sesuai dengan alamat bisnis");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Jenis operasi yang tidak didukung");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Gandakan selesai pembayaran");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Status pembayaran yang tidak didukung");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Anda telah membatalkan transaksi");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksi selesai dengan sukses.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal modus debug");//Paypal debug mode (New)
-define("_MYACCOUNT","Account");//My account (New)
-define("_MODULE","Modul");//Module (New)
-define("_EMBEDTYPE","Embed konten sebagai");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parameter");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Klik pada tombol untuk memulai unit");//Click on the button to start the unit (New)
-define("_STARTUNIT","Mulai unit");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Sayangnya SCORM 2004 ini tidak didukung dalam edisi ini");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Kembalikan default pemberitahuan");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Konten kemajuan (excl. tes)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Database versi");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Versi database Anda berbeda dari versi kode. Silakan menjalankan skrip link%");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Download diekspor saja");//Download exported course (New)
-define("_MAXDISCOUNT100","Diskon maksimum adalah 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Registrasi / Update");//Registration/Update (New)
-define("_ROWS","Rows");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Perintah gagal dengan output berikut");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Mungkin sistem Anda tidak mendukung pengolahan zip?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Dalam rangka untuk menciptakan suatu kursus, Anda harus terlebih dahulu membuat sebuah kategori");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Memadai keseimbangan");//Inadequate balance
+define("_PAYPALMODE","Modus Paypal");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Transaksi file log");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Saat ini alamat mengatur diterima tidak sesuai dengan alamat bisnis");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Jenis operasi yang tidak didukung");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Gandakan selesai pembayaran");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Status pembayaran yang tidak didukung");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Anda telah membatalkan transaksi");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksi selesai dengan sukses.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal modus debug");//Paypal debug mode
+define("_MYACCOUNT","Account");//My account
+define("_MODULE","Modul");//Module
+define("_EMBEDTYPE","Embed konten sebagai");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parameter");//Popup parameters
+define("_CLICKTOSTARTUNIT","Klik pada tombol untuk memulai unit");//Click on the button to start the unit
+define("_STARTUNIT","Mulai unit");//Start unit
+define("_SCORM2004NOTSUPPORTED","Sayangnya SCORM 2004 ini tidak didukung dalam edisi ini");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Kembalikan default pemberitahuan");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Konten kemajuan (excl. tes)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Database versi");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Versi database Anda berbeda dari versi kode. Silakan menjalankan skrip link%");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Download diekspor saja");//Download exported course
+define("_MAXDISCOUNT100","Diskon maksimum adalah 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Registrasi / Update");//Registration/Update
+define("_ROWS","Rows");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Perintah gagal dengan output berikut");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Mungkin sistem Anda tidak mendukung pengolahan zip?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Dalam rangka untuk menciptakan suatu kursus, Anda harus terlebih dahulu membuat sebuah kategori");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Pilih pelajaran cabang");//Select lesson branches (New)
+define("_LESSONBRANCHES","Petunjuk cabang");//Lesson branches (New)
+define("_COURSEBRANCHES","Kursus cabang");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Memungkinkan siswa untuk menentukan jumlah pertanyaan dalam setiap tes eksekusi");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maksimum");//Maximum (New)
+define("_MINIMUM","Minimum");//Minimum (New)
+define("_REPETITIONS","Pengulangan");//Repetitions (New)
+define("_MAINTAINHISTORY","Menjaga sejarah");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Kuncinya tidak cocok untuk edisi ini");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Modus Illegal");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Anda harus menentukan jumlah pertanyaan");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Anda harus menentukan nilai dari");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Course profesor");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Profesor tentu");//Professors of course (New)
+define("_PRINTCONTENT","Konten Cetak");//Print content (New)
+define("_USERHASNOTDONETEST","Pengguna ini belum dilakukan uji");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Harap verifikasi bahwa informasi berikut benar");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Tidak ada kategori yang didefinisikan");//There are no categories defined (New)
 ?>

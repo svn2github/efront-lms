@@ -288,6 +288,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                 $loadScripts[] = 'includes/tests';
                 include("tests/show_unsolved_test.php");
             }
+   if (isset($_GET['print'])) {
+    $currentUnit['data'] = mb_ereg_replace("<script.*?>.*?</script>", "", $currentUnit['data']);
+    $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li>');
+   }
    $smarty -> assign("T_UNIT", $currentUnit);
    //Next and previous units are needed for navigation buttons
    //package_ID denotes that a SCORM 2004 unit is active.

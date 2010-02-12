@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","ქვედა მარცხენა კუთ�
 define("_BOTTOMRIGHTCORNER","ქვედა მარჯვენა კუთხე");//Bottom right corner
 define("_LOGOPOSITION","ლოგოს პოზიცია");//Logo position
 define("_LOGOFILE","ლოგოს ფაილი");//Logo file
-define("_LESSONSKILLSSELECTION","გაკვეთილი შერჩეული უნარების მიხედვით");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","გაკვეთილი შერჩეული უნარების მიხედვით");//Select skills offered by the lesson
 define("_TOPCENTER","ზემოთ ცენტრში");//Top center
 define("_BOTTOMCENTER","ქვემოთ ცენტრში");//Bottom center
 define("_HIDECOMPLETEUNITICON","ბლოკის დასრულების პიქტოგრამის დამალვა");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","დატოვეთ ცარიელი დრო
 define("_HARDPLURAL","რთული");//Hard
 define("_MEDIUMPLURAL","საშუალო");//Medium
 define("_EASYPLURAL","იოლი");//Easy
-define("_UNLIMITED","შეუზღუდავი");//Unilimited
+define("_UNLIMITED","შეუზღუდავი");//Unlimited
 define("_INCORRECTQUESTION","შეკითხვა უმართებლოა");//The question is incorrect
 define("_QUESTIONISCORRECT","შეკითხვა მართებულია");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","ეს შეკითხვა ნაწილობრივ მართებულია");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","");//my Groups
 define("_AVAILABLE","მისაწვდომობა");//Available
 define("_NEVER","არასოდეს");//Never
 define("_CLASSMATES","");//Classmates
-define("_LESSONPEOPLE","");//Lesson people
+define("_LESSONPEOPLE","");//Lesson users
 define("_NORMALIZEDIMENSIONS","გამოსახულების ზომა \"როგორც არის\"");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","");//was assigned the course
 define("_WILLBETEACHINGCOURSE","");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","");//Job assignment
 define("_ONJOBREMOVAL","");//Remove job from user
 define("_JOBDESCRIPTIONNAME","");//Job position name
 define("_ENCRYPTURL","Encrypt URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Username format");//Username format
 define("_LDAP","");//LDAP
 define("_SMTP","");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","");//Events matching criteria
 define("_NOEVENTSFOUND","");//No events match your search criteria
 define("_VISITEDTHESYSTEM","");//visited the system
-define("_VISITEDLESSON","");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","");//There is a new version available!
 define("_RELEASENOTES","");//Release notes
 define("_VERSIONUPTODATE","");//Your version is up to date
 define("_CONTACTINGSERVER","");//Contacting server...
-define("_DOWNLOADANDINSTALL","");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","");//The system could not connect to license server
 define("_LICENSESERVER","");//License server
 define("_UPGRADESVALIDUNTIL","");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","");//Smart content
 define("_ZIPHANDLING","");//Zip handling method
 define("_COMPLETION","");//Completion
 define("_SETALLTO","");//Set all to
-define("_INADEQUATEBALANCE","");//Inadequate balance (New)
-define("_PAYPALMODE","");//Paypal mode (New)
-define("_SANDBOX","");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","");//Paypal debug mode (New)
-define("_MYACCOUNT","");//My account (New)
-define("_MODULE","");//Module (New)
-define("_EMBEDTYPE","");//Embed content as (New)
-define("_INLINEIFRAME","");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","");//New window (popup) (New)
-define("_POPUPPARAMETERS","");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","");//Click on the button to start the unit (New)
-define("_STARTUNIT","");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","");//Download exported course (New)
-define("_MAXDISCOUNT100","");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","");//Registration/Update (New)
-define("_ROWS","");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","");//Inadequate balance
+define("_PAYPALMODE","");//Paypal mode
+define("_SANDBOX","");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","");//The transaction was completed successfully.
+define("_PAYPALDEBUG","");//Paypal debug mode
+define("_MYACCOUNT","");//My account
+define("_MODULE","");//Module
+define("_EMBEDTYPE","");//Embed content as
+define("_INLINEIFRAME","");//Inline (iframe)
+define("_NEWWINDOWPOPUP","");//New window (popup)
+define("_POPUPPARAMETERS","");//Popup parameters
+define("_CLICKTOSTARTUNIT","");//Click on the button to start the unit
+define("_STARTUNIT","");//Start unit
+define("_SCORM2004NOTSUPPORTED","");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","");//Content progress (excl. tests)
+define("_DATABASEVERSION","");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","");//Download exported course
+define("_MAXDISCOUNT100","");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","");//Registration/Update
+define("_ROWS","");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","");//Select lesson branches (New)
+define("_LESSONBRANCHES","");//Lesson branches (New)
+define("_COURSEBRANCHES","");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","");//Maximum (New)
+define("_MINIMUM","");//Minimum (New)
+define("_REPETITIONS","");//Repetitions (New)
+define("_MAINTAINHISTORY","");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","");//You must specify a value from (New)
+define("_COURSEPROFESSORS","");//Course professors (New)
+define("_PROFESSORSOFCOURSE","");//Professors of course (New)
+define("_PRINTCONTENT","");//Print content (New)
+define("_USERHASNOTDONETEST","მონაწილეს ეს ტესტი არ გაუვლია");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","");//There are no categories defined (New)
 ?>

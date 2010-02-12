@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Ở góc dưới cùng bên trái");//Bottom left co
 define("_BOTTOMRIGHTCORNER","Dưới cùng bên phải góc");//Bottom right corner
 define("_LOGOPOSITION","Logo vị trí");//Logo position
 define("_LOGOFILE","Biểu tượng của tập tin");//Logo file
-define("_LESSONSKILLSSELECTION","Bài học được cung cấp các kỹ năng lựa chọn");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Bài học được cung cấp các kỹ năng lựa chọn");//Select skills offered by the lesson
 define("_TOPCENTER","Trung tâm đầu trang");//Top center
 define("_BOTTOMCENTER","Dưới cùng trung tâm");//Bottom center
 define("_HIDECOMPLETEUNITICON","Ẩn biểu tượng đơn vị hoàn thành");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Để trống để không có thời hạn");//Leave
 define("_HARDPLURAL","Cứng");//Hard
 define("_MEDIUMPLURAL","Trung bình");//Medium
 define("_EASYPLURAL","Dễ dàng");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Các câu hỏi không đúng");//The question is incorrect
 define("_QUESTIONISCORRECT","Các câu hỏi là chính xác");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Các câu hỏi đúng là một phần");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Nhóm của tôi");//my Groups
 define("_AVAILABLE","Có sẵn");//Available
 define("_NEVER","Không bao giờ");//Never
 define("_CLASSMATES","Bạn học");//Classmates
-define("_LESSONPEOPLE","Bài học người");//Lesson people
+define("_LESSONPEOPLE","Bài học người");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalized kích thước");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","được phân công các khóa học");//was assigned the course
 define("_WILLBETEACHINGCOURSE","sẽ được giảng dạy các khóa học");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Phân công công việc");//Job assignment
 define("_ONJOBREMOVAL","Hủy bỏ công việc từ người sử dụng");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Tên vị trí công việc");//Job position name
 define("_ENCRYPTURL","Mã hoá URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Định dạng cách đăng nhập xuất hiện trong hệ thống. Sử dụng # # hiệu cho tên đầu tiên, họ # # cho tên cuối, # # đăng nhập để đăng nhập và n # # cho chữ cái đầu tiên tên đầu tiên của");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Định dạng cách đăng nhập xuất hiện trong hệ thống. Sử dụng # # hiệu cho tên đầu tiên, họ # # cho tên cuối, # # đăng nhập để đăng nhập và n # # cho chữ cái đầu tiên tên đầu tiên của");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Tên người dùng định dạng");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Sự kiện báo cáo");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Sự kiện phù hợp tiêu chuẩn");//Events matching criteria
 define("_NOEVENTSFOUND","Không có sự kiện phù hợp tiêu chí tìm kiếm của bạn");//No events match your search criteria
 define("_VISITEDTHESYSTEM","truy cập hệ thống");//visited the system
-define("_VISITEDLESSON","viếng thăm bài học");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","đã đặt ngày bắt đầu lịch trình cho bài học");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","đã đặt ngày hết thời hạn theo lịch trình cho bài học");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","đã công bố các thông báo");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Có một phiên bản mới có!");//There is a ne
 define("_RELEASENOTES","Release notes");//Release notes
 define("_VERSIONUPTODATE","Phiên bản của bạn là đến ngày");//Your version is up to date
 define("_CONTACTINGSERVER","Liên hệ với máy chủ ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Download và cài đặt");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Hệ thống không thể kết nối với máy chủ giấy phép");//The system could not connect to license server
 define("_LICENSESERVER","Giấy phép máy chủ");//License server
 define("_UPGRADESVALIDUNTIL","Nâng cấp hiệu lực cho đến khi");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Thông minh nội dung");//Smart content
 define("_ZIPHANDLING","Zip phương pháp xử lý");//Zip handling method
 define("_COMPLETION","Hoàn thành");//Completion
 define("_SETALLTO","Đặt tất cả để");//Set all to
-define("_INADEQUATEBALANCE","Không đủ số dư");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal chế độ");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Giao dịch tập tin đăng nhập");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Hiện nay thiết lập địa chỉ không phù hợp với địa chỉ doanh nghiệp nhận được");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Không được hỗ trợ hoạt động kiểu");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate hoàn thành thanh toán");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Không được hỗ trợ thanh toán tình trạng");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Bạn đã hủy bỏ các giao dịch");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Các giao dịch đã được hoàn tất thành công.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal chế độ gỡ lỗi");//Paypal debug mode (New)
-define("_MYACCOUNT","Tài khoản của tôi");//My account (New)
-define("_MODULE","Module");//Module (New)
-define("_EMBEDTYPE","Nhúng nội dung như");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Cửa sổ mới (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup thông số");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Click vào nút để bắt đầu các đơn vị");//Click on the button to start the unit (New)
-define("_STARTUNIT","Bắt đầu đơn vị");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Thật không may SCORM 2004 không được hỗ trợ trong phiên bản này");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Khôi phục các thông báo mặc định");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Nội dung tiến bộ (trừ các xét nghiệm)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Phiên bản cơ sở dữ liệu");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Phiên bản cơ sở dữ liệu của bạn là khác với phiên bản mã. Hãy chạy tập lệnh liên kết%");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Nâng cấp");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Tải về xuất khẩu khóa học");//Download exported course (New)
-define("_MAXDISCOUNT100","Việc giảm giá tối đa là 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Đăng ký / Cập nhật");//Registration/Update (New)
-define("_ROWS","Rows");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Lệnh không có đầu ra sau");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Có lẽ hệ thống của bạn không hỗ trợ chế biến zip?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Để tạo một khóa học, trước tiên bạn phải tạo một thể loại");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Không đủ số dư");//Inadequate balance
+define("_PAYPALMODE","Paypal chế độ");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Giao dịch tập tin đăng nhập");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Hiện nay thiết lập địa chỉ không phù hợp với địa chỉ doanh nghiệp nhận được");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Không được hỗ trợ hoạt động kiểu");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate hoàn thành thanh toán");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Không được hỗ trợ thanh toán tình trạng");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Bạn đã hủy bỏ các giao dịch");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Các giao dịch đã được hoàn tất thành công.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal chế độ gỡ lỗi");//Paypal debug mode
+define("_MYACCOUNT","Tài khoản của tôi");//My account
+define("_MODULE","Module");//Module
+define("_EMBEDTYPE","Nhúng nội dung như");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Cửa sổ mới (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup thông số");//Popup parameters
+define("_CLICKTOSTARTUNIT","Click vào nút để bắt đầu các đơn vị");//Click on the button to start the unit
+define("_STARTUNIT","Bắt đầu đơn vị");//Start unit
+define("_SCORM2004NOTSUPPORTED","Thật không may SCORM 2004 không được hỗ trợ trong phiên bản này");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Khôi phục các thông báo mặc định");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Nội dung tiến bộ (trừ các xét nghiệm)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Phiên bản cơ sở dữ liệu");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Phiên bản cơ sở dữ liệu của bạn là khác với phiên bản mã. Hãy chạy tập lệnh liên kết%");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Nâng cấp");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Tải về xuất khẩu khóa học");//Download exported course
+define("_MAXDISCOUNT100","Việc giảm giá tối đa là 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Đăng ký / Cập nhật");//Registration/Update
+define("_ROWS","Rows");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Lệnh không có đầu ra sau");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Có lẽ hệ thống của bạn không hỗ trợ chế biến zip?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Để tạo một khóa học, trước tiên bạn phải tạo một thể loại");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Chọn bài học, ngành");//Select lesson branches (New)
+define("_LESSONBRANCHES","Bài học ngành");//Lesson branches (New)
+define("_COURSEBRANCHES","Tất nhiên, ngành");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Cho phép các sinh viên để xác định số lượng các câu hỏi trong mỗi bài kiểm tra thực hiện");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Tối đa");//Maximum (New)
+define("_MINIMUM","Tối thiểu");//Minimum (New)
+define("_REPETITIONS","Repetitions");//Repetitions (New)
+define("_MAINTAINHISTORY","Duy trì lịch sử");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Phím là không thích hợp với phiên bản này");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Bất hợp pháp chế độ");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Bạn phải chỉ định số lượng các câu hỏi");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Bạn phải chỉ định một giá trị từ");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Tất nhiên các giáo sư");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Giáo sư của khóa học");//Professors of course (New)
+define("_PRINTCONTENT","In nội dung");//Print content (New)
+define("_USERHASNOTDONETEST","Người sử dụng đã không thực hiện kiểm tra này");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Xin vui lòng xác minh rằng các thông tin sau đây là đúng");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Không có loại được xác định");//There are no categories defined (New)
 ?>

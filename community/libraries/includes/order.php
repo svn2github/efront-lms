@@ -37,11 +37,10 @@ try {
                     $errorMessages[] = $e -> getMessage().' '.$e -> getCode();
                 }
             }
-            exit;
-        }        
+        }
 
         if (isset($_GET['activate_nodes']) && $_GET['activate_nodes']) {
-            
+
             foreach ($_GET['activate_nodes'] as $value) {
                 if (in_array($value, $legalValues)) {
                     try {
@@ -51,7 +50,6 @@ try {
                     }
                 }
             }
-            exit;
         }
         if (isset($_GET['deactivate_nodes']) && $_GET['deactivate_nodes']) {
             foreach ($_GET['deactivate_nodes'] as $value) {
@@ -63,18 +61,17 @@ try {
                     }
                 }
             }
-            exit;
         }
         if (isset($_GET['node_orders']) && $_GET['node_orders']) {
             //$nodeOrders        = explode(",", $_GET['node_orders']);
-            $previousContentId = 0;            
-            foreach ($_GET['node_orders'] as $value) {	
+            $previousContentId = 0;
+            foreach ($_GET['node_orders'] as $value) {
                 list($id, $parentContentId) = explode("-", $value);
-                $contentUnits[] = 0;                                        //Add 0 to possible content units, since both parent and previous units may be 0      
-				$legalValues[] = 0;	
-				if (in_array($id, $legalValues) && in_array($parentContentId, $legalValues)) {
-					try {                                                //Putting the try/catch block here, makes the process to continue even if it fails for some units
-						$unit = $currentContent -> seekNode($id);
+                $contentUnits[] = 0; //Add 0 to possible content units, since both parent and previous units may be 0      
+    $legalValues[] = 0;
+    if (in_array($id, $legalValues) && in_array($parentContentId, $legalValues)) {
+     try { //Putting the try/catch block here, makes the process to continue even if it fails for some units
+      $unit = $currentContent -> seekNode($id);
                         $unit -> offsetSet('previous_content_ID', $previousContentId);
                         $unit -> offsetSet('parent_content_ID', $parentContentId);
                         $unit -> offsetSet('data', $unit['data']);
@@ -85,29 +82,26 @@ try {
                     }
                 }
             }
-			//echo $previousContentId;exit;
-            exit;
+   //echo $previousContentId;exit;
         }
         if (isset($_GET['repair_tree'])) {
             $currentContent -> repairTree();
-            exit;
         }
 
         if (isset($errorMessages) && $errorMessages) {
             header("HTTP/1.0 500 ");
             echo _ERRORSAVINGTREE."\n".implode("\n", $errorMessages);
-            exit;
         }
     } catch (Exception $e) {
         header("HTTP/1.0 500 ");
         echo $e -> getMessage().' ('.$e -> getCode().')';
         exit;
     }
-    
+
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message      = _ERRORLOADINGCONTENT." ".$_SESSION['s_lessons_ID'].": ".$e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+    $message = _ERRORLOADINGCONTENT." ".$_SESSION['s_lessons_ID'].": ".$e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
-
+ if (isset($_GET['ajax'])) {exit;}
 ?>

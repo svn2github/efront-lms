@@ -1,5 +1,5 @@
 
-        
+
         {*moduleScormOptions: SCORM options page*}
         {capture name = "moduleScormOptions"}
                                 <tr><td class = "moduleCell">
@@ -37,7 +37,7 @@
                                                 <td class = "centerAlign">{if $item.masteryscore} #filter:score-{$item.masteryscore}#%{/if}</td>
                                                 <td class = "centerAlign">#filter:score-{$item.score}#%</td>
                                             {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
-                                                <td class = "centerAlign"><a href = "javascript:void(0)" onclick = "deleteData(this, {$item.id})"><img src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEDATA}" title = "{$smarty.const._DELETEDATA}" border = "0"></a></td>
+                                                <td class = "centerAlign"><img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEDATA}" title = "{$smarty.const._DELETEDATA}" onclick = "deleteData(this, {$item.id})"></td>
                                             {/if}
                                             </tr>
                                         {foreachelse}
@@ -56,14 +56,14 @@
                                 <form {$T_UPLOAD_SCORM_FORM.attributes}>
                                     {$T_UPLOAD_SCORM_FORM.hidden}
                                     <table style = "margin-top:15px;">
-										<tr><td class = "labelCell">{$T_UPLOAD_SCORM_FORM.scorm_file[0].label}:&nbsp;</td>
-											<td class = "elementCell">{$T_UPLOAD_SCORM_FORM.scorm_file[0].html} <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDBOX}" title = "{$smarty.const._ADDBOX}" onclick = "Element.extend(this);this.up().up().next().show();this.hide();"></td></tr>
-									{foreach name = 'file_upload_list' item = "item" key = "key" from = $T_UPLOAD_SCORM_FORM.scorm_file}		 
-										{if $key > 0}
-										<tr style = "display:none"><td class = "labelCell"></td>
-											<td class = "elementCell">{$T_UPLOAD_SCORM_FORM.scorm_file[$key].html} <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDBOX}" title = "{$smarty.const._ADDBOX}" onclick = "Element.extend(this);this.up().up().next().show();this.hide();"></td></tr>
-										{/if}
-									{/foreach}
+          <tr><td class = "labelCell">{$T_UPLOAD_SCORM_FORM.scorm_file[0].label}:&nbsp;</td>
+           <td class = "elementCell">{$T_UPLOAD_SCORM_FORM.scorm_file[0].html} <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDBOX}" title = "{$smarty.const._ADDBOX}" onclick = "Element.extend(this);this.up().up().next().show();this.hide();"></td></tr>
+         {foreach name = 'file_upload_list' item = "item" key = "key" from = $T_UPLOAD_SCORM_FORM.scorm_file}
+          {if $key > 0}
+          <tr style = "display:none"><td class = "labelCell"></td>
+           <td class = "elementCell">{$T_UPLOAD_SCORM_FORM.scorm_file[$key].html} <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDBOX}" title = "{$smarty.const._ADDBOX}" onclick = "Element.extend(this);this.up().up().next().show();this.hide();"></td></tr>
+          {/if}
+         {/foreach}
                                         <tr><td></td>
                                             <td class = "infoCell">{$smarty.const._EACHFILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
                                         <tr><td class = "labelCell">{$T_UPLOAD_SCORM_FORM.url_upload.label}:
@@ -107,7 +107,7 @@
                             {eF_template_printBlock title = $smarty.const._SCORMEXPORT data = $smarty.capture.scorm_export_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
 
                         {else}
-                            {capture name = 't_scorm_tree_code'}                               
+                            {capture name = 't_scorm_tree_code'}
                                 <table>
                                     <tr><td>
                                         {$T_SCORM_TREE}

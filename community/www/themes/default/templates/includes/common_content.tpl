@@ -84,8 +84,9 @@
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.no_before_unload.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.no_before_unload.html}</td></tr>
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.indexed.label}:&nbsp;</td>
-                                <td class = "elementCell">{$T_ENTITY_FORM.indexed.html}&nbsp;<span class = "infoCell">
-                                <img src = "images/16x16/help.png" alt = "{$smarty.const._CLICKFORHELP}" title = "{$smarty.const._CLICKFORHELP}" onclick = "eF_js_showHideDiv(this, 'help_explain', event)"><div id = 'help_explain' onclick = "eF_js_showHideDiv(this, 'help_explain', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:750px;position:absolute;display:none">{$smarty.const._DIRECTLACCESSIBLEEXPLANATION}{$smarty.const.G_SERVERNAME}view_resource.php?type=content&id={if $smarty.get.edit}{$smarty.get.edit}{else}&lt;unit_id&gt;{/if}</div></span></td></tr>
+                                <td class = "elementCell">{$T_ENTITY_FORM.indexed.html}&nbsp;</td></tr>
+       <tr><td></td><td class = "infoCell">{$smarty.const._DIRECTLACCESSIBLEEXPLANATION}<br/>{$smarty.const.G_SERVERNAME}view_resource.php?type=content&id={if $smarty.get.edit}{$smarty.get.edit}{else}&lt;unit_id&gt;{/if}</td></tr>
+
                         {if $T_SCORM}
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.scorm_size.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.scorm_size.html} px</td></tr>
@@ -260,8 +261,9 @@
         {/capture}
 
         {capture name = 't_unit_operations'}
+            {if $T_CURRENT_LESSON->options.print_content}
                 <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=content&view_unit={$T_UNIT.id}&popup=1&print=1", onclick = "eF_js_showDivPopup('{$smarty.const._PRINTERFRIENDLY}', 2)" target = "POPUP_FRAME">{$smarty.const._PRINTERFRIENDLY}</a></div>
-                {*<div>{counter name = "unit_operations"}. <a href = "show_print_friendly.php", onclick = "eF_js_showDivPopup('{$smarty.const._PRINTERFRIENDLYALLCONTENT}', 2)" target = "POPUP_FRAME">{$smarty.const._PRINTERFRIENDLYALLCONTENT}</a></div>*}
+            {/if}
             {if $T_CONFIGURATION.disable_comments != 1 && $T_CURRENT_LESSON->options.comments && $_change_ && !$T_RULE_CHECK_FAILED}
                 <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=comments&view_unit={$T_UNIT.id}&add=1&popup=1", onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOMMENT}', 1)" target = "POPUP_FRAME">{$smarty.const._ADDCOMMENT}</a></div>
             {/if}

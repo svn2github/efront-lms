@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","گوشه پایین سمت چپ");//Bottom left corn
 define("_BOTTOMRIGHTCORNER","گوشه پایین سمت راست");//Bottom right corner
 define("_LOGOPOSITION","موقعیت عالی");//Logo position
 define("_LOGOFILE","نشان پرونده");//Logo file
-define("_LESSONSKILLSSELECTION","درس ارائه شده انتخاب مهارت");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","درس ارائه شده انتخاب مهارت");//Select skills offered by the lesson
 define("_TOPCENTER","مرکز دانلود");//Top center
 define("_BOTTOMCENTER","مرکز پایین");//Bottom center
 define("_HIDECOMPLETEUNITICON","مخفی کردن آیکون واحد کامل");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","فیلد را خالی بگذارید برای هیچ
 define("_HARDPLURAL","سخت");//Hard
 define("_MEDIUMPLURAL","متوسط");//Medium
 define("_EASYPLURAL","آسان");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","در اینجا پرسشی مطرح است که اشتباه است");//The question is incorrect
 define("_QUESTIONISCORRECT","در اینجا پرسشی مطرح است که صحیح");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","در اینجا پرسشی مطرح است که بخشی از اصلاح");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","گروه های من");//my Groups
 define("_AVAILABLE","در دسترس");//Available
 define("_NEVER","هرگز");//Never
 define("_CLASSMATES","همکلاسی");//Classmates
-define("_LESSONPEOPLE","مردم درس");//Lesson people
+define("_LESSONPEOPLE","مردم درس");//Lesson users
 define("_NORMALIZEDIMENSIONS","ابعاد هنجار");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","البته اختصاص داده شد");//was assigned the course
 define("_WILLBETEACHINGCOURSE","تدریس خواهد شد البته");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","واگذاری فرصت های شغلی");//Job assig
 define("_ONJOBREMOVAL","فرصت های شغلی حذف از کاربر");//Remove job from user
 define("_JOBDESCRIPTIONNAME","نام و موقعیت های شغلی");//Job position name
 define("_ENCRYPTURL","رمزبندی آدرس");//Encrypt URL
-define("_USERNAMEFORMATINFO","قطع راه logins در سیستم ظاهر می شود. استفاده از نام # # # برای حرف اول نام ، نام خانوادگی # # برای نام خانوادگی ، # # را برای ورود به سیستم ، شناسه کاربری و # # ñ حروف اولیه نام اولین");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","قطع راه logins در سیستم ظاهر می شود. استفاده از نام # # # برای حرف اول نام ، نام خانوادگی # # برای نام خانوادگی ، # # را برای ورود به سیستم ، شناسه کاربری و # # ñ حروف اولیه نام اولین");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","فرمت نام کاربری");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","رویدادها گزارش");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","رویدادها مطابق با معیارهای");//Events matching criteria
 define("_NOEVENTSFOUND","هیچ رویداد مطابقت اساس شرایط جستجوی شما");//No events match your search criteria
 define("_VISITEDTHESYSTEM","تعداد بازدید سیستم");//visited the system
-define("_VISITEDLESSON","تعداد بازدید های درسی");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","مجموعه برنامه ریزی شده است تاریخ شروع برای درس");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","تا به مجموعه تاریخ انقضای برنامه ریزی شده برای درس");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","به چاپ رسانده است اعلام");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","یک نسخه جدید در دسترس است!");//
 define("_RELEASENOTES","یادداشت های انتشار");//Release notes
 define("_VERSIONUPTODATE","شما در نسخه تا تاریخ");//Your version is up to date
 define("_CONTACTINGSERVER","تماس با سرور...");//Contacting server...
-define("_DOWNLOADANDINSTALL","دریافت و نصب");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","سیستم نمی تواند اتصال به سرور مجوز");//The system could not connect to license server
 define("_LICENSESERVER","سرور مجوز");//License server
 define("_UPGRADESVALIDUNTIL","ارتقا معتبر تا");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","محتوی هوشمند");//Smart content
 define("_ZIPHANDLING","پستی استفاده از روش پردازش");//Zip handling method
 define("_COMPLETION","اتمام");//Completion
 define("_SETALLTO","تنظیم همه");//Set all to
-define("_INADEQUATEBALANCE","تعادل ناکافی");//Inadequate balance (New)
-define("_PAYPALMODE","حالت پیش پرداخت");//Paypal mode (New)
-define("_SANDBOX","کاربران");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","معامله در پرونده ثبت");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","در حال حاضر تنظیم آدرس آدرس نشانی از دریافت مطابقت نداشته باشد کسب و کار");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","نوع عملیات پشتیبانی نشده");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","تکراری به پایان پرداخت");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","وضعیت پرداخت پشتیبانی نشده");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","شما باید لغو معامله");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","معامله با موفقیت به پایان رسید.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","حالت دیباگ پیش پرداخت");//Paypal debug mode (New)
-define("_MYACCOUNT","حساب من");//My account (New)
-define("_MODULE","ماژول");//Module (New)
-define("_EMBEDTYPE","مطالب به عنوان اشتراک");//Embed content as (New)
-define("_INLINEIFRAME","درون خطی (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","در پنجره جدید (پنجره)");//New window (popup) (New)
-define("_POPUPPARAMETERS","پارامترهای پاپاپ");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","کلیک کنید بر روی دکمه شروع واحد");//Click on the button to start the unit (New)
-define("_STARTUNIT","واحد شروع");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","متاسفانه SCORM یدلایمخیرات 2004 می باشد در این نسخه پشتیبانی نمی شود");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","پیش فرض بازگرداندن اطلاعیه ها");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","پیشرفت های محتوا (excl. آزمون)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","نسخه بانک اطلاعات");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","نسخه بانک اطلاعاتی شما از نسخه کد متفاوت است. لطفا لینک ٪ اجرای اسکریپت");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","ارتقا");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","دانلود دوره صادر");//Download exported course (New)
-define("_MAXDISCOUNT100","تخفیف ویژه حداکثر 100 درصد است");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","ثبت نام / بروز رسانی");//Registration/Update (New)
-define("_ROWS","سطرها");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","فرمان نتوانست با خروجی زیر");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","شاید شما از سیستم پردازش وبلاگ را پشتیبانی نمی کند؟");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","به منظور ایجاد یک دوره ، باید ابتدا آن را ایجاد یک رده");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","تعادل ناکافی");//Inadequate balance
+define("_PAYPALMODE","حالت پیش پرداخت");//Paypal mode
+define("_SANDBOX","کاربران");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","معامله در پرونده ثبت");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","در حال حاضر تنظیم آدرس آدرس نشانی از دریافت مطابقت نداشته باشد کسب و کار");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","نوع عملیات پشتیبانی نشده");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","تکراری به پایان پرداخت");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","وضعیت پرداخت پشتیبانی نشده");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","شما باید لغو معامله");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","معامله با موفقیت به پایان رسید.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","حالت دیباگ پیش پرداخت");//Paypal debug mode
+define("_MYACCOUNT","حساب من");//My account
+define("_MODULE","ماژول");//Module
+define("_EMBEDTYPE","مطالب به عنوان اشتراک");//Embed content as
+define("_INLINEIFRAME","درون خطی (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","در پنجره جدید (پنجره)");//New window (popup)
+define("_POPUPPARAMETERS","پارامترهای پاپاپ");//Popup parameters
+define("_CLICKTOSTARTUNIT","کلیک کنید بر روی دکمه شروع واحد");//Click on the button to start the unit
+define("_STARTUNIT","واحد شروع");//Start unit
+define("_SCORM2004NOTSUPPORTED","متاسفانه SCORM یدلایمخیرات 2004 می باشد در این نسخه پشتیبانی نمی شود");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","پیش فرض بازگرداندن اطلاعیه ها");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","پیشرفت های محتوا (excl. آزمون)");//Content progress (excl. tests)
+define("_DATABASEVERSION","نسخه بانک اطلاعات");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","نسخه بانک اطلاعاتی شما از نسخه کد متفاوت است. لطفا لینک ٪ اجرای اسکریپت");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","ارتقا");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","دانلود دوره صادر");//Download exported course
+define("_MAXDISCOUNT100","تخفیف ویژه حداکثر 100 درصد است");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","ثبت نام / بروز رسانی");//Registration/Update
+define("_ROWS","سطرها");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","فرمان نتوانست با خروجی زیر");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","شاید شما از سیستم پردازش وبلاگ را پشتیبانی نمی کند؟");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","به منظور ایجاد یک دوره ، باید ابتدا آن را ایجاد یک رده");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","شاخه را انتخاب کنید درس");//Select lesson branches (New)
+define("_LESSONBRANCHES","شاخه های درس");//Lesson branches (New)
+define("_COURSEBRANCHES","شاخه های رشته");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","دانش آموزان اجازه می دهد تا تعیین تعداد سؤالات در هر آزمون اعدام");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","حداکثر");//Maximum (New)
+define("_MINIMUM","کمینه");//Minimum (New)
+define("_REPETITIONS","تکرار");//Repetitions (New)
+define("_MAINTAINHISTORY","حفظ تاریخچه");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","کلیدی است برای این نسخه مناسب نمی باشد");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","نحوه غیر قانونی");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","شما باید تعدادی از سؤالات را مشخص کنید");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","شما باید از یک مقدار مشخص");//You must specify a value from (New)
+define("_COURSEPROFESSORS","استاد درس");//Course professors (New)
+define("_PROFESSORSOFCOURSE","البته استادان");//Professors of course (New)
+define("_PRINTCONTENT","محتوای نسخه قابل چاپ");//Print content (New)
+define("_USERHASNOTDONETEST","کاربر به این آزمایش را انجام نمی");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","لطفا اطلاعات زیر را که درست است نسخه متنی]");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","هیچ دسته بندی تعریف شده وجود دارد.");//There are no categories defined (New)
 ?>

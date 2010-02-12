@@ -2819,7 +2819,7 @@ define("_MYGROUPS", "my Groups");
 define("_AVAILABLE", "Available");
 define("_NEVER", "Never");
 define("_CLASSMATES","Classmates");
-define("_LESSONPEOPLE", "Lesson people");
+define("_LESSONPEOPLE", "Lesson users");
 define("_NORMALIZEDIMENSIONS","Normalize dimensions");
 define("_WASASSIGNEDTHECOURSE","was assigned the course");
 define("_WILLBETEACHINGCOURSE","will be teaching the course");
@@ -3474,4 +3474,8 @@ define("_MUSTSPECIFYQUESTIONNUMBER", "You must specify the number of questions")
 define("_MUSTSPECIFYVALUEFROM", "You must specify a value from");
 define("_COURSEPROFESSORS","Course professors");
 define("_PROFESSORSOFCOURSE","Professors of course");
+define("_PRINTCONTENT", "Print content");
+define("_USERHASNOTDONETEST", "The user has not done this test");
+define("_VERIFYFOLLOWINGINFOISCORRECT", "Please verify that the following information is correct");
+define("_NOCATEGORIESDEFINED", "There are no categories defined");
 ?>

@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Bottom la qoshe");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Bottom kënd të drejtë");//Bottom right corner
 define("_LOGOPOSITION","Logo pozitë");//Logo position
 define("_LOGOFILE","Logo fotografi");//Logo file
-define("_LESSONSKILLSSELECTION","Mësim ofruar aftësitë përzgjedhjes");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Mësim ofruar aftësitë përzgjedhjes");//Select skills offered by the lesson
 define("_TOPCENTER","Top qendra");//Top center
 define("_BOTTOMCENTER","Bottom qendra");//Bottom center
 define("_HIDECOMPLETEUNITICON","Fshih njësi komplete icon");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Lini bosh për asnjë kufizim kohor");//Leave blank f
 define("_HARDPLURAL","I fortë");//Hard
 define("_MEDIUMPLURAL","Medium");//Medium
 define("_EASYPLURAL","I lehtë");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Pyetja është i gabuar");//The question is incorrect
 define("_QUESTIONISCORRECT","Pyetja është e saktë");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Pyetja është pjesërisht e saktë");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Grupet e mia");//my Groups
 define("_AVAILABLE","I disponueshëm");//Available
 define("_NEVER","Kurrë");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","Njerëz mësim");//Lesson people
+define("_LESSONPEOPLE","Njerëz mësim");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalizuar dimensionet");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","ishte caktuar kurs");//was assigned the course
 define("_WILLBETEACHINGCOURSE","do të jetë mësim kurs");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Caktimin Job");//Job assignment
 define("_ONJOBREMOVAL","Punë Remove from user");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Emri Job pozitën");//Job position name
 define("_ENCRYPTURL","Encrypt URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Format mënyrë fjalëhyrje shfaqen në sistem. Përdorimi # # për emrin emri, mbiemri # # për emrin e kaluar, identifikohuni # # për hyrje dhe n # # letër fillestar për emrin e parë të");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Format mënyrë fjalëhyrje shfaqen në sistem. Përdorimi # # për emrin emri, mbiemri # # për emrin e kaluar, identifikohuni # # për hyrje dhe n # # letër fillestar për emrin e parë të");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Format Username");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Ngjarje raporteve");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Ngjarje kriteret matching");//Events matching criteria
 define("_NOEVENTSFOUND","No upcoming ndeshje kriteret e kërkimit tuaj");//No events match your search criteria
 define("_VISITEDTHESYSTEM","vizitoi sistemit");//visited the system
-define("_VISITEDLESSON","vizitoi mësim");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","ka caktuar datën e caktuar fillimi për mësim");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","ka caktuar datën e caktuar skadimit për mësim");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","ka publikuar njoftimin");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Nuk është në dispozicion një version të ri!");
 define("_RELEASENOTES","Release notes");//Release notes
 define("_VERSIONUPTODATE","Version juaj është deri në datën");//Your version is up to date
 define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Shkarkim dhe instalim");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Sistem nuk mund të lidheni me serverin licencës");//The system could not connect to license server
 define("_LICENSESERVER","Server License");//License server
 define("_UPGRADESVALIDUNTIL","Përmirësimet e vlefshme deri");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Përmbajtjen Smart");//Smart content
 define("_ZIPHANDLING","Mënyra e trajtimit Zip");//Zip handling method
 define("_COMPLETION","Përfundimi");//Completion
 define("_SETALLTO","Gati të");//Set all to
-define("_INADEQUATEBALANCE","Bilanci joadekuat");//Inadequate balance (New)
-define("_PAYPALMODE","Mode Paypal");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Transaction log file");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Vendosur Aktualisht adresa nuk përputhet marrë adresën e biznesit");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Lloji Unsupported operacion");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate përfunduar pagesa");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Statusi Unsupported pagesë");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Ju keni anuluar transaksionin");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksioni është përfunduar me sukses.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
-define("_MYACCOUNT","My account");//My account (New)
-define("_MODULE","Module");//Module (New)
-define("_EMBEDTYPE","Embed përmbajtje si");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Dritare e re (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Parametrat Popup");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Kliko në butonin për të filluar njësi");//Click on the button to start the unit (New)
-define("_STARTUNIT","Njësi Start");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Për fat të keq scorm 2004 nuk është përfshirë në këtë botim");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Njoftimet Restore default");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Progres Përmbajtja (excl. teste)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Version Database");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Versioni bazës së të dhënave është i ndryshëm nga versioni kodin. Ju lutemi të drejtuar Lidhje% script");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Shkarko eksportuar kurs");//Download exported course (New)
-define("_MAXDISCOUNT100","Ulje maksimale është 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Regjistrim / Update");//Registration/Update (New)
-define("_ROWS","Rreshtave");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Komandën dështuar me prodhimin e mëposhtme");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Ndoshta sistemi juaj nuk ka përkrahje të përpunimit zip?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Në mënyrë që të krijojë një kurs, ju duhet së pari të krijojë një kategori");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Bilanci joadekuat");//Inadequate balance
+define("_PAYPALMODE","Mode Paypal");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Transaction log file");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Vendosur Aktualisht adresa nuk përputhet marrë adresën e biznesit");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Lloji Unsupported operacion");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate përfunduar pagesa");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Statusi Unsupported pagesë");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Ju keni anuluar transaksionin");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksioni është përfunduar me sukses.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
+define("_MYACCOUNT","My account");//My account
+define("_MODULE","Module");//Module
+define("_EMBEDTYPE","Embed përmbajtje si");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Dritare e re (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Parametrat Popup");//Popup parameters
+define("_CLICKTOSTARTUNIT","Kliko në butonin për të filluar njësi");//Click on the button to start the unit
+define("_STARTUNIT","Njësi Start");//Start unit
+define("_SCORM2004NOTSUPPORTED","Për fat të keq scorm 2004 nuk është përfshirë në këtë botim");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Njoftimet Restore default");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Progres Përmbajtja (excl. teste)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Version Database");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Versioni bazës së të dhënave është i ndryshëm nga versioni kodin. Ju lutemi të drejtuar Lidhje% script");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Shkarko eksportuar kurs");//Download exported course
+define("_MAXDISCOUNT100","Ulje maksimale është 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Regjistrim / Update");//Registration/Update
+define("_ROWS","Rreshtave");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Komandën dështuar me prodhimin e mëposhtme");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Ndoshta sistemi juaj nuk ka përkrahje të përpunimit zip?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Në mënyrë që të krijojë një kurs, ju duhet së pari të krijojë një kategori");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Mësim degët Zgjidh");//Select lesson branches (New)
+define("_LESSONBRANCHES","Degët mësim");//Lesson branches (New)
+define("_COURSEBRANCHES","Degët e kursit");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Lejo nxënësit të specifikojë numrin e pyetjeve në çdo provë përmbarimit");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maksimale");//Maximum (New)
+define("_MINIMUM","Minimum");//Minimum (New)
+define("_REPETITIONS","Repetitions");//Repetitions (New)
+define("_MAINTAINHISTORY","Ruajtja e historisë");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Kryesore nuk është i përshtatshëm për këtë edicion");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Mënyrë të paligjshme");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Ju duhet të specifikojë numrin e pyetjeve");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Ju duhet të përcaktoni një vlerë prej");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Profesorët e kursit");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Profesorët natyrisht");//Professors of course (New)
+define("_PRINTCONTENT","Përmbajtja Printo");//Print content (New)
+define("_USERHASNOTDONETEST","Ky përdorues ka nuk e ka bërë këtë provë");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Ju lutem verifikoni se informatat e mëposhtme është e saktë");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Nuk ka kategori të definuar");//There are no categories defined (New)
 ?>

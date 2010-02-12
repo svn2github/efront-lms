@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Alt sol köşede");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Sağ alt köşede");//Bottom right corner
 define("_LOGOPOSITION","Logo konum");//Logo position
 define("_LOGOFILE","Logo dosyası");//Logo file
-define("_LESSONSKILLSSELECTION","Ders becerileri seçim teklif");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Ders becerileri seçim teklif");//Select skills offered by the lesson
 define("_TOPCENTER","Üst orta");//Top center
 define("_BOTTOMCENTER","Alt orta");//Bottom center
 define("_HIDECOMPLETEUNITICON","Gizle tam birimi simgesi");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Hiçbir zaman için boş bırakın sınırı");//Leav
 define("_HARDPLURAL","Zor");//Hard
 define("_MEDIUMPLURAL","Orta");//Medium
 define("_EASYPLURAL","Kolay");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Soru yanlış");//The question is incorrect
 define("_QUESTIONISCORRECT","Soru doğrudur");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Sorun kısmen doğrudur");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Gruplarım");//my Groups
 define("_AVAILABLE","Mevcut");//Available
 define("_NEVER","Asla");//Never
 define("_CLASSMATES","Sınıf");//Classmates
-define("_LESSONPEOPLE","Ders kişi");//Lesson people
+define("_LESSONPEOPLE","Ders kişi");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalleştirilmiş boyutları");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","kurs verildi");//was assigned the course
 define("_WILLBETEACHINGCOURSE","ders öğretmek olacaktır");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Iş atama");//Job assignment
 define("_ONJOBREMOVAL","Kullanıcı kaldırma iş");//Remove job from user
 define("_JOBDESCRIPTIONNAME","İş Yeri Adı");//Job position name
 define("_ENCRYPTURL","Şifrelemek URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Giriş sisteminde yol görünür Format. Ilk isim ilk harfini # için soyadını # # soyadı için ilk isim için kullanın # # adı, giriş için # # giriş ve # n");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Giriş sisteminde yol görünür Format. Ilk isim ilk harfini # için soyadını # # soyadı için ilk isim için kullanın # # adı, giriş için # # giriş ve # n");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Kullanıcı adı formatı");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Etkinlik raporları");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Etkinlikler eşleme kriterleri");//Events matching criteria
 define("_NOEVENTSFOUND","No events Arama kriterinize uyan");//No events match your search criteria
 define("_VISITEDTHESYSTEM","Sistem ziyaret");//visited the system
-define("_VISITEDLESSON","ders ziyaret");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","ders için planlanan başlangıç tarihini belirledi");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","ders için planlanan son kullanma tarihini belirledi");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","duyuru yayınladı");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Yeni bir versiyonu bulunur!");//There is a new vers
 define("_RELEASENOTES","Sürüm notları");//Release notes
 define("_VERSIONUPTODATE","Sürümü güncel olduğundan");//Your version is up to date
 define("_CONTACTINGSERVER","Sunucu Contacting ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Indirin ve kurun");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Sistem sunucu lisansı bağlantısı kurulamadı");//The system could not connect to license server
 define("_LICENSESERVER","Lisans sunucusu");//License server
 define("_UPGRADESVALIDUNTIL","Yükseltmeleri kadar geçerli");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Akıllı içerik");//Smart content
 define("_ZIPHANDLING","Zip işleme yöntemi");//Zip handling method
 define("_COMPLETION","Tamamlanma");//Completion
 define("_SETALLTO","Set to all");//Set all to
-define("_INADEQUATEBALANCE","Yetersiz bakiye");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal modu");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","İşlem günlüğü dosyası");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Şu anda alınan iş adresi uyuşmuyorsa adresi ayarlamak");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Desteklenmeyen işletim tipi");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Yinelenen ödeme tamamlandı");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Desteklenmeyen ödeme durumu");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Bu işlem iptal ettiniz");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","İşlem başarıyla tamamlandı.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal hata ayıklama moduna");//Paypal debug mode (New)
-define("_MYACCOUNT","Hesabım");//My account (New)
-define("_MODULE","Modülü");//Module (New)
-define("_EMBEDTYPE","Embed içerik olarak");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Yeni pencere (pop-up)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parametreleri");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Tıklayın düğmesini birim başlatmak için");//Click on the button to start the unit (New)
-define("_STARTUNIT","Start birimi");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Ne yazık ki bu SCORM 2004 sürümü desteklenmiyor");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Varsayılan geri bildirimleri");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","İçerik ilerleme (KDV hariç test)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Veritabanı sürümü");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Veritabanı sürümü kod sürümden daha farklı. Lütfen komut% link çalıştırmak");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Yükseltme");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Download ders ihraç");//Download exported course (New)
-define("_MAXDISCOUNT100","Maksimum indirim% 100&#39;dür");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Kayıt / Güncelleme");//Registration/Update (New)
-define("_ROWS","Satırlar");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Komut aşağıdaki çıktıyı başarısız oldu");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Belki sistem zip işleme desteklemez?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Amacıyla, ilk önce bir kategori yaratmak gereken bir ders oluşturmak için");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Yetersiz bakiye");//Inadequate balance
+define("_PAYPALMODE","Paypal modu");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","İşlem günlüğü dosyası");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Şu anda alınan iş adresi uyuşmuyorsa adresi ayarlamak");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Desteklenmeyen işletim tipi");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Yinelenen ödeme tamamlandı");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Desteklenmeyen ödeme durumu");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Bu işlem iptal ettiniz");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","İşlem başarıyla tamamlandı.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal hata ayıklama moduna");//Paypal debug mode
+define("_MYACCOUNT","Hesabım");//My account
+define("_MODULE","Modülü");//Module
+define("_EMBEDTYPE","Embed içerik olarak");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Yeni pencere (pop-up)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parametreleri");//Popup parameters
+define("_CLICKTOSTARTUNIT","Tıklayın düğmesini birim başlatmak için");//Click on the button to start the unit
+define("_STARTUNIT","Start birimi");//Start unit
+define("_SCORM2004NOTSUPPORTED","Ne yazık ki bu SCORM 2004 sürümü desteklenmiyor");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Varsayılan geri bildirimleri");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","İçerik ilerleme (KDV hariç test)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Veritabanı sürümü");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Veritabanı sürümü kod sürümden daha farklı. Lütfen komut% link çalıştırmak");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Yükseltme");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Download ders ihraç");//Download exported course
+define("_MAXDISCOUNT100","Maksimum indirim% 100&#39;dür");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Kayıt / Güncelleme");//Registration/Update
+define("_ROWS","Satırlar");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Komut aşağıdaki çıktıyı başarısız oldu");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Belki sistem zip işleme desteklemez?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Amacıyla, ilk önce bir kategori yaratmak gereken bir ders oluşturmak için");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Seçin ders dalları");//Select lesson branches (New)
+define("_LESSONBRANCHES","Ders dalları");//Lesson branches (New)
+define("_COURSEBRANCHES","Ders dalları");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Yürütülmesine her testte soru sayısı belirtmek için öğrencilere izin ver");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maksimum");//Maximum (New)
+define("_MINIMUM","Minimum");//Minimum (New)
+define("_REPETITIONS","Tekrarlama");//Repetitions (New)
+define("_MAINTAINHISTORY","Tarih koruyun");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Bu anahtar baskı için uygun değil");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Yasadışı modu");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Soru sayısını belirtmelisiniz");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Sizden bir değer belirtmelisiniz");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Elbette profesör");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Profesör dersin");//Professors of course (New)
+define("_PRINTCONTENT","Print içerik");//Print content (New)
+define("_USERHASNOTDONETEST","Kullanıcı bu testi yapılması değil");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Lütfen aşağıdaki bilgileri doğrulamak");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Hiçbir kategoriler tanımlanmıştır");//There are no categories defined (New)
 ?>

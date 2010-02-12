@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Ľavom dolnom rohu");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Pravom dolnom rohu");//Bottom right corner
 define("_LOGOPOSITION","Pozícia loga");//Logo position
 define("_LOGOFILE","Logo file (súbor)");//Logo file
-define("_LESSONSKILLSSELECTION","Výber ponúknutých zručností lekcie");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Výber ponúknutých zručností lekcie");//Select skills offered by the lesson
 define("_TOPCENTER","Nahoře uprostred");//Top center
 define("_BOTTOMCENTER","Dole v strede");//Bottom center
 define("_HIDECOMPLETEUNITICON","Skryť ikonu ukončenia jednotky");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Ponechajte prázdne pre žiadny časový limit");//Le
 define("_HARDPLURAL","Tažký");//Hard
 define("_MEDIUMPLURAL","Stredne tažký");//Medium
 define("_EASYPLURAL","Ľahký");//Easy
-define("_UNLIMITED","Nekonečno");//Unilimited
+define("_UNLIMITED","Nekonečno");//Unlimited
 define("_INCORRECTQUESTION","Otázka je nesprávne");//The question is incorrect
 define("_QUESTIONISCORRECT","Táto otázka je správna,");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Otázkou je čiastočne správna");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","Moje skupiny");//my Groups
 define("_AVAILABLE","Dostupné");//Available
 define("_NEVER","Nikdy");//Never
 define("_CLASSMATES","Spolužiaci");//Classmates
-define("_LESSONPEOPLE","Lekcia ľudí");//Lesson people
+define("_LESSONPEOPLE","Lekcia ľudí");//Lesson users
 define("_NORMALIZEDIMENSIONS","Štandardné rozmery");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","bol priradený kurz");//was assigned the course
 define("_WILLBETEACHINGCOURSE","bude výučba predmetu");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Pracovným zaradenie");//Job assignment
 define("_ONJOBREMOVAL","Odstrániť práce od užívateľa");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Názov pracovnú pozíciu");//Job position name
 define("_ENCRYPTURL","Šifrovať URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Formát spôsob prihlásení sa objaví v systéme. # # Používať názov pre meno, priezvisko, # # za posledné meno, # login # pre prihlásenie a # n # na meno jeho počiatočné písmeno");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Formát spôsob prihlásení sa objaví v systéme. # # Používať názov pre meno, priezvisko, # # za posledné meno, # login # pre prihlásenie a # n # na meno jeho počiatočné písmeno");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Užívateľské meno vo formáte");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Udalosti správy");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Udalosti zodpovedajúce kritériám");//Events matching criteria
 define("_NOEVENTSFOUND","Žiadne udalosti zodpovedajú vašim vyhľadávacím kritériám");//No events match your search criteria
 define("_VISITEDTHESYSTEM","Späť na systém");//visited the system
-define("_VISITEDLESSON","Späť na lekciu");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","stanovila plánovaného dátumu začatia o lekciu");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","stanovila dátum plánovaného ukončenia lekcie");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","uverejnila oznámenie");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","K dispozícii je nová verzia k dispozícii!");//Th
 define("_RELEASENOTES","Release notes");//Release notes
 define("_VERSIONUPTODATE","Vaša verzia je aktuálna");//Your version is up to date
 define("_CONTACTINGSERVER","Kontaktovanie server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Stiahnite a nainštalujte");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Systém nemôže pripojiť k licenčnému servera");//The system could not connect to license server
 define("_LICENSESERVER","Licenčné server");//License server
 define("_UPGRADESVALIDUNTIL","Aktualizácia platné do");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart obsah");//Smart content
 define("_ZIPHANDLING","Zip spôsob manipulácie");//Zip handling method
 define("_COMPLETION","Dokončenie");//Completion
 define("_SETALLTO","Set všetci");//Set all to
-define("_INADEQUATEBALANCE","Nedostatočné bilancie");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal režim");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Transakčné log");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","V súčasnej dobe stanovená adresa nesúhlasí dostal obchodná adresa");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Nepodporovaný typ operácie");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate dokončená platba");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Nepodporované stave platby");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Stornovanie transakcie");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transakcia bola dokončená úspešne.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal ladiaci režim");//Paypal debug mode (New)
-define("_MYACCOUNT","Môj účet");//My account (New)
-define("_MODULE","Modul");//Module (New)
-define("_EMBEDTYPE","Vložiť obsah");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parametre");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Kliknite na tlačidlo pre spustenie jednotky");//Click on the button to start the unit (New)
-define("_STARTUNIT","Štart jednotky");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Bohužiaľ SCORM 2004 nie je podporovaná v tomto vydaní");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Obnoviť predvolené oznámenia");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Obsah pokroku (bez skúšky)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Verziu databázy");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Databáza verzie je iný ako kód verzie. Spustite skript% odkaz");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Stiahnuť vyvážané kurz");//Download exported course (New)
-define("_MAXDISCOUNT100","Maximálna zľava je 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Registrácia / Update");//Registration/Update (New)
-define("_ROWS","Řady");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Príkaz zlyhal s týmto výstupom");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Možno že váš systém nepodporuje zips spracovanie?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Za účelom vytvorenia kurze, musíte najprv vytvoriť kategórie");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Nedostatočné bilancie");//Inadequate balance
+define("_PAYPALMODE","Paypal režim");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Transakčné log");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","V súčasnej dobe stanovená adresa nesúhlasí dostal obchodná adresa");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Nepodporovaný typ operácie");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate dokončená platba");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Nepodporované stave platby");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Stornovanie transakcie");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transakcia bola dokončená úspešne.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal ladiaci režim");//Paypal debug mode
+define("_MYACCOUNT","Môj účet");//My account
+define("_MODULE","Modul");//Module
+define("_EMBEDTYPE","Vložiť obsah");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","New window (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parametre");//Popup parameters
+define("_CLICKTOSTARTUNIT","Kliknite na tlačidlo pre spustenie jednotky");//Click on the button to start the unit
+define("_STARTUNIT","Štart jednotky");//Start unit
+define("_SCORM2004NOTSUPPORTED","Bohužiaľ SCORM 2004 nie je podporovaná v tomto vydaní");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Obnoviť predvolené oznámenia");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Obsah pokroku (bez skúšky)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Verziu databázy");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Databáza verzie je iný ako kód verzie. Spustite skript% odkaz");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Stiahnuť vyvážané kurz");//Download exported course
+define("_MAXDISCOUNT100","Maximálna zľava je 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Registrácia / Update");//Registration/Update
+define("_ROWS","Řady");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Príkaz zlyhal s týmto výstupom");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Možno že váš systém nepodporuje zips spracovanie?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Za účelom vytvorenia kurze, musíte najprv vytvoriť kategórie");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Vyberte lekciu pobočiek");//Select lesson branches (New)
+define("_LESSONBRANCHES","Lekcia pobočiek");//Lesson branches (New)
+define("_COURSEBRANCHES","Samozrejme pobočiek");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Umožňujú študentom zadať počet otázok v každom teste výkonu");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maximálna");//Maximum (New)
+define("_MINIMUM","Minimálna");//Minimum (New)
+define("_REPETITIONS","Opakovanie");//Repetitions (New)
+define("_MAINTAINHISTORY","Udržiavať histórie");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Kľúč nie je vhodný pre tohto vydanie");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Illegal režim");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Musíte zadať počet otázok");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Musíte zadať hodnotu od");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Samozrejme profesori");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Profesori samozrejme");//Professors of course (New)
+define("_PRINTCONTENT","Tlač obsahu");//Print content (New)
+define("_USERHASNOTDONETEST","Užívateľ neurobil tento test");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Overte prosím, že tieto informácie sú správne");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Neexistujú žiadne definované kategórie");//There are no categories defined (New)
 ?>

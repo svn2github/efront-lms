@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Bottom lijevom kutu");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Bottom desnom kutu");//Bottom right corner
 define("_LOGOPOSITION","Logo poziciju");//Logo position
 define("_LOGOFILE","Logo datoteku");//Logo file
-define("_LESSONSKILLSSELECTION","Obrazovni ponudio vještine izbor");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Obrazovni ponudio vještine izbor");//Select skills offered by the lesson
 define("_TOPCENTER","Top centar");//Top center
 define("_BOTTOMCENTER","Bottom center");//Bottom center
 define("_HIDECOMPLETEUNITICON","Sakrij kompletna jedinica icon");//Hide complete unit icon
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Ostavite prazno bez vremenskog ograničenja");//Leave
 define("_HARDPLURAL","Teško");//Hard
 define("_MEDIUMPLURAL","Medium");//Medium
 define("_EASYPLURAL","Lako");//Easy
-define("_UNLIMITED","Unilimited");//Unilimited
+define("_UNLIMITED","Unilimited");//Unlimited
 define("_INCORRECTQUESTION","Pitanje je netočna");//The question is incorrect
 define("_QUESTIONISCORRECT","Pitanje je točna");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Pitanje je djelomično točna");//The question is partially correct
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","My Groups");//my Groups
 define("_AVAILABLE","Dostupan");//Available
 define("_NEVER","Nikada");//Never
 define("_CLASSMATES","Razredu");//Classmates
-define("_LESSONPEOPLE","Obrazovni ljudi");//Lesson people
+define("_LESSONPEOPLE","Obrazovni ljudi");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalizirani dimenzije");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","je dodijeljen tečaj");//was assigned the course
 define("_WILLBETEACHINGCOURSE","će se nastava kolegija");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Job zadatak");//Job assignment
 define("_ONJOBREMOVAL","Ukloni posao od korisnika");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Radno mjesto ime");//Job position name
 define("_ENCRYPTURL","Šifriranje URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Oblikovanje način prijave se pojavljuju u sustavu. Koristite # ime # za prvo ime, # prezime # za prezime, # login # za prijavu i # n # za prvo ime na početno slovo");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Oblikovanje način prijave se pojavljuju u sustavu. Koristite # ime # za prvo ime, # prezime # za prezime, # login # za prijavu i # n # za prvo ime na početno slovo");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Korisničko ime format");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Događanja izvješća");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Događanja odgovaraju kriterijima");//Events matching criteria
 define("_NOEVENTSFOUND","Nema događaja odgovaraju Vašim kriterijima pretrage");//No events match your search criteria
 define("_VISITEDTHESYSTEM","posjetio sustav");//visited the system
-define("_VISITEDLESSON","posjetio sat");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","postavljen je na rasporedu početni datum za sat");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","postavljen je na rasporedu isteka roka za sat");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","objavio najava");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Tu je nova verzija dostupna!");//There is a new ver
 define("_RELEASENOTES","Puštanje bilješke");//Release notes
 define("_VERSIONUPTODATE","Vaša verzija je do datuma");//Your version is up to date
 define("_CONTACTINGSERVER","Contacting server ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Preuzmite i instalirajte");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","Sustav ne bi mogao spojiti na server licence");//The system could not connect to license server
 define("_LICENSESERVER","License Server");//License server
 define("_UPGRADESVALIDUNTIL","Nadogradnje vrijedi do");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Smart sadržaj");//Smart content
 define("_ZIPHANDLING","Zip rukovanje metoda");//Zip handling method
 define("_COMPLETION","Završetak");//Completion
 define("_SETALLTO","Postavite sve do");//Set all to
-define("_INADEQUATEBALANCE","Neadekvatna ravnoteža");//Inadequate balance (New)
-define("_PAYPALMODE","Paypal način");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Transaction log file");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Trenutno postavljen adresa ne odgovara primio poslovne adrese");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Nepodržana operacija tipa");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicate completed plaćanja");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Nepodržana plaćanja status");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Vi ste otkazano transakciju");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transakcija je uspješno završena.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode (New)
-define("_MYACCOUNT","Moj račun");//My account (New)
-define("_MODULE","Modul");//Module (New)
-define("_EMBEDTYPE","Embed sadržaj kao");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Novi prozor (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Popup parametri");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Kliknite na gumb za početak jedinica");//Click on the button to start the unit (New)
-define("_STARTUNIT","Start jedinica");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Nažalost, SCORM 2004 nije podržan u ovom izdanju");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Vraćanje zadane obavijesti");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Sadržaj napredak (bez testovi)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Database version");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Vaša baza podataka verzija je drugačiji nego kod verzije. Molimo trčanje povezati% original");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Download izvozi tečaj");//Download exported course (New)
-define("_MAXDISCOUNT100","Maksimalni popust je 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Registracija / Ažuriranje");//Registration/Update (New)
-define("_ROWS","Rows");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","Naredba nije uspjela sa sljedećim izlaz");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Možda vaš sustav ne podržava rar obradu?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Kako bi se stvorili, naravno, najprije morate stvoriti kategoriju");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Neadekvatna ravnoteža");//Inadequate balance
+define("_PAYPALMODE","Paypal način");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Transaction log file");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Trenutno postavljen adresa ne odgovara primio poslovne adrese");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Nepodržana operacija tipa");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicate completed plaćanja");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Nepodržana plaćanja status");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Vi ste otkazano transakciju");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transakcija je uspješno završena.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
+define("_MYACCOUNT","Moj račun");//My account
+define("_MODULE","Modul");//Module
+define("_EMBEDTYPE","Embed sadržaj kao");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Novi prozor (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Popup parametri");//Popup parameters
+define("_CLICKTOSTARTUNIT","Kliknite na gumb za početak jedinica");//Click on the button to start the unit
+define("_STARTUNIT","Start jedinica");//Start unit
+define("_SCORM2004NOTSUPPORTED","Nažalost, SCORM 2004 nije podržan u ovom izdanju");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Vraćanje zadane obavijesti");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Sadržaj napredak (bez testovi)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Database version");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Vaša baza podataka verzija je drugačiji nego kod verzije. Molimo trčanje povezati% original");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Download izvozi tečaj");//Download exported course
+define("_MAXDISCOUNT100","Maksimalni popust je 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Registracija / Ažuriranje");//Registration/Update
+define("_ROWS","Rows");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","Naredba nije uspjela sa sljedećim izlaz");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Možda vaš sustav ne podržava rar obradu?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Kako bi se stvorili, naravno, najprije morate stvoriti kategoriju");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Odaberite sat grane");//Select lesson branches (New)
+define("_LESSONBRANCHES","Obrazovni grane");//Lesson branches (New)
+define("_COURSEBRANCHES","Tečaj grane");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Dopustiti učenicima da navedete broj pitanja u svakom testu izvršenja");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Maksimalna");//Maximum (New)
+define("_MINIMUM","Minimalna");//Minimum (New)
+define("_REPETITIONS","Ponavljanja");//Repetitions (New)
+define("_MAINTAINHISTORY","Održavati povijest");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","Ključ nije prikladan za ovo izdanje");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Ilegalna način");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Morate navesti broj pitanja");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Morate navesti vrijednost iz");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Tečaj profesori");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Profesori naravno");//Professors of course (New)
+define("_PRINTCONTENT","Ispiši sadržaj");//Print content (New)
+define("_USERHASNOTDONETEST","Korisnik nije to učinio test");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Molimo provjerite da se sljedeće informacije točne");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Nema kategorije definirane");//There are no categories defined (New)
 ?>

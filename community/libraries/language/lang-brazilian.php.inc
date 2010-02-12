@@ -1479,7 +1479,7 @@ define("_VACANCIES","Vagas disponíveis");//Available placements
 define("_AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION","Tem certeza de que deseja remover esta descrição do trabalho?");//Are you sure you want to remove that job position?
 define("_JOBDESCRIPTIONDATA","Dados da descrição do trabalho");//Job position data
 define("_HAVINGJOBDESCRIPTION","tendo a descrição do trabalho");// having the job position 
-define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" , "Nenhum colaborador está assinado atualmente este trabalho");
+define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" , "No users are currently assigned to this job position");
 define("_SUCCESSFULLYCREATEDJOBDESCRIPTION","Descrição do trabalho criada com sucesso");//Successfully created job position
 define("_JOBDESCRIPTIONCOULDNOTBECREATED","Descrição do trabalho não poderá ser criada");//Job position could not be created
 define("_JOBDESCRIPTIONDATAUPDATED","Dados da descrição do trabalho foram atualizadas com sucesso");//Job position data were successfully updated
@@ -1505,7 +1505,7 @@ define("_NOSKILLSREGISTEREDASPREREQUISITES","Nenhuma habilidade registrada como 
 define("_SATISFYANYCRITERIA","Cumprir qualquer critério");//Satisfy any criteria
 define("_SATISFYALLCRITERIA","Cumprir todos os critérios");//Satisfy all criteria
 define("_WORKINGATBRANCH","Trabalhando no departamento");//Working at branch
-define("_WITHJOBDESCRIPTION" ,"com a posição do trabalho");
+define("_WITHJOBDESCRIPTION" ,"With job position");
 define("_FINDEMPLOYEES","Buscar colaborador");//Find users
 define("_WITHSKILL","Com a habilidade");//With skill
 define("_EMPLOYEESFULFILLINGCRITERIA","Os colaboradores que cumprem os critérios");//Users fulfilling the criteria
@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Canto inferior esquerdo");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Canto inferior direito");//Bottom right corner
 define("_LOGOPOSITION","Posição da logomarca");//Logo position
 define("_LOGOFILE","Arquivo da logomarca");//Logo file
-define("_LESSONSKILLSSELECTION","Seleção de habilidades oferecida pela lição");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Seleção de habilidades oferecida pela lição");//Select skills offered by the lesson
 define("_TOPCENTER","Top Centro");//Top center
 define("_BOTTOMCENTER","Fundo Centro");//Bottom center
 define("_HIDECOMPLETEUNITICON","Ocultar ícone lição completada");//Hide complete unit icon
@@ -2214,7 +2214,7 @@ define("_OPENFILEMANAGER","Abrir o gerenciador de arquivos");//Open file manager
 define("_CLOSEFILEMANAGER","Fechar o gerenciador de arquivos");//Close file manager
 define("_CLICKFORHELP","Clique para ajudar");//Click for help
 define("_NOSKILLGAPTESTSASSIGNEDTOYOU","Nenhum teste diferencial das habilidades atribuído a você");//No skill gap tests assigned to you
-define("_TESTSOLVEDVIEWTOSEESKILLGAPANALYSIS" , "Teste resolvido: visualizar a análise diferencial das habilidades");
+define("_TESTSOLVEDVIEWTOSEESKILLGAPANALYSIS" , "Test solved: View skill gap analysis");
 define("_GENERALTHRESHOLD","Limiar geral");//General Threshold
 define("_UPLOADPDFFORCONTENT","Alternar pdf / conteúdo personalizado");//Toggle pdf/custom content
 define("_PDFFILE","Upar novo arquivo pdf");//Upload new pdf file
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Deixe em branco para não ter prazo limitado");//Leav
 define("_HARDPLURAL","Dificil");//Hard
 define("_MEDIUMPLURAL","Média");//Medium
 define("_EASYPLURAL","Fácil");//Easy
-define("_UNLIMITED","Ilimitado");//Unilimited
+define("_UNLIMITED","Ilimitado");//Unlimited
 define("_INCORRECTQUESTION","A pergunta está incorreta");//The question is incorrect
 define("_QUESTIONISCORRECT","A pergunta está correta");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","A pergunta está parcialmente correta");//The question is partially correct
@@ -2424,8 +2424,8 @@ define("_ROOMSUCCESSFULLYDELETED","Sala excluida com successo");//Room successfu
 define("_LESSONROOMSCANNOTBEDELETED","Salas de lição não podem ser excluidos");//Lesson rooms cannot be deleted
 define("_CHANGESIDEBARWIDTH","Alterar largura da barra lateral");//Change sidebar width
 define("_SIDEBARWIDTH","Largura da barra lateral");//Sidebar width
-define("_VALUESUBMITTEDISNOTNUMERICAL" ,"Valor não está numerical!");
-define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Os valores da barra lateral tem que ser entre");
+define("_VALUESUBMITTEDISNOTNUMERICAL" ,"Value submitted is not numerical!");
+define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Sidebar values must be between");
 define("_ACTIVATEEFRONTCHAT","Ativar bate-papo");//Activate chat
 define("_DEACTIVATEEFRONTCHAT","Desativar bate-papo");//Deactivate chat
 define("_ENABLEMATHCONTENT","Ativar tipo de conteúdo matemático");//Enable mathematic type content
@@ -2461,7 +2461,7 @@ define("_FORTHEJOBDESCRIPTION","para a descrição do trabalho");//for the job p
 define("_ADMINISTRATORSNOJOBDESCRIPTIONS","Os administradores não podem ser atribuídos com empregos");//Administrators can not be assigned with jobs
 define("_SUGGESTSKILLSACCORDINGTOLESSONS","Sugerir habilidades de acordo com as lições de que a pergunta pertence");//Suggest skills according to the lessons the question belongs
 define("_NOSKILLSTOPROPOSE","Nenhuma habilidade para sugestão foi encontrada");//No skills were found for suggestion
-define("_ALLPROPOSEDSKILLSAREALREADYCORRELATED" ,"Todas as habilidades propostas já estão relacionadas");
+define("_ALLPROPOSEDSKILLSAREALREADYCORRELATED" ,"All proposed skills are already correlated");
 define("_ADDITIONALFOOTER","Footer adicional");//Additional footer
 define("_YOUHAVECOMPLETEDTHELESSON","Você completou a lição");//You have completed the lesson
 define("_RECURRINGPAYMENTS","Pagamentos recorrentes");//Recurring payments
@@ -2672,7 +2672,7 @@ define("_DELETEMESSAGEFORLESSONTIMELINETOPIC","Exclue mensagem para o tópico da
 define("_DELETEDAPOSTFORLESSONTOPIC","Uma notificação para o tópico da lição foi excluida");//Deleted a post for lesson topic
 define("_TOPICPOSTDOESNOTEXISTANYMORE","Notificação para o tópico da lição não existe mais");//Lesson topic post does not exist any more
 define("_LESSONTIMELINETOPICDELETED","Tópico da lição foi excluido com sucesso");//Lesson topic successfully deleted
-define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC" , "Tem certeza que quer excluir o tópico e todas as mensagemns do tópico da lição");
+define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC" , "Are you sure you want to delete the topic and all posts of lesson topic");
 define("_GOTOCOMPLETESYSTEMTIMELINE","Avançãr para a regua cronológica do sistema inteiro");//Goto complete system timeline
 define("_SYSTEMTIMELINE","Regua cronológica do sistema");//System timeline
 define("_LOGOWIDTH","Largura da logomarca");//Logo width
@@ -2819,7 +2819,7 @@ define("_MYGROUPS","meus Grupos");//my Groups
 define("_AVAILABLE","Disponível");//Available
 define("_NEVER","Nunca");//Never
 define("_CLASSMATES","Companheiros");//Classmates
-define("_LESSONPEOPLE","Pessoal da lição");//Lesson people
+define("_LESSONPEOPLE","Pessoal da lição");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalizar os dimensões");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","era assinado pelo curso");//was assigned the course
 define("_WILLBETEACHINGCOURSE","ensinarei o curso");//will be teaching the course
@@ -3213,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Coordenação do emprego");//Job assignment
 define("_ONJOBREMOVAL","Remover função do usuário");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Nome da descrição do emprego");//Job position name
 define("_ENCRYPTURL","Cifrar URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Formato como o LogIn aparece no sistema. Use #name# para o nome, #surname# para o sobrenome, #login# para o LogIn e #n# para a letra inicial do nome");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Formato como o LogIn aparece no sistema. Use #name# para o nome, #surname# para o sobrenome, #login# para o LogIn e #n# para a letra inicial do nome");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Formato do nome de usuário");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3292,7 +3292,6 @@ define("_EVENTSTATISTICS","Relatórios de eventos");//Events reports
 define("_EVENTSMATCHINGTHECRITERIA","Eventos cumprindo as critérias");//Events matching criteria
 define("_NOEVENTSFOUND","Nenhum evento está cumprindo suas critérias de busca");//No events match your search criteria
 define("_VISITEDTHESYSTEM","visitou o sistema");//visited the system
-define("_VISITEDLESSON","visitou a lição");//visited lesson
 define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","configurou a data agendada inicial da lição");//has set the scheduled starting date for lesson
 define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","configurou a data agendada de expiraçõ  da lição");//has set the scheduled expiry date for lesson
 define("_HASPUBLISHEDTHEANNOUNCEMENT","publicou o anuncio");//has published the announcement
@@ -3408,7 +3407,6 @@ define("_THEREISNEWVERSION","Há uma nova versão disponível!");//There is a ne
 define("_RELEASENOTES","Notas de lançamento");//Release notes
 define("_VERSIONUPTODATE","Sua versão é atualizada");//Your version is up to date
 define("_CONTACTINGSERVER","Contactar com o servidor ...");//Contacting server...
-define("_DOWNLOADANDINSTALL","Baixar e instalar");//Download and install
 define("_ERRORCONNECTINGTOLICENSESERVER","O sistema não pôde se conectar ao servidor de licença");//The system could not connect to license server
 define("_LICENSESERVER","Licença de servidor");//License server
 define("_UPGRADESVALIDUNTIL","Upgrades válido até");//Upgrades valid until
@@ -3430,36 +3428,54 @@ define("_SMARTCONTENT","Conteúdo inteligente");//Smart content
 define("_ZIPHANDLING","Método de manipulação Zip");//Zip handling method
 define("_COMPLETION","Conclusão");//Completion
 define("_SETALLTO","Configurar todos para");//Set all to
-define("_INADEQUATEBALANCE","Saldo insuficiente");//Inadequate balance (New)
-define("_PAYPALMODE","Modo Paypal");//Paypal mode (New)
-define("_SANDBOX","Sandbox");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","Arquivo de log de transações");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Endereço atualmente definido não corresponde ao endereço comercial recebido");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","Tipo de operação não suportado");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","Duplicar pagamento concluído");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","Estado de pagamento não suportado");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","Você cancelou a operação");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","A operação foi concluída com êxito.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","Paypal modo de debug");//Paypal debug mode (New)
-define("_MYACCOUNT","Minha Conta");//My account (New)
-define("_MODULE","Módulo");//Module (New)
-define("_EMBEDTYPE","Incorporar o conteúdo como");//Embed content as (New)
-define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","Nova janela (popup)");//New window (popup) (New)
-define("_POPUPPARAMETERS","Parâmetros Popup");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","Clique no botão para iniciar a unidade");//Click on the button to start the unit (New)
-define("_STARTUNIT","Iniciar unidade");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","Infelizmente SCORM 2004 não é suportada nesta edição");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","Restaurar notificações padrão");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","Progresso de conteúdo (excl. testes)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","Versão de banco de dados");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","Sua versão de banco de dados é diferente do que a versão do código. Por favor, executar o script link%");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","Upgrade");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","Download cursos exportados");//Download exported course (New)
-define("_MAXDISCOUNT100","O desconto máximo é de 100%");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","Inscrição / Actualização");//Registration/Update (New)
-define("_ROWS","Filas");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","O comando falhou com o seguinte resultado");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","Talvez o seu sistema não suporte o processamento zip?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","A fim de criar um curso, primeiro você deve criar uma categoria");//In order to create a course, you must first create a category (New)
+define("_INADEQUATEBALANCE","Saldo insuficiente");//Inadequate balance
+define("_PAYPALMODE","Modo Paypal");//Paypal mode
+define("_SANDBOX","Sandbox");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","Arquivo de log de transações");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","Endereço atualmente definido não corresponde ao endereço comercial recebido");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","Tipo de operação não suportado");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","Duplicar pagamento concluído");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","Estado de pagamento não suportado");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","Você cancelou a operação");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","A operação foi concluída com êxito.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","Paypal modo de debug");//Paypal debug mode
+define("_MYACCOUNT","Minha Conta");//My account
+define("_MODULE","Módulo");//Module
+define("_EMBEDTYPE","Incorporar o conteúdo como");//Embed content as
+define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","Nova janela (popup)");//New window (popup)
+define("_POPUPPARAMETERS","Parâmetros Popup");//Popup parameters
+define("_CLICKTOSTARTUNIT","Clique no botão para iniciar a unidade");//Click on the button to start the unit
+define("_STARTUNIT","Iniciar unidade");//Start unit
+define("_SCORM2004NOTSUPPORTED","Infelizmente SCORM 2004 não é suportada nesta edição");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","Restaurar notificações padrão");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","Progresso de conteúdo (excl. testes)");//Content progress (excl. tests)
+define("_DATABASEVERSION","Versão de banco de dados");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","Sua versão de banco de dados é diferente do que a versão do código. Por favor, executar o script link%");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","Upgrade");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","Download cursos exportados");//Download exported course
+define("_MAXDISCOUNT100","O desconto máximo é de 100%");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","Inscrição / Actualização");//Registration/Update
+define("_ROWS","Filas");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","O comando falhou com o seguinte resultado");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","Talvez o seu sistema não suporte o processamento zip?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","A fim de criar um curso, primeiro você deve criar uma categoria");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","Lição ramos Selecione");//Select lesson branches (New)
+define("_LESSONBRANCHES","Ramos Lição");//Lesson branches (New)
+define("_COURSEBRANCHES","Ramos de golfe");//Course branches (New)
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permitir que os estudantes especificar o número de questões em cada teste de execução");//Allow students to specify number of questions in each test execution (New)
+define("_MAXIMUM","Máxima");//Maximum (New)
+define("_MINIMUM","Mínimo");//Minimum (New)
+define("_REPETITIONS","Repetições");//Repetitions (New)
+define("_MAINTAINHISTORY","Manter a história");//Maintain history (New)
+define("_KEYISNOTFORTHISEDITION","A chave não é adequado para esta edição");//The key is not suitable for this edition (New)
+define("_ILLEGALMODE","Modo ilegal");//Illegal mode (New)
+define("_MUSTSPECIFYQUESTIONNUMBER","Você deve especificar o número de perguntas");//You must specify the number of questions (New)
+define("_MUSTSPECIFYVALUEFROM","Você deve especificar um valor de");//You must specify a value from (New)
+define("_COURSEPROFESSORS","Professores do Curso");//Course professors (New)
+define("_PROFESSORSOFCOURSE","Professores do curso");//Professors of course (New)
+define("_PRINTCONTENT","Imprimir conteúdo");//Print content (New)
+define("_USERHASNOTDONETEST","O usuário não tenha feito este teste");//The user has not done this test
+define("_VERIFYFOLLOWINGINFOISCORRECT","Por favor, verifique se a seguinte informação é correta");//Please verify that the following information is correct (New)
+define("_NOCATEGORIESDEFINED","Não há categorias definidas");//There are no categories defined (New)
 ?>

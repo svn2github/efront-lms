@@ -29,29 +29,8 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  */
 class EfrontCourseException extends Exception
 {
-    /**
-
-     * The course requested does not exist
-
-     * @since 3.5.0
-
-     */
     const COURSE_NOT_EXISTS = 251;
-    /**
-
-     * The id provided is not valid, for example it is not a number or it is 0
-
-     * @since 3.5.0
-
-     */
     const INVALID_ID = 252;
-    /**
-
-     * An unspecific error
-
-     * @since 3.5.0
-
-     */
     const MAX_USERS_LIMIT = 253;
     const DATABASE_ERROR = 254;
     const GENERAL_ERROR = 299;
@@ -957,7 +936,19 @@ class EfrontCourse
     public function unarchive() {
         $this -> course['archive'] = 0;
         $this -> course['active'] = 1;
-        $this -> persist();
+        //Check whether the original category exists
+        $result = eF_getTableDataFlat("directions", "id");
+        if (in_array($this -> course['directions_ID'], $result['id'])) {
+         // If the original category exists, no problem
+         $this -> persist();
+        } elseif (empty($result)) {
+         //If no categories exist in the system, throw exception
+         throw new EfrontLessonException(_NOCATEGORIESDEFINED, EfrontLessonException::CATEGORY_NOT_EXISTS);
+        } else {
+         //If some other category exists, assign it there
+         $this -> course['directions_ID'] = $result['id'][0];
+         $this -> persist();
+        }
     }
     /**
 

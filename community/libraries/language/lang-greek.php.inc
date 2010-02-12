@@ -3474,4 +3474,8 @@ define("_MUSTSPECIFYQUESTIONNUMBER", "Πρέπει να προσδιορίσετ
 define("_MUSTSPECIFYVALUEFROM", "Πρέπει να προσδιορίσετε μία τιμή από");
 define("_COURSEPROFESSORS","Καθηγητές δέσμης");
 define("_PROFESSORSOFCOURSE","Καθηγητές της δέσμης");
+define("_PRINTCONTENT", "Εκτύπωση περιεχομένου");
+define("_USERHASNOTDONETEST", "Ο χρήστης δεν έχει κάνει αυτήν την αξιολόγηση");
+define("_VERIFYFOLLOWINGINFOISCORRECT", "Παρακαλούμε επιβεβαιώστε ότι οι ακόλουθες πληροφορίες είναι σωστές");
+define("_NOCATEGORIESDEFINED", "Δεν έχουν οριστεί κατηγορίες");
 ?>

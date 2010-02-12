@@ -4,7 +4,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 
 if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess['progress'] == 'hidden') {
-    eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");exit;
+    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");exit;
 }
 
 if ($_student_) {
@@ -26,6 +26,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     foreach ($iterator = new EfrontTestsFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)))) as $key => $value) {
         $testsIds[$key] = $key; //Get the not-test unit ids for this content
     }
+
     list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$_GET['edit_user']], $conditions, $visitableContentIds, $testsIds);
     $smarty -> assign("T_CONDITIONS", $conditions);
     $smarty -> assign("T_CONDITIONS_STATUS", $conditionsStatus);
@@ -62,7 +63,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
                 eF_updateTableData("users_to_lessons", array('completed' => 0, 'score' => 0, 'to_timestamp' => null), "users_LOGIN = '".$_GET['edit_user']."' and lessons_ID=".$currentLesson -> lesson['id']);
             }
 
-            eF_redirect(''.basename($_SERVER['PHP_SELF']).'?ctg=progress&message='.urlencode(_STUDENTSTATUSCHANGED).'&message_type=success');
+            eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=progress&message='.urlencode(_STUDENTSTATUSCHANGED).'&message_type=success');
         }
     }
 
@@ -85,6 +86,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID and c.lessons_ID=".$currentLesson -> lesson['id']);
     $testNames = array_combine($testNames['id'], $testNames['name']);
 
+
     foreach($doneTests[$_GET['edit_user']] as $key => $value) {
         if (in_array($key, array_keys($testNames))) {
             $lastTest = unserialize($doneTests[$_GET['edit_user']][$value['last_test_id']]);
@@ -94,6 +96,9 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     foreach($scormDoneTests as $key => $value) {
         $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['scorm_done_tests'][$key] = array('name' => $value['name'], 'score' => $value['score'], 'content_ID' => $key);
     }
+
+    $notDoneTests = array_diff(array_keys($testNames), array_keys($doneTests[$_GET['edit_user']]));
+    $smarty -> assign("T_PENDING_TESTS", $notDoneTests);
 
     unset($userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['done_tests']['average_score']);
     //pr($userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]);

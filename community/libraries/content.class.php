@@ -750,6 +750,22 @@ class EfrontContentTree extends EfrontTree
     protected $rules = false;
     /**
 
+     * These values signify the SCORM 2004 version
+
+     * 
+
+     * @since 3.6.0
+
+     * @var array
+
+     * @access public
+
+     * @static
+
+     */
+    public static $scorm2004Versions = array('CAM 1.3' , '2004 3rd Edition', '2004 4th Edition');
+    /**
+
      * Instantiate tree object
 
      *
@@ -1492,7 +1508,8 @@ class EfrontContentTree extends EfrontTree
                     if (!in_array($rule['rule_content_ID'], array_keys($seenContent))) {
                         try {
                             $ruleUnit = $this -> seekNode($rule['rule_content_ID']);
-                            if ($ruleUnit['active']) {
+                            $scorm2004 = in_array($current['scorm_version'], EfrontContentTree::$scorm2004Versions);
+                            if ($ruleUnit['active'] && ($ruleUnit['data'] || $current['ctg_type'] == 'tests' || $scorm2004)) {
                                 return _MUSTFIRSTREADUNIT.' <a href = "student.php?ctg=content&view_unit='.$ruleUnit['id'].'">'.$ruleUnit['name'].'</a><br/>';
                             }
                         } catch (EfrontContentException $e) {}
@@ -1714,10 +1731,13 @@ class EfrontContentTree extends EfrontTree
         $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($this -> tree), RecursiveIteratorIterator :: SELF_FIRST));
         foreach ($iterator as $key => $value) {
             in_array($key, $seenNodes) || $resultScorm[$key] == 'completed' || $resultScorm[$key] == 'passed' ? $value['seen'] = 1 : $value['seen'] = 0;
-            $resultScorm[$key] == 'incomplete' ? $value['incomplete'] = 1 : $value['incomplete'] = 0;
-            $resultScorm[$key] == 'failed' ? $value['failed'] = 1 : $value['failed'] = 0;
-            $resultTests[$key] == 'incomplete' ? $value['incomplete'] = $resultTestsTimes[$key] : $value['incomplete'] = 0;
-            $resultTests[$key] == 'failed' ? $value['failed'] = 1 : $value['failed'] = 0;
+            if ($resultScorm[$key]) {
+             $resultScorm[$key] == 'incomplete' ? $value['incomplete'] = 1 : $value['incomplete'] = 0;
+             $resultScorm[$key] == 'failed' ? $value['failed'] = 1 : $value['failed'] = 0;
+            } else if ($resultTests[$key]) {
+             $resultTests[$key] == 'incomplete' ? $value['incomplete'] = $resultTestsTimes[$key] : $value['incomplete'] = 0;
+             $resultTests[$key] == 'failed' ? $value['failed'] = 1 : $value['failed'] = 0;
+            }
         }
     }
     /**
@@ -2140,6 +2160,7 @@ class EfrontContentTree extends EfrontTree
         while ($iterator -> valid()) {
             $iterator -> next();
             $current['ctg_type'] == 'tests' ? $contentType = 'tests' : $contentType = 'content';
+            $scorm2004 = in_array($current['scorm_version'], EfrontContentTree::$scorm2004Versions);
             $linkClass = array();
             $liClass = array();
             $tooltip = array();
@@ -2179,7 +2200,7 @@ class EfrontContentTree extends EfrontTree
                 $linkClass[] = 'drag_tree_current';
             }
             //Set the display style according to whether the unit has data
-            if ($current['data'] == '' && $current['ctg_type'] == 'scorm') {
+            if ($current['data'] == '' && $current['ctg_type'] == 'scorm' && $scorm2004) {
                 $linkClass[] = 'treeHeader';
             } else if ($current['data'] == '' && $current['ctg_type'] != 'tests') {
                 $linkClass[] = 'treeNoContent';
@@ -2533,7 +2554,8 @@ class EfrontVisitableFilterIterator extends FilterIterator
      */
     function accept() {
         $current = $this -> current();
-        return $current instanceof ArrayObject && ($current['active'] == 1 && $current['publish'] == 1 && ($current['data'] != '' || $current['ctg_type'] == 'tests' || $current['ctg_type'] == 'scorm_test' || $current['ctg_type'] == 'scorm'));
+        $scorm2004 = in_array($current['scorm_version'], EfrontContentTree::$scorm2004Versions);
+        return $current instanceof ArrayObject && ($current['active'] == 1 && $current['publish'] == 1 && ($current['data'] != '' || $current['ctg_type'] == 'tests' || $scorm2004));
     }
 }
 /**

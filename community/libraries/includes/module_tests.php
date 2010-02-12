@@ -288,7 +288,8 @@ try {
                 $questions = eF_getTableData("questions", "*", "lessons_ID = ".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this lesson
             }
             //Assign the content units so that we can build the units select box for the "from_unit" option
-            $contentUnits = $currentContent -> toHTMLSelectOptions();
+            $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)); //Default iterator excludes non-active units
+            $contentUnits = $currentContent -> toHTMLSelectOptions($iterator);
             $smarty -> assign("T_UNITS", $contentUnits);
             //Fix questions if their corresponding content is missing
             $contentUnits = array_keys($contentUnits);
@@ -407,6 +408,7 @@ try {
                 $sort = 'text';
             }
             $recentTests = eF_multiSort($recentTests, $sort, $order);
+
             if (isset($_GET['filter'])) {
                 $recentTests = eF_filterData($recentTests, $_GET['filter']);
             }

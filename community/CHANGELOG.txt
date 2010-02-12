@@ -26,6 +26,10 @@
 - Fixed bug about new message link for user types with only view permissions in messages
 - Added events in lesson initialization list
 - Fixed SCORM 1.2 detected as 2004 in enterprise edition
+- Fixed requesting sidebar in horizontal themes
+- Fixed SCORM completion rules not taking into account empty units
+- Fixed SCORM completion icon showing up correctly when coexisting with tests
+- Fixed loosing questions' unit information when they are deactivated 
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build

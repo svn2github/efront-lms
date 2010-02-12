@@ -24,6 +24,8 @@
 - Fixed bug in content management when more than one possible action was set
 - Fixed leaving orphaned entities while deleting lesson
 - Fixed bug about new message link for user types with only view permissions in messages
+- Added events in lesson initialization list
+- Fixed SCORM 1.2 detected as 2004 in enterprise edition
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build

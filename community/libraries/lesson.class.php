@@ -1898,7 +1898,10 @@ class EfrontLesson
                                   'glossary',
                  'tracking',
                                   'scheduling',
-                                  'surveys');
+                                  'surveys',
+                'events',
+                'modules',
+                'projects');
         if ($deleteEntities == 'all') {
             $deleteEntities = $possibleEntities;
         }
@@ -1999,6 +2002,12 @@ class EfrontLesson
                      eF_deleteTableData("surveys", "lessons_ID=".$this -> lesson['id']);
                     }
                     break;
+                case 'events':
+                 $events = $this -> getEvents();
+                 if (!empty($events)) {
+      eF_deleteTableData("events", "id in (".implode(",", array_keys($events)).")");
+                 }
+                 break;
                 case 'modules':
                     $modules = eF_loadAllModules();
                     foreach ($modules as $module) {

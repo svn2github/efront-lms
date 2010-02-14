@@ -716,17 +716,17 @@ class Installation
 
 	 */
  public static function addModules($upgrade = false) {
-     $modulesToInstall = array("dimdim",
-             "billboard",
-             "faq",
-             "rss",
-             "quote",
+     $modulesToInstall = array("billboard",
              "blogs",
+             "dimdim",
+             "faq",
+             "flashcards",
              "links",
-             //"wiki", 
              "quick_mails",
-             "youtube",
-             "flashcards");
+             "quote",
+             "rss",
+             "youtube"
+             );
      $modulesList = eF_getTableData("modules", "*");
      foreach ($modulesList as $module) {
          $existingModules[] = $module['classname'];

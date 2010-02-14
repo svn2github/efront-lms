@@ -7,7 +7,7 @@ function makeAjaxRequest(url,poststr,type) {
         flag=true;
         var http_request = false;
 
-        if (window.XMLHttpRequest) {    // Mozilla, Safari,...
+        if (window.XMLHttpRequest) { // Mozilla, Safari,...
                 http_request = new XMLHttpRequest();
                 if (http_request.overrideMimeType) {
                     http_request.overrideMimeType('text/xml');
@@ -118,7 +118,7 @@ function mouseX(evt)
         return evt.pageX;
     else if (evt.clientX)
         return evt.clientX +
-        (document.documentElement.scrollLeft ?  document.documentElement.scrollLeft : document.body.scrollLeft);
+        (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
     else return null;
 }
 
@@ -139,17 +139,17 @@ function handleRequest(http_request) {
 
         if (http_request.readyState == 4) {
                 if (http_request.status == 200) {
-                        var xmldoc = http_request.responseXML;                        
+                        var xmldoc = http_request.responseXML;
                         var messages_num_node = xmldoc.getElementsByTagName('number').item(0);
 //alert(messages_num_node);
-						if (messages_num_node) {
-                        	var messages_num = messages_num_node.firstChild.data;
+      if (messages_num_node) {
+                         var messages_num = messages_num_node.firstChild.data;
                         }
 //alert(messages_num);
                         var message_node = xmldoc.getElementsByTagName('text').item(0);
-                        
+
                         if (message_node) {
-                        	var message = message_node.firstChild.data;
+                         var message = message_node.firstChild.data;
                         }
                         var users_online_node = xmldoc.getElementsByTagName('users').item(0);
                         var users_online = users_online_node.firstChild.data;
@@ -165,18 +165,18 @@ function handleRequest(http_request) {
                         //changePrivateMessagesText(response[0],response[1]);
                         //alert("num "+messages_num+"\ntext: "+message);
                         changeMessagesText(messages_num,message,users_online,users_num);
-                        
+
                         // Hack needed to correct sidebar appearance if we go from 0 -> messages or from messages->0
-			if (prev_messages == -1) {
-				prev_messages = messages_num;
-			} else {
-				if (prev_messages != messages_num) {
-					if (prev_messages == 0 || messages_num == 0) {
-						top.sideframe.resizeFunction();  
-					}	
-					prev_messages = messages_num;
-				}
-			}                      
+   if (prev_messages == -1) {
+    prev_messages = messages_num;
+   } else {
+    if (prev_messages != messages_num) {
+     if (prev_messages == 0 || messages_num == 0) {
+      top.sideframe.resizeFunction();
+     }
+     prev_messages = messages_num;
+    }
+   }
                 }
         }
 }
@@ -200,8 +200,8 @@ function handleBookmarkRequest(http_request) {
                 {
                     var bookmark_node = xmldoc.getElementsByTagName('bookmark').item(i);//alert(bookmark_node.childNodes[0].firstChild);alert(bookmark_node.childNodes[1].firstChild);alert(bookmark_node.childNodes[2].firstChild);
                     var bookmark_name = bookmark_node.childNodes[0].firstChild.data;
-                    var bookmark_url  = bookmark_node.childNodes[1].firstChild.data;
-                    var bookmark_id   = bookmark_node.childNodes[2].firstChild.data;
+                    var bookmark_url = bookmark_node.childNodes[1].firstChild.data;
+                    var bookmark_id = bookmark_node.childNodes[2].firstChild.data;
                     //bookmark_str += "<tr><td>"+ bookmark_name + "</td><td style='padding-left:10px;'>" + bookmark_url + "</td></tr>";
                     bookmark_str += "<tr><td><a href = '"+bookmark_url+"'>"+bookmark_name+"</a></td>";
                     bookmark_str += "<td align = 'right'><a href='javascript:void(0)' ";
@@ -253,134 +253,134 @@ function handleDeleteBookmarkRequest(http_request) {
 
 
 function splitLargeWords(text, chars_per_word) {
-	var newText = text;
-	var words = newText.split(" ");
+ var newText = text;
+ var words = newText.split(" ");
 
-	var indifferent = 0;
-	var result = "";
-	for (var i = 0 ; i< words.length; i++) {
-	
-		if (indifferent) {
-			if (words[i] == ">") {
-				indifferent--;
-			} else if (words[i] == "</a>") {
-				indifferent--;
-			}
-		} else {
-			if (words[i].match("<a")) {
-				indifferent++;	// do not split links
-			} else if ( words[i].match("<img") || words[i].match("<image")) {
-				indifferent++;	// do not split links
-				result += words[i] + " ";
-				// add the code to move the sidebar on img load - not do it server side for performance reasons				
-				words[i] =  'onLoad = "if (document.getElementById(\'chat_content\')) {document.getElementById(\'chat_content\').scrollTop= document.getElementById(\'chat_content\').scrollHeight + 100;}"';
-			} else {				
-				while(words[i].length > chars_per_word) {
-					result += words[i].substr(0,chars_per_word-1) + "<br>";
-					words[i] = words[i].substr(chars_per_word);
-				}
-			}
-		}
+ var indifferent = 0;
+ var result = "";
+ for (var i = 0 ; i< words.length; i++) {
 
-		result += words[i] + " ";
-		
-	}
-	return result;
+  if (indifferent) {
+   if (words[i] == ">") {
+    indifferent--;
+   } else if (words[i] == "</a>") {
+    indifferent--;
+   }
+  } else {
+   if (words[i].match("<a")) {
+    indifferent++; // do not split links
+   } else if ( words[i].match("<img") || words[i].match("<image")) {
+    indifferent++; // do not split links
+    result += words[i] + " ";
+    // add the code to move the sidebar on img load - not do it server side for performance reasons				
+    words[i] = 'onLoad = "if (document.getElementById(\'chat_content\')) {document.getElementById(\'chat_content\').scrollTop= document.getElementById(\'chat_content\').scrollHeight + 100;}"';
+   } else {
+    while(words[i].length > chars_per_word) {
+     result += words[i].substr(0,chars_per_word-1) + "<br>";
+     words[i] = words[i].substr(chars_per_word);
+    }
+   }
+  }
+
+  result += words[i] + " ";
+
+ }
+ return result;
 }
 
 // Flag variable used to change colours
 var colourchange = 0;
 // Variable to create a unique id for each message table
-var messages_count  = 0;
+var messages_count = 0;
 
 // Function to move the chat scrollbar to the bottom
 function fixChatFrameScrollbar() {
-	if (test.document.getElementById('chat_content') && test.document.getElementById('message_table_' + messages_count)) {
-		test.document.getElementById('chat_content').scrollTop=test.document.getElementById('chat_content').scrollHeight + 100;
-		test.document.getElementById('message_table_' + messages_count).scrollIntoView();
-	}
-}	
+ if (test.document.getElementById('chat_content') && test.document.getElementById('message_table_' + messages_count)) {
+  test.document.getElementById('chat_content').scrollTop=test.document.getElementById('chat_content').scrollHeight + 100;
+  test.document.getElementById('message_table_' + messages_count).scrollIntoView();
+ }
+}
 
 // Function handling the chat responses as set by the ask_chat.php script
 function handleChatRequest(http_request) {
         try {
         if (http_request.readyState == 4) {
                 if (http_request.status == 200) {
-                		// "ack" is returned if activity has been presented in the room during the last 5 minutes 
-                		if (http_request.responseText == "ack") {	
-                			
-                			$('new_chat_messages').hide();
-                			new Effect.Appear($('new_chat_messages'));
-                			
-                			//alert("ack");
-                	 	} else if (http_request.responseText == "noack") {
-                	 		Effect.Fade($('new_chat_messages'));
-                	 	} else if (http_request.responseText != "") {
-                	 		var table_style_size = <?php if (preg_match("/compatible; MSIE 6/", $_SERVER['HTTP_USER_AGENT']) || preg_match("/compatible; MSIE 7/", $_SERVER['HTTP_USER_AGENT'])) { ?>"90%";<?php }else{ ?> "100%"; <?php } ?> 
-                	 		var current_font_size = $('current_font_size').value;
-	                        var response = http_request.responseText.split("special_splitter");	                        
-	                        // Check for missing room - check only during new message post, not during during messages reading
-							if (response[0] == "<?php echo _CHATROOMDOESNOTEXIST_ERROR;?>") {
-								test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left"><?php echo _CHATROOMDELETEDBYOWNER .  "<BR>" . _REDIRECTEDTOEFRONTMAIN; ?></td></tr></table>';
-							
-								$('current_chatroom_id').value = -1;
-								$('last_spoken_login').value = "";	
-								$('first_time_messages').value = 1;					
-								$('chat_rooms').value = 0;
-								$('delete_room').setStyle({display:'none'});
-								$('current_chatroom_id').value = 0;
-												
-								
-							} else if (response[0] == "<?php echo _CHATROOMISNOTENABLED_ERROR;?>") {
-								test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left"><?php echo _CHATROOMHASBEENDEACTIVATED . "<BR>" ._REDIRECTEDTOEFRONTMAIN;?></td></tr></table>';
-								
-								// Remove the user from the deactivated room
-								var url = "ask_chat.php?chatrooms_ID="+$('chat_rooms').value+"&delete_user=<?php echo $_SESSION['s_login'];?>";
-				        		new Ajax.Request(url, {method:'get',asynchronous:false});
+                  // "ack" is returned if activity has been presented in the room during the last 5 minutes 
+                  if (http_request.responseText == "ack") {
 
-								$('current_chatroom_id').value = -1;
-								$('last_spoken_login').value = "";	
-								$('first_time_messages').value = 1;					
-								$('chat_rooms').value = 0;
-								$('delete_room').setStyle({display:'none'});
-								$('current_chatroom_id').value = 0;
+                   $('new_chat_messages').hide();
+                   new Effect.Appear($('new_chat_messages'));
 
-							} else {
-								// Create the fix for the IE display (1px left is added to the table)
-								// This is used here, because of scrollIntoView, which without a pixel in the message table, moves the entire sideframe 
-								var fixCell = '';
-								if (navigator.appVersion.match("MSIE")) {
-									 fixCell = '<td width="1px">&nbsp;</td>';
-								}
-								
-								if ($('current_chatroom_id').value == response[0]) {
-								
-									// The -5 goes because one more special splitter is added in the end
-									for (i = response.length-5; i >= 1; i = i - 4) {
-									
-										if (response[i] != '') {
-											if ($('last_spoken_login').value == response[i]) {
-												test.document.getElementById("chat_content").innerHTML = test.document.getElementById("chat_content").innerHTML + '\n<table id = "message_table_'+messages_count+'" class="chatbox" cellspacing="0" cellpadding="0" bgcolor="'+ color+'" style="width:'+table_style_size+'"><tr>' + fixCell + '<td style="color:black;font-size:'+current_font_size+'px;">'+ splitLargeWords(response[i+3], 25) + '</td></tr></table>';
-											} else {
-												if (colourchange) {
-													colourchange = 0;
-													color = "#F9F9F9";
-												} else {
-													colourchange = 1;
-													color = "#EAEAEA";
-												}									
-												test.document.getElementById("chat_content").innerHTML = test.document.getElementById("chat_content").innerHTML + '\n<table id = "message_table_'+messages_count+'" class="chatbox" cellspacing="0" cellpadding="0"  bgcolor="'+ color+'" style="width:'+table_style_size+'"><tr>'+fixCell+'<td style="' + response[i+2] + 'font-size:'+current_font_size+'px;" align="left">' + response[i] + '</td><td style="'+ response[i+2] + ';font-size:'+current_font_size+'px;"" align="right">'+ response[i+1] + '</td></tr><tr>'+ fixCell + '<td colspan="2" style="color:black;font-size:'+current_font_size+'px;">'+ splitLargeWords(response[i+3], 25) + '</td></tr></table>';
-												$('last_spoken_login').value = response[i];
-												
-											}
-											
-											fixChatFrameScrollbar();
-					                        messages_count++;
-				                        }
-			                        }
-			                    }    
-		                    } 
-		                }       
+                   //alert("ack");
+                   } else if (http_request.responseText == "noack") {
+                    Effect.Fade($('new_chat_messages'));
+                   } else if (http_request.responseText != "") {
+                    //var table_style_size = <?php if (preg_match("/compatible; MSIE 6/", $_SERVER['HTTP_USER_AGENT']) || preg_match("/compatible; MSIE 7/", $_SERVER['HTTP_USER_AGENT'])) { ?>"90%";<?php }else{ ?> "100%"; <?php } ?> 
+                    var current_font_size = $('current_font_size').value;
+                         var response = http_request.responseText.split("special_splitter");
+                         // Check for missing room - check only during new message post, not during during messages reading
+       if (response[0] == "<?php echo _CHATROOMDOESNOTEXIST_ERROR;?>") {
+        test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left"><?php echo _CHATROOMDELETEDBYOWNER .  "<BR>" . _REDIRECTEDTOEFRONTMAIN; ?></td></tr></table>';
+
+        $('current_chatroom_id').value = -1;
+        $('last_spoken_login').value = "";
+        $('first_time_messages').value = 1;
+        $('chat_rooms').value = 0;
+        $('delete_room').setStyle({display:'none'});
+        $('current_chatroom_id').value = 0;
+
+
+       } else if (response[0] == "<?php echo _CHATROOMISNOTENABLED_ERROR;?>") {
+        test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left"><?php echo _CHATROOMHASBEENDEACTIVATED . "<BR>" ._REDIRECTEDTOEFRONTMAIN;?></td></tr></table>';
+
+        // Remove the user from the deactivated room
+        var url = "ask_chat.php?chatrooms_ID="+$('chat_rooms').value+"&delete_user=<?php echo $_SESSION['s_login'];?>";
+              new Ajax.Request(url, {method:'get',asynchronous:false});
+
+        $('current_chatroom_id').value = -1;
+        $('last_spoken_login').value = "";
+        $('first_time_messages').value = 1;
+        $('chat_rooms').value = 0;
+        $('delete_room').setStyle({display:'none'});
+        $('current_chatroom_id').value = 0;
+
+       } else {
+        // Create the fix for the IE display (1px left is added to the table)
+        // This is used here, because of scrollIntoView, which without a pixel in the message table, moves the entire sideframe 
+        var fixCell = '';
+        if (navigator.appVersion.match("MSIE")) {
+          fixCell = '<td width="1px">&nbsp;</td>';
+        }
+
+        if ($('current_chatroom_id').value == response[0]) {
+
+         // The -5 goes because one more special splitter is added in the end
+         for (i = response.length-5; i >= 1; i = i - 4) {
+
+          if (response[i] != '') {
+           if ($('last_spoken_login').value == response[i]) {
+            test.document.getElementById("chat_content").innerHTML = test.document.getElementById("chat_content").innerHTML + '\n<table id = "message_table_'+messages_count+'" class="chatbox" cellspacing="0" cellpadding="0" bgcolor="'+ color+'" style="width:'+table_style_size+'"><tr>' + fixCell + '<td style="color:black;font-size:'+current_font_size+'px;">'+ splitLargeWords(response[i+3], 25) + '</td></tr></table>';
+           } else {
+            if (colourchange) {
+             colourchange = 0;
+             color = "#F9F9F9";
+            } else {
+             colourchange = 1;
+             color = "#EAEAEA";
+            }
+            test.document.getElementById("chat_content").innerHTML = test.document.getElementById("chat_content").innerHTML + '\n<table id = "message_table_'+messages_count+'" class="chatbox" cellspacing="0" cellpadding="0"  bgcolor="'+ color+'" style="width:'+table_style_size+'"><tr>'+fixCell+'<td style="' + response[i+2] + 'font-size:'+current_font_size+'px;" align="left">' + response[i] + '</td><td style="'+ response[i+2] + ';font-size:'+current_font_size+'px;"" align="right">'+ response[i+1] + '</td></tr><tr>'+ fixCell + '<td colspan="2" style="color:black;font-size:'+current_font_size+'px;">'+ splitLargeWords(response[i+3], 25) + '</td></tr></table>';
+            $('last_spoken_login').value = response[i];
+
+           }
+
+           fixChatFrameScrollbar();
+                             messages_count++;
+                            }
+                           }
+                       }
+                      }
+                  }
             } else {
                     //alert("There was a problem with the request.");
             }
@@ -546,10 +546,10 @@ function changeMessagesText(responseInt,responseText,users_online, users_num)
         if(document.getElementById('users_online'))
         {
                 document.getElementById('users_online').innerHTML=users_online;
-                
+
                 var tabmenu = document.getElementById('online_users_text').className;
                 var text = document.getElementById('online_users_text').value;
-                
+
                 document.getElementById(tabmenu).innerHTML= text + '&nbsp;&nbsp;(' + users_num + ')';
         }
     //alert(users_online);
@@ -795,8 +795,11 @@ function getElementsByName_iefix(tag, name) {
 var directions_status = "expanded";
 function toggleDirections(imageObj) {
    /* elements1 = getElementsByName_iefix('tr','default_visible');   //changed in 20/6/2007 by makriria because of http://www.dreamincode.net/code/snippet293.htm   getElementsByName has problems in IE
+
     elements2 = document.getElementsByName('default_hidden');
+
     elements3 = document.getElementsByName('default_visible_image');
+
     elements4 = document.getElementsByName('default_hidden_image');*/
     elements1 = getElementsByName_iefix('tr','default_visible');
     elements2 = getElementsByName_iefix('tr','default_hidden');
@@ -834,13 +837,11 @@ function toggleDirections(imageObj) {
         directions_status = "expanded";
     }
 }
-
 function revertDirections(visible_name,hidden_name,visible_image_name,hidden_image_name) {
     var visibles = document.getElementsByName(visible_name);
     var hiddens = document.getElementsByName(hidden_name);
     var visibleImages = document.getElementsByName(visible_image_name);
     var hiddenImages = document.getElementsByName(hidden_image_name);
-
     for(i=0;i<visibles.length;i++) {
         visibles[i].style.display = '';
     }
@@ -854,7 +855,6 @@ function revertDirections(visible_name,hidden_name,visible_image_name,hidden_ima
         hiddenImages[i].src = '../themes/default/images/others/plus.png';
     }
 }
-
 function getScrollXY() {
   var scrOfX = 0, scrOfY = 0;
   if( typeof( window.pageYOffset ) == 'number' ) {
@@ -895,4 +895,3 @@ function getWindowSize() {
 }
 
 //document.onmousemove = setXY
-

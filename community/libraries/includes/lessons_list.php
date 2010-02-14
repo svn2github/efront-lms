@@ -113,11 +113,7 @@ try {
             }
             $userProgress['courses'] = $temp;
             $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
-                                  'courses_link' => false,
-                                  'catalog' => true,
-                                  //'search'       => 1,
-                                  //'url'          => $_SERVER['PHP_SELF']."?ctg=lessons"
-                                  );
+                                  'courses_link' => false);
             if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {
                 $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $userLessons, $userCourses, $userProgress, $options));
              //include("directions_tree.php");

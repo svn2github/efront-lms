@@ -23,7 +23,7 @@ preg_match("/define\('G_VERSION_NUM', '(.*)'\);/", file_get_contents("sample_con
 define("G_VERSION_NUM", $matches[1]);
 //Read current build from globals.php file
 //preg_match('/\$LastChangedRevision$matches);
-preg_match('/\$build = "(\d+)";/', file_get_contents($path."globals.php"), $matches);
+preg_match('/\$build = (\d+);/', file_get_contents($path."globals.php"), $matches);
 define("G_BUILD", $matches[1]);
 $versionTypes = array('educational' => 'Educational',
                       'enterprise' => 'Enterprise',

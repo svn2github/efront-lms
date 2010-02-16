@@ -68,7 +68,7 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
                 $user = EfrontUserFactory :: factory($_SESSION['s_login']);
                 $user -> logout();
                 if ($GLOBALS['configuration']['logout_redirect']) {
-                    strpos($GLOBALS['configuration']['logout_redirect'], 'http://') === 0 ? eF_redirect("".$GLOBALS['configuration']['logout_redirect']) : header("location:http://".$GLOBALS['configuration']['logout_redirect']);
+                    strpos($GLOBALS['configuration']['logout_redirect'], 'http://') === 0 ? header("location:".$GLOBALS['configuration']['logout_redirect']) : header("location:http://".$GLOBALS['configuration']['logout_redirect']);
                 }
             } catch (EfrontUserException $e) {
                 unset($_SESSION);
@@ -304,13 +304,17 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
 }
 /* ---------------------------------------------------------Activation by email part--------------------------------------------------------- */
 if (isset($_GET['account']) && isset($_GET['key']) && eF_checkParameter($_GET['account'], 'login') && eF_checkParameter($_GET['key'], 'timestamp')) {
- $result = eF_getTableData("users", "timestamp, active", "login='".$_GET['account']."'");
- if ($configuration['activation'] == 0 && $configuration['mail_activation'] == 1) {
+ if (($configuration['activation'] == 0 && $configuration['mail_activation'] == 1) || $configuration['supervisor_mail_activation'] == 1) {
+  $result = eF_getTableData("users", "timestamp, active", "login='".$_GET['account']."'");
   if ($result[0]['active'] == 0 && $result[0]['timestamp'] == $_GET['key']) {
    try {
-    $user = EfrontUserFactory :: factory($_GET['account']);//new EfrontUser($_GET['login']);
+    $user = EfrontUserFactory :: factory($_GET['account']);//new EfrontUser($_GET['login']);    
     $user -> activate();
-    $message = _ACCOUNTSUCCESSFULLYACTIVATED;
+    if ($_GET['activatedBy']) {
+     $message = _EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED;
+    } else {
+     $message = _ACCOUNTSUCCESSFULLYACTIVATED;
+    }
     $message_type = 'success';
     eF_redirect(''.basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type=success');
    } catch (EfrontException $e) {
@@ -320,7 +324,7 @@ if (isset($_GET['account']) && isset($_GET['key']) && eF_checkParameter($_GET['a
   }
  } else {
   $message = _YOUCANNOTACCESSTHISPAGE;
-  eF_redirect(''.basename($_SERVER['PHP_SELF']).'message='.urlencode($message).'&message_type=failure');
+  eF_redirect(''.basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type=failure');
  }
 }
 /* ---------------------------------------------------------Reset Password part--------------------------------------------------------- */

@@ -43,7 +43,6 @@ if (isset($_GET['notification_id'])) {
 
      // Get message recipients: one or more 
      $recipients = $notification -> getRecipients();
-
      $sent_messages = 0;
      ////pr ($recipients);
      foreach ($recipients as $login => $recipient) {

@@ -17,6 +17,9 @@ $systemForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $systemForm -> addElement("advcheckbox", "signup", _EXTERNALLYSIGNUP, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "activation", _AUTOMATICUSERACTIVATION, null, 'id = "activation" onclick = "if (this.checked) {$(\'mail_activation\').checked=false}" class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "mail_activation", _MAILUSERACTIVATION, null, 'id = "mail_activation" onclick = "if (this.checked) {$(\'activation\').checked=false}" class = "inputCheckBox"', array(0, 1));
+
+
+
 $systemForm -> addElement("advcheckbox", "onelanguage", _ONLYONELANGUAGE, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "api", _ENABLEDAPI, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "math_content", _ENABLEMATHCONTENT, null, 'class = "inputCheckBox"', array(0, 1));

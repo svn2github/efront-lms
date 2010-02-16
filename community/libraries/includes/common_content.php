@@ -440,6 +440,11 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         } else {
             $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
         }
+        if ((!$currentLesson -> options['show_horizontal_bar'] && $_student_) || $_COOKIE['horizontalSideBar'] == 'hidden') {
+            $smarty -> assign("T_HEADER_CLASS", "headerHidden");
+        } else {
+            $smarty -> assign("T_HEADER_CLASS", "header"); //$currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft");    //Whether to show the sidemenu on the left or on the right
+        }
 /*
 
         if (isset($currentUnit['options']['maximize_viewport']) && $currentUnit['options']['maximize_viewport']) {
@@ -480,5 +485,9 @@ if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] 
         echo $e -> getMessage().' ('.$e -> getCode().')';
     }
     exit;
+}
+// Used for toggle horizontal sidebar
+if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
+ $smarty -> assign("T_HORIZONTAL_BAR", 1);
 }
 ?>

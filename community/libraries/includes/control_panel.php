@@ -67,7 +67,7 @@ try {
             $smarty -> assign("T_CALENDAR_OPTIONS", $calendarOptions);
             $smarty -> assign("T_CALENDAR_LINK", basename($_SERVER['PHP_SELF'])."?ctg=calendar");
             isset($_GET['add_another']) ? $smarty -> assign('T_ADD_ANOTHER', "1") : null;
-                $events = eF_getCalendar(false, 1);
+                 $events = eF_getCalendar(false, 1);
             $smarty -> assign("T_CALENDAR_EVENTS", $events); //Assign events and specific day timestamp to smarty, to be used from calendar
             $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
         }

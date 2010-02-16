@@ -23,7 +23,7 @@ isset($_GET['show_interval']) ? $show_interval = $_GET['show_interval'] : $show_
 
 
 // The type variable denotes the profile of the calendar: Organization profile, Current lesson profile, All lessons profile (0,1 and 2 respectively)
-    $events = eF_getCalendar(); //Get all events
+  $events = eF_getCalendar(); //Get all events	
 $smarty -> assign("T_CALENDAR_EVENTS", $events);
 $timestamp_info = getdate($view_calendar); //Extract date information from timestamp
 $timestamp_info['wday'] == 0 ? $timestamp_info['wday'] = 7 : ''; //getdate() returns week days from 0-6, with Sunday beeing 0. So, we convert Sunday to 7
@@ -114,14 +114,14 @@ if (isset($_GET['delete_calendar']) && eF_checkParameter($_GET['delete_calendar'
     } else {
         $tmp = eF_getTableData("users_to_lessons u, lessons l", "u.lessons_ID, l.name", "u.lessons_ID = l.ID");
     }
-        $lessons = array();
+   $lessons = array();
     if ($currentUser -> getType() != 'student') {
         for ($i = 0; $i < sizeof($tmp); $i++){
             $lessons[$tmp[$i]['lessons_ID']] = $tmp[$i]['name'];
         }
     }
-        $form -> addElement('select', 'lesson', _LESSON, $lessons);
-        $form -> setDefaults(array('lesson' => $_SESSION['s_lessons_ID']));
+      $form -> addElement('select', 'lesson', _LESSON, $lessons);
+         $form -> setDefaults(array('lesson' => $_SESSION['s_lessons_ID']));
     //$dates = range($month_start, $month_end, 86400);//#filter:timestamp-
     //$dates = array_combine($dates, $dates);
     //array_walk($dates, create_function('&$v,$k', '$v = "#filter:timestamp-".$v."#";'));

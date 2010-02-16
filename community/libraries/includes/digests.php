@@ -320,6 +320,12 @@ $loadScripts[] = "administrator/digests";
                                         EfrontNotification::ALLSYSTEMUSERS => _ALLSYSTEMUSERS,
                                         EfrontNotification::SYSTEMADMINISTRATOR => _SYSTEMADMINISTRATOR,
                                         EfrontNotification::EXPLICITLYSEL => _EXPLICITLYSELECTED);
+
+
+
+
+
+
         $smarty -> assign("T_BASIC_EVENT_RECIPIENTS" , sizeof($basic_event_recipients));
 
         if ($_GET['edit_notification'] && $_GET['event'] == "1") {
@@ -813,6 +819,8 @@ $loadScripts[] = "administrator/digests";
                                 $user_type_name = $user_type[0]['name'];
                             }
                             $sending_queue_msgs[$key]['recipients'] = _USERTYPE . ": " . $user_type_name;
+                        } else if (isset($sending_queue_msg['send_conditions']['users_login']) && isset($sending_queue_msg['send_conditions']['supervisor'])) {
+                         $sending_queue_msgs[$key]['recipients'] = _USERSUPERVISORS;
                         } else {
                             $sending_queue_msgs[$key]['recipients'] = _ALLUSERS;
                         }
@@ -984,7 +992,7 @@ $loadScripts[] = "administrator/digests";
                     $notifications[$key]['recipients'] = _USERTYPE . ": " . $user_type_name;
                 } else {
                     // the event_type is always returned positive from the getAllNotifications method
-                    if ($events_table[$notification['event_type']]['category'] == "system" || $notification['event_type'] == EfrontEvent::NEW_SYSTEM_ANNOUNCEMENT) {
+                    if ($events_table[$notification['event_type']]['category'] == "system" || $events_table[$notification['event_type']]['category'] == "branch" || $events_table[$notification['event_type']]['category'] == "job" || $notification['event_type'] == EfrontEvent::NEW_SYSTEM_ANNOUNCEMENT) {
                         $notifications[$key]['recipients'] = _ALLUSERS;
                     } else {
                         $notifications[$key]['recipients'] = _ALLLESSONUSERS;

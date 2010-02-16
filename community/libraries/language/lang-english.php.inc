@@ -3474,8 +3474,26 @@ define("_MUSTSPECIFYQUESTIONNUMBER", "You must specify the number of questions")
 define("_MUSTSPECIFYVALUEFROM", "You must specify a value from");
 define("_COURSEPROFESSORS","Course professors");
 define("_PROFESSORSOFCOURSE","Professors of course");
+define("_USERSUPERVISORS","User supervisors");
+define("_USEROPTIONSFOR","Options for user");
+define("_MYSTATUS","My status");
+define("_MYCOURSES", "my Courses");
+define("_CERTIFICATIONS", "Certificates");
+define("_MYCERTIFICATIONS", "my Certificates");
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","No certificates have been issued to the user yet");
+define("_SUPERVISORTOACTIVATE","To be activated by supervisor");
+define("_NOSUPERVISORSFOUND", "No branch supervisors found");
 define("_PRINTCONTENT", "Print content");
 define("_USERHASNOTDONETEST", "The user has not done this test");
 define("_VERIFYFOLLOWINGINFOISCORRECT", "Please verify that the following information is correct");
 define("_NOCATEGORIESDEFINED", "There are no categories defined");
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor email activation");
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Employee account activation email");
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","This email enables you to activate the new system user");
+define("_ASSIGNEDTOBRANCH","assigned to branch");
+define("_WITHTHEJOBDESCRIPTION","with the job description");
+define("_BYCLICKINGONTHELINK", "by clicking on the following link");
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","The account of your employee was successfully activated");
+define("_SHOWHORIZONTALBAR","Horizontal bar");
 ?>
+

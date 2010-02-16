@@ -37,7 +37,7 @@
 
  * --- [HCD] Include file manager
 
- * --- Retrieve all User information to appear on the form: personal information, lessons, courses, groups
+ * --- Retrieve all User information to appear on the form: personal information, lessons, courses, certificates, groups
 
  * -
 
@@ -196,9 +196,20 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
             $index++;
         }
-        $tabberajaxes_array['form'] = $index;
+        $tabberajaxes_array['form'] = 4;
     //pr($tabberajaxes_array);
     $smarty -> assign ("T_TABBERAJAX", $tabberajaxes_array);
+    if (isset($_GET['tabberajax'])) {
+     foreach ($tabberajaxes_array as $category => $value) {
+      if ($value == $_GET['tabberajax']) {
+       if ($category == 'skills' || $category == 'history' ) {
+        $_GET['op'] = 'account';
+       } else {
+        $_GET['op'] = 'status';
+       }
+      }
+     }
+    }
     /**
 
      * The avatar form has changed since 3.6.0.
@@ -210,9 +221,11 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
      */
     if ($editedUser -> user['login'] == $currentUser -> user['login']) { //The user is editing himself
         if ($currentUser -> getType() == "administrator") {
-            $form = new HTML_QuickForm("set_avatar_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$currentUser -> user['login']."&tab=my_profile", "", null, true);
+            $form = new HTML_QuickForm("set_avatar_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$currentUser -> user['login']."&tab=my_profile&op=account", "", null, true);
+            $baseUrl = "ctg=users&edit_user=".$currentUser -> user['login'];
         } else {
-            $form = new HTML_QuickForm("set_avatar_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=personal&tab=my_profile", "", null, true);
+            $form = new HTML_QuickForm("set_avatar_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=personal&tab=my_profile&op=account", "", null, true);
+            $baseUrl = "ctg=personal";
         }
         $smarty -> assign("T_PERSONAL_CTG", 1);
         if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
@@ -227,12 +240,53 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
             $smarty -> assign("T_SOCIAL_INTERFACE", 1);
             $systemAvatars = array_merge(array("" => ""), $systemAvatars);
         }
+        $baseUrl = "ctg=users&edit_user=".$editedUser -> user['login'];
     }
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
     $form -> addElement('file', 'file_upload', _IMAGEFILE, 'class = "inputText"');
     $form -> addElement('advcheckbox', 'delete_avatar', _DELETECURRENTAVATAR, null, 'class = "inputCheckbox"', array(0, 1));
     $form -> addElement('select', 'system_avatar' , _ORSELECTONEFROMLIST, $systemAvatars, "id = 'select_avatar'");
     $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
+    // Distinguishing between personal and other user administrator
+ if ($ctg == "personal") {
+  if (!isset($_GET['op'])) {
+   $_GET['op'] = 'dashboard';
+  }
+  $options = array( array('image' => '16x16/home.png', 'title' => _DASHBOARD, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=dashboard', 'selected' => isset($_GET['op']) && $_GET['op'] == 'dashboard' ? true : false),
+        array('image' => '16x16/generic.png', 'title' => _MYACCOUNT, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false),
+        array('image' => '16x16/user_timeline.png', 'title' => _MYSTATUS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=status' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'status' ? true : false));
+  $titles = array ( "account" => array("edituser" => _MYSETTINGS,
+            "profile" => _MYPROFILE,
+            "mapped" => _MAPPEDACCOUNTS,
+            "placements" => _MYPLACEMENTS,
+            "history" => _MYHISTORY,
+            "files" => _MYFILES,
+            "payments" => _PAYPALMYTRANSACTIONS),
+        "status" => array("lessons" => _MYLESSONS,
+           "courses" => _MYCOURSES,
+             "groups" => _MYGROUPS,
+           "certifications"=> _MYCERTIFICATIONS));
+ } else {
+  if (!isset($_GET['op'])) {
+   $_GET['op'] = 'account';
+  }
+  $options = array(array('image' => '16x16/generic.png', 'title' => _EDITUSER, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false),
+       array('image' => '16x16/user_timeline.png', 'title' => _USERSTATUS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=status' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'status' ? true : false));
+  $titles = array ( "account" => array("edituser" => _EDITUSER,
+            "profile" => _USERPROFILE,
+            "mapped" => _ADDITIONALACCOUNTS,
+            "placements" => _PLACEMENTS,
+            "history" => _HISTORY,
+            "files" => _FILERECORD,
+            "payments" => _PAYMENTS),
+        "status" => array("lessons" => _LESSONS,
+           "courses" => _COURSES,
+             "groups" => _GROUPS,
+           "certifications"=> _CERTIFICATIONS));
+ }
+ $smarty -> assign("T_OP",$_GET['op']);
+ $smarty -> assign("T_TABLE_OPTIONS", $options);
+ $smarty -> assign("T_TITLES", $titles);
     // If in personal mode then include the user profile fields
     if ($personal_profile_form) {
 /*        
@@ -278,8 +332,6 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $form -> setDefaults(array( 'short_description' => $editedUser -> user['short_description']));
     }
     //Get the dashboard innertables
-    $_GET['op'] = 'dashboard';
-    $smarty -> assign("T_OP",'dashboard');
     if (!isset($_GET['add_user']) && ($editedUser -> login == $currentUser -> login)) {
         $loadScripts[] = 'scriptaculous/dragdrop';
         require_once 'social.php';
@@ -753,7 +805,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $form -> addRule(array('password_', 'passrepeat'), _PASSWORDSDONOTMATCH, 'compare', null, 'client');
     } elseif (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login')) {
             // In classic eFront, only the administrator may change someone else's data
-            ($currentUser -> getType() == "administrator") ? $post_target = "?ctg=users&edit_user=".$_GET['edit_user'] : $post_target = "?ctg=personal";
+            ($currentUser -> getType() == "administrator") ? $post_target = "?ctg=users&edit_user=".$_GET['edit_user'] : $post_target = "?ctg=personal&op=account";
         $form = new HTML_QuickForm("change_users_form", "post", basename($_SERVER['PHP_SELF']).$post_target, "", null, true);
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
         if (!$editedUser -> isLdapUser) { //needs to check ldap
@@ -843,7 +895,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
             }
             $form -> addElement('select', 'user_type', _USERTYPE, $roles_array);
         }
-        $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox"');
+        $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ');
         // Set default values for new users
         if (isset($_GET['add_user'])) {
             $form -> setDefaults(array('active' => '1'));
@@ -892,6 +944,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
             /*** ON ADDING A NEW USER ***/
             /****************************/
             if (isset($_GET['add_user'])) {
+    $insertionTimestamp = time(); // needed for the rest of the code to now when the insertion took place
                 // Create array from normal user data
                 $users_content = array('login' => $values['new_login'],
                                        'name' => $values['name'],
@@ -902,6 +955,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
                                        'user_type' => $values['user_type'],
                                        'languages_NAME' => $values['languages_NAME'],
                                        'timezone' => $values['timezone'],
+                        'timestamp' => $insertionTimestamp,
                                        'user_types_ID' => $values['user_types_ID']);
                 foreach ($user_profile as $field) { //Get the custom fields values
                     $users_content[$field['name']] = $values[$field['name']];
@@ -1040,8 +1094,14 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $smarty -> assign('T_SIMPLEUSERNAME',$editedUser -> user['name'] . " " . $editedUser -> user['surname']);
         $smarty -> assign('T_USER', $editedUser -> user);
         /****************************************************************************************************************************************************/
-        /***************************** Retrieve all User information to appear on the form: personal information, lessons, courses, groups ******************/
+        /***************************** Retrieve all User information to appear on the form: personal information, lessons, courses, certificates, groups ******************/
         /****************************************************************************************************************************************************/
+        /** Get certificates **/
+        $certificates = $editedUser->getIssuedCertificates();
+        //pr($certificates);
+        if (!empty($certificates)) {
+            $smarty -> assign("T_USER_TO_CERTIFICATES", $certificates);
+        }
         /** Get groups **/
         $groups = eF_getTableData("groups", "*");
         $user_groups = $editedUser -> getGroups();

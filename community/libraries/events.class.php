@@ -520,7 +520,7 @@ class EfrontEvent
      */
     public static function triggerEvent($fields, $send_notification = true) {
   // Check and create all necessary fields
-            //pr($fields);
+        //pr($fields);
         if (!isset($fields['type'])) {
             throw new EfrontEventException(_NOEVENTCODEDEFINED, EfrontEventException::NOEVENTCODE_DEFINED);
         }
@@ -598,7 +598,14 @@ class EfrontEvent
      //if ((isset($GLOBALS['configuration']['social_modules_activated']) && $GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_EVENTS) != 0) {
       // Negative events like not visited, not completed etc are not to be logged
       if ($fields['type'] > 0 && (!isset($event_types[$fields['type']]['notToBeLogged']) || $event_types[$fields['type']]['notToBeLogged'] == 0)) {
+       if (isset($fields['explicitly_selected'])) {
+        $explicitly_selected = $fields['explicitly_selected'];
+        unset($fields['explicitly_selected']);
+       }
        EfrontEvent::logEvent($fields);
+       if (isset($explicitly_selected)) {
+        $fields['explicitly_selected'] = $explicitly_selected;
+       }
       }
      //}
      // By default all notifications will be sent
@@ -774,9 +781,19 @@ class EfrontEvent
                         "completed" => "0"));
          $event_notification['recipient'] = "";
         } else if ($event_notification['send_recipients'] == EfrontNotification::EXPLICITLYSEL) {
-         $event_notification['send_conditions'] = serialize(array("entity_ID" => $this -> event['entity_ID'],
-                        "entity_category" => $event_types[$event_notification['event_type']]['category']));
-         $event_notification['recipient'] = "";
+         if (isset($this -> event['explicitly_selected'])) {
+          // General case - set field "explicitly_selected" in the triggerEvent fields
+          if (!is_array($this -> event['explicitly_selected'])) {
+           $this -> event['explicitly_selected'] = array($this -> event['explicitly_selected']);
+          }
+          $event_notification['send_conditions'] = serialize(array ("users_login" => $this -> event['explicitly_selected']));
+          $event_notification['recipient'] = "";
+         } else {
+          // This special treatment is used for surveys - so that all members of the survey will get the notification when the time of dispatch comes
+          $event_notification['send_conditions'] = serialize(array("entity_ID" => $this -> event['entity_ID'],
+                         "entity_category" => $event_types[$event_notification['event_type']]['category']));
+          $event_notification['recipient'] = "";
+         }
         }
         /*
 

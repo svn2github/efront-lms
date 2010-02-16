@@ -24,6 +24,7 @@
 - Fixed bug in content management when more than one possible action was set
 - Fixed leaving orphaned entities while deleting lesson
 - Fixed bug about new message link for user types with only view permissions in messages
+- Added object{position: relative; z-index: 0} in css for properly display videos and tooltips together. Objects also need <param name="wmode" value="transparent">
 - Added events in lesson initialization list
 - Fixed SCORM 1.2 detected as 2004 in enterprise edition
 - Fixed requesting sidebar in horizontal themes
@@ -31,6 +32,9 @@
 - Fixed SCORM completion icon showing up correctly when coexisting with tests
 - Fixed loosing questions' unit information when they are deactivated 
 - Fixed issue with lessons catalog not displaying hidden lessons
+- Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
+- Added toggle to html mode in module billboard
+- Fixed problem of displaying link for tests reports in community version
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build

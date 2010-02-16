@@ -102,7 +102,7 @@
                                      <td class = "elementCell">
                                        <img src = "view_file.php?file={$comment.avatar}" title="{$smarty.const._CURRENTAVATAR}" alt="{$smarty.const._CURRENTAVATAR}" width = "{$comment.avatar_width}" height = "{$comment.avatar_height}" style="vertical-align:middle" />
                                      </td>
-                                     <td width="100%" >&nbsp;<a href = "{$smarty.session.s_type}.php?ctg=social&op=show_profile&user={$comment.authors_LOGIN}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._USERPROFILE}', 1)" target = "POPUP_FRAME"><b>{$comment.name} {$comment.surname}</b></a>: {$comment.data|replace:"<p>":""|replace:"</p>":""} <span class="timeago">{$comment.time_ago}</span> </td>
+                                     <td width="100%" >&nbsp;<a href = "{$smarty.session.s_type}.php?ctg=social&op=show_profile&user={$comment.authors_LOGIN}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._USERPROFILE}', 1)" target = "POPUP_FRAME"><b>#filter:login-{$comment.authors_LOGIN}#</b></a>: {$comment.data|replace:"<p>":""|replace:"</p>":""} <span class="timeago">{$comment.time_ago}</span> </td>
                                      {*<td>{if $smarty.session.s_login == $comment.authors_LOGIN}<a href = "{$smarty.session.s_type}.php?ctg=social&op=comments&action=change&id={$comment.id}" onclick= "eF_js_showDivPopup('{$smarty.const._EDITCOMMENT}', 1);" target = "POPUP_FRAME"><img src="images/16x16/edit.png" title="{$smarty.const._EDIT}" alt="{$smarty.const._EDIT}" border = 0 style="vertical-align:middle" /> </a>{/if}</td>*}
                                      <td><a href = "{$smarty.session.s_type}.php?ctg=social&op=comments&action=delete&id={$comment.id}" onclick="return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETETHISCOMMENT}');"><img src="images/16x16/error_delete.png" title="{$smarty.const._DELETE}" alt="{$smarty.const._DELETE}" border = 0 style="vertical-align:middle" /> </a></td>
                                     </tr>
@@ -325,7 +325,7 @@
                              <td class = "elementCell">
                                <img src = "view_file.php?file={$comment.avatar}" title="{$smarty.const._CURRENTAVATAR}" alt="{$smarty.const._CURRENTAVATAR}" width = "{$comment.avatar_width}" height = "{$comment.avatar_height}" style="vertical-align:middle" />
                              </td>
-                             <td width="100%" >&nbsp;<a href = "{$smarty.session.s_type}.php?ctg=social&op=show_profile&user={$comment.authors_LOGIN}&popup=1" ><b>#filter:login-{$comment.login}#</b></a>: {$comment.data|replace:"<p>":""|replace:"</p>":""} <span class="timeago">{$comment.time_ago}</span> </td>
+                             <td width="100%" >&nbsp;<a href = "{$smarty.session.s_type}.php?ctg=social&op=show_profile&user={$comment.authors_LOGIN}&popup=1" ><b>#filter:login-{$comment.authors_LOGIN}#</b></a>: {$comment.data|replace:"<p>":""|replace:"</p>":""} <span class="timeago">{$comment.time_ago}</span> </td>
                             </tr>
                      {/foreach}
                      </table>

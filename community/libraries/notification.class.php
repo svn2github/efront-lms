@@ -80,6 +80,7 @@ class EfrontNotification
  const SYSTEMADMINISTRATOR = 6; // system administrator
  const LESSONUSERSNOTCOMPLETED = 7; // all users that haven't completed the lesson
  const COURSEPROFESSORS = 8; // all course professors
+ const USERSUPERVISORS = 9; // all users that supervise the branches of the user
     /**
 
      * The notification variable
@@ -244,6 +245,20 @@ class EfrontNotification
                "send_immediately"=> 1,
             "subject" => _ACCOUNTACTIVATIONMAILSUBJECT,
             "message" => _DEARUSER." ###users_name###,<br><br>"._WELCOMETOOUR.' '._ELEARNINGPLATFORM.".! <br>"._ACCOUNTACTIVATIONMAILBODY."<br>###host_name###/index.php?account=###users_login###&key=###timestamp###<br><br><br>".
+                           _AUTOMATEDEMAILSENTFROM.' ###host_name### '._ON.' ###date###<br>'.
+                           _FORFURTHERCONTACTADMINAT." ###host_name###/index.php?ctg=contact <br><br>"._KINDREGARDSEFRONT."<br>---<br>"._ADMINISTRATIONGROUP."<br>###site_name###<br>###site_motto###<br>");
+   eF_insertTableData("event_notifications", $default_notification);
+  }
+     $supervisor_registr = eF_getTableDataFlat("event_notifications", "event_type", "event_type = " . EfrontEvent::HCD_NEW_JOB_ASSIGNMENT . " AND send_recipients = " . EfrontNotification::EXPLICITLYSEL);
+  if (empty($supervisor_registr)) {
+   $default_notification = array("event_type" => EfrontEvent::HCD_NEW_JOB_ASSIGNMENT,
+            "send_recipients" => EfrontNotification::EXPLICITLYSEL,
+               "send_conditions" => serialize(array()),
+               "send_immediately"=> 1,
+            "subject" => _EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT,
+            "message" => _DEARUSER." ###users_name###,<br><br>"._EMPLOYEEACCOUNTACTIVATIONMAILBODY . " ###triggering_users_name### ###triggering_users_surname### (###triggering_users_login###) " . _ASSIGNEDTOBRANCH .
+                " ###branch_name### ". _WITHTHEJOBDESCRIPTION . " ###job_description_name### " . _BYCLICKINGONTHELINK . ": " .
+                "<br><br>###host_name###/index.php?account=###triggering_users_login###&key=###timestamp###&activatedBy=###users_login###<br><br><br>".
                            _AUTOMATEDEMAILSENTFROM.' ###host_name### '._ON.' ###date###<br>'.
                            _FORFURTHERCONTACTADMINAT." ###host_name###/index.php?ctg=contact <br><br>"._KINDREGARDSEFRONT."<br>---<br>"._ADMINISTRATIONGROUP."<br>###site_name###<br>###site_motto###<br>");
    eF_insertTableData("event_notifications", $default_notification);
@@ -857,7 +872,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
          //echo "masd";
          //pr($recipients);
         } else if (isset($this -> recipients['users_login'])) {
-         $recipients = $this -> recipients['users_login'];
+          $recipients = $this -> recipients['users_login'];
         }
         foreach ($recipients as $recipient) {
          $recipients_list[$recipient['login']] = $recipient;
@@ -985,7 +1000,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      $message = eF_replaceMD5($message);
      //ssssssssssssssssssssss
      if ($smtp -> send($recipient['email'], $header, $message)) {
-     //if (true) {    // for debugging	    
+     //if (true) {  echo $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ") " . $message ."<BR>";  // for debugging	    
      // put into sent_notifications table
          eF_insertTableData("sent_notifications", array("timestamp" => time(),
                      "recipient" => $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ")",
@@ -1208,7 +1223,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
    } else if ($notification['send_recipients'] == EfrontNotification::LESSONUSERSNOTCOMPLETED) {
        $event_notification_recipients = _LESSONUSERSNOTCOMPLETED;
    } else if ($notification['send_recipients'] == EfrontNotification::COURSEPROFESSORS) {
-    $event_notification_recipients = _COURSEPROFESSORS;;
+    $event_notification_recipients = _COURSEPROFESSORS;
+   } else if ($notification['send_recipients'] == EfrontNotification::USERSUPERVISORS) {
+    $event_notification_recipients = _USERSUPERVISORS;
       } else {
     $event_notification_recipients = "";
       }

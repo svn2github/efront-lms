@@ -1413,15 +1413,13 @@ abstract class EfrontUser
          if (eF_checkParameter($groupId, 'id')) {
           // Check if the group is already assigned, if so, complement the existing specification
           if (!isset($this -> groups[$groupId])) {
-           if ($ok = eF_insertTableData("users_to_groups", array("users_LOGIN" => $this -> login, "groups_ID" => $groupId))) {
-            // Register group assignment into the event log - event log only available in HCD
-            try {
-             $group = new EfrontGroup($groupId);
-             $group->addUsers($this -> user['login']);
-             $this -> groups[$groupId] = $groupId;
-            } catch (Exception $e) {
-             throw new EfrontUserException(_OPERATIONWASNOTCOMPLETEDSUCCESFULLY.': '.$ok, EfrontUserException :: DATABASE_ERROR);
-            }
+           // Register group assignment into the event log - event log only available in HCD
+           try {
+            $group = new EfrontGroup($groupId);
+            $group->addUsers($this -> user['login']);
+            $this -> groups[$groupId] = $groupId;
+           } catch (Exception $e) {
+            throw new EfrontUserException(_OPERATIONWASNOTCOMPLETEDSUCCESFULLY.': '.$ok . $e->getTraceAsString(), EfrontUserException :: DATABASE_ERROR);
            }
           }
          }
@@ -1943,6 +1941,9 @@ class EfrontAdministrator extends EfrontUser
     public function getCourses() {
          return array();
     }
+    public function getIssuedCertificates() {
+     return array();
+    }
 }
 /**
 
@@ -2456,6 +2457,46 @@ abstract class EfrontLessonUser extends EfrontUser
                 }
             }
         }
+    }
+    /**
+
+     * Get user certificates
+
+     *
+
+     * This function gets all certificates that have been issued for the user
+
+     * <br/>Example:
+
+     * <code>
+
+     * $user -> getIssuedCertificates();       //Get an array with the information on the certificates
+
+     * </code>
+
+     * 
+
+     * @return an array of the format [] => [course name, certificate key, date issued, date expire, issuing authority]
+
+     * @since 3.6.1
+
+     * @access public
+
+     */
+    public function getIssuedCertificates() {
+     $result = eF_getTableData("users_to_courses uc, courses c", "c.id, c.certificate_expiration, uc.issued_certificate, c.active", "uc.courses_ID=c.id AND uc.issued_certificate IS NOT NULL AND uc.users_LOGIN='".$this -> user['login']."'", "c.name");
+     $certificates = array();
+        foreach ($result as $value) {
+         $certificateInfo = unserialize($value['issued_certificate']);
+         $certificates[] = array("courses_ID" => $value['id'],
+               "course_name" => $certificateInfo['course_name'],
+               "serial_number" => $certificateInfo['serial_number'],
+               "grade" => $certificateInfo['grade'],
+               "issue_date" => $certificateInfo['date'],
+               "active" => $value['active'],
+               "expiration_date"=> ($value['certificate_expiration'])?($certificateInfo['date']+$value['certificate_expiration']):_NEVER);
+        }
+        return $certificates;
     }
     /**
 

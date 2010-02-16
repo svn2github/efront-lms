@@ -101,6 +101,7 @@ table.pageLayout{width:100%;height:100%;border:0px solid #999999;background:#182
 table.pageLayout td.layoutColumn{padding:2px;vertical-align:top;}
 table.pageLayout td.left{width:250px;}
 table.pageLayout td.right{width:250px;}
+
 table.pageLayout td.header{height:70px;border-bottom: 0px solid #999999;padding:0px;vertical-align:top;background:#FAFAFA url('../images/css_images/background.png') repeat-x top;}
 table.pageLayout td.header *{vertical-align:middle}
 table.pageLayout td.header #logo{padding:2px;float:left;}
@@ -113,6 +114,16 @@ table.pageLayout td.header #path{clear:left;padding-top:5px;background:url('../i
 table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right; padding-right:4px;}
 table.pageLayout td.footer{color:#FFFFFF;height:15px;font-size:12px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349;padding:5px;text-align: right;background:url('../images/css_images/gradient.jpg') repeat-x top;}
+table.pageLayout td.headerHidden{height:26px;border-bottom: 0px solid #999999;padding:0px;vertical-align:top;background:#FAFAFA;}
+table.pageLayout td.headerHidden #logo{display:none}
+table.pageLayout td.headerHidden #info{display:none}
+table.pageLayout td.headerHidden #site_name{display:none}
+table.pageLayout td.headerHidden #logout_link{display:none}
+table.pageLayout td.headerHidden #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
+table.pageLayout td.headerHidden #path{color:#FFFFFF;clear:left;padding-top:5px;background:url('../images/css_images/gradient.jpg') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
+table.pageLayout td.headerHidden #path #path_title{color:#FFFFFF; float:left;margin-left:10px}
+table.pageLayout td.headerHidden #path #path_language{color:#FFFFFF; float:right; padding-right:4px;}
+table.pageLayout td.headerHidden a.titleLink {color:#FFFFFF;},
 table.hideLeft td.left, 
 table.hideRight td.right{display:none}
 table.hideBoth td.right,
@@ -1366,6 +1377,7 @@ div.lessonLayout{width:602px;margin-left:auto;margin-right:auto;}
 div.lessonLayout td{vertical-align:top;}
 div.lessonLayout ul *{vertical-align:middle;}
 div.lessonLayout td#submitLayout{text-align:center;}
+object{position: relative; z-index: 0} 
 
 /*deprecated table classes, used in some places yet*/
 table.innerTable{

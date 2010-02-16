@@ -3474,8 +3474,25 @@ define("_MUSTSPECIFYQUESTIONNUMBER", "Πρέπει να προσδιορίσετ
 define("_MUSTSPECIFYVALUEFROM", "Πρέπει να προσδιορίσετε μία τιμή από");
 define("_COURSEPROFESSORS","Καθηγητές δέσμης");
 define("_PROFESSORSOFCOURSE","Καθηγητές της δέσμης");
+define("_USERSUPERVISORS","Προϊστάμενοι χρήστη");
+define("_USEROPTIONSFOR","Επιλογές για χρήστη");
+define("_MYSTATUS","Κατάσταση");
+define("_MYCOURSES", "Οι δέσμες μου");
+define("_CERTIFICATIONS", "Πιστοποιήσεις");
+define("_MYCERTIFICATIONS", "Οι πιστοποιήσεις μου");
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Δεν έχουν ακόμη εκδοθεί πιστοποιήσεις στο χρήστη");
+define("_SUPERVISORTOACTIVATE","Θα ενεργοποιηθεί από τον προϊστάμενο");
+define("_NOSUPERVISORSFOUND", "Δε βρέθηκαν προϊστάμενοι στο τμήμα");
 define("_PRINTCONTENT", "Εκτύπωση περιεχομένου");
 define("_USERHASNOTDONETEST", "Ο χρήστης δεν έχει κάνει αυτήν την αξιολόγηση");
 define("_VERIFYFOLLOWINGINFOISCORRECT", "Παρακαλούμε επιβεβαιώστε ότι οι ακόλουθες πληροφορίες είναι σωστές");
 define("_NOCATEGORIESDEFINED", "Δεν έχουν οριστεί κατηγορίες");
+define("_SUPERVISORMAILUSERACTIVATION","Ενεργοποίηση από προϊστάμενο μέσω email");
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Email ενεργοποίησης λογαριασμού συνεργάτη");
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Με το email αυτό μπορείτε να ενεργοποιήσετε το λογαριασμό του νέου συνεργάτη");
+define("_ASSIGNEDTOBRANCH","που ανατέθηκε στο τμήμα");
+define("_WITHTHEJOBDESCRIPTION","με τη θέση εργασίας");
+define("_BYCLICKINGONTHELINK", "κάνοντας κλικ στο παρακάτω");
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Ο λογαριασμός του συνεργάτη σας ενεργοποιήθηκε επιτυχώς");
+define("_SHOWHORIZONTALBAR","Οριζόντιο μενού");
 ?>

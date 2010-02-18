@@ -98,7 +98,7 @@ try {
 */
 //---------------------------------------End of Volume-------------------------------------------
  if (isset($_GET['folders'])) {
-     $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=messages&folders=true".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit'])."", "", null, true);
+     $entityForm = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=messages&folders=true".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit'])."", "", null, true);
   $legalValues = $legalFolderValues;
      $entityName = 'f_folders';
      //Handle creation, deletion etc uniquely

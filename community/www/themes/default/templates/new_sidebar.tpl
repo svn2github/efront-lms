@@ -244,7 +244,7 @@
                     <form style="display:inline;" name = "chat_form" action = "javascript:sendMessage(document.chat_form.chat_message.value,$('current_chatroom_id').value); " method = "post">
                     <tr {if $T_ONLY_VIEW_CHAT == 1}style="display:none"{/if}><td>
                         <table cellpadding="0" cellspacing="0" border="0"><tr>
-                        <td width="20"><a href = "smilies.html" onclick = "eF_js_showDivPopup('{$smarty.const._SMILIES}', 1)" target = "POPUP_FRAME"><img src = "images/smilies/icon_smile.gif" style="vertical-align:middle" border = "0"/></a></td>
+                        <td width="20"><a href = "smilies.php" onclick = "eF_js_showDivPopup('{$smarty.const._SMILIES}', 1)" target = "POPUP_FRAME"><img src = "images/smilies/icon_smile.gif" style="vertical-align:middle" border = "0"/></a></td>
                         {math assign='T_SB_WIDTH_MINUS_20' equation="x-20" x=$T_SIDEBARWIDTH}
                         <td align="left" width="{$T_SB_WIDTH_MINUS_20}" nowrap>
                             <input type = "text" name = "chat_message" width="{$T_SB_WIDTH_MINUS_20}" style = "width:97%" valign = "middle" onpaste = "javascript: document.chat_form.submit.disabled = false;" onKeyup = "javascript:enableButton();" onMouseup = "javascript:enableButton();"/>

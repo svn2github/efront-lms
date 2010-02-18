@@ -3496,4 +3496,3 @@ define("_BYCLICKINGONTHELINK", "by clicking on the following link");
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","The account of your employee was successfully activated");
 define("_SHOWHORIZONTALBAR","Horizontal bar");
 ?>
-

@@ -35,6 +35,9 @@
 - Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
 - Added toggle to html mode in module billboard
 - Fixed problem of displaying link for tests reports in community version
+- Fixed problem about conflicted forms with entities
+- Fixed paths in smiles icons for chat
+- Fixed bug about export chat history (EF-526)
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build

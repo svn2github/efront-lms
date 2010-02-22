@@ -6,12 +6,13 @@
   {* Merged header with mobile horizontal interface *}
   {if $T_THEME_SETTINGS->options.sidebar_interface == 2}
    {* First row *}
-   {if isset($T_ONLINE_USERS_LIST)}
-    <script>
-    setTimeout("getPeriodicData()", 2500);
-          setInterval("getPeriodicData()", {if $T_CONFIGURATION.updater_period}{$T_CONFIGURATION.updater_period}{else}100000{/if});
-          </script>
 
+   {if isset($T_ONLINE_USERS_LIST)} <script> var startUpdater = true; </script>{else}<script> var startUpdater = false; </script>{/if}
+   {if $T_CONFIGURATION.updater_period}<script> var updaterPeriod = '{$T_CONFIGURATION.updater_period}';</script>{else}<script>var updaterPeriod = 100000;</script>{/if}
+
+
+
+   {if isset($T_ONLINE_USERS_LIST)}
     {*<span id = "online_users_display" class = "headerText" onMouseOver="$('users_online').show()" onMouseOut='setTimeout("$(\"users_online\").hide()", 2500);'>{$smarty.const._ONLINEUSERS}&nbsp;({$T_ONLINE_USERS_COUNT})</span><span class = "headerText">&nbsp;|</span>*}
 
     {if $T_ONLINE_USERS_COUNT}<span id = "online_users_display" class = "headerText" >{$smarty.const._ONLINEUSERS}&nbsp;({$T_ONLINE_USERS_COUNT})</span><span class = "headerText">&nbsp;|</span>{/if}

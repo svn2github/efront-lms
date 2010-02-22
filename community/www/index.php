@@ -44,7 +44,7 @@ if (is_dir("install") && isset($_GET['delete_install'])) {
   echo "The installation directory could not be deleted. Please delete it manually or your system security is at risk.";
  }
 }
-
+//			$loadScripts[] = 'index';
 //$smarty -> caching 	      = $GLOBALS['configuration']['smarty_cache'];					
 //$smarty -> cache_lifetime = $GLOBALS['configuration']['smarty_cache_timeout'];	
 //$cacheId = md5(serialize($_GET));
@@ -401,6 +401,21 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd') { //The user asked to di
 /* -------------------------------------------------------End of Reset Password part--------------------------------------------------------- */
 /* -----------------------------------------------------Sign up part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup']) {
+  if (isset($_GET['postAjaxRequest'])) {
+   try {
+    $currentBranch = new EfrontBranch($_GET['branch']);
+       if (isset($_GET['getJobSelect'])) {
+           $ar= $currentBranch -> createJobDescriptionsSelect($attributes);
+       } else if (isset($_GET['getSupervisorsSelect'])) {
+        $ar= $currentBranch -> createSupervisorsSelect();
+       }
+          foreach ($ar as $val=>$element) {
+              echo $val."<option>".$element."<option>";
+          }
+          exit;
+   } catch (Exception $e) {
+   }
+  }
  $users = eF_getTableDataFlat("users", "*");
  //$versionDetails = eF_checkVersionKey($configuration['version_key']);
  $smarty -> assign("T_CTG", "signup");
@@ -493,25 +508,30 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
                                "pending" => ($configuration['activation']) ? 0 : 1,
                                "active" => $configuration['activation'],
                                "languages_NAME" => $values['languages_NAME']);
+    $self_registered_jobs = array();
             foreach ($user_profile as $field) { //Get the custom fields values
-                $user_data[$field['name']] = $values[$field['name']];
+             $user_data[$field['name']] = $values[$field['name']];
+              if ($field['type'] == 'branchinfo') {
+               $self_registered_jobs[] = array("branch_ID" => $values[$field['name']. "_branches"], "job_description" => $_POST[$field['name']. "_jobs"], "supervisor" => $_POST[$field['name']. "_supervisors"]);
+               unset($user_data[$field['name']]);
+              }
             }
             try {
           $newUser = EfrontUser :: createUser($user_data);
           EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_REGISTER, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
           // send not-visited notifications for the newly registered user
           EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
+          //pr($self_registered_jobs);
     if ($configuration['activation'] == 0) {
      if ($configuration['mail_activation'] == 1){
       $tmp = eF_getTableData("users","timestamp","login='".$user_data['login']."'");
       $timestamp = $tmp[0]["timestamp"];
       EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_ON_EMAIL_ACTIVATION, "users_LOGIN" => $tmp[0]['login'], "users_name" => $tmp[0]['name'], "users_surname" => $tmp[0]['surname'], "timestamp" => $timestamp, "entity_name" => $timestamp));
       $message = _YOUWILLRECEIVEMAILFORACCOUNTACTIVATION;
-      eF_redirect(''.basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type=success');
-     } else{
+     } else {
       $message = _ADMINISTRATORWILLACTIVATEYOURACCOUNT;
-      eF_redirect(''.basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type=success');
      }
+     eF_redirect(''.basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type=success');
     } else {
      $message = _SUCCESSREGISTER;
      $message_type = 'success';
@@ -646,7 +666,7 @@ if (strlen($configuration['css']) > 0 && is_file(G_CUSTOMCSSPATH.$configuration[
 }
 $debug_timeBeforeSmarty = microtime(true) - $debug_TimeStart;
 $benchmark -> set('script');
-$loadScripts = array('includes/catalog');
+$loadScripts[] = 'includes/catalog';
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'cart') {
     try {
         include "catalog.php";

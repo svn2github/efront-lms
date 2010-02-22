@@ -309,6 +309,8 @@
             <td class = "elementCell">{$T_DISABLE_VARIABLES_FORM.disable_tests.html}</td></tr>
         <tr><td class = "labelCell">{$smarty.const._CHAT}:&nbsp;</td>
             <td class = "elementCell">{$T_DISABLE_VARIABLES_FORM.chat_enabled.html}</td></tr>
+  <tr><td class = "labelCell">{$smarty.const._TOOLTIP}:&nbsp;</td>
+            <td class = "elementCell">{$T_DISABLE_VARIABLES_FORM.disable_tooltip.html}</td></tr>
   <tr><td></td>
   <td class = "infoCell">{$smarty.const._SELECTOPTIONSDISABLED}</td></tr>
         <tr><td></td><td class = "submitCell">{$T_DISABLE_VARIABLES_FORM.submit_disable.html}</td></tr>

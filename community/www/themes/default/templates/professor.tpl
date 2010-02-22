@@ -177,6 +177,17 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  {/if}
     {include file = "includes/scorm.tpl"}
 {/if}
+{if (isset($T_CTG) && $T_CTG == 'ims')}
+ {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=ims'>`$smarty.const._IMSOPTIONS`</a>"}
+ {if $smarty.get.scorm_review}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=ims&scorm_review=1'>`$smarty.const._SCORMREVIEW`</a>"}
+ {elseif $smarty.get.scorm_import}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=ims&scorm_import=1'>`$smarty.const._SCORMIMPORT`</a>"}
+ {elseif $smarty.get.scorm_export}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=ims&scorm_export=1'>`$smarty.const._SCORMEXPORT`</a>"}
+ {/if}
+    {include file = "includes/ims.tpl"}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'lesson_information')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lesson_information">'|cat:$smarty.const._LESSONINFORMATION|cat:'</a>'}
  {if $smarty.get.edit_info}
@@ -672,6 +683,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
   {$smarty.capture.moduleNewsPage}
   {$smarty.capture.moduleProgress}
   {$smarty.capture.moduleScormOptions}
+  {$smarty.capture.moduleIMSOptions}
   {$smarty.capture.moduleLessonInformation}
   {$smarty.capture.moduleGlossary}
   {$smarty.capture.moduleStatistics}

@@ -104,7 +104,7 @@ table.pageLayout td.headerHidden #language{padding-top:5px;padding-right:5px;flo
 table.pageLayout td.headerHidden #path{color:#FFFFFF;clear:left;padding-top:5px;background:url('../images/css_images/gradient.jpg') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
 table.pageLayout td.headerHidden #path #path_title{color:#FFFFFF; float:left;margin-left:10px}
 table.pageLayout td.headerHidden #path #path_language{color:#FFFFFF; float:right; padding-right:4px;}
-table.pageLayout td.headerHidden a.titleLink {color:#FFFFFF;},
+table.pageLayout td.headerHidden a.titleLink {color:#FFFFFF;}
 table.pageLayout td.outerfooter{font-size:14px;border-top: 1px solid #999;padding:5px;background:#FAFAFA url('../images/css_images/gradient_large.jpg') repeat-x top;}
 
 /*table.inner td.footer * {color:#6D6D6D;}*/
@@ -302,6 +302,12 @@ td.labelCell{
 text-align:right;
 white-space:nowrap;
 width:10%;
+}
+td.labelCellTop{
+text-align:right;
+white-space:nowrap;
+width:10%;
+vertical-align:top;
 }
 td.elementCell{
 text-align:left;

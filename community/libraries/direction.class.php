@@ -827,7 +827,7 @@ class EfrontDirectionsTree extends EfrontTree
                             $lessonLink = false;
                             $classNames[] = 'inactiveLink';
                         }
-                        if ($options['tooltip']) {
+                        if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
                             $treeString .= '<a href = "'.($lessonLink ? str_replace("#user_type#", $roleBasicType, $lessonLink).$lessons[$lessonId] -> lesson['id'] : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$lessonId.', \'lesson\')">'.$lessons[$lessonId] -> lesson['name'].'
                                   <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/>
                                   <span class = "tooltipSpan"></span>

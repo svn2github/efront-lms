@@ -52,10 +52,8 @@
 
     // Get unread messages
 
-    {if !$T_NO_MESSAGES}
-        setTimeout("getPeriodicData()", 2500);
-        setInterval("getPeriodicData()", {if $T_CONFIGURATION.updater_period}{$T_CONFIGURATION.updater_period}{else}100000{/if});
-    {/if}
+ {if !$T_NO_MESSAGES}var startUpdater = true;{else}var startUpdater = false;{/if}
+ {if $T_CONFIGURATION.updater_period}var updaterPeriod = '{$T_CONFIGURATION.updater_period}';{else}var updaterPeriod = 100000;{/if}
 
     var arrow_status = "down"; // Initialize toggle arrows
 </script>

@@ -1,3 +1,22 @@
+=== Version 3.6.0 build ===
+- Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
+- Added toggle to html mode in module billboard
+- Fixed problem of displaying link for tests reports in community version
+- Fixed problem about conflicted forms with entities
+- Fixed paths in smiles icons for chat
+- Fixed bug about export chat history (EF-526)
+- Fixed bug about importing user with invalid user type
+- Fixed js error about undefined getPeriodicData
+- Added disable tooltip option
+- Fixed test analysis charts not loading with PHP 5.1.x
+- Fixed voucher code not being accepted as valid in certain circumstances
+- Fixed free enrollment not working with encrypted urls
+- Fixed questions correction from the professor (un)setting unit completion status
+- Fixed refresh of sidebar when changing lesson in professor
+- Added header hide option
+- Added job self-registering and activating supervisor with branch information custom profile field
+- Added hiddenHeader style for horizontal template
+
 === Version 3.6.0 build 5997 ===
 - Fixed phplivedocx configuration file creation
 - Fixed upgrading from 3.5.5 not retaining all kinds of custom blocks
@@ -32,12 +51,7 @@
 - Fixed SCORM completion icon showing up correctly when coexisting with tests
 - Fixed loosing questions' unit information when they are deactivated 
 - Fixed issue with lessons catalog not displaying hidden lessons
-- Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
-- Added toggle to html mode in module billboard
-- Fixed problem of displaying link for tests reports in community version
-- Fixed problem about conflicted forms with entities
-- Fixed paths in smiles icons for chat
-- Fixed bug about export chat history (EF-526)
+
 
 === Version 3.6.0 build 5831 ===
 - Added missing scorm.js file in latest build

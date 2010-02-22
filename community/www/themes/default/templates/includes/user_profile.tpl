@@ -10,13 +10,13 @@
                                         <tr><td class = "labelCell">{$smarty.const._FIELDNAME}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.name.html}</td></tr>
                                         <tr><td></td>
-                                        	<td class = "infoCell">{$smarty.const._CHARACTERSMAX20ONLYNOSPACES}</td></tr>
+                                         <td class = "infoCell">{$smarty.const._CHARACTERSMAX20ONLYNOSPACES}</td></tr>
                                         {if $T_FIELD_FORM.name.error}<tr><td></td><td class = "formError">{$T_FIELD_FORM.name.error}</td></tr>{/if}
                                         <tr><td class = "labelCell">{$smarty.const._FIELDDESCRIPTION}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.description.html}</td></tr>
                                         <tr><td></td>
-                                        	<td class = "infoCell">{$smarty.const._INTHESELECTEDLANGUAGE}</td></tr>
-                                        <tr><td class = "labelCell">{$smarty.const._DBTYPE}:&nbsp;</td>
+                                         <td class = "infoCell">{$smarty.const._INTHESELECTEDLANGUAGE}</td></tr>
+                                        <tr id ="database_type_row" ><td class = "labelCell">{$smarty.const._DBTYPE}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.db_type.html}</td></tr>
                                         <tr><td class = "labelCell">{$smarty.const._TYPE}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.type.html}</td></tr>
@@ -26,7 +26,7 @@
                                             {section name = 'field_list' loop = $T_FIELD_FORM.values}
                                                 {if !$smarty.section.field_list.first}
                                         <tr><td></td>
-                                        	<td class = "elementCell">{$T_FIELD_FORM.values[field_list].html}&nbsp;<img src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETEVALUE}" alt = "{$smarty.const._DELETEVALUE}" border = "0" style = "vertical-align:middle" onclick = "event.findElement('tr').remove();elementCount--;"/></td></tr>
+                                         <td class = "elementCell">{$T_FIELD_FORM.values[field_list].html}&nbsp;<img src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETEVALUE}" alt = "{$smarty.const._DELETEVALUE}" border = "0" style = "vertical-align:middle" onclick = "event.findElement('tr').remove();elementCount--;"/></td></tr>
                                                 {/if}
                                             {/section}
                                         {/if}
@@ -34,6 +34,12 @@
                                             <td class = "elementCell">{$T_FIELD_FORM.default_value.html}</td></tr>
                                         <tr id = "textarea_field" style = "display:none"><td class = "labelCell">{$smarty.const._DEFAULTVALUE}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.default_textarea.html}</td></tr>
+
+
+
+
+
+
                                         <tr><td class = "labelCell">{$smarty.const._ACTIVENEUTRAL}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.active.html}</td></tr>
                                         <tr><td class = "labelCell">{$smarty.const._ISVISIBLEFROMOTHERUSERS}&nbsp;</td>
@@ -46,9 +52,13 @@
                                         <tr><td></td><td>{$T_FIELD_FORM.submit_field.html}</td></tr>
                                     </table>
                                 </form>
+
                                 <script>
+
                                 var elementCount = 0;
-                                {if $T_PROFILE_TYPE}changeType('{$T_PROFILE_TYPE}');{/if}
+                                var profileType = "";
+
+                                {if isset($T_PROFILE_TYPE)}profileType = "{$T_PROFILE_TYPE}";{/if}
                                 {if isset($T_SELECT_OPTIONS)}elementCount = {$T_SELECT_OPTIONS};{/if}
                                 </script>
                             {/capture}
@@ -56,14 +66,14 @@
                 {else}
                     {capture name = 't_fields_list'}
                         {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
-		                        <div class = "headerTools">
-		                            <span>
-		                                <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDNEWFIELD}" title = "{$smarty.const._ADDNEWFIELD}">
-		                                <a href = "administrator.php?ctg=user_profile&add_field=1" title = "{$smarty.const._ADDNEWFIELD}">{$smarty.const._ADDNEWFIELD}</a>
-		                            </span>
-		                        </div>
-		                        
-		                        {assign var = "change_fields" value = "1"}
+                          <div class = "headerTools">
+                              <span>
+                                  <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDNEWFIELD}" title = "{$smarty.const._ADDNEWFIELD}">
+                                  <a href = "administrator.php?ctg=user_profile&add_field=1" title = "{$smarty.const._ADDNEWFIELD}">{$smarty.const._ADDNEWFIELD}</a>
+                              </span>
+                          </div>
+
+                          {assign var = "change_fields" value = "1"}
                         {/if}
                                 <table width = "100%" class = "sortedTable">
                                     <tr class = "topTitle defaultRowHeight">
@@ -86,13 +96,13 @@
                                     {/if}
                                         </td>
                                         <td>{$field.description|eF_truncate:40}</td>
-                                        <td>{if $field.type == 'text'}{$smarty.const._TEXTBOX}{elseif $field.type == 'select'}{$smarty.const._SELECTBOX}{elseif $field.type == 'textarea'}{$smarty.const._TEXTAREA}{/if}</td>
+                                        <td>{if $field.type == 'text'}{$smarty.const._TEXTBOX}{elseif $field.type == 'select'}{$smarty.const._SELECTBOX}{elseif $field.type == 'textarea'}{$smarty.const._TEXTAREA}{elseif $field.type == 'branchinfo'}{$smarty.const._BRANCHINFORMATION}{/if}</td>
                                         <td>{$field.languages_NAME}</td>
                                         <td class = "centerAlign">
                                             {if $field.active}
                                                 <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $change_fields}onclick = "activateField(this, '{$field.name}')"{/if}>
                                             {else}
-                                                <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png"   alt = "{$smarty.const._ACTIVATE}"   title = "{$smarty.const._ACTIVATE}"   {if $change_fields}onclick = "activateField(this, '{$field.name}')"{/if}>
+                                                <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $change_fields}onclick = "activateField(this, '{$field.name}')"{/if}>
                                             {/if}
                                         </td>
                                     {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}

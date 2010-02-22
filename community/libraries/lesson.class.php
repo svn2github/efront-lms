@@ -166,6 +166,7 @@ class EfrontLesson
                             'recurring_duration' => 0,
                             'show_content_tools' => 1,
                             'show_dashboard' => 1,
+          'show_horizontal_bar' => 1,
                             //'complete_next_lesson'=> 0,
           'default_positions' => '');
     /**
@@ -3820,52 +3821,58 @@ if ($element == 'data') $value = htmlentities($value);
 
      */
     public function toHTMLTooltipLink($link, $lessonInformation = false) {
-        if (!$lessonInformation) {
-            $lessonInformation = $this -> getInformation();
-        }
-        sizeof($lessonInformation['content']) > 0 || sizeof($lessonInformation['tests']) > 0 ? $classes[] = 'nonEmptyLesson' : $classes[] = 'emptyLesson'; //Display the link differently depending on whether it has content or not
-        if (!$link) {
-            $link = 'javascript:void(0)';
-            $classes[] = 'inactiveLink';
-        }
-        if ($lessonInformation['professors']) {
-            foreach ($lessonInformation['professors'] as $value) {
-                $professorsString[] = $value['name'].' '.$value['surname'];
-            }
-            $lessonInformation['professors'] = implode(", ", $professorsString);
-        }
-        foreach ($lessonInformation as $key => $value) {
-            if ($value) {
-                switch ($key) {
-                    case 'professors' : $tooltipInfo[] = '<strong>'._PROFESSORS."</strong>: $value<br/>"; break;
-                    case 'content' : $tooltipInfo[] = '<strong>'._CONTENTUNITS."</strong>: $value<br/>"; break;
-                    case 'tests' : $tooltipInfo[] = '<strong>'._TESTS."</strong>: $value<br/>"; break;
-                    case 'projects' : $GLOBALS['configuration']['disable_projects'] != 1 ? $tooltipInfo[] = '<strong>'._PROJECTS."</strong>: $value<br/>" : null; break;
-                    case 'course_dependency' : $tooltipInfo[] = '<strong>'._DEPENDSON."</strong>: $value<br/>"; break;
-                    case 'from_timestamp' : $tooltipInfo[] = '<strong>'._AVAILABLEFROM."</strong>: ".formatTimestamp($value, 'time_nosec')."<br/>";break;
-                    case 'to_timestamp' : $tooltipInfo[] = '<strong>'._AVAILABLEUNTIL."</strong>: ".formatTimestamp($value, 'time_nosec')."<br/>"; break;
-                    case 'general_description': $tooltipInfo[] = '<strong>'._GENERALDESCRIPTION."</strong>: $value<br/>"; break;
-                    case 'assessment' : $tooltipInfo[] = '<strong>'._ASSESSMENT."</strong>: $value<br/>"; break;
-                    case 'objectives' : $tooltipInfo[] = '<strong>'._OBJECTIVES."</strong>: $value<br/>"; break;
-                    case 'lesson_topics' : $tooltipInfo[] = '<strong>'._LESSONTOPICS."</strong>: $value<br/>"; break;
-                    case 'resources' : $tooltipInfo[] = '<strong>'._RESOURCES."</strong>: $value<br/>"; break;
-                    case 'other_info' : $tooltipInfo[] = '<strong>'._OTHERINFO."</strong>: $value<br/>"; break;
-                    default: break;
-                }
-            }
-        }
-        if (sizeof($tooltipInfo) > 0) {
-            $classes[] = 'info';
-            $tooltipString = '
-                <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
-                    '.$this -> lesson['name'].'
-                    <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/><span class = "tooltipSpan">
-                    '.implode("", $tooltipInfo).'</span></a>';
-        } else {
-            $tooltipString = '
-                <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
-                    '.$this -> lesson['name'].'</a>';
-        }
+  if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
+   if (!$lessonInformation) {
+    $lessonInformation = $this -> getInformation();
+   }
+   sizeof($lessonInformation['content']) > 0 || sizeof($lessonInformation['tests']) > 0 ? $classes[] = 'nonEmptyLesson' : $classes[] = 'emptyLesson'; //Display the link differently depending on whether it has content or not
+   if (!$link) {
+    $link = 'javascript:void(0)';
+    $classes[] = 'inactiveLink';
+   }
+   if ($lessonInformation['professors']) {
+    foreach ($lessonInformation['professors'] as $value) {
+     $professorsString[] = $value['name'].' '.$value['surname'];
+    }
+    $lessonInformation['professors'] = implode(", ", $professorsString);
+   }
+   foreach ($lessonInformation as $key => $value) {
+    if ($value) {
+     switch ($key) {
+      case 'professors' : $tooltipInfo[] = '<strong>'._PROFESSORS."</strong>: $value<br/>"; break;
+      case 'content' : $tooltipInfo[] = '<strong>'._CONTENTUNITS."</strong>: $value<br/>"; break;
+      case 'tests' : $tooltipInfo[] = '<strong>'._TESTS."</strong>: $value<br/>"; break;
+      case 'projects' : $GLOBALS['configuration']['disable_projects'] != 1 ? $tooltipInfo[] = '<strong>'._PROJECTS."</strong>: $value<br/>" : null; break;
+      case 'course_dependency' : $tooltipInfo[] = '<strong>'._DEPENDSON."</strong>: $value<br/>"; break;
+      case 'from_timestamp' : $tooltipInfo[] = '<strong>'._AVAILABLEFROM."</strong>: ".formatTimestamp($value, 'time_nosec')."<br/>";break;
+      case 'to_timestamp' : $tooltipInfo[] = '<strong>'._AVAILABLEUNTIL."</strong>: ".formatTimestamp($value, 'time_nosec')."<br/>"; break;
+      case 'general_description': $tooltipInfo[] = '<strong>'._GENERALDESCRIPTION."</strong>: $value<br/>"; break;
+      case 'assessment' : $tooltipInfo[] = '<strong>'._ASSESSMENT."</strong>: $value<br/>"; break;
+      case 'objectives' : $tooltipInfo[] = '<strong>'._OBJECTIVES."</strong>: $value<br/>"; break;
+      case 'lesson_topics' : $tooltipInfo[] = '<strong>'._LESSONTOPICS."</strong>: $value<br/>"; break;
+      case 'resources' : $tooltipInfo[] = '<strong>'._RESOURCES."</strong>: $value<br/>"; break;
+      case 'other_info' : $tooltipInfo[] = '<strong>'._OTHERINFO."</strong>: $value<br/>"; break;
+      default: break;
+     }
+    }
+   }
+   if (sizeof($tooltipInfo) > 0) {
+    $classes[] = 'info';
+    $tooltipString = '
+     <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
+      '.$this -> lesson['name'].'
+      <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/><span class = "tooltipSpan">
+      '.implode("", $tooltipInfo).'</span></a>';
+   } else {
+    $tooltipString = '
+     <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
+      '.$this -> lesson['name'].'</a>';
+   }
+  } else {
+   $tooltipString = '
+     <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
+      '.$this -> lesson['name'].'</a>';
+  }
         return $tooltipString;
     }
    /**

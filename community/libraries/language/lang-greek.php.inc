@@ -3495,4 +3495,17 @@ define("_WITHTHEJOBDESCRIPTION","με τη θέση εργασίας");
 define("_BYCLICKINGONTHELINK", "κάνοντας κλικ στο παρακάτω");
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Ο λογαριασμός του συνεργάτη σας ενεργοποιήθηκε επιτυχώς");
 define("_SHOWHORIZONTALBAR","Οριζόντιο μενού");
+define("_BRANCHINFORMATION","Πληροφορίες τμήματος");
+define("_BRANCHNAMEDESCRIPTION","Περιγραφή πεδίου τμήματος");
+define("_JOBDESCRIPTIONDESCRIPTION","Περιγραφή πεδίου θέσης εργασίας");
+define("_SUPERVISORDESCRIPTION","Περιγραφή πεδίου προϊσταμένου που θα ειδοποιηθεί με email");
+define("_PLEASESELECT","Παρακαλώ επιλέξτε");
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ο προϊστάμενός σας θα ενεργοποιήσει το λογαριασμό");
+define("_IMS","IMS");
+define("_IMSIMPORT","Εισαγωγή υλικού IMS");
+define("_IMSEXPORT","Εξαγωγή μαθήματος σε IMS");
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Ανεβάστο το αρχείο IMS σε μορφή zip");
+define("_IMSOPTIONS", "Επιλογές IMS");
+define("_SUCCESSFULLYIMPORTEDIMSFILE", "Το αρχείο IMS εισήχθηκε επιτυχώς");
+define("_TOOLTIP","Tooltip");
 ?>

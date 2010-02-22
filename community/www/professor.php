@@ -259,6 +259,8 @@ if ((!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest'])) && ($GLOBALS['cu
      $_GET['new_lesson_id'] = $_SESSION['s_lessons_ID'];
  }
  include "new_sidebar.php";
+} else {
+    $smarty -> assign("T_NO_HORIZONTAL_MENU", 1);
 }
 !isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
 if (!$_SESSION['s_lessons_ID'] && ($ctg != 'personal' && $ctg != 'statistics') && ($ctg == 'control_panel' && $_GET['op'] != "search")) { //If there is not a lesson in the session, then the user just logged into the system. Redirect him to lessons page, except for the case he is viewing his personal information 2007/07/27 added search control. It was a problem when user had not choose a lesson.
@@ -451,6 +453,10 @@ $smarty -> assign("_admin_", $_admin_);
  elseif ($ctg == 'scorm') {
      /***/
      require_once("scorm.php");
+ }
+ elseif ($ctg == 'ims') {
+     /***/
+     require_once("ims.php");
  }
  elseif ($ctg == 'lesson_information') {
      /***/

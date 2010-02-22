@@ -201,12 +201,14 @@ function updateProgress(obj) {
      if (nodesStatus = obj[3]) {
       if ($('navigate_continue')) {
        if (nodesStatus['continue'] == 'enabled') {
-        $('navigate_continue').removeClassName('inactiveImage').show();
-     Event.stopObserving($('navigate_continue').id, 'click', disableLink);
+        $('navigate_continue').removeClassName('inactiveImage');
+     $('navigate_continue').writeAttribute("onclick", "");
+     $('navigate_continue').show();
 
        } else if (nodesStatus['continue'] == 'disabled') {
-        $('navigate_continue').addClassName('inactiveImage').show();
-     Event.observe($('navigate_continue').id, 'click', disableLink);
+     $('navigate_continue').addClassName('inactiveImage');
+     $('navigate_continue').writeAttribute("onclick", "return false");
+     $('navigate_continue').show();
 
        } else if (nodesStatus['continue'] == 'hidden') {
         $('navigate_continue').hide();
@@ -214,12 +216,14 @@ function updateProgress(obj) {
       }
       if ($('navigate_previous')) {
        if (nodesStatus['previous'] == 'enabled') {
-        $('navigate_previous').removeClassName('inactiveImage').show();
-     Event.stopObserving($('navigate_previous').id, 'click', disableLink);
+        $('navigate_previous').removeClassName('inactiveImage');
+     $('navigate_previous').writeAttribute("onclick", "");
+     $('navigate_previous').show();
 
        } else if (nodesStatus['previous'] == 'disabled') {
-        $('navigate_previous').addClassName('inactiveImage').show();
-     Event.observe($('navigate_previous').id, 'click', disableLink);
+        $('navigate_previous').addClassName('inactiveImage');
+     $('navigate_previous').writeAttribute("onclick", "return false");
+     $('navigate_previous').show();
 
        } else if (nodesStatus['previous'] == 'hidden') {
         $('navigate_previous').hide();
@@ -227,12 +231,14 @@ function updateProgress(obj) {
       }
       if ($('navigate_exitAll')) {
        if (nodesStatus['exitAll'] == 'enabled') {
-        $('navigate_exitAll').removeClassName('inactiveImage').show();
-     Event.stopObserving($('navigate_exitAll').id, 'click', disableLink);
+        $('navigate_exitAll').removeClassName('inactiveImage');
+     $('navigate_exitAll').writeAttribute("onclick", "");
+     $('navigate_exitAll').show();
 
        } else if (nodesStatus['exitAll'] == 'disabled') {
-        $('navigate_exitAll').addClassName('inactiveImage').show();
-     Event.observe($('navigate_exitAll').id, 'click', disableLink);
+        $('navigate_exitAll').addClassName('inactiveImage');
+     $('navigate_exitAll').writeAttribute("onclick", "return false");
+     $('navigate_exitAll').show();
 
        } else if (nodesStatus['exitAll'] == 'hidden') {
         $('navigate_exitAll').hide();
@@ -240,12 +246,14 @@ function updateProgress(obj) {
       }
       if ($('navigate_suspendAll')) {
        if (nodesStatus['suspendAll'] == 'enabled') {
-        $('navigate_suspendAll').removeClassName('inactiveImage').show();
-     Event.stopObserving($('navigate_suspendAll').id, 'click', disableLink);
+        $('navigate_suspendAll').removeClassName('inactiveImage');
+     $('navigate_suspendAll').writeAttribute("onclick", "");
+     $('navigate_suspendAll').show();
 
        } else if (nodesStatus['suspendAll'] == 'disabled') {
-        $('navigate_suspendAll').addClassName('inactiveImage').show();
-     Event.observe($('navigate_suspendAll').id, 'click', disableLink);
+        $('navigate_suspendAll').addClassName('inactiveImage');
+     $('navigate_suspendAll').writeAttribute("onclick", "return false");
+     $('navigate_suspendAll').show();
 
        } else if (nodesStatus['suspendAll'] == 'hidden') {
         $('navigate_suspendAll').hide();
@@ -253,12 +261,14 @@ function updateProgress(obj) {
       }
       if ($('navigate_abandon')) {
        if (nodesStatus['abandon'] == 'enabled') {
-        $('navigate_abandon').removeClassName('inactiveImage').show();
-     Event.stopObserving($('navigate_abandon').id, 'click', disableLink);
+        $('navigate_abandon').removeClassName('inactiveImage');
+     $('navigate_abandon').writeAttribute("onclick", "");
+     $('navigate_abandon').show();
 
        } else if (nodesStatus['abandon'] == 'disabled') {
-        $('navigate_abandon').addClassName('inactiveImage').show();
-     Event.observe($('navigate_abandon').id, 'click', disableLink);
+        $('navigate_abandon').addClassName('inactiveImage');
+     $('navigate_abandon').writeAttribute("onclick", "return false");
+     $('navigate_abandon').show();
 
        } else if (nodesStatus['abandon'] == 'hidden') {
         $('navigate_abandon').hide();
@@ -266,12 +276,14 @@ function updateProgress(obj) {
       }
       if ($('navigate_abandonAll')) {
        if (nodesStatus['abandonAll'] == 'enabled') {
-        $('navigate_abandonAll').removeClassName('inactiveImage').show();
-     Event.stopObserving($('navigate_abandonAll').id, 'click', disableLink);
+        $('navigate_abandonAll').removeClassName('inactiveImage');
+     $('navigate_abandonAll').writeAttribute("onclick", "");
+     $('navigate_abandonAll').show();
 
        } else if (nodesStatus['abandonAll'] == 'disabled') {
-        $('navigate_abandonAll').addClassName('inactiveImage').show();
-     Event.observe($('navigate_abandonAll').id, 'click', disableLink);
+        $('navigate_abandonAll').addClassName('inactiveImage');
+     $('navigate_abandonAll').writeAttribute("onclick", "return false");
+     $('navigate_abandonAll').show();
 
        } else if (nodesStatus['abandonAll'] == 'hidden') {
         $('navigate_abandonAll').hide();
@@ -279,15 +291,16 @@ function updateProgress(obj) {
       }
 
       for (var i in nodesStatus['choice']) {
+
        if (nodesStatus['choice'][i] == 'enabled') {
-        $('node'+i).show();
         $('node'+i).select('a')[0].removeClassName('inactiveLink');
-     Event.stopObserving($('node'+i).select('a')[0].id, 'click', disableLink);
+     $('node'+i).select('a')[0].writeAttribute("onclick", "");
+        $('node'+i).show();
 
     } else if (nodesStatus['choice'][i] == 'disabled') {
-        $('node'+i).show();
         $('node'+i).select('a')[0].addClassName('inactiveLink');
-     Event.observe($('node'+i).select('a')[0].id, 'click', disableLink);
+     $('node'+i).select('a')[0].writeAttribute("onclick", "return false");
+        $('node'+i).show();
 
        } else if (nodesStatus['choice'][i] == 'hidden') {
         $('node'+i).hide();
@@ -357,4 +370,8 @@ function eF_js_setCorrectIframeSize(setHeight)
 
 if (typeof(editPdfContent) != 'undefined' && editPdfContent) {
     togglePdf();
+}
+
+if (typeof(setIframeSize) != 'undefined' && setIframeSize) {
+ eF_js_setCorrectIframeSize();
 }

@@ -598,6 +598,7 @@ class EfrontEvent
      //if ((isset($GLOBALS['configuration']['social_modules_activated']) && $GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_EVENTS) != 0) {
       // Negative events like not visited, not completed etc are not to be logged
       if ($fields['type'] > 0 && (!isset($event_types[$fields['type']]['notToBeLogged']) || $event_types[$fields['type']]['notToBeLogged'] == 0)) {
+       //pr($fields);
        if (isset($fields['explicitly_selected'])) {
         $explicitly_selected = $fields['explicitly_selected'];
         unset($fields['explicitly_selected']);
@@ -905,6 +906,7 @@ class EfrontEvent
             // Else just a single event
          //!isset($fields['lessons_ID'])     ? $fields['lessons_ID']      = $GLOBALS['currentLesson'] -> lesson['id'] : null;
          //!isset($fields['lessons_name'])   ? $fields['lessons_name']    = $GLOBALS['currentLesson'] -> lesson['name'] : null;
+         unset($fields['explicitly_selected']);
          return eF_insertTableData("events", $fields);
         }
         //EfrontSearch :: insertText($fields['name'], $newId, "events", "title");

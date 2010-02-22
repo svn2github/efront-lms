@@ -1380,3 +1380,9 @@ function setMenuPositions() {
 function sidebarExceptionHandler(e) {
  //alert(e);
 }
+
+function startUpdater() {
+         setTimeout("getPeriodicData()", 2500);
+         setInterval("getPeriodicData()", updaterPeriod);
+}
+if (startUpdater) { startUpdater();}

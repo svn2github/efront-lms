@@ -101,7 +101,6 @@ table.pageLayout{width:100%;height:100%;border:0px solid #999999;background:#182
 table.pageLayout td.layoutColumn{padding:2px;vertical-align:top;}
 table.pageLayout td.left{width:250px;}
 table.pageLayout td.right{width:250px;}
-
 table.pageLayout td.header{height:70px;border-bottom: 0px solid #999999;padding:0px;vertical-align:top;background:#FAFAFA url('../images/css_images/background.png') repeat-x top;}
 table.pageLayout td.header *{vertical-align:middle}
 table.pageLayout td.header #logo{padding:2px;float:left;}
@@ -123,7 +122,7 @@ table.pageLayout td.headerHidden #language{padding-top:5px;padding-right:5px;flo
 table.pageLayout td.headerHidden #path{color:#FFFFFF;clear:left;padding-top:5px;background:url('../images/css_images/gradient.jpg') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
 table.pageLayout td.headerHidden #path #path_title{color:#FFFFFF; float:left;margin-left:10px}
 table.pageLayout td.headerHidden #path #path_language{color:#FFFFFF; float:right; padding-right:4px;}
-table.pageLayout td.headerHidden a.titleLink {color:#FFFFFF;},
+table.pageLayout td.headerHidden a.titleLink {color:#FFFFFF;}
 table.hideLeft td.left, 
 table.hideRight td.right{display:none}
 table.hideBoth td.right,
@@ -319,6 +318,12 @@ td.labelCell{
 text-align:right;
 white-space:nowrap;
 width:10%;
+}
+td.labelCellTop{
+text-align:right;
+white-space:nowrap;
+width:10%;
+vertical-align:top;
 }
 td.elementCell{
 text-align:left;

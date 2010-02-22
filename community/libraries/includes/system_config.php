@@ -15,10 +15,14 @@ $systemForm = new Html_QuickForm("system_variables", "post", basename($_SERVER['
 $systemForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 
 $systemForm -> addElement("advcheckbox", "signup", _EXTERNALLYSIGNUP, null, 'class = "inputCheckBox"', array(0, 1));
-$systemForm -> addElement("advcheckbox", "activation", _AUTOMATICUSERACTIVATION, null, 'id = "activation" onclick = "if (this.checked) {$(\'mail_activation\').checked=false}" class = "inputCheckBox"', array(0, 1));
-$systemForm -> addElement("advcheckbox", "mail_activation", _MAILUSERACTIVATION, null, 'id = "mail_activation" onclick = "if (this.checked) {$(\'activation\').checked=false}" class = "inputCheckBox"', array(0, 1));
 
 
+
+
+
+
+ $systemForm -> addElement("advcheckbox", "activation", _AUTOMATICUSERACTIVATION, null, 'id = "activation" onclick = "if (this.checked) {$(\'mail_activation\').checked=false}" class = "inputCheckBox"', array(0, 1));
+ $systemForm -> addElement("advcheckbox", "mail_activation", _MAILUSERACTIVATION, null, 'id = "mail_activation" onclick = "if (this.checked) {$(\'activation\').checked=false}" class = "inputCheckBox"', array(0, 1));
 
 $systemForm -> addElement("advcheckbox", "onelanguage", _ONLYONELANGUAGE, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "api", _ENABLEDAPI, null, 'class = "inputCheckBox"', array(0, 1));
@@ -393,6 +397,7 @@ $disable_form -> addElement("advcheckbox", "disable_messages", null, null, 'clas
 $disable_form -> addElement("advcheckbox", "disable_forum", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> addElement("advcheckbox", "disable_tests", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> addElement("advcheckbox", "chat_enabled", null, null, 'class = "inputCheckBox"', array(1, 0));
+$disable_form -> addElement("advcheckbox", "disable_tooltip", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> setDefaults($configuration);
 isset($configuration['disable_projects']) ? $disable_form -> setDefaults(array('disable_projects' => $configuration['disable_projects'])) : $disable_form -> setDefaults(array('disable_projects' => 0));
 isset($configuration['disable_bookmarks']) ? $disable_form -> setDefaults(array('disable_bookmarks' => $configuration['disable_bookmarks'])) : $disable_form -> setDefaults(array('disable_bookmarks' => 0));
@@ -406,6 +411,7 @@ isset($configuration['disable_messages']) ? $disable_form -> setDefaults(array('
 isset($configuration['disable_forum']) ? $disable_form -> setDefaults(array('disable_forum' => $configuration['disable_forum'])) : $disable_form -> setDefaults(array('disable_forum' => 0));
 isset($configuration['disable_tests']) ? $disable_form -> setDefaults(array('disable_tests' => $configuration['disable_tests'])) : $disable_form -> setDefaults(array('disable_tests' => 0));
 isset($configuration['disable_chat']) ? $disable_form -> setDefaults(array('disable_chat' => $configuration['disable_chat'])) : $disable_form -> setDefaults(array('disable_chat' => 0));
+isset($configuration['disable_tooltip']) ? $disable_form -> setDefaults(array('disable_tooltip' => $configuration['disable_tooltip'])) : $disable_form -> setDefaults(array('disable_tooltip' => 0));
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
     $disable_form -> freeze();
 } else {

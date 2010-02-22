@@ -121,7 +121,7 @@ if (isset($_GET['fct'])) {
         $target = basename($_SERVER['PHP_SELF']).'?ctg=lessons&catalog=1&checkout=1';
         $cancelReturn = G_SERVERNAME.'studentpage.php?message='.urlencode(_YOUHAVECANCELLEDTHETRANSACTION);
     }
-    $form = new HTML_QuickForm("checkout_form", "post", $target, "", 'style = "display:inline"', true);
+    $form = new HTML_QuickForm("my_checkout_form", "post", $target, "", 'style = "display:inline"', true);
         if ($totalPrice > 0) {
             $form -> addElement('submit', 'submit_order', _ENROLL, 'class = "flatButton"');
         } else {

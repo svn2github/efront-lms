@@ -342,6 +342,11 @@ class EfrontSystem
                     $csvUser['user_types_ID'] = 0;
                 }
                 unset($csvUser['user_type_name']);
+    //If user type is not valid, don't insert that user
+    if ($csvUser['user_type'] != "administrator" && $csvUser['user_type'] != "professor" && $csvUser['user_type'] != "student") {
+     $messages[] = '&quot;'.$csvUser['login'].'&quot;: '._INVALIDUSERTYPE;
+     unset($csvUser);continue;
+    }
                 // If we are not in enterprise version then $csvEmployeeProperties is used as a buffer
                 // This is done to enable enterprise <-> Enteprise, educational <-> educational, enterprise <-> educational imports/exports
                 $csvEmployeeProperties = $csvUser;

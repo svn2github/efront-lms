@@ -250,7 +250,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 5997;
+    $build = 6052;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
@@ -560,6 +560,8 @@ function __autoload($className) {
         require_once("test.class.php");
     } else if (strpos($className, "efrontscorm") !== false) {
         require_once("scorm.class.php");
+ } else if (strpos($className, "efrontims") !== false) {
+        require_once("ims.class.php");
     } else if (strpos($className, "efrontlesson") !== false) {
         require_once("lesson.class.php");
         require_once("deprecated.php");

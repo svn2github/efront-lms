@@ -1286,16 +1286,20 @@ class EfrontCourse
                                 </td>
                                 <td>';        
         if (!isset($userInfo['courses'][$this -> course['id']]['from_timestamp']) || $userInfo['courses'][$this -> course['id']]['from_timestamp']) {
-            if ($options['tooltip']) {
-                $courseString .= '
-                  <a href = "'.($options['courses_link'] ? str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'] : 'javascript:void(0)').'" class = "info" onmouseover = "updateInformation(this, '.$this -> course['id'].', \'course\')" >
-                   <span class = "listName">'.$this -> course['name'].'</span>
-                   <img class = "tooltip" src = "images/others/tooltip_arrow.gif"/>
-                   <span class = "tooltipSpan"></span>
-                  </a>';             
-            } else {
-                $options['courses_link'] ? $courseString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'].'">'.$courseString .= $this -> course['name'].'</a>' : $courseString .= $this -> course['name'];
-            }
+            if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
+    if ($options['tooltip']) {
+     $courseString .= '
+          <a href = "'.($options['courses_link'] ? str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'] : 'javascript:void(0)').'" class = "info" onmouseover = "updateInformation(this, '.$this -> course['id'].', \'course\')" >
+           <span class = "listName">'.$this -> course['name'].'</span>
+           <img class = "tooltip" src = "images/others/tooltip_arrow.gif"/>
+           <span class = "tooltipSpan"></span>
+          </a>';             
+    } else {
+     $options['courses_link'] ? $courseString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'].'">'.$courseString .= $this -> course['name'].'</a>' : $courseString .= $this -> course['name'];
+    }
+   } else {
+    $courseString .= $this -> course['name'];
+   }
         } else {
             $courseString .= '<a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$this -> course['name'].'</a>';
         }
@@ -1370,7 +1374,8 @@ class EfrontCourse
                                 &nbsp;&nbsp;
                             </td>';
      }
-     $courseString .= '
+     if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
+      $courseString .= '
        <td>&nbsp;
                              <a href = "javascript:void(0)" title = "" class = "inactiveLink info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\')">
                               '.$lesson -> lesson['name'].'
@@ -1378,6 +1383,14 @@ class EfrontCourse
                               <span class = "tooltipSpan"></span>
                              </a>
                             <td>';
+     } else {
+      $courseString .= '
+       <td>&nbsp;
+                             <a href = "javascript:void(0)" title = "" class = "inactiveLink">
+                              '.$lesson -> lesson['name'].'
+                             </a>
+                            <td>';
+     }
                 } else {
                     if ($userInfo['lessons'][$lessonId]['user_type'] && $roles[$userInfo['lessons'][$lessonId]['user_type']] == 'student' && $userInfo['lessons'][$lessonId]['completed']) { //Show the progress bar
       $courseString .= '
@@ -1397,10 +1410,17 @@ class EfrontCourse
       $courseString .= '
        <td></td>';
      }
-                    $courseString .= '
+                    if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
+      $courseString .= '
                       <td>&nbsp;
                        '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\')" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'<img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan"></span></a>' : $lesson -> lesson['name']).'
                                 </td>';
+     } else {
+      $courseString .= '
+                      <td>&nbsp;
+                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'</a>' : $lesson -> lesson['name']).'
+                                </td>';
+     }
                 }
                 $courseString .= '';
             }
@@ -1752,48 +1772,54 @@ class EfrontCourse
 
      */
     public function toHTMLTooltipLink($link, $courseInformation = false) {
-        if (!$courseInformation) {
-            $courseInformation = $this -> getInformation();
-        }
-        if (!$link) {
-            $link = 'javascript:void(0)';
-        }
-        if (isset($courseInformation['professors'])) {
-            foreach ($courseInformation['professors'] as $value) {
-                $professorsString[] = $value['name'].' '.$value['surname'];
-            }
-            $courseInformation['professors'] = implode(", ", $professorsString);
-        }
-        $tooltipInfo = array();
-        foreach ($courseInformation as $key => $value) {
-            if ($value) {
-                switch ($key) {
-                    case 'professors' : $tooltipInfo[] = '<strong>'._PROFESSORS."</strong>: $value<br/>"; break;
-                    case 'lessons_number' : $tooltipInfo[] = '<strong>'._LESSONS."</strong>: $value<br/>"; break;
-                    case 'general_description': $tooltipInfo[] = '<strong>'._GENERALDESCRIPTION."</strong>: $value<br/>"; break;
-                    case 'assessment' : $tooltipInfo[] = '<strong>'._ASSESSMENT."</strong>: $value<br/>"; break;
-                    case 'objectives' : $tooltipInfo[] = '<strong>'._OBJECTIVES."</strong>: $value<br/>"; break;
-                    case 'lesson_topics' : $tooltipInfo[] = '<strong>'._LESSONTOPICS."</strong>: $value<br/>"; break;
-                    case 'resources' : $tooltipInfo[] = '<strong>'._RESOURCES."</strong>: $value<br/>"; break;
-                    case 'other_info' : $tooltipInfo[] = '<strong>'._OTHERINFO."</strong>: $value<br/>"; break;
-                    default: break;
-                }
-            }
-        }
-        $classes = array();
-        if (sizeof($tooltipInfo) > 0) {
-            $classes[] = 'info';
-            $tooltipString = '
-                <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
-                    '.$this -> course['name'].'
-                    <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/>
-                    <span class = "tooltipSpan">'.implode("", $tooltipInfo).'</span></a>';
-        } else {
-            $tooltipString = '
-                <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
-                    '.$this -> course['name'].'</a>';
-        }
-        return $tooltipString;
+  if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
+   if (!$courseInformation) {
+    $courseInformation = $this -> getInformation();
+   }
+   if (!$link) {
+    $link = 'javascript:void(0)';
+   }
+   if (isset($courseInformation['professors'])) {
+    foreach ($courseInformation['professors'] as $value) {
+     $professorsString[] = $value['name'].' '.$value['surname'];
+    }
+    $courseInformation['professors'] = implode(", ", $professorsString);
+   }
+   $tooltipInfo = array();
+   foreach ($courseInformation as $key => $value) {
+    if ($value) {
+     switch ($key) {
+      case 'professors' : $tooltipInfo[] = '<strong>'._PROFESSORS."</strong>: $value<br/>"; break;
+      case 'lessons_number' : $tooltipInfo[] = '<strong>'._LESSONS."</strong>: $value<br/>"; break;
+      case 'general_description': $tooltipInfo[] = '<strong>'._GENERALDESCRIPTION."</strong>: $value<br/>"; break;
+      case 'assessment' : $tooltipInfo[] = '<strong>'._ASSESSMENT."</strong>: $value<br/>"; break;
+      case 'objectives' : $tooltipInfo[] = '<strong>'._OBJECTIVES."</strong>: $value<br/>"; break;
+      case 'lesson_topics' : $tooltipInfo[] = '<strong>'._LESSONTOPICS."</strong>: $value<br/>"; break;
+      case 'resources' : $tooltipInfo[] = '<strong>'._RESOURCES."</strong>: $value<br/>"; break;
+      case 'other_info' : $tooltipInfo[] = '<strong>'._OTHERINFO."</strong>: $value<br/>"; break;
+      default: break;
+     }
+    }
+   }
+   $classes = array();
+   if (sizeof($tooltipInfo) > 0) {
+    $classes[] = 'info';
+    $tooltipString = '
+     <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
+      '.$this -> course['name'].'
+      <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/>
+      <span class = "tooltipSpan">'.implode("", $tooltipInfo).'</span></a>';
+   } else {
+    $tooltipString = '
+     <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
+      '.$this -> course['name'].'</a>';
+   }
+  } else {
+   $tooltipString = '
+     <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
+      '.$this -> course['name'].'</a>';
+  }
+  return $tooltipString;
     }
     /**
 

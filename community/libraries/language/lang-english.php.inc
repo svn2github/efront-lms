@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED", "The folders for the follo
 define("_EDITCONTENT", "Edit content");
 define("_NORMALSTATUS", "Normal status");
 define("_APPLICATIONPENDING", "Application pending");
-define("_SUCCESS", "Success");
+define("_SUCCESS", " imported IMS fileSuccess");
 define("_WARNING", "Warning");
 define("_DEFINITIONCOULDNOTBEINSERTED", "Definition could not be inserted");
 define("_SUCCESFULLYUPDATEDDEFINITION", "Successfully updated definition");
@@ -3495,4 +3495,18 @@ define("_WITHTHEJOBDESCRIPTION","with the job description");
 define("_BYCLICKINGONTHELINK", "by clicking on the following link");
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","The account of your employee was successfully activated");
 define("_SHOWHORIZONTALBAR","Horizontal bar");
+define("_BRANCHINFORMATION","Branch information");
+define("_BRANCHNAMEDESCRIPTION","Branch field name");
+define("_JOBDESCRIPTIONDESCRIPTION","Job field name");
+define("_SUPERVISORDESCRIPTION","Activating supervisor field name");
+define("_LEAVEEMPTYTONOTUSE","Leave empty to ommit");
+define("_PLEASESELECT","Please select");
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Your supervisor will activate your account");
+define("_IMS","IMS");
+define("_IMSIMPORT","Import IMS Content");
+define("_IMSEXPORT","Export IMS Content");
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS file in ZIP format");
+define("_IMSOPTIONS", "IMS options");
+define("_SUCCESSFULLYIMPORTEDIMSFILE", "IMS file was successfully imported");
+define("_TOOLTIP","Tooltip");
 ?>

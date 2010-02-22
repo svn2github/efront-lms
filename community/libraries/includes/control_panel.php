@@ -328,7 +328,8 @@ try {
                 ($currentLesson -> options['projects'] && $GLOBALS['configuration']['disable_projects'] != 1) ? $controlPanelOptions[2] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects") : null;
                 ($currentLesson -> options['tests'] && $GLOBALS['configuration']['disable_tests'] != 1) ? $controlPanelOptions[3] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=tests") : null;
                 $currentLesson -> options['rules'] ? $controlPanelOptions[9] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=rules") : null;
-                $currentLesson -> options['scorm'] ? $controlPanelOptions[18] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scorm") : null;
+    $currentLesson -> options['scorm'] ? $controlPanelOptions[18] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scorm") : null;
+                $currentLesson -> options ? $controlPanelOptions[22] = array('text' => _IMS, 'image' => "32x32/autocomplete.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=ims") : null;
             }
             if ($currentUser -> coreAccess['glossary'] != 'hidden' && $GLOBALS['configuration']['disable_glossary'] != 1) {
                 $currentLesson -> options['glossary'] ? $controlPanelOptions[10] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=glossary") : null;

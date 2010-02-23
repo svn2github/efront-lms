@@ -113,7 +113,7 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
     //$events[$day_timestamp] = str_replace("&#039;","&amp;#039;", $events[$day_timestamp]);
 //This requires wz_tooltip.js See outputfilter.eF_template_includeScripts.php for when this gets loaded
     $day_str = '
-                 <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.$show_interval_link.$type.'" onmouseover = "this.T_PADDING = 5; this.T_TEXTALIGN = \'left\'; this.T_TITLE = \'#filter:timestamp-'.$day_timestamp.'#\'; return escape(\''.($dayEvents).'\')">'.$day.'</a>'; 
+                 <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.$show_interval_link.$type.'" onmouseover = "this.T_PADDING = 5; this.T_TEXTALIGN = \'left\'; this.T_TITLE = \'#filter:timestamp-'.$day_timestamp.'#\'; return escape(decodeURI(\''.($dayEvents).'\'))">'.$day.'</a>'; 
    } else {
     $day_str = '
                     <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.$show_interval_link.$type.'">'.$day.'</a>';

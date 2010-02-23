@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT", "Note: you are revisiting 
 define("_ACTIONONRENTRYCOMPLETED", "Action on re-entry");
 define("_LETCONTENTDECIDE", "Let content decide");
 define("_DONTCHANGE", "Leave unchanged");
-define("_DASHBOARD", "Dashboard");
+define("_DASHBOARD", "my Dashboard");
 define("_MYWALL","My wall");
 define("_RELATEDPEOPLE","Related people");
 define("_LEARNINGACTIVITY","Learning activity");
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Course professors");
 define("_PROFESSORSOFCOURSE","Professors of course");
 define("_USERSUPERVISORS","User supervisors");
 define("_USEROPTIONSFOR","Options for user");
-define("_MYSTATUS","My status");
+define("_MYSTATUS","my Learning Status");
 define("_MYCOURSES", "my Courses");
 define("_CERTIFICATIONS", "Certificates");
 define("_MYCERTIFICATIONS", "my Certificates");

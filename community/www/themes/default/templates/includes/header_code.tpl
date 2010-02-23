@@ -50,7 +50,7 @@
  </div>
  {if !$hide_path}
  <div id = "path">
-  <div id = "path_title">{$title}</div>
+  <div id = "path_title">{$title|eF_formatTitlePath}</div>
   <div id = "path_language">
 
   {*Search div*}

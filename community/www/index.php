@@ -401,21 +401,6 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd') { //The user asked to di
 /* -------------------------------------------------------End of Reset Password part--------------------------------------------------------- */
 /* -----------------------------------------------------Sign up part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup']) {
-  if (isset($_GET['postAjaxRequest'])) {
-   try {
-    $currentBranch = new EfrontBranch($_GET['branch']);
-       if (isset($_GET['getJobSelect'])) {
-           $ar= $currentBranch -> createJobDescriptionsSelect($attributes);
-       } else if (isset($_GET['getSupervisorsSelect'])) {
-        $ar= $currentBranch -> createSupervisorsSelect();
-       }
-          foreach ($ar as $val=>$element) {
-              echo $val."<option>".$element."<option>";
-          }
-          exit;
-   } catch (Exception $e) {
-   }
-  }
  $users = eF_getTableDataFlat("users", "*");
  //$versionDetails = eF_checkVersionKey($configuration['version_key']);
  $smarty -> assign("T_CTG", "signup");
@@ -508,13 +493,8 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
                                "pending" => ($configuration['activation']) ? 0 : 1,
                                "active" => $configuration['activation'],
                                "languages_NAME" => $values['languages_NAME']);
-    $self_registered_jobs = array();
             foreach ($user_profile as $field) { //Get the custom fields values
              $user_data[$field['name']] = $values[$field['name']];
-              if ($field['type'] == 'branchinfo') {
-               $self_registered_jobs[] = array("branch_ID" => $values[$field['name']. "_branches"], "job_description" => $_POST[$field['name']. "_jobs"], "supervisor" => $_POST[$field['name']. "_supervisors"]);
-               unset($user_data[$field['name']]);
-              }
             }
             try {
           $newUser = EfrontUser :: createUser($user_data);

@@ -406,10 +406,6 @@ var enableMyJobSelect = false;
  {elseif $T_PERSONAL_CTG}
   {*** Dashboard ***}
   {if !$T_OP || $T_OP == "dashboard"}
-   {* Change user status interface *}
-   {if $T_SOCIAL_INTERFACE}
-   {$smarty.capture.t_status_change_interface}
-   {/if}
    {include file = "social.tpl"}
   {*** Account ***}
   {elseif $T_OP == "account"}
@@ -485,6 +481,10 @@ var enableMyJobSelect = false;
  {if isset($smarty.get.add_user)}
   {eF_template_printBlock title = $smarty.const._NEWUSER data = $smarty.capture.t_user_code image = '32x32/user.png'}
  {elseif $T_PERSONAL_CTG}
+   {* Change user status interface *}
+   {if $T_SOCIAL_INTERFACE}
+   {$smarty.capture.t_status_change_interface}
+   {/if}
   {eF_template_printBlock title = $smarty.const._PERSONALDATA data = $smarty.capture.t_user_code image = '32x32/profile.png' main_options = $T_TABLE_OPTIONS}
  {else}
         {if $smarty.get.print_preview == 1}

@@ -16,6 +16,8 @@
 - Added header hide option
 - Added job self-registering and activating supervisor with branch information custom profile field
 - Added hiddenHeader style for horizontal template
+- Fixed problem with unicode characters in calendar tooltip
+- Fixed problem in horizontal themes with search box by calling eF_formatTitlePath that was missing
 
 === Version 3.6.0 build 5997 ===
 - Fixed phplivedocx configuration file creation

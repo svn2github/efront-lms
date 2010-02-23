@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT", "Σημείωση: Επι�
 define("_ACTIONONRENTRYCOMPLETED", "Ενέργεια κατά την επανείσοδο");
 define("_LETCONTENTDECIDE", "Άσε το περιεχόμενο να αποφασίσει");
 define("_DONTCHANGE", "Να μην επιτρέπονται αλλαγές");
-define("_DASHBOARD", "Πίνακας ανακοινώσεων");
+define("_DASHBOARD", "Ο πίνακας ανακοινώσεών μου");
 define("_MYWALL","Ο τοίχος μου");
 define("_RELATEDPEOPLE","Συσχετιζόμενοι χρήστες");
 define("_LEARNINGACTIVITY","Εκπαιδευτική διαδικασία");
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Καθηγητές δέσμης");
 define("_PROFESSORSOFCOURSE","Καθηγητές της δέσμης");
 define("_USERSUPERVISORS","Προϊστάμενοι χρήστη");
 define("_USEROPTIONSFOR","Επιλογές για χρήστη");
-define("_MYSTATUS","Κατάσταση");
+define("_MYSTATUS","Εκπαιδευτική Κατάσταση");
 define("_MYCOURSES", "Οι δέσμες μου");
 define("_CERTIFICATIONS", "Πιστοποιήσεις");
 define("_MYCERTIFICATIONS", "Οι πιστοποιήσεις μου");

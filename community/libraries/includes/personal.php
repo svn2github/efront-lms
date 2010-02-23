@@ -253,8 +253,10 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
    $_GET['op'] = 'dashboard';
   }
   $options = array( array('image' => '16x16/home.png', 'title' => _DASHBOARD, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=dashboard', 'selected' => isset($_GET['op']) && $_GET['op'] == 'dashboard' ? true : false),
-        array('image' => '16x16/generic.png', 'title' => _MYACCOUNT, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false),
-        array('image' => '16x16/user_timeline.png', 'title' => _MYSTATUS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=status' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'status' ? true : false));
+        array('image' => '16x16/generic.png', 'title' => _MYACCOUNT, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false));
+  if ($currentUser -> getType() != "administrator") {
+   $options[] = array('image' => '16x16/user_timeline.png', 'title' => _MYSTATUS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=status' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'status' ? true : false);
+  }
   $titles = array ( "account" => array("edituser" => _MYSETTINGS,
             "profile" => _MYPROFILE,
             "mapped" => _MAPPEDACCOUNTS,
@@ -928,6 +930,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
         if ($form -> isSubmitted() && $form -> validate()) {
             $values = $form -> exportValues();
+    $user_profile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo'"); //Get admin-defined form fields for user registration
             //Check the user_type. If it's an id, it means that it's not one of the basic user types; so derive the basic user type and populate the user_types_ID field
             if (is_numeric($values['user_type'])) {
                 $result = eF_getTableData("user_types", "id, basic_user_type", "id=".$values['user_type']);

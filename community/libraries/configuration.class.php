@@ -56,6 +56,7 @@ class EfrontConfiguration
         //System settings - user activation/registration
         'activation' => 1,
         'mail_activation' => 0,
+     'supervisor_mail_activation' => 0,
         'signup' => 1,
         'show_license_note' => 0,
      'insert_group_key' => 1, // 0 means 'no', 1 means 'yes'

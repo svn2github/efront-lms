@@ -1,538 +1,538 @@
-<?php
-/**
-
-* Professor main page
-
-*
-
-* This page performs all professor functions
-
-* @package eFront
-
-* @version 3.6.0
-
-*/
-session_cache_limiter('none'); //Initialize session
-session_start();
-$path = "../libraries/"; //Define default path
-/** The configuration file.*/
-require_once $path."configuration.php";
-$benchmark = new EfrontBenchmark($debug_TimeStart);
-$benchmark -> set('init');
-//Set headers in order to eliminate browser cache (especially IE's)'
-header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-//If the page is shown as a popup, make sure it remains in such mode
-if (!isset($_GET['reset_popup']) && (isset($_GET['popup']) || isset($_POST['popup']) || (isset($_SERVER['HTTP_REFERER']) && strpos(strtolower($_SERVER['HTTP_REFERER']), 'popup') !== false && strpos(strtolower($_SERVER['HTTP_REFERER']), 'reset_popup') === false))) {
-    output_add_rewrite_var('popup', 1);
-    $smarty -> assign("T_POPUP_MODE", true);
-    $popup = 1;
-}
-$message = '';$message_type = ''; //Initialize messages, because if register_globals is turned on, some messages will be displayed twice
-/*Check the user type. If the user is not valid or not a professor, he cannot access this page, so exit*/
-if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
-    try {
-        $currentUser = EfrontUserFactory :: factory($_SESSION['s_login'], false, 'professor');
-        $currentUser -> applyRoleOptions();
-        if ($currentUser -> user['timezone'] != "") {
-         date_default_timezone_set($currentUser -> user['timezone']);
-        }
-        $smarty -> assign("T_CURRENT_USER", $currentUser);
-    } catch (EfrontException $e) {
-        $message = $e -> getMessage().' ('.$e -> getCode().')';
-        echo "<script>parent.location = 'index.php?message=".urlencode($message)."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
-        //eF_redirect("index.php?message=".urlencode($message)."&message_type=failure");
-        exit;
-    }
-} else {
-    setcookie('c_request', http_build_query($_GET), time() + 300);
-    echo "<script>parent.location = 'index.php?message=".urlencode(_RESOURCEREQUESTEDREQUIRESLOGIN)."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
-    exit;
-}
-if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) && !isset($_GET['tabberajax'])) {
- $_SESSION['previousMainUrl'] = $_SERVER['REQUEST_URI'];
-}
-
-if ($_COOKIE['c_request']) {
-    setcookie('c_request', '', time() - 86400);
-    if (mb_strpos($_COOKIE['c_request'], '.php') !== false) {
-        eF_redirect("".$_COOKIE['c_request']);
-    } else {
-        eF_redirect("".$_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
-    }
-}
-$roles = EfrontLessonUser :: getLessonsRoles();
-
-/* This is used to allow users to enter directly internal lesson specific pages from external pages*/
-if (isset($_GET['new_lessons_ID']) && eF_checkParameter($_GET['new_lessons_ID'], 'id')) {
-  if ($_GET['new_lessons_ID'] != $_SESSION['s_lessons_ID']) {
-  $_SESSION['s_lessons_ID'] = $_GET['new_lessons_ID'];
-  if (isset($_GET['sbctg'])) {
-   $smarty -> assign("T_SPECIFIC_LESSON_CTG", $_GET['sbctg']);
-  }
-  $smarty -> assign("T_REFRESH_SIDE","true");
-  } else if ($_GET['new_lessons_ID'] == $_SESSION['s_lessons_ID']) {
-
-        $smarty -> assign("T_SHOW_LOADED_LESSON_OPTIONS", 1);
-    }
-}
-
-/*This is the first time the professor enters this lesson, so register the lesson id to the session*/
-if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
-
-    if (!isset($_SESSION['s_lessons_ID']) || $_GET['lessons_ID'] != $_SESSION['s_lessons_ID']) {
-        $userLessons = $currentUser -> getLessons();
-        if (in_array($_GET['lessons_ID'], array_keys($userLessons))) {
-            $_SESSION['s_lessons_ID'] = $_GET['lessons_ID'];
-            $_SESSION['s_type'] = $roles[$userLessons[$_GET['lessons_ID']]];
-
-            $smarty -> assign("T_CHANGE_LESSON", "true");
-            $smarty -> assign("T_REFRESH_SIDE", "true");
+            $sort = $_GET['sort'];
+            isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
         } else {
-            unset($_GET['lessons_ID']);
-            $message = _YOUCANNOTACCESSTHISLESSONORITDOESNOTEXIST;
-            $message_type = 'failure';
-            $_GET['ctg'] = 'personal';
+            $sort = 'login';
         }
-    } else if ($_GET['lessons_ID'] == $_SESSION['s_lessons_ID']) {
-
-        $smarty -> assign("T_SHOW_LOADED_LESSON_OPTIONS", 1);
-    }
-}
-
-if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID']) { //Check validity of current lesson
-    $userLessons = $currentUser -> getLessons();
-    if ($_GET['ctg'] != 'personal' && (!isset($userLessons[$_SESSION['s_lessons_ID']]) || $roles[$userLessons[$_SESSION['s_lessons_ID']]] != 'professor')) {
-        eF_redirect("student.php?ctg=lessons"); //redirect to student's lessons page
+        // ** Get skills **
+        // We do not use the getSkills() method, because it will only return the skills of the employee and we need to present them ALL
+        $skill_categories = eF_getTableData("module_hcd_skill_categories", "*", "", "description","");
+        $skills = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_employee_has_skill ON (module_hcd_employee_has_skill.skill_ID = module_hcd_skills.skill_ID AND module_hcd_employee_has_skill.users_login='$edit_user') LEFT JOIN users ON module_hcd_employee_has_skill.author_login = users.login", "users_login, description,specification, module_hcd_skills.skill_ID, categories_ID, users.surname, users.name","");
+        $skills = eF_multiSort($skills, $sort, $order);
+        $smarty -> assign("T_SKILLS_SIZE", sizeof($skills));
+        if (isset($_GET['filter'])) {
+            $skills = eF_filterData($skills, $_GET['filter']);
+        }
+        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+            $skills = array_slice($skills, $offset, $limit);
+        }
+        if (!empty($skills)) {
+            $smarty -> assign("T_SKILLS", $skills);
+        }
+        $smarty -> display($_SESSION['s_type'].'.tpl');
         exit;
     }
-    try {
-        $currentUser -> applyRoleOptions($userLessons[$_SESSION['s_lessons_ID']]); //Initialize user's role options for this lesson
-        $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']); //Initialize lesson
-  $_SESSION['s_lesson_user_type'] = $roles[$userLessons[$_SESSION['s_lessons_ID']]]; //needed for outputfilter.eF_template_setInnerLinks
-        $smarty -> assign("T_TITLE_BAR", $currentLesson -> lesson['name']);
-    } catch (Exception $e) {
-        unset($_SESSION['s_lessons_ID']);
-        $message = $e -> getMessage().' ('.$e -> getCode().')';
-        eF_redirect("".basename($_SERVER['PHP_SELF'])."?message=".urlencode($message)."&message_type=failure");
+    if (isset($_GET['ajax']) && $_GET['ajax'] == 'JobsFormTable') {
+        isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+        if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
+            $sort = $_GET['sort'];
+            isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
+        } else {
+            $sort = 'name';
+        }
+        // ** Get skills **
+        // We do not use the getSkills() method, because it will only return the skills of the employee and we need to present them ALL
+        try {
+            $employees_placements = $editedEmployee -> getJobs();
+            if (!empty($employees_placements)) {
+                $smarty -> assign("T_FORM_PLACEMENTS", $employees_placements);
+            }
+            $smarty -> display($_SESSION['s_type'].'.tpl');
+        } catch (Exception $e) {
+            header("HTTP/1.0 500");
+            $message = _COULDNOTRETRIEVEEMPLOYEESJOBS;
+        }
     }
-
-}
-
-//@todo: remove package_ID from $_SESSION, beware package_ID is needed in lms_commit
-if (isset($_SESSION['package_ID']) && !$_GET['commit_lms']) {
-    unset($_SESSION['package_ID']);
-}
-
-try {
-    if (isset($_GET['view_unit']) && eF_checkParameter($_GET['view_unit'], 'id')) {
-        $currentContent = new EfrontContentTree($currentLesson); //Initialize content
-
-        if ($currentUser -> coreAccess['content'] == 'hidden') {
-            eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
+    /** Get the employees history by ajax **/
+    if (isset($_GET['ajax']) && $_GET['ajax'] == 'historyFormTable') {
+        isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+        if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
+            $sort = $_GET['sort'];
+            isset($_GET['order']) && $_GET['order'] == 'asc' ? $order = 'asc' : $order = 'desc';
+        } else {
+            $sort = 'timestamp';
         }
-        if (!$currentLesson || !$currentContent) {
-            eF_redirect("".basename($_SERVER['PHP_SELF']));
+        // Initialize
+        $history = array();
+        // Get history from events table - 3.6 and on
+        // type > 300 is the HCD events
+        $history_from_events = eF_getTableData("events", "*", "users_LOGIN = '".$_GET['edit_user']."' AND type > 300");
+        $allModules = eF_loadAllModules();
+        foreach ($history_from_events as $key => $event) {
+            $eventObject = new EfrontEvent($event);
+            $history[$key]['event_ID'] = "_" . $event['id'];
+            $history[$key]['timestamp'] = $event['timestamp'];
+            $history[$key]['message'] = $eventObject ->createMessage($allModules);
         }
-        $currentUnit = $currentContent -> seekNode($_GET['view_unit']); //Initialize current unit        
-        //The content tree does not hold data, so assign this unit its data
-        $unitData = new EfrontUnit($_GET['view_unit']);
-        $currentUnit['data'] = $unitData['data'];
-        if (!$_GET['ctg']) {
-            $_GET['ctg'] = 'content';
+        // Get history from module_hcd_events table - for before 3.6
+        $history_hcd_events = eF_getTableData("module_hcd_events", "*", "users_login = '".$_GET['edit_user']."' AND event_code <10");
+        foreach ($history_hcd_events as $key => $event) {
+            $history['_' . $key]['event_ID'] = $event['event_ID'];
+            $history['_' . $key]['timestamp'] = $event['timestamp'];
+            $history['_' . $key]['message'] = $event['specification'];
         }
-    } elseif (isset($_GET['package_ID']) && $currentContent) {
-        $_GET['ctg'] = 'content';
+        $history = eF_multiSort($history, $sort, $order);
+        if (isset($_GET['filter'])) {
+            $history = eF_filterData($history , $_GET['filter']);
+        }
+        $smarty -> assign('T_HISTORY_SIZE', sizeof($history));
+        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+            $history = array_slice($history, $offset, $limit);
+        }
+        if(!empty($history)) {
+            $smarty -> assign("T_HISTORY", $history);
+        }
+        $smarty -> display($_SESSION['s_type'].'.tpl');
+        exit;
     }
-} catch (Exception $e) {
-    unset($_GET['view_unit']);
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
-}
-/*Ajax call to enter group and get group lessons */
- if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
-     // Assuming just one group due to checks in insertion
-        $group = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
-        //pr($group);
-        if (sizeof($group)) {
-         if ($group[0]['active'] == "1") {
-             if ($group[0]['key_max_usage'] == 0 || $group[0]['key_max_usage'] > $group[0]['key_current_usage']) {
-              $group = new EfrontGroup($group[0]);
-           $groupLessons = $group -> getLessons();
-           $groupCourses = $group -> getCourses();
-           if (sizeof($groupLessons) || sizeof($groupCourses)) {
-               $currentLessonIds = array_keys($currentUser -> getLessons()); // get ids of current user lessons 		            
-               $lessonIds = array();
-            $lessonTypes = array();
-            foreach ($groupLessons as $lesson_ID => $lesson) {
-                if (! in_array($lesson_ID, $currentLessonIds)) { // check if user already has the lessons
-                 $lessonIds[] = $lesson_ID;
-                 $lessonTypes[] = $lesson['user_type'];
-                }
+    if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonsTable' && $editedUser -> user['user_type'] != "administrator") {
+        $directionsTree = new EfrontDirectionsTree();
+        $directionPaths = $directionsTree -> toPathString();
+        $lessons = EfrontLesson :: getLessons();
+        $userLessons = $editedUser -> getLessons(true);
+        foreach ($lessons as $key => $lesson) {
+            $obj = new EfrontLesson($lesson);
+            $lessons[$key]['directions_name'] = $directionPaths[$lesson['directions_ID']];
+            $lessons[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
+            $lessons[$key]['partof'] = 0;
+            $lessons[$key]['price_string'] = $obj -> lesson['price_string'];
+            $lessons[$key]['completed'] = 2; //This is to display sorting correctly. It doesn't matter, since if the user doesn't have the lesson, completed status isn't displayed at all
+            $lessons[$key]['score'] = null;
+            $lessons[$key]['active'] = -1; //-1 helps for sorting, has no other effect
+            if (in_array($lesson['id'], array_keys($userLessons))) {
+                $lessons[$key]['from_timestamp'] = $userLessons[$key] -> userStatus['from_timestamp'];
+                $lessons[$key]['partof'] = 1;
+                $lessons[$key]['user_type'] = $userLessons[$key] -> userStatus['user_type'];
+                $lessons[$key]['completed'] = $userLessons[$key] -> userStatus['completed'] ? $userLessons[$key] -> userStatus['completed'] : false;
+                $lessons[$key]['score'] = $userLessons[$key] -> userStatus['score'];
+                $lessons[$key]['active'] = $userLessons[$key] -> userStatus['active'];
+            } else if ($currentUser -> user['user_type'] != 'administrator' || !$lesson['active']) {
+                unset($lessons[$key]);
             }
-            $currentCourseIds = array_keys($currentUser -> getCourses()); // get ids of current user courses 		            
-            $courseIds = array();
-            $courseTypes = array();
-            foreach ($groupCourses as $course_ID => $course) {
-                if (! in_array($course_ID, $currentCourseIds)) { // check if user already has the courses
-                 $courseIds[] = $course_ID;
-                 $courseTypes[] = $course['user_type'];
-                }
+            if ($lesson['course_only']) {
+                unset($lessons[$key]);
             }
-            // If at least one new lesson
-            if (sizeof($lessonIds)) {
-                $currentUser ->addLessons($lessonIds,$lessonTypes);
+        }
+        $roles = EfrontLessonUser :: getLessonsRoles(true);
+        $smarty -> assign("T_ROLES_ARRAY", $roles);
+        $rolesBasic = EfrontLessonUser :: getLessonsRoles();
+        $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
+        isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+        if (isset($_GET['sort'])) {
+            isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
+            $lessons = eF_multiSort($lessons, $_GET['sort'], $order);
+        }
+        if (isset($_GET['filter'])) {
+            $lessons = eF_filterData($lessons, $_GET['filter']);
+        }
+        $smarty -> assign("T_LESSONS_SIZE", sizeof($lessons));
+        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+            $lessons = array_slice($lessons, $offset, $limit);
+        }
+        //foreach ($lessons as $key => $lesson) {
+        //$lessons[$key]['languages_NAME'] = $languages[$lesson['languages_NAME']];
+        //}
+        $smarty -> assign("T_LESSONS_DATA", $lessons);
+        $smarty -> assign("T_EDITED_USER", $editedUser);
+        $smarty -> display($_SESSION['s_type'].'.tpl');
+        exit;
+    }
+    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable' && $editedUser -> user['user_type'] != "administrator") {
+        $directionsTree = new EfrontDirectionsTree();
+        $directionPaths = $directionsTree -> toPathString();
+        $courses = EfrontCourse :: getCourses();
+        $userCourses = $editedUser -> getCourses(true);
+        foreach ($courses as $key => $course) {
+            $courses[$key]['partof'] = 0;
+            $courses[$key]['directions_name'] = $directionPaths[$course['directions_ID']];
+            $courses[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
+            $courses[$key]['active'] = -1; //-1 helps for sorting, has no other effect
+            if (in_array($course['id'], array_keys($userCourses))) {
+                $courses[$key]['from_timestamp'] = $userCourses[$key] -> userStatus['from_timestamp'];
+                $courses[$key]['partof'] = 1;
+                $courses[$key]['user_type'] = $userCourses[$key] -> userStatus['user_type'];
+                $courses[$key]['completed'] = $userCourses[$key] -> userStatus['completed'];
+                $courses[$key]['score'] = $userCourses[$key] -> userStatus['score'];
+                $courses[$key]['active'] = $userCourses[$key] -> userStatus['active'];
+            } else if ($currentUser -> user['user_type'] != 'administrator' || !$course['active']) {
+                unset($courses[$key]);
             }
-            if (sizeof($courseIds)) {
-                $currentUser ->addCourses($courseIds,$courseTypes);
-            }
-            $sum = sizeof($lessonIds) + sizeof($courseIds);
-            // Only after the lessons have actually been assigned
-            $group -> addUsers($currentUser -> user['login']);
-            if ($sum == 0) {
-                echo "0"; //if no new assignments return zero 
+        }
+        $courses = array_values($courses); //Reindex so that sorting works
+        $roles = EfrontLessonUser :: getLessonsRoles(true);
+        $smarty -> assign("T_ROLES_ARRAY", $roles);
+        $rolesBasic = EfrontLessonUser :: getLessonsRoles();
+        $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
+        isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+        if (isset($_GET['sort'])) {
+            isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
+            $courses = eF_multiSort($courses, $_GET['sort'], $order);
+        }
+        if (isset($_GET['filter'])) {
+            $courses = eF_filterData($courses, $_GET['filter']);
+        }
+        $smarty -> assign("T_COURSES_SIZE", sizeof($courses));
+        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+            $courses = array_slice($courses, $offset, $limit);
+        }
+        //foreach ($courses as $key => $course) {
+        //$courses[$key]['languages_NAME'] = $languages[$course['languages_NAME']];
+        //}
+        $smarty -> assign("T_COURSES_DATA", $courses);
+        $smarty -> display($_SESSION['s_type'].'.tpl');
+        exit;
+    }
+    if (isset($_GET['ajax']) && $_GET['ajax'] == 'confirm_user') {
+        try {
+            if ($_GET['type'] == 'course') {
+                $course = new EfrontCourse($_GET['id']);
+                $course -> confirm($editedUser);
             } else {
-          if ($group -> group['key_max_usage'] != 0) {
-                       $group -> group['key_current_usage']++;
-                       $group -> persist();
-                   }
-                echo sizeof($lessonIds) . "_" . sizeof($courseIds); // else divide new lessons from new courses with "_"
+                $lesson = new EfrontLesson($_GET['id']);
+                $lesson -> confirm($editedUser);
+                //eF_updateTableData("users_to_lessons", array("from_timestamp" => time()), "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_GET['id']." and from_timestamp=0");
             }
-           } else {
-               echo "NL"; // no lessons	        
-           }
-             } else {
-                 echo "KE"; //key expired- no remaining uses        
-             }
-         } else {
-             echo "NA";
-         }
+        } catch (Exception $e) {
+            header("HTTP/1.0 500");
+            echo $e -> getMessage().' ('.$e -> getCode().')';
+        }
+        exit;
+    }
+    /****************************************************************************************************************************************************/
+    /*********************************************************** Create the add/edit user form ******************************************************************/
+    /****************************************************************************************************************************************************/
+    if (isset($_GET['add_user'])) { //We add a new user, so we need to display login field. Only an administrator has the ability to add a user.
+        $form = new HTML_QuickForm("add_users_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&add_user=1", "", null, true);
+        $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
+        $form -> addElement('text', 'new_login', _LOGIN, 'class = "inputText"');
+        $form -> addRule('new_login', _THEFIELD.' '._LOGIN.' '._ISMANDATORY, 'required', null, 'client');
+        $form -> addRule('new_login', _INVALIDFIELDDATA, 'checkParameter', 'login');
+        $form -> registerRule('checkNotExist', 'callback', 'eF_checkNotExist');
+        $form -> addRule('new_login', _THELOGIN.' &quot;'.($form -> exportValue('new_login')).'&quot; '._ALREADYEXISTS, 'checkNotExist', 'login');
+        $form -> addElement('password', 'password_', _PASSWORD, 'autocomplete="off" class = "inputText"');
+        $form -> addRule('password_', _THEFIELD.' '._PASSWORD.' '._ISMANDATORY, 'required', null, 'client');
+        $form -> addRule('password_', str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS), 'minlength', $GLOBALS['configuration']['password_length'], 'client');
+        $form -> addElement('password', 'passrepeat', _REPEATPASSWORD, 'class = "inputText "');
+        $form -> addRule('passrepeat', _THEFIELD.' '._REPEATPASSWORD.' '._ISMANDATORY, 'required', null, 'client');
+        $form -> addRule(array('password_', 'passrepeat'), _PASSWORDSDONOTMATCH, 'compare', null, 'client');
+    } elseif (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login')) {
+            // In classic eFront, only the administrator may change someone else's data
+            ($currentUser -> getType() == "administrator") ? $post_target = "?ctg=users&edit_user=".$_GET['edit_user'] : $post_target = "?ctg=personal&op=account";
+        $form = new HTML_QuickForm("change_users_form", "post", basename($_SERVER['PHP_SELF']).$post_target, "", null, true);
+        $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
+        if (!$editedUser -> isLdapUser) { //needs to check ldap
+            $form -> addElement('password', 'password_', _PASSWORDLEAVEBLANK, 'autocomplete="off" class = "inputText"');
+            $form -> addElement('password', 'passrepeat', _REPEATPASSWORD, 'class = "inputText "');
+            $form -> addRule(array('password_', 'passrepeat'), _PASSWORDSDONOTMATCH, 'compare', null, 'client');
         } else {
-            echo "WK"; //wrong key
+            $smarty -> assign("T_LDAP_USER", true);
         }
-  exit;
- }
-///MODULE1: Import
-$loadedModules = $currentUser -> getModules();
-$module_css_array = array();
-$module_js_array = array();
-// Include module languages
-foreach ($loadedModules as $module) {
-    // The $setLanguage variable is defined in globals.php
-    $mod_lang_file = $module -> getLanguageFile($setLanguage);
-    if (is_file ($mod_lang_file)) {
-        require_once $mod_lang_file;
-    }
-    // Get module css
-    if($mod_css_file = $module -> getModuleCSS()) {
-        if (is_file ($mod_css_file)) {
-            // Get the relative path
-            if ($position = strpos($mod_css_file, "modules")) {
-                $mod_css_file = substr($mod_css_file, $position);
+        $smarty -> assign("T_USER_TYPE", $editedUser -> user['user_type']);
+        $smarty -> assign("T_REGISTRATION_DATE", $editedUser -> user['timestamp']);
+        try {
+            $avatar = new EfrontFile($editedUser -> user['avatar']);
+            $smarty -> assign ("T_AVATAR", $editedUser -> user['avatar']);
+            //echo $editedUser -> user['avatar']."<BR>";
+            //pr($avatar);
+            // Get current dimensions
+            list($width, $height) = getimagesize($avatar['path']);
+            if ($width > 200 || $height > 100) {
+                // Get normalized dimensions
+                list($newwidth, $newheight) = eF_getNormalizedDims($avatar['path'], 200, 100);
+                // The template will check if they are defined and normalize the picture only if needed
+                $smarty -> assign("T_NEWWIDTH", $newwidth);
+                $smarty -> assign("T_NEWHEIGHT", $newheight);
             }
-            $module_css_array[] = $mod_css_file;
+        } catch (Exception $e) {
+            $smarty -> assign ("T_AVATAR", G_SYSTEMAVATARSPATH."unknown_small.png");
+        }
+        $smarty -> assign("T_USER_TRANSACTIONS", $trans);
+        $smarty -> assign("T_USER_TRANSACTIONS_NUM", sizeof($trans));
+    }
+    $form -> addElement('text', 'name', _NAME, 'class = "inputText"');
+    $form -> addRule('name', _THEFIELD.' '._NAME.' '._ISMANDATORY, 'required', null, 'client');
+    $form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
+    $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
+    $form -> addRule('surname', _THEFIELD.' '._SURNAME.' '._ISMANDATORY, 'required', null, 'client');
+    $form -> addRule('surname', _INVALIDFIELDDATA, 'checkParameter', 'text');
+    $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText"');
+    // Find all groups available to create the select-group drop down
+    if (!isset($groups_table)) {
+        $groups_table = eF_getTableData("groups", "id, name", "");
+    }
+    if (!empty($groups_table)) {
+        $groups = array ("" => "");
+        foreach ($groups_table as $group) {
+            $gID = $group['id'];
+            $groups["$gID"] = $group['name'];
+        }
+        $form -> addElement('select', 'group' , _GROUP, $groups ,'class = "inputText" id="group" name="group"');
+    } else {
+        $form -> addElement('select', 'group' , _GROUP, array ("" => _NOGROUPSDEFINED) ,'class = "inputText" id="group" name="group" disabled="disabled"');
+    }
+    // Email address is not mandatory for HCD mode
+        $form -> addRule('email', _THEFIELD.' '._EMAILADDRESS.' '._ISMANDATORY, 'required', null, 'client');
+        $form -> addRule('email', _INVALIDFIELDDATA, 'checkParameter', 'email');
+    if (isset($_GET['edit_user'])) {
+        $editedUser -> getGroups();
+        $init_group = end($editedUser -> groups);
+        $form -> setDefaults(array('group' => $init_group['groups_ID']));
+    }
+    if (isset($_GET['edit_user'])) {
+        $form -> setDefaults($editedUser -> user);
+        //If the user's type is other than the basic types, set the corresponding select box to point to this one
+        if ($editedUser -> user['user_types_ID']) {
+            $form -> setDefaults(array('user_type' => $editedUser -> user['user_types_ID']));
         }
     }
-    // Get module js
-    if($mod_js_file = $module -> getModuleJS()) {
-        if (is_file($mod_js_file)) {
-            // Get the relative path
-            if ($position = strpos($mod_js_file, "modules")) {
-                $mod_js_file = substr($mod_js_file, $position);
+    $resultRole = eF_getTableData("users", "user_types_ID", "login='".$currentUser -> login."'");
+    $smarty -> assign("T_CURRENTUSERROLEID", $resultRole[0]['user_types_ID']);
+    // In HCD mode supervisors - and not only administrators - may create employees
+    if ($currentUser -> getType() == "administrator" || (G_VERSIONTYPE == 'enterprise' && $ctg != "personal")) {
+        $rolesTypes = EfrontUser :: getRoles();
+        if ($resultRole[0]['user_types_ID'] == 0 || $rolesTypes[$resultRole[0]['user_types_ID']] == "administrator") {
+            $roles = eF_getTableDataFlat("user_types", "*");
+            $roles_array['student'] = _STUDENT;
+            $roles_array['professor'] = _PROFESSOR;
+            // Only the administrator may assign administrator rights
+            if ($currentUser -> getType() == "administrator" && $resultRole[0]['user_types_ID'] == 0) {
+                $roles_array['administrator'] = _ADMINISTRATOR;
             }
-            $module_js_array[] = $mod_js_file;
+            if (sizeof($roles) > 0) {
+                for ($k = 0; $k < sizeof($roles['id']); $k++) {
+                    if ($roles['active'][$k] == 1 || (isset($editedUser) && $editedUser -> user['user_types_ID'] == $roles['id'][$k])) { //Make sure that the user's current role will be listed, even if it's deactivated
+                        $roles_array[$roles['id'][$k]] = $roles['name'][$k];
+                    }
+                }
+            }
+            $form -> addElement('select', 'user_type', _USERTYPE, $roles_array);
+        }
+        $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ');
+        // Set default values for new users
+        if (isset($_GET['add_user'])) {
+            $form -> setDefaults(array('active' => '1'));
         }
     }
-    // Run onNewPageLoad code of the module (if such is defined) 
-    $module -> onNewPageLoad();
-}
-/*Added Session variable for search results*/
-$_SESSION['referer'] = $_SERVER['REQUEST_URI'];
-/*Horizontal menus*/
-if ((!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest'])) && ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2)) {
- // Used inside new_sidebar_frame to opt out code
- $horizontal_inframe_version = true;
- if ($_GET['ctg'] == "lessons") {
-  $_SESSION['s_lessons_ID'] = "";
- } else if ($_SESSION['s_lessons_ID']) {
-     $_GET['new_lesson_id'] = $_SESSION['s_lessons_ID'];
- }
- include "new_sidebar.php";
-} else {
-    $smarty -> assign("T_NO_HORIZONTAL_MENU", 1);
-}
-!isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
-if (!$_SESSION['s_lessons_ID'] && ($ctg != 'personal' && $ctg != 'statistics') && ($ctg == 'control_panel' && $_GET['op'] != "search")) { //If there is not a lesson in the session, then the user just logged into the system. Redirect him to lessons page, except for the case he is viewing his personal information 2007/07/27 added search control. It was a problem when user had not choose a lesson.
-    $ctg = 'lessons';
-}
-$smarty -> assign("T_CTG", $ctg); //As soon as we derive the current ctg, assign it to smarty.
-$smarty -> assign("T_OP", isset($_GET['op']) ? $_GET['op'] : false);
-//Create shorthands for user type, to avoid long variable names
-$_student_ = $_professor_ = $_admin_ = 0;
-if ($_SESSION['s_lesson_user_type'] == 'student' || (!isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_type'] == 'student')) {
-    $_student_ = 1;
-} else if ($_SESSION['s_lesson_user_type'] == 'professor' || (!isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_type'] == 'professor')) {
-    $_professor_ = 1;
-} else {
-    $_admin_ = 1;
-}
-$smarty -> assign("_student_", $_student_);
-$smarty -> assign("_professor_", $_professor_);
-$smarty -> assign("_admin_", $_admin_);
- try {
- if ($ctg == 'control_panel') {
-     /***/
-     require_once ("control_panel.php");
- }
- elseif ($ctg == 'content') {
-     if (isset($_GET['commit_lms'])) {
-         /***/
-         require_once("lms_commit.php");
-         exit;
-     } else {
-      /***/
-      require_once("common_content.php");
-     }
- }
- elseif ($ctg == 'metadata') {
-     /***/
-     require_once("metadata.php");
- }
- elseif ($ctg == 'comments') {
-     /***/
-     require_once ("comments.php");
- }
- else if ($ctg == 'facebook') {
-     /***/
-     require_once "module_facebook.php";
- }
- elseif ($ctg == 'copy') {
-     /***/
-     require_once("copy.php");
- }
- elseif ($ctg == 'order') {
-     /***/
-     require_once("order.php");
- }
- elseif ($ctg == 'scheduling') {
-     /***/
-     require_once("scheduling.php");
- }
- elseif ($ctg == 'projects') {
-     /**The file that handles the projects*/
-     require_once("projects.php");
- }
- elseif ($ctg == 'tests') {
-  if ($GLOBALS['configuration']['disable_tests'] == 1) {
-      eF_redirect("".basename($_SERVER['PHP_SELF']));
-  }
-     if (isset($currentUser -> coreAccess['content']) && $currentUser -> coreAccess['content'] == 'hidden') {
-         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
-     }
-  if ($configuration['math_content'] && $configuration['math_images']) {
-   $loadScripts[] = 'ASCIIMath2Tex';
-  } elseif ($configuration['math_content']) {
-   $loadScripts[] = 'ASCIIMathML';
-  }
-     $loadScripts[] = 'scriptaculous/dragdrop';
-     /**The tests module file*/
-     require_once ('module_tests.php');
- }
- elseif ($ctg == 'file_manager') {
-     /***/
-     if (isset($_GET['folder'])) {
-         $basedir = G_CONTENTPATH . $_GET['folder']. "/";
-         if (!is_dir($basedir)) {
-             mkdir($basedir, 0755);
-         }
-     } else {
-         $basedir = $currentLesson -> getDirectory();
-     }
-     if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
-         $options = array('lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 1);
-     } else {
-         $options = array('delete' => false, 'edit' => false, 'share' => false, 'upload' => false, 'create_folder' => false, 'zip' => false, 'lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 1);
-     }
-     if (isset($_GET['folder'])) {
-         $url = basename($_SERVER['PHP_SELF']).'?ctg=file_manager&folder=' .$_GET['folder'];
-     } else {
-         $url = basename($_SERVER['PHP_SELF']).'?ctg=file_manager';
-     }
-     include "file_manager.php";
- }
- elseif ($ctg == 'rules') {
-     /***/
-     require_once("rules.php");
- }
- elseif ($ctg == 'statistics') {
-     if ($currentUser -> coreAccess['statistics'] != 'hidden') {
-         require_once "statistics.php";
-     } else {
-         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
+    if ($GLOBALS['configuration']['onelanguage']) {
+        $form -> addElement('hidden', 'languages_NAME', $GLOBALS['configuration']['default_language']);
+    } else {
+        $form -> addElement('select', 'languages_NAME', _LANGUAGE, EfrontSystem :: getLanguages(true, true));
+        // Set default values for new users
+        if (isset($_GET['add_user'])) {
+            $form -> setDefaults(array('languages_NAME' => $GLOBALS['configuration']['default_language']));
+        }
     }
- }
- elseif ($ctg == 'module') {
-     /***/
-     require_once("module.php");
- }
- elseif ($ctg == 'survey') {
-     if ($currentUser -> coreAccess['surveys'] == 'hidden' && $GLOBALS['configuration']['disable_surveys'] != 1) {
-         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");exit;
-     }
-     /**This file handles surveys*/
-     require_once "module_surveys.php";
- }
- elseif ($ctg == "social") {
-     include "social.php";
- }
- elseif ($ctg == 'glossary') {
-     /***/
-     require_once("glossary.php");
- }
- elseif ($ctg == 'calendar') {
-  if ($GLOBALS['configuration']['disable_calendar'] == 1) {
-      eF_redirect("".basename($_SERVER['PHP_SELF']));
-  }
-     if ($currentUser -> coreAccess['calendar'] != 'hidden') {
-         require_once "calendar.php";
-     } else {
-         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
-     }
- }
- elseif ($ctg == 'settings') {
-     if (!$currentLesson) {
-         eF_redirect("".basename($_SERVER['PHP_SELF']));
-     }
-     if (isset($currentUser -> coreAccess['settings']) && $currentUser -> coreAccess['settings'] == 'hidden') {
-         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
-     }
-     $baseUrl = 'ctg=settings';
-     $smarty -> assign("T_BASE_URL", $baseUrl);
-     require_once "lesson_settings.php";
- }
- /*
-
-	The personal page is used to display the professor's personal information
-
-	and provides the means to edit this information
-
-	*/
- elseif ($ctg == 'personal') {
-     /**This part is used to display the user's personal information*/
-     include "includes/personal.php";
- }
- /*
-
-	At this point, we apply module functionality
-
-	*/
- elseif (sizeof($modules) > 0 && in_array($ctg, array_keys($module_ctgs))) {
-     $module_mandatory = eF_getTableData("modules", "mandatory", "name = '".$ctg."'");
-     if ($module_mandatory[0]['mandatory'] != 'false' || isset($currentLesson -> options[$ctg])) {
-         include(G_MODULESPATH.$ctg.'/module.php');
-         $smarty -> assign("T_CTG_MODULE", $module_ctgs[$ctg]);
-     }
- }
- elseif ($ctg == 'lessons') {
-     /***/
-     require_once("lessons_list.php");
- }
- elseif ($ctg == 'forum') {
-     /***/
-     require_once("forum.php");
- }
- elseif ($ctg == 'messages') {
-     /***/
-     require_once("messages.php");
- }
- elseif ($ctg == 'import') {
-     /***/
-     require_once("import.php");
- }
- elseif ($ctg == 'scorm') {
-     /***/
-     require_once("scorm.php");
- }
- elseif ($ctg == 'ims') {
-     /***/
-     require_once("ims.php");
- }
- elseif ($ctg == 'lesson_information') {
-     /***/
-     require_once("lesson_information.php");
- }
- elseif ($ctg == 'news') {
-     /***/
-     include ("news.php");
- }
- elseif ($ctg == 'progress') {
-     /***/
-     require_once("progress.php");
- }
- $fields_log = array ('users_LOGIN' => $_SESSION['s_login'], //This is the log entry array
-                      'timestamp' => time(),
-                      'action' => 'lastmove',
-                      'comments' => 0,
-                      'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
- eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
- eF_insertTableData("logs", $fields_log);
-} catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
-}
-$smarty -> assign("T_HEADER_EDITOR", $load_editor); //Specify whether we need to load the editor
-if (isset($_GET['refresh']) || isset($_GET['refresh_side'])) {
-    $smarty -> assign("T_REFRESH_SIDE","true");
-}
-/*
-
- * Check if you should input the JS code to
-
- * trigger sending the next notificatoin emails
-
- * Since 3.6.0
-
- */
-if (EfrontNotification::shouldSendNextNotifications()) {
- $smarty -> assign("T_TRIGGER_NEXT_NOTIFICATIONS_SEND", 1);
- $_SESSION['send_next_notifications_now'] = 0; // the msg that triggered the immediate send should be sent now
-}
-///MODULES5
-$smarty -> assign("T_MODULE_CSS", $module_css_array);
-$smarty -> assign("T_MODULE_JS", $module_js_array);
-foreach ($loadedModules as $module) {
-    $loadScripts = array_merge($loadScripts, $module -> addScripts());
-}
-//Main scripts, such as prototype
-$mainScripts = array('EfrontScripts',
-      'scriptaculous/prototype',
-      'scriptaculous/scriptaculous',
-      'scriptaculous/effects',
-      'efront_ajax',
-                     'includes/events');
-$smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
-//Operation/file specific scripts
-$loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates
-$smarty -> assign("T_HEADER_LOAD_SCRIPTS", implode(",", array_unique($loadScripts))); //array_unique, so it doesn't send duplicate entries
-$smarty -> assign("T_CURRENT_CTG", $ctg);
-$smarty -> assign("T_MENUCTG", $ctg);
-//$smarty -> assign("T_MENU", eF_getMenu());
-$smarty -> assign("T_QUERIES", $numberOfQueries);
-$smarty -> assign("T_MESSAGE", $message);
-$smarty -> assign("T_MESSAGE_TYPE", $message_type);
-$smarty -> assign("T_SEARCH_MESSAGE", $search_message);
-$smarty -> assign("T_CURRENT_USER", $currentUser);
-$smarty -> assign("T_CURRENT_LESSON", $currentLesson);
-if (!isset($_GET['edit_unit']) && !isset($_GET['edit_project']) && !isset($_GET['edit_question']) && !isset($_GET['edit_test'])) { // when updating a unit we must preserve the innerlink
- $smarty -> load_filter('output', 'eF_template_setInnerLinks');
-}
-$benchmark -> set('script');
-$smarty -> display('professor.tpl');
-$benchmark -> set('smarty');
-$benchmark -> stop();
-if (G_DEBUG) {
- echo $benchmark -> display();
+    $timezones = eF_getTimezones();
+    $form -> addElement("select", "timezone", _TIMEZONE, $timezones, 'class = "inputText" style="width:20em"');
+    // Set default values for new users
+    if (isset($_GET['add_user']) || (isset($_GET['edit_user']) && $editedUser -> user['timezone'] == "")) {
+        $form -> setDefaults(array('timezone' => $GLOBALS['configuration']['time_zone']));
+    }
+    if ($_GET['edit_user'] == $_SESSION['s_login']) { //prevent a logged admin to change its type
+        $form -> freeze(array('user_type'));
+    }
+    /****************************************************************************************************************************************************/
+    /*********************************************************** Submit posted form: personal information ******************************************************************/
+    /****************************************************************************************************************************************************/
+    if (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') {
+        $form -> freeze();
+    } else {
+        $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
+        if ($form -> isSubmitted() && $form -> validate()) {
+            $values = $form -> exportValues();
+    $user_profile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo'"); //Get admin-defined form fields for user registration
+            //Check the user_type. If it's an id, it means that it's not one of the basic user types; so derive the basic user type and populate the user_types_ID field
+            if (is_numeric($values['user_type'])) {
+                $result = eF_getTableData("user_types", "id, basic_user_type", "id=".$values['user_type']);
+                if (sizeof($result) > 0) {
+                    $values['user_type'] = $result[0]['basic_user_type'];
+                    $values['user_types_ID'] = $result[0]['id'];
+                } else {
+                    $values['user_type'] = 'student';
+                }
+            } else {
+                $values['user_types_ID'] = 0;
+            }
+            /****************************/
+            /*** ON ADDING A NEW USER ***/
+            /****************************/
+            if (isset($_GET['add_user'])) {
+    $insertionTimestamp = time(); // needed for the rest of the code to now when the insertion took place
+                // Create array from normal user data
+                $users_content = array('login' => $values['new_login'],
+                                       'name' => $values['name'],
+                                       'surname' => $values['surname'],
+                                       'active' => $values['active'],
+                                       'email' => $values['email'],
+                                       'password' => $values['password_'],
+                                       'user_type' => $values['user_type'],
+                                       'languages_NAME' => $values['languages_NAME'],
+                                       'timezone' => $values['timezone'],
+                        'timestamp' => $insertionTimestamp,
+                                       'user_types_ID' => $values['user_types_ID']);
+                foreach ($user_profile as $field) { //Get the custom fields values
+                    $users_content[$field['name']] = $values[$field['name']];
+                }
+                // Insert the user into the database
+                try {
+                    EfrontUser :: createUser($users_content);
+                    // Assignment of user group
+                    if ($values['group']) {
+                        $group = new EfrontGroup($values['group']);
+                        $group -> addUsers($values['new_login']);
+                    }
+                        eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$values['new_login']."&tab=lessons&message=".urlencode(_USERCREATED)."&message_type=success");
+                    exit;
+                } catch (Exception $e) {
+                    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+                    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+                    $message_type = 'failure';
+                }
+                /***********************************/
+                /*** ON EDITING AN EXISTING USER ***/
+                /***********************************/
+            } elseif (isset($_GET['edit_user'])) {
+                $users_content = array('name' => $values['name'],
+                                       'surname' => $values['surname'],
+                                       'email' => $values['email'],
+                                       'user_types_ID' => $values['user_types_ID'],
+                                       'languages_NAME' => $values['languages_NAME'],
+                                       'timezone' => $values['timezone']);
+                if ($currentUser -> getType() == "administrator") {
+                    $users_content['active'] = $values['active'];
+                    //$users_content['languages_NAME'] = $values['languages_NAME'];
+                    $users_content['user_type'] = $values['user_type'];
+                    $users_content['pending'] = 0; //The user cannot be pending, since the admin sent this information
+                }
+                foreach ($user_profile as $field) { //Get the custom fields values
+                    $users_content[$field['name']] = $form -> exportValue($field['name']);
+                }
+                if (isset($values['password_']) && $values['password_']) {
+                    $users_content['password'] = EfrontUser::createPassword($values['password_']);
+                }
+                // If name/surname changed then the sideframe must be reloaded
+                if ($editedUser -> login == $currentUser -> login && ($editedUser -> user['languages_NAME'] != $values['languages_NAME'] || $editedUser -> user['name'] != $values['name'] || $editedUser -> user['surname'] != $values['surname'])) {
+                    $smarty -> assign("T_REFRESH_SIDE", 1);
+                    $smarty -> assign("T_PERSONAL_CTG", 1);
+                    if ($_SESSION['s_language'] != $values['languages_NAME']) {
+                        $_SESSION['s_language'] = $values['languages_NAME'];
+                    }
+                }
+                eF_updateTableData("users", $users_content, "login='".$_GET['edit_user']."'");
+                // mpaltas temporary solution: manual OO to keep $editedUser object cache consistent
+                if ($editedUser -> user['user_type'] != $values['user_type']) {
+                    // the new instance will be of the updated type
+                    $editedUser = EfrontUserFactory :: factory($_GET['edit_user']);
+                }
+                foreach ($users_content as $field => $content) {
+                    $editedUser -> user[$field] = $content;
+                }
+                // end of mpaltas temp solution
+                $currentUser -> getType() == "administrator" ? $message = _PERSONALDATACHANGESUCCESSADMIN : $message = _PERSONALDATACHANGESUCCESS;
+                $message_type = 'success';
+                if (isset($values['password_']) && $values['password_'] && $currentUser -> login == $_GET['edit_user']) { //In case the user changed his password, change it in the session as well
+                    $_SESSION['s_password'] = $users_content['password'];
+                }
+                // Assignment of user group
+                if ($values['group'] != $init_group['groups_ID']) {
+                    if ($init_group['groups_ID']) {
+                        $editedUser -> removeGroups($init_group['groups_ID']);
+                    }
+                    if ($values['group']) {
+                        $editedUser -> addGroups($values['group']);
+                    } else {
+                        $groups = eF_getTableDataFlat("groups","id","");
+                        $editedUser -> removeGroups($groups['id']);
+                    }
+                }
+            }
+        }
+    }
+    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+    $renderer -> setRequiredTemplate(
+       '{$html}{if $required}
+            &nbsp;<span class = "formRequired">*</span>
+        {/if}');
+    $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+    $form -> setRequiredNote(_REQUIREDNOTE);
+    $form -> accept($renderer);
+    $smarty -> assign('T_PERSONAL_DATA_FORM', $renderer -> toArray());
+    // Put in the end to include possible updated values
+    if ($init_job['branch_ID']) {
+        $smarty -> assign("T_BRANCH_INFO", "href=\"" . $currentUser -> getType(). ".php?ctg=module_hcd&op=branches&edit_branch=" . $my_branch_id . "\"");
+        $smarty -> assign('my_jobs_label', _JOBDESCRIPTION);
+        $smarty -> assign('my_jobs_html', 1 );
+    }
+    if ($_GET['ctg'] == 'personal' || ($_SESSION['s_type'] == 'administrator' && $currentUser -> user['login'] == $editedUser -> user['login'])) {
+        $loadScripts[] = 'scriptaculous/effects';
+        unserialize($editedUser -> user['additional_accounts']) ? $additionalAccounts = unserialize($editedUser -> user['additional_accounts']) : $additionalAccounts = array();;
+        $smarty -> assign("T_ADDITIONAL_ACCOUNTS", $additionalAccounts);
+        if (isset($_GET['ajax']) && $_GET['ajax'] == 'additional_accounts') {
+            try {
+                if (isset($_GET['fb_login'])) {
+                } else {
+                    if (isset($_GET['delete'])) {
+                        unset($additionalAccounts[array_search($_GET['login'], $additionalAccounts)]);
+                    } else {
+                        if ($_GET['login'] == $_SESSION['s_login']){
+                            throw new Exception(_CANNOTMAPSAMEACCOUNT);
+                        }
+                        if (array_search($_GET['login'], $additionalAccounts)) {
+                            throw new Exception(_ADDITIONALACCOUNTALREADYEXISTS);
+                        }
+                        $newAccount = EfrontUserFactory::factory($_GET['login'], EfrontUser::createPassword($_GET['pwd']));
+                        $additionalAccounts[] = $newAccount -> user['login'];
+                    }
+                    $editedUser -> user['additional_accounts'] = serialize(array_unique($additionalAccounts));
+                    $editedUser -> persist();
+                    unserialize($newAccount -> user['additional_accounts']) ? $additionalAccounts2 = unserialize($newAccount -> user['additional_accounts']) : $additionalAccounts2 = array();;
+                    $additionalAccounts2[] = $editedUser -> user['login'];
+                    $newAccount -> user['additional_accounts'] = serialize(array_unique($additionalAccounts2));
+                    $newAccount -> persist();
+                }
+            } catch (Exception $e) {
+                header("HTTP/1.0 500");
+                echo $e -> getMessage().' ('.$e -> getCode().')';
+            }
+            exit;
+        }
+    }
+    /****************************************************************************************************************************************************/
+    /***************************** [HCD] Retrieve all Employee information to appear on the form: job descriptions, skills, evaluations *****************/
+    /****************************************************************************************************************************************************/
+    /** GET DATA FOR EMPLOYEE'S PLACEMENTS AND SKILLS **/
+    if (isset($_GET['edit_user'])) {
+        $edit_user= $_GET['edit_user'];
+        $smarty -> assign('T_USERNAME',"" . $editedUser -> user['name'] . " " . $editedUser -> user['surname'] . "");
+        $smarty -> assign('T_SIMPLEUSERNAME',$editedUser -> user['name'] . " " . $editedUser -> user['surname']);
+        $smarty -> assign('T_USER', $editedUser -> user);
+        /****************************************************************************************************************************************************/
+        /***************************** Retrieve all User information to appear on the form: personal information, lessons, courses, certificates, groups ******************/
+        /****************************************************************************************************************************************************/
+        /** Get certificates **/
+        $certificates = $editedUser->getIssuedCertificates();
+        //pr($certificates);
+        if (!empty($certificates)) {
+            $smarty -> assign("T_USER_TO_CERTIFICATES", $certificates);
+        }
+        /** Get groups **/
+        $groups = eF_getTableData("groups", "*");
+        $user_groups = $editedUser -> getGroups();
+        $groups_size = sizeof($groups);
+        for ($k = 0; $k < $groups_size; $k++) {
+            $groups[$k]['partof'] = 0;
+            if (in_array($groups[$k]['id'], array_keys($user_groups))) {
+                $groups[$k]['partof'] = 1;
+            } else if (!$groups[$k]['active'] || $currentUser -> getType() != "administrator") {
+                unset($groups[$k]);
+            }
+        }
+        if (!empty($groups)) {
+            $smarty -> assign("T_USER_TO_GROUP_FORM", $groups);
+        }
+    }
 }
 ?>

@@ -18,6 +18,7 @@
 - Added hiddenHeader style for horizontal template
 - Fixed problem with unicode characters in calendar tooltip
 - Fixed problem in horizontal themes with search box by calling eF_formatTitlePath that was missing
+- Changed CSS declarations: .inactiveImage, .inactiveImage img{opacity:0.2;filter:alpha(opacity=20);}
 
 === Version 3.6.0 build 5997 ===
 - Fixed phplivedocx configuration file creation

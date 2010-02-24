@@ -1,126 +1,104 @@
-<?php
-/**
-
- * Smarty plugin: smarty_function_eF_template_printCalendar function. Prints inner table
-
- *
-
- */
-function smarty_function_eF_template_printCalendar($params, &$smarty) {
- $events = $params['events'];
- isset($params['ctg']) ? $current_ctg = $params['ctg'] : $current_ctg = 'control_panel'; //If a ctg is defined (e.g. ctg=calendar), use this as the links target. Otherwise, use control_panel (default)
- foreach ($events as $key => $event) {
-  $temp = getdate($key);
-  foreach ($event['data'] as $key2 => $value) {
-   $event['data'][$key2] = str_replace("&#039;","&amp;#039;", $event['data'][$key2]);
-  }
-  $events_per_day[mktime(0, 0, 0, $temp['mon'], $temp['mday'], $temp['year'])][$key] = $event['data'];
- }
- //pr($events_per_day);
- //pr($events);
- if (!isset($params['timestamp'])) {
-  $params['timestamp'] = time();
- }
- $timestamp_info = getdate($params['timestamp']);
-
- $previous_month = mktime(0, 0, 0, $timestamp_info['mon'] - 1, 1, $timestamp_info['year']);
- $next_month = mktime(0, 0, 0, $timestamp_info['mon'] + 1, 1, $timestamp_info['year']);
- $previous_year = mktime(0, 0, 0, $timestamp_info['mon'] , 1, $timestamp_info['year'] - 1);
- $next_year = mktime(0, 0, 0, $timestamp_info['mon'] , 1, $timestamp_info['year'] + 1);
-
- $firstday = mktime(0, 0, 0, $timestamp_info['mon'] , 1, $timestamp_info['year']);
- $lastday = mktime(0, 0, 0, $timestamp_info['mon'] + 1, 0, $timestamp_info['year']);
- $firstday_info = getdate($firstday);
- if ($firstday_info['wday'] == 0) {
-  $firstday_info['wday'] = 7;
- }
-
- $lastday_info = getdate($lastday);
- if ($lastday_info['wday'] == 0) {
-  $lastday_info['wday'] = 7;
- }
- $today = getdate(time());
- $today = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);
-
- isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp') ? $view_calendar = $_GET['view_calendar'] : $view_calendar = $today;
- isset($_GET['show_interval']) ? $show_interval_link = '&show_interval='.$_GET['show_interval'] : $show_interval_link = '';
 
 
+=== Version 3.6.0 build ===
+- Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
+- Added toggle to html mode in module billboard
+- Fixed problem of displaying link for tests reports in community version
+- Fixed problem about conflicted forms with entities
+- Fixed paths in smiles icons for chat
+- Fixed bug about export chat history (EF-526)
+- Fixed bug about importing user with invalid user type
+- Fixed js error about undefined getPeriodicData
+- Added disable tooltip option
+- Fixed test analysis charts not loading with PHP 5.1.x
+- Fixed voucher code not being accepted as valid in certain circumstances
+- Fixed free enrollment not working with encrypted urls
+- Fixed questions correction from the professor (un)setting unit completion status
+- Fixed refresh of sidebar when changing lesson in professor
+- Added header hide option
+- Added job self-registering and activating supervisor with branch information custom profile field
+- Added hiddenHeader style for horizontal template
+- Fixed problem with unicode characters in calendar tooltip
+- Fixed problem in horizontal themes with search box by calling eF_formatTitlePath that was missing
+- Changed CSS declarations: .inactiveImage, .inactiveImage img{opacity:0.2;filter:alpha(opacity=20);}
+
+=== Version 3.6.0 build 5997 ===
+- Fixed phplivedocx configuration file creation
+- Fixed upgrading from 3.5.5 not retaining all kinds of custom blocks
+- Fixed community ++ issue where users where archived instead of being deleted
+- Fixed issue with error appearing when deleting users
+- Fixed issue with listing archived lessons in new notification list
+- Fixed theme exporting problem
+- Added allow_url_fopen = on to recommended PHP settings
+- Fixed manual payments error
+- Added option for automatically completing unit
+- Added m4v files in filemanager insert to editor
+- Fixed issue with ie6 theme and css path
+- Fixed editor loading issue when upgrading to 3.6
+- Fixed auto completion of courses for IE7
+- Fixed multiple instances of sidebar appearing when users enrolled to a lesson they already had (EF-512)
+- Fixed import/export users page dropping off page borders (EF-507)
+- The lesson language no longer appears in the lesson info, when a single language is set to be used throughout the system (EF-496)
+- Added "Print content" lesson property
+- Added list of not solved tests in user progress
+- List of category now does not include other categories' lessons and courses (EF-500)
+- Fixed issue with tags and scripts when printing a unit
+- Fixed deleting categories containing archived items
+- Fixed SCORM content alert box popping up after error
+- Fixed bug in content management when more than one possible action was set
+- Fixed leaving orphaned entities while deleting lesson
+- Fixed bug about new message link for user types with only view permissions in messages
+- Added object{position: relative; z-index: 0} in css for properly display videos and tooltips together. Objects also need <param name="wmode" value="transparent">
+- Added events in lesson initialization list
+- Fixed SCORM 1.2 detected as 2004 in enterprise edition
+- Fixed requesting sidebar in horizontal themes
+- Fixed SCORM completion rules not taking into account empty units
+- Fixed SCORM completion icon showing up correctly when coexisting with tests
+- Fixed loosing questions' unit information when they are deactivated 
+- Fixed issue with lessons catalog not displaying hidden lessons
 
 
+=== Version 3.6.0 build 5831 ===
+- Added missing scorm.js file in latest build
 
+=== Version 3.6.0 build 5830 ===
+- Installation fixes to better support 3.5.x upgrades (logo, motto, custom blocks)
+- Edition separation in statistics fix
+- Fixed custom footer to replace default
+- When duplicate formatted user names appear, the login is displayed in order to tell who is who
+- Added maintain test history setting
+- Added user configurable random pool option
+- Added optional prerequisite for php_soap, which is needed by phplivedocx
+- Fixed custom header propagating from 3.5.5 to 3.6.0, even though it's not supported there
+- Fixed user names not displaying in project assignment list
+- Fixed issue with not displaying media list properly in edit theme block
+- Fixed issue with editor link popup window not displaying content list correctly
+- Security fix for editor browsing popup
+- Fixed default notifications missing in upgrades
+- Fixed students not to have access to lessons that are not activated, from the dashboard
+- Fixed dashboard results not to list information for ineligible lessons
+- Fixed forum list not displaying when the user does not have lessons
+- Fixed complete unit with question issue
+- Fixed "Passed all tests" completion condition displaying form data
+- Fixed completion conditions displaying units and tests even if the lesson doesn't have any
 
-
-   $type = "";
-
-
-
- $str = '
-    <table>
-        <tr><td>
-            <table class = "calendarHeader" >
-                <tr class = "calendar">
-                    <td class = "calendarHeader">
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$previous_month.$show_interval_link.$type.'">&laquo; </a>
-                        '.iconv(_CHARSET, 'UTF-8', strftime('%B', $params['timestamp'])).'
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$next_month.$show_interval_link.$type.'">&raquo; </a>
-                    </td>
-                    <td class = "calendarHeader">
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$previous_year.$show_interval_link.$type.'">&laquo; </a>
-                        '.$timestamp_info['year'].'
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$next_year.$show_interval_link.$type.'"> &raquo;</a>
-                    </td></tr>
-            </table>
-        </td></tr>
-        <tr><td>
-            <table class = "calendar">
-                <tr><td class = "calendar">&nbsp;'._MON.'&nbsp;</td>
-                    <td class = "calendar">&nbsp;'._TUE.'&nbsp;</td>
-                    <td class = "calendar">&nbsp;'._WED.'&nbsp;</td>
-                    <td class = "calendar">&nbsp;'._THU.'&nbsp;</td>
-                    <td class = "calendar">&nbsp;'._FRI.'&nbsp;</td>
-                    <td class = "calendar">&nbsp;'._SAT.'&nbsp;</td>
-                    <td class = "calendar">&nbsp;'._SUN.'&nbsp;</td>
-                </tr><tr>';
-
- $weeks = ceil(($firstday_info[wday] + $lastday_info[mday] - 1) / 7);
- $count = 1;
-
- for ($i = 1; $i < $weeks + 1; $i++) {
-  $str .= '
-            <tr>';
-  for ($j = 1; $j <= 7; $j++) {
-
-   if ($count >= $firstday_info['wday'] && $count < $lastday_info['mday'] + $firstday_info['wday']) {
-    $day = $count - $firstday_info['wday'] + 1;
-   } else {
-    $day = '';
-   }
-
-   $day_timestamp = mktime(0, 0, 0, (int)$timestamp_info['mon'], (int)$day, (int)$timestamp_info['year']);
-   $count++;
-
-   if (!empty($events_per_day[$day_timestamp])) {
-    $className = 'eventCalendar';
-    $dayEvents = array();
-
-    foreach ($events_per_day[$day_timestamp] as $key => $value) {
-     //pr($key);
-     $dayEvents[] = '#filter:timestamp_time_only_nosec-'.$key.'# '.rawurlencode(implode(", ", $value));
-    }
-//pr($dayEvents);				
-    $dayEvents = implode("<br>", $dayEvents);
-    //$events[$day_timestamp] = str_replace("&#039;","&amp;#039;", $events[$day_timestamp]);
-//This requires wz_tooltip.js See outputfilter.eF_template_includeScripts.php for when this gets loaded
-    $day_str = '
-                 <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.$show_interval_link.$type.'" onmouseover = "this.T_PADDING = 5; this.T_TEXTALIGN = \'left\'; this.T_TITLE = \'#filter:timestamp-'.$day_timestamp.'#\'; return escape(decodeURI(\''.($dayEvents).'\'))">'.$day.'</a>'; 
-   } else {
-    $day_str = '
-                    <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.$show_interval_link.$type.'">'.$day.'</a>';
-   }
-
-   if ($day_timestamp == $today) {
-    $className = 'todayCalendar';
+=== Version 3.6.0 build 5751 ===
+eFront 3.6.0 is a completely new version, introducing many important new features
+and important enhancements in all aspects of the platform. The hightlights of this
+version are:
+* 3x Faster than the 3.5.x branch
+* Greater interoperability
+* Rich set of social tools, including facebook integration
+* SCORM 2004 4th edition compatible
+* Advanced reporting
+* Smart communication
+* Improved payments support
+* Available in a plethora of themes
+* Archive support
+* Smart import of data
+* Revamped certifications
+* Auto-update
+ndar';
    }
 
    if ($day_timestamp == $view_calendar) {

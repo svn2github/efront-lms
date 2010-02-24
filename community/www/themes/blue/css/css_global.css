@@ -1363,7 +1363,7 @@ span.recurringPrice{}
 .horizontalSeparator{border-bottom:1px solid #888888}
 .horizontalSeparatorAbove{border-top:1px solid #555555;}
 .inactiveElement{color:#555555;}
-.inactiveImage{opacity:0.2;filter:alpha(opacity=20);}
+.inactiveImage, .inactiveImage img{opacity:0.2;filter:alpha(opacity=20);}
 span.counter{font-weight:normal;}
 img.handle{cursor:pointer;vertical-align:middle;border-width:0px}
 img.ajaxHandle{cursor:pointer;vertical-align:middle;}

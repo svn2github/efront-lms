@@ -457,8 +457,8 @@ var enableMyJobSelect = false;
     {if isset($T_USER_TO_GROUP_FORM)}
     <div class="tabbertab" title="{$T_TITLES.status.groups}">
      {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
-                {/if}
     </div>
+    {/if}
    </div>
   {/if}
  {/if}

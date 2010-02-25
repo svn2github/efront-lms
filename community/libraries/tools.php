@@ -8,6 +8,7 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
+
 /**
 
  * If json_decode() does not exist, use external implementation

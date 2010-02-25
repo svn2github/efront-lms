@@ -507,9 +507,11 @@ function onSortedTableComplete() {
 function setImageSrc(el, dim, img) {
  if (1) {
   re = new RegExp('sprite'+dim+'-(.*)');
-  currentImage = el.className.match(re)[1];
-  if (currentImage) {
+  if (el.className.match(re)) {
+   currentImage = el.className.match(re)[1];
    el.removeClassName('sprite'+dim+'-'+currentImage).addClassName('sprite'+dim+'-'+img.replace(/\.png/, ''));
+  } else {
+   el.addClassName('sprite16').addClassName('sprite'+dim+'-'+img.replace(/\.png/, ''));
   }
  } else {
   el.src = 'images/'+dim+'x'+dim+'/'+img;

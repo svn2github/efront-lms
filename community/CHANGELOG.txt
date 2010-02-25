@@ -19,6 +19,15 @@
 - Fixed problem with unicode characters in calendar tooltip
 - Fixed problem in horizontal themes with search box by calling eF_formatTitlePath that was missing
 - Changed CSS declarations: .inactiveImage, .inactiveImage img{opacity:0.2;filter:alpha(opacity=20);}
+- Fixed forum configuration panel that was missing
+- Fixed EF-534. If a lesson is available only via course, it can not be hidden from catalog
+- Fixed error when adding additional option in multiple questions with IE7
+- Added additional check whether themes directories are recursively writable
+- Fixed copying media along with questions and tests
+- Fixed issue when editing a notification (EF-539)
+- Fixed error in selecting recipients in community edition (EF-537)
+- Fixed SCORM score reporting in user and test reports
+- Fixed test reporting for SCORM test units
 
 === Version 3.6.0 build 5997 ===
 - Fixed phplivedocx configuration file creation

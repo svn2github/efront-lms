@@ -280,7 +280,7 @@ if ($_SESSION['s_lesson_user_type'] == 'student' || (!isset($_SESSION['s_lesson_
 $smarty -> assign("_student_", $_student_);
 $smarty -> assign("_professor_", $_professor_);
 $smarty -> assign("_admin_", $_admin_);
- try {
+try {
  if ($ctg == 'control_panel') {
      /***/
      require_once ("control_panel.php");

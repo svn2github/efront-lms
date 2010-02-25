@@ -687,7 +687,6 @@ $loadScripts[] = "administrator/digests";
 
                         EfrontNotification::addEventNotification($events_type, $subject, $message, $condition, $_POST['event_recipients'], $html_message, $after_time, $send_immediately);
                     } else {
-
                         // if we changed from simple notification event -> on/after event notification
                         if (!isset($_GET['event'])) {
                             eF_deleteTableData("notifications", "id = '".$_GET['edit_notification']."'");

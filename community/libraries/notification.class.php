@@ -693,24 +693,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      */
     public static function addEventNotification($events_type, $subject, $message, $condition, $recipients_category, $html_message, $after_time = false, $send_immediately = false) {
-     $notification = array ("event_type" => $events_type,
-             "send_conditions" => serialize($condition),
-             "send_recipients" => $recipients_category,
-             "message" => $message,
-             "subject" => $subject,
-             "html_message" => $html_message,
-                            "send_immediately"=> ($send_immediately)?1:0);
-  if ($after_time) {
-   $notification['after_time'] = $after_time;
-  } else {
-   $notification['after_time'] = 0;
-  }
-  $id = eF_insertTableData("event_notifications", $notification);
-  if ($id && $after_time) {
-      $notification['id'] = $id;
-   // add notifications for the existing users - the event notification entry must first be inserted before initializing existing users
-   EfrontNotification::initializeEventNotification($notification);
-  }
     }
     /**
 
@@ -750,18 +732,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      */
     public static function editEventNotification($event_id, $event_type, $subject, $message, $condition, $recipients_category, $html_message, $after_time = false, $send_immediately = false) {
-     $notification = array ("event_type" => $event_type,
-             "send_conditions" => serialize($condition),
-             "send_recipients" => $recipients_category,
-             "message" => $message,
-             "subject" => $subject,
-             "html_message" => $html_message,
-                            "send_immediately"=> ($send_immediately)?1:0);
-  if ($after_time) {
-   $notification['after_time'] = $after_time;
-  } else {
-   $notification['after_time'] = 0;
-  }
+      $notification = array ("message" => $message,
+              "subject" => $subject,
+              "html_message" => ($html_message) ? 1: 0);
   $result = eF_updateTableData("event_notifications", $notification, "id = '" . $event_id . "'");
      if ($result && $after_time) {
    // add notifications for the existing users - the event notification entry must first be inserted before initializing existing users

@@ -11,6 +11,16 @@ $loadScripts[] = 'includes/content';
 $loadScripts[] = 'includes/comments';
 
 if (!isset($currentContent)) {
+    if (!$currentLesson) {
+        if ($_GET['view_unit']) {
+            $unit = new EfrontUnit($_GET['view_unit']);
+            $currentLesson = new EfrontLesson($unit['lessons_ID']);
+        } elseif ($_GET['package_ID']) {
+            $unit = new EfrontUnit($_GET['package_ID']);
+            $currentLesson = new EfrontLesson($unit['lessons_ID']);
+        }
+        $_SESSION['s_lessons_ID'] = $currentLesson -> lesson['id'];
+    }
     $currentContent = new EfrontContentTree($currentLesson);
     if ($_student_) {
         $currentContent -> markSeenNodes($currentUser);

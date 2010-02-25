@@ -3632,7 +3632,7 @@ if ($element == 'data') $value = htmlentities($value);
                         'active' => $this -> lesson['active'],
                         'duration' => $this -> lesson['duration'] ? $this -> lesson['duration'] : 0,
 //                        'share_folder'    => $this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : 0,
-      'show_catalog' => $this -> lesson['show_catalog'],
+      'show_catalog' => $this -> lesson['course_only'] ? 1 : $this -> lesson['show_catalog'], //if lesson is available only via course, it can not be hidden from catalog
                         'options' => serialize($this -> options),
                         'languages_NAME' => $this -> lesson['languages_NAME'],
                         'metadata' => $this -> lesson['metadata'],

@@ -80,14 +80,7 @@ if (isset($user) && $user) {
                  }
              }
              //echo "HCD<BR><BR><BR>";
-                 $result = eF_getTableDataFlat("users JOIN module_hcd_employee_works_at_branch", "users_LOGIN", "users.login = module_hcd_employee_works_at_branch.users_LOGIN AND branch_ID IN ('". implode("','", $branches)."')");
-                 //pr($result);
-                 foreach($result['users_LOGIN'] as $login) {
-                  if (!in_array($login, $logins)){
-                   $logins[] = $login;
-                  }
-                 }
-                }
+   }
                 //echo "TELIKA<BR><BR><BR>";pr($logins);
    $related_users_list = "'".implode("','", $logins)."'";
             $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "(login IN (". $related_users_list . ") OR user_type <> 'student') AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%')", "login");

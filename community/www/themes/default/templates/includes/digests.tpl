@@ -284,7 +284,6 @@
                     <tr><td class = "labelCell">{$T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.label}:&nbsp;</td>
                         <td class = "elementCell">{$T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.html}</td></tr>
                     {if $T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.error}<tr><td></td><td class = "formError">{$T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.error}</td></tr>{/if}
-     <tr><td colspan = "2">&nbsp;</td></tr>
                     <tr><td></td><td class = "submitCell">{$T_NOTIFICATION_VARIABLES_FORM.submit_variables.html}</td></tr>
                 </table>
             </form>

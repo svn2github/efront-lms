@@ -90,8 +90,8 @@ try {
             echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
         }
         exit;
-    } else if ($_GET['type'] == 'forum' && !$_student_ && (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $legalForumValues)))) {
-        $load_editor = 1;
+    } else if ($_GET['type'] == 'forum' && (!$_student_ || $forum_config['students_add_forums']) && (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $legalForumValues)))) {
+  $load_editor = 1;
         if ($_admin_) {
             $lessons = eF_getTableDataFlat("lessons", "id, name", "active=1");
             if (sizeof($lessons) > 0) {
@@ -145,7 +145,7 @@ try {
         $legalValues = $legalMessageValues;
         include("entity.php");
     } else if (isset($_GET['config'])) {
-        $form = new HTML_QuickForm("forum_admin_form", "post", "", "", null, true); //Build the form
+        $form = new HTML_QuickForm("forum_admin_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=forum&config=1", "", null, true); //Build the form
         $form -> addElement('select', 'allow_html', _ALLOWHTMLFPM, array(1 => _YES, 0 => _NO));
         $form -> addElement('select', 'polls', _ACTIVATEPOLLS, array(1 => _YES, 0 => _NO));
         $form -> addElement('select', 'forum_attachments', _ALLOWATTACHMENTSINF, array(1 => _YES, 0 => _NO));

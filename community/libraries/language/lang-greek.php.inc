@@ -3508,4 +3508,5 @@ define("_UPLOADTHEIMSFILEINZIPFORMAT","Ανεβάστο το αρχείο IMS σ
 define("_IMSOPTIONS", "Επιλογές IMS");
 define("_SUCCESSFULLYIMPORTEDIMSFILE", "Το αρχείο IMS εισήχθηκε επιτυχώς");
 define("_TOOLTIP","Tooltip");
+define("_HIDDEN", "Να μη φαίνεται στους χρήστες");
 ?>

@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS", "Unsupported payment status");
 define("_YOUHAVECANCELLEDTHETRANSACTION", "You have cancelled the transaction");
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED", "The transaction was completed successfully.");
 define("_PAYPALDEBUG", "Paypal debug mode");
-define("_MYACCOUNT", "My account");
+define("_MYACCOUNT", "my Account");
 define("_MODULE", "Module");
 define("_EMBEDTYPE", "Embed content as");
 define("_INLINEIFRAME", "Inline (iframe)");
@@ -3509,4 +3509,5 @@ define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS file in ZIP format");
 define("_IMSOPTIONS", "IMS options");
 define("_SUCCESSFULLYIMPORTEDIMSFILE", "IMS file was successfully imported");
 define("_TOOLTIP","Tooltip");
+define("_HIDDEN", "Hidden from users");
 ?>

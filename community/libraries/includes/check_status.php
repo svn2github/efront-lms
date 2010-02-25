@@ -161,10 +161,9 @@ foreach ($settings as $key => $value) {
 }
 $smarty -> assign("T_SETTINGS", $settings);
 
-
 $permissions['www/content'] = array('writable' => is_writable($path.'../www/content'),
                                                     'help' => 'This is the directory where the lesson content resides, and should be writable along with any subfolders');
-$permissions['www/themes'] = array('writable' => is_writable($path.'../www/themes'),
+$permissions['www/themes'] = array('writable' => is_writable($path.'../www/themes') && local_checkThemesWritable(),
                                                     'help' => 'This directory is where custom Themes are uploaded');
 $permissions['www/modules'] = array('writable' => is_writable($path.'../www/modules'),
                                                     'help' => 'This is the directory where the modules are installed');
@@ -312,5 +311,33 @@ foreach ($pear as $key => $value) { //Check PEAR packages
 }
 if ($php_version[0] <= 4) { //PHP 4 will not run
     $install = false;
+}
+function local_checkThemesWritable() {
+    $writable = true;
+    if (class_exists('FileSystemTree')) {
+     $fs = new FileSystemTree(G_ROOTPATH."www/themes/", true);
+     foreach ($fs -> iterator as $key => $value) {
+         if (!$value -> isWritable() || (is_dir($key."/external/") && !local_checkWritableRecursive($key."/external/") )) {
+             $writable = false;
+         }
+     }
+    }
+    return $writable;
+}
+function local_checkWritableRecursive($path) {
+    $writable = true;
+    if (!is_writable($path)) {
+        $writable = false;
+    } else {
+     $fs = new FileSystemTree($path);
+     $fs -> iterator -> rewind();
+     while ($fs -> iterator -> valid() && $writable) {
+         if (!$fs -> iterator -> current() -> isWritable()) {
+             $writable = false;
+         }
+         $fs -> iterator -> next();
+     }
+    }
+    return $writable;
 }
 ?>

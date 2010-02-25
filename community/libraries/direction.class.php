@@ -764,7 +764,7 @@ class EfrontDirectionsTree extends EfrontTree
             $treeString .= '
                         <table class = "directionsTable" id = "direction_'.$current['id'].'" '.($iterator -> getDepth() >= 1 ? $display : '').'>
                             <tr class = "lessonsList">
-                             <td class = "listPadding" style = "width:'.(20 * $iterator -> getDepth() + 1).'px;"></td>
+                             <td class = "listPadding"><div style = "width:'.(20 * $iterator -> getDepth()).'px;">&nbsp;</div></td>
                              <td class = "listToggle">
                               <img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_down.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">
                              </td>

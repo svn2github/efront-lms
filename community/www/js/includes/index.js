@@ -7,6 +7,10 @@ function change_branch(element,jobs_select_id, defJob)
 {
     var fb = document.getElementById(element).value;
 
+    if (!$(jobs_select_id) ) {
+     return;
+    }
+
     if (fb == 0 || fb == "all") {
         document.getElementById(jobs_select_id).disabled = "disabled";
     } else {
@@ -68,11 +72,16 @@ function change_branch(element,jobs_select_id, defJob)
 
 function change_supervisors(element, supervisors_id) {
 
+ if (!$(supervisors_id)) {
+     return;
+    }
+
+
     var fb = document.getElementById(element).value;
     if (fb == 0 || fb == "all") {
         document.getElementById(supervisors_id).disabled = "disabled";
     } else {
-     url = "index.php?ctg=signup&postAjaxRequest=1&getSupervisorsSelect=1&branch="+fb;
+     url = "index.php?ctg=signup&postAjaxRequest=1&getSupervisorsSelect=1&only_existing=1&branch="+fb;
         new Ajax.Request(url, {
             method:'get',
             asynchronous:false,

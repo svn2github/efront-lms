@@ -118,6 +118,17 @@ function togglePdf() {
  $('nonPdfTable').toggle();
  $('toggleTools').toggle();
 }
+function toggleAdvancedParameters() {
+ $('maximize_viewport').toggle();
+ $('no_before_unload').toggle();
+ $('indexed').toggle();
+ $('accessible_explanation').toggle();
+ if ($('advenced_parameter_image').className.match("down")) {
+  setImageSrc($('advenced_parameter_image'), 16, 'navigate_up.png');
+ } else {
+  setImageSrc($('advenced_parameter_image'), 16, 'navigate_down.png');
+ }
+}
 function answerQuestion(el) {
  Element.extend(el);
  $('correct_answer').hide();
@@ -152,6 +163,7 @@ function removeBookmark(el, id) {
 function onRemoveBookmark(el, response) {
  new Effect.Fade(el.up());
 }
+
 /**
 
 * This function prevents a link from loading upon click.
@@ -165,6 +177,7 @@ function updateProgress(obj) {
  if (!(w = findFrame(top, 'mainframe'))) {
   w = window;
  }
+
  try {
   var progress = obj[0];
   var conditions = obj[1];

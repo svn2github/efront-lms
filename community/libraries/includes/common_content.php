@@ -101,7 +101,26 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addRule('parent_content_ID', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required', null, 'client');
      $form -> addRule('parent_content_ID', _INVALIDID, 'numeric');
 
+     //Add the content's questions, in order to setup "complete with question" field
+     if (sizeof($currentLesson -> getQuestions()) > 0) {
+      $pathStrings = $currentContent -> toPathStrings();
+      foreach ($currentLesson -> getQuestions() as $key => $value) {
+          if ($value['type'] != 'raw_text') {
+           $plainText = trim(strip_tags($value['text']));
+           if (mb_strlen($plainText) > Question :: maxQuestionText) {
+               $plainText = mb_substr($plainText, 0, Question :: maxQuestionText).'...';
+           }
+           $pathStrings[$value['content_ID']]? $lessonQuestions[$value['id']] = $pathStrings[$value['content_ID']].'&nbsp;&raquo;&nbsp;'.$plainText : $lessonQuestions[$value['id']] = $plainText;
+          }
+      }
+      if (!empty($lessonQuestions)) {
+       $form -> addElement('advcheckbox', 'complete_question', _COMPLETEWITHQUESTION, null, 'class = "inputCheckbox" onclick = "$(\'complete_questions\').toggle()"', array(0, 1));
+       $form -> addElement('select', 'questions', null, $lessonQuestions, 'id = "complete_questions" style = "display:none"');
+      }
+     }
+
      //Set elements default values
+     $form -> setDefaults($currentUnit['options']);
      preg_match("/eF_js_setCorrectIframeSize\((.*)\)/", $currentUnit['data'], $matches);
      $form -> setDefaults(array('scorm_size' => isset($matches[1]) ? $matches[1] : null,
                                 'data' => $currentUnit['data'],
@@ -110,26 +129,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                  'complete_question' => $currentUnit['options']['complete_question'] ? 1 : 0,
                                 'questions' => $currentUnit['options']['complete_question'],
                                 'parent_content_ID' => isset($_GET['view_unit']) ? $_GET['view_unit'] : 0));
-
-
-     $form -> setDefaults($currentUnit['options']);
-
      //If the "complete with question" option is set, show the selected question
      $currentUnit['options']['complete_question'] ? $form -> updateElementAttr(array('questions'), array('style' => 'display:""')) : null;
 
-     //Add the content's questions, in order to setup "complete with question" field
-     if (sizeof($currentLesson -> getQuestions()) > 0) {
-      $pathStrings = $currentContent -> toPathStrings();
-      foreach ($currentLesson -> getQuestions() as $key => $value) {
-          $plainText = trim(strip_tags($value['text']));
-          if (mb_strlen($plainText) > Question :: maxQuestionText) {
-              $plainText = mb_substr($plainText, 0, Question :: maxQuestionText).'...';
-          }
-          $pathStrings[$value['content_ID']]? $lessonQuestions[$value['id']] = $pathStrings[$value['content_ID']].'&nbsp;&raquo;&nbsp;'.$plainText : $lessonQuestions[$value['id']] = $plainText;
-      }
-      $form -> addElement('advcheckbox', 'complete_question', _COMPLETEWITHQUESTION, null, 'class = "inputCheckbox" onclick = "$(\'complete_questions\').toggle()"', array(0, 1));
-      $form -> addElement('select', 'questions', null, $lessonQuestions, 'id = "complete_questions" style = "display:none"');
-     }
+
 
      //Check whether it is a pdf content and handle accordingly
      if (strpos($currentUnit['data'], "<iframe") !== false && strpos($currentUnit['data'], "pdfaccept") !== false) {

@@ -71,6 +71,7 @@
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_question.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.complete_question.html}&nbsp;{$T_ENTITY_FORM.questions.html}</td></tr>
                         {/if}
+
        {if !$T_SCORM}
         <tr><td class = "labelCell">{$T_ENTITY_FORM.pdf_check.label}:&nbsp;</td>
          <td class = "elementCell">{$T_ENTITY_FORM.pdf_check.html}</td></tr>
@@ -79,13 +80,21 @@
                                 <td class = "elementCell">{$T_ENTITY_FORM.pdf_content.html}</td></tr>
                             <tr style="display:none;" id="pdf_upload"><td class = "labelCell">{$T_ENTITY_FORM.pdf_upload.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.pdf_upload.html}</td></tr>
-                            <tr><td class = "labelCell">{$T_ENTITY_FORM.maximize_viewport.label}:&nbsp;</td>
+
+       <tr><td></td><td class = "elementCell">
+        <span>
+         <img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;
+         <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();">{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
+        </span>
+       </td></tr>
+
+       <tr style="display:none;" id = "maximize_viewport"><td class = "labelCell">{$T_ENTITY_FORM.maximize_viewport.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.maximize_viewport.html}</td></tr>
-                            <tr><td class = "labelCell">{$T_ENTITY_FORM.no_before_unload.label}:&nbsp;</td>
+                            <tr style="display:none;" id = "no_before_unload"><td class = "labelCell">{$T_ENTITY_FORM.no_before_unload.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.no_before_unload.html}</td></tr>
-                            <tr><td class = "labelCell">{$T_ENTITY_FORM.indexed.label}:&nbsp;</td>
+                            <tr style="display:none;" id = "indexed"><td class = "labelCell">{$T_ENTITY_FORM.indexed.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.indexed.html}&nbsp;</td></tr>
-       <tr><td></td><td class = "infoCell">{$smarty.const._DIRECTLACCESSIBLEEXPLANATION}<br/>{$smarty.const.G_SERVERNAME}view_resource.php?type=content&id={if $smarty.get.edit}{$smarty.get.edit}{else}&lt;unit_id&gt;{/if}</td></tr>
+       <tr style="display:none;" id = "accessible_explanation"><td></td><td class = "infoCell">{$smarty.const._DIRECTLACCESSIBLEEXPLANATION}<br/>{$smarty.const.G_SERVERNAME}view_resource.php?type=content&id={if $smarty.get.edit}{$smarty.get.edit}{else}&lt;unit_id&gt;{/if}</td></tr>
 
                         {if $T_SCORM}
                             <tr><td class = "labelCell">{$T_ENTITY_FORM.scorm_size.label}:&nbsp;</td>

@@ -105,7 +105,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      if (sizeof($currentLesson -> getQuestions()) > 0) {
       $pathStrings = $currentContent -> toPathStrings();
       foreach ($currentLesson -> getQuestions() as $key => $value) {
-          if ($value['type'] != 'raw_text') {
+          if ($value['type'] != 'raw_text' || $value['id'] == $currentUnit['options']['complete_question']) {
            $plainText = trim(strip_tags($value['text']));
            if (mb_strlen($plainText) > Question :: maxQuestionText) {
                $plainText = mb_substr($plainText, 0, Question :: maxQuestionText).'...';
@@ -113,7 +113,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
            $pathStrings[$value['content_ID']]? $lessonQuestions[$value['id']] = $pathStrings[$value['content_ID']].'&nbsp;&raquo;&nbsp;'.$plainText : $lessonQuestions[$value['id']] = $plainText;
           }
       }
-      if (!empty($lessonQuestions)) {
+      if (!empty($lessonQuestions) || $currentUnit['options']['complete_question']) {
        $form -> addElement('advcheckbox', 'complete_question', _COMPLETEWITHQUESTION, null, 'class = "inputCheckbox" onclick = "$(\'complete_questions\').toggle()"', array(0, 1));
        $form -> addElement('select', 'questions', null, $lessonQuestions, 'id = "complete_questions" style = "display:none"');
       }

@@ -344,14 +344,15 @@ function resize_iframe()
    //resize the iframe according to the size of the
    //window (all these should be on the same line)
    var diff = height-offset_to_subtract;
-
    if ($('glu')) {
     if (browser == 'IE6' || browser == 'IE7') {
      $('glu').height = diff;
+
     } else {
      $('glu').setStyle({'height': diff+'px'});
     }
    }
+
    //$('glu').up().setStyle({height: (height-offset_to_subtract) + 'px'});
    //test.document.getElementById("chat_content").style.height = parseInt(height-offset_to_subtract)+ "px";
    //if (typeof(test) == 'undefined') alert('a');
@@ -914,7 +915,7 @@ function ajaxBringRooms() {
     select_item.remove(1);
    }
 
-   var temp = transport.responseText.split('special_splitter');
+   var temp = transport.responseText.split('||||');
    var elOptNew;
    var i;
    var j = 1;
@@ -1025,7 +1026,10 @@ function onAjaxGetRoomUsers(el, response) {
   } else {
    $('room_users').innerHTML += response;
   }
-  eF_js_showHideDiv(el, 'room_users', event);
+
+
+  $('room_users').show();
+  //eF_js_showHideDiv(el, 'room_users', null);
   //$('room_users_image').writeAttribute({src:'themes/default/images/16x16/users3.gif'}).show();
   $('room_users').setStyle({top:'20px',left:'1px'});
  } catch (e) {sidebarExceptionHandler(e);}
@@ -1388,3 +1392,13 @@ function startUpdater() {
          }
 }
 if (startUpdater) { startUpdater();}
+
+/*
+
+if (typeof(executeOnLoadScripts) != 'undefined' && executeOnLoadScripts) {
+
+    resize_iframe();
+
+}
+
+*/

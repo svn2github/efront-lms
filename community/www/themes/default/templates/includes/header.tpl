@@ -3,32 +3,33 @@
 <head>
     <base href = "{$smarty.const.G_SERVERNAME}">
     <meta http-equiv = "Content-Language" content = "{$smarty.const._HEADERLANGUAGEHTMLTAG}">
-    <meta http-equiv = "keywords"         content = "education">
-    <meta http-equiv = "description"      content = "Collaborative Elearning Platform">
-    <meta http-equiv = "Content-Type"     content = "text/html; charset = utf-8">
+    <meta http-equiv = "keywords" content = "education">
+    <meta http-equiv = "description" content = "Collaborative Elearning Platform">
+    <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
     <link rel="shortcut icon" href="{if $T_FAVICON}{$T_FAVICON}{else}themes/default/images/favicon.png{/if}">
     <link rel = "stylesheet" type = "text/css" href = "{$smarty.const.G_CURRENTTHEMECSS}">
     {foreach name = 'module_css_list' item = item key = key from = $T_MODULE_CSS}
-    <link rel = "stylesheet" type = "text/css" href = "{$item}?build={$smarty.const.G_BUILD}" />	{*///MODULES LINK STYLESHEETS*}
+    <link rel = "stylesheet" type = "text/css" href = "{$item}?build={$smarty.const.G_BUILD}" /> {*///MODULES LINK STYLESHEETS*}
     {/foreach}
     <title>{if $T_CONFIGURATION.site_name}{$T_CONFIGURATION.site_name}{else}{$smarty.const._EFRONTNAME}{/if} | {if $T_CONFIGURATION.site_motto}{$T_CONFIGURATION.site_motto}{else}{$smarty.const._THENEWFORMOFADDITIVELEARNING}{/if}</title>
-        
+
     {if $T_OPEN_FACEBOOK_SESSION}
-    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script> 
+    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
     {/if}
-    
+
     <script type = "text/javascript">
-        var ajaxObjects    = new Array();
+        var ajaxObjects = new Array();
         top.document.title = "{if $T_CONFIGURATION.site_name}{$T_CONFIGURATION.site_name}{else}{$smarty.const._EFRONTNAME}{/if} | {if $T_TITLE_BAR}{$T_TITLE_BAR}{else}{if $T_CONFIGURATION.site_motto}{$T_CONFIGURATION.site_motto}{else}{$smarty.const._THENEWFORMOFADDITIVELEARNING}{/if}{/if}";
         if (window.name == 'POPUP_FRAME') var popup=1;
         {if $T_BROWSER == 'IE6'}var globalImageExtension = 'gif';{else}var globalImageExtension = 'png';{/if}
-        
+
         {if $T_THEME_SETTINGS->options.sidebar_interface == 0}
-        var usingHorizontalInterface = false;	
+        var usingHorizontalInterface = false;
         {else}
         var usingHorizontalInterface = true;
-        {/if}	    
-        
+        {/if}
+
+        var sessionLogin = "{$smarty.session.s_login}";
     </script>
 
 {* Do not check for menus when called by popups or the sidebar*}
@@ -50,7 +51,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
    {elseif $T_CTG == 'projects'}
        top.sideframe.changeTDcolor('exercises');
    {elseif $T_CTG == 'system_config' || $T_CTG == 'themes'}
-       top.sideframe.changeTDcolor('control_panel');       
+       top.sideframe.changeTDcolor('control_panel');
    {elseif $T_CTG == 'glossary'}
        top.sideframe.changeTDcolor('glossary');
    {elseif $T_CTG == 'content' && $T_OP == 'file_manager'}
@@ -58,7 +59,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
    {elseif $T_CTG == 'users' && $smarty.session.employee_type == $smarty.const._SUPERVISOR}
        top.sideframe.changeTDcolor('employees');
    {elseif $T_CTG == 'statistics'}
-   	   top.sideframe.changeTDcolor('statistics_{$T_OPTION}');
+       top.sideframe.changeTDcolor('statistics_{$T_OPTION}');
    {elseif $smarty.const.G_VERSIONTYPE == 'enterprise' && ($T_CTG == "module_hcd")}
         {if ($T_OP == "reports")}
             top.sideframe.changeTDcolor('search_employee');
@@ -85,18 +86,14 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 {literal}
 }
 {/literal}
-var translations = new Array();	//used for passing language tags to js
+var translations = new Array(); //used for passing language tags to js
 </script>
 {/if}
 
-<script>var translations = new Array();	/*used for passing language tags to js*/</script>
+<script>var translations = new Array(); /*used for passing language tags to js*/</script>
 
 </head>
 {* Using that to avoid creating a body for the sidebar*}
 {if $smarty.server.PHP_SELF|@basename != 'new_sidebar.php'}
 <body {if isset($T_CURRENT_CTG)}id = "body_{$T_CURRENT_CTG}"{/if} onkeypress = "if (window.eF_js_keypress) eF_js_keypress(event)">
 {/if}
-
-
-
-

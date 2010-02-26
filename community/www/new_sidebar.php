@@ -456,11 +456,15 @@ if ((isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS
  }
 }
 if (!isset($horizontal_inframe_version) || !$horizontal_inframe_version) {
- if (!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') {
-     $unreadMessages = $messages = eF_getTableData("f_personal_messages pm, f_folders ff", "count(*)", "pm.users_LOGIN='".$_SESSION['s_login']."' and viewed='no' and f_folders_ID=ff.id and ff.name='Incoming'");
-     $smarty -> assign("T_UNREAD_MESSAGES", $messages[0]['count(*)']);
+ if (!$GLOBALS['configuration']['disable_messages']) {
+  if (($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') {
+      $unreadMessages = $messages = eF_getTableData("f_personal_messages pm, f_folders ff", "count(*)", "pm.users_LOGIN='".$_SESSION['s_login']."' and viewed='no' and f_folders_ID=ff.id and ff.name='Incoming'");
+      $smarty -> assign("T_UNREAD_MESSAGES", $messages[0]['count(*)']);
+  } else {
+      $smarty -> assign("T_NO_MESSAGES", true);
+  }
  } else {
-     $smarty -> assign("T_NO_MESSAGES", true);
+  $smarty -> assign("T_NO_PERSONAL_MESSAGES", true);
  }
  $initwidth = eF_getTableData("configuration", "value", "name = 'sidebar_width'");
  if (empty($initwidth)) {

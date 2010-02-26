@@ -161,7 +161,7 @@ function handleRequest(http_request) {
             //}
                         //alert(users_online);
             //alert(http_request.responseText);
-                        //http_request.responseText.split('-|*special_splitter*|-');
+                        //http_request.responseText.split('-|*||||*|-');
                         //changePrivateMessagesText(response[0],response[1]);
                         //alert("num "+messages_num+"\ntext: "+message);
                         changeMessagesText(messages_num,message,users_online,users_num);
@@ -303,6 +303,7 @@ function fixChatFrameScrollbar() {
 
 // Function handling the chat responses as set by the ask_chat.php script
 function handleChatRequest(http_request) {
+  var special_splitter = "||||";
         try {
         if (http_request.readyState == 4) {
                 if (http_request.status == 200) {
@@ -316,12 +317,12 @@ function handleChatRequest(http_request) {
                    } else if (http_request.responseText == "noack") {
                     Effect.Fade($('new_chat_messages'));
                    } else if (http_request.responseText != "") {
-                    //var table_style_size = <?php if (preg_match("/compatible; MSIE 6/", $_SERVER['HTTP_USER_AGENT']) || preg_match("/compatible; MSIE 7/", $_SERVER['HTTP_USER_AGENT'])) { ?>"90%";<?php }else{ ?> "100%"; <?php } ?> 
+                    //var table_style_size = "100%"; 
                     var current_font_size = $('current_font_size').value;
-                         var response = http_request.responseText.split("special_splitter");
+                         var response = http_request.responseText.split(special_splitter);
                          // Check for missing room - check only during new message post, not during during messages reading
-       if (response[0] == "<?php echo _CHATROOMDOESNOTEXIST_ERROR;?>") {
-        test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left"><?php echo _CHATROOMDELETEDBYOWNER .  "<BR>" . _REDIRECTEDTOEFRONTMAIN; ?></td></tr></table>';
+       if (response[0] == chatRoomDoesNotExistError) {
+        test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left">'+ translations['chatroomdeleted'] + '<BR>' + redicrectedToEfrontMain + '</td></tr></table>';
 
         $('current_chatroom_id').value = -1;
         $('last_spoken_login').value = "";
@@ -331,11 +332,11 @@ function handleChatRequest(http_request) {
         $('current_chatroom_id').value = 0;
 
 
-       } else if (response[0] == "<?php echo _CHATROOMISNOTENABLED_ERROR;?>") {
-        test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left"><?php echo _CHATROOMHASBEENDEACTIVATED . "<BR>" ._REDIRECTEDTOEFRONTMAIN;?></td></tr></table>';
+       } else if (response[0] == chatRoomIsNotEnabled) {
+        test.document.getElementById("chat_content").innerHTML = '<table class="chatbox" cellspacing="0" cellpadding="0"  style="width:'+table_style_size+'"><tr><td style="font-size:'+current_font_size+'px;color:red;" align="left">' +chatRoomHasBeenDeactivated + '<BR>' + redicrectedToEfrontMain + '</td></tr></table>';
 
         // Remove the user from the deactivated room
-        var url = "ask_chat.php?chatrooms_ID="+$('chat_rooms').value+"&delete_user=<?php echo $_SESSION['s_login'];?>";
+        var url = "ask_chat.php?chatrooms_ID="+$('chat_rooms').value+"&delete_user=" + sessionLogin;
               new Ajax.Request(url, {method:'get',asynchronous:false});
 
         $('current_chatroom_id').value = -1;
@@ -425,7 +426,7 @@ function handleLoginRequest(http_request) {
                 document.login_form.submit_login.click();
             }
 
-                        //var response = http_request.responseText.split("special_splitter");
+                        //var response = http_request.responseText.split(special_splitter);
                         //test.document.getElementById("chat_content").innerHTML=response[0]+"\n"+test.document.getElementById("chat_content").innerHTML;
             //alert("resp = " + response[0] +"\nchat = "+test.document.getElementById("chat_content").innerHTML);
                         //document.getElementById("users_list").innerHTML=response[1];

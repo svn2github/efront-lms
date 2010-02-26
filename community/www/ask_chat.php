@@ -90,19 +90,21 @@ if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
 }
 
 */
+$special_splitter = "||||";
 if (isset($_GET['chatrooms_ID'])) {
     $chatrooms_ID = $_GET['chatrooms_ID'];
 } else if (isset($_GET['bring_chatrooms'])){
     // The chatrooms are all the ones with more than zero users and the ones you have created
     $rooms = eF_getTableData("chatrooms LEFT OUTER JOIN users_to_chatrooms ON users_to_chatrooms.chatrooms_ID = chatrooms.id", "chatrooms.id, chatrooms.name, count(users_to_chatrooms.users_LOGIN) as users, chatrooms.users_LOGIN", "chatrooms.active=1 group by id");
+//pr($rooms);
     $data = "";
     foreach ($rooms as $room) {
         if ($room['users'] > 0 || $room['users_LOGIN'] == $_SESSION['s_login']) {
             if ($room['users_LOGIN'] == $_SESSION['s_login']) {
                 // The "_" after the room id means that the room is owned by the user that asked for it
-                $data .= $room['id']."_special_splitter" . $room['name'] ."special_splitter".$room['users']. "special_splitter";
+                $data .= $room['id']. "_" . $special_splitter . $room['name'] .$special_splitter.$room['users']. $special_splitter;
             } else {
-                $data .= $room['id']. "special_splitter" . $room['name'] ."special_splitter".$room['users']. "special_splitter";
+                $data .= $room['id']. $special_splitter . $room['name'] .$special_splitter.$room['users']. $special_splitter;
             }
         }
     }
@@ -122,7 +124,7 @@ if (isset($_GET['delete_room'])) {
     // The id check is inserted for security reasons - only if this session user is the owner will the channel be deleted
     if (eF_deleteTableData("chatrooms", "users_LOGIN = '".$_SESSION['s_login']."' AND id = '".$_GET['chatrooms_ID']."'")) {
         eF_deleteTableData("users_to_chatrooms", "chatrooms_ID = '".$_GET['chatrooms_ID']."'");
-        $_SESSION['last_id'] = 0;
+        $_SESSION['last_chat_msg_id'] = 0;
     }
     exit;
 }
@@ -137,7 +139,7 @@ if (isset($_GET['add_user']) && isset($_GET['add_user_type'])) {
         eF_insertTableData("users_to_chatrooms", $userRecord);
     }
     // Set last_id to zero to get correct last messages
-    $_SESSION['last_id'] = 0;
+    $_SESSION['last_chat_msg_id'] = 0;
     exit;
 }
 // Get online users of current room
@@ -174,12 +176,12 @@ if (isset($_POST['submit']) || isset($_POST['chat_message']) ) { //The user post
         if ($chatrooms_ID != 0) { // the eFront general room always exists
          $roomExists = eF_getTableData("chatrooms", "active", "id = ". $_GET['chatrooms_ID']);
          if (empty($roomExists)) {
-             echo _CHATROOMDOESNOTEXIST_ERROR . "special_splitter"; // notify user that room was deleted
-             $_SESSION['last_id'] = 0;
+             echo _CHATROOMDOESNOTEXIST_ERROR . $special_splitter; // notify user that room was deleted
+             $_SESSION['last_chat_msg_id'] = 0;
              exit;
          } else if ($roomExists[0]['active'] == 0) {
-             echo _CHATROOMISNOTENABLED_ERROR . "special_splitter"; // notify user that room is not active
-             $_SESSION['last_id'] = 0;
+             echo _CHATROOMISNOTENABLED_ERROR . $special_splitter; // notify user that room is not active
+             $_SESSION['last_chat_msg_id'] = 0;
              exit;
          }
         }
@@ -188,11 +190,15 @@ if (isset($_POST['submit']) || isset($_POST['chat_message']) ) { //The user post
                                'content' => htmlspecialchars($_POST['chat_message'], ENT_QUOTES),
                                'timestamp' => time(),
                                'chatrooms_ID' => $chatrooms_ID);
-     eF_insertTableData("chatmessages", $fields_insert); //Insert the message into the database
+     try {
+      eF_insertTableData("chatmessages", $fields_insert); //Insert the message into the database
+     } catch (Exception $e) {
+      echo $e->getTraceAsString();
+     }
     }
 }
 // Special treatment for the genaral eFront room
-$last_id = isset($_SESSION['last_id'])?$_SESSION['last_id']:0;
+$last_id = isset($_SESSION['last_chat_msg_id'])?$_SESSION['last_chat_msg_id']:0;
 /*
 
 if ($last_id == 0 && $_GET['restart_session'] != 1) {
@@ -233,7 +239,7 @@ if ($_GET['any_activity'] == 1) {
         exit;
     }
 }
-$_SESSION['last_id'] = $new_id;
+$_SESSION['last_chat_msg_id'] = $new_id;
 //echo "ethesa to session iso me $new_id<br>";
 //    pr($messages);
 $new_msg = false;
@@ -245,7 +251,7 @@ if ($_SESSION['last_message'][$chatrooms_ID] != $messages[0]['timestamp']) {
     }
 }
 // The first value returned is the id of the chatroom
-$data = $chatrooms_ID."special_splitter";
+$data = $chatrooms_ID.$special_splitter;
 foreach ($messages as $value) { //Loop through messages, so that they are displayed in different format, depending on the message poster
     if ($value['users_LOGIN'] == $_SESSION['s_login']) {
         $span_style = 'color:darkorange;'; //Own messages are displayed in darkorange
@@ -256,7 +262,6 @@ foreach ($messages as $value) { //Loop through messages, so that they are displa
     } else {
         $span_style = 'color:green;'; //Other messages are displayed in default format
     }
-//@todo what if someone writes special_splitter
     date("ymd", time()) == date("ymd", $value['timestamp']) ? $time_str = date("H:i:s", $value['timestamp']) : $time_str = formatTimestamp($value['timestamp'], 'time'); //for today's messages don't display date, only time.
     if ($value['content'][0] != '#' || !preg_match("/^#for_user-(\S*):(\d+)#/", $value['content'], $matches) || ($matches[1] == $_SESSION['s_login'] && $value['content'] = mb_substr($value['content'], mb_strlen($matches[0])))) { //Explanation for this line: The first part, $value['content'][0] != '#' , is a fast check for the special character #. if it does not exist, proceed and display message. Otherwise, check if the character is followed by a specific sequence, of the form: #for_user-<login>#. If so, then display only the message to the current user (where $_SESSION['s_login'] == <login>) and finally delete the special sequence from the beginning of the message (the mb_substr part). otherwise (if it starts with # but is not a special message), display the message.
         // Create links
@@ -264,13 +269,13 @@ foreach ($messages as $value) { //Loop through messages, so that they are displa
         $value['content'] = eF_convertTextToSmilies($value['content']);
         $value['content'] = eregi_replace("www[.]([^[:space:]]*)([[:alnum:]#?/&=])","http://www.\\1\\2", $value['content']);
         $value['content'] = eregi_replace("([[:alnum:]]+)://([^[:space:]]*)([[:alnum:]#?/&=])","<a href=\"\\1://\\2\\3\" target=\"_blank\" > \\1://\\2\\3 </a> ", $value['content']);
-        $data .= $value['users_LOGIN']."special_splitter".$time_str."special_splitter".$span_style."special_splitter".$value['content']."special_splitter"; //Display the message, along with any notification message
+        $data .= $value['users_LOGIN'].$special_splitter.$time_str.$special_splitter.$span_style.$special_splitter.$value['content'].$special_splitter; //Display the message, along with any notification message
     }
 }
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 //header("Content-type: text/html;charset="._CHARSET);
 //$data = eF_convertTextToSmilies($data);
 //$data = iconv("UTF-8",_CHARSET,$data);
-//echo $data."special_splitter"."new_limit: ".$new_limit."<br>all messages: ".$all_messages."<br>sent: ".$sent."<br>new_limit_flag: ".$new_limit_flag."-|*special_splitter*|-".$rooms_str."-|*special_splitter*|-".$new_limit."-|*special_splitter*|-".$sent;
+//echo $data.$special_splitter."new_limit: ".$new_limit."<br>all messages: ".$all_messages."<br>sent: ".$sent."<br>new_limit_flag: ".$new_limit_flag."-|*special_splitter*|-".$rooms_str."-|*special_splitter*|-".$new_limit."-|*special_splitter*|-".$sent;
 echo $data;
 ?>

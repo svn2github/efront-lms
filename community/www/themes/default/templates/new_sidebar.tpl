@@ -56,6 +56,17 @@
  {if $T_CONFIGURATION.updater_period}var updaterPeriod = '{$T_CONFIGURATION.updater_period}';{else}var updaterPeriod = 100000;{/if}
 
     var arrow_status = "down"; // Initialize toggle arrows
+
+    {if $T_BROWSER == 'IE6' || $T_BROWSER == 'IE7'}
+     var table_style_size = "90%";
+    {else}
+     var table_style_size = "100%";
+    {/if}
+
+    var chatRoomDoesNotExistError = "{$smarty.const._CHATROOMDOESNOTEXIST_ERROR}";
+    var chatRoomIsNotEnabled = "{$smarty.const._CHATROOMISNOTENABLED_ERROR}";
+    var redicrectedToEfrontMain = "{$smarty.const._REDIRECTEDTOEFRONTMAIN}";
+    var chatRoomHasBeenDeactivated = "{$smarty.const._CHATROOMHASBEENDEACTIVATED}";
 </script>
 
 <body class = "sidebar" >
@@ -92,8 +103,10 @@
                         </a>
                     </td></tr>
                 <tr>
+                    {if !$T_NO_PERSONAL_MESSAGES}
                     <div id="unread_img" style="display:inline">{if $T_UNREAD_MESSAGES != 0}<img src = "images/16x16/mail.{$globalImageExtension}" style="vertical-align:middle; border:0; 'float': left;" title="{$smarty.const._MESSAGES}" alt="{$smarty.const._MESSAGES}" />{/if}</div>
                     <div id="recent_unread_left" style="display:inline">{if $T_UNREAD_MESSAGES != 0}(<a href = "{$smarty.session.s_type}.php?ctg=messages" target="mainframe">{$T_UNREAD_MESSAGES}</a>){/if}</div>
+                    {/if}
                  </tr>
             </table>
         </div>
@@ -213,7 +226,7 @@
                                             <a href = "{$smarty.session.s_type}.php?ctg=chat&chat_room_options=1&new_public_room=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWPUBLICROOM}', 0)" class = "innerTable">
                                              <img src = "images/16x16/add.png" alt = "{$smarty.const._NEWPUBLICROOM}" title = "{$smarty.const._NEWPUBLICROOM}" class = "handle"/></a>
                                         </td>
-                                        <td><div id="delete_room" {if isset($T_CHATROOM_OWNED)}style="display:block"{else}style="display:none"{/if}><a href="javascript:void(0)" onClick="ajaxDeleteRoom()"><img id="delete_room_image" src="images/16x16/error_delete.png" border="0" style = "vertical-align:middle"/></a></div></td>
+                                        <td><div id="delete_room" {if isset($T_CHATROOM_OWNED)}style="display:block"{else}style="display:none"{/if}><a href="javascript:void(0)" onClick="ajaxDeleteRoom()" ><img id="delete_room_image" src="images/16x16/error_delete.png" border="0" title="{$smart.const._DELETE}" alt="{$smart.const._DELETE}" style = "vertical-align:middle"/></a></div></td>
                                         </td>
                                         {* Hidden used to denote the current font size - initially 10px *}
                                         <td><input type = "hidden" id = "current_font_size" name = "current_font_size" value = "10"/></td>
@@ -236,7 +249,7 @@
                         </td>
                     </tr>
                     <tr><td align="{if $T_BROWSER == 'IE6' || $T_BROWSER == 'IE7'}left{else}center{/if}" width="100%">
-                        <iframe name = "test" frameborder = "no" scrolling="no" id="glu" width = "{$generalWidth}" onload="resize_iframe();" src = "chat_blank.php" />{$smarty.const._SORRYNEEDIFRAME}</iframe>
+                        <iframe name = "test" frameborder = "no" scrolling="no" id="glu" width = "{$generalWidth}" onload="resize_iframe()" src = "chat_blank.php" />{$smarty.const._SORRYNEEDIFRAME}</iframe>
                         </td>
                     </tr>
                     <form style="display:inline;" name = "chat_form" action = "javascript:sendMessage(document.chat_form.chat_message.value,$('current_chatroom_id').value); " method = "post">

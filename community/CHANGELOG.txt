@@ -28,6 +28,7 @@
 - Fixed error in selecting recipients in community edition (EF-537)
 - Fixed SCORM score reporting in user and test reports
 - Fixed test reporting for SCORM test units
+- Fixed problem with editor templates in Internet Explorer
 
 === Version 3.6.0 build 5997 ===
 - Fixed phplivedocx configuration file creation

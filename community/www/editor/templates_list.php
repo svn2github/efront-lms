@@ -11,9 +11,11 @@ $fileSystemTree = new FileSystemTree('../content/editor_templates/'.$_SESSION['s
 $str = 'var tinyMCETemplateList = [';
 foreach ($fileSystemTree ->tree as $key => $value) {
 $relative_path = str_replace(G_ROOTPATH.'www/', '',$value['path']);
-	$str .= '["'.$value['name'].'", "'.$relative_path.'"],';
+ $str .= '["'.$value['name'].'", "'.$relative_path.'"],';
 }
-
+if (substr($str , -1) == ",") {
+ $str = substr($str, 0, -1);
+}
 $str .= '];';
 
 print $str;

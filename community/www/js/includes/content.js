@@ -166,10 +166,10 @@ function updateProgress(obj) {
   w = window;
  }
  try {
-  progress = obj[0];
-  conditions = obj[1];
-  lesson_passed = obj[2];
-  unitStatus = obj[5];
+  var progress = obj[0];
+  var conditions = obj[1];
+  var lesson_passed = obj[2];
+  var unitStatus = obj[5];
      if (w.$('progress_bar')) {
       w.$('progress_bar').select('span.progressNumber')[0].update(parseFloat(progress) + '%');
       w.$('progress_bar').select('span.progressBar')[0].setStyle({width:parseFloat(progress) + 'px'});
@@ -202,12 +202,12 @@ function updateProgress(obj) {
       if ($('navigate_continue')) {
        if (nodesStatus['continue'] == 'enabled') {
         $('navigate_continue').removeClassName('inactiveImage');
-     $('navigate_continue').writeAttribute("onclick", "");
+     $('navigate_continue').onclick = '';
      $('navigate_continue').show();
 
        } else if (nodesStatus['continue'] == 'disabled') {
      $('navigate_continue').addClassName('inactiveImage');
-     $('navigate_continue').writeAttribute("onclick", "return false");
+     $('navigate_continue').onclick = function () {return false;};
      $('navigate_continue').show();
 
        } else if (nodesStatus['continue'] == 'hidden') {
@@ -217,12 +217,12 @@ function updateProgress(obj) {
       if ($('navigate_previous')) {
        if (nodesStatus['previous'] == 'enabled') {
         $('navigate_previous').removeClassName('inactiveImage');
-     $('navigate_previous').writeAttribute("onclick", "");
+     $('navigate_previous').onclick = '';
      $('navigate_previous').show();
 
        } else if (nodesStatus['previous'] == 'disabled') {
         $('navigate_previous').addClassName('inactiveImage');
-     $('navigate_previous').writeAttribute("onclick", "return false");
+     $('navigate_previous').onclick = function () {return false;};
      $('navigate_previous').show();
 
        } else if (nodesStatus['previous'] == 'hidden') {
@@ -232,12 +232,12 @@ function updateProgress(obj) {
       if ($('navigate_exitAll')) {
        if (nodesStatus['exitAll'] == 'enabled') {
         $('navigate_exitAll').removeClassName('inactiveImage');
-     $('navigate_exitAll').writeAttribute("onclick", "");
+     $('navigate_exitAll').onclick = '';
      $('navigate_exitAll').show();
 
        } else if (nodesStatus['exitAll'] == 'disabled') {
         $('navigate_exitAll').addClassName('inactiveImage');
-     $('navigate_exitAll').writeAttribute("onclick", "return false");
+     $('navigate_exitAll').onclick = function () {return false;};
      $('navigate_exitAll').show();
 
        } else if (nodesStatus['exitAll'] == 'hidden') {
@@ -247,12 +247,12 @@ function updateProgress(obj) {
       if ($('navigate_suspendAll')) {
        if (nodesStatus['suspendAll'] == 'enabled') {
         $('navigate_suspendAll').removeClassName('inactiveImage');
-     $('navigate_suspendAll').writeAttribute("onclick", "");
+     $('navigate_suspendAll').onclick = '';
      $('navigate_suspendAll').show();
 
        } else if (nodesStatus['suspendAll'] == 'disabled') {
         $('navigate_suspendAll').addClassName('inactiveImage');
-     $('navigate_suspendAll').writeAttribute("onclick", "return false");
+     $('navigate_suspendAll').onclick = function () {return false;};
      $('navigate_suspendAll').show();
 
        } else if (nodesStatus['suspendAll'] == 'hidden') {
@@ -262,12 +262,12 @@ function updateProgress(obj) {
       if ($('navigate_abandon')) {
        if (nodesStatus['abandon'] == 'enabled') {
         $('navigate_abandon').removeClassName('inactiveImage');
-     $('navigate_abandon').writeAttribute("onclick", "");
+     $('navigate_abandon').onclick = '';
      $('navigate_abandon').show();
 
        } else if (nodesStatus['abandon'] == 'disabled') {
         $('navigate_abandon').addClassName('inactiveImage');
-     $('navigate_abandon').writeAttribute("onclick", "return false");
+     $('navigate_abandon').onclick = function () {return false;};
      $('navigate_abandon').show();
 
        } else if (nodesStatus['abandon'] == 'hidden') {
@@ -277,12 +277,12 @@ function updateProgress(obj) {
       if ($('navigate_abandonAll')) {
        if (nodesStatus['abandonAll'] == 'enabled') {
         $('navigate_abandonAll').removeClassName('inactiveImage');
-     $('navigate_abandonAll').writeAttribute("onclick", "");
+     $('navigate_abandonAll').onclick = '';
      $('navigate_abandonAll').show();
 
        } else if (nodesStatus['abandonAll'] == 'disabled') {
         $('navigate_abandonAll').addClassName('inactiveImage');
-     $('navigate_abandonAll').writeAttribute("onclick", "return false");
+     $('navigate_abandonAll').onclick = function () {return false;};
      $('navigate_abandonAll').show();
 
        } else if (nodesStatus['abandonAll'] == 'hidden') {
@@ -294,12 +294,13 @@ function updateProgress(obj) {
 
        if (nodesStatus['choice'][i] == 'enabled') {
         $('node'+i).select('a')[0].removeClassName('inactiveLink');
-     $('node'+i).select('a')[0].writeAttribute("onclick", "");
+     $('node'+i).select('a')[0].onclick = '';
         $('node'+i).show();
 
     } else if (nodesStatus['choice'][i] == 'disabled') {
         $('node'+i).select('a')[0].addClassName('inactiveLink');
-     $('node'+i).select('a')[0].writeAttribute("onclick", "return false");
+      $('node'+i).select('a')[0].onclick = function () {return false;};
+
         $('node'+i).show();
 
        } else if (nodesStatus['choice'][i] == 'hidden') {

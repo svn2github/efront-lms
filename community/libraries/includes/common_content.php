@@ -362,7 +362,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                     $smarty -> assign("T_QUESTION", $question -> toHTML(new HTML_QuickForm()));
                     if (sizeof($_POST) > 0) {
                         try {
-                            //$question = QuestionFactory::factory($unitQuestions[key($_POST['question'])]);
                             $question -> setDone($_POST['question'][$question -> question['id']]);
                             $results = $question -> correct();
                             if ($results['score'] > 0.5) { //50% is considered success

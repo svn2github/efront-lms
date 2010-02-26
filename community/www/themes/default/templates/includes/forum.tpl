@@ -134,7 +134,7 @@
  {/capture}
  {eF_template_printBlock title = $smarty.const._MESSAGEPROPERTIES data = $smarty.capture.t_add_message_code image = '32x32/forum.png'}
 {elseif $smarty.get.config}
-
+{capture name = 't_configuration_panel_code'}
  {$T_CONFIGURATION_FORM.javascript}
  <form {$T_CONFIGURATION_FORM.attributes}>
  {$T_CONFIGURATION_FORM.hidden}
@@ -165,7 +165,8 @@
              <td></td><td class = "submitCell">{$T_CONFIGURATION_FORM.submit_settings.html}</td></tr>
      </table>
  </form>
-
+{/capture}
+{eF_template_printBlock title = $smarty.const._FORUMCONFIGURATIONPANEL data = $smarty.capture.t_configuration_panel_code image = '32x32/edit.png'}
 
 {else}
   {if $smarty.get.topic}

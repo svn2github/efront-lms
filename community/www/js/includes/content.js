@@ -12,6 +12,7 @@ function setSeenUnit(status) {
         hasSeen ? status = 0 : status = 1;
     } else { //If "status" parameter is set, then toggle the seen status based on this parameter
      status ? status = 1 : status = 0;
+     hasSeen = !status;
     }
     //el = $('seenLink');					//For backwards-compatibility, we don't specify el in the parameters list
     if ($('seenLink')) {
@@ -142,14 +143,17 @@ function answerQuestion(el) {
  onSuccess:function(transport) {
   if (transport.responseText == 'correct') {
    new Effect.Appear($('correct_answer'));
+   setSeenUnit(1);
   } else {
    new Effect.Appear($('wrong_answer'));
+   setSeenUnit(0);
   }
   $('progress_image').remove();
-  setSeenUnit();
  }
  });
 }
+
+
 function addBookmark(el) {
  parameters = {bookmarks:'add', method: 'get'};
  var url = window.location.toString();

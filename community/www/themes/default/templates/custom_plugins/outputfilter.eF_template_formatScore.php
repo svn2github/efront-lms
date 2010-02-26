@@ -6,7 +6,7 @@
 */
 function smarty_outputfilter_eF_template_formatScore($compiled, &$smarty) {
     $new = preg_replace("/#filter:score-#/e", "0", $compiled);
-    $new = preg_replace("/#filter:score-([0-9.,]*)#/e", "formatScore(\$1)", $new);
+    $new = preg_replace("/#filter:score-([0-9.,]*)#/e", "formatScore(\"\$1\")", $new);
     return $new;
 }
 ?>

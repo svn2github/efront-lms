@@ -686,7 +686,7 @@ function eF_checkIP()
 
 */
 function eF_convertTextToSmilies($str) {
-    $img_str = ' <image src = "images/smilies/icon_';
+    $img_str = ' <image src = "'.G_CURRENTTHEMEURL.'images/smilies/icon_';
     $text_array = array(':)', ':-)',
                            ':(', ':-(',
                            ';)', ';-)',

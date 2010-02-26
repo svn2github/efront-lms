@@ -1,4 +1,5 @@
 === Version 3.6.0 build ===
+- Added IMS importing functionality
 - Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
 - Added toggle to html mode in module billboard
 - Fixed problem of displaying link for tests reports in community version
@@ -28,6 +29,7 @@
 - Fixed error in selecting recipients in community edition (EF-537)
 - Fixed SCORM score reporting in user and test reports
 - Fixed test reporting for SCORM test units
+- Fixed nested categories indentation
 - Fixed problem with editor templates in Internet Explorer
 
 === Version 3.6.0 build 5997 ===

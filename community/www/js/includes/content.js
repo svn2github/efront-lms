@@ -159,7 +159,7 @@ function onRemoveBookmark(el, response) {
 */
 function disableLink (s)
 {
- s.stop()
+ s.stop();
 }
 function updateProgress(obj) {
  if (!(w = findFrame(top, 'mainframe'))) {
@@ -170,6 +170,7 @@ function updateProgress(obj) {
   var conditions = obj[1];
   var lesson_passed = obj[2];
   var unitStatus = obj[5];
+
      if (w.$('progress_bar')) {
       w.$('progress_bar').select('span.progressNumber')[0].update(parseFloat(progress) + '%');
       w.$('progress_bar').select('span.progressBar')[0].setStyle({width:parseFloat(progress) + 'px'});
@@ -181,7 +182,9 @@ function updateProgress(obj) {
       }
      }
 
+     var status = '';
      for (var i in unitStatus) {
+      var status = '';
       if (unitStatus[i].completion_status == 'completed' || unitStatus[i].success_status == 'passed') {
        status = '_passed';
       } else if (unitStatus[i].completion_status == 'incomplete' && unitStatus[i].success_status == 'unknown') {

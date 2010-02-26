@@ -3509,4 +3509,5 @@ define("_IMSOPTIONS", "Επιλογές IMS");
 define("_SUCCESSFULLYIMPORTEDIMSFILE", "Το αρχείο IMS εισήχθηκε επιτυχώς");
 define("_TOOLTIP","Tooltip");
 define("_HIDDEN", "Να μη φαίνεται στους χρήστες");
+define("_RESETSCORMDATA", "Διαγραφή δεδομένων χρηστών");
 ?>

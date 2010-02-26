@@ -228,7 +228,7 @@ if ($_GET['scorm_review']) {
             }
             $valid12Units[] = $value['id'];
         } else if ($value['package_ID'] == $value['content_ID']) { //This is SCORM 2004 content's root (package) unit
-            $options['custom'][$value['id']] = '<img style = "margin-left:30px" src = "images/16x16/refresh.png" alt = "'._CONVERTTOSCORMTEST.'" title = "'._CONVERTTOSCORMTEST.'" onclick = "resetScorm(this, '.$value['id'].')" class = "ajaxHandle"/>';
+            $options['custom'][$value['id']] = '<img style = "margin-left:30px" src = "images/16x16/refresh.png" alt = "'._RESETSCORMDATA.'" title = "'._RESETSCORMDATA.'" onclick = "resetScorm(this, '.$value['id'].')" class = "ajaxHandle"/>';
             $valid2004Units[] = $value['id'];
         }
     }

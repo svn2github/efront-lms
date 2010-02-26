@@ -459,7 +459,7 @@ function toggleBlock(el, cookie) {
 
  */
 function toggleRightSidebar(el, cookie) {
- //Element.extend(el);
+ Element.extend(el);
  if (el.className.match('right')) {
   //new Effect.Fade($('sideColumn'), {duration:1});
   el.removeClassName('sprite16-navigate_right').addClassName('sprite16-navigate_left');

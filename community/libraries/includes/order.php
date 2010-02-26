@@ -25,14 +25,18 @@ try {
     $options = array(array('image' => '16x16/undo.png', 'text' => _REPAIRTREE, 'href' => 'javascript:void(0)', 'onClick' => 'if (confirm (\''._ORDERWILLPERMANENTLYCHANGE.'\')) repairTree(this);'));
     $smarty -> assign("T_TABLE_OPTIONS", $options);
 
-
     try {
         if (isset($_GET['delete_nodes']) && $_GET['delete_nodes']) {
             //Needed in order to delete branches as well            
             $_GET['delete_nodes'] = array_reverse($_GET['delete_nodes']);
             foreach ($_GET['delete_nodes'] as $value) {
                 try {
-                    in_array($value, $legalValues) ? $currentContent -> removeNode($value) : null;
+                    if (in_array($value, $legalValues)) {
+                        $currentContent -> removeNode($value);
+                        if (($pos = array_search($value, $legalValues)) !== false) {
+                            unset($legalValues[$pos]);
+                        }
+                    }
                 } catch (Exception $e) {
                     $errorMessages[] = $e -> getMessage().' '.$e -> getCode();
                 }
@@ -69,7 +73,7 @@ try {
                 list($id, $parentContentId) = explode("-", $value);
                 $contentUnits[] = 0; //Add 0 to possible content units, since both parent and previous units may be 0      
     $legalValues[] = 0;
-    if (in_array($id, $legalValues) && in_array($parentContentId, $legalValues)) {
+    if ($id && in_array($id, $legalValues) && in_array($parentContentId, $legalValues)) {
      try { //Putting the try/catch block here, makes the process to continue even if it fails for some units
       $unit = $currentContent -> seekNode($id);
                         $unit -> offsetSet('previous_content_ID', $previousContentId);

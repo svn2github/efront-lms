@@ -3510,4 +3510,6 @@ define("_IMSOPTIONS", "IMS options");
 define("_SUCCESSFULLYIMPORTEDIMSFILE", "IMS file was successfully imported");
 define("_TOOLTIP","Tooltip");
 define("_HIDDEN", "Hidden from users");
+define("_RESETSCORMDATA", "Reset user data");
+
 ?>

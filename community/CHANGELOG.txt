@@ -1,4 +1,4 @@
-=== Version 3.6.0 build 6143 ===
+=== Version 3.6.0 build 6152 ===
 - Added IMS importing functionality
 - Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
 - Added toggle to html mode in module billboard

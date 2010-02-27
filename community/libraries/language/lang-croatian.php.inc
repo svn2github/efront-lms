@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Mape za sljedećih lekcija
 define("_EDITCONTENT","Uredi sadržaj");//Edit content
 define("_NORMALSTATUS","Normalno stanje");//Normal status
 define("_APPLICATIONPENDING","Primjena na čekanju. Pritisnite \"Submit\" da biste potvrdili");//Application pending
-define("_SUCCESS","Uspjeh");//Success
+define("_SUCCESS","Uspjeh");// imported IMS fileSuccess
 define("_WARNING","Upozorenje");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definicija nije mogla biti umetnuta");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Uspješno ažurirana definicija");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Napomena: vi ste revisitin
 define("_ACTIONONRENTRYCOMPLETED","Aktivnost na re-entry");//Action on re-entry
 define("_LETCONTENTDECIDE","Neka odluče sadržaj");//Let content decide
 define("_DONTCHANGE","Ostavite nepromijenjen");//Leave unchanged
-define("_DASHBOARD","Nadzorna ploča");//Dashboard
+define("_DASHBOARD","Nadzorna ploča");//my Dashboard
 define("_MYWALL","Moj zid");//My wall
 define("_RELATEDPEOPLE","Povezane osobe");//Related people
 define("_LEARNINGACTIVITY","Aktivnosti učenja");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Nepodržana plaćanja status");//Unsupported
 define("_YOUHAVECANCELLEDTHETRANSACTION","Vi ste otkazano transakciju");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transakcija je uspješno završena.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","Moj račun");//My account
+define("_MYACCOUNT","Moj račun");//my Account
 define("_MODULE","Modul");//Module
 define("_EMBEDTYPE","Embed sadržaj kao");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rows");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Naredba nije uspjela sa sljedećim izlaz");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Možda vaš sustav ne podržava rar obradu?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Kako bi se stvorili, naravno, najprije morate stvoriti kategoriju");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Odaberite sat grane");//Select lesson branches (New)
-define("_LESSONBRANCHES","Obrazovni grane");//Lesson branches (New)
-define("_COURSEBRANCHES","Tečaj grane");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Dopustiti učenicima da navedete broj pitanja u svakom testu izvršenja");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maksimalna");//Maximum (New)
-define("_MINIMUM","Minimalna");//Minimum (New)
-define("_REPETITIONS","Ponavljanja");//Repetitions (New)
-define("_MAINTAINHISTORY","Održavati povijest");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Ključ nije prikladan za ovo izdanje");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Ilegalna način");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Morate navesti broj pitanja");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Morate navesti vrijednost iz");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Tečaj profesori");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesori naravno");//Professors of course (New)
-define("_PRINTCONTENT","Ispiši sadržaj");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Odaberite sat grane");//Select lesson branches
+define("_LESSONBRANCHES","Obrazovni grane");//Lesson branches
+define("_COURSEBRANCHES","Tečaj grane");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Dopustiti učenicima da navedete broj pitanja u svakom testu izvršenja");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maksimalna");//Maximum
+define("_MINIMUM","Minimalna");//Minimum
+define("_REPETITIONS","Ponavljanja");//Repetitions
+define("_MAINTAINHISTORY","Održavati povijest");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Ključ nije prikladan za ovo izdanje");//The key is not suitable for this edition
+define("_ILLEGALMODE","Ilegalna način");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Morate navesti broj pitanja");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Morate navesti vrijednost iz");//You must specify a value from
+define("_COURSEPROFESSORS","Tečaj profesori");//Course professors
+define("_PROFESSORSOFCOURSE","Profesori naravno");//Professors of course
+define("_USERSUPERVISORS","Korisnik supervizori");//User supervisors (New)
+define("_USEROPTIONSFOR","Opcije za korisnika");//Options for user (New)
+define("_MYSTATUS","moje učenje Status");//my Learning Status (New)
+define("_MYCOURSES","moj Tečajevi");//my Courses (New)
+define("_CERTIFICATIONS","Certifikati");//Certificates (New)
+define("_MYCERTIFICATIONS","moj Certifikati");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nema certifikati su izdani za još korisnik");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Da bi se aktivira nadzornik");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Nema branch supervizori pronađena");//No branch supervisors found (New)
+define("_PRINTCONTENT","Ispiši sadržaj");//Print content
 define("_USERHASNOTDONETEST","Korisnik nije to učinio test");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Molimo provjerite da se sljedeće informacije točne");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Nema kategorije definirane");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Molimo provjerite da se sljedeće informacije točne");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Nema kategorije definirane");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor e-mail aktivaciju");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Zaposlenik računa aktivacijsku email");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ova e-mail omogućava vam da biste aktivirali novi sustav korisnika");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","dodijeljena na granu");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","uz opis radnog mjesta");//with the job description
+define("_BYCLICKINGONTHELINK","klikom na sljedeći link");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Račun vaših zaposlenika uspješno je aktiviran");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Branch informacije");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Branch naziv polja");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job naziv polja");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Aktiviranje ime nadzornika polje");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Ostavite prazno za ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Molimo odaberite");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Vaša supervizor će aktivirati Vaš račun");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Uvoz IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Izvoz IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload file IMS u ZIP formatu");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS opcije");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS datoteka je uspješno uvezena");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Skriven od korisnika");//Hidden from users (New)
+define("_RESETSCORMDATA","Reset korisnički podaci");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Napredne postavke");//Advanced settings (New)
 ?>

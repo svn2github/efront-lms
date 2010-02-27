@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Các thư mục cho các b
 define("_EDITCONTENT","Chỉnh sửa nội dung");//Edit content
 define("_NORMALSTATUS","Tình trạng bình thường");//Normal status
 define("_APPLICATIONPENDING","Ứng dụng đang chờ giải quyết");//Application pending
-define("_SUCCESS","Thành công");//Success
+define("_SUCCESS","Thành công");// imported IMS fileSuccess
 define("_WARNING","Cảnh báo");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Định nghĩa không thể được lắp vào");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Định nghĩa được cập nhật thành công");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Lưu ý: bạn đang revis
 define("_ACTIONONRENTRYCOMPLETED","Hành động về tái nhập cảnh");//Action on re-entry
 define("_LETCONTENTDECIDE","Hãy để nội dung quyết định");//Let content decide
 define("_DONTCHANGE","Để lại không thay đổi");//Leave unchanged
-define("_DASHBOARD","Bảng điều khiển");//Dashboard
+define("_DASHBOARD","Bảng điều khiển");//my Dashboard
 define("_MYWALL","Tường của tôi");//My wall
 define("_RELATEDPEOPLE","Liên quan đến người dân");//Related people
 define("_LEARNINGACTIVITY","Hoạt động học tập");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Không được hỗ trợ thanh toán tình
 define("_YOUHAVECANCELLEDTHETRANSACTION","Bạn đã hủy bỏ các giao dịch");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Các giao dịch đã được hoàn tất thành công.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal chế độ gỡ lỗi");//Paypal debug mode
-define("_MYACCOUNT","Tài khoản của tôi");//My account
+define("_MYACCOUNT","Tài khoản của tôi");//my Account
 define("_MODULE","Module");//Module
 define("_EMBEDTYPE","Nhúng nội dung như");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rows");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Lệnh không có đầu ra sau");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Có lẽ hệ thống của bạn không hỗ trợ chế biến zip?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Để tạo một khóa học, trước tiên bạn phải tạo một thể loại");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Chọn bài học, ngành");//Select lesson branches (New)
-define("_LESSONBRANCHES","Bài học ngành");//Lesson branches (New)
-define("_COURSEBRANCHES","Tất nhiên, ngành");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Cho phép các sinh viên để xác định số lượng các câu hỏi trong mỗi bài kiểm tra thực hiện");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Tối đa");//Maximum (New)
-define("_MINIMUM","Tối thiểu");//Minimum (New)
-define("_REPETITIONS","Repetitions");//Repetitions (New)
-define("_MAINTAINHISTORY","Duy trì lịch sử");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Phím là không thích hợp với phiên bản này");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Bất hợp pháp chế độ");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Bạn phải chỉ định số lượng các câu hỏi");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Bạn phải chỉ định một giá trị từ");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Tất nhiên các giáo sư");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Giáo sư của khóa học");//Professors of course (New)
-define("_PRINTCONTENT","In nội dung");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Chọn bài học, ngành");//Select lesson branches
+define("_LESSONBRANCHES","Bài học ngành");//Lesson branches
+define("_COURSEBRANCHES","Tất nhiên, ngành");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Cho phép các sinh viên để xác định số lượng các câu hỏi trong mỗi bài kiểm tra thực hiện");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Tối đa");//Maximum
+define("_MINIMUM","Tối thiểu");//Minimum
+define("_REPETITIONS","Repetitions");//Repetitions
+define("_MAINTAINHISTORY","Duy trì lịch sử");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Phím là không thích hợp với phiên bản này");//The key is not suitable for this edition
+define("_ILLEGALMODE","Bất hợp pháp chế độ");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Bạn phải chỉ định số lượng các câu hỏi");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Bạn phải chỉ định một giá trị từ");//You must specify a value from
+define("_COURSEPROFESSORS","Tất nhiên các giáo sư");//Course professors
+define("_PROFESSORSOFCOURSE","Giáo sư của khóa học");//Professors of course
+define("_USERSUPERVISORS","Thành viên giám sát");//User supervisors (New)
+define("_USEROPTIONSFOR","Tùy chọn cho người sử dụng");//Options for user (New)
+define("_MYSTATUS","Tình trạng học tập của tôi");//my Learning Status (New)
+define("_MYCOURSES","Các khóa học của tôi");//my Courses (New)
+define("_CERTIFICATIONS","Giấy chứng nhận");//Certificates (New)
+define("_MYCERTIFICATIONS","Giấy chứng nhận của tôi");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Không có giấy chứng nhận đã được cấp cho người dùng chưa");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Để được kích hoạt bằng cách giám sát");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Không có người giám sát ngành hàng");//No branch supervisors found (New)
+define("_PRINTCONTENT","In nội dung");//Print content
 define("_USERHASNOTDONETEST","Người sử dụng đã không thực hiện kiểm tra này");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Xin vui lòng xác minh rằng các thông tin sau đây là đúng");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Không có loại được xác định");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Xin vui lòng xác minh rằng các thông tin sau đây là đúng");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Không có loại được xác định");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Giám sát email kích hoạt");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Nhân viên kích hoạt tài khoản email");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Email này cho phép bạn để kích hoạt hệ thống mới, người sử dụng");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","giao cho chi nhánh");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","với các vị trí công việc");//with the job description
+define("_BYCLICKINGONTHELINK","bằng cách nhấn vào liên kết sau");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Các tài khoản của các nhân viên của bạn đã được kích hoạt thành công");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Xà đơn");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Chi nhánh thông tin");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Chi nhánh tên trường");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Việc làm tên trường");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Kích hoạt tên lĩnh vực giám sát");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Để có sản phẩm nào để ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Vui lòng chọn");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Giám sát của bạn sẽ kích hoạt tài khoản của bạn");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Nhập khẩu IMS Nội dung");//Import IMS Content (New)
+define("_IMSEXPORT","Xuất khẩu IMS Nội dung");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS tải lên tập tin trong định dạng Zip");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS tuỳ chọn");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS tập tin đã được nhập thành công");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Thể từ người dùng");//Hidden from users (New)
+define("_RESETSCORMDATA","Thiết lập lại dữ liệu người dùng");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Cài đặt nâng cao");//Advanced settings (New)
 ?>

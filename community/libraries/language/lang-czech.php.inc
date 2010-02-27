@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Složky pro následující
 define("_EDITCONTENT","Upravit obsah");//Edit content
 define("_NORMALSTATUS","Normální stav");//Normal status
 define("_APPLICATIONPENDING","Aplikace čeká. Stiskněte tlačítko \"Odeslat\", pro ověření");//Application pending
-define("_SUCCESS","Úspěch");//Success
+define("_SUCCESS","Úspěch");// imported IMS fileSuccess
 define("_WARNING","Upozornění");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definice nemohla být vložena");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Definice úspěšně aktualizována");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Poznámka: znovu ste navš
 define("_ACTIONONRENTRYCOMPLETED","Akce na re-vstup");//Action on re-entry
 define("_LETCONTENTDECIDE","Nechte rozhodnout obsah");//Let content decide
 define("_DONTCHANGE","Nechá nezměněné");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","My Wall");//My wall
 define("_RELATEDPEOPLE","Související lidé");//Related people
 define("_LEARNINGACTIVITY","Výukové činnosti");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Nepodporované stavu platby");//Unsupported 
 define("_YOUHAVECANCELLEDTHETRANSACTION","Stornování transakce");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transakce byla dokončena úspěšně.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal ladicí režim");//Paypal debug mode
-define("_MYACCOUNT","Můj účet");//My account
+define("_MYACCOUNT","Můj účet");//my Account
 define("_MODULE","Modul");//Module
 define("_EMBEDTYPE","Vložit obsah");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Řady");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Příkaz selhal s tímto výstupem");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Možná že váš systém nepodporuje zip zpracování?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Za účelem vytvoření kurzu, musíte nejprve vytvořit kategorie");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Vyberte lekci poboček");//Select lesson branches (New)
-define("_LESSONBRANCHES","Lekce poboček");//Lesson branches (New)
-define("_COURSEBRANCHES","Samozřejmě poboček");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Umožňují studentům zadat počet otázek v každém testu výkonu");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maximální");//Maximum (New)
-define("_MINIMUM","Minimální");//Minimum (New)
-define("_REPETITIONS","Opakování");//Repetitions (New)
-define("_MAINTAINHISTORY","Udržovat historie");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Klíč není vhodný pro tohoto vydání");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Illegal režim");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Musíte zadat počet otázek");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Musíte zadat hodnotu od");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Samozřejmě profesoři");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesoři samozřejmě");//Professors of course (New)
-define("_PRINTCONTENT","Tisk obsahu");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Vyberte lekci poboček");//Select lesson branches
+define("_LESSONBRANCHES","Lekce poboček");//Lesson branches
+define("_COURSEBRANCHES","Samozřejmě poboček");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Umožňují studentům zadat počet otázek v každém testu výkonu");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maximální");//Maximum
+define("_MINIMUM","Minimální");//Minimum
+define("_REPETITIONS","Opakování");//Repetitions
+define("_MAINTAINHISTORY","Udržovat historie");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Klíč není vhodný pro tohoto vydání");//The key is not suitable for this edition
+define("_ILLEGALMODE","Illegal režim");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Musíte zadat počet otázek");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Musíte zadat hodnotu od");//You must specify a value from
+define("_COURSEPROFESSORS","Samozřejmě profesoři");//Course professors
+define("_PROFESSORSOFCOURSE","Profesoři samozřejmě");//Professors of course
+define("_USERSUPERVISORS","Uživatel dohledu");//User supervisors (New)
+define("_USEROPTIONSFOR","Možnosti pro uživatele");//Options for user (New)
+define("_MYSTATUS","Stav mé učení");//my Learning Status (New)
+define("_MYCOURSES","my Kurzy");//my Courses (New)
+define("_CERTIFICATIONS","Certifikáty");//Certificates (New)
+define("_MYCERTIFICATIONS","my Certifikáty");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Žádné certifikáty byly vydány pro uživatele ještě");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Chcete-li být aktivována Garant");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","No pobočka dohledu nalezeny");//No branch supervisors found (New)
+define("_PRINTCONTENT","Tisk obsahu");//Print content
 define("_USERHASNOTDONETEST","Uživatel ješte neudělal tento test");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Ověřte prosím, že tyto informace jsou správné");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Neexistují žádné definované kategorie");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Ověřte prosím, že tyto informace jsou správné");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Neexistují žádné definované kategorie");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Vedoucí aktivační e-mail");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Pracovník aktivace účtu e-mailem");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tento e-mail umožňuje aktivaci nového systému uživatel");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","přidělené pobočky");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","v popisu práce");//with the job description
+define("_BYCLICKINGONTHELINK","po kliknutí na následující odkaz");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Váš účet byl úspěšně aktivován zaměstnanců");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Hrazda");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Pobočka informace");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Pobočka název pole");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job název pole");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Aktivace vedoucí název pole");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Ponechte prázdné, aby ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Vyberte prosím");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Váš nadřízený bude aktivovat účet");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS nahrát soubor ve formátu ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS volby");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS soubor byl úspěšně dovezeno");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Skryté od uživatelů");//Hidden from users (New)
+define("_RESETSCORMDATA","Reset uživatelských dat");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Rozšířené nastavení");//Advanced settings (New)
 ?>

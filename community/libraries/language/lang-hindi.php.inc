@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","इस फ़ोल्ड�
 define("_EDITCONTENT","सामग्री का संपादन करें");//Edit content
 define("_NORMALSTATUS","सामान्य स्थिति");//Normal status
 define("_APPLICATIONPENDING","आवेदन लंबित है . प्रेस \" भेजें \" को सत्यापित करने के लिए");//Application pending
-define("_SUCCESS","सफलता");//Success
+define("_SUCCESS","सफलता");// imported IMS fileSuccess
 define("_WARNING","चेतावनी");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","परिभाषा नहीं किया जा सका डाला");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","अद्यतन सफलतापूर्वक परिभाषा");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","नोट: आप इस �
 define("_ACTIONONRENTRYCOMPLETED","लड़ाई पुनः पर प्रविष्टि");//Action on re-entry
 define("_LETCONTENTDECIDE","दो सामग्री फैसला");//Let content decide
 define("_DONTCHANGE","अपरिवर्तित छोड़ दो");//Leave unchanged
-define("_DASHBOARD","डैशबोर्ड");//Dashboard
+define("_DASHBOARD","डैशबोर्ड");//my Dashboard
 define("_MYWALL","मेरी दीवार");//My wall
 define("_RELATEDPEOPLE","संबंधित लोगों को");//Related people
 define("_LEARNINGACTIVITY","सीखने की गतिविधि");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","असमर्थित भुगतान 
 define("_YOUHAVECANCELLEDTHETRANSACTION","तुम सौदा रद्द कर दिया है");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","लेनदेन को सफलतापूर्वक पूरा किया गया.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","पेपैल डिबग मोड");//Paypal debug mode
-define("_MYACCOUNT","मेरा खाता");//My account
+define("_MYACCOUNT","मेरा खाता");//my Account
 define("_MODULE","मॉड्यूल");//Module
 define("_EMBEDTYPE","एम्बेड सामग्री के रूप में");//Embed content as
 define("_INLINEIFRAME","इनलाइन iframe ()");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","पंक्तियाँ");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","आदेश का पालन उत्पादन के साथ असफल");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","शायद आपके सिस्टम ज़िप संसाधन का समर्थन नहीं करता है?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","आदेश में एक कोर्स बनाने के लिए, आपको पहले एक वर्ग पैदा होगा");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","चुनें सबक शाखाएं");//Select lesson branches (New)
-define("_LESSONBRANCHES","सबक शाखाएं");//Lesson branches (New)
-define("_COURSEBRANCHES","पाठ्यक्रम शाखाएं");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","छात्रों के लिए एक परीक्षा में प्रश्नों की संख्या निर्दिष्ट निष्पादन की अनुमति दें");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","अधिकतम");//Maximum (New)
-define("_MINIMUM","न्यूनतम");//Minimum (New)
-define("_REPETITIONS","Repetitions");//Repetitions (New)
-define("_MAINTAINHISTORY","इतिहास रखें");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","कुंजी इस संस्करण के लिए उपयुक्त नहीं है");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","अवैध मोड");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","आप प्रश्नों की संख्या निर्दिष्ट करना होगा");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","आप एक मूल्य निर्दिष्ट से होगा");//You must specify a value from (New)
-define("_COURSEPROFESSORS","पाठ्यक्रम प्रोफेसरों");//Course professors (New)
-define("_PROFESSORSOFCOURSE","प्रोफेसर के कोर्स के");//Professors of course (New)
-define("_PRINTCONTENT","मुद्रित सामग्री");//Print content (New)
+define("_LESSONBRANCHESSELECTION","चुनें सबक शाखाएं");//Select lesson branches
+define("_LESSONBRANCHES","सबक शाखाएं");//Lesson branches
+define("_COURSEBRANCHES","पाठ्यक्रम शाखाएं");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","छात्रों के लिए एक परीक्षा में प्रश्नों की संख्या निर्दिष्ट निष्पादन की अनुमति दें");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","अधिकतम");//Maximum
+define("_MINIMUM","न्यूनतम");//Minimum
+define("_REPETITIONS","Repetitions");//Repetitions
+define("_MAINTAINHISTORY","इतिहास रखें");//Maintain history
+define("_KEYISNOTFORTHISEDITION","कुंजी इस संस्करण के लिए उपयुक्त नहीं है");//The key is not suitable for this edition
+define("_ILLEGALMODE","अवैध मोड");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","आप प्रश्नों की संख्या निर्दिष्ट करना होगा");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","आप एक मूल्य निर्दिष्ट से होगा");//You must specify a value from
+define("_COURSEPROFESSORS","पाठ्यक्रम प्रोफेसरों");//Course professors
+define("_PROFESSORSOFCOURSE","प्रोफेसर के कोर्स के");//Professors of course
+define("_USERSUPERVISORS","उपयोगकर्ता पर्यवेक्षकों");//User supervisors (New)
+define("_USEROPTIONSFOR","उपयोगकर्ता के लिए विकल्प");//Options for user (New)
+define("_MYSTATUS","मेरी सीखना स्तर");//my Learning Status (New)
+define("_MYCOURSES","मेरी पाठ्यक्रम");//my Courses (New)
+define("_CERTIFICATIONS","प्रमाणपत्र");//Certificates (New)
+define("_MYCERTIFICATIONS","मेरे प्रमाण पत्र");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","कोई प्रमाणपत्र उपयोगकर्ता के लिए जारी किए गए हैं अभी तक");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","पर्यवेक्षक के द्वारा सक्रिय हो");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","कोई शाखा पर्यवेक्षकों पाया");//No branch supervisors found (New)
+define("_PRINTCONTENT","मुद्रित सामग्री");//Print content
 define("_USERHASNOTDONETEST","इस उपयोगकर्ता ने इस परीक्षण नहीं किया है");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","कृपया सत्यापित करें कि निम्नलिखित जानकारी सही है");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","कोई परिभाषित श्रेणियों के हैं");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","कृपया सत्यापित करें कि निम्नलिखित जानकारी सही है");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","कोई परिभाषित श्रेणियों के हैं");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","पर्यवेक्षक ईमेल सक्रियण");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","कर्मचारी खाता सक्रियण ईमेल");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","इस ईमेल में सक्षम बनाता है आपको नई प्रणाली उपयोगकर्ता सक्रिय");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","शाखा को सौंपा");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","नौकरी विवरण के साथ");//with the job description
+define("_BYCLICKINGONTHELINK","नीचे दिए गए लिंक पर क्लिक करके");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","अपने कर्मचारी के खाते में सफलतापूर्वक सक्रिय था");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","क्षैतिज पट्टी");//Horizontal bar (New)
+define("_BRANCHINFORMATION","शाखा जानकारी");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","शाखा क्षेत्र का नाम");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","नौकरी के क्षेत्र का नाम");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","पर्यवेक्षक क्षेत्र का नाम सक्रिय");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","छोड़ने के लिए ommit खाली");//Leave empty to ommit (New)
+define("_PLEASESELECT","कृपया चुनें");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","अपने पर्यवेक्षक अपने खाते को सक्रिय कर देंगे");//Your supervisor will activate your account (New)
+define("_IMS","आईएमएस");//IMS (New)
+define("_IMSIMPORT","आयात आईएमएस सामग्री");//Import IMS Content (New)
+define("_IMSEXPORT","निर्यात आईएमएस सामग्री");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","अपलोड ज़िप फ़ाइल प्रारूप में आईएमएस");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","आईएमएस विकल्प");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","आईएमएस फ़ाइल सफलतापूर्वक आयात किया गया था");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","उपयोगकर्ताओं को छुपाया");//Hidden from users (New)
+define("_RESETSCORMDATA","रीसेट उपयोगकर्ता डेटा");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","उन्नत सेटिंग्स");//Advanced settings (New)
 ?>

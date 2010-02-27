@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","ვერ მოხერ�
 define("_EDITCONTENT","მასალის რედაქტირება");//Edit content
 define("_NORMALSTATUS","ჩვეულებრივი სტატუსი");//Normal status
 define("_APPLICATIONPENDING","განაცხადი ყოვნდება.");//Application pending
-define("_SUCCESS","შესრულდა");//Success
+define("_SUCCESS","შესრულდა");// imported IMS fileSuccess
 define("_WARNING","გაფრთხილება");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","განსაზღვრების ჩამატება ვერ ხერხდება");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","განსაზღვრება განახლდა");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","შენიშვნა: 
 define("_ACTIONONRENTRYCOMPLETED","ქმედება ხელახლა გახსნისას");//Action on re-entry
 define("_LETCONTENTDECIDE","გადაწყვეტილება მასალიდან გამომდინარე");//Let content decide
 define("_DONTCHANGE","უცვლელად დატოვება");//Leave unchanged
-define("_DASHBOARD","");//Dashboard
+define("_DASHBOARD","");//my Dashboard
 define("_MYWALL","");//My wall
 define("_RELATEDPEOPLE","");//Related people
 define("_LEARNINGACTIVITY","");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","");//The transaction was completed successfully.
 define("_PAYPALDEBUG","");//Paypal debug mode
-define("_MYACCOUNT","");//My account
+define("_MYACCOUNT","");//my Account
 define("_MODULE","");//Module
 define("_EMBEDTYPE","");//Embed content as
 define("_INLINEIFRAME","");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","");//Select lesson branches (New)
-define("_LESSONBRANCHES","");//Lesson branches (New)
-define("_COURSEBRANCHES","");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","");//Maximum (New)
-define("_MINIMUM","");//Minimum (New)
-define("_REPETITIONS","");//Repetitions (New)
-define("_MAINTAINHISTORY","");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","");//You must specify a value from (New)
-define("_COURSEPROFESSORS","");//Course professors (New)
-define("_PROFESSORSOFCOURSE","");//Professors of course (New)
-define("_PRINTCONTENT","");//Print content (New)
+define("_LESSONBRANCHESSELECTION","");//Select lesson branches
+define("_LESSONBRANCHES","");//Lesson branches
+define("_COURSEBRANCHES","");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","");//Maximum
+define("_MINIMUM","");//Minimum
+define("_REPETITIONS","");//Repetitions
+define("_MAINTAINHISTORY","");//Maintain history
+define("_KEYISNOTFORTHISEDITION","");//The key is not suitable for this edition
+define("_ILLEGALMODE","");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","");//You must specify a value from
+define("_COURSEPROFESSORS","");//Course professors
+define("_PROFESSORSOFCOURSE","");//Professors of course
+define("_USERSUPERVISORS","");//User supervisors (New)
+define("_USEROPTIONSFOR","");//Options for user (New)
+define("_MYSTATUS","");//my Learning Status (New)
+define("_MYCOURSES","");//my Courses (New)
+define("_CERTIFICATIONS","");//Certificates (New)
+define("_MYCERTIFICATIONS","");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","");//No branch supervisors found (New)
+define("_PRINTCONTENT","");//Print content
 define("_USERHASNOTDONETEST","მონაწილეს ეს ტესტი არ გაუვლია");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION"," თანამდებობით ");//with the job description
+define("_BYCLICKINGONTHELINK","");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","");//Horizontal bar (New)
+define("_BRANCHINFORMATION","");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","");//Leave empty to ommit (New)
+define("_PLEASESELECT","");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","");//Your supervisor will activate your account (New)
+define("_IMS","");//IMS (New)
+define("_IMSIMPORT","");//Import IMS Content (New)
+define("_IMSEXPORT","");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","");//IMS file was successfully imported (New)
+define("_TOOLTIP","");//Tooltip (New)
+define("_HIDDEN","");//Hidden from users (New)
+define("_RESETSCORMDATA","");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","");//Advanced settings (New)
 ?>

@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","De mappar för följande l
 define("_EDITCONTENT","Redigera innehåll");//Edit content
 define("_NORMALSTATUS","Normal status");//Normal status
 define("_APPLICATIONPENDING","Ansökan väntan. Tryck på \"Skicka\" för att kontrollera");//Application pending
-define("_SUCCESS","Lyckat");//Success
+define("_SUCCESS","Lyckat");// imported IMS fileSuccess
 define("_WARNING","Varning!");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definition inte kan införas");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Har uppdaterats definition");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Obs: Du är återbesök de
 define("_ACTIONONRENTRYCOMPLETED","Insatser för förnyad inresa");//Action on re-entry
 define("_LETCONTENTDECIDE","Låt innehållet avgöra");//Let content decide
 define("_DONTCHANGE","Lämna oförändrad");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","Min vägg");//My wall
 define("_RELATEDPEOPLE","Relaterade personer");//Related people
 define("_LEARNINGACTIVITY","Inlärning");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Unsupported betalningsstatus");//Unsupported
 define("_YOUHAVECANCELLEDTHETRANSACTION","Du har avbrutit affären");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaktionen slutfördes framgångsrikt.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","Kontot");//My account
+define("_MYACCOUNT","Kontot");//my Account
 define("_MODULE","Modul");//Module
 define("_EMBEDTYPE","Bädda innehåll");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rows");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Kommandot misslyckades med följande resultat");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Kanske ditt system inte har stöd för zip-behandling?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","För att skapa en kurs, måste du först skapa en kategori");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Välj lektion filialer");//Select lesson branches (New)
-define("_LESSONBRANCHES","Lektion filialer");//Lesson branches (New)
-define("_COURSEBRANCHES","Kurs filialer");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Låt eleverna att ange antal frågor i varje testexekvering");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maximum");//Maximum (New)
-define("_MINIMUM","Minsta");//Minimum (New)
-define("_REPETITIONS","Upprepningar");//Repetitions (New)
-define("_MAINTAINHISTORY","Upprätthålla historia");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Det viktiga är inte lämplig för denna utgåva");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Illegal mode");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Du måste ange antalet frågor");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Du måste ange ett värde från");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Kurs professorer");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Professorer naturligtvis");//Professors of course (New)
-define("_PRINTCONTENT","Skriv ut innehåll");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Välj lektion filialer");//Select lesson branches
+define("_LESSONBRANCHES","Lektion filialer");//Lesson branches
+define("_COURSEBRANCHES","Kurs filialer");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Låt eleverna att ange antal frågor i varje testexekvering");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maximum");//Maximum
+define("_MINIMUM","Minsta");//Minimum
+define("_REPETITIONS","Upprepningar");//Repetitions
+define("_MAINTAINHISTORY","Upprätthålla historia");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Det viktiga är inte lämplig för denna utgåva");//The key is not suitable for this edition
+define("_ILLEGALMODE","Illegal mode");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Du måste ange antalet frågor");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Du måste ange ett värde från");//You must specify a value from
+define("_COURSEPROFESSORS","Kurs professorer");//Course professors
+define("_PROFESSORSOFCOURSE","Professorer naturligtvis");//Professors of course
+define("_USERSUPERVISORS","User handledare");//User supervisors (New)
+define("_USEROPTIONSFOR","Alternativ för användare");//Options for user (New)
+define("_MYSTATUS","min gyro");//my Learning Status (New)
+define("_MYCOURSES","Mina kurser");//my Courses (New)
+define("_CERTIFICATIONS","Certifikat");//Certificates (New)
+define("_MYCERTIFICATIONS","Min Certifikat");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Ingen har utfärdats för användaren än");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Att aktiveras av handledare");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Ingen filial handledare hittades");//No branch supervisors found (New)
+define("_PRINTCONTENT","Skriv ut innehåll");//Print content
 define("_USERHASNOTDONETEST","Användaren har inte gjort detta test");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Kontrollera att följande information är korrekt");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Det finns inga definierade kategorier");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Kontrollera att följande information är korrekt");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Det finns inga definierade kategorier");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Handledare e aktivering");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Anställd kontoaktivering e -");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Detta e-postmeddelande kan du aktivera det nya systemet användaren");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","tilldelats gren");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","med arbetsbeskrivning");//with the job description
+define("_BYCLICKINGONTHELINK","genom att klicka på följande länk");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Redogörelsen för dina anställda aktiverades framgångsrikt");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Räck");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Branch information");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Branch fältnamn");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job fältnamn");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Aktivera namn handledare fält");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Lämna tomt för att ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Vänligen välj");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din handledare kommer att aktivera ditt konto");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Ladda upp IMS fil i ZIP-format");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS alternativ");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fil har importerats");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Dolda användare");//Hidden from users (New)
+define("_RESETSCORMDATA","Återställ användardata");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Avancerade inställningar");//Advanced settings (New)
 ?>

@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Folderele pentru următoar
 define("_EDITCONTENT","Editaţi conţinutul");//Edit content
 define("_NORMALSTATUS","Starea normală");//Normal status
 define("_APPLICATIONPENDING","Aplicarea în aşteptare. Apăsaţi pe \"Trimiteţi\" pentru a verifica");//Application pending
-define("_SUCCESS","Succes");//Success
+define("_SUCCESS","Succes");// imported IMS fileSuccess
 define("_WARNING","Avertisment");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definitie nu ar putea fi introdusa");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Au fost actualizate cu succes definiţie");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Notă: nu sunt revisiting 
 define("_ACTIONONRENTRYCOMPLETED","Acţiunea la reintrare");//Action on re-entry
 define("_LETCONTENTDECIDE","Să conţinut decide");//Let content decide
 define("_DONTCHANGE","Lăsaţi neschimbat");//Leave unchanged
-define("_DASHBOARD","Tablou de bord");//Dashboard
+define("_DASHBOARD","Tablou de bord");//my Dashboard
 define("_MYWALL","Mele de perete");//My wall
 define("_RELATEDPEOPLE","Persoanele înrudite");//Related people
 define("_LEARNINGACTIVITY","Activitate de învăţare");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Statutul de neacceptat de plată");//Unsuppo
 define("_YOUHAVECANCELLEDTHETRANSACTION","Aţi anulat tranzacţia");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Tranzacţia a fost finalizată cu succes.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal modul de depanare");//Paypal debug mode
-define("_MYACCOUNT","Contul meu");//My account
+define("_MYACCOUNT","Contul meu");//my Account
 define("_MODULE","Module");//Module
 define("_EMBEDTYPE","Conţinutul de Embed ca");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rânduri");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Comanda a eşuat, cu ieşire următoarele");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Poate că sistemul dvs. nu are suport de prelucrare a zip?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","În scopul de a crea un curs, trebuie să creaţi mai întâi o categorie");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Ramuri lecţie Selectaţi");//Select lesson branches (New)
-define("_LESSONBRANCHES","Lectia de sucursale");//Lesson branches (New)
-define("_COURSEBRANCHES","Ramuri de golf");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permiteţi elevilor să precizeze numărul de întrebări pentru fiecare test de executie");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maxim");//Maximum (New)
-define("_MINIMUM","Minimă");//Minimum (New)
-define("_REPETITIONS","Repetiţii");//Repetitions (New)
-define("_MAINTAINHISTORY","Se menţine istoria");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Cheie nu este potrivit pentru această ediţie");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Mod de ilegală");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Trebuie să specificaţi numărul de întrebări");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Trebuie să specificaţi o valoare de la");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Profesori de golf");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesori, desigur,");//Professors of course (New)
-define("_PRINTCONTENT","Conţinutul de Imprimare");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Ramuri lecţie Selectaţi");//Select lesson branches
+define("_LESSONBRANCHES","Lectia de sucursale");//Lesson branches
+define("_COURSEBRANCHES","Ramuri de golf");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permiteţi elevilor să precizeze numărul de întrebări pentru fiecare test de executie");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maxim");//Maximum
+define("_MINIMUM","Minimă");//Minimum
+define("_REPETITIONS","Repetiţii");//Repetitions
+define("_MAINTAINHISTORY","Se menţine istoria");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Cheie nu este potrivit pentru această ediţie");//The key is not suitable for this edition
+define("_ILLEGALMODE","Mod de ilegală");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Trebuie să specificaţi numărul de întrebări");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Trebuie să specificaţi o valoare de la");//You must specify a value from
+define("_COURSEPROFESSORS","Profesori de golf");//Course professors
+define("_PROFESSORSOFCOURSE","Profesori, desigur,");//Professors of course
+define("_USERSUPERVISORS","Autorităţile de supraveghere Utilizator");//User supervisors (New)
+define("_USEROPTIONSFOR","Opţiuni pentru utilizator");//Options for user (New)
+define("_MYSTATUS","Starea mea de învăţare");//my Learning Status (New)
+define("_MYCOURSES","Cursurile-mi");//my Courses (New)
+define("_CERTIFICATIONS","Certificatele");//Certificates (New)
+define("_MYCERTIFICATIONS","Certificatele mele");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nu au fost eliberate certificate de a utilizatorului încă");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Pentru a fi activată de către autoritatea de supraveghere");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Nu autorităţile de supraveghere filiala gasite");//No branch supervisors found (New)
+define("_PRINTCONTENT","Conţinutul de Imprimare");//Print content
 define("_USERHASNOTDONETEST","Utilizatorul nu a facut acest test");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Vă rugăm să verificaţi că următoarele informaţii sunt corecte");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Nu există categorii definite");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Vă rugăm să verificaţi că următoarele informaţii sunt corecte");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Nu există categorii definite");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Datelor de activare de e-mail");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Angajat cont de e-mail de activare");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Acest e-mail vă permite să activaţi noul sistem de utilizator");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","alocat pentru filiala");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","cu loc de muncă descriere");//with the job description
+define("_BYCLICKINGONTHELINK",", făcând clic pe link-ul următor");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Seama de angajat dvs. a fost activat cu succes");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Bar orizontale");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Informaţii Branch");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Sucursala numele de câmp");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job-uri numele de câmp");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Activarea supraveghetor numele de câmp");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Lăsaţi gol pentru a ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Vă rugăm să selectaţi");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Autoritatea de supraveghere dumneavoastră vă va activa contul dvs.");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Încărcaţi IMS fişier în format Zip");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","Opţiuni de IMS");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","Fişier IMS a fost importat cu succes");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Ascuns de la utilizatori");//Hidden from users (New)
+define("_RESETSCORMDATA","Datele utilizatorului Reset");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Setări avansate");//Advanced settings (New)
 ?>

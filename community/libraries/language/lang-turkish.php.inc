@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Aşağıdaki ders için kl
 define("_EDITCONTENT","Düzenle içerik");//Edit content
 define("_NORMALSTATUS","Normal durum");//Normal status
 define("_APPLICATIONPENDING","Uygulama bekleyen");//Application pending
-define("_SUCCESS","Başarı");//Success
+define("_SUCCESS","Başarı");// imported IMS fileSuccess
 define("_WARNING","Uyarı");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Tanımı takılı couldn&#39;t be");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Başarıyla tanımı güncellendi");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Not: Bu birim revisiting v
 define("_ACTIONONRENTRYCOMPLETED","Eylem yeniden giriş");//Action on re-entry
 define("_LETCONTENTDECIDE","Hadi içerik karar");//Let content decide
 define("_DONTCHANGE","Değiştirmeyin");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","My Wall");//My wall
 define("_RELATEDPEOPLE","Ilgili kişi");//Related people
 define("_LEARNINGACTIVITY","Öğrenme etkinliği");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Desteklenmeyen ödeme durumu");//Unsupported
 define("_YOUHAVECANCELLEDTHETRANSACTION","Bu işlem iptal ettiniz");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","İşlem başarıyla tamamlandı.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal hata ayıklama moduna");//Paypal debug mode
-define("_MYACCOUNT","Hesabım");//My account
+define("_MYACCOUNT","Hesabım");//my Account
 define("_MODULE","Modülü");//Module
 define("_EMBEDTYPE","Embed içerik olarak");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Satırlar");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Komut aşağıdaki çıktıyı başarısız oldu");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Belki sistem zip işleme desteklemez?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Amacıyla, ilk önce bir kategori yaratmak gereken bir ders oluşturmak için");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Seçin ders dalları");//Select lesson branches (New)
-define("_LESSONBRANCHES","Ders dalları");//Lesson branches (New)
-define("_COURSEBRANCHES","Ders dalları");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Yürütülmesine her testte soru sayısı belirtmek için öğrencilere izin ver");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maksimum");//Maximum (New)
-define("_MINIMUM","Minimum");//Minimum (New)
-define("_REPETITIONS","Tekrarlama");//Repetitions (New)
-define("_MAINTAINHISTORY","Tarih koruyun");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Bu anahtar baskı için uygun değil");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Yasadışı modu");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Soru sayısını belirtmelisiniz");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Sizden bir değer belirtmelisiniz");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Elbette profesör");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesör dersin");//Professors of course (New)
-define("_PRINTCONTENT","Print içerik");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Seçin ders dalları");//Select lesson branches
+define("_LESSONBRANCHES","Ders dalları");//Lesson branches
+define("_COURSEBRANCHES","Ders dalları");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Yürütülmesine her testte soru sayısı belirtmek için öğrencilere izin ver");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maksimum");//Maximum
+define("_MINIMUM","Minimum");//Minimum
+define("_REPETITIONS","Tekrarlama");//Repetitions
+define("_MAINTAINHISTORY","Tarih koruyun");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Bu anahtar baskı için uygun değil");//The key is not suitable for this edition
+define("_ILLEGALMODE","Yasadışı modu");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Soru sayısını belirtmelisiniz");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Sizden bir değer belirtmelisiniz");//You must specify a value from
+define("_COURSEPROFESSORS","Elbette profesör");//Course professors
+define("_PROFESSORSOFCOURSE","Profesör dersin");//Professors of course
+define("_USERSUPERVISORS","Kullanıcı denetçiler");//User supervisors (New)
+define("_USEROPTIONSFOR","Kullanıcı için seçenekler");//Options for user (New)
+define("_MYSTATUS","benim Öğrenim Durumu");//my Learning Status (New)
+define("_MYCOURSES","benim Dersler");//my Courses (New)
+define("_CERTIFICATIONS","Sertifikalar");//Certificates (New)
+define("_MYCERTIFICATIONS","benim Sertifikalar");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","No sertifikaları kullanıcı henüz basılmış olduğu");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Danışmanı tarafından etkinleştirilmesi için");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","No şube denetçiler bulundu");//No branch supervisors found (New)
+define("_PRINTCONTENT","Print içerik");//Print content
 define("_USERHASNOTDONETEST","Kullanıcı bu testi yapılması değil");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Lütfen aşağıdaki bilgileri doğrulamak");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Hiçbir kategoriler tanımlanmıştır");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Lütfen aşağıdaki bilgileri doğrulamak");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Hiçbir kategoriler tanımlanmıştır");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Danışman e-posta etkinleştirme");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Bir hesap etkinleştirme e-posta");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Bu e-posta size yeni sistemi kullanıcı etkinleştirmek sağlar");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","dalına atanan");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","iş pozisyonu ile");//with the job description
+define("_BYCLICKINGONTHELINK","Aşağıdaki linke tıklayarak");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Senin çalışanın hesabını başarıyla aktive edildi");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Barfiks");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Şube bilgileri");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Şube alan adı");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Iş alan adı");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Gözetmen alan adı etkinleştirme");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Ommit boş bırak");//Leave empty to ommit (New)
+define("_PLEASESELECT","Lütfen seçin");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Amirinle hesabınızı aktive eder");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","İthalat IMS İçerik");//Import IMS Content (New)
+define("_IMSEXPORT","İhracat IMS İçerik");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Posta olarak yükle IMS dosya biçimi");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS seçenekleri");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS dosyası başarıyla ithal edildi");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Gizli kullanıcılardan");//Hidden from users (New)
+define("_RESETSCORMDATA","Reset kullanıcı verilerini");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Gelişmiş ayarlar");//Advanced settings (New)
 ?>

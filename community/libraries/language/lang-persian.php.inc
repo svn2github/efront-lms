@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","پوشه ها را برا�
 define("_EDITCONTENT","ویرایش محتوا");//Edit content
 define("_NORMALSTATUS","وضعیت نرمال");//Normal status
 define("_APPLICATIONPENDING","درخواست معلق");//Application pending
-define("_SUCCESS","موفقیت");//Success
+define("_SUCCESS","موفقیت");// imported IMS fileSuccess
 define("_WARNING","اخطار");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","تعریف نمی تواند درج شده");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","تعریف موفقیت به روزآوری شد");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","توجه : شما revisiti
 define("_ACTIONONRENTRYCOMPLETED","در عمل دخول مجدد");//Action on re-entry
 define("_LETCONTENTDECIDE","اجازه دهید از مطالب تصمیم می گیرید");//Let content decide
 define("_DONTCHANGE","مرخصی بدون تغییر");//Leave unchanged
-define("_DASHBOARD","داشبورد");//Dashboard
+define("_DASHBOARD","داشبورد");//my Dashboard
 define("_MYWALL","دیوار من");//My wall
 define("_RELATEDPEOPLE","افراد مرتبط");//Related people
 define("_LEARNINGACTIVITY","فعالیت های یادگیری");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","وضعیت پرداخت پشتیبانی ن�
 define("_YOUHAVECANCELLEDTHETRANSACTION","شما باید لغو معامله");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","معامله با موفقیت به پایان رسید.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","حالت دیباگ پیش پرداخت");//Paypal debug mode
-define("_MYACCOUNT","حساب من");//My account
+define("_MYACCOUNT","حساب من");//my Account
 define("_MODULE","ماژول");//Module
 define("_EMBEDTYPE","مطالب به عنوان اشتراک");//Embed content as
 define("_INLINEIFRAME","درون خطی (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","سطرها");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","فرمان نتوانست با خروجی زیر");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","شاید شما از سیستم پردازش وبلاگ را پشتیبانی نمی کند؟");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","به منظور ایجاد یک دوره ، باید ابتدا آن را ایجاد یک رده");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","شاخه را انتخاب کنید درس");//Select lesson branches (New)
-define("_LESSONBRANCHES","شاخه های درس");//Lesson branches (New)
-define("_COURSEBRANCHES","شاخه های رشته");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","دانش آموزان اجازه می دهد تا تعیین تعداد سؤالات در هر آزمون اعدام");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","حداکثر");//Maximum (New)
-define("_MINIMUM","کمینه");//Minimum (New)
-define("_REPETITIONS","تکرار");//Repetitions (New)
-define("_MAINTAINHISTORY","حفظ تاریخچه");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","کلیدی است برای این نسخه مناسب نمی باشد");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","نحوه غیر قانونی");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","شما باید تعدادی از سؤالات را مشخص کنید");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","شما باید از یک مقدار مشخص");//You must specify a value from (New)
-define("_COURSEPROFESSORS","استاد درس");//Course professors (New)
-define("_PROFESSORSOFCOURSE","البته استادان");//Professors of course (New)
-define("_PRINTCONTENT","محتوای نسخه قابل چاپ");//Print content (New)
+define("_LESSONBRANCHESSELECTION","شاخه را انتخاب کنید درس");//Select lesson branches
+define("_LESSONBRANCHES","شاخه های درس");//Lesson branches
+define("_COURSEBRANCHES","شاخه های رشته");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","دانش آموزان اجازه می دهد تا تعیین تعداد سؤالات در هر آزمون اعدام");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","حداکثر");//Maximum
+define("_MINIMUM","کمینه");//Minimum
+define("_REPETITIONS","تکرار");//Repetitions
+define("_MAINTAINHISTORY","حفظ تاریخچه");//Maintain history
+define("_KEYISNOTFORTHISEDITION","کلیدی است برای این نسخه مناسب نمی باشد");//The key is not suitable for this edition
+define("_ILLEGALMODE","نحوه غیر قانونی");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","شما باید تعدادی از سؤالات را مشخص کنید");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","شما باید از یک مقدار مشخص");//You must specify a value from
+define("_COURSEPROFESSORS","استاد درس");//Course professors
+define("_PROFESSORSOFCOURSE","البته استادان");//Professors of course
+define("_USERSUPERVISORS","ناظران کاربر");//User supervisors (New)
+define("_USEROPTIONSFOR","گزینه های کاربر");//Options for user (New)
+define("_MYSTATUS","وضعیت من یادگیری");//my Learning Status (New)
+define("_MYCOURSES","دوره های من");//my Courses (New)
+define("_CERTIFICATIONS","گواهینامه ها");//Certificates (New)
+define("_MYCERTIFICATIONS","گواهینامه های من");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","بدون گواهی نامه را به کاربر صادر نشده است");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","برای فعال توسط سرپرست می شود");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","بدون ناظران شعبه یافت نشد");//No branch supervisors found (New)
+define("_PRINTCONTENT","محتوای نسخه قابل چاپ");//Print content
 define("_USERHASNOTDONETEST","کاربر به این آزمایش را انجام نمی");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","لطفا اطلاعات زیر را که درست است نسخه متنی]");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","هیچ دسته بندی تعریف شده وجود دارد.");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","لطفا اطلاعات زیر را که درست است نسخه متنی]");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","هیچ دسته بندی تعریف شده وجود دارد.");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","استاد راهنما ایمیل فعال سازی حساب کاربری");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","کارمند حساب ایمیل فعال سازی حساب کاربری");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","این ایمیل شما را قادر به فعال کردن سیستم کاربر جدید");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","اختصاص داده به شعبه");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","با موقعیت شغلی");//with the job description
+define("_BYCLICKINGONTHELINK","با کلیک بر روی لینک زیر");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","کارمند از حساب شما با موفقیت فعال شد");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","نوار افقی");//Horizontal bar (New)
+define("_BRANCHINFORMATION","اطلاعات شعبه");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","نام شعبه میدان");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","فرصت های شغلی نام رشته");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","نام استاد راهنما به فعال شدن میدان");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","مرخصی خالی برای ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","لطفا انتخاب کنید");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","سرپرست شما حساب کاربری خود را فعال");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","واردات IMS مطالب و محتوا");//Import IMS Content (New)
+define("_IMSEXPORT","صادرات IMS مطالب و محتوا");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS آپلود فایل در فرمت زیپ");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","گزینه های IMS");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","فایل IMS با موفقیت وارد شد");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","پنهان از کاربران");//Hidden from users (New)
+define("_RESETSCORMDATA","تنظیم مجدد اطلاعات کاربر");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","تنظیمات پیشرفته");//Advanced settings (New)
 ?>

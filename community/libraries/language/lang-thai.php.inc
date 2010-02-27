@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","ไม่สามาร�
 define("_EDITCONTENT","แก้ไขเนื้อหา");//Edit content
 define("_NORMALSTATUS","สถานภาพปกติ");//Normal status
 define("_APPLICATIONPENDING","Application pending");//Application pending
-define("_SUCCESS","สำเร็จ");//Success
+define("_SUCCESS","สำเร็จ");// imported IMS fileSuccess
 define("_WARNING","คำเตือน");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","ไม่สามารถแทรกคำนิยามเข้าได้");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","ได้ปรับปรุงการนิยามคำศัพท์เสร็จเรียบร้อยแล้ว");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","คำเตือน: ก
 define("_ACTIONONRENTRYCOMPLETED","การกระทำ หลังจากจบแล้ว");//Action on re-entry
 define("_LETCONTENTDECIDE","ให้เนื้อหาตัดสิน");//Let content decide
 define("_DONTCHANGE","ปล่อยไว้ ยังไม่เปลี่ยนแปลง");//Leave unchanged
-define("_DASHBOARD","แผงควบคุม");//Dashboard
+define("_DASHBOARD","แผงควบคุม");//my Dashboard
 define("_MYWALL","ผนังของฉัน");//My wall
 define("_RELATEDPEOPLE","คนที่เกี่ยวข้อง");//Related people
 define("_LEARNINGACTIVITY","กิจกรรมการเรียนรู้");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","สถานะการชำระเง�
 define("_YOUHAVECANCELLEDTHETRANSACTION","คุณได้ยกเลิกการทำรายการ");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","ซื้อขายได้เสร็จสมบูรณ์.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","PayPal โหมดดีบัก");//Paypal debug mode
-define("_MYACCOUNT","บัญชีของฉัน");//My account
+define("_MYACCOUNT","บัญชีของฉัน");//my Account
 define("_MODULE","Module");//Module
 define("_EMBEDTYPE","เนื้อหาฝังเป็น");//Embed content as
 define("_INLINEIFRAME","อินไลน์ (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","แถว");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","คำสั่งล้มเหลวกับการส่งออกต่อไปนี้");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","บางทีระบบของคุณไม่สนับสนุนการไปรษณีย์?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","เพื่อสร้างหลักสูตรคุณต้องสร้างชนิด");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","เลือกสาขาการเรียน");//Select lesson branches (New)
-define("_LESSONBRANCHES","สาขาบทเรียน");//Lesson branches (New)
-define("_COURSEBRANCHES","สาขาหลักสูตร");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","ให้นักเรียนระบุจำนวนคำถามในการทดสอบในแต่ละการกระทำ");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","สูงสุด");//Maximum (New)
-define("_MINIMUM","ขั้นต่ำ");//Minimum (New)
-define("_REPETITIONS","Repetitions");//Repetitions (New)
-define("_MAINTAINHISTORY","รักษาประวัติ");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","คีย์ไม่เหมาะสำหรับรุ่นนี้");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","โหมดผิดกฎหมาย");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","คุณต้องระบุจำนวนคำถาม");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","คุณต้องระบุค่าจาก");//You must specify a value from (New)
-define("_COURSEPROFESSORS","อาจารย์หลักสูตร");//Course professors (New)
-define("_PROFESSORSOFCOURSE","อาจารย์ของหลักสูตร");//Professors of course (New)
-define("_PRINTCONTENT","เนื้อหา Print");//Print content (New)
+define("_LESSONBRANCHESSELECTION","เลือกสาขาการเรียน");//Select lesson branches
+define("_LESSONBRANCHES","สาขาบทเรียน");//Lesson branches
+define("_COURSEBRANCHES","สาขาหลักสูตร");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","ให้นักเรียนระบุจำนวนคำถามในการทดสอบในแต่ละการกระทำ");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","สูงสุด");//Maximum
+define("_MINIMUM","ขั้นต่ำ");//Minimum
+define("_REPETITIONS","Repetitions");//Repetitions
+define("_MAINTAINHISTORY","รักษาประวัติ");//Maintain history
+define("_KEYISNOTFORTHISEDITION","คีย์ไม่เหมาะสำหรับรุ่นนี้");//The key is not suitable for this edition
+define("_ILLEGALMODE","โหมดผิดกฎหมาย");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","คุณต้องระบุจำนวนคำถาม");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","คุณต้องระบุค่าจาก");//You must specify a value from
+define("_COURSEPROFESSORS","อาจารย์หลักสูตร");//Course professors
+define("_PROFESSORSOFCOURSE","อาจารย์ของหลักสูตร");//Professors of course
+define("_USERSUPERVISORS","ผู้ บังคับบัญชา");//User supervisors (New)
+define("_USEROPTIONSFOR","ตัว เลือก สำหรับ ผู้ ใช้");//Options for user (New)
+define("_MYSTATUS","เรียน รู้ สถานะ ของ ฉัน");//my Learning Status (New)
+define("_MYCOURSES","ของ หลักสูตร");//my Courses (New)
+define("_CERTIFICATIONS","ประกาศนียบัตร");//Certificates (New)
+define("_MYCERTIFICATIONS","ใบรับรอง ของ ฉัน");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","รับรอง ไม่มี การ ออก ให้ กับ ผู้ ใช้ ยัง");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","เพื่อ ใช้ งาน โดย การ ดำเนิน งาน");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","ไม่ บังคับบัญชา สาขา พบ");//No branch supervisors found (New)
+define("_PRINTCONTENT","เนื้อหา Print");//Print content
 define("_USERHASNOTDONETEST","สมาชิก-ผู้เรียนที่ทำแบบทดสอบไม่เสร็จ");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","โปรดตรวจสอบว่าข้อมูลต่อไปนี้ถูกต้อง");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","มีประเภทไม่กำหนดคือ");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","โปรดตรวจสอบว่าข้อมูลต่อไปนี้ถูกต้อง");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","มีประเภทไม่กำหนดคือ");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","คุม การ เปิด ใช้ งาน อีเมล");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","พนักงาน อีเมล์ เปิด ใช้ งาน บัญชี");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","อีเมล นี้ จะ ช่วย ให้ คุณ สามารถ เปิด ใช้ งาน ผู้ ใช้ ระบบ ใหม่");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","มอบหมาย ให้ สาขา");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","กับคำอธิบายงาน");//with the job description
+define("_BYCLICKINGONTHELINK","โดย คลิก ที่ ลิงก์ ต่อ ไป นี้");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","บัญชี ของ พนักงาน ของ คุณ ได้ เปิด ใช้ งาน แล้ว");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","แถบ แนว นอน");//Horizontal bar (New)
+define("_BRANCHINFORMATION","ข้อมูล สาขา");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","ชื่อ ฟิลด์ สาขา");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","ชื่อ ฟิลด์ งาน");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","เปิด ใช้ งาน ชื่อ ฟิลด์ คุม");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","ปล่อย ว่าง ไป ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","โปรด เลือก");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","ดำเนิน งาน ของ คุณ จะ เปิด ใช้ งาน บัญชี");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","นำ เนื้อหา IMS");//Import IMS Content (New)
+define("_IMSEXPORT","เนื้อหา ส่ง ออก IMS");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","อัป โหลด ไฟล์ IMS ใน รูป แบบ ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","ตัว เลือก IMS");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","ไฟล์ IMS ได้ นำ เข้า สำเร็จ");//IMS file was successfully imported (New)
+define("_TOOLTIP","คำ แนะนำ เครื่องมือ");//Tooltip (New)
+define("_HIDDEN","ซ่อน จาก ผู้ ใช้");//Hidden from users (New)
+define("_RESETSCORMDATA","ตั้ง ค่า ข้อมูล ผู้ ใช้");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","การ ตั้ง ค่า ขั้น สูง");//Advanced settings (New)
 ?>

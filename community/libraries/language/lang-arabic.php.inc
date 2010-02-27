@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","لالمجلدات الت�
 define("_EDITCONTENT","تحرير محتوى");//Edit content
 define("_NORMALSTATUS","الوضع الطبيعي");//Normal status
 define("_APPLICATIONPENDING","في انتظار التطبيق. اضغط على \"تقديم\" للتحقق من");//Application pending
-define("_SUCCESS","نجاح");//Success
+define("_SUCCESS","نجاح");// imported IMS fileSuccess
 define("_WARNING","تحذير");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","تعريف لا يمكن ان يدرج");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","نجحت عملية تحديث تعريف");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","ملاحظة : كنت إع
 define("_ACTIONONRENTRYCOMPLETED","العمل على إعادة الدخول");//Action on re-entry
 define("_LETCONTENTDECIDE","تقرر السماح للمحتوى");//Let content decide
 define("_DONTCHANGE","ترك دون تغيير");//Leave unchanged
-define("_DASHBOARD","لوحة أجهزة القياس");//Dashboard
+define("_DASHBOARD","لوحة أجهزة القياس");//my Dashboard
 define("_MYWALL","بلدي الحائط");//My wall
 define("_RELATEDPEOPLE","فئات الشعب");//Related people
 define("_LEARNINGACTIVITY","النشاط التعليمي");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","مركز معتمد الدفع");//Unsupport
 define("_YOUHAVECANCELLEDTHETRANSACTION","قمت بإلغاء الصفقة");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","كانت المعاملة قد أنجزت بنجاح.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","بايبال وضع التصحيح");//Paypal debug mode
-define("_MYACCOUNT","حسابي");//My account
+define("_MYACCOUNT","حسابي");//my Account
 define("_MODULE","وحدة");//Module
 define("_EMBEDTYPE","المحتوى واعرضها");//Embed content as
 define("_INLINEIFRAME","مضمنة (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","الصفوف");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","الأمر فشلت مع الإخراج التالية");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","ربما يكون النظام الخاص بك لا يدعم معالجة البريدي؟");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","من أجل خلق بطبيعة الحال ، يجب عليك أولا إنشاء فئة");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","حدد فروع الدرس");//Select lesson branches (New)
-define("_LESSONBRANCHES","فروع الدرس");//Lesson branches (New)
-define("_COURSEBRANCHES","طبعا الفروع");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","السماح للطلاب لتحديد عدد من الأسئلة في كل اختبار التنفيذ");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","الحد الأقصى");//Maximum (New)
-define("_MINIMUM","الحد الأدنى");//Minimum (New)
-define("_REPETITIONS","التكرار");//Repetitions (New)
-define("_MAINTAINHISTORY","الحفاظ على التاريخ");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","المفتاح ليست مناسبة لهذه الطبعة");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","وضع غير قانوني");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","يجب عليك تحديد عدد من الأسئلة");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","يجب عليك تحديد قيمة من");//You must specify a value from (New)
-define("_COURSEPROFESSORS","طبعا الأساتذة");//Course professors (New)
-define("_PROFESSORSOFCOURSE","أساتذة بالطبع");//Professors of course (New)
-define("_PRINTCONTENT","طباعة المحتوى");//Print content (New)
+define("_LESSONBRANCHESSELECTION","حدد فروع الدرس");//Select lesson branches
+define("_LESSONBRANCHES","فروع الدرس");//Lesson branches
+define("_COURSEBRANCHES","طبعا الفروع");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","السماح للطلاب لتحديد عدد من الأسئلة في كل اختبار التنفيذ");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","الحد الأقصى");//Maximum
+define("_MINIMUM","الحد الأدنى");//Minimum
+define("_REPETITIONS","التكرار");//Repetitions
+define("_MAINTAINHISTORY","الحفاظ على التاريخ");//Maintain history
+define("_KEYISNOTFORTHISEDITION","المفتاح ليست مناسبة لهذه الطبعة");//The key is not suitable for this edition
+define("_ILLEGALMODE","وضع غير قانوني");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","يجب عليك تحديد عدد من الأسئلة");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","يجب عليك تحديد قيمة من");//You must specify a value from
+define("_COURSEPROFESSORS","طبعا الأساتذة");//Course professors
+define("_PROFESSORSOFCOURSE","أساتذة بالطبع");//Professors of course
+define("_USERSUPERVISORS","دليل المشرفين");//User supervisors (New)
+define("_USEROPTIONSFOR","خيارات للمستخدم");//Options for user (New)
+define("_MYSTATUS","بلادي التعلم وأوضاع");//my Learning Status (New)
+define("_MYCOURSES","دوراتي");//my Courses (New)
+define("_CERTIFICATIONS","شهادات");//Certificates (New)
+define("_MYCERTIFICATIONS","بلدي الشهادات");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","أي شهادات صدرت للمستخدم حتى الآن");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","لتفعيلها من قبل المشرف");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","لا المشرفين فرع وجد");//No branch supervisors found (New)
+define("_PRINTCONTENT","طباعة المحتوى");//Print content
 define("_USERHASNOTDONETEST","مستخدم لم يفعل هذا الاختبار");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","يرجى التحقق من أن المعلومات التالية صحيحة");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","لا توجد فئات محددة");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","يرجى التحقق من أن المعلومات التالية صحيحة");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","لا توجد فئات محددة");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","المشرف على تفعيل البريد الإلكتروني");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","موظف حساب بريد التنشيط");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","يتيح لك هذا البريد الإلكتروني لتفعيل النظام مستخدم جديد");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","المخصصة للفرع");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","مع توصيف الوظائف");//with the job description
+define("_BYCLICKINGONTHELINK","بالنقر على الوصلة التالية");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","الحساب الخاص بك الموظف بنجاح تفعيلها");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","العقلة");//Horizontal bar (New)
+define("_BRANCHINFORMATION","فرع المعلومات");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","فرع اسم الحقل");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","وظيفة اسم الحقل");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","تفعيل حقل اسم المشرف");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","ترك فارغا لommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","الرجاء اختيار");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","المشرف سيتم تنشيط حسابك");//Your supervisor will activate your account (New)
+define("_IMS","نظام الرصد الدولي");//IMS (New)
+define("_IMSIMPORT","استيراد نظام الرصد الدولي المحتوى");//Import IMS Content (New)
+define("_IMSEXPORT","تصدير نظام الرصد الدولي المحتوى");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","تحميل ملف نظام الرصد الدولي في شكل الرمز البريدي");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","نظام الرصد الدولي خيارات");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","نظام الرصد الدولي الملف بنجاح المستوردة");//IMS file was successfully imported (New)
+define("_TOOLTIP","توولتيب");//Tooltip (New)
+define("_HIDDEN","خفية من المستخدمين");//Hidden from users (New)
+define("_RESETSCORMDATA","إعادة تعيين بيانات المستخدم");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","الإعدادات المتقدمة");//Advanced settings (New)
 ?>

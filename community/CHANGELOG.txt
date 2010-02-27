@@ -1,4 +1,4 @@
-=== Version 3.6.0 build ===
+=== Version 3.6.0 build 6143 ===
 - Added IMS importing functionality
 - Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)
 - Added toggle to html mode in module billboard
@@ -31,6 +31,8 @@
 - Fixed test reporting for SCORM test units
 - Fixed nested categories indentation
 - Fixed problem with editor templates in Internet Explorer
+- Fixed deleting multiple units at once
+- Disabled copying to a lesson from itself
 
 === Version 3.6.0 build 5997 ===
 - Fixed phplivedocx configuration file creation

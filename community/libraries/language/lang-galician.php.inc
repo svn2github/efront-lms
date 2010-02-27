@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Os cartafoles das seguinte
 define("_EDITCONTENT","Editar o contido");//Edit content
 define("_NORMALSTATUS","Estado normal");//Normal status
 define("_APPLICATIONPENDING","Aplicación pendente");//Application pending
-define("_SUCCESS","Éxito");//Success
+define("_SUCCESS","Éxito");// imported IMS fileSuccess
 define("_WARNING","Aviso");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Non foi posíbel inserir a definición");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","A definición foi actualizada correctamente");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Nota: Estás visitando de 
 define("_ACTIONONRENTRYCOMPLETED","Acción ao entrar novamente");//Action on re-entry
 define("_LETCONTENTDECIDE","Deixar que o contido decida");//Let content decide
 define("_DONTCHANGE","Deixar sen cambios");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","A miña parede");//My wall
 define("_RELATEDPEOPLE","Persoas relacionadas");//Related people
 define("_LEARNINGACTIVITY","Actividade de aprendizaxe");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Estado de pagamento sen soporte");//Unsuppor
 define("_YOUHAVECANCELLEDTHETRANSACTION","Lle cancelou o funcionamento");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","A operación foi completada con éxito.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal modo de depuración");//Paypal debug mode
-define("_MYACCOUNT","A miña conta");//My account
+define("_MYACCOUNT","A miña conta");//my Account
 define("_MODULE","Módulo");//Module
 define("_EMBEDTYPE","Incorporar o contido como");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Filas");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","O comando fallou co seguinte resultado");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Talvez o seu sistema non soporta o procesamento zip?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","A fin de crear un curso, primeiro debe crear unha categoría");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Lección ramas Seleccione");//Select lesson branches (New)
-define("_LESSONBRANCHES","Ramos Lección");//Lesson branches (New)
-define("_COURSEBRANCHES","Ramos de golf");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permitir que os estudantes o número de cuestións en cada proba de execución");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Máxima");//Maximum (New)
-define("_MINIMUM","Mínimo");//Minimum (New)
-define("_REPETITIONS","Repeticións");//Repetitions (New)
-define("_MAINTAINHISTORY","Manter a historia");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","A clave non é adecuado para esta edición");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Modo ilegal");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Ten que especificar o número de preguntas");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Debe especificar un valor de");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Profesores do Curso");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesores do curso");//Professors of course (New)
-define("_PRINTCONTENT","Imprimir contido");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Lección ramas Seleccione");//Select lesson branches
+define("_LESSONBRANCHES","Ramos Lección");//Lesson branches
+define("_COURSEBRANCHES","Ramos de golf");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permitir que os estudantes o número de cuestións en cada proba de execución");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Máxima");//Maximum
+define("_MINIMUM","Mínimo");//Minimum
+define("_REPETITIONS","Repeticións");//Repetitions
+define("_MAINTAINHISTORY","Manter a historia");//Maintain history
+define("_KEYISNOTFORTHISEDITION","A clave non é adecuado para esta edición");//The key is not suitable for this edition
+define("_ILLEGALMODE","Modo ilegal");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Ten que especificar o número de preguntas");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Debe especificar un valor de");//You must specify a value from
+define("_COURSEPROFESSORS","Profesores do Curso");//Course professors
+define("_PROFESSORSOFCOURSE","Profesores do curso");//Professors of course
+define("_USERSUPERVISORS","Supervisores de");//User supervisors (New)
+define("_USEROPTIONSFOR","Opcións para o usuario");//Options for user (New)
+define("_MYSTATUS","My Learning Status");//my Learning Status (New)
+define("_MYCOURSES","Meus Cursos");//my Courses (New)
+define("_CERTIFICATIONS","Certificados");//Certificates (New)
+define("_MYCERTIFICATIONS","meus certificados");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Non teñan sido emitidos certificados para o usuario aínda");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Para ser activado polo supervisor");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","No ramo supervisores atopado");//No branch supervisors found (New)
+define("_PRINTCONTENT","Imprimir contido");//Print content
 define("_USERHASNOTDONETEST","A persoa usuaria non fixo esta proba");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Por favor, verifique se a seguinte información é correcta");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Non hai categorías definidas");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Por favor, verifique se a seguinte información é correcta");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Non hai categorías definidas");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor de activación e-mail");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Empregado e-mail de activación da conta");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Este e-mail lle permite activar o sistema novo usuario");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","asignado ao grupo");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","coa descrición de traballo");//with the job description
+define("_BYCLICKINGONTHELINK","premendo na ligazón seguinte");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","A conta do seu empregado foi activada con éxito");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Barra horizontal");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Información Branch");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Branch nome do campo");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Nome do traballo de campo");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Activar o nome do campo supervisor");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Deixe en branco para ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Por favor, seleccione");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Seu supervisor vai activar a súa conta");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Importación de contido IMS");//Import IMS Content (New)
+define("_IMSEXPORT","Exportación de contido IMS");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS subida de arquivos en formato ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","Opcións IMS");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS ficheiro importado correctamente");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Ocultos dos usuarios");//Hidden from users (New)
+define("_RESETSCORMDATA","Datos do usuario Reset");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Opcións avanzadas");//Advanced settings (New)
 ?>

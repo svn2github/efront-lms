@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Les carpetes de les següe
 define("_EDITCONTENT","Edita contingut");//Edit content
 define("_NORMALSTATUS","Estat normal");//Normal status
 define("_APPLICATIONPENDING","Sol licitud a l&#39;espera de");//Application pending
-define("_SUCCESS","Èxit");//Success
+define("_SUCCESS","Èxit");// imported IMS fileSuccess
 define("_WARNING","Advertència");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definició no pot inserir");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","S&#39;ha actualitzat la definició");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Nota: vostè és la recons
 define("_ACTIONONRENTRYCOMPLETED","Adopció de mesures sobre la reentrada");//Action on re-entry
 define("_LETCONTENTDECIDE","Deixi de decidir el contingut");//Let content decide
 define("_DONTCHANGE","No canviar");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","La meva paret");//My wall
 define("_RELATEDPEOPLE","Persones relacionades");//Related people
 define("_LEARNINGACTIVITY","Activitat d&#39;aprenentatge");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","L&#39;estat de pagament no admesos");//Unsup
 define("_YOUHAVECANCELLEDTHETRANSACTION","S&#39;ha cancel l&#39;operació");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transacció es va completar amb èxit.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal mode de depuració");//Paypal debug mode
-define("_MYACCOUNT","El meu compte");//My account
+define("_MYACCOUNT","El meu compte");//my Account
 define("_MODULE","Mòdul");//Module
 define("_EMBEDTYPE","Insereix el contingut com");//Embed content as
 define("_INLINEIFRAME","En línia (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Files");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","La comanda ha fallat amb el següent resultat");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Potser el vostre sistema no suporta el processament postal?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Per tal de crear un curs, primer ha de crear una categoria de");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Branques lliçó Seleccioneu");//Select lesson branches (New)
-define("_LESSONBRANCHES","Lliçó branques");//Lesson branches (New)
-define("_COURSEBRANCHES","Branques de golf");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permetre als estudiants per especificar el nombre de preguntes a cada prova d&#39;execució");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Màxim");//Maximum (New)
-define("_MINIMUM","Mínim");//Minimum (New)
-define("_REPETITIONS","Repeticions");//Repetitions (New)
-define("_MAINTAINHISTORY","Mantenir la història");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","La clau no és adequat per a aquesta edició");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Mode il.legal");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Vostè ha d&#39;especificar el nombre de preguntes");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Vostè ha d&#39;especificar un valor de");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Els professors del curs");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Professors de curs");//Professors of course (New)
-define("_PRINTCONTENT","Imprimir contingut");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Branques lliçó Seleccioneu");//Select lesson branches
+define("_LESSONBRANCHES","Lliçó branques");//Lesson branches
+define("_COURSEBRANCHES","Branques de golf");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permetre als estudiants per especificar el nombre de preguntes a cada prova d&#39;execució");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Màxim");//Maximum
+define("_MINIMUM","Mínim");//Minimum
+define("_REPETITIONS","Repeticions");//Repetitions
+define("_MAINTAINHISTORY","Mantenir la història");//Maintain history
+define("_KEYISNOTFORTHISEDITION","La clau no és adequat per a aquesta edició");//The key is not suitable for this edition
+define("_ILLEGALMODE","Mode il.legal");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Vostè ha d&#39;especificar el nombre de preguntes");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Vostè ha d&#39;especificar un valor de");//You must specify a value from
+define("_COURSEPROFESSORS","Els professors del curs");//Course professors
+define("_PROFESSORSOFCOURSE","Professors de curs");//Professors of course
+define("_USERSUPERVISORS","Supervisors d&#39;usuari");//User supervisors (New)
+define("_USEROPTIONSFOR","Opcions per a l&#39;usuari");//Options for user (New)
+define("_MYSTATUS","Estat del meu aprenentatge");//my Learning Status (New)
+define("_MYCOURSES","Els meus Cursos");//my Courses (New)
+define("_CERTIFICATIONS","Certificats");//Certificates (New)
+define("_MYCERTIFICATIONS","els meus certificats");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","No s&#39;han emès certificats per a l&#39;usuari,");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Per ser activat pel supervisor");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","N supervisors branca trobat");//No branch supervisors found (New)
+define("_PRINTCONTENT","Imprimir contingut");//Print content
 define("_USERHASNOTDONETEST","L&#39;usuari no ha fet aquesta prova");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Si us plau, verifiqueu que la següent informació és correcta");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","No hi ha categories definides");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Si us plau, verifiqueu que la següent informació és correcta");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","No hi ha categories definides");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor d&#39;activació de correu electrònic");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","L&#39;activació de compte de correu electrònic d&#39;empleats");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Aquest correu electrònic li permet activar el nou sistema d&#39;usuari");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","assignat a la branca");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","amb el lloc de treball");//with the job description
+define("_BYCLICKINGONTHELINK","fent clic al següent enllaç");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","El relat del seu empleat es va activar amb èxit");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Barra horitzontal");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Subdivisió d&#39;informació");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Nom del camp Branch");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Nom del camp de treball");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Activació de nom Supervisor de Camp");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Deixar buit per ometre");//Leave empty to ommit (New)
+define("_PLEASESELECT","Si us plau,");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","El seu supervisor li activar el vostre compte");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Importació de contingut IMS");//Import IMS Content (New)
+define("_IMSEXPORT","Exportació de contingut IMS");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Carregar arxiu d&#39;IMS en format ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","Opcions d&#39;IMS");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fitxer s&#39;ha importat correctament");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Ocult dels usuaris de");//Hidden from users (New)
+define("_RESETSCORMDATA","Restablir les dades de l&#39;usuari");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Configuració avançada");//Advanced settings (New)
 ?>

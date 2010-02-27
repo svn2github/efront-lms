@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Folder untuk pelajaran ber
 define("_EDITCONTENT","Edit konten");//Edit content
 define("_NORMALSTATUS","Status normal");//Normal status
 define("_APPLICATIONPENDING","Aplikasi tertunda");//Application pending
-define("_SUCCESS","Sukses");//Success
+define("_SUCCESS","Sukses");// imported IMS fileSuccess
 define("_WARNING","Peringatan");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definisi tidak dapat dimasukkan");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Berhasil diperbarui definisi");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Catatan: Anda revisiting u
 define("_ACTIONONRENTRYCOMPLETED","Pada masuk kembali");//Action on re-entry
 define("_LETCONTENTDECIDE","Mari konten memutuskan");//Let content decide
 define("_DONTCHANGE","Meninggalkan tidak berubah");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","My dinding");//My wall
 define("_RELATEDPEOPLE","Terkait orang");//Related people
 define("_LEARNINGACTIVITY","Aktivitas Belajar");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Status pembayaran yang tidak didukung");//Un
 define("_YOUHAVECANCELLEDTHETRANSACTION","Anda telah membatalkan transaksi");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksi selesai dengan sukses.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal modus debug");//Paypal debug mode
-define("_MYACCOUNT","Account");//My account
+define("_MYACCOUNT","Account");//my Account
 define("_MODULE","Modul");//Module
 define("_EMBEDTYPE","Embed konten sebagai");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rows");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Perintah gagal dengan output berikut");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Mungkin sistem Anda tidak mendukung pengolahan zip?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Dalam rangka untuk menciptakan suatu kursus, Anda harus terlebih dahulu membuat sebuah kategori");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Pilih pelajaran cabang");//Select lesson branches (New)
-define("_LESSONBRANCHES","Petunjuk cabang");//Lesson branches (New)
-define("_COURSEBRANCHES","Kursus cabang");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Memungkinkan siswa untuk menentukan jumlah pertanyaan dalam setiap tes eksekusi");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maksimum");//Maximum (New)
-define("_MINIMUM","Minimum");//Minimum (New)
-define("_REPETITIONS","Pengulangan");//Repetitions (New)
-define("_MAINTAINHISTORY","Menjaga sejarah");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Kuncinya tidak cocok untuk edisi ini");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Modus Illegal");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Anda harus menentukan jumlah pertanyaan");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Anda harus menentukan nilai dari");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Course profesor");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesor tentu");//Professors of course (New)
-define("_PRINTCONTENT","Konten Cetak");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Pilih pelajaran cabang");//Select lesson branches
+define("_LESSONBRANCHES","Petunjuk cabang");//Lesson branches
+define("_COURSEBRANCHES","Kursus cabang");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Memungkinkan siswa untuk menentukan jumlah pertanyaan dalam setiap tes eksekusi");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maksimum");//Maximum
+define("_MINIMUM","Minimum");//Minimum
+define("_REPETITIONS","Pengulangan");//Repetitions
+define("_MAINTAINHISTORY","Menjaga sejarah");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Kuncinya tidak cocok untuk edisi ini");//The key is not suitable for this edition
+define("_ILLEGALMODE","Modus Illegal");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Anda harus menentukan jumlah pertanyaan");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Anda harus menentukan nilai dari");//You must specify a value from
+define("_COURSEPROFESSORS","Course profesor");//Course professors
+define("_PROFESSORSOFCOURSE","Profesor tentu");//Professors of course
+define("_USERSUPERVISORS","Pengguna supervisor");//User supervisors (New)
+define("_USEROPTIONSFOR","Pilihan untuk pengguna");//Options for user (New)
+define("_MYSTATUS","Belajar saya Status");//my Learning Status (New)
+define("_MYCOURSES","Kursus saya");//my Courses (New)
+define("_CERTIFICATIONS","Sertifikat");//Certificates (New)
+define("_MYCERTIFICATIONS","Sertifikat saya");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Tidak ada sertifikat telah dikeluarkan kepada pengguna belum");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Untuk dapat diaktifkan oleh pembimbing");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Tidak ada cabang supervisor ditemukan");//No branch supervisors found (New)
+define("_PRINTCONTENT","Konten Cetak");//Print content
 define("_USERHASNOTDONETEST","Pengguna ini belum dilakukan uji");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Harap verifikasi bahwa informasi berikut benar");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Tidak ada kategori yang didefinisikan");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Harap verifikasi bahwa informasi berikut benar");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Tidak ada kategori yang didefinisikan");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivasi");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Karyawan email aktivasi account");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Email ini memungkinkan Anda untuk mengaktifkan sistem baru pengguna");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","ditugaskan cabang");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","pekerjaan dengan posisi");//with the job description
+define("_BYCLICKINGONTHELINK","dengan mengklik link berikut");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Rekening karyawan Anda telah berhasil diaktifkan");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Informasi cabang");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Cabang nama field");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job nama field");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Mengaktifkan nama field supervisor");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Biarkan kosong untuk ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Silahkan pilih");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Pembimbing anda akan mengaktifkan account Anda");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Impor IMS Konten");//Import IMS Content (New)
+define("_IMSEXPORT","Ekspor IMS Konten");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS upload file dalam format ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS Pilihan");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS file telah berhasil diimpor");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Disembunyikan dari pengguna");//Hidden from users (New)
+define("_RESETSCORMDATA","Reset data pengguna");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Pengaturan lanjutan");//Advanced settings (New)
 ?>

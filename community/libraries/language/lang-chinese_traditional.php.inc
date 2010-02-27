@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","以下課程的資料夾�
 define("_EDITCONTENT","編輯內容");//Edit content
 define("_NORMALSTATUS","正常狀態");//Normal status
 define("_APPLICATIONPENDING","未決申請。按下“送出” ，以核實");//Application pending
-define("_SUCCESS","成功");//Success
+define("_SUCCESS","成功");// imported IMS fileSuccess
 define("_WARNING","警告");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","的定義，無法插入");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","成功更新的定義");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","注意：您重溫這個�
 define("_ACTIONONRENTRYCOMPLETED","行動再入");//Action on re-entry
 define("_LETCONTENTDECIDE","讓內容決定");//Let content decide
 define("_DONTCHANGE","維持不變");//Leave unchanged
-define("_DASHBOARD","儀表板");//Dashboard
+define("_DASHBOARD","儀表板");//my Dashboard
 define("_MYWALL","我的牆");//My wall
 define("_RELATEDPEOPLE","有關人士");//Related people
 define("_LEARNINGACTIVITY","學習活動");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","不支持的付款狀態");//Unsupported pay
 define("_YOUHAVECANCELLEDTHETRANSACTION","您已取消交易");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","該交易已成功完成。");//The transaction was completed successfully.
 define("_PAYPALDEBUG","貝寶調試模式");//Paypal debug mode
-define("_MYACCOUNT","我的帳戶");//My account
+define("_MYACCOUNT","我的帳戶");//my Account
 define("_MODULE","模塊");//Module
 define("_EMBEDTYPE","嵌入內容，");//Embed content as
 define("_INLINEIFRAME","內聯（iframe中）");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","行");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","該命令失敗，出現以下輸出");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","也許你的系統不支持壓縮處理？");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","為了創建一門課程，你必須首先創建一個類");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","選擇教訓分行");//Select lesson branches (New)
-define("_LESSONBRANCHES","教訓分行");//Lesson branches (New)
-define("_COURSEBRANCHES","當然分行");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","讓學生指定數目的問題在每個測試執行");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","最大");//Maximum (New)
-define("_MINIMUM","最低");//Minimum (New)
-define("_REPETITIONS","重複");//Repetitions (New)
-define("_MAINTAINHISTORY","維護歷史");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","關鍵是不適合這個版本");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","非法模式");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","您必須指定數目的問題");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","您必須指定一個值從");//You must specify a value from (New)
-define("_COURSEPROFESSORS","課程教授");//Course professors (New)
-define("_PROFESSORSOFCOURSE","當然，教授");//Professors of course (New)
-define("_PRINTCONTENT","打印內容");//Print content (New)
+define("_LESSONBRANCHESSELECTION","選擇教訓分行");//Select lesson branches
+define("_LESSONBRANCHES","教訓分行");//Lesson branches
+define("_COURSEBRANCHES","當然分行");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","讓學生指定數目的問題在每個測試執行");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","最大");//Maximum
+define("_MINIMUM","最低");//Minimum
+define("_REPETITIONS","重複");//Repetitions
+define("_MAINTAINHISTORY","維護歷史");//Maintain history
+define("_KEYISNOTFORTHISEDITION","關鍵是不適合這個版本");//The key is not suitable for this edition
+define("_ILLEGALMODE","非法模式");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","您必須指定數目的問題");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","您必須指定一個值從");//You must specify a value from
+define("_COURSEPROFESSORS","課程教授");//Course professors
+define("_PROFESSORSOFCOURSE","當然，教授");//Professors of course
+define("_USERSUPERVISORS","用戶監督員");//User supervisors (New)
+define("_USEROPTIONSFOR","用戶選項");//Options for user (New)
+define("_MYSTATUS","我的學習狀態");//my Learning Status (New)
+define("_MYCOURSES","我的課程");//my Courses (New)
+define("_CERTIFICATIONS","證書");//Certificates (New)
+define("_MYCERTIFICATIONS","我的證書");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","沒有證書已發給用戶還");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","被激活的監");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","沒有小監督員發現");//No branch supervisors found (New)
+define("_PRINTCONTENT","打印內容");//Print content
 define("_USERHASNOTDONETEST","該使用者已沒有這樣做的測試");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","請確認以下信息是正確的");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","沒有類別定義");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","請確認以下信息是正確的");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","沒有類別定義");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","監電子郵件激活");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","員工帳戶激活電子郵件");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","此電子郵件，您可以啟用新的系統用戶");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","分配到分支");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","與職務說明");//with the job description
+define("_BYCLICKINGONTHELINK","通過點擊下面的鏈接");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","在考慮你的員工已成功啟動");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","單槓");//Horizontal bar (New)
+define("_BRANCHINFORMATION","分公司信息");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","科字段名稱");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","工作字段名稱");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","激活主管字段名稱");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","給空的ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","請選擇");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","你的上級會激活您的帳戶");//Your supervisor will activate your account (New)
+define("_IMS","IMS的");//IMS (New)
+define("_IMSIMPORT","進口 IMS的內容");//Import IMS Content (New)
+define("_IMSEXPORT","出口IMS的內容");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","上傳 IMS的ZIP格式文件");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS的選擇");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS的文件已成功導入");//IMS file was successfully imported (New)
+define("_TOOLTIP","工具提示");//Tooltip (New)
+define("_HIDDEN","隱藏用戶");//Hidden from users (New)
+define("_RESETSCORMDATA","重置用戶數據");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","高級設置");//Advanced settings (New)
 ?>

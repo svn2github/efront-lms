@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Mapes par šādu nodarbīb
 define("_EDITCONTENT","Edit saturs");//Edit content
 define("_NORMALSTATUS","Normal status");//Normal status
 define("_APPLICATIONPENDING","Pieteikšanās līdz");//Application pending
-define("_SUCCESS","Success");//Success
+define("_SUCCESS","Success");// imported IMS fileSuccess
 define("_WARNING","Brīdinājums");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definīcija nevarēja ievietota");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Veiksmīgi atjaunināti definīcija");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Piezīme: Jums ir pārskat
 define("_ACTIONONRENTRYCOMPLETED","Rīcību par atkārtotu ieceļošanu");//Action on re-entry
 define("_LETCONTENTDECIDE","Ļaujiet saturs nolemt");//Let content decide
 define("_DONTCHANGE","Atstājiet nemainīgs");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","Mana siena");//My wall
 define("_RELATEDPEOPLE","Saistītie cilvēki");//Related people
 define("_LEARNINGACTIVITY","Mācīšanās aktivitāte");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Neatbalstīts maksājuma statuss");//Unsuppo
 define("_YOUHAVECANCELLEDTHETRANSACTION","Jums ir atcelts darījums");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Darījums tika pabeigts veiksmīgi.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","Mans konts");//My account
+define("_MYACCOUNT","Mans konts");//my Account
 define("_MODULE","Modulis");//Module
 define("_EMBEDTYPE","Iestiprināt saturu");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rindas");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Komandu neizdevās ar šādu produkciju");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Iespējams, jūsu sistēma neatbalsta pasta apstrāde?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Lai radītu Protams, vispirms jāizveido kategorijas");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Izvēlieties nodarbību filiāles");//Select lesson branches (New)
-define("_LESSONBRANCHES","Nodarbību filiāles");//Lesson branches (New)
-define("_COURSEBRANCHES","Kurss filiāles");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Ļauj skolēniem precizēt vairākus jautājumus, katra testa izpildes");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maximum");//Maximum (New)
-define("_MINIMUM","Minimālais");//Minimum (New)
-define("_REPETITIONS","Atkārtojumus");//Repetitions (New)
-define("_MAINTAINHISTORY","Uzturēt vēsture");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Atslēga nav piemērota šāda izdevuma");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Illegal mode");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Jums jānorāda vairāki jautājumi");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Jums jānorāda vērtību");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Protams, profesori");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesori protams");//Professors of course (New)
-define("_PRINTCONTENT","Drukāt saturs");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Izvēlieties nodarbību filiāles");//Select lesson branches
+define("_LESSONBRANCHES","Nodarbību filiāles");//Lesson branches
+define("_COURSEBRANCHES","Kurss filiāles");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Ļauj skolēniem precizēt vairākus jautājumus, katra testa izpildes");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maximum");//Maximum
+define("_MINIMUM","Minimālais");//Minimum
+define("_REPETITIONS","Atkārtojumus");//Repetitions
+define("_MAINTAINHISTORY","Uzturēt vēsture");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Atslēga nav piemērota šāda izdevuma");//The key is not suitable for this edition
+define("_ILLEGALMODE","Illegal mode");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Jums jānorāda vairāki jautājumi");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Jums jānorāda vērtību");//You must specify a value from
+define("_COURSEPROFESSORS","Protams, profesori");//Course professors
+define("_PROFESSORSOFCOURSE","Profesori protams");//Professors of course
+define("_USERSUPERVISORS","Lietotājs uzraudzības");//User supervisors (New)
+define("_USEROPTIONSFOR","Iespējām lietotāju");//Options for user (New)
+define("_MYSTATUS","mans Learning Status");//my Learning Status (New)
+define("_MYCOURSES","mans Kursi");//my Courses (New)
+define("_CERTIFICATIONS","Sertifikāti");//Certificates (New)
+define("_MYCERTIFICATIONS","mans Sertifikāti");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nē sertifikāti izsniegti, lai lietotājs vēl");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Lai varētu aktivizēt vadītājs");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Nē filiāle uzraudzības atrasts");//No branch supervisors found (New)
+define("_PRINTCONTENT","Drukāt saturs");//Print content
 define("_USERHASNOTDONETEST","Lietotājam nav izdarījusi šo testu");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Lūdzu, pārbaudiet, ka šāda informācija ir pareiza");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Nav definētajām kategorijām");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Lūdzu, pārbaudiet, ka šāda informācija ir pareiza");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Nav definētajām kategorijām");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivizācija");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbinieks konta aktivizācijas e-pastu");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šo e-pastu ļauj aktivizēt jaunā sistēmas lietotāja");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","piešķirts filiāle");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","ar amatu");//with the job description
+define("_BYCLICKINGONTHELINK",", noklikšķinot uz šīs saites");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Vērā Jūsu darbinieks ir veiksmīgi aktivizēts");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Branch informācija");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Branch lauka nosaukums");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Darbs lauka nosaukums");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Aktivēšana vadītājs lauka nosaukums");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Atstāj tukšu, lai ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Lūdzu, izvēlieties");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsu uzraudzītājs aktivizētu savu kontu");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Eksporta IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS failu ZIP formātā");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS opcijas");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fails ir veiksmīgi importēti");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Hidden lietotāju");//Hidden from users (New)
+define("_RESETSCORMDATA","Reset lietotāja dati");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Papildu uzstādījumi");//Advanced settings (New)
 ?>

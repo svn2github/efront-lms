@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Папки для след
 define("_EDITCONTENT","Изменить материал");//Edit content
 define("_NORMALSTATUS","Нормальное состояние");//Normal status
 define("_APPLICATIONPENDING","Заявка рассматривается. Нажмите кнопку \"Добавить\" для проверки");//Application pending
-define("_SUCCESS","Успех");//Success
+define("_SUCCESS","Успех");// imported IMS fileSuccess
 define("_WARNING","Предупреждение");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Определение не может быть вставлено");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Определение обновлено");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Примечание: Вы
 define("_ACTIONONRENTRYCOMPLETED","Действия при повторном входе");//Action on re-entry
 define("_LETCONTENTDECIDE","Решить, исходя из содержания");//Let content decide
 define("_DONTCHANGE","Оставить без изменений");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","Моя стена");//My wall
 define("_RELATEDPEOPLE","Похожие люди");//Related people
 define("_LEARNINGACTIVITY","Учебной деятельности");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Неподдерживаемый стату�
 define("_YOUHAVECANCELLEDTHETRANSACTION","Вы отменили сделку");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделка была завершена успешно.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal режиме отладки");//Paypal debug mode
-define("_MYACCOUNT","Моя учетная запись");//My account
+define("_MYACCOUNT","Моя учетная запись");//my Account
 define("_MODULE","Модуль");//Module
 define("_EMBEDTYPE","Вставить содержание,");//Embed content as
 define("_INLINEIFRAME","Inline (IFRAME)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Строки");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Сбой команды с выходом");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Может быть, ваша система не поддерживает Zip обработки?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","В целях создания Конечно, вы должны сначала создать категорию");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Выберите филиалы урока");//Select lesson branches (New)
-define("_LESSONBRANCHES","Урок филиалы");//Lesson branches (New)
-define("_COURSEBRANCHES","Курс филиалы");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Позволяют студентам задать ряд вопросов в каждом тесте исполнения");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Максимальное");//Maximum (New)
-define("_MINIMUM","Минимальные");//Minimum (New)
-define("_REPETITIONS","Повторения");//Repetitions (New)
-define("_MAINTAINHISTORY","Поддержание история");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Ключ не подходит для этого издания");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Незаконные режиме");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Вы должны задать ряд вопросов");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Вы должны указать значение от");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Курс профессора");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Профессор, конечно,");//Professors of course (New)
-define("_PRINTCONTENT","Распечатать содержание");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Выберите филиалы урока");//Select lesson branches
+define("_LESSONBRANCHES","Урок филиалы");//Lesson branches
+define("_COURSEBRANCHES","Курс филиалы");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Позволяют студентам задать ряд вопросов в каждом тесте исполнения");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Максимальное");//Maximum
+define("_MINIMUM","Минимальные");//Minimum
+define("_REPETITIONS","Повторения");//Repetitions
+define("_MAINTAINHISTORY","Поддержание история");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Ключ не подходит для этого издания");//The key is not suitable for this edition
+define("_ILLEGALMODE","Незаконные режиме");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Вы должны задать ряд вопросов");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Вы должны указать значение от");//You must specify a value from
+define("_COURSEPROFESSORS","Курс профессора");//Course professors
+define("_PROFESSORSOFCOURSE","Профессор, конечно,");//Professors of course
+define("_USERSUPERVISORS","Пользователь контролеров");//User supervisors (New)
+define("_USEROPTIONSFOR","Функции для пользователей");//Options for user (New)
+define("_MYSTATUS","Мое обучение Статус");//my Learning Status (New)
+define("_MYCOURSES","мои курсы");//my Courses (New)
+define("_CERTIFICATIONS","Сертификаты");//Certificates (New)
+define("_MYCERTIFICATIONS","мои сертификаты");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Нет сертификаты были выданы для пользователя еще");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Чтобы быть активирован руководитель");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Не нашли руководители филиала");//No branch supervisors found (New)
+define("_PRINTCONTENT","Распечатать содержание");//Print content
 define("_USERHASNOTDONETEST","Пользователь не выполнил этот тест");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Убедитесь, что следующие сведения верны");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Есть категория не определена");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Убедитесь, что следующие сведения верны");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Есть категория не определена");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Руководитель для активации учетной записи");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Сотрудник за активацию учетной записи электронной почты");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Это сообщение позволяет активировать новый пользователь системы");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","назначен на ветку");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION"," с должностью ");//with the job description
+define("_BYCLICKINGONTHELINK",", нажав на следующую ссылку");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Счет вашего сотрудника была успешно активирована");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Перекладина");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Отделение информации");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Отделение имя поля");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Работы имя поля");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Активация имя руководителя области");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Оставьте поле пустым, чтобы ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Пожалуйста, выберите");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ваш руководитель будет активировать аккаунт");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Импорт IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Экспорт IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Загрузить файл в формат ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS страницу");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS файл был успешно импортирован");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Скрыты от пользователей");//Hidden from users (New)
+define("_RESETSCORMDATA","Сброс данных пользователей");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Расширенные настройки");//Advanced settings (New)
 ?>

@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Kansiot, että seuraavat o
 define("_EDITCONTENT","Muokkaa sisältöä");//Edit content
 define("_NORMALSTATUS","Normaali tila");//Normal status
 define("_APPLICATIONPENDING","Hakemus vireillä. Paina \"Lähetä\" tarkistaa");//Application pending
-define("_SUCCESS","Onnistuminen");//Success
+define("_SUCCESS","Onnistuminen");// imported IMS fileSuccess
 define("_WARNING","Varoitus");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Määritelmä ei voitu sijoittaa");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Päivitetty onnistuneesti määritelmä");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Huom: olet uudelleenarvioi
 define("_ACTIONONRENTRYCOMPLETED","Toiminta paluuajan");//Action on re-entry
 define("_LETCONTENTDECIDE","Anna sisällöstä päättää");//Let content decide
 define("_DONTCHANGE","Jätä ennalleen");//Leave unchanged
-define("_DASHBOARD","Ohjausnäkymään");//Dashboard
+define("_DASHBOARD","Ohjausnäkymään");//my Dashboard
 define("_MYWALL","My wall");//My wall
 define("_RELATEDPEOPLE","Liittyvät ihmiset");//Related people
 define("_LEARNINGACTIVITY","Oppimistoiminnan");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Tueta maksun tila");//Unsupported payment st
 define("_YOUHAVECANCELLEDTHETRANSACTION","Olet peruuttanut kaupan");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Kauppa saatiin päätökseen onnistuneesti.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypalin debug-tila");//Paypal debug mode
-define("_MYACCOUNT","Tililläni");//My account
+define("_MYACCOUNT","Tililläni");//my Account
 define("_MODULE","Moduulissa");//Module
 define("_EMBEDTYPE","Upottamaan sisältö");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rivien");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Komento epäonnistui seuraavat lähtö");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Ehkä järjestelmä ei tue zip käsittelyä?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Jotta voidaan luoda kurssin, sinun täytyy ensin luoda luokkaan");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Valitse opetus oksat");//Select lesson branches (New)
-define("_LESSONBRANCHES","Oppitunti oksat");//Lesson branches (New)
-define("_COURSEBRANCHES","Course oksat");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Annetaan opiskelijoille täsmentää joitakin kysymyksiä kunkin testin toteuttamiseen");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Enimmäismäärän");//Maximum (New)
-define("_MINIMUM","Minimi");//Minimum (New)
-define("_REPETITIONS","Toistosta");//Repetitions (New)
-define("_MAINTAINHISTORY","Säilyttää historia");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Avain ei sovi tähän painos");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Laiton tila");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Sinun on määritettävä useita kysymyksiä");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Sinun on määritettävä arvo");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Course professorit");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Professorit tietenkin");//Professors of course (New)
-define("_PRINTCONTENT","Tulosta sisältö");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Valitse opetus oksat");//Select lesson branches
+define("_LESSONBRANCHES","Oppitunti oksat");//Lesson branches
+define("_COURSEBRANCHES","Course oksat");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Annetaan opiskelijoille täsmentää joitakin kysymyksiä kunkin testin toteuttamiseen");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Enimmäismäärän");//Maximum
+define("_MINIMUM","Minimi");//Minimum
+define("_REPETITIONS","Toistosta");//Repetitions
+define("_MAINTAINHISTORY","Säilyttää historia");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Avain ei sovi tähän painos");//The key is not suitable for this edition
+define("_ILLEGALMODE","Laiton tila");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Sinun on määritettävä useita kysymyksiä");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Sinun on määritettävä arvo");//You must specify a value from
+define("_COURSEPROFESSORS","Course professorit");//Course professors
+define("_PROFESSORSOFCOURSE","Professorit tietenkin");//Professors of course
+define("_USERSUPERVISORS","Käyttäjän valvojat");//User supervisors (New)
+define("_USEROPTIONSFOR","Valinnat käyttäjän");//Options for user (New)
+define("_MYSTATUS","Minun Learning Status");//my Learning Status (New)
+define("_MYCOURSES","Omat kurssit");//my Courses (New)
+define("_CERTIFICATIONS","Varmenteita");//Certificates (New)
+define("_MYCERTIFICATIONS","Minun Sertifikaatit");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","O todistukset on annettu käyttäjälle vielä");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Käynnistämien valvoja");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","O sivuliike valvojien löytynyt");//No branch supervisors found (New)
+define("_PRINTCONTENT","Tulosta sisältö");//Print content
 define("_USERHASNOTDONETEST","Käyttäjällä ei ole tehnyt tätä testiä");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Tarkista, että seuraavat tiedot ovat oikeita");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Ole määriteltyihin ryhmiin");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Tarkista, että seuraavat tiedot ovat oikeita");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Ole määriteltyihin ryhmiin");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Valvoja email aktivointi");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Työntekijän tilin aktivointi sähköposti");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tämä sähköpostiosoite voit ottaa käyttöön uuden järjestelmän käyttäjä");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","osoitettu sivuliikkeen");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","kanssa työn kuvaus");//with the job description
+define("_BYCLICKINGONTHELINK","klikkaamalla alla olevaa linkkiä");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Huomioon oman työntekijän on aktivoitu");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Rekki");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Branch tiedot");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Branch kentän nimi");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job kentän nimi");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Aktivointi valvoja kentän nimi");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Jätä tyhjänä ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Valitkaa");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Esimiehesi aktivoi tilisi");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Tuo IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Vienti IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Lataa IMS-tiedosto zip-muodossa");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS valinnat");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS-tiedoston tuonti onnistui");//IMS file was successfully imported (New)
+define("_TOOLTIP","Vihjeteksti");//Tooltip (New)
+define("_HIDDEN","Näy käyttäjille");//Hidden from users (New)
+define("_RESETSCORMDATA","Nollaa käyttäjätiedot");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Lisäasetuksissa");//Advanced settings (New)
 ?>

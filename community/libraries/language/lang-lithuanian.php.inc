@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Katalogus, dėl šios pamo
 define("_EDITCONTENT","Redaguoti turinį");//Edit content
 define("_NORMALSTATUS","Normali būklė");//Normal status
 define("_APPLICATIONPENDING","Taikymą iki");//Application pending
-define("_SUCCESS","Sėkmė");//Success
+define("_SUCCESS","Sėkmė");// imported IMS fileSuccess
 define("_WARNING","Įspėjimas");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Apibrėžimas negali būti įtraukti");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Sėkmingai atnaujinta apibrėžimas");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Pastaba: Jūs persvarstyti
 define("_ACTIONONRENTRYCOMPLETED","Veiksmų sugrįžti");//Action on re-entry
 define("_LETCONTENTDECIDE","Tegul turinio nuspręsti");//Let content decide
 define("_DONTCHANGE","Nekeisti");//Leave unchanged
-define("_DASHBOARD","Skydelis");//Dashboard
+define("_DASHBOARD","Skydelis");//my Dashboard
 define("_MYWALL","My Wall");//My wall
 define("_RELATEDPEOPLE","Susijusios žmonių");//Related people
 define("_LEARNINGACTIVITY","Mokymosi veikla");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Nepalaikomas mokėjimo statuso");//Unsupport
 define("_YOUHAVECANCELLEDTHETRANSACTION","Jūs atšaukti sandorį");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Sandoris buvo baigtas sėkmingai.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","Mano sąskaita");//My account
+define("_MYACCOUNT","Mano sąskaita");//my Account
 define("_MODULE","Modulis");//Module
 define("_EMBEDTYPE","Įterpti turinį");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Eilutės");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Komanda nepavyko po išėjimo");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Patikrinkite ar jūsų sistema nepalaiko ZIP apdorojimo?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Siekiant sukurti, žinoma, pirmiausia turite sukurti kategorija");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Pasirinkite pamoką šakos");//Select lesson branches (New)
-define("_LESSONBRANCHES","Pamoka šakos");//Lesson branches (New)
-define("_COURSEBRANCHES","Žinoma šakos");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Leisti studentams nurodyti klausimų skaičius kiekvienoje bandymų vykdymo");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Didžiausias");//Maximum (New)
-define("_MINIMUM","Mažiausias");//Minimum (New)
-define("_REPETITIONS","Atkartojimas");//Repetitions (New)
-define("_MAINTAINHISTORY","Išlaikyti istorijos");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Raktas netinka šis leidimas");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Nelegalus būdas");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Turite nurodyti klausimus");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Turite nurodyti vertę");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Kurso dėstytojai");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesoriai žinoma");//Professors of course (New)
-define("_PRINTCONTENT","Print");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Pasirinkite pamoką šakos");//Select lesson branches
+define("_LESSONBRANCHES","Pamoka šakos");//Lesson branches
+define("_COURSEBRANCHES","Žinoma šakos");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Leisti studentams nurodyti klausimų skaičius kiekvienoje bandymų vykdymo");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Didžiausias");//Maximum
+define("_MINIMUM","Mažiausias");//Minimum
+define("_REPETITIONS","Atkartojimas");//Repetitions
+define("_MAINTAINHISTORY","Išlaikyti istorijos");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Raktas netinka šis leidimas");//The key is not suitable for this edition
+define("_ILLEGALMODE","Nelegalus būdas");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Turite nurodyti klausimus");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Turite nurodyti vertę");//You must specify a value from
+define("_COURSEPROFESSORS","Kurso dėstytojai");//Course professors
+define("_PROFESSORSOFCOURSE","Profesoriai žinoma");//Professors of course
+define("_USERSUPERVISORS","Naudotojo vadovai");//User supervisors (New)
+define("_USEROPTIONSFOR","Options vartotojas");//Options for user (New)
+define("_MYSTATUS","Mano gyvenimą Statusas");//my Learning Status (New)
+define("_MYCOURSES","Mano kursai");//my Courses (New)
+define("_CERTIFICATIONS","Sertifikatai");//Certificates (New)
+define("_MYCERTIFICATIONS","Mano sertifikatai");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Sertifikatai buvo išduoti iki vartotojo dar nėra");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Būti aktyvuota vadovas");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Nr filialas priežiūros rasti");//No branch supervisors found (New)
+define("_PRINTCONTENT","Print");//Print content
 define("_USERHASNOTDONETEST","Šis vartotojas neturi padaryti šio bandymo");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Prašome įsitikinti, kad ši informacija yra teisinga");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Nėra apibrėžtų kategorijų");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Prašome įsitikinti, kad ši informacija yra teisinga");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Nėra apibrėžtų kategorijų");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Priežiūros aktyvacijos laišką");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbuotojo sąskaitą Activation Email");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šis el.pašto leidžia aktyvuoti naujos sistemos vartotojo");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","paskirtas filialas");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","su darbo vieta");//with the job description
+define("_BYCLICKINGONTHELINK","paspaudę šią nuorodą");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Jūsų darbuotojo sąskaitą buvo sėkmingai aktyvuota");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Skersiniais");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Sektoriaus informacija");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Filialas lauko pavadinimas");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Darbo lauko vardas");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Įjungus vadovas lauko pavadinimas");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Palikite tuščią ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Pasirinkite");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsų vadovas bus aktyvuoti savo sąskaitą");//Your supervisor will activate your account (New)
+define("_IMS","IGS");//IMS (New)
+define("_IMSIMPORT","Importo IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Eksporto IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Įkelti failą į ZIP formatą");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IGS galimybių");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IGS failas buvo sėkmingai importuotas");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Paslėpti nuo vartotojų");//Hidden from users (New)
+define("_RESETSCORMDATA","Atstatyti naudotojo duomenis");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Papildomi nustatymai");//Advanced settings (New)
 ?>

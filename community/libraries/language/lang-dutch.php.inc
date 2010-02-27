@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","De mappen voor de volgende
 define("_EDITCONTENT","Inhoud bewerken");//Edit content
 define("_NORMALSTATUS","Normale status");//Normal status
 define("_APPLICATIONPENDING","In afwachting van toepassing");//Application pending
-define("_SUCCESS","Succes");//Success
+define("_SUCCESS","Succes");// imported IMS fileSuccess
 define("_WARNING","Waarschuwing");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definitie niet kunnen worden ingevoegd");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Definitie bijgewerkt");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Opmerking: u bent opnieuw 
 define("_ACTIONONRENTRYCOMPLETED","Actie voor terug ingeven");//Action on re-entry
 define("_LETCONTENTDECIDE","Laat de inhoud bepalen");//Let content decide
 define("_DONTCHANGE","Laat ongewijzigd");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","Mijn muur");//My wall
 define("_RELATEDPEOPLE","Betrokken personen");//Related people
 define("_LEARNINGACTIVITY","Leeractiviteit");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Ondersteunde betaling status");//Unsupported
 define("_YOUHAVECANCELLEDTHETRANSACTION","U hebt de transactie geannuleerd");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","De transactie werd succesvol afgerond.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","Mijn account");//My account
+define("_MYACCOUNT","Mijn account");//my Account
 define("_MODULE","Module");//Module
 define("_EMBEDTYPE","Embed inhoud");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rijen");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","De opdracht is mislukt met de volgende uitvoer");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Misschien is uw systeem biedt geen ondersteuning voor zip verwerking?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Voor het maken van een cursus, moet u eerst een categorie");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Selecteer les branches");//Select lesson branches (New)
-define("_LESSONBRANCHES","Les branches");//Lesson branches (New)
-define("_COURSEBRANCHES","Cursus filialen");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Laat studenten aantal vragen in elke test specificeren uitvoering");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maximale");//Maximum (New)
-define("_MINIMUM","Minimum");//Minimum (New)
-define("_REPETITIONS","Herhalingen");//Repetitions (New)
-define("_MAINTAINHISTORY","Handhaving geschiedenis");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","De sleutel is niet geschikt voor deze editie");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Illegale modus");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","U moet het aantal vragen");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","U moet een waarde");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Cursus hoogleraren");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Hoogleraren natuurlijk");//Professors of course (New)
-define("_PRINTCONTENT","Print content");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Selecteer les branches");//Select lesson branches
+define("_LESSONBRANCHES","Les branches");//Lesson branches
+define("_COURSEBRANCHES","Cursus filialen");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Laat studenten aantal vragen in elke test specificeren uitvoering");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maximale");//Maximum
+define("_MINIMUM","Minimum");//Minimum
+define("_REPETITIONS","Herhalingen");//Repetitions
+define("_MAINTAINHISTORY","Handhaving geschiedenis");//Maintain history
+define("_KEYISNOTFORTHISEDITION","De sleutel is niet geschikt voor deze editie");//The key is not suitable for this edition
+define("_ILLEGALMODE","Illegale modus");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","U moet het aantal vragen");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","U moet een waarde");//You must specify a value from
+define("_COURSEPROFESSORS","Cursus hoogleraren");//Course professors
+define("_PROFESSORSOFCOURSE","Hoogleraren natuurlijk");//Professors of course
+define("_USERSUPERVISORS","Gebruiker toezichthouders");//User supervisors (New)
+define("_USEROPTIONSFOR","Opties voor gebruiker");//Options for user (New)
+define("_MYSTATUS","My Learning Status");//my Learning Status (New)
+define("_MYCOURSES","My Courses");//my Courses (New)
+define("_CERTIFICATIONS","Certificaten");//Certificates (New)
+define("_MYCERTIFICATIONS","mijn Certificaten");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Geen certificaten zijn afgegeven nog voor de gebruiker");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Te worden geactiveerd door de supervisor");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Geen tak toezichthouders gevonden");//No branch supervisors found (New)
+define("_PRINTCONTENT","Print content");//Print content
 define("_USERHASNOTDONETEST","De gebruiker heeft deze proef niet gedaan");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Controleer of de volgende informatie juist");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Er zijn geen categorieën gedefinieerd");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Controleer of de volgende informatie juist");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Er zijn geen categorieën gedefinieerd");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Promotor activatie e-mail");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Werknemer accountactiveringsbericht");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Deze e-mail kunt u het activeren van de nieuwe regeling gebruiker");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","toegewezen tak");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","met de functieomschrijving");//with the job description
+define("_BYCLICKINGONTHELINK","door te klikken op de volgende link");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","De rekening van uw werknemer is succesvol geactiveerd");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Rekstok");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Branch informatie");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Branch veldnaam");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job veldnaam");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Activeren promotor veldnaam");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Laat leeg te ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Selecteer");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Uw begeleider zal je account activeren");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS bestand in ZIP-formaat");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS opties");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS-bestand is geïmporteerd");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Verborgen gebruikers");//Hidden from users (New)
+define("_RESETSCORMDATA","Reset gebruikersgegevens");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Geavanceerde instellingen");//Advanced settings (New)
 ?>

@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","את התיקיות הבא
 define("_EDITCONTENT","עריכת תוכן");//Edit content
 define("_NORMALSTATUS","סטטוס רגיל");//Normal status
 define("_APPLICATIONPENDING","יישום ממתינים");//Application pending
-define("_SUCCESS","הצלחה");//Success
+define("_SUCCESS","הצלחה");// imported IMS fileSuccess
 define("_WARNING","אזהרה");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","הגדרה לא יכול להיות מוכנס");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","עודכנו בהצלחה Definition");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","הערה: אתה revisitin
 define("_ACTIONONRENTRYCOMPLETED","פעילות על כניסה מחדש");//Action on re-entry
 define("_LETCONTENTDECIDE","תן תוכן להחליט");//Let content decide
 define("_DONTCHANGE","השאר ללא שינוי");//Leave unchanged
-define("_DASHBOARD","לוח מחוונים");//Dashboard
+define("_DASHBOARD","לוח מחוונים");//my Dashboard
 define("_MYWALL","הקיר שלי");//My wall
 define("_RELATEDPEOPLE","אנשים קשורים");//Related people
 define("_LEARNINGACTIVITY","פעילות למידה");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","מעמד התשלום לא נתמך");//Unsu
 define("_YOUHAVECANCELLEDTHETRANSACTION","יש לך ביטל את העסקה");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","העסקה הושלמה בהצלחה.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","מצב Paypal באגים");//Paypal debug mode
-define("_MYACCOUNT","החשבון שלי");//My account
+define("_MYACCOUNT","החשבון שלי");//my Account
 define("_MODULE","מודול");//Module
 define("_EMBEDTYPE","התוכן כמו שבץ");//Embed content as
 define("_INLINEIFRAME","מוטבעת (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","שורות");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","הפקודה נכשל עם הפלט הבא");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","אולי המערכת שלך לא תומך ב-zip עיבוד?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","כדי ליצור כמובן, תחילה עליך ליצור קטגוריה");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","סניפים בחר השיעור");//Select lesson branches (New)
-define("_LESSONBRANCHES","שיעור הענפים");//Lesson branches (New)
-define("_COURSEBRANCHES","ענפים קורס");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","לאפשר לתלמידים לציין מספר השאלות במבחן כל ביצוע");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","מקסימום");//Maximum (New)
-define("_MINIMUM","מינימום");//Minimum (New)
-define("_REPETITIONS","חזרות");//Repetitions (New)
-define("_MAINTAINHISTORY","לשמור על ההיסטוריה");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","המפתח אינו מתאים למהדורה זו");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","מצב בלתי חוקיים");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","עליך לציין את מספר השאלות");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","עליך לציין ערך מ");//You must specify a value from (New)
-define("_COURSEPROFESSORS","פרופסורים קורס");//Course professors (New)
-define("_PROFESSORSOFCOURSE","פרופסורים כמובן");//Professors of course (New)
-define("_PRINTCONTENT","תוכן הדפסה");//Print content (New)
+define("_LESSONBRANCHESSELECTION","סניפים בחר השיעור");//Select lesson branches
+define("_LESSONBRANCHES","שיעור הענפים");//Lesson branches
+define("_COURSEBRANCHES","ענפים קורס");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","לאפשר לתלמידים לציין מספר השאלות במבחן כל ביצוע");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","מקסימום");//Maximum
+define("_MINIMUM","מינימום");//Minimum
+define("_REPETITIONS","חזרות");//Repetitions
+define("_MAINTAINHISTORY","לשמור על ההיסטוריה");//Maintain history
+define("_KEYISNOTFORTHISEDITION","המפתח אינו מתאים למהדורה זו");//The key is not suitable for this edition
+define("_ILLEGALMODE","מצב בלתי חוקיים");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","עליך לציין את מספר השאלות");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","עליך לציין ערך מ");//You must specify a value from
+define("_COURSEPROFESSORS","פרופסורים קורס");//Course professors
+define("_PROFESSORSOFCOURSE","פרופסורים כמובן");//Professors of course
+define("_USERSUPERVISORS","מפקחים משתמש");//User supervisors (New)
+define("_USEROPTIONSFOR","אפשרויות למשתמש");//Options for user (New)
+define("_MYSTATUS","מצב הלמידה שלי");//my Learning Status (New)
+define("_MYCOURSES","הקורסים שלי");//my Courses (New)
+define("_CERTIFICATIONS","תעודות");//Certificates (New)
+define("_MYCERTIFICATIONS","תעודות שלי");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","אין אישורים ניתנו למשתמש עדיין");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","כדי להיות מופעל על ידי המפקח");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","לא נמצאו מפקחים הסניף");//No branch supervisors found (New)
+define("_PRINTCONTENT","תוכן הדפסה");//Print content
 define("_USERHASNOTDONETEST","המשתמש לא נעשה במבחן הזה");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","נא לוודא כי המידע הבא נכון");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","אין קטגוריות מוגדרות");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","נא לוודא כי המידע הבא נכון");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","אין קטגוריות מוגדרות");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","הפעלת הפיקוח דואל");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","הפעלת שכיר חשבון דואל");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","דואל זה מאפשר לך להפעיל את מערכת משתמש חדש");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","שהוקצו הסניף");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","עם עמדת עבודה");//with the job description
+define("_BYCLICKINGONTHELINK","על ידי לחיצה על הקישור הבא");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","את החשבון של העובד שלך הופעל בהצלחה");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","מתח");//Horizontal bar (New)
+define("_BRANCHINFORMATION","מידע סניף");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","שם סניף שדה");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","שם איוב שדה");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","הפעלת שדה שם המפקח");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","להשאיר ריק כדי ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","אנא בחר");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","הממונה עליך יהיה להפעיל את החשבון שלך");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","ייבוא תוכן IMS");//Import IMS Content (New)
+define("_IMSEXPORT","ייצוא תוכן IMS");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","קובץ העלאה ב IMS בפורמט ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","אפשרויות IMS");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","קובץ IMS יובא בהצלחה");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","מוסתר ממשתמשים");//Hidden from users (New)
+define("_RESETSCORMDATA","נתונים איפוס המשתמש");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","הגדרות מתקדמות");//Advanced settings (New)
 ?>

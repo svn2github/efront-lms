@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Папките за сле
 define("_EDITCONTENT","Редактиране на съдържанието");//Edit content
 define("_NORMALSTATUS","Нормално състояние");//Normal status
 define("_APPLICATIONPENDING","Кандидатстване в очакване. Прес \"Изпращане\" за да провери");//Application pending
-define("_SUCCESS","Успех");//Success
+define("_SUCCESS","Успех");// imported IMS fileSuccess
 define("_WARNING","Предупреждение");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Определение не могат да бъдат включени");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Са актуализирани успешно определение");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Забележка: Вие
 define("_ACTIONONRENTRYCOMPLETED","Действие при повторно влизане");//Action on re-entry
 define("_LETCONTENTDECIDE","Нека съдържание реши");//Let content decide
 define("_DONTCHANGE","Оставете непроменени");//Leave unchanged
-define("_DASHBOARD","Табло");//Dashboard
+define("_DASHBOARD","Табло");//my Dashboard
 define("_MYWALL","Моят стена");//My wall
 define("_RELATEDPEOPLE","Хора, свързани");//Related people
 define("_LEARNINGACTIVITY","Учебна дейност");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Неподдържан плащане ста
 define("_YOUHAVECANCELLEDTHETRANSACTION","Имате право анулиране на сделката");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Сделката е завършило успешно.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal Debug режим");//Paypal debug mode
-define("_MYACCOUNT","Моят профил");//My account
+define("_MYACCOUNT","Моят профил");//my Account
 define("_MODULE","Модул");//Module
 define("_EMBEDTYPE","Постави съдържание");//Embed content as
 define("_INLINEIFRAME","Вграден (вградена рамка)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Редове");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Командата не е със следните продукция");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Може би вашата система не поддържа обработка цип?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","С цел да се създаде Разбира се, трябва първо да се създаде категория");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Изберете урок клонове");//Select lesson branches (New)
-define("_LESSONBRANCHES","Урок клонове");//Lesson branches (New)
-define("_COURSEBRANCHES","Учебната клонове");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Позволяват на учениците да определят броя на въпроси във всеки тест изпълнение");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Максимална");//Maximum (New)
-define("_MINIMUM","Минимална");//Minimum (New)
-define("_REPETITIONS","Повторения");//Repetitions (New)
-define("_MAINTAINHISTORY","Поддържане на история");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Ключът не е подходящ за тази версия");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Незаконен режим");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Трябва да зададете броя на въпросите,");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Трябва да зададете стойност от");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Учебната професори");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Професори разбира се");//Professors of course (New)
-define("_PRINTCONTENT","Печат на съдържанието");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Изберете урок клонове");//Select lesson branches
+define("_LESSONBRANCHES","Урок клонове");//Lesson branches
+define("_COURSEBRANCHES","Учебната клонове");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Позволяват на учениците да определят броя на въпроси във всеки тест изпълнение");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Максимална");//Maximum
+define("_MINIMUM","Минимална");//Minimum
+define("_REPETITIONS","Повторения");//Repetitions
+define("_MAINTAINHISTORY","Поддържане на история");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Ключът не е подходящ за тази версия");//The key is not suitable for this edition
+define("_ILLEGALMODE","Незаконен режим");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Трябва да зададете броя на въпросите,");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Трябва да зададете стойност от");//You must specify a value from
+define("_COURSEPROFESSORS","Учебната професори");//Course professors
+define("_PROFESSORSOFCOURSE","Професори разбира се");//Professors of course
+define("_USERSUPERVISORS","Потребителски надзорни");//User supervisors (New)
+define("_USEROPTIONSFOR","Опции за потребител");//Options for user (New)
+define("_MYSTATUS","Моят живот Статус");//my Learning Status (New)
+define("_MYCOURSES","ми Курсове");//my Courses (New)
+define("_CERTIFICATIONS","Сертификати");//Certificates (New)
+define("_MYCERTIFICATIONS","ми Сертификати");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Не са сертификати, издадени на потребител все още");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","За да се активира от надзора");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Не клон надзорни намерени");//No branch supervisors found (New)
+define("_PRINTCONTENT","Печат на съдържанието");//Print content
 define("_USERHASNOTDONETEST","Потребителят не е направено този тест");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Моля, потвърдете, че следната информация е вярна");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Там не са определени категории");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Моля, потвърдете, че следната информация е вярна");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Там не са определени категории");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Надзорен орган по имейл активиране");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Служител имейл акаунт активиране");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Този е-мейл ви дава възможност да активирате новата система за потребител");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","възложени на браншовите");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","с длъжностна характеристика");//with the job description
+define("_BYCLICKINGONTHELINK",", като щракнете върху връзката по-долу");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Сметката на вашия служител е успешно активирана");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Хоризонтална лента");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Клон информация");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Клон името на полето");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Работа името на полето");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Активиране на име за надзор над областта");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Оставете празни до ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Моля изберете");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Вашият ръководител ще активирате сметката си");//Your supervisor will activate your account (New)
+define("_IMS","ИСП");//IMS (New)
+define("_IMSIMPORT","Внос ИСП Съдържание");//Import IMS Content (New)
+define("_IMSEXPORT","Износ ИСП Съдържание");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Качи ИСП файл в ZIP формат");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","ИСП опции");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","ИСП файла е успешно, внесени");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Скрити от потребителя");//Hidden from users (New)
+define("_RESETSCORMDATA","Проучване на потребителски данни");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Допълнителни настройки");//Advanced settings (New)
 ?>

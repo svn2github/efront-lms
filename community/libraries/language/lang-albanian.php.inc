@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Për dosjet e mësimeve n�
 define("_EDITCONTENT","Edit content");//Edit content
 define("_NORMALSTATUS","Normal statusit");//Normal status
 define("_APPLICATIONPENDING","Aplikimi në pritje");//Application pending
-define("_SUCCESS","Suksesi");//Success
+define("_SUCCESS","Suksesi");// imported IMS fileSuccess
 define("_WARNING","Kujdes");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Përkufizimi nuk mund të jetë futur");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Ri-freskua me sukses përkufizim");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Shënim: jeni revisiting k
 define("_ACTIONONRENTRYCOMPLETED","Veprimit të ri-hyrjes");//Action on re-entry
 define("_LETCONTENTDECIDE","Le të vendosin content");//Let content decide
 define("_DONTCHANGE","Leave pandryshuar");//Leave unchanged
-define("_DASHBOARD","Paneli i drejtimit");//Dashboard
+define("_DASHBOARD","Paneli i drejtimit");//my Dashboard
 define("_MYWALL","Mur im");//My wall
 define("_RELATEDPEOPLE","Njerëz Related");//Related people
 define("_LEARNINGACTIVITY","Aktiviteti Learning");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Statusi Unsupported pagesë");//Unsupported 
 define("_YOUHAVECANCELLEDTHETRANSACTION","Ju keni anuluar transaksionin");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksioni është përfunduar me sukses.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","My account");//My account
+define("_MYACCOUNT","My account");//my Account
 define("_MODULE","Module");//Module
 define("_EMBEDTYPE","Embed përmbajtje si");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rreshtave");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Komandën dështuar me prodhimin e mëposhtme");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Ndoshta sistemi juaj nuk ka përkrahje të përpunimit zip?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Në mënyrë që të krijojë një kurs, ju duhet së pari të krijojë një kategori");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Mësim degët Zgjidh");//Select lesson branches (New)
-define("_LESSONBRANCHES","Degët mësim");//Lesson branches (New)
-define("_COURSEBRANCHES","Degët e kursit");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Lejo nxënësit të specifikojë numrin e pyetjeve në çdo provë përmbarimit");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maksimale");//Maximum (New)
-define("_MINIMUM","Minimum");//Minimum (New)
-define("_REPETITIONS","Repetitions");//Repetitions (New)
-define("_MAINTAINHISTORY","Ruajtja e historisë");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Kryesore nuk është i përshtatshëm për këtë edicion");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Mënyrë të paligjshme");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Ju duhet të specifikojë numrin e pyetjeve");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Ju duhet të përcaktoni një vlerë prej");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Profesorët e kursit");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Profesorët natyrisht");//Professors of course (New)
-define("_PRINTCONTENT","Përmbajtja Printo");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Mësim degët Zgjidh");//Select lesson branches
+define("_LESSONBRANCHES","Degët mësim");//Lesson branches
+define("_COURSEBRANCHES","Degët e kursit");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Lejo nxënësit të specifikojë numrin e pyetjeve në çdo provë përmbarimit");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maksimale");//Maximum
+define("_MINIMUM","Minimum");//Minimum
+define("_REPETITIONS","Repetitions");//Repetitions
+define("_MAINTAINHISTORY","Ruajtja e historisë");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Kryesore nuk është i përshtatshëm për këtë edicion");//The key is not suitable for this edition
+define("_ILLEGALMODE","Mënyrë të paligjshme");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Ju duhet të specifikojë numrin e pyetjeve");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Ju duhet të përcaktoni një vlerë prej");//You must specify a value from
+define("_COURSEPROFESSORS","Profesorët e kursit");//Course professors
+define("_PROFESSORSOFCOURSE","Profesorët natyrisht");//Professors of course
+define("_USERSUPERVISORS","Mbikëqyrësit User");//User supervisors (New)
+define("_USEROPTIONSFOR","Mundësitë e zgjedhjes për përdoruesit");//Options for user (New)
+define("_MYSTATUS","Statusi Learning im");//my Learning Status (New)
+define("_MYCOURSES","Kurse im");//my Courses (New)
+define("_CERTIFICATIONS","Certifikata");//Certificates (New)
+define("_MYCERTIFICATIONS","Certifikata e mia");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nuk ka certifikata janë lëshuar për përdoruesit ende");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","Të aktivizohet nga mbikqyrësi");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Nuk mbikëqyrësit degë gjetur");//No branch supervisors found (New)
+define("_PRINTCONTENT","Përmbajtja Printo");//Print content
 define("_USERHASNOTDONETEST","Ky përdorues ka nuk e ka bërë këtë provë");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Ju lutem verifikoni se informatat e mëposhtme është e saktë");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Nuk ka kategori të definuar");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Ju lutem verifikoni se informatat e mëposhtme është e saktë");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Nuk ka kategori të definuar");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Mbikqyrësi aktivizimin e-mail");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","E-mail aktivizimi punonjës llogari");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ky email ju mundëson për të aktivizuar sistemin e ri përdorues");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","caktuar degë");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","me pozicionin e punës");//with the job description
+define("_BYCLICKINGONTHELINK","duke klikuar në lidhjen që vijon");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Llogari të punonjësit tuaj u aktivizua me sukses");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Informacion Dega");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Emri Dega fushë");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Emri Job fushë");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Aktivizimi fushë emrin mbikëqyrës");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Lini bosh të ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Ju lutem zgjidhni");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Mbikqyrësi juaj do të aktivizoni llogarinë tuaj");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Ngarko foto IMS në formatin ZIP");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","Options IMS");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS skedar u importua me sukses");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Fshehur nga shfrytëzuesit");//Hidden from users (New)
+define("_RESETSCORMDATA","Përdorues të dhënave Reset");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Advanced settings");//Advanced settings (New)
 ?>

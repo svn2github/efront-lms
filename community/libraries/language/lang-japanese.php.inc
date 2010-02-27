@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","は、次のレッスン�
 define("_EDITCONTENT","コンテンツを編集");//Edit content
 define("_NORMALSTATUS","正常な状態");//Normal status
 define("_APPLICATIONPENDING","アプリケーション保留中です。プレス\"送信\"を確認する");//Application pending
-define("_SUCCESS","成功");//Success
+define("_SUCCESS","成功");// imported IMS fileSuccess
 define("_WARNING","警告");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","で定義されて挿入できませんでした。");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","正常に更新さで定義されて");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","注：このユニット�
 define("_ACTIONONRENTRYCOMPLETED","アクション再入国");//Action on re-entry
 define("_LETCONTENTDECIDE","させるコンテンツを決定");//Let content decide
 define("_DONTCHANGE","変更しない");//Leave unchanged
-define("_DASHBOARD","ダッシュボード");//Dashboard
+define("_DASHBOARD","ダッシュボード");//my Dashboard
 define("_MYWALL","私の壁");//My wall
 define("_RELATEDPEOPLE","関連のある人");//Related people
 define("_LEARNINGACTIVITY","学習活動");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","サポートされて支払い状況");//Uns
 define("_YOUHAVECANCELLEDTHETRANSACTION","場合は、トランザクションをキャンセルして");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","トランザクションが正常に完了した。");//The transaction was completed successfully.
 define("_PAYPALDEBUG","ペイパル、デバッグモード");//Paypal debug mode
-define("_MYACCOUNT","マイアカウント");//My account
+define("_MYACCOUNT","マイアカウント");//my Account
 define("_MODULE","モジュール");//Module
 define("_EMBEDTYPE","埋め込みコンテンツとして");//Embed content as
 define("_INLINEIFRAME","インライン（インラインフレーム）");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","行");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","このコマンドは、次の出力に失敗しました");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","おそらく、あなたのシステムの郵便番号処理をサポートしていないのですか？");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","ためには、まず最初にカテゴリを作成する必要がありますコースを作成する");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","選択してレッスン支店");//Select lesson branches (New)
-define("_LESSONBRANCHES","レッスンの枝");//Lesson branches (New)
-define("_COURSEBRANCHES","コースの枝");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","実行は、各テストの質問の数を指定する学生を許可する");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","最大");//Maximum (New)
-define("_MINIMUM","最小");//Minimum (New)
-define("_REPETITIONS","繰り返し");//Repetitions (New)
-define("_MAINTAINHISTORY","履歴を維持する");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","キーは、このエディションは適していません");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","不正なモード");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","あなたの質問の数を指定する必要があります");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","あなたからの値を指定する必要があります");//You must specify a value from (New)
-define("_COURSEPROFESSORS","コース教授");//Course professors (New)
-define("_PROFESSORSOFCOURSE","教授コース");//Professors of course (New)
-define("_PRINTCONTENT","印刷内容");//Print content (New)
+define("_LESSONBRANCHESSELECTION","選択してレッスン支店");//Select lesson branches
+define("_LESSONBRANCHES","レッスンの枝");//Lesson branches
+define("_COURSEBRANCHES","コースの枝");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","実行は、各テストの質問の数を指定する学生を許可する");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","最大");//Maximum
+define("_MINIMUM","最小");//Minimum
+define("_REPETITIONS","繰り返し");//Repetitions
+define("_MAINTAINHISTORY","履歴を維持する");//Maintain history
+define("_KEYISNOTFORTHISEDITION","キーは、このエディションは適していません");//The key is not suitable for this edition
+define("_ILLEGALMODE","不正なモード");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","あなたの質問の数を指定する必要があります");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","あなたからの値を指定する必要があります");//You must specify a value from
+define("_COURSEPROFESSORS","コース教授");//Course professors
+define("_PROFESSORSOFCOURSE","教授コース");//Professors of course
+define("_USERSUPERVISORS","ユーザーの上司");//User supervisors (New)
+define("_USEROPTIONSFOR","ユーザ用のオプション");//Options for user (New)
+define("_MYSTATUS","私の学習状況");//my Learning Status (New)
+define("_MYCOURSES","私のコース");//my Courses (New)
+define("_CERTIFICATIONS","証明書");//Certificates (New)
+define("_MYCERTIFICATIONS","自分の証明書");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","いいえ証明書は、ユーザーにはまだ発行されている");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","スーパーバイザによって活性化されるために");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Noの枝監督が見つかりました");//No branch supervisors found (New)
+define("_PRINTCONTENT","印刷内容");//Print content
 define("_USERHASNOTDONETEST","このテストは、ユーザーがいない");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","してくださいには、次の情報が正しいことを確認する");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","ない種類が定義され");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","してくださいには、次の情報が正しいことを確認する");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","ない種類が定義され");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","上司のメールの活性化");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","従業員のアカウント開設のメール");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","このメールは、あなたには、新しいシステムのユーザーを有効にできます");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","ブランチへの割り当て");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","その仕事の説明を");//with the job description
+define("_BYCLICKINGONTHELINK","次のリンクをクリックして");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","あなたの従業員のアカウントが正常にアクティブ化された");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","水平バー");//Horizontal bar (New)
+define("_BRANCHINFORMATION","支店情報");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","支店フィールド名");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","仕事のフィールド名");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","スーパーバイザー、フィールド名のアクティブ化");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","省略するには空を残す");//Leave empty to ommit (New)
+define("_PLEASESELECT","選択してください");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","上司のアカウントをアクティブにします");//Your supervisor will activate your account (New)
+define("_IMS","IMSの");//IMS (New)
+define("_IMSIMPORT","インポートIMSコンテンツ");//Import IMS Content (New)
+define("_IMSEXPORT","エクスポートIMSコンテンツ");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","郵便番号のアップロードのIMSファイル形式");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMSのオプション");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMSのファイルが正常にインポートされた");//IMS file was successfully imported (New)
+define("_TOOLTIP","ツールチップ");//Tooltip (New)
+define("_HIDDEN","隠されたユーザーからの");//Hidden from users (New)
+define("_RESETSCORMDATA","をリセットするユーザデータ");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","[詳細設定]");//Advanced settings (New)
 ?>

@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","De mapper for følgende le
 define("_EDITCONTENT","Rediger indhold");//Edit content
 define("_NORMALSTATUS","Normal status");//Normal status
 define("_APPLICATIONPENDING","Ansøgning verserer. Tryk på \"Send\" for at kontrollere");//Application pending
-define("_SUCCESS","Succes");//Success
+define("_SUCCESS","Succes");// imported IMS fileSuccess
 define("_WARNING","Advarsel");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definition ikke kunne indsættes");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Blevet opdateret definition");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Bemærk: du er en gennemga
 define("_ACTIONONRENTRYCOMPLETED","Aktion om re-entry");//Action on re-entry
 define("_LETCONTENTDECIDE","Lad indholdet beslutte");//Let content decide
 define("_DONTCHANGE","Afgå uændret");//Leave unchanged
-define("_DASHBOARD","Dashboard");//Dashboard
+define("_DASHBOARD","Dashboard");//my Dashboard
 define("_MYWALL","Min væg");//My wall
 define("_RELATEDPEOPLE","Relaterede personer");//Related people
 define("_LEARNINGACTIVITY","Læringsaktivitet");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Unsupported betaling status");//Unsupported 
 define("_YOUHAVECANCELLEDTHETRANSACTION","Du har annulleret transaktionen");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaktionen blev gennemført med succes.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","Min konto");//My account
+define("_MYACCOUNT","Min konto");//my Account
 define("_MODULE","Modul");//Module
 define("_EMBEDTYPE","Embed indhold");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,22 +3460,56 @@ define("_ROWS","Rækker");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Kommandoen mislykkedes med følgende output");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Måske dit system ikke understøtter zip behandling?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","For at skabe et kursus, skal du først oprette en kategori");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Vælg lektion filialer");//Select lesson branches (New)
-define("_LESSONBRANCHES","Lektion filialer");//Lesson branches (New)
-define("_COURSEBRANCHES","Kursus filialer");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Give studerende mulighed for at angive antallet af spørgsmål i hver test execution");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Maksimum");//Maximum (New)
-define("_MINIMUM","Minimum");//Minimum (New)
-define("_REPETITIONS","Gentagelser");//Repetitions (New)
-define("_MAINTAINHISTORY","Bevare historie");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","Det centrale er ikke egnet til denne udgave");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Ulovlig mode");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Du skal angive antallet af spørgsmål");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Du skal angive en værdi fra");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Kursus professorer");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Professorer naturligvis");//Professors of course (New)
-define("_PRINTCONTENT","Print indhold");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Vælg lektion filialer");//Select lesson branches
+define("_LESSONBRANCHES","Lektion filialer");//Lesson branches
+define("_COURSEBRANCHES","Kursus filialer");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Give studerende mulighed for at angive antallet af spørgsmål i hver test execution");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Maksimum");//Maximum
+define("_MINIMUM","Minimum");//Minimum
+define("_REPETITIONS","Gentagelser");//Repetitions
+define("_MAINTAINHISTORY","Bevare historie");//Maintain history
+define("_KEYISNOTFORTHISEDITION","Det centrale er ikke egnet til denne udgave");//The key is not suitable for this edition
+define("_ILLEGALMODE","Ulovlig mode");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Du skal angive antallet af spørgsmål");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Du skal angive en værdi fra");//You must specify a value from
+define("_COURSEPROFESSORS","Kursus professorer");//Course professors
+define("_PROFESSORSOFCOURSE","Professorer naturligvis");//Professors of course
+define("_USERSUPERVISORS","Bruger vejledere");//User supervisors (New)
+define("_USEROPTIONSFOR","Muligheder for brugeren");//Options for user (New)
+define("_MYSTATUS","min Indlæsningsstatus");//my Learning Status (New)
+define("_MYCOURSES","Mine kurser");//my Courses (New)
+define("_CERTIFICATIONS","Certifikater");//Certificates (New)
+define("_MYCERTIFICATIONS","min Certifikater");//my Certificates (New)
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Ingen beviser er blevet udstedt til brugeren endnu");//No certificates have been issued to the user yet (New)
+define("_SUPERVISORTOACTIVATE","At blive aktiveret af vejleder");//To be activated by supervisor (New)
+define("_NOSUPERVISORSFOUND","Ingen filial tilsynsførende fundet");//No branch supervisors found (New)
+define("_PRINTCONTENT","Print indhold");//Print content
 define("_USERHASNOTDONETEST","Brugeren har ikke gjort denne test");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Du kontrollere, at følgende oplysninger er korrekte");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Der er ikke defineret kategorier");//There are no categories defined (New)
+define("_VERIFYFOLLOWINGINFOISCORRECT","Du kontrollere, at følgende oplysninger er korrekte");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Der er ikke defineret kategorier");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Tilsynsførende e-mail aktivering");//Supervisor email activation (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Medarbejder kontoaktivering e-mail");//Employee account activation email (New)
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Denne e-mail giver dig mulighed for at aktivere det nye system bruger");//This email enables you to activate the new system user (New)
+define("_ASSIGNEDTOBRANCH","henføres til filial");//assigned to branch (New)
+define("_WITHTHEJOBDESCRIPTION","med jobbeskrivelse");//with the job description
+define("_BYCLICKINGONTHELINK","ved at klikke på følgende link");//by clicking on the following link (New)
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Konto hos din medarbejder blev aktiveret");//The account of your employee was successfully activated (New)
+define("_SHOWHORIZONTALBAR","Reck");//Horizontal bar (New)
+define("_BRANCHINFORMATION","Branch oplysninger");//Branch information (New)
+define("_BRANCHNAMEDESCRIPTION","Branch feltnavn");//Branch field name (New)
+define("_JOBDESCRIPTIONDESCRIPTION","Job feltnavn");//Job field name (New)
+define("_SUPERVISORDESCRIPTION","Aktivering vejleder feltnavn");//Activating supervisor field name (New)
+define("_LEAVEEMPTYTONOTUSE","Efterlad tom for at ommit");//Leave empty to ommit (New)
+define("_PLEASESELECT","Vælg venligst");//Please select (New)
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din vejleder vil aktivere din konto");//Your supervisor will activate your account (New)
+define("_IMS","IMS");//IMS (New)
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
+define("_IMSEXPORT","Eksport IMS Indhold");//Export IMS Content (New)
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS-fil i ZIP-format");//Upload IMS file in ZIP format (New)
+define("_IMSOPTIONS","IMS options");//IMS options (New)
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS filen blev importeret");//IMS file was successfully imported (New)
+define("_TOOLTIP","Tooltip");//Tooltip (New)
+define("_HIDDEN","Skjult fra brugere");//Hidden from users (New)
+define("_RESETSCORMDATA","Nulstil brugerdata");//Reset user data (New)
+define("_TOGGLEADVENCEDPARAMETERS","Avancerede indstillinger");//Advanced settings (New)
 ?>

@@ -1,3 +1,11 @@
+=== Version 3.6.0 build ===
+- Fixed bug in upgrading modules
+- Fixed problem in custom blobks with {,} characters
+- Fixed issue with lessons info in catalog
+- Fixed issue in number of lesson of a course when lesson is archived
+- Fixed problem about viewing avatars list in popup
+
+
 === Version 3.6.0 build 6152 ===
 - Added IMS importing functionality
 - Fixed issue with "Redirect after logout to" when input starts with http:// (EF-520)

@@ -203,7 +203,7 @@ class EfrontCourse
      */
     public function getLessons($returnObjects = false) {
         if ($this -> lessons === false) {
-            $result = eF_getTableData("lessons_to_courses lc, lessons l", "lc.previous_lessons_ID, l.*", "l.id=lc.lessons_ID and courses_ID=".$this -> course['id']);
+            $result = eF_getTableData("lessons_to_courses lc, lessons l", "lc.previous_lessons_ID, l.*", "l.archive = 0 and l.id=lc.lessons_ID and courses_ID=".$this -> course['id']);
             if (sizeof($result) > 0) {
                 $previous = 0; //Previous is only used when no previos_lessons_ID is set
                 foreach ($result as $value) {

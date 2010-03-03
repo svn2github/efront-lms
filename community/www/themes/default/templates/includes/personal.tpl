@@ -153,7 +153,7 @@ var enableMyJobSelect = false;
                  <tr><td class = "labelCell">{$T_AVATAR_FORM.file_upload.label}:&nbsp;</td>
                      <td class = "elementCell">{$T_AVATAR_FORM.file_upload.html}</td></tr>
                  <tr><td class = "labelCell">{$T_AVATAR_FORM.system_avatar.label}:&nbsp;</td>
-                     <td class = "elementCell">{$T_AVATAR_FORM.system_avatar.html}&nbsp;(<a href = "{$smarty.server.PHP_SELF}?{if $smarty.get.edit_user}ctg=users&edit_user={$smarty.get.edit_user}{else}ctg=personal{/if}&show_avatars_list=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._VIEWLIST}', 2)">{$smarty.const._VIEWLIST}</a>)</td></tr>
+                     <td class = "elementCell">{$T_AVATAR_FORM.system_avatar.html}&nbsp;(<a href = "{$smarty.server.PHP_SELF}?{if $smarty.get.ctg == "users"}ctg=users&edit_user={$smarty.get.edit_user}{else}ctg=personal{/if}&show_avatars_list=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._VIEWLIST}', 2)">{$smarty.const._VIEWLIST}</a>)</td></tr>
                  <tr><td colspan = "2">&nbsp;</td></tr>
                  <tr><td></td>
                      <td class = "elementCell">{$T_AVATAR_FORM.submit_upload_file.html}</td></tr>

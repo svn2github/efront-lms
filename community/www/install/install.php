@@ -729,7 +729,7 @@ class Installation
              );
      $modulesList = eF_getTableData("modules", "*");
      foreach ($modulesList as $module) {
-         $existingModules[] = $module['classname'];
+         $existingModules[] = $module['className'];
      }
      $filesystem = new FileSystemTree(G_MODULESPATH, true);
      foreach (new EfrontNodeFilterIterator($filesystem -> tree) as $moduleDirectory => $value) {

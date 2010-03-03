@@ -611,6 +611,10 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to 
       $course = new EfrontCourse($_GET['from_course']);
       $smarty -> assign ("T_COURSE", $course);
       $smarty -> assign("T_HAS_COURSE", in_array($course -> course['id'], array_keys($userCourses)));
+     } elseif (isset($_GET['course']) && $_GET['course']) {
+      $course = new EfrontCourse($_GET['course']);
+      $smarty -> assign ("T_COURSE", $course);
+      $smarty -> assign("T_HAS_COURSE", in_array($course -> course['id'], array_keys($userCourses)));
      }
     }
    } else if ($_GET['courses_ID']) {

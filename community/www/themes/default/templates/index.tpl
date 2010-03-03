@@ -76,7 +76,7 @@
           {if $smarty.capture.$capture_name}
            {eF_template_printBlock title = $T_BLOCKS[$item].title content = $smarty.capture.$capture_name image = "`$T_BLOCKS[$item].image`"}
           {else if $T_CUSTOM_BLOCKS[$item].content}
-           {include file = "`$T_CUSTOM_BLOCKS[$item].name`.tpl" assign = "content"}
+     {insert name = "customBlock" file = "`$T_CUSTOM_BLOCKS[$item].name`.tpl" assign = "content"}
            {eF_template_printBlock title = $T_BLOCKS[$item].title content = $content image = "`$T_BLOCKS[$item].image`"}
           {/if}
             {/foreach}
@@ -128,7 +128,7 @@
           {if $smarty.capture.$capture_name}
            {eF_template_printBlock title = $T_BLOCKS[$item].title content = $smarty.capture.$capture_name image = "`$T_BLOCKS[$item].image`"}
           {else if $T_CUSTOM_BLOCKS[$item].content}
-           {include file = "`$T_CUSTOM_BLOCKS[$item].name`.tpl" assign = "content"}
+           {insert name = "customBlock" file = "`$T_CUSTOM_BLOCKS[$item].name`.tpl" assign = "content"}
            {eF_template_printBlock title = $T_BLOCKS[$item].title content = $content image = "`$T_BLOCKS[$item].image`"}
           {/if}
             {/foreach}
@@ -147,7 +147,7 @@
           {if $smarty.capture.$capture_name}
            {eF_template_printBlock title = $T_BLOCKS[$item].title content = $smarty.capture.$capture_name image = "`$T_BLOCKS[$item].image`"}
           {else if $T_CUSTOM_BLOCKS[$item].content}
-           {include file = "`$T_CUSTOM_BLOCKS[$item].name`.tpl" assign = "content"}
+           {insert name = "customBlock" file = "`$T_CUSTOM_BLOCKS[$item].name`.tpl" assign = "content"}
            {eF_template_printBlock title = $T_BLOCKS[$item].title content = $content image = "`$T_BLOCKS[$item].image`"}
           {/if}
             {/foreach}

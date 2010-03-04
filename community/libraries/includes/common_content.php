@@ -268,8 +268,28 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         $visitableIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
         $treeOptions = array('truncateNames' => 25, 'selectedNode' => $currentUnit['id']);
         //$_professor_ ? $treeOptions['edit'] = 1 : $treeOptions['edit'] = 0;
+        $ruleCheck = true;
+        if ($_student_ && $_change_ && $currentLesson -> options['tracking']) {
+            //$currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
+            //$currentContent -> markSeenNodes($currentUser);
+            $userProgress = EfrontStats :: getUsersLessonStatus($currentLesson, $currentUser -> user['login']);
+            $userProgress = $userProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']];
+            $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $currentUser -> user['login']);
+            $seenContent = $seenContent[$currentLesson -> lesson['id']][$currentUser -> user['login']];
+            $smarty -> assign("T_SEEN_UNIT", in_array($currentUnit['id'], array_keys($seenContent))); //Notify smarty whether the student has seen the current unit
+            if ($currentLesson -> options['rules']) {
+                $ruleCheck = $currentContent -> checkRules($currentUnit['id'], $seenContent);
+            }
+            if ($ruleCheck !== true) {
+                $message = $ruleCheck;
+                $message_type = 'failure';
+                $smarty -> assign("T_RULE_CHECK_FAILED", true);
+                $ruleCheck = false;
+            }
+            $smarty -> assign("T_USER_PROGRESS", $userProgress);
+        }
         if ($_student_) {
-            if ($_change_ && $currentLesson -> options['tracking'] && $currentUnit['options']['auto_complete']) {
+            if ($_change_ && $currentLesson -> options['tracking'] && $currentUnit['options']['auto_complete'] && $ruleCheck) {
                 $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
                 $currentContent -> markSeenNodes($currentUser);
             }
@@ -336,25 +356,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         } else {
             $smarty -> assign("T_UNIT", array());
         }
-        $ruleCheck = true;
         if ($_student_ && $_change_ && $currentLesson -> options['tracking']) {
-            //$currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
-            //$currentContent -> markSeenNodes($currentUser);
-            $userProgress = EfrontStats :: getUsersLessonStatus($currentLesson, $currentUser -> user['login']);
-            $userProgress = $userProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']];
-            $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $currentUser -> user['login']);
-            $seenContent = $seenContent[$currentLesson -> lesson['id']][$currentUser -> user['login']];
-            $smarty -> assign("T_SEEN_UNIT", in_array($currentUnit['id'], array_keys($seenContent))); //Notify smarty whether the student has seen the current unit
-            if ($currentLesson -> options['rules']) {
-                $ruleCheck = $currentContent -> checkRules($currentUnit['id'], $seenContent);
-            }
-            if ($ruleCheck !== true) {
-                $message = $ruleCheck;
-                $message_type = 'failure';
-                $smarty -> assign("T_RULE_CHECK_FAILED", true);
-                $ruleCheck = false;
-            }
-            $smarty -> assign("T_USER_PROGRESS", $userProgress);
             if ($currentUnit['options']['complete_question'] && (!in_array($currentUnit['id'], array_keys($seenContent)) || sizeof($_POST) > 0) ) {
                 $lessonQuestions = $currentLesson -> getQuestions();
                 if (in_array($currentUnit['options']['complete_question'], array_keys($lessonQuestions))) {

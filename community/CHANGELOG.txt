@@ -1,4 +1,5 @@
 === Version 3.6.0 build ===
+- Fixed content rules not taken into account when auto_complete is on
 - Fixed bug in upgrading modules
 - Fixed problem in custom blobks with {,} characters
 - Fixed issue with lessons info in catalog
@@ -8,7 +9,6 @@
 - Fixed issue with a notification in community version
 - Removed enter voucher field when total price of selected lessons is 0
 - Added checkbox for separating if site name and site moto will de displayed in header (except browser title bar)
-
 
 === Version 3.6.0 build 6152 ===
 - Added IMS importing functionality
@@ -31,7 +31,6 @@
 - Added hiddenHeader style for horizontal template
 - Fixed problem with unicode characters in calendar tooltip
 - Fixed problem in horizontal themes with search box by calling eF_formatTitlePath that was missing
-- Changed CSS declarations: .inactiveImage, .inactiveImage img{opacity:0.2;filter:alpha(opacity=20);}
 - Fixed forum configuration panel that was missing
 - Fixed EF-534. If a lesson is available only via course, it can not be hidden from catalog
 - Fixed error when adding additional option in multiple questions with IE7

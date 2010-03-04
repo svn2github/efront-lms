@@ -240,6 +240,7 @@ $customizationForm -> addElement("advcheckbox", "show_footer", _SHOWFOOTER, null
 $customizationForm -> addElement("textarea", "additional_footer", _EDITFOOTER, 'style = "height:100px;width:500px;"');
 $customizationForm -> addElement("text", "site_name", _SITENAME, 'class = "inputText"');
 $customizationForm -> addElement("text", "site_motto", _SITEMOTO, 'class = "inputText"');
+$customizationForm -> addElement("advcheckbox", "motto_on_header", _SHOWMOTTOONHEADER, null, 'class = "inputCheckBox"', array(0,1));
 $customizationForm -> addElement("text", "username_format", _USERNAMEFORMAT, 'class = "inputText"');
 $customizationForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG, array(_NO, _YES, _ONLYFORLESSONS), 'class = "inputCheckBox"');
 $customizationForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEMPTYBLOCKS, null, 'class = "inputCheckBox"', array(0,1));

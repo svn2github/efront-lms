@@ -537,6 +537,17 @@ $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
 $smarty -> assign("T_CONFIGURATION", $configuration); //Assign global configuration values to smarty
 $smarty -> assign("T_CURRENT_USER", $currentUser);
 $smarty -> assign("T_CURRENT_LESSON", isset($currentLesson) ? $currentLesson : false);
+if (isset($currentLesson)) {
+ $directions = new EfrontDirectionsTree();
+ $paths = $directions -> toPathString();
+ $categoryPath = $paths[$currentLesson->lesson["directions_ID"]];
+ $categoryPath = str_replace("&rarr", "&raquo", $categoryPath);
+ $smarty -> assign("T_CURRENT_CATEGORY_PATH", $categoryPath);
+ if ($currentLesson -> lesson['course_only'] == 1) {
+  $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);
+  $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse[0]['name']);
+ }
+}
 $smarty -> load_filter('output', 'eF_template_formatTimestamp');
 $smarty -> load_filter('output', 'eF_template_formatLogins');
 $benchmark -> set('script');

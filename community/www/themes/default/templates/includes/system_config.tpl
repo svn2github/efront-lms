@@ -117,6 +117,8 @@
               <td class = "elementCell">{$T_CUSTOMIZATION_FORM.site_name.html}</td></tr>
           <tr><td class = "labelCell">{$smarty.const._SITEMOTO}:&nbsp;</td>
               <td class = "elementCell">{$T_CUSTOMIZATION_FORM.site_motto.html}</td></tr>
+    <tr><td class = "labelCell">{$T_CUSTOMIZATION_FORM.motto_on_header.label}:&nbsp;</td>
+              <td class = "elementCell">{$T_CUSTOMIZATION_FORM.motto_on_header.html}</td></tr>
           <tr><td class = "labelCell">{$smarty.const._VIEWDIRECTORY}:&nbsp;</td>
                  <td class = "elementCell">{$T_CUSTOMIZATION_FORM.lessons_directory.html}</td></tr>
              <tr><td class = "labelCell">{$T_CUSTOMIZATION_FORM.collapse_catalog.label}:&nbsp;</td>

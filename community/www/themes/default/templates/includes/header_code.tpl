@@ -44,10 +44,12 @@
  </div>
 
  {/if}
- <div id = "info">
-  <div id = "site_name" class= "headerText">{$T_CONFIGURATION.site_name}</div>
-  <div id = "site_motto" class= "headerText">{$T_CONFIGURATION.site_motto}</div>
- </div>
+ {if $T_CONFIGURATION.motto_on_header == 1}
+  <div id = "info">
+   <div id = "site_name" class= "headerText">{$T_CONFIGURATION.site_name}</div>
+   <div id = "site_motto" class= "headerText">{$T_CONFIGURATION.site_motto}</div>
+  </div>
+ {/if}
  {if !$hide_path}
  <div id = "path">
   <div id = "path_title">{$title|eF_formatTitlePath}</div>

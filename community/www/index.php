@@ -56,7 +56,7 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
             $languages[$key] = $value['translation'];
         }
     }
- ksort($languages);
+ //ksort($languages);
     $smarty -> assign("T_LANGUAGES", $languages);
     $debug_InitTime = microtime(true) - $debug_TimeStart;
     if ($configuration['cms_page'] != "" && sizeof($_GET) == 0 && file_exists(G_CURRENTTHEMEPATH."external/".$GLOBALS['configuration']['cms_page'].".php")){ //if there is cms page and no get parameter defined

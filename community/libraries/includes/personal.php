@@ -592,8 +592,8 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         }
         // ** Get skills **
         // We do not use the getSkills() method, because it will only return the skills of the employee and we need to present them ALL
-        $skill_categories = eF_getTableData("module_hcd_skill_categories", "*", "", "description","");
-        $skills = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_employee_has_skill ON (module_hcd_employee_has_skill.skill_ID = module_hcd_skills.skill_ID AND module_hcd_employee_has_skill.users_login='$edit_user') LEFT JOIN users ON module_hcd_employee_has_skill.author_login = users.login", "users_login, description,specification, module_hcd_skills.skill_ID, categories_ID, users.surname, users.name","");
+        //$skill_categories = eF_getTableData("module_hcd_skill_categories", "*", "", "description","");
+        $skills = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_skill_categories ON module_hcd_skill_categories.id = module_hcd_skills.categories_ID LEFT OUTER JOIN module_hcd_employee_has_skill ON (module_hcd_employee_has_skill.skill_ID = module_hcd_skills.skill_ID AND module_hcd_employee_has_skill.users_login='$edit_user') LEFT JOIN users ON module_hcd_employee_has_skill.author_login = users.login", "users_login, module_hcd_skills.description, module_hcd_skill_categories.description as category, specification, module_hcd_skills.skill_ID, categories_ID, users.surname, users.name","");
         $skills = eF_multiSort($skills, $sort, $order);
         $smarty -> assign("T_SKILLS_SIZE", sizeof($skills));
         if (isset($_GET['filter'])) {

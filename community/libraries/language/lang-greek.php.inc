@@ -3511,4 +3511,5 @@ define("_TOOLTIP","Tooltip");
 define("_HIDDEN", "Να μη φαίνεται στους χρήστες");
 define("_RESETSCORMDATA", "Διαγραφή δεδομένων χρηστών");
 define("_TOGGLEADVENCEDPARAMETERS","Περισσότερες επιλογές");
+define("_SHOWMOTTOONHEADER","Εμφάνιση ονόματος και σλογκαν και στην επικεφαλίδα");
 ?>

@@ -1992,7 +1992,7 @@ class EfrontCourse
     public function getSkills($only_own = false) {
         if (!isset($this -> skills) || !$this -> skills) {
             $this -> skills = false; //Initialize skills to something
-            $skills = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_course_offers_skill ON (module_hcd_course_offers_skill.skill_ID = module_hcd_skills.skill_ID AND module_hcd_course_offers_skill.courses_ID='".$this -> course['id']."')", "description,specification, module_hcd_skills.skill_ID,courses_ID, categories_ID","");
+            $skills = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_skill_categories ON module_hcd_skill_categories.id = module_hcd_skills.categories_ID LEFT OUTER JOIN module_hcd_course_offers_skill ON (module_hcd_course_offers_skill.skill_ID = module_hcd_skills.skill_ID AND module_hcd_course_offers_skill.courses_ID='".$this -> course['id']."')", "module_hcd_skills.description,specification, module_hcd_skills.skill_ID,courses_ID, categories_ID, module_hcd_skill_categories.description as category","");
             foreach ($skills as $key => $skill) {
                 if ($only_own && $skill['courses_ID'] != $this -> course['id']) {
                     unset($skills[$key]);

@@ -4,6 +4,10 @@
 - Fixed issue with lessons info in catalog
 - Fixed issue in number of lesson of a course when lesson is archived
 - Fixed problem about viewing avatars list in popup
+- Fixed sorting of languages based to translation field
+- Fixed issue with a notification in community version
+- Removed enter voucher field when total price of selected lessons is 0
+- Added checkbox for separating if site name and site moto will de displayed in header (except browser title bar)
 
 
 === Version 3.6.0 build 6152 ===

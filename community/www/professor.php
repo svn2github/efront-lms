@@ -525,6 +525,17 @@ $smarty -> assign("T_MESSAGE_TYPE", $message_type);
 $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
 $smarty -> assign("T_CURRENT_USER", $currentUser);
 $smarty -> assign("T_CURRENT_LESSON", $currentLesson);
+if (isset($currentLesson)) {
+ $directions = new EfrontDirectionsTree();
+ $paths = $directions -> toPathString();
+ $categoryPath = $paths[$currentLesson->lesson["directions_ID"]];
+ $categoryPath = str_replace("&rarr", "&raquo", $categoryPath);
+ $smarty -> assign("T_CURRENT_CATEGORY_PATH", $categoryPath);
+ if ($currentLesson -> lesson['course_only'] == 1) {
+  $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);
+  $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse[0]['name']);
+ }
+}
 if (!isset($_GET['edit_unit']) && !isset($_GET['edit_project']) && !isset($_GET['edit_question']) && !isset($_GET['edit_test'])) { // when updating a unit we must preserve the innerlink
  $smarty -> load_filter('output', 'eF_template_setInnerLinks');
 }

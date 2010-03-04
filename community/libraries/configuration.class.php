@@ -72,6 +72,7 @@ class EfrontConfiguration
         //Appearance
         'site_name' => _EFRONTNAME,
         'site_motto' => _THENEWFORMOFADDITIVELEARNING,
+  'motto_on_header' => 1,
      'lessons_directory' => 1, //0 means 'no', 1 means 'yes', and 2 means 'only after login'
      'collapse_catalog' => 0, // 0 means 'no', 1 means 'yes' and  2 means 'only for lessons'
         'logo' => '',

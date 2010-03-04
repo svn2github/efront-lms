@@ -249,20 +249,6 @@ class EfrontNotification
                            _FORFURTHERCONTACTADMINAT." ###host_name###/index.php?ctg=contact <br><br>"._KINDREGARDSEFRONT."<br>---<br>"._ADMINISTRATIONGROUP."<br>###site_name###<br>###site_motto###<br>");
    eF_insertTableData("event_notifications", $default_notification);
   }
-     $supervisor_registr = eF_getTableDataFlat("event_notifications", "event_type", "event_type = " . EfrontEvent::HCD_NEW_JOB_ASSIGNMENT . " AND send_recipients = " . EfrontNotification::EXPLICITLYSEL);
-  if (empty($supervisor_registr)) {
-   $default_notification = array("event_type" => EfrontEvent::HCD_NEW_JOB_ASSIGNMENT,
-            "send_recipients" => EfrontNotification::EXPLICITLYSEL,
-               "send_conditions" => serialize(array()),
-               "send_immediately"=> 1,
-            "subject" => _EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT,
-            "message" => _DEARUSER." ###users_name###,<br><br>"._EMPLOYEEACCOUNTACTIVATIONMAILBODY . " ###triggering_users_name### ###triggering_users_surname### (###triggering_users_login###) " . _ASSIGNEDTOBRANCH .
-                " ###branch_name### ". _WITHTHEJOBDESCRIPTION . " ###job_description_name### " . _BYCLICKINGONTHELINK . ": " .
-                "<br><br>###host_name###/index.php?account=###triggering_users_login###&key=###timestamp###&activatedBy=###users_login###<br><br><br>".
-                           _AUTOMATEDEMAILSENTFROM.' ###host_name### '._ON.' ###date###<br>'.
-                           _FORFURTHERCONTACTADMINAT." ###host_name###/index.php?ctg=contact <br><br>"._KINDREGARDSEFRONT."<br>---<br>"._ADMINISTRATIONGROUP."<br>###site_name###<br>###site_motto###<br>");
-   eF_insertTableData("event_notifications", $default_notification);
-  }
   if (!in_array(EfrontEvent::SYSTEM_REGISTER, $registered_events)) {
       $message = _DEARUSER.' ###users_name###,<br><br>'
                   ._WELCOMETOOUR.' '._ELEARNINGPLATFORM.". <br>"._ACCOUNTACTIVATEDWITHPERSONALINFORMATION."<br><br>".
@@ -968,6 +954,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
    $message = str_replace("<br>", "\r\n", $message);
    $message = str_replace("<p>", "\r\n", $message);
    $message = str_replace("</p>", "\r\n", $message);
+   $message = str_replace("&amp;", "&", $message);
   }
         $message = eF_formulateTemplateMessage($message, $template_formulations);
      $message = eF_replaceMD5($message);

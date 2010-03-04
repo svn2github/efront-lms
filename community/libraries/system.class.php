@@ -484,9 +484,9 @@ class EfrontSystem
  public static function getLanguages($reduced = false, $only_active = false) {
      $languages = array();
   if ($only_active) {
-   $result = eF_getTableData("languages", "*", "active=1");
+   $result = eF_getTableData("languages", "*", "active=1", "translation asc");
   } else{
-   $result = eF_getTableData("languages", "*");
+   $result = eF_getTableData("languages", "*", "", "translation asc");
      }
   foreach ($result as $value) {
          if (is_file(G_ROOTPATH.'libraries/language/lang-'.$value['name'].'.php.inc')) {

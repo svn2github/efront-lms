@@ -46,7 +46,7 @@ try {
                      $languages[$key] = $value['translation'];
                  }
              }
-             ksort($languages);
+             //ksort($languages);
              $smarty -> assign("T_LANGUAGES", $languages);
              if (isset($_GET['info_lesson'])) {
                  $lesson = new EfrontLesson($_GET['info_lesson']);

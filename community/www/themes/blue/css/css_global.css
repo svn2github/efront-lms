@@ -613,7 +613,7 @@ ul.sortable li{list-style-type:none;}
 ul.sortable li table .handle{cursor:move;}
 
 /*The title bar link*/
-.titleLink,a.titleLink,a.titleLink:link,a.titleLink:visited,a.titleLink:hover{color:#333333;}
+.titleLink,a.titleLink,a.titleLink:link,a.titleLink:visited,a.titleLink:hover{color:#ffffff;}
 
 
 /*surveys classes*/

@@ -9,6 +9,7 @@
 - Fixed issue with a notification in community version
 - Removed enter voucher field when total price of selected lessons is 0
 - Added checkbox for separating if site name and site moto will de displayed in header (except browser title bar)
+- Extended search functionality for glossary
 
 === Version 3.6.0 build 6152 ===
 - Added IMS importing functionality

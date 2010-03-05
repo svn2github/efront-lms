@@ -1,21 +1,12 @@
 {include file = "includes/header.tpl"}
 {if $smarty.session.s_lessons_ID}
  {assign var=lessonName value=$T_CURRENT_LESSON->lesson.name}
-    {if $T_NO_HORIZONTAL_MENU}
-  {assign var = "title" value = '<a  class = "titleLink" title = "'|cat:$smarty.const._HOMEOFLESSON|cat:'" href="professor.php?ctg=lessons" onclick="top.sideframe.hideAllLessonSpecific();">'|cat:$smarty.const._MYLESSONS|cat:'</a>'|cat:'&nbsp;&raquo;&nbsp;'|cat:$T_CURRENT_CATEGORY_PATH|cat:'&nbsp;&raquo;&nbsp;'}
-  {if isset($T_CURRENT_COURSE_NAME)}
-   {assign var = "title" value = $title|cat:$T_CURRENT_COURSE_NAME|cat:'&nbsp;&raquo;&nbsp;'}
-  {/if}
-  {assign var = "title" value = $title|cat:'<a class = "titleLink" title = "'|cat:$smarty.const._HOMEOFLESSON|cat:'&nbsp;&quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel" onclick="">'|cat:$lessonName|cat:'</a>'}
-
- {else}
-  {assign var = "title" value = '<a  class = "titleLink" title = "'|cat:$smarty.const._HOMEOFLESSON|cat:'" href="professor.php?ctg=lessons">'|cat:$smarty.const._MYLESSONS|cat:'</a>'|cat:'&nbsp;&raquo;&nbsp;'|cat:$T_CURRENT_CATEGORY_PATH|cat:'&nbsp;&raquo;&nbsp;'}
-  {if isset($T_CURRENT_COURSE_NAME)}
-   {assign var = "title" value = $title|cat:$T_CURRENT_COURSE_NAME|cat:'&nbsp;&raquo;&nbsp;'}
-  {/if}
-  {assign var = "title" value = $title|cat:'<a class = "titleLink" title = "'|cat:$smarty.const._HOMEOFLESSON|cat:'&nbsp;&quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel" onclick="">'|cat:$lessonName|cat:'</a>'}
-
+    {if $T_NO_HORIZONTAL_MENU}{assign var = "title_onclick" value = "top.sideframe.hideAllLessonSpecific();"}{/if}
+ {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYLESSONS`</a><span>&nbsp;&raquo;&nbsp;</span><span class = 'titleLink'>`$T_CURRENT_CATEGORY_PATH`</span><span>&nbsp;&raquo;&nbsp;</span>"}
+ {if isset($T_CURRENT_COURSE_NAME)}
+  {assign var = "title" value = "`$title`<span class = 'titleLink'>`$T_CURRENT_COURSE_NAME`</span><span>&nbsp;&raquo;&nbsp;</span>"}
  {/if}
+ {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$smarty.const._HOMEOFLESSON`&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
 {else}
     {assign var = "title" value = '<a class = "titleLink" title = "'|cat:$smarty.const._HOME|cat:'" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
 {/if}

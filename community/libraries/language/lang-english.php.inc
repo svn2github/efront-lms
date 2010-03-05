@@ -3513,4 +3513,6 @@ define("_HIDDEN", "Hidden from users");
 define("_RESETSCORMDATA", "Reset user data");
 define("_TOGGLEADVENCEDPARAMETERS","Advanced settings");
 define("_SHOWMOTTOONHEADER","Show name and motto also on header");
+define("_SEARCHRESULTSINGLOSSARY","Search results in glossary");
+define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");
 ?>

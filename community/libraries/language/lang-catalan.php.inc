@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Vostè ha d&#39;especificar el nombre de pr
 define("_MUSTSPECIFYVALUEFROM","Vostè ha d&#39;especificar un valor de");//You must specify a value from
 define("_COURSEPROFESSORS","Els professors del curs");//Course professors
 define("_PROFESSORSOFCOURSE","Professors de curs");//Professors of course
-define("_USERSUPERVISORS","Supervisors d&#39;usuari");//User supervisors (New)
-define("_USEROPTIONSFOR","Opcions per a l&#39;usuari");//Options for user (New)
-define("_MYSTATUS","Estat del meu aprenentatge");//my Learning Status (New)
-define("_MYCOURSES","Els meus Cursos");//my Courses (New)
-define("_CERTIFICATIONS","Certificats");//Certificates (New)
-define("_MYCERTIFICATIONS","els meus certificats");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","No s&#39;han emès certificats per a l&#39;usuari,");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Per ser activat pel supervisor");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","N supervisors branca trobat");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Supervisors d&#39;usuari");//User supervisors
+define("_USEROPTIONSFOR","Opcions per a l&#39;usuari");//Options for user
+define("_MYSTATUS","Estat del meu aprenentatge");//my Learning Status
+define("_MYCOURSES","Els meus Cursos");//my Courses
+define("_CERTIFICATIONS","Certificats");//Certificates
+define("_MYCERTIFICATIONS","els meus certificats");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","No s&#39;han emès certificats per a l&#39;usuari,");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Per ser activat pel supervisor");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","N supervisors branca trobat");//No branch supervisors found
 define("_PRINTCONTENT","Imprimir contingut");//Print content
 define("_USERHASNOTDONETEST","L&#39;usuari no ha fet aquesta prova");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Si us plau, verifiqueu que la següent informació és correcta");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","No hi ha categories definides");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Supervisor d&#39;activació de correu electrònic");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","L&#39;activació de compte de correu electrònic d&#39;empleats");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Aquest correu electrònic li permet activar el nou sistema d&#39;usuari");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","assignat a la branca");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor d&#39;activació de correu electrònic");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","L&#39;activació de compte de correu electrònic d&#39;empleats");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Aquest correu electrònic li permet activar el nou sistema d&#39;usuari");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","assignat a la branca");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","amb el lloc de treball");//with the job description
-define("_BYCLICKINGONTHELINK","fent clic al següent enllaç");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","El relat del seu empleat es va activar amb èxit");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Barra horitzontal");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Subdivisió d&#39;informació");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Nom del camp Branch");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Nom del camp de treball");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Activació de nom Supervisor de Camp");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Deixar buit per ometre");//Leave empty to ommit (New)
-define("_PLEASESELECT","Si us plau,");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","El seu supervisor li activar el vostre compte");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Importació de contingut IMS");//Import IMS Content (New)
-define("_IMSEXPORT","Exportació de contingut IMS");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Carregar arxiu d&#39;IMS en format ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","Opcions d&#39;IMS");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fitxer s&#39;ha importat correctament");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Ocult dels usuaris de");//Hidden from users (New)
-define("_RESETSCORMDATA","Restablir les dades de l&#39;usuari");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Configuració avançada");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","fent clic al següent enllaç");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","El relat del seu empleat es va activar amb èxit");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Barra horitzontal");//Horizontal bar
+define("_BRANCHINFORMATION","Subdivisió d&#39;informació");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Nom del camp Branch");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Nom del camp de treball");//Job field name
+define("_SUPERVISORDESCRIPTION","Activació de nom Supervisor de Camp");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Deixar buit per ometre");//Leave empty to ommit
+define("_PLEASESELECT","Si us plau,");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","El seu supervisor li activar el vostre compte");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Importació de contingut IMS");//Import IMS Content
+define("_IMSEXPORT","Exportació de contingut IMS");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Carregar arxiu d&#39;IMS en format ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","Opcions d&#39;IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fitxer s&#39;ha importat correctament");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Ocult dels usuaris de");//Hidden from users
+define("_RESETSCORMDATA","Restablir les dades de l&#39;usuari");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Configuració avançada");//Advanced settings
+define("_SHOWMOTTOONHEADER","Nom de l&#39;obra i el lema també sobre la capçalera de");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Resultats de la cerca al glossari");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","No hi ha resultats en el glossari");//No results found in glossary (New)
+define("_AUTOLOGIN","Accés automàtic");//Auto login (New)
+define("_ACCESSLINK","Enllaç d&#39;accés");//Access link (New)
+define("_AUTOLOGINITHLINK","L&#39;usuari pot iniciar sessió de forma automàtica mitjançant un enllaç");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","De tipus d&#39;usuari per defecte");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Estudiant de la Força contestar totes les preguntes");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Has de contestar totes les preguntes");//You have to answer all questions (New)
 ?>

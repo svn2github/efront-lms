@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","يجب عليك تحديد عدد من ال
 define("_MUSTSPECIFYVALUEFROM","يجب عليك تحديد قيمة من");//You must specify a value from
 define("_COURSEPROFESSORS","طبعا الأساتذة");//Course professors
 define("_PROFESSORSOFCOURSE","أساتذة بالطبع");//Professors of course
-define("_USERSUPERVISORS","دليل المشرفين");//User supervisors (New)
-define("_USEROPTIONSFOR","خيارات للمستخدم");//Options for user (New)
-define("_MYSTATUS","بلادي التعلم وأوضاع");//my Learning Status (New)
-define("_MYCOURSES","دوراتي");//my Courses (New)
-define("_CERTIFICATIONS","شهادات");//Certificates (New)
-define("_MYCERTIFICATIONS","بلدي الشهادات");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","أي شهادات صدرت للمستخدم حتى الآن");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","لتفعيلها من قبل المشرف");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","لا المشرفين فرع وجد");//No branch supervisors found (New)
+define("_USERSUPERVISORS","دليل المشرفين");//User supervisors
+define("_USEROPTIONSFOR","خيارات للمستخدم");//Options for user
+define("_MYSTATUS","بلادي التعلم وأوضاع");//my Learning Status
+define("_MYCOURSES","دوراتي");//my Courses
+define("_CERTIFICATIONS","شهادات");//Certificates
+define("_MYCERTIFICATIONS","بلدي الشهادات");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","أي شهادات صدرت للمستخدم حتى الآن");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","لتفعيلها من قبل المشرف");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","لا المشرفين فرع وجد");//No branch supervisors found
 define("_PRINTCONTENT","طباعة المحتوى");//Print content
 define("_USERHASNOTDONETEST","مستخدم لم يفعل هذا الاختبار");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","يرجى التحقق من أن المعلومات التالية صحيحة");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","لا توجد فئات محددة");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","المشرف على تفعيل البريد الإلكتروني");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","موظف حساب بريد التنشيط");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","يتيح لك هذا البريد الإلكتروني لتفعيل النظام مستخدم جديد");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","المخصصة للفرع");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","المشرف على تفعيل البريد الإلكتروني");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","موظف حساب بريد التنشيط");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","يتيح لك هذا البريد الإلكتروني لتفعيل النظام مستخدم جديد");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","المخصصة للفرع");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","مع توصيف الوظائف");//with the job description
-define("_BYCLICKINGONTHELINK","بالنقر على الوصلة التالية");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","الحساب الخاص بك الموظف بنجاح تفعيلها");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","العقلة");//Horizontal bar (New)
-define("_BRANCHINFORMATION","فرع المعلومات");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","فرع اسم الحقل");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","وظيفة اسم الحقل");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","تفعيل حقل اسم المشرف");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","ترك فارغا لommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","الرجاء اختيار");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","المشرف سيتم تنشيط حسابك");//Your supervisor will activate your account (New)
-define("_IMS","نظام الرصد الدولي");//IMS (New)
-define("_IMSIMPORT","استيراد نظام الرصد الدولي المحتوى");//Import IMS Content (New)
-define("_IMSEXPORT","تصدير نظام الرصد الدولي المحتوى");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","تحميل ملف نظام الرصد الدولي في شكل الرمز البريدي");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","نظام الرصد الدولي خيارات");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","نظام الرصد الدولي الملف بنجاح المستوردة");//IMS file was successfully imported (New)
-define("_TOOLTIP","توولتيب");//Tooltip (New)
-define("_HIDDEN","خفية من المستخدمين");//Hidden from users (New)
-define("_RESETSCORMDATA","إعادة تعيين بيانات المستخدم");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","الإعدادات المتقدمة");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","بالنقر على الوصلة التالية");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","الحساب الخاص بك الموظف بنجاح تفعيلها");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","العقلة");//Horizontal bar
+define("_BRANCHINFORMATION","فرع المعلومات");//Branch information
+define("_BRANCHNAMEDESCRIPTION","فرع اسم الحقل");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","وظيفة اسم الحقل");//Job field name
+define("_SUPERVISORDESCRIPTION","تفعيل حقل اسم المشرف");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","ترك فارغا لommit");//Leave empty to ommit
+define("_PLEASESELECT","الرجاء اختيار");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","المشرف سيتم تنشيط حسابك");//Your supervisor will activate your account
+define("_IMS","نظام الرصد الدولي");//IMS
+define("_IMSIMPORT","استيراد نظام الرصد الدولي المحتوى");//Import IMS Content
+define("_IMSEXPORT","تصدير نظام الرصد الدولي المحتوى");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","تحميل ملف نظام الرصد الدولي في شكل الرمز البريدي");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","نظام الرصد الدولي خيارات");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","نظام الرصد الدولي الملف بنجاح المستوردة");//IMS file was successfully imported
+define("_TOOLTIP","توولتيب");//Tooltip
+define("_HIDDEN","خفية من المستخدمين");//Hidden from users
+define("_RESETSCORMDATA","إعادة تعيين بيانات المستخدم");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","الإعدادات المتقدمة");//Advanced settings
+define("_SHOWMOTTOONHEADER","اسم وشعار المعرض أيضا على رأس");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","نتائج البحث في مسرد");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","أية نتائج وجدت في مسرد");//No results found in glossary (New)
+define("_AUTOLOGIN","دخول السيارات");//Auto login (New)
+define("_ACCESSLINK","وصول الارتباط");//Access link (New)
+define("_AUTOLOGINITHLINK","يمكن للمستخدم تسجيل الدخول تلقائيا عن طريق وصلة");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","النوع الافتراضي للمستخدم");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","قوة الطلاب الإجابة على جميع الأسئلة");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","لديك للرد على جميع الأسئلة");//You have to answer all questions (New)
 ?>

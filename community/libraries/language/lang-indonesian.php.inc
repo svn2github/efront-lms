@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Anda harus menentukan jumlah pertanyaan");/
 define("_MUSTSPECIFYVALUEFROM","Anda harus menentukan nilai dari");//You must specify a value from
 define("_COURSEPROFESSORS","Course profesor");//Course professors
 define("_PROFESSORSOFCOURSE","Profesor tentu");//Professors of course
-define("_USERSUPERVISORS","Pengguna supervisor");//User supervisors (New)
-define("_USEROPTIONSFOR","Pilihan untuk pengguna");//Options for user (New)
-define("_MYSTATUS","Belajar saya Status");//my Learning Status (New)
-define("_MYCOURSES","Kursus saya");//my Courses (New)
-define("_CERTIFICATIONS","Sertifikat");//Certificates (New)
-define("_MYCERTIFICATIONS","Sertifikat saya");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Tidak ada sertifikat telah dikeluarkan kepada pengguna belum");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Untuk dapat diaktifkan oleh pembimbing");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Tidak ada cabang supervisor ditemukan");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Pengguna supervisor");//User supervisors
+define("_USEROPTIONSFOR","Pilihan untuk pengguna");//Options for user
+define("_MYSTATUS","Belajar saya Status");//my Learning Status
+define("_MYCOURSES","Kursus saya");//my Courses
+define("_CERTIFICATIONS","Sertifikat");//Certificates
+define("_MYCERTIFICATIONS","Sertifikat saya");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Tidak ada sertifikat telah dikeluarkan kepada pengguna belum");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Untuk dapat diaktifkan oleh pembimbing");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Tidak ada cabang supervisor ditemukan");//No branch supervisors found
 define("_PRINTCONTENT","Konten Cetak");//Print content
 define("_USERHASNOTDONETEST","Pengguna ini belum dilakukan uji");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Harap verifikasi bahwa informasi berikut benar");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Tidak ada kategori yang didefinisikan");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivasi");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Karyawan email aktivasi account");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Email ini memungkinkan Anda untuk mengaktifkan sistem baru pengguna");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","ditugaskan cabang");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivasi");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Karyawan email aktivasi account");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Email ini memungkinkan Anda untuk mengaktifkan sistem baru pengguna");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","ditugaskan cabang");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","pekerjaan dengan posisi");//with the job description
-define("_BYCLICKINGONTHELINK","dengan mengklik link berikut");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Rekening karyawan Anda telah berhasil diaktifkan");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Informasi cabang");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Cabang nama field");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job nama field");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Mengaktifkan nama field supervisor");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Biarkan kosong untuk ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Silahkan pilih");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Pembimbing anda akan mengaktifkan account Anda");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Impor IMS Konten");//Import IMS Content (New)
-define("_IMSEXPORT","Ekspor IMS Konten");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS upload file dalam format ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS Pilihan");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS file telah berhasil diimpor");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Disembunyikan dari pengguna");//Hidden from users (New)
-define("_RESETSCORMDATA","Reset data pengguna");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Pengaturan lanjutan");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","dengan mengklik link berikut");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Rekening karyawan Anda telah berhasil diaktifkan");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar
+define("_BRANCHINFORMATION","Informasi cabang");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Cabang nama field");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job nama field");//Job field name
+define("_SUPERVISORDESCRIPTION","Mengaktifkan nama field supervisor");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Biarkan kosong untuk ommit");//Leave empty to ommit
+define("_PLEASESELECT","Silahkan pilih");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Pembimbing anda akan mengaktifkan account Anda");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Impor IMS Konten");//Import IMS Content
+define("_IMSEXPORT","Ekspor IMS Konten");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS upload file dalam format ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS Pilihan");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS file telah berhasil diimpor");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Disembunyikan dari pengguna");//Hidden from users
+define("_RESETSCORMDATA","Reset data pengguna");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Pengaturan lanjutan");//Advanced settings
+define("_SHOWMOTTOONHEADER","Tampilkan nama dan moto juga pada header");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Hasil pencarian di glossary");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Tidak ada hasil yang ditemukan di glossary");//No results found in glossary (New)
+define("_AUTOLOGIN","Auto login");//Auto login (New)
+define("_ACCESSLINK","Link akses");//Access link (New)
+define("_AUTOLOGINITHLINK","Pengguna dapat login secara otomatis oleh link");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Default tipe user");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Angkatan menjawab semua pertanyaan mahasiswa");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Anda harus menjawab semua pertanyaan");//You have to answer all questions (New)
 ?>

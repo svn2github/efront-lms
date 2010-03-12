@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Turite nurodyti klausimus");//You must spec
 define("_MUSTSPECIFYVALUEFROM","Turite nurodyti vertę");//You must specify a value from
 define("_COURSEPROFESSORS","Kurso dėstytojai");//Course professors
 define("_PROFESSORSOFCOURSE","Profesoriai žinoma");//Professors of course
-define("_USERSUPERVISORS","Naudotojo vadovai");//User supervisors (New)
-define("_USEROPTIONSFOR","Options vartotojas");//Options for user (New)
-define("_MYSTATUS","Mano gyvenimą Statusas");//my Learning Status (New)
-define("_MYCOURSES","Mano kursai");//my Courses (New)
-define("_CERTIFICATIONS","Sertifikatai");//Certificates (New)
-define("_MYCERTIFICATIONS","Mano sertifikatai");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Sertifikatai buvo išduoti iki vartotojo dar nėra");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Būti aktyvuota vadovas");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Nr filialas priežiūros rasti");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Naudotojo vadovai");//User supervisors
+define("_USEROPTIONSFOR","Options vartotojas");//Options for user
+define("_MYSTATUS","Mano gyvenimą Statusas");//my Learning Status
+define("_MYCOURSES","Mano kursai");//my Courses
+define("_CERTIFICATIONS","Sertifikatai");//Certificates
+define("_MYCERTIFICATIONS","Mano sertifikatai");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Sertifikatai buvo išduoti iki vartotojo dar nėra");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Būti aktyvuota vadovas");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Nr filialas priežiūros rasti");//No branch supervisors found
 define("_PRINTCONTENT","Print");//Print content
 define("_USERHASNOTDONETEST","Šis vartotojas neturi padaryti šio bandymo");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Prašome įsitikinti, kad ši informacija yra teisinga");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nėra apibrėžtų kategorijų");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Priežiūros aktyvacijos laišką");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbuotojo sąskaitą Activation Email");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šis el.pašto leidžia aktyvuoti naujos sistemos vartotojo");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","paskirtas filialas");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Priežiūros aktyvacijos laišką");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbuotojo sąskaitą Activation Email");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šis el.pašto leidžia aktyvuoti naujos sistemos vartotojo");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","paskirtas filialas");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","su darbo vieta");//with the job description
-define("_BYCLICKINGONTHELINK","paspaudę šią nuorodą");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Jūsų darbuotojo sąskaitą buvo sėkmingai aktyvuota");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Skersiniais");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Sektoriaus informacija");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Filialas lauko pavadinimas");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Darbo lauko vardas");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Įjungus vadovas lauko pavadinimas");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Palikite tuščią ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Pasirinkite");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsų vadovas bus aktyvuoti savo sąskaitą");//Your supervisor will activate your account (New)
-define("_IMS","IGS");//IMS (New)
-define("_IMSIMPORT","Importo IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Eksporto IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Įkelti failą į ZIP formatą");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IGS galimybių");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IGS failas buvo sėkmingai importuotas");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Paslėpti nuo vartotojų");//Hidden from users (New)
-define("_RESETSCORMDATA","Atstatyti naudotojo duomenis");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Papildomi nustatymai");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","paspaudę šią nuorodą");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Jūsų darbuotojo sąskaitą buvo sėkmingai aktyvuota");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Skersiniais");//Horizontal bar
+define("_BRANCHINFORMATION","Sektoriaus informacija");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Filialas lauko pavadinimas");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Darbo lauko vardas");//Job field name
+define("_SUPERVISORDESCRIPTION","Įjungus vadovas lauko pavadinimas");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Palikite tuščią ommit");//Leave empty to ommit
+define("_PLEASESELECT","Pasirinkite");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsų vadovas bus aktyvuoti savo sąskaitą");//Your supervisor will activate your account
+define("_IMS","IGS");//IMS
+define("_IMSIMPORT","Importo IMS Content");//Import IMS Content
+define("_IMSEXPORT","Eksporto IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Įkelti failą į ZIP formatą");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IGS galimybių");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IGS failas buvo sėkmingai importuotas");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Paslėpti nuo vartotojų");//Hidden from users
+define("_RESETSCORMDATA","Atstatyti naudotojo duomenis");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Papildomi nustatymai");//Advanced settings
+define("_SHOWMOTTOONHEADER","Rodyti pavadinimas ir šūkis taip pat antraštė");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Paieškos rezultatai žodynėlis");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary (New)
+define("_AUTOLOGIN","Automatinis prisijungimas");//Auto login (New)
+define("_ACCESSLINK","Prieiga nuorodą");//Access link (New)
+define("_AUTOLOGINITHLINK","Vartotojas galėtų prisijungti automatiškai nuorodą");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Numatytasis vartotojo tipą");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force studentų atsakyti į visus klausimus");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Jūs turite atsakyti į visus klausimus");//You have to answer all questions (New)
 ?>

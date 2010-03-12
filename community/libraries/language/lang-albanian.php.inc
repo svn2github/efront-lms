@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Ju duhet të specifikojë numrin e pyetjeve
 define("_MUSTSPECIFYVALUEFROM","Ju duhet të përcaktoni një vlerë prej");//You must specify a value from
 define("_COURSEPROFESSORS","Profesorët e kursit");//Course professors
 define("_PROFESSORSOFCOURSE","Profesorët natyrisht");//Professors of course
-define("_USERSUPERVISORS","Mbikëqyrësit User");//User supervisors (New)
-define("_USEROPTIONSFOR","Mundësitë e zgjedhjes për përdoruesit");//Options for user (New)
-define("_MYSTATUS","Statusi Learning im");//my Learning Status (New)
-define("_MYCOURSES","Kurse im");//my Courses (New)
-define("_CERTIFICATIONS","Certifikata");//Certificates (New)
-define("_MYCERTIFICATIONS","Certifikata e mia");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nuk ka certifikata janë lëshuar për përdoruesit ende");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Të aktivizohet nga mbikqyrësi");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Nuk mbikëqyrësit degë gjetur");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Mbikëqyrësit User");//User supervisors
+define("_USEROPTIONSFOR","Mundësitë e zgjedhjes për përdoruesit");//Options for user
+define("_MYSTATUS","Statusi Learning im");//my Learning Status
+define("_MYCOURSES","Kurse im");//my Courses
+define("_CERTIFICATIONS","Certifikata");//Certificates
+define("_MYCERTIFICATIONS","Certifikata e mia");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nuk ka certifikata janë lëshuar për përdoruesit ende");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Të aktivizohet nga mbikqyrësi");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Nuk mbikëqyrësit degë gjetur");//No branch supervisors found
 define("_PRINTCONTENT","Përmbajtja Printo");//Print content
 define("_USERHASNOTDONETEST","Ky përdorues ka nuk e ka bërë këtë provë");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Ju lutem verifikoni se informatat e mëposhtme është e saktë");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nuk ka kategori të definuar");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Mbikqyrësi aktivizimin e-mail");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","E-mail aktivizimi punonjës llogari");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ky email ju mundëson për të aktivizuar sistemin e ri përdorues");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","caktuar degë");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Mbikqyrësi aktivizimin e-mail");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","E-mail aktivizimi punonjës llogari");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ky email ju mundëson për të aktivizuar sistemin e ri përdorues");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","caktuar degë");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","me pozicionin e punës");//with the job description
-define("_BYCLICKINGONTHELINK","duke klikuar në lidhjen që vijon");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Llogari të punonjësit tuaj u aktivizua me sukses");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Informacion Dega");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Emri Dega fushë");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Emri Job fushë");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktivizimi fushë emrin mbikëqyrës");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Lini bosh të ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Ju lutem zgjidhni");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Mbikqyrësi juaj do të aktivizoni llogarinë tuaj");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Ngarko foto IMS në formatin ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","Options IMS");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS skedar u importua me sukses");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Fshehur nga shfrytëzuesit");//Hidden from users (New)
-define("_RESETSCORMDATA","Përdorues të dhënave Reset");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Advanced settings");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","duke klikuar në lidhjen që vijon");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Llogari të punonjësit tuaj u aktivizua me sukses");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar
+define("_BRANCHINFORMATION","Informacion Dega");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Emri Dega fushë");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Emri Job fushë");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktivizimi fushë emrin mbikëqyrës");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Lini bosh të ommit");//Leave empty to ommit
+define("_PLEASESELECT","Ju lutem zgjidhni");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Mbikqyrësi juaj do të aktivizoni llogarinë tuaj");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Ngarko foto IMS në formatin ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","Options IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS skedar u importua me sukses");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Fshehur nga shfrytëzuesit");//Hidden from users
+define("_RESETSCORMDATA","Përdorues të dhënave Reset");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Advanced settings");//Advanced settings
+define("_SHOWMOTTOONHEADER","Show emrin dhe moto edhe më kokë");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Search results glossary");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","No results found glossary");//No results found in glossary (New)
+define("_AUTOLOGIN","Login Auto");//Auto login (New)
+define("_ACCESSLINK","Lidhje Hyrje");//Access link (New)
+define("_AUTOLOGINITHLINK","Përdoruesi mund të identifikohem automatikisht nga Lidhje");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Type Default përdorues");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Studenti Forca përgjigje të gjitha pyetjeve");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Ju duhet t&#39;u përgjigjeni të gjitha pyetjeve");//You have to answer all questions (New)
 ?>

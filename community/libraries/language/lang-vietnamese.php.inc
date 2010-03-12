@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Bạn phải chỉ định số lượng c�
 define("_MUSTSPECIFYVALUEFROM","Bạn phải chỉ định một giá trị từ");//You must specify a value from
 define("_COURSEPROFESSORS","Tất nhiên các giáo sư");//Course professors
 define("_PROFESSORSOFCOURSE","Giáo sư của khóa học");//Professors of course
-define("_USERSUPERVISORS","Thành viên giám sát");//User supervisors (New)
-define("_USEROPTIONSFOR","Tùy chọn cho người sử dụng");//Options for user (New)
-define("_MYSTATUS","Tình trạng học tập của tôi");//my Learning Status (New)
-define("_MYCOURSES","Các khóa học của tôi");//my Courses (New)
-define("_CERTIFICATIONS","Giấy chứng nhận");//Certificates (New)
-define("_MYCERTIFICATIONS","Giấy chứng nhận của tôi");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Không có giấy chứng nhận đã được cấp cho người dùng chưa");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Để được kích hoạt bằng cách giám sát");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Không có người giám sát ngành hàng");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Thành viên giám sát");//User supervisors
+define("_USEROPTIONSFOR","Tùy chọn cho người sử dụng");//Options for user
+define("_MYSTATUS","Tình trạng học tập của tôi");//my Learning Status
+define("_MYCOURSES","Các khóa học của tôi");//my Courses
+define("_CERTIFICATIONS","Giấy chứng nhận");//Certificates
+define("_MYCERTIFICATIONS","Giấy chứng nhận của tôi");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Không có giấy chứng nhận đã được cấp cho người dùng chưa");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Để được kích hoạt bằng cách giám sát");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Không có người giám sát ngành hàng");//No branch supervisors found
 define("_PRINTCONTENT","In nội dung");//Print content
 define("_USERHASNOTDONETEST","Người sử dụng đã không thực hiện kiểm tra này");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Xin vui lòng xác minh rằng các thông tin sau đây là đúng");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Không có loại được xác định");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Giám sát email kích hoạt");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Nhân viên kích hoạt tài khoản email");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Email này cho phép bạn để kích hoạt hệ thống mới, người sử dụng");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","giao cho chi nhánh");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Giám sát email kích hoạt");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Nhân viên kích hoạt tài khoản email");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Email này cho phép bạn để kích hoạt hệ thống mới, người sử dụng");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","giao cho chi nhánh");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","với các vị trí công việc");//with the job description
-define("_BYCLICKINGONTHELINK","bằng cách nhấn vào liên kết sau");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Các tài khoản của các nhân viên của bạn đã được kích hoạt thành công");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Xà đơn");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Chi nhánh thông tin");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Chi nhánh tên trường");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Việc làm tên trường");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Kích hoạt tên lĩnh vực giám sát");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Để có sản phẩm nào để ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Vui lòng chọn");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Giám sát của bạn sẽ kích hoạt tài khoản của bạn");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Nhập khẩu IMS Nội dung");//Import IMS Content (New)
-define("_IMSEXPORT","Xuất khẩu IMS Nội dung");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS tải lên tập tin trong định dạng Zip");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS tuỳ chọn");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS tập tin đã được nhập thành công");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Thể từ người dùng");//Hidden from users (New)
-define("_RESETSCORMDATA","Thiết lập lại dữ liệu người dùng");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Cài đặt nâng cao");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","bằng cách nhấn vào liên kết sau");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Các tài khoản của các nhân viên của bạn đã được kích hoạt thành công");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Xà đơn");//Horizontal bar
+define("_BRANCHINFORMATION","Chi nhánh thông tin");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Chi nhánh tên trường");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Việc làm tên trường");//Job field name
+define("_SUPERVISORDESCRIPTION","Kích hoạt tên lĩnh vực giám sát");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Để có sản phẩm nào để ommit");//Leave empty to ommit
+define("_PLEASESELECT","Vui lòng chọn");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Giám sát của bạn sẽ kích hoạt tài khoản của bạn");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Nhập khẩu IMS Nội dung");//Import IMS Content
+define("_IMSEXPORT","Xuất khẩu IMS Nội dung");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS tải lên tập tin trong định dạng Zip");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS tuỳ chọn");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS tập tin đã được nhập thành công");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Thể từ người dùng");//Hidden from users
+define("_RESETSCORMDATA","Thiết lập lại dữ liệu người dùng");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Cài đặt nâng cao");//Advanced settings
+define("_SHOWMOTTOONHEADER","Hiển thị tên và khẩu hiệu cũng trên tiêu đề");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Kết quả tìm kiếm trong glossary");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Không có kết quả được tìm thấy trong glossary");//No results found in glossary (New)
+define("_AUTOLOGIN","Tự động đăng nhập");//Auto login (New)
+define("_ACCESSLINK","Truy cập vào liên kết");//Access link (New)
+define("_AUTOLOGINITHLINK","Người dùng có thể tự động đăng nhập bằng cách liên kết");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Mặc định người sử dụng loại");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Lực lượng học sinh trả lời tất cả câu hỏi");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Bạn cần phải trả lời các câu hỏi");//You have to answer all questions (New)
 ?>

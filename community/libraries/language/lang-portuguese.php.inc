@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Você deve especificar o número de pergunt
 define("_MUSTSPECIFYVALUEFROM","Você deve especificar um valor de");//You must specify a value from
 define("_COURSEPROFESSORS","Professores do Curso");//Course professors
 define("_PROFESSORSOFCOURSE","Professores do curso");//Professors of course
-define("_USERSUPERVISORS","Supervisores de");//User supervisors (New)
-define("_USEROPTIONSFOR","Opções para o usuário");//Options for user (New)
-define("_MYSTATUS","My Learning Status");//my Learning Status (New)
-define("_MYCOURSES","Meus Cursos");//my Courses (New)
-define("_CERTIFICATIONS","Certificados");//Certificates (New)
-define("_MYCERTIFICATIONS","meus certificados");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Não tenham sido emitidos certificados para o usuário ainda");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Para ser ativado pelo supervisor");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","No ramo supervisores encontrado");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Supervisores de");//User supervisors
+define("_USEROPTIONSFOR","Opções para o usuário");//Options for user
+define("_MYSTATUS","My Learning Status");//my Learning Status
+define("_MYCOURSES","Meus Cursos");//my Courses
+define("_CERTIFICATIONS","Certificados");//Certificates
+define("_MYCERTIFICATIONS","meus certificados");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Não tenham sido emitidos certificados para o usuário ainda");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Para ser ativado pelo supervisor");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","No ramo supervisores encontrado");//No branch supervisors found
 define("_PRINTCONTENT","Imprimir conteúdo");//Print content
 define("_USERHASNOTDONETEST","O usuário não tenha feito este teste");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Por favor, verifique se a seguinte informação é correta");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Não há categorias definidas");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Supervisor de ativação e-mail");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Empregado e-mail de ativação da conta");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Este e-mail lhe permite ativar o sistema novo usuário");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","atribuído ao ramo");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor de ativação e-mail");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Empregado e-mail de ativação da conta");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Este e-mail lhe permite ativar o sistema novo usuário");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","atribuído ao ramo");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","com a descrição do trabalho");//with the job description
-define("_BYCLICKINGONTHELINK","clicando no link a seguir");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","A conta de seu empregado foi ativada com sucesso");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Barra horizontal");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Informações Branch");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Branch nome do campo");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Nome do trabalho de campo");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Ativando o nome do campo supervisor");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Deixe em branco para ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Por favor selecione");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Seu supervisor vai ativar sua conta");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Importação de conteúdo IMS");//Import IMS Content (New)
-define("_IMSEXPORT","Exportação de conteúdo IMS");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS upload de arquivos em formato ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","Opções IMS");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS arquivo foi importado com sucesso");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Ocultos dos usuários");//Hidden from users (New)
-define("_RESETSCORMDATA","Dados do usuário Reset");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Configurações avançadas");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","clicando no link a seguir");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","A conta de seu empregado foi ativada com sucesso");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Barra horizontal");//Horizontal bar
+define("_BRANCHINFORMATION","Informações Branch");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Branch nome do campo");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Nome do trabalho de campo");//Job field name
+define("_SUPERVISORDESCRIPTION","Ativando o nome do campo supervisor");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Deixe em branco para ommit");//Leave empty to ommit
+define("_PLEASESELECT","Por favor selecione");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Seu supervisor vai ativar sua conta");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Importação de conteúdo IMS");//Import IMS Content
+define("_IMSEXPORT","Exportação de conteúdo IMS");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS upload de arquivos em formato ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","Opções IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS arquivo foi importado com sucesso");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Ocultos dos usuários");//Hidden from users
+define("_RESETSCORMDATA","Dados do usuário Reset");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Configurações avançadas");//Advanced settings
+define("_SHOWMOTTOONHEADER","Mostrar o nome e lema também no cabeçalho");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Resultados da pesquisa no glossário");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Nenhum resultado encontrado no glossário");//No results found in glossary (New)
+define("_AUTOLOGIN","Auto login");//Auto login (New)
+define("_ACCESSLINK","Link de acesso");//Access link (New)
+define("_AUTOLOGINITHLINK","Usuário pode fazer login automaticamente pelo link");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Padrão tipo de usuário");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Força aluno responder todas as perguntas");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Você tem que responder todas as perguntas");//You have to answer all questions (New)
 ?>

@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Musíte zadať počet otázok");//You must 
 define("_MUSTSPECIFYVALUEFROM","Musíte zadať hodnotu od");//You must specify a value from
 define("_COURSEPROFESSORS","Samozrejme profesori");//Course professors
 define("_PROFESSORSOFCOURSE","Profesori samozrejme");//Professors of course
-define("_USERSUPERVISORS","Užívateľ dohľadu");//User supervisors (New)
-define("_USEROPTIONSFOR","Možnosti pre používateľa");//Options for user (New)
-define("_MYSTATUS","Stav mojej učenia");//my Learning Status (New)
-define("_MYCOURSES","my Kurzy");//my Courses (New)
-define("_CERTIFICATIONS","Certifikáty");//Certificates (New)
-define("_MYCERTIFICATIONS","my Certifikáty");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Žiadne certifikáty boli vydané pre užívateľov ešte");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Ak chcete byť aktivovaná Garant");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","No pobočka dohľadu nenašli");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Užívateľ dohľadu");//User supervisors
+define("_USEROPTIONSFOR","Možnosti pre používateľa");//Options for user
+define("_MYSTATUS","Stav mojej učenia");//my Learning Status
+define("_MYCOURSES","my Kurzy");//my Courses
+define("_CERTIFICATIONS","Certifikáty");//Certificates
+define("_MYCERTIFICATIONS","my Certifikáty");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Žiadne certifikáty boli vydané pre užívateľov ešte");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Ak chcete byť aktivovaná Garant");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","No pobočka dohľadu nenašli");//No branch supervisors found
 define("_PRINTCONTENT","Tlač obsahu");//Print content
 define("_USERHASNOTDONETEST","Užívateľ neurobil tento test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Overte prosím, že tieto informácie sú správne");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Neexistujú žiadne definované kategórie");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Vedúci aktivačný e-mail");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Pracovník aktivácie účtu e-mailom");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tento e-mail umožňuje aktiváciu nového systému užívateľ");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","pridelené pobočky");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Vedúci aktivačný e-mail");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Pracovník aktivácie účtu e-mailom");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tento e-mail umožňuje aktiváciu nového systému užívateľ");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","pridelené pobočky");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","s pracovnou pozíciov");//with the job description
-define("_BYCLICKINGONTHELINK","po kliknutí na nasledujúci odkaz");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Váš účet bol úspešne aktivovaný zamestnancov");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Hrazda");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Pobočka informácie");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Pobočka názov poľa");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job názov poľa");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktivácia vedúci názov poľa");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Ponechajte prázdne, aby ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Vyberte prosím");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Váš nadriadený bude aktivovať účet");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS nahrať súbor vo formáte ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS voľby");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS súbor bol úspešne dovezené");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Skryté od užívateľov");//Hidden from users (New)
-define("_RESETSCORMDATA","Reset užívateľských dát");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Rozšírené nastavenia");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","po kliknutí na nasledujúci odkaz");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Váš účet bol úspešne aktivovaný zamestnancov");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Hrazda");//Horizontal bar
+define("_BRANCHINFORMATION","Pobočka informácie");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Pobočka názov poľa");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job názov poľa");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktivácia vedúci názov poľa");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Ponechajte prázdne, aby ommit");//Leave empty to ommit
+define("_PLEASESELECT","Vyberte prosím");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Váš nadriadený bude aktivovať účet");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS nahrať súbor vo formáte ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS voľby");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS súbor bol úspešne dovezené");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Skryté od užívateľov");//Hidden from users
+define("_RESETSCORMDATA","Reset užívateľských dát");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Rozšírené nastavenia");//Advanced settings
+define("_SHOWMOTTOONHEADER","Zobraziť meno a heslo aj na hlavičku");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Výsledky vyhľadávania v slovníček");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Neboli nájdené žiadne výsledky vo slovníku");//No results found in glossary (New)
+define("_AUTOLOGIN","Automatické prihlásenie");//Auto login (New)
+define("_ACCESSLINK","Prípojku");//Access link (New)
+define("_AUTOLOGINITHLINK","Užívateľ môže prihlásiť automaticky odkaz");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Predvolený typ užívateľa");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force študent odpovedať na všetky otázky");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Musíte odpovedať na všetky otázky");//You have to answer all questions (New)
 ?>

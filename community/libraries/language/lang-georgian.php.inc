@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","");//You must specify the number of questio
 define("_MUSTSPECIFYVALUEFROM","");//You must specify a value from
 define("_COURSEPROFESSORS","");//Course professors
 define("_PROFESSORSOFCOURSE","");//Professors of course
-define("_USERSUPERVISORS","");//User supervisors (New)
-define("_USEROPTIONSFOR","");//Options for user (New)
-define("_MYSTATUS","");//my Learning Status (New)
-define("_MYCOURSES","");//my Courses (New)
-define("_CERTIFICATIONS","");//Certificates (New)
-define("_MYCERTIFICATIONS","");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","");//No branch supervisors found (New)
+define("_USERSUPERVISORS","");//User supervisors
+define("_USEROPTIONSFOR","");//Options for user
+define("_MYSTATUS","");//my Learning Status
+define("_MYCOURSES","");//my Courses
+define("_CERTIFICATIONS","");//Certificates
+define("_MYCERTIFICATIONS","");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","");//No branch supervisors found
 define("_PRINTCONTENT","");//Print content
 define("_USERHASNOTDONETEST","მონაწილეს ეს ტესტი არ გაუვლია");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION"," თანამდებობით ");//with the job description
-define("_BYCLICKINGONTHELINK","");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","");//Horizontal bar (New)
-define("_BRANCHINFORMATION","");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","");//Leave empty to ommit (New)
-define("_PLEASESELECT","");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","");//Your supervisor will activate your account (New)
-define("_IMS","");//IMS (New)
-define("_IMSIMPORT","");//Import IMS Content (New)
-define("_IMSEXPORT","");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","");//IMS file was successfully imported (New)
-define("_TOOLTIP","");//Tooltip (New)
-define("_HIDDEN","");//Hidden from users (New)
-define("_RESETSCORMDATA","");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","");//Horizontal bar
+define("_BRANCHINFORMATION","");//Branch information
+define("_BRANCHNAMEDESCRIPTION","");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","");//Job field name
+define("_SUPERVISORDESCRIPTION","");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","");//Leave empty to ommit
+define("_PLEASESELECT","");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","");//Your supervisor will activate your account
+define("_IMS","");//IMS
+define("_IMSIMPORT","");//Import IMS Content
+define("_IMSEXPORT","");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","");//IMS file was successfully imported
+define("_TOOLTIP","");//Tooltip
+define("_HIDDEN","");//Hidden from users
+define("_RESETSCORMDATA","");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","");//Advanced settings
+define("_SHOWMOTTOONHEADER","");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","");//No results found in glossary (New)
+define("_AUTOLOGIN","");//Auto login (New)
+define("_ACCESSLINK","");//Access link (New)
+define("_AUTOLOGINITHLINK","");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","");//You have to answer all questions (New)
 ?>

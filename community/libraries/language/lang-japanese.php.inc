@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","あなたの質問の数を指定する必�
 define("_MUSTSPECIFYVALUEFROM","あなたからの値を指定する必要があります");//You must specify a value from
 define("_COURSEPROFESSORS","コース教授");//Course professors
 define("_PROFESSORSOFCOURSE","教授コース");//Professors of course
-define("_USERSUPERVISORS","ユーザーの上司");//User supervisors (New)
-define("_USEROPTIONSFOR","ユーザ用のオプション");//Options for user (New)
-define("_MYSTATUS","私の学習状況");//my Learning Status (New)
-define("_MYCOURSES","私のコース");//my Courses (New)
-define("_CERTIFICATIONS","証明書");//Certificates (New)
-define("_MYCERTIFICATIONS","自分の証明書");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","いいえ証明書は、ユーザーにはまだ発行されている");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","スーパーバイザによって活性化されるために");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Noの枝監督が見つかりました");//No branch supervisors found (New)
+define("_USERSUPERVISORS","ユーザーの上司");//User supervisors
+define("_USEROPTIONSFOR","ユーザ用のオプション");//Options for user
+define("_MYSTATUS","私の学習状況");//my Learning Status
+define("_MYCOURSES","私のコース");//my Courses
+define("_CERTIFICATIONS","証明書");//Certificates
+define("_MYCERTIFICATIONS","自分の証明書");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","いいえ証明書は、ユーザーにはまだ発行されている");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","スーパーバイザによって活性化されるために");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Noの枝監督が見つかりました");//No branch supervisors found
 define("_PRINTCONTENT","印刷内容");//Print content
 define("_USERHASNOTDONETEST","このテストは、ユーザーがいない");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","してくださいには、次の情報が正しいことを確認する");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","ない種類が定義され");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","上司のメールの活性化");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","従業員のアカウント開設のメール");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","このメールは、あなたには、新しいシステムのユーザーを有効にできます");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","ブランチへの割り当て");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","上司のメールの活性化");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","従業員のアカウント開設のメール");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","このメールは、あなたには、新しいシステムのユーザーを有効にできます");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","ブランチへの割り当て");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","その仕事の説明を");//with the job description
-define("_BYCLICKINGONTHELINK","次のリンクをクリックして");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","あなたの従業員のアカウントが正常にアクティブ化された");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","水平バー");//Horizontal bar (New)
-define("_BRANCHINFORMATION","支店情報");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","支店フィールド名");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","仕事のフィールド名");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","スーパーバイザー、フィールド名のアクティブ化");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","省略するには空を残す");//Leave empty to ommit (New)
-define("_PLEASESELECT","選択してください");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","上司のアカウントをアクティブにします");//Your supervisor will activate your account (New)
-define("_IMS","IMSの");//IMS (New)
-define("_IMSIMPORT","インポートIMSコンテンツ");//Import IMS Content (New)
-define("_IMSEXPORT","エクスポートIMSコンテンツ");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","郵便番号のアップロードのIMSファイル形式");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMSのオプション");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMSのファイルが正常にインポートされた");//IMS file was successfully imported (New)
-define("_TOOLTIP","ツールチップ");//Tooltip (New)
-define("_HIDDEN","隠されたユーザーからの");//Hidden from users (New)
-define("_RESETSCORMDATA","をリセットするユーザデータ");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","[詳細設定]");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","次のリンクをクリックして");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","あなたの従業員のアカウントが正常にアクティブ化された");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","水平バー");//Horizontal bar
+define("_BRANCHINFORMATION","支店情報");//Branch information
+define("_BRANCHNAMEDESCRIPTION","支店フィールド名");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","仕事のフィールド名");//Job field name
+define("_SUPERVISORDESCRIPTION","スーパーバイザー、フィールド名のアクティブ化");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","省略するには空を残す");//Leave empty to ommit
+define("_PLEASESELECT","選択してください");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","上司のアカウントをアクティブにします");//Your supervisor will activate your account
+define("_IMS","IMSの");//IMS
+define("_IMSIMPORT","インポートIMSコンテンツ");//Import IMS Content
+define("_IMSEXPORT","エクスポートIMSコンテンツ");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","郵便番号のアップロードのIMSファイル形式");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMSのオプション");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMSのファイルが正常にインポートされた");//IMS file was successfully imported
+define("_TOOLTIP","ツールチップ");//Tooltip
+define("_HIDDEN","隠されたユーザーからの");//Hidden from users
+define("_RESETSCORMDATA","をリセットするユーザデータ");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","[詳細設定]");//Advanced settings
+define("_SHOWMOTTOONHEADER","ショーの名前とのモットーは、ヘッダに");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","用語集の検索結果");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","結果はありません用語集で発見");//No results found in glossary (New)
+define("_AUTOLOGIN","オートログイン");//Auto login (New)
+define("_ACCESSLINK","Accessのリンク");//Access link (New)
+define("_AUTOLOGINITHLINK","ユーザーは自動的にリンクによってログインすることができます");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","デフォルトのユーザーのタイプ");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","強制的に学生の質問に答える");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","すべての質問に回答する必要があります");//You have to answer all questions (New)
 ?>

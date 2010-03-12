@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","شما باید تعدادی از سؤال�
 define("_MUSTSPECIFYVALUEFROM","شما باید از یک مقدار مشخص");//You must specify a value from
 define("_COURSEPROFESSORS","استاد درس");//Course professors
 define("_PROFESSORSOFCOURSE","البته استادان");//Professors of course
-define("_USERSUPERVISORS","ناظران کاربر");//User supervisors (New)
-define("_USEROPTIONSFOR","گزینه های کاربر");//Options for user (New)
-define("_MYSTATUS","وضعیت من یادگیری");//my Learning Status (New)
-define("_MYCOURSES","دوره های من");//my Courses (New)
-define("_CERTIFICATIONS","گواهینامه ها");//Certificates (New)
-define("_MYCERTIFICATIONS","گواهینامه های من");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","بدون گواهی نامه را به کاربر صادر نشده است");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","برای فعال توسط سرپرست می شود");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","بدون ناظران شعبه یافت نشد");//No branch supervisors found (New)
+define("_USERSUPERVISORS","ناظران کاربر");//User supervisors
+define("_USEROPTIONSFOR","گزینه های کاربر");//Options for user
+define("_MYSTATUS","وضعیت من یادگیری");//my Learning Status
+define("_MYCOURSES","دوره های من");//my Courses
+define("_CERTIFICATIONS","گواهینامه ها");//Certificates
+define("_MYCERTIFICATIONS","گواهینامه های من");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","بدون گواهی نامه را به کاربر صادر نشده است");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","برای فعال توسط سرپرست می شود");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","بدون ناظران شعبه یافت نشد");//No branch supervisors found
 define("_PRINTCONTENT","محتوای نسخه قابل چاپ");//Print content
 define("_USERHASNOTDONETEST","کاربر به این آزمایش را انجام نمی");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","لطفا اطلاعات زیر را که درست است نسخه متنی]");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","هیچ دسته بندی تعریف شده وجود دارد.");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","استاد راهنما ایمیل فعال سازی حساب کاربری");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","کارمند حساب ایمیل فعال سازی حساب کاربری");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","این ایمیل شما را قادر به فعال کردن سیستم کاربر جدید");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","اختصاص داده به شعبه");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","استاد راهنما ایمیل فعال سازی حساب کاربری");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","کارمند حساب ایمیل فعال سازی حساب کاربری");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","این ایمیل شما را قادر به فعال کردن سیستم کاربر جدید");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","اختصاص داده به شعبه");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","با موقعیت شغلی");//with the job description
-define("_BYCLICKINGONTHELINK","با کلیک بر روی لینک زیر");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","کارمند از حساب شما با موفقیت فعال شد");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","نوار افقی");//Horizontal bar (New)
-define("_BRANCHINFORMATION","اطلاعات شعبه");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","نام شعبه میدان");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","فرصت های شغلی نام رشته");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","نام استاد راهنما به فعال شدن میدان");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","مرخصی خالی برای ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","لطفا انتخاب کنید");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","سرپرست شما حساب کاربری خود را فعال");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","واردات IMS مطالب و محتوا");//Import IMS Content (New)
-define("_IMSEXPORT","صادرات IMS مطالب و محتوا");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS آپلود فایل در فرمت زیپ");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","گزینه های IMS");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","فایل IMS با موفقیت وارد شد");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","پنهان از کاربران");//Hidden from users (New)
-define("_RESETSCORMDATA","تنظیم مجدد اطلاعات کاربر");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","تنظیمات پیشرفته");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","با کلیک بر روی لینک زیر");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","کارمند از حساب شما با موفقیت فعال شد");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","نوار افقی");//Horizontal bar
+define("_BRANCHINFORMATION","اطلاعات شعبه");//Branch information
+define("_BRANCHNAMEDESCRIPTION","نام شعبه میدان");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","فرصت های شغلی نام رشته");//Job field name
+define("_SUPERVISORDESCRIPTION","نام استاد راهنما به فعال شدن میدان");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","مرخصی خالی برای ommit");//Leave empty to ommit
+define("_PLEASESELECT","لطفا انتخاب کنید");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","سرپرست شما حساب کاربری خود را فعال");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","واردات IMS مطالب و محتوا");//Import IMS Content
+define("_IMSEXPORT","صادرات IMS مطالب و محتوا");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS آپلود فایل در فرمت زیپ");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","گزینه های IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","فایل IMS با موفقیت وارد شد");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","پنهان از کاربران");//Hidden from users
+define("_RESETSCORMDATA","تنظیم مجدد اطلاعات کاربر");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","تنظیمات پیشرفته");//Advanced settings
+define("_SHOWMOTTOONHEADER","نمایش نام و شعار نیز بر روی قسمت بالای");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","نتایج جستجو در واژه نامه");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","هیچ نتیجه در بر داشت در واژه نامه");//No results found in glossary (New)
+define("_AUTOLOGIN","ورود خودکار");//Auto login (New)
+define("_ACCESSLINK","لینک های دسترسی");//Access link (New)
+define("_AUTOLOGINITHLINK","ورود کاربر به طور خودکار می تواند توسط پیوند");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","پیش فرض نوع کاربر");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","نیروی دانشجویی به همه سئوالاتی که");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","شما باید برای پاسخ به همه سوالات مطرح شده");//You have to answer all questions (New)
 ?>

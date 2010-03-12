@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Трябва да зададете броя
 define("_MUSTSPECIFYVALUEFROM","Трябва да зададете стойност от");//You must specify a value from
 define("_COURSEPROFESSORS","Учебната професори");//Course professors
 define("_PROFESSORSOFCOURSE","Професори разбира се");//Professors of course
-define("_USERSUPERVISORS","Потребителски надзорни");//User supervisors (New)
-define("_USEROPTIONSFOR","Опции за потребител");//Options for user (New)
-define("_MYSTATUS","Моят живот Статус");//my Learning Status (New)
-define("_MYCOURSES","ми Курсове");//my Courses (New)
-define("_CERTIFICATIONS","Сертификати");//Certificates (New)
-define("_MYCERTIFICATIONS","ми Сертификати");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Не са сертификати, издадени на потребител все още");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","За да се активира от надзора");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Не клон надзорни намерени");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Потребителски надзорни");//User supervisors
+define("_USEROPTIONSFOR","Опции за потребител");//Options for user
+define("_MYSTATUS","Моят живот Статус");//my Learning Status
+define("_MYCOURSES","ми Курсове");//my Courses
+define("_CERTIFICATIONS","Сертификати");//Certificates
+define("_MYCERTIFICATIONS","ми Сертификати");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Не са сертификати, издадени на потребител все още");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","За да се активира от надзора");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Не клон надзорни намерени");//No branch supervisors found
 define("_PRINTCONTENT","Печат на съдържанието");//Print content
 define("_USERHASNOTDONETEST","Потребителят не е направено този тест");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Моля, потвърдете, че следната информация е вярна");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Там не са определени категории");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Надзорен орган по имейл активиране");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Служител имейл акаунт активиране");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Този е-мейл ви дава възможност да активирате новата система за потребител");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","възложени на браншовите");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Надзорен орган по имейл активиране");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Служител имейл акаунт активиране");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Този е-мейл ви дава възможност да активирате новата система за потребител");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","възложени на браншовите");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","с длъжностна характеристика");//with the job description
-define("_BYCLICKINGONTHELINK",", като щракнете върху връзката по-долу");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Сметката на вашия служител е успешно активирана");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Хоризонтална лента");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Клон информация");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Клон името на полето");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Работа името на полето");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Активиране на име за надзор над областта");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Оставете празни до ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Моля изберете");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Вашият ръководител ще активирате сметката си");//Your supervisor will activate your account (New)
-define("_IMS","ИСП");//IMS (New)
-define("_IMSIMPORT","Внос ИСП Съдържание");//Import IMS Content (New)
-define("_IMSEXPORT","Износ ИСП Съдържание");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Качи ИСП файл в ZIP формат");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","ИСП опции");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","ИСП файла е успешно, внесени");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Скрити от потребителя");//Hidden from users (New)
-define("_RESETSCORMDATA","Проучване на потребителски данни");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Допълнителни настройки");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK",", като щракнете върху връзката по-долу");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Сметката на вашия служител е успешно активирана");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Хоризонтална лента");//Horizontal bar
+define("_BRANCHINFORMATION","Клон информация");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Клон името на полето");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Работа името на полето");//Job field name
+define("_SUPERVISORDESCRIPTION","Активиране на име за надзор над областта");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Оставете празни до ommit");//Leave empty to ommit
+define("_PLEASESELECT","Моля изберете");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Вашият ръководител ще активирате сметката си");//Your supervisor will activate your account
+define("_IMS","ИСП");//IMS
+define("_IMSIMPORT","Внос ИСП Съдържание");//Import IMS Content
+define("_IMSEXPORT","Износ ИСП Съдържание");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Качи ИСП файл в ZIP формат");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","ИСП опции");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","ИСП файла е успешно, внесени");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Скрити от потребителя");//Hidden from users
+define("_RESETSCORMDATA","Проучване на потребителски данни");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Допълнителни настройки");//Advanced settings
+define("_SHOWMOTTOONHEADER","Показване на името и мотото и на заглавието");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Резултат от търсенето в речник");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Не са намерени в речник");//No results found in glossary (New)
+define("_AUTOLOGIN","Auto Login");//Auto login (New)
+define("_ACCESSLINK","Достъпът връзка");//Access link (New)
+define("_AUTOLOGINITHLINK","Потребител може да влезете автоматично от връзката");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","По подразбиране тип потребител");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Сили студент отговори на всички въпроси");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Трябва да се отговори на всички въпроси");//You have to answer all questions (New)
 ?>

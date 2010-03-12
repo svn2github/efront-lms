@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Du må angi antall spørsmål");//You must 
 define("_MUSTSPECIFYVALUEFROM","Du må angi en verdi fra");//You must specify a value from
 define("_COURSEPROFESSORS","Course professorer");//Course professors
 define("_PROFESSORSOFCOURSE","Professorer selvfølgelig");//Professors of course
-define("_USERSUPERVISORS","Bruker veiledere");//User supervisors (New)
-define("_USEROPTIONSFOR","Valg for brukeren");//Options for user (New)
-define("_MYSTATUS","my Learning Status");//my Learning Status (New)
-define("_MYCOURSES","my Kurs");//my Courses (New)
-define("_CERTIFICATIONS","Sertifikater");//Certificates (New)
-define("_MYCERTIFICATIONS","my Sertifikater");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Ingen sertifikater har blitt utstedt til brukeren ennå");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Å bli aktivert av veileder");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Ingen gren veiledere funnet");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Bruker veiledere");//User supervisors
+define("_USEROPTIONSFOR","Valg for brukeren");//Options for user
+define("_MYSTATUS","my Learning Status");//my Learning Status
+define("_MYCOURSES","my Kurs");//my Courses
+define("_CERTIFICATIONS","Sertifikater");//Certificates
+define("_MYCERTIFICATIONS","my Sertifikater");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Ingen sertifikater har blitt utstedt til brukeren ennå");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Å bli aktivert av veileder");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Ingen gren veiledere funnet");//No branch supervisors found
 define("_PRINTCONTENT","Skriv ut innhold");//Print content
 define("_USERHASNOTDONETEST","Brukeren har ikke gjort denne testen");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Kontroller at følgende informasjon er korrekt");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Det er ingen kategorier definert");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Veileder e-aktivering");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Ansattes kontoaktivering epost");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Denne e-posten kan du aktivere det nye systemet bruker");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","tilordnet gren");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Veileder e-aktivering");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Ansattes kontoaktivering epost");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Denne e-posten kan du aktivere det nye systemet bruker");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","tilordnet gren");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","med stillingsbeskrivelsen");//with the job description
-define("_BYCLICKINGONTHELINK","ved å klikke på følgende link");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Beretningen om ansattes din ble aktivert");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Svingstang");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Branch informasjon");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Branch feltnavn");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job feltnavn");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktivering veileder feltnavn");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Leave tomt til ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Vennligst velg");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din veileder vil aktivere din konto");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Eksport IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Last opp IMS fil i ZIP-format");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS alternativer");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS filen ble importert");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Skjult fra brukere");//Hidden from users (New)
-define("_RESETSCORMDATA","Tilbakestill brukerdata");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Avanserte innstillinger");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","ved å klikke på følgende link");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Beretningen om ansattes din ble aktivert");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Svingstang");//Horizontal bar
+define("_BRANCHINFORMATION","Branch informasjon");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Branch feltnavn");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job feltnavn");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktivering veileder feltnavn");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Leave tomt til ommit");//Leave empty to ommit
+define("_PLEASESELECT","Vennligst velg");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din veileder vil aktivere din konto");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Eksport IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Last opp IMS fil i ZIP-format");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS alternativer");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS filen ble importert");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Skjult fra brukere");//Hidden from users
+define("_RESETSCORMDATA","Tilbakestill brukerdata");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Avanserte innstillinger");//Advanced settings
+define("_SHOWMOTTOONHEADER","Vis navn og valgspråk også på topp");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Søkeresultater i ordlisten");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Ingen resultater finnes i ordlisten");//No results found in glossary (New)
+define("_AUTOLOGIN","Automatisk innlogging");//Auto login (New)
+define("_ACCESSLINK","Access link");//Access link (New)
+define("_AUTOLOGINITHLINK","Brukeren kan logge inn automatisk ved kobling");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Default user type");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force studenten besvare alle spørsmål");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Du må svare på alle spørsmål");//You have to answer all questions (New)
 ?>

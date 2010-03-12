@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","คุณต้องระบุจำน�
 define("_MUSTSPECIFYVALUEFROM","คุณต้องระบุค่าจาก");//You must specify a value from
 define("_COURSEPROFESSORS","อาจารย์หลักสูตร");//Course professors
 define("_PROFESSORSOFCOURSE","อาจารย์ของหลักสูตร");//Professors of course
-define("_USERSUPERVISORS","ผู้ บังคับบัญชา");//User supervisors (New)
-define("_USEROPTIONSFOR","ตัว เลือก สำหรับ ผู้ ใช้");//Options for user (New)
-define("_MYSTATUS","เรียน รู้ สถานะ ของ ฉัน");//my Learning Status (New)
-define("_MYCOURSES","ของ หลักสูตร");//my Courses (New)
-define("_CERTIFICATIONS","ประกาศนียบัตร");//Certificates (New)
-define("_MYCERTIFICATIONS","ใบรับรอง ของ ฉัน");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","รับรอง ไม่มี การ ออก ให้ กับ ผู้ ใช้ ยัง");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","เพื่อ ใช้ งาน โดย การ ดำเนิน งาน");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","ไม่ บังคับบัญชา สาขา พบ");//No branch supervisors found (New)
+define("_USERSUPERVISORS","ผู้ บังคับบัญชา");//User supervisors
+define("_USEROPTIONSFOR","ตัว เลือก สำหรับ ผู้ ใช้");//Options for user
+define("_MYSTATUS","เรียน รู้ สถานะ ของ ฉัน");//my Learning Status
+define("_MYCOURSES","ของ หลักสูตร");//my Courses
+define("_CERTIFICATIONS","ประกาศนียบัตร");//Certificates
+define("_MYCERTIFICATIONS","ใบรับรอง ของ ฉัน");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","รับรอง ไม่มี การ ออก ให้ กับ ผู้ ใช้ ยัง");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","เพื่อ ใช้ งาน โดย การ ดำเนิน งาน");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","ไม่ บังคับบัญชา สาขา พบ");//No branch supervisors found
 define("_PRINTCONTENT","เนื้อหา Print");//Print content
 define("_USERHASNOTDONETEST","สมาชิก-ผู้เรียนที่ทำแบบทดสอบไม่เสร็จ");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","โปรดตรวจสอบว่าข้อมูลต่อไปนี้ถูกต้อง");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","มีประเภทไม่กำหนดคือ");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","คุม การ เปิด ใช้ งาน อีเมล");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","พนักงาน อีเมล์ เปิด ใช้ งาน บัญชี");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","อีเมล นี้ จะ ช่วย ให้ คุณ สามารถ เปิด ใช้ งาน ผู้ ใช้ ระบบ ใหม่");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","มอบหมาย ให้ สาขา");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","คุม การ เปิด ใช้ งาน อีเมล");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","พนักงาน อีเมล์ เปิด ใช้ งาน บัญชี");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","อีเมล นี้ จะ ช่วย ให้ คุณ สามารถ เปิด ใช้ งาน ผู้ ใช้ ระบบ ใหม่");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","มอบหมาย ให้ สาขา");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","กับคำอธิบายงาน");//with the job description
-define("_BYCLICKINGONTHELINK","โดย คลิก ที่ ลิงก์ ต่อ ไป นี้");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","บัญชี ของ พนักงาน ของ คุณ ได้ เปิด ใช้ งาน แล้ว");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","แถบ แนว นอน");//Horizontal bar (New)
-define("_BRANCHINFORMATION","ข้อมูล สาขา");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","ชื่อ ฟิลด์ สาขา");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","ชื่อ ฟิลด์ งาน");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","เปิด ใช้ งาน ชื่อ ฟิลด์ คุม");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","ปล่อย ว่าง ไป ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","โปรด เลือก");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","ดำเนิน งาน ของ คุณ จะ เปิด ใช้ งาน บัญชี");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","นำ เนื้อหา IMS");//Import IMS Content (New)
-define("_IMSEXPORT","เนื้อหา ส่ง ออก IMS");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","อัป โหลด ไฟล์ IMS ใน รูป แบบ ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","ตัว เลือก IMS");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","ไฟล์ IMS ได้ นำ เข้า สำเร็จ");//IMS file was successfully imported (New)
-define("_TOOLTIP","คำ แนะนำ เครื่องมือ");//Tooltip (New)
-define("_HIDDEN","ซ่อน จาก ผู้ ใช้");//Hidden from users (New)
-define("_RESETSCORMDATA","ตั้ง ค่า ข้อมูล ผู้ ใช้");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","การ ตั้ง ค่า ขั้น สูง");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","โดย คลิก ที่ ลิงก์ ต่อ ไป นี้");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","บัญชี ของ พนักงาน ของ คุณ ได้ เปิด ใช้ งาน แล้ว");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","แถบ แนว นอน");//Horizontal bar
+define("_BRANCHINFORMATION","ข้อมูล สาขา");//Branch information
+define("_BRANCHNAMEDESCRIPTION","ชื่อ ฟิลด์ สาขา");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","ชื่อ ฟิลด์ งาน");//Job field name
+define("_SUPERVISORDESCRIPTION","เปิด ใช้ งาน ชื่อ ฟิลด์ คุม");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","ปล่อย ว่าง ไป ommit");//Leave empty to ommit
+define("_PLEASESELECT","โปรด เลือก");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","ดำเนิน งาน ของ คุณ จะ เปิด ใช้ งาน บัญชี");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","นำ เนื้อหา IMS");//Import IMS Content
+define("_IMSEXPORT","เนื้อหา ส่ง ออก IMS");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","อัป โหลด ไฟล์ IMS ใน รูป แบบ ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","ตัว เลือก IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","ไฟล์ IMS ได้ นำ เข้า สำเร็จ");//IMS file was successfully imported
+define("_TOOLTIP","คำ แนะนำ เครื่องมือ");//Tooltip
+define("_HIDDEN","ซ่อน จาก ผู้ ใช้");//Hidden from users
+define("_RESETSCORMDATA","ตั้ง ค่า ข้อมูล ผู้ ใช้");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","การ ตั้ง ค่า ขั้น สูง");//Advanced settings
+define("_SHOWMOTTOONHEADER","แสดง ชื่อ และ คำขวัญ ยัง ส่วน หัว");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","ผล การ ค้นหา ใน อภิธาน ศัพท์");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","ไม่ พบ ผลลัพธ์ ใน อภิธาน ศัพท์");//No results found in glossary (New)
+define("_AUTOLOGIN","เข้า สู่ ระบบ อัตโนมัติ");//Auto login (New)
+define("_ACCESSLINK","ลิงค์ เข้า");//Access link (New)
+define("_AUTOLOGINITHLINK","ผู้ ใช้ สามารถ เข้า สู่ ระบบ โดย อัตโนมัติ จาก ลิงค์");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","ประเภท ผู้ ใช้ Default");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","นักเรียน Force ตอบ คำถาม ทุก ข้อ");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","คุณ ต้อง ตอบ คำถาม ทุก ข้อ");//You have to answer all questions (New)
 ?>

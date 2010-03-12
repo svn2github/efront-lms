@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Вы должны задать ряд во�
 define("_MUSTSPECIFYVALUEFROM","Вы должны указать значение от");//You must specify a value from
 define("_COURSEPROFESSORS","Курс профессора");//Course professors
 define("_PROFESSORSOFCOURSE","Профессор, конечно,");//Professors of course
-define("_USERSUPERVISORS","Пользователь контролеров");//User supervisors (New)
-define("_USEROPTIONSFOR","Функции для пользователей");//Options for user (New)
-define("_MYSTATUS","Мое обучение Статус");//my Learning Status (New)
-define("_MYCOURSES","мои курсы");//my Courses (New)
-define("_CERTIFICATIONS","Сертификаты");//Certificates (New)
-define("_MYCERTIFICATIONS","мои сертификаты");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Нет сертификаты были выданы для пользователя еще");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Чтобы быть активирован руководитель");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Не нашли руководители филиала");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Пользователь контролеров");//User supervisors
+define("_USEROPTIONSFOR","Функции для пользователей");//Options for user
+define("_MYSTATUS","Мое обучение Статус");//my Learning Status
+define("_MYCOURSES","мои курсы");//my Courses
+define("_CERTIFICATIONS","Сертификаты");//Certificates
+define("_MYCERTIFICATIONS","мои сертификаты");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Нет сертификаты были выданы для пользователя еще");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Чтобы быть активирован руководитель");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Не нашли руководители филиала");//No branch supervisors found
 define("_PRINTCONTENT","Распечатать содержание");//Print content
 define("_USERHASNOTDONETEST","Пользователь не выполнил этот тест");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Убедитесь, что следующие сведения верны");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Есть категория не определена");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Руководитель для активации учетной записи");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Сотрудник за активацию учетной записи электронной почты");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Это сообщение позволяет активировать новый пользователь системы");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","назначен на ветку");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Руководитель для активации учетной записи");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Сотрудник за активацию учетной записи электронной почты");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Это сообщение позволяет активировать новый пользователь системы");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","назначен на ветку");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION"," с должностью ");//with the job description
-define("_BYCLICKINGONTHELINK",", нажав на следующую ссылку");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Счет вашего сотрудника была успешно активирована");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Перекладина");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Отделение информации");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Отделение имя поля");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Работы имя поля");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Активация имя руководителя области");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Оставьте поле пустым, чтобы ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Пожалуйста, выберите");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ваш руководитель будет активировать аккаунт");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Импорт IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Экспорт IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Загрузить файл в формат ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS страницу");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS файл был успешно импортирован");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Скрыты от пользователей");//Hidden from users (New)
-define("_RESETSCORMDATA","Сброс данных пользователей");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Расширенные настройки");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK",", нажав на следующую ссылку");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Счет вашего сотрудника была успешно активирована");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Перекладина");//Horizontal bar
+define("_BRANCHINFORMATION","Отделение информации");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Отделение имя поля");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Работы имя поля");//Job field name
+define("_SUPERVISORDESCRIPTION","Активация имя руководителя области");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Оставьте поле пустым, чтобы ommit");//Leave empty to ommit
+define("_PLEASESELECT","Пожалуйста, выберите");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ваш руководитель будет активировать аккаунт");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Импорт IMS Content");//Import IMS Content
+define("_IMSEXPORT","Экспорт IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Загрузить файл в формат ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS страницу");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS файл был успешно импортирован");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Скрыты от пользователей");//Hidden from users
+define("_RESETSCORMDATA","Сброс данных пользователей");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Расширенные настройки");//Advanced settings
+define("_SHOWMOTTOONHEADER","Показать название и девиз также на заголовке");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Результаты поиска в глоссарии");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Не найдено в глоссарии");//No results found in glossary (New)
+define("_AUTOLOGIN","Авто Логин");//Auto login (New)
+define("_ACCESSLINK","Доступ ссылке");//Access link (New)
+define("_AUTOLOGINITHLINK","Пользователь может Логин автоматически ссылке");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","По умолчанию тип пользователя");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Силами студенческого ответить на все вопросы");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Вы должны ответить на все вопросы");//You have to answer all questions (New)
 ?>

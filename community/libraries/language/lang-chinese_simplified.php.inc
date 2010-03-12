@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","您必须指定一些问题");//You must sp
 define("_MUSTSPECIFYVALUEFROM","您必须指定一个值从");//You must specify a value from
 define("_COURSEPROFESSORS","课程教授");//Course professors
 define("_PROFESSORSOFCOURSE","当然，教授");//Professors of course
-define("_USERSUPERVISORS","用户监督员");//User supervisors (New)
-define("_USEROPTIONSFOR","用户选项");//Options for user (New)
-define("_MYSTATUS","我的学习状态");//my Learning Status (New)
-define("_MYCOURSES","我的课程");//my Courses (New)
-define("_CERTIFICATIONS","证书");//Certificates (New)
-define("_MYCERTIFICATIONS","我的证书");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","没有证书已发给用户还");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","被激活的监");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","没有小监督员发现");//No branch supervisors found (New)
+define("_USERSUPERVISORS","用户监督员");//User supervisors
+define("_USEROPTIONSFOR","用户选项");//Options for user
+define("_MYSTATUS","我的学习状态");//my Learning Status
+define("_MYCOURSES","我的课程");//my Courses
+define("_CERTIFICATIONS","证书");//Certificates
+define("_MYCERTIFICATIONS","我的证书");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","没有证书已发给用户还");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","被激活的监");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","没有小监督员发现");//No branch supervisors found
 define("_PRINTCONTENT","打印内容");//Print content
 define("_USERHASNOTDONETEST","该用户已没有这样做的测试");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","请确认以下信息是正确的");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","没有类别定义");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","监电子邮件激活");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","员工帐户激活电子邮件");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","此电子邮件，您可以启用新的系统用户");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","分配到分支");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","监电子邮件激活");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","员工帐户激活电子邮件");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","此电子邮件，您可以启用新的系统用户");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","分配到分支");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","与职务说明");//with the job description
-define("_BYCLICKINGONTHELINK","通过点击以下链接");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","您的雇员的帐户已成功启动");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","单杠");//Horizontal bar (New)
-define("_BRANCHINFORMATION","分公司信息");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","科字段名称");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","工作字段名称");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","激活主管字段名称");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","给空的ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","请选择");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","你的上级会激活您的帐户");//Your supervisor will activate your account (New)
-define("_IMS","IMS的");//IMS (New)
-define("_IMSIMPORT","进口IMS的内容");//Import IMS Content (New)
-define("_IMSEXPORT","出口IMS的内容");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","上传IMS的ZIP格式文件");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS的选择");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS的文件已成功导入");//IMS file was successfully imported (New)
-define("_TOOLTIP","工具提示");//Tooltip (New)
-define("_HIDDEN","隐藏用户");//Hidden from users (New)
-define("_RESETSCORMDATA","重置用户数据");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","高级设置");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","通过点击以下链接");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","您的雇员的帐户已成功启动");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","单杠");//Horizontal bar
+define("_BRANCHINFORMATION","分公司信息");//Branch information
+define("_BRANCHNAMEDESCRIPTION","科字段名称");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","工作字段名称");//Job field name
+define("_SUPERVISORDESCRIPTION","激活主管字段名称");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","给空的ommit");//Leave empty to ommit
+define("_PLEASESELECT","请选择");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","你的上级会激活您的帐户");//Your supervisor will activate your account
+define("_IMS","IMS的");//IMS
+define("_IMSIMPORT","进口IMS的内容");//Import IMS Content
+define("_IMSEXPORT","出口IMS的内容");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","上传IMS的ZIP格式文件");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS的选择");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS的文件已成功导入");//IMS file was successfully imported
+define("_TOOLTIP","工具提示");//Tooltip
+define("_HIDDEN","隐藏用户");//Hidden from users
+define("_RESETSCORMDATA","重置用户数据");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","高级设置");//Advanced settings
+define("_SHOWMOTTOONHEADER","显示名称和口号也头");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","在词汇搜索结果");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","没有结果发现词汇");//No results found in glossary (New)
+define("_AUTOLOGIN","自动登录");//Auto login (New)
+define("_ACCESSLINK","访问链接");//Access link (New)
+define("_AUTOLOGINITHLINK","用户可以登录自动链接");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","默认的用户类型");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","部队学生回答所有问题");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","你必须回答所有问题");//You have to answer all questions (New)
 ?>

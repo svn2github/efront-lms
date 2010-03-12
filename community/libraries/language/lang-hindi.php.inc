@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","आप प्रश्नों की स�
 define("_MUSTSPECIFYVALUEFROM","आप एक मूल्य निर्दिष्ट से होगा");//You must specify a value from
 define("_COURSEPROFESSORS","पाठ्यक्रम प्रोफेसरों");//Course professors
 define("_PROFESSORSOFCOURSE","प्रोफेसर के कोर्स के");//Professors of course
-define("_USERSUPERVISORS","उपयोगकर्ता पर्यवेक्षकों");//User supervisors (New)
-define("_USEROPTIONSFOR","उपयोगकर्ता के लिए विकल्प");//Options for user (New)
-define("_MYSTATUS","मेरी सीखना स्तर");//my Learning Status (New)
-define("_MYCOURSES","मेरी पाठ्यक्रम");//my Courses (New)
-define("_CERTIFICATIONS","प्रमाणपत्र");//Certificates (New)
-define("_MYCERTIFICATIONS","मेरे प्रमाण पत्र");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","कोई प्रमाणपत्र उपयोगकर्ता के लिए जारी किए गए हैं अभी तक");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","पर्यवेक्षक के द्वारा सक्रिय हो");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","कोई शाखा पर्यवेक्षकों पाया");//No branch supervisors found (New)
+define("_USERSUPERVISORS","उपयोगकर्ता पर्यवेक्षकों");//User supervisors
+define("_USEROPTIONSFOR","उपयोगकर्ता के लिए विकल्प");//Options for user
+define("_MYSTATUS","मेरी सीखना स्तर");//my Learning Status
+define("_MYCOURSES","मेरी पाठ्यक्रम");//my Courses
+define("_CERTIFICATIONS","प्रमाणपत्र");//Certificates
+define("_MYCERTIFICATIONS","मेरे प्रमाण पत्र");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","कोई प्रमाणपत्र उपयोगकर्ता के लिए जारी किए गए हैं अभी तक");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","पर्यवेक्षक के द्वारा सक्रिय हो");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","कोई शाखा पर्यवेक्षकों पाया");//No branch supervisors found
 define("_PRINTCONTENT","मुद्रित सामग्री");//Print content
 define("_USERHASNOTDONETEST","इस उपयोगकर्ता ने इस परीक्षण नहीं किया है");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","कृपया सत्यापित करें कि निम्नलिखित जानकारी सही है");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","कोई परिभाषित श्रेणियों के हैं");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","पर्यवेक्षक ईमेल सक्रियण");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","कर्मचारी खाता सक्रियण ईमेल");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","इस ईमेल में सक्षम बनाता है आपको नई प्रणाली उपयोगकर्ता सक्रिय");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","शाखा को सौंपा");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","पर्यवेक्षक ईमेल सक्रियण");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","कर्मचारी खाता सक्रियण ईमेल");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","इस ईमेल में सक्षम बनाता है आपको नई प्रणाली उपयोगकर्ता सक्रिय");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","शाखा को सौंपा");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","नौकरी विवरण के साथ");//with the job description
-define("_BYCLICKINGONTHELINK","नीचे दिए गए लिंक पर क्लिक करके");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","अपने कर्मचारी के खाते में सफलतापूर्वक सक्रिय था");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","क्षैतिज पट्टी");//Horizontal bar (New)
-define("_BRANCHINFORMATION","शाखा जानकारी");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","शाखा क्षेत्र का नाम");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","नौकरी के क्षेत्र का नाम");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","पर्यवेक्षक क्षेत्र का नाम सक्रिय");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","छोड़ने के लिए ommit खाली");//Leave empty to ommit (New)
-define("_PLEASESELECT","कृपया चुनें");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","अपने पर्यवेक्षक अपने खाते को सक्रिय कर देंगे");//Your supervisor will activate your account (New)
-define("_IMS","आईएमएस");//IMS (New)
-define("_IMSIMPORT","आयात आईएमएस सामग्री");//Import IMS Content (New)
-define("_IMSEXPORT","निर्यात आईएमएस सामग्री");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","अपलोड ज़िप फ़ाइल प्रारूप में आईएमएस");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","आईएमएस विकल्प");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","आईएमएस फ़ाइल सफलतापूर्वक आयात किया गया था");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","उपयोगकर्ताओं को छुपाया");//Hidden from users (New)
-define("_RESETSCORMDATA","रीसेट उपयोगकर्ता डेटा");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","उन्नत सेटिंग्स");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","नीचे दिए गए लिंक पर क्लिक करके");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","अपने कर्मचारी के खाते में सफलतापूर्वक सक्रिय था");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","क्षैतिज पट्टी");//Horizontal bar
+define("_BRANCHINFORMATION","शाखा जानकारी");//Branch information
+define("_BRANCHNAMEDESCRIPTION","शाखा क्षेत्र का नाम");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","नौकरी के क्षेत्र का नाम");//Job field name
+define("_SUPERVISORDESCRIPTION","पर्यवेक्षक क्षेत्र का नाम सक्रिय");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","छोड़ने के लिए ommit खाली");//Leave empty to ommit
+define("_PLEASESELECT","कृपया चुनें");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","अपने पर्यवेक्षक अपने खाते को सक्रिय कर देंगे");//Your supervisor will activate your account
+define("_IMS","आईएमएस");//IMS
+define("_IMSIMPORT","आयात आईएमएस सामग्री");//Import IMS Content
+define("_IMSEXPORT","निर्यात आईएमएस सामग्री");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","अपलोड ज़िप फ़ाइल प्रारूप में आईएमएस");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","आईएमएस विकल्प");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","आईएमएस फ़ाइल सफलतापूर्वक आयात किया गया था");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","उपयोगकर्ताओं को छुपाया");//Hidden from users
+define("_RESETSCORMDATA","रीसेट उपयोगकर्ता डेटा");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","उन्नत सेटिंग्स");//Advanced settings
+define("_SHOWMOTTOONHEADER","दिखाएँ नाम और आदर्श वाक्य हैडर पर भी");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","शब्दकोष में खोज परिणाम");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","कोई परिणाम नहीं शब्दकोष में पाया");//No results found in glossary (New)
+define("_AUTOLOGIN","ऑटो लॉगिन");//Auto login (New)
+define("_ACCESSLINK","प्रवेश लिंक");//Access link (New)
+define("_AUTOLOGINITHLINK","उपयोगकर्ता स्वत: लिंक द्वारा लॉगिन कर सकते हैं");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","डिफ़ॉल्ट प्रयोक्ता प्रकार");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","सेना छात्र सभी सवालों के जवाब");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","आप सब सवालों का जवाब देना");//You have to answer all questions (New)
 ?>

@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","עליך לציין את מספר השאל�
 define("_MUSTSPECIFYVALUEFROM","עליך לציין ערך מ");//You must specify a value from
 define("_COURSEPROFESSORS","פרופסורים קורס");//Course professors
 define("_PROFESSORSOFCOURSE","פרופסורים כמובן");//Professors of course
-define("_USERSUPERVISORS","מפקחים משתמש");//User supervisors (New)
-define("_USEROPTIONSFOR","אפשרויות למשתמש");//Options for user (New)
-define("_MYSTATUS","מצב הלמידה שלי");//my Learning Status (New)
-define("_MYCOURSES","הקורסים שלי");//my Courses (New)
-define("_CERTIFICATIONS","תעודות");//Certificates (New)
-define("_MYCERTIFICATIONS","תעודות שלי");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","אין אישורים ניתנו למשתמש עדיין");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","כדי להיות מופעל על ידי המפקח");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","לא נמצאו מפקחים הסניף");//No branch supervisors found (New)
+define("_USERSUPERVISORS","מפקחים משתמש");//User supervisors
+define("_USEROPTIONSFOR","אפשרויות למשתמש");//Options for user
+define("_MYSTATUS","מצב הלמידה שלי");//my Learning Status
+define("_MYCOURSES","הקורסים שלי");//my Courses
+define("_CERTIFICATIONS","תעודות");//Certificates
+define("_MYCERTIFICATIONS","תעודות שלי");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","אין אישורים ניתנו למשתמש עדיין");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","כדי להיות מופעל על ידי המפקח");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","לא נמצאו מפקחים הסניף");//No branch supervisors found
 define("_PRINTCONTENT","תוכן הדפסה");//Print content
 define("_USERHASNOTDONETEST","המשתמש לא נעשה במבחן הזה");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","נא לוודא כי המידע הבא נכון");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","אין קטגוריות מוגדרות");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","הפעלת הפיקוח דואל");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","הפעלת שכיר חשבון דואל");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","דואל זה מאפשר לך להפעיל את מערכת משתמש חדש");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","שהוקצו הסניף");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","הפעלת הפיקוח דואל");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","הפעלת שכיר חשבון דואל");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","דואל זה מאפשר לך להפעיל את מערכת משתמש חדש");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","שהוקצו הסניף");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","עם עמדת עבודה");//with the job description
-define("_BYCLICKINGONTHELINK","על ידי לחיצה על הקישור הבא");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","את החשבון של העובד שלך הופעל בהצלחה");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","מתח");//Horizontal bar (New)
-define("_BRANCHINFORMATION","מידע סניף");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","שם סניף שדה");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","שם איוב שדה");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","הפעלת שדה שם המפקח");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","להשאיר ריק כדי ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","אנא בחר");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","הממונה עליך יהיה להפעיל את החשבון שלך");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","ייבוא תוכן IMS");//Import IMS Content (New)
-define("_IMSEXPORT","ייצוא תוכן IMS");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","קובץ העלאה ב IMS בפורמט ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","אפשרויות IMS");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","קובץ IMS יובא בהצלחה");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","מוסתר ממשתמשים");//Hidden from users (New)
-define("_RESETSCORMDATA","נתונים איפוס המשתמש");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","הגדרות מתקדמות");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","על ידי לחיצה על הקישור הבא");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","את החשבון של העובד שלך הופעל בהצלחה");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","מתח");//Horizontal bar
+define("_BRANCHINFORMATION","מידע סניף");//Branch information
+define("_BRANCHNAMEDESCRIPTION","שם סניף שדה");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","שם איוב שדה");//Job field name
+define("_SUPERVISORDESCRIPTION","הפעלת שדה שם המפקח");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","להשאיר ריק כדי ommit");//Leave empty to ommit
+define("_PLEASESELECT","אנא בחר");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","הממונה עליך יהיה להפעיל את החשבון שלך");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","ייבוא תוכן IMS");//Import IMS Content
+define("_IMSEXPORT","ייצוא תוכן IMS");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","קובץ העלאה ב IMS בפורמט ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","אפשרויות IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","קובץ IMS יובא בהצלחה");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","מוסתר ממשתמשים");//Hidden from users
+define("_RESETSCORMDATA","נתונים איפוס המשתמש");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","הגדרות מתקדמות");//Advanced settings
+define("_SHOWMOTTOONHEADER","הצג שם המוטו גם על הכותרת");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","תוצאות חיפוש מונחים");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","לא נמצאו תוצאות ב מילון מונחים");//No results found in glossary (New)
+define("_AUTOLOGIN","כניסה אוטומטית");//Auto login (New)
+define("_ACCESSLINK","הקישור גישה");//Access link (New)
+define("_AUTOLOGINITHLINK","משתמש יכול להתחבר באופן אוטומטי על ידי קישור");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","סוג ברירת המחדל של המשתמש");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","סטודנט כוח לענות על כל השאלות");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","אתה צריך לענות על כל השאלות");//You have to answer all questions (New)
 ?>

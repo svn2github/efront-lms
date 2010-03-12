@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Du måste ange antalet frågor");//You must
 define("_MUSTSPECIFYVALUEFROM","Du måste ange ett värde från");//You must specify a value from
 define("_COURSEPROFESSORS","Kurs professorer");//Course professors
 define("_PROFESSORSOFCOURSE","Professorer naturligtvis");//Professors of course
-define("_USERSUPERVISORS","User handledare");//User supervisors (New)
-define("_USEROPTIONSFOR","Alternativ för användare");//Options for user (New)
-define("_MYSTATUS","min gyro");//my Learning Status (New)
-define("_MYCOURSES","Mina kurser");//my Courses (New)
-define("_CERTIFICATIONS","Certifikat");//Certificates (New)
-define("_MYCERTIFICATIONS","Min Certifikat");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Ingen har utfärdats för användaren än");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Att aktiveras av handledare");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Ingen filial handledare hittades");//No branch supervisors found (New)
+define("_USERSUPERVISORS","User handledare");//User supervisors
+define("_USEROPTIONSFOR","Alternativ för användare");//Options for user
+define("_MYSTATUS","min gyro");//my Learning Status
+define("_MYCOURSES","Mina kurser");//my Courses
+define("_CERTIFICATIONS","Certifikat");//Certificates
+define("_MYCERTIFICATIONS","Min Certifikat");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Ingen har utfärdats för användaren än");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Att aktiveras av handledare");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Ingen filial handledare hittades");//No branch supervisors found
 define("_PRINTCONTENT","Skriv ut innehåll");//Print content
 define("_USERHASNOTDONETEST","Användaren har inte gjort detta test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Kontrollera att följande information är korrekt");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Det finns inga definierade kategorier");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Handledare e aktivering");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Anställd kontoaktivering e -");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Detta e-postmeddelande kan du aktivera det nya systemet användaren");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","tilldelats gren");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Handledare e aktivering");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Anställd kontoaktivering e -");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Detta e-postmeddelande kan du aktivera det nya systemet användaren");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","tilldelats gren");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","med arbetsbeskrivning");//with the job description
-define("_BYCLICKINGONTHELINK","genom att klicka på följande länk");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Redogörelsen för dina anställda aktiverades framgångsrikt");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Räck");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Branch information");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Branch fältnamn");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job fältnamn");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktivera namn handledare fält");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Lämna tomt för att ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Vänligen välj");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din handledare kommer att aktivera ditt konto");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Ladda upp IMS fil i ZIP-format");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS alternativ");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fil har importerats");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Dolda användare");//Hidden from users (New)
-define("_RESETSCORMDATA","Återställ användardata");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Avancerade inställningar");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","genom att klicka på följande länk");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Redogörelsen för dina anställda aktiverades framgångsrikt");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Räck");//Horizontal bar
+define("_BRANCHINFORMATION","Branch information");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Branch fältnamn");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job fältnamn");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktivera namn handledare fält");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Lämna tomt för att ommit");//Leave empty to ommit
+define("_PLEASESELECT","Vänligen välj");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din handledare kommer att aktivera ditt konto");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Ladda upp IMS fil i ZIP-format");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS alternativ");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fil har importerats");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Dolda användare");//Hidden from users
+define("_RESETSCORMDATA","Återställ användardata");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Avancerade inställningar");//Advanced settings
+define("_SHOWMOTTOONHEADER","Visa namn och motto också på rubrik");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Sökresultat i ordlistan");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Inga resultat hittades i ordlistan");//No results found in glossary (New)
+define("_AUTOLOGIN","Automatisk inloggning");//Auto login (New)
+define("_ACCESSLINK","Access länk");//Access link (New)
+define("_AUTOLOGINITHLINK","Användare kan logga in automatiskt genom länk");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Default användartyp");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force student svara på alla frågor");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Du måste svara på alla frågor");//You have to answer all questions (New)
 ?>

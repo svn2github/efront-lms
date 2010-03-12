@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Dapat mong tukuyin ang bilang ng mga katanu
 define("_MUSTSPECIFYVALUEFROM","Kailangan mong tukuyin ang isang halaga mula sa");//You must specify a value from
 define("_COURSEPROFESSORS","Course professors");//Course professors
 define("_PROFESSORSOFCOURSE","Professors ng kurso");//Professors of course
-define("_USERSUPERVISORS","User supervisors");//User supervisors (New)
-define("_USEROPTIONSFOR","Ang Opsyon para sa user");//Options for user (New)
-define("_MYSTATUS","Pag-aaral ng aking Status");//my Learning Status (New)
-define("_MYCOURSES","ang aking mga sangay");//my Courses (New)
-define("_CERTIFICATIONS","Certificates");//Certificates (New)
-define("_MYCERTIFICATIONS","ang aking mga Certificates");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Walang mga certificate ay ibinibigay sa user pa");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Upang maging aktibo sa pamamagitan ng superbisor");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Walang mga sangay ng supervisors na natagpuan");//No branch supervisors found (New)
+define("_USERSUPERVISORS","User supervisors");//User supervisors
+define("_USEROPTIONSFOR","Ang Opsyon para sa user");//Options for user
+define("_MYSTATUS","Pag-aaral ng aking Status");//my Learning Status
+define("_MYCOURSES","ang aking mga sangay");//my Courses
+define("_CERTIFICATIONS","Certificates");//Certificates
+define("_MYCERTIFICATIONS","ang aking mga Certificates");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Walang mga certificate ay ibinibigay sa user pa");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Upang maging aktibo sa pamamagitan ng superbisor");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Walang mga sangay ng supervisors na natagpuan");//No branch supervisors found
 define("_PRINTCONTENT","I-print nilalaman");//Print content
 define("_USERHASNOTDONETEST","Ang user na ito ay hindi ginawa sa pagsusulit na ito");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Mangyaring patunayan na ang mga sumusunod na impormasyon ay tama");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Walang mga kategorya tinukoy");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Superbisor ng email activation");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Employee account activation email");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ang email na ito ay nagbibigay-daan sa iyo upang buhayin ang bagong sistema ng gumagamit");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","itinalaga sa sangay ng");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Superbisor ng email activation");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Employee account activation email");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ang email na ito ay nagbibigay-daan sa iyo upang buhayin ang bagong sistema ng gumagamit");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","itinalaga sa sangay ng");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","sa trabaho na posisyon");//with the job description
-define("_BYCLICKINGONTHELINK","sa pamamagitan ng pag-click sa sumusunod na link");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Ang account ng iyong mga empleyado ay matagumpay na aktibo");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Pahalang na bar");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Sangay ng impormasyon");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Sangay ng patlang ng pangalan");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job patlang na pangalan");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Pagpapabuhay superbisor patlang na pangalan");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Iwanang walang laman sa ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Mangyaring piliin ang");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ang iyong superbisor ay ma-activate ang iyong account");//Your supervisor will activate your account (New)
-define("_IMS","IMs");//IMS (New)
-define("_IMSIMPORT","Angkat IMs Nilalaman");//Import IMS Content (New)
-define("_IMSEXPORT","I-export IMs Nilalaman");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Mag-upload ng IMs file sa ZIP format");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMs pagpipilian");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMs na file ay matagumpay na inangkat");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Nakatagong mula sa mga gumagamit");//Hidden from users (New)
-define("_RESETSCORMDATA","I-reset ang user data");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Mga Advanced na setting");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","sa pamamagitan ng pag-click sa sumusunod na link");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Ang account ng iyong mga empleyado ay matagumpay na aktibo");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Pahalang na bar");//Horizontal bar
+define("_BRANCHINFORMATION","Sangay ng impormasyon");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Sangay ng patlang ng pangalan");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job patlang na pangalan");//Job field name
+define("_SUPERVISORDESCRIPTION","Pagpapabuhay superbisor patlang na pangalan");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Iwanang walang laman sa ommit");//Leave empty to ommit
+define("_PLEASESELECT","Mangyaring piliin ang");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ang iyong superbisor ay ma-activate ang iyong account");//Your supervisor will activate your account
+define("_IMS","IMs");//IMS
+define("_IMSIMPORT","Angkat IMs Nilalaman");//Import IMS Content
+define("_IMSEXPORT","I-export IMs Nilalaman");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Mag-upload ng IMs file sa ZIP format");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMs pagpipilian");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMs na file ay matagumpay na inangkat");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Nakatagong mula sa mga gumagamit");//Hidden from users
+define("_RESETSCORMDATA","I-reset ang user data");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Mga Advanced na setting");//Advanced settings
+define("_SHOWMOTTOONHEADER","Ipakita ang mga pangalan at motto din sa header");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Mga resulta ng Paghahanap sa glossary");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Walang mga resulta na natagpuan sa glossary");//No results found in glossary (New)
+define("_AUTOLOGIN","Auto-login");//Auto login (New)
+define("_ACCESSLINK","Puntahan ang link na");//Access link (New)
+define("_AUTOLOGINITHLINK","User ay maaaring awtomatikong mag-login sa pamamagitan ng link");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Default na uri ng user");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force mag-aaral ang sagot sa lahat ng mga katanungan");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Ikaw ang sagot sa lahat ng mga katanungan");//You have to answer all questions (New)
 ?>

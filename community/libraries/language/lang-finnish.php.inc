@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Sinun on määritettävä useita kysymyksi�
 define("_MUSTSPECIFYVALUEFROM","Sinun on määritettävä arvo");//You must specify a value from
 define("_COURSEPROFESSORS","Course professorit");//Course professors
 define("_PROFESSORSOFCOURSE","Professorit tietenkin");//Professors of course
-define("_USERSUPERVISORS","Käyttäjän valvojat");//User supervisors (New)
-define("_USEROPTIONSFOR","Valinnat käyttäjän");//Options for user (New)
-define("_MYSTATUS","Minun Learning Status");//my Learning Status (New)
-define("_MYCOURSES","Omat kurssit");//my Courses (New)
-define("_CERTIFICATIONS","Varmenteita");//Certificates (New)
-define("_MYCERTIFICATIONS","Minun Sertifikaatit");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","O todistukset on annettu käyttäjälle vielä");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Käynnistämien valvoja");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","O sivuliike valvojien löytynyt");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Käyttäjän valvojat");//User supervisors
+define("_USEROPTIONSFOR","Valinnat käyttäjän");//Options for user
+define("_MYSTATUS","Minun Learning Status");//my Learning Status
+define("_MYCOURSES","Omat kurssit");//my Courses
+define("_CERTIFICATIONS","Varmenteita");//Certificates
+define("_MYCERTIFICATIONS","Minun Sertifikaatit");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","O todistukset on annettu käyttäjälle vielä");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Käynnistämien valvoja");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","O sivuliike valvojien löytynyt");//No branch supervisors found
 define("_PRINTCONTENT","Tulosta sisältö");//Print content
 define("_USERHASNOTDONETEST","Käyttäjällä ei ole tehnyt tätä testiä");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Tarkista, että seuraavat tiedot ovat oikeita");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Ole määriteltyihin ryhmiin");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Valvoja email aktivointi");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Työntekijän tilin aktivointi sähköposti");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tämä sähköpostiosoite voit ottaa käyttöön uuden järjestelmän käyttäjä");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","osoitettu sivuliikkeen");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Valvoja email aktivointi");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Työntekijän tilin aktivointi sähköposti");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tämä sähköpostiosoite voit ottaa käyttöön uuden järjestelmän käyttäjä");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","osoitettu sivuliikkeen");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","kanssa työn kuvaus");//with the job description
-define("_BYCLICKINGONTHELINK","klikkaamalla alla olevaa linkkiä");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Huomioon oman työntekijän on aktivoitu");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Rekki");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Branch tiedot");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Branch kentän nimi");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job kentän nimi");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktivointi valvoja kentän nimi");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Jätä tyhjänä ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Valitkaa");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Esimiehesi aktivoi tilisi");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Tuo IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Vienti IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Lataa IMS-tiedosto zip-muodossa");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS valinnat");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS-tiedoston tuonti onnistui");//IMS file was successfully imported (New)
-define("_TOOLTIP","Vihjeteksti");//Tooltip (New)
-define("_HIDDEN","Näy käyttäjille");//Hidden from users (New)
-define("_RESETSCORMDATA","Nollaa käyttäjätiedot");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Lisäasetuksissa");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","klikkaamalla alla olevaa linkkiä");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Huomioon oman työntekijän on aktivoitu");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Rekki");//Horizontal bar
+define("_BRANCHINFORMATION","Branch tiedot");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Branch kentän nimi");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job kentän nimi");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktivointi valvoja kentän nimi");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Jätä tyhjänä ommit");//Leave empty to ommit
+define("_PLEASESELECT","Valitkaa");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Esimiehesi aktivoi tilisi");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Tuo IMS Content");//Import IMS Content
+define("_IMSEXPORT","Vienti IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Lataa IMS-tiedosto zip-muodossa");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS valinnat");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS-tiedoston tuonti onnistui");//IMS file was successfully imported
+define("_TOOLTIP","Vihjeteksti");//Tooltip
+define("_HIDDEN","Näy käyttäjille");//Hidden from users
+define("_RESETSCORMDATA","Nollaa käyttäjätiedot");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Lisäasetuksissa");//Advanced settings
+define("_SHOWMOTTOONHEADER","Näytä nimi ja tunnuslause myös header");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Hakutulokset Sanasto");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Ei tuloksia ja sanasto");//No results found in glossary (New)
+define("_AUTOLOGIN","Autologin");//Auto login (New)
+define("_ACCESSLINK","-Linkkiä");//Access link (New)
+define("_AUTOLOGINITHLINK","Käyttäjä voi kirjautua automaattisesti yhteyden");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Oletuskäyttäjäprofiililla tyyppi");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force opiskelija vastaa kaikkiin kysymyksiin");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Sinun vastata kaikkiin kysymyksiin");//You have to answer all questions (New)
 ?>

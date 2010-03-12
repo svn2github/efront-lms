@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Trebuie să specificaţi numărul de între
 define("_MUSTSPECIFYVALUEFROM","Trebuie să specificaţi o valoare de la");//You must specify a value from
 define("_COURSEPROFESSORS","Profesori de golf");//Course professors
 define("_PROFESSORSOFCOURSE","Profesori, desigur,");//Professors of course
-define("_USERSUPERVISORS","Autorităţile de supraveghere Utilizator");//User supervisors (New)
-define("_USEROPTIONSFOR","Opţiuni pentru utilizator");//Options for user (New)
-define("_MYSTATUS","Starea mea de învăţare");//my Learning Status (New)
-define("_MYCOURSES","Cursurile-mi");//my Courses (New)
-define("_CERTIFICATIONS","Certificatele");//Certificates (New)
-define("_MYCERTIFICATIONS","Certificatele mele");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nu au fost eliberate certificate de a utilizatorului încă");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Pentru a fi activată de către autoritatea de supraveghere");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Nu autorităţile de supraveghere filiala gasite");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Autorităţile de supraveghere Utilizator");//User supervisors
+define("_USEROPTIONSFOR","Opţiuni pentru utilizator");//Options for user
+define("_MYSTATUS","Starea mea de învăţare");//my Learning Status
+define("_MYCOURSES","Cursurile-mi");//my Courses
+define("_CERTIFICATIONS","Certificatele");//Certificates
+define("_MYCERTIFICATIONS","Certificatele mele");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nu au fost eliberate certificate de a utilizatorului încă");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Pentru a fi activată de către autoritatea de supraveghere");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Nu autorităţile de supraveghere filiala gasite");//No branch supervisors found
 define("_PRINTCONTENT","Conţinutul de Imprimare");//Print content
 define("_USERHASNOTDONETEST","Utilizatorul nu a facut acest test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Vă rugăm să verificaţi că următoarele informaţii sunt corecte");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nu există categorii definite");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Datelor de activare de e-mail");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Angajat cont de e-mail de activare");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Acest e-mail vă permite să activaţi noul sistem de utilizator");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","alocat pentru filiala");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Datelor de activare de e-mail");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Angajat cont de e-mail de activare");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Acest e-mail vă permite să activaţi noul sistem de utilizator");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","alocat pentru filiala");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","cu loc de muncă descriere");//with the job description
-define("_BYCLICKINGONTHELINK",", făcând clic pe link-ul următor");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Seama de angajat dvs. a fost activat cu succes");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Bar orizontale");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Informaţii Branch");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Sucursala numele de câmp");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job-uri numele de câmp");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Activarea supraveghetor numele de câmp");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Lăsaţi gol pentru a ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Vă rugăm să selectaţi");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Autoritatea de supraveghere dumneavoastră vă va activa contul dvs.");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Încărcaţi IMS fişier în format Zip");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","Opţiuni de IMS");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","Fişier IMS a fost importat cu succes");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Ascuns de la utilizatori");//Hidden from users (New)
-define("_RESETSCORMDATA","Datele utilizatorului Reset");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Setări avansate");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK",", făcând clic pe link-ul următor");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Seama de angajat dvs. a fost activat cu succes");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Bar orizontale");//Horizontal bar
+define("_BRANCHINFORMATION","Informaţii Branch");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Sucursala numele de câmp");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job-uri numele de câmp");//Job field name
+define("_SUPERVISORDESCRIPTION","Activarea supraveghetor numele de câmp");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Lăsaţi gol pentru a ommit");//Leave empty to ommit
+define("_PLEASESELECT","Vă rugăm să selectaţi");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Autoritatea de supraveghere dumneavoastră vă va activa contul dvs.");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Încărcaţi IMS fişier în format Zip");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","Opţiuni de IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","Fişier IMS a fost importat cu succes");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Ascuns de la utilizatori");//Hidden from users
+define("_RESETSCORMDATA","Datele utilizatorului Reset");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Setări avansate");//Advanced settings
+define("_SHOWMOTTOONHEADER","Arată numele si motto-ul, de asemenea, pe antet");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Rezultatele căutării mele în glosar");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Nu există rezultate găsite în glosar");//No results found in glossary (New)
+define("_AUTOLOGIN","Auto login");//Auto login (New)
+define("_ACCESSLINK","Link-ul de acces");//Access link (New)
+define("_AUTOLOGINITHLINK","Utilizatorul poate login în mod automat prin link-ul");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Implicit tipul de utilizator");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Elev Force răspundă la toate întrebările");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Trebuie să răspundă la toate întrebările");//You have to answer all questions (New)
 ?>

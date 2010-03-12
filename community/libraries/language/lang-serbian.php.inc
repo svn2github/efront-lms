@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Морате навести број пит
 define("_MUSTSPECIFYVALUEFROM","Морате навести вредност од");//You must specify a value from
 define("_COURSEPROFESSORS","Наравно професори");//Course professors
 define("_PROFESSORSOFCOURSE","Професори наравно");//Professors of course
-define("_USERSUPERVISORS","Корисник супервизора");//User supervisors (New)
-define("_USEROPTIONSFOR","Опције за корисника");//Options for user (New)
-define("_MYSTATUS","мој Учење статус");//my Learning Status (New)
-define("_MYCOURSES","мој Курсеви");//my Courses (New)
-define("_CERTIFICATIONS","Сертификати");//Certificates (New)
-define("_MYCERTIFICATIONS","мој Сертификати");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Нема потврде су издате корисник још");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Да се активира од стране супервизора");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Нема грана супервизора нашао");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Корисник супервизора");//User supervisors
+define("_USEROPTIONSFOR","Опције за корисника");//Options for user
+define("_MYSTATUS","мој Учење статус");//my Learning Status
+define("_MYCOURSES","мој Курсеви");//my Courses
+define("_CERTIFICATIONS","Сертификати");//Certificates
+define("_MYCERTIFICATIONS","мој Сертификати");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Нема потврде су издате корисник још");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Да се активира од стране супервизора");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Нема грана супервизора нашао");//No branch supervisors found
 define("_PRINTCONTENT","Штампај садржај");//Print content
 define("_USERHASNOTDONETEST","Корисник није учинио овај тест");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Молимо проверите да ли је тачно следеће информације");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Не постоје дефинисане категорије");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Супервизор е-маил за активирање");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Запослени налог активациони е-маил");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ова е-маил Вам омогућава да активирате новог корисника система");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","додељене гране");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Супервизор е-маил за активирање");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Запослени налог активациони е-маил");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ова е-маил Вам омогућава да активирате новог корисника система");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","додељене гране");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","на радном месту");//with the job description
-define("_BYCLICKINGONTHELINK","кликом на следећи линк");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Рачун свог запосленог је успешно активиран");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Вратило");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Филијала информације");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Филијала име поља");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Посао име поља");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Активирање супервизор име поља");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Оставите празно да оммит");//Leave empty to ommit (New)
-define("_PLEASESELECT","Молимо одаберите");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ваш ментор ће активирати ваш налог");//Your supervisor will activate your account (New)
-define("_IMS","ИМС -");//IMS (New)
-define("_IMSIMPORT","ИМС-импорт Садржај");//Import IMS Content (New)
-define("_IMSEXPORT","Извоз ИМС-садржај");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","ИМС-уплоад датотеке у ЗИП формату");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","ИМС-опције");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","ИМС-датотека је успешно увезен");//IMS file was successfully imported (New)
-define("_TOOLTIP","Тоолтип");//Tooltip (New)
-define("_HIDDEN","Скривен од корисника");//Hidden from users (New)
-define("_RESETSCORMDATA","Ресетуј корисничких података");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Напредна подешавања");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","кликом на следећи линк");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Рачун свог запосленог је успешно активиран");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Вратило");//Horizontal bar
+define("_BRANCHINFORMATION","Филијала информације");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Филијала име поља");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Посао име поља");//Job field name
+define("_SUPERVISORDESCRIPTION","Активирање супервизор име поља");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Оставите празно да оммит");//Leave empty to ommit
+define("_PLEASESELECT","Молимо одаберите");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ваш ментор ће активирати ваш налог");//Your supervisor will activate your account
+define("_IMS","ИМС -");//IMS
+define("_IMSIMPORT","ИМС-импорт Садржај");//Import IMS Content
+define("_IMSEXPORT","Извоз ИМС-садржај");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","ИМС-уплоад датотеке у ЗИП формату");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","ИМС-опције");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","ИМС-датотека је успешно увезен");//IMS file was successfully imported
+define("_TOOLTIP","Тоолтип");//Tooltip
+define("_HIDDEN","Скривен од корисника");//Hidden from users
+define("_RESETSCORMDATA","Ресетуј корисничких података");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Напредна подешавања");//Advanced settings
+define("_SHOWMOTTOONHEADER","Прикажи име и слоган и на заглављу");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Резултати претраге речник");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Нема нађених резултата на речник");//No results found in glossary (New)
+define("_AUTOLOGIN","Аутоматско приступање");//Auto login (New)
+define("_ACCESSLINK","Приступ везу");//Access link (New)
+define("_AUTOLOGINITHLINK","Корисник може аутоматски да пријаве по везу");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Подразумевани тип корисника");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Студент силе одговорити на сва питања");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Морате да одговорите на сва питања");//You have to answer all questions (New)
 ?>

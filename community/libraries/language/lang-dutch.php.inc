@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","U moet het aantal vragen");//You must speci
 define("_MUSTSPECIFYVALUEFROM","U moet een waarde");//You must specify a value from
 define("_COURSEPROFESSORS","Cursus hoogleraren");//Course professors
 define("_PROFESSORSOFCOURSE","Hoogleraren natuurlijk");//Professors of course
-define("_USERSUPERVISORS","Gebruiker toezichthouders");//User supervisors (New)
-define("_USEROPTIONSFOR","Opties voor gebruiker");//Options for user (New)
-define("_MYSTATUS","My Learning Status");//my Learning Status (New)
-define("_MYCOURSES","My Courses");//my Courses (New)
-define("_CERTIFICATIONS","Certificaten");//Certificates (New)
-define("_MYCERTIFICATIONS","mijn Certificaten");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Geen certificaten zijn afgegeven nog voor de gebruiker");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Te worden geactiveerd door de supervisor");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Geen tak toezichthouders gevonden");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Gebruiker toezichthouders");//User supervisors
+define("_USEROPTIONSFOR","Opties voor gebruiker");//Options for user
+define("_MYSTATUS","My Learning Status");//my Learning Status
+define("_MYCOURSES","My Courses");//my Courses
+define("_CERTIFICATIONS","Certificaten");//Certificates
+define("_MYCERTIFICATIONS","mijn Certificaten");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Geen certificaten zijn afgegeven nog voor de gebruiker");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Te worden geactiveerd door de supervisor");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Geen tak toezichthouders gevonden");//No branch supervisors found
 define("_PRINTCONTENT","Print content");//Print content
 define("_USERHASNOTDONETEST","De gebruiker heeft deze proef niet gedaan");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Controleer of de volgende informatie juist");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Er zijn geen categorieën gedefinieerd");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Promotor activatie e-mail");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Werknemer accountactiveringsbericht");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Deze e-mail kunt u het activeren van de nieuwe regeling gebruiker");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","toegewezen tak");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Promotor activatie e-mail");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Werknemer accountactiveringsbericht");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Deze e-mail kunt u het activeren van de nieuwe regeling gebruiker");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","toegewezen tak");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","met de functieomschrijving");//with the job description
-define("_BYCLICKINGONTHELINK","door te klikken op de volgende link");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","De rekening van uw werknemer is succesvol geactiveerd");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Rekstok");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Branch informatie");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Branch veldnaam");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job veldnaam");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Activeren promotor veldnaam");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Laat leeg te ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Selecteer");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Uw begeleider zal je account activeren");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS bestand in ZIP-formaat");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS opties");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS-bestand is geïmporteerd");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Verborgen gebruikers");//Hidden from users (New)
-define("_RESETSCORMDATA","Reset gebruikersgegevens");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Geavanceerde instellingen");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","door te klikken op de volgende link");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","De rekening van uw werknemer is succesvol geactiveerd");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Rekstok");//Horizontal bar
+define("_BRANCHINFORMATION","Branch informatie");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Branch veldnaam");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job veldnaam");//Job field name
+define("_SUPERVISORDESCRIPTION","Activeren promotor veldnaam");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Laat leeg te ommit");//Leave empty to ommit
+define("_PLEASESELECT","Selecteer");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Uw begeleider zal je account activeren");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS bestand in ZIP-formaat");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS opties");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS-bestand is geïmporteerd");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Verborgen gebruikers");//Hidden from users
+define("_RESETSCORMDATA","Reset gebruikersgegevens");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Geavanceerde instellingen");//Advanced settings
+define("_SHOWMOTTOONHEADER","Toon naam en motto ook op kop");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Zoekresultaten in woordenlijst");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Geen resultaten gevonden in woordenlijst");//No results found in glossary (New)
+define("_AUTOLOGIN","Auto login");//Auto login (New)
+define("_ACCESSLINK","Toegang link");//Access link (New)
+define("_AUTOLOGINITHLINK","De gebruiker kan automatisch inloggen door link");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Standaard type gebruiker");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force student het antwoord op alle vragen");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Je moet alle vragen beantwoorden");//You have to answer all questions (New)
 ?>

@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Določiti morate vrsto vprašanj");//You mu
 define("_MUSTSPECIFYVALUEFROM","Določiti morate vrednost");//You must specify a value from
 define("_COURSEPROFESSORS","Course profesorji");//Course professors
 define("_PROFESSORSOFCOURSE","Profesorji seveda");//Professors of course
-define("_USERSUPERVISORS","User nadzorniki");//User supervisors (New)
-define("_USEROPTIONSFOR","Možnosti uporabnika");//Options for user (New)
-define("_MYSTATUS","moj Learning Status");//my Learning Status (New)
-define("_MYCOURSES","moj Tečaji");//my Courses (New)
-define("_CERTIFICATIONS","Potrdila");//Certificates (New)
-define("_MYCERTIFICATIONS","moja Certifikati");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","No so bila izdana potrdila, da uporabnik še ni");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Da se aktivira nadzornik");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","No branch nadzorniki najti");//No branch supervisors found (New)
+define("_USERSUPERVISORS","User nadzorniki");//User supervisors
+define("_USEROPTIONSFOR","Možnosti uporabnika");//Options for user
+define("_MYSTATUS","moj Learning Status");//my Learning Status
+define("_MYCOURSES","moj Tečaji");//my Courses
+define("_CERTIFICATIONS","Potrdila");//Certificates
+define("_MYCERTIFICATIONS","moja Certifikati");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","No so bila izdana potrdila, da uporabnik še ni");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Da se aktivira nadzornik");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","No branch nadzorniki najti");//No branch supervisors found
 define("_PRINTCONTENT","Print vsebine");//Print content
 define("_USERHASNOTDONETEST","Uporabnik ni naredil ta test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Prepričajte se, da naslednje informacije pravilne");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Ni opredeljene kategorije");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Nadzornik activation email");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Employee račun activation email");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ta e-pošta vam omogoča, da aktivirate nov sistem uporabnika");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","dodeljene branch");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Nadzornik activation email");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Employee račun activation email");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ta e-pošta vam omogoča, da aktivirate nov sistem uporabnika");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","dodeljene branch");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","s službo položaj");//with the job description
-define("_BYCLICKINGONTHELINK","s klikom na spodnjo povezavo");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Račun svojega zaposlenega je bila uspešno aktivirali");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Branch information");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Branch ime polja");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job ime polja");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktiviranje nadzornik ime polja");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Pustite prazno, da bi ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Prosimo, izberite");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Vaš nadzornik bodo aktivirali svoj račun");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Izvoz vsebine IMS");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Naložite datoteko v ZIP formatu");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS možnosti");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS datoteka je bila uspešno uvožena");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Skrito uporabnikov");//Hidden from users (New)
-define("_RESETSCORMDATA","Reset uporabniških podatkov");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Dodatne nastavitve");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","s klikom na spodnjo povezavo");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Račun svojega zaposlenega je bila uspešno aktivirali");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar
+define("_BRANCHINFORMATION","Branch information");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Branch ime polja");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job ime polja");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktiviranje nadzornik ime polja");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Pustite prazno, da bi ommit");//Leave empty to ommit
+define("_PLEASESELECT","Prosimo, izberite");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Vaš nadzornik bodo aktivirali svoj račun");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Izvoz vsebine IMS");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS Naložite datoteko v ZIP formatu");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS možnosti");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS datoteka je bila uspešno uvožena");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Skrito uporabnikov");//Hidden from users
+define("_RESETSCORMDATA","Reset uporabniških podatkov");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Dodatne nastavitve");//Advanced settings
+define("_SHOWMOTTOONHEADER","Prikaži imenom in geslom tudi na glavi");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Rezultati iskanja v glosarju");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Ni zadetkov v glosarju");//No results found in glossary (New)
+define("_AUTOLOGIN","Samodejna prijava");//Auto login (New)
+define("_ACCESSLINK","Dostop link");//Access link (New)
+define("_AUTOLOGINITHLINK","Uporabnik se lahko prijavite samodejno povezavo");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Privzeta vrsto uporabnika");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Force študent odgovorili na vsa vprašanja");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Moraš odgovoriti na vsa vprašanja");//You have to answer all questions (New)
 ?>

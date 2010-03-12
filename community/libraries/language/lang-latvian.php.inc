@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Jums jānorāda vairāki jautājumi");//You
 define("_MUSTSPECIFYVALUEFROM","Jums jānorāda vērtību");//You must specify a value from
 define("_COURSEPROFESSORS","Protams, profesori");//Course professors
 define("_PROFESSORSOFCOURSE","Profesori protams");//Professors of course
-define("_USERSUPERVISORS","Lietotājs uzraudzības");//User supervisors (New)
-define("_USEROPTIONSFOR","Iespējām lietotāju");//Options for user (New)
-define("_MYSTATUS","mans Learning Status");//my Learning Status (New)
-define("_MYCOURSES","mans Kursi");//my Courses (New)
-define("_CERTIFICATIONS","Sertifikāti");//Certificates (New)
-define("_MYCERTIFICATIONS","mans Sertifikāti");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nē sertifikāti izsniegti, lai lietotājs vēl");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Lai varētu aktivizēt vadītājs");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Nē filiāle uzraudzības atrasts");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Lietotājs uzraudzības");//User supervisors
+define("_USEROPTIONSFOR","Iespējām lietotāju");//Options for user
+define("_MYSTATUS","mans Learning Status");//my Learning Status
+define("_MYCOURSES","mans Kursi");//my Courses
+define("_CERTIFICATIONS","Sertifikāti");//Certificates
+define("_MYCERTIFICATIONS","mans Sertifikāti");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nē sertifikāti izsniegti, lai lietotājs vēl");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Lai varētu aktivizēt vadītājs");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Nē filiāle uzraudzības atrasts");//No branch supervisors found
 define("_PRINTCONTENT","Drukāt saturs");//Print content
 define("_USERHASNOTDONETEST","Lietotājam nav izdarījusi šo testu");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Lūdzu, pārbaudiet, ka šāda informācija ir pareiza");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nav definētajām kategorijām");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivizācija");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbinieks konta aktivizācijas e-pastu");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šo e-pastu ļauj aktivizēt jaunā sistēmas lietotāja");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","piešķirts filiāle");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivizācija");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbinieks konta aktivizācijas e-pastu");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šo e-pastu ļauj aktivizēt jaunā sistēmas lietotāja");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","piešķirts filiāle");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","ar amatu");//with the job description
-define("_BYCLICKINGONTHELINK",", noklikšķinot uz šīs saites");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Vērā Jūsu darbinieks ir veiksmīgi aktivizēts");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Branch informācija");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Branch lauka nosaukums");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Darbs lauka nosaukums");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktivēšana vadītājs lauka nosaukums");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Atstāj tukšu, lai ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Lūdzu, izvēlieties");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsu uzraudzītājs aktivizētu savu kontu");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Eksporta IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS failu ZIP formātā");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS opcijas");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fails ir veiksmīgi importēti");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Hidden lietotāju");//Hidden from users (New)
-define("_RESETSCORMDATA","Reset lietotāja dati");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Papildu uzstādījumi");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK",", noklikšķinot uz šīs saites");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Vērā Jūsu darbinieks ir veiksmīgi aktivizēts");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar
+define("_BRANCHINFORMATION","Branch informācija");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Branch lauka nosaukums");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Darbs lauka nosaukums");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktivēšana vadītājs lauka nosaukums");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Atstāj tukšu, lai ommit");//Leave empty to ommit
+define("_PLEASESELECT","Lūdzu, izvēlieties");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsu uzraudzītājs aktivizētu savu kontu");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Eksporta IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upload IMS failu ZIP formātā");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS opcijas");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS fails ir veiksmīgi importēti");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Hidden lietotāju");//Hidden from users
+define("_RESETSCORMDATA","Reset lietotāja dati");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Papildu uzstādījumi");//Advanced settings
+define("_SHOWMOTTOONHEADER","Rādīt vārds un moto arī header");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Meklēšanas rezultāti glossary");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary (New)
+define("_AUTOLOGIN","Auto login");//Auto login (New)
+define("_ACCESSLINK","Access saite");//Access link (New)
+define("_AUTOLOGINITHLINK","Lietotājs var login automātiski saite");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Noklusējuma lietotāja tipu");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Spēkā students atbildēt uz visiem jautājumiem");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Jums ir atbildēt uz visiem jautājumiem");//You have to answer all questions (New)
 ?>

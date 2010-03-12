@@ -3474,42 +3474,51 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Soru sayısını belirtmelisiniz");//You mu
 define("_MUSTSPECIFYVALUEFROM","Sizden bir değer belirtmelisiniz");//You must specify a value from
 define("_COURSEPROFESSORS","Elbette profesör");//Course professors
 define("_PROFESSORSOFCOURSE","Profesör dersin");//Professors of course
-define("_USERSUPERVISORS","Kullanıcı denetçiler");//User supervisors (New)
-define("_USEROPTIONSFOR","Kullanıcı için seçenekler");//Options for user (New)
-define("_MYSTATUS","benim Öğrenim Durumu");//my Learning Status (New)
-define("_MYCOURSES","benim Dersler");//my Courses (New)
-define("_CERTIFICATIONS","Sertifikalar");//Certificates (New)
-define("_MYCERTIFICATIONS","benim Sertifikalar");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","No sertifikaları kullanıcı henüz basılmış olduğu");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Danışmanı tarafından etkinleştirilmesi için");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","No şube denetçiler bulundu");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Kullanıcı denetçiler");//User supervisors
+define("_USEROPTIONSFOR","Kullanıcı için seçenekler");//Options for user
+define("_MYSTATUS","benim Öğrenim Durumu");//my Learning Status
+define("_MYCOURSES","benim Dersler");//my Courses
+define("_CERTIFICATIONS","Sertifikalar");//Certificates
+define("_MYCERTIFICATIONS","benim Sertifikalar");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","No sertifikaları kullanıcı henüz basılmış olduğu");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Danışmanı tarafından etkinleştirilmesi için");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","No şube denetçiler bulundu");//No branch supervisors found
 define("_PRINTCONTENT","Print içerik");//Print content
 define("_USERHASNOTDONETEST","Kullanıcı bu testi yapılması değil");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Lütfen aşağıdaki bilgileri doğrulamak");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Hiçbir kategoriler tanımlanmıştır");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Danışman e-posta etkinleştirme");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Bir hesap etkinleştirme e-posta");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Bu e-posta size yeni sistemi kullanıcı etkinleştirmek sağlar");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","dalına atanan");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Danışman e-posta etkinleştirme");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Bir hesap etkinleştirme e-posta");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Bu e-posta size yeni sistemi kullanıcı etkinleştirmek sağlar");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","dalına atanan");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","iş pozisyonu ile");//with the job description
-define("_BYCLICKINGONTHELINK","Aşağıdaki linke tıklayarak");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Senin çalışanın hesabını başarıyla aktive edildi");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Barfiks");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Şube bilgileri");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Şube alan adı");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Iş alan adı");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Gözetmen alan adı etkinleştirme");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Ommit boş bırak");//Leave empty to ommit (New)
-define("_PLEASESELECT","Lütfen seçin");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Amirinle hesabınızı aktive eder");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","İthalat IMS İçerik");//Import IMS Content (New)
-define("_IMSEXPORT","İhracat IMS İçerik");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Posta olarak yükle IMS dosya biçimi");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS seçenekleri");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS dosyası başarıyla ithal edildi");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Gizli kullanıcılardan");//Hidden from users (New)
-define("_RESETSCORMDATA","Reset kullanıcı verilerini");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Gelişmiş ayarlar");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","Aşağıdaki linke tıklayarak");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Senin çalışanın hesabını başarıyla aktive edildi");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Barfiks");//Horizontal bar
+define("_BRANCHINFORMATION","Şube bilgileri");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Şube alan adı");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Iş alan adı");//Job field name
+define("_SUPERVISORDESCRIPTION","Gözetmen alan adı etkinleştirme");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Ommit boş bırak");//Leave empty to ommit
+define("_PLEASESELECT","Lütfen seçin");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Amirinle hesabınızı aktive eder");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","İthalat IMS İçerik");//Import IMS Content
+define("_IMSEXPORT","İhracat IMS İçerik");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Posta olarak yükle IMS dosya biçimi");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS seçenekleri");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS dosyası başarıyla ithal edildi");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Gizli kullanıcılardan");//Hidden from users
+define("_RESETSCORMDATA","Reset kullanıcı verilerini");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Gelişmiş ayarlar");//Advanced settings
+define("_SHOWMOTTOONHEADER","Show adı ve sloganı da başlığı");//Show name and motto also on header (New)
+define("_SEARCHRESULTSINGLOSSARY","Glossary arama sonuçları");//Search results in glossary (New)
+define("_NORESULTSFOUNDINGLOSSARY","Sonuç glossary bulundu");//No results found in glossary (New)
+define("_AUTOLOGIN","Otomatik giriş");//Auto login (New)
+define("_ACCESSLINK","Erişim bağlantı");//Access link (New)
+define("_AUTOLOGINITHLINK","Kullanıcı otomatik olarak bağlantı ile giriş yapabilirsiniz");//User can login automatically by link (New)
+define("_DEFAULTUSERTYPE","Varsayılan kullanıcı türü");//Default user type (New)
+define("_FORCEUSERANSERALLQUESTIONS","Kuvvet öğrenci tüm soruları cevaplamak");//Force student answer all questions (New)
+define("_YOUHAVETOANSWERALLQUESTIONS","Tüm soruları yanıtlamak zorunda");//You have to answer all questions (New)
 ?>

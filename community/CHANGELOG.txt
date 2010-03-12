@@ -10,7 +10,6 @@
 - Removed enter voucher field when total price of selected lessons is 0
 - Added checkbox for separating if site name and site moto will de displayed in header (except browser title bar)
 - Extended search functionality for glossary
-- Removed maximize_viewport. Not needed in v3.6.0
 - Fixed problem with moduleIconFunctions in layout
 - Fixed problem about considering examples in flashcard module (EF-545)
 - Added autologin functionality
@@ -20,6 +19,7 @@
 - Fixed problem in editing announcements about default date values
 - Fixed issue in lesson certificate module about issueCertificate
 - Fixed issue about loading tabs in group reporting
+- Changed maximize viewable area in creating content. It disappears left and right sidebars for the unit
 
 === Version 3.6.0 build 6152 ===
 - Added IMS importing functionality

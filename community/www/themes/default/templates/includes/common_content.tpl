@@ -88,8 +88,8 @@
         </span>
        </td></tr>
 
-      <!-- <tr style="display:none;" id = "maximize_viewport"><td class = "labelCell">{$T_ENTITY_FORM.maximize_viewport.label}:&nbsp;</td>
-                                <td class = "elementCell">{$T_ENTITY_FORM.maximize_viewport.html}</td></tr> -->
+       <tr style="display:none;" id = "maximize_viewport"><td class = "labelCell">{$T_ENTITY_FORM.maximize_viewport.label}:&nbsp;</td>
+                                <td class = "elementCell">{$T_ENTITY_FORM.maximize_viewport.html}</td></tr>
                             <tr style="display:none;" id = "no_before_unload"><td class = "labelCell">{$T_ENTITY_FORM.no_before_unload.label}:&nbsp;</td>
                                 <td class = "elementCell">{$T_ENTITY_FORM.no_before_unload.html}</td></tr>
                             <tr style="display:none;" id = "indexed"><td class = "labelCell">{$T_ENTITY_FORM.indexed.label}:&nbsp;</td>

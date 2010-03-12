@@ -120,7 +120,7 @@ function togglePdf() {
  $('toggleTools').toggle();
 }
 function toggleAdvancedParameters() {
- //$('maximize_viewport').toggle();
+ $('maximize_viewport').toggle();
  $('no_before_unload').toggle();
  $('indexed').toggle();
  $('accessible_explanation').toggle();

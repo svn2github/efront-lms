@@ -162,6 +162,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <tr><td class = "labelCell">{$smarty.const._DISPLAYQUESTIONWEIGHTS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.display_weights.html}</td></tr>
                 {if $T_TEST_FORM.display_weights.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.display_weights.error}</td></tr>{/if}
+    <tr><td class = "labelCell">{$smarty.const._FORCEUSERANSERALLQUESTIONS}:&nbsp;</td>
+                    <td class = "elementCell">{$T_TEST_FORM.answer_all.html}</td></tr>
+                {if $T_TEST_FORM.answer_all.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answer_all.error}</td></tr>{/if}
             {/if}
     <tr><td></td><td id = "toggleeditor_cell1">
      <div class = "headerTools">
@@ -743,6 +746,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   {/if}
 {elseif $smarty.get.show_test || isset ($T_TEST_UNSOLVED)}
  {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?view_unit=`$T_CURRENT_TEST->test.content_ID`'>`$smarty.const._VIEWTEST`: `$T_CURRENT_TEST->test.name`</a>"}
+ {capture name = 't_show_test'}
  <table id="shown_test" width = "100%" align = "center" >
     {if !isset($smarty.get.popup)}
      <tr><td colspan = "2">
@@ -799,6 +803,8 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {$T_TEST_UNSOLVED}
      </td></tr>
  </table>
+ {/capture}
+ {eF_template_printBlock title = $smarty.const._PREVIEW data = $smarty.capture.t_show_test image = '32x32/generic.png'}
  <br/><br/>
 {elseif $smarty.get.quick_test_add}
  {capture name = 't_random_questions_from_skills'}

@@ -15,6 +15,8 @@ $systemForm = new Html_QuickForm("system_variables", "post", basename($_SERVER['
 $systemForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 
 $systemForm -> addElement("advcheckbox", "signup", _EXTERNALLYSIGNUP, null, 'class = "inputCheckBox"', array(0, 1));
+$roles = EfrontUser :: getRoles(true);
+$systemForm -> addElement('select', 'default_type', null, $roles, 'class = "inputCheckBox"');
 
 
 

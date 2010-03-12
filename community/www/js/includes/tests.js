@@ -808,7 +808,13 @@ function checkQuestions() {
   if (!finished[i]) { unfinished.push(i+1); }
  }
  if (unfinished.length) {
-  return confirm(translations['youhavenotcompletedquestions']+': '+unfinished+'. '+translations['areyousureyouwanttosubmittest']);
+  if (force_answer_all == 1) {
+   alert (translations['youhavetoanswerallquestions']+': '+unfinished);
+   return false;
+  } else if(force_answer_all == 0) {
+   return confirm(translations['youhavenotcompletedquestions']+': '+unfinished+'. '+translations['areyousureyouwanttosubmittest']);
+  }
+
  }
 }
 function handleDrop(s,d, e) {

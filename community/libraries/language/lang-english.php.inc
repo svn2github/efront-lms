@@ -3515,4 +3515,10 @@ define("_TOGGLEADVENCEDPARAMETERS","Advanced settings");
 define("_SHOWMOTTOONHEADER","Show name and motto also on header");
 define("_SEARCHRESULTSINGLOSSARY","Search results in glossary");
 define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");
+define("_AUTOLOGIN","Auto login");
+define("_ACCESSLINK","Access link");
+define("_AUTOLOGINITHLINK","User can login automatically by link");
+define("_DEFAULTUSERTYPE","Default user type");
+define("_FORCEUSERANSERALLQUESTIONS","Force student answer all questions");
+define("_YOUHAVETOANSWERALLQUESTIONS","You have to answer all questions");
 ?>

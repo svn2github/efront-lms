@@ -9,7 +9,7 @@ define("_FLASHCARDS_ANSWER","Answer");
 define("_FLASHCARDS_USECARD","Use card");
 define("_FLASHCARDS_OPTIONS","Options");
 define("_FLASHCARDS_ACTIVE","Active");
-define("_FLASHCARDS_SHOWANSWERFIRST","Show answser first");
+define("_FLASHCARDS_SHOWANSWERFIRST","Show answer first");
 define("_FLASHCARDS_SHUFFLECARDS","Shuffle cards");
 define("_FLASHCARDS_DISPLAYMASTERY","Display mastery on card");
 define("_FLASHCARDS_WRONGREDUCES","Wrong reduces success count");

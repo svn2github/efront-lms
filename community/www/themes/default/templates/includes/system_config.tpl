@@ -51,6 +51,8 @@
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.activation.html}</td></tr>
          <tr><td class = "labelCell">{$smarty.const._MAILUSERACTIVATION}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.mail_activation.html}</td></tr>
+   <tr><td class = "labelCell">{$smarty.const._DEFAULTUSERTYPE}:&nbsp;</td>
+             <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.default_type.html}</td></tr>
          <tr><td class = "labelCell">{$smarty.const._VIEWINSERTGROUPKEY}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.insert_group_key.html}</td></tr>
          <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.show_license_note.label}:&nbsp;</td>

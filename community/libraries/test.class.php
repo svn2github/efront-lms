@@ -133,7 +133,8 @@ class EfrontTest
                             'display_list' => 0,
                             'pause_test' => 1,
                             'display_weights' => 1,
-          'only_forward' => 0);
+          'only_forward' => 0,
+       'answer_all' => 0);
     /**
 
      * Class constructor
@@ -1868,11 +1869,20 @@ class EfrontTest
                         </script>";
         }
         if (sizeof($this -> questions) > 0) {
-            $testString .= "
-            <script>
+   if ($this -> options['answer_all']) {
+    $testString .= "
+    <script>
+    var force_answer_all = 1;
+             translations['youhavenotcompletedquestions'] = '"._YOUHAVENOTCOMPLETEDTHEFOLLOWINGQUESTIONS."';
+             translations['youhavetoanswerallquestions'] = '"._YOUHAVETOANSWERALLQUESTIONS."';</script>";
+   } else {
+    $testString .= "
+    <script>
+    var force_answer_all = 0;
              translations['youhavenotcompletedquestions'] = '"._YOUHAVENOTCOMPLETEDTHEFOLLOWINGQUESTIONS."';
              translations['areyousureyouwanttosubmittest'] = '"._AREYOUSUREYOUWANTTOSUBMITTEST."';</script>";
-        }
+   }
+  }
 /*
 
         if ($this -> options['shuffle_questions'] && !$form -> isSubmitted()) {

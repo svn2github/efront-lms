@@ -897,6 +897,7 @@ CREATE TABLE completed_tests (
 -- archive: A timestamp indicating when this entity was archived. If 0, then the entity is not archived. Archived entities MUST have active = 0 also
 -- dashboard_positions: The positions of the elements on the user's dashboard
 -- need_mod_init: A special flag used by the jfusion plugin
+-- autologin: A special url for logging automatically
 CREATE TABLE users (
   id mediumint(8) unsigned NOT NULL auto_increment,
   login varchar(100) NOT NULL,
@@ -921,6 +922,7 @@ CREATE TABLE users (
   archive int(10) unsigned default 0,
   dashboard_positions text,
   need_mod_init tinyint(1) default '0',
+  autologin char(32),
   PRIMARY KEY (login),
   KEY (id)
 ) DEFAULT CHARSET=utf8;

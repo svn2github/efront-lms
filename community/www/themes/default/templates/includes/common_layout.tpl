@@ -1,5 +1,5 @@
 {if !$smarty.get.popup && !$T_POPUP_MODE}
- <table class = "pageLayout {$layoutClass}" id = "pageLayout">
+ <table class = "pageLayout {if isset($T_MAXIMIZE_VIEWPORT)}centerFull hideBoth{else}{$layoutClass}{/if}" id = "pageLayout">
   {if $smarty.server.PHP_SELF|basename == 'index.php'}
    {if $T_THEME_SETTINGS->options.show_header != 0}
     <tr><td class = "header" colspan = "3">{include file = "includes/header_code.tpl"}</td></tr>

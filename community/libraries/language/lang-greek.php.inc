@@ -3499,6 +3499,7 @@ define("_BRANCHINFORMATION","Πληροφορίες τμήματος");
 define("_BRANCHNAMEDESCRIPTION","Περιγραφή πεδίου τμήματος");
 define("_JOBDESCRIPTIONDESCRIPTION","Περιγραφή πεδίου θέσης εργασίας");
 define("_SUPERVISORDESCRIPTION","Περιγραφή πεδίου προϊσταμένου που θα ειδοποιηθεί με email");
+define("_LEAVEEMPTYTONOTUSE","Αφήστε άδειο για παράλειψη");
 define("_PLEASESELECT","Παρακαλώ επιλέξτε");
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ο προϊστάμενός σας θα ενεργοποιήσει το λογαριασμό");
 define("_IMS","IMS");
@@ -3514,4 +3515,10 @@ define("_TOGGLEADVENCEDPARAMETERS","Περισσότερες επιλογές");
 define("_SHOWMOTTOONHEADER","Εμφάνιση ονόματος και σλογκαν και στην επικεφαλίδα");
 define("_SEARCHRESULTSINGLOSSARY","Αποτελέσματα αναζήτησης στο γλωσσάρι");
 define("_NORESULTSFOUNDINGLOSSARY","Δεν βρεθηκαν αποτελεσματα αναζήτησης στο γλωσσάρι");
+define("_AUTOLOGIN","Αυτόματη είσοδος");
+define("_ACCESSLINK","Σύνδεσμος πρόσβασης");
+define("_AUTOLOGINITHLINK","Ο χρήστης μπορεί να εισέλθει μέσω του συνδέσμου");
+define("_DEFAULTUSERTYPE","Προκαθοριμένος τύπος χρήστη");
+define("_FORCEUSERANSERALLQUESTIONS","Οι μαθητές πρέπει να απαντούν όλες τις ερωτήσεις");
+define("_YOUHAVETOANSWERALLQUESTIONS","Πρέπει να απαντησετε όλες τις ερωτήσεις");
 ?>

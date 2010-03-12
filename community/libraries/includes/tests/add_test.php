@@ -17,14 +17,14 @@ if (!$_change_) {
 if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
     $options = array('lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 0);
 } else {
-    $options = array('delete'        => false,
-            		 'edit'          => false, 
-            		 'share'         => false, 
-            		 'upload'        => false, 
-            		 'create_folder' => false, 
-            		 'zip'           => false, 
-            		 'lessons_ID'    => $currentLesson -> lesson['id'], 
-            		 'metadata'      => 0);
+    $options = array('delete' => false,
+               'edit' => false,
+               'share' => false,
+               'upload' => false,
+               'create_folder' => false,
+               'zip' => false,
+               'lessons_ID' => $currentLesson -> lesson['id'],
+               'metadata' => 0);
 }
 //Default url for the file manager
 $url = basename($_SERVER['PHP_SELF']).'?ctg=tests&'.(isset($_GET['edit_test']) ? 'edit_test='.$_GET['edit'] : 'add_test=1');
@@ -53,16 +53,16 @@ $skillgap_tests ? $basedir = G_ADMINPATH : $basedir = $currentLesson -> getDirec
 //Default options for the file manager
 if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
     $options = array('lessons_ID' => !$skillgap_tests ? $currentLesson -> lesson['id'] : false,
-            				 'metadata'   => 0);
+                 'metadata' => 0);
 } else {
-    $options = array('delete'        => false,
-	            			 'edit'          => false, 
-	            			 'share'         => false, 
-	            			 'upload'        => false, 
-	            			 'create_folder' => false, 
-	            			 'zip'           => false, 
-	            			 'lessons_ID'    => !$skillgap_tests ? $currentLesson -> lesson['id'] : false, 
-	            			 'metadata'      => 0);            
+    $options = array('delete' => false,
+                 'edit' => false,
+                 'share' => false,
+                 'upload' => false,
+                 'create_folder' => false,
+                 'zip' => false,
+                 'lessons_ID' => !$skillgap_tests ? $currentLesson -> lesson['id'] : false,
+                 'metadata' => 0);
 }
 
 $loadScripts[] = 'scriptaculous/slider';
@@ -75,26 +75,27 @@ $form -> addElement('text', 'duration', null, 'id = "test_duration" size = "5"')
 $form -> addElement('text', 'redoable', null, 'size = "5"');
 $form -> addElement('text', 'maintain_history', null, 'size = "5"');
 $form -> addElement('text', 'mastery_score', _MASTERYSCORE, 'size = "5"');
-$form -> addElement('advcheckbox', 'onebyone',          null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'only_forward',      null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'given_answers',     null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'answers',           null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'shuffle_answers',   null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'onebyone', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'only_forward', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'given_answers', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'answers', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'shuffle_answers', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'shuffle_questions', null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'pause_test',        null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'publish',           null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'display_list',      null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'display_weights',   null, null, null, array(0, 1));
-$form -> addElement('textarea',    'description',       null, 'id="editor_content_data" class = "inputTestTextarea mceEditor" style = "width:100%;height:16em;"');
+$form -> addElement('advcheckbox', 'pause_test', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'publish', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'display_list', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'display_weights', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'answer_all', null, null, null, array(0, 1));
+$form -> addElement('textarea', 'description', null, 'id="editor_content_data" class = "inputTestTextarea mceEditor" style = "width:100%;height:16em;"');
 
-$form -> addRule('mastery_score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);'));    //The score must be between 0 and 100
+$form -> addRule('mastery_score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
 $form -> addRule('mastery_score', _THEFIELD.' "'._MASTERYSCORE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
 $form -> addRule('duration', _THEFIELD.' "'._DURATIONINMINUTES.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
 $form -> addRule('name', _THEFIELD.' "'._NAME.'" '._ISMANDATORY, 'required', null, 'client');
 $form -> addRule('redoable', _THEFIELD.' "'._REDOABLE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
 
 if (!$skillgap_tests) {
-    $optionsArray = $currentContent -> toHTMLSelectOptions();    //Get the units as an array of formated strings, that can be used to form an HTML select list
+    $optionsArray = $currentContent -> toHTMLSelectOptions(); //Get the units as an array of formated strings, that can be used to form an HTML select list
     $select_units = & HTML_QuickForm :: createElement('select', 'parent_content', _UNITPARENT, null, 'class = "inputSelect"');
     $select_units -> addOption(_ROOTUNIT, 0);
     $select_units -> loadArray($optionsArray);
@@ -108,19 +109,19 @@ if (!$skillgap_tests) {
     foreach ($iterator = new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($units)), array('id', 'name')) as $key => $value) {
         $key == 'id' ? $ids[] = $value : $names[] = $value;
     }
-    $unitNames    = array_combine($ids, $names);
+    $unitNames = array_combine($ids, $names);
     $unitNames[0] = _NONEUNIT;
-    $result       = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC");     //Retrieve all questions that belong to this unit or its subunits
+    $result = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
 
 } else {
     $form -> addElement('text', 'general_threshold', null, 'class = "inputText"');
     $form->registerRule('decimal2digits','regex','/^\d{1,2}(\.\d{1,2})?$/');
     $form->addRule('general_threshold',_INVALIDFIELDDATAFORFIELD.' "'._GENERALTHRESHOLD.'": '. _NUMBERFROM000TO9999REQUIRED,'decimal2digits');
     // Set default value and if it is defined it will be overwritten - @hardcoded value 50 - could be set by admin in general
-    $form -> setDefaults(array('general_threshold'    => "50.00"));
+    $form -> setDefaults(array('general_threshold' => "50.00"));
 
-    $form -> addElement('advcheckbox', 'assign_to_new',          null, null, null, array(0, 1));
-    $form -> addElement('advcheckbox', 'automatic_assignment',          null, null, null, array(0, 1));
+    $form -> addElement('advcheckbox', 'assign_to_new', null, null, null, array(0, 1));
+    $form -> addElement('advcheckbox', 'automatic_assignment', null, null, null, array(0, 1));
 
     $result = eF_getTableData("questions LEFT OUTER JOIN lessons ON lessons.id = lessons_ID", "questions.*, lessons.name", "");
 }
@@ -143,7 +144,7 @@ foreach ($result as $value) {
     }
     $unitsToQuestionsTypes[$value['content_ID']][$value['type']]++;
 }
- 
+
 $smarty -> assign("T_UNITS_TO_QUESTIONS_DIFFICULTIES", $unitsToQuestionsDifficulties);
 $smarty -> assign("T_UNITS_TO_QUESTIONS_TYPES", $unitsToQuestionsTypes);
 //pr($unitsToQuestions);
@@ -157,17 +158,17 @@ $smarty -> assign("T_QUESTION_TYPES_ICONS", Question::$questionTypesIcons);
 
 if (isset($_GET['add_test'])) {
     $form -> addElement('submit', 'submit_test', _SAVETESTANDADDQUESTIONS, 'class = "flatButton"');
-    $form -> setDefaults(array('given_answers'    => 1,
-                               'answers'          => 1,
+    $form -> setDefaults(array('given_answers' => 1,
+                               'answers' => 1,
                                'maintain_history' => 5,
-                               'publish'          => 1,
-                               'mastery_score'    => 50,
-            				   'redoable'	      => 1));
+                               'publish' => 1,
+                               'mastery_score' => 50,
+                   'redoable' => 1));
     if (isset($_GET['from_unit'])) {
         $form -> setDefaults(array('parent_content' => $_GET['from_unit']));
     }
 } else if (isset($_GET['edit_test'])) {
-     
+
     if (!$skillgap_tests) {
         $testUnit = new EfrontUnit($currentTest -> test['content_ID']);
     }
@@ -176,22 +177,22 @@ if (isset($_GET['add_test'])) {
 
     $form -> freeze('parent_content');
     $form -> setDefaults($currentTest -> options);
-    $form -> setDefaults(array('name'              => $currentTest -> test['name'],
-                               'duration'          => $currentTest -> options['duration'] ? round($currentTest -> options['duration'] / 60) : '',   //Duration is displayed in minutes, but is stored in seconds
-                               'redoable'          => $currentTest -> options['redoable'] ? $currentTest -> options['redoable'] : '',
-                               'publish'           => $currentTest -> test['publish'],
-                               'description'       => $currentTest -> test['description'],
-                               'mastery_score'     => $currentTest -> test['mastery_score']));
+    $form -> setDefaults(array('name' => $currentTest -> test['name'],
+                               'duration' => $currentTest -> options['duration'] ? round($currentTest -> options['duration'] / 60) : '', //Duration is displayed in minutes, but is stored in seconds
+                               'redoable' => $currentTest -> options['redoable'] ? $currentTest -> options['redoable'] : '',
+                               'publish' => $currentTest -> test['publish'],
+                               'description' => $currentTest -> test['description'],
+                               'mastery_score' => $currentTest -> test['mastery_score']));
 
     if (!$skillgap_tests) {
-        $form -> setDefaults(array('parent_content'    => $testUnit['parent_content_ID']));
+        $form -> setDefaults(array('parent_content' => $testUnit['parent_content_ID']));
     }
 
     $smarty -> assign("T_CURRENT_TEST", $currentTest);
 
     $testQuestions = $currentTest -> getQuestions();
     $stats = $currentTest -> questionsInfo();
-    $stats['duration'] 	  = eF_convertIntervalToTime($stats['total_duration']);
+    $stats['duration'] = eF_convertIntervalToTime($stats['total_duration']);
     $stats['random_pool'] = $currentTest -> options['random_pool'];
     $stats['user_configurable'] = $currentTest -> options['user_configurable'];
 
@@ -200,52 +201,53 @@ if (isset($_GET['add_test'])) {
 
 if ($form -> isSubmitted() && $form -> validate()) {
     $values = $form -> exportValues();
-    $testOptions = array('duration'         => $values['duration'] * 60,              //Duration is displayed in minutes, but is stored in seconds
-                                'redoable'          => $values['redoable'] ? $values['redoable'] : 0,
-                                'onebyone'          => $values['onebyone'],
-                        		'only_forward'      => $values['only_forward'],
-                                'given_answers'     => $values['given_answers'],
-                                'maintain_history'  => $values['maintain_history'],
-                                'answers'           => $values['answers'],
-                                'shuffle_answers'   => $values['shuffle_answers'],
+    $testOptions = array('duration' => $values['duration'] * 60, //Duration is displayed in minutes, but is stored in seconds
+                                'redoable' => $values['redoable'] ? $values['redoable'] : 0,
+                                'onebyone' => $values['onebyone'],
+                          'only_forward' => $values['only_forward'],
+                                'given_answers' => $values['given_answers'],
+                                'maintain_history' => $values['maintain_history'],
+                                'answers' => $values['answers'],
+                                'shuffle_answers' => $values['shuffle_answers'],
                                 'shuffle_questions' => $values['shuffle_questions'],
-                                'pause_test'        => $values['pause_test'],
-                                'display_list'      => $values['display_list'],
-                                'display_weights'   => $values['display_weights'],
-                        		'general_threshold' => $values['general_threshold'],        //skill-gap option
-                         	    'assign_to_new'     => $values['assign_to_new'],            //skill-gap option
-                        		'automatic_assignment' => $values['automatic_assignment']); //skill-gap option
+                                'pause_test' => $values['pause_test'],
+                                'display_list' => $values['display_list'],
+                                'display_weights' => $values['display_weights'],
+        'answer_all' => $values['answer_all'],
+                          'general_threshold' => $values['general_threshold'], //skill-gap option
+                              'assign_to_new' => $values['assign_to_new'], //skill-gap option
+                          'automatic_assignment' => $values['automatic_assignment']); //skill-gap option
     if (isset($_GET['edit_test']) && !isset($values['submit_test_new'])) {
-        $currentTest -> test['publish']       = $values['publish'];
-        $currentTest -> test['description']   = $values['description'];
+        $currentTest -> test['publish'] = $values['publish'];
+        $currentTest -> test['description'] = $values['description'];
         $currentTest -> test['mastery_score'] = $values['mastery_score'] ? $values['mastery_score'] : 0;
-        $currentTest -> test['name']          = $values['name'];
+        $currentTest -> test['name'] = $values['name'];
 
         $currentTest -> options = array_merge($currentTest -> options, $testOptions);
         $currentTest -> persist();
 
         if (!$skillgap_tests) {
-            $testUnit['name']              = $values['name'];
+            $testUnit['name'] = $values['name'];
             $testUnit['parent_content_ID'] = $values['parent_content'];
             $testUnit -> persist();
         }
         eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=tests&from_unit=".$_GET['from_unit']."&message=".urlencode(_SUCCESFULLYMODIFIEDTEST)."&message_type=success");
     } else {
-        $contentFields = array('data'              => '',
-                                       'name'              => $values['name'],
-                                       'lessons_ID'        => $currentLesson -> lesson['id'],
-                                       'ctg_type'          => "tests",
-                                       'active'            => 1,
-                                       'timestamp'         => time(),
-                                       'parent_content_ID' => $values['parent_content']);                        
-        $testFields = array('active'            => 1,
-		                            'lessons_ID'        => (isset($currentLesson -> lesson['id']))?$currentLesson -> lesson['id']:0,
-		                            'content_ID'        => $test_content_ID,
-		                            'description'       => $values['description'],
-		                            'options'           => serialize($testOptions),
-		                            'name'              => $values['name'],
-		                            'publish'           => $values['publish'],
-		                            'mastery_score'     => $values['mastery_score'] ? $values['mastery_score'] : 0);
+        $contentFields = array('data' => '',
+                                       'name' => $values['name'],
+                                       'lessons_ID' => $currentLesson -> lesson['id'],
+                                       'ctg_type' => "tests",
+                                       'active' => 1,
+                                       'timestamp' => time(),
+                                       'parent_content_ID' => $values['parent_content']);
+        $testFields = array('active' => 1,
+                              'lessons_ID' => (isset($currentLesson -> lesson['id']))?$currentLesson -> lesson['id']:0,
+                              'content_ID' => $test_content_ID,
+                              'description' => $values['description'],
+                              'options' => serialize($testOptions),
+                              'name' => $values['name'],
+                              'publish' => $values['publish'],
+                              'mastery_score' => $values['mastery_score'] ? $values['mastery_score'] : 0);
 
         if (!$skillgap_tests) {
             $newUnit = $currentContent -> insertNode($contentFields);
@@ -260,7 +262,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
             // ... and its users if it is a skillgap test
             if ($skillgap_tests) {
                 $testUsers = eF_getTableDataFlat("users_to_skillgap_tests", "users_LOGIN", "tests_ID = '".$_GET['edit_test']."'");
-                $fields    = array();
+                $fields = array();
                 foreach ($testUsers as $entry) {
                     $fields[] = array('tests_ID' => $newTest -> test['id'], 'users_LOGIN' => $entry['useres_LOGIN']);
                 }
@@ -319,7 +321,7 @@ if ($skillgap_tests) {
         // Find the completed test for each user
         foreach ($testUsers as $uid => $user) {
             foreach($test_info as $info) {
-                if ($info['users_LOGIN']  == $user['login']) {
+                if ($info['users_LOGIN'] == $user['login']) {
                     $testUsers[$uid]['completed_test_id'] = $info['id'];
                 }
             }
@@ -334,7 +336,7 @@ if ($skillgap_tests) {
         // Find the completed test for each user
         foreach ($testUsers as $uid => $user) {
             foreach($test_info as $info) {
-                if ($info['users_LOGIN']  == $user['login']) {
+                if ($info['users_LOGIN'] == $user['login']) {
                     $testUsers[$uid]['completed_test_id'] = $info['id'];
                 }
             }
@@ -345,10 +347,10 @@ if ($skillgap_tests) {
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
     // If no lesson then define the current lesson name => _SKILLGAPTESTS (used for correct filtering)
     foreach ($questions as $qid => $question) {
-        $questions[$qid]['text']           = strip_tags($question['text']);        //If we ommit this line, then the questions list is html formatted, images are displayed etc, which is *not* the intended behaviour
-        $questions[$qid]['parent_name']    = $unitNames[$question['content_ID']];
-        $questions[$qid]['weight']         = $testQuestions[$qid]['weight'];
-        $questions[$qid]['partof']         = 0;
+        $questions[$qid]['text'] = strip_tags($question['text']); //If we ommit this line, then the questions list is html formatted, images are displayed etc, which is *not* the intended behaviour
+        $questions[$qid]['parent_name'] = $unitNames[$question['content_ID']];
+        $questions[$qid]['weight'] = $testQuestions[$qid]['weight'];
+        $questions[$qid]['partof'] = 0;
         $questions[$qid]['estimate_interval'] = eF_convertIntervalToTime($question['estimate']);
         if ($question['lessons_ID'] == 0) {
             $questions[$qid]['name'] = _SKILLGAPTESTS;
@@ -361,8 +363,8 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
         }
     }
 
-    foreach ($testQuestions as $testQuestion) {                                     //Set to selected the questions that the test includes, along with their weights
-        $form -> setDefaults(array('questions['.$testQuestion['id'].']'       => 1,
+    foreach ($testQuestions as $testQuestion) { //Set to selected the questions that the test includes, along with their weights
+        $form -> setDefaults(array('questions['.$testQuestion['id'].']' => 1,
                                                'question_weight['.$testQuestion['id'].']' => $testQuestion['weight']));
         $questions[$testQuestion['id']]['partof'] = 1;
     }
@@ -469,9 +471,9 @@ if (isset($_GET['postAjaxRequest'])) {
     } else {
         try {
             if (isset($_GET['question']) && eF_checkParameter($_GET['question'], 'id')) {
-                if ($_GET['remove'] && in_array($_GET['question'], array_keys($testQuestions))) {                    //The user has the project, so remove him
+                if ($_GET['remove'] && in_array($_GET['question'], array_keys($testQuestions))) { //The user has the project, so remove him
                     $currentTest -> removeQuestions(array($_GET['question']));
-                } else {                     //The user doesn't have the project, so add him
+                } else { //The user doesn't have the project, so add him
                     $currentTest -> addQuestions(array($_GET['question'] => $_GET['weight']));
                 }
             } else if (isset($_GET['addAll'])) {
@@ -494,7 +496,7 @@ if (isset($_GET['postAjaxRequest'])) {
                         }
                     }
                 }
-                 
+
                 isset($_GET['filter']) ? $nonTestQuestions = eF_filterData($nonTestQuestions,$_GET['filter']) : null;
                 $currentTest -> addQuestions(array_combine(array_keys($nonTestQuestions), array_fill(0, sizeof($nonTestQuestions), 1)));
             } else if (isset($_GET['removeAll'])) {
@@ -517,14 +519,14 @@ if (isset($_GET['postAjaxRequest'])) {
             }
 
             //ArrayObject is required in order for json to work well with prototype
-            $stats 	   = new ArrayObject($currentTest -> questionsInfo());
-            $stats['difficulties']  = new ArrayObject($stats['difficulties']);
-            $stats['types'] 	    = new ArrayObject($stats['types']);
-            $stats['percentage']    = new ArrayObject($stats['percentage']);
-            $stats['duration'] 	    = eF_convertIntervalToTime($stats['total_duration']);
-            $stats['random_pool']   = $currentTest -> options['random_pool'];
+            $stats = new ArrayObject($currentTest -> questionsInfo());
+            $stats['difficulties'] = new ArrayObject($stats['difficulties']);
+            $stats['types'] = new ArrayObject($stats['types']);
+            $stats['percentage'] = new ArrayObject($stats['percentage']);
+            $stats['duration'] = eF_convertIntervalToTime($stats['total_duration']);
+            $stats['random_pool'] = $currentTest -> options['random_pool'];
             $stats['test_duration'] = $currentTest -> options['duration'];
-             
+
             header("content-type:application/json");
             echo json_encode($stats);
 
@@ -537,12 +539,12 @@ if (isset($_GET['postAjaxRequest'])) {
 }
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'randomize') {
     try {
-        $params = array('multitude'  	  => is_numeric($_GET['multitude'])		  ? $_GET['multitude']  	   : '',
-            					'duration' 	  	  => is_numeric($_GET['duration'])  	  ? $_GET['duration']   	   : '',
-            	 				'mean_difficulty' => is_numeric($_GET['mean_difficulty']) ? $_GET['mean_difficulty']   : '',
-            					'balance' 		  => is_numeric($_GET['balance'])   	  ? $_GET['balance']    	   : 50);
+        $params = array('multitude' => is_numeric($_GET['multitude']) ? $_GET['multitude'] : '',
+                 'duration' => is_numeric($_GET['duration']) ? $_GET['duration'] : '',
+                  'mean_difficulty' => is_numeric($_GET['mean_difficulty']) ? $_GET['mean_difficulty'] : '',
+                 'balance' => is_numeric($_GET['balance']) ? $_GET['balance'] : 50);
         $params['duration'] = $params['duration']*60;
-         
+
         //Remove units and difficulties that are set to 'Off'
         if (isset($_GET['unit_to_difficulty'])) {
             foreach ($_GET['unit_to_difficulty'] as $key => $value) {
@@ -590,18 +592,18 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'randomize') {
 
         $questions = $currentTest -> randomize($params, $reqs);
         //ArrayObject is required in order for json to work well with prototype
-        $stats 	   = new ArrayObject($currentTest -> questionsInfo($questions));
+        $stats = new ArrayObject($currentTest -> questionsInfo($questions));
         $stats['difficulties'] = new ArrayObject($stats['difficulties']);
-        $stats['types'] 	   = new ArrayObject($stats['types']);
-        $stats['percentage']   = new ArrayObject($stats['percentage']);
-        $stats['duration'] 	   = eF_convertIntervalToTime($stats['total_duration']);
+        $stats['types'] = new ArrayObject($stats['types']);
+        $stats['percentage'] = new ArrayObject($stats['percentage']);
+        $stats['duration'] = eF_convertIntervalToTime($stats['total_duration']);
         if ($currentTest -> options['random_pool'] > sizeof($currentTest -> getQuestions())) {
             $currentTest -> options['random_pool'] = sizeof($currentTest -> getQuestions());
             $currentTest -> persist();
         }
-        $stats['random_pool']   = $currentTest -> options['random_pool'] ? $currentTest -> options['random_pool'] : '';
+        $stats['random_pool'] = $currentTest -> options['random_pool'] ? $currentTest -> options['random_pool'] : '';
         $stats['test_duration'] = $currentTest -> options['duration'];
-         
+
         header("content-type:application/json");
         echo json_encode($stats);
     } catch (Exception $e) {
@@ -625,23 +627,23 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['rando
 
         //Set the user configurable option
         isset($_GET['user_configurable']) && $_GET['user_configurable'] ? $currentTest -> options['user_configurable'] = 1 : $currentTest -> options['user_configurable'] = 0;
-        
+
         $currentTest -> persist();
-        
+
         //ArrayObject is required in order for json to work well with prototype
-        $stats 	   = new ArrayObject($currentTest -> questionsInfo());
-        $stats['difficulties']  = new ArrayObject($stats['difficulties']);
-        $stats['types'] 	    = new ArrayObject($stats['types']);
-        $stats['percentage']    = new ArrayObject($stats['percentage']);
-        $stats['duration'] 	    = eF_convertIntervalToTime($stats['total_duration']);
-        $stats['random_pool']   = $currentTest -> options['random_pool'];
+        $stats = new ArrayObject($currentTest -> questionsInfo());
+        $stats['difficulties'] = new ArrayObject($stats['difficulties']);
+        $stats['types'] = new ArrayObject($stats['types']);
+        $stats['percentage'] = new ArrayObject($stats['percentage']);
+        $stats['duration'] = eF_convertIntervalToTime($stats['total_duration']);
+        $stats['random_pool'] = $currentTest -> options['random_pool'];
         //Set the test time to match questions time
         if ($_GET['update_test_time'] && $stats['total_duration'] > 0) {
             $currentTest -> options['duration'] = $stats['total_duration'];
             $currentTest -> persist();
         }
         $stats['test_duration'] = $currentTest -> options['duration'];
-         
+
         header("content-type:application/json");
         echo json_encode($stats);
     } catch (Exception $e) {

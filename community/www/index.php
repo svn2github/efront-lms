@@ -165,6 +165,24 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  include("directions_tree.php");
 }
 /* -------------------------------------------------------Login part-------------------------------------------------------------------*/
+if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
+ try {
+  $result = eF_getTableDataFlat("users", "login,autologin,password,user_type", "active=1 and autologin !=''");
+  $autolinks = $result['autologin'];
+  $key = array_search($_GET['autologin'], $autolinks);
+  if ($key !== false) {
+   //pr($result['login'][$key]);
+   $user = EfrontUserFactory :: factory($result['login'][$key]);
+   $pattern = $user -> user['login']."_".$user -> user['timestamp'];
+   $pattern = $pattern = md5($pattern.G_MD5KEY);
+   if (strcmp($pattern, $_GET['autologin']) == 0) {
+    $user -> login($user -> user['password'], true);
+    eF_redirect("".$user -> user['user_type']."page.php");
+    exit;
+   }
+  }
+ } catch (EfrontUserException $e) {}
+}
 if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
  try {
   $user = EfrontUserFactory :: factory($_COOKIE['cookie_login']);
@@ -484,6 +502,20 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
     $user -> logout();
    }
    $values = $form -> exportValues(); //Get the form values
+   //Check the user_type. If it's an id, it means that it's not one of the basic user types; so derive the basic user type and populate the user_types_ID field
+   $defaultUserType = $GLOBALS['configuration']['default_type'];
+   if (is_numeric($defaultUserType)) {
+                $result = eF_getTableData("user_types", "id, basic_user_type", "id=".$defaultUserType);
+                if (sizeof($result) > 0) {
+                    $values['user_type'] = $result[0]['basic_user_type'];
+                    $values['user_types_ID'] = $result[0]['id'];
+                } else {
+                    $values['user_type'] = 'student';
+                }
+            } else {
+    $values['user_type'] = $defaultUserType;
+                $values['user_types_ID'] = 0;
+            }
    $user_data = array("login" => $values['login'],
                                "password" => isset($_GET['ldap']) ? 'ldap' : $values['password'],
                                "name" => $values['firstName'],
@@ -492,7 +524,9 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
                                "comments" => $values['comments'],
                                "pending" => ($configuration['activation']) ? 0 : 1,
                                "active" => $configuration['activation'],
-                               "languages_NAME" => $values['languages_NAME']);
+                               "languages_NAME" => $values['languages_NAME'],
+          "user_type" => $values['user_type'],
+          "user_types_ID" => $values['user_types_ID']);
             foreach ($user_profile as $field) { //Get the custom fields values
              $user_data[$field['name']] = $values[$field['name']];
             }

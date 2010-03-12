@@ -1333,7 +1333,8 @@ abstract class EfrontUser
                         'balance' => $this -> user['balance'],
                         'archive' => $this -> user['archive'],
             'additional_accounts' => $this -> user['additional_accounts'],
-                        'short_description' => $this -> user['short_description']);
+                        'short_description' => $this -> user['short_description'],
+      'autologin' => $this -> user['autologin']);
         eF_updateTableData("users", $fields, "login='".$this -> user['login']."'");
         return true;
     }

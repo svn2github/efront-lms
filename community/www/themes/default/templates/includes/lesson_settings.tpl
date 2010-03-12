@@ -106,16 +106,16 @@
                     {eF_template_printBlock title = "`$smarty.const._UPDATEUSERSTOLESSONS`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_users_to_lessons_code image = '32x32/users.png' main_options = $T_TABLE_OPTIONS}
     {elseif isset($T_OP) && $T_OP == 'lesson_layout'}
          {capture name = "t_layout_code"}
-                    {capture name = "layout_moduleControlPanel"}
-                        <li id = "firstlist_moduleControlPanel">
+                    {capture name = "layout_moduleIconFunctions"}
+                        <li id = "firstlist_moduleIconFunctions">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
                                         <img class = "iconTableImage" src = "images/32x32/options.png" alt = "{$smarty.const._CURRENTCONTENT}" title = "{$smarty.const._CONTROLPANEL}">
                                         {$smarty.const._CONTROLPANEL}
                                     </th>
-                                    <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleControlPanel) && $T_DEFAULT_POSITIONS.visibility.moduleControlPanel == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
-                                <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleControlPanel) && $T_DEFAULT_POSITIONS.visibility.moduleControlPanel == 0}display:none;{/if}"><img src = "images/others/control_panel_thumbnail.png"></td></tr>
+                                    <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleIconFunctions) && $T_DEFAULT_POSITIONS.visibility.moduleIconFunctions == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+                                <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleIconFunctions) && $T_DEFAULT_POSITIONS.visibility.moduleIconFunctions == 0}display:none;{/if}"><img src = "images/others/control_panel_thumbnail.png"></td></tr>
                             </table>
                         </li>
                     {/capture}
@@ -255,7 +255,7 @@
              <table>
               <tr><td>
                       <ul class = "sortable" id = "firstlist">
-                      {if !in_array('moduleControlPanel', $T_DEFAULT_POSITIONS.first) && !in_array('moduleControlPanel', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleControlPanel}{/if}
+                      {if !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.first) && !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleIconFunctions}{/if}
                       {if !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.first) && !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleContentTree}{/if}
                       {if !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleProjectsList}{/if}
                       {foreach name = positions_first key = "key" item = "innerTable" from = $T_DEFAULT_POSITIONS.first}

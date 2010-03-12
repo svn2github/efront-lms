@@ -541,7 +541,7 @@ if (isset($currentLesson)) {
  $directions = new EfrontDirectionsTree();
  $paths = $directions -> toPathString();
  $categoryPath = $paths[$currentLesson->lesson["directions_ID"]];
- $categoryPath = str_replace("&rarr", "&raquo", $categoryPath);
+ //$categoryPath = str_replace("&rarr", "&raquo", $categoryPath);
  $smarty -> assign("T_CURRENT_CATEGORY_PATH", $categoryPath);
  if ($currentLesson -> lesson['course_only'] == 1) {
   $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);

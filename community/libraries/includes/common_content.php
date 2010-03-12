@@ -459,15 +459,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         } else {
             $smarty -> assign("T_HEADER_CLASS", "header"); //$currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft");    //Whether to show the sidemenu on the left or on the right
         }
-/*
-
-        if (isset($currentUnit['options']['maximize_viewport']) && $currentUnit['options']['maximize_viewport']) {
-
+        if (isset($currentUnit['options']['maximize_viewport']) && $currentUnit['options']['maximize_viewport'] && $currentUser -> getType($currentLesson) == "student") {
             $smarty -> assign("T_MAXIMIZE_VIEWPORT", 1);
-
         }
-
-*/
     } catch (Exception $e) {
         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
         $message = $e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

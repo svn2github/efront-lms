@@ -54,6 +54,9 @@ class EfrontIMS
             }
         }
         return $tagArray;
+ }
+    public static function formID($id) {
+        return trim(preg_replace("/\s+/", " ", rawurldecode($id)));
     }
     /**
 
@@ -104,11 +107,11 @@ class EfrontIMS
                     $total_fields[$key]['ctg_type'] = 'theory';
      $total_fields[$key]['identifier'] = $value['attributes']['IDENTIFIER'];
                  $total_fields[$key]['active'] = !isset($value['attributes']['ISVISIBLE'])||$value['attributes']['ISVISIBLE']=='true'?1:0;
-                    $references[$key]['IDENTIFIERREF'] = EfrontContentTreeSCORM :: form_id($value['attributes']['IDENTIFIERREF']);
+                    $references[$key]['IDENTIFIERREF'] = EfrontIMS :: formID($value['attributes']['IDENTIFIERREF']);
                     $references[$key]['PARAMETERS'] = $value['attributes']['PARAMETERS'];
                     break;
                 case 'RESOURCE':
-                        $resources[$key] = EfrontContentTreeSCORM :: form_id($value['attributes']['IDENTIFIER']);
+                        $resources[$key] = EfrontIMS :: formID($value['attributes']['IDENTIFIER']);
                     break;
                 case 'FILE':
                     $files[$key] = $value['attributes']['HREF'];
@@ -122,7 +125,9 @@ class EfrontIMS
    if ($ref !== false && !is_null($ref)) {
     /*SCORM 2004: The xml:base attribute provides a relative path offset for the content file(s) contained in the manifest*/
     $path_offset = $tagArray[$ref]['attributes']['XML:BASE'];
+
     $data = file_get_contents($scormPath."/".$path_offset.$tagArray[$ref]['attributes']['HREF']);
+
     $primitive_hrefs[$ref] = $path_offset.$tagArray[$ref]['attributes']['HREF'];
     $path_part[$ref] = dirname($primitive_hrefs[$ref]);
 

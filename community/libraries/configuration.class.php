@@ -60,6 +60,7 @@ class EfrontConfiguration
         'signup' => 1,
         'show_license_note' => 0,
      'insert_group_key' => 1, // 0 means 'no', 1 means 'yes'
+  'default_type' => 'student',
         //System settings - 3rd party tools
         'license_server' => 'http://keys.efrontlearning.net/list.php',
         'api' => 1,

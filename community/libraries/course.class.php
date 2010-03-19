@@ -740,7 +740,8 @@ class EfrontCourse
             $result['from_timestamp'][$key] ? $dates[$value]['from_timestamp'] = $result['from_timestamp'][$key] : null;
             $result['to_timestamp'][$key] ? $dates[$value]['to_timestamp'] = $result['to_timestamp'][$key] : null;
         }
-        if (sizeof($result) > 0 && $result['user_type'][0] == 'student') {
+  $roles = EfrontLessonUser :: getLessonsRoles();
+        if (sizeof($result) > 0 && $roles[$result['user_type'][0]] == 'student') { // fixed to apply checkRules to sub-student user types
             $completedLessons = array_combine($result['lessons_ID'], $result['completed']);
         } else {
             return $allowed;
@@ -1249,7 +1250,7 @@ class EfrontCourse
         } else {
             $roleBasicType = null;
         }
-        if ($userInfo['courses'][$this -> course['id']]['user_type'] == 'student') {
+          if ($roleBasicType == 'student') { // fixed to apply checkRules to sub-student user types
             $eligible = $this -> checkRules($userInfo['courses'][$this -> course['id']]['login']);
         } else {
             if (sizeof($this -> getLessons()) > 0) {
@@ -1275,11 +1276,14 @@ class EfrontCourse
     unset($eligible[$lessonId]);
    }
         }
+  if ($GLOBALS['configuration']['collapse_catalog'] != 2) {
+   $classString = ' class = "visible" ';
+  }
         $courseString = '
                         <table class = "coursesTable" >
                             <tr class = "lessonsList" >
                              <td class = "listToggle">
-                              <img src = "images/16x16/navigate_down.png" class = "visible" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideCourses(this, $(\'subtree_course'.$this -> course['id'].'\'))">
+                              <img src = "images/16x16/navigate_down.png" '.$classString.' alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideCourses(this, $(\'subtree_course'.$this -> course['id'].'\'))">
                              </td>
                              <td class = "listIcon">
                                     <img id = "course_img'.$this -> course['id'].'" src = "images/32x32/courses.png">

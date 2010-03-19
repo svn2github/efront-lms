@@ -181,6 +181,10 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     if ($GLOBALS['currentTheme'] -> options['images_displaying'] == 2 || ($GLOBALS['currentTheme'] -> options['images_displaying'] == 1 && basename($_SERVER['PHP_SELF']) == 'index.php')) {
      $image = '';
     }
+    $handleString = '';
+    if ($params['help']) {
+     $handleString .= '<img src = "images/16x16/help.png" onclick = "window.open(\''.$GLOBALS['configuration']['help_url'].$params['help'].'\')">';
+    }
     if (!$nohandle) {
      if ($cookieValue == 'hidden') {
       $handleString = '<img class = "close" src = "images/16x16/navigate_down.png" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';

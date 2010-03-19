@@ -1,4 +1,11 @@
-=== Version 3.6.0 build ===
+=== Version 3.6.1 build ===
+- Added online help functionality
+- Fixed bug about news not taking into account expire field
+- Fixed error in forum configuration panel with strict mode mysql
+- Fixed bug about not checking course rules in sub-student user types
+- Fixed default timezone in configuration to empty string (ticket 120)
+
+=== Version 3.6.0 build 6235===
 - Fixed content rules not taken into account when auto_complete is on
 - Fixed bug in upgrading modules
 - Fixed problem in custom blobks with {,} characters

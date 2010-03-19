@@ -109,7 +109,7 @@ class EfrontConfiguration
         'thousands_sep' => ',',
         'date_format' => 'DD/MM/YYYY',
         'location' => 'Greece',
-        'time_zone' => 'Europe/Athens',
+        'time_zone' => '',
         //PHP
         'max_file_size' => 50000,
         'gz_handler' => 1,
@@ -154,6 +154,7 @@ class EfrontConfiguration
         'version_key' => '',
      'theme' => 1, //Default theme id, in a clean install this is 1
         'database_version' => G_VERSION_NUM,
+  'help_url' => 'http://docs.efrontlearning.net/index.php/',
 
         //Notifications
         'notifications_pageloads' => 10,

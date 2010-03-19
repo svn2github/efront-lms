@@ -327,10 +327,10 @@ abstract class EfrontUser
         if ($userProperties['email'] && !eF_checkParameter($userProperties['email'], 'email')) {
             throw new EfrontUserException(_INVALIDEMAIL.': '.$userProperties['email'], EfrontUserException :: INVALID_PARAMETER);
         }
-        if (!isset($userProperties['name']) || !eF_checkParameter($userProperties['name'], 'text')) {
+        if (!isset($userProperties['name'])) {
             throw new EfrontUserException(_INVALIDNAME.': '.$userProperties['name'], EfrontUserException :: INVALID_PARAMETER);
         }
-        if (!isset($userProperties['surname']) || !eF_checkParameter($userProperties['surname'], 'text')) {
+        if (!isset($userProperties['surname'])) {
             throw new EfrontUserException(_INVALIDSURNAME.': '.$userProperties['login'], EfrontUserException :: INVALID_PARAMETER);
         }
         !isset($userProperties['user_type']) ? $userProperties['user_type'] = 'student' : null; //If a user type is not specified, by default make the new user student

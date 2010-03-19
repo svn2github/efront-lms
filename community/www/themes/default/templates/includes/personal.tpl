@@ -397,6 +397,32 @@ var enableMyJobSelect = false;
  {/capture}
  {/if}
 {/if}
+{if (isset($smarty.get.add_evaluation) || isset($smarty.get.edit_evaluation))}
+{*** Employee edit evaluations ***}
+{capture name = 't_evaluations_code'}
+         {$T_EVALUATIONS_FORM.javascript}
+         <table width = "75%">
+             <tr>
+                 <td width="70%">
+                      <form {$T_EVALUATIONS_FORM.attributes}>
+                      {$T_EVALUATIONS_FORM.hidden}
+                          <table class = "formElements">
+                              <tr>
+                                  <td class = "labelCell">{$T_EVALUATIONS_FORM.specification.label}:&nbsp;</td>
+                                  <td style="white-space:nowrap;">{$T_EVALUATIONS_FORM.specification.html}</td>
+                              </tr>
+                              {if $T_EVALUATIONS_FORM.specification.error}<tr><td></td><td class = "formError">{$T_EVALUATIONS_FORM.specification.error}</td></tr>{/if}
+                              <tr><td colspan = "2">&nbsp;</td></tr>
+                              <tr><td></td><td class = "submitCell" style = "text-align:left">
+                                  {$T_EVALUATIONS_FORM.submit_evaluation_details.html}</td>
+                              </tr>
+                     </table>
+                    </form>
+                </td>
+            </tr>
+        </table>
+{/capture}
+{/if}
 {*----------------------------------------- PRESENTATION SETUP ACCORDING TO TYPE OF MANAGEMENT ----------------------------------------------*}
 {capture name = 't_user_code'}
  {****** ADD USER PAGE ******}

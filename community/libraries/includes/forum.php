@@ -169,8 +169,8 @@ try {
             $fields[] = array('name' => 'polls', "value" => $values['polls'] ? 1 : 0);
             $fields[] = array('name' => 'forum_attachments', "value" => $values['forum_attachments'] ? 1 : 0);
             $fields[] = array('name' => 'students_add_forums', "value" => $values['students_add_forums'] ? 1 : 0);
-            $fields[] = array('name' => 'pm_quota', "value" => $values['pm_quota']);
-            $fields[] = array('name' => 'pm_attach_quota', "value" => $values['pm_attach_quota']);
+   $fields[] = array('name' => 'pm_quota', "value" => $values['pm_quota'] ? $values['pm_quota'] : "");
+   $fields[] = array('name' => 'pm_attach_quota', "value" => $values['pm_attach_quota'] ? $values['pm_attach_quota'] :"");
 
             foreach ($fields as $field) {
                 eF_insertTableData("f_configuration", array("name" => $field['name'], "value" => $field['value']));

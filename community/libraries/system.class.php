@@ -288,7 +288,8 @@ class EfrontSystem
             $userTypesTable[$userType['name']] = $userType;
         }
         // If we work on the enterprise version we need to distinguish between users and module_hcd_employees tables fields 
-        $userFields = array('login', 'password','email','languages_NAME','name','surname','active','comments','user_type','timestamp','avatar','pending','user_types_ID');
+        //$userFields = array('login', 'password','email','languages_NAME','name','surname','active','comments','user_type','timestamp','avatar','pending','user_types_ID');
+        $userFields = eF_getTableFields('users');
         $existingUsers = eF_getTableDataFlat("users", "login");
      $fileContents = file_get_contents($file['path']);
      $fileContents = explode("\n", trim($fileContents));
@@ -342,6 +343,9 @@ class EfrontSystem
                     $csvUser['user_types_ID'] = 0;
                 }
                 unset($csvUser['user_type_name']);
+    if (!$csvUser['user_type']) {
+     $csvUser['user_type'] = 'student';
+    }
     //If user type is not valid, don't insert that user
     if ($csvUser['user_type'] != "administrator" && $csvUser['user_type'] != "professor" && $csvUser['user_type'] != "student") {
      $messages[] = '&quot;'.$csvUser['login'].'&quot;: '._INVALIDUSERTYPE;
@@ -353,19 +357,27 @@ class EfrontSystem
                 // Delete and recreate $csvUser to keep only the fields in userFields
                 unset($csvUser);
                 foreach($userFields as $field) {
-                 if ($csvEmployeeProperties[$field]) {
+                 if (isset($csvEmployeeProperties[$field])) {
                   $csvUser[$field] = $csvEmployeeProperties[$field];
                  }
                 }
                 try {
-                        $newUsers[] = EfrontUser :: createUser($csvUser);
+
+
+
+
+                  $newUsers[] = EfrontUser :: createUser($csvUser);
+
+
                 } catch (Exception $e) {
-                    $messages[] = '&quot;'.$csvUser['login'].'&quot;: '.$e -> getMessage().' ('.$e -> getCode().')';
+                 $messages[] = '&quot;'.$csvUser['login'].'&quot;: '.$e -> getMessage().' ('.$e -> getCode().')';
                 }
             }
-     }
+        }
+
      return array($newUsers, $messages);
  }
+
     /**
 
      * Export users

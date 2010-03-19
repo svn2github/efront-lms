@@ -761,12 +761,18 @@ class EfrontDirectionsTree extends EfrontTree
             foreach (new EfrontNodeFilterIterator(new ArrayIterator($this -> getNodeChildren($current), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
                 $children[] = $key;
             }
+   if ($GLOBALS['configuration']['collapse_catalog'] != 0) {
+    $imageString = 'down';
+   } else {
+    $imageString = 'up';
+    $classString = ' class = "visible" ';
+   }
             $treeString .= '
                         <table class = "directionsTable" id = "direction_'.$current['id'].'" '.($iterator -> getDepth() >= 1 ? $display : '').'>
                             <tr class = "lessonsList">
                              <td class = "listPadding"><div style = "width:'.(20 * $iterator -> getDepth()).'px;">&nbsp;</div></td>
                              <td class = "listToggle">
-                              <img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_down.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">
+                              <img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">
                              </td>
                              <td class = "listIcon">
                                     <img src = "images/32x32/categories.png" >
@@ -887,7 +893,7 @@ class EfrontDirectionsTree extends EfrontTree
                                         ids.split(',').each(function (s) { showHideDirections($('subtree_img'+id), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'show') });
                                         ids.split(',').each(function (s) { obj = $('direction_'+s); obj ? obj.show() : '';});
             }
-            setImageSrc(el, 16, 'navigate_down');
+            setImageSrc(el, 16, 'navigate_up');
             $('subtree_img'+id) ? $('subtree_img'+id).addClassName('visible') : '';
            } else {
                               el.up().up().nextSiblings().each(function(s) {s.hide()});
@@ -895,18 +901,18 @@ class EfrontDirectionsTree extends EfrontTree
                                         ids.split(',').each(function (s) { showHideDirections($('subtree_img'+id), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'hide') });
                                         ids.split(',').each(function (s) { obj = $('direction_'+s); obj ? obj.hide() : ''});
             }
-            setImageSrc(el, 16, 'navigate_up.png');
+            setImageSrc(el, 16, 'navigate_down.png');
             $('subtree_img'+id) ? $('subtree_img'+id).removeClassName('visible') : '';
            }
           }
           function showHideCourses(el, course) {
            if (el.hasClassName('visible')) {
             course.hide();
-            setImageSrc(el, 16, 'navigate_up.png');
+            setImageSrc(el, 16, 'navigate_down.png');
             el.removeClassName('visible');
            } else {
             course.show();
-            setImageSrc(el, 16, 'navigate_down');
+            setImageSrc(el, 16, 'navigate_up');
             el.addClassName('visible');
            }
           }

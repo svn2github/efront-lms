@@ -203,7 +203,7 @@
                                         {/foreach}
                                                     </table>
                                     {/capture}
-                                    {eF_template_printBlock title = $smarty.const._UPDATECOURSES data = $smarty.capture.t_courses_code image = '32x32/courses.png'}
+                                    {eF_template_printBlock title = $smarty.const._UPDATECOURSES data = $smarty.capture.t_courses_code image = '32x32/courses.png' help = 'Courses'}
     {/if}
                             </td></tr>
     {/capture}

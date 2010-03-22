@@ -3521,4 +3521,5 @@ define("_AUTOLOGINITHLINK","Ο χρήστης μπορεί να εισέλθει
 define("_DEFAULTUSERTYPE","Προκαθοριμένος τύπος χρήστη");
 define("_FORCEUSERANSERALLQUESTIONS","Οι μαθητές πρέπει να απαντούν όλες τις ερωτήσεις");
 define("_YOUHAVETOANSWERALLQUESTIONS","Πρέπει να απαντησετε όλες τις ερωτήσεις");
+define("_SHOWHELP","Εμφανιση συνδεσμων βοήθειας");
 ?>

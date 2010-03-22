@@ -131,6 +131,8 @@
                  <td class = "elementCell">{$T_CUSTOMIZATION_FORM.username_format.html}</td></tr>
     <tr><td></td>
      <td class = "infoCell">{$smarty.const._USERNAMEFORMATINFO}</td></tr>
+    <tr><td class = "labelCell">{$T_CUSTOMIZATION_FORM.display_help.label}:&nbsp;</td>
+                 <td class = "elementCell">{$T_CUSTOMIZATION_FORM.display_help.html}</td></tr>
     <tr><td colspan = "2">&nbsp;</td></tr>
           <tr><td></td><td class = "submitCell">{$T_CUSTOMIZATION_FORM.submit_system_variables.html}</td></tr>
    </table>
@@ -359,6 +361,6 @@
 {*moduleConfig: The configuration settings page*}
 {capture name = "moduleConfig"}
  <tr><td class="moduleCell">
-  {eF_template_printBlock title = $smarty.const._CONFIGURATIONVARIABLES data = $smarty.capture.view_config image='32x32/tools.png'}
+  {eF_template_printBlock title = $smarty.const._CONFIGURATIONVARIABLES data = $smarty.capture.view_config image='32x32/tools.png' help = 'System_settings'}
     </td></tr>
 {/capture}

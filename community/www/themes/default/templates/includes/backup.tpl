@@ -1,7 +1,7 @@
             {capture name = "moduleBackup"}
                 <tr><td class = "moduleCell">
                 {if $T_DEFAULT_URI} {assign var = "query_string" value = $smarty.server.PHP_SELF|cat:$T_DEFAULT_URI|cat:'&'}
-                {else}              {assign var = "query_string" value = $smarty.server.PHP_SELF|cat:'?'}
+                {else} {assign var = "query_string" value = $smarty.server.PHP_SELF|cat:'?'}
                 {/if}
                 {capture name="t_backup_code"}
                     <script>
@@ -32,6 +32,6 @@
                    </div>
                 {/capture}
 
-                {eF_template_printBlock title = $smarty.const._BACKUP|cat:' - '|cat:$smarty.const._RESTORE data = $smarty.capture.t_backup_code image = '32x32/backup_restore.png'}
+                {eF_template_printBlock title = $smarty.const._BACKUP|cat:' - '|cat:$smarty.const._RESTORE data = $smarty.capture.t_backup_code image = '32x32/backup_restore.png' help = 'Backup-restore'}
             </td></tr>
         {/capture}

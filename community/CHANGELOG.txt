@@ -6,6 +6,7 @@
 - Fixed default timezone in configuration to empty string (ticket 120)
 - Fixed error in creating user when default group has no lessons or courses
 - Fixed displaying payments icon in control panel when user type had no priviledges
+- Added display help links
 
 === Version 3.6.0 build 6235===
 - Fixed content rules not taken into account when auto_complete is on

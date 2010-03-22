@@ -184,7 +184,7 @@
                                 {/foreach}
                                                     </table>
                             {/capture}
-                            {eF_template_printBlock title = $smarty.const._UPDATEGROUPS data = $smarty.capture.t_groups_code image = '32x32/users.png'}
+                            {eF_template_printBlock title = $smarty.const._UPDATEGROUPS data = $smarty.capture.t_groups_code image = '32x32/users.png' help = 'User_groups'}
                         {/if}
     </td></tr>
         {/capture}

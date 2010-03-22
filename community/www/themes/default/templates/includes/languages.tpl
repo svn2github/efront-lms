@@ -1,15 +1,15 @@
         {capture name="moduleLanguages"}
             <tr><td class = "moduleCell">
                 {capture name = "languageAdmin"}
-                	<script>var activate = '{$smarty.const._ACTIVATE}';var deactivate = '{$smarty.const._DEACTIVATE}';</script>
+                 <script>var activate = '{$smarty.const._ACTIVATE}';var deactivate = '{$smarty.const._DEACTIVATE}';</script>
                     {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
                         <div class = "headerTools">
                             <span>
                                 <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDLANGUAGE}" title = "{$smarty.const._ADDLANGUAGE}">
-                                <a href = "javascript:void(0)"  title = "{$smarty.const._ADDLANGUAGE}" onclick = "eF_js_showDivPopup('{$smarty.const._ADDLANGUAGE}', 0, 'language_table');$('language_name').value = '';$('language_translation').value = '';$('selected_language').value = '';$('language_rtl').checked = '';">{$smarty.const._ADDLANGUAGE}</a>
+                                <a href = "javascript:void(0)" title = "{$smarty.const._ADDLANGUAGE}" onclick = "eF_js_showDivPopup('{$smarty.const._ADDLANGUAGE}', 0, 'language_table');$('language_name').value = '';$('language_translation').value = '';$('selected_language').value = '';$('language_rtl').checked = '';">{$smarty.const._ADDLANGUAGE}</a>
                             </span>
                         </div>
-                        
+
                         {assign var = "change_languages" value = "1"}
                     {/if}
 <!--ajax:languagesTable-->
@@ -20,7 +20,7 @@
                                 <td class = "topTitle centerAlign" name = "active">{$smarty.const._STATUS}</td>
                     {if $change_languages}
                                <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
-                    {/if} 
+                    {/if}
                             </tr>
                     {foreach name = 'language_list' key = "name" item = "language" from = $T_DATA_SOURCE}
                             <tr id="row_{$language.name}" class = "{cycle name = "languages" values = "oddRowColor, evenRowColor"} {if !$language.active}deactivatedTableElement{/if}">
@@ -30,7 +30,7 @@
                                     {if $language.active}
                                         <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $change_languages}onclick = "activateLanguage(this, '{$language.name}')"{/if}>
                                     {else}
-                                        <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png"   alt = "{$smarty.const._ACTIVATE}"   title = "{$smarty.const._ACTIVATE}"   {if $change_languages}onclick = "activateLanguage(this, '{$language.name}')"{/if}>
+                                        <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $change_languages}onclick = "activateLanguage(this, '{$language.name}')"{/if}>
                                     {/if}
                                 </td>
                     {if $change_languages}
@@ -38,7 +38,7 @@
                                     <a href = "view_file.php?file={$language.file_path}&action=download"><img src = "images/16x16/import.png" title = "{$smarty.const._DOWNLOADLANGUAGEFILE}" alt = "{$smarty.const._DOWNLOADLANGUAGEFILE}" /></a>
                         {if $name != 'english'}
                                     <img class = "ajaxHandle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" onclick = "eF_js_showDivPopup('{$smarty.const._EDIT}', 0, 'language_table');$('language_name').value = '{$language.name}';$('language_translation').value = '{$language.translation}';$('selected_language').value = '{$language.name}';$('language_rtl').checked = {$language.rtl};"/>
-                                    <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}"  onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteLanguage(this, '{$language.name}')"/>
+                                    <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteLanguage(this, '{$language.name}')"/>
                         {/if}
                                 </td>
                     {/if}
@@ -49,7 +49,7 @@
                         </table>
 <!--/ajax:languagesTable-->
                         <div id = "language_table" style = "display:none;">
-						{capture name = "language_code"}
+      {capture name = "language_code"}
                             {$T_CREATE_LANGUAGE_FORM.javascript}
                             <form {$T_CREATE_LANGUAGE_FORM.attributes}>
                                 {$T_CREATE_LANGUAGE_FORM.hidden}
@@ -72,12 +72,12 @@
                                         <td class = "elementCell">{$T_CREATE_LANGUAGE_FORM.submit_upload_language.html}</td></tr>
                                 </table>
                             </form>
-						{/capture}
-						{eF_template_printBlock title = $smarty.const._LANGUAGEADMINISTRATION data = $smarty.capture.language_code image = '32x32/languages.png'}
+      {/capture}
+      {eF_template_printBlock title = $smarty.const._LANGUAGEADMINISTRATION data = $smarty.capture.language_code image = '32x32/languages.png'}
                         </div>
 
                  {/capture}
 
-                {eF_template_printBlock title = $smarty.const._LANGUAGEADMINISTRATION data = $smarty.capture.languageAdmin image = '32x32/languages.png'}
+                {eF_template_printBlock title = $smarty.const._LANGUAGEADMINISTRATION data = $smarty.capture.languageAdmin image = '32x32/languages.png' help = 'Languages'}
             </td></tr>
         {/capture}

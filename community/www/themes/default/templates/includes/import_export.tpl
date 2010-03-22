@@ -53,6 +53,6 @@
     {eF_template_printBlock tabber = "export" title=$smarty.const._USERSEXPORT data=$smarty.capture.t_export_users_code image='32x32/export.png'}
                 </div>
                 {/capture}
-                {eF_template_printBlock title=$smarty.const._EXPORTIMPORTDATA data=$smarty.capture.t_import_export_users_code image='32x32/import_export.png'}
+                {eF_template_printBlock title=$smarty.const._EXPORTIMPORTDATA data=$smarty.capture.t_import_export_users_code image='32x32/import_export.png' help = 'Export-import'}
         </td></tr>
     {/capture}

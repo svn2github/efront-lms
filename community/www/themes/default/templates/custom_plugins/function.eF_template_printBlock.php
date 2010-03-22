@@ -182,17 +182,17 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
      $image = '';
     }
     $handleString = '';
-    if ($params['help']) {
-     $handleString .= '<img src = "images/16x16/help.png" onclick = "window.open(\''.$GLOBALS['configuration']['help_url'].$params['help'].'\')">';
+    if ($params['help'] && $GLOBALS['configuration']['display_help'] == 1) {
+        $handleString .= '<img src = "images/16x16/help.png" onclick = "window.open(\''.$GLOBALS['configuration']['help_url'].$params['help'].'\')">';
     }
     if (!$nohandle) {
-     if ($cookieValue == 'hidden') {
-      $handleString = '<img class = "close" src = "images/16x16/navigate_down.png" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';
-      $showContent = 'display:none';
-     } else {
-      $handleString = '<img class = "open" src = "images/16x16/navigate_up.png" onclick = "toggleBlock(this, \''.$cookieString.'\')"  id = "'.urlencode($params['title']).'_image">';
-      $showContent = '';
-     }
+        if ($cookieValue == 'hidden') {
+            $handleString .= '<img class = "close" src = "images/16x16/navigate_down.png" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';
+            $showContent = 'display:none';
+        } else {
+            $handleString .= '<img class = "open" src = "images/16x16/navigate_up.png" onclick = "toggleBlock(this, \''.$cookieString.'\')"  id = "'.urlencode($params['title']).'_image">';
+            $showContent = '';
+        }
     }
  //$handleString .= '<img class = "removePopupIcon" '.($_GET['popup'] ? '' : 'style = "display:none"').' src = "images/16x16/close.png" alt = "'._CLOSE.'" title = "'._CLOSE.'" onclick = "closePopup()">';
     $str = '	

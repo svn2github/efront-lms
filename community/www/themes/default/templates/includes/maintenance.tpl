@@ -198,7 +198,7 @@
 
  </div>
  {/capture}
- {eF_template_printBlock title=$smarty.const._MAINTENANCE data=$smarty.capture.t_maintenance_code image='32x32/maintenance.png'}
+ {eF_template_printBlock title=$smarty.const._MAINTENANCE data=$smarty.capture.t_maintenance_code image='32x32/maintenance.png' help = 'Maintenance'}
 
 </td></tr>
 {/capture}

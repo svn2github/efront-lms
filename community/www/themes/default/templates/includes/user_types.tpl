@@ -95,7 +95,7 @@
                                 {/foreach}
                                                     </table>
                             {/capture}
-                            {eF_template_printBlock title = $smarty.const._UPDATEUSERTYPES data = $smarty.capture.t_roles_code image = '32x32/user_types.png'}
+                            {eF_template_printBlock title = $smarty.const._UPDATEUSERTYPES data = $smarty.capture.t_roles_code image = '32x32/user_types.png' help = 'User_types'}
                         {/if}
                             </td></tr>
         {/capture}

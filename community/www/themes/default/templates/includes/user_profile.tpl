@@ -117,7 +117,7 @@
                     {/foreach}
                                 </table>
                         {/capture}
-                        {eF_template_printBlock title = $smarty.const._CUSTOMIZEUSERSPROFILE data = $smarty.capture.t_fields_list image = '32x32/profile_add.png'}
+                        {eF_template_printBlock title = $smarty.const._CUSTOMIZEUSERSPROFILE data = $smarty.capture.t_fields_list image = '32x32/profile_add.png' help = 'Extend_user_profile'}
                 {/if}
             </td></tr>
         {/capture}

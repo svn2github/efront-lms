@@ -247,6 +247,7 @@ $customizationForm -> addElement("text", "username_format", _USERNAMEFORMAT, 'cl
 $customizationForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG, array(_NO, _YES, _ONLYFORLESSONS), 'class = "inputCheckBox"');
 $customizationForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEMPTYBLOCKS, null, 'class = "inputCheckBox"', array(0,1));
 $customizationForm -> addElement("select", "lessons_directory", _VIEWDIRECTORY, array(_NO, _YES, _YESAFTERLOGIN), 'class = "inputSelect"');
+$customizationForm -> addElement("advcheckbox", "display_help", _SHOWHELP, null, 'class = "inputCheckBox"', array(0,1));
 $customizationForm -> addElement("submit", "submit_system_variables", _SAVE, 'class = "flatButton"');
 $customizationForm -> setDefaults($GLOBALS['configuration']);
 if ($customizationForm -> isSubmitted() && $customizationForm -> validate()) {

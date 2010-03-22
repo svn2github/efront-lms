@@ -3521,4 +3521,5 @@ define("_AUTOLOGINITHLINK","User can login automatically by link");
 define("_DEFAULTUSERTYPE","Default user type");
 define("_FORCEUSERANSERALLQUESTIONS","Force student answer all questions");
 define("_YOUHAVETOANSWERALLQUESTIONS","You have to answer all questions");
+define("_SHOWHELP","Display help links");
 ?>

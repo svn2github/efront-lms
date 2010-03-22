@@ -81,6 +81,7 @@ class EfrontConfiguration
         'username_format' => '#surname# #n#. (#login#)', //Possible values: #name#, #n#, #surname#, #login#
         'username_format_resolve'=> 1, //If 2 formatted usernames are the same, include the login too
         'display_empty_blocks' => 1, //0 means 'no', 1 means 'yes'
+  'display_help' => 0, //0 means 'no', 1 means 'yes'
         //LDAP
         'activate_ldap' => 0,
         'only_ldap' => 0,

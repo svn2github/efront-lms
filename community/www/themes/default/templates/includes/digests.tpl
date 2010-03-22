@@ -296,6 +296,6 @@
    {eF_template_printBlock tabber = "config_tab" title = $smarty.const._CONFIGURATIONOPTIONS data = $smarty.capture.t_configuration_form_code image = "32x32/notifications.png"}
         </div>
         {/capture}
-        {eF_template_printBlock title = $smarty.const._EMAILDIGESTS data = $smarty.capture.t_notifications image = '32x32/notifications.png'}
+        {eF_template_printBlock title = $smarty.const._EMAILDIGESTS data = $smarty.capture.t_notifications image = '32x32/notifications.png' help = 'Notifications'}
  {/if}
 {/if}

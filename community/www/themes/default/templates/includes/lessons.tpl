@@ -208,7 +208,7 @@
                                 </table>
 <!--/ajax:lessonsTable-->
                                     {/capture}
-                                    {eF_template_printBlock title = $smarty.const._UPDATELESSONS data = $smarty.capture.t_lessons_code image = '32x32/lessons.png'}
+                                    {eF_template_printBlock title = $smarty.const._UPDATELESSONS data = $smarty.capture.t_lessons_code image = '32x32/lessons.png' help = 'Lessons'}
                                         </td></tr>
             {/if}
         {/capture}

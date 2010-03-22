@@ -196,7 +196,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
             $index++;
         }
-        $tabberajaxes_array['form'] = 4;
+        $tabberajaxes_array['form'] = 3;
     //pr($tabberajaxes_array);
     $smarty -> assign ("T_TABBERAJAX", $tabberajaxes_array);
     if (isset($_GET['tabberajax'])) {

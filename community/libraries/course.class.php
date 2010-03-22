@@ -368,6 +368,50 @@ class EfrontCourse
         $this -> lessons = false; //Reset object's lesson information
         return $this -> getLessons();
     }
+     /**
+
+     * Insert the skill corresponding to this course: Every course is mapped to a skill like "Knowledge of that course"
+
+     * This insertion takes place when a course is changed from course_only to regular course
+
+     *
+
+     * <br/>Example:
+
+     * <code>
+
+     * $course -> insertCourseSkill();
+
+     * </code>
+
+     *
+
+     * @return the id of the newly created record in the module_hcd_course_offers_skill table or false if something went wrong
+
+     * @since 3.6.2
+
+     * @access public
+
+     */
+    public function insertCourseSkill() {
+        // If insertion of a self-contained course add the corresponding skill
+        // Insert the corresponding course skill to the skill and course_offers_skill tables
+        $courseSkillId = eF_insertTableData("module_hcd_skills", array("description" => _KNOWLEDGEOFCOURSE . " ". $this -> course['name'], "categories_ID" => -1));
+        // Insert question to course skill records for all course questions
+        $questions = eF_getTableData("questions", "id", "lessons_ID in ('". implode("','", array_keys($this->getLessons())) . "')");
+        $insert_string = "";
+        foreach ($questions as $question) {
+            if ($insert_string != "") {
+                $insert_string .= ",('" . $question['id']. "','" . $courseSkillId . "',2)";
+            } else {
+                $insert_string .= "('".$question['id']."','".$courseSkillId."',2)";
+            }
+        }
+        if ($insert_string != "") {
+            eF_executeNew("INSERT INTO questions_to_skills VALUES " . $insert_string);
+        }
+        return eF_insertTableData("module_hcd_course_offers_skill", array("courses_ID" => $this -> course['id'], "skill_ID" => $courseSkillId));
+    }
    /**
 
      * Get the skill corresponding to this course: Every course is mapped to a skill like "Knowledge of that course"

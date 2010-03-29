@@ -46,7 +46,7 @@ function changeType(type) {
   $('textarea_field').hide();
  } else if (type == 'select') {
   $('select_field').show();
-  $('text_field').hide();
+  //$('text_field').hide();
   $('textarea_field').hide();
  } else {
   $('select_field').hide();

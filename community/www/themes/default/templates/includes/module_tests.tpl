@@ -165,6 +165,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     <tr><td class = "labelCell">{$smarty.const._FORCEUSERANSERALLQUESTIONS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.answer_all.html}</td></tr>
                 {if $T_TEST_FORM.answer_all.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answer_all.error}</td></tr>{/if}
+    <tr><td class = "labelCell">{$smarty.const._ALLOWUSERANSERALLRONG}:&nbsp;</td>
+                    <td class = "elementCell">{$T_TEST_FORM.redo_wrong.html} <span class = "infoCell">{$smarty.const._ALLOWANSWERWRONGINFO}</span></td></tr>
+                {if $T_TEST_FORM.redo_wrong.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redo_wrong.error}</td></tr>{/if}
             {/if}
     <tr><td></td><td id = "toggleeditor_cell1">
      <div class = "headerTools">

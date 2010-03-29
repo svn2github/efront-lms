@@ -2191,13 +2191,13 @@ abstract class EfrontLessonUser extends EfrontUser
             if ($returnObjects) {
                 $userLessons = array();
                 //Assign all lessons to an array, this way avoiding looping queries
-                $result = eF_getTableData("lessons l, users_to_lessons ul", "l.*", "l.id=ul.lessons_ID and ul.users_LOGIN = '".$this -> user['login']."'", "l.name");
+                $result = eF_getTableData("lessons l, users_to_lessons ul", "l.*", "l.archive=0 and l.id=ul.lessons_ID and ul.users_LOGIN = '".$this -> user['login']."'", "l.name");
                 foreach ($result as $value) {
                     $lessons[$value['id']] = $value;
                 }
                 $courseLessons = array();
                 $nonCourseLessons = array();
-                $result = eF_getTableData("users u,users_to_lessons ul, lessons l", "ul.*, u.user_type as basic_user_type, u.user_types_ID", "l.id = ul.lessons_ID and ul.users_LOGIN = u.login and ul.users_LOGIN = '".$this -> user['login']."' and ul.lessons_ID != 0", "l.name");
+                $result = eF_getTableData("users u,users_to_lessons ul, lessons l", "ul.*, u.user_type as basic_user_type, u.user_types_ID", "l.archive=0 and l.id = ul.lessons_ID and ul.users_LOGIN = u.login and ul.users_LOGIN = '".$this -> user['login']."' and ul.lessons_ID != 0", "l.name");
                 foreach ($result as $value) {
                     try {
                         $lesson = new EfrontLesson($lessons[$value['lessons_ID']]);
@@ -2211,7 +2211,7 @@ abstract class EfrontLessonUser extends EfrontUser
                 }
                 $userLessons = $courseLessons + $nonCourseLessons;
             } else {
-                $result = eF_getTableDataFlat("users_to_lessons, lessons", "lessons_ID, user_type", "lessons_ID=id and users_LOGIN = '".$this -> user['login']."'", "name");
+                $result = eF_getTableDataFlat("users_to_lessons, lessons", "lessons_ID, user_type", "archive=0 and lessons_ID=id and users_LOGIN = '".$this -> user['login']."'", "name");
                 if (sizeof($result) > 0) {
                  $this -> lessons = array_combine($result['lessons_ID'], $result['user_type']);
                 } else {

@@ -3522,4 +3522,7 @@ define("_DEFAULTUSERTYPE","Προκαθοριμένος τύπος χρήστη"
 define("_FORCEUSERANSERALLQUESTIONS","Οι μαθητές πρέπει να απαντούν όλες τις ερωτήσεις");
 define("_YOUHAVETOANSWERALLQUESTIONS","Πρέπει να απαντησετε όλες τις ερωτήσεις");
 define("_SHOWHELP","Εμφανιση συνδεσμων βοήθειας");
+define("_ALLOWUSERANSERALLRONG","O μαθητης μπορει να επαναλαβει μονο τις λαθος απαντήσεις");
+define("_ALLOWANSWERWRONGINFO","Ισχύει μόνο όταν επιτρέπονται επαναλήψεις");
+define("_USERREDOWRONG", "Επαναληψη μονο των λανθασμενων");
 ?>

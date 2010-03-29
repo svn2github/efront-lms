@@ -19,6 +19,7 @@ $loadScripts[] = 'includes/copy';
 try {
     //Get the user's lessons list, so that he can pick a lesson to copy from
     $lessons = $currentUser -> getLessons(true);
+
     unset($lessons[$currentLesson -> lesson['id']]);
     $direction_lessons = array();
     foreach ($lessons as $lesson){

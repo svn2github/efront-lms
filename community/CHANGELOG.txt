@@ -7,6 +7,14 @@
 - Fixed error in creating user when default group has no lessons or courses
 - Fixed displaying payments icon in control panel when user type had no priviledges
 - Added display help links
+- Fixed alphabetical sorting for lessons and cources in index page
+- Fixed user type display in forum
+- Fixed problem about showing archieved users in "Users who share lessons with me"
+- Fixed display of lessons and courses info by sorting info fields
+- Fixed error about active and inactive projects
+- Fixed error about displaying archived lessons in user -> getLessons
+- Extended tests to allow students to redo only the wrong questions
+- Fixed issue with default value and select type in user profile
 
 === Version 3.6.0 build 6235===
 - Fixed content rules not taken into account when auto_complete is on

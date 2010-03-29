@@ -207,7 +207,8 @@
                      <td class = "forumMessageCreator">
                       <div><img src = {if $T_POSTS[messages_list].avatar}"view_file.php?file={$T_POSTS[messages_list].avatar}"{else}"images/avatars/system_avatars/unknown_small.png"{/if} title = "{$T_POSTS[messages_list].users_LOGIN}" alt = "{$T_POSTS[messages_list].users_LOGIN}"/></div>
                          <div>#filter:user_loginNoIcon-{$T_POSTS[messages_list].users_LOGIN}#</div>
-                         <div>{$smarty.const._POSITION}: {$T_POSTS[messages_list].user_type}</div>
+       {assign var = "current_userrole" value = $T_POSTS[messages_list].user_type}
+                         <div>{$smarty.const._POSITION}: {$T_USERROLES.$current_userrole}</div>
                          <div>{$smarty.const._JOINED}: #filter:timestamp-{$T_POSTS[messages_list].timestamp}#</div>
                          <div>{$smarty.const._POSTS}: {$T_USER_POSTS.$message_user}</div>
                      </td></tr>

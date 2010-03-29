@@ -86,6 +86,7 @@ $form -> addElement('advcheckbox', 'publish', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'display_list', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'display_weights', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'answer_all', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'redo_wrong', null, null, null, array(0, 1));
 $form -> addElement('textarea', 'description', null, 'id="editor_content_data" class = "inputTestTextarea mceEditor" style = "width:100%;height:16em;"');
 
 $form -> addRule('mastery_score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
@@ -214,6 +215,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'display_list' => $values['display_list'],
                                 'display_weights' => $values['display_weights'],
         'answer_all' => $values['answer_all'],
+        'redo_wrong' => $values['redo_wrong'],
                           'general_threshold' => $values['general_threshold'], //skill-gap option
                               'assign_to_new' => $values['assign_to_new'], //skill-gap option
                           'automatic_assignment' => $values['automatic_assignment']); //skill-gap option

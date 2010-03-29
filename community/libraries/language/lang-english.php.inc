@@ -3522,4 +3522,7 @@ define("_DEFAULTUSERTYPE","Default user type");
 define("_FORCEUSERANSERALLQUESTIONS","Force student answer all questions");
 define("_YOUHAVETOANSWERALLQUESTIONS","You have to answer all questions");
 define("_SHOWHELP","Display help links");
+define("_ALLOWUSERANSERALLRONG","Allow students to redo only the wrong questions");
+define("_ALLOWANSWERWRONGINFO","Only if test repetitions are allowed");
+define("_USERREDOWRONG", "Redo only wrong questions");
 ?>

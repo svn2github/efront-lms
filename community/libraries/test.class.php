@@ -134,7 +134,8 @@ class EfrontTest
                             'pause_test' => 1,
                             'display_weights' => 1,
           'only_forward' => 0,
-       'answer_all' => 0);
+       'answer_all' => 0,
+       'redo_wrong' => 0);
     /**
 
      * Class constructor
@@ -1345,7 +1346,38 @@ class EfrontTest
             $user = EfrontUserFactory :: factory($login, false, 'student');
         }
         $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
-        eF_updateTableData("completed_tests", array("archive" => 1), "tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  $check_redoOnlyWrong = eF_getTableData("completed_tests","test","archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  $testObject = unserialize($check_redoOnlyWrong[0]['test']);
+  if ($testObject -> redoOnlyWrong == 1) {
+   unset($testObject -> redoOnlyWrong);
+   eF_updateTableData("completed_tests", array("test" => serialize($testObject), "archive" => 1), "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  } else {
+   eF_updateTableData("completed_tests", array("archive" => 1), "tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  }
+    }
+ public function redoOnlyWrong($user) {
+        if ($user instanceof EfrontUser) {
+            $login = $user -> user['login'];
+        } elseif (eF_checkParameter($user, 'login')) {
+            $login = $user;
+        } else {
+            throw new EfrontTestException(_INVALIDLOGIN.': '.$user, EfrontTestException :: INVALID_LOGIN);
+        }
+        if (is_dir(G_UPLOADPATH.$login.'/tests/'.$this -> test['id'])) {
+            try {
+                $directory = new EfrontDirectory(G_UPLOADPATH.$login.'/tests/'.$this -> test['id'].'/');
+                $directory -> rename(G_UPLOADPATH.$login.'/tests/completed_'.$this -> completedTest['id'].'/');
+            } catch (EfrontFileException $e) {}
+        }
+        //Set the unit as "not seen"
+        if (!($user instanceof EfrontUser)) {
+            $user = EfrontUserFactory :: factory($login, false, 'student');
+        }
+        $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
+  $result = eF_getTableData("completed_tests", "test", "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  $testObject = unserialize($result[0]['test']);
+  $testObject -> redoOnlyWrong = true;
+        eF_updateTableData("completed_tests", array("test" => serialize($testObject), "archive" => 1), "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
     }
     /**
 
@@ -1728,6 +1760,19 @@ class EfrontTest
             $form = new HTML_QuickForm("questionForm", "post", "", "", null, true); //Create a sample form
         }
         $allTestQuestions = $this -> getQuestions(true);
+  // lines added for redo only wrong questions
+  $allTestQuestionsFilter = array();
+  $resultCompleted = eF_getTableData("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $recentlyCompleted = unserialize($resultCompleted[0]['test']);
+  if ($recentlyCompleted -> redoOnlyWrong == true && !$done) {
+   foreach ($recentlyCompleted -> questions as $key => $value) {
+    if($value -> score != 100) {
+     $value -> userAnswer = false;
+     $allTestQuestionsFilter[$key] = $value;
+    }
+   }
+   $allTestQuestions = $allTestQuestionsFilter;
+  }
         // If we have a random pool of question then get a random sub-array of the questions
         if ($this -> options['random_pool'] > 0 && $this -> options['random_pool'] < sizeof($allTestQuestions)) {
             $rand_questions = array_rand($allTestQuestions, $this -> options['random_pool']);
@@ -2364,14 +2409,23 @@ class EfrontCompletedTest extends EfrontTest
 
      */
     public function complete($userAnswers) {
-        //Assign user answers to each question object, as a member
+  $resultCompleted = eF_getTableData("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $recentlyCompleted = unserialize($resultCompleted[0]['test']);
+  //Assign user answers to each question object, as a member
         foreach ($userAnswers as $id => $answer) {
             $this -> questions[$id] -> userAnswer = $answer;
         }
+  if ($recentlyCompleted -> redoOnlyWrong == 1) {
+   foreach ($recentlyCompleted -> questions as $key => $value) {
+    if($value -> score == 100) {
+     $this -> questions[$key] = $value;
+    }
+   }
+  }
         //Correct each question and handle uploaded files, if any (@todo)
         foreach ($this -> questions as $id => $question) {
-            $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
-            $question -> score = round($results['score'] * 100, 2);
+   $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
+   $question -> score = round($results['score'] * 100, 2);
             $question -> results = $results['correct'];
             $this -> completedTest['score'] += $results['score'] * $this -> getQuestionWeight($id); //the total test score
             if ($question -> question['type'] == 'raw_text') {
@@ -2624,6 +2678,12 @@ class EfrontCompletedTest extends EfrontTest
                             <img src = "images/16x16/undo.png" alt = "'._USERREDOTEST.'" title = "'._USERREDOTEST.'" border = "0" style = "vertical-align:middle">
                             <a href = "javascript:void(0)" id="redoLinkHref" onclick = "redoTest(this)" style = "vertical-align:middle">'._USERREDOTEST.'</a></span>';
         }
+  if ($status['lastTest'] && ($status['timesLeft'] > 0 || $status['timesLeft'] === false) && $status['completedTest']['score'] != 100) {
+            $editHandlesString .= '
+                        <span id = "redoWrongLink">
+                            <img src = "images/16x16/undo.png" alt = "'._USERREDOWRONG.'" title = "'._USERREDOWRONG.'" border = "0" style = "vertical-align:middle">
+                            <a href = "javascript:void(0)" id="redoWrongLinkHref" onclick = "redoWrongTest(this)" style = "vertical-align:middle">'._USERREDOWRONG.'</a></span>';
+        }
         $editHandlesString .= '
                         <span>
                             <img src = "images/16x16/arrow_right.png" alt = "'._TESTANALYSIS.'" title = "'._TESTANALYSIS.'" border = "0" style = "vertical-align:middle">
@@ -2737,6 +2797,30 @@ class EfrontCompletedTest extends EfrontTest
                         new Effect.Appear($("redo_progress_img"));
                         window.setTimeout(\'Effect.Fade("redo_progress_img")\', 2500);
                         '.($editHandles ? 'window.setTimeout(\'Effect.Fade("redoLink")\', 2500);' : 'window.setTimeout(\'Effect.Fade("redoLink");location.reload()\', 1000);').'
+                    }
+                });
+            }
+   function redoWrongTest(el) {
+                Element.extend(el);
+                url = "'.$url.'&ajax=1&redo_wrong_test='.$status['lastTest'].'";
+                if ($("redo_progress_img")) {
+                    $("redo_progress_img").writeAttribute("src", "images/others/progress1.gif").show();
+                } else {
+                    el.up().insert(new Element("img", {id:"redo_progress_img", src:"images/others/progress1.gif"}).setStyle({verticalAlign:"middle", borderWidth:"0px"}));
+                }
+                new Ajax.Request(url, {
+                    method:"get",
+                    asynchronous:true,
+                    onFailure: function (transport) {
+                        $("redo_progress_img").writeAttribute({src:"images/16x16/error_delete.png", title:transport.responseText}).hide();
+                        new Effect.Appear($("redo_progress_img"));
+                        window.setTimeout(\'Effect.Fade("redo_progress_img")\', 10000);
+                    },
+                    onSuccess: function (transport) {
+                        $("redo_progress_img").hide().setAttribute("src", "images/16x16/success.png");
+                        new Effect.Appear($("redo_progress_img"));
+                        window.setTimeout(\'Effect.Fade("redo_progress_img")\', 2500);
+                        '.($editHandles ? 'window.setTimeout(\'Effect.Fade("redoWrongLink")\', 2500);' : 'window.setTimeout(\'Effect.Fade("redoWrongLink");location.reload()\', 1000);').'
                     }
                 });
             }
@@ -2961,6 +3045,10 @@ class EfrontCompletedTest extends EfrontTest
                 $result = eF_getTableData("completed_tests", "tests_ID, users_LOGIN", "id=".$_GET['redo_test']);
                 $test = new EfrontTest($result[0]['tests_ID']);
                 $test -> redo($result[0]['users_LOGIN']);
+            } else if (isset($_GET['redo_wrong_test']) && eF_checkParameter($_GET['redo_wrong_test'], 'id')) {
+                $result = eF_getTableData("completed_tests", "tests_ID, users_LOGIN", "id=".$_GET['redo_wrong_test']);
+                $test = new EfrontTest($result[0]['tests_ID']);
+                $test -> redoOnlyWrong($result[0]['users_LOGIN']);
             } else if (isset($_GET['delete_done_test'])) {
                 if (isset($_GET['all'])) {
                  $this -> undo($this -> completedTest['login']);

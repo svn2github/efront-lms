@@ -1552,7 +1552,15 @@ class EfrontLesson
             $info['professors_string'] = implode(", ", $professorsString);
         }
         if ($this -> lesson['info']) {
-            !is_array($this -> lesson['info']) && unserialize($this -> lesson['info']) !== false ? $info = array_merge(unserialize($this -> lesson['info']), $info) : $info = array_merge($this -> lesson['info'], $info);
+   $order = array("general_description", "objectives", "assessment", "lesson_topics", "resources", "other_info", "learning_method"); // for displaying fiels sorted
+   $infoSorted = array();
+   $unserialized = unserialize($this -> lesson['info']);
+   foreach ($order as $value) {
+    if ($unserialized[$value] != "") {
+     $infoSorted[$value] = $unserialized[$value];
+    }
+   }
+            !is_array($this -> lesson['info']) && unserialize($this -> lesson['info']) !== false ? $info = array_merge($infoSorted, $info) : $info = array_merge($infoSorted, $info);
         }
         return $info;
     }
@@ -3456,7 +3464,7 @@ if ($element == 'data') $value = htmlentities($value);
 
      */
     public static function getLessons($returnObjects = false) {
-        $result = eF_getTableData("lessons l, directions d", "l.*, d.name as direction_name", "l.directions_ID=d.id and l.archive=0");
+        $result = eF_getTableData("lessons l, directions d", "l.*, d.name as direction_name", "l.directions_ID=d.id and l.archive=0", "l.name");
         foreach ($result as $value) {
             if ($returnObjects){
                 $lessons[$value['id']] = new EfrontLesson($value);

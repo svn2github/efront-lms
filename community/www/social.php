@@ -237,7 +237,7 @@
       } else {
           $related_users = $all_related_users;
       }
-      $my_related_users = eF_getTableData("users", "login, name, surname, avatar, status", "login IN ('".implode("','", $related_users)."')");
+      $my_related_users = eF_getTableData("users", "login, name, surname, avatar, status", "archive=0 AND login IN ('".implode("','", $related_users)."')");
       foreach ($my_related_users as $key => $user) {
           try {
               $file = new EfrontFile($user['avatar']);

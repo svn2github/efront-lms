@@ -14,7 +14,10 @@ try {
 
     $loadScripts[] = 'includes/forum';
 
-    $forums = f_forums :: getAll("f_forums");
+ $roles = EfrontUser :: getRoles(true);
+ $smarty -> assign("T_USERROLES",$roles);
+
+ $forums = f_forums :: getAll("f_forums");
     //@todo: if forum of lesson deactivated by professor not display it in list
     if (!$_admin_) {
         $userLessons = $currentUser -> getEligibleLessons();

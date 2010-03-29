@@ -430,8 +430,10 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      }
      if (is_dir($key.'/jscripts')) {
       try {
-       $directory = new EfrontDirectory($key.'/jscripts');
-       $directory -> delete();
+       if ($key != 'preview') {
+        $directory = new EfrontDirectory($key.'/jscripts');
+        $directory -> delete();
+       }
       } catch (EfrontFileException $e) {} //Don't stop on filesystem errors
      }
     }

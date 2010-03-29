@@ -1622,7 +1622,15 @@ class EfrontCourse
     public function getInformation() {
         $information = array();
         if ($this -> course['info']) {
-            $information = unserialize($this -> course['info']);
+   $order = array("general_description", "objectives", "assessment", "lesson_topics", "resources", "other_info", "learning_method"); // for displaying fiels sorted
+   $infoSorted = array();
+   $unserialized = unserialize($this -> course['info']);
+   foreach ($order as $value) {
+    if ($unserialized[$value] != "") {
+     $infoSorted[$value] = $unserialized[$value];
+    }
+   }
+            $information = $infoSorted;
         }
         foreach ($this -> getUsers() as $key => $user) {
             if ($user['role'] == 'professor') {
@@ -2006,7 +2014,7 @@ class EfrontCourse
 
      */
     public static function getCourses($returnObjects = false) {
-        $result = eF_getTableData("courses c, directions d", "c.*, d.name as direction_name", "c.directions_ID=d.id and archive=0");
+        $result = eF_getTableData("courses c, directions d", "c.*, d.name as direction_name", "c.directions_ID=d.id and archive=0", "c.name");
         foreach ($result as $value) {
          $returnObjects ? $courses[$value['id']] = new EfrontCourse($value) : $courses[$value['id']] = $value;
         }

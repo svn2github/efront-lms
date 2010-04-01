@@ -15,7 +15,7 @@
                                             </table>
                                         </form>
                                     {/capture}
-                                    {eF_template_printBlock title = "`$smarty.const._RESTARTLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_reset_lesson_code image = '32x32/lessons.png' main_options = $T_TABLE_OPTIONS}
+                                    {eF_template_printBlock title = "`$smarty.const._RESTARTLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_reset_lesson_code image = '32x32/lessons.png' main_options = $T_TABLE_OPTIONS help = 'Administration'}
 
     {elseif isset($T_OP) && $T_OP == 'import_lesson'}
                                     {capture name = 't_import_lesson_code'}
@@ -38,7 +38,7 @@
                                             </table>
                                         </form>
                                     {/capture}
-                                    {eF_template_printBlock title = "`$smarty.const._IMPORTLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_import_lesson_code image = '32x32/import.png' main_options = $T_TABLE_OPTIONS}
+                                    {eF_template_printBlock title = "`$smarty.const._IMPORTLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_import_lesson_code image = '32x32/import.png' main_options = $T_TABLE_OPTIONS help = 'Administration'}
     {elseif isset($T_OP) && $T_OP == 'export_lesson'}
                                    {capture name = 't_export_lesson_code'}
                                         <fieldset class = "fieldsetSeparator">
@@ -57,7 +57,7 @@
                                         </form>
                                         </fieldset>
                                     {/capture}
-                                    {eF_template_printBlock title = "`$smarty.const._EXPORTLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_export_lesson_code image = '32x32/export.png' main_options = $T_TABLE_OPTIONS}
+                                    {eF_template_printBlock title = "`$smarty.const._EXPORTLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_export_lesson_code image = '32x32/export.png' main_options = $T_TABLE_OPTIONS help = 'Administration'}
     {elseif isset($T_OP) && $T_OP == 'lesson_users'}
 
                               {capture name = 't_users_to_lessons_code'}
@@ -103,7 +103,7 @@
                                 </table>
 <!--/ajax:usersTable-->
         {/capture}
-                    {eF_template_printBlock title = "`$smarty.const._UPDATEUSERSTOLESSONS`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_users_to_lessons_code image = '32x32/users.png' main_options = $T_TABLE_OPTIONS}
+                    {eF_template_printBlock title = "`$smarty.const._UPDATEUSERSTOLESSONS`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_users_to_lessons_code image = '32x32/users.png' main_options = $T_TABLE_OPTIONS help = 'Administration'}
     {elseif isset($T_OP) && $T_OP == 'lesson_layout'}
          {capture name = "t_layout_code"}
                     {capture name = "layout_moduleIconFunctions"}
@@ -292,8 +292,8 @@
             <br/>
             </div>
         {/capture}
-        {eF_template_printBlock title = "`$smarty.const._LAYOUTFORLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_layout_code image = '32x32/layout.png' main_options = $T_TABLE_OPTIONS}
+        {eF_template_printBlock title = "`$smarty.const._LAYOUTFORLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_layout_code image = '32x32/layout.png' main_options = $T_TABLE_OPTIONS help = 'Administration'}
     {else}
         {*moduleLessonSettings: Left options list in the Lesson settings page*}
-        {eF_template_printBlock title = "`$smarty.const._OPTIONSFORLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" columns = 4 links = $T_LESSON_SETTINGS image='32x32/lessons.png' main_options = $T_TABLE_OPTIONS groups = $T_LESSON_SETTINGS_GROUPS}
+        {eF_template_printBlock title = "`$smarty.const._OPTIONSFORLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" columns = 4 links = $T_LESSON_SETTINGS image='32x32/lessons.png' main_options = $T_TABLE_OPTIONS groups = $T_LESSON_SETTINGS_GROUPS help = 'Administration'}
     {/if}

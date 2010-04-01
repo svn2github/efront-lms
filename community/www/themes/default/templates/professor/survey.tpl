@@ -2,20 +2,20 @@
     {*moduleSurvey: The survey page*}
     {capture name = "moduleSurvey"}
         <tr><td class="moduleCell">
-            {if (!isset($smarty.get.screen_survey)  && !isset($smarty.get.action) && $smarty.get.screen_survey != '2')}
+            {if (!isset($smarty.get.screen_survey) && !isset($smarty.get.action) && $smarty.get.screen_survey != '2')}
             {* Format T_SURVEY in html code *}
             {capture name='t_survey_code'}
-                {eF_template_printSurveysList  data = $T_SURVEY_INFO questions = $T_SURVEY_QUESTIONS user_type = $T_CURRENT_USER->user.user_type lesson_id = $T_LESSON_ID}
+                {eF_template_printSurveysList data = $T_SURVEY_INFO questions = $T_SURVEY_QUESTIONS user_type = $T_CURRENT_USER->user.user_type lesson_id = $T_LESSON_ID}
             {/capture}
-            {eF_template_printBlock title=$smarty.const._SURVEYS  data = $smarty.capture.t_survey_code  image='32x32/surveys.png'}
+            {eF_template_printBlock title=$smarty.const._SURVEYS data = $smarty.capture.t_survey_code image='32x32/surveys.png' help = 'Surveys'}
         {/if}
         {if (isset($smarty.get.screen_survey) && !isset($smarty.get.action) && $smarty.get.screen_survey == '2')}
-    
+
         {capture name='t_survey_questions'}
-		<table style = "width:100%;text-align:left"><tr><td>
+  <table style = "width:100%;text-align:left"><tr><td>
             <table width="100%" border="0px">
                 <tr>
-                    <td  width="2%" class="tableImage" align="right"><img src="images/16x16/add.png" border="0px" /></td>
+                    <td width="2%" class="tableImage" align="right"><img src="images/16x16/add.png" border="0px" /></td>
                     <td class="innerTableHeader" align="left">
                         <select name="question_type" onchange="if(this.options[this.selectedIndex].value != '') document.location='professor.php?ctg=survey&action=question_create&screen_survey=2&surveys_ID={$smarty.get.surveys_ID}&question_type='+this.options[this.selectedIndex].value">
                             <option value="-" selected>{$smarty.const._ADDQUESTION}:</option>
@@ -73,12 +73,12 @@
                     {/if}
                     <a href="professor.php?ctg=survey&action=delete_question&question_ID={$T_SURVEY_QUESTIONS_INFO[survey_questions].id}&surveys_ID={$smarty.get.surveys_ID}" onclick="{literal}return confirm('{/literal}{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}{literal}');{/literal}"><img src="images/16x16/error_delete.png" border="0px" title="{$smarty.const._DELETE}" /></a></td></tr>
             {/section}
-               
+
             </table>
             {/if}
-			</td></tr></table>
+   </td></tr></table>
         {/capture}
-        {eF_template_printBlock title=$smarty.const._CREATESURVEYQUESTION data=$smarty.capture.t_survey_questions image='32x32/surveys.png'}
+        {eF_template_printBlock title=$smarty.const._CREATESURVEYQUESTION data=$smarty.capture.t_survey_questions image='32x32/surveys.png' help = 'Surveys'}
         {/if}
         {if ($smarty.get.action == 'question_create')}
             {if (isset($smarty.get.question_type) && $smarty.get.question_type == '-')}
@@ -122,62 +122,62 @@
 
 
                                 function eF_js_addAdditionalChoice(question_type) {
-                                    var els = document.getElementsByTagName('input');           //Find all 'input' elements in th document.
+                                    var els = document.getElementsByTagName('input'); //Find all 'input' elements in th document.
 
                                     var counter = 0;
-                                    for (var i = 0; i < els.length; i++) {                      //Count all the 'input' elements whose names match the selected question type (e.g. multiple_one[0], multiple_one[1] etc)
+                                    for (var i = 0; i < els.length; i++) { //Count all the 'input' elements whose names match the selected question type (e.g. multiple_one[0], multiple_one[1] etc)
                                         if (els[i].name.match('^'+question_type) && els[i].type.match('text')) {
                                             counter++;
                                         }
                                     }
 
-                                    if (counter > 1) {                                                  //If the counter is less than 2 (where 2 is the default input fields), it means that the selected question type is not one that may have multiple inputs (i.e. it may be raw_text)
-                                        var last_node = document.getElementById(question_type+'_last_node');   //This is the node that the new elements will be inserted before
+                                    if (counter > 1) { //If the counter is less than 2 (where 2 is the default input fields), it means that the selected question type is not one that may have multiple inputs (i.e. it may be raw_text)
+                                        var last_node = document.getElementById(question_type+'_last_node'); //This is the node that the new elements will be inserted before
 
-                                        var tr = document.createElement('tr');                          //Create a table row to hold the new element
+                                        var tr = document.createElement('tr'); //Create a table row to hold the new element
                                         tr.appendChild(document.createElement('td'));
                                         var td = document.createElement('td');//Create a new table cell to hold the new element
                                         tr.appendChild(td);//Append this table cell to the table row we created above
 
-                                        var input = document.createElement('input');                    //Create the new input element
-                                        input.setAttribute('type', 'text');                             //Set the element to be text box
-                                        input.className = 'inputText inputText_QuestionChoice';         //Set its class to 'inputText'
-                                        input.setAttribute('name', question_type + '['+counter+']');    //We give the new textboxes names if the form multiple_one[0], multiple_one[1] so we can handle them alltogether
-                                        td.appendChild(input);                                          //Append the text box to the table cell we created above
+                                        var input = document.createElement('input'); //Create the new input element
+                                        input.setAttribute('type', 'text'); //Set the element to be text box
+                                        input.className = 'inputText inputText_QuestionChoice'; //Set its class to 'inputText'
+                                        input.setAttribute('name', question_type + '['+counter+']'); //We give the new textboxes names if the form multiple_one[0], multiple_one[1] so we can handle them alltogether
+                                        td.appendChild(input); //Append the text box to the table cell we created above
 
                                         var img = document.createElement('img');//Create an image element, that will hold the "delete" icon
-                                        img.setAttribute('alt', '_REMOVECHOICE');                       //Set alt and title for this image
+                                        img.setAttribute('alt', '_REMOVECHOICE'); //Set alt and title for this image
                                         img.setAttribute('style','white-space:nowrap');
                                         img.setAttribute('title', '_REMOVECHOICE');
-                                        img.setAttribute('src', 'images/16x16/error_delete.png');      //Set the icon source
-                                        img.setAttribute('onclick', 'eF_js_removeImgNode(this, "'+question_type+'")');  //Set the event that will trigger the deletion
-                                        img.onclick = function () {eF_js_removeImgNode(this, "'+question_type+'")};  //Set the event that will trigger the deletion
-                                        var img_td = document.createElement('td');                      //Create a new table cell to hold the image element
-                                        td.appendChild(img);                                         //Append the <td> to the row
+                                        img.setAttribute('src', 'images/16x16/error_delete.png'); //Set the icon source
+                                        img.setAttribute('onclick', 'eF_js_removeImgNode(this, "'+question_type+'")'); //Set the event that will trigger the deletion
+                                        img.onclick = function () {eF_js_removeImgNode(this, "'+question_type+'")}; //Set the event that will trigger the deletion
+                                        var img_td = document.createElement('td'); //Create a new table cell to hold the image element
+                                        td.appendChild(img); //Append the <td> to the row
 
-                                        var parent_node = last_node.parentNode;                         //Find the parent element, that will hold the new element
-                                        parent_node.insertBefore(tr, last_node);                        //Append the table row, that holds the input element, to its parent.
+                                        var parent_node = last_node.parentNode; //Find the parent element, that will hold the new element
+                                        parent_node.insertBefore(tr, last_node); //Append the table row, that holds the input element, to its parent.
                                     }
 
                                 }
 
                                 //This function removes the <tr> element that contains the inserted node.
                                 function eF_js_removeImgNode(el, question_type) {
-                                    el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode);      //It is <tr><td><img></td></tr>, so we need to remove the <tr> element, which is the el.parentNode.parentNode
+                                    el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode); //It is <tr><td><img></td></tr>, so we need to remove the <tr> element, which is the el.parentNode.parentNode
 
-                                    var els = document.getElementsByTagName('input');           //Find all 'input' elements in th document.
+                                    var els = document.getElementsByTagName('input'); //Find all 'input' elements in th document.
 
                                     var counter = 0;
-                                    for (var i = 0; i < els.length; i++) {                      //Count all the 'input' elements whose names match the selected question type (e.g. multiple_one[0], multiple_one[1] etc)
+                                    for (var i = 0; i < els.length; i++) { //Count all the 'input' elements whose names match the selected question type (e.g. multiple_one[0], multiple_one[1] etc)
                                         if (els[i].name.match('^'+question_type) && els[i].type.match('text')) {
-                                            els[i].name = question_type+'['+counter+']';        //If the user deletes a middle choice, the remaining choices will not be continuous. I.e, if we have choices multiple_one[0-5] and the user removes multiple_one[3], then the array will have indexes 0,1,2,4,5. So, here, we re-calculate the number of choices and apply new array indexes
+                                            els[i].name = question_type+'['+counter+']'; //If the user deletes a middle choice, the remaining choices will not be continuous. I.e, if we have choices multiple_one[0-5] and the user removes multiple_one[3], then the array will have indexes 0,1,2,4,5. So, here, we re-calculate the number of choices and apply new array indexes
                                             counter++;
                                         }
                                     }
 
-                                    if (question_type == 'multiple_one') {                      //Adjust the select box accordingly
+                                    if (question_type == 'multiple_one') { //Adjust the select box accordingly
                                         document.getElementById('correct_multiple_one').removeChild(document.getElementById('correct_multiple_one').lastChild);
-                                    } else if (question_type == 'multiple_many' || question_type == 'match') {               //For multiple/many (and match) questions, we need to reindex checkboxes (or answer text boxes) as well
+                                    } else if (question_type == 'multiple_many' || question_type == 'match') { //For multiple/many (and match) questions, we need to reindex checkboxes (or answer text boxes) as well
                                         var counter = 0;
                                         for (var i = 0; i < els.length; i++) {
                                             if (els[i].name.match('correct_'+question_type)) {
@@ -192,38 +192,38 @@
                                 //This function is used to create the text boxes that correspond to empty spaces.
                                 function eF_js_createEmptySpaces() {
 
-                                    if (tinyMCE) {                                                              //Get the text from the editor
-										var question_text =	tinyMCE.get('question_text').getContent();
+                                    if (tinyMCE) { //Get the text from the editor
+          var question_text = tinyMCE.get('question_text').getContent();
 
                                     } else {
-                                        var question_text = document.getElementById('question_text').value;     //If the editor isn't set, get the question text from the text area
+                                        var question_text = document.getElementById('question_text').value; //If the editor isn't set, get the question text from the text area
                                     }
-									
-                                    var excerpts = question_text.split(/###/g);                         //Get the question text pieces that are split by ###
-                                    var last_node = document.getElementById('empty_spaces_last_node');  //This is the node that the new elements will be inserted before
-                                    var parent_node = last_node.parentNode;                             //Find the parent element, that will hold the new element
-                                    if (document.getElementById('spacesRow')) {                         //If the button was pressed again, remove old row and build a new one
+
+                                    var excerpts = question_text.split(/###/g); //Get the question text pieces that are split by ###
+                                    var last_node = document.getElementById('empty_spaces_last_node'); //This is the node that the new elements will be inserted before
+                                    var parent_node = last_node.parentNode; //Find the parent element, that will hold the new element
+                                    if (document.getElementById('spacesRow')) { //If the button was pressed again, remove old row and build a new one
                                         document.getElementById('spacesRow').parentNode.removeChild(document.getElementById('spacesRow'));
                                     }
 
-									var tr = document.createElement('tr');              //Create a table row to hold the new element
-                                    tr.setAttribute('id', 'spacesRow');                 //We need an id to know which row this is, so we can remove it on demand
-									tr.appendChild(document.createElement('td'));       //Create a new empty table cell for alignment reasons. Append this table cell to the table row we created above
+         var tr = document.createElement('tr'); //Create a table row to hold the new element
+                                    tr.setAttribute('id', 'spacesRow'); //We need an id to know which row this is, so we can remove it on demand
+         tr.appendChild(document.createElement('td')); //Create a new empty table cell for alignment reasons. Append this table cell to the table row we created above
 
-                                    var td = document.createElement('td');              //Create a new table cell to hold the new element
+                                    var td = document.createElement('td'); //Create a new table cell to hold the new element
                                     td.setAttribute('colspan', '100%');
-                                    tr.appendChild(td);                                 //Append this table cell to the table row we created above
-									
-									code = '';
-                                    for (var i = 0; i < excerpts.length; i++) {         //For each designated empty space, create a span element that will hold the text and the text boxes
-										code += excerpts[i];
-                                        if (i != excerpts.length - 1) {                                  //If, for example, we have 3 ###, these split the string to 4 parts. So, we must not insert a text box for the last (trailing) string piece
+                                    tr.appendChild(td); //Append this table cell to the table row we created above
+
+         code = '';
+                                    for (var i = 0; i < excerpts.length; i++) { //For each designated empty space, create a span element that will hold the text and the text boxes
+          code += excerpts[i];
+                                        if (i != excerpts.length - 1) { //If, for example, we have 3 ###, these split the string to 4 parts. So, we must not insert a text box for the last (trailing) string piece
                                             code += '<input type="text" name = "empty_spaces['+i+']" class = "inputText">';
                                         }
-                                    }						
-									td.innerHTML = code;
-                                    parent_node.insertBefore(tr, last_node);             //Append the table row, that holds the input element, to its parent.
-								}
+                                    }
+         td.innerHTML = code;
+                                    parent_node.insertBefore(tr, last_node); //Append the table row, that holds the input element, to its parent.
+        }
                {/literal}
                </script>
                {capture name='question'}
@@ -294,7 +294,7 @@
                                 {elseif ($smarty.foreach.multiple_one_list.index == 1)}
                                     <tr><td></td><td>{$item.html}</td></tr>
                                 {else}
-                                    <tr><td></td><td>{$item.html}<img  style = "vertical-align:middle;" align="center" src="images/16x16/error_delete.png" border="0px" onclick="eF_js_removeImgNode(this, '{$smarty.get.question_type}')" ></td></tr>
+                                    <tr><td></td><td>{$item.html}<img style = "vertical-align:middle;" align="center" src="images/16x16/error_delete.png" border="0px" onclick="eF_js_removeImgNode(this, '{$smarty.get.question_type}')" ></td></tr>
                                 {/if}
                             {/foreach}
                         {else}
@@ -316,7 +316,7 @@
                                 {elseif ($smarty.foreach.multiple_many_list.index == 1)}
                                     <tr><td></td><td>{$item.html}</td></tr>
                                 {else}
-                                    <tr><td></td><td>{$item.html}<img  style = "vertical-align:middle;" align="center" src="images/16x16/error_delete.png" border="0px" onclick="eF_js_removeImgNode(this, '{$smarty.get.question_type}')" ></td></tr>
+                                    <tr><td></td><td>{$item.html}<img style = "vertical-align:middle;" align="center" src="images/16x16/error_delete.png" border="0px" onclick="eF_js_removeImgNode(this, '{$smarty.get.question_type}')" ></td></tr>
                                 {/if}
                             {/foreach}
                         {else}
@@ -338,7 +338,7 @@
                     </table>
                 </form>
             {/capture}
-            {eF_template_printBlock title=$smarty.const._CREATESURVEYQUESTION data=$smarty.capture.question image='32x32/surveys.png'}
+            {eF_template_printBlock title=$smarty.const._CREATESURVEYQUESTION data=$smarty.capture.question image='32x32/surveys.png' help = 'Surveys'}
         {/if}
     {/if}
     {if ($smarty.get.action == 'create_survey' && $smarty.get.screen == '1')}
@@ -390,7 +390,7 @@
                 </form>
             </table>
         {/capture}
-        {eF_template_printBlock title=$smarty.const._CREATESURVEY  data=$smarty.capture.createSurveyForm image='32x32/surveys.png'}
+        {eF_template_printBlock title=$smarty.const._CREATESURVEY data=$smarty.capture.createSurveyForm image='32x32/surveys.png' help = 'Surveys'}
     {/if}
     {if ($smarty.get.action == 'preview') }
         {capture name='t_no_questions'}
@@ -400,7 +400,7 @@
                 <table><tr><td class="emptyCategory">{$smarty.const._NOQUESTIONSFORSURVEY}</td></tr></table>
             {/if}
         {/capture}
-        {eF_template_printBlock title=$smarty.const._PREVIEW data=$smarty.capture.t_no_questions image='32x32/surveys.png'}
+        {eF_template_printBlock title=$smarty.const._PREVIEW data=$smarty.capture.t_no_questions image='32x32/surveys.png' help = 'Surveys'}
     {/if}
     {if (isset($smarty.get.action) && $smarty.get.action == 'view_users') }
         {capture name='t_view_users'}
@@ -432,18 +432,18 @@
                 <table><tr><td class="emptyCategory">{$smarty.const._NOUSERFORTHISSURVEYYET}</td></tr></table>
             {/if}
         {/capture}
-            {eF_template_printBlock title=$smarty.const._DONESURVEYUSERS data=$smarty.capture.t_view_users image='32x32/surveys.png'}
+            {eF_template_printBlock title=$smarty.const._DONESURVEYUSERS data=$smarty.capture.t_view_users image='32x32/surveys.png' help = 'Surveys'}
     {/if}
     {if ( isset($smarty.get.action) && $smarty.get.action == 'survey_preview' ) }
         {capture name='preview_survey'}
                 {eF_template_printSurvey data=$T_SURVEY_INFO questions=$T_SURVEY_QUESTIONS answers=$T_USER_ANSWERS user_type=$T_USER user=$smarty.get.user action=$smarty.get.action}
         {/capture}
-        {eF_template_printBlock title=$smarty.const._SURVEYPREVIEWFORUSER|cat:$smarty.get.user data=$smarty.capture.preview_survey image='32x32/surveys.png'}
+        {eF_template_printBlock title=$smarty.const._SURVEYPREVIEWFORUSER|cat:$smarty.get.user data=$smarty.capture.preview_survey image='32x32/surveys.png' help = 'Surveys'}
     {/if}
     {if (isset($smarty.get.action) && $smarty.get.action == 'statistics') }
     {capture name='surveyStatistics'}
             <table width="100%" border="0px">
-            {foreach  item=general from=$T_SURVEY_INFO}
+            {foreach item=general from=$T_SURVEY_INFO}
                 {foreach item=item key=key from=$general}
                     {if ($key == 'survey_code')}
                         <tr class = "{cycle name = "su_stats_h_info" values = "oddRowColor, evenRowColor"}"><td class="labellCell" width="10%">{$smarty.const._SURVEYCODE}:</td><td width="90%" colspan="2">{$item}</td></tr>
@@ -470,9 +470,9 @@
         {else}
             {section name='t_survey_statistics' loop=$T_SURVEY_QUESTIONS}
                 <tr class = "{cycle name = "su_stats_info" values = "oddRowColor, evenRowColor"}"><td class="questionWeight" colspan="3"><img align="left" style = "vertical-align:middle;" src="images/16x16/surveys.png" border="0px">&nbsp;<b>{$smarty.const._QUESTION}:&nbsp;{$T_SURVEY_QUESTIONS[t_survey_statistics].question}</b></td></tr>
-                {foreach from=$T_SURVEY_QUESTIONS_CHOICES[t_survey_statistics]  item=choice key=type}
+                {foreach from=$T_SURVEY_QUESTIONS_CHOICES[t_survey_statistics] item=choice key=type}
                     {foreach from=$choice item=item key=key}
-                        <tr  class = "{cycle name = "su_stats_info" values = "oddRowColor, evenRowColor"}">
+                        <tr class = "{cycle name = "su_stats_info" values = "oddRowColor, evenRowColor"}">
                             <td valign="top" align="right" width="10%">
                             {$T_SURVEY_ANSWER_RATE[t_survey_statistics].$key}%
                                 -
@@ -493,7 +493,7 @@
         {/if}
     </table>
     {/capture}
-        {eF_template_printBlock title=$smarty.const._SURVEYSTATISTICS  data=$smarty.capture.surveyStatistics image='32x32/surveys.png'}
+        {eF_template_printBlock title=$smarty.const._SURVEYSTATISTICS data=$smarty.capture.surveyStatistics image='32x32/surveys.png' help = 'Surveys'}
     {/if}
     {if (isset($smarty.get.action) && $smarty.get.action == 'publish') }
         {capture name='t_publish_survey'}
@@ -535,11 +535,11 @@
                     </tr>
                     <tr><td class="labelCell">{$smarty.const._SENDALSOVIAEMAIL}:</td><td>{$T_PUBLISH_FORM.send_email.html}</td></tr>
                     <tr><td class="horizontalSeparator" colspan="2">&nbsp;</td></tr>
-                    <tr><td></td><td  align="left"><input class="flatButton" type="submit" value="{$smarty.const._SUBMIT}"/></td></tr>
+                    <tr><td></td><td align="left"><input class="flatButton" type="submit" value="{$smarty.const._SUBMIT}"/></td></tr>
                 </table>
             </form>
         {/capture}
-            {eF_template_printBlock title=$smarty.const._ADDUSERSTOSURVEY data=$smarty.capture.t_publish_survey image='32x32/surveys.png'}
+            {eF_template_printBlock title=$smarty.const._ADDUSERSTOSURVEY data=$smarty.capture.t_publish_survey image='32x32/surveys.png' help = 'Surveys'}
     {/if}
      </td></tr>
     {/capture}

@@ -298,7 +298,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             //This is an iterator with only valid units, and is used for students to navigate back and forth
             $visitableIterator = new EfrontVisitableFilterIterator($visitableIterator);
         } else {
-            $treeOptions['edit'] = 1;
+   if ($_change_){
+    $treeOptions['edit'] = 1;
+   }
             $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($visitableIterator, 'dhtmlContentTree', $treeOptions, $scormState));
         }
         if ($_professor_ && !$currentUnit && $currentContent -> getFirstNode()) { //If a unit is not specified, then consider the first content unit by default

@@ -15,7 +15,7 @@
                 {capture name = 't_file_manager_code'}
                     {$T_FILE_MANAGER}
                 {/capture}
-                {eF_template_printBlock title=$smarty.const._FILEMANAGER data=$smarty.capture.t_file_manager_code image='32x32/file_explorer.png'}
+                {eF_template_printBlock title=$smarty.const._FILEMANAGER data=$smarty.capture.t_file_manager_code image='32x32/file_explorer.png' help = 'Files'}
             </td></tr>
     {/if}
 {/capture}

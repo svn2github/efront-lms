@@ -37,7 +37,7 @@
      <script>parent.location = parent.location;</script>
  {/if}
  {/capture}
- {eF_template_printBlock title = $smarty.const._FORUMPROPERTIES data = $smarty.capture.t_add_forum_code image = '32x32/forum.png'}
+ {eF_template_printBlock title = $smarty.const._FORUMPROPERTIES data = $smarty.capture.t_add_forum_code image = '32x32/forum.png' help = 'Forum'}
 {elseif $smarty.get.type == 'topic' && ($smarty.get.add || $smarty.get.edit)}
  {capture name = 't_add_topic_code'}
      {$T_ENTITY_FORM.javascript}
@@ -64,7 +64,7 @@
      <script>parent.location = parent.location;</script>
  {/if}
  {/capture}
- {eF_template_printBlock title = $smarty.const._TOPICPROPERTIES data = $smarty.capture.t_add_topic_code image = '32x32/forum.png'}
+ {eF_template_printBlock title = $smarty.const._TOPICPROPERTIES data = $smarty.capture.t_add_topic_code image = '32x32/forum.png' help = 'Forum'}
 {elseif $smarty.get.type == 'poll' && ($smarty.get.add || $smarty.get.edit)}
  {capture name = 't_add_poll_code'}
   <script>var twooptionsminimum = '{$smarty.const._TWOOPTIONSATMINIMUMREQUIRED}'; var removechoice= '{$smarty.const._REMOVECHOICE}';</script>
@@ -111,7 +111,7 @@
      <script>parent.location = parent.location;</script>
  {/if}
  {/capture}
- {eF_template_printBlock title = $smarty.const._POLLPROPERTIES data = $smarty.capture.t_add_poll_code image = '32x32/forum.png'}
+ {eF_template_printBlock title = $smarty.const._POLLPROPERTIES data = $smarty.capture.t_add_poll_code image = '32x32/forum.png' help = 'Forum'}
 {elseif $smarty.get.type == 'message' && ($smarty.get.add || $smarty.get.edit)}
  {capture name = 't_add_message_code'}
      {$T_ENTITY_FORM.javascript}
@@ -132,7 +132,7 @@
      <script>parent.location = parent.location;</script>
  {/if}
  {/capture}
- {eF_template_printBlock title = $smarty.const._MESSAGEPROPERTIES data = $smarty.capture.t_add_message_code image = '32x32/forum.png'}
+ {eF_template_printBlock title = $smarty.const._MESSAGEPROPERTIES data = $smarty.capture.t_add_message_code image = '32x32/forum.png' help = 'Forum'}
 {elseif $smarty.get.config}
 {capture name = 't_configuration_panel_code'}
  {$T_CONFIGURATION_FORM.javascript}
@@ -166,7 +166,7 @@
      </table>
  </form>
 {/capture}
-{eF_template_printBlock title = $smarty.const._FORUMCONFIGURATIONPANEL data = $smarty.capture.t_configuration_panel_code image = '32x32/edit.png'}
+{eF_template_printBlock title = $smarty.const._FORUMCONFIGURATIONPANEL data = $smarty.capture.t_configuration_panel_code image = '32x32/edit.png' help = 'Forum'}
 
 {else}
   {if $smarty.get.topic}
@@ -217,7 +217,7 @@
              {/section}
           </table>
    {/capture}
-         {eF_template_printBlock title = $smarty.const._TOPICS data = $smarty.capture.t_topic_code image = '32x32/forum.png'}
+         {eF_template_printBlock title = $smarty.const._TOPICS data = $smarty.capture.t_topic_code image = '32x32/forum.png' help = 'Forum'}
   {elseif $smarty.get.poll}
    {capture name = 't_poll_code'}
        {if $T_ACTION == 'view' || !$T_POLL.isopen}
@@ -250,7 +250,7 @@
            </form>
        {/if}
    {/capture}
-   {eF_template_printBlock title = $smarty.const._POLL data = $smarty.capture.t_poll_code image = '32x32/polls.png'}
+   {eF_template_printBlock title = $smarty.const._POLL data = $smarty.capture.t_poll_code image = '32x32/polls.png' help = 'Forum'}
  {else}
   {capture name = 't_forums_code'}
       {assign var = "current_forum" value = $smarty.get.forum}
@@ -512,7 +512,7 @@
              {/if}
          {/capture}
 
-         {eF_template_printBlock title = $smarty.const._FORUMS data = $smarty.capture.t_forums_code image = '32x32/forum.png' options = $T_FORUM_OPTIONS}
+         {eF_template_printBlock title = $smarty.const._FORUMS data = $smarty.capture.t_forums_code image = '32x32/forum.png' options = $T_FORUM_OPTIONS help = 'Forum'}
  {/if}
 
 {/if}

@@ -3525,4 +3525,5 @@ define("_SHOWHELP","Εμφανιση συνδεσμων βοήθειας");
 define("_ALLOWUSERANSERALLRONG","O μαθητης μπορει να επαναλαβει μονο τις λαθος απαντήσεις");
 define("_ALLOWANSWERWRONGINFO","Ισχύει μόνο όταν επιτρέπονται επαναλήψεις");
 define("_USERREDOWRONG", "Επαναληψη μονο των λανθασμενων");
+define("_DEFAULTTHEMECANNOTBEIMPORTED", "Δεν μπορείτε να εισάγετε το προκαθορισμένο θέμα");
 ?>

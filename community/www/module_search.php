@@ -94,10 +94,10 @@ $command_array_keys = array_keys($command_array);
 if (isset($_POST['search_text']) && mb_strlen(trim($_POST['search_text'])) <= 3) {
         $message = _SEARCHTEXTMUSTBENONEMPTYANDMORETHAN;
         if (sizeof(explode("?", $_POST['current_location'])) > 1) { //Check if there is a query string after the url, so we can append the message using a '&' or a '?'
-            eF_redirect(" ".$_POST['current_location']."&message=".urlencode($message));
+            eF_redirect($_POST['current_location']."&message=".urlencode($message));
    exit;
         } else {
-            eF_redirect(" ".$_POST['current_location']."?message=".urlencode($message));
+            eF_redirect($_POST['current_location']."?message=".urlencode($message));
    exit;
         }
 }
@@ -535,9 +535,9 @@ if (isset($_POST['search_text'])) {
     if (!$search_results_data AND !$search_results_glossary AND !$search_results_forum AND !$search_results_pmsgs AND !$search_results_courses AND !$result_command AND !$search_results_files) {
         $message = _NOSEARCHRESULTSFOUND;
         if (sizeof(explode("?", $_POST['current_location'])) > 1) { //Check if there is a query string after the url, so we can append the message using a '&' or a '?'
-            eF_redirect(" ".$_POST['current_location']."&message=".urlencode($message));
+            eF_redirect($_POST['current_location']."&message=".urlencode($message));
         } else {
-            eF_redirect(" ".$_POST['current_location']."?message=".urlencode($message));
+            eF_redirect($_POST['current_location']."?message=".urlencode($message));
         }
     }
 }

@@ -247,7 +247,6 @@ $customizationForm -> addElement("text", "username_format", _USERNAMEFORMAT, 'cl
 $customizationForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG, array(_NO, _YES, _ONLYFORLESSONS), 'class = "inputCheckBox"');
 $customizationForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEMPTYBLOCKS, null, 'class = "inputCheckBox"', array(0,1));
 $customizationForm -> addElement("select", "lessons_directory", _VIEWDIRECTORY, array(_NO, _YES, _YESAFTERLOGIN), 'class = "inputSelect"');
-$customizationForm -> addElement("advcheckbox", "display_help", _SHOWHELP, null, 'class = "inputCheckBox"', array(0,1));
 $customizationForm -> addElement("submit", "submit_system_variables", _SAVE, 'class = "flatButton"');
 $customizationForm -> setDefaults($GLOBALS['configuration']);
 if ($customizationForm -> isSubmitted() && $customizationForm -> validate()) {
@@ -402,6 +401,7 @@ $disable_form -> addElement("advcheckbox", "disable_forum", null, null, 'class =
 $disable_form -> addElement("advcheckbox", "disable_tests", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> addElement("advcheckbox", "chat_enabled", null, null, 'class = "inputCheckBox"', array(1, 0));
 $disable_form -> addElement("advcheckbox", "disable_tooltip", null, null, 'class = "inputCheckBox"', array(0, 1));
+$disable_form -> addElement("advcheckbox", "disable_help", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> setDefaults($configuration);
 isset($configuration['disable_projects']) ? $disable_form -> setDefaults(array('disable_projects' => $configuration['disable_projects'])) : $disable_form -> setDefaults(array('disable_projects' => 0));
 isset($configuration['disable_bookmarks']) ? $disable_form -> setDefaults(array('disable_bookmarks' => $configuration['disable_bookmarks'])) : $disable_form -> setDefaults(array('disable_bookmarks' => 0));

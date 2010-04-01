@@ -749,31 +749,33 @@ class EfrontDirectionsTree extends EfrontTree
         if (isset($options['collapse']) && $options['collapse'] == 2) {
    $display = '';
    $display_lessons = 'style = "display:none"';
+   $imageString = 'down';
   } elseif (isset($options['collapse']) && $options['collapse'] == 1) {
    $display = 'style = "display:none"';
    $display_lessons = 'style = "display:none"';
+   $imageString = 'down';
   } else {
    $display = '';
    $display_lessons = '';
+   $imageString = 'up';
+   $classString = ' class = "visible" ';
   }
         while ($iterator -> valid()) {
             $children = array(); //The $children array is used so that when collapsing a direction, all its children disappear as well
             foreach (new EfrontNodeFilterIterator(new ArrayIterator($this -> getNodeChildren($current), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
                 $children[] = $key;
             }
-   if ($GLOBALS['configuration']['collapse_catalog'] != 0) {
-    $imageString = 'down';
-   } else {
-    $imageString = 'up';
-    $classString = ' class = "visible" ';
-   }
             $treeString .= '
                         <table class = "directionsTable" id = "direction_'.$current['id'].'" '.($iterator -> getDepth() >= 1 ? $display : '').'>
                             <tr class = "lessonsList">
                              <td class = "listPadding"><div style = "width:'.(20 * $iterator -> getDepth()).'px;">&nbsp;</div></td>
-                             <td class = "listToggle">
-                              <img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">
-                             </td>
+                             <td class = "listToggle">';
+      if ($iterator -> getDepth() >= 1) {
+        $treeString .= '<img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_up.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
+      } else {
+       $treeString .= '<img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
+      }
+                               $treeString .= '</td>
                              <td class = "listIcon">
                                     <img src = "images/32x32/categories.png" >
                                     <span style = "display:none" id = "subtree_children_'.$current['id'].'">'.implode(",", $children).'</span>
@@ -781,9 +783,14 @@ class EfrontDirectionsTree extends EfrontTree
                                 <td class = "listTitle"><span class = "listName">'.$current['name'].'</span></td>
                             </tr>';
             if (sizeof($current['lessons']) > 0) {
-                $treeString .= '
-                            <tr id = "subtree'.$current['id'].'" name = "default_visible" '.$display_lessons.'>
-                             <td></td>
+    if (isset($options['collapse']) && $options['collapse'] == 2) {
+     $treeString .= '
+                            <tr id = "subtree'.$current['id'].'" name = "default_visible" '. $display_lessons.'>';
+    } else {
+     $treeString .= '
+                            <tr id = "subtree'.$current['id'].'" name = "default_visible" '.($iterator -> getDepth() >= 1 ? '' : $display_lessons).'>';
+    }
+                 $treeString .= ' <td></td>
                                 <td class = "lessonsList_nocolor">&nbsp;</td>
                                 <td colspan = "2">
                                     <table width = "100%">';

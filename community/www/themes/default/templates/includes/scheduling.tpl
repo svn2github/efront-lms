@@ -1,7 +1,7 @@
 {capture name = "moduleInsertPeriod"}
     <tr><td class = "moduleCell">
         {capture name='t_insert_period_code'}
-        	<script>var noscheduleset = '{$smarty.const._NOSCHEDULESET}';</script>
+         <script>var noscheduleset = '{$smarty.const._NOSCHEDULESET}';</script>
             {$T_ADD_PERIOD_FORM.javascript}
             <form {$T_ADD_PERIOD_FORM.attributes}>
                 {$T_ADD_PERIOD_FORM.hidden}
@@ -20,16 +20,16 @@
                     <tr><td class = "labelCell">{$smarty.const._FROM}:&nbsp;</td>
                         <td class = "elementCell">{eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $T_FROM_TIMESTAMP display_seconds = false}</td></tr>
                     <tr><td class = "labelCell">{$smarty.const._TO}:&nbsp;</td>
-                        <td class = "elementCell">{eF_template_html_select_date prefix="to_"   time=$T_TO_TIMESTAMP   start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_"   time = $T_TO_TIMESTAMP   display_seconds = false}</td></tr>
-{*                    <tr><td class = "labelCell">{$T_ADD_PERIOD_FORM.shift.label}:&nbsp;</td>
+                        <td class = "elementCell">{eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $T_TO_TIMESTAMP display_seconds = false}</td></tr>
+{* <tr><td class = "labelCell">{$T_ADD_PERIOD_FORM.shift.label}:&nbsp;</td>
                         <td class = "elementCell">{$T_ADD_PERIOD_FORM.shift.html}</td></tr>*}
                     <tr><td></td>
-                    	<td class = "submitCell">{$T_ADD_PERIOD_FORM.submit_add_period.html}</td></tr>
+                     <td class = "submitCell">{$T_ADD_PERIOD_FORM.submit_add_period.html}</td></tr>
                 {/if}
                 </table>
             </form>
             {/capture}
-            {eF_template_printBlock title=$smarty.const._ADDPERIOD data=$smarty.capture.t_insert_period_code image='32x32/schedule.png'}
+            {eF_template_printBlock title=$smarty.const._ADDPERIOD data=$smarty.capture.t_insert_period_code image='32x32/schedule.png' help = 'Scheduling'}
     </td></tr>
 
 {/capture}

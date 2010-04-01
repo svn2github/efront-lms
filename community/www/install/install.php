@@ -865,6 +865,7 @@ class Installation
          }
          file_put_contents("../php.ini", $localPhpIniString);
          file_put_contents("php.ini", $localPhpIniString);
+   file_put_contents("../editor/tiny_mce/php.ini", $localPhpIniString);
      } else if ($mode == 'htaccess') {
          $localHtaccess = "<IfModule mod_php5.c>
 php_value magic_quotes_gpc Off

@@ -3525,4 +3525,5 @@ define("_SHOWHELP","Display help links");
 define("_ALLOWUSERANSERALLRONG","Allow students to redo only the wrong answered questions");
 define("_ALLOWANSWERWRONGINFO","Only if test repetitions are allowed");
 define("_USERREDOWRONG", "Redo only wrong answered");
+define("_DEFAULTTHEMECANNOTBEIMPORTED", "Default theme can not be inported");
 ?>

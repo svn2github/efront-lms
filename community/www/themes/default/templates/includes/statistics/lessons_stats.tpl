@@ -524,7 +524,7 @@
         {/if}
     {/capture}
     {if $T_LESSON_NAME != ""}
-     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON` <span class='innerTableName'>&quot;`$T_LESSON_NAME`&quot;</span>" data = $smarty.capture.lesson_statistics image = '32x32/reports.png'}
+     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON` <span class='innerTableName'>&quot;`$T_LESSON_NAME`&quot;</span>" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
     {else}
-     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON`" data = $smarty.capture.lesson_statistics image = '32x32/reports.png'}
+     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON`" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
     {/if}

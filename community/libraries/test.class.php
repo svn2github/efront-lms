@@ -2678,12 +2678,6 @@ class EfrontCompletedTest extends EfrontTest
                             <img src = "images/16x16/undo.png" alt = "'._USERREDOTEST.'" title = "'._USERREDOTEST.'" border = "0" style = "vertical-align:middle">
                             <a href = "javascript:void(0)" id="redoLinkHref" onclick = "redoTest(this)" style = "vertical-align:middle">'._USERREDOTEST.'</a></span>';
         }
-  if ($status['lastTest'] && ($status['timesLeft'] > 0 || $status['timesLeft'] === false) && $status['completedTest']['score'] != 100) {
-            $editHandlesString .= '
-                        <span id = "redoWrongLink">
-                            <img src = "images/16x16/undo.png" alt = "'._USERREDOWRONG.'" title = "'._USERREDOWRONG.'" border = "0" style = "vertical-align:middle">
-                            <a href = "javascript:void(0)" id="redoWrongLinkHref" onclick = "redoWrongTest(this)" style = "vertical-align:middle">'._USERREDOWRONG.'</a></span>';
-        }
         $editHandlesString .= '
                         <span>
                             <img src = "images/16x16/arrow_right.png" alt = "'._TESTANALYSIS.'" title = "'._TESTANALYSIS.'" border = "0" style = "vertical-align:middle">
@@ -2778,7 +2772,7 @@ class EfrontCompletedTest extends EfrontTest
         <script>
             function redoTest(el) {
                 Element.extend(el);
-                url = "'.$url.'&ajax=1&redo_test='.$status['lastTest'].'";
+                url = "'.preg_replace("/&show_solved_test=\d+/", "", $url).'&ajax=1&redo_test='.$status['lastTest'].'";
                 if ($("redo_progress_img")) {
                     $("redo_progress_img").writeAttribute("src", "images/others/progress1.gif").show();
                 } else {
@@ -2802,7 +2796,7 @@ class EfrontCompletedTest extends EfrontTest
             }
    function redoWrongTest(el) {
                 Element.extend(el);
-                url = "'.$url.'&ajax=1&redo_wrong_test='.$status['lastTest'].'";
+                url = "'.preg_replace("/&show_solved_test=\d+/", "", $url).'&ajax=1&redo_wrong_test='.$status['lastTest'].'";
                 if ($("redo_progress_img")) {
                     $("redo_progress_img").writeAttribute("src", "images/others/progress1.gif").show();
                 } else {

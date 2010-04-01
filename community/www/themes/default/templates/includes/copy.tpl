@@ -45,6 +45,6 @@
 
   {/if}
         {/capture}
-        {eF_template_printBlock title=$smarty.const._COPYFROMANOTHERLESSON data=$smarty.capture.t_copy_content_code image='32x32/lesson_copy.png'}
+        {eF_template_printBlock title=$smarty.const._COPYFROMANOTHERLESSON data=$smarty.capture.t_copy_content_code image='32x32/lesson_copy.png' help = 'Copy_from_another_lesson'}
  </td></tr>
 {/capture}

@@ -178,8 +178,8 @@
         {$T_ADD_MESSAGE_FORM.javascript}
         <form {$T_ADD_MESSAGE_FORM.attributes} onSubmit = "return eF_js_checkRecipients()">
         {$T_ADD_MESSAGE_FORM.hidden}
-            {eF_template_printBlock title = $smarty.const._RECIPIENTSSELECTION data = $smarty.capture.t_recipients_code image = '32x32/directory.png'}
-            {eF_template_printBlock title = $smarty.const._MESSAGEBODY data = $smarty.capture.t_new_message_code image = '32x32/mail.png'}
+            {eF_template_printBlock title = $smarty.const._RECIPIENTSSELECTION data = $smarty.capture.t_recipients_code image = '32x32/directory.png' help = 'Messages'}
+            {eF_template_printBlock title = $smarty.const._MESSAGEBODY data = $smarty.capture.t_new_message_code image = '32x32/mail.png' help = 'Messages'}
         </form>
  {elseif $smarty.get.view}
   {capture name = "t_messagesbody_code"}
@@ -293,7 +293,7 @@
    <tr><td style = "vertical-align:top;width:50%;">{eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" navigation = $smarty.capture.t_folders_nav_code options = $T_FOLDERS_OPTIONS}</td>
     <td style = "vertical-align:top;width:50%;">{eF_template_printBlock title = $smarty.const._SPACEUSAGE data = $smarty.capture.t_volume_code image = "32x32/status.png" navigation = $smarty.capture.t_usage_nav_code options = $T_VOLUME_OPTIONS}</td></tr>
    <tr>
-    <td colspan = "2">{eF_template_printBlock title = $smarty.const._PERSONALMESSAGES data = $smarty.capture.t_messages_code image = "32x32/mailbox.png"}</td></tr>
+    <td colspan = "2">{eF_template_printBlock title = $smarty.const._PERSONALMESSAGES data = $smarty.capture.t_messages_code image = "32x32/mailbox.png" help = 'Messages'}</td></tr>
   </table>
  {/if}
  </td></tr>

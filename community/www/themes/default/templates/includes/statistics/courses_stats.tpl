@@ -161,7 +161,7 @@
     {/if}
     {/capture}
     {if $T_COURSE_NAME != ""}
-  {eF_template_printBlock title = "`$smarty.const._REPORTSFORCOURSE` <span class='innerTableName'>&quot;`$T_COURSE_NAME`&quot;</span>" data = $smarty.capture.course_statistics image = '32x32/courses.png'}
+  {eF_template_printBlock title = "`$smarty.const._REPORTSFORCOURSE` <span class='innerTableName'>&quot;`$T_COURSE_NAME`&quot;</span>" data = $smarty.capture.course_statistics image = '32x32/courses.png' help = 'Reports'}
     {else}
-     {eF_template_printBlock title = $smarty.const._COURSESTATISTICS data = $smarty.capture.course_statistics image = '32x32/courses.png'}
+     {eF_template_printBlock title = $smarty.const._COURSESTATISTICS data = $smarty.capture.course_statistics image = '32x32/courses.png' help = 'Reports'}
  {/if}

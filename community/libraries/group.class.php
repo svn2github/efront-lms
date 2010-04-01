@@ -417,8 +417,12 @@ class EfrontGroup
            }
            // Add lessons - info acquired before entering the new user assignment loop
                     if ($userObject -> getType() != 'administrator') {
-                        $userObject -> addLessons($lessonIds, $userObject -> getType(), 1); //active lessons
-                        $userObject -> addCourses($courseIds, $userObject -> getType(), 1); // active courses
+                        if (!empty($lessonIds)) {
+       $userObject -> addLessons($lessonIds, $userObject -> getType(), 1); //active lessons
+                        }
+      if (!empty($courseIds)) {
+       $userObject -> addCourses($courseIds, $userObject -> getType(), 1); // active courses
+      }
                     }
                 }
             }

@@ -453,8 +453,11 @@
     <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
    -->
     {/capture}
-             {eF_template_printBlock title = $smarty.const._USERSWITHCOMMONLESSONS data = $smarty.capture.t_people image = "32x32/users.png" main_options=$T_TABLE_OPTIONS}
-
+             {if $smarty.session.s_type == "administrator"}
+     {eF_template_printBlock title = $smarty.const._USERSWITHCOMMONLESSONS data = $smarty.capture.t_people image = "32x32/users.png" main_options=$T_TABLE_OPTIONS help = 'Social_extensions'}
+    {else}
+     {eF_template_printBlock title = $smarty.const._USERSWITHCOMMONLESSONS data = $smarty.capture.t_people image = "32x32/users.png" main_options=$T_TABLE_OPTIONS help = 'Lesson_users'}
+    {/if}
                 {*************** TIMELINES PAGE ********************}
     {elseif $T_OP == "timeline"}
 

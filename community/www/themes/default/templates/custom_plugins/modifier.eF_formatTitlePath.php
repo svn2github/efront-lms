@@ -61,15 +61,19 @@ function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 
   } else {
    $replacement = $piecesStripped[$key];
   }
+
+  $temp = $value;
+  // added because preg_replace returns null when value contains /
   $piecesFinal[$key] = preg_replace('/'.$piecesStripped[$key].'<\/a>/', $replacement.'</a>', $value);
+  if (is_null($piecesFinal[$key])) {
+   $piecesFinal[$key] = $temp;
+
+  }
 
  }
 
  $finalString = implode("&raquo;&nbsp;", $piecesFinal); // with tags 
  $finalString = str_replace(" </a>", "</a>", $finalString);
- //pr($piecesLengthStart);
- //pr($piecesLength);
- //pr($piecesFinal);
  return $finalString;
 }
 ?>

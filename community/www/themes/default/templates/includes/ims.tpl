@@ -31,7 +31,7 @@
                                 </form>
                             {/capture}
 
-                            {eF_template_printBlock title = $smarty.const._IMSIMPORT data = $smarty.capture.ims_import_code image = '32x32/autocomplete.png' main_options = $T_TABLE_OPTIONS}
+                            {eF_template_printBlock title = $smarty.const._IMSIMPORT data = $smarty.capture.ims_import_code image = '32x32/autocomplete.png' main_options = $T_TABLE_OPTIONS help = 'SCORM_/_IMS'}
 
                         {elseif $smarty.get.ims_export}
                             {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=ims&ims_export=1'>`$smarty.const._IMSEXPORT`</a>"}
@@ -58,7 +58,7 @@
                                         </table>
                                     </form>
                             {/capture}
-                            {eF_template_printBlock title = $smarty.const._IMSEXPORT data = $smarty.capture.ims_export_code image = '32x32/autocomplete.png' main_options = $T_TABLE_OPTIONS}
+                            {eF_template_printBlock title = $smarty.const._IMSEXPORT data = $smarty.capture.ims_export_code image = '32x32/autocomplete.png' main_options = $T_TABLE_OPTIONS help = 'SCORM_/_IMS'}
                         {/if}
                                 </td></tr>
         {/capture}

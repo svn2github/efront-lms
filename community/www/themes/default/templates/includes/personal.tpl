@@ -511,7 +511,7 @@ var enableMyJobSelect = false;
    {if $T_SOCIAL_INTERFACE}
    {$smarty.capture.t_status_change_interface}
    {/if}
-  {eF_template_printBlock title = $smarty.const._PERSONALDATA data = $smarty.capture.t_user_code image = '32x32/profile.png' main_options = $T_TABLE_OPTIONS}
+  {eF_template_printBlock title = $smarty.const._PERSONALDATA data = $smarty.capture.t_user_code image = '32x32/profile.png' main_options = $T_TABLE_OPTIONS help = 'Dashboard'}
  {else}
         {if $smarty.get.print_preview == 1}
             {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}

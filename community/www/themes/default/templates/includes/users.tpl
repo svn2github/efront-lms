@@ -103,7 +103,7 @@
 
 <!--/ajax:usersTable-->
                  {/capture}
-                 {eF_template_printBlock title = $smarty.const._UPDATEUSERS data = $smarty.capture.t_users_code image = '32x32/user.png'}
+                 {eF_template_printBlock title = $smarty.const._UPDATEUSERS data = $smarty.capture.t_users_code image = '32x32/user.png' help = 'Users'}
                 </td></tr>
 
     {/capture}

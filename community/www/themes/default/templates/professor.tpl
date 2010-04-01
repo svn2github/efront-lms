@@ -532,7 +532,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
     {capture name = "moduleCalendarPage"}
                             <tr><td class = "moduleCell">
                                 {include file = "includes/calendar.tpl"}
-                                {eF_template_printBlock title=$T_CALENDAR_TITLE data=$smarty.capture.t_calendar_code image='32x32/calendar.png' main_options=$T_CALENDAR_OPTIONS}
+                                {eF_template_printBlock title=$T_CALENDAR_TITLE data=$smarty.capture.t_calendar_code image='32x32/calendar.png' main_options=$T_CALENDAR_OPTIONS help = 'Calendar'}
                             </td></tr>
     {/capture}
 {/if}

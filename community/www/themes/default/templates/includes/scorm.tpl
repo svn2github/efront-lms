@@ -46,7 +46,7 @@
                                             </table>
 <!--/ajax:scormUsersTable-->
                             {/capture}
-                            {eF_template_printBlock title = $smarty.const._REVIEWSCORMDATAFOR|cat:' &quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;' data = $smarty.capture.scorm_review_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
+                            {eF_template_printBlock title = $smarty.const._REVIEWSCORMDATAFOR|cat:' &quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;' data = $smarty.capture.scorm_review_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS help = 'SCORM_/_IMS'}
 
                         {elseif $smarty.get.scorm_import}
                             {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=scorm&scorm_import=1'>`$smarty.const._SCORMIMPORT`</a>"}
@@ -77,7 +77,7 @@
                                     </table>
                                 </form>
                             {/capture}
-                            {eF_template_printBlock title = $smarty.const._SCORMIMPORT data = $smarty.capture.scorm_import_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
+                            {eF_template_printBlock title = $smarty.const._SCORMIMPORT data = $smarty.capture.scorm_import_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS help = 'SCORM_/_IMS'}
 
                         {elseif $smarty.get.scorm_export}
                             {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=scorm&scorm_export=1'>`$smarty.const._SCORMEXPORT`</a>"}
@@ -104,7 +104,7 @@
                                         </table>
                                     </form>
                             {/capture}
-                            {eF_template_printBlock title = $smarty.const._SCORMEXPORT data = $smarty.capture.scorm_export_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
+                            {eF_template_printBlock title = $smarty.const._SCORMEXPORT data = $smarty.capture.scorm_export_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS help = 'SCORM_/_IMS'}
 
                         {else}
                             {capture name = 't_scorm_tree_code'}
@@ -115,7 +115,7 @@
                                 </table>
 
                             {/capture}
-                            {eF_template_printBlock title = $smarty.const._SCORMOPTIONSFOR|cat:' &quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;' data = $smarty.capture.t_scorm_tree_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
+                            {eF_template_printBlock title = $smarty.const._SCORMOPTIONSFOR|cat:' &quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;' data = $smarty.capture.t_scorm_tree_code image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS help = 'SCORM_/_IMS'}
                         {/if}
                                 </td></tr>
         {/capture}

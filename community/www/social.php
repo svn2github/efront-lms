@@ -342,9 +342,9 @@
        EfrontEvent::triggerEvent(array("type" => EfrontEvent::DELETE_PROFILE_COMMENT_FOR_SELF, "users_LOGIN" => $_SESSION['s_login'], "users_name" => $currentUser -> user['name'], "users_surname" => $currentUser -> user['surname']));
 
     if ($currentUser -> getType() == "administrator") {
-                 eF_redirect(" ". $currentUser -> getType() . ".php?ctg=users&edit_user=".$currentUser->user['login']."&message=".urlencode($message)."&message_type=".$message_type);
+                 eF_redirect($currentUser -> getType() . ".php?ctg=users&edit_user=".$currentUser->user['login']."&message=".urlencode($message)."&message_type=".$message_type);
                 } else {
-                 eF_redirect(" ". $currentUser -> getType() . ".php?ctg=personal&message=".urlencode($message)."&message_type=".$message_type);
+                 eF_redirect($currentUser -> getType() . ".php?ctg=personal&message=".urlencode($message)."&message_type=".$message_type);
                 }
        exit;
 

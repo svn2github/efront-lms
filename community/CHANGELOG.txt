@@ -15,6 +15,16 @@
 - Fixed error about displaying archived lessons in user -> getLessons
 - Extended tests to allow students to redo only the wrong questions
 - Fixed issue with default value and select type in user profile
+- Fixed redo test redirecting when showing previous text executions
+- Fixed error about displaying edit link in lesson material on professor subtype with no priviledges
+- Added magic_quotes_gpc setting in editor/tiny_mce folder for gz functionality
+- Added magic_quotes_runtime to false because of http://www.smarty.net/forums/viewtopic.php?t=4936
+- Fixed js error on IE in extend user profile
+- Fixed bug about displaying shared files in lessons subfolders
+- Fixed bug in importing themes about overwriting default theme
+- Fixed errors about collapse catalog options
+- Fixed issue about corrupting title path when lesson name contains a slash
+- Fixed issue with double slash in browse.php returning to editor popups
 
 === Version 3.6.0 build 6235===
 - Fixed content rules not taken into account when auto_complete is on

@@ -208,14 +208,18 @@ try {
             }
             //Digital library mini file manager block
             if ($currentLesson -> options['digital_library'] && $currentUser -> coreAccess['content'] != 'hidden') { //If the lesson digital library is enabled
-                $sharedFiles = eF_getTableData("files", "count(*)", "shared=".$currentLesson -> lesson['id']);
-                if ($sharedFiles[0]['count(*)'] > 0) {
+    $result = eF_getTableData("files", "*", "shared=".$currentLesson -> lesson['id']);
+    foreach ($result as $value) {
+     $sharedFiles[G_ROOTPATH.$value['path']] = new EfrontFile($value['id']);
+    }
+                if (sizeof($sharedFiles) > 0) {
                     $basedir = $currentLesson -> getDirectory();
                     $options = array('share' => false, 'zip' => false, 'folders' => false, 'delete' => false, 'edit' => false, 'create_folder' => false, 'upload' => false);
                     $url = basename($_SERVER['PHP_SELF']).'?ctg=control_panel';
                     $filesystem = new FileSystemTree($basedir, true);
-                    $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new EfrontDBOnlyFilterIterator(new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator($filesystem -> tree, RecursiveIteratorIterator :: SELF_FIRST))), array('shared' => $currentLesson -> lesson['id'])));
-                    $smarty -> assign("T_FILES_LIST_OPTIONS", array(array('text' => _SHAREDFILES, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=digital_library")));
+     //changed to take account subfolders in efficient way
+                    $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new EfrontDBOnlyFilterIterator(new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sharedFiles), RecursiveIteratorIterator :: SELF_FIRST))), array('shared' => $currentLesson -> lesson['id'])));
+     $smarty -> assign("T_FILES_LIST_OPTIONS", array(array('text' => _SHAREDFILES, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=digital_library")));
                     $smarty -> assign("T_FILE_LIST_LINK", basename($_SERVER['PHP_SELF'])."?ctg=digital_library");
                     /**The file manager*/
                     include ("file_manager.php");

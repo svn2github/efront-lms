@@ -46,7 +46,7 @@ function changeType(type) {
   $('textarea_field').hide();
  } else if (type == 'select') {
   $('select_field').show();
-  //$('text_field').hide();
+  $('text_field').show();
   $('textarea_field').hide();
  } else {
   $('select_field').hide();
@@ -54,6 +54,6 @@ function changeType(type) {
   $('textarea_field').show();
  }
 }
-if (profileType != '') {
+if (typeof(profileType) != 'undefined' && profileType) {
  changeType(profileType);
 }

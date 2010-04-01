@@ -21,6 +21,7 @@ class EfrontThemesException extends Exception
 {
     const ALREADY_EXISTS = 1201;
     const THEME_LOCKED = 1202;
+ const DEFAULT_IMPORTED = 1203;
 }
 /**
 
@@ -163,15 +164,19 @@ class themes extends EfrontEntity
                 throw new EfrontFileException(_FILEDOESNOTEXIST.': '.$file, EfrontFileException :: FILE_NOT_EXIST);
             }
         } else {
-         try {
-             $filesystem = new FileSystemTree(G_THEMESPATH, true);
-    $themeFile = $filesystem -> uploadFile('theme_file', G_THEMESPATH);
-    $themeFile -> uncompress(false);
-    //$pathInfo = pathinfo($themeFile['path']);
-    //copy(G_DEFAULTTHEMEPATH.'css/css_global.php', $pathInfo['dirname'].'/'.$pathInfo['filename'].'/css/css_global.php');
-    $themeFile -> delete();
+        try {
+   $filesystem = new FileSystemTree(G_THEMESPATH, true);
+   $themeFile = $filesystem -> uploadFile('theme_file', G_THEMESPATH);
+   $filesList = $themeFile -> listContents();
+   if (mb_substr($filesList[0], 0, mb_strpos($filesList[0] , "/")) == "default") {
+     throw new Exception(_DEFAULTTHEMECANNOTBEIMPORTED, EfrontThemesException :: DEFAULT_IMPORTED);
+   }
+   $themeFile -> uncompress(false);
+   //$pathInfo = pathinfo($themeFile['path']);
+   //copy(G_DEFAULTTHEMEPATH.'css/css_global.php', $pathInfo['dirname'].'/'.$pathInfo['filename'].'/css/css_global.php');
+   $themeFile -> delete();
                 $file = new EfrontFile($themeFile['directory'].'/'.str_replace('.zip', '', $themeFile['name'])."/theme.xml");
-         } catch (EfrontFileException $e) {
+        } catch (EfrontFileException $e) {
              //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
              if ($e -> getCode() != 4) {
                  throw $e;
@@ -342,10 +347,11 @@ class themes extends EfrontEntity
         }
         $fields = self :: validateFields($fields);
         $result = eF_getTableDataFlat("themes", "name");
-        if (in_array($fields['name'], $result['name'])) {
-            throw new Exception(_THEMEALREADYEXISTS, EfrontThemesException :: ALREADY_EXISTS);
-        }
-        $id = eF_insertTableData("themes", $fields);
+        if (!in_array($fields['name'], $result['name'])) {
+            $id = eF_insertTableData("themes", $fields);
+        } else {
+   $id = array_search($fields['name'], $result['name']);
+  }
         $newTheme = new themes($id);
         return $newTheme;
     }

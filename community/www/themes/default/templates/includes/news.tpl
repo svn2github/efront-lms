@@ -29,9 +29,9 @@
   {/if}
   {/capture}
 
-  {eF_template_printBlock title = $smarty.const._ANNOUNCEMENT data = $smarty.capture.t_add_code image = '32x32/announcements.png'}
+  {eF_template_printBlock title = $smarty.const._ANNOUNCEMENT data = $smarty.capture.t_add_code image = '32x32/announcements.png' help ='Announcements'}
  {elseif $smarty.get.view}
-  {eF_template_printBlock title = $T_NEWS.title data = $T_NEWS.data image = '32x32/announcements.png'}
+  {eF_template_printBlock title = $T_NEWS.title data = $T_NEWS.data image = '32x32/announcements.png' help ='Announcements'}
  {else}
      {capture name = "t_news_code"}
          {if !$_student_ && $_change_}
@@ -70,7 +70,7 @@
       </table>
      {/capture}
 
-     {eF_template_printBlock title = $smarty.const._ANNOUNCEMENTS data = $smarty.capture.t_news_code image = '32x32/announcements.png'}
+     {eF_template_printBlock title = $smarty.const._ANNOUNCEMENTS data = $smarty.capture.t_news_code image = '32x32/announcements.png' help = 'Announcements'}
  {/if}
  </td></tr>
 {/capture}

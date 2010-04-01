@@ -32,31 +32,31 @@
                 </table>
                 </fieldset>
             </form>
-	        {if !$smarty.get.edit_rule}
-	            {$T_ADD_READY_RULE_FORM.javascript}
-	            <form {$T_ADD_READY_RULE_FORM.attributes}>
-	                {$T_ADD_READY_RULE_FORM.hidden}
-	                <fieldset class = "fieldsetSeparator">
-	                <legend>{$smarty.const._ADDREADYRULE}</legend>
-	                <table>
-	                    <tr><td class = "labelCell">{$smarty.const._SERIALRULE}:&nbsp;</td>
-	                        <td class = "elementCell">{$T_ADD_READY_RULE_FORM.ready_rule.serial.html}</td></tr>
-	{*                    <tr><td class = "labelCell">{$smarty.const._TREERULE}:&nbsp;</td>
-	                        <td class = "elementCell">{$T_ADD_READY_RULE_FORM.ready_rule.tree.html}</td></tr>
-	*}
-	                    <tr><td colspan = "100%">&nbsp;</td></tr>
-	                    <tr><td class = "labelCell"></td>
-	                        <td class = "elementCell">{$T_ADD_READY_RULE_FORM.submit_ready_rule.html}</td></tr>
-	                </table>
-	                </fieldset>
-	            </form>
-	        {/if}
+         {if !$smarty.get.edit_rule}
+             {$T_ADD_READY_RULE_FORM.javascript}
+             <form {$T_ADD_READY_RULE_FORM.attributes}>
+                 {$T_ADD_READY_RULE_FORM.hidden}
+                 <fieldset class = "fieldsetSeparator">
+                 <legend>{$smarty.const._ADDREADYRULE}</legend>
+                 <table>
+                     <tr><td class = "labelCell">{$smarty.const._SERIALRULE}:&nbsp;</td>
+                         <td class = "elementCell">{$T_ADD_READY_RULE_FORM.ready_rule.serial.html}</td></tr>
+ {* <tr><td class = "labelCell">{$smarty.const._TREERULE}:&nbsp;</td>
+                         <td class = "elementCell">{$T_ADD_READY_RULE_FORM.ready_rule.tree.html}</td></tr>
+ *}
+                     <tr><td colspan = "100%">&nbsp;</td></tr>
+                     <tr><td class = "labelCell"></td>
+                         <td class = "elementCell">{$T_ADD_READY_RULE_FORM.submit_ready_rule.html}</td></tr>
+                 </table>
+                 </fieldset>
+             </form>
+         {/if}
         {/capture}
 
-        {eF_template_printBlock title=$smarty.const._RULEPROPERTIES data=$smarty.capture.t_add_rule_code image='32x32/rules.png'}
+        {eF_template_printBlock title=$smarty.const._RULEPROPERTIES data=$smarty.capture.t_add_rule_code image='32x32/rules.png' help = 'Lesson_rules'}
     {elseif $smarty.get.add_condition || $smarty.get.edit_condition}
 
-        {capture name = 't_add_condition_code'}        	
+        {capture name = 't_add_condition_code'}
             {$T_COMPLETE_LESSON_FORM.javascript}
             <form {$T_COMPLETE_LESSON_FORM.attributes}>
                 {$T_COMPLETE_LESSON_FORM.hidden}
@@ -92,14 +92,14 @@
         {capture name = 't_conditions_code'}
             {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
                 <div class = "headerTools">
-                	<span>
-                		<img src = "images/16x16/add.png" title="{$smarty.const._ADDCONDITION}" alt="{$smarty.const._ADDCONDITION}"/>
-                		<a href = "professor.php?ctg=rules&tab=conditions&add_condition=1">{$smarty.const._ADDCONDITION}</a>
-                	</span>
-                	<span>
-                		<img src = "images/16x16/autocomplete.png" title="{$smarty.const._AUTOCOMPLETE}" alt="{$smarty.const._AUTOCOMPLETE}"/>
-                		<a href = "javascript:void(0)" onclick = "setAutoComplete(this)">{$smarty.const._AUTOCOMPLETE}:&nbsp;{if $T_CURRENT_LESSON->options.auto_complete}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</a>
-                	</span>
+                 <span>
+                  <img src = "images/16x16/add.png" title="{$smarty.const._ADDCONDITION}" alt="{$smarty.const._ADDCONDITION}"/>
+                  <a href = "professor.php?ctg=rules&tab=conditions&add_condition=1">{$smarty.const._ADDCONDITION}</a>
+                 </span>
+                 <span>
+                  <img src = "images/16x16/autocomplete.png" title="{$smarty.const._AUTOCOMPLETE}" alt="{$smarty.const._AUTOCOMPLETE}"/>
+                  <a href = "javascript:void(0)" onclick = "setAutoComplete(this)">{$smarty.const._AUTOCOMPLETE}:&nbsp;{if $T_CURRENT_LESSON->options.auto_complete}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</a>
+                 </span>
                 </div>
             {/if}
                 <table width = "100%" class = "sortedTable" rowsPerPage = "15">
@@ -115,13 +115,13 @@
                         <td>
                             {if $item.type == 'all_units'}
                             {elseif $item.type == 'percentage_units'}
-						        {$item.options.0}%
+              {$item.options.0}%
                             {elseif $item.type == 'specific_unit'}
-						        {$T_TREE_NAMES[$item.options.0]}
+              {$T_TREE_NAMES[$item.options.0]}
                             {elseif $item.type == 'all_tests'}
-						        {$item.options.0}
+              {$item.options.0}
                             {elseif $item.type == 'specific_test'}
-        						{$T_TREE_NAMES[$item.options.0]}
+              {$T_TREE_NAMES[$item.options.0]}
                             {/if}
                         </td>
                         <td>{if $item.relation == 'or'}{$smarty.const._OR}{else}{$smarty.const._AND}{/if}</td>
@@ -140,12 +140,12 @@
 
         {capture name = "t_lesson_rules"}
             {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
-            	<script>var autocompleteyes = '{$smarty.const._AUTOCOMPLETE}: {$smarty.const._YES}';var autocompleteno = '{$smarty.const._AUTOCOMPLETE}: {$smarty.const._NO}';</script>
+             <script>var autocompleteyes = '{$smarty.const._AUTOCOMPLETE}: {$smarty.const._YES}';var autocompleteno = '{$smarty.const._AUTOCOMPLETE}: {$smarty.const._NO}';</script>
                 <div class = "headerTools">
-                	<span>
-                		<img src = "images/16x16/add.png" title = "{$smarty.const._ADDRULE}" alt = "{$smarty.const._ADDRULE}"  />
-                		<a href = "professor.php?ctg=rules&add_rule=1" >{$smarty.const._ADDRULE}</a>
-                	</span>
+                 <span>
+                  <img src = "images/16x16/add.png" title = "{$smarty.const._ADDRULE}" alt = "{$smarty.const._ADDRULE}" />
+                  <a href = "professor.php?ctg=rules&add_rule=1" >{$smarty.const._ADDRULE}</a>
+                 </span>
                 </div>
             {/if}
                     <table width = "100%" class = "sortedTable">
@@ -179,9 +179,9 @@
                             <td class = "centerAlign">
                     {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
                         {if $rule.rule_type != 'serial' && $rule.rule_type != 'tree'}
-						        <a href = "{$smarty.server.PHP_SELF}?ctg=rules&edit_rule={$rule.id}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._CORRECTION}" title = "{$smarty.const._CORRECTION}" /></a>
+              <a href = "{$smarty.server.PHP_SELF}?ctg=rules&edit_rule={$rule.id}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._CORRECTION}" title = "{$smarty.const._CORRECTION}" /></a>
                         {/if}
-        						<img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteRule(this, '{$rule.id}')"/>
+              <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteRule(this, '{$rule.id}')"/>
                     {/if}
                             </td></tr>
                 {foreachelse}
@@ -191,15 +191,15 @@
 
         {/capture}
 
-		{capture name = 't_rules_code'}
+  {capture name = 't_rules_code'}
         <div class = "tabber">
-			{eF_template_printBlock tabber = "rules" title=$smarty.const._CONTENTTRAVERSINGRULES data=$smarty.capture.t_lesson_rules image='32x32/content.png'}
-			{eF_template_printBlock tabber = "conditions" title=$smarty.const._LESSONCONDITIONS data=$smarty.capture.t_conditions_code image='32x32/graduation.png'}
+   {eF_template_printBlock tabber = "rules" title=$smarty.const._CONTENTTRAVERSINGRULES data=$smarty.capture.t_lesson_rules image='32x32/content.png'}
+   {eF_template_printBlock tabber = "conditions" title=$smarty.const._LESSONCONDITIONS data=$smarty.capture.t_conditions_code image='32x32/graduation.png'}
 
         </div>
         {/capture}
-		{eF_template_printBlock title = $smarty.const._RULES data = $smarty.capture.t_rules_code image = '32x32/rules.png'}
-        
+  {eF_template_printBlock title = $smarty.const._RULES data = $smarty.capture.t_rules_code image = '32x32/rules.png' help = 'Lesson_rules'}
+
     {/if}
     </td></tr>
     {/capture}

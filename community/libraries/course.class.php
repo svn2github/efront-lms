@@ -1280,12 +1280,17 @@ class EfrontCourse
   if (isset($options['collapse']) && $options['collapse'] == 2) {
    $display = '';
    $display_lessons = 'style = "display:none"';
+   $imageString = 'down';
   } elseif (isset($options['collapse']) && $options['collapse'] == 1) {
    $display = 'style = "display:none"';
    $display_lessons = 'style = "display:none"';
+   $classString = ' class = "visible" ';
+   $imageString = 'up';
   } else {
    $display = '';
    $display_lessons = '';
+   $classString = ' class = "visible" ';
+   $imageString = 'up';
   }
         $roles = EfrontLessonUser :: getLessonsRoles();
         $roleNames = EfrontLessonUser :: getLessonsRoles(true);
@@ -1320,14 +1325,11 @@ class EfrontCourse
     unset($eligible[$lessonId]);
    }
         }
-  if ($GLOBALS['configuration']['collapse_catalog'] != 2) {
-   $classString = ' class = "visible" ';
-  }
         $courseString = '
                         <table class = "coursesTable" >
                             <tr class = "lessonsList" >
                              <td class = "listToggle">
-                              <img src = "images/16x16/navigate_down.png" '.$classString.' alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideCourses(this, $(\'subtree_course'.$this -> course['id'].'\'))">
+                              <img src = "images/16x16/navigate_'.$imageString.'.png" '.$classString.' alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideCourses(this, $(\'subtree_course'.$this -> course['id'].'\'))">
                              </td>
                              <td class = "listIcon">
                                     <img id = "course_img'.$this -> course['id'].'" src = "images/32x32/courses.png">

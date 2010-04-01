@@ -555,3 +555,9 @@ function changeAccount(login) {
         }
     });
 }
+// used in printBlock for help popups
+function PopupCenter(pageURL, title,w,h) {
+var left = (screen.width/2)-(w/2);
+var top = (screen.height/2)-(h/2);
+var targetWin = window.open (pageURL, title, 'scrollbars=yes, width='+w+', height='+h+', top='+top+', left='+left);
+}

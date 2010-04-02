@@ -3512,13 +3512,42 @@ define("_TOOLTIP","คำ แนะนำ เครื่องมือ");//Too
 define("_HIDDEN","ซ่อน จาก ผู้ ใช้");//Hidden from users
 define("_RESETSCORMDATA","ตั้ง ค่า ข้อมูล ผู้ ใช้");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","การ ตั้ง ค่า ขั้น สูง");//Advanced settings
-define("_SHOWMOTTOONHEADER","แสดง ชื่อ และ คำขวัญ ยัง ส่วน หัว");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","ผล การ ค้นหา ใน อภิธาน ศัพท์");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","ไม่ พบ ผลลัพธ์ ใน อภิธาน ศัพท์");//No results found in glossary (New)
-define("_AUTOLOGIN","เข้า สู่ ระบบ อัตโนมัติ");//Auto login (New)
-define("_ACCESSLINK","ลิงค์ เข้า");//Access link (New)
-define("_AUTOLOGINITHLINK","ผู้ ใช้ สามารถ เข้า สู่ ระบบ โดย อัตโนมัติ จาก ลิงค์");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","ประเภท ผู้ ใช้ Default");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","นักเรียน Force ตอบ คำถาม ทุก ข้อ");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","คุณ ต้อง ตอบ คำถาม ทุก ข้อ");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","แสดง ชื่อ และ คำขวัญ ยัง ส่วน หัว");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","ผล การ ค้นหา ใน อภิธาน ศัพท์");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","ไม่ พบ ผลลัพธ์ ใน อภิธาน ศัพท์");//No results found in glossary
+define("_AUTOLOGIN","เข้า สู่ ระบบ อัตโนมัติ");//Auto login
+define("_ACCESSLINK","ลิงค์ เข้า");//Access link
+define("_AUTOLOGINITHLINK","ผู้ ใช้ สามารถ เข้า สู่ ระบบ โดย อัตโนมัติ จาก ลิงค์");//User can login automatically by link
+define("_DEFAULTUSERTYPE","ประเภท ผู้ ใช้ Default");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","นักเรียน Force ตอบ คำถาม ทุก ข้อ");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","คุณ ต้อง ตอบ คำถาม ทุก ข้อ");//You have to answer all questions
+define("_SHOWHELP","แสดงลิงค์ช่วย");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","นักเรียนอนุญาตให้ทำซ้ำเฉพาะคำถามที่ตอบผิด");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","เท่านั้นหาก repetitions ทดสอบได้รับอนุญาต");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","ทำซ้ำตอบเพียงผิด");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default theme ไม่สามารถ inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","แถวส่วนหัวไม่ถูกกำหนดหรือส่วนหัวไม่สามารถใช้ร่วมกับชนิดนำเข้า");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","ผู้ใช้นำเข้า");//Imported user (New)
+define("_USERSTOCOURSES","ผู้ใช้หลักสูตร");//Users to courses (New)
+define("_USERSTOGROUPS","กลุ่มผู้ใช้");//Users to groups (New)
+define("_IMPORTANYTHING","สิ่งที่ได้รับการยอมรับ");//Anything recognized (New)
+define("_DATATOIMPORT","ข้อมูลนำเข้า");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","การนำเข้าประสบความสำเร็จ");//successfull imports (New)
+define("_FAILEDIMPORTS","การนำเข้าล้มเหลว");//failed imports (New)
+define("_REPLACEDUSER","แทนที่ผู้ใช้");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","file ไม่ได้มีคอลัมน์ที่จำเป็น");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","แทนการกำหนดที่มีอยู่");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","การกำหนดหลักสูตรใหม่");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","การกำหนดกลุ่มใหม่");//New group assignment (New)
+define("_USERSTOJOBS","ผู้ใช้งาน");//Users to jobs (New)
+define("_USERSTOSKILLS","ผู้ใช้ทักษะ");//Users to skills (New)
+define("_DATATOEXPORT","ข้อมูลการส่งออก");//Data to export (New)
+define("_MANDATORYFIELDS","เขตบังคับ");//Mandatory fields (New)
+define("_OPTIONALFIELDS","ฟิลด์ตัวเลือก");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","ให้ไฟล์ที่มีบรรทัดส่วนหัวที่มีการนำเข้าแต่ละประเภททั้งหมดที่จำเป็นและชื่อฟิลด์ตัวเลือกจากรายการที่ด้านล่างในลำดับใด ชื่อของแต่ละคอลัมน์หมายถึงความหมายของ คอลัมน์ที่ไม่รู้จักจะละเว้นไม่ต้องมีผลกระทบต่อส่วนที่เหลือของขั้นตอนที่");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","ใหม่กำหนดรายละเอียดงาน");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","กำหนดทักษะใหม่");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","เปลี่ยนสาขาที่มีอยู่");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","เปลี่ยนงานที่มีอยู่");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","เปลี่ยนความสามารถที่มีอยู่");//Replaced existing skill (New)
 ?>

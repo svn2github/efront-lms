@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Fshehur nga shfrytëzuesit");//Hidden from users
 define("_RESETSCORMDATA","Përdorues të dhënave Reset");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Advanced settings");//Advanced settings
-define("_SHOWMOTTOONHEADER","Show emrin dhe moto edhe më kokë");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Search results glossary");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","No results found glossary");//No results found in glossary (New)
-define("_AUTOLOGIN","Login Auto");//Auto login (New)
-define("_ACCESSLINK","Lidhje Hyrje");//Access link (New)
-define("_AUTOLOGINITHLINK","Përdoruesi mund të identifikohem automatikisht nga Lidhje");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Type Default përdorues");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Studenti Forca përgjigje të gjitha pyetjeve");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Ju duhet t&#39;u përgjigjeni të gjitha pyetjeve");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Show emrin dhe moto edhe më kokë");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Search results glossary");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","No results found glossary");//No results found in glossary
+define("_AUTOLOGIN","Login Auto");//Auto login
+define("_ACCESSLINK","Lidhje Hyrje");//Access link
+define("_AUTOLOGINITHLINK","Përdoruesi mund të identifikohem automatikisht nga Lidhje");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Type Default përdorues");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Studenti Forca përgjigje të gjitha pyetjeve");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Ju duhet t&#39;u përgjigjeni të gjitha pyetjeve");//You have to answer all questions
+define("_SHOWHELP","Shfaq lidhjet ndihmë");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Lejo nxënësit të bëj sërish vetëm pyetje e gabuar përgjigje");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Vetëm në qoftë se repetitions test lejohen");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Bëj sërish vetëm gabuar përgjigje");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema e albumit nuk mund të inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nuk rreshtit ishte përcaktuar ose kokë të papajtueshme me llojin e importit");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","përdorues importuara");//Imported user (New)
+define("_USERSTOCOURSES","Përdorues të kurseve");//Users to courses (New)
+define("_USERSTOGROUPS","Përdorues të grupeve");//Users to groups (New)
+define("_IMPORTANYTHING","Çdo gjë e njohur");//Anything recognized (New)
+define("_DATATOIMPORT","Dhënave të import");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","Importet e suksesshme");//successfull imports (New)
+define("_FAILEDIMPORTS","importet e dështuar");//failed imports (New)
+define("_REPLACEDUSER","përdorues zëvendësuara");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Skedari i nuk përmban shtyllat e nevojshme");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","caktimin e zëvendësuara ekzistues");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","caktimit të reja kurs");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","caktimit të reja grup");//New group assignment (New)
+define("_USERSTOJOBS","Përdorues në punët e");//Users to jobs (New)
+define("_USERSTOSKILLS","Përdorues të aftësive");//Users to skills (New)
+define("_DATATOEXPORT","Të dhënave për eksport");//Data to export (New)
+define("_MANDATORYFIELDS","fushat e detyrueshme");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Fushat Perkujtimore");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Sigurimi i një file me një linjë kokë që përmban për secilin lloj të importuar, të gjitha të detyrueshme dhe fakultative çdo tituj fushë nga ato më poshtë, në asnjë mënyrë. Titulli i çdo kolonë tregon kuptimin e tij. shtyllat e panjohur do të lënë pas dore, pa e prekur pjesën tjetër të procedurës.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","përshkrimin e caktimit të reja të punës");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","caktimit të reja aftësi");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Dega e zëvendësuara ekzistues");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","punë e zëvendësuara ekzistues");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","aftësi të zëvendësuara ekzistues");//Replaced existing skill (New)
 ?>

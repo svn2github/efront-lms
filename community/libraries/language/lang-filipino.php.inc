@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Nakatagong mula sa mga gumagamit");//Hidden from users
 define("_RESETSCORMDATA","I-reset ang user data");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Mga Advanced na setting");//Advanced settings
-define("_SHOWMOTTOONHEADER","Ipakita ang mga pangalan at motto din sa header");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Mga resulta ng Paghahanap sa glossary");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Walang mga resulta na natagpuan sa glossary");//No results found in glossary (New)
-define("_AUTOLOGIN","Auto-login");//Auto login (New)
-define("_ACCESSLINK","Puntahan ang link na");//Access link (New)
-define("_AUTOLOGINITHLINK","User ay maaaring awtomatikong mag-login sa pamamagitan ng link");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Default na uri ng user");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Force mag-aaral ang sagot sa lahat ng mga katanungan");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Ikaw ang sagot sa lahat ng mga katanungan");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Ipakita ang mga pangalan at motto din sa header");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Mga resulta ng Paghahanap sa glossary");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Walang mga resulta na natagpuan sa glossary");//No results found in glossary
+define("_AUTOLOGIN","Auto-login");//Auto login
+define("_ACCESSLINK","Puntahan ang link na");//Access link
+define("_AUTOLOGINITHLINK","User ay maaaring awtomatikong mag-login sa pamamagitan ng link");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Default na uri ng user");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Force mag-aaral ang sagot sa lahat ng mga katanungan");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Ikaw ang sagot sa lahat ng mga katanungan");//You have to answer all questions
+define("_SHOWHELP","Ipakita ang mga link ng tulong");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Payagan ang mga mag-aaral upang gawing muli lamang sa maling sinagot tanong");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Tanging kung pagsubok repetitions ay pinahihintulutan");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Gawin muli lamang maling sumagot");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default na tema ay hindi maaaring inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Walang header hilera ay tinukoy header o hindi katugma sa import ng uri");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Imported ang user");//Imported user (New)
+define("_USERSTOCOURSES","Ang mga gumagamit sa mga kurso");//Users to courses (New)
+define("_USERSTOGROUPS","Ang mga gumagamit sa mga grupo");//Users to groups (New)
+define("_IMPORTANYTHING","Ano kinikilala");//Anything recognized (New)
+define("_DATATOIMPORT","Data upang i-import");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","matagumpay angkat");//successfull imports (New)
+define("_FAILEDIMPORTS","Nabigo angkat");//failed imports (New)
+define("_REPLACEDUSER","Pinalitan ang user");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Ang file ay hindi naglalaman ng mga kinakailangang mga haligi");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Pinalitan umiiral na assignment");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Bagong kurso assignment");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Bagong grupo ng assignment");//New group assignment (New)
+define("_USERSTOJOBS","Ang mga gumagamit sa trabaho");//Users to jobs (New)
+define("_USERSTOSKILLS","Ang mga gumagamit sa mga kasanayan sa");//Users to skills (New)
+define("_DATATOEXPORT","Data na ie-export");//Data to export (New)
+define("_MANDATORYFIELDS","Sapilitan na larangan");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Opsyonal na mga patlang");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Magbigay ng isang file na may isang header na naglalaman ng linya para sa bawat uri-import, ang lahat ng mga sapilitan at ang anumang mga opsyonal na patlang ng mga pamagat mula sa mga ibinigay sa ibaba sa anumang pagkakasunod-sunod. Ang pamagat ng bawat haligi nagpapahiwatig kahulugan nito. Hindi kilalang haligi ay tinanggal na, nang hindi naaapektuhan ang magpahinga ng ang proseso.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Bagong trabaho paglalarawan assignment");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Bagong kasanayan assignment");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Pinalitan umiiral na sangay");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Pinalitan umiiral na trabaho");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Pinalitan umiiral na kasanayan");//Replaced existing skill (New)
 ?>

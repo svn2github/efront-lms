@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Cachés par les utilisateurs");//Hidden from users
 define("_RESETSCORMDATA","Effacer les utilisateurs");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Paramètres avancés");//Advanced settings
-define("_SHOWMOTTOONHEADER","Afficher le nom et la devise aussi sur l&#39;entête");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Résultats de la recherche dans le glossaire");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Aucun résultat trouvé dans le glossaire");//No results found in glossary (New)
-define("_AUTOLOGIN","Auto Login");//Auto login (New)
-define("_ACCESSLINK","Lien d&#39;accès");//Access link (New)
-define("_AUTOLOGINITHLINK","L&#39;utilisateur peut connecte automatiquement par liaison");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Par défaut le type d&#39;utilisateur");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Force de Réponse de l&#39;étudiant toutes les questions");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Vous devez répondre à toutes les questions");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Afficher le nom et la devise aussi sur l&#39;entête");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Résultats de la recherche dans le glossaire");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Aucun résultat trouvé dans le glossaire");//No results found in glossary
+define("_AUTOLOGIN","Auto Login");//Auto login
+define("_ACCESSLINK","Lien d&#39;accès");//Access link
+define("_AUTOLOGINITHLINK","L&#39;utilisateur peut connecte automatiquement par liaison");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Par défaut le type d&#39;utilisateur");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Force de Réponse de l&#39;étudiant toutes les questions");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Vous devez répondre à toutes les questions");//You have to answer all questions
+define("_SHOWHELP","liens d&#39;aide d&#39;affichage");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Permettre aux élèves de refaire seulement les mauvaises questions réponses");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Ce n&#39;est que si les répétitions d&#39;essai sont autorisées");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Refaire le seul tort répondu");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Thème par défaut ne peut pas être inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Aucune ligne d&#39;en-tête a été défini ou en-tête n&#39;est pas compatible avec le type d&#39;importation");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","utilisateur importé");//Imported user (New)
+define("_USERSTOCOURSES","Utilisateur à des cours");//Users to courses (New)
+define("_USERSTOGROUPS","Utilisateurs à des groupes");//Users to groups (New)
+define("_IMPORTANYTHING","Tout ce qui a reconnu");//Anything recognized (New)
+define("_DATATOIMPORT","Données à l&#39;importation");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","les importations de succès");//successfull imports (New)
+define("_FAILEDIMPORTS","les importations n&#39;ont pas");//failed imports (New)
+define("_REPLACEDUSER","Remplacé utilisateur");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Le fichier ne contient pas les colonnes nécessaires");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Remplacé affectation existante");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Nouveau cours d&#39;affectation");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","cession Nouveau groupe");//New group assignment (New)
+define("_USERSTOJOBS","Utilisateur à l&#39;emploi");//Users to jobs (New)
+define("_USERSTOSKILLS","Les utilisateurs de compétences");//Users to skills (New)
+define("_DATATOEXPORT","Données à l&#39;exportation");//Data to export (New)
+define("_MANDATORYFIELDS","Les champs obligatoires");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Les champs facultatifs");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Fournir un fichier avec une ligne d&#39;en-tête contenant pour chaque type d&#39;importation, toutes obligatoires et tous les titres champ optionnel de celles prévues ci-dessous dans n&#39;importe quel ordre. Le titre de chaque colonne indique le sens. colonnes non reconnus seront omis, sans affecter le reste de la procédure.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Nouvelle assignation description de poste");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","cession de nouvelles compétences");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Remplacé branche existante");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Remplacé emplois existants");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Remplacé compétences existantes");//Replaced existing skill (New)
 ?>

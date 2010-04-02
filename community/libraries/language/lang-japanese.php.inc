@@ -3512,13 +3512,42 @@ define("_TOOLTIP","ツールチップ");//Tooltip
 define("_HIDDEN","隠されたユーザーからの");//Hidden from users
 define("_RESETSCORMDATA","をリセットするユーザデータ");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","[詳細設定]");//Advanced settings
-define("_SHOWMOTTOONHEADER","ショーの名前とのモットーは、ヘッダに");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","用語集の検索結果");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","結果はありません用語集で発見");//No results found in glossary (New)
-define("_AUTOLOGIN","オートログイン");//Auto login (New)
-define("_ACCESSLINK","Accessのリンク");//Access link (New)
-define("_AUTOLOGINITHLINK","ユーザーは自動的にリンクによってログインすることができます");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","デフォルトのユーザーのタイプ");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","強制的に学生の質問に答える");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","すべての質問に回答する必要があります");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","ショーの名前とのモットーは、ヘッダに");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","用語集の検索結果");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","結果はありません用語集で発見");//No results found in glossary
+define("_AUTOLOGIN","オートログイン");//Auto login
+define("_ACCESSLINK","Accessのリンク");//Access link
+define("_AUTOLOGINITHLINK","ユーザーは自動的にリンクによってログインすることができます");//User can login automatically by link
+define("_DEFAULTUSERTYPE","デフォルトのユーザーのタイプ");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","強制的に学生の質問に答える");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","すべての質問に回答する必要があります");//You have to answer all questions
+define("_SHOWHELP","ヘルプを表示リンク");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","許可の学生は間違って質問に答えをやり直す");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","のみのテストの繰り返しが許可されている場合");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","やり直しは間違って答えて");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","デフォルトのテーマはinportedすることはできません");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","いいえヘッダー行が定義され、またはヘッダーのインポートのタイプと互換性がない");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","インポートのユーザ");//Imported user (New)
+define("_USERSTOCOURSES","コースへのユーザー");//Users to courses (New)
+define("_USERSTOGROUPS","グループへのユーザー");//Users to groups (New)
+define("_IMPORTANYTHING","何が認識さ");//Anything recognized (New)
+define("_DATATOIMPORT","データをインポートする");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","成功の輸入");//successfull imports (New)
+define("_FAILEDIMPORTS","失敗したインポート");//failed imports (New)
+define("_REPLACEDUSER","置き換えユーザー");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","ファイルには、必要な列を含んでいない");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","置き換え既存の割り当て");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","新コースの割り当て");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","新しいグループの割り当て");//New group assignment (New)
+define("_USERSTOJOBS","仕事へのユーザー");//Users to jobs (New)
+define("_USERSTOSKILLS","スキルへのユーザー");//Users to skills (New)
+define("_DATATOEXPORT","データをエクスポートする");//Data to export (New)
+define("_MANDATORYFIELDS","必須フィールド");//Mandatory fields (New)
+define("_OPTIONALFIELDS","省略可能なフィールド");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","ヘッダー行の各ポートの種類を含む、すべての、任意のオプションのフィールドのタイトルのもの任意の順序で下記から必須のファイルを提供します。各列のタイトルはその意味を示します。認識されない列は、プロシージャの残りの部分に影響を与えず省略されます。");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","新しい仕事の説明の割り当て");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","新しいスキルの割り当て");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","置き換え、既存の支店");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","置き換え、既存のジョブ");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","置き換え、既存のスキル");//Replaced existing skill (New)
 ?>

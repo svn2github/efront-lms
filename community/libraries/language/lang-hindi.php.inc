@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","उपयोगकर्ताओं को छुपाया");//Hidden from users
 define("_RESETSCORMDATA","रीसेट उपयोगकर्ता डेटा");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","उन्नत सेटिंग्स");//Advanced settings
-define("_SHOWMOTTOONHEADER","दिखाएँ नाम और आदर्श वाक्य हैडर पर भी");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","शब्दकोष में खोज परिणाम");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","कोई परिणाम नहीं शब्दकोष में पाया");//No results found in glossary (New)
-define("_AUTOLOGIN","ऑटो लॉगिन");//Auto login (New)
-define("_ACCESSLINK","प्रवेश लिंक");//Access link (New)
-define("_AUTOLOGINITHLINK","उपयोगकर्ता स्वत: लिंक द्वारा लॉगिन कर सकते हैं");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","डिफ़ॉल्ट प्रयोक्ता प्रकार");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","सेना छात्र सभी सवालों के जवाब");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","आप सब सवालों का जवाब देना");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","दिखाएँ नाम और आदर्श वाक्य हैडर पर भी");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","शब्दकोष में खोज परिणाम");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","कोई परिणाम नहीं शब्दकोष में पाया");//No results found in glossary
+define("_AUTOLOGIN","ऑटो लॉगिन");//Auto login
+define("_ACCESSLINK","प्रवेश लिंक");//Access link
+define("_AUTOLOGINITHLINK","उपयोगकर्ता स्वत: लिंक द्वारा लॉगिन कर सकते हैं");//User can login automatically by link
+define("_DEFAULTUSERTYPE","डिफ़ॉल्ट प्रयोक्ता प्रकार");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","सेना छात्र सभी सवालों के जवाब");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","आप सब सवालों का जवाब देना");//You have to answer all questions
+define("_SHOWHELP","प्रदर्शन में मदद लिंक");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","अनुमति देने के छात्रों को केवल गलत प्रश्नों का उत्तर दिया करने के लिए फिर से करना");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","तभी परीक्षण repetitions की अनुमति है");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","फिर से करना ही गलत जवाब");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","डिफ़ॉल्ट विषयवस्तु inported नहीं जा सकता");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","कोई शीर्ष लेख पंक्ति में परिभाषित किया गया था या आयात प्रकार के साथ संगत नहीं शीर्षक");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","आयातित उपयोगकर्ता");//Imported user (New)
+define("_USERSTOCOURSES","पाठ्यक्रमों के लिए उपयोगकर्ता");//Users to courses (New)
+define("_USERSTOGROUPS","समूहों के लिए उपयोगकर्ता");//Users to groups (New)
+define("_IMPORTANYTHING","कुछ भी मान्यता प्राप्त");//Anything recognized (New)
+define("_DATATOIMPORT","डेटा आयात करने के लिए");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","सफल आयात");//successfull imports (New)
+define("_FAILEDIMPORTS","आयात विफल");//failed imports (New)
+define("_REPLACEDUSER","उपयोगकर्ता प्रतिस्थापित");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","फ़ाइल आवश्यक स्तंभ शामिल नहीं है");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","प्रतिस्थापित मौजूदा कार्यभार");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","नए पाठ्यक्रम काम");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","नए समूह काम");//New group assignment (New)
+define("_USERSTOJOBS","नौकरियों के लिए उपयोगकर्ता");//Users to jobs (New)
+define("_USERSTOSKILLS","कौशल के लिए उपयोगकर्ता");//Users to skills (New)
+define("_DATATOEXPORT","डेटा निर्यात करने के लिए");//Data to export (New)
+define("_MANDATORYFIELDS","अनिवार्य क्षेत्रों");//Mandatory fields (New)
+define("_OPTIONALFIELDS","वैकल्पिक फ़ील्ड्स");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","किसी शीर्ष लेख प्रत्येक प्रकार के लिए आयात युक्त लाइन, सभी अनिवार्य है और किसी भी क्रम में नीचे दिए गए लोगों से कोई वैकल्पिक क्षेत्र खिताब के साथ एक फ़ाइल प्रदान करें. प्रत्येक कॉलम का शीर्षक इसका अर्थ denotes. पहचाने न जाने वाले स्तंभों प्रक्रिया के बाकी को प्रभावित किए बिना हो सकता है, छोड़ दिया जाता है.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","नई नौकरी का विवरण कार्यभार");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","नए कौशल काम");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","प्रतिस्थापित मौजूदा शाखा");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","प्रतिस्थापित मौजूदा नौकरी");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","प्रतिस्थापित मौजूदा कौशल");//Replaced existing skill (New)
 ?>

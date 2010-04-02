@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Dolda användare");//Hidden from users
 define("_RESETSCORMDATA","Återställ användardata");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Avancerade inställningar");//Advanced settings
-define("_SHOWMOTTOONHEADER","Visa namn och motto också på rubrik");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Sökresultat i ordlistan");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Inga resultat hittades i ordlistan");//No results found in glossary (New)
-define("_AUTOLOGIN","Automatisk inloggning");//Auto login (New)
-define("_ACCESSLINK","Access länk");//Access link (New)
-define("_AUTOLOGINITHLINK","Användare kan logga in automatiskt genom länk");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Default användartyp");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Force student svara på alla frågor");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Du måste svara på alla frågor");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Visa namn och motto också på rubrik");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Sökresultat i ordlistan");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Inga resultat hittades i ordlistan");//No results found in glossary
+define("_AUTOLOGIN","Automatisk inloggning");//Auto login
+define("_ACCESSLINK","Access länk");//Access link
+define("_AUTOLOGINITHLINK","Användare kan logga in automatiskt genom länk");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Default användartyp");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Force student svara på alla frågor");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Du måste svara på alla frågor");//You have to answer all questions
+define("_SHOWHELP","Visa hjälpa länkar");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Låt eleverna göra om bara fel besvarade frågor");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Endast om testet upprepningar är tillåtna");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Gör bara fel svar");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Standard tema kan inte inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ingen rubrikrad definierades eller huvudet inte förenlig med import-typ");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Importerade användare");//Imported user (New)
+define("_USERSTOCOURSES","Användare till kurser");//Users to courses (New)
+define("_USERSTOGROUPS","Användare till grupper");//Users to groups (New)
+define("_IMPORTANYTHING","Allt erkända");//Anything recognized (New)
+define("_DATATOIMPORT","Data att importera");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","lyckad import");//successfull imports (New)
+define("_FAILEDIMPORTS","misslyckades import");//failed imports (New)
+define("_REPLACEDUSER","Ersatt användare");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Filen innehåller inte de nödvändiga kolumner");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Ersatt befintliga tilldelningarna");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Nya kursuppgift");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Ny grupp uppdrag");//New group assignment (New)
+define("_USERSTOJOBS","Användare till jobb");//Users to jobs (New)
+define("_USERSTOSKILLS","Användare till kompetens");//Users to skills (New)
+define("_DATATOEXPORT","Data som ska exporteras");//Data to export (New)
+define("_MANDATORYFIELDS","Obligatoriska fält");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Valfria fält");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Ge en fil med ett rubrikraden innehåller för varje import typ, alla obligatoriska och valfria titlar fält de som avses nedan i valfri ordning. Rubriken till varje kolumn betecknar sin mening. Okända kolumner kommer att utelämnas, utan att påverka resten av förfarandet.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Nya arbetsbeskrivning uppdrag");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Ny färdighet uppdrag");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Ersatte existerande filial");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Ersatt befintliga jobb");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Ersatt befintliga kompetensen");//Replaced existing skill (New)
 ?>

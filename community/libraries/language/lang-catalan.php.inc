@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Ocult dels usuaris de");//Hidden from users
 define("_RESETSCORMDATA","Restablir les dades de l&#39;usuari");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Configuració avançada");//Advanced settings
-define("_SHOWMOTTOONHEADER","Nom de l&#39;obra i el lema també sobre la capçalera de");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Resultats de la cerca al glossari");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","No hi ha resultats en el glossari");//No results found in glossary (New)
-define("_AUTOLOGIN","Accés automàtic");//Auto login (New)
-define("_ACCESSLINK","Enllaç d&#39;accés");//Access link (New)
-define("_AUTOLOGINITHLINK","L&#39;usuari pot iniciar sessió de forma automàtica mitjançant un enllaç");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","De tipus d&#39;usuari per defecte");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Estudiant de la Força contestar totes les preguntes");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Has de contestar totes les preguntes");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Nom de l&#39;obra i el lema també sobre la capçalera de");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Resultats de la cerca al glossari");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","No hi ha resultats en el glossari");//No results found in glossary
+define("_AUTOLOGIN","Accés automàtic");//Auto login
+define("_ACCESSLINK","Enllaç d&#39;accés");//Access link
+define("_AUTOLOGINITHLINK","L&#39;usuari pot iniciar sessió de forma automàtica mitjançant un enllaç");//User can login automatically by link
+define("_DEFAULTUSERTYPE","De tipus d&#39;usuari per defecte");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Estudiant de la Força contestar totes les preguntes");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Has de contestar totes les preguntes");//You have to answer all questions
+define("_SHOWHELP","Mostra els enllaços d&#39;ajuda");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Permetre als estudiants fer de nou només respon a les preguntes equivocades");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Només si la prova es permeten repeticions");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Refer únic dolent respondre");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","tema per defecte no pot ser InPort");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No es va definir línia d&#39;encapçalament o capçalera no és compatible amb el tipus d&#39;importació");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Importat d&#39;usuari");//Imported user (New)
+define("_USERSTOCOURSES","Els usuaris als cursos");//Users to courses (New)
+define("_USERSTOGROUPS","Els usuaris als grups");//Users to groups (New)
+define("_IMPORTANYTHING","Tot el reconeix");//Anything recognized (New)
+define("_DATATOIMPORT","Les dades a importar");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","importacions èxit");//successfull imports (New)
+define("_FAILEDIMPORTS","les importacions no");//failed imports (New)
+define("_REPLACEDUSER","Substituït usuari");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","L&#39;arxiu no conté les columnes necessàries");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Substituït actuals de cessió");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Nou curs assignat");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Nova assignació de grup");//New group assignment (New)
+define("_USERSTOJOBS","Els usuaris de llocs de treball");//Users to jobs (New)
+define("_USERSTOSKILLS","Usuari a les competències");//Users to skills (New)
+define("_DATATOEXPORT","Les dades per exportar");//Data to export (New)
+define("_MANDATORYFIELDS","Camps obligatoris");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Els camps opcionals");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Proporcionar un arxiu amb una línia de capçalera que conté per a cada tipus d&#39;importació, totes les obligatòries i les opcionals títols dels camps dels previstos a continuació en qualsevol ordre. El títol de cada columna denota el seu significat. No es reconeix columnes s&#39;omet, sense afectar la resta del procediment.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Treball de Nova descripció de la tasca");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Nova assignació de competències");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Substituït existents branca");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Substituït existents d&#39;ocupació");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Substituït existents habilitat");//Replaced existing skill (New)
 ?>

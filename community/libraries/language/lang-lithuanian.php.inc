@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Paslėpti nuo vartotojų");//Hidden from users
 define("_RESETSCORMDATA","Atstatyti naudotojo duomenis");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Papildomi nustatymai");//Advanced settings
-define("_SHOWMOTTOONHEADER","Rodyti pavadinimas ir šūkis taip pat antraštė");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Paieškos rezultatai žodynėlis");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary (New)
-define("_AUTOLOGIN","Automatinis prisijungimas");//Auto login (New)
-define("_ACCESSLINK","Prieiga nuorodą");//Access link (New)
-define("_AUTOLOGINITHLINK","Vartotojas galėtų prisijungti automatiškai nuorodą");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Numatytasis vartotojo tipą");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Force studentų atsakyti į visus klausimus");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Jūs turite atsakyti į visus klausimus");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Rodyti pavadinimas ir šūkis taip pat antraštė");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Paieškos rezultatai žodynėlis");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary
+define("_AUTOLOGIN","Automatinis prisijungimas");//Auto login
+define("_ACCESSLINK","Prieiga nuorodą");//Access link
+define("_AUTOLOGINITHLINK","Vartotojas galėtų prisijungti automatiškai nuorodą");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Numatytasis vartotojo tipą");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Force studentų atsakyti į visus klausimus");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Jūs turite atsakyti į visus klausimus");//You have to answer all questions
+define("_SHOWHELP","Parodyti pagalbą Nuorodos");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Leisti studentams perdaryti tik neteisingai atsakė į klausimus");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Tik tuomet, kai bandymo pakartojimų leidžiama");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Pakartoti tik neteisingai atsakė");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Įprasta tema negali būti inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nr antraštės eilutėje buvo apibrėžtas arba antraštė neatitinka importo rūšis");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Importuotas vartotojas");//Imported user (New)
+define("_USERSTOCOURSES","Vartotojai kursai");//Users to courses (New)
+define("_USERSTOGROUPS","Vartotojai į grupes");//Users to groups (New)
+define("_IMPORTANYTHING","Viskas pripažintas");//Anything recognized (New)
+define("_DATATOIMPORT","Duomenys importo");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","sėkmingai importo");//successfull imports (New)
+define("_FAILEDIMPORTS","Nepavyko importuoti");//failed imports (New)
+define("_REPLACEDUSER","Pakeistas vartotojas");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Faile nėra būtina stulpelius");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Pakeitė galiojančias priskyrimo");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Naujas kursų priskyrimo");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Nauja grupė paskyrimo");//New group assignment (New)
+define("_USERSTOJOBS","Vartotojai darbo vietų");//Users to jobs (New)
+define("_USERSTOSKILLS","Vartotojai įgūdžiai");//Users to skills (New)
+define("_DATATOEXPORT","Duomenys eksporto");//Data to export (New)
+define("_MANDATORYFIELDS","Privalomi laukai");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Laukeliai");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Pateikite failo antraštės eilutę, kurioje kiekvieniems importo tipą, visi privalomi ir bet neprivalomas laukas pavadinimai negu numatyta toliau bet kokia tvarka. Kiekvieno stulpelio pavadinimas reiškia jo prasmę. Neatpažintos Stulpeliai bus praleista, nepažeidžiant proceso šalių.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Naujų darbo vietų aprašymas paskyrimo");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Naujų įgūdžių paskyrimo");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Pakeitė galiojančias filialas");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Pakeitė buvusias pareigas");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Pakeitė esamas kvalifikacijos");//Replaced existing skill (New)
 ?>

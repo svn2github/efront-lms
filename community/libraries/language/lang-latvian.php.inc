@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Hidden lietotāju");//Hidden from users
 define("_RESETSCORMDATA","Reset lietotāja dati");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Papildu uzstādījumi");//Advanced settings
-define("_SHOWMOTTOONHEADER","Rādīt vārds un moto arī header");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Meklēšanas rezultāti glossary");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary (New)
-define("_AUTOLOGIN","Auto login");//Auto login (New)
-define("_ACCESSLINK","Access saite");//Access link (New)
-define("_AUTOLOGINITHLINK","Lietotājs var login automātiski saite");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Noklusējuma lietotāja tipu");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Spēkā students atbildēt uz visiem jautājumiem");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Jums ir atbildēt uz visiem jautājumiem");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Rādīt vārds un moto arī header");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Meklēšanas rezultāti glossary");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary
+define("_AUTOLOGIN","Auto login");//Auto login
+define("_ACCESSLINK","Access saite");//Access link
+define("_AUTOLOGINITHLINK","Lietotājs var login automātiski saite");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Noklusējuma lietotāja tipu");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Spēkā students atbildēt uz visiem jautājumiem");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Jums ir atbildēt uz visiem jautājumiem");//You have to answer all questions
+define("_SHOWHELP","Displejs palīdzēs saites");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Ļaut skolēniem pārtaisīt tikai nepareizi atbildēja");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Tikai tad, ja testa atkārtojumos ir atļauts");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Pārtaisīt tikai nepareizi atbildēja");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Noklusētā tēma nevar inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Neviena galvenes rindā tika noteikts, vai header nav saderīga ar ievešanas veidam");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Importētie lietotāju");//Imported user (New)
+define("_USERSTOCOURSES","Lietotāju kursi");//Users to courses (New)
+define("_USERSTOGROUPS","Lietotāju grupas");//Users to groups (New)
+define("_IMPORTANYTHING","Jebkas atzītas");//Anything recognized (New)
+define("_DATATOIMPORT","Datu imports");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","veiksmīga imports");//successfull imports (New)
+define("_FAILEDIMPORTS","nav imports");//failed imports (New)
+define("_REPLACEDUSER","Aizstāts lietotāju");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Fails nesatur nepieciešamo kolonnu");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Punktu aizstāj esošo piešķiršana");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Jaunu kursu uzdevums");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Jaunas grupas uzdevums");//New group assignment (New)
+define("_USERSTOJOBS","Lietotājiem darbu");//Users to jobs (New)
+define("_USERSTOSKILLS","Lietotājiem prasmju");//Users to skills (New)
+define("_DATATOEXPORT","Datu eksports");//Data to export (New)
+define("_MANDATORYFIELDS","Obligāti aizpildāmie lauki");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Obligāti aizpildāmie lauki");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Nodrošina failu ar header līniju, kurā katram importa veidam, visas obligātās un fakultatīvās lauku virsraksti nekā paredzēts turpmāk jebkurā secībā. Katras kolonnas nosaukuma apzīmē savu jēgu. Neatzīts kolonnas tiks izlaists, neietekmējot pārējo procedūru.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Jaunu darba apraksts piešķiršana");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Jaunajām kvalifikācijas piešķiršana");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Punktu aizstāj esošos filiāle");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Punktu aizstāj esošo darba vietu");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Punktu aizstāj esošās prasmes");//Replaced existing skill (New)
 ?>

@@ -3512,13 +3512,42 @@ define("_TOOLTIP","工具提示");//Tooltip
 define("_HIDDEN","隱藏用戶");//Hidden from users
 define("_RESETSCORMDATA","重置用戶數據");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","高級設置");//Advanced settings
-define("_SHOWMOTTOONHEADER","顯示名稱和口號也頭");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","在詞彙的搜索結果");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","沒有結果發現詞彙");//No results found in glossary (New)
-define("_AUTOLOGIN","自動登錄");//Auto login (New)
-define("_ACCESSLINK","訪問鏈接");//Access link (New)
-define("_AUTOLOGINITHLINK","用戶可以登錄自動鏈接");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","默認的用戶類型");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","部隊學生回答所有問題");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","你必須回答所有問題");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","顯示名稱和口號也頭");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","在詞彙的搜索結果");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","沒有結果發現詞彙");//No results found in glossary
+define("_AUTOLOGIN","自動登錄");//Auto login
+define("_ACCESSLINK","訪問鏈接");//Access link
+define("_AUTOLOGINITHLINK","用戶可以登錄自動鏈接");//User can login automatically by link
+define("_DEFAULTUSERTYPE","默認的用戶類型");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","部隊學生回答所有問題");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","你必須回答所有問題");//You have to answer all questions
+define("_SHOWHELP","顯示幫助聯繫");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","只有讓學生重做錯誤回答的問題");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","只有允許重複測試");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","重做唯一錯誤的回答");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","默認主題不能inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","沒有標題或標題行的定義不兼容導入類型");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","進口用戶");//Imported user (New)
+define("_USERSTOCOURSES","用戶的課程");//Users to courses (New)
+define("_USERSTOGROUPS","用戶到組");//Users to groups (New)
+define("_IMPORTANYTHING","任何認可");//Anything recognized (New)
+define("_DATATOIMPORT","數據導入");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","成功的進口");//successfull imports (New)
+define("_FAILEDIMPORTS","進口失敗");//failed imports (New)
+define("_REPLACEDUSER","代替用戶");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","該文件不包含必要的列");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","取代現有的轉讓");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","新課程轉讓");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","新的小組作業");//New group assignment (New)
+define("_USERSTOJOBS","用戶自己的工作");//Users to jobs (New)
+define("_USERSTOSKILLS","用戶技能");//Users to skills (New)
+define("_DATATOEXPORT","數據導出");//Data to export (New)
+define("_MANDATORYFIELDS","強制性領域");//Mandatory fields (New)
+define("_OPTIONALFIELDS","可選字段");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","提供一個文件包含一個標題行各進口類型，所有強制性以及任何可選字段名稱從下面提供的任何命令。每列的標題是指它的意義。無法辨識的列將被省略，不影響其餘部分的程序。");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","新的工作任務描述");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","新技能任務");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","取代現有的分支");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","取代現有的工作");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","取代現有的技能");//Replaced existing skill (New)
 ?>

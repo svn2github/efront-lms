@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","As pastas para as seguinte
 define("_EDITCONTENT","Editar conteúdo");//Edit content
 define("_NORMALSTATUS","Estado normal");//Normal status
 define("_APPLICATIONPENDING","Pedido pendente. Pressione \"Enviar\", a fim de verificar");//Application pending
-define("_SUCCESS", "Arquivo IMS importado com sucesso");
+define("_SUCCESS","Arquivo IMS importado com sucesso");// imported IMS fileSuccess
 define("_WARNING","Aviso");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","A definição não poderá ser inserida");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","A definição foi atualizada com sucesso");//Successfully updated definition
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Nota: você está revisita
 define("_ACTIONONRENTRYCOMPLETED","Acção em matéria de re-entrada");//Action on re-entry
 define("_LETCONTENTDECIDE","Deixe o conteúdo decidir");//Let content decide
 define("_DONTCHANGE","Manter inalterado");//Leave unchanged
-define("_DASHBOARD", "meu Dashboard");
+define("_DASHBOARD","meu Dashboard");//my Dashboard
 define("_MYWALL","Parede de notiçias");//My wall
 define("_RELATEDPEOPLE","Pessoas relacionadas");//Related people
 define("_LEARNINGACTIVITY","Atividade de aprendizagem");//Learning activity
@@ -3439,7 +3439,7 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Estado de pagamento não suportado");//Unsup
 define("_YOUHAVECANCELLEDTHETRANSACTION","Você cancelou a operação");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","A operação foi concluída com êxito.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal modo de debug");//Paypal debug mode
-define("_MYACCOUNT","minha Conta");//My account
+define("_MYACCOUNT","minha Conta");//my Account
 define("_MODULE","Módulo");//Module
 define("_EMBEDTYPE","Incorporar o conteúdo como");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
@@ -3460,65 +3460,94 @@ define("_ROWS","Filas");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","O comando falhou com o seguinte resultado");//The command failed with the following output
 define("_PERHAPSDONTSUPPORTZIP","Talvez o seu sistema não suporte o processamento zip?");//Perhaps your system does not support zip processing?
 define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","A fim de criar um curso, primeiro você deve criar uma categoria");//In order to create a course, you must first create a category
-define("_LESSONBRANCHESSELECTION","Selecione ramos de lições");//Select lesson branches (New)
-define("_LESSONBRANCHES","Ramos da lição");//Lesson branches (New)
-define("_COURSEBRANCHES","Ramos do curso");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permitir que os estudantes especificam o número de questões em cada execução de teste");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","Máximo");//Maximum (New)
-define("_MINIMUM","Mínimo");//Minimum (New)
-define("_REPETITIONS","Repetições");//Repetitions (New)
-define("_MAINTAINHISTORY","Manter a história");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","A chave não é adequado para esta edição");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","Modo ilegal");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","Você deve especificar o número de perguntas");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","Você deve especificar um valor de");//You must specify a value from (New)
-define("_COURSEPROFESSORS","Professores do curso");//Course professors (New)
-define("_PROFESSORSOFCOURSE","Professores do curso");//Professors of course (New)
-define("_USERSUPERVISORS","Supervisores do Úsuario");
-define("_USEROPTIONSFOR","Opções para o úsuario");
-define("_MYSTATUS","meu estado da aprendizagem");
-define("_MYCOURSES", "meus cursos");
-define("_CERTIFICATIONS", "Certificados");
-define("_MYCERTIFICATIONS", "meus Certificados");
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nenhum certificado ainda emitido para o úsuario");
-define("_SUPERVISORTOACTIVATE","Tem que ser ativado pelo supervisor");
-define("_NOSUPERVISORSFOUND", "Nenhum supervisor da filial encontrado");
-define("_PRINTCONTENT","Imprimir conteúdo");//Print content (New)
+define("_LESSONBRANCHESSELECTION","Selecione ramos de lições");//Select lesson branches
+define("_LESSONBRANCHES","Ramos da lição");//Lesson branches
+define("_COURSEBRANCHES","Ramos do curso");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Permitir que os estudantes especificam o número de questões em cada execução de teste");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","Máximo");//Maximum
+define("_MINIMUM","Mínimo");//Minimum
+define("_REPETITIONS","Repetições");//Repetitions
+define("_MAINTAINHISTORY","Manter a história");//Maintain history
+define("_KEYISNOTFORTHISEDITION","A chave não é adequado para esta edição");//The key is not suitable for this edition
+define("_ILLEGALMODE","Modo ilegal");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","Você deve especificar o número de perguntas");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Você deve especificar um valor de");//You must specify a value from
+define("_COURSEPROFESSORS","Professores do curso");//Course professors
+define("_PROFESSORSOFCOURSE","Professores do curso");//Professors of course
+define("_USERSUPERVISORS","Supervisores do Úsuario");//User supervisors
+define("_USEROPTIONSFOR","Opções para o úsuario");//Options for user
+define("_MYSTATUS","meu estado da aprendizagem");//my Learning Status
+define("_MYCOURSES","meus cursos");//my Courses
+define("_CERTIFICATIONS","Certificados");//Certificates
+define("_MYCERTIFICATIONS","meus Certificados");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nenhum certificado ainda emitido para o úsuario");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Tem que ser ativado pelo supervisor");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Nenhum supervisor da filial encontrado");//No branch supervisors found
+define("_PRINTCONTENT","Imprimir conteúdo");//Print content
 define("_USERHASNOTDONETEST","O usuário não tenha feito este teste");//The user has not done this test
-define("_VERIFYFOLLOWINGINFOISCORRECT","Por favor, verifique se a seguinte informação é correta");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","Não há categorias definidas");//There are no categories defined (New)
-define("_SUPERVISORMAILUSERACTIVATION","Ativação do e-mail pelo supervisor");
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","E-mail de ativaçao para o colaborador");
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Este e-mail permite você a ativar o novo úsuario do sistema");
-define("_ASSIGNEDTOBRANCH","assinado pelo filial");
-define("_WITHTHEJOBDESCRIPTION","com a descrição do trabalho");
-define("_BYCLICKINGONTHELINK", "cliquando no link seguinte");
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","A conta do seu colaborador foi ativado com sucesso");
-define("_SHOWHORIZONTALBAR","Barra horizontal");
-define("_BRANCHINFORMATION","Informação do filial");
-define("_BRANCHNAMEDESCRIPTION","Nome do campo do filial");
-define("_JOBDESCRIPTIONDESCRIPTION","Nome do campo do trabalho");
-define("_SUPERVISORDESCRIPTION","Ativando o nome do campo do supervisor");
-define("_LEAVEEMPTYTONOTUSE","Deixe em branco para não usar");
-define("_PLEASESELECT","Favor selecione");
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Seu supervisor ativarei a sua conta");
-define("_IMS","IMS");
-define("_IMSIMPORT","Importar conteúdo IMS");
-define("_IMSEXPORT","Exportar conteúdo IMS");
-define("_UPLOADTHEIMSFILEINZIPFORMAT","Upar arquivo IMS no formato ZIP");
-define("_IMSOPTIONS", "Opções IMS");
-define("_SUCCESSFULLYIMPORTEDIMSFILE", "O arquivo IMS importado com sucesso");
-define("_TOOLTIP","Tooltip");
-define("_HIDDEN", "Escondido aos úsuarios");
-define("_RESETSCORMDATA", "Pôr atras os dados de úsuario");
-define("_TOGGLEADVENCEDPARAMETERS","Configurações avançados");
-define("_SHOWMOTTOONHEADER","Mostrar nome e lema no cabeçalho também");
-define("_SEARCHRESULTSINGLOSSARY","Resultados da busca no glossario");
-define("_NORESULTSFOUNDINGLOSSARY","Nenhum resultado no glossario");
-define("_AUTOLOGIN","Auto login");
-define("_ACCESSLINK","Atalho de acesso");
-define("_AUTOLOGINITHLINK","Usuário pode fazer o login automaticamente atravez do atalho");
-define("_DEFAULTUSERTYPE","Tipo de usuário padrão");
-define("_FORCEUSERANSERALLQUESTIONS","Forcar o estudante a responder todos os questões");
-define("_YOUHAVETOANSWERALLQUESTIONS","Você tem que responder todos os questões");
+define("_VERIFYFOLLOWINGINFOISCORRECT","Por favor, verifique se a seguinte informação é correta");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","Não há categorias definidas");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","Ativação do e-mail pelo supervisor");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","E-mail de ativaçao para o colaborador");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Este e-mail permite você a ativar o novo úsuario do sistema");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","assinado pelo filial");//assigned to branch
+define("_WITHTHEJOBDESCRIPTION","com a descrição do trabalho");//with the job description
+define("_BYCLICKINGONTHELINK","cliquando no link seguinte");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","A conta do seu colaborador foi ativado com sucesso");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Barra horizontal");//Horizontal bar
+define("_BRANCHINFORMATION","Informação do filial");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Nome do campo do filial");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Nome do campo do trabalho");//Job field name
+define("_SUPERVISORDESCRIPTION","Ativando o nome do campo do supervisor");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Deixe em branco para não usar");//Leave empty to ommit
+define("_PLEASESELECT","Favor selecione");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Seu supervisor ativarei a sua conta");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Importar conteúdo IMS");//Import IMS Content
+define("_IMSEXPORT","Exportar conteúdo IMS");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","Upar arquivo IMS no formato ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","Opções IMS");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","O arquivo IMS importado com sucesso");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Escondido aos úsuarios");//Hidden from users
+define("_RESETSCORMDATA","Pôr atras os dados de úsuario");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Configurações avançados");//Advanced settings
+define("_SHOWMOTTOONHEADER","Mostrar nome e lema no cabeçalho também");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Resultados da busca no glossario");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Nenhum resultado no glossario");//No results found in glossary
+define("_AUTOLOGIN","Auto login");//Auto login
+define("_ACCESSLINK","Atalho de acesso");//Access link
+define("_AUTOLOGINITHLINK","Usuário pode fazer o login automaticamente atravez do atalho");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Tipo de usuário padrão");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Forcar o estudante a responder todos os questões");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Você tem que responder todos os questões");//You have to answer all questions
+define("_SHOWHELP","ajuda links Display");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Permita que os estudantes só refazer as questões erradas respondidas");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Só no caso de repetições de ensaio são permitidos");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Refazer só respondeu errado");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","tema padrão não pode ser inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nenhuma linha de cabeçalho foi definida ou cabeçalho não é compatível com o tipo de importação");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Importado do usuário");//Imported user (New)
+define("_USERSTOCOURSES","Usuários de cursos");//Users to courses (New)
+define("_USERSTOGROUPS","Usuários de grupos");//Users to groups (New)
+define("_IMPORTANYTHING","Qualquer coisa reconhecida");//Anything recognized (New)
+define("_DATATOIMPORT","Os dados de importação");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","importações de sucesso");//successfull imports (New)
+define("_FAILEDIMPORTS","as importações não");//failed imports (New)
+define("_REPLACEDUSER","Substituído usuário");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","O ficheiro não contém as colunas necessárias");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Substituído atribuição existente");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Novo curso de atribuição");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Novo trabalho de grupo");//New group assignment (New)
+define("_USERSTOJOBS","Usuários de empregos");//Users to jobs (New)
+define("_USERSTOSKILLS","Usuários com as competências");//Users to skills (New)
+define("_DATATOEXPORT","Dados de exportação");//Data to export (New)
+define("_MANDATORYFIELDS","Campos obrigatórios");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Campos opcionais");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Forneça um arquivo com uma linha de cabeçalho contendo, para cada tipo de importação, todos obrigatórios e todos os títulos campo opcional dos previstos abaixo em qualquer ordem. O título de cada coluna indica o seu significado. Unrecognized colunas será omitida, sem afetar o restante do processo.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Nova atribuição descrição do trabalho");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Nova atribuição de competências");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Substituído ramo existentes");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Substituído trabalho existente");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Substituído habilidade existente");//Replaced existing skill (New)
 ?>

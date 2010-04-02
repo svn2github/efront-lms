@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Vihjeteksti");//Tooltip
 define("_HIDDEN","Näy käyttäjille");//Hidden from users
 define("_RESETSCORMDATA","Nollaa käyttäjätiedot");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Lisäasetuksissa");//Advanced settings
-define("_SHOWMOTTOONHEADER","Näytä nimi ja tunnuslause myös header");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Hakutulokset Sanasto");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Ei tuloksia ja sanasto");//No results found in glossary (New)
-define("_AUTOLOGIN","Autologin");//Auto login (New)
-define("_ACCESSLINK","-Linkkiä");//Access link (New)
-define("_AUTOLOGINITHLINK","Käyttäjä voi kirjautua automaattisesti yhteyden");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Oletuskäyttäjäprofiililla tyyppi");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Force opiskelija vastaa kaikkiin kysymyksiin");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Sinun vastata kaikkiin kysymyksiin");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Näytä nimi ja tunnuslause myös header");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Hakutulokset Sanasto");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Ei tuloksia ja sanasto");//No results found in glossary
+define("_AUTOLOGIN","Autologin");//Auto login
+define("_ACCESSLINK","-Linkkiä");//Access link
+define("_AUTOLOGINITHLINK","Käyttäjä voi kirjautua automaattisesti yhteyden");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Oletuskäyttäjäprofiililla tyyppi");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Force opiskelija vastaa kaikkiin kysymyksiin");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Sinun vastata kaikkiin kysymyksiin");//You have to answer all questions
+define("_SHOWHELP","Näytön avulla linkit");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Opiskelijat voivat redo vain väärä vastasi");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Vain jos testi toistoja sallitaan");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Uudelleen vain väärä vastaus");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default teema ei inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ei otsikkorivi on määritelty tai otsikkoa ei sovi tuoda tyyppi");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Tuodut käyttäjä");//Imported user (New)
+define("_USERSTOCOURSES","Käyttäjät kursseille");//Users to courses (New)
+define("_USERSTOGROUPS","Käyttäjät ja ryhmät");//Users to groups (New)
+define("_IMPORTANYTHING","Kaikki tunnustettu");//Anything recognized (New)
+define("_DATATOIMPORT","Tietojen tuonti");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","onnistunut tuonti");//successfull imports (New)
+define("_FAILEDIMPORTS","ei tuonti");//failed imports (New)
+define("_REPLACEDUSER","Korvattu käyttäjä");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Tiedostossa ei ole tarvittavia sarakkeita");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Korvataan nykyinen toimeksianto");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Uusi Harjoitustyön");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Uusi ryhmätehtävä");//New group assignment (New)
+define("_USERSTOJOBS","Käyttäjät työpaikkoja");//Users to jobs (New)
+define("_USERSTOSKILLS","Käyttäjät taidot");//Users to skills (New)
+define("_DATATOEXPORT","Tietojen vienti");//Data to export (New)
+define("_MANDATORYFIELDS","Pakolliset kentät");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Valinnaiset kentät");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Tarjoa tiedoston otsikkorivin sisältää jokaisen tuonti, kaikille pakollinen ja kaikki valinnainen kenttä nimikkeitä itse Alla missä tahansa järjestyksessä. Otsikko kukin sarake ilmaisee sen merkitys. Tunnistamaton sarakkeet jätetään pois vaikuttamatta muun menettelyn.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Uusi työnkuva toimeksianto");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Uusia taitoja tehtävä");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Korvataan nykyinen sivuliike");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Korvattu nykyisen työpaikan");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Korvataan nykyinen taito");//Replaced existing skill (New)
 ?>

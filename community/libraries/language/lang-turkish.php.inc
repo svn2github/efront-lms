@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Gizli kullanıcılardan");//Hidden from users
 define("_RESETSCORMDATA","Reset kullanıcı verilerini");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Gelişmiş ayarlar");//Advanced settings
-define("_SHOWMOTTOONHEADER","Show adı ve sloganı da başlığı");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Glossary arama sonuçları");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Sonuç glossary bulundu");//No results found in glossary (New)
-define("_AUTOLOGIN","Otomatik giriş");//Auto login (New)
-define("_ACCESSLINK","Erişim bağlantı");//Access link (New)
-define("_AUTOLOGINITHLINK","Kullanıcı otomatik olarak bağlantı ile giriş yapabilirsiniz");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Varsayılan kullanıcı türü");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Kuvvet öğrenci tüm soruları cevaplamak");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Tüm soruları yanıtlamak zorunda");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Show adı ve sloganı da başlığı");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Glossary arama sonuçları");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Sonuç glossary bulundu");//No results found in glossary
+define("_AUTOLOGIN","Otomatik giriş");//Auto login
+define("_ACCESSLINK","Erişim bağlantı");//Access link
+define("_AUTOLOGINITHLINK","Kullanıcı otomatik olarak bağlantı ile giriş yapabilirsiniz");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Varsayılan kullanıcı türü");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Kuvvet öğrenci tüm soruları cevaplamak");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Tüm soruları yanıtlamak zorunda");//You have to answer all questions
+define("_SHOWHELP","Ekran yardımcı linkler");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","İzin öğrenciler sadece yanlış sorularını yanıtlamıştır yeniden yapmak");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Sadece test tekrar izin verilen durumlarda,");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Yinele sadece yanlış yanıt");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Varsayılan temayı inported olamaz");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No başlık satırı tanımlanan veya başlık ithal türüyle uyumlu değil");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","İthal kullanıcı");//Imported user (New)
+define("_USERSTOCOURSES","içerisinde Kullanıcılar");//Users to courses (New)
+define("_USERSTOGROUPS","gruplara Kullanıcılar");//Users to groups (New)
+define("_IMPORTANYTHING","Bir şey kabul");//Anything recognized (New)
+define("_DATATOIMPORT","Verilerini");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","Başarılı ithalat");//successfull imports (New)
+define("_FAILEDIMPORTS","başarısız ithalat");//failed imports (New)
+define("_REPLACEDUSER","Değiştirilen kullanıcı");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosya gerekli sütunlar içermiyor");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Yerine mevcut atama");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Yeni ders atama");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Yeni grup atama");//New group assignment (New)
+define("_USERSTOJOBS","işleri Kullanıcılar");//Users to jobs (New)
+define("_USERSTOSKILLS","becerilerine Kullanıcılar");//Users to skills (New)
+define("_DATATOEXPORT","Veri ihracat");//Data to export (New)
+define("_MANDATORYFIELDS","Zorunlu alanlar");//Mandatory fields (New)
+define("_OPTIONALFIELDS","İsteğe bağlı alanlar");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","bir başlık satırı, her ithalat tipi içeren, tüm ve her türlü isteğe bağlı alan başlıklar olanlar herhangi bir sırada aşağıda sağlanan zorunlu bir dosya sağlayın. Her sütunun başlığı anlamını ifade eder. Tanınmayan sütunlar, prosedürün geri kalanını etkilemeden ihmal edilecektir.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Yeni iş tanımı atama");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Yeni beceri atama");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Yerine mevcut şube");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Yerine mevcut iş");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Yerine mevcut beceri");//Replaced existing skill (New)
 ?>

@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Ukrytych użytkowników");//Hidden from users
 define("_RESETSCORMDATA","Reset danych użytkownika");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Ustawienia zaawansowane");//Advanced settings
-define("_SHOWMOTTOONHEADER","Pokaż nazwę i hasło także na nagłówku");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Wyniki wyszukiwania w słownik");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Brak wyników w słownik");//No results found in glossary (New)
-define("_AUTOLOGIN","Automatyczne logowanie");//Auto login (New)
-define("_ACCESSLINK","Link Access");//Access link (New)
-define("_AUTOLOGINITHLINK","Użytkownik może zalogować się automatycznie za pomocą linku");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Typ Default user");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Student sił odpowiedzi na wszystkie pytania");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Musisz odpowiedzieć na wszystkie pytania");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Pokaż nazwę i hasło także na nagłówku");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Wyniki wyszukiwania w słownik");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Brak wyników w słownik");//No results found in glossary
+define("_AUTOLOGIN","Automatyczne logowanie");//Auto login
+define("_ACCESSLINK","Link Access");//Access link
+define("_AUTOLOGINITHLINK","Użytkownik może zalogować się automatycznie za pomocą linku");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Typ Default user");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Student sił odpowiedzi na wszystkie pytania");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Musisz odpowiedzieć na wszystkie pytania");//You have to answer all questions
+define("_SHOWHELP","Wyświetl linki pomoc");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Umożliwienia studentom przerobić tylko źle odpowiedział na pytania");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Tylko wtedy, gdy dozwolone są powtórzenia badania");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Przerobić tylko złe odpowiedzi");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Domyślny motyw nie może być inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nie został zdefiniowany wiersz nagłówka lub nagłówka nie jest zgodne z typem import");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Przywożone użytkownika");//Imported user (New)
+define("_USERSTOCOURSES","Użytkowników do kursów");//Users to courses (New)
+define("_USERSTOGROUPS","Użytkowników do grup");//Users to groups (New)
+define("_IMPORTANYTHING","Nic uznane");//Anything recognized (New)
+define("_DATATOIMPORT","Import danych do");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","sukces importu");//successfull imports (New)
+define("_FAILEDIMPORTS","nie przywozu");//failed imports (New)
+define("_REPLACEDUSER","Zastąpiony przez użytkownika");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Plik nie zawiera niezbędnych kolumny");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Zastępuje istniejące zadania");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Oczywiście nowe zadania");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Nowe zadania grupy");//New group assignment (New)
+define("_USERSTOJOBS","Użytkowników do pracy");//Users to jobs (New)
+define("_USERSTOSKILLS","Użytkowników do umiejętności");//Users to skills (New)
+define("_DATATOEXPORT","Eksport danych do");//Data to export (New)
+define("_MANDATORYFIELDS","Pola obowiązkowe");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Pola opcjonalne");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Stanowią plik zawierający wiersz nagłówka dla każdego rodzaju przywozu, wszystkie obowiązkowe i opcjonalne tytułów dziedzinie niż przewidziane poniżej w dowolnej kolejności. Tytuł każdej kolumny oznacza jego znaczenie. Nierozpoznane kolumny zostaną pominięte, bez wpływu na pozostałe procedury.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Nowa praca opis zadania");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Nowe zadania umiejętności");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Zastępuje istniejących oddziałów");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Zastępuje istniejących miejsc pracy");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Zastępuje istniejących umiejętności");//Replaced existing skill (New)
 ?>

@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","پنهان از کاربران");//Hidden from users
 define("_RESETSCORMDATA","تنظیم مجدد اطلاعات کاربر");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","تنظیمات پیشرفته");//Advanced settings
-define("_SHOWMOTTOONHEADER","نمایش نام و شعار نیز بر روی قسمت بالای");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","نتایج جستجو در واژه نامه");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","هیچ نتیجه در بر داشت در واژه نامه");//No results found in glossary (New)
-define("_AUTOLOGIN","ورود خودکار");//Auto login (New)
-define("_ACCESSLINK","لینک های دسترسی");//Access link (New)
-define("_AUTOLOGINITHLINK","ورود کاربر به طور خودکار می تواند توسط پیوند");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","پیش فرض نوع کاربر");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","نیروی دانشجویی به همه سئوالاتی که");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","شما باید برای پاسخ به همه سوالات مطرح شده");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","نمایش نام و شعار نیز بر روی قسمت بالای");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","نتایج جستجو در واژه نامه");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","هیچ نتیجه در بر داشت در واژه نامه");//No results found in glossary
+define("_AUTOLOGIN","ورود خودکار");//Auto login
+define("_ACCESSLINK","لینک های دسترسی");//Access link
+define("_AUTOLOGINITHLINK","ورود کاربر به طور خودکار می تواند توسط پیوند");//User can login automatically by link
+define("_DEFAULTUSERTYPE","پیش فرض نوع کاربر");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","نیروی دانشجویی به همه سئوالاتی که");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","شما باید برای پاسخ به همه سوالات مطرح شده");//You have to answer all questions
+define("_SHOWHELP","لینک های نمایش کمک");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","اجازه به دانشجویان برای ازنو فقط سوالات اشتباه پاسخ داده شده");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","فقط در صورت تکرار آزمون مجاز");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","ازنو نه تنها غلط جواب داد :");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","پیش فرض نمی توان inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","بدون ردیف هدر یا سرآیند تعریف شده بود با نوع واردات سازگار نیست");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","کاربر وارداتی");//Imported user (New)
+define("_USERSTOCOURSES","اعضا به دوره");//Users to courses (New)
+define("_USERSTOGROUPS","گروه های اعضا");//Users to groups (New)
+define("_IMPORTANYTHING","هر چیزی به رسمیت شناخته شده");//Anything recognized (New)
+define("_DATATOIMPORT","برای وارد کردن داده ها");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","واردات موفق");//successfull imports (New)
+define("_FAILEDIMPORTS","واردات شکست خورده");//failed imports (New)
+define("_REPLACEDUSER","کاربر Replaced");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","پرونده ندارد ستون لازم نیست");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","انتساب Replaced موجود");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","واگذاری دوره جدید");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","ماموریت جدید گروه");//New group assignment (New)
+define("_USERSTOJOBS","اعضا به مشاغل");//Users to jobs (New)
+define("_USERSTOSKILLS","اعضا به مهارت");//Users to skills (New)
+define("_DATATOEXPORT","داده ها به صادرات");//Data to export (New)
+define("_MANDATORYFIELDS","زمینه های اجباری");//Mandatory fields (New)
+define("_OPTIONALFIELDS","زمینه های اختیاری");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","فراهم می کند که فایل را با خط هدر حاوی برای واردات هر نوع ، همه اجباری و هر عنوان رشته انتخابی از آنهایی که در زیر ارائه شده در هر سفارش. عنوان هر ستون نشان دهنده معنی است. ستون ناشناخته خواهد شد ، حذف شده بدون تاثیر باقی دادرسی");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","جدید کار واگذاری شرح");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","جدید انتساب مهارت");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","شعبه Replaced موجود");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","شغل Replaced موجود");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","مهارت Replaced موجود");//Replaced existing skill (New)
 ?>

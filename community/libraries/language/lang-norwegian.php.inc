@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Skjult fra brukere");//Hidden from users
 define("_RESETSCORMDATA","Tilbakestill brukerdata");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Avanserte innstillinger");//Advanced settings
-define("_SHOWMOTTOONHEADER","Vis navn og valgspråk også på topp");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Søkeresultater i ordlisten");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Ingen resultater finnes i ordlisten");//No results found in glossary (New)
-define("_AUTOLOGIN","Automatisk innlogging");//Auto login (New)
-define("_ACCESSLINK","Access link");//Access link (New)
-define("_AUTOLOGINITHLINK","Brukeren kan logge inn automatisk ved kobling");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Default user type");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Force studenten besvare alle spørsmål");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Du må svare på alle spørsmål");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Vis navn og valgspråk også på topp");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Søkeresultater i ordlisten");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Ingen resultater finnes i ordlisten");//No results found in glossary
+define("_AUTOLOGIN","Automatisk innlogging");//Auto login
+define("_ACCESSLINK","Access link");//Access link
+define("_AUTOLOGINITHLINK","Brukeren kan logge inn automatisk ved kobling");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Default user type");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Force studenten besvare alle spørsmål");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Du må svare på alle spørsmål");//You have to answer all questions
+define("_SHOWHELP","Vise hjelpen lenker");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","La elevene gjøre om bare feil besvart spørsmålene");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Bare hvis testen gjentagelser er tillatt");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Gjør om bare galt besvart");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Standard utseende kan ikke inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ingen Overskriftsraden ble definert eller overskriften ikke er kompatibel med import type");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Importerte brukeren");//Imported user (New)
+define("_USERSTOCOURSES","Brukere til kurs");//Users to courses (New)
+define("_USERSTOGROUPS","Brukere til grupper");//Users to groups (New)
+define("_IMPORTANYTHING","Alt anerkjent");//Anything recognized (New)
+define("_DATATOIMPORT","Data for å importere");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","vellykket import");//successfull imports (New)
+define("_FAILEDIMPORTS","mislyktes import");//failed imports (New)
+define("_REPLACEDUSER","Erstattet brukeren");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Filen inneholder ikke de nødvendige kolonner");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Erstattet eksisterende oppdrag");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Nye kurs oppdrag");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Nye gruppeoppgave");//New group assignment (New)
+define("_USERSTOJOBS","Brukere på jobb");//Users to jobs (New)
+define("_USERSTOSKILLS","Brukere til ferdigheter");//Users to skills (New)
+define("_DATATOEXPORT","Data eksportere");//Data to export (New)
+define("_MANDATORYFIELDS","Obligatoriske felt");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Valgfrie felt");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Gi en fil med en overskrift som inneholder linje for hver import type, alle obligatoriske og noen valgfrie feltet titler fra de nedenfor i den rekkefølgen. Tittelen på hver kolonne markerer sin mening. Ukjent kolonnene vil bli utelatt, uten at det påvirker resten av prosedyren.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Ny stillingsbeskrivelse oppdrag");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Nye ferdigheter oppdrag");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Erstattet eksisterende gren");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Erstattet eksisterende jobb");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Erstattet eksisterende ferdigheter");//Replaced existing skill (New)
 ?>

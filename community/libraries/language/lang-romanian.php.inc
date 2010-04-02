@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Ascuns de la utilizatori");//Hidden from users
 define("_RESETSCORMDATA","Datele utilizatorului Reset");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Setări avansate");//Advanced settings
-define("_SHOWMOTTOONHEADER","Arată numele si motto-ul, de asemenea, pe antet");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Rezultatele căutării mele în glosar");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Nu există rezultate găsite în glosar");//No results found in glossary (New)
-define("_AUTOLOGIN","Auto login");//Auto login (New)
-define("_ACCESSLINK","Link-ul de acces");//Access link (New)
-define("_AUTOLOGINITHLINK","Utilizatorul poate login în mod automat prin link-ul");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Implicit tipul de utilizator");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Elev Force răspundă la toate întrebările");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Trebuie să răspundă la toate întrebările");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Arată numele si motto-ul, de asemenea, pe antet");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Rezultatele căutării mele în glosar");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Nu există rezultate găsite în glosar");//No results found in glossary
+define("_AUTOLOGIN","Auto login");//Auto login
+define("_ACCESSLINK","Link-ul de acces");//Access link
+define("_AUTOLOGINITHLINK","Utilizatorul poate login în mod automat prin link-ul");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Implicit tipul de utilizator");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Elev Force răspundă la toate întrebările");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Trebuie să răspundă la toate întrebările");//You have to answer all questions
+define("_SHOWHELP","Afişează ajuta link-uri");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Permiteţi elevilor să refaceţi numai întrebările a răspuns greşit");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Numai în cazul în repetiţii de încercare sunt permise");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Refaceţi numai gresit răspuns");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Implicit tema nu poate fi inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Rândul de antet nu a fost definit în antet sau nu este compatibil cu tipul de import");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Importate de utilizator");//Imported user (New)
+define("_USERSTOCOURSES","Utilizatorii la cursuri");//Users to courses (New)
+define("_USERSTOGROUPS","Utilizatorii grupurilor");//Users to groups (New)
+define("_IMPORTANYTHING","Orice recunoscute");//Anything recognized (New)
+define("_DATATOIMPORT","De date pentru a importa");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","importurilor de succes");//successfull imports (New)
+define("_FAILEDIMPORTS","importurile nu");//failed imports (New)
+define("_REPLACEDUSER","Înlocuit utilizator");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosarul nu conţine coloane necesare");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Înlocuit existente cesiune");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Nou curs de cesiune");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Grup nou cesiunea");//New group assignment (New)
+define("_USERSTOJOBS","Utilizatorii la locurile de muncă");//Users to jobs (New)
+define("_USERSTOSKILLS","Utilizatorii de competenţe");//Users to skills (New)
+define("_DATATOEXPORT","De date de export");//Data to export (New)
+define("_MANDATORYFIELDS","Câmpuri obligatorii");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Câmpurile opţionale");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Furnizaţi un fişier cu o linie de antet care cuprinde, pentru fiecare tip de import, toate obligatorii şi orice titluri optional câmp din cele prevăzute mai jos, în orice ordine. Titlul fiecare coloană denotă sensul său. coloane nerecunoscute vor fi omise, fără a afecta restul procedurii.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Noi locuri de muncă descriere cesiune");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Noi de calificare cesiune");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Înlocuit existente sucursală");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Înlocuit de locuri de muncă existente");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Înlocuit existente de calificare");//Replaced existing skill (New)
 ?>

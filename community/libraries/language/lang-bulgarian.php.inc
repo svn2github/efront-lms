@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Скрити от потребителя");//Hidden from users
 define("_RESETSCORMDATA","Проучване на потребителски данни");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Допълнителни настройки");//Advanced settings
-define("_SHOWMOTTOONHEADER","Показване на името и мотото и на заглавието");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Резултат от търсенето в речник");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Не са намерени в речник");//No results found in glossary (New)
-define("_AUTOLOGIN","Auto Login");//Auto login (New)
-define("_ACCESSLINK","Достъпът връзка");//Access link (New)
-define("_AUTOLOGINITHLINK","Потребител може да влезете автоматично от връзката");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","По подразбиране тип потребител");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Сили студент отговори на всички въпроси");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Трябва да се отговори на всички въпроси");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Показване на името и мотото и на заглавието");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Резултат от търсенето в речник");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Не са намерени в речник");//No results found in glossary
+define("_AUTOLOGIN","Auto Login");//Auto login
+define("_ACCESSLINK","Достъпът връзка");//Access link
+define("_AUTOLOGINITHLINK","Потребител може да влезете автоматично от връзката");//User can login automatically by link
+define("_DEFAULTUSERTYPE","По подразбиране тип потребител");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Сили студент отговори на всички въпроси");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Трябва да се отговори на всички въпроси");//You have to answer all questions
+define("_SHOWHELP","Покажи Помощ за Връзки");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Позволяват на учениците да ремонтирам само погрешно отговори на въпроси");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Само ако изпитването повторения са позволени");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Възстановяване само погрешно отговори");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","По подразбиране не може да бъде inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Не заглавния ред се определя или заглавна не са съвместими с вносни тип");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Внесените потребител");//Imported user (New)
+define("_USERSTOCOURSES","Потребителите на курсове");//Users to courses (New)
+define("_USERSTOGROUPS","Потребителите на групите");//Users to groups (New)
+define("_IMPORTANYTHING","Всичко, признати");//Anything recognized (New)
+define("_DATATOIMPORT","Данните за внос");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","успешно внос");//successfull imports (New)
+define("_FAILEDIMPORTS","не е внос");//failed imports (New)
+define("_REPLACEDUSER","Заменен потребител");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Файлът не съдържа необходимите колони");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Заменен сегашното предоставяне");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Нова курсова работа");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Нова група задачи");//New group assignment (New)
+define("_USERSTOJOBS","Потребителите на работни места");//Users to jobs (New)
+define("_USERSTOSKILLS","Потребителите на умения");//Users to skills (New)
+define("_DATATOEXPORT","Данни за износ");//Data to export (New)
+define("_MANDATORYFIELDS","Задължителни полета");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Незадължителни полета");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Осигуряване на файл с глава линия, съдържаща за всеки внос тип, всички задължителни и факултативни заглавия поле от тези, предвидени по-долу в произволен ред. Заглавието на всяка колона означава неговото значение. Непознат колоните, ще бъде пропуснато, без да се засегне останалата част от процедурата.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Нова работа длъжностна характеристика");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Нови умения работа");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Заменен съществуващите клон");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Заменен съществуващите работа");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Заменен съществуващите умения");//Replaced existing skill (New)
 ?>

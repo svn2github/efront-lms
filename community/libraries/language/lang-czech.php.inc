@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Skrýt před uživateli");//Hidden from users
 define("_RESETSCORMDATA","Reset uživatelských dat");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Rozšířená nastavení");//Advanced settings
-define("_SHOWMOTTOONHEADER","Zobrazit jméno a motto také v hlavičce");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Výsledky hledání ve slovníku");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Ve slovníku nebyly nalazeney žádné výsledky");//No results found in glossary (New)
-define("_AUTOLOGIN","Automatické přihlášení");//Auto login (New)
-define("_ACCESSLINK","Přístupový odkaz");//Access link (New)
-define("_AUTOLOGINITHLINK","Uživatel se může automaticky přihlásit pomocí odkazu");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Výchozí typ uživatele");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Vyžadovat po studentovi odpověď na všechny otázky");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Musíte odpovědět na všechny otázky");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Zobrazit jméno a motto také v hlavičce");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Výsledky hledání ve slovníku");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Ve slovníku nebyly nalazeney žádné výsledky");//No results found in glossary
+define("_AUTOLOGIN","Automatické přihlášení");//Auto login
+define("_ACCESSLINK","Přístupový odkaz");//Access link
+define("_AUTOLOGINITHLINK","Uživatel se může automaticky přihlásit pomocí odkazu");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Výchozí typ uživatele");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Vyžadovat po studentovi odpověď na všechny otázky");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Musíte odpovědět na všechny otázky");//You have to answer all questions
+define("_SHOWHELP","Zobrazit nápovědu odkazy");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Umožňují studentům předělat jen špatné odpovědi na otázky");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Pouze v případě opakování zkoušky jsou povoleny");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Znovu jen špatné odpovědi");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Výchozí vzhled nemůže být inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Č. řádek záhlaví byla definována nebo záhlaví není kompatibilní s typem import");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Dovážené uživatel");//Imported user (New)
+define("_USERSTOCOURSES","Uživatelům kurzy");//Users to courses (New)
+define("_USERSTOGROUPS","Uživatelů do skupin");//Users to groups (New)
+define("_IMPORTANYTHING","Cokoliv uznané");//Anything recognized (New)
+define("_DATATOIMPORT","Data pro import");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","úspěšného dovozu");//successfull imports (New)
+define("_FAILEDIMPORTS","nepodařilo dovozu");//failed imports (New)
+define("_REPLACEDUSER","Vyměněné uživatel");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Tento soubor neobsahuje potřebné sloupce");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Nahrazuje stávající přidělení");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Nový kurz přiřazení");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Nová skupina přiřazení");//New group assignment (New)
+define("_USERSTOJOBS","Uživatelské k zaměstnání");//Users to jobs (New)
+define("_USERSTOSKILLS","Uživatelům dovednosti");//Users to skills (New)
+define("_DATATOEXPORT","Data pro export");//Data to export (New)
+define("_MANDATORYFIELDS","Povinná pole");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Nepovinná pole");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Poskytněte soubor s hlavičkou řádek obsahující pro každý typ import, všechny povinné a všechny nepovinné pole tituly od lhůt stanovených níže v libovolném pořadí. Název každého sloupce označuje svůj význam. Nerozpoznané sloupce budou vynechány, aniž by to ovlivnilo další postup.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Nových pracovních popis přiřazení");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Nové dovednosti přiřazení");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Nahrazuje stávající pobočky");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Nahrazuje stávající pracovní místo");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Nahrazuje stávající kvalifikační");//Replaced existing skill (New)
 ?>

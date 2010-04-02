@@ -3512,13 +3512,42 @@ define("_TOOLTIP","");//Tooltip
 define("_HIDDEN","");//Hidden from users
 define("_RESETSCORMDATA","");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","");//Advanced settings
-define("_SHOWMOTTOONHEADER","");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","");//No results found in glossary (New)
-define("_AUTOLOGIN","");//Auto login (New)
-define("_ACCESSLINK","");//Access link (New)
-define("_AUTOLOGINITHLINK","");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","");//No results found in glossary
+define("_AUTOLOGIN","");//Auto login
+define("_ACCESSLINK","");//Access link
+define("_AUTOLOGINITHLINK","");//User can login automatically by link
+define("_DEFAULTUSERTYPE","");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","");//You have to answer all questions
+define("_SHOWHELP","");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","");//Imported user (New)
+define("_USERSTOCOURSES","");//Users to courses (New)
+define("_USERSTOGROUPS","");//Users to groups (New)
+define("_IMPORTANYTHING","");//Anything recognized (New)
+define("_DATATOIMPORT","");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","");//successfull imports (New)
+define("_FAILEDIMPORTS","");//failed imports (New)
+define("_REPLACEDUSER","");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","");//New group assignment (New)
+define("_USERSTOJOBS","");//Users to jobs (New)
+define("_USERSTOSKILLS","");//Users to skills (New)
+define("_DATATOEXPORT","");//Data to export (New)
+define("_MANDATORYFIELDS","");//Mandatory fields (New)
+define("_OPTIONALFIELDS","");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","");//Replaced existing skill (New)
 ?>

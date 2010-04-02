@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Тоолтип");//Tooltip
 define("_HIDDEN","Скривен од корисника");//Hidden from users
 define("_RESETSCORMDATA","Ресетуј корисничких података");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Напредна подешавања");//Advanced settings
-define("_SHOWMOTTOONHEADER","Прикажи име и слоган и на заглављу");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Резултати претраге речник");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Нема нађених резултата на речник");//No results found in glossary (New)
-define("_AUTOLOGIN","Аутоматско приступање");//Auto login (New)
-define("_ACCESSLINK","Приступ везу");//Access link (New)
-define("_AUTOLOGINITHLINK","Корисник може аутоматски да пријаве по везу");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Подразумевани тип корисника");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Студент силе одговорити на сва питања");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Морате да одговорите на сва питања");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Прикажи име и слоган и на заглављу");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Резултати претраге речник");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Нема нађених резултата на речник");//No results found in glossary
+define("_AUTOLOGIN","Аутоматско приступање");//Auto login
+define("_ACCESSLINK","Приступ везу");//Access link
+define("_AUTOLOGINITHLINK","Корисник може аутоматски да пријаве по везу");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Подразумевани тип корисника");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Студент силе одговорити на сва питања");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Морате да одговорите на сва питања");//You have to answer all questions
+define("_SHOWHELP","Приказ помоћ линкови");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Омогућити студентима да преуредити само погрешно одговарали на питања");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Само ако теста понављања су дозвољени");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Понови само погрешан одговор");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Подразумевана тема не може бити инпортед");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ниједан ред заглавља је дефинисано заглавље или није компатибилан са увозом тип");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Увезен корисника");//Imported user (New)
+define("_USERSTOCOURSES","Корисници на курсеве");//Users to courses (New)
+define("_USERSTOGROUPS","Корисници групама");//Users to groups (New)
+define("_IMPORTANYTHING","Ништа признати");//Anything recognized (New)
+define("_DATATOIMPORT","Подаци за увоз");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","успешно увоза");//successfull imports (New)
+define("_FAILEDIMPORTS","није увоз");//failed imports (New)
+define("_REPLACEDUSER","Замењени корисника");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Датотека не садржи потребне колоне");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Заменио постојећи задатак");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Нови курс задатак");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Нова група задатак");//New group assignment (New)
+define("_USERSTOJOBS","Корисници на посао");//Users to jobs (New)
+define("_USERSTOSKILLS","Корисници на вештине");//Users to skills (New)
+define("_DATATOEXPORT","Подаци за извоз");//Data to export (New)
+define("_MANDATORYFIELDS","Обавезна поља");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Опциона поља");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Пружају датотеке са линије која садржи заглавље за сваки увоз тип, све обавезне и било опционо поље наслова од оних доле наведене у било ком редоследу. Наслов сваке колоне означава њен смисао. Непознате колоне ће бити изостављен, без утицаја на остатак поступка.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Нови посао опис задатка");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Нову вештину задатак");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Замењује постојеће филијале");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Заменио постојећи посао");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Замењује постојеће вештине");//Replaced existing skill (New)
 ?>

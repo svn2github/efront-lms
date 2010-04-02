@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Скрыты от пользователей");//Hidden from users
 define("_RESETSCORMDATA","Сброс данных пользователей");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Расширенные настройки");//Advanced settings
-define("_SHOWMOTTOONHEADER","Показать название и девиз также на заголовке");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Результаты поиска в глоссарии");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Не найдено в глоссарии");//No results found in glossary (New)
-define("_AUTOLOGIN","Авто Логин");//Auto login (New)
-define("_ACCESSLINK","Доступ ссылке");//Access link (New)
-define("_AUTOLOGINITHLINK","Пользователь может Логин автоматически ссылке");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","По умолчанию тип пользователя");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Силами студенческого ответить на все вопросы");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Вы должны ответить на все вопросы");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Показать название и девиз также на заголовке");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Результаты поиска в глоссарии");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Не найдено в глоссарии");//No results found in glossary
+define("_AUTOLOGIN","Авто Логин");//Auto login
+define("_ACCESSLINK","Доступ ссылке");//Access link
+define("_AUTOLOGINITHLINK","Пользователь может Логин автоматически ссылке");//User can login automatically by link
+define("_DEFAULTUSERTYPE","По умолчанию тип пользователя");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Силами студенческого ответить на все вопросы");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Вы должны ответить на все вопросы");//You have to answer all questions
+define("_SHOWHELP","Показать ссылки помощь");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Разрешить студентам повторить только неправильно ответил на вопросы");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Только в случае повторения испытаний позволили");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Повторить только неправильно ответил");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Тема по умолчанию не может быть inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Нет строке заголовка была определена или заголовок не совместимы с импортом типа");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Импорт пользователей");//Imported user (New)
+define("_USERSTOCOURSES","Медали на курсы");//Users to courses (New)
+define("_USERSTOGROUPS","Пользователя к группам");//Users to groups (New)
+define("_IMPORTANYTHING","Все, что признается");//Anything recognized (New)
+define("_DATATOIMPORT","Данные для импорта");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","успешного импорта");//successfull imports (New)
+define("_FAILEDIMPORTS","не удалось импорта");//failed imports (New)
+define("_REPLACEDUSER","Заменены пользователей");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Файл не содержит необходимых столбцов");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Заменены существующих уступки");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","Новый курс уступки");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","Новая группа уступки");//New group assignment (New)
+define("_USERSTOJOBS","Пользователя на работу");//Users to jobs (New)
+define("_USERSTOSKILLS","Пользователям навыки");//Users to skills (New)
+define("_DATATOEXPORT","Данные для экспорта");//Data to export (New)
+define("_MANDATORYFIELDS","Обязательные для заполнения поля");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Дополнительные поля");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Обеспечение файл заголовка строки, содержащие для каждого типа импорта, все обязательные и необязательные названия поля от тех, которые приводятся ниже в произвольном порядке. Название каждого столбца обозначает свой смысл. Непризнанные колонны будут опущены, не затрагивая остальную часть процедуры.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","Новая работа описание назначения");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","Новые навыки уступки");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Заменены существующие отрасли");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Заменены существующего задания");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Заменены существующих навыков");//Replaced existing skill (New)
 ?>

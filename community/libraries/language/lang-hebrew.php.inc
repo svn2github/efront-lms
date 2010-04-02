@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","מוסתר ממשתמשים");//Hidden from users
 define("_RESETSCORMDATA","נתונים איפוס המשתמש");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","הגדרות מתקדמות");//Advanced settings
-define("_SHOWMOTTOONHEADER","הצג שם המוטו גם על הכותרת");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","תוצאות חיפוש מונחים");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","לא נמצאו תוצאות ב מילון מונחים");//No results found in glossary (New)
-define("_AUTOLOGIN","כניסה אוטומטית");//Auto login (New)
-define("_ACCESSLINK","הקישור גישה");//Access link (New)
-define("_AUTOLOGINITHLINK","משתמש יכול להתחבר באופן אוטומטי על ידי קישור");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","סוג ברירת המחדל של המשתמש");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","סטודנט כוח לענות על כל השאלות");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","אתה צריך לענות על כל השאלות");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","הצג שם המוטו גם על הכותרת");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","תוצאות חיפוש מונחים");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","לא נמצאו תוצאות ב מילון מונחים");//No results found in glossary
+define("_AUTOLOGIN","כניסה אוטומטית");//Auto login
+define("_ACCESSLINK","הקישור גישה");//Access link
+define("_AUTOLOGINITHLINK","משתמש יכול להתחבר באופן אוטומטי על ידי קישור");//User can login automatically by link
+define("_DEFAULTUSERTYPE","סוג ברירת המחדל של המשתמש");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","סטודנט כוח לענות על כל השאלות");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","אתה צריך לענות על כל השאלות");//You have to answer all questions
+define("_SHOWHELP","הצגת קישורים לעזרה");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","סטודנטים אפשר לבצע מחדש רק את השאלות ענה בסדר");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","רק אם חזרות הבדיקה מותר");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","בצע שוב ענה רק רע");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","נושא ברירת מחדל לא ניתן inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","שורת הכותרת לא היה מוגדר או כותרת לא תואמת לסוג לייבא");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","מיובאים המשתמש");//Imported user (New)
+define("_USERSTOCOURSES","משתמשים לקורסים");//Users to courses (New)
+define("_USERSTOGROUPS","משתמשים לקבוצות");//Users to groups (New)
+define("_IMPORTANYTHING","משהו מוכר");//Anything recognized (New)
+define("_DATATOIMPORT","נתונים כדי לייבא");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","מוצלח היבוא");//successfull imports (New)
+define("_FAILEDIMPORTS","לא יבוא");//failed imports (New)
+define("_REPLACEDUSER","הוחלף המשתמש");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","הקובץ אינו מכיל את העמודות הדרוש");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","הוחלף הקיים הקצאה");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","חדש הקצאה כמובן");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","חדש הקצאה הקבוצה");//New group assignment (New)
+define("_USERSTOJOBS","משתמשים לעבודות");//Users to jobs (New)
+define("_USERSTOSKILLS","משתמשים כדי מיומנויות");//Users to skills (New)
+define("_DATATOEXPORT","נתוני הייצוא");//Data to export (New)
+define("_MANDATORYFIELDS","שדות חובה");//Mandatory fields (New)
+define("_OPTIONALFIELDS","אופציונלי השדות");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","ספק הקובץ עם שורת כותרת המכילה עבור כל סוג לייבא, כל חובה וכל כותרות שדה אופציונלי מאלה להלן בכל סדר. הכותרת של כל עמודה מציין את משמעותו. עמודות מזוהות תהיה מושמט, מבלי להשפיע על שאר ההליך.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","תיאור התפקיד החדש הקצאה");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","חדש הקצאה מיומנות");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","הוחלף הקיים הסניף");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","הוחלף הקיימים העבודה");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","הוחלף הקיים מיומנות");//Replaced existing skill (New)
 ?>

@@ -3512,13 +3512,42 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Thể từ người dùng");//Hidden from users
 define("_RESETSCORMDATA","Thiết lập lại dữ liệu người dùng");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Cài đặt nâng cao");//Advanced settings
-define("_SHOWMOTTOONHEADER","Hiển thị tên và khẩu hiệu cũng trên tiêu đề");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Kết quả tìm kiếm trong glossary");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Không có kết quả được tìm thấy trong glossary");//No results found in glossary (New)
-define("_AUTOLOGIN","Tự động đăng nhập");//Auto login (New)
-define("_ACCESSLINK","Truy cập vào liên kết");//Access link (New)
-define("_AUTOLOGINITHLINK","Người dùng có thể tự động đăng nhập bằng cách liên kết");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Mặc định người sử dụng loại");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Lực lượng học sinh trả lời tất cả câu hỏi");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Bạn cần phải trả lời các câu hỏi");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","Hiển thị tên và khẩu hiệu cũng trên tiêu đề");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Kết quả tìm kiếm trong glossary");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Không có kết quả được tìm thấy trong glossary");//No results found in glossary
+define("_AUTOLOGIN","Tự động đăng nhập");//Auto login
+define("_ACCESSLINK","Truy cập vào liên kết");//Access link
+define("_AUTOLOGINITHLINK","Người dùng có thể tự động đăng nhập bằng cách liên kết");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Mặc định người sử dụng loại");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Lực lượng học sinh trả lời tất cả câu hỏi");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Bạn cần phải trả lời các câu hỏi");//You have to answer all questions
+define("_SHOWHELP","Hiển thị trợ giúp liên kết");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","Cho phép học sinh để làm lại chỉ trả lời câu hỏi sai");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","Chỉ khi được phép lặp lại thử nghiệm");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","Làm lại chỉ được trả lời sai");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Giao diện mặc định không thể được inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Không có dòng tiêu đề được định nghĩa hoặc tiêu đề không tương thích với loại nhập khẩu");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","Người sử dụng nhập khẩu");//Imported user (New)
+define("_USERSTOCOURSES","Người sử dụng vào các khóa học");//Users to courses (New)
+define("_USERSTOGROUPS","Người sử dụng cho các nhóm");//Users to groups (New)
+define("_IMPORTANYTHING","Bất cứ điều gì được công nhận");//Anything recognized (New)
+define("_DATATOIMPORT","Dữ liệu nhập khẩu");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","nhập khẩu thành công");//successfull imports (New)
+define("_FAILEDIMPORTS","không nhập khẩu");//failed imports (New)
+define("_REPLACEDUSER","Thay thế người sử dụng");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Các tập tin không chứa các cột cần thiết");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","Thay thế hiện chuyển nhượng");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","New khóa học chuyển nhượng");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","New nhóm phân công");//New group assignment (New)
+define("_USERSTOJOBS","Người sử dụng với các công việc");//Users to jobs (New)
+define("_USERSTOSKILLS","Người sử dụng các kỹ năng");//Users to skills (New)
+define("_DATATOEXPORT","Dữ liệu xuất khẩu");//Data to export (New)
+define("_MANDATORYFIELDS","Lĩnh vực bắt buộc");//Mandatory fields (New)
+define("_OPTIONALFIELDS","Các trường tuỳ chọn");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","Cung cấp một tập tin với một dòng tiêu đề chứa cho từng loại nhập khẩu, tất cả các lĩnh vực bắt buộc và các chức danh bất kỳ tùy chọn từ những người cung cấp dưới đây trong bất kỳ đơn đặt hàng. Tiêu đề của mỗi cột biểu thị ý nghĩa của nó. cột không được nhận sẽ được bỏ qua, mà không ảnh hưởng đến phần còn lại của thủ tục.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","New mô tả công việc chuyển nhượng");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","New kỹ năng giao");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","Thay thế hiện tại chi nhánh");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","Thay thế công việc hiện tại");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","Thay thế kỹ năng hiện tại");//Replaced existing skill (New)
 ?>

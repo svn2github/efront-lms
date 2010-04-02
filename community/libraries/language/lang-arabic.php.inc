@@ -3512,13 +3512,42 @@ define("_TOOLTIP","توولتيب");//Tooltip
 define("_HIDDEN","خفية من المستخدمين");//Hidden from users
 define("_RESETSCORMDATA","إعادة تعيين بيانات المستخدم");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","الإعدادات المتقدمة");//Advanced settings
-define("_SHOWMOTTOONHEADER","اسم وشعار المعرض أيضا على رأس");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","نتائج البحث في مسرد");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","أية نتائج وجدت في مسرد");//No results found in glossary (New)
-define("_AUTOLOGIN","دخول السيارات");//Auto login (New)
-define("_ACCESSLINK","وصول الارتباط");//Access link (New)
-define("_AUTOLOGINITHLINK","يمكن للمستخدم تسجيل الدخول تلقائيا عن طريق وصلة");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","النوع الافتراضي للمستخدم");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","قوة الطلاب الإجابة على جميع الأسئلة");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","لديك للرد على جميع الأسئلة");//You have to answer all questions (New)
+define("_SHOWMOTTOONHEADER","اسم وشعار المعرض أيضا على رأس");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","نتائج البحث في مسرد");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","أية نتائج وجدت في مسرد");//No results found in glossary
+define("_AUTOLOGIN","دخول السيارات");//Auto login
+define("_ACCESSLINK","وصول الارتباط");//Access link
+define("_AUTOLOGINITHLINK","يمكن للمستخدم تسجيل الدخول تلقائيا عن طريق وصلة");//User can login automatically by link
+define("_DEFAULTUSERTYPE","النوع الافتراضي للمستخدم");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","قوة الطلاب الإجابة على جميع الأسئلة");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","لديك للرد على جميع الأسئلة");//You have to answer all questions
+define("_SHOWHELP","عرض روابط مساعدة");//Display help links (New)
+define("_ALLOWUSERANSERALLRONG","السماح للطلاب فقط إعادة الإجابة على الأسئلة الخطأ");//Allow students to redo only the wrong answered questions (New)
+define("_ALLOWANSWERWRONGINFO","فقط إذا سمح اختبار التكرار");//Only if test repetitions are allowed (New)
+define("_USERREDOWRONG","إعادة الخطأ فقط الرد");//Redo only wrong answered (New)
+define("_DEFAULTTHEMECANNOTBEIMPORTED","يمكن أن لا يكون موضوع الافتراضي inported");//Default theme can not be inported (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","تم تعريف لا صف رأس أو رأس غير متوافق مع نوع استيراد");//No header row was defined or header not compatible with import type (New)
+define("_IMPORTEDUSER","المستوردة المستخدم");//Imported user (New)
+define("_USERSTOCOURSES","للمستخدمين المقررات");//Users to courses (New)
+define("_USERSTOGROUPS","المستخدمين إلى مجموعات");//Users to groups (New)
+define("_IMPORTANYTHING","المعترف بها أي شيء");//Anything recognized (New)
+define("_DATATOIMPORT","لاستيراد البيانات");//Data to import (New)
+define("_SUCCESSFULLIMPORTS","نجاح واردات");//successfull imports (New)
+define("_FAILEDIMPORTS","فشلت واردات");//failed imports (New)
+define("_REPLACEDUSER","استبدال المستخدم");//Replaced user (New)
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","الملف لا يحتوي على أعمدة الضرورية");//The file does not contain the necessary columns (New)
+define("_REPLACEDEXISTINGASSIGNMENT","استبدال الانتداب القائمة");//Replaced existing assignment (New)
+define("_NEWCOURSEASSIGNMENT","بالطبع مهمة جديدة");//New course assignment (New)
+define("_NEWGROUPASSIGNMENT","المجموعة مهمتها الجديدة");//New group assignment (New)
+define("_USERSTOJOBS","للمستخدمين وظيفة");//Users to jobs (New)
+define("_USERSTOSKILLS","شاهد على المهارات");//Users to skills (New)
+define("_DATATOEXPORT","بيانات لتصدير");//Data to export (New)
+define("_MANDATORYFIELDS","حقول إلزامية");//Mandatory fields (New)
+define("_OPTIONALFIELDS","الحقول الاختيارية");//Optional fields (New)
+define("_CSVIMPORTEXPLAINATION","تقديم ملف مع خط تحتوي على رأس لكل نوع استيراد ، جميع الإلزامية وأية عناوين لحقل اختياري من تلك الواردة أدناه في أي أمر. عنوان كل عمود يدل على معناه. سوف يتم حذف الأعمدة غير المعترف بها ، دون أن يؤثر ذلك على بقية الإجراء.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
+define("_NEWJOBASSIGNMENT","الاحالة الجديدة الوصف الوظيفي");//New job description assignment (New)
+define("_NEWSKILLASSIGNMENT","مهارة مهمة جديدة");//New skill assignment (New)
+define("_REPLACEDEXISTINGBRANCH","استبدال فرع القائمة");//Replaced existing branch (New)
+define("_REPLACEDEXISTINGJOB","محل العمل الحالي");//Replaced existing job (New)
+define("_REPLACEDEXISTINGSKILL","استبدال المهارات الموجودة");//Replaced existing skill (New)
 ?>

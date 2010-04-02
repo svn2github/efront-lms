@@ -1,6 +1,6 @@
 === Version 3.6.1 build 6425 ===
 - Added online help functionality
-- Extended tests to allow students to redo only the wrong questions
+- Extended tests to allow students to redo only the wrong questions (community++)
 - Fixed bug about news not taking into account expire field
 - Fixed error in forum configuration panel with mysql strict mode
 - Fixed bug about not checking course rules in sub-student user types

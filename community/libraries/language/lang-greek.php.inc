@@ -3526,4 +3526,28 @@ define("_ALLOWUSERANSERALLRONG","O μαθητης μπορει να επαναλ
 define("_ALLOWANSWERWRONGINFO","Ισχύει μόνο όταν επιτρέπονται επαναλήψεις");
 define("_USERREDOWRONG", "Επαναληψη μονο των λανθασμενων");
 define("_DEFAULTTHEMECANNOTBEIMPORTED", "Δεν μπορείτε να εισάγετε το προκαθορισμένο θέμα");
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Δεν έχει οριστεί γραμμή τίτλων ή η ορισμένη γραμμή τίτλων δεν είναι συμβατή με τον τύπο εισαγωγής που επιλέξατε");
+define("_IMPORTEDUSER","Εισαγωγή του χρήστη");
+define("_USERSTOCOURSES","Αναθέσεις μαθημάτων σε χρήστες");
+define("_USERSTOGROUPS","Αναθέσεις ομάδων σε χρήστες");
+define("_IMPORTANYTHING","Οτιδήποτε μπορεί να αναγνωριστεί");
+define("_DATATOIMPORT","Δεδομένα προς εισαγωγή");
+define("_SUCCESSFULLIMPORTS","επιτυχημένες εισαγωγές");
+define("_FAILEDIMPORTS","αποτυχημένες εισαγωγές");
+define("_REPLACEDUSER","Αντικατάσταση χρήστη");
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN", "Το αρχείο δεν περιέχει τις απαραίτητες στήλες");
+define("_REPLACEDEXISTINGASSIGNMENT", "Αντικατάσταση υπάρχουσας ανάθεσης");
+define("_NEWCOURSEASSIGNMENT","Νέα ανάθεση δέσμης");
+define("_NEWGROUPASSIGNMENT","Νέα ανάθεση σε ομάδα");
+define("_USERSTOJOBS", "Αναθέσεις θέσεων εργασίας σε χρήστες");
+define("_USERSTOSKILLS", "Αναθέσεις προσόντων σε χρήστες");
+define("_DATATOEXPORT","Δεδομένα για εξαγωγή");
+define("_MANDATORYFIELDS", "Υποχρεωτικά πεδία");
+define("_OPTIONALFIELDS", "Προαιρετικά πεδία");
+define("_CSVIMPORTEXPLAINATION","Εισάγετε ένα αρχείο με μία γραμμή τίτλου που περιέχει όλους από τους παρακάτω υποχρεωτικούς και οποιουσδήποτε προαιρετικούς τίτλους στηλών με οποιαδήποτε σειρά. Ο τίτλος της κάθε στήλης περιγράφει το νόημα των στοιχείων της. Μη-αναγνωρίσιμες στήλες θα παραβλέπονται χωρίς συνέπειες στην υπόλοιπη διαδικασία");
+define("_NEWJOBASSIGNMENT","Νέα ανάθεση θέσης εργασίας");
+define("_NEWSKILLASSIGNMENT","Νέα ανάθεση προσόντος");
+define("_REPLACEDEXISTINGBRANCH","Αντικατάσταση υπάρχοντος τμήματος");
+define("_REPLACEDEXISTINGJOB","Αντικατάσταση υπάρχουσας θέσης εργασίας");
+define("_REPLACEDEXISTINGSKILL","Αντικατάσταση υπάρχοντος προσόντος");
 ?>

@@ -635,27 +635,33 @@ class Installation
         //Create default categories
         $ancientCivId = eF_insertTableData("directions", array('name' => 'Ancient Civilizations', 'active' => 1));
         $ProgrammingId = eF_insertTableData("directions", array('name' => 'Programming', 'active' => 1));
-        //Create "Greedy Algorithms" lesson
-        $fields = array('directions_ID' => $ProgrammingId, 'active' => 1);
-        $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Greedy Algorithms.zip');
-        $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Greedy algorithms'), $fields));
-        $file = $file -> copy($lesson -> getDirectory());
-        $lesson -> import($file);
-        $lesson -> addUsers(array_keys($users), array_values($users));
-        //Create "Maya civilization" lesson
-        $fields = array('directions_ID' => $ancientCivId, 'active' => 1);
-        $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Maya civilization.zip');
-        $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Maya civilization'), $fields));
-        $file = $file -> copy($lesson -> getDirectory());
-        $lesson -> import($file);
-        $lesson -> addUsers(array_keys($users), array_values($users));
-        //Create "How to be a programmer" course
-        $fields = array('directions_ID' => $ProgrammingId, 'active' => 1);
-        $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/How to be a programmer.zip');
-        $course = EfrontCourse :: createCourse(array_merge(array('name' => 'How to be a programmer'), $fields));
-        $file = $file -> copy($lesson -> getDirectory()); //$lesson is put here on purpose, since $course does not have a directory
-        $course -> import($file);
-        $course -> addUsers(array_keys($users), array_values($users));
+        try {
+   //Create "Greedy Algorithms" lesson
+   $fields = array('directions_ID' => $ProgrammingId, 'active' => 1);
+   $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Greedy Algorithms.zip');
+   $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Greedy algorithms'), $fields));
+   $file = $file -> copy($lesson -> getDirectory());
+   $lesson -> import($file);
+   $lesson -> addUsers(array_keys($users), array_values($users));
+        } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
+        try {
+   //Create "Maya civilization" lesson
+   $fields = array('directions_ID' => $ancientCivId, 'active' => 1);
+   $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Maya civilization.zip');
+   $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Maya civilization'), $fields));
+   $file = $file -> copy($lesson -> getDirectory());
+   $lesson -> import($file);
+   $lesson -> addUsers(array_keys($users), array_values($users));
+        } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
+        try {
+   //Create "How to be a programmer" course
+   $fields = array('directions_ID' => $ProgrammingId, 'active' => 1);
+   $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/How to be a programmer.zip');
+   $course = EfrontCourse :: createCourse(array_merge(array('name' => 'How to be a programmer'), $fields));
+   $file = $file -> copy($lesson -> getDirectory()); //$lesson is put here on purpose, since $course does not have a directory
+   $course -> import($file);
+   $course -> addUsers(array_keys($users), array_values($users));
+  } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
     }
  /**
 

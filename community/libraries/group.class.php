@@ -33,6 +33,7 @@ class EfrontGroupException extends Exception
     const GROUP_NOT_EXISTS = 301;
     const INVALID_ID = 302;
     const INVALID_USER = 303;
+    const USER_NOT_EXISTS = 304;
 }
 /**
 
@@ -346,7 +347,7 @@ class EfrontGroup
             }
             $users = array($users);
         }
-        $allUsers = eF_getTableDataFlat("users", "login", "active = 1 AND archive=0");
+        $allUsers = eF_getTableDataFlat("users", "login", "archive=0"); //TODO: removed here the "active = 1 AND " 
         // Optimization - get the lesson info extraciton out of the loop if you are to assign 
         // them to new group users
         if ($this -> group['assign_profile_to_new']) {
@@ -386,7 +387,11 @@ class EfrontGroup
                                 'users_LOGIN' => $user);
                 $ok = eF_insertTableData("users_to_groups", $fields);
                 if ($ok && $this -> group['assign_profile_to_new']) {
-                    $userObject = EfrontUserFactory::factory($user);
+                    try {
+                     $userObject = EfrontUserFactory::factory($user);
+                    } catch (Exception $e) {
+                     throw $e;
+                    }
                     $fields = array();
                     if ($userObject -> getType() != 'administrator') {
                   // Update the user profile
@@ -425,6 +430,8 @@ class EfrontGroup
       }
                     }
                 }
+            } else {
+             throw new EfrontGroupException(_USERDOESNOTEXIST, EfrontGroupException :: USER_NOT_EXISTS);
             }
         }
     }
@@ -963,7 +970,11 @@ class EfrontGroup
            $group -> addUsers($login);
            $group -> updateUsers($login);
            // Get updated version of user
-     $updatedUser = EfrontUserFactory::factory($login);
+           try {
+            $updatedUser = EfrontUserFactory::factory($login);
+           } catch (Exception $e) {
+            throw $e;
+           }
            // Assign default group type
            $groupLessons = $group -> getLessons();
            $lessonIds = array_keys($groupLessons);

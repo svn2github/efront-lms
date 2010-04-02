@@ -1,6 +1,6 @@
 <?php
 define("_THUMBNAIL","Miniaturas");//Thumbnails
-define("_THUMBNAIL_THUMBNAILLIST","Lista de links miniaturas";//Thumbnails links list
+define("_THUMBNAIL_THUMBNAILLIST","Lista de links miniaturas");//Thumbnails links list
 define("_THUMBNAIL_ADDTHUMBNAIL","Adicionar link da miniatura");//Add thumbnail link
 define("_THUMBNAIL_PREVIEW","Miniatura instantâneo");//Thumbnail snapshot
 define("_THUMBNAIL_NAME","Legenda da miniatura");//Thumbnail caption

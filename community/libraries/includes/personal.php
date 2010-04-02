@@ -168,7 +168,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
                 $editedUser = EfrontUserFactory :: factory($_GET['edit_user']); //new EfrontUser();
                 $editedEmployee = $editedUser -> aspects['hcd'];
             } catch (Exception $e) {
-                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
                 $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
                 $message_type = 'failure';
             }

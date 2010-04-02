@@ -251,7 +251,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 6416;
+    $build = 6425;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
@@ -518,6 +518,9 @@ function __autoload($className) {
         require_once("cache.class.php");
     } else if (strpos($className, "efrontmenu") !== false) {
         require_once("menu.class.php");
+    } else if (strpos($className, "efrontimport") !== false ||
+               strpos($className, "efrontimportcsv") !== false) {
+        require_once("import_export.class.php");
     } else if (strpos($className, "tcpdf") !== false) {
         require_once("external/tcpdf/tcpdf.php");
     } else if (strpos($className, "efrontcontenttreescorm") !== false || strpos($className, "navigation") !== false) {

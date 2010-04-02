@@ -1,19 +1,18 @@
-=== Version 3.6.1 build ===
+=== Version 3.6.1 build 6425 ===
 - Added online help functionality
+- Extended tests to allow students to redo only the wrong questions
 - Fixed bug about news not taking into account expire field
-- Fixed error in forum configuration panel with strict mode mysql
+- Fixed error in forum configuration panel with mysql strict mode
 - Fixed bug about not checking course rules in sub-student user types
 - Fixed default timezone in configuration to empty string (ticket 120)
 - Fixed error in creating user when default group has no lessons or courses
-- Fixed displaying payments icon in control panel when user type had no priviledges
-- Added display help links
-- Fixed alphabetical sorting for lessons and cources in index page
+- Fixed displaying payments icon in control panel although user type had no access to it
+- Fixed alphabetical sorting for lessons and courses in index page
 - Fixed user type display in forum
-- Fixed problem about showing archieved users in "Users who share lessons with me"
+- Fixed problem about showing archived users in "Users who share lessons with me"
 - Fixed display of lessons and courses info by sorting info fields
 - Fixed error about active and inactive projects
 - Fixed error about displaying archived lessons in user -> getLessons
-- Extended tests to allow students to redo only the wrong questions
 - Fixed issue with default value and select type in user profile
 - Fixed redo test redirecting when showing previous text executions
 - Fixed error about displaying edit link in lesson material on professor subtype with no priviledges
@@ -21,8 +20,8 @@
 - Added magic_quotes_runtime to false because of http://www.smarty.net/forums/viewtopic.php?t=4936
 - Fixed js error on IE in extend user profile
 - Fixed bug about displaying shared files in lessons subfolders
-- Fixed bug in importing themes about overwriting default theme
-- Fixed errors about collapse catalog options
+- Fixed bug in importing themes overwriting default theme
+- Fixed errors when collapsing catalog options
 - Fixed issue about corrupting title path when lesson name contains a slash
 - Fixed issue with double slash in browse.php returning to editor popups
 

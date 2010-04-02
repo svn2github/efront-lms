@@ -1,4 +1,4 @@
-=== Version 3.6.1 build 6425 ===
+=== Version 3.6.1 build 6440 ===
 - Added online help functionality
 - Extended tests to allow students to redo only the wrong questions (community++)
 - Fixed bug about news not taking into account expire field

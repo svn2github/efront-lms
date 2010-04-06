@@ -3550,4 +3550,15 @@ define("_NEWSKILLASSIGNMENT","Νέα ανάθεση προσόντος");
 define("_REPLACEDEXISTINGBRANCH","Αντικατάσταση υπάρχοντος τμήματος");
 define("_REPLACEDEXISTINGJOB","Αντικατάσταση υπάρχουσας θέσης εργασίας");
 define("_REPLACEDEXISTINGSKILL","Αντικατάσταση υπάρχοντος προσόντος");
+define("_BRANCHALREADYEXISTS","Το τμήμα υπάρχει ήδη");
+define("_MISSINGSKILLCATEGORY","Δεν έχει οριστεί κατηγορία προσόντος");
+define("_SKILLALREADYEXISTS","Το προσόν υπάρχει ήδη");
+define("_BRANCHDOESNOTEXIST", "Το τμήμα δεν υπάρχει");
+define("_BRANCHNAMEAMBIGUOUS", "Το όνομα του τμήματος προσδιορίζει περισσότερα του ενός τμήματα");
+define("_JOBTITLEAMBIGUOUS", "Το όνομα της θέσης εργασίας προσδιορίζει περισσότερες της μίας θέσεις");
+define("_SKILLAMBIGUOUS", "Το όνομα του προσόντος προσδιορίζει περισσότερα του ενός προσόντα");
+define("_SKILLCATEGORYAMBIGUOUS", "Το όνομα της κατηγορίας προσόντος προσδιορίζει περισσότερες από μία θέσεις");
+define("_MISSING_JOB_DESCRIPTION","Δεν υπάρχει τίτλος θέσης εργασίας");
+define("_SKILLDOESNOTEXIST", "Το προσόν δεν υπάρχει");
+define("_USERALREADYEXISTSINGROUP", "Ο χρήστης υπάρχει ήδη στην ομάδα");
 ?>

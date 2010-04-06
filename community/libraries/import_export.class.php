@@ -74,29 +74,15 @@ abstract class EfrontImport
   $datatypes = array("anything" => _IMPORTANYTHING,
          "users" => _USERS,
          "users_to_courses" => _USERSTOCOURSES);
-
-
-
-
-
-/*
-#ifdef ENTEPRISE
-			$datatypes["branches"] = _BRANCHES;
-			$datatypes["job_descriptions"] = _JOBDESCRIPTIONS;
-			$datatypes["skills"] = _SKILLS;
-			$datatypes["users_to_jobs"] = _USERSTOJOBS;
-			$datatypes["users_to_skills"] = _USERSTOSKILLS;
-			
-#endif	
-	*/
   return $datatypes;
  }
-
  public function __construct($filename, $_options) {
   $this -> fileContents = file_get_contents($filename);
   $this -> options = $_options;
  }
-
+ /*
+	 * All following functions cache arrays of type "entity_name" => array("entity_ids of entities with name=entity_name")
+	 */
  private $courseNamesToIds = false;
  protected function getCourseByName($courses_name) {
   if (!$courseNamesToIds) {
@@ -111,7 +97,6 @@ abstract class EfrontImport
   }
   return $courseNamesToIds[$courses_name];
  }
-
  private $groupNamesToIds = false;
  protected function getGroupByName($group_name) {
   if (!$groupNamesToIds) {
@@ -126,12 +111,10 @@ abstract class EfrontImport
   }
   return $groupNamesToIds[$group_name];
  }
-
  /*
 	 * Convert dates of the form dd/mm/yy to timestamps
 	 */
     protected function createTimestampFromDate($date_field) {
-
         // date of event if existing, else current time
         if ($date_field != "") {
          $date_field = trim($date_field);
@@ -140,7 +123,6 @@ abstract class EfrontImport
             if (sizeof($dateParts) == 1) {
              $dateParts = explode("-", $date_field);
             }
-
             if ($this -> options['date_format'] == "MM/DD/YYYY") {
              $timestamp = mktime(0,0,0,$dateParts[0],$dateParts[1],$dateParts[2]);
             } else if ($this -> options['date_format'] == "YYYY/MM/DD") {
@@ -148,19 +130,15 @@ abstract class EfrontImport
             } else {
              $timestamp = mktime(0,0,0,$dateParts[1],$dateParts[0],$dateParts[2]);
             }
-
             return $timestamp;
         } else {
          return "";
         }
     }
-
-
  /*
 	 * Create the mappings between csv columns and db attributes
 	 */
  public static function getTypes($type) {
-
   switch($type) {
    case "users":
     $users_info = array("users_login" => "login",
@@ -175,14 +153,14 @@ abstract class EfrontImport
     return $users_info;
    case "users_to_courses":
     return array("users_login" => "users_login",
-         "courses_name" => "courses.name",
-         "course_start_date" => "users_to_courses.from_timestamp",
-         "course_user_type" => "users_to_courses.user_type",
-         "course_completed" => "users_to_courses.completed",
-         "course_comments" => "users_to_courses.comments",
-         "course_score" => "users_to_courses.score",
-         "course_active" => "users_to_courses.active",
-         "course_end_date" => "users_to_courses.to_timestamp");
+         "courses_name" => "course_name",
+         "course_start_date" => "from_timestamp",
+         "course_user_type" => "user_type",
+         "course_completed" => "completed",
+         "course_comments" => "comments",
+         "course_score" => "score",
+         "course_active" => "active",
+         "course_end_date" => "to_timestamp");
    case "users_to_groups":
     return array("users_login" => "users_login",
         "group_name" => "groups.name");
@@ -195,11 +173,9 @@ abstract class EfrontImport
   switch($type) {
    case "users":
     return array("login" => "users_login");
-   case "employees":
-    return array("users_login" => "users_login");
    case "users_to_courses":
     return array("users_login" => "users_login",
-        "courses.name"=> "courses_name");
+        "course_name"=> "courses_name");
    case "users_to_groups":
     return array("users_login" => "users_login",
         "groups.name" => "group_name");
@@ -322,13 +298,18 @@ class EfrontImportCsv extends EfrontImport
   $this -> clearLog();
   $this -> mappings = array();
   $this -> empty_data = false;
+  $this -> types = array();
  }
  /*
 	 * Get existence exception and compare it against the "already exists" exception of for each different import type
 	 */
  private function isAlreadyExistsException($exception_code, $type) {
   switch ($type) {
-   case "users": if ($exception_code == EfrontUserException::USER_EXISTS) { return true; }
+   case "users":
+    if ($exception_code == EfrontUserException::USER_EXISTS) { return true; }
+    break;
+   default:
+    return false;
   }
   return false;
  }
@@ -339,10 +320,13 @@ class EfrontImportCsv extends EfrontImport
   try {
    switch($type) {
     case "users":
-     eF_updateTableData("users", $data, "login='".$data['login']."'"); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDUSER . " " . $data['login']; break;
+     eF_updateTableData("users", $data, "login='".$data['login']."'"); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDUSER . " " . $data['login'];
+     break;
     case "users_to_courses":
-     eF_updateTableData("users_to_courses", $data, "users_login='".$data['users_login']."' AND courses_ID = " . $data['courses_ID']); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDEXISTINGASSIGNMENT; break;
-    case "users_to_groups": break;
+     eF_updateTableData("users_to_courses", $data, "users_login='".$data['users_login']."' AND courses_ID = " . $data['courses_ID']); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDEXISTINGASSIGNMENT;
+     break;
+    case "users_to_groups":
+     break;
    }
   } catch (Exception $e) {
    $this -> log["failure"][] = _LINE . " $line: " . $e -> getMessage();
@@ -354,15 +338,17 @@ class EfrontImportCsv extends EfrontImport
 	 * @param type: the import type
 	 * @param type: the data of this line, formatted to be put directly into the eFront db
 	 */
+ //TODO: this should be moved to the EfrontImport base class - and be used by all - the $line should probably leave though
  private function importData($line, $type, $data) {
   try {
    switch($type) {
     case "users":
-     $newUser = EfrontUser::createUser($data); $this -> log["success"][] = _LINE . " $line: " . _IMPORTEDUSER . " " . $newUser -> login; break;
+     $newUser = EfrontUser::createUser($data); $this -> log["success"][] = _LINE . " $line: " . _IMPORTEDUSER . " " . $newUser -> login;
+     break;
     case "users_to_courses":
-     $courses_ID = $this -> getCourseByName($data['courses.name']);
-     $courses_name = $data['courses.name'];
-     unset($data['courses.name']);
+     $courses_ID = $this -> getCourseByName($data['course_name']);
+     $courses_name = $data['course_name'];
+     unset($data['course_name']);
      foreach($courses_ID as $course_ID) {
       $data['courses_ID'] = $course_ID;
       $course = new EfrontCourse($course_ID);
@@ -388,10 +374,10 @@ class EfrontImportCsv extends EfrontImport
     if ($this -> isAlreadyExistsException($e->getCode(), $type)) {
      $this -> updateExistingData($line, $type, $data);
     } else {
-     $this -> log["failure"][] = _LINE . " $line: " . $e -> getMessage();// ." ". $e->getTraceAsString();
+     $this -> log["failure"][] = _LINE . " $line: " . $e -> getMessage();// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
     }
    } else {
-    $this -> log["failure"][] = _LINE . " $line: " . $e -> getMessage(); //." ". $e->getTraceAsString();
+    $this -> log["failure"][] = _LINE . " $line: " . $e -> getMessage();// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
    }
   }
  }
@@ -427,7 +413,6 @@ class EfrontImportCsv extends EfrontImport
     $data[$dbAttribute] = $this -> createTimestampFromDate(trim($lineContents[$fileInfo], "\""));
    }
   }
-  //pr($data);
   return $data;
  }
  /*
@@ -554,6 +539,37 @@ abstract class EfrontExport
          "users_to_courses" => _USERSTOCOURSES);
   return $datatypes;
  }
+ /*
+	 * Create the mappings between csv columns and db attributes
+	 */
+ public static function getTypes($type) {
+  switch($type) {
+   case "users":
+    $users_info = array("users_login" => "login",
+           "password" => "password",
+           "users_email" => "email",
+           "language" => "languages_NAME",
+           "users_name" => "name",
+           "users_surname" => "surname",
+           "active" => "active",
+           "user_type" => "user_type",
+           "registration_date" => "timestamp");
+    return $users_info;
+   case "users_to_courses":
+    return array("users_login" => "users_login",
+         "courses_name" => "courses.name",
+         "course_start_date" => "users_to_courses.from_timestamp",
+         "course_user_type" => "users_to_courses.user_type",
+         "course_completed" => "users_to_courses.completed",
+         "course_comments" => "users_to_courses.comments",
+         "course_score" => "users_to_courses.score",
+         "course_active" => "users_to_courses.active",
+         "course_end_date" => "users_to_courses.to_timestamp");
+   case "users_to_groups":
+    return array("users_login" => "users_login",
+        "group_name" => "groups.name");
+  }
+ }
  public function __construct($_options) {
   $this -> options = $_options;
   if ($this -> options['date_format'] == "MM/DD/YYYY") {
@@ -623,18 +639,8 @@ class EfrontExportCsv extends EfrontExport
 	 * @param: the line of the header
 	 */
  private function setHeaderLine($type) {
-  $this -> types = EfrontImport::getTypes($type);
+  $this -> types = EfrontExport::getTypes($type);
   if ($type == "users") {
-    $complete_user_info = array();
-    foreach ($this -> types as $column => $field) {
-     $complete_user_info[$column] = "users." . $field;
-    }
-    $hcd_user_info = EfrontImport::getTypes("employees");
-    unset($hcd_user_info['users_login']);
-    foreach ($hcd_user_info as $column => $field) {
-     $complete_user_info[$column] = "module_hcd_employees." . $field;
-    }
-    $this -> types = $complete_user_info;
    unset($this -> types['password']);
   }
   $this -> lines[] = implode($this -> separator, array_keys($this -> types));
@@ -665,7 +671,7 @@ class EfrontExportCsv extends EfrontExport
  private function getData($type) {
   switch($type) {
    case "users":
-     return eF_getTableData("users LEFT JOIN module_hcd_employees ON users.login = module_hcd_employees.users_login", implode(",", $this -> types), "users.archive = 0");
+     return eF_getTableData($type, implode(",", $this -> types), "archive = 0");
    case "users_to_courses":
      return eF_getTableData("users_to_courses JOIN courses ON courses.id = users_to_courses.courses_ID", implode(",", $this -> types), "");
    case "users_to_groups":

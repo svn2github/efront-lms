@@ -3550,4 +3550,15 @@ define("_NEWSKILLASSIGNMENT","New skill assignment");
 define("_REPLACEDEXISTINGBRANCH","Replaced existing branch");
 define("_REPLACEDEXISTINGJOB","Replaced existing job");
 define("_REPLACEDEXISTINGSKILL","Replaced existing skill");
+define("_BRANCHALREADYEXISTS","Branch exists already");
+define("_MISSINGSKILLCATEGORY","Missing skill category");
+define("_SKILLALREADYEXISTS","Skill exists already");
+define("_BRANCHDOESNOTEXIST", "Branch does not exist");
+define("_BRANCHNAMEAMBIGUOUS", "Branch name is ambiguous");
+define("_JOBTITLEAMBIGUOUS", "Job title is ambiguous");
+define("_SKILLAMBIGUOUS", "Skill name is ambiguous");
+define("_SKILLCATEGORYAMBIGUOUS", "Skill category is ambiguous");
+define("_MISSING_JOB_DESCRIPTION","Missing job description");
+define("_SKILLDOESNOTEXIST", "This skill does not exist");
+define("_USERALREADYEXISTSINGROUP", "User already exists in group");
 ?>

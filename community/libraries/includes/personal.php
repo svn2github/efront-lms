@@ -930,7 +930,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
         if ($form -> isSubmitted() && $form -> validate()) {
             $values = $form -> exportValues();
-    $user_profile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo'"); //Get admin-defined form fields for user registration
+          $user_profile = eF_getTableData("user_profile", "*", "active=1"); //Get admin-defined form fields for user registration
             //Check the user_type. If it's an id, it means that it's not one of the basic user types; so derive the basic user type and populate the user_types_ID field
             if (is_numeric($values['user_type'])) {
                 $result = eF_getTableData("user_types", "id, basic_user_type", "id=".$values['user_type']);

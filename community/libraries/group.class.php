@@ -34,6 +34,7 @@ class EfrontGroupException extends Exception
     const INVALID_ID = 302;
     const INVALID_USER = 303;
     const USER_NOT_EXISTS = 304;
+    const USER_ALREADY_MEMBER = 305;
 }
 /**
 
@@ -385,7 +386,11 @@ class EfrontGroup
             if (in_array($user, $allUsers['login'])) {
                 $fields = array('groups_ID' => $this -> group['id'],
                                 'users_LOGIN' => $user);
-                $ok = eF_insertTableData("users_to_groups", $fields);
+                try {
+                 $ok = eF_insertTableData("users_to_groups", $fields);
+                } catch (Exception $e) {
+                 throw new EfrontGroupException(_USERALREADYEXISTSINGROUP, EfrontGroupException :: USER_ALREADY_MEMBER);
+                }
                 if ($ok && $this -> group['assign_profile_to_new']) {
                     try {
                      $userObject = EfrontUserFactory::factory($user);

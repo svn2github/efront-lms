@@ -19,16 +19,6 @@
                         {/if}
        <tr><td class = "labelCell">{$T_COURSE_FORM.directions_ID.label}:&nbsp;</td>
                              <td>{$T_COURSE_FORM.directions_ID.html}</td></tr>
-
-{*
-                        <tr><td class = "labelCell">{$T_COURSE_FORM.location.label}:&nbsp;</td>
-                            <td class = "elementCell">{$T_COURSE_FORM.location.html}&nbsp;
-                            {if $smarty.session.employee_type != _EMPLOYEE}
-                            <a href="{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&add_branch=1&returntab=basic" title = "{$smarty.const._NEWBRANCH}" ><img src = "images/16x16/add.png" title = "{$smarty.const._NEWBRANCH}" alt = "{$smarty.const._NEWBRANCH}" ></a></td>
-       {/if}
-                            </td></tr>
-*}
-
                             {if $T_COURSE_FORM.directions_ID.error}<tr><td></td><td class = "formError">{$T_COURSE_FORM.directions_ID.error}</td></tr>{/if}
                             <tr><td class = "labelCell">{$T_COURSE_FORM.active.label}:&nbsp;</td>
                              <td class = "elementCell">{$T_COURSE_FORM.active.html}</td></tr>

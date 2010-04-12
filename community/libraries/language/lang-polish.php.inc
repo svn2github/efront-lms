@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Użytkownik może zalogować się automatycznie za p
 define("_DEFAULTUSERTYPE","Typ Default user");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Student sił odpowiedzi na wszystkie pytania");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Musisz odpowiedzieć na wszystkie pytania");//You have to answer all questions
-define("_SHOWHELP","Wyświetl linki pomoc");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Umożliwienia studentom przerobić tylko źle odpowiedział na pytania");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Tylko wtedy, gdy dozwolone są powtórzenia badania");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Przerobić tylko złe odpowiedzi");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Domyślny motyw nie może być inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nie został zdefiniowany wiersz nagłówka lub nagłówka nie jest zgodne z typem import");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Przywożone użytkownika");//Imported user (New)
-define("_USERSTOCOURSES","Użytkowników do kursów");//Users to courses (New)
-define("_USERSTOGROUPS","Użytkowników do grup");//Users to groups (New)
-define("_IMPORTANYTHING","Nic uznane");//Anything recognized (New)
-define("_DATATOIMPORT","Import danych do");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","sukces importu");//successfull imports (New)
-define("_FAILEDIMPORTS","nie przywozu");//failed imports (New)
-define("_REPLACEDUSER","Zastąpiony przez użytkownika");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Plik nie zawiera niezbędnych kolumny");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Zastępuje istniejące zadania");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Oczywiście nowe zadania");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Nowe zadania grupy");//New group assignment (New)
-define("_USERSTOJOBS","Użytkowników do pracy");//Users to jobs (New)
-define("_USERSTOSKILLS","Użytkowników do umiejętności");//Users to skills (New)
-define("_DATATOEXPORT","Eksport danych do");//Data to export (New)
-define("_MANDATORYFIELDS","Pola obowiązkowe");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Pola opcjonalne");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Stanowią plik zawierający wiersz nagłówka dla każdego rodzaju przywozu, wszystkie obowiązkowe i opcjonalne tytułów dziedzinie niż przewidziane poniżej w dowolnej kolejności. Tytuł każdej kolumny oznacza jego znaczenie. Nierozpoznane kolumny zostaną pominięte, bez wpływu na pozostałe procedury.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Nowa praca opis zadania");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Nowe zadania umiejętności");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Zastępuje istniejących oddziałów");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Zastępuje istniejących miejsc pracy");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Zastępuje istniejących umiejętności");//Replaced existing skill (New)
+define("_SHOWHELP","Wyświetl linki pomoc");//Display help links
+define("_ALLOWUSERANSERALLRONG","Umożliwienia studentom przerobić tylko źle odpowiedział na pytania");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Tylko wtedy, gdy dozwolone są powtórzenia badania");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Przerobić tylko złe odpowiedzi");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Domyślny motyw nie może być inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nie został zdefiniowany wiersz nagłówka lub nagłówka nie jest zgodne z typem import");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Przywożone użytkownika");//Imported user
+define("_USERSTOCOURSES","Użytkowników do kursów");//Users to courses
+define("_USERSTOGROUPS","Użytkowników do grup");//Users to groups
+define("_IMPORTANYTHING","Nic uznane");//Anything recognized
+define("_DATATOIMPORT","Import danych do");//Data to import
+define("_SUCCESSFULLIMPORTS","sukces importu");//successfull imports
+define("_FAILEDIMPORTS","nie przywozu");//failed imports
+define("_REPLACEDUSER","Zastąpiony przez użytkownika");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Plik nie zawiera niezbędnych kolumny");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Zastępuje istniejące zadania");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Oczywiście nowe zadania");//New course assignment
+define("_NEWGROUPASSIGNMENT","Nowe zadania grupy");//New group assignment
+define("_USERSTOJOBS","Użytkowników do pracy");//Users to jobs
+define("_USERSTOSKILLS","Użytkowników do umiejętności");//Users to skills
+define("_DATATOEXPORT","Eksport danych do");//Data to export
+define("_MANDATORYFIELDS","Pola obowiązkowe");//Mandatory fields
+define("_OPTIONALFIELDS","Pola opcjonalne");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Stanowią plik zawierający wiersz nagłówka dla każdego rodzaju przywozu, wszystkie obowiązkowe i opcjonalne tytułów dziedzinie niż przewidziane poniżej w dowolnej kolejności. Tytuł każdej kolumny oznacza jego znaczenie. Nierozpoznane kolumny zostaną pominięte, bez wpływu na pozostałe procedury.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Nowa praca opis zadania");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Nowe zadania umiejętności");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Zastępuje istniejących oddziałów");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Zastępuje istniejących miejsc pracy");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Zastępuje istniejących umiejętności");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Oddział już istnieje");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Brakuje umiejętności kategorii");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Umiejętności już istnieje");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Oddział nie istnieje");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Nazwa oddziału jest dwuznaczne");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Nazwa stanowiska jest dwuznaczne");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Skill jest niejednoznaczne nazwy");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Skill jest niejednoznaczny kategorii");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Brakuje opisu stanowiska pracy");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Ta umiejętność nie istnieje");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Użytkownik już istnieje w grupie");//User already exists in group (New)
 ?>

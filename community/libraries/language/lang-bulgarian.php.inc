@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Потребител може да влезете а
 define("_DEFAULTUSERTYPE","По подразбиране тип потребител");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Сили студент отговори на всички въпроси");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Трябва да се отговори на всички въпроси");//You have to answer all questions
-define("_SHOWHELP","Покажи Помощ за Връзки");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Позволяват на учениците да ремонтирам само погрешно отговори на въпроси");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Само ако изпитването повторения са позволени");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Възстановяване само погрешно отговори");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","По подразбиране не може да бъде inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Не заглавния ред се определя или заглавна не са съвместими с вносни тип");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Внесените потребител");//Imported user (New)
-define("_USERSTOCOURSES","Потребителите на курсове");//Users to courses (New)
-define("_USERSTOGROUPS","Потребителите на групите");//Users to groups (New)
-define("_IMPORTANYTHING","Всичко, признати");//Anything recognized (New)
-define("_DATATOIMPORT","Данните за внос");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","успешно внос");//successfull imports (New)
-define("_FAILEDIMPORTS","не е внос");//failed imports (New)
-define("_REPLACEDUSER","Заменен потребител");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Файлът не съдържа необходимите колони");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Заменен сегашното предоставяне");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Нова курсова работа");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Нова група задачи");//New group assignment (New)
-define("_USERSTOJOBS","Потребителите на работни места");//Users to jobs (New)
-define("_USERSTOSKILLS","Потребителите на умения");//Users to skills (New)
-define("_DATATOEXPORT","Данни за износ");//Data to export (New)
-define("_MANDATORYFIELDS","Задължителни полета");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Незадължителни полета");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Осигуряване на файл с глава линия, съдържаща за всеки внос тип, всички задължителни и факултативни заглавия поле от тези, предвидени по-долу в произволен ред. Заглавието на всяка колона означава неговото значение. Непознат колоните, ще бъде пропуснато, без да се засегне останалата част от процедурата.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Нова работа длъжностна характеристика");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Нови умения работа");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Заменен съществуващите клон");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Заменен съществуващите работа");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Заменен съществуващите умения");//Replaced existing skill (New)
+define("_SHOWHELP","Покажи Помощ за Връзки");//Display help links
+define("_ALLOWUSERANSERALLRONG","Позволяват на учениците да ремонтирам само погрешно отговори на въпроси");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Само ако изпитването повторения са позволени");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Възстановяване само погрешно отговори");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","По подразбиране не може да бъде inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Не заглавния ред се определя или заглавна не са съвместими с вносни тип");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Внесените потребител");//Imported user
+define("_USERSTOCOURSES","Потребителите на курсове");//Users to courses
+define("_USERSTOGROUPS","Потребителите на групите");//Users to groups
+define("_IMPORTANYTHING","Всичко, признати");//Anything recognized
+define("_DATATOIMPORT","Данните за внос");//Data to import
+define("_SUCCESSFULLIMPORTS","успешно внос");//successfull imports
+define("_FAILEDIMPORTS","не е внос");//failed imports
+define("_REPLACEDUSER","Заменен потребител");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Файлът не съдържа необходимите колони");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Заменен сегашното предоставяне");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Нова курсова работа");//New course assignment
+define("_NEWGROUPASSIGNMENT","Нова група задачи");//New group assignment
+define("_USERSTOJOBS","Потребителите на работни места");//Users to jobs
+define("_USERSTOSKILLS","Потребителите на умения");//Users to skills
+define("_DATATOEXPORT","Данни за износ");//Data to export
+define("_MANDATORYFIELDS","Задължителни полета");//Mandatory fields
+define("_OPTIONALFIELDS","Незадължителни полета");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Осигуряване на файл с глава линия, съдържаща за всеки внос тип, всички задължителни и факултативни заглавия поле от тези, предвидени по-долу в произволен ред. Заглавието на всяка колона означава неговото значение. Непознат колоните, ще бъде пропуснато, без да се засегне останалата част от процедурата.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Нова работа длъжностна характеристика");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Нови умения работа");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Заменен съществуващите клон");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Заменен съществуващите работа");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Заменен съществуващите умения");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Клон вече съществува");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Липсващи умения категория");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Умения вече съществува");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Клонът не съществува");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Име на клона е двусмислен");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Длъжността е двусмислен");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Умения име е двусмислен");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Умения категория е двусмислен");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Липсва длъжностна характеристика");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Това умение не съществува");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Потребителите вече съществува в групата");//User already exists in group (New)
 ?>

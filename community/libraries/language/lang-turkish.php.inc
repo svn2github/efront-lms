@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Kullanıcı otomatik olarak bağlantı ile giriş ya
 define("_DEFAULTUSERTYPE","Varsayılan kullanıcı türü");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Kuvvet öğrenci tüm soruları cevaplamak");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Tüm soruları yanıtlamak zorunda");//You have to answer all questions
-define("_SHOWHELP","Ekran yardımcı linkler");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","İzin öğrenciler sadece yanlış sorularını yanıtlamıştır yeniden yapmak");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Sadece test tekrar izin verilen durumlarda,");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Yinele sadece yanlış yanıt");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Varsayılan temayı inported olamaz");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No başlık satırı tanımlanan veya başlık ithal türüyle uyumlu değil");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","İthal kullanıcı");//Imported user (New)
-define("_USERSTOCOURSES","içerisinde Kullanıcılar");//Users to courses (New)
-define("_USERSTOGROUPS","gruplara Kullanıcılar");//Users to groups (New)
-define("_IMPORTANYTHING","Bir şey kabul");//Anything recognized (New)
-define("_DATATOIMPORT","Verilerini");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","Başarılı ithalat");//successfull imports (New)
-define("_FAILEDIMPORTS","başarısız ithalat");//failed imports (New)
-define("_REPLACEDUSER","Değiştirilen kullanıcı");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosya gerekli sütunlar içermiyor");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Yerine mevcut atama");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Yeni ders atama");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Yeni grup atama");//New group assignment (New)
-define("_USERSTOJOBS","işleri Kullanıcılar");//Users to jobs (New)
-define("_USERSTOSKILLS","becerilerine Kullanıcılar");//Users to skills (New)
-define("_DATATOEXPORT","Veri ihracat");//Data to export (New)
-define("_MANDATORYFIELDS","Zorunlu alanlar");//Mandatory fields (New)
-define("_OPTIONALFIELDS","İsteğe bağlı alanlar");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","bir başlık satırı, her ithalat tipi içeren, tüm ve her türlü isteğe bağlı alan başlıklar olanlar herhangi bir sırada aşağıda sağlanan zorunlu bir dosya sağlayın. Her sütunun başlığı anlamını ifade eder. Tanınmayan sütunlar, prosedürün geri kalanını etkilemeden ihmal edilecektir.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Yeni iş tanımı atama");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Yeni beceri atama");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Yerine mevcut şube");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Yerine mevcut iş");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Yerine mevcut beceri");//Replaced existing skill (New)
+define("_SHOWHELP","Ekran yardımcı linkler");//Display help links
+define("_ALLOWUSERANSERALLRONG","İzin öğrenciler sadece yanlış sorularını yanıtlamıştır yeniden yapmak");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Sadece test tekrar izin verilen durumlarda,");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Yinele sadece yanlış yanıt");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Varsayılan temayı inported olamaz");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No başlık satırı tanımlanan veya başlık ithal türüyle uyumlu değil");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","İthal kullanıcı");//Imported user
+define("_USERSTOCOURSES","içerisinde Kullanıcılar");//Users to courses
+define("_USERSTOGROUPS","gruplara Kullanıcılar");//Users to groups
+define("_IMPORTANYTHING","Bir şey kabul");//Anything recognized
+define("_DATATOIMPORT","Verilerini");//Data to import
+define("_SUCCESSFULLIMPORTS","Başarılı ithalat");//successfull imports
+define("_FAILEDIMPORTS","başarısız ithalat");//failed imports
+define("_REPLACEDUSER","Değiştirilen kullanıcı");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosya gerekli sütunlar içermiyor");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Yerine mevcut atama");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Yeni ders atama");//New course assignment
+define("_NEWGROUPASSIGNMENT","Yeni grup atama");//New group assignment
+define("_USERSTOJOBS","işleri Kullanıcılar");//Users to jobs
+define("_USERSTOSKILLS","becerilerine Kullanıcılar");//Users to skills
+define("_DATATOEXPORT","Veri ihracat");//Data to export
+define("_MANDATORYFIELDS","Zorunlu alanlar");//Mandatory fields
+define("_OPTIONALFIELDS","İsteğe bağlı alanlar");//Optional fields
+define("_CSVIMPORTEXPLAINATION","bir başlık satırı, her ithalat tipi içeren, tüm ve her türlü isteğe bağlı alan başlıklar olanlar herhangi bir sırada aşağıda sağlanan zorunlu bir dosya sağlayın. Her sütunun başlığı anlamını ifade eder. Tanınmayan sütunlar, prosedürün geri kalanını etkilemeden ihmal edilecektir.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Yeni iş tanımı atama");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Yeni beceri atama");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Yerine mevcut şube");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Yerine mevcut iş");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Yerine mevcut beceri");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Şube zaten var");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","beceri kategori Eksik");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Beceri zaten var");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Şube yok");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Şube ismi belirsiz");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","İş unvanı belirsiz");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Beceri ismi belirsiz");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Beceri kategorisi belirsiz");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","iş tanımı Eksik");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Bu beceri yok");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Kullanıcı zaten grup var");//User already exists in group (New)
 ?>

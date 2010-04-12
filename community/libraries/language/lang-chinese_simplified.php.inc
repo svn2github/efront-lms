@@ -53,7 +53,7 @@ define("_SAVECHANGES","保存更改");//Save
 define("_PERSONALDATA","个人信息");//Personal info
 define("_LESSONOPTIONS","课程选项");//Lesson options
 define("_PERSONALOPTIONS","工具");//Tools
-define("_QUESTIONWEIGHT","问题权重（ 1-10 ）");//Question weight (1-10)
+define("_QUESTIONWEIGHT","题目权重（ 1-10 ）");//Question weight (1-10)
 define("_WEIGHT","权重");//Weight
 define("_NONEWLESSONREGISTRATIONS","没有新的课程登记");//No new lesson registration
 define("_LESSONS","课程");//Lessons
@@ -64,17 +64,17 @@ define("_ONLINEUSERS","在线用户");//Connected users
 define("_DATE","日期");//Date
 define("_STUDENT","学生");//Student
 define("_LINE","线");//Line
-define("_SOMEPROBLEMEMERGED","有些问题已经发生");//Some problem has occured
+define("_SOMEPROBLEMEMERGED","有些题目已经发生");//Some problem has occured
 define("_CORRECTION","正确的 它");//Correct it
 define("_LESSONNAME","课程名称");//Lesson name
 define("_DIRECTION","类别");//Categories
 define("_DIRECTIONNAME","类别名称");//Category name
-define("_NEWLESSON","新的课程");//New lesson
-define("_NEWDIRECTION","新的类别");//New category
+define("_NEWLESSON","新建课程");//New lesson
+define("_NEWDIRECTION","新建类别");//New category
 define("_EMAILSENDAT","电子邮件被送往");//Email was sent to 
 define("_CHOOSELESSON","选择的课程");//Choose lesson
-define("_SUBJECT","题目");//Subject
-define("_RECIPIENTSSELECTION","受助人的选择");//Recipients selection
+define("_SUBJECT","主题");//Subject
+define("_RECIPIENTSSELECTION","收件人的选择");//Recipients selection
 define("_EMAILBODY","电子邮件机构");//E-mail body
 define("_SENDEMAIL","发送电子邮件");//Send E-mail
 define("_EXIT","退出");//Exit
@@ -82,8 +82,8 @@ define("_MORE","更多");//more
 define("_DELETE","删除");//Delete
 define("_MESSAGES","邮件");// Messages
 define("_THEORY","课程内容");//Theory
-define("_PROJECTS","项目");//Projects
-define("_TESTS","测试");//Tests
+define("_PROJECTS","作业");//Projects
+define("_TESTS","试卷");//Tests
 define("_PREVIOUS","&lt;向前");//Previous
 define("_NEXT","下一个&gt;");//Next
 define("_CANNOTACCESSTHISUNIT","您不能看到这个单元的 因为：");//You cannot see this unit because:
@@ -100,21 +100,21 @@ define("_HOURS","小时");//hours
 define("_MINUTE","分钟");//minute
 define("_MINUTES","分钟");//minutes
 define("_SECONDS","秒");//seconds
-define("_LASTLOGIN","最后登录在");//Last log-in
+define("_LASTLOGIN","最近登录时间");//Last log-in
 define("_MEAN","平均");//Average
 define("_LOGINAT","登时时间为");//Log-in at
-define("_TESTHADAT","测试完成");//Test completed at
+define("_TESTHADAT","考试完成");//Test completed at
 define("_HASMAXIMUMDURATION","最长期限");//It had maximum duration
 define("_YOURSCOREIS","你的分数是");//Your score is
 define("_FINALSCOREWILLBEFROM","最后的评分将来自");//Final score will be from
 define("_ANDYOUDIDITIN","你完成了它在");//and you completed it in
 define("_TO","到");//to
-define("_DEPENDSONQUESTIONS","根据您的答案，开放式回答问题。");//depending on your answers on open-answer questions.
-define("_EXAMPLEANSWER","例子答案");//Example answer
+define("_DEPENDSONQUESTIONS","根据您的答案，开放式回答题目。");//depending on your answers on open-answer questions.
+define("_EXAMPLEANSWER","参考答案");//Example answer
 define("_SCORE","评分");//Score
-define("_THISQUESTIONCORRECTEDPROFESSOR","这个问题将由教师纠正。");//This question will be corrected by the professor
+define("_THISQUESTIONCORRECTEDPROFESSOR","这个题目将由教师负责判分。");//This question will be corrected by the professor
 define("_RIGHTANSWER","正确答案");//Correct answer
-define("_TESTSHOULDCOMPLETEIN","这项测试必须完成在");//This test must be completed in
+define("_TESTSHOULDCOMPLETEIN","这项考试必须完成在");//This test must be completed in
 define("_TIMELEFT","剩余时间");//Time remaining
 define("_YOUCANNOTLOGINAS","无指定用户名的用户：");//No user exists with login name:
 define("_WRONGPASSWORDTRYAGAIN","密码错误。请再试一次。");//You gave a wrong password. Please try again.
@@ -123,10 +123,10 @@ define("_YOUHAVEBEENEXCLUDEDBYPROFESSOR","你被教师开除");//You are exclude
 define("_MUSTFIRSTREADUNIT","您必须先学习");//You must first read unit
 define("_MUSTFIRSTTAKEATLEAST","您必须首先完成");//You must first take at least
 define("_YOURTIMEISUP","时间到");//Your time is up
-define("_ATTEST","测试中");//at test
-define("_WANTTOREDOTEST","我想重做这个测试");//I want to redo this test
+define("_ATTEST","考试中");//at test
+define("_WANTTOREDOTEST","我想重做这个考试");//I want to redo this test
 define("_PERCENT","％");//Percent
-define("_CANNOTREDOTEST","你不能重做这项测试！");//You cannot redo this test!
+define("_CANNOTREDOTEST","你不能重做这项考试！");//You cannot redo this test!
 define("_LESSON","课程");//Lesson
 define("_ALL","所有内容");//All content
 define("_GOTOFORUM","去论坛");//Go to forum
@@ -135,7 +135,7 @@ define("_SENDMESSAGE","发送消息");//Send message
 define("_ANNOUNCEMENTS","公告");//Announcements
 define("_MESSAGESATFORUM","论坛讯息");//Forum messages
 define("_PERSONALMESSAGES","个人信息");//Personal messages
-define("_SOLVEDTESTS","处理测试");//Solved tests
+define("_SOLVEDTESTS","处理考试");//Solved tests
 define("_ATFORUM","在论坛");//At forum
 define("_PRINTERFRIENDLY","打印单元");//Print unit
 define("_PRINTERFRIENDLYALLCONTENT","打印所有内容");//Print all the content
@@ -170,19 +170,19 @@ define("_SUCCESFULLYADDEDANNOUNCEMENTWINDOWCLOSE5SECONDS","公告加入成功");
 define("_SUCCESFULLYUPDATEDANNOUNCEMENTWINDOWCLOSE5SECONDS","公告已成功更新");//The announcement was updated successfully
 define("_ENDDATEMUSTBEBEFORESTARTDATE","结束日期必须后开始日期。");//End date must be after start date.
 define("_SAVE","保存");//Save
-define("_SUCCESFULLYUPDATEDQUESTION","问题是，成功更新");//The question was updated successfully
-define("_SUCCESFULLYADDEDQUESTION","问题是，添加成功");//The question was added successfully
+define("_SUCCESFULLYUPDATEDQUESTION","题目是，成功更新");//The question was updated successfully
+define("_SUCCESFULLYADDEDQUESTION","题目是，添加成功");//The question was added successfully
 define("_QUESTIONTEXT","题目文本");//Question text
-define("_SAVEQUESTION","保存问题");//Save question
+define("_SAVEQUESTION","保存题目");//Save question
 define("_UNIT","单元");//Unit
-define("_QUESTIONTYPE","问题类型");//Type
+define("_QUESTIONTYPE","题目类型");//Type
 define("_DIFFICULTY","难度等级");//Difficulty
 define("_RATEMUSTBEBETWEEN0100","评分范围必须介于0和100之间");//The score must range between 0 and 100
 define("_ALLOFTHEM","所有用户");//All users
 define("_VALIDFOR","规则适用对象");//Valid for
 define("_TOBEEXCLUDEDFROMUNIT","禁止学习");//to be excluded from the unit
 define("_THEUNIT","单元");//the unit
-define("_TESTNAME","测试名称");//Test name
+define("_TESTNAME","考试名称");//Test name
 define("_UNITPARENT","父单元");//Parent unit
 define("_SAVETEST","保存试卷");//Save test
 define("_SUCCESFULLYADDEDRATE","比率插入成功");//The rate was inserted successfully
@@ -198,7 +198,7 @@ define("_INSERTDATA","导入数据");//Import data
 define("_OFLESSON","的课程");//Of the lesson
 define("_CATEGORY","类别");//Category
 define("_SEARCH","搜索");//Search
-define("_DESCRIPTION","描述");//Description
+define("_DESCRIPTION","说明");//Description
 define("_TYPE","类型");//Type
 define("_POSITION","立场");//Position
 define("_LESSONCONTENT","课程内容");//Lesson content
@@ -214,7 +214,7 @@ define("_LANGUAGEADMINISTRATION","设置语言");//Set languages
 define("_INTERMEDIATESELLER","中级推销员");//Intermediate salesman
 define("_PROFESSOR","教师");//Professor
 define("_ADMINSTRATOR","管理员");//Administrator
-define("_CONTROLCENTER","控制中心");//Control center
+define("_CONTROLCENTER","控制面板");//Control center
 define("_EXAMPLES","例子");//Examples
 define("_FORUM","论坛");//Forum
 define("_NOCONTENT","单元没有内容");//Unit without content
@@ -256,11 +256,11 @@ define("_RETURN","返回");//Return
 define("_UPDATESUCCESFULLYMADE","更新成功完成");//The update was completed successfully
 define("_LESSONMATERIAL","课程目录");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","无题目定义");//There are no questions defined
-define("_ADDQUESTION","新增测验项目");//Add question
+define("_ADDQUESTION","新增测验作业");//Add question
 define("_PREVIEW","预览");//Preview
-define("_NOTESTSSETFORTHISUNIT","没有测试，发现");//No tests found
-define("_ADDTEST","新增测试");//Add test
-define("_UNITANDSUBUNITSTESTS","单元和子单元测试");//Unit and subunits tests
+define("_NOTESTSSETFORTHISUNIT","无考试");//No tests found
+define("_ADDTEST","新增考试");//Add test
+define("_UNITANDSUBUNITSTESTS","单元和子单元考试");//Unit and subunits tests
 define("_NORESULTSFOUND","没有结果发现！");//No results found!
 define("_PAGES","页面");//pages
 define("_UPLOADFILESANDIMAGES","上传文件和图像");//Upload files and images
@@ -268,21 +268,21 @@ define("_COPYFROMANOTHERLESSON","从另一个课程复制");//Copy from another 
 define("_UNITNAME","单元名称");//Unit name
 define("_CONTENTTYPE","内容类型");//Content type
 define("_CONTENT","内容");//Content
-define("_UPDATEUNIT","更新单元");//Update unit
+define("_UPDATEUNIT","编辑单元");//Update unit
 define("_CREATESUBUNIT","创建子单元");//Create subunit
-define("_CREATETEST","创建测试");//Create test
+define("_CREATETEST","创建考试");//Create test
 define("_ADDPERIOD","添加期");//Add period
 define("_LESSONPERIODS","课程时期");//Lesson periods
 define("_COPY","复制");//Copy
 define("_EXCLUDECONSTRAINT","排斥约束");//Exclusion constraint
 define("_EXCLUSIONUNIT","排斥单元");//Exclusion unit
 define("_FUNCTIONS","职能");//Functions
-define("_THETEST","测试");//the test
+define("_THETEST","考试");//the test
 define("_WITHSCOREATLEAST","比率至少");//with rate at least
-define("_NOQUESTIONSTOCORRECTFORTHISLESSON","此课程没有待更正问题。");//No questions to correct for this lesson.
-define("_QUESTIONSTOCORRECT","待修正问题");//Questions to correct
+define("_NOQUESTIONSTOCORRECTFORTHISLESSON","此课程没有待更正题目。");//No questions to correct for this lesson.
+define("_QUESTIONSTOCORRECT","待修正题目");//Questions to correct
 define("_DELETESELECTED","删除所选");//Delete selected
-define("_REDOABLE","测验重复");//Test repetitions
+define("_REDOABLE","允许测验次数");//Test repetitions
 define("_PROFESSORS","教师");//Professors
 define("_CANNOTOPENFOLDER","文件夹无法打开");//The folder can&#039;t be opened
 define("_CREATEFOLDER","创建文件夹");//Create folder
@@ -320,7 +320,7 @@ define("_ADMINISTRATORS","管理员");//Administrators
 define("_LESSONSTATISTICS","课程报表");//Lesson reports
 define("_FILES","文件");//Files
 define("_TOTALSIZE","总大小");//Total size
-define("_NEWMESSAGE","新讯息");//New message
+define("_NEWMESSAGE","新邮件");//New message
 define("_PARTICIPATION","参与");//Participation
 define("_AVERAGE","平凡");//unremarkable
 define("_ACTIVE","激活");//Active
@@ -330,17 +330,17 @@ define("_PASSWORDRECOVERY","恢复您的密码");//Recover your password
 define("_THENEWPASSWORDIS","您的新密码是：");//Your new password is: 
 define("_EMAILWITHPASSWORDSENT","新密码已通过邮件发送给您。");//An email with your new password was sent to you.
 define("_LINEARCONTENT","内容顺序");//Content order
-define("_ONEBYONE","显示的问题，一个一个地");//Show questions one by one
-define("_NEXTQUESTION","下一个问题");//Next question
+define("_ONEBYONE","逐题显示题目");//Show questions one by one
+define("_NEXTQUESTION","下一个题目");//Next question
 define("_IDONOTWANTTODOTHETEST","返回。");//I changed my mind. Please take me back
 define("_YOUHAVE","你有");//You have
 define("_SENDFILEASANSWER","上传一个文件作为一个答案");//Upload a file as an answer
 define("_FILEUPLOADED","上传的文件");//File uploaded
-define("_PREVIOUSQUESTION","先前的问题");//Previous question
+define("_PREVIOUSQUESTION","先前的题目");//Previous question
 define("_RESTARTLESSON","课程初始化");//Lesson initialization
 define("_RESTARTLESSONCOMPLETED","课程已经初始化");//The lesson has been initialized
 define("_UPLOADFILE","上传文件");//Upload file
-define("_PROBLEMUPLOADINGFILE","上传时出现问题。");//There was a problem while uploading file
+define("_PROBLEMUPLOADINGFILE","上传时出现题目。");//There was a problem while uploading file
 define("_SHOW","显示");//Show
 define("_URL","网址");//URL
 define("_TARGET","目标");//Target
@@ -385,7 +385,7 @@ define("_REVIEWSCORMDATA","查看SCORM的数据");//Review SCORM data
 define("_IMPORTOFUNIT","导入单元");//Import of unit
 define("_SELECTFILE","选择一个文件");//Select a file
 define("_THESYSTEMSUGGESTSTHEFILES","该系统的建议文件");//The systems suggests the files
-define("_CHECKIFITISASINGLESCO","检查如果是一个单一的上海合作组织");//Check if it is a single SCO
+define("_CHECKIFITISASINGLESCO","选中如果是一个单一的上海合作组织");//Check if it is a single SCO
 define("_CHOOSESTUDENT","选择一个学生");//Select a student
 define("_NOSCORMDATAFOUNDFORTHISSTUDENT","没有SCORM的数据，发现这名学生");//No SCORM data found for this student
 define("_ENTRY","进入");//Entry
@@ -442,14 +442,14 @@ define("_LDAPLOCALITY","城市属性");//City attribute
 define("_LDAPTELEPHONENUMBER","电话号码属性");//Phone number attribute
 define("_LDAPMAIL","电子邮件属性");//Email attribute
 define("_LDAPLANGUAGE","语言属性");//Language attribute
-define("_CHECKSETTINGS","检查设置");//Check settings
+define("_CHECKSETTINGS","选中设置");//Check settings
 define("_LDAPPORT","LDAP服务器港口");//LDAP server port
 define("_USESSL","使用SSL联机");//Use SSL connection
 define("_CANNOTCONNECTLDAPSERVER","该系统是无法连接到LDAP服务器");//The system was unable to connect to LDAP server
 define("_CANNOTBINDLDAPSERVER","系统无法绑定到LDAP服务器");//The system was unable to bind to LDAP server
 define("_LDAPCONFIGURATION","LDAP的配置");//LDAP configuration
 define("_LDAPBASEDN","LDAP的基本DN");//LDAP Base DN
-define("_YOUHAVEALREADYCORRECTEDTHISQUESTION","你已经纠正了这一问题");//You have already corrected this question
+define("_YOUHAVEALREADYCORRECTEDTHISQUESTION","你已经纠正了这一题目");//You have already corrected this question
 define("_SHOWALL","显示所有");//Show all
 define("_TOTALLOGINS","总系统登录");//Total system logins
 define("_ALLOWEDIPS","允许的IPS");//Allowed IPs
@@ -479,17 +479,17 @@ define("_NOTES","债券");//Notes
 define("_SENDFILES","传送文件");//Send files
 define("_YOUCANNOTUPLOADFILESWITHTHISEXTENSION","你不能上传文件与此扩展");//You cannot upload files with this extension
 define("_YOUMAYONLYUPLOADFILESWITHEXTENSION","你只可以上传文件与扩展");//You may only upload files with extension
-define("_COULDNOTCREATEFOLDER","无法创建文件夹。请检查文件夹名称和该文件夹不存在");//Could not create folder. Please check the folder name and that the folder does not already exist
+define("_COULDNOTCREATEFOLDER","无法创建文件夹。请选中文件夹名称和该文件夹不存在");//Could not create folder. Please check the folder name and that the folder does not already exist
 define("_REGISTERANEWACCOUNT","新的用户账户");//New user account
 define("_REC","建议");//rec
 define("_SUCESSFULLYCONNECTEDTOLDAPSERVER","成功连接到LDAP服务器");//Successfully connected to LDAP server
 define("_DIRECTIONDELETED","类别删除");//Category deleted
-define("_NOANNOUNCEMENTSPOSTED","没有张贴公告，为这个课程");//No announcements posted
+define("_NOANNOUNCEMENTSPOSTED","暂无公告");//No announcements posted
 define("_NONEWFORUMMESSAGES","没有论坛的邮件就这个课程");//No forum messages
 define("_NONEWPERSONALMESSAGES","没有新的个人信息在您的收件箱");//No new personal messages in your inbox
 define("_NONEWCOMMENTS","没有新的评论");//No new comments
 define("_NOMATERIALINTHISLESSON","的课程，目前是空的");//The lesson is currently empty
-define("_NOSOLVEDTESTSFOUND","没有解决测试");//No solved tests
+define("_NOSOLVEDTESTSFOUND","没有解决考试");//No solved tests
 define("_NORELATEDPOSTSFOUND","没有职位，与此有关的单元。");//No posts relevant to this unit.
 define("_SUCCESSFULLYCREATEDLESSON","课程是成功创建");//The lesson was created successfully
 define("_SORRYNEEDIFRAME","对不起，您需要iframe支持使用聊天室");//Sorry, you need iframe support to use the Chat
@@ -514,41 +514,41 @@ define("_MONTH","一个月");//Month
 define("_WEEK","周");//Week
 define("_PRICE","价格");//Price
 define("_DURATION","会议时间");//Duration
-define("_MAINTENANCE","维修");//Maintenance
+define("_MAINTENANCE","系统维护");//Maintenance
 define("_FORUMLASTMESSAGE","最近一则留言，在论坛");//Last message in forum
 define("_MESSAGESFOLDERS","个人邮件文件夹");//Personal messages folders
 define("_FOLDERS","文件夹");//Folders
 define("_CHATLASTMESSAGE","最近一则留言，在聊天室");//Last message in chat
 define("_INFO","信息");//Information
 define("_LASTPOST","最后发表的帖子");//Last post
-define("_TOTALQUESTIONS","总的问题");//Total questions
+define("_TOTALQUESTIONS","总的题目");//Total questions
 define("_DEVELOPMENT","发展");//Development
 define("_MULTIPLEONE","单选题");//Multiple choices - Single correct answer
 define("_MULTIPLEMANY","多选题");//Multiple choices - Many correct answers
-define("_MATCH","比赛");//Match
-define("_EMPTYSPACES","空白");//Empty spaces
+define("_MATCH","匹配题");//Match
+define("_EMPTYSPACES","任意发挥题");//Empty spaces
 define("_LOWDIFFICULTY","低难度");//Low difficulty
 define("_MEDIUMDIFFICULTY","中等难度");//Medium difficulty
 define("_HIGHDIFFICULTY","高困难");//High difficulty
 define("_CATEGORIES","类别");//Categories
-define("_OVERALL","全部的");//Overall
+define("_OVERALL","总计");//Overall
 define("_BACKTOTOP","回到顶部");//Back to top
 define("_STATISTICSFORLESSON","课程报表");//Reports for lesson
 define("_GENERALLESSONINFO","一般的课程信息");//General lesson information
 define("_LESSONPARTICIPATIONINFO","的课程，参与信息");//Lesson participation information
 define("_LESSONCONTENTINFO","课的内容信息");//Lesson content information
-define("_TESTINFO","测试信息");//Test information
-define("_QUESTIONINFO","问题信息");//Question information
-define("_VIEWTEST","查看测试");//View test
+define("_TESTINFO","考试信息");//Test information
+define("_QUESTIONINFO","题目信息");//Question information
+define("_VIEWTEST","查看考试");//View test
 define("_SYSTEMSTATISTICS","系统报表");//System reports
 define("_ORDER","命令");//Order
-define("_TEST","测试");//Test
+define("_TEST","考试");//Test
 define("_TOPICSUCCESFULLYCREATED","成功创建");//The topic was created successfully
 define("_SUCCESFULLYPOSTEDMESSAGE","您的留言已发布成功");//Your message was posted successfully
 define("_SUCCESFULLYUPDATEDTOPIC","该专题已成功更新");//The topic was updated successfully
 define("_SUCCESFULLYUPDATEDMESSAGE","您的留言已成功更新");//Your message was updated successfully
 define("_INVISIBLE","隐藏");//Invisible
-define("_LOCKED","锁定");//Locked
+define("_LOCKED","网站锁定");//Locked
 define("_PUBLIC","市民");//Public
 define("_PREVIEWMESSAGE","预览邮件");//Preview message
 define("_BODY","内容");//Body
@@ -561,11 +561,11 @@ define("_TRIEDTOCREATEFOLDER","试图创建文件夹：");//Tried to create fold
 define("_COULDNOTCREATEFOLDERWINDOWCLOSE5SECONDS","文件夹无法建立。该窗口会自动关闭在5秒内");//The folder could not be created. This window will close automatically in 5 seconds
 define("_INVALIDNAME","无效的名称");//Invalid name
 define("_THISFOLDERCONTAINS","此文件夹包含");//This folder contains
-define("_TOPICS","话题");//Topics
+define("_TOPICS","主题");//Topics
 define("_FILEDOESNOTEXIST","文件不存在");//File does not exist
 define("_ADDLINK","添加链接");//Add link
 define("_CONTENTUNITS","内容单元");//Content units
-define("_MAINPAGE","主页");//Main page
+define("_MAINPAGE","控制面板");//Main page
 define("_PLEASEGIVEYOURLOGINOREMAIL","请您给您的登录名或电子邮件");//Please give your login or email
 define("_LESSONSETTINGS","课程设置");//Administration
 define("_ADMINISTRATOR","管理员");//Administrator
@@ -577,16 +577,16 @@ define("_DELETECURRENTAVATAR","删除当前的头像");//Delete current avatar
 define("_ONLYIMAGEFILESAREVALID","只有图片文件都是有效的。请选择一个图像文件。");//Only image files are valid. Please select an image file.
 define("_VIEWLIST","检视清单");//View list
 define("_SUCCESFULLYSETAVATAR","新头像设置成功");//New avatar is set successfully
-define("_TOPICDELETEDSUCCESSFULLY","话题已成功删除");//Topic deleted successfully
+define("_TOPICDELETEDSUCCESSFULLY","主题已成功删除");//Topic deleted successfully
 define("_MESSAGEDELETEDSUCCESSFULLY","信息已成功删除");//Message deleted successfully
 define("_POSTS","post");//Posts
 define("_BY","通过");//by
 define("_NEWCATEGORY","新的类别");//New category
-define("_FORUMCONFIGURATIONPANEL","论坛配置小组");//Forum configuration
+define("_FORUMCONFIGURATIONPANEL","论坛设置");//Forum configuration
 define("_VIEWS","意见");//Views
 define("_STICKY","手杖");//Sticky
 define("_NOTOPICSFOUND","没有主题发现");//No topics found
-define("_NEWTOPIC","发起新话题");//New topic
+define("_NEWTOPIC","发起新主题");//New topic
 define("_POSTEDBY","张贴");//Posted by
 define("_ON","在");//on
 define("_INREPLYTO","在答复");//in reply to
@@ -645,7 +645,7 @@ define("_LESSONACTIVATED","课程启动");//Lesson activated
 define("_VIEWALL","查看所有");//View all
 define("_FILESANDSUBFOLDERS","文件和子文件夹");//files and subfolders
 define("_ATTACHMENTS","附加的");//Attachments
-define("_PROBLEMQUERYINGDATABASE","问题查询数据库");//Problem querying database
+define("_PROBLEMQUERYINGDATABASE","题目查询数据库");//Problem querying database
 define("_FIRSTNAME","名字");//First name
 define("_LASTNAME","姓氏");//Last name
 define("_LESSONSTATUS","课程状态");//Lesson status
@@ -705,7 +705,7 @@ define("_THISMESSAGEDOESNOTEXIST","此消息是不存在的");//This message doe
 define("_RETURNFOLDERSLIST","返回到文件夹列表");//Return to folders list
 define("_TOFORUM","至");//To
 define("_RE","关于");//Re
-define("_INCOMING","传入");//Incoming
+define("_INCOMING","已接收");//Incoming
 define("_SENT","已发送");//Sent
 define("_DRAFTS","草稿");//Drafts
 define("_CALENDAR","日历");//Calendar
@@ -747,8 +747,8 @@ define("_DOYOUWANTTOADDTHISPAGETOYOURBOOKMARKS","你要添加此页到您的书�
 define("_BOOKMARKS","书签");//Bookmarks
 define("_SHOWBOOKMARKS","显示书签");//Show bookmarks
 define("_ADDTHISPAGETOYOURBOOKMARKS","将此网页添加到您的书签");//Add this page to your bookmarks
-define("_YOUCANDOTEST","你可以做的测试");//You can do test
-define("_TIMESMORE","次测试");//times more
+define("_YOUCANDOTEST","你可以做的考试");//You can do test
+define("_TIMESMORE","次考试");//times more
 define("_FIELDNAME","字段名称");//Field name
 define("_FIELDDESCRIPTION","实地描述");//Field description
 define("_DBTYPE","数据库类型");//Database type
@@ -766,7 +766,7 @@ define("_DEFINITION","定义");//Definition
 define("_NODEFINITIONSFOUNDFORTHISLESSON","没有定义，发现这个课程");//No definitions found for this lesson
 define("_CHOOSEWHATTOEXPORT","选择什么导出（除内容）");//Choose what to export (apart from content)
 define("_CREATED","创建");//Created
-define("_CANCELTEST","取消测试");//Cancel test
+define("_CANCELTEST","取消考试");//Cancel test
 define("_DELETEEXISTINGDATAFROM","删除现有的数据：");//Delete existing data from:
 define("_CLOSE","关闭");//Close
 define("_SHOWHIDE","显示/隐藏");//Show/Hide
@@ -779,13 +779,13 @@ define("_TRUEFALSE","判断题");//True/False
 define("_DROPDOWN","从列表中选择");//Select from list
 define("_TRUE","正确的");//True
 define("_FALSE","虚假");//False
-define("_QUESTIONNUMBER","问题数目");//Question number
-define("_QUESTIONTITLE","问题标题");//Question title
+define("_QUESTIONNUMBER","题目数目");//Question number
+define("_QUESTIONTITLE","题目标题");//Question title
 define("_NUMBEROFOPTIONS","多项选择");//Number of options
 define("_YOUHAVELOGGEDOUTBECAUSEYOURSESSIONHASTIMEDOUT","您已注销，因为您的会话已超时");//You have logged out because your session has timed out
 define("_ORSELECTONEFROMLIST","或选择其中一个，从名单");//Or select one from list
 define("_EXPLANATION","解释");//Explanation
-define("_QUESTION","问题");//Question
+define("_QUESTION","题目");//Question
 define("_CHANGESTYLE","改变主题");//Change theme
 define("_PREDEFINED","预定义");//Predefined
 define("_SELECTNEWSTYLE","选择新的主题");//Select new theme
@@ -795,18 +795,18 @@ define("_CHOOSELANGUGETOSYNC","选择语言同步");//Choose language to synchro
 define("_INSERTJAVA","插入的Java文件");//Insert java file
 define("_INSERTMEDIA","插入媒体文件");//Insert media file
 define("_CHANGEORDER","修改订单");//Change order
-define("_DRAGITEMSTOCHANGEQUESTIONSORDER","拖移项目，以改变显示顺序的问题");//Drag items to change the display order of the questions
+define("_DRAGITEMSTOCHANGEQUESTIONSORDER","拖移作业，以改变显示顺序的题目");//Drag items to change the display order of the questions
 define("_TERM","词汇/术语");//Term
 define("_OPERATIONS","操作");//Operations
-define("_AREYOUSUREYOUWANTTODELETELESSON","您确定要删除的课程呢?");//Are you sure you want to delete lesson?
+define("_AREYOUSUREYOUWANTTODELETELESSON","您确定要删除该课程吗?");//Are you sure you want to delete lesson?
 define("_EDITLESSON","课程设置");//Edit lesson
 define("_DIRECTIONS","类别");//Categories
-define("_UPDATEDIRECTIONS","编辑类别");//Edit categories
+define("_UPDATEDIRECTIONS","类别管理中心");//Edit categories
 define("_PARENTDIRECTIONS","课程类别");//Parent category
 define("_AREYOUSUREYOUWANTTODELETEDIRECTION","您确定要删除类别?");//Are you sure you want to delete the category?
 define("_YOUMUSTDELETEALLLESSONSANDSUBDIRECTIONSINTHISDIRECTIONBEFOREDELETINGIT","您必须删除所有的课程和所有子属于这一类删除之前");//You must delete all lessons and all subcategories that belong to this category before deleting it
-define("_ROOTDIRECTION","----热门分类----");//----Root category----
-define("_CHECK","检查");//Check
+define("_ROOTDIRECTION","----一级分类----");//----Root category----
+define("_CHECK","选中");//Check
 define("_REQUIREDNOTE","*必填");//*Mandatory fields
 define("_BEFOREJAVASCRIPTERROR","以下错误发生：");//The following errors occured:
 define("_AFTERJAVASCRIPTERROR","请更正上述错误");//Please correct the above errors
@@ -832,19 +832,19 @@ define("_SUCCESFULLYUPDATEDUNIT","成功更新单元");//Successfully updated un
 define("_ACTIVE2","激活");//Active
 define("_ACTIVEFEM","激活");//Active
 define("_LESSONSNUMBER","课程数目");//Number of lessons
-define("_PARENTDIRECTION","家长类");//Parent category
+define("_PARENTDIRECTION","上级分类");//Parent category
 define("_EXPANDCOLLAPSE","展开/折迭");//Expand/Collapse
 define("_RAWTEXT","原始文本");//Raw text
-define("_SUCCESFULLYADDEDTEST","测试添加成功");//Successfully added test
-define("_SUCESSFULLYDELETEDTEST","测试成功删除");//Successfully deleted test
-define("_SUCCESFULLYMODIFIEDTEST","成功修改测试");//Successfully modified test
-define("_USEQUESTION","使用问题");//Use question
+define("_SUCCESFULLYADDEDTEST","考试添加成功");//Successfully added test
+define("_SUCESSFULLYDELETEDTEST","考试成功删除");//Successfully deleted test
+define("_SUCCESFULLYMODIFIEDTEST","成功修改考试");//Successfully modified test
+define("_USEQUESTION","使用题目");//Use question
 define("_SHUFFLEANSWERS","选项顺序随机");//Shuffle answers
 define("_SHUFFLEQUESTIONS","题目顺序随机");//Shuffle questions
-define("_QUESTIONS","问题");//Questions
+define("_QUESTIONS","题目");//Questions
 define("_INSERTMULTIPLEQUESTIONS","选项");//Insert the multiple choices
 define("_INSERTEXPLANATION","插入解释");//Insert explanation
-define("_THISQUESTIONIS","这个问题是");//This question is
+define("_THISQUESTIONIS","这个题目是");//This question is
 define("_CREATEEMPTYSPACES","创建空白");//Create empty spaces
 define("_EMPTYSPACESEXPLANATION","在需要填空处插入###");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","插入匹配对");//Insert matching pairs
@@ -856,17 +856,17 @@ define("_SURVEY","调查");//Survey
 define("_SURVEYADDEDSUCCESSFULLY","调查添加成功");//Survey added successfully
 define("_SURVEYFAILEDTOBEADDED","调查无法加入");//Survey failed to be added
 define("_SURVEYDELETEDSUCCESSFULLY","调查成功删除");//Survey deleted successfully
-define("_QUESTIONADDEDSUCCESSFULLY","问题补充成功");//Question added successfully
-define("_QUESTIONFAILEDTOBEADDED","没有添加问题");//Failed to add question
-define("_CREATESURVEYQUESTION","创造问题的调查");//Create question for survey
+define("_QUESTIONADDEDSUCCESSFULLY","题目补充成功");//Question added successfully
+define("_QUESTIONFAILEDTOBEADDED","没有添加题目");//Failed to add question
+define("_CREATESURVEYQUESTION","创造题目的调查");//Create question for survey
 define("_CREATESURVEY","建立调查");//Create survey
 define("_EDITSURVEY","编辑调查");//Edit survey
 define("_NOSURVEYFORLESSON","有没有调查的课程");//There is no survey for the lesson
-define("_NOQUESTIONSFORSURVEY","有没有问题，以供调查");//There are no questions for the survey
+define("_NOQUESTIONSFORSURVEY","有没有题目，以供调查");//There are no questions for the survey
 define("_SURVEYCODE","代码");//Code
 define("_SURVEYNAME","名字");//Survey name
 define("_SURVEYSTATUS","身份");//Status
-define("_SURVEYNUMBEROFQUESTIONS","问题基数");//Question cardinality
+define("_SURVEYNUMBEROFQUESTIONS","题目基数");//Question cardinality
 define("_SURVEYAVALIABLEFROM","可从");//Availiable from
 define("_SURVEYUNTIL","直到");//Until
 define("_PUBLISH","发布");//Publish
@@ -879,12 +879,12 @@ define("_YES_NO","是/否");//Yes/No
 define("_SURVEYQUESTIONMULTIPLEONE","多种选择-一个答案");//Multiple choices-one answer
 define("_SURVEYQUESTIONMULTIPLEMANY","多种选择-多个答案");//Multiple choices-multiple answers
 define("_ENTERMAILMESSAGE","讯息");//Message
-define("_PLEASESELECTAVALIDTYPEOFQUESTION","请选择一个有效的类型的问题在前面的步骤。");//Please select a valid type of question in the previous step.
+define("_PLEASESELECTAVALIDTYPEOFQUESTION","请选择一个有效的类型的题目在前面的步骤。");//Please select a valid type of question in the previous step.
 define("_SURVEYDATAUPDATEDSUCCESSFULLY","调查数据更新成功");//Survey data updated successfully
 define("_SURVEYDATAFAILEDTOBEUPDATED","调查数据没有更新");//Survey data failed to be updated
-define("_QUESTIONDELETEDSUCCESSFULLY","问题已成功删除");//Question deleted successfully
-define("_THEQUESTIONWASSUCCESSFULLYMOVED","问题的动议成功");//The question moved successfully
-define("_THEQUESTIONFAILEDTOBEMOVED","问题没有被提出");//The question failed to be moved
+define("_QUESTIONDELETEDSUCCESSFULLY","题目已成功删除");//Question deleted successfully
+define("_THEQUESTIONWASSUCCESSFULLYMOVED","题目的动议成功");//The question moved successfully
+define("_THEQUESTIONFAILEDTOBEMOVED","题目没有被提出");//The question failed to be moved
 define("_NOSUCHOPERATION","没有这样的运作");//No such operation
 define("_SHOWDATAFORUNIT","筛选");//Show data for unit
 define("_ALLUNITS","各单元");//All units
@@ -899,21 +899,21 @@ define("_UPDATEUSERTYPEFOR","更新用户类型");//Update user type for
 define("_SYSTEMANNOUNCEMENTS","系统公告");//System announcements
 define("_CREATEUNIT","创建单元");//Create unit
 define("_DONETIMES","次完成");//Times completed
-define("_QUESTIONSTATISTICS","问题统计");//Question statistics
-define("_ADDQUESTIONOFTYPE","添加的问题类型");//Add question of type
+define("_QUESTIONSTATISTICS","题目统计");//Question statistics
+define("_ADDQUESTIONOFTYPE","选择新建题目类型");//Add question of type
 define("_NOSYSTEMANNOUNCEMENTSPOSTED","没有系统的公告张贴");//No system announcements posted
-define("_DURATIONINMINUTES","考试时间限制");//Duration in minutes
+define("_DURATIONINMINUTES","时间限制");//Duration in minutes
 define("_ADDCALENDAR","新增日历事件");//Add calendar event
 define("_EVENTS","事件");//events
 define("_NOEVENTSPLANNED","有没有活动计划");//There are no events planned
 define("_UNITOPERATIONS","单元操作");//Unit operations
 define("_LESSONINFORMATION","课程信息");//Lesson information
-define("_GENERALDESCRIPTION","一般说明");//General description
+define("_GENERALDESCRIPTION","课程说明");//General description
 define("_OBJECTIVES","目标");//Objectives
 define("_OTHERINFO","其它信息");//Other information
-define("_ASSESSMENT","估价");//Assessment
+define("_ASSESSMENT","评定");//Assessment
 define("_RESOURCES","参考资料");//Resources
-define("_LESSONTOPICS","课程话题");//Lesson topics
+define("_LESSONTOPICS","课程主题");//Lesson topics
 define("_NODESCRIPTIONSET","有没有说明订定这个课程");//There is no description set for this lesson
 define("_HASINVALIDEMAILADDRESS","已无效的电子邮件地址");//has invalid email address
 define("_SUCCESFULLYADDEDDIRECTION","成功添加类");//Successfully added category
@@ -921,7 +921,7 @@ define("_SUCCESFULLYUPDATEDDIRECTION","成功更新类别");//Successfully updat
 define("_LESSONRULES","课程规则");//Lesson rules
 define("_BASEDONTERM","基础条件");//Based on term
 define("_HASNOTSEENTHEUNIT","还没有学习以下单元");//Has not seen the unit
-define("_HASNOTPASSEDTHETEST","未完成测试");//Has not completed the test
+define("_HASNOTPASSEDTHETEST","未完成考试");//Has not completed the test
 define("_ALWAYS","总是");//Always
 define("_WITHNAME","单元名称");//With name
 define("_ANDSCOREGREATEROREQUAL","和评分大于或等于");//And score greater or equal to
@@ -941,7 +941,7 @@ define("_STARTSURVEY","开始调查");//Start survey
 define("_SURVEYSUBMISSIONSUCCESSFUL","调查提交成功");//Survey submitted successfully
 define("_YOUCANNOTACCESSTHISPAGE","你不能进入此页");//You cannot access this page
 define("_NOCONTENTFOUND","没有内容");//There is no content
-define("_EDITLESSONSDIRECTION","类的课程");//Category lessons
+define("_EDITLESSONSDIRECTION","该分类下课程");//Category lessons
 define("_EXTERNALLYSIGNUP","对外注册");//External signup
 define("_EVENT","事件");//Event
 define("_EDITEVENT","编辑活动");//Edit event
@@ -959,26 +959,26 @@ define("_SHOWWEEKEVENTS","显示这周的活动");//Show this week&#039;s events
 define("_SHOWMONTHEVENTS","显示这一个月的活动");//Show this month&#039;s events
 define("_SUBTITLE","副标题");//Subtitle
 define("_SURVEYSTATISTICS","调查报表");//Survey reports
-define("_PROJECT","项目");//Project
+define("_PROJECT","作业");//Project
 define("_DEADLINE","截止日期");//Deadline
-define("_ADDPROJECT","添加项目");//Add project
-define("_PROJECTCREATEDSUCCESSFULLY","项目的成功创建");//Project created successfully
-define("_PROJECTUPDATEDSUCCESSFULLY","项目已成功更新");//Project updated successfully
+define("_ADDPROJECT","添加作业");//Add project
+define("_PROJECTCREATEDSUCCESSFULLY","作业的成功创建");//Project created successfully
+define("_PROJECTUPDATEDSUCCESSFULLY","作业已成功更新");//Project updated successfully
 define("_CREATOR","创作者");//Creator
-define("_EDITPROJECT","编辑项目");//Edit project
-define("_NOPROJECTS","有没有项目，这个课程");//There are no projects
+define("_EDITPROJECT","编辑作业");//Edit project
+define("_NOPROJECTS","无作业");//There are no projects
 define("_SURVEYDONE","调查");//Survey done
 define("_DONESURVEYUSERS","调查参与者");//Survey participants
 define("_SURVEYPREVIEWFORUSER","调查预览用户：");//Survey preview for user:
-define("_QUESTIONSKIND","种问题");//Questions types
-define("_QUESTIONUPDATEDSUCCESSFULLY","问题的成功更新");//Question updated successfully
-define("_QUESTIONFAILEDTOBEUPDATED","问题未能得到更新");//Question failed to update
+define("_QUESTIONSKIND","种题目");//Questions types
+define("_QUESTIONUPDATEDSUCCESSFULLY","题目的成功更新");//Question updated successfully
+define("_QUESTIONFAILEDTOBEUPDATED","题目未能得到更新");//Question failed to update
 define("_INVALIDPERCENTAGE","无效的百分比");//Invalid percentage
 define("_PASSEDALLUNITS","看到各单元");//Seen all units
 define("_PERCENTAGEUNITS","看到的一小部分单元");//Seen a fraction of units
 define("_SPECIFICUNIT","看到一个具体单元");//Seen a specific unit
-define("_PASSEDALLTESTS","通过所有测试");//Passed all tests
-define("_SPECIFICTEST","通过一个具体的测试");//Passed a specific test
+define("_PASSEDALLTESTS","通过所有考试");//Passed all tests
+define("_SPECIFICTEST","通过一个具体的考试");//Passed a specific test
 define("_INVALIDCONDITION","无效的条件");//Invalid condition
 define("_THEUSERMUSTHAVE","学员必须做完");//The student must have
 define("_UNITSPERCENTAGE","百分比");//Percentage
@@ -993,7 +993,7 @@ define("_RELATIONTOOTHERS","和其他条件的关系");//Relation to others
 define("_SCROLLTOTOPOFPAGE","翻阅到返回页首");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","滚动到页面底部");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","没有用户所做的这项调查，但");//No user has done this survey yet
-define("_SYSTEM","系统");//System
+define("_SYSTEM","系统设置");//System
 define("_EMAILCONFIGURATIONS","电子邮件服务器配置");//E-mails server configuration
 define("_SAWUNIT","标记为已经学习");//Set the unit as completed
 define("_NOTSAWUNIT","标记为未学习");//Set the unit as not completed
@@ -1004,8 +1004,8 @@ define("_YOUMUSTSEEUNIT","你必须看到单元");//You must see unit
 define("_YOUMUSTSEEALLUNITS","你必须看到，各单元");//You must see all units
 define("_OFLESSONUNITS","课单元");//of lesson units
 define("_YOUMUSTSEE","您必须见");//You must see
-define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","您必须完成所有测试，平均得分");//You must complete all tests with mean score
-define("_YOUMUSTCOMPLETETEST","您必须完成测试");//You must complete test
+define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","您必须完成所有考试，平均得分");//You must complete all tests with mean score
+define("_YOUMUSTCOMPLETETEST","您必须完成考试");//You must complete test
 define("_WITHSCORE","与评分");//with score
 define("_NOCONDITIONSSET","有没有条件，订定这个课程");//There are no conditions set for this lesson
 define("_CONDITIONS","条件");//conditions
@@ -1013,20 +1013,20 @@ define("_RESUMELESSON","继续学习");//Resume lesson
 define("_STARTLESSON","开始学习");//Start lesson
 define("_TRACKING","跟踪");//Tracking
 define("_FORMATCERTIFICATE","格式证书");//Format certificate
-define("_TRAFFIC","交通");//Traffic
-define("_LESSONTRAFFIC","课程交通");//Lesson traffic
-define("_EDITTEST","编辑测试");//Edit test
-define("_EDITQUESTION","编辑问题");//Edit question
+define("_TRAFFIC","访问统计");//Traffic
+define("_LESSONTRAFFIC","课程访问信息");//Lesson traffic
+define("_EDITTEST","编辑考试");//Edit test
+define("_EDITQUESTION","编辑题目");//Edit question
 define("_CERTIFICATE","证书");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","成功更新证书");//Successfully updated certificate
-define("_EDITCONDITION","编辑条件");//Edit condition
+define("_EDITCONDITION","编辑规则");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP服务器配置");//SMTP server configuration
 define("_SMTPSERVER","SMTP服务器");//SMTP server
 define("_SMTPPASSWORD","的SMTP密码");//SMTP password
 define("_SMTPPORT","服务器SMTP端口");//Server SMTP port
-define("_TOTALACCESS","总数通道");//Total number of accesses
-define("_ACCESSNUMBER","有多少通道");//Number of accesses
-define("_LESSONTRAFFICANALYSIS","分析课程的交通");//Analysis of Lesson&#039;s Traffic
+define("_TOTALACCESS","总登录次数");//Total number of accesses
+define("_ACCESSNUMBER","登录次数");//Number of accesses
+define("_LESSONTRAFFICANALYSIS","分析课程的访问信息");//Analysis of Lesson&#039;s Traffic
 define("_SETTINGS","设置");//Settings
 define("_LESSONACCESS","一些课程&#39;通道");//Number of lessons&#039; accesses
 define("_ACCESSPERLESSON","有多少通道，每课程");//Number of Accesses per Lesson
@@ -1034,9 +1034,9 @@ define("_NOFILESFOUNDDIGITALLIBRARY","有没有任何文件在数字图书馆");
 define("_BLANKFORUNLIMITED","留空无限");//Leave blank for unlimited
 define("_CERTIFICATES","证书");//Certificates
 define("_NOUSERDATAFOUND","没有用户的教师数据发现");//No user progress data found
-define("_ISSUECERTIFICATE","问题证书");//Issue certificate
+define("_ISSUECERTIFICATE","题目证书");//Issue certificate
 define("_LESSONFILES","课程文件");//Lesson files
-define("_TOTALACCESSTIME","总存取时间");//Total access time
+define("_TOTALACCESSTIME","总访问时间");//Total access time
 define("_DEFAULTPAGE","默认页");//Default page
 define("_NEWPAGE","新的一页");//New page
 define("_UPDATEPAGES","更新页面");//Update pages
@@ -1049,10 +1049,10 @@ define("_PAGEDELETED","网页已删除");//Page deleted
 define("_AREYOUSUREYOUWANTTODELETEPAGE","您确定要删除的网页?");//Are you sure you want to delete page?
 define("_SUCCESFULLYADDEDPAGE","网页添加成功");//Page added successfully
 define("_LESSONMAINPAGE","课程主要页");//Lesson main page
-define("_GOTOPROJECTS","去项目");//Go to projects
+define("_GOTOPROJECTS","去作业");//Go to projects
 define("_ACCESSSTATISTICS","访问统计");//Access statistics
-define("_ANALYTICLOG","解析日志");//Analytic log
-define("_SHOWANALYTICLOG","查看解析日志");//Show analytic log
+define("_ANALYTICLOG","分析日志");//Analytic log
+define("_SHOWANALYTICLOG","查看分析日志");//Show analytic log
 define("_SHOWALLLESSONS","显示所有的经验课程");//Show all lessons
 define("_CHATROOMDEACTIVATEDBYADMIN","聊天室停用，由管理员");//Chat room deactivated by administrator
 define("_IPADDRESS","IP地址");//IP address
@@ -1088,9 +1088,9 @@ define("_CONDITIONSMET","条件符合并等待批准");//Conditions met and awai
 define("_STUDENTSTATUSCHANGED","学生的课程，成功地改变现状");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","必须数字");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront网络学习平台的组织，证明用户名＃ ＃ ＃ ＃ user_surname已成功地完成＃ course_name ＃级＃级＃这证书签发对＃日期＃");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
-define("_NOQUESTIONSTOCORRECT","有没有问题，以正确的");//There are no questions to correct
-define("_RESTTESTSCORE","评分在其余的测试");//Score at the remaining of the test
-define("_CORRECTQUESTION","正确的问题");//Correct question
+define("_NOQUESTIONSTOCORRECT","有没有题目，以正确的");//There are no questions to correct
+define("_RESTTESTSCORE","评分在其余的考试");//Score at the remaining of the test
+define("_CORRECTQUESTION","正确的题目");//Correct question
 define("_FILEMANAGER","文件管理员");//File manager
 define("_NOFILESFOUND","没有找到文件");//No files found
 define("_LASTMODIFIED","最后修改");//Last modified
@@ -1110,7 +1110,7 @@ define("_CANNOTDELETEFILE","无法删除文件");//Cannot delete file
 define("_FILEWILLUNZIPINFOLDERWITHSAMENAME","该文件将被解压缩在一个文件夹中具有相同名称");//The file will be uncompressed in a folder with the same name
 define("_FILEALREADYEXISTS","文件已经存在");//File already exists
 define("_ROOTDIR","根文件夹中");//Root folder
-define("_GOTOCORRECTQUESTIONS","去的问题，正确的网页");//Go to questions correct page
+define("_GOTOCORRECTQUESTIONS","去的题目，正确的网页");//Go to questions correct page
 define("_THEREARE","有");//There are
 define("_YOUCANNOTACCESSTHISLESSONORITDOESNOTEXIST","无论您可能无法访问此课程，这个课程，或不存在");//Either you may not access this lesson, or this lesson does not exist
 define("_SHOWSIDEBAR","显示侧栏");//Show sidebar
@@ -1118,18 +1118,18 @@ define("_HIDESIDEBAR","隐藏侧栏");//Hide sidebar
 define("_YOURPROJECTSCOREIS","您的评分");//Your score
 define("_USERSEXPORTUSINGCSVFORMATCOMMA","导出用户使用的数据格式（分离“ ， ” ）");//Export users data using csv format (separated with &quot;,&quot;)
 define("_USERSEXPORTUSINGCSVFORMATQM","导出用户使用的数据格式（分开“ ; ” ）");//Export users data using csv format (separated with &quot;;&quot;)
-define("_SHOWGIVENANSWERS","显示给予的答案");//Show given answers
+define("_SHOWGIVENANSWERS","显示答案");//Show given answers
 define("_SHOWRIGHTANSWERS","查看正确答案");//Show correct answers
 define("_COULDNOTBESEND","无法寄出");//Could not be sent
-define("_ENVIRONMENTALCHECK","环境检查");//Environmental check
+define("_ENVIRONMENTALCHECK","环境选中");//Environmental check
 define("_REPAIRTREE","还原树");//Restore tree
 define("_RULEPROPERTIES","法治的属性");//Rule properties
 define("_CONDITIONPROPERTIES","条件属性");//Condition properties
 define("_ORPHANLESSONFOLDERSCHECK","孤儿的课程，文件夹的所有内容");//Orphan lesson folders check
-define("_LESSONSWITHOUTFOLDERSCHECK","课程，没有文件夹检查");//Lessons without folders check
+define("_LESSONSWITHOUTFOLDERSCHECK","课程，没有文件夹选中");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","下列文件夹中没有一个相关的课程");//The following folders do not have a lesson associated
 define("_LESSONSWITHOUTAFOLDER","以下课程，没有一个文件夹");//The following lessons do not have a folder
-define("_PROBLEM","问题");//Problem
+define("_PROBLEM","题目");//Problem
 define("_CLEANUP","清理");//Clean up
 define("_OK","好的");//OK
 define("_PEMANENTLYDELETEFOLLOWINGFOLDERS","这一操作将永久地删除下列文件夹");//This action will permanently delete the following folders
@@ -1138,11 +1138,11 @@ define("_CREATEFOLLOWINGLESSONFOLDERS","这一操作将创建文件夹为以下�
 define("_AREYOUSURE","您是否确定?");//Are you sure?
 define("_CHECKAGAIN","再次检查");//Check again
 define("_GENERICQUERIES","通用查询");//Generic queries
-define("_SENDINFOVIAEMAIL","发送登录信息在电子邮件账户");//Send login information in email account
-define("_NOONEHASBEENASSIGNEDTHISPROJECT","这个项目还没有被分配到任何学生");//This project has not been assigned to any student
-define("_PROJECTINFO","项目信息");//Project information
+define("_SENDINFOVIAEMAIL","Email发送登录信息");//Send login information in email account
+define("_NOONEHASBEENASSIGNEDTHISPROJECT","这个作业还没有被分配到任何学生");//This project has not been assigned to any student
+define("_PROJECTINFO","作业信息");//Project information
 define("_ANNOUNCEMENTGO","去公告页");//Go to announcements page
-define("_PROJECTAVERAGESCOREFORLESSON","平均分数为课程的项目");//Average score for lesson&#039;s projects
+define("_PROJECTAVERAGESCOREFORLESSON","平均分数为课程的作业");//Average score for lesson&#039;s projects
 define("_NEWPOLL","新建问卷调查");//New poll
 define("_NOBOOKMARKSFOUND","没有书签发现");//No bookmarks found
 define("_FOLDERSTATISTICS","文件夹统计");//Folder statistics
@@ -1173,35 +1173,35 @@ define("_NOFOLDERSFOUNDTOCOPYTO","有没有文件夹复制/移动到");//There a
 define("_SCORMFILE","SCORM的文件");//SCORM file
 define("_SMILIES","笑脸");//Smilies
 define("_SURVEYS","调查");//Surveys
-define("_MODULES","模块");//Modules
-define("_INSTALLMODULE","安装模块");//Install module
+define("_MODULES","插件");//Modules
+define("_INSTALLMODULE","安装插件");//Install module
 define("_COULDNOTOPENZIPFILE","ZIP文件无法打开");//The ZIP file could not be opened
-define("_MODULEINFORMATION","模块信息");//Module information
-define("_MODULESUCCESFULLYINSTALLED","该模块已成功安装");//The module was successfully installed
-define("_DESCRIPTIONFILECOULDNOTBEFOUND","该模块无法安装，因为说明文件， module.xml ，没有被发现。");//The module could not be installed because the description file, module.xml, was not found.
-define("_SUCCESFULLYDELETEDMODULE","该模块已成功删除");//The module was successfully deleted
+define("_MODULEINFORMATION","插件信息");//Module information
+define("_MODULESUCCESFULLYINSTALLED","该插件已成功安装");//The module was successfully installed
+define("_DESCRIPTIONFILECOULDNOTBEFOUND","该插件无法安装，因为说明文件， module.xml ，没有被发现。");//The module could not be installed because the description file, module.xml, was not found.
+define("_SUCCESFULLYDELETEDMODULE","该插件已成功删除");//The module was successfully deleted
 define("_AUTHOR","作者");//Author
 define("_VERSION","版本");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","该领域在您的CSV文件必须包含下列领域");//The fields in your csv file must contain the following fields
 define("_IFEMPTYNEWPASSWORD","红色领域是强制性的。如果没有密码，给出初始密码将被设置相同的登录。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
-define("_PLEASECHECKYOURCSVFILEFORMAT","请检查格式的CSV文件");//Please check the format of your CSV file
+define("_PLEASECHECKYOURCSVFILEFORMAT","请选中格式的CSV文件");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","使用用户名＃ ＃为使用者的名称，编号user_surname ＃为用户的姓， ＃ course_name ＃课程的名称，编号＃级，一级和＃日期＃日期。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","投票数");//Votes
 define("_PERCENTAGE","百分比");//Percentage
 define("_CERTIFICATEISSUED","颁发证书");//Certificate issued
-define("_ISSUE","问题");//Issue
+define("_ISSUE","题目");//Issue
 define("_PROBLEMISSUINGCERTIFICATE","该证书无法发出");//The certificate could not be issued
 define("_REVOKECERTIFICATE","撤销证书");//Revoke certificate
 define("_VIEWCERTIFICATE","查看证书");//View certificate
 define("_CERTIFICATEREVOKED","该证书被撤销成功");//The certificate was revoked successfully
 define("_PROBLEMREVOKINGCERTIFICATE","证书不能被撤销");//The certificate could not be revoked
-define("_CHECKFORUPDATES","检查更新");//Check for updates
-define("_MODULEUPDATE","更新模块");//Update module
+define("_CHECKFORUPDATES","选中更新");//Check for updates
+define("_MODULEUPDATE","更新插件");//Update module
 define("_PENDING","紧迫的");//Pending
 define("_DEADLINEPASSED","限期已通过");//The deadline has passed
-define("_PROJECTFINISHED","该项目完成");//The project is finished
-define("_FILEUPLOADEDAWAITINGGRADE","该文件上传，但该项目尚未分级。");//The file was uploaded, but the project has not been graded yet.
-define("_LOCKDOWN","锁定");//Lock down
+define("_PROJECTFINISHED","该作业完成");//The project is finished
+define("_FILEUPLOADEDAWAITINGGRADE","该文件上传，但该作业尚未分级。");//The file was uploaded, but the project has not been graded yet.
+define("_LOCKDOWN","网站暂时锁定");//Lock down
 define("_LOCKDOWNFROM","锁定系统，从");//Lock down system from
 define("_LOCKDOWNTO","锁定系统");//Lock down system to
 define("_DISPLAYINDEXMESSAGE","显示通知讯息系统的第一页");//Display notification message to system first page
@@ -1228,13 +1228,13 @@ define("_LDAPVARIABLES","LDAP服务器配置");//LDAP server configuration
 define("_EMAILCOULDNOTBESENDBECAUSE","该电子邮件无法寄出");//The email could not be sent
 define("_EMAILSENDTOYOURADDRESS","电子邮件被发送到您的电子邮件地址");//The email was send to your email address
 define("_YOUMUSTFIRSTCREATEDIRECTION","以创造一个课程，您必须先建立一个类别");//In order to create a lesson, you must first create a category
-define("_SAVEQUESTIONANDCREATENEW","保存问题，并创建另一个");//Save question and create another
-define("_SAVEASNEWQUESTION","另存为新问题");//Save as new question
+define("_SAVEQUESTIONANDCREATENEW","保存题目，并创建另一个");//Save question and create another
+define("_SAVEASNEWQUESTION","另存为新题目");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","这项调查是在成功更新");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","您已经完成了所有内容");//You have completed all content
 define("_CONDITIONMET","条件满足");//Condition met
 define("_CONDITIONNOTMET","条件不符合");//Condition not met
-define("_OLDMODULES","旧模块");//Old modules
+define("_OLDMODULES","旧插件");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP的LDAP的扩展是不加载");//The PHP LDAP extension is not loaded
 define("_LESSONCONDITIONSCOMPLETED","你满足课程的完全条件。这个课程，需要设置完成所教师");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","课程已学习完成");//Lesson completed
@@ -1251,16 +1251,16 @@ define("_YOUHAVEALREADYVOTED","你已经投了票，为这次调查");//You have
 define("_SUCCESFULLYVOTED","您的投票已submited");//Your vote has been submited
 define("_VIEWRESULTS","查看结果");//View results
 define("_TOTALVOTES","总票数");//Total votes
-define("_SUBMITTEST","提交测试");//Submit test
+define("_SUBMITTEST","交卷");//Submit test
 define("_RATEMUSTBEBETWEEN1100","分数必须范围1到100之间");//The score must range between 1 and 100
-define("_NUMOFQUESTIONS","若干问题");//Number of questions
-define("_TESTDURATION","测试持续时间");//Test duration
-define("_QUESTIONSARESHOWN","问题显示");//Questions are shown
-define("_YOUCANDOTHETEST","你可以做的测试");//You can do the test
-define("_DONETIMESSOFAR","到目前为止，你做了这个测试");//So far you have done this test
+define("_NUMOFQUESTIONS","题目数");//Number of questions
+define("_TESTDURATION","考试时间");//Test duration
+define("_QUESTIONSARESHOWN","题目显示方式");//Questions are shown
+define("_YOUCANDOTHETEST","剩余次数");//You can do the test
+define("_DONETIMESSOFAR","已做次数");//So far you have done this test
 define("_ALLTOGETHER","所有一起");//All together
-define("_ONEBYONEQUESTIONS","一个又一个");//One by one
-define("_TIMES","次测试");//times
+define("_ONEBYONEQUESTIONS","单题显示");//One by one
+define("_TIMES","次考试");//times
 define("_LDAPACCOUNTPASSWORD","LDAP的账户密码");//LDAP account password
 define("_USELDAPACCOUNT","使用您的LDAP账户凭据，以便使用该系统");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","只有注册使用有效的LDAP账户允许");//Only registration using a valid LDAP account is permitted
@@ -1275,17 +1275,17 @@ define("_YOUWILLRECEIVEMAILFORACCOUNTACTIVATION","您会收到一封电子邮件
 define("_ACCOUNTACTIVATIONMAILBODY","欢迎eFront eLearning的平台。按照下面的链接，以激活您的账户：");//Please, follow link below to activate your account:
 define("_ACCOUNTSUCCESSFULLYACTIVATED","您的账户已成功启动");//Your account was successfully activated
 define("_SUCCESSFULLYINSERTEDVALUES","成功插入的价值观");//Successfully inserted values
-define("_NEWFORUM","新论坛");//New forum
+define("_NEWFORUM","新板块");//New forum
 define("_FORUMS","论坛");//Forums
 define("_FORUMADDEDSUCCESSFULLY","论坛的成功添加");//Forum added succesfully
 define("_FORUMUPDATEDSUCCESSFULLY","论坛已成功更新");//Forum updated succesfully
-define("_ACCESSIBLEBYUSERSOFLESSON","为课程");//For lesson
+define("_ACCESSIBLEBYUSERSOFLESSON","课程");//For lesson
 define("_FORUMDELETEDSUCCESSFULLY","论坛已成功删除");//Forum deleted succesfully
 define("_ACCESSIBLEBY","到达");//Accessible by
 define("_ROOTUNIT","---热门单元----");//---Root unit----
 define("_GENERICLESSONINFO","通用课程信息");//Generic lesson info
 define("_LOGRECORD","日志记录");//Log record
-define("_NOFORUMPOSTSYET","有没有职位，在这个论坛上，但");//There are no posts in this forum yet
+define("_NOFORUMPOSTSYET","暂无发帖");//There are no posts in this forum yet
 define("_NOTOPICSFOUNDINTHISFORUM","有没有主题在这个论坛");//There are no topics in this forum
 define("_NOMESSAGESFOUNDINTHISTOPIC","有没有讯息在这个主题");//There are no messages in this topic
 define("_AVAILABLEFROM","可从");//Available from
@@ -1304,10 +1304,10 @@ define("_USER","用户");//User
 define("_CHOOSEUSER","选择用户");//Select user
 define("_USERS","用户");//Users
 define("_ALLSYSTEMUSERS","所有系统用户");//All system users
-define("_USERSCONNECTEDTOSPECIFICCOURSE","所涉及的用户与课程");//Users involved with specific course
-define("_USERSCONNECTEDTOSPECIFICLESSON","所涉及的用户与课程");//Users involved with specific lesson
+define("_USERSCONNECTEDTOSPECIFICCOURSE","学习该专题的用户");//Users involved with specific course
+define("_USERSCONNECTEDTOSPECIFICLESSON","学习该课程的用户");//Users involved with specific lesson
 define("_SPECIFICTYPEUSERS","特定类型的员工");//Specific type of users
-define("_USERTYPE","学习者的基本类型");//User type
+define("_USERTYPE","用户类型");//User type
 define("_ACTIVEUSER","积极用户");//Active user
 define("_USERDELETED","用户已删除。");//User deleted.
 define("_THEUSER","用户");//The user
@@ -1318,15 +1318,15 @@ define("_USERSONLINE","在线用户");//Connected users
 define("_ANDTHEMESSAGESOFUSER","和邮件的员工");//And the messages of user
 define("_ALLUSERS","所有用户");//All users
 define("_INVALIDUSER","无效的用户名称");//Invalid user name
-define("_REPLACEEXISTINGUSERS","取代重复的用户");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","不断重复的用户");//Keep duplicate users
+define("_REPLACEEXISTINGUSERS","覆盖重复用户");//Replace duplicate users
+define("_KEEPEXISTINGUSERS","保留重复用户");//Keep duplicate users
 define("_NOOTHERUSERSONLINE","没有其它的用户目前在线");//No other users currently online
 define("_USERNAME","用户姓名");//User name
 define("_STATISTICSFORUSER","报表为用户");//Reports for user
 define("_GENERALUSERINFO","一般员工信息");//General user information
 define("_USERCOMMUNICATIONINFO","用户的信息沟通");//User information on communication
 define("_USERUSAGEINFO","用户的信息系统的使用情况");//User information on system usage
-define("_THEUSERHASNOTDONEANYTESTSINTHISLESSON","用户的还没有完成任何测试，在这方面的课程");//The user has not completed any tests in this lesson
+define("_THEUSERHASNOTDONEANYTESTSINTHISLESSON","用户的还没有完成任何考试，在这方面的课程");//The user has not completed any tests in this lesson
 define("_USERSTATISTICS","用户报表");//User reports
 define("_REPORTSFORUSER","报表的员工");//Reports for user
 define("_OTHERUSERSINROOM","其它用户在房间内");//Other users in the room
@@ -1341,7 +1341,7 @@ define("_ISVISIBLEFROMOTHERUSERS","可见，从任何用户?");//Visible from an
 define("_CUSTOMIZEUSERSPROFILE","自定义用户的个人数据");//Extend user profile
 define("_USERISONLINE","该用户是在线");//The user is online
 define("_USERJUSTLOGGEDIN","用户在刚刚登入");//The user just logged in
-define("_UPDATEUSERSTOLESSONS","指派用户的课程");//Select lesson users
+define("_UPDATEUSERSTOLESSONS","课程用户设置");//Select lesson users
 define("_EDITUSERSLESSON","课程用户");//Lesson users
 define("_NEWUSER","新用户");//New user
 define("_UPDATEUSERS","更新用户");//Update users
@@ -1359,26 +1359,26 @@ define("_SUCCESFULLYADDEDUSERTYPE","用户类型是添加成功");//User type wa
 define("_USERSMANAGEMENT","用户管理");//Users management
 define("_AREYOUSUREYOUWANTTODELETEUSER","您确定要删除的用户呢?");//Are you sure you want to delete user?
 define("_USERTYPEDELETED","用户类型删除");//User type deleted
-define("_EDITUSERSCOURSE","课程用户");//Course users
+define("_EDITUSERSCOURSE","专题用户");//Course users
 define("_USERDEACTIVATED","用户停用");//User deactivated
 define("_USERACTIVATED","用户激活");//User activated
 define("_USERSKIND","用户类型");//User types
 define("_USERTYPES","用户类型");//User types
 define("_SMTPUSER","的SMTP登录");//SMTP user
 define("_USERCREATED","用户创造");//User created
-define("_USERTRAFFIC","用户的交通");//User&#039;s traffic
+define("_USERTRAFFIC","用户的访问信息");//User&#039;s traffic
 define("_USERSPROGRESS","用户状态");//Users status
 define("_THEUSERHASNOTCOMPLETEDTHELESSON","用户的还没有完成，但这个课程");//The user has not completed this lesson yet
-define("_MOSTACTIVEUSERS","最激活的用户");//Most active users
-define("_5MOSTACTIVEUSERS","5最激活的用户");//5 most active users
+define("_MOSTACTIVEUSERS","最活跃的用户");//Most active users
+define("_5MOSTACTIVEUSERS","活跃用户前五");//5 most active users
 define("_NOUSERFORTHISSURVEYYET","没有用户，但本次调查.");//No users for this survey yet.
 define("_SHOWALLUSERS","显示所有用户");//Show all users
 define("_THEREARENOLESSONSDEFINEDFORTHEUSERLANGUAGE","有没有经验课程的定义为用户的语言");//There are no lessons defined for the users&#39;s language
 define("_VIEWUSERLESSONPROGRESS","鉴于学生的教师，整个的课程");//View the student progress throughout the lesson
 define("_USERCAPITAL","用户");//User
 define("_USERSDATA","汇入/汇出用户");//Import/Export users
-define("_ORPHANUSERFOLDERSCHECK","孤儿用户文件夹检查");//Orphan user folders check
-define("_USERSWITHOUTFOLDERSCHECK","用户没有文件夹检查");//Users without folders check
+define("_ORPHANUSERFOLDERSCHECK","孤儿用户文件夹选中");//Orphan user folders check
+define("_USERSWITHOUTFOLDERSCHECK","用户没有文件夹选中");//Users without folders check
 define("_FOLDERSWITHOUTAUSERASSOCIATED","下列文件夹中没有一个相关的用户");//The following folders do not have a user associated
 define("_USERSWITHOUTAFOLDER","以下的用户没有一个文件夹");//The following users do not have a folder
 define("_PEMANENTLYDELETEFOLLOWINGUSERS","这一操作将永久删除以下用户");//This action will permanently delete the following users
@@ -1391,7 +1391,7 @@ define("_USERSMAYADDFORUMS","用户可添加论坛");//Users may add forums
 define("_NONEWAPPLICATIONS","没有申请新用户");//No application from new users
 define("_EXPORTUSERSDATA","导出用户数据");//Export users data
 define("_IMPORTUSERSDATA","导入用户资料");//Import users data
-define("_THEUSERHASNOTBEENASSIGNEDANYPROJECT","没有项目已分配给这名用户");//No project has been assigned to this user
+define("_THEUSERHASNOTBEENASSIGNEDANYPROJECT","没有作业已分配给这名用户");//No project has been assigned to this user
 define("_SUCCESFULLYCLEANEDUPUSERS","成功清理用户");//Successfully cleaned up users
 define("_SUCCESFULLYCREATEDUSERFOLDERS","成功地建立了用户的文件夹");//Successfully created user folders
 define("_THEFOLLOWINGUSERFOLDERSCOULDNOTBECREATED","以下用户的文件夹无法创建");//The following user folders could not be created
@@ -1403,7 +1403,7 @@ define("_EMPLOYEEWASRELEASEDFROMGROUP","用户被释放，从组");//User was re
 define("_PROFESSORCAPITAL","学习进度指示");//Professor
 define("_STUDENTROLE","用户的作用");//Student role
 define("_PROFESSORROLE","教师的作用");//Professor role
-define("_COURSES","课程");//Courses
+define("_COURSES","专题");//Courses
 define("_COURSEDELETED","课程删除");//Course deleted
 define("_COURSEDEACTIVATED","课程停用");//Course deactivated
 define("_COURSEACTIVATED","课程激活");//Course activated
@@ -1412,12 +1412,12 @@ define("_COURSEUPDATED","课程更新");//Course updated
 define("_SUCCESFULLYCREATEDCOURSE","课程，成功创建");//Course was created successfully
 define("_COURSEOPTIONSFOR","课程选择");//Options for course
 define("_NEWCOURSEOPTIONS","新课程的选择");//New course options
-define("_EDITCOURSE","编辑过程中");//Edit course
-define("_EDITLESSONSCOURSE","课程，课程");//Course lessons
-define("_NEWCOURSE","新课程");//New course
-define("_UPDATECOURSES","更新课程");//Update courses
+define("_EDITCOURSE","专题编辑");//Edit course
+define("_EDITLESSONSCOURSE","该专题下课程");//Course lessons
+define("_NEWCOURSE","新建专题");//New course
+define("_UPDATECOURSES","专题管理中心");//Update courses
 define("_COURSE","课程");//Course
-define("_COURSEONLY","课程，仅通过");//Exclusively through course
+define("_COURSEONLY","专题课程");//Exclusively through course
 define("_AREYOUSUREYOUWANTTODELETECOURSE","您确定要删除课程?");//Are you sure you want to delete course?
 define("_NOCOURSESFOUND","没有课程的定义");//No courses defined
 define("_UPDATEEMPLOYEES","更新用户");//Update users
@@ -1562,8 +1562,8 @@ define("_NOHISTORYREGARDINGTHISEMPLOYEE","历史上没有关于这名用户记�
 define("_HISTORYOFEMPLOYEE","历史用户");//History of user
 define("_HISTORY","历史");//History
 define("_NOANNOUNCEMENTSPOSTEDADMIN","没有张贴公告");//No announcements
-define("_SEPARATEMULTIPLEUSERS","分隔多个受助人;");//Separate multiple recipients with ;
-define("_STARTTYPINGFORRELEVENTMATCHES","开始输入，以获取有关比赛（键入％ ，为所有）");//Start typing to get relevant matches (Type % for all)
+define("_SEPARATEMULTIPLEUSERS","分隔多个收件人;");//Separate multiple recipients with ;
+define("_STARTTYPINGFORRELEVENTMATCHES","开始输入，以获取有关记录（键入％ ，为所有）");//Start typing to get relevant matches (Type % for all)
 define("_ADVANCEDSEARCH","高级搜索选项");//Advanced search options
 define("_REGISTERADVANCEDSEARCHFIELDS","注册进阶搜寻字段");//Register advanced search fields
 define("_EDITBRANCH","编辑科");//Edit branch
@@ -1585,8 +1585,8 @@ define("_ADVANCED","先进标准");//Advanced criteria
 define("_MYSTUDENTS","我的学生");//My students
 define("_EMPLOYEE","用户");//User
 define("_NOBRANCHJOBSERROR","没有工作，说明已登记为这个分支");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","测试报表");//Tests reports
-define("_CHOOSETEST","选择测试");//Choose test
+define("_TESTSTATISTICS","考试报表");//Tests reports
+define("_CHOOSETEST","选择考试");//Choose test
 define("_USERPROFILE","用户配置文件");//Public profile
 define("_VIEWBRANCHES","鉴于党支部");//View branches
 define("_NOEMPLOYEESFOUND","没有用户被发现");//No users were found
@@ -1612,14 +1612,14 @@ define("_CANNOTCOPYDIRECTORY","目录无法复制");//The directory cannot be co
 define("_DIRECTORYALREADYEXISTS","目录已经存在");//The directory already exists
 define("_AUTOASSIGNTONEWUSERS","自动分配给新用户");//Automatically assign to new users
 define("_CANNOTOPENCOMPRESSEDFILE","压缩文件无法打开");//The compressed file cannot be opened
-define("_CHOOSEWHATTODELETE","选择系统初始化期间要删除的项目");//Choose what to delete during lesson initialization
+define("_CHOOSEWHATTODELETE","选择系统初始化期间要删除的作业");//Choose what to delete during lesson initialization
 define("_PERIODS","期");//Periods
-define("_IMPORTLESSON","导入的课程");//Import lesson
-define("_EXPORTLESSON","导出的课程");//Export lesson
+define("_IMPORTLESSON","导入课程");//Import lesson
+define("_EXPORTLESSON","导出课程");//Export lesson
 define("_LESSONEXPORTEDSUCCESFULLY","的课程，成功地导出");//Lesson successfully exported
 define("_LESSONIMPORTEDSUCCESFULLY","的课程，成功导入");//Lesson successfully imported
 define("_FILESIZEMUSTBESMALLERTHAN","该文件必须小于");//The file must be smaller than
-define("_PROBLEMIMPORTINGFILE","问题的导入文件");//Problem importing file
+define("_PROBLEMIMPORTINGFILE","题目的导入文件");//Problem importing file
 define("_PAGE","页");//Page
 define("_ACTIVE_PROJECTS","激活");//Active
 define("_INACTIVE_PROJECTS","未激活");//Inactive
@@ -1651,10 +1651,10 @@ define("_PRINTPREVIEW","打印预览");//Print preview
 define("_PRINTEMPLOYEEFORM","打印用户的形式");//Print user form
 define("_PRINT","打印");//Print
 define("_NOSPECIFICJOB","没有具体的职位描述");//No specific job position
-define("_GROUPS","用户群体");//User groups
-define("_NEWGROUP","新组");//New group
+define("_GROUPS","用户组");//User groups
+define("_NEWGROUP","新建用户组");//New group
 define("_NOGROUPSDEFINED","没有团体的定义");//No groups defined
-define("_UPDATEGROUPS","更新团体");//Update groups
+define("_UPDATEGROUPS","用户组管理中心");//Update groups
 define("_GROUPDEACTIVATED","该组已停用");//The group was deactivated
 define("_GROUPACTIVATED","该组被激活");//The group was activated
 define("_EDITGROUP","编辑组");//Edit group
@@ -1665,7 +1665,7 @@ define("_GROUPDELETED","该组已删除");//The group was deleted
 define("_GROUPFILTER","组过滤器");//Group filter
 define("_NOUSERSFOUND","无用户那里发现");//No users where found
 define("_SEPARATEALTERNATIVESEXAMPLE","单独的替代正确答案，与| ，例如：蓝|黑|白");//Separate alternative correct answers with |, for example: Blue|Black|White
-define("_CREATERANODOMTEST","创建随机测试");//Create random test
+define("_CREATERANODOMTEST","创建随机考试");//Create random test
 define("_USING","使用");//Using
 define("_EASY","容易的");//Easy
 define("_HARD","硬的");//Hard
@@ -1679,30 +1679,30 @@ define("_LOCATION","位置");//Location
 define("_TIMEZONE","时区");//Time zone
 define("_INVALIDRECIPIENT","无效的收件者");//Invalid recipient
 define("_NOBRANCHSELECTED","没有科被选为");//No branch was selected
-define("_AREYOUSUREYOUWANTTODELETEPROJECT","您确定您要删除的这个项目呢?");//Are you sure that you want to delete this project?
+define("_AREYOUSUREYOUWANTTODELETEPROJECT","您确定您要删除的这个作业呢?");//Are you sure that you want to delete this project?
 define("_TIMESDONE","时代做");//Times done
 define("_HASLEFT","左边");//Left
 define("_EMPLOYEESINGROUP","员工组");//Users of group
-define("_ERRORRESTORINGFILE","问题来了，在恢复");//A problem came up during restore
+define("_ERRORRESTORINGFILE","题目来了，在恢复");//A problem came up during restore
 define("_DATABASEONLY","数据库只");//Database only
 define("_ALLDATABACKUP","所有的数据备份");//All data backup
 define("_LESSONDIRECTORYCANNOTBCREATED","课程目录无法创建");//The lesson directory could not be created
-define("_YOUHAVENOTCOMPLETEDTHEFOLLOWINGQUESTIONS","您尚未完成的问题");//You have not completed questions
-define("_AREYOUSUREYOUWANTTOSUBMITTEST","您确定要提交测试?");//Are you sure you want to submit the test?
+define("_YOUHAVENOTCOMPLETEDTHEFOLLOWINGQUESTIONS","您尚未完成的题目");//You have not completed questions
+define("_AREYOUSUREYOUWANTTOSUBMITTEST","您确定要交卷?");//Are you sure you want to submit the test?
 define("_JOBANALYTICALDESCRIPTION","详细说明");//Detailed description
 define("_INCLUDESUBBRANCHES","包括subbranches");//Include subbranches
 define("_PDFFORMAT","PDF格式");//PDF format
 define("_XLSFORMAT","Excel格式");//EXCEL format
 define("_ATTENDING","出席");//Attending
-define("_USERAVERAGESCOREFORTESTS","平均分数为课程的测试");//Average score for lesson&#039;s tests
-define("_PROJECTSCOMPRESSED","下载项目文件");//Download project files
+define("_USERAVERAGESCOREFORTESTS","平均分数为课程的考试");//Average score for lesson&#039;s tests
+define("_PROJECTSCOMPRESSED","下载作业文件");//Download project files
 define("_EDUCATIONALROLE","教育的作用");//Educational role
 define("_ORGANIZATIONALROLE","组织的作用");//Organizational role
 define("_TYPEOFUSER","用户类型");//User type
 define("_MESSAGEBODY","邮件正文");//Message body
-define("_ONLYRECIPIENTSDEFINEDBELOW","受助人的界定，只有在下面的字段");//Only recipients defined in the field below
+define("_ONLYRECIPIENTSDEFINEDBELOW","收件人的界定，只有在下面的字段");//Only recipients defined in the field below
 define("_NORECIPIENTSHAVEBEENSELECTED","没有受助者已选定");//No recipients have been selected
-define("_NORECIPIENTSHAVEBEENFOUND","没有受助人已找到");//No recipients have been found
+define("_NORECIPIENTSHAVEBEENFOUND","没有收件人已找到");//No recipients have been found
 define("_CHANGELESSON","切换课程");//Change lesson
 define("_HOME","首页");//Home
 define("_FFROM","自");//from
@@ -1739,7 +1739,7 @@ define("_PAYPALTABLESTATUS","付款状态");//Payment status
 define("_PAYPALTABLELESSONS","课程");//Lessons
 define("_PAYPALORDERINFO","交易详情");//Transaction details
 define("_PAYPALCUSTOMERINFO","客户的信息");//Customer&#039;s information
-define("_PAYPALITEMSINFO","项目信息");//Items information
+define("_PAYPALITEMSINFO","作业信息");//Items information
 define("_PAYPALPURCHASEORDER","采购订单");//Purchase order
 define("_PAYPALPURCHASEORDERFOR","付款");//Payment to
 define("_ADDTOCART","放入购物车");//Add to cart
@@ -1754,7 +1754,7 @@ define("_RESULT","结果");//result
 define("_PAYPALORDERSUCCESS","交易顺利完成");//The transaction completed successfully
 define("_PAYPALORDERFAILURE","有一个错误与交易");//There was an error with the transaction
 define("_PAYPALFREEORDERSUCCESS","课程登记顺利完成");//Lessons registration finished successfully
-define("_FREEREGISTRATION","免费注册");//Free registration
+define("_FREEREGISTRATION","确认选课");//Free registration
 define("_VIEWDIRECTORY","显示课程/课程目录");//Show lesson/courses catalog
 define("_VIEWDIRECTORYYESAFTERLOGIN","是（只有登录后）");//Yes (only after login)
 define("_VIEWDIRECTORYYESONLOGIN","是（对登入网页和登录后）");//Yes (on login page and after login)
@@ -1790,7 +1790,7 @@ define("_INVALIDUSERTYPE","指定的用户类型是无效的");//The specified u
 define("_REMEMBERME","记得我");//Remember me
 define("_INVALIDPASSWORD","密码无效");//Invalid password
 define("_INVALIDPASSWORDFORUSER","无效的使用者的密码");//Invalid password for user
-define("_PROBLEMACTIVATINGACCOUNT","有问题，在激活账户");//There was a problem during account activation
+define("_PROBLEMACTIVATINGACCOUNT","有题目，在激活账户");//There was a problem during account activation
 define("_THEUSERCOULDNOTBEDELETED","使用无法删除");//The use could not be deleted
 define("_THEUSERCOULDNOTBEDEACTIVATED","用户不能停用");//The user could not be deactivated
 define("_THEUSERCOULDNOTBEACTIVATED","用户不能启动");//The user could not be activated
@@ -1801,41 +1801,41 @@ define("_DOWNLOADEXPORTED","下载导出的课程");//Download exported lesson
 define("_SUCCESFULLYRESTOREDSYSTEM","恢复程序顺利完成");//The restoring procedure completed successfully
 define("_LESSONDOESNOTEXIST","课程指定不存在");//The lesson specified does not exist
 define("_UNDOCHANGES","撤消变化");//Undo changes
-define("_CONTENTTREEMANAGEMENT","内容树的管理");//Content tree management
+define("_CONTENTTREEMANAGEMENT","大纲");//Content tree management
 define("_ORDERWILLPERMANENTLYCHANGE","此操作将永久改变单元订购和无法复原。您是否确定?");//This operation will permanently change unit ordering and cannot be undone. Are you sure?
 define("_ERRORLOADINGCONTENT","错误加载内容的课程");//Error loading content for lesson
 define("_USERROLE","用户角色");//User role
 define("_CANNOTUPDATEUSERLESSONINFORMATION","的课程，这方面的数据用户无法更新");//The lesson information on this user could not be updated
-define("_PROBLEMUPDATINGUSERSTOLESSON","有问题，更新用户信息的课程");//There was a problem updating the user lesson information
-define("_INVALIDPROJECTID","无效的项目编号");//Invalid project Id
-define("_PROJECTNOTFOUND","指定的项目没有被发现");//The specified project was not found
+define("_PROBLEMUPDATINGUSERSTOLESSON","有题目，更新用户信息的课程");//There was a problem updating the user lesson information
+define("_INVALIDPROJECTID","无效的作业编号");//Invalid project Id
+define("_PROJECTNOTFOUND","指定的作业没有被发现");//The specified project was not found
 define("_USERDOESNOTHAVETHISLESSON","用户没有登记这个课程");//The user is not registered to this lesson
-define("_COURSEDOESNOTEXIST","指定的课程是不存在的");//The specified course does not exist
+define("_COURSEDOESNOTEXIST","指定的科目是不存在的");//The specified course does not exist
 define("_NODEDOESNOTEXIST","指定的课程点不存在");//The specified node does not exist
-define("_PROJECTCOULDNOTBEDELETED","该项目无法删除");//The project could not be deleted
+define("_PROJECTCOULDNOTBEDELETED","该作业无法删除");//The project could not be deleted
 define("_FREELESSON","免费的课程");//Free lesson
 define("_BUYCOURSE","课程购买");//Buy course
 define("_FREECOURSE","免费课程");//Free course
-define("_USERDOESNOTHAVETHISPROJECT","用户不会有这个项目");//The user does not have this project
-define("_SCOREMUSTBEINTEGERBETWEEN0100","该项目评分必须是整数的范围从0到100");//The project score must be an integer ranging from 0 to 100
-define("_THEPROJECTGRADECOULDNOTBEUPDATED","该项目等级无法更新");//The project grade could not be updated
+define("_USERDOESNOTHAVETHISPROJECT","用户不会有这个作业");//The user does not have this project
+define("_SCOREMUSTBEINTEGERBETWEEN0100","该作业评分必须是整数的范围从0到100");//The project score must be an integer ranging from 0 to 100
+define("_THEPROJECTGRADECOULDNOTBEUPDATED","该作业等级无法更新");//The project grade could not be updated
 define("_INVALIDDATA","无效数据");//Invalid data
 define("_UPLOADEDON","上传");//Uploaded on
-define("_PROJECTDELETEDSUCCESSFULLY","该项目已成功删除");//The project was deleted succesfully
-define("_FILESCOULDNOTBEDOWNLOADED","该项目的文件无法下载");//The project files could not be downloaded
-define("_RESULTSFORPROJECT","结果项目");//Results for project
-define("_VIEWPROJECT","鉴于项目");//View project
+define("_PROJECTDELETEDSUCCESSFULLY","该作业已成功删除");//The project was deleted succesfully
+define("_FILESCOULDNOTBEDOWNLOADED","该作业的文件无法下载");//The project files could not be downloaded
+define("_RESULTSFORPROJECT","结果作业");//Results for project
+define("_VIEWPROJECT","鉴于作业");//View project
 define("_REMAINING","其余");//Remaining
-define("_PROJECTEXPIRED","该项目的最后期限已经过期");//The project deadline has expired
-define("_SENDPROJECT","发送项目");//Send project
+define("_PROJECTEXPIRED","该作业的最后期限已经过期");//The project deadline has expired
+define("_SENDPROJECT","发送作业");//Send project
 define("_NEWLESSONS","新的课程");//New lessons
 define("_YOUMUSTDELETEALLLESSONSANDSUBDIRECTIONSINTHISDIRECTIONBEFOREDEACTIVATINGIT","你不能停用非空语类");//You cannot deactivate a non-empty category
 define("_CANNOTUPDATEUSERCOURSEINFORMATION","课程信息关于这个用户无法更新");//The course information on this user could not be updated
 define("_CANNOTADDUSERTOCOURSE","用户可不会被添加到课程");//The user could not be added to course
 define("_CANNOTREMOVEUSERFROMCOURSE","用户可以不被免职过程");//The user could not be removed from the course
-define("_USERHASNOTDONETEST","该用户已没有这样做的测试");//The user has not done this test
-define("_TESTISNOTDONE","测试是没有这样做");//The test is not done
-define("_INVALIDQUESTIONTYPE","无效的问题类型");//Invalid question type
+define("_USERHASNOTDONETEST","该用户已没有这样做的考试");//The user has not done this test
+define("_TESTISNOTDONE","考试是没有这样做");//The test is not done
+define("_INVALIDQUESTIONTYPE","无效的题目类型");//Invalid question type
 define("_YOUCANNOTDEACTIVATEANONEMPTYDIRECTION","你不能停用非空语类");//You cannot deactivate a non-empty category
 define("_YOUCANNOTDELETEANONEMPTYDIRECTION","您不能删除一个非空语类");//You cannot delete a non-empty category
 define("_MAXFILEISAFFECTEDANDIS","最高上传文件的大小也受PHP中的INI设置。目前真正的最大文件大小是");//The maximum upload file size is also affected by PHP ini settings. Current true max file size is
@@ -1866,24 +1866,24 @@ define("_ERRORINSERTINGBOOKMARK","网页不能书签");//The page could not be b
 define("_LOADING","载入中...");//Loading...
 define("_UNITS","单元");//Units
 define("_USERCOULDNOTBECREATED","用户无法创建");//The user could not be created
-define("_PROCEEDTOTEST","进行测试");//Proceed to test
+define("_PROCEEDTOTEST","进行考试");//Proceed to test
 define("_OPERATIONWILLAFFECTMANYAREYOUSURE","这项操作将影响不可逆转了大量的实体。进行?");//This operation will affect irreversibly a large number of entities. Proceed?
 define("_CLICKTOTOGGLE","按一下开关");//Click to toggle
 define("_COMPRESSDOWNLOAD","压缩和下载");//Compress and download
-define("_SELECTEDENTRYTO","选定项目");//the selected entry to
+define("_SELECTEDENTRYTO","选定作业");//the selected entry to
 define("_YOUWANTTO","您想要");//You want to
 define("_UPLOADTODIGITALLIBRARY","上传到数字图书馆");//Upload to digital library
 define("_SHARE","共享");//Share
 define("_OPERATIONSUCCESFULLYAPPLIEDON","运作成功的应用");//Operation successfully applied on
 define("_BYUSER","由用户");//by user
-define("_VIEWSOLVEDTEST","鉴于解决测试");//View solved test
-define("_VIEWQUESTION","鉴于问题");//View question
-define("_COULDNOTCREATETESTSDIRECTORY","测试文件夹无法创建");//The tests folder could not be created
-define("_SAVEASNEWTEST","另存为新的考验");//Save as new test
-define("_SELECTLESSONTOCOPYFROM","选择一个课程，复制，从");//Select a lesson to copy from
+define("_VIEWSOLVEDTEST","鉴于解决考试");//View solved test
+define("_VIEWQUESTION","鉴于题目");//View question
+define("_COULDNOTCREATETESTSDIRECTORY","考试文件夹无法创建");//The tests folder could not be created
+define("_SAVEASNEWTEST","另存为新的考试");//Save as new test
+define("_SELECTLESSONTOCOPYFROM","选择复制课程来源");//Select a lesson to copy from
 define("_VIEWCOMMENT","查看评论");//View comment
 define("_SHOWEVALUATIONS","查看评价");//Show evaluations
-define("_RECIPIENTS","受助人");//Recipients
+define("_RECIPIENTS","收件人");//Recipients
 define("_SHOWRECIPIENTSCATEGORIES","显示收件人的预定义分类");//Show recipient&#039;s predefined categories
 define("_HIDERECIPIENTSCATEGORIES","隐藏收件人的预定义分类");//Hide recipient&#039;s predefined categories
 define("_TOYOURSUPERVISORS","您所有的上司");//All your supervisors
@@ -1891,7 +1891,7 @@ define("_BASICINFO","基本数据");//Basic info
 define("_TRAININGCAP","训练");//T R A I N I N G
 define("_COURSESAVERAGE","平均分数在所有课程");//Average score in all courses
 define("_LESSONSAVERAGE","平均分数在所有的经验课程");//Average score in all lessons
-define("_TESTSAVERAGE","平均分数在所有测试");//Average score in all tests
+define("_TESTSAVERAGE","平均分数在所有考试");//Average score in all tests
 define("_DONTTAKEINTOACCOUNT","不考虑");//Do not take into account
 define("_CANNOTADDUSERTOLESSON","不能添加用户，以课程");//Cannot add user to lesson
 define("_UNKNOWNUSER","未知用户");//Unknown user
@@ -1899,10 +1899,10 @@ define("_DEPENDSON","要视乎");//Depends on
 define("_COURSEINFORMATION","课程信息");//Course information
 define("_NODATAFOUND","没有找到数据");//No data found
 define("_ERROROPENINGATTACHMENT","错误开放实习");//Error opening attachment
-define("_USERAVERAGESCOREFORLESSON","平均分数为课程的测试");//User&#039;s average score for lesson
+define("_USERAVERAGESCOREFORLESSON","平均分数为课程的考试");//User&#039;s average score for lesson
 define("_LESSONSINFO","课程信息");//Lessons info
 define("_USERSINGROUP","小组中的用户");//Users in group
-define("_PROFESSORSOFLESSON","教师的课程");//Professors of lesson
+define("_PROFESSORSOFLESSON","课程教师");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","只有您的分行监事");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","职务说明，从其它科");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","发送信息给所有用户发现");//Send messages to all users found
@@ -1922,10 +1922,10 @@ define("_DISPLAYERRORS","显示错误");//Display errors
 define("_UPLOADLESSONFILE","上传文件的课程");//Upload lesson file
 define("_DCTITLE","标题");//Title
 define("_DCCREATOR","创作者");//Creator
-define("_DCSUBJECT","题目");//Subject
+define("_DCSUBJECT","主题");//Subject
 define("_DCDESCRIPTION","描述");//Description
 define("_DCPUBLISHER","出版商");//Publisher
-define("_DCCONTRIBUTOR","投稿");//Contributor
+define("_DCCONTRIBUTOR","协作者");//Contributor
 define("_DCDATE","日期");//Date
 define("_DCTYPE","类型");//Type
 define("_DCFORMAT","格式");//Format
@@ -1939,13 +1939,13 @@ define("_NOENTRYFOUNDFOR","没有进入发现");//No entry found for
 define("_FIELD","领域");//field
 define("_COURSECERTIFICATES","课程证书");//Course certificates
 define("_LDAPUSERMUSTCONTACTADMIN","您的账户是通过访问LDAP服务器。请联系系统管理员在");//Your account is accessed through the LDAP server. Please contact the system administrator at 
-define("_COURSEMETADATA","课程中继");//Course metadata
+define("_COURSEMETADATA","课程属性");//Course metadata
 define("_COURSESTATUS","课程状态");//Course status
 define("_LESSONSCOMPLETED","完成的课程");//Completed lessons
 define("_COURSESCORE","课程评分");//Course score
 define("_VIEWUSERCOURSEPROGRESS","查看用户的教师的整个过程中");//View the user progress throughout the course
 define("_COURSERULES","课程规则");//Course rules
-define("_INFORMATIONFORCOURSE","信息的过程中");//Information for course
+define("_INFORMATIONFORCOURSE","专题信息");//Information for course
 define("_CERTIFICATESFORCOURSE","证书课程");//Certificates for course
 define("_FORMATCERTIFICATEFORCOURSE","格式证书课程");//Format certificate for course
 define("_RULESFORCOURSE","规则课程");//Rules for course
@@ -1958,26 +1958,26 @@ define("_SUCCESSFULLYDELETEDFIELD","成功删除领域");//Successfully deleted 
 define("_COMPLETELESSON","完整的课程");//Complete lesson
 define("_AUTOCOMPLETEDCOURSE","过程是自动完成时，所有的经验课程已完成");//The course was automatically completed when all lessons were completed
 define("_INFORMATIONFORLESSON","课程信息");//Information for lesson
-define("_LESSONMETADATA","课程中继");//Lesson metadata
+define("_LESSONMETADATA","课程属性");//Lesson metadata
 define("_DISPLAYINGRESULTS","结果显示");//Displaying results
 define("_LOADINGDATA","加载数据");//Loading...
-define("_COURSESTATISTICS","课程报表");//Course reports
-define("_CHOOSECOURSE","课程，选择");//Choose course
-define("_HISTORYRECORDDELETED","历史记录删除");//History record deleted
+define("_COURSESTATISTICS","专题报表");//Course reports
+define("_CHOOSECOURSE","选择专题");//Choose course
+define("_HISTORYRECORDDELETED","历史删除记录");//History record deleted
 define("_AREYOUSUREYOUWANTTODELETETHEHISOTYRECORD","您确定要删除的历史记录?");//Are you sure you want to delete the history record?
 define("_HIDEALL","全部隐藏");//Hide all
 define("_COURSEORDER","课程，为了");//Course order
 define("_ORDERFORCOURSE","为了让课程");//Order for course
-define("_DRAGITEMSTOCHANGELESSONSORDER","拖移项目，以改变显示顺序的过程中的经验课程");//Drag items to change the display order of the course lessons
+define("_DRAGITEMSTOCHANGELESSONSORDER","拖移作业，以改变显示顺序的过程中的经验课程");//Drag items to change the display order of the course lessons
 define("_IRREVERSIBLEACTIONDELETESUBUNITSAREYOUSURE","这一操作将irreversably删除此单元和任何子单元，它可能有。您是否确定?");//This action will irreversably delete this unit and any subunits it may have. Are you sure?
-define("_CLICKOKTOACTIVATEITEM","单击确定以启动/关闭项目");//Click OK to activate/deactivate item
+define("_CLICKOKTOACTIVATEITEM","单击确定以启动/关闭作业");//Click OK to activate/deactivate item
 define("_ANDITSSUBNODES","和它的子课程点");//and it&#039;s sub nodes
 define("_ERRORDELETINGUNIT","错误删去单元");//Error deleting unit
 define("_ERRORACTIVATINGUNIT","错误激活单元");//Error activating unit
 define("_ERRORDEACTIVATINGUNIT","错误失能单元");//Error deactivating unit
 define("_ERRORDEPOSITIONINGUNIT","错误定位单元");//Error positioning unit
 define("_ERRORREPAIRINGTREE","错误修复树");//Error repairing tree
-define("_DRAGAUNITTOCHANGEITSPOSITION","拖动一个单元，改变其立场");//Drag a unit to change its position
+define("_DRAGAUNITTOCHANGEITSPOSITION","拖动可调整顺利");//Drag a unit to change its position
 define("_IFUSESSLTHENPHPOPENSSL","如果你想使用SSL ，请确保PHP的OpenSSL的支持启用");//If you want to use ssl, make sure that PHP openssl support is enabled
 define("_COURSECOMPLETED","课程完成");//Course completed
 define("_COURSECERTIFICATE","课程证书");//Course certificate
@@ -1997,8 +1997,8 @@ define("_UNSHARESELECTED","取消共享选定的文件");//Cancel sharing of sel
 define("_SHARESELECTED","分享选定的文件");//Share selected files
 define("_YOUDONTHAVEPERMISSION","您不“吨的权限，执行选定的操作");//You don&quot;t have permission to perform the selected action
 define("_EXPORT","导出");//Export
-define("_NOMODULECLASSFOUND","没有模块级的发现与名称");//No module class found with name
-define("_ERRORLOADINGMODULE","错误加载模块");//Error loading module
+define("_NOMODULECLASSFOUND","没有插件级的发现与名称");//No module class found with name
+define("_ERRORLOADINGMODULE","错误加载插件");//Error loading module
 define("_VERSIONKEYTITLE","版本的关键");//Registration
 define("_VERSIONKEY","版本的关键");//Registration key
 define("_VERSIONALLOEDUSERS","允许用户");//Allowed Users
@@ -2012,11 +2012,11 @@ define("_ERRORDETAILS","错误的详细数据");//Error Details
 define("_PARTOFTHISGROUP","用户的一部分，这个小组");//The user is part of this group
 define("_SUCCESSFULLYIMPORTEDSCORMFILE","SCORM的文件被成功导入");//SCORM file was successfully imported
 define("_CONVERTTOSCORMCONTENT","转换到SCORM的内容单元");//Convert to SCORM content unit
-define("_CONVERTTOSCORMTEST","转换到SCORM的测试单元");//Convert to SCORM test unit
+define("_CONVERTTOSCORMTEST","转换到SCORM的考试单元");//Convert to SCORM test unit
 define("_SCORMTREE","SCORM的树");//SCORM tree
 define("_MASTERYSCORE","掌握评分");//Mastery score
 define("_GZHANDLER","广州处理");//GZ handler
-define("_PROJECTPENDING","这个项目正在等待");//This project is pending
+define("_PROJECTPENDING","这个作业正在等待");//This project is pending
 define("_USERHASNOTTHISLESSON","用户没有登记这个课程");//The user is not registered for this lesson
 define("_SHIFTSCHEDULEFORNEWUSERS","附表转移为新用户");//Shift schedule for new users
 define("_CURRENTSCHEDULE","目前附表");//Current schedule
@@ -2053,9 +2053,9 @@ define("_LESSONUSERS","课程用户");//Lesson users
 define("_ASSOCIATEDCOURSES","相关课程");//Associated courses
 define("_OUTPUT","输出");//Output
 define("_TOKEN","令牌");//Token
-define("_PERMITTEDROLESMODULEERROR","一个或多个模块允许的角色是错误的");//One or more module permitted roles are wrong
+define("_PERMITTEDROLESMODULEERROR","一个或多个插件允许的角色是错误的");//One or more module permitted roles are wrong
 define("_SMARTYTEMPLATEDOESNOTEXIST","该smarty模板文件不存在");//The smarty template file does not exist
-define("_FOLDERWITHMODULENAMEEXISTSIN","文件夹中与模块名称已存在在");//Folder with module name already exists in 
+define("_FOLDERWITHMODULENAMEEXISTSIN","文件夹中与插件名称已存在在");//Folder with module name already exists in 
 define("_SITENAME","网站名称");//Site name
 define("_SITEMOTO","网站摩托");//Site motto
 define("_UNKNOWNSEPARATOR","未知分离");//Unknown separator
@@ -2091,40 +2091,40 @@ define("_LESSONSKILLSSELECTION","的课程，所提供的技能选择");//Select
 define("_TOPCENTER","顶端中心");//Top center
 define("_BOTTOMCENTER","底部的中心");//Bottom center
 define("_HIDECOMPLETEUNITICON","隐藏完成单元图标");//Hide complete unit icon
-define("_HIDENAVIGATION","隐藏导航处理");//Hide navigation handles
+define("_HIDENAVIGATION","隐藏导航图标");//Hide navigation handles
 define("_AUTOCOMPLETEDAT","自动完成");//Auto completed at
 define("_SECOND","第二");//second
 define("_NOACCESSDATA","没有访问数据");//No access data
 define("_USERAVATAR","用户头像");//User avatar
-define("_MOSTACTIVELESSONS","最激活的课程");//Most active lessons
+define("_MOSTACTIVELESSONS","最热门课程");//Most active lessons
 define("_LESSONSACTIVITY","课程活动");//Lessons activity
 define("_USERSACTIVITY","用户活动");//Users activity
 define("_USERHASNOTTHELESSON","用户没有这个课程");//The user doesn&#039;t have this lesson
 define("_USERHASTHELESSON","该用户已这个课程");//The user has this lesson
-define("_TESTSINFORMATION","测试信息");//Tests information
-define("_QUESTIONSINFORMATION","问题信息");//Questions information
-define("_PROJECTSINFORMATION","项目信息");//Projects Information
+define("_TESTSINFORMATION","考试信息");//Tests information
+define("_QUESTIONSINFORMATION","题目信息");//Questions information
+define("_PROJECTSINFORMATION","作业信息");//Projects Information
 define("_MCEXPLANATION","*MC=多个选项-单一答案");//* MC = Multiple choices - Single Answers
 define("_MCMAEXPLANATION","* MCMA =多种选择-多个答案");//* MCMA = Multiple choices - Multiple Answers
 define("_MAEXPLANATION","*MA=匹配");//* MA = Matching
 define("_FBEXPLANATION","*FB=填补空白");//* FB = Fill the blank
 define("_OAEXPLANATION","*OA=开放答案");//* OA = Open answer
 define("_YNEXPLANATION","*Y/N=是/否");//* YN = Yes/No
-define("_PROJECTNAME","项目名称");//Project name
+define("_PROJECTNAME","作业名称");//Project name
 define("_STATISTICSFORCOURSE","统计过程中");//Statistics for course
-define("_YOUARENOTAUTHORISEDTOSEETHISTEST","未授权您看到这个测试");//You are not authorized to see this test
-define("_YOUCANNOTREDOTHISTEST","你不能重做此测试");//You cannot redo this test
+define("_YOUARENOTAUTHORISEDTOSEETHISTEST","未授权您看到这个考试");//You are not authorized to see this test
+define("_YOUCANNOTREDOTHISTEST","你不能重做此考试");//You cannot redo this test
 define("_ACCESSEDLESSON","访问课程");//Accessed lesson
 define("_ACCESSEDCONTENT","访问内容单元");//Accessed content unit
-define("_ACCESSEDTEST","进入测试");//Accessed test
-define("_BEGUNTEST","开始测试");//Begun test
+define("_ACCESSEDTEST","进入考试");//Accessed test
+define("_BEGUNTEST","开始考试");//Begun test
 define("_NAVIGATEDSYSTEM","通过导航系统");//Navigated through the system
-define("_PROJECTDESCRIPTION","项目说明");//Project description
+define("_PROJECTDESCRIPTION","作业说明");//Project description
 define("_CONTENTTRAVERSINGRULES","内容查看规则");//Content traversing rules
 define("_FILEUPLOADEDON","该文件上传");//The file was uploaded on
-define("_DIRECTIONOPTIONSFOR","选择类别");//Options for category
+define("_DIRECTIONOPTIONSFOR","当前类别");//Options for category
 define("_NEWDIRECTIONOPTIONS","新的类别选项");//New category options
-define("_COURSELESSONS","课程，课程");//Course lessons
+define("_COURSELESSONS","专题下课程");//Course lessons
 define("_RELATEDTO","有关");//Related to
 define("_SUCCESSFULLYEXPORTEDSCORMFILE","课程是导出到SCORM的格式成功");//The lesson was exported to SCORM format succesfully
 define("_LDAPEXTENSIONNOTLOADED","警告： LDAP的扩展不加载");//Warning: LDAP Extension  not loaded
@@ -2133,24 +2133,24 @@ define("_MUSTSEECONTENTSERIALSOMUSTFIRSTREADUNIT","您所学习的内容是按�
 define("_YOUDONTHAVEANYLESSONS","您尚未选购任何课程，请进入“课程目录”进行选择！");//You don&#039;t have any lessons or courses
 define("_THEADMINISTRATORWILLASSIGNYOULESSONS","系统管理员会发放给您的课程，或课程");//The system administrator will assign you lessons or courses
 define("_BACKTOINDEX","回到索引页");//Back to index page
-define("_LESSONAVAILABLE","课程是可用");//Lesson is available
-define("_DIRECTLY","直接");//Directly
+define("_LESSONAVAILABLE","课程状态");//Lesson is available
+define("_DIRECTLY","非专题课程");//Directly
 define("_ADDFILE","新增文件");//Add file
 define("_DOWNLOADSCORMEXPORTEDFILE","下载导出SCORM的文件");//Download exported SCORM file
 define("_EMPTYUNIT","空单元");//Empty unit
 define("_YOUMUSTPROVIDELOGINLINK","您必须提供登录的链接，否则，你将不能够直接连接。登录窗体链接： ". G_SERVERNAME ."index.php?index_eFront");//You must provide a login link, otherwise you will not be able to connect directly. Login form is available through the link: ".G_SERVERNAME."index.php?index_efront
 define("_FONTSIZE","字体大小");//Font size
 define("_FONTSTYLE","字体样式");//Font style
-define("_PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS","问题插入解析XML的值到数据库。请检查您的说明文件，或是否该模块已经安装");//Problem inserting the parsed XML values to the database. Please check your description file or whether the module is already installed
-define("_NOMODULEPERMITTEDROLESDEFINED","没有模块允许的角色定义。检查功能getpermittedroles （ ）");//No module permitted roles defined. Check function getPermittedRoles()
-define("_MODULECLASSNOTEXISTSIN","模块级中没有界定");//module class is not defined in
-define("_MODULEDBERRORONINSTALL","数据库错误的执行过程中的功能oninstall为模块");//Database error during the execution of function onInstall for the module
-define("_MODULEISALREADYINSTALLED","该模块已经安装");//The module is already installed
+define("_PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS","题目插入解析XML的值到数据库。请选中您的说明文件，或是否该插件已经安装");//Problem inserting the parsed XML values to the database. Please check your description file or whether the module is already installed
+define("_NOMODULEPERMITTEDROLESDEFINED","没有插件允许的角色定义。选中功能getpermittedroles （ ）");//No module permitted roles defined. Check function getPermittedRoles()
+define("_MODULECLASSNOTEXISTSIN","插件级中没有界定");//module class is not defined in
+define("_MODULEDBERRORONINSTALL","数据库错误的执行过程中的功能oninstall为插件");//Database error during the execution of function onInstall for the module
+define("_MODULEISALREADYINSTALLED","该插件已经安装");//The module is already installed
 define("_LOGOUTREDIRECT","复位向后，注销来");//Redirect after logout to
 define("_INFORMATIONFORFILE","数据文件");//Information for file
 define("_METADATA","中继");//Metadata
 define("_FILEMETADATA","文件元数据");//File metadata
-define("_NOENTRYFOUNDFORTHEFIELD","没有进入发现为外地");//No entry found for the field
+define("_NOENTRYFOUNDFORTHEFIELD","尚无内容");//No entry found for the field
 define("_CONTENTMETADATA","内容元数据");//Content Metadata
 define("_METADATAFORUNIT","元数据为单元");//Metadata for unit
 define("_RESOURCEREQUESTEDREQUIRESLOGIN","您需要登录后才能进行下面的操作！");//The resource that you requested requires that you login first
@@ -2168,32 +2168,32 @@ define("_UNAUTHORIZEDACCESS","您没有权限访问此课程");//You do not have
 define("_LESSONUSER","课程用户");//Lesson user
 define("_PROGRESSFORUSER"," Progress for user ");//Progress for user
 define("_LESSONSORDER","课程顺序");//Lessons order
-define("_COURSEUSER","课程用户");//Course user
-define("_COURSELESSON","课程，课程");//Course lesson
+define("_COURSEUSER","专题用户");//Course user
+define("_COURSELESSON","专题课程");//Course lesson
 define("_CANNOTDELETEOWNTYPE","您可能无法删除您自己的类型");//You may not delete your own type
 define("_GROUPUSER","组用户");//Group user
 define("_EXPLICITIFRAMESIZE","明确iFrame大小");//Explicit iframe size
 define("_EXPLICITSIZEEXPLANATION","这是大小的SCORM的内容包含框架。请将它留为空白，以有，它会自动计算");//This is the size of the SCORM content containing frame. Leave it blank to have it automatically calculated
-define("_USERROLEINLESSON","用户角色在课程");//User role in lesson
+define("_USERROLEINLESSON","用户在课程中的角色");//User role in lesson
 define("_LESSONROLE","课程中的角色");//Role in lesson
 define("_COURSEROLE","课程角色");//Role in course
 define("_PAYPAL","贝宝");//Paypal
 define("_DOWNLOADEXAMPLE","下载的例子");//Download example
-define("_CONTENTTREEFIRSTPAGE","内容树在第一页");//Content tree in first page
+define("_CONTENTTREEFIRSTPAGE","大纲在第一页");//Content tree in first page
 define("_LAYOUT","布局");//Layout
 define("_CONNECTIONERROR","连接错误");//Connection error
 define("_ONLYEFRONTNOTSCORM","使用eFront自有格式上传");//Use this to upload lessons in proprietary format only. For SCORM uploads, use the SCORM option at the professor's control panel
-define("_TESTSMATRIX","测试矩阵");//Tests matrix
-define("_PROJECTSMATRIX","项目矩阵");//Projects matrix
-define("_MODULEDBERRORONUPGRADECHECKUPGRADEFUNCTION","数据库错误的执行过程中的功能onUpgrade模块");//Database error during the execution of function onUpgrade for the module
-define("_MODULENOTUPGRADEDFOLDERNOTDELETEDCLOSEALLOPENFILES","模块升级失败，因为现有目录无法删除。关闭所有打开的文件在此目录，然后再试一次");//Module upgrade failed, because existing directory could not be deleted. Close all open files in that directory and try again
-define("_MODULESUCCESFULLYUPGRADED","模块成功升级");//Module successfully upgraded
+define("_TESTSMATRIX","考试矩阵");//Tests matrix
+define("_PROJECTSMATRIX","作业矩阵");//Projects matrix
+define("_MODULEDBERRORONUPGRADECHECKUPGRADEFUNCTION","数据库错误的执行过程中的功能onUpgrade插件");//Database error during the execution of function onUpgrade for the module
+define("_MODULENOTUPGRADEDFOLDERNOTDELETEDCLOSEALLOPENFILES","插件升级失败，因为现有目录无法删除。关闭所有打开的文件在此目录，然后再试一次");//Module upgrade failed, because existing directory could not be deleted. Close all open files in that directory and try again
+define("_MODULESUCCESFULLYUPGRADED","插件成功升级");//Module successfully upgraded
 define("_USERRESULTS","用户结果");//User results
 define("_SKILLSCORES","得分技巧");//Skill scores
 define("_PROPOSEDASSIGNMENTS","拟议转让");//Proposed assignments
 define("_THRESHOLD","开始");//Threshold
 define("_SKILLGAPANALYSISFORUSER","技能差距分析用户");//Skill gap analysis for user
-define("_ACCORDINGTOTEST","据测试");//according to test
+define("_ACCORDINGTOTEST","据考试");//according to test
 define("_NOLESSONSPROPOSEDACCORDINGTOANALYSIS","没有经验课程，提出根据技能差距分析");//No lessons are proposed according to the skill gap analysis
 define("_NOCOURSESPROPOSEDACCORDINGTOANALYSIS","没有课程的建议根据技能差距分析");//No courses are proposed according to the skill gap analysis
 define("_CERTIFICATETEMPLATE","证书模板（ RTF格式）");//Certificate template (rtf format)
@@ -2209,7 +2209,7 @@ define("_SKILLGAPTESTCOMPLETEDSUCCESSFULLY","技能差距试验顺利完成");//
 define("_RELEVANCE","关联");//Relevance
 define("_KNOWLEDGEOFLESSON" , "Knowledge of lesson");
 define("_KNOWLEDGEOFCOURSE","当然知识");//Knowledge of course
-define("_NOSKILLSCORRELATEDWITHTHETESTSQUESTIONS","没有相关的技能测试的问题");//No skills correlated with the test&#039;s questions
+define("_NOSKILLSCORRELATEDWITHTHETESTSQUESTIONS","没有相关的技能考试的题目");//No skills correlated with the test&#039;s questions
 define("_OPENFILEMANAGER","打开文件管理器");//Open file manager
 define("_CLOSEFILEMANAGER","关闭文件管理器");//Close file manager
 define("_CLICKFORHELP","点击帮助");//Click for help
@@ -2222,35 +2222,35 @@ define("_ASSOCIATEDSKILLS","相关技能");//Associated skills
 define("_SKILLGAPTESTS","技能差距试验");//Skill gap tests
 define("_ASSOCIATEDWITH","合并");//Associated with
 define("_NEWSKILLGAPTESTS","新技能差距试验");//New skill gap tests
-define("_CORRELATESKILLSTOQUESTION","相关技能问题");//Correlate skills to question
-define("_EDITSKILLGAPTEST","编辑技能差距测试");//Edit skill gap test
-define("_ADDSKILLGAPTEST","新增技能差距测试");//Add skill gap test
+define("_CORRELATESKILLSTOQUESTION","相关技能题目");//Correlate skills to question
+define("_EDITSKILLGAPTEST","编辑技能差距考试");//Edit skill gap test
+define("_ADDSKILLGAPTEST","新增技能差距考试");//Add skill gap test
 define("_YOUMUSTUPLOADAPDFFILE","您必须上传pdf档案");//You must upload a pdf file
-define("_RECENTLYCOMPLETEDSKILLGAP","最近完成的测试skillgap");//Recently completed skillgap tests
-define("_NOCOMPLETEDSKILLGAP","没有完成测试发现skillgap");//No completed skillgap tests found
-define("_SHOWALLSOLVEDSKILLGAPTESTS","显示所有的测试解决skillgap");//Show all solved skillgap tests
-define("_DELETESKILLGAPTESTRECORD","删除技能差距测试记录");//Delete skill gap test record
+define("_RECENTLYCOMPLETEDSKILLGAP","最近完成的考试skillgap");//Recently completed skillgap tests
+define("_NOCOMPLETEDSKILLGAP","没有完成考试发现skillgap");//No completed skillgap tests found
+define("_SHOWALLSOLVEDSKILLGAPTESTS","显示所有的考试解决skillgap");//Show all solved skillgap tests
+define("_DELETESKILLGAPTESTRECORD","删除技能差距考试记录");//Delete skill gap test record
 define("_ASSIGNTOALLNEWSTUDENTS","分配给所有的新学生");//Assign to all new students
 define("_AUTOMATICALLYASSIGNLESSONS","自动分配的课程");//Automatically assign lessons
-define("_AUTOMATICASSIGNMENTINFO","在完成测试的学生，将被自动分配与所有<br>经验课程和课程符合他或她的教育需求");//After completing the test, a student will be automatically assigned with all<br> lessons and courses matching his or her educational needs
+define("_AUTOMATICASSIGNMENTINFO","在完成考试的学生，将被自动分配与所有<br>经验课程和课程符合他或她的教育需求");//After completing the test, a student will be automatically assigned with all<br> lessons and courses matching his or her educational needs
 define("_SKILLGAPTESTCOMPLETEDSUCCESSFULLYANDTHECORRESPONDING","技能差距试验顺利完成和相应的");//Skill gap test completed successfully and the corresponding
 define("_HAVEBEENASSIGNED","已分配给您");//have been assigned to you
-define("_SKILLGAPTESTRESULTS","技能差距的测试结果");//Skill gap test results
+define("_SKILLGAPTESTRESULTS","技能差距的考试结果");//Skill gap test results
 define("_CURRENTPDFFILE","当前pdf档案");//Current pdf file
 define("_SEARCHTEXTWASINSCRIPT","搜索文本被发现倒毙在一个脚本");//Search text was found inside a script
 define("_NUMBERFROM000TO9999REQUIRED","数从0.00到99.99要求");//Number from 0.00 to 99.99 required
-define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","完成技能差距下面的测试，以便我们可以指定课程最适合您的neeeds 。");//Complete the skill gap tests below so that we can assign courses most suitable to your neeeds.
+define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","完成技能差距下面的考试，以便我们可以指定课程最适合您的neeeds 。");//Complete the skill gap tests below so that we can assign courses most suitable to your neeeds.
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","您已完成了所有试验技能差距分配给您。 <br>请等待，直到你的教授指派给您最合适的课程，根据您的需要。");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
-define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","您的结果已发送到您的教授谁不久将指定课程，您根据您的需要确定从这个测试");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
+define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","您的结果已发送到您的教授谁不久将指定课程，您根据您的需要确定从这个考试");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","就业安置");//Job placements
 define("_NEWJOBPLACEMENT","新安排就业");//New job placements
-define("_UPGRADEMODULE","升级模块");//Upgrade module
+define("_UPGRADEMODULE","升级插件");//Upgrade module
 define("_NEWUNITOPTIONS","新单位的选择");//New unit options
 define("_UNITOPTIONSFOR","选择单位");//Options for unit
-define("_OPTIONSFORSKILLGAPTEST","选择技能差距测试");//Options for skill gap test
-define("_OPTIONSFORTEST","选择测试");//Options for test
+define("_OPTIONSFORSKILLGAPTEST","选择技能差距考试");//Options for skill gap test
+define("_OPTIONSFORTEST","选择考试");//Options for test
 define("_REPORTSFORCOURSE","当然报表");//Reports for course
-define("_REPORTSFORTEST","测试报表");//Reports for test
+define("_REPORTSFORTEST","考试报表");//Reports for test
 define("_USERISNOTVALIDORYOUCANNOTSEEUSER","指定的用户是无效的，或者你无法访问该用户的数据");//The user specified is not valid, or you cannot access this user&#039;s data
 define("_SELECTGROUP","选择组");//Select group
 define("_BLANKFORNOLIMIT","留空为没有时间限制");//Leave blank for no time limit
@@ -2258,41 +2258,41 @@ define("_HARDPLURAL","硬的");//Hard
 define("_MEDIUMPLURAL","中等");//Medium
 define("_EASYPLURAL","容易的");//Easy
 define("_UNLIMITED","Unilimited");//Unlimited
-define("_INCORRECTQUESTION","现在的问题是不正确");//The question is incorrect
-define("_QUESTIONISCORRECT","现在的问题是正确的");//The question is correct
-define("_PARTIALLYCORRECTQUESTION","现在的问题是部分正确的");//The question is partially correct
+define("_INCORRECTQUESTION","现在的题目是不正确");//The question is incorrect
+define("_QUESTIONISCORRECT","现在的题目是正确的");//The question is correct
+define("_PARTIALLYCORRECTQUESTION","现在的题目是部分正确的");//The question is partially correct
 define("_FAILED","失败");//Failed
 define("_PASSED","通过");//Passed
-define("_TESTOPTIONS","试验选择");//Test options
-define("_TESTQUESTIONS","测试的问题");//Test questions
-define("_SAVETESTANDADDQUESTIONS","保存和选择的问题");//Save and select questions
+define("_TESTOPTIONS","考试设置");//Test options
+define("_TESTQUESTIONS","考试的题目");//Test questions
+define("_SAVETESTANDADDQUESTIONS","保存和选择的题目");//Save and select questions
 define("_RANDOMPOOLTEST","随机试验池");//Random pool test
 define("_SUBMITANDCONTINUEEDITING","提出并继续编辑");//Submit and continue editing
 define("_SUBMITANDRETURN","提交并返回");//Submit and return
 define("_SUBMITASNEWANDCONTINUEEDITING","提出新的和继续编辑");//Submit as new and continue editing
 define("_SUBMITASNEWANDRETURN","提出新的和返回");//Submit as new and return
-define("_QUESTIONSINPOOL","在池的问题");//Questions in pool
-define("_SELECTRANDOMQUESTIONS","随机问题");//Randomize questions
+define("_QUESTIONSINPOOL","在池的题目");//Questions in pool
+define("_SELECTRANDOMQUESTIONS","随机题目");//Randomize questions
 define("_RANDOMIZE","随机");//Randomize
-define("_PAUSETEST","暂停测试");//Pause test
+define("_PAUSETEST","暂停考试");//Pause test
 define("_ALLFORUMS","所有论坛");//All forums
-define("_USERCANDOTEST","用户可以做的测试");//The user can do the test
+define("_USERCANDOTEST","用户可以做的考试");//The user can do the test
 define("_ANDUSERDIDITIN","这是完成");//It was completed in
-define("_TESTSCOREIS","测试评分");//Test score is
-define("_USERREDOTEST","重新测试");//Redo test
-define("_SOLVEDTEST","解决测试");//Solved test
+define("_TESTSCOREIS","考试评分");//Test score is
+define("_USERREDOTEST","重新考试");//Redo test
+define("_SOLVEDTEST","解决考试");//Solved test
 define("_CHANGESCORE","更改评分");//Change score
 define("_ADDFEEDBACK","购买反馈");//Add feedback
 define("_EDITFEEDBACK","编辑反馈");//Edit feedback
-define("_RESETTESTSTATUS","重置这个测试执行");//Reset this test execution
+define("_RESETTESTSTATUS","重置这个考试执行");//Reset this test execution
 define("_THETESTISDONE","进行过");//The test is done
 define("_ANDCANBEDONE","，还可以进行");//and can be done
 define("_TESTCANBEPAUSED","考试可以暂停");//Test can be paused
-define("_TESTSTARTEDAT","测试开始");//The test started at
+define("_TESTSTARTEDAT","考试开始");//The test started at
 define("_ANDCOMPLETEDAT","并完成");//and completed at
-define("_SCOREINTEST","在测试分数");//Score in test
+define("_SCOREINTEST","在考试分数");//Score in test
 define("_TESTRESULTS","试验结果");//Test results
-define("_JUMPTOEXECUTION","查看测试记录");//Jump to execution
+define("_JUMPTOEXECUTION","查看考试记录");//Jump to execution
 define("_LASTEXECUTION","最后一次执行死刑");//Last execution
 define("_EXECUTION","执行");//execution
 define("_LAST","最后的");//Last
@@ -2301,28 +2301,28 @@ define("_FULLNAME","全名");//Full name
 define("_PARTIALLYCORRECT","部分正确");//Partially correct
 define("_CORRECT","正确的");//Correct
 define("_NOUNIT","任何单位");//No unit
-define("_TESTANALYSIS","测试分析");//Test analysis
+define("_TESTANALYSIS","考试分析");//Test analysis
 define("_THISLEVEL","这个级别");//This level
 define("_BELOWLEVELS","以下各级");//Below levels
 define("_SUCCESSRATES","成功率");//Success rates
 define("_NOPARENT","顶级分类");//Without parent
 define("_THEUSERUNDERGOINGTESTSTARTEDAT","用户现在正在进行试验，开始在");//The user is right now undergoing the test, started at
-define("_NONEXISTENTTEST","这不是一个完成测试");//This is not a completed test
-define("_FORTEST","测试");//for test
+define("_NONEXISTENTTEST","这不是一个完成考试");//This is not a completed test
+define("_FORTEST","考试");//for test
 define("_ANDUSER","和用户");//and user
-define("_TESTANALYSISFORTEST","试验分析测试");//Test analysis for test
+define("_TESTANALYSISFORTEST","试验分析考试");//Test analysis for test
 define("_RESETALLTESTSSTATUS","重置所有的执行状况");//Reset all execution status
 define("_ADDANOTHERFILE","添加其他文件");//Add another file
 define("_YOUPAUSEDTHISTESTON","您暂停这一试验");//You paused this test on
-define("_RESUMETEST","恢复测试");//Resume test
-define("_DISPLAYQUESTIONWEIGHTS","在显示重量测试");//Display weights during test
+define("_RESUMETEST","恢复考试");//Resume test
+define("_DISPLAYQUESTIONWEIGHTS","考试时显示分值");//Display weights during test
 define("_UNAVAILABLEOPTION","此选项不可用");//This option is not available
-define("_HOURSSHORTHAND","h");//h
+define("_HOURSSHORTHAND","小时");//h
 define("_MINUTESSHORTHAND","分");//m
 define("_SECONDSSHORTHAND","秒");//s
 define("_NONEUNIT","无单位");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","没有系统的通知");//There are no system announcements
-define("_NOONELOGGEDIN","没有人是目前登入");//Noone is currently connected
+define("_NOONELOGGEDIN","当前无登录用户");//Noone is currently connected
 define("_ENTERYOUREMAILADDRESS","请输入您的电子邮箱地址");//Enter you email address
 define("_ENTERMESSAGESUBJECT","输入邮件主题");//Enter the message subject
 define("_ENTERMESSAGE","输入的信息");//Enter the message
@@ -2330,7 +2330,7 @@ define("_ENTERANYCOMMENTS","输入任何评论您可能");//Enter any comments y
 define("_LOGINOREMAIL","登录或电子邮件");//Login or email
 define("_USETHISTORESETPASSWORD","使用此表为重置密码");//Use this form to reset your password
 define("_USETHISTOREGISTERANEWACCOUNT","使用这个表格，以建立一个新的用户帐户");//Use this form to create a new user account
-define("_USETHISTOCONTACTUS","使用此表与我们联系任何问题");//Use this form to contact us for any issue
+define("_USETHISTOCONTACTUS","使用此表与我们联系任何题目");//Use this form to contact us for any issue
 define("_AVAILABLELESSONS","经验和现有的课程体系");//Lessons and courses available in the system
 define("_SELECTLAYOUT","选择一个版面");//Select a layout
 define("_ENROLL","选课");//Enroll
@@ -2359,8 +2359,8 @@ define("_PLEASELOGINTOCOMPLETEREGISTRATION","请登入以完成注册");//Please
 define("_GOTOLESSONSLIST","转到列表中的经验课程");//Go to lessons list
 define("_PUBLISHED","发布时间");//Published
 define("_NOTPUBLISHED","未发布");//Not published
-define("_OPTIONSFORPROJECT","选择项目");//Options for project
-define("_SKILLGAPTESTRESULTSREMOVEDFROMUSERTHETESTCANBEREPEATED","试验结果已成功删除该用户。测试现在可以完成了。");//Test results have been successfully removed for this user. The test can now be completed again.
+define("_OPTIONSFORPROJECT","选择作业");//Options for project
+define("_SKILLGAPTESTRESULTSREMOVEDFROMUSERTHETESTCANBEREPEATED","试验结果已成功删除该用户。考试现在可以完成了。");//Test results have been successfully removed for this user. The test can now be completed again.
 define("_HOMEOFLESSON","主页的课程");//Home of lesson
 define("_OPTIONSFORGROUP","选项组");//Options for group
 define("_SURVEYFAILEDTOBEDELETED","调查未能予以删除");//Survey failed to be deleted
@@ -2368,7 +2368,7 @@ define("_COURSESNUMBER","一些课程");//Number of courses
 define("_GROUPSNUMBER","一些团体");//Number of groups
 define("_FORUMTITLE","论坛名称");//Forum title
 define("_OTHERLESSONS","其他的经验课程");//Other lessons
-define("_CONTENTREPORT","内容错误报表");//Report an error
+define("_CONTENTREPORT","内容错误报告");//Report an error
 define("_CONTENTREPORTTOPROFS","报表内容错误教授");//Report an error to professors
 define("_TOPIC","专题");//Topic
 define("_LINK","链接");//Link
@@ -2386,12 +2386,12 @@ define("_DISPLAYORDEREDLIST","显示命令列表");//Display ordered list
 define("_AVERAGESCOREON","平均分数上");//average score on
 define("_SCOREONLASTEXECUTION","评分上最后一次执行死刑");//score on last execution
 define("_EXECUTIONS","处决");//Executions
-define("_RECENTLYCOMPLETEDTESTS","最近完成的测试");//Recently completed tests
-define("_IMPORTNOTICE","警告：进口的课程将删除现有的所有课程资料");//Warning: importing a lesson will erase all existing lesson information
+define("_RECENTLYCOMPLETEDTESTS","最近完成的考试");//Recently completed tests
+define("_IMPORTNOTICE","警告：导入的课程将删除现有的所有课程资料");//Warning: importing a lesson will erase all existing lesson information
 define("_RESET","重置");//Reset
 define("_RESETGRAPH","重图");//Reset graph
 define("_CANNOTAUTOMATICALLYLOGIN","你不能自动登录");//You cannot login automatically
-define("_LOGINENTRANCE","注册");//Login
+define("_LOGINENTRANCE","登录");//Login
 define("_SELECTEDLESSONS","已选择的课程");//Selected lessons
 define("_ADDTOLESSONS","添加到课程");//Add to lessons
 define("_AVAILABLEBLOCKS","可用区块");//Available blocks
@@ -2406,8 +2406,8 @@ define("_DISPLAYORDEREDLISTINFO","显示号码旁边的每一个可能的答案�
 define("_CONFIRMATIONPEDINGFROMADMIN","确认peding管理员");//Confirmation pending by the administrator
 define("_USERHASNOTTHECOURSE","该用户没有课程");//The user does not have the course
 define("_USERHASTHECOURSE","该用户已课程");//The user has the course
-define("_TOTALTESTS","总测试数");//Total tests
-define("_TOTALPROJECTS","总项目");//Total projects
+define("_TOTALTESTS","总考试数");//Total tests
+define("_TOTALPROJECTS","总作业");//Total projects
 define("_SELECTCHATROOM","选择余地");//Select room
 define("_SHOWUSERSINROOM","查看在线用户房间");//Show online room users
 define("_INVITESYOUTOJOINTHE","请您加入聊天室");//invites you to join the chat room
@@ -2418,8 +2418,8 @@ define("_NONEWPOLLLOCKED","您不能建立任何新的问卷调查，因为这�
 define("_FORUMOFLESSON","论坛的课程");//Forum of lesson
 define("_REDIRECTEDTOEFRONTMAIN","重定向到一般房间eFront");//Redirected to general room
 define("_CHATROOMHASBEENDEACTIVATED","聊天室已被停用");//chat room has been deactivated
-define("_ROOMS","客房");//Rooms
-define("_ADDROOM","购买室");//Add room
+define("_ROOMS","聊天室");//Rooms
+define("_ADDROOM","新增聊天室");//Add room
 define("_ROOMSUCCESSFULLYDELETED","室成功删除");//Room successfully deleted
 define("_LESSONROOMSCANNOTBEDELETED","课室不能被删除");//Lesson rooms cannot be deleted
 define("_CHANGESIDEBARWIDTH","变更栏的宽度");//Change sidebar width
@@ -2435,22 +2435,22 @@ define("_CHATMESSAGESCOULDNOTBEDELETED","在交谈讯息无法删除");//The cha
 define("_MANAGEPASTCOVERSATIONS","过去的会话管理");//Manage past conversations
 define("_AREYOUSUREYOUTODELETETHISCONVERSATION","您是否确实要删除此会话？");//Are you sure you want to delete this conversation?
 define("_SEARCHRESULTSINFILES","搜索结果中的文件");//Search results in files
-define("_EXPORTCHATCONVERSATIONS","出口聊天会话");//Export chat conversations
-define("_COMPLETEWITHQUESTION","完整的问题");//Complete with question
+define("_EXPORTCHATCONVERSATIONS","导出聊天会话");//Export chat conversations
+define("_COMPLETEWITHQUESTION","完整的题目");//Complete with question
 define("_WRONGANSWER","错误答案");//Wrong answer
 define("_CORRECTANSWER","正确的答案");//Correct answer
 define("_AGO","前");//ago
 define("_EXPIRESIN","到期");//expires in
 define("_STARTRESUME","开始/恢复");//Start/resume
 define("_RECURRINGPAYMENT","定期付款");//Recurring payment
-define("_BUY","购买");//Buy
+define("_BUY","放入购物车");//Buy
 define("_SUBSCRIBE","订阅");//Subscribe
 define("_REMOVEALL","清空购物车");//Remove all
 define("_MUSTSEEALLUNITS","必须看到所有单位");//Must see all units
 define("_MUSTSEE","必须看到");//Must see
 define("_MUSTSEEUNIT","必须看到单位");//Must see unit
-define("_MUSTCOMPLETEALLTESTSWITHSCORE","必须完成所有测试，评分");//Must complete all tests with score
-define("_MUSTCOMPLETETEST","必须完成测试");//Must complete test
+define("_MUSTCOMPLETEALLTESTSWITHSCORE","必须完成所有考试，评分");//Must complete all tests with score
+define("_MUSTCOMPLETETEST","必须完成考试");//Must complete test
 define("_YOUMAYLOGINMAILACTIVATION","您可以开始使用该系统启用后，通过电子邮件");//You may start using the system after activation via email
 define("_ADMINISTRATIONGROUP","行政组");//The administration group
 define("_CHANGEFONTSIZE","变更字体大小");//Change font size
@@ -2459,7 +2459,7 @@ define("_ANDSUBBRANCHES","其支行");//and its subbranches
 define("_WITHTHEJOBDESCRIPTION","与职务说明");//with the job position
 define("_FORTHEJOBDESCRIPTION","的职务说明");//for the job position
 define("_ADMINISTRATORSNOJOBDESCRIPTIONS","管理员不能分配与就业");//Administrators can not be assigned with jobs
-define("_SUGGESTSKILLSACCORDINGTOLESSONS","建议根据技能的经验课程的问题属于");//Suggest skills according to the lessons the question belongs
+define("_SUGGESTSKILLSACCORDINGTOLESSONS","建议根据技能的经验课程的题目属于");//Suggest skills according to the lessons the question belongs
 define("_NOSKILLSTOPROPOSE","没有发现技能的建议");//No skills were found for suggestion
 define("_ALLPROPOSEDSKILLSAREALREADYCORRELATED" ,"All proposed skills are already correlated");
 define("_ADDITIONALFOOTER","附加页脚");//Additional footer
@@ -2481,9 +2481,9 @@ define("_YOUALREADYHAVETHISLESSON","您已经拥有这一课");//You already hav
 define("_YOUALREADYHAVETHISCOURSE","您已经拥有这门课程");//You already have this course
 define("_ONLYSTUDENTSMAYSUBSCRIBETOLESSONS","只有学生可以订阅的经验课程。如果你是一个教授，请管理员注册你一个。");//Only students may subscribe to lessons. If you are a professor, please ask the administrator to enroll you to one.
 define("_CHARGINGEACH","每个收费");//Charge each
-define("_LESSONPARTOFCOURSES","这一课程是部分课程");//This lesson is part of the courses
+define("_LESSONPARTOFCOURSES","这一课程属于专题");//This lesson is part of the courses
 define("_YESAFTERLOGIN","是的，但只有在用户登录");//Yes, but only after user logs in
-define("_CHECKED","检查");//Checked
+define("_CHECKED","选中");//Checked
 define("_NOTCHECKED","未被选中");//Not checked
 define("_NOTSELECTEDLESSONSORSELECTEDYOUHAVEALREADY","您尚未选取任何课程，或者你已经有了你的选择");//You already have the lessons you selected
 define("_GETTHECOURSE","获得课程");//Get the course
@@ -2498,28 +2498,28 @@ define("_USERFORM","用户窗体");//User form
 define("_USERFORMPRINTPREVIEW","用户窗体预览");//User form preview
 define("_USERSFULFILLINGCRITERIA","用户完成标准");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","非归类技巧");//Non-categorized skills
-define("_ADDQUICKSKILLGAP","快速技能差距测试发生器");//Quick skill-gap test generator
-define("_SELECTASSOCIATEDDIRECTIONSCOURSESANDLESSONS","选择的方向，课程或经验课程，将有关测试的问题");//Select the directions, courses or lessons that will be associated with the test&#039;s questions
-define("_SELECTASSOCIATEDSKILLSORSKILLCATEGORIES","选择技能或技能类别，将相关的测试的问题");//Select the skills or skill categories that will be associated with the test&#039;s questions
+define("_ADDQUICKSKILLGAP","快速技能差距考试发生器");//Quick skill-gap test generator
+define("_SELECTASSOCIATEDDIRECTIONSCOURSESANDLESSONS","选择的方向，课程或经验课程，将有关考试的题目");//Select the directions, courses or lessons that will be associated with the test&#039;s questions
+define("_SELECTASSOCIATEDSKILLSORSKILLCATEGORIES","选择技能或技能类别，将相关的考试的题目");//Select the skills or skill categories that will be associated with the test&#039;s questions
 define("_NEWSELECTION","新的选择");//New selection
-define("_SELECTQUESTIONSBASEDONLESSONS","选择问题的经验课程的基础上");//Select questions based on lessons
-define("_SELECTQUESTIONSBASEDONSKILLS","选择问题的基础上技能");//Select questions based on skills
+define("_SELECTQUESTIONSBASEDONLESSONS","选择题目的经验课程的基础上");//Select questions based on lessons
+define("_SELECTQUESTIONSBASEDONSKILLS","选择题目的基础上技能");//Select questions based on skills
 define("_NOQUESTIONSDEFINEDFORTHISLESSON","毫无疑问确定这一课");//No questions defined for this lesson
-define("_NOQUESTIONSDEFINEDFORTHISSKILL","没有界定这个问题的技能");//No questions defined for this skill
+define("_NOQUESTIONSDEFINEDFORTHISSKILL","没有界定这个题目的技能");//No questions defined for this skill
 define("_ADDITIONALACCOUNTS","其他帐户");//Mapped accounts
 define("_ADDACCOUNT","新增帐户");//Add account
 define("_DELETEACCOUNT","删除帐户");//Delete account
 define("_SWITCHTO","切换到");//Switch to
 define("_YOUHAVENTSETADDITIONALACCOUNTS","您没有设定任何其他帐户");//You haven&#039;t set any additional accounts
 define("_OPERATIONWASNOTCOMPLETEDSUCCESFULLY","作业未完成succsessfully");//Operation was not completed succesessfully
-define("_LESSONMODULES","课程模块");//Lesson modules
-define("_COURSEEXPORTEDSUCCESFULLY","当然出口成功");//Course exported successfully
-define("_IMPORTCOURSE","导入课程");//Import course
-define("_EXPORTCOURSE","出口课程");//Export course
+define("_LESSONMODULES","课程插件");//Lesson modules
+define("_COURSEEXPORTEDSUCCESFULLY","当然导出成功");//Course exported successfully
+define("_IMPORTCOURSE","导入专题");//Import course
+define("_EXPORTCOURSE","导出专题");//Export course
 define("_COURSEDATAFILE","当然数据文件");//Course data file
 define("_COURSEIMPORTNOTICE","警告：导入过程将删除现有的所有课程资料");//Warning: Importing a course will erase all existing course information
-define("_CLICKTOEXPORTCOURSE","单击以出口课程");//Click to export course
-define("_IMPORT","进口");//Import
+define("_CLICKTOEXPORTCOURSE","单击以导出课程");//Click to export course
+define("_IMPORT","导入");//Import
 define("_RESETLESSONDATA","重置以下课程数据");//Reset the following lesson data
 define("_DEPENDSONCONTENT","取决于内容");//Depends on content
 define("_HIDEEXTRAOPTIONS","隐藏额外选项查看内容");//Hide extra options when viewing content
@@ -2538,34 +2538,34 @@ define("_COPYGLOSSARY","复制词汇表");//Copy glossary
 define("_COPYOTHERENTITIES","复制其他实体");//Copy other entities
 define("_TEXTAREA","文本区");//Text area
 define("_CHARACTERSMAX20ONLYNOSPACES","信件只，最多20个字符长度，不能有空格");//Letters only, maximum 20 characters length, without spaces
-define("_COURSEACTIONS","当然操作");//Course actions
+define("_COURSEACTIONS","操作");//Course actions
 define("_LICENSENOTE","授权说明");//License note
 define("_ENABLELICENSENOTE","启用许可证说明");//Enable license note
 define("_IMPORTANTNOTICE","重要通知");//Important notice
-define("_NOTACCEPTANDEXIT","下降和出口");//Decline and exit
+define("_NOTACCEPTANDEXIT","下降和导出");//Decline and exit
 define("_ACCEPTANDCONTINUE","接受并继续");//Accept and continue
 define("_LOGINASADMIN","以管理员身份登录");//Login as administrator
 define("_LEARNINGMETHOD","学习方法");//Learning method
 define("_NOQUESTIONSELECTIONSHAVEBEENMADE","毫无疑问的选择了");//No question selections have been made
-define("_DOYOUWANTTOFURTHEREDITTHETEST","你想进一步修改测试？");//Do you want to further edit the test?
-define("_NOQUESTIONSFOUND","没有问题可以找到");//No questions could be found
+define("_DOYOUWANTTOFURTHEREDITTHETEST","你想进一步修改考试？");//Do you want to further edit the test?
+define("_NOQUESTIONSFOUND","没有题目可以找到");//No questions could be found
 define("_INSERTINTO","插入");//Insert into
 define("_KEEPEXISTINGDATA","保持现有的数据");//Keep existing data
 define("_REPLACEEXISTINGDATA","取代现有的数据");//Replace existing data
 define("_IFEMPTYFATHERBRANCH","在红色的领域是强制性的。如果没有名字是父亲给分行的分支机构，那么它就将放在最上层的组织层次");//Fields in red are mandatory. If no name is given for the father branch of a branch, then it will be placed on the top level of the organization hierarchy
-define("_IFEMPTYJOBS","在红色的领域是强制性的。如果该分支机构名称是无效的职务说明然后将插入到所有分支机构。如果该分支机构的名称，给出，但并不存在，那么这项工作将不会进口。");//Fields in red are mandatory. If the branch name given is null then the job position will be inserted to all branches. If the branch name is given but does not exist, then the job will not be imported.
+define("_IFEMPTYJOBS","在红色的领域是强制性的。如果该分支机构名称是无效的职务说明然后将插入到所有分支机构。如果该分支机构的名称，给出，但并不存在，那么这项工作将不会导入。");//Fields in red are mandatory. If the branch name given is null then the job position will be inserted to all branches. If the branch name is given but does not exist, then the job will not be imported.
 define("_IFEMPTYSKILL","在红色的领域是强制性的。如果没有技能类别名称，给出的技能然后将根据分类： &#39;没有具体的分类&#39;");//Fields in red are mandatory. If no skill category name is given, then the skill will be put under the category: 'No specific category'
-define("_IMPORTDATA","进口数据");//Import data
+define("_IMPORTDATA","导入数据");//Import data
 define("_THEFOLLOWINGBRANCHESCOULDNOTBEIMPORTED","以下分支机构无法导入");//The following branches could not be imported
 define("_THEFOLLOWINGJOBSCOULDNOTBEIMPORTED","以下职务说明无法导入");//The following job positions could not be imported
 define("_THEFOLLOWINGSKILLSCOULDNOTBEIMPORTED","下面的技能无法导入");//The following skills could not be imported
 define("_BRANCHDESIGNATEDFORTHISJOBDESCRIPTIONDOESNOTEXIST","科指定的职务说明不存在");//Branch designated for this job position does not exist
-define("_EXPORTFROM","出口");//Export from
-define("_EXPORTUSINGCSVFORMATQM","出口数据使用CSV格式（分离“ ; ” ）");//Export data using csv format (separated with &quot;;&quot;)
-define("_EXPORTUSINGCSVFORMATCOMMA","出口数据使用CSV格式（分离“ ， ” ）");//Export data using csv format (separated with &quot;,&quot;)
-define("_EXPORTDATA","出口数据");//Export data
-define("_SUCCEEDEDINASKILLGAPTESTLCWITHASCORE","成功地在一个skillgap测试的评分");//Succeeded in a skillgap test with a score
-define("_FAILEDINASKILLGAPTESTLCWITHASCORE","未能在skillgap测试与评分");//Failed in a skillgap test with a score
+define("_EXPORTFROM","导出");//Export from
+define("_EXPORTUSINGCSVFORMATQM","导出数据使用CSV格式（分离“ ; ” ）");//Export data using csv format (separated with &quot;;&quot;)
+define("_EXPORTUSINGCSVFORMATCOMMA","导出数据使用CSV格式（分离“ ， ” ）");//Export data using csv format (separated with &quot;,&quot;)
+define("_EXPORTDATA","导出数据");//Export data
+define("_SUCCEEDEDINASKILLGAPTESTLCWITHASCORE","成功地在一个skillgap考试的评分");//Succeeded in a skillgap test with a score
+define("_FAILEDINASKILLGAPTESTLCWITHASCORE","未能在skillgap考试与评分");//Failed in a skillgap test with a score
 define("_ADDSKILLSTOSKILLSET","添加所有技能结果用户技能");//Add all skill results to user skill set
 define("_ADDSKILLTOSKILLSET","购买技巧用户技能");//Add skill to user skill set
 define("_CHECKYOURVERSIONISCORRECT","关键不能适用。请确保提供的主要是适合您的版本");//The key could not be applied. Please make sure that the key provided is suitable for your version
@@ -2582,13 +2582,13 @@ define("_EXCEPTFORTHEUSERS","除用户");//Except for the users
 define("_COULDNOTSETCONFIGURATIONVALUE","以下配置价值无法确定");//The following configuration value could not be set
 define("_HOLDDOWNCTRLFORMULTIPLESELECT","按住CTRL键的同时单击多重选择或取消选择");//Hold down the CTRL key while clicking for multiple select or deselect
 define("_COURSESETTINGS","课程设置");//Course settings
-define("_FREETEXT","自由文本");//Free text
+define("_FREETEXT","问答题/计算题");//Free text
 define("_OUTCOMEPENDING","尚未通过");//Outcome pending
-define("_USERNOTCOMPLETEDTEST","用户还没有完成这项测试");//The user has not completed this test
-define("_IMPORTORGANIZATIONALDATA","进口组织数据");//Import organizational data
-define("_EXPORTORGANIZATIONALDATA","出口组织数据");//Export organizational data
-define("_IMPORTEXPORT","进口/出口");//Import - export
-define("_EXPORTIMPORTDATA","出口/进口数据");//Export - Import
+define("_USERNOTCOMPLETEDTEST","用户还没有完成这项考试");//The user has not completed this test
+define("_IMPORTORGANIZATIONALDATA","导入组织数据");//Import organizational data
+define("_EXPORTORGANIZATIONALDATA","导出组织数据");//Export organizational data
+define("_IMPORTEXPORT","导入/导出");//Import - export
+define("_EXPORTIMPORTDATA","用户导出/导入");//Export - Import
 define("_THISPMISSENTALLUSERS","这是私人邮件发送给所有活跃用户。");//This private message was sent to all active users.
 define("_THISPMISSENTLESSONUSERS","这是私人邮件发送给所有用户的课程");//This private message was sent to all users of lesson
 define("_THISPMISSENTCOMPLETEDCOURSEUSERS","这是私人邮件发送给所有用户完成课程。");//This private message was sent to all users completed course.
@@ -2617,9 +2617,9 @@ define("_WILLBETEACHINGLESSON","将教学课");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","已完成的课程");//has completed lesson
 define("_NOLONGERATTENDSLESSON","不再出席课程");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","单位写评论");//wrote a comment for unit
-define("_COMPLETEDTEST","完成测试");//completed test
+define("_COMPLETEDTEST","完成考试");//completed test
 define("_CREATEDTHENEWFORUM","创建新论坛");//created the new forum
-define("_CREATEDTHENEWTOPIC","创建了新话题");//created the new topic
+define("_CREATEDTHENEWTOPIC","创建了新主题");//created the new topic
 define("_CREATEDTHENEWPOLL","创建了新的问卷调查");//created the new poll
 define("_POSTEDTHENEWMESSAGE","张贴新邮件");//posted the new message
 define("_CHANGEDHISHERPROFILE","改变他/她的个人资料");//changed his/her profile
@@ -2648,16 +2648,16 @@ define("_COMMENTEDONTHEPROFILEOF","评论的文件");//commented on the profile 
 define("_COMMENTEDONHISHEROWNPROFILE","评论他/她自己的个人资料");//commented on his/her own profile
 define("_DELETEDACOMMENTFROMHISHEROWNPROFILE","评论删除了一个由他/她的个人资料");//deleted a comment from his/her profile
 define("_UNREGISTEREDEVENT","未注册事件");//Unregistered event
-define("_FORTHEMODULE","为模块");//for the module
+define("_FORTHEMODULE","为插件");//for the module
 define("_COMMONLESSONS","共同课程");//common lessons
 define("_COMMONLESSON","共同课");//common lesson
 define("_LESSONSTIMELINE","课程时间表");//Lesson timeline
 define("_NORELATEDEVENTSFOUND","没有找到相关事件");//No related events found
 define("_SELECTTIMELINETOPIC","选择题目");//Select topic
 define("_ANYTOPIC","任何");//Any
-define("_ADDLESSONTIMELINETOPIC","添加课程话题");//Add lesson topic
-define("_DELETELESSONTIMELINETOPIC","删除课程话题");//Delete lesson topic
-define("_EDITLESSONTIMELINETOPIC","编辑课程话题");//Edit lesson topic
+define("_ADDLESSONTIMELINETOPIC","添加课程主题");//Add lesson topic
+define("_DELETELESSONTIMELINETOPIC","删除课程主题");//Delete lesson topic
+define("_EDITLESSONTIMELINETOPIC","编辑课程主题");//Edit lesson topic
 define("_LESSONTIMELINETOPIC","课程主题标题");//Lesson topic title
 define("_SUCCESSFULLYCREATEDLESSONTIMELINETOPIC","成功创建专题课");//Lesson topic created successfully
 define("_LESSONTIMELINETOPICDATAUPDATED","课程主题更新成功");//Lesson topic updated successfully
@@ -2680,7 +2680,7 @@ define("_LOGOHEIGHT","徽标高度");//Logo height
 define("_LOGODIMENSIONSMUSTBEPOSITIVE","标志尺寸必须是积极的");//Logo dimensions must be positive
 define("_SOCIAL","社会");//Social
 define("_OPTIONSFORSOCIALMODULE","社会的选择");//Options for social
-define("_ENTIRESOCIALMODULE","整个社会模块");//Entire social module
+define("_ENTIRESOCIALMODULE","整个社会插件");//Entire social module
 define("_EVENTSLOGGING","事件的记录");//Event&#039;s logging
 define("_SYSTEMTIMELINES","系统的时间表");//System timelines
 define("_LESSONTIMELINES","课程时间表");//Lessons timelines
@@ -2704,7 +2704,7 @@ define("_ASSIGNED","分配");//Assigned
 define("_REMOVED","删除");//Removed
 define("_ANYLESSON","任何课程");//Any lesson
 define("_ANYCOURSE","任何课程");//Any course
-define("_ANYTEST","任何测试");//Any test
+define("_ANYTEST","任何考试");//Any test
 define("_ADDTEMPLATIZEDTEXT","添加模板化文本");//Add templatized text
 define("_RECIPIENTSUSERNAME","收件人姓名");//Recipient&#039;s name
 define("_AUTHORUSERNAME","作者的用户名");//Author&#039;s username
@@ -2719,18 +2719,18 @@ define("_LESSON_ACQUISITION_AS_PROFESSOR","购置课教授");//Lesson acquisitio
 define("_LESSON_VISITED","课程访问");//Lesson visited
 define("_LESSON_REMOVAL","清除课");//Lesson removal
 define("_LESSON_COMPLETION","课程完成");//Lesson completion
-define("_NEW_POST_FOR_LESSON_TIMELINE_TOPIC","邮政课时间表话题");//Post for lesson timeline topic
+define("_NEW_POST_FOR_LESSON_TIMELINE_TOPIC","邮政课时间表主题");//Post for lesson timeline topic
 define("_DELETE_POST_FROM_LESSON_TIMELINE","删除主题课时间表");//Delete from lesson timeline topic
-define("_TEST_CREATION","测试的创建");//Test creation
-define("_TEST_START","测试开始");//Test start
-define("_TEST_COMPLETION","测试完成");//Test completion
+define("_TEST_CREATION","考试的创建");//Test creation
+define("_TEST_START","考试开始");//Test start
+define("_TEST_COMPLETION","考试完成");//Test completion
 define("_CONTENT_CREATION","内容创作");//Content creation
 define("_CONTENT_MODIFICATION","内容修改");//Content modification
 define("_CONTENT_START","内容开始");//Content start
 define("_CONTENT_COMPLETION","内容完成");//Content completion
 define("_NEW_COMMENT_WRITING","新的评论写作课");//New lesson comment writing
 define("_NEW_FORUM","新论坛");//New forum
-define("_NEW_TOPIC","新主题");//New topic
+define("_NEW_TOPIC","新帖子");//New topic
 define("_NEW_POLL","新的问卷调查");//New poll
 define("_NEW_FORUM_MESSAGE_POST","新论坛信息发布");//New forum message post
 define("_STATUS_CHANGE","状态变化");//Status change
@@ -2753,12 +2753,12 @@ define("_SYSTEM_VISITED","系统访问");//System visited
 define("_SYSTEM_NOT_VISITED","系统没有访问");//System not visited
 define("_LESSON_NOT_VISITED","课程没有访问");//Lesson not visited
 define("_LESSON_NOT_COMPLETED","未完成的课程");//Lesson not completed
-define("_TEST_NOT_COMPLETED","测试未完成");//Test not completed
+define("_TEST_NOT_COMPLETED","考试未完成");//Test not completed
 define("_CONTENT_NOT_COMPLETED","内容未完成");//Content not completed
 define("_VISITEDLESSON","访问课程");//visited lesson
 define("_GOTOLESSONSTIMELINE","转到课程时间表");//Goto lessons timeline
-define("_GROUPLESSONS","集团的经验课程");//Group lessons
-define("_GROUPCOURSES","小组课程");//Group courses
+define("_GROUPLESSONS","组课程");//Group lessons
+define("_GROUPCOURSES","组专题");//Group courses
 define("_GROUPUSERSTATUS","集团用户状态");//Group user status
 define("_NOTACTIVE","无效");//Inactive
 define("_ASSIGNLESSONSTOALLNEWMEMBERS","指派集团介绍的新成员");//Assign group profile to new members
@@ -2774,7 +2774,7 @@ define("_AUTOMATICALLYGENERATEGROUPKEY","自动生成组密钥");//Automatically
 define("_UNIQUEGROUPKEY","独特的组密钥");//Unique group key
 define("_UNIQUEGROUPKEYINFO","这种独特的组密钥可以提供给用户，使他们能够登记某一特定群体按一下钥匙图标登录页上的");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","默认系统组");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","检查这将使所有新用户的系统将自动分配给该组。只有一组可预设的系统组。作为一个新的默认组蕴涵选择取代以往。");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","选中这将使所有新用户的系统将自动分配给该组。只有一组可预设的系统组。作为一个新的默认组蕴涵选择取代以往。");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","组密钥");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","提出了一个独特的群体在这里主要提供给您的系统管理员，您可以注册自己的所有经验课程，特别组");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","该集团已进入关键你是无效的");//The group key you have entered is not valid
@@ -2793,7 +2793,7 @@ define("_MAXGROUPKEYUSAGE","最大关键用途");//Maximum key uses
 define("_MAXGROUPKEYUSAGEINFO","制定这一领域的大于零的值，将划定若干倍的组密钥可用于向用户自行注册到该组。如果该字段设置为零，那么没有这种限制将被强制执行。");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
 define("_REMAININGKEYUSES","其余组主要用途");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","该集团主要已过期");//The group key has expired
-define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","很抱歉，但这个测试被损坏，从而无法使用。请访问做测试名单删除此测试执行。");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
+define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","很抱歉，但这个考试被损坏，从而无法使用。请访问做考试名单删除此考试执行。");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
 define("_STUDENTSINGROUP","学生组");//Students in group
 define("_PROFESSORSINGROUP","教授组");//Professors in group
 define("_SUPERVISEDEMPLOYEES","监督");//Supervised
@@ -2806,17 +2806,17 @@ define("_NOUSERSARECURRENTLYRELATEDTOYOU","目前没有用户与您");//No users
 define("_RECENTINCOMINGMESSAGES","最近收到的邮件");//Recent incoming messages
 define("_GOTOMYMESSAGES","去我的邮件");//Go to my messages
 define("_USERINACTIVE","该帐户已被停用署长");//The account has been deactivated by the administrator
-define("_TESTCORRUPTEDASKRESETEXECUTION","很抱歉，但这个测试被损坏，从而无法使用。请您教授重置这个测试执行");//We are sorry, but this test is corrupted and thus inaccessible. Please ask your professor to reset this test execution
-define("_LOWERHANDLES","下处理");//Lower handles
-define("_UPPERHANDLES","上处理");//Upper handles
-define("_ALLHANDLES","所有处理");//All handles
+define("_TESTCORRUPTEDASKRESETEXECUTION","很抱歉，但这个考试被损坏，从而无法使用。请您教授重置这个考试执行");//We are sorry, but this test is corrupted and thus inaccessible. Please ask your professor to reset this test execution
+define("_LOWERHANDLES","回退图标");//Lower handles
+define("_UPPERHANDLES","前进图标");//Upper handles
+define("_ALLHANDLES","所有图标");//All handles
 define("_MYPROFILE","我的个人资料");//my Profile
 define("_MYPLACEMENTS","我的存款");//my Placements
 define("_MYHISTORY","我的历史");//my History
 define("_MYFILES","我的文件");//my Files
 define("_MAPPEDACCOUNTS","映射帐户");//Mapped accounts
 define("_MYGROUPS","我的群组");//my Groups
-define("_AVAILABLE","可用的");//Available
+define("_AVAILABLE","状态");//Available
 define("_NEVER","从不");//Never
 define("_CLASSMATES","同学录");//Classmates
 define("_LESSONPEOPLE","课程人");//Lesson users
@@ -2826,9 +2826,9 @@ define("_WILLBETEACHINGCOURSE","将教学课程");//will be teaching the course
 define("_VISITEDCOURSE","访问过程");//visited course
 define("_HASCOMPLETEDCOURSE","已完成课程");//has completed the course
 define("_NOLONGERATTENDSCOURSE","不再参加该课程");//no longer attends the course
-define("_STARTEDTEST","开始测试");//started the test
-define("_PROJECT_SUBMISSION","项目提交");//Project submission
-define("_SUBMITTEDPROJECT","项目提交");//submitted the project
+define("_STARTEDTEST","开始考试");//started the test
+define("_PROJECT_SUBMISSION","作业提交");//Project submission
+define("_SUBMITTEDPROJECT","作业提交");//submitted the project
 define("_COMMENTSWALL","评论/墙");//Comments/Wall
 define("_AREYOUSUREYOUWANTTODELETETHISCOMMENT","您确定要删除此评论？");//Are you sure you want to delete this comment?
 define("_COULDNOTRETRIEVEEMPLOYEESJOBS","无法检索用户的工作");//Could not retrieve user's jobs
@@ -2845,7 +2845,7 @@ define("_COURSE_REMOVAL","课程取消");//Course removal
 define("_COURSE_COMPLETION","课程完成");//Course completion
 define("_COURSE_NOT_VISITED","当然不是访问");//Course not visited
 define("_COURSE_NOT_COMPLETED","当然，未完成");//Course not completed
-define("_PENDINGTESTS","待测试");//Pending tests
+define("_PENDINGTESTS","待考试");//Pending tests
 define("_SETPERIOD","选择期");//Select period
 define("_PREVIOUSWEEK","前一周");//Previous week
 define("_TODAY","今天");//Today
@@ -2907,7 +2907,7 @@ define("_PROGRAMMEDLESSONEXPIRY","课程计划到期");//Lesson scheduled expira
 define("_BEFOREEVENT","前事件");//Before event
 define("_TIMEBEFOREEVENT","时间之前发送事件");//Time to send before event
 define("_DAYSBEFOREEVENT","天前事件");//days before event
-define("_PROJECTEXPIRY","项目到期");//Project expiration
+define("_PROJECTEXPIRY","作业到期");//Project expiration
 define("_SELECTEDUSERS","选择用户");//Selected users
 define("_DURATIONFOREXPIRATION","证书到期时间");//Time for certificate expiration
 define("_MONTHS","个月");//Months
@@ -2921,14 +2921,14 @@ define("_MESSAGESTOSENDEVERYTIME","通知发送人数在每个传递");//Number 
 define("_MAXIMUMSENTMESSAGESSTORED","最近发出通告号码存储");//Number of recently sent notifications to store
 define("_NOTIFICATIONCONFIGURATIONSUPDATEDSUCCESSFULLY","通知配置已更新成功");//Notification configuration was updated successfully
 define("_LESSONNOTFOUND","这个课程没有被发现。");//The lesson was not found.
-define("_PROJECTEXPIRATIONFORLESSON","过期的项目接近的课程");//Expiration approaching for project of lesson
+define("_PROJECTEXPIRATIONFORLESSON","过期的作业接近的课程");//Expiration approaching for project of lesson
 define("_LESSONEXPIRATIONFORLESSON","到期日临近的课程");//Expiration approaching for lesson
-define("_TESTCOMPLETIONFORLESSON","测试完成后的课程");//Test completion for lesson
+define("_TESTCOMPLETIONFORLESSON","考试完成后的课程");//Test completion for lesson
 define("_STUDENTOFLESSON","学生的课");//A student of lesson
-define("_PROJECTCOMPLETIONFORLESSON","提交项目的课程");//Project submission for lesson
-define("_HASSUBMITTEDATEST","已完成测试");//has completed a test
-define("_HASSUBMITTEDAPROJECT","提交了一份项目");//has submitted a project
-define("_THEPROJECTFORLESSON","项目的课程");//the project for lesson
+define("_PROJECTCOMPLETIONFORLESSON","提交作业的课程");//Project submission for lesson
+define("_HASSUBMITTEDATEST","已完成考试");//has completed a test
+define("_HASSUBMITTEDAPROJECT","提交了一份作业");//has submitted a project
+define("_THEPROJECTFORLESSON","作业的课程");//the project for lesson
 define("_ISABOUTTOEXPIREINTHREEDAYS","即将到期的3天");//is about to expire in three days
 define("_NEWTOPICFORFORUM","新专题的论坛");//New topic for the forum of
 define("_NEWTOPICPUBLISHEDINTHEFORUMOF","一个新的主题已被发表在论坛");//A new topic has been published in the forum of
@@ -2944,7 +2944,7 @@ define("_CERTIFICATEEXPIREDON","证书过期");//Certificate expired on
 define("_CERTIFICATEEXPIRESON","证书到期");//Certificate expires on
 define("_RESETCOURSEAFTEREXPIRATION","课程结束后重启");//Reset course after expiration
 define("_RESETLICENSENOTE","重置许可证说明");//Reset license note
-define("_USETHISINCASEYOUWANTALLUSERSTORECOMPLYTOLICENSENOTE","检查如果您想所有用户重新遵守许可说明");//Check this if you want all users to re-comply to the license note
+define("_USETHISINCASEYOUWANTALLUSERSTORECOMPLYTOLICENSENOTE","选中如果您想所有用户重新遵守许可说明");//Check this if you want all users to re-comply to the license note
 define("_USERSWITHCOMMONLESSONS","用户谁与我分享经验课程");//Users who share lessons with me
 define("_SHOWLESSONINCATALOG","查看课程目录");//Show lesson in catalog
 define("_SHOWALLIMAGES","显示所有图片");//Show all images
@@ -2957,39 +2957,39 @@ define("_PREVIOUSMESSAGE","上一封邮件");//Previous message
 define("_ORCAPITAL","或");//OR
 define("_CHARACTERS","字符");//Characters
 define("_UNDISCLOSEDRECIPIENTS","收件人不详");//Undisclosed recipients
-define("_RANDOMPOOLQUESTIONSCANNOTBELESSTHANQUESTIONS","随机池问题不能少于测试的问题");//Random pool questions cannot be less than the test's questions
+define("_RANDOMPOOLQUESTIONSCANNOTBELESSTHANQUESTIONS","随机池题目不能少于考试的题目");//Random pool questions cannot be less than the test's questions
 define("_DISABLEOPTIONS","禁用选项");//Disable options
 define("_SELECTOPTIONSDISABLED","选择您要在全球范围内禁用");//Select the options you want to be globally disabled
 define("_HASJOINEDTHESYSTEM","已加入该系统");//has joined the system
 define("_HASBEENREMOVEDFROMTHESYSTEM","已被从系统中删除");//has been removed from the system
-define("_THEPROJECT","该项目");//The project
+define("_THEPROJECT","该作业");//The project
 define("_HASEXPIRED","已过期");//has expired
 define("_HASCREATEDUNIT","创造单位");//has created the unit
 define("_HASMODIFIEDUNIT","已修改单位");//has modified the unit
 define("_HASCOMPLETEDUNIT","已完成的单位");//has completed the unit
 define("_HASPUBLISHEDSURVEY","已经公布了调查结果");//has published the survey
-define("_HASCREATEDPROJECT","出版项目");//has published project
+define("_HASCREATEDPROJECT","出版作业");//has published project
 define("_ISSUECERTIFICATEFORCOMPLTETED","签发证书完成");//Issue certificates for completed
 define("_COMPLETEDON","完成");//Completed on
 define("_SMARTYCACHING","启用Smarty缓存");//Enable Smarty caching
 define("_SMARTYCACHETIMEOUT","Smarty缓存超时");//Smarty caching timeout
-define("_ESTIMATETIMETOCOMPLETE","考试时间");//Estimated time to complete
+define("_ESTIMATETIMETOCOMPLETE","时间限制");//Estimated time to complete
 define("_TOTALDURATION","总时间");//Total duration
 define("_CURRENTLYSELECTEDTIMEFROM","总时间可从");//Total time may be from
-define("_UPDATETESTTIME","更新测试时间");//Update test time
+define("_UPDATETESTTIME","更新考试时间");//Update test time
 define("_AUTOSELECT","自动选择");//Auto select
-define("_REFRESHDURATION","测试持续时间的刷新问题");//Refresh test duration based on questions
-define("_TOTALQUESTIONSOFWHICH","总的问题，其中");//Total questions, out of which
+define("_REFRESHDURATION","考试持续时间的刷新题目");//Refresh test duration based on questions
+define("_TOTALQUESTIONSOFWHICH","总的题目，其中");//Total questions, out of which
 define("_CHOOSEUNITS","选择单位");//Choose units
-define("_CHOOSENUMBERANDTYPEOFQUESTIONS","选择数量和类型的问题");//Choose number and type of questions
+define("_CHOOSENUMBERANDTYPEOFQUESTIONS","选择数量和类型的题目");//Choose number and type of questions
 define("_SETTOTALDURATION","设置总期限");//Set total duration
-define("_CLICKWILLCREATEATESTWITH","点击随机将创建一个测试");//Clicking Randomize will create a test with
+define("_CLICKWILLCREATEATESTWITH","点击随机将创建一个考试");//Clicking Randomize will create a test with
 define("_SELECTEDUNITS","选定的单位");//Selected units
 define("_RANDOMIZATION","随机");//Randomization
-define("_DRAGNDROP","拖放");//Drag and drop
+define("_DRAGNDROP","拖放题");//Drag and drop
 define("_PHPLIVEDOCXINFO","phpLiveDocx是一个平台，用于将证书文件， PDF格式。这是释放以下授权： http://www.phplivedocx.org/articles/phplivedocx-license/ 。您必须先注册一个帐户<a target=\"_blank\" href=\"https://www.livedocx.com/user/account_registration.aspx\">这里</a>并粘贴您的凭据");//phpLiveDocx is a platform used to transform certificate documents in a pdf format. It is released under the following license: http://www.phplivedocx.org/articles/phplivedocx-license/ . You have to sign up an account <a target=\"_blank\" href=\"https://www.livedocx.com/user/account_registration.aspx\">here</a> and paste your credentials
 define("_PHPLIVEDOCXSERVER","Phplivedocx服务器");//Phplivedocx server
-define("_INSERTDRAGDROPCOUPLES","插入拖放夫妇");//Insert drag and drop couples
+define("_INSERTDRAGDROPCOUPLES","插入拖放对");//Insert drag and drop couples
 define("_USESSO","使用的SSO");//Use SSO
 define("_HACPURL","HACP网址");//HACP Url
 define("_CLASSNOTIMPLEMENTED","一流的没有执行");//Class not implemented
@@ -2997,11 +2997,11 @@ define("_RANDOMIZETESTQUESTIONS","随机试题");//Randomize test questions
 define("_COULDNOTREADDATAFROMSERVER","数据不能被读取服务器");//Data could not be read from server
 define("_COULDNOTCONNECTTOSERVER","与服务器的连接无法建立");//A connection with the server could not be established
 define("_ANERROROCCURED","发生错误");//An error occured
-define("_REMAININGQUESTIONTIME","剩下的问题时");//Remaining question time
-define("_REMAININGTESTTIME","剩余测试时间");//Remaining test time
-define("_SUBMITQUESTION","提交问题");//Submit Question
-define("_ONLYFORWARD","只移动着");//Move only forward
-define("_APPLICABLETOONEBYONE","只适用于逐一测试");//Only applies to one-by-one tests
+define("_REMAININGQUESTIONTIME","剩下的题目时");//Remaining question time
+define("_REMAININGTESTTIME","剩余考试时间");//Remaining test time
+define("_SUBMITQUESTION","提交题目");//Submit Question
+define("_ONLYFORWARD","不允许回看");//Move only forward
+define("_APPLICABLETOONEBYONE","只适用于逐题显示考试");//Only applies to one-by-one tests
 define("_TIMESPENT","时间");//Time spent
 define("_INVALIDKEY","无效关键");//Invalid key
 define("_FORGROUP","团体");//for group
@@ -3030,39 +3030,39 @@ define("_LASTIPUSED","最后一个IP使用");//Last ip used
 define("_CERTIFICATEKEY","证书关键");//Certificate key
 define("_HIDEINDEX","隐藏从索引页");//Hide from index page
 define("_HIDEBLOCKIMAGES","隐藏块图像");//Hide block images
-define("_UPLOADEDPROJECTS","上传项目");//Uploaded projects
+define("_UPLOADEDPROJECTS","上传作业");//Uploaded projects
 define("_SEARCHTEXTMUSTBENONEMPTYANDMORETHAN","搜索文字必须是空的，不超过3个字符");//Search text must be non empty and more than 3 characters
 define("_MAXIMIZEVIEWABLEAREA","Maximize viewable area");//Maximize viewable area
 define("_IMAGESDISPLAY","Images display");//Images display
 define("_YOUARECURRENTLYLOGGEDINAS","You are currently logged in as");//You are logged in as
 define("_VERYHARD","很难");//Very hard
-define("_CURRENTTESTHAS","目前的测试已经");//The current test has
-define("_QUESTIONSOFTOTALTIME","问题的总时间");//questions of total time
+define("_CURRENTTESTHAS","目前的考试已经");//The current test has
+define("_QUESTIONSOFTOTALTIME","题目的总时间");//questions of total time
 define("_WHEREARANDOMPOOLOF","在一个随机池");//where a random pool of
-define("_QUESTIONSISUSEDEACHTIME","问题是每次使用");//questions is used each time
+define("_QUESTIONSISUSEDEACHTIME","题目是每次使用");//questions is used each time
 define("_SELECTOPTION","选择选项");//Select option
-define("_CREATERANDOMTESTTHATLASTS","创建一个随机测试，持续");//Create a random test that lasts
+define("_CREATERANDOMTESTTHATLASTS","创建一个随机考试，持续");//Create a random test that lasts
 define("_CREATERANDOMTESTTHATHAS","创建一个随机试验已");//Create a random test that has
 define("_CHANGEQUESTIONSBASEDONDIFFICULTY","调整困难");//Adjust difficulty
 define("_ADJUSTTYPE","调整型");//Adjust type
 define("_BASICTESTPARAMETERS","基本参数");//Basic parameters
 define("_DIFFICULTYLEVELS","难度级别");//Difficulty levels
-define("_QUESTIONTYPES","问题类型");//Question types
+define("_QUESTIONTYPES","题目类型");//Question types
 define("_ADVANCEDSETTINGS","高级设置");//Advanced settings
-define("_QUESTIONSINEACHEXECUTION","问题在每个测试执行（随机池）");//questions in each test execution (random pool)
+define("_QUESTIONSINEACHEXECUTION","题目在每个考试执行（随机池）");//questions in each test execution (random pool)
 define("_USE","使用");//Use
-define("_QUESTIONSBYPERCENTAGE","按百分比的问题");//Questions by percentage
-define("_QUESTIONPERCENTAGE","问题百分比");//Questions percentage
+define("_QUESTIONSBYPERCENTAGE","按百分比的题目");//Questions by percentage
+define("_QUESTIONPERCENTAGE","题目百分比");//Questions percentage
 define("_MEANDIFFICULTY","平均难度");//Mean difficulty
 define("_ANY","任何");//Any
-define("_IMPORTANCEOFQUESTIONSVSDURATION","队的期限问题的重要性");//Importance of questions vs duration
+define("_IMPORTANCEOFQUESTIONSVSDURATION","队的期限题目的重要性");//Importance of questions vs duration
 define("_ACCURATEPERCENTAGE","准确率");//Accurate percentage
-define("_TOTALQUESTIONSTIME","总时间问题");//total questions time
-define("_UPDATETOTALTESTTIME","自动更新的总测试时间的时间问题");//Automatically update total test time based on questions time
-define("_QUESTIONCODE","问题的代码");//Question code
-define("_QUESTIONTYPECODE","问题类型代码");//Question type code
+define("_TOTALQUESTIONSTIME","总时间题目");//total questions time
+define("_UPDATETOTALTESTTIME","自动更新的总考试时间的时间题目");//Automatically update total test time based on questions time
+define("_QUESTIONCODE","题目的代码");//Question code
+define("_QUESTIONTYPECODE","题目类型代码");//Question type code
 define("_VERYHIGH","非常高");//Very high
-define("_ADJUSTQUESTIONS","调整问题");//Adjust questions
+define("_ADJUSTQUESTIONS","调整题目");//Adjust questions
 define("_CUSTOMSTATISTICS","时间所限报表");//Time constraint reports
 define("_WANTUSAGEREPOSTLESSON","使用报表的课程");//Usage report for lesson
 define("_WANTUSAGEREPOSTCOURSE","报表过程中使用");//Usage report for course
@@ -3074,15 +3074,15 @@ define("_WANTUSERSCERTIFICATEDCOURSE","用户得到了该课程认证");//Users 
 define("_WANTMOSTACTIVEUSERS","最活跃的用户");//Most active users
 define("_WANTMOSTACTIVELESSONS","最活跃的课程");//Most active lessons
 define("_WANTMOSTACTIVECOURSES","最活跃的课程");//Most active courses
-define("_WANTUSERSCOMPLETEDTEST","用户完成测试");//Users completed the test
-define("_WANTUSERSSUBMITTEDPROJECT","用户提交的项目");//Users submitted the project
+define("_WANTUSERSCOMPLETEDTEST","用户完成考试");//Users completed the test
+define("_WANTUSERSSUBMITTEDPROJECT","用户提交的作业");//Users submitted the project
 define("_WANTUSERSREGISTEREDSYSTEM","用户注册系统");//Users registered to the system
 define("_SIDEBARINTERFACE","补充工具栏界面");//Sidebar interface
 define("_NORMALVERTICAL","垂直（默认）");//Vertical (Default)
 define("_HORIZONTALSIDEBAR","水平");//Horizontal
 define("_MOBILEVERSION","移动版本（有限水平）");//Mobile version (limited horizontal)
 define("_NOSIDEBAR","无侧边栏");//No sidebar
-define("_EDITLESSONINFORMATION","编辑课信息");//Edit lesson information
+define("_EDITLESSONINFORMATION","课程信息编辑");//Edit lesson information
 define("_ENTITYNOTFOUND","实体未找到");//Entity not found
 define("_OPERATIONCOMPLETEDSUCCESSFULLY","操作成功完成");//Operation completed successfully
 define("_ONLYFORLESSONS","仅用于课程");//Only for lessons
@@ -3090,7 +3090,7 @@ define("_CONTENTTOOLS","内容的工具");//Content tools
 define("_TOGGLEFILEMANAGER","切换文件管理器");//Toggle file manager
 define("_UNITPROPERTIES","单位性质");//Unit properties
 define("_COPYSURVEYS","复制调查");//Copy surveys
-define("_COPYQUESTIONS","复制问题");//Copy questions
+define("_COPYQUESTIONS","复制题目");//Copy questions
 define("_INSTALLTHEME","安装主题");//Install theme
 define("_UPLOADTHEMEFILEZIPFORMAT","上传的主题文件（ZIP）");//Upload the theme file (zip)
 define("_THEMESUCCESSFULLYINSTALLED","的主题是成功安装");//The theme was successfully installed
@@ -3101,11 +3101,11 @@ define("_NOTANIMAGEFILE","上传的文件不是图像");//The uploaded file is n
 define("_COMMENT","评论");//Comment
 define("_COMMENTPROPERTIES","评论性质");//Comment properties
 define("_EDITCOMMENT","编辑评论");//Edit comment
-define("_EDITCONDITIONS","编辑条件");//Edit conditions
+define("_EDITCONDITIONS","编辑规则");//Edit conditions
 define("_EDITINFORMATION","修改信息");//Edit information
 define("_FACEBOOK","脸谱");//Facebook
-define("_OPTIONSFORFACEBOOKMODULE","Facebook的模块选项");//Options for Facebook module
-define("_ENTIREFACEBOOKMODULE","整个Facebook的模块");//Entire Facebook module
+define("_OPTIONSFORFACEBOOKMODULE","Facebook的插件选项");//Options for Facebook module
+define("_ENTIREFACEBOOKMODULE","整个Facebook的插件");//Entire Facebook module
 define("_FACEBOOKDATAACQUISITION","Facebook的数据采集");//Facebook data acquisition
 define("_FACEBOOKLOGGING","连接与Facebook");//Connect with Facebook
 define("_FACEBOOKEXTERNALLOGGING","外部登录通过Facebook");//External login through Facebook
@@ -3113,8 +3113,8 @@ define("_FACEBOOKCONNECT","连接与Facebook");//Connection with Facebook
 define("_FACEBOOKPROFILE","Facebook的个人资料");//Facebook profile
 define("_YOUARENOTCONNECTEDTOFACEBOOK","您没有连接到Facebook。点击连接");//You are not connected to Facebook. Connect by clicking
 define("_NOUSERFOUNDWITHTHISFACEBOOKIDPLEASELOGIN","您已成功连接到您的Facebook帐户，但没有易纺用户可与此相联系的。请登录到易纺连接两个帐户现在");//You have been successfully connected to your Facebook account, but no eFront user could be linked with it. Please login into eFront to link the two accounts now
-define("_EXPORTCURRENTTHEME","出口为主题的当前设置");//Export current settings as theme
-define("_SOCIALMODULEOPTIONS","社会模块选项");//Social module options
+define("_EXPORTCURRENTTHEME","导出为主题的当前设置");//Export current settings as theme
+define("_SOCIALMODULEOPTIONS","社会插件选项");//Social module options
 define("_FACEBOOKAPIKEY","Facebook的API密钥");//Facebook API key
 define("_FACEBOOKSECRET","Facebook应用程序的秘密");//Facebook Application Secret
 define("_FACEBOOKCONNECTENABLEDBUTNOAPPPROVIDED","Facebook的连接已启用，但是没有详细的API一样重要和机密是相应的应用程序提供");//Facebook connect is enabled, but no details like API key and Secret are provided for the corresponding application
@@ -3186,7 +3186,7 @@ define("_PASTESELECTED","粘贴选择");//Paste selected
 define("_SWITCHACCOUNT","转换账户");//Switch account
 define("_CONNECTED","连接");//Connected
 define("_CANNOTMAPSAMEACCOUNT","您不能添加与自己映射帐户");//You can not add a mapped account with yourself
-define("_EXPORTTHEME","出口的主题");//Export theme
+define("_EXPORTTHEME","导出的主题");//Export theme
 define("_DEFAULTFORBROWSER","默认浏览器");//Default for browser
 define("_MOBILECLIENT","移动客户端");//Mobile client
 define("_USETHEMEBROWSER","主题使用该浏览器的默认");//Use theme by default for this browser
@@ -3226,7 +3226,7 @@ define("_SITELOGO","网站标志");//Site logo
 define("_CHANGELAYOUTFORTHEME","更改布局的主题");//Change layout for theme
 define("_LAYOUTFORTHEME","布局主题");//Layout for theme
 define("_RESETTHEME","复位主题");//Reset theme
-define("_THISWILLDELETECUSTOMBLOCKS","此操作将删除所有修改，包括自定义模块和页眉/页脚。你确定吗？");//This action will delete all modifications, including custom blocks and header/footer. Are you sure?
+define("_THISWILLDELETECUSTOMBLOCKS","此操作将删除所有修改，包括自定义插件和页眉/页脚。你确定吗？");//This action will delete all modifications, including custom blocks and header/footer. Are you sure?
 define("_THEMEFAVICON","主题图标");//Theme favicon
 define("_THEMELOGO","主题标识");//Theme logo
 define("_USETHEMEFAVICON","使用主题图标");//Use theme favicon
@@ -3240,8 +3240,8 @@ define("_PLEASEPICKANOPTION","请选择一个选项");//Please pick an option
 define("_YOUHAVEMETCONDITIONS","完成条件满足，待确认");//Completion conditions met, confirmation pending
 define("_OVERALLPROGRESS","总体进展");//Overall progress
 define("_THEORYPROGRESS","理论进展");//Theory progress
-define("_AVERAGETESTSCOREOFLASTEXECUTIONS","平均考试成绩（每个测试的最后结果）");//Average test score (counting each test's last execution)
-define("_AVERAGEPROJECTSCORE","平均每个项目的评分");//Average project score
+define("_AVERAGETESTSCOREOFLASTEXECUTIONS","平均考试成绩（每个考试的最后结果）");//Average test score (counting each test's last execution)
+define("_AVERAGEPROJECTSCORE","平均每个作业的评分");//Average project score
 define("_HELP","帮助");//Help
 define("_LOGOUTUSERAFTER","用户注销后");//Logout users after
 define("_MINUTESOFINACTIVITY","分钟不活动");//minutes of inactivity
@@ -3273,10 +3273,10 @@ define("_HTML","的HTML");//HTML
 define("_XML","XML的");//XML
 define("_AUTODETECT","自动检测");//Auto detect
 define("_GENERICSTRUCTURE","通用结构");//Generic structure
-define("_IMPORTTYPE","进口型");//Import type
+define("_IMPORTTYPE","导入型");//Import type
 define("_IMPORTFILE","导入文件");//Import file
 define("_IMPORTFROMURL","从网址导入");//Import from URL
-define("_IMPORTFROMPATH","进口路径");//Import from path
+define("_IMPORTFROMPATH","导入路径");//Import from path
 define("_CHOOSEUNIT","选择单位");//Choose unit
 define("_USECRON","使用定时任务");//Use cron job
 define("_USECRONINFO","You can have notifications being sent by a cron job by executing<br> the send_notifications.php script located in the www/ <br>folder of your installation. However, it is essential that you define <br>the HTTP_HOST variable for the \$_SERVER variable. <br>A sample script that could be executed by cron is the following: <br><br>&lt;"."?php<br>\$_SERVER['HTTP_HOST'] = \"127.0.0.1\";<BR>include \"/home/user/eFront/www/send_notifications.php\";<BR>?".">");//You can have notifications being sent by a cron job by executing<br> the send_notifications.php script located in the www/ <br>folder of your installation. However, it is essential that you define <br>the HTTP_HOST variable for the \$_SERVER variable. <br>A sample script that could be executed by cron is the following: <br><br>&lt;"."?php<br>\$_SERVER['HTTP_HOST'] = \"127.0.0.1\";<BR>include \"/home/user/eFront/www/send_notifications.php\";<BR>?".">
@@ -3298,7 +3298,7 @@ define("_HASPUBLISHEDTHEANNOUNCEMENT","已经公布了公布");//has published t
 define("_HASASKEDFORANEWPASSWORD","要求新密码");//asked for a new password
 define("_WASREGISTEREDINTOTHESYSTEM","被注册到系统");//was registered into the system
 define("_ACTIVATEDHISACCOUNTWITHEACTIVATIONMAIL","他通过电子邮件激活帐户");//activated his account via email
-define("_CREATEDTHETEST","创建测试");//created the test
+define("_CREATEDTHETEST","创建考试");//created the test
 define("_CREATEDTHEBRANCH","创建分支");//created the branch
 define("_DELETEDTHEBRANCH","删除分支");//deleted the branch
 define("_WASASSIGNEDTHEJOB","被指派的工作");//was assigned the job
@@ -3342,7 +3342,7 @@ define("_KEY","钥匙");//Key
 define("_SEARCHCERTIFICATESBYKEY","证书使用它的主要搜索");//Search for certificate using its key
 define("_ENTERPARTOFCERTIFICATEKEY","输入认证的一部分关键");//Enter part of certification key
 define("_SMARTYBLOCK","使用Smarty的代码块");//Use smarty code in block
-define("_EXPORTSETTINGS","出口设置");//Export settings
+define("_EXPORTSETTINGS","导出设置");//Export settings
 define("_IMPORTSETTINGS","导入设置");//Import settings
 define("_SETTINGSFILE","设置文件");//Settings file
 define("_SETTINGSIMPORTEDSUCCESFULLY","设置成功导入");//Settings imported successfully
@@ -3351,7 +3351,7 @@ define("_LINKS","链接");//Links
 define("_HASCERTIFICATED","获得证书");//got certificate for
 define("_WITHGRADE","同等级");//with grade
 define("_WITHKEY","与关键");//with key
-define("_CERTIFICATEISSUE","证书问题");//Certificate issue
+define("_CERTIFICATEISSUE","证书题目");//Certificate issue
 define("_CERTIFICATEREVOKE","证书撤销/终止");//Certificate revoke/expire
 define("_HASLOSTCERTIFICATE","遗失证书");//lost certificate for
 define("_PREVIOUSCERTIFICATES","前ceriticates");//Previous ceriticates
@@ -3372,15 +3372,15 @@ define("_GROUPUSERTRAFFIC","集团用户流量");//Group user traffic
 define("_USERSTRAFFIC","用户流量");//Users traffic
 define("_ONLYFORGROUPLESSONS","只有小组的经验课程");//Only group lessons
 define("_ONLYFORGROUPUSERS","只有用户组");//Only group users
-define("_LESSONSTRAFFIC","课程交通");//Lessons traffic
-define("_GROUPLESSONTRAFFIC","交通集团的经验课程");//Group lessons traffic
+define("_LESSONSTRAFFIC","课程流量");//Lessons traffic
+define("_GROUPLESSONTRAFFIC","访问信息集团的经验课程");//Group lessons traffic
 define("_ARCHIVE","档案");//Archive
 define("_ARCHIVEDON","存档");//Archived on
 define("_RESTORESELECTED","还原选定");//Restore selected
 define("_ARCHIVEENTITY","档案");//Archive
 define("_LOADMATHTYPESASIMAGES","如图像显示数学类型");//Display math types as images
 define("_MATHIMAGESINFO","推荐的Internet Explorer 8。你还删除浏览器的缓存");//Recommended for Internet Explorer 8. You have also delete browser's cache
-define("_EDITCOURSESDIRECTION","分类课程");//Category courses
+define("_EDITCOURSESDIRECTION","该分类下专题");//Category courses
 define("_GROUPROLE","集团的共同作用");//Group common role
 define("_GROUPONLY","集团");//Group
 define("_YOUCANTDOTHESURVEYCONTACTLESSONPROFESSOR","要么你做了调查，或者是无效");//Either you have done the survey or it is inactive
@@ -3390,7 +3390,7 @@ define("_REPORTSFORBRANCH","报表为分支机构");//Reports for branch
 define("_BRANCHUSERS","分支机构的用户");//Branch users
 define("_BRANCHUSERTRAFFIC","分公司用户流量");//Branch user traffic
 define("_CORRECTANSWERPERCENTAGE","正确回答率");//Correct answer percentage
-define("_QUESTIONANALYSIS","问题分析");//Question analysis
+define("_QUESTIONANALYSIS","题目分析");//Question analysis
 define("_PARTICIPANTSCAP","与会者");//Participants
 define("_PERCENTWITHSCOREHIGHEREQUAL","与评分的百分比高于或等于");//Percent with score higher or equal
 define("_PARTICIPATIONSTATISTICS","参与报表");//Participation reports
@@ -3440,7 +3440,7 @@ define("_YOUHAVECANCELLEDTHETRANSACTION","您已取消交易");//You have cancel
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","该交易已成功完成。");//The transaction was completed successfully.
 define("_PAYPALDEBUG","贝宝调试模式");//Paypal debug mode
 define("_MYACCOUNT","我的帐户");//my Account
-define("_MODULE","模块");//Module
+define("_MODULE","插件");//Module
 define("_EMBEDTYPE","嵌入内容，");//Embed content as
 define("_INLINEIFRAME","内联（iframe中）");//Inline (iframe)
 define("_NEWWINDOWPOPUP","新窗口（弹出）");//New window (popup)
@@ -3449,11 +3449,11 @@ define("_CLICKTOSTARTUNIT","在按钮启动装置");//Click on the button to sta
 define("_STARTUNIT","启动装置");//Start unit
 define("_SCORM2004NOTSUPPORTED","不幸的是符合SCORM 2004不支持这个版本");//Unfortunately SCORM 2004 is not supported in this edition
 define("_RESTOREDEFAULTNOTIFICATIONS","还原默认的通知");//Restore default notifications
-define("_CONTENTPROGRESSEXCLUDINGTESTS","内容进展情况（不包括测试）");//Content progress (excl. tests)
+define("_CONTENTPROGRESSEXCLUDINGTESTS","内容进展情况（不包括考试）");//Content progress (excl. tests)
 define("_DATABASEVERSION","数据库版本");//Database version
 define("_DIFFERENTVERSIONSUPGRADENEEDED","你的数据库版本是不同的代码版本。请运行％链接脚本");//Your database version is different than the code version. Please run the %link script
 define("_UPGRADE","升级");//Upgrade
-define("_DOWNLOADEXPORTEDCOURSE","下载出口课程");//Download exported course
+define("_DOWNLOADEXPORTEDCOURSE","下载导出课程");//Download exported course
 define("_MAXDISCOUNT100","最高折扣100％");//The maximum discount is 100%
 define("_REGISTRATIONUPDATE","注册/更新");//Registration/Update
 define("_ROWS","行");//Rows
@@ -3463,14 +3463,14 @@ define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","为了创建一门课程，�
 define("_LESSONBRANCHESSELECTION","选择课程分行");//Select lesson branches
 define("_LESSONBRANCHES","课程分行");//Lesson branches
 define("_COURSEBRANCHES","当然分行");//Course branches
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","让学生在指定每个测试执行的若干问题");//Allow students to specify number of questions in each test execution
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","让学生在指定每个考试执行的若干题目");//Allow students to specify number of questions in each test execution
 define("_MAXIMUM","最大");//Maximum
 define("_MINIMUM","最低");//Minimum
 define("_REPETITIONS","重复");//Repetitions
-define("_MAINTAINHISTORY","维护历史");//Maintain history
+define("_MAINTAINHISTORY","保留考试记录");//Maintain history
 define("_KEYISNOTFORTHISEDITION","关键是不适合这个版本");//The key is not suitable for this edition
 define("_ILLEGALMODE","非法模式");//Illegal mode
-define("_MUSTSPECIFYQUESTIONNUMBER","您必须指定一些问题");//You must specify the number of questions
+define("_MUSTSPECIFYQUESTIONNUMBER","您必须指定一些题目");//You must specify the number of questions
 define("_MUSTSPECIFYVALUEFROM","您必须指定一个值从");//You must specify a value from
 define("_COURSEPROFESSORS","课程教授");//Course professors
 define("_PROFESSORSOFCOURSE","当然，教授");//Professors of course
@@ -3484,7 +3484,7 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","没有证书已发给用户还");//No
 define("_SUPERVISORTOACTIVATE","被激活的监");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","没有小监督员发现");//No branch supervisors found
 define("_PRINTCONTENT","打印内容");//Print content
-define("_USERHASNOTDONETEST","该用户已没有这样做的测试");//The user has not done this test
+define("_USERHASNOTDONETEST","该用户已没有这样做的考试");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","请确认以下信息是正确的");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","没有类别定义");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","监电子邮件激活");//Supervisor email activation
@@ -3503,8 +3503,8 @@ define("_LEAVEEMPTYTONOTUSE","给空的ommit");//Leave empty to ommit
 define("_PLEASESELECT","请选择");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","你的上级会激活您的帐户");//Your supervisor will activate your account
 define("_IMS","IMS课件管理");//IMS
-define("_IMSIMPORT","进口IMS的内容");//Import IMS Content
-define("_IMSEXPORT","出口IMS的内容");//Export IMS Content
+define("_IMSIMPORT","导入IMS的内容");//Import IMS Content
+define("_IMSEXPORT","导出IMS的内容");//Export IMS Content
 define("_UPLOADTHEIMSFILEINZIPFORMAT","上传IMS的ZIP格式文件");//Upload IMS file in ZIP format
 define("_IMSOPTIONS","IMS的选择");//IMS options
 define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS的文件已成功导入");//IMS file was successfully imported
@@ -3519,8 +3519,8 @@ define("_AUTOLOGIN","自动登录");//Auto login
 define("_ACCESSLINK","访问链接");//Access link
 define("_AUTOLOGINITHLINK","用户可以登录自动链接");//User can login automatically by link
 define("_DEFAULTUSERTYPE","默认的用户类型");//Default user type
-define("_FORCEUSERANSERALLQUESTIONS","部队学生回答所有问题");//Force student answer all questions
-define("_YOUHAVETOANSWERALLQUESTIONS","你必须回答所有问题");//You have to answer all questions
+define("_FORCEUSERANSERALLQUESTIONS","必须对所有题目作答");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","你必须回答所有题目");//You have to answer all questions
 define("_SHOWHELP","显示帮助联系");//Display help links (New)
 define("_ALLOWUSERANSERALLRONG","只有让学生重做错误回答的问题");//Allow students to redo only the wrong answered questions (New)
 define("_ALLOWANSWERWRONGINFO","只有允许重复测试");//Only if test repetitions are allowed (New)
@@ -3550,4 +3550,15 @@ define("_NEWSKILLASSIGNMENT","新技能任务");//New skill assignment (New)
 define("_REPLACEDEXISTINGBRANCH","取代现有的分支");//Replaced existing branch (New)
 define("_REPLACEDEXISTINGJOB","取代现有的工作");//Replaced existing job (New)
 define("_REPLACEDEXISTINGSKILL","取代现有的技能");//Replaced existing skill (New)
+define("_BRANCHALREADYEXISTS","科已经存在");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","缺少技能类");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","技术已经存在");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","分支不存在");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","分公司的名称是模糊的");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","职称是模糊的");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","技能名称是模糊的");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","技能类是暧昧");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","缺少工作描述");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","这项技能不存在");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","用户已经存在于组");//User already exists in group (New)
 ?>

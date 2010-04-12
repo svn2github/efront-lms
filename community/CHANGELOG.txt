@@ -1,3 +1,6 @@
+=== Version 3.6.1 build ===
+- Added code for deleting templates cache in upgrade script
+
 === Version 3.6.1 build 6440 ===
 - Added online help functionality
 - Extended tests to allow students to redo only the wrong questions (community++)

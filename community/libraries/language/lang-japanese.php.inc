@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","ユーザーは自動的にリンクによってロ�
 define("_DEFAULTUSERTYPE","デフォルトのユーザーのタイプ");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","強制的に学生の質問に答える");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","すべての質問に回答する必要があります");//You have to answer all questions
-define("_SHOWHELP","ヘルプを表示リンク");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","許可の学生は間違って質問に答えをやり直す");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","のみのテストの繰り返しが許可されている場合");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","やり直しは間違って答えて");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","デフォルトのテーマはinportedすることはできません");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","いいえヘッダー行が定義され、またはヘッダーのインポートのタイプと互換性がない");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","インポートのユーザ");//Imported user (New)
-define("_USERSTOCOURSES","コースへのユーザー");//Users to courses (New)
-define("_USERSTOGROUPS","グループへのユーザー");//Users to groups (New)
-define("_IMPORTANYTHING","何が認識さ");//Anything recognized (New)
-define("_DATATOIMPORT","データをインポートする");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","成功の輸入");//successfull imports (New)
-define("_FAILEDIMPORTS","失敗したインポート");//failed imports (New)
-define("_REPLACEDUSER","置き換えユーザー");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","ファイルには、必要な列を含んでいない");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","置き換え既存の割り当て");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","新コースの割り当て");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","新しいグループの割り当て");//New group assignment (New)
-define("_USERSTOJOBS","仕事へのユーザー");//Users to jobs (New)
-define("_USERSTOSKILLS","スキルへのユーザー");//Users to skills (New)
-define("_DATATOEXPORT","データをエクスポートする");//Data to export (New)
-define("_MANDATORYFIELDS","必須フィールド");//Mandatory fields (New)
-define("_OPTIONALFIELDS","省略可能なフィールド");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","ヘッダー行の各ポートの種類を含む、すべての、任意のオプションのフィールドのタイトルのもの任意の順序で下記から必須のファイルを提供します。各列のタイトルはその意味を示します。認識されない列は、プロシージャの残りの部分に影響を与えず省略されます。");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","新しい仕事の説明の割り当て");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","新しいスキルの割り当て");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","置き換え、既存の支店");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","置き換え、既存のジョブ");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","置き換え、既存のスキル");//Replaced existing skill (New)
+define("_SHOWHELP","ヘルプを表示リンク");//Display help links
+define("_ALLOWUSERANSERALLRONG","許可の学生は間違って質問に答えをやり直す");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","のみのテストの繰り返しが許可されている場合");//Only if test repetitions are allowed
+define("_USERREDOWRONG","やり直しは間違って答えて");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","デフォルトのテーマはinportedすることはできません");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","いいえヘッダー行が定義され、またはヘッダーのインポートのタイプと互換性がない");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","インポートのユーザ");//Imported user
+define("_USERSTOCOURSES","コースへのユーザー");//Users to courses
+define("_USERSTOGROUPS","グループへのユーザー");//Users to groups
+define("_IMPORTANYTHING","何が認識さ");//Anything recognized
+define("_DATATOIMPORT","データをインポートする");//Data to import
+define("_SUCCESSFULLIMPORTS","成功の輸入");//successfull imports
+define("_FAILEDIMPORTS","失敗したインポート");//failed imports
+define("_REPLACEDUSER","置き換えユーザー");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","ファイルには、必要な列を含んでいない");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","置き換え既存の割り当て");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","新コースの割り当て");//New course assignment
+define("_NEWGROUPASSIGNMENT","新しいグループの割り当て");//New group assignment
+define("_USERSTOJOBS","仕事へのユーザー");//Users to jobs
+define("_USERSTOSKILLS","スキルへのユーザー");//Users to skills
+define("_DATATOEXPORT","データをエクスポートする");//Data to export
+define("_MANDATORYFIELDS","必須フィールド");//Mandatory fields
+define("_OPTIONALFIELDS","省略可能なフィールド");//Optional fields
+define("_CSVIMPORTEXPLAINATION","ヘッダー行の各ポートの種類を含む、すべての、任意のオプションのフィールドのタイトルのもの任意の順序で下記から必須のファイルを提供します。各列のタイトルはその意味を示します。認識されない列は、プロシージャの残りの部分に影響を与えず省略されます。");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","新しい仕事の説明の割り当て");//New job description assignment
+define("_NEWSKILLASSIGNMENT","新しいスキルの割り当て");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","置き換え、既存の支店");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","置き換え、既存のジョブ");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","置き換え、既存のスキル");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","ブランチは既に存在します");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","スキルカテゴリが表示されない");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","スキルが既に存在する");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","ブランチが存在しない");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","ブランチの名前があいまいである");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","ジョブのタイトルがあいまいな");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","スキル名があいまいです");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","スキルカテゴリのあいまいさ");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","ジョブの説明が表示されない");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","このスキルは存在しない");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","ユーザーはすでにグループ内に存在する");//User already exists in group (New)
 ?>

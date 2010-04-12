@@ -311,7 +311,7 @@
                      <p style = "text-align:center"><input class = "flatButton" type = "submit" onClick = "window.print()" value = "{$smarty.const._PRINTIT}"/></p>
                      {eF_template_printBlock title = $T_UNIT.name data = $T_UNIT.data image = '32x32/printer.png'}
                     {else}
-                     {eF_template_printBlock title = $unit_name data=$smarty.capture.t_content_code image=$image options = $unit_options settings = $T_UNIT_SETTINGS help = 'Content'}
+                     {eF_template_printBlock title = $unit_name data=$smarty.capture.t_content_code image=$image options = $unit_options settings = $T_UNIT_SETTINGS}
                     {/if}
                     </td>
                     </tr>

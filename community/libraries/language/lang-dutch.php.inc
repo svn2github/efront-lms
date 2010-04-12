@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","De gebruiker kan automatisch inloggen door link");//
 define("_DEFAULTUSERTYPE","Standaard type gebruiker");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force student het antwoord op alle vragen");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Je moet alle vragen beantwoorden");//You have to answer all questions
-define("_SHOWHELP","Display Help Links");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Laat studenten alleen de verkeerde antwoorden op de vragen opnieuw");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Alleen als test herhalingen zijn toegestaan");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Opnieuw alleen verkeerd beantwoord");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Standaard thema kan niet worden inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Geen kopregel is gedefinieerd of header niet verenigbaar is met de invoer type");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Ingevoerde gebruiker");//Imported user (New)
-define("_USERSTOCOURSES","Gebruikers cursussen");//Users to courses (New)
-define("_USERSTOGROUPS","Gebruikers aan groepen");//Users to groups (New)
-define("_IMPORTANYTHING","Alles wordt erkend");//Anything recognized (New)
-define("_DATATOIMPORT","Gegevens importeren");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","succesvolle invoer");//successfull imports (New)
-define("_FAILEDIMPORTS","mislukte invoer");//failed imports (New)
-define("_REPLACEDUSER","Vervangen gebruiker");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Het bestand bevat niet de nodige kolommen");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Vervangen bestaande opdracht");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Nieuwe cursus opdracht");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Nieuwe groepsopdracht");//New group assignment (New)
-define("_USERSTOJOBS","Gebruikers van de werkgelegenheid");//Users to jobs (New)
-define("_USERSTOSKILLS","Gebruikers van vaardigheden");//Users to skills (New)
-define("_DATATOEXPORT","Data om te exporteren");//Data to export (New)
-define("_MANDATORYFIELDS","Verplichte velden");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Optionele velden");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Geef een bestand met een kopregel die voor ieder type invoer, alle verplichte en optionele veld titels van degenen hieronder in willekeurige volgorde. De titel van elke kolom geeft de betekenis ervan. Onbekende kolommen zullen worden weggelaten, zonder dat de rest van de procedure.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Nieuwe functiebeschrijving opdracht");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Nieuwe vaardigheden opdracht");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Vervangen bestaande branche-");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Vervangen bestaande job");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Vervangen bestaande vaardigheden");//Replaced existing skill (New)
+define("_SHOWHELP","Display Help Links");//Display help links
+define("_ALLOWUSERANSERALLRONG","Laat studenten alleen de verkeerde antwoorden op de vragen opnieuw");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Alleen als test herhalingen zijn toegestaan");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Opnieuw alleen verkeerd beantwoord");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Standaard thema kan niet worden inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Geen kopregel is gedefinieerd of header niet verenigbaar is met de invoer type");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Ingevoerde gebruiker");//Imported user
+define("_USERSTOCOURSES","Gebruikers cursussen");//Users to courses
+define("_USERSTOGROUPS","Gebruikers aan groepen");//Users to groups
+define("_IMPORTANYTHING","Alles wordt erkend");//Anything recognized
+define("_DATATOIMPORT","Gegevens importeren");//Data to import
+define("_SUCCESSFULLIMPORTS","succesvolle invoer");//successfull imports
+define("_FAILEDIMPORTS","mislukte invoer");//failed imports
+define("_REPLACEDUSER","Vervangen gebruiker");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Het bestand bevat niet de nodige kolommen");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Vervangen bestaande opdracht");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Nieuwe cursus opdracht");//New course assignment
+define("_NEWGROUPASSIGNMENT","Nieuwe groepsopdracht");//New group assignment
+define("_USERSTOJOBS","Gebruikers van de werkgelegenheid");//Users to jobs
+define("_USERSTOSKILLS","Gebruikers van vaardigheden");//Users to skills
+define("_DATATOEXPORT","Data om te exporteren");//Data to export
+define("_MANDATORYFIELDS","Verplichte velden");//Mandatory fields
+define("_OPTIONALFIELDS","Optionele velden");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Geef een bestand met een kopregel die voor ieder type invoer, alle verplichte en optionele veld titels van degenen hieronder in willekeurige volgorde. De titel van elke kolom geeft de betekenis ervan. Onbekende kolommen zullen worden weggelaten, zonder dat de rest van de procedure.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Nieuwe functiebeschrijving opdracht");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Nieuwe vaardigheden opdracht");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Vervangen bestaande branche-");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Vervangen bestaande job");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Vervangen bestaande vaardigheden");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Branch bestaat al");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Ontbrekende vaardigheid categorie");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Skill bestaat al");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Branch bestaat niet");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Branch naam is dubbelzinnig");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Functie is dubbelzinnig");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Skill naam is dubbelzinnig");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Skill categorie is dubbelzinnig");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Ontbrekende functiebeschrijving");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Deze vaardigheid bestaat niet");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Gebruiker bestaat al in groep");//User already exists in group (New)
 ?>

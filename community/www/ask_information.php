@@ -68,6 +68,8 @@ try {
             $courseInformation['professors'] = implode(", ", $professorsString);
         }
 
+  $course -> course['price'] ? $priceString = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true) : $priceString = false;
+        $courseInformation['price_string'] = $priceString;
         foreach ($courseInformation as $key => $value) {
             if ($value) {
                 switch ($key) {

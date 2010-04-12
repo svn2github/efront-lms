@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","");//User can login automatically by link
 define("_DEFAULTUSERTYPE","");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","");//You have to answer all questions
-define("_SHOWHELP","");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","");//Imported user (New)
-define("_USERSTOCOURSES","");//Users to courses (New)
-define("_USERSTOGROUPS","");//Users to groups (New)
-define("_IMPORTANYTHING","");//Anything recognized (New)
-define("_DATATOIMPORT","");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","");//successfull imports (New)
-define("_FAILEDIMPORTS","");//failed imports (New)
-define("_REPLACEDUSER","");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","");//New group assignment (New)
-define("_USERSTOJOBS","");//Users to jobs (New)
-define("_USERSTOSKILLS","");//Users to skills (New)
-define("_DATATOEXPORT","");//Data to export (New)
-define("_MANDATORYFIELDS","");//Mandatory fields (New)
-define("_OPTIONALFIELDS","");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","");//Replaced existing skill (New)
+define("_SHOWHELP","");//Display help links
+define("_ALLOWUSERANSERALLRONG","");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","");//Only if test repetitions are allowed
+define("_USERREDOWRONG","");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","");//Imported user
+define("_USERSTOCOURSES","");//Users to courses
+define("_USERSTOGROUPS","");//Users to groups
+define("_IMPORTANYTHING","");//Anything recognized
+define("_DATATOIMPORT","");//Data to import
+define("_SUCCESSFULLIMPORTS","");//successfull imports
+define("_FAILEDIMPORTS","");//failed imports
+define("_REPLACEDUSER","");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","");//New course assignment
+define("_NEWGROUPASSIGNMENT","");//New group assignment
+define("_USERSTOJOBS","");//Users to jobs
+define("_USERSTOSKILLS","");//Users to skills
+define("_DATATOEXPORT","");//Data to export
+define("_MANDATORYFIELDS","");//Mandatory fields
+define("_OPTIONALFIELDS","");//Optional fields
+define("_CSVIMPORTEXPLAINATION","");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","");//New job description assignment
+define("_NEWSKILLASSIGNMENT","");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","");//User already exists in group (New)
 ?>

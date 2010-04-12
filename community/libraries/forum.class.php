@@ -65,7 +65,7 @@ class f_forums extends EfrontEntity
             if (sizeof($fmid) > 0) {
                 EfrontSearch :: removeText('f_messages', implode(",", $fmid['id']), '', true);
             }
-            eF_deleteTableData("f_messages", "topics_id in (".implode(",", $topics['id']).")");
+            eF_deleteTableData("f_messages", "f_topics_id in (".implode(",", $topics['id']).")");
             eF_deleteTableData("f_topics", "id in (".implode(",", $topics['id']).")");
         }
         $fpid = eF_getTableDataFlat("f_poll", "id", "f_forums_ID in (".implode(",", $children).")");

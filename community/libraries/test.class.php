@@ -1555,16 +1555,23 @@ class EfrontTest
         $completedTest -> completedTest['status'] = 'incomplete'; //The test just started; So set its status to 'incomplete'
 //        $completedTest -> completedTest['archive'] = '0';                              //The test just started; So set its status to 'incomplete'
         $testQuestions = $this -> getQuestions(true);
+  // lines added for redo only wrong questions
+  $resultCompleted = eF_getTableData("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $recentlyCompleted = unserialize($resultCompleted[0]['test']);
         //1. Get the random pool questions
         if ($this -> options['random_pool']) {
-            sizeof($testQuestions) >= $this -> options['random_pool'] ? $poolSize = $this -> options['random_pool'] : $poolSize = sizeof($testQuestions);
-            shuffle($testQuestions);
-            $testQuestions = array_slice($testQuestions, 0, $poolSize);
-            $temp = array();
-            foreach ($testQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
-                $temp[$value -> question['id']] = $value;
-            }
-            $completedTest -> questions = $temp;
+            if ($recentlyCompleted -> redoOnlyWrong != true) {
+    sizeof($testQuestions) >= $this -> options['random_pool'] ? $poolSize = $this -> options['random_pool'] : $poolSize = sizeof($testQuestions);
+    shuffle($testQuestions);
+    $testQuestions = array_slice($testQuestions, 0, $poolSize);
+    $temp = array();
+    foreach ($testQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
+     $temp[$value -> question['id']] = $value;
+    }
+    $completedTest -> questions = $temp;
+   } else {
+    $completedTest -> questions = $recentlyCompleted -> questions; //when redoing wrong answered, same questions must be selected
+   }
         } else {
             $completedTest -> questions = $testQuestions;
         }
@@ -1760,6 +1767,7 @@ class EfrontTest
             $form = new HTML_QuickForm("questionForm", "post", "", "", null, true); //Create a sample form
         }
         $allTestQuestions = $this -> getQuestions(true);
+  //$allTestQuestionsFilter = $allTestQuestions;
   // lines added for redo only wrong questions
   $allTestQuestionsFilter = array();
   $resultCompleted = eF_getTableData("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
@@ -1775,7 +1783,7 @@ class EfrontTest
   }
         // If we have a random pool of question then get a random sub-array of the questions
         if ($this -> options['random_pool'] > 0 && $this -> options['random_pool'] < sizeof($allTestQuestions)) {
-            $rand_questions = array_rand($allTestQuestions, $this -> options['random_pool']);
+   $rand_questions = array_rand($allTestQuestions, $this -> options['random_pool']);
             $testQuestions = array();
             foreach ($rand_questions as $question) {
                 $testQuestions[$question] = $allTestQuestions[$question];
@@ -2790,7 +2798,7 @@ class EfrontCompletedTest extends EfrontTest
                         $("redo_progress_img").hide().setAttribute("src", "images/16x16/success.png");
                         new Effect.Appear($("redo_progress_img"));
                         window.setTimeout(\'Effect.Fade("redo_progress_img")\', 2500);
-                        '.($editHandles ? 'window.setTimeout(\'Effect.Fade("redoLink")\', 2500);' : 'window.setTimeout(\'Effect.Fade("redoLink");location.reload()\', 1000);').'
+                        '.($editHandles ? 'window.setTimeout(\'Effect.Fade("redoLink")\', 2500);' : 'window.setTimeout(\'Effect.Fade("redoLink");location="'.preg_replace(array("/&show_solved_test=\d+/", "/&new_lesson_id=\d+/", "/&ctg=content/"), "", $url).'"\', 1000);').'
                     }
                 });
             }
@@ -2814,7 +2822,7 @@ class EfrontCompletedTest extends EfrontTest
                         $("redo_progress_img").hide().setAttribute("src", "images/16x16/success.png");
                         new Effect.Appear($("redo_progress_img"));
                         window.setTimeout(\'Effect.Fade("redo_progress_img")\', 2500);
-                        '.($editHandles ? 'window.setTimeout(\'Effect.Fade("redoWrongLink")\', 2500);' : 'window.setTimeout(\'Effect.Fade("redoWrongLink");location.reload()\', 1000);').'
+                        '.($editHandles ? 'window.setTimeout(\'Effect.Fade("redoWrongLink")\', 2500);' : 'window.setTimeout(\'Effect.Fade("redoWrongLink");location="'.preg_replace(array("/&show_solved_test=\d+/", "/&new_lesson_id=\d+/", "/&ctg=content/"), "", $url).'"\', 1000);').'
                     }
                 });
             }

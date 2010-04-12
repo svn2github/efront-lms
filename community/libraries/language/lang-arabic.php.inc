@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","يمكن للمستخدم تسجيل الدخول ت
 define("_DEFAULTUSERTYPE","النوع الافتراضي للمستخدم");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","قوة الطلاب الإجابة على جميع الأسئلة");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","لديك للرد على جميع الأسئلة");//You have to answer all questions
-define("_SHOWHELP","عرض روابط مساعدة");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","السماح للطلاب فقط إعادة الإجابة على الأسئلة الخطأ");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","فقط إذا سمح اختبار التكرار");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","إعادة الخطأ فقط الرد");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","يمكن أن لا يكون موضوع الافتراضي inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","تم تعريف لا صف رأس أو رأس غير متوافق مع نوع استيراد");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","المستوردة المستخدم");//Imported user (New)
-define("_USERSTOCOURSES","للمستخدمين المقررات");//Users to courses (New)
-define("_USERSTOGROUPS","المستخدمين إلى مجموعات");//Users to groups (New)
-define("_IMPORTANYTHING","المعترف بها أي شيء");//Anything recognized (New)
-define("_DATATOIMPORT","لاستيراد البيانات");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","نجاح واردات");//successfull imports (New)
-define("_FAILEDIMPORTS","فشلت واردات");//failed imports (New)
-define("_REPLACEDUSER","استبدال المستخدم");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","الملف لا يحتوي على أعمدة الضرورية");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","استبدال الانتداب القائمة");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","بالطبع مهمة جديدة");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","المجموعة مهمتها الجديدة");//New group assignment (New)
-define("_USERSTOJOBS","للمستخدمين وظيفة");//Users to jobs (New)
-define("_USERSTOSKILLS","شاهد على المهارات");//Users to skills (New)
-define("_DATATOEXPORT","بيانات لتصدير");//Data to export (New)
-define("_MANDATORYFIELDS","حقول إلزامية");//Mandatory fields (New)
-define("_OPTIONALFIELDS","الحقول الاختيارية");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","تقديم ملف مع خط تحتوي على رأس لكل نوع استيراد ، جميع الإلزامية وأية عناوين لحقل اختياري من تلك الواردة أدناه في أي أمر. عنوان كل عمود يدل على معناه. سوف يتم حذف الأعمدة غير المعترف بها ، دون أن يؤثر ذلك على بقية الإجراء.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","الاحالة الجديدة الوصف الوظيفي");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","مهارة مهمة جديدة");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","استبدال فرع القائمة");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","محل العمل الحالي");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","استبدال المهارات الموجودة");//Replaced existing skill (New)
+define("_SHOWHELP","عرض روابط مساعدة");//Display help links
+define("_ALLOWUSERANSERALLRONG","السماح للطلاب فقط إعادة الإجابة على الأسئلة الخطأ");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","فقط إذا سمح اختبار التكرار");//Only if test repetitions are allowed
+define("_USERREDOWRONG","إعادة الخطأ فقط الرد");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","يمكن أن لا يكون موضوع الافتراضي inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","تم تعريف لا صف رأس أو رأس غير متوافق مع نوع استيراد");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","المستوردة المستخدم");//Imported user
+define("_USERSTOCOURSES","للمستخدمين المقررات");//Users to courses
+define("_USERSTOGROUPS","المستخدمين إلى مجموعات");//Users to groups
+define("_IMPORTANYTHING","المعترف بها أي شيء");//Anything recognized
+define("_DATATOIMPORT","لاستيراد البيانات");//Data to import
+define("_SUCCESSFULLIMPORTS","نجاح واردات");//successfull imports
+define("_FAILEDIMPORTS","فشلت واردات");//failed imports
+define("_REPLACEDUSER","استبدال المستخدم");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","الملف لا يحتوي على أعمدة الضرورية");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","استبدال الانتداب القائمة");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","بالطبع مهمة جديدة");//New course assignment
+define("_NEWGROUPASSIGNMENT","المجموعة مهمتها الجديدة");//New group assignment
+define("_USERSTOJOBS","للمستخدمين وظيفة");//Users to jobs
+define("_USERSTOSKILLS","شاهد على المهارات");//Users to skills
+define("_DATATOEXPORT","بيانات لتصدير");//Data to export
+define("_MANDATORYFIELDS","حقول إلزامية");//Mandatory fields
+define("_OPTIONALFIELDS","الحقول الاختيارية");//Optional fields
+define("_CSVIMPORTEXPLAINATION","تقديم ملف مع خط تحتوي على رأس لكل نوع استيراد ، جميع الإلزامية وأية عناوين لحقل اختياري من تلك الواردة أدناه في أي أمر. عنوان كل عمود يدل على معناه. سوف يتم حذف الأعمدة غير المعترف بها ، دون أن يؤثر ذلك على بقية الإجراء.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","الاحالة الجديدة الوصف الوظيفي");//New job description assignment
+define("_NEWSKILLASSIGNMENT","مهارة مهمة جديدة");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","استبدال فرع القائمة");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","محل العمل الحالي");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","استبدال المهارات الموجودة");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","فرع موجود مسبقا");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","مفقود فئة المهارات");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","مهارة مسبقا");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","فرع غير موجود");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","فرع اسم يدعو للالتباس");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","الوظيفة غامض");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","مهارة اسم يدعو للالتباس");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","مهارة فئة غامضة");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","مفقود التوصيف الوظيفي");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","هذه المهارة لا وجود له");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","المستخدم موجود بالفعل في المجموعة");//User already exists in group (New)
 ?>

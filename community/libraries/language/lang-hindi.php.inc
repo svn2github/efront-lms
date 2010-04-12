@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","उपयोगकर्ता स्वत: लि�
 define("_DEFAULTUSERTYPE","डिफ़ॉल्ट प्रयोक्ता प्रकार");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","सेना छात्र सभी सवालों के जवाब");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","आप सब सवालों का जवाब देना");//You have to answer all questions
-define("_SHOWHELP","प्रदर्शन में मदद लिंक");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","अनुमति देने के छात्रों को केवल गलत प्रश्नों का उत्तर दिया करने के लिए फिर से करना");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","तभी परीक्षण repetitions की अनुमति है");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","फिर से करना ही गलत जवाब");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","डिफ़ॉल्ट विषयवस्तु inported नहीं जा सकता");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","कोई शीर्ष लेख पंक्ति में परिभाषित किया गया था या आयात प्रकार के साथ संगत नहीं शीर्षक");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","आयातित उपयोगकर्ता");//Imported user (New)
-define("_USERSTOCOURSES","पाठ्यक्रमों के लिए उपयोगकर्ता");//Users to courses (New)
-define("_USERSTOGROUPS","समूहों के लिए उपयोगकर्ता");//Users to groups (New)
-define("_IMPORTANYTHING","कुछ भी मान्यता प्राप्त");//Anything recognized (New)
-define("_DATATOIMPORT","डेटा आयात करने के लिए");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","सफल आयात");//successfull imports (New)
-define("_FAILEDIMPORTS","आयात विफल");//failed imports (New)
-define("_REPLACEDUSER","उपयोगकर्ता प्रतिस्थापित");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","फ़ाइल आवश्यक स्तंभ शामिल नहीं है");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","प्रतिस्थापित मौजूदा कार्यभार");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","नए पाठ्यक्रम काम");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","नए समूह काम");//New group assignment (New)
-define("_USERSTOJOBS","नौकरियों के लिए उपयोगकर्ता");//Users to jobs (New)
-define("_USERSTOSKILLS","कौशल के लिए उपयोगकर्ता");//Users to skills (New)
-define("_DATATOEXPORT","डेटा निर्यात करने के लिए");//Data to export (New)
-define("_MANDATORYFIELDS","अनिवार्य क्षेत्रों");//Mandatory fields (New)
-define("_OPTIONALFIELDS","वैकल्पिक फ़ील्ड्स");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","किसी शीर्ष लेख प्रत्येक प्रकार के लिए आयात युक्त लाइन, सभी अनिवार्य है और किसी भी क्रम में नीचे दिए गए लोगों से कोई वैकल्पिक क्षेत्र खिताब के साथ एक फ़ाइल प्रदान करें. प्रत्येक कॉलम का शीर्षक इसका अर्थ denotes. पहचाने न जाने वाले स्तंभों प्रक्रिया के बाकी को प्रभावित किए बिना हो सकता है, छोड़ दिया जाता है.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","नई नौकरी का विवरण कार्यभार");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","नए कौशल काम");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","प्रतिस्थापित मौजूदा शाखा");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","प्रतिस्थापित मौजूदा नौकरी");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","प्रतिस्थापित मौजूदा कौशल");//Replaced existing skill (New)
+define("_SHOWHELP","प्रदर्शन में मदद लिंक");//Display help links
+define("_ALLOWUSERANSERALLRONG","अनुमति देने के छात्रों को केवल गलत प्रश्नों का उत्तर दिया करने के लिए फिर से करना");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","तभी परीक्षण repetitions की अनुमति है");//Only if test repetitions are allowed
+define("_USERREDOWRONG","फिर से करना ही गलत जवाब");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","डिफ़ॉल्ट विषयवस्तु inported नहीं जा सकता");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","कोई शीर्ष लेख पंक्ति में परिभाषित किया गया था या आयात प्रकार के साथ संगत नहीं शीर्षक");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","आयातित उपयोगकर्ता");//Imported user
+define("_USERSTOCOURSES","पाठ्यक्रमों के लिए उपयोगकर्ता");//Users to courses
+define("_USERSTOGROUPS","समूहों के लिए उपयोगकर्ता");//Users to groups
+define("_IMPORTANYTHING","कुछ भी मान्यता प्राप्त");//Anything recognized
+define("_DATATOIMPORT","डेटा आयात करने के लिए");//Data to import
+define("_SUCCESSFULLIMPORTS","सफल आयात");//successfull imports
+define("_FAILEDIMPORTS","आयात विफल");//failed imports
+define("_REPLACEDUSER","उपयोगकर्ता प्रतिस्थापित");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","फ़ाइल आवश्यक स्तंभ शामिल नहीं है");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","प्रतिस्थापित मौजूदा कार्यभार");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","नए पाठ्यक्रम काम");//New course assignment
+define("_NEWGROUPASSIGNMENT","नए समूह काम");//New group assignment
+define("_USERSTOJOBS","नौकरियों के लिए उपयोगकर्ता");//Users to jobs
+define("_USERSTOSKILLS","कौशल के लिए उपयोगकर्ता");//Users to skills
+define("_DATATOEXPORT","डेटा निर्यात करने के लिए");//Data to export
+define("_MANDATORYFIELDS","अनिवार्य क्षेत्रों");//Mandatory fields
+define("_OPTIONALFIELDS","वैकल्पिक फ़ील्ड्स");//Optional fields
+define("_CSVIMPORTEXPLAINATION","किसी शीर्ष लेख प्रत्येक प्रकार के लिए आयात युक्त लाइन, सभी अनिवार्य है और किसी भी क्रम में नीचे दिए गए लोगों से कोई वैकल्पिक क्षेत्र खिताब के साथ एक फ़ाइल प्रदान करें. प्रत्येक कॉलम का शीर्षक इसका अर्थ denotes. पहचाने न जाने वाले स्तंभों प्रक्रिया के बाकी को प्रभावित किए बिना हो सकता है, छोड़ दिया जाता है.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","नई नौकरी का विवरण कार्यभार");//New job description assignment
+define("_NEWSKILLASSIGNMENT","नए कौशल काम");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","प्रतिस्थापित मौजूदा शाखा");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","प्रतिस्थापित मौजूदा नौकरी");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","प्रतिस्थापित मौजूदा कौशल");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","शाखा पहले से मौजूद है");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","कौशल श्रेणी गुम");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","कौशल पहले से मौजूद है");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","शाखा मौजूद नहीं है");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","शाखा नाम अस्पष्ट है");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","नौकरी शीर्षक अस्पष्ट है");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","कौशल नाम अस्पष्ट है");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","कौशल श्रेणी अस्पष्ट है");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","नौकरी का विवरण गुम");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","इस कौशल मौजूद नहीं है");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","उपयोक्ता पहले समूह में मौजूद है");//User already exists in group (New)
 ?>

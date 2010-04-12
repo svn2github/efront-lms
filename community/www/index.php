@@ -603,7 +603,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
    if (eF_mail($to, $GLOBALS['configuration']['system_email'], $subject." ["._FROM.": ".$sender."]", $body, false, true)) {
     $message = _SENDSUCCESS;
     $message_type = 'success';
-    eF_redirect(''.basename($_SERVER['PHP_SELF']).'?message='.$message.'&message_type='.$message_type);
+    eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type='.$message_type);
    } else {
     $message = _SENDFAILURE;
     $message_type = 'failure';

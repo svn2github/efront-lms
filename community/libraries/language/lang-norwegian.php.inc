@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Brukeren kan logge inn automatisk ved kobling");//Us
 define("_DEFAULTUSERTYPE","Default user type");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force studenten besvare alle spørsmål");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Du må svare på alle spørsmål");//You have to answer all questions
-define("_SHOWHELP","Vise hjelpen lenker");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","La elevene gjøre om bare feil besvart spørsmålene");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Bare hvis testen gjentagelser er tillatt");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Gjør om bare galt besvart");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Standard utseende kan ikke inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ingen Overskriftsraden ble definert eller overskriften ikke er kompatibel med import type");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Importerte brukeren");//Imported user (New)
-define("_USERSTOCOURSES","Brukere til kurs");//Users to courses (New)
-define("_USERSTOGROUPS","Brukere til grupper");//Users to groups (New)
-define("_IMPORTANYTHING","Alt anerkjent");//Anything recognized (New)
-define("_DATATOIMPORT","Data for å importere");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","vellykket import");//successfull imports (New)
-define("_FAILEDIMPORTS","mislyktes import");//failed imports (New)
-define("_REPLACEDUSER","Erstattet brukeren");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Filen inneholder ikke de nødvendige kolonner");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Erstattet eksisterende oppdrag");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Nye kurs oppdrag");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Nye gruppeoppgave");//New group assignment (New)
-define("_USERSTOJOBS","Brukere på jobb");//Users to jobs (New)
-define("_USERSTOSKILLS","Brukere til ferdigheter");//Users to skills (New)
-define("_DATATOEXPORT","Data eksportere");//Data to export (New)
-define("_MANDATORYFIELDS","Obligatoriske felt");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Valgfrie felt");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Gi en fil med en overskrift som inneholder linje for hver import type, alle obligatoriske og noen valgfrie feltet titler fra de nedenfor i den rekkefølgen. Tittelen på hver kolonne markerer sin mening. Ukjent kolonnene vil bli utelatt, uten at det påvirker resten av prosedyren.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Ny stillingsbeskrivelse oppdrag");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Nye ferdigheter oppdrag");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Erstattet eksisterende gren");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Erstattet eksisterende jobb");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Erstattet eksisterende ferdigheter");//Replaced existing skill (New)
+define("_SHOWHELP","Vise hjelpen lenker");//Display help links
+define("_ALLOWUSERANSERALLRONG","La elevene gjøre om bare feil besvart spørsmålene");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Bare hvis testen gjentagelser er tillatt");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Gjør om bare galt besvart");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Standard utseende kan ikke inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ingen Overskriftsraden ble definert eller overskriften ikke er kompatibel med import type");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Importerte brukeren");//Imported user
+define("_USERSTOCOURSES","Brukere til kurs");//Users to courses
+define("_USERSTOGROUPS","Brukere til grupper");//Users to groups
+define("_IMPORTANYTHING","Alt anerkjent");//Anything recognized
+define("_DATATOIMPORT","Data for å importere");//Data to import
+define("_SUCCESSFULLIMPORTS","vellykket import");//successfull imports
+define("_FAILEDIMPORTS","mislyktes import");//failed imports
+define("_REPLACEDUSER","Erstattet brukeren");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Filen inneholder ikke de nødvendige kolonner");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Erstattet eksisterende oppdrag");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Nye kurs oppdrag");//New course assignment
+define("_NEWGROUPASSIGNMENT","Nye gruppeoppgave");//New group assignment
+define("_USERSTOJOBS","Brukere på jobb");//Users to jobs
+define("_USERSTOSKILLS","Brukere til ferdigheter");//Users to skills
+define("_DATATOEXPORT","Data eksportere");//Data to export
+define("_MANDATORYFIELDS","Obligatoriske felt");//Mandatory fields
+define("_OPTIONALFIELDS","Valgfrie felt");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Gi en fil med en overskrift som inneholder linje for hver import type, alle obligatoriske og noen valgfrie feltet titler fra de nedenfor i den rekkefølgen. Tittelen på hver kolonne markerer sin mening. Ukjent kolonnene vil bli utelatt, uten at det påvirker resten av prosedyren.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Ny stillingsbeskrivelse oppdrag");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Nye ferdigheter oppdrag");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Erstattet eksisterende gren");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Erstattet eksisterende jobb");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Erstattet eksisterende ferdigheter");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Branch finnes allerede");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Manglende ferdigheter kategori");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Skill finnes allerede");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Branch finnes ikke");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Avdelingsnavn er tvetydig");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Jobbtittel er tvetydig");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Skill navn er tvetydig");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Skill kategori er tvetydig");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Manglende stillingsbeskrivelse");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Denne ferdigheten finnes ikke");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Brukeren finnes allerede i gruppe");//User already exists in group (New)
 ?>

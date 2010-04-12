@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Pengguna dapat login secara otomatis oleh link");//U
 define("_DEFAULTUSERTYPE","Default tipe user");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Angkatan menjawab semua pertanyaan mahasiswa");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Anda harus menjawab semua pertanyaan");//You have to answer all questions
-define("_SHOWHELP","Tampilan membantu link");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Biarkan siswa hanya mengulang menjawab pertanyaan salah");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Hanya jika pengulangan tes diijinkan");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Kembalikan hanya salah menjawab");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Default tema tidak dapat inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Tidak ada baris header header didefinisikan atau tidak kompatibel dengan jenis impor");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Impor pengguna");//Imported user (New)
-define("_USERSTOCOURSES","Pengguna program");//Users to courses (New)
-define("_USERSTOGROUPS","Pengguna untuk kelompok");//Users to groups (New)
-define("_IMPORTANYTHING","Apa pun yang diakui");//Anything recognized (New)
-define("_DATATOIMPORT","Impor data ke");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","sukses impor");//successfull imports (New)
-define("_FAILEDIMPORTS","impor gagal");//failed imports (New)
-define("_REPLACEDUSER","Ganti pengguna");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","File ini tidak berisi kolom yang diperlukan");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Ganti ada tugas");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Baru saja tugas");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Grup baru tugas");//New group assignment (New)
-define("_USERSTOJOBS","Pengguna untuk pekerjaan");//Users to jobs (New)
-define("_USERSTOSKILLS","Pengguna untuk keterampilan");//Users to skills (New)
-define("_DATATOEXPORT","Data untuk ekspor");//Data to export (New)
-define("_MANDATORYFIELDS","Wajib bidang");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Bidang opsional");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Menyediakan file dengan garis header berisi untuk setiap jenis impor, semua wajib dan setiap judul opsional dari lapangan yang disediakan di bawah ini dalam urutan apapun. Judul setiap kolom menunjukkan artinya. kolom yang belum diakui akan dihilangkan, tanpa mempengaruhi sisa prosedur.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Deskripsi pekerjaan baru tugas");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","New keterampilan tugas");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Ganti ada cabang");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Ganti pekerjaan yang ada");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Ganti keterampilan yang ada");//Replaced existing skill (New)
+define("_SHOWHELP","Tampilan membantu link");//Display help links
+define("_ALLOWUSERANSERALLRONG","Biarkan siswa hanya mengulang menjawab pertanyaan salah");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Hanya jika pengulangan tes diijinkan");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Kembalikan hanya salah menjawab");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default tema tidak dapat inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Tidak ada baris header header didefinisikan atau tidak kompatibel dengan jenis impor");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Impor pengguna");//Imported user
+define("_USERSTOCOURSES","Pengguna program");//Users to courses
+define("_USERSTOGROUPS","Pengguna untuk kelompok");//Users to groups
+define("_IMPORTANYTHING","Apa pun yang diakui");//Anything recognized
+define("_DATATOIMPORT","Impor data ke");//Data to import
+define("_SUCCESSFULLIMPORTS","sukses impor");//successfull imports
+define("_FAILEDIMPORTS","impor gagal");//failed imports
+define("_REPLACEDUSER","Ganti pengguna");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","File ini tidak berisi kolom yang diperlukan");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Ganti ada tugas");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Baru saja tugas");//New course assignment
+define("_NEWGROUPASSIGNMENT","Grup baru tugas");//New group assignment
+define("_USERSTOJOBS","Pengguna untuk pekerjaan");//Users to jobs
+define("_USERSTOSKILLS","Pengguna untuk keterampilan");//Users to skills
+define("_DATATOEXPORT","Data untuk ekspor");//Data to export
+define("_MANDATORYFIELDS","Wajib bidang");//Mandatory fields
+define("_OPTIONALFIELDS","Bidang opsional");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Menyediakan file dengan garis header berisi untuk setiap jenis impor, semua wajib dan setiap judul opsional dari lapangan yang disediakan di bawah ini dalam urutan apapun. Judul setiap kolom menunjukkan artinya. kolom yang belum diakui akan dihilangkan, tanpa mempengaruhi sisa prosedur.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Deskripsi pekerjaan baru tugas");//New job description assignment
+define("_NEWSKILLASSIGNMENT","New keterampilan tugas");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Ganti ada cabang");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Ganti pekerjaan yang ada");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Ganti keterampilan yang ada");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Cabang sudah ada");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Kategori keterampilan Hilang");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Skill sudah ada");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Cabang tidak ada");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Nama Cabang adalah ambigu");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Ayub judul ambigu");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Nama ambigu Keterampilan");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Keterampilan kategori ambigu");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Hilang deskripsi pekerjaan");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Keterampilan ini tidak ada");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Pengguna sudah ada dalam grup");//User already exists in group (New)
 ?>

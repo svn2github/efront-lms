@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","ผู้ ใช้ สามารถ เข้า 
 define("_DEFAULTUSERTYPE","ประเภท ผู้ ใช้ Default");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","นักเรียน Force ตอบ คำถาม ทุก ข้อ");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","คุณ ต้อง ตอบ คำถาม ทุก ข้อ");//You have to answer all questions
-define("_SHOWHELP","แสดงลิงค์ช่วย");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","นักเรียนอนุญาตให้ทำซ้ำเฉพาะคำถามที่ตอบผิด");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","เท่านั้นหาก repetitions ทดสอบได้รับอนุญาต");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","ทำซ้ำตอบเพียงผิด");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Default theme ไม่สามารถ inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","แถวส่วนหัวไม่ถูกกำหนดหรือส่วนหัวไม่สามารถใช้ร่วมกับชนิดนำเข้า");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","ผู้ใช้นำเข้า");//Imported user (New)
-define("_USERSTOCOURSES","ผู้ใช้หลักสูตร");//Users to courses (New)
-define("_USERSTOGROUPS","กลุ่มผู้ใช้");//Users to groups (New)
-define("_IMPORTANYTHING","สิ่งที่ได้รับการยอมรับ");//Anything recognized (New)
-define("_DATATOIMPORT","ข้อมูลนำเข้า");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","การนำเข้าประสบความสำเร็จ");//successfull imports (New)
-define("_FAILEDIMPORTS","การนำเข้าล้มเหลว");//failed imports (New)
-define("_REPLACEDUSER","แทนที่ผู้ใช้");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","file ไม่ได้มีคอลัมน์ที่จำเป็น");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","แทนการกำหนดที่มีอยู่");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","การกำหนดหลักสูตรใหม่");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","การกำหนดกลุ่มใหม่");//New group assignment (New)
-define("_USERSTOJOBS","ผู้ใช้งาน");//Users to jobs (New)
-define("_USERSTOSKILLS","ผู้ใช้ทักษะ");//Users to skills (New)
-define("_DATATOEXPORT","ข้อมูลการส่งออก");//Data to export (New)
-define("_MANDATORYFIELDS","เขตบังคับ");//Mandatory fields (New)
-define("_OPTIONALFIELDS","ฟิลด์ตัวเลือก");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","ให้ไฟล์ที่มีบรรทัดส่วนหัวที่มีการนำเข้าแต่ละประเภททั้งหมดที่จำเป็นและชื่อฟิลด์ตัวเลือกจากรายการที่ด้านล่างในลำดับใด ชื่อของแต่ละคอลัมน์หมายถึงความหมายของ คอลัมน์ที่ไม่รู้จักจะละเว้นไม่ต้องมีผลกระทบต่อส่วนที่เหลือของขั้นตอนที่");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","ใหม่กำหนดรายละเอียดงาน");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","กำหนดทักษะใหม่");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","เปลี่ยนสาขาที่มีอยู่");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","เปลี่ยนงานที่มีอยู่");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","เปลี่ยนความสามารถที่มีอยู่");//Replaced existing skill (New)
+define("_SHOWHELP","แสดงลิงค์ช่วย");//Display help links
+define("_ALLOWUSERANSERALLRONG","นักเรียนอนุญาตให้ทำซ้ำเฉพาะคำถามที่ตอบผิด");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","เท่านั้นหาก repetitions ทดสอบได้รับอนุญาต");//Only if test repetitions are allowed
+define("_USERREDOWRONG","ทำซ้ำตอบเพียงผิด");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default theme ไม่สามารถ inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","แถวส่วนหัวไม่ถูกกำหนดหรือส่วนหัวไม่สามารถใช้ร่วมกับชนิดนำเข้า");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","ผู้ใช้นำเข้า");//Imported user
+define("_USERSTOCOURSES","ผู้ใช้หลักสูตร");//Users to courses
+define("_USERSTOGROUPS","กลุ่มผู้ใช้");//Users to groups
+define("_IMPORTANYTHING","สิ่งที่ได้รับการยอมรับ");//Anything recognized
+define("_DATATOIMPORT","ข้อมูลนำเข้า");//Data to import
+define("_SUCCESSFULLIMPORTS","การนำเข้าประสบความสำเร็จ");//successfull imports
+define("_FAILEDIMPORTS","การนำเข้าล้มเหลว");//failed imports
+define("_REPLACEDUSER","แทนที่ผู้ใช้");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","file ไม่ได้มีคอลัมน์ที่จำเป็น");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","แทนการกำหนดที่มีอยู่");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","การกำหนดหลักสูตรใหม่");//New course assignment
+define("_NEWGROUPASSIGNMENT","การกำหนดกลุ่มใหม่");//New group assignment
+define("_USERSTOJOBS","ผู้ใช้งาน");//Users to jobs
+define("_USERSTOSKILLS","ผู้ใช้ทักษะ");//Users to skills
+define("_DATATOEXPORT","ข้อมูลการส่งออก");//Data to export
+define("_MANDATORYFIELDS","เขตบังคับ");//Mandatory fields
+define("_OPTIONALFIELDS","ฟิลด์ตัวเลือก");//Optional fields
+define("_CSVIMPORTEXPLAINATION","ให้ไฟล์ที่มีบรรทัดส่วนหัวที่มีการนำเข้าแต่ละประเภททั้งหมดที่จำเป็นและชื่อฟิลด์ตัวเลือกจากรายการที่ด้านล่างในลำดับใด ชื่อของแต่ละคอลัมน์หมายถึงความหมายของ คอลัมน์ที่ไม่รู้จักจะละเว้นไม่ต้องมีผลกระทบต่อส่วนที่เหลือของขั้นตอนที่");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","ใหม่กำหนดรายละเอียดงาน");//New job description assignment
+define("_NEWSKILLASSIGNMENT","กำหนดทักษะใหม่");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","เปลี่ยนสาขาที่มีอยู่");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","เปลี่ยนงานที่มีอยู่");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","เปลี่ยนความสามารถที่มีอยู่");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","สาขาอยู่แล้ว");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","หายไปประเภททักษะ");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","ทักษะอยู่แล้ว");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","สาขาไม่มี");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","ชื่อสาขาที่คลุมเครือ");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","ตำแหน่งงานที่คลุมเครือ");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","ชื่อ Skill จะคลุมเครือ");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","ประเภททักษะจะคลุมเครือ");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","หายไปรายละเอียดงาน");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","ทักษะนี้ไม่พบ");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","ผู้ใช้อยู่แล้วในกลุ่ม");//User already exists in group (New)
 ?>

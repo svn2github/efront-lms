@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","User login može automatski povezati");//User can lo
 define("_DEFAULTUSERTYPE","Pretpostavljeno korisničko tip");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force učenik odgovoriti na sva pitanja");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Morate odgovoriti na sva pitanja");//You have to answer all questions
-define("_SHOWHELP","Prikaz pomoć linkovi");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Omogućiti učenicima da Ponovi samo krivo odgovorena pitanja");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Samo ako se test ponavljanja dozvoljeni");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Ponovi samo krivo odgovorio");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Defaultni predložak ne može biti inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nema zaglavlju je definirana ili nije kompatibilan sa zaglavlja uvoz tipa");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Uvezena korisnik");//Imported user (New)
-define("_USERSTOCOURSES","Korisnici na tečajeve");//Users to courses (New)
-define("_USERSTOGROUPS","Korisnici grupama");//Users to groups (New)
-define("_IMPORTANYTHING","Sve priznate");//Anything recognized (New)
-define("_DATATOIMPORT","Podaci za uvoz");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","uspješno uvoza");//successfull imports (New)
-define("_FAILEDIMPORTS","nije uvoz");//failed imports (New)
-define("_REPLACEDUSER","Zamijenjeni korisnika");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Datoteka ne sadrži potrebne stupce");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Zamijenjeni postojeće dodjele");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Novi tečaj dodjela");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Nova grupa dodjela");//New group assignment (New)
-define("_USERSTOJOBS","Korisnici na posao");//Users to jobs (New)
-define("_USERSTOSKILLS","Korisnici vještinama");//Users to skills (New)
-define("_DATATOEXPORT","Podaci za izvoz");//Data to export (New)
-define("_MANDATORYFIELDS","Obavezna polja");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Izborna polja");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Navedite datoteku s linijom koja sadrži zaglavlje za svaku vrstu uvoz, svih obveznih i bilo neobavezno polje naslova iz onih u nastavku u bilo kojem redoslijedu. Naslov svakog stupca označava njegovo značenje. Neprepoznati stupca će se izostaviti, bez utjecaja na ostatak postupka.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Novi zadatak opis radnog mjesta");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Nove vještine dodjela");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Zamijenjeni postojeće podružnice");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Zamijenjeni postojeći posao");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Zamijenjeni postojeće vještine");//Replaced existing skill (New)
+define("_SHOWHELP","Prikaz pomoć linkovi");//Display help links
+define("_ALLOWUSERANSERALLRONG","Omogućiti učenicima da Ponovi samo krivo odgovorena pitanja");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Samo ako se test ponavljanja dozvoljeni");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Ponovi samo krivo odgovorio");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Defaultni predložak ne može biti inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nema zaglavlju je definirana ili nije kompatibilan sa zaglavlja uvoz tipa");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Uvezena korisnik");//Imported user
+define("_USERSTOCOURSES","Korisnici na tečajeve");//Users to courses
+define("_USERSTOGROUPS","Korisnici grupama");//Users to groups
+define("_IMPORTANYTHING","Sve priznate");//Anything recognized
+define("_DATATOIMPORT","Podaci za uvoz");//Data to import
+define("_SUCCESSFULLIMPORTS","uspješno uvoza");//successfull imports
+define("_FAILEDIMPORTS","nije uvoz");//failed imports
+define("_REPLACEDUSER","Zamijenjeni korisnika");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Datoteka ne sadrži potrebne stupce");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Zamijenjeni postojeće dodjele");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Novi tečaj dodjela");//New course assignment
+define("_NEWGROUPASSIGNMENT","Nova grupa dodjela");//New group assignment
+define("_USERSTOJOBS","Korisnici na posao");//Users to jobs
+define("_USERSTOSKILLS","Korisnici vještinama");//Users to skills
+define("_DATATOEXPORT","Podaci za izvoz");//Data to export
+define("_MANDATORYFIELDS","Obavezna polja");//Mandatory fields
+define("_OPTIONALFIELDS","Izborna polja");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Navedite datoteku s linijom koja sadrži zaglavlje za svaku vrstu uvoz, svih obveznih i bilo neobavezno polje naslova iz onih u nastavku u bilo kojem redoslijedu. Naslov svakog stupca označava njegovo značenje. Neprepoznati stupca će se izostaviti, bez utjecaja na ostatak postupka.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Novi zadatak opis radnog mjesta");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Nove vještine dodjela");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Zamijenjeni postojeće podružnice");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Zamijenjeni postojeći posao");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Zamijenjeni postojeće vještine");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Branch već postoji");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Nedostaje vještine kategoriji");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Vještina već postoji");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Područna ne postoji");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Naziv poslovnice je dvosmislen");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Posao naslov je dvosmislen");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Vještina ime je dvosmislen");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Vještina kategoriji je dvosmislen");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Nedostaje opis radnog mjesta");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Ova vještina ne postoji");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Korisnik već postoji u skupini");//User already exists in group (New)
 ?>

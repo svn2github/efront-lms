@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Užívateľ môže prihlásiť automaticky odkaz");/
 define("_DEFAULTUSERTYPE","Predvolený typ užívateľa");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force študent odpovedať na všetky otázky");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Musíte odpovedať na všetky otázky");//You have to answer all questions
-define("_SHOWHELP","Zobraziť nápovedu odkazy");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Umožňujú študentom prerobiť len zlé odpovede na otázky");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Iba v prípade opakovania skúšky sú povolené");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Znovu len zlé odpovede");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Východiskové vzhľad nemôže byť inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Č riadok hlavičky bola definovaná alebo hlavičky nie je kompatibilný s typom import");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Dovážané užívateľ");//Imported user (New)
-define("_USERSTOCOURSES","Používateľom kurzy");//Users to courses (New)
-define("_USERSTOGROUPS","Užívateľov do skupín");//Users to groups (New)
-define("_IMPORTANYTHING","Čokoľvek uznané");//Anything recognized (New)
-define("_DATATOIMPORT","Dáta pre import");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","úspešného dovozu");//successfull imports (New)
-define("_FAILEDIMPORTS","nepodarilo dovozu");//failed imports (New)
-define("_REPLACEDUSER","Vymenené užívateľ");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Tento súbor neobsahuje potrebné stĺpce");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Nahrádza existujúce pridelenie");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Nový kurz priradenie");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Nová skupina priradenie");//New group assignment (New)
-define("_USERSTOJOBS","Užívateľské k zamestnaniu");//Users to jobs (New)
-define("_USERSTOSKILLS","Používateľom zručnosti");//Users to skills (New)
-define("_DATATOEXPORT","Dáta pre export");//Data to export (New)
-define("_MANDATORYFIELDS","Povinné polia");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Nepovinné polia");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Poskytnite súbor s hlavičkou riadok obsahujúca pre každý typ import, všetky povinné a všetky nepovinné polia tituly od lehôt stanovených nižšie v ľubovoľnom poradí. Názov každého stĺpca označuje svoj význam. Nerozpoznané stĺpce budú vynechané, aby to ovplyvnilo ďalší postup.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Nových pracovných popis priradenie");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Nové zručnosti priradenie");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Nahrádza existujúcu pobočky");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Nahrádza existujúcu pracovné miesto");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Nahrádza existujúcu kvalifikačné");//Replaced existing skill (New)
+define("_SHOWHELP","Zobraziť nápovedu odkazy");//Display help links
+define("_ALLOWUSERANSERALLRONG","Umožňujú študentom prerobiť len zlé odpovede na otázky");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Iba v prípade opakovania skúšky sú povolené");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Znovu len zlé odpovede");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Východiskové vzhľad nemôže byť inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Č riadok hlavičky bola definovaná alebo hlavičky nie je kompatibilný s typom import");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Dovážané užívateľ");//Imported user
+define("_USERSTOCOURSES","Používateľom kurzy");//Users to courses
+define("_USERSTOGROUPS","Užívateľov do skupín");//Users to groups
+define("_IMPORTANYTHING","Čokoľvek uznané");//Anything recognized
+define("_DATATOIMPORT","Dáta pre import");//Data to import
+define("_SUCCESSFULLIMPORTS","úspešného dovozu");//successfull imports
+define("_FAILEDIMPORTS","nepodarilo dovozu");//failed imports
+define("_REPLACEDUSER","Vymenené užívateľ");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Tento súbor neobsahuje potrebné stĺpce");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Nahrádza existujúce pridelenie");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Nový kurz priradenie");//New course assignment
+define("_NEWGROUPASSIGNMENT","Nová skupina priradenie");//New group assignment
+define("_USERSTOJOBS","Užívateľské k zamestnaniu");//Users to jobs
+define("_USERSTOSKILLS","Používateľom zručnosti");//Users to skills
+define("_DATATOEXPORT","Dáta pre export");//Data to export
+define("_MANDATORYFIELDS","Povinné polia");//Mandatory fields
+define("_OPTIONALFIELDS","Nepovinné polia");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Poskytnite súbor s hlavičkou riadok obsahujúca pre každý typ import, všetky povinné a všetky nepovinné polia tituly od lehôt stanovených nižšie v ľubovoľnom poradí. Názov každého stĺpca označuje svoj význam. Nerozpoznané stĺpce budú vynechané, aby to ovplyvnilo ďalší postup.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Nových pracovných popis priradenie");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Nové zručnosti priradenie");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Nahrádza existujúcu pobočky");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Nahrádza existujúcu pracovné miesto");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Nahrádza existujúcu kvalifikačné");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Pobočka už existuje");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Chýbajúce kvalifikácia kategórie");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Skill už existuje");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Pobočka neexistuje");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Pobočka meno je nejednoznačné");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Názov práce je nejednoznačné");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Skill meno je nejednoznačné");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Skill kategórie je nejednoznačné");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Chýbajúce opis pracovnej náplne");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Táto zručnosť neexistuje");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Používateľ už existuje v skupine");//User already exists in group (New)
 ?>

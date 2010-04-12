@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Vartotojas galėtų prisijungti automatiškai nuorod
 define("_DEFAULTUSERTYPE","Numatytasis vartotojo tipą");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force studentų atsakyti į visus klausimus");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Jūs turite atsakyti į visus klausimus");//You have to answer all questions
-define("_SHOWHELP","Parodyti pagalbą Nuorodos");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Leisti studentams perdaryti tik neteisingai atsakė į klausimus");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Tik tuomet, kai bandymo pakartojimų leidžiama");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Pakartoti tik neteisingai atsakė");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Įprasta tema negali būti inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nr antraštės eilutėje buvo apibrėžtas arba antraštė neatitinka importo rūšis");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Importuotas vartotojas");//Imported user (New)
-define("_USERSTOCOURSES","Vartotojai kursai");//Users to courses (New)
-define("_USERSTOGROUPS","Vartotojai į grupes");//Users to groups (New)
-define("_IMPORTANYTHING","Viskas pripažintas");//Anything recognized (New)
-define("_DATATOIMPORT","Duomenys importo");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","sėkmingai importo");//successfull imports (New)
-define("_FAILEDIMPORTS","Nepavyko importuoti");//failed imports (New)
-define("_REPLACEDUSER","Pakeistas vartotojas");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Faile nėra būtina stulpelius");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Pakeitė galiojančias priskyrimo");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Naujas kursų priskyrimo");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Nauja grupė paskyrimo");//New group assignment (New)
-define("_USERSTOJOBS","Vartotojai darbo vietų");//Users to jobs (New)
-define("_USERSTOSKILLS","Vartotojai įgūdžiai");//Users to skills (New)
-define("_DATATOEXPORT","Duomenys eksporto");//Data to export (New)
-define("_MANDATORYFIELDS","Privalomi laukai");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Laukeliai");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Pateikite failo antraštės eilutę, kurioje kiekvieniems importo tipą, visi privalomi ir bet neprivalomas laukas pavadinimai negu numatyta toliau bet kokia tvarka. Kiekvieno stulpelio pavadinimas reiškia jo prasmę. Neatpažintos Stulpeliai bus praleista, nepažeidžiant proceso šalių.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Naujų darbo vietų aprašymas paskyrimo");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Naujų įgūdžių paskyrimo");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Pakeitė galiojančias filialas");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Pakeitė buvusias pareigas");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Pakeitė esamas kvalifikacijos");//Replaced existing skill (New)
+define("_SHOWHELP","Parodyti pagalbą Nuorodos");//Display help links
+define("_ALLOWUSERANSERALLRONG","Leisti studentams perdaryti tik neteisingai atsakė į klausimus");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Tik tuomet, kai bandymo pakartojimų leidžiama");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Pakartoti tik neteisingai atsakė");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Įprasta tema negali būti inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nr antraštės eilutėje buvo apibrėžtas arba antraštė neatitinka importo rūšis");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Importuotas vartotojas");//Imported user
+define("_USERSTOCOURSES","Vartotojai kursai");//Users to courses
+define("_USERSTOGROUPS","Vartotojai į grupes");//Users to groups
+define("_IMPORTANYTHING","Viskas pripažintas");//Anything recognized
+define("_DATATOIMPORT","Duomenys importo");//Data to import
+define("_SUCCESSFULLIMPORTS","sėkmingai importo");//successfull imports
+define("_FAILEDIMPORTS","Nepavyko importuoti");//failed imports
+define("_REPLACEDUSER","Pakeistas vartotojas");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Faile nėra būtina stulpelius");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Pakeitė galiojančias priskyrimo");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Naujas kursų priskyrimo");//New course assignment
+define("_NEWGROUPASSIGNMENT","Nauja grupė paskyrimo");//New group assignment
+define("_USERSTOJOBS","Vartotojai darbo vietų");//Users to jobs
+define("_USERSTOSKILLS","Vartotojai įgūdžiai");//Users to skills
+define("_DATATOEXPORT","Duomenys eksporto");//Data to export
+define("_MANDATORYFIELDS","Privalomi laukai");//Mandatory fields
+define("_OPTIONALFIELDS","Laukeliai");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Pateikite failo antraštės eilutę, kurioje kiekvieniems importo tipą, visi privalomi ir bet neprivalomas laukas pavadinimai negu numatyta toliau bet kokia tvarka. Kiekvieno stulpelio pavadinimas reiškia jo prasmę. Neatpažintos Stulpeliai bus praleista, nepažeidžiant proceso šalių.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Naujų darbo vietų aprašymas paskyrimo");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Naujų įgūdžių paskyrimo");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Pakeitė galiojančias filialas");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Pakeitė buvusias pareigas");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Pakeitė esamas kvalifikacijos");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Skyrius jau egzistuoja");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Trūksta kvalifikacijos kategorija");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Įgūdžių jau egzistuoja");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Filialo nėra");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Filialo pavadinimas yra dviprasmiškas");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Darbo pavadinimas yra dviprasmiškas");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Įgūdžių pavadinimas yra dviprasmiškas");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Įgūdžių kategorija yra dviprasmiškas");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Trūksta darbo aprašymas");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Šis įgūdis nėra");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Vartotojas jau yra grupės");//User already exists in group (New)
 ?>

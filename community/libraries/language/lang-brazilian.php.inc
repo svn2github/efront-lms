@@ -2640,7 +2640,7 @@ define("_GOTOMYPROFILE","Avançar para o meu perfil");//Go to my profile
 define("_GOTOPEOPLELIST","Avançar para a lista das pessoas");//Go to people&#039;s list
 define("_PEOPLE","Pessoas");//People
 define("_EVERYONE","Todas");//Everyone
-define("_RECENTLYCHANGED" ,"Estado recentemente mudado");
+define("_RECENTLYCHANGED" ,"Recently changed status");
 define("_RELATEDTOCURRENTLESSON","Relacionadas a lição atual");//Related to current lesson
 define("_NORELATEDPEOPLEFOUND","Nenhuma pessoa relacionada encontrada");//No related people found
 define("_ADDCOMMENTTOMYPROFILE","Adicione comentário ao meu perfil");//Add comment to my profile
@@ -3512,42 +3512,53 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Ocultos dos usuários");//Hidden from users
 define("_RESETSCORMDATA","Dados do usuário Reset");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Configurações avançadas");//Advanced settings
-define("_SHOWMOTTOONHEADER","Mostrar o nome e lema também no cabeçalho");//Show name and motto also on header (New)
-define("_SEARCHRESULTSINGLOSSARY","Resultados da pesquisa no glossário");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","Nenhum resultado encontrado no glossário");//No results found in glossary (New)
-define("_AUTOLOGIN","Auto login");//Auto login (New)
-define("_ACCESSLINK","Link de acesso");//Access link (New)
-define("_AUTOLOGINITHLINK","Usuário pode fazer login automaticamente pelo link");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","Padrão tipo de usuário");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","Força aluno responder todas as perguntas");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","Você tem que responder todas as perguntas");//You have to answer all questions (New)
-define("_SHOWHELP","Mostrar atalho ajuda");
-define("_ALLOWUSERANSERALLRONG","Permitir o estudante a repetir somente as questões respondido errado");
-define("_ALLOWANSWERWRONGINFO","Somente, se repetir o teste é permitido");
-define("_USERREDOWRONG", "Repetir somente os errado respondidos");
-define("_DEFAULTTHEMECANNOTBEIMPORTED", "O modélo Default não pode ser importado");
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Não foi definido um cabeçalho ou o cabeçalho não está compatível com o tipo de importação");
-define("_IMPORTEDUSER","Úsuarios importados");
-define("_USERSTOCOURSES","Úsuario para curso");
-define("_USERSTOGROUPS","Úsuario para grupos");
-define("_IMPORTANYTHING","Qualquer reconhecido");
-define("_DATATOIMPORT","Dados a importar");
-define("_SUCCESSFULLIMPORTS","Importados com sucesso");
-define("_FAILEDIMPORTS","Importados sem sucesso");
-define("_REPLACEDUSER","Úsuario substituido");
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN", "O arquivo não cóntem as colunas necessarias");
-define("_REPLACEDEXISTINGASSIGNMENT", "Assinaturas existentes substituidas");
-define("_NEWCOURSEASSIGNMENT","Nova assinatura do curso");
-define("_NEWGROUPASSIGNMENT","Nova assinatura do grupo");
-define("_USERSTOJOBS", "Úsuarios para trabalho");
-define("_USERSTOSKILLS", "Úsuarios para habilidades");
-define("_DATATOEXPORT","Dados a exportar");
-define("_MANDATORYFIELDS", "Campos obrigatórios");
-define("_OPTIONALFIELDS", "Campos opçionáis");
-define("_CSVIMPORTEXPLAINATION","Crie um arquivo com cabeçalho, que cóntem para cada tipo de importação os nomes de todos os campos obrigatórios e qualquer campo opçional dos providenciados daqui num ordem qualquer. O nome da cada coluna é equivalente ao seu significado. Colunas não reconhecidos estarei ignoradoas sem prejudicar o processo.");
-define("_NEWJOBASSIGNMENT","Nova assinatura da descrição do trabalho");
-define("_NEWSKILLASSIGNMENT","Nova assinatura da habilidade");
-define("_REPLACEDEXISTINGBRANCH","Seção existente substituido");
-define("_REPLACEDEXISTINGJOB","Trabalho existente substituido");
-define("_REPLACEDEXISTINGSKILL","Habilidade existente substituida");
+define("_SHOWMOTTOONHEADER","Mostrar o nome e lema também no cabeçalho");//Show name and motto also on header
+define("_SEARCHRESULTSINGLOSSARY","Resultados da pesquisa no glossário");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","Nenhum resultado encontrado no glossário");//No results found in glossary
+define("_AUTOLOGIN","Auto login");//Auto login
+define("_ACCESSLINK","Link de acesso");//Access link
+define("_AUTOLOGINITHLINK","Usuário pode fazer login automaticamente pelo link");//User can login automatically by link
+define("_DEFAULTUSERTYPE","Padrão tipo de usuário");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","Força aluno responder todas as perguntas");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","Você tem que responder todas as perguntas");//You have to answer all questions
+define("_SHOWHELP","Mostrar atalho ajuda");//Display help links
+define("_ALLOWUSERANSERALLRONG","Permitir o estudante a repetir somente as questões respondido errado");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Somente, se repetir o teste é permitido");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Repetir somente os errado respondidos");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","O modélo Default não pode ser importado");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Não foi definido um cabeçalho ou o cabeçalho não está compatível com o tipo de importação");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Úsuarios importados");//Imported user
+define("_USERSTOCOURSES","Úsuario para curso");//Users to courses
+define("_USERSTOGROUPS","Úsuario para grupos");//Users to groups
+define("_IMPORTANYTHING","Qualquer reconhecido");//Anything recognized
+define("_DATATOIMPORT","Dados a importar");//Data to import
+define("_SUCCESSFULLIMPORTS","Importados com sucesso");//successfull imports
+define("_FAILEDIMPORTS","Importados sem sucesso");//failed imports
+define("_REPLACEDUSER","Úsuario substituido");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","O arquivo não cóntem as colunas necessarias");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Assinaturas existentes substituidas");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Nova assinatura do curso");//New course assignment
+define("_NEWGROUPASSIGNMENT","Nova assinatura do grupo");//New group assignment
+define("_USERSTOJOBS","Úsuarios para trabalho");//Users to jobs
+define("_USERSTOSKILLS","Úsuarios para habilidades");//Users to skills
+define("_DATATOEXPORT","Dados a exportar");//Data to export
+define("_MANDATORYFIELDS","Campos obrigatórios");//Mandatory fields
+define("_OPTIONALFIELDS","Campos opçionáis");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Crie um arquivo com cabeçalho, que cóntem para cada tipo de importação os nomes de todos os campos obrigatórios e qualquer campo opçional dos providenciados daqui num ordem qualquer. O nome da cada coluna é equivalente ao seu significado. Colunas não reconhecidos estarei ignoradoas sem prejudicar o processo.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Nova assinatura da descrição do trabalho");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Nova assinatura da habilidade");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Seção existente substituido");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Trabalho existente substituido");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Habilidade existente substituida");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Branch já existe");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Faltando categoria habilidade");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Skill já existe");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Branch não existe");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Nome da filial é ambígua");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Cargo é ambígua");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Skill nome é ambíguo");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","categoria Skill é ambígua");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Faltando descrição do trabalho");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Esta habilidade não existe");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","O usuário já existe no grupo");//User already exists in group (New)
 ?>

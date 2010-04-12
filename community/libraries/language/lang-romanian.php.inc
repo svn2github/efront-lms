@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Utilizatorul poate login în mod automat prin link-u
 define("_DEFAULTUSERTYPE","Implicit tipul de utilizator");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Elev Force răspundă la toate întrebările");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Trebuie să răspundă la toate întrebările");//You have to answer all questions
-define("_SHOWHELP","Afişează ajuta link-uri");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Permiteţi elevilor să refaceţi numai întrebările a răspuns greşit");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Numai în cazul în repetiţii de încercare sunt permise");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Refaceţi numai gresit răspuns");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Implicit tema nu poate fi inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Rândul de antet nu a fost definit în antet sau nu este compatibil cu tipul de import");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Importate de utilizator");//Imported user (New)
-define("_USERSTOCOURSES","Utilizatorii la cursuri");//Users to courses (New)
-define("_USERSTOGROUPS","Utilizatorii grupurilor");//Users to groups (New)
-define("_IMPORTANYTHING","Orice recunoscute");//Anything recognized (New)
-define("_DATATOIMPORT","De date pentru a importa");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","importurilor de succes");//successfull imports (New)
-define("_FAILEDIMPORTS","importurile nu");//failed imports (New)
-define("_REPLACEDUSER","Înlocuit utilizator");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosarul nu conţine coloane necesare");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Înlocuit existente cesiune");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Nou curs de cesiune");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Grup nou cesiunea");//New group assignment (New)
-define("_USERSTOJOBS","Utilizatorii la locurile de muncă");//Users to jobs (New)
-define("_USERSTOSKILLS","Utilizatorii de competenţe");//Users to skills (New)
-define("_DATATOEXPORT","De date de export");//Data to export (New)
-define("_MANDATORYFIELDS","Câmpuri obligatorii");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Câmpurile opţionale");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Furnizaţi un fişier cu o linie de antet care cuprinde, pentru fiecare tip de import, toate obligatorii şi orice titluri optional câmp din cele prevăzute mai jos, în orice ordine. Titlul fiecare coloană denotă sensul său. coloane nerecunoscute vor fi omise, fără a afecta restul procedurii.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Noi locuri de muncă descriere cesiune");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Noi de calificare cesiune");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Înlocuit existente sucursală");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Înlocuit de locuri de muncă existente");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Înlocuit existente de calificare");//Replaced existing skill (New)
+define("_SHOWHELP","Afişează ajuta link-uri");//Display help links
+define("_ALLOWUSERANSERALLRONG","Permiteţi elevilor să refaceţi numai întrebările a răspuns greşit");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Numai în cazul în repetiţii de încercare sunt permise");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Refaceţi numai gresit răspuns");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Implicit tema nu poate fi inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Rândul de antet nu a fost definit în antet sau nu este compatibil cu tipul de import");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Importate de utilizator");//Imported user
+define("_USERSTOCOURSES","Utilizatorii la cursuri");//Users to courses
+define("_USERSTOGROUPS","Utilizatorii grupurilor");//Users to groups
+define("_IMPORTANYTHING","Orice recunoscute");//Anything recognized
+define("_DATATOIMPORT","De date pentru a importa");//Data to import
+define("_SUCCESSFULLIMPORTS","importurilor de succes");//successfull imports
+define("_FAILEDIMPORTS","importurile nu");//failed imports
+define("_REPLACEDUSER","Înlocuit utilizator");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosarul nu conţine coloane necesare");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Înlocuit existente cesiune");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Nou curs de cesiune");//New course assignment
+define("_NEWGROUPASSIGNMENT","Grup nou cesiunea");//New group assignment
+define("_USERSTOJOBS","Utilizatorii la locurile de muncă");//Users to jobs
+define("_USERSTOSKILLS","Utilizatorii de competenţe");//Users to skills
+define("_DATATOEXPORT","De date de export");//Data to export
+define("_MANDATORYFIELDS","Câmpuri obligatorii");//Mandatory fields
+define("_OPTIONALFIELDS","Câmpurile opţionale");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Furnizaţi un fişier cu o linie de antet care cuprinde, pentru fiecare tip de import, toate obligatorii şi orice titluri optional câmp din cele prevăzute mai jos, în orice ordine. Titlul fiecare coloană denotă sensul său. coloane nerecunoscute vor fi omise, fără a afecta restul procedurii.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Noi locuri de muncă descriere cesiune");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Noi de calificare cesiune");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Înlocuit existente sucursală");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Înlocuit de locuri de muncă existente");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Înlocuit existente de calificare");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Sucursala există deja");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Lipseşte categorie de calificare");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Îndemânare există deja");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Sucursala nu exista");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Numele Sucursala este ambiguă");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Titlul de locuri de muncă este ambiguă");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Numele de îndemânare este ambiguă");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","categoria de îndemânare este ambiguă");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Lipseşte descrierea de locuri de muncă");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Aceasta abilitate nu exista");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Utilizatorul există deja în grupul");//User already exists in group (New)
 ?>

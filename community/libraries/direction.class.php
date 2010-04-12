@@ -913,6 +913,7 @@ class EfrontDirectionsTree extends EfrontTree
            }
           }
           function showHideCourses(el, course) {
+        Element.extend(el);
            if (el.hasClassName('visible')) {
             course.hide();
             setImageSrc(el, 16, 'navigate_down.png');

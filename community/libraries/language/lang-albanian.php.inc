@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Përdoruesi mund të identifikohem automatikisht nga
 define("_DEFAULTUSERTYPE","Type Default përdorues");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Studenti Forca përgjigje të gjitha pyetjeve");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Ju duhet t&#39;u përgjigjeni të gjitha pyetjeve");//You have to answer all questions
-define("_SHOWHELP","Shfaq lidhjet ndihmë");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Lejo nxënësit të bëj sërish vetëm pyetje e gabuar përgjigje");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Vetëm në qoftë se repetitions test lejohen");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Bëj sërish vetëm gabuar përgjigje");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema e albumit nuk mund të inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nuk rreshtit ishte përcaktuar ose kokë të papajtueshme me llojin e importit");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","përdorues importuara");//Imported user (New)
-define("_USERSTOCOURSES","Përdorues të kurseve");//Users to courses (New)
-define("_USERSTOGROUPS","Përdorues të grupeve");//Users to groups (New)
-define("_IMPORTANYTHING","Çdo gjë e njohur");//Anything recognized (New)
-define("_DATATOIMPORT","Dhënave të import");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","Importet e suksesshme");//successfull imports (New)
-define("_FAILEDIMPORTS","importet e dështuar");//failed imports (New)
-define("_REPLACEDUSER","përdorues zëvendësuara");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Skedari i nuk përmban shtyllat e nevojshme");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","caktimin e zëvendësuara ekzistues");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","caktimit të reja kurs");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","caktimit të reja grup");//New group assignment (New)
-define("_USERSTOJOBS","Përdorues në punët e");//Users to jobs (New)
-define("_USERSTOSKILLS","Përdorues të aftësive");//Users to skills (New)
-define("_DATATOEXPORT","Të dhënave për eksport");//Data to export (New)
-define("_MANDATORYFIELDS","fushat e detyrueshme");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Fushat Perkujtimore");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Sigurimi i një file me një linjë kokë që përmban për secilin lloj të importuar, të gjitha të detyrueshme dhe fakultative çdo tituj fushë nga ato më poshtë, në asnjë mënyrë. Titulli i çdo kolonë tregon kuptimin e tij. shtyllat e panjohur do të lënë pas dore, pa e prekur pjesën tjetër të procedurës.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","përshkrimin e caktimit të reja të punës");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","caktimit të reja aftësi");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Dega e zëvendësuara ekzistues");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","punë e zëvendësuara ekzistues");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","aftësi të zëvendësuara ekzistues");//Replaced existing skill (New)
+define("_SHOWHELP","Shfaq lidhjet ndihmë");//Display help links
+define("_ALLOWUSERANSERALLRONG","Lejo nxënësit të bëj sërish vetëm pyetje e gabuar përgjigje");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Vetëm në qoftë se repetitions test lejohen");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Bëj sërish vetëm gabuar përgjigje");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema e albumit nuk mund të inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nuk rreshtit ishte përcaktuar ose kokë të papajtueshme me llojin e importit");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","përdorues importuara");//Imported user
+define("_USERSTOCOURSES","Përdorues të kurseve");//Users to courses
+define("_USERSTOGROUPS","Përdorues të grupeve");//Users to groups
+define("_IMPORTANYTHING","Çdo gjë e njohur");//Anything recognized
+define("_DATATOIMPORT","Dhënave të import");//Data to import
+define("_SUCCESSFULLIMPORTS","Importet e suksesshme");//successfull imports
+define("_FAILEDIMPORTS","importet e dështuar");//failed imports
+define("_REPLACEDUSER","përdorues zëvendësuara");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Skedari i nuk përmban shtyllat e nevojshme");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","caktimin e zëvendësuara ekzistues");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","caktimit të reja kurs");//New course assignment
+define("_NEWGROUPASSIGNMENT","caktimit të reja grup");//New group assignment
+define("_USERSTOJOBS","Përdorues në punët e");//Users to jobs
+define("_USERSTOSKILLS","Përdorues të aftësive");//Users to skills
+define("_DATATOEXPORT","Të dhënave për eksport");//Data to export
+define("_MANDATORYFIELDS","fushat e detyrueshme");//Mandatory fields
+define("_OPTIONALFIELDS","Fushat Perkujtimore");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Sigurimi i një file me një linjë kokë që përmban për secilin lloj të importuar, të gjitha të detyrueshme dhe fakultative çdo tituj fushë nga ato më poshtë, në asnjë mënyrë. Titulli i çdo kolonë tregon kuptimin e tij. shtyllat e panjohur do të lënë pas dore, pa e prekur pjesën tjetër të procedurës.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","përshkrimin e caktimit të reja të punës");//New job description assignment
+define("_NEWSKILLASSIGNMENT","caktimit të reja aftësi");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Dega e zëvendësuara ekzistues");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","punë e zëvendësuara ekzistues");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","aftësi të zëvendësuara ekzistues");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Dega Ekziston");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","E humbur kategori aftësi");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Aftësi Ekziston");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Dega nuk ekziston");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Emri Dega është e paqartë");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Titulli i punës është e paqartë");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Emri aftësia është e paqartë");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","kategori aftësia është e paqartë");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","E humbur përshkrimit të punës");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Kjo aftësi nuk ekziston");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","User ekziston në grup");//User already exists in group (New)
 ?>

@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Người dùng có thể tự động đăng nhập 
 define("_DEFAULTUSERTYPE","Mặc định người sử dụng loại");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Lực lượng học sinh trả lời tất cả câu hỏi");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Bạn cần phải trả lời các câu hỏi");//You have to answer all questions
-define("_SHOWHELP","Hiển thị trợ giúp liên kết");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Cho phép học sinh để làm lại chỉ trả lời câu hỏi sai");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Chỉ khi được phép lặp lại thử nghiệm");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Làm lại chỉ được trả lời sai");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Giao diện mặc định không thể được inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Không có dòng tiêu đề được định nghĩa hoặc tiêu đề không tương thích với loại nhập khẩu");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Người sử dụng nhập khẩu");//Imported user (New)
-define("_USERSTOCOURSES","Người sử dụng vào các khóa học");//Users to courses (New)
-define("_USERSTOGROUPS","Người sử dụng cho các nhóm");//Users to groups (New)
-define("_IMPORTANYTHING","Bất cứ điều gì được công nhận");//Anything recognized (New)
-define("_DATATOIMPORT","Dữ liệu nhập khẩu");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","nhập khẩu thành công");//successfull imports (New)
-define("_FAILEDIMPORTS","không nhập khẩu");//failed imports (New)
-define("_REPLACEDUSER","Thay thế người sử dụng");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Các tập tin không chứa các cột cần thiết");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Thay thế hiện chuyển nhượng");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","New khóa học chuyển nhượng");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","New nhóm phân công");//New group assignment (New)
-define("_USERSTOJOBS","Người sử dụng với các công việc");//Users to jobs (New)
-define("_USERSTOSKILLS","Người sử dụng các kỹ năng");//Users to skills (New)
-define("_DATATOEXPORT","Dữ liệu xuất khẩu");//Data to export (New)
-define("_MANDATORYFIELDS","Lĩnh vực bắt buộc");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Các trường tuỳ chọn");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Cung cấp một tập tin với một dòng tiêu đề chứa cho từng loại nhập khẩu, tất cả các lĩnh vực bắt buộc và các chức danh bất kỳ tùy chọn từ những người cung cấp dưới đây trong bất kỳ đơn đặt hàng. Tiêu đề của mỗi cột biểu thị ý nghĩa của nó. cột không được nhận sẽ được bỏ qua, mà không ảnh hưởng đến phần còn lại của thủ tục.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","New mô tả công việc chuyển nhượng");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","New kỹ năng giao");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Thay thế hiện tại chi nhánh");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Thay thế công việc hiện tại");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Thay thế kỹ năng hiện tại");//Replaced existing skill (New)
+define("_SHOWHELP","Hiển thị trợ giúp liên kết");//Display help links
+define("_ALLOWUSERANSERALLRONG","Cho phép học sinh để làm lại chỉ trả lời câu hỏi sai");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Chỉ khi được phép lặp lại thử nghiệm");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Làm lại chỉ được trả lời sai");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Giao diện mặc định không thể được inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Không có dòng tiêu đề được định nghĩa hoặc tiêu đề không tương thích với loại nhập khẩu");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Người sử dụng nhập khẩu");//Imported user
+define("_USERSTOCOURSES","Người sử dụng vào các khóa học");//Users to courses
+define("_USERSTOGROUPS","Người sử dụng cho các nhóm");//Users to groups
+define("_IMPORTANYTHING","Bất cứ điều gì được công nhận");//Anything recognized
+define("_DATATOIMPORT","Dữ liệu nhập khẩu");//Data to import
+define("_SUCCESSFULLIMPORTS","nhập khẩu thành công");//successfull imports
+define("_FAILEDIMPORTS","không nhập khẩu");//failed imports
+define("_REPLACEDUSER","Thay thế người sử dụng");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Các tập tin không chứa các cột cần thiết");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Thay thế hiện chuyển nhượng");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","New khóa học chuyển nhượng");//New course assignment
+define("_NEWGROUPASSIGNMENT","New nhóm phân công");//New group assignment
+define("_USERSTOJOBS","Người sử dụng với các công việc");//Users to jobs
+define("_USERSTOSKILLS","Người sử dụng các kỹ năng");//Users to skills
+define("_DATATOEXPORT","Dữ liệu xuất khẩu");//Data to export
+define("_MANDATORYFIELDS","Lĩnh vực bắt buộc");//Mandatory fields
+define("_OPTIONALFIELDS","Các trường tuỳ chọn");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Cung cấp một tập tin với một dòng tiêu đề chứa cho từng loại nhập khẩu, tất cả các lĩnh vực bắt buộc và các chức danh bất kỳ tùy chọn từ những người cung cấp dưới đây trong bất kỳ đơn đặt hàng. Tiêu đề của mỗi cột biểu thị ý nghĩa của nó. cột không được nhận sẽ được bỏ qua, mà không ảnh hưởng đến phần còn lại của thủ tục.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","New mô tả công việc chuyển nhượng");//New job description assignment
+define("_NEWSKILLASSIGNMENT","New kỹ năng giao");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Thay thế hiện tại chi nhánh");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Thay thế công việc hiện tại");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Thay thế kỹ năng hiện tại");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Chi nhánh đã tồn tại");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Thiếu kỹ năng thể loại");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Kỹ năng đã tồn tại");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Chi nhánh không tồn tại");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Chi nhánh tên là mơ hồ");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Tiêu đề công việc là mơ hồ");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Kỹ năng tên là mơ hồ");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Kỹ năng thể loại rất mơ hồ");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Thiếu mô tả công việc");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Kỹ năng này không tồn tại");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Người dùng đã tồn tại trong nhóm");//User already exists in group (New)
 ?>

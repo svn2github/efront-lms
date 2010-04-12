@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","User ay maaaring awtomatikong mag-login sa pamamagit
 define("_DEFAULTUSERTYPE","Default na uri ng user");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force mag-aaral ang sagot sa lahat ng mga katanungan");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Ikaw ang sagot sa lahat ng mga katanungan");//You have to answer all questions
-define("_SHOWHELP","Ipakita ang mga link ng tulong");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Payagan ang mga mag-aaral upang gawing muli lamang sa maling sinagot tanong");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Tanging kung pagsubok repetitions ay pinahihintulutan");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Gawin muli lamang maling sumagot");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Default na tema ay hindi maaaring inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Walang header hilera ay tinukoy header o hindi katugma sa import ng uri");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Imported ang user");//Imported user (New)
-define("_USERSTOCOURSES","Ang mga gumagamit sa mga kurso");//Users to courses (New)
-define("_USERSTOGROUPS","Ang mga gumagamit sa mga grupo");//Users to groups (New)
-define("_IMPORTANYTHING","Ano kinikilala");//Anything recognized (New)
-define("_DATATOIMPORT","Data upang i-import");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","matagumpay angkat");//successfull imports (New)
-define("_FAILEDIMPORTS","Nabigo angkat");//failed imports (New)
-define("_REPLACEDUSER","Pinalitan ang user");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Ang file ay hindi naglalaman ng mga kinakailangang mga haligi");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Pinalitan umiiral na assignment");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Bagong kurso assignment");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Bagong grupo ng assignment");//New group assignment (New)
-define("_USERSTOJOBS","Ang mga gumagamit sa trabaho");//Users to jobs (New)
-define("_USERSTOSKILLS","Ang mga gumagamit sa mga kasanayan sa");//Users to skills (New)
-define("_DATATOEXPORT","Data na ie-export");//Data to export (New)
-define("_MANDATORYFIELDS","Sapilitan na larangan");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Opsyonal na mga patlang");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Magbigay ng isang file na may isang header na naglalaman ng linya para sa bawat uri-import, ang lahat ng mga sapilitan at ang anumang mga opsyonal na patlang ng mga pamagat mula sa mga ibinigay sa ibaba sa anumang pagkakasunod-sunod. Ang pamagat ng bawat haligi nagpapahiwatig kahulugan nito. Hindi kilalang haligi ay tinanggal na, nang hindi naaapektuhan ang magpahinga ng ang proseso.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Bagong trabaho paglalarawan assignment");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Bagong kasanayan assignment");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Pinalitan umiiral na sangay");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Pinalitan umiiral na trabaho");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Pinalitan umiiral na kasanayan");//Replaced existing skill (New)
+define("_SHOWHELP","Ipakita ang mga link ng tulong");//Display help links
+define("_ALLOWUSERANSERALLRONG","Payagan ang mga mag-aaral upang gawing muli lamang sa maling sinagot tanong");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Tanging kung pagsubok repetitions ay pinahihintulutan");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Gawin muli lamang maling sumagot");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default na tema ay hindi maaaring inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Walang header hilera ay tinukoy header o hindi katugma sa import ng uri");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Imported ang user");//Imported user
+define("_USERSTOCOURSES","Ang mga gumagamit sa mga kurso");//Users to courses
+define("_USERSTOGROUPS","Ang mga gumagamit sa mga grupo");//Users to groups
+define("_IMPORTANYTHING","Ano kinikilala");//Anything recognized
+define("_DATATOIMPORT","Data upang i-import");//Data to import
+define("_SUCCESSFULLIMPORTS","matagumpay angkat");//successfull imports
+define("_FAILEDIMPORTS","Nabigo angkat");//failed imports
+define("_REPLACEDUSER","Pinalitan ang user");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Ang file ay hindi naglalaman ng mga kinakailangang mga haligi");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Pinalitan umiiral na assignment");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Bagong kurso assignment");//New course assignment
+define("_NEWGROUPASSIGNMENT","Bagong grupo ng assignment");//New group assignment
+define("_USERSTOJOBS","Ang mga gumagamit sa trabaho");//Users to jobs
+define("_USERSTOSKILLS","Ang mga gumagamit sa mga kasanayan sa");//Users to skills
+define("_DATATOEXPORT","Data na ie-export");//Data to export
+define("_MANDATORYFIELDS","Sapilitan na larangan");//Mandatory fields
+define("_OPTIONALFIELDS","Opsyonal na mga patlang");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Magbigay ng isang file na may isang header na naglalaman ng linya para sa bawat uri-import, ang lahat ng mga sapilitan at ang anumang mga opsyonal na patlang ng mga pamagat mula sa mga ibinigay sa ibaba sa anumang pagkakasunod-sunod. Ang pamagat ng bawat haligi nagpapahiwatig kahulugan nito. Hindi kilalang haligi ay tinanggal na, nang hindi naaapektuhan ang magpahinga ng ang proseso.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Bagong trabaho paglalarawan assignment");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Bagong kasanayan assignment");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Pinalitan umiiral na sangay");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Pinalitan umiiral na trabaho");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Pinalitan umiiral na kasanayan");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Sangay ng umiiral na");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Nawawalang kasanayan kategorya");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Kasanayan umiiral na");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Branch ay hindi umiiral");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Sangay ng pangalan ay hindi maliwanag");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Job pamagat ay hindi tiyak");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Kasanayan pangalan ay hindi maliwanag");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Kasanayan kategorya ay hindi maliwanag");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Nawawala ang description ng trabaho");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","kasanayan na ito ay hindi na umiiral");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","User ay mayroon na sa grupo");//User already exists in group (New)
 ?>

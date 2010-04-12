@@ -3521,33 +3521,44 @@ define("_AUTOLOGINITHLINK","Lietotājs var login automātiski saite");//User can
 define("_DEFAULTUSERTYPE","Noklusējuma lietotāja tipu");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Spēkā students atbildēt uz visiem jautājumiem");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Jums ir atbildēt uz visiem jautājumiem");//You have to answer all questions
-define("_SHOWHELP","Displejs palīdzēs saites");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Ļaut skolēniem pārtaisīt tikai nepareizi atbildēja");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Tikai tad, ja testa atkārtojumos ir atļauts");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Pārtaisīt tikai nepareizi atbildēja");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Noklusētā tēma nevar inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Neviena galvenes rindā tika noteikts, vai header nav saderīga ar ievešanas veidam");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Importētie lietotāju");//Imported user (New)
-define("_USERSTOCOURSES","Lietotāju kursi");//Users to courses (New)
-define("_USERSTOGROUPS","Lietotāju grupas");//Users to groups (New)
-define("_IMPORTANYTHING","Jebkas atzītas");//Anything recognized (New)
-define("_DATATOIMPORT","Datu imports");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","veiksmīga imports");//successfull imports (New)
-define("_FAILEDIMPORTS","nav imports");//failed imports (New)
-define("_REPLACEDUSER","Aizstāts lietotāju");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Fails nesatur nepieciešamo kolonnu");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Punktu aizstāj esošo piešķiršana");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Jaunu kursu uzdevums");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Jaunas grupas uzdevums");//New group assignment (New)
-define("_USERSTOJOBS","Lietotājiem darbu");//Users to jobs (New)
-define("_USERSTOSKILLS","Lietotājiem prasmju");//Users to skills (New)
-define("_DATATOEXPORT","Datu eksports");//Data to export (New)
-define("_MANDATORYFIELDS","Obligāti aizpildāmie lauki");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Obligāti aizpildāmie lauki");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Nodrošina failu ar header līniju, kurā katram importa veidam, visas obligātās un fakultatīvās lauku virsraksti nekā paredzēts turpmāk jebkurā secībā. Katras kolonnas nosaukuma apzīmē savu jēgu. Neatzīts kolonnas tiks izlaists, neietekmējot pārējo procedūru.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Jaunu darba apraksts piešķiršana");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Jaunajām kvalifikācijas piešķiršana");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Punktu aizstāj esošos filiāle");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Punktu aizstāj esošo darba vietu");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Punktu aizstāj esošās prasmes");//Replaced existing skill (New)
+define("_SHOWHELP","Displejs palīdzēs saites");//Display help links
+define("_ALLOWUSERANSERALLRONG","Ļaut skolēniem pārtaisīt tikai nepareizi atbildēja");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Tikai tad, ja testa atkārtojumos ir atļauts");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Pārtaisīt tikai nepareizi atbildēja");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Noklusētā tēma nevar inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Neviena galvenes rindā tika noteikts, vai header nav saderīga ar ievešanas veidam");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Importētie lietotāju");//Imported user
+define("_USERSTOCOURSES","Lietotāju kursi");//Users to courses
+define("_USERSTOGROUPS","Lietotāju grupas");//Users to groups
+define("_IMPORTANYTHING","Jebkas atzītas");//Anything recognized
+define("_DATATOIMPORT","Datu imports");//Data to import
+define("_SUCCESSFULLIMPORTS","veiksmīga imports");//successfull imports
+define("_FAILEDIMPORTS","nav imports");//failed imports
+define("_REPLACEDUSER","Aizstāts lietotāju");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Fails nesatur nepieciešamo kolonnu");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Punktu aizstāj esošo piešķiršana");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Jaunu kursu uzdevums");//New course assignment
+define("_NEWGROUPASSIGNMENT","Jaunas grupas uzdevums");//New group assignment
+define("_USERSTOJOBS","Lietotājiem darbu");//Users to jobs
+define("_USERSTOSKILLS","Lietotājiem prasmju");//Users to skills
+define("_DATATOEXPORT","Datu eksports");//Data to export
+define("_MANDATORYFIELDS","Obligāti aizpildāmie lauki");//Mandatory fields
+define("_OPTIONALFIELDS","Obligāti aizpildāmie lauki");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Nodrošina failu ar header līniju, kurā katram importa veidam, visas obligātās un fakultatīvās lauku virsraksti nekā paredzēts turpmāk jebkurā secībā. Katras kolonnas nosaukuma apzīmē savu jēgu. Neatzīts kolonnas tiks izlaists, neietekmējot pārējo procedūru.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Jaunu darba apraksts piešķiršana");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Jaunajām kvalifikācijas piešķiršana");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Punktu aizstāj esošos filiāle");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Punktu aizstāj esošo darba vietu");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Punktu aizstāj esošās prasmes");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Filiāle jau pastāv");//Branch exists already (New)
+define("_MISSINGSKILLCATEGORY","Trūkstošo prasmju kategorijas");//Missing skill category (New)
+define("_SKILLALREADYEXISTS","Skill jau pastāv");//Skill exists already (New)
+define("_BRANCHDOESNOTEXIST","Filiāle neeksistē");//Branch does not exist (New)
+define("_BRANCHNAMEAMBIGUOUS","Filiāles nosaukums ir neskaidrs");//Branch name is ambiguous (New)
+define("_JOBTITLEAMBIGUOUS","Darba nosaukums ir neskaidrs");//Job title is ambiguous (New)
+define("_SKILLAMBIGUOUS","Prasme nosaukums ir neskaidrs");//Skill name is ambiguous (New)
+define("_SKILLCATEGORYAMBIGUOUS","Prasme kategorija ir neskaidrs");//Skill category is ambiguous (New)
+define("_MISSING_JOB_DESCRIPTION","Trūkstošo darba apraksts");//Missing job description (New)
+define("_SKILLDOESNOTEXIST","Šī prasme neeksistē");//This skill does not exist (New)
+define("_USERALREADYEXISTSINGROUP","Lietotājs jau eksistē grupas");//User already exists in group (New)
 ?>

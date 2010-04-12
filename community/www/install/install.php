@@ -437,6 +437,12 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
       } catch (EfrontFileException $e) {} //Don't stop on filesystem errors
      }
     }
+    try {
+     $cacheTree = new FileSystemTree(G_THEMECACHE, true);
+     foreach (new EfrontDirectoryOnlyFilterIterator($cacheTree -> tree) as $value) {
+      $value -> delete();
+     }
+    } catch (Exception $e) {}
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
                 Installation :: addModules(true);
                 header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");

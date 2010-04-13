@@ -33,7 +33,7 @@ class module_dimdim extends EfrontModule {
                           maxMics int(3) default 20,
                           lobby tinyint(1) default 0,
                           status int(1) default 0,
-                          PRIMARY KEY  (id)
+                          PRIMARY KEY (id)
                         ) DEFAULT CHARSET=utf8;");
         eF_executeNew("drop table if exists module_dimdim_users_to_meeting ");
         $b = eF_executeNew("CREATE TABLE module_dimdim_users_to_meeting (
@@ -109,7 +109,7 @@ class module_dimdim extends EfrontModule {
         if ($currentUser -> getRole($this -> getCurrentLesson()) == "professor") {
             return array('title' => _DIMDIM,
                          'image' => $this -> moduleBaseDir . 'images/dimdim32.png',
-                         'link'  => $this -> moduleBaseUrl);
+                         'link' => $this -> moduleBaseUrl);
         }
     }
 
@@ -119,27 +119,28 @@ class module_dimdim extends EfrontModule {
         if ($currentUser -> getType() == "administrator") {
             return array('title' => _DIMDIM,
                          'image' => $this -> moduleBaseDir . 'images/dimdim32.png',
-                         'link'  => $this -> moduleBaseUrl);
+                         'link' => $this -> moduleBaseUrl);
         }
     }
 
     public function getNavigationLinks() {
 
         $currentUser = $this -> getCurrentUser();
-        if ($currentUser -> getRole() == "administrator") { 
+        if ($currentUser -> getRole() == "administrator") {
             $basicNavArray = array (array ('title' => _HOME, 'link' => "administrator.php?ctg=control_panel"),
-                                    array ('title' => _DIMDIM, 'link'  => $this -> moduleBaseUrl));            
+                                    array ('title' => _DIMDIM, 'link' => $this -> moduleBaseUrl));
 
         } else {
+   $currentLesson = $this -> getCurrentLesson();
             $basicNavArray = array (
-                                    array ('title' => _MYLESSONS, 'onclick'  => "location='".$currentUser -> getRole($this -> getCurrentLesson()).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-                                    array ('title' => _HOME, 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
-                                    array ('title' => _DIMDIM, 'link'  => $this -> moduleBaseUrl));
-	        if (isset($_GET['edit_dimdim'])) {
-	            $basicNavArray[] = array ('title' => _DIMDIM_MANAGEMENT, 'link'  => $this -> moduleBaseUrl . "&edit_dimdim=". $_GET['edit_dimdim']);
-	        } else if (isset($_GET['add_dimdim'])) {
-	            $basicNavArray[] = array ('title' => _DIMDIM_MANAGEMENT, 'link'  => $this -> moduleBaseUrl . "&add_dimdim=1");
-	        }
+                                    array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($this -> getCurrentLesson()).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+                                    array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
+                                    array ('title' => _DIMDIM, 'link' => $this -> moduleBaseUrl));
+         if (isset($_GET['edit_dimdim'])) {
+             $basicNavArray[] = array ('title' => _DIMDIM_MANAGEMENT, 'link' => $this -> moduleBaseUrl . "&edit_dimdim=". $_GET['edit_dimdim']);
+         } else if (isset($_GET['add_dimdim'])) {
+             $basicNavArray[] = array ('title' => _DIMDIM_MANAGEMENT, 'link' => $this -> moduleBaseUrl . "&add_dimdim=1");
+         }
         }
         return $basicNavArray;
 
@@ -151,7 +152,7 @@ class module_dimdim extends EfrontModule {
                                               'title' => _DIMDIM,
                                               'image' => $this -> moduleBaseDir . 'images/dimdim16',
                                               'eFrontExtensions' => '1',
-                                              'link'  => $this -> moduleBaseUrl));
+                                              'link' => $this -> moduleBaseUrl));
 
         return array ( "current_lesson" => $link_of_menu_clesson);
 
@@ -167,72 +168,72 @@ class module_dimdim extends EfrontModule {
         if (!$this -> dimdim_server_host) {
             $dimdim_server = eF_getTableData("configuration", "value", "name = 'module_dimdim_server'");
             $this -> dimdim_server_host = $dimdim_server[0]['value'];
-        } 
-            
+        }
+
         return $this -> dimdim_server_host;
     }
 
     /*
+
      * Function used to create the DimDim module URL
+
      * Parses the options stored for the meeting in the DB and retuns the correct
+
      * URL according to role of the user, whether the meeting has started or 
+
      * wheter
+
      */
     private function createDimdimUrl($currentUser, $meeting_info, $always_joining = false) {
         if ($currentUser -> getRole($this -> getCurrentLesson()) == "professor" && $meeting_info['status'] == 0 && !$always_joining) {
             $meeting_options = array(
-                "action"             => "host",
-                "email"              => $currentUser -> user['email'],
-                "meetingRoomName"    => $meeting_info['confKey'],
-                "displayName"        => urlencode(utf8_decode($currentUser -> user['name']))."_". urlencode(utf8_decode($currentUser -> user['surname'])),
-                "confName"           => $meeting_info['name'],
-                "lobby"              => ($meeting_info['lobby'])?"false":"true",
-                "networkProfile"     => 2,
-                "meetingHours"       => $meeting_info['durationHours'],
-                "meetingMinutes"     => $meeting_info['durationMinutes'],
-                "maxParticipants"    => $meeting_info['maxParts'],
-                "maxAttendeeMikes"   => $meeting_info['maxMics'],
-                "presenterAV"        => ($meeting_info['confType'])?"audio":"av",
-                "returnUrl"          => $this -> moduleBaseLink."module_dimdim_finished.php?finished_meeting=".$_GET['start_meeting'],
-                "attendeePassCode"   => "atpwd_".$meeting_info['confKey']
+                "action" => "host",
+                "email" => $currentUser -> user['email'],
+                "meetingRoomName" => $meeting_info['confKey'],
+                "displayName" => urlencode(utf8_decode($currentUser -> user['name']))."_". urlencode(utf8_decode($currentUser -> user['surname'])),
+                "confName" => $meeting_info['name'],
+                "lobby" => ($meeting_info['lobby'])?"false":"true",
+                "networkProfile" => 2,
+                "meetingHours" => $meeting_info['durationHours'],
+                "meetingMinutes" => $meeting_info['durationMinutes'],
+                "maxParticipants" => $meeting_info['maxParts'],
+                "maxAttendeeMikes" => $meeting_info['maxMics'],
+                "presenterAV" => ($meeting_info['confType'])?"audio":"av",
+                "returnUrl" => $this -> moduleBaseLink."module_dimdim_finished.php?finished_meeting=".$_GET['start_meeting'],
+                "attendeePassCode" => "atpwd_".$meeting_info['confKey']
             );
-
-
         } else {
             $meeting_options = array(
-                "action"             => "join",
-                "email"              => $currentUser -> user['email'],
-                "meetingRoomName"    => $meeting_info['confKey'],
-                "displayName"        => urlencode(utf8_decode($currentUser -> user['name']))."_". urlencode(utf8_decode($currentUser -> user['surname'])),
-                "returnUrl"          => $this -> moduleBaseLink."module_dimdim_finished.php?finished_meeting=".$_GET['start_meeting'],
-                "attendeePwd"        => "atpwd_".$meeting_info['confKey']
+                "action" => "join",
+                "email" => $currentUser -> user['email'],
+                "meetingRoomName" => $meeting_info['confKey'],
+                "displayName" => urlencode(utf8_decode($currentUser -> user['name']))."_". urlencode(utf8_decode($currentUser -> user['surname'])),
+                "returnUrl" => $this -> moduleBaseLink."module_dimdim_finished.php?finished_meeting=".$_GET['start_meeting'],
+                "attendeePwd" => "atpwd_".$meeting_info['confKey']
             );
         }
-
         $url = "";
         foreach ($meeting_options as $key => $option) {
             if ($url != "") {
                 $url .= "&" . $key . "=" . str_replace(" ", "_", $option);
             } else {
-                $url = $key . "="  . str_replace(" ", "_", $option);
+                $url = $key . "=" . str_replace(" ", "_", $option);
             }
         }
-
         $dimdim_server = $this -> getDimdimServer();
         if($dimdim_server == "http://www1.dimdim.com" || $dimdim_server == "http://www1.dimdim.com/") {
             $server_host = "http://www1.dimdim.com/dimdim";
         } else {
             $server_host = $dimdim_server;
-
         }
 
         $dimdimUrl .= $server_host . "/html/envcheck/connect.action?".$url;
-        
+
         return $dimdimUrl;
     }
 
-    
-    
+
+
     /* MAIN-INDEPENDENT MODULE PAGES */
     public function getModule() {
         $currentUser = $this -> getCurrentUser();
@@ -244,7 +245,7 @@ class module_dimdim extends EfrontModule {
         if ($currentUser -> getType() == "administrator") {
 
             $form = new HTML_QuickForm("dimdim_server_entry_form", "post", $_SERVER['REQUEST_URI'], "", null, true);
-            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
             $form -> addElement('text', 'server', null, 'class = "inputText" id="server_input"');
             $form -> addRule('server', _DIMDIMTHEFIELDNAMEISMANDATORY, 'required', null, 'client');
             $form -> addElement('submit', 'submit_dimdim_server', _SUBMIT, 'class = "flatButton"');
@@ -258,8 +259,8 @@ class module_dimdim extends EfrontModule {
                 $this -> setMessageVar(_DIMDIM_SUCCESFULLYCHANGEDSERVER, "success");
             }
 
-            
-            $form -> setDefaults(array('server'       => $this -> getDimdimServer()));
+
+            $form -> setDefaults(array('server' => $this -> getDimdimServer()));
 
 
             $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
@@ -305,7 +306,7 @@ class module_dimdim extends EfrontModule {
                 $currentLesson = $this ->getCurrentLesson();
                 $meeting_users = eF_getTableData("module_dimdim_users_to_meeting JOIN users ON module_dimdim_users_to_meeting.users_LOGIN = users.login", "users.login, users.name, users.surname, users.email", "meeting_ID = ".$_GET['edit_dimdim'] . " AND users.login <> '". $currentUser -> user['login'] ."'");
 
-                isset($_GET['filter']) ? $meeting_users  = eF_filterData($meeting_users , $_GET['filter']) : null;
+                isset($_GET['filter']) ? $meeting_users = eF_filterData($meeting_users , $_GET['filter']) : null;
 
                 $meeting_info = eF_getTableData("module_dimdim", "*", "id = ".$_GET['edit_dimdim']);
 
@@ -313,26 +314,26 @@ class module_dimdim extends EfrontModule {
                 $count = 0;
                 foreach ($meeting_users as $user) {
 
-                    $body = _DIMDIM_DEAR . " " . $user['name']. ",\n\n" ._DIMDIM_YOUHAVEBEENINVITEDBYPROFESSOR . " " . $currentUser -> user['name']. " " . $currentUser -> user['surname'] . " " . _DIMDIM_TOATTENDACONFERENCE . " \"". $meeting_info[0]['name'] . "\" " . _DIMDIM_FORLESSON. " \""  . $currentLesson -> lesson['name'] . "\" " . _DIMDIM_SCHEDULEDFOR . "\n\n". date("D d.m.y, g:i a", $meeting_info[0]['timestamp']). "\n\n" ._DIMDIMYOUCANJOINTHEMEETINGDIRECTLYBYCLICKINGTHEFOLLOWINGLINKAFTERITSTARTS . ":\n\n";
-                    
+                    $body = _DIMDIM_DEAR . " " . $user['name']. ",\n\n" ._DIMDIM_YOUHAVEBEENINVITEDBYPROFESSOR . " " . $currentUser -> user['name']. " " . $currentUser -> user['surname'] . " " . _DIMDIM_TOATTENDACONFERENCE . " \"". $meeting_info[0]['name'] . "\" " . _DIMDIM_FORLESSON. " \"" . $currentLesson -> lesson['name'] . "\" " . _DIMDIM_SCHEDULEDFOR . "\n\n". date("D d.m.y, g:i a", $meeting_info[0]['timestamp']). "\n\n" ._DIMDIMYOUCANJOINTHEMEETINGDIRECTLYBYCLICKINGTHEFOLLOWINGLINKAFTERITSTARTS . ":\n\n";
+
                     $userObject = EfrontUserFactory::factory($user['login']);
-                    
+
                     $body .= $this -> createDimdimUrl($userObject, $meeting_info[0], true);
                     $body .= "\n\n" ._DIMDIM_SINCERELY . ",\n" . $currentUser -> user['surname']." ".$currentUser -> user['name'];
 
                     $my_email = $currentUser -> user['email'];
                     $user_mail = $user['email'];
-                    $header = array ('From'                      => $GLOBALS['configuration']['system_email'],
-                                     'To'                        => $user_mail,
-                                     'Subject'                   => $subject,
-                                     'Content-type'              => 'text/plain;charset="UTF-8"',                       // if content-type is text/html, the message cannot be received by mail clients for Registration content
+                    $header = array ('From' => $GLOBALS['configuration']['system_email'],
+                                     'To' => $user_mail,
+                                     'Subject' => $subject,
+                                     'Content-type' => 'text/plain;charset="UTF-8"', // if content-type is text/html, the message cannot be received by mail clients for Registration content
                                      'Content-Transfer-Encoding' => '7bit');
-                    $smtp = Mail::factory('smtp', array('auth'      => $GLOBALS['configuration']['smtp_auth'] ? true : false,
-                                                         'host'      => $GLOBALS['configuration']['smtp_host'],
-                                                         'password'  => $GLOBALS['configuration']['smtp_pass'],
-                                                         'port'      => $GLOBALS['configuration']['smtp_port'],
-                                                         'username'  => $GLOBALS['configuration']['smtp_user'],
-                                                         'timeout'   => $GLOBALS['configuration']['smtp_timeout']));
+                    $smtp = Mail::factory('smtp', array('auth' => $GLOBALS['configuration']['smtp_auth'] ? true : false,
+                                                         'host' => $GLOBALS['configuration']['smtp_host'],
+                                                         'password' => $GLOBALS['configuration']['smtp_pass'],
+                                                         'port' => $GLOBALS['configuration']['smtp_port'],
+                                                         'username' => $GLOBALS['configuration']['smtp_user'],
+                                                         'timeout' => $GLOBALS['configuration']['smtp_timeout']));
 
                     if ($smtp -> send($user_mail, $header, $body)) {
                         $count++;
@@ -349,7 +350,7 @@ class module_dimdim extends EfrontModule {
 
 //pr($_GET);
         if (isset($_GET['start_meeting']) && eF_checkParameter($_GET['start_meeting'], 'id')) {
-            
+
             $dimdim_server = $this -> getDimdimServer();
             if ($dimdim_server != "") {
 
@@ -361,7 +362,7 @@ class module_dimdim extends EfrontModule {
                     if ($currentUser -> getRole($this -> getCurrentLesson()) == "professor" && $meeting_info['status'] == 0) {
                         eF_updateTableData("module_dimdim", array('status' => '1'), "id=".$_GET['start_meeting']);
                     }
-                    
+
                     //echo $dimdimUrl."<BR>";
                     header("location:".$dimdimUrl);
 
@@ -378,7 +379,7 @@ class module_dimdim extends EfrontModule {
             if ($userRole == "professor") {
                 eF_updateTableData("module_dimdim", array('status' => '2'), "id=".$_GET['finished_meeting']);
             }
-            
+
             $currentLesson = $this -> getCurrentLesson();
             $_SESSION['previousSideUrl'] = G_SERVERNAME ."new_sidebar.php?new_lesson_id=" . $currentLesson -> lesson['id'] ;
             $_SESSION['previousMainUrl'] = G_SERVERNAME . $currentUser -> getType() . ".php?ctg=control_panel";
@@ -439,7 +440,7 @@ class module_dimdim extends EfrontModule {
             }
 
             $form = new HTML_QuickForm("dimdim_entry_form", "post", $_SERVER['REQUEST_URI']. "&tab=users", "", null, true);
-            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
             $form -> addElement('text', 'name', null, 'class = "inputText"');
             $form -> addRule('name', _DIMDIMTHEFIELDNAMEISMANDATORY, 'required', null, 'client');
 
@@ -489,24 +490,24 @@ class module_dimdim extends EfrontModule {
             $form -> addElement('select', 'lobby' , _DIMDIMUSELOBBYROOM, array("0" => _YES,"1" => _NO), 'id="lobbyId"');
             $form -> addElement('select', 'presenterAV' , _DIMDIMPRESENTERAV, array("0" => _DIMDIMAUDIOVIDEO, "1" => _DIMDIMAUDIOONLY), 'id="presenterAvID"');
 
-            
+
             $currentLesson = $this -> getCurrentLesson();
             $students = eF_getTableData("users_to_lessons", "count(users_LOGIN) as total_students", "lessons_ID = '".$currentLesson -> lesson['id']."'");
-            
+
             $total_students = $students[0]['total_students'];
             $students_count = array();
             for ($i = 1; $i <= $total_students; $i++) {
                 $students_count[$i] = $i;
             }
             $form -> addElement('select', 'maxParticipants', _DIMDIMMAXPARTICIPANTS, $students_count, '');
-            $form -> addElement('select', 'maxMics', _DIMDIMMAXMICS,  $students_count, '');
+            $form -> addElement('select', 'maxMics', _DIMDIMMAXMICS, $students_count, '');
             $form -> addElement('submit', 'submit_dimdim', _SUBMIT, 'class = "flatButton"');
 
 
             if (isset($_GET['edit_dimdim'])) {
                 $dimdim_entry = eF_getTableData("module_dimdim", "*", "id=".$_GET['edit_dimdim']);
                 $timestamp_info = getdate($dimdim_entry[0]['timestamp']);
-                $form -> setDefaults(array('name'       => $dimdim_entry[0]['name'],
+                $form -> setDefaults(array('name' => $dimdim_entry[0]['name'],
                                            'presenterAV'=> $dimdim_entry[0]['confType'],
                                            'maxParticipants'=> $dimdim_entry[0]['maxParticipants'],
                                            'maxMics'=> $dimdim_entry[0]['maxMics'],
@@ -517,14 +518,14 @@ class module_dimdim extends EfrontModule {
                 $timestamp_info['minutes'] = $timestamp_info['minutes'] - ($timestamp_info['minutes'] % 15);
             }
 
-            $form -> setDefaults(array('day'       => $timestamp_info['mday'],
-                                       'month'     => $timestamp_info['mon'],
-                                       'year'      => $timestamp_info['year'],
-                                       'hour'      => $timestamp_info['hours'],
-                                       'minute'    => $timestamp_info['minutes'],
+            $form -> setDefaults(array('day' => $timestamp_info['mday'],
+                                       'month' => $timestamp_info['mon'],
+                                       'year' => $timestamp_info['year'],
+                                       'hour' => $timestamp_info['hours'],
+                                       'minute' => $timestamp_info['minutes'],
                                        'maxParticipants' => ($dimdim_entry[0]['maxParts'] >0 && $dimdim_entry[0]['maxParts'] < $total_students)?$dimdim_entry[0]['maxParts']:$total_students,
-                                       'maxMics'         => ($dimdim_entry[0]['maxMics']> 0 && $dimdim_entry[0]['maxMics'] < $total_students)?$dimdim_entry[0]['maxMics']:$total_students));
-            
+                                       'maxMics' => ($dimdim_entry[0]['maxMics']> 0 && $dimdim_entry[0]['maxMics'] < $total_students)?$dimdim_entry[0]['maxMics']:$total_students));
+
 
             if ($form -> isSubmitted() && $form -> validate()) {
 
@@ -534,15 +535,15 @@ class module_dimdim extends EfrontModule {
 
                     $timestamp = mktime($form -> exportValue('hour'), $form -> exportValue('minute'), 0, $form -> exportValue('month'), $form -> exportValue('day'), $form -> exportValue('year'));
 
-                    $fields = array('name'            => $form -> exportValue('name'),
-                                    'timestamp'       => $timestamp,
-                                    'lessons_ID'      => $currentLesson -> lesson['id'],
-                                    'durationHours'   => $form -> exportValue('duration_hours'),
+                    $fields = array('name' => $form -> exportValue('name'),
+                                    'timestamp' => $timestamp,
+                                    'lessons_ID' => $currentLesson -> lesson['id'],
+                                    'durationHours' => $form -> exportValue('duration_hours'),
                                     'durationMinutes' => $form -> exportValue('duration_minutes'),
-                                    'confType'        => $form -> exportValue('presenterAV'),
-                                    'maxParts'        => ($form -> exportValue('maxParticipants')>0) ?$form -> exportValue('maxParticipants'):20,
-                                    'maxMics'         => $form -> exportValue('maxMics'),
-                                    'lobby'           => $form -> exportValue('lobby'));
+                                    'confType' => $form -> exportValue('presenterAV'),
+                                    'maxParts' => ($form -> exportValue('maxParticipants')>0) ?$form -> exportValue('maxParticipants'):20,
+                                    'maxMics' => $form -> exportValue('maxMics'),
+                                    'lobby' => $form -> exportValue('lobby'));
 
 
                     if (isset($_GET['edit_dimdim'])) {
@@ -572,8 +573,8 @@ class module_dimdim extends EfrontModule {
         } else {
             $currentUser = $this -> getCurrentUser();
             $currentLesson = $this -> getCurrentLesson();
-            
-            
+
+
             if ($currentUser -> getRole($this -> getCurrentLesson()) == "professor") {
                 $dimdim = eF_getTableData("module_dimdim", "*", "lessons_ID = '".$currentLesson -> lesson['id']."'");
                 $smarty -> assign("T_DIMDIM_CURRENTLESSONTYPE", "professor");
@@ -628,7 +629,7 @@ class module_dimdim extends EfrontModule {
                 $dimdim = eF_getTableData("module_dimdim_users_to_meeting JOIN module_dimdim ON id = meeting_ID", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND users_LOGIN='".$currentUser -> user['login']."'", "timestamp DESC");
                 $smarty -> assign("T_DIMDIM_CURRENTLESSONTYPE", "student");
                 $now = time();
-                
+
                 $dimdim_server = eF_getTableData("configuration", "value", "name = 'module_dimdim_server'");
                 foreach ($dimdim as $key => $meeting) {
                     $dimdim[$key]['time_remaining'] = eF_convertIntervalToTime(time() - $meeting['timestamp'], true). ' '._AGO;
@@ -650,7 +651,7 @@ class module_dimdim extends EfrontModule {
                 }
             }
 
-            $smarty -> assign("T_MODULE_DIMDIM_INNERTABLE_OPTIONS", array(array('text' => _DIMDIM_DIMDIMLIST,   'image' => $this -> moduleBaseLink."images/go_into.png", 'href' => $this -> moduleBaseUrl)));
+            $smarty -> assign("T_MODULE_DIMDIM_INNERTABLE_OPTIONS", array(array('text' => _DIMDIM_DIMDIMLIST, 'image' => $this -> moduleBaseLink."images/go_into.png", 'href' => $this -> moduleBaseUrl)));
             $smarty -> assign("T_DIMDIM_INNERTABLE", $dimdim);
             return true;
         } else {

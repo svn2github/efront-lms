@@ -1,5 +1,9 @@
 === Version 3.6.1 build ===
 - Added code for deleting templates cache in upgrade script
+- Fixed issue about social page in eF_template_printProjects
+- Fixed bug in social page about displaying private comments in professor dashboard
+- Fixed bug in importing lesson with reseting files options
+- Fixed issue in community edition about deleting a course
 
 === Version 3.6.1 build 6440 ===
 - Added online help functionality

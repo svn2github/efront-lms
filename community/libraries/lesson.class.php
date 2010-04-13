@@ -510,7 +510,7 @@ class EfrontLesson
             if (sizeof($topics) > 0) { //Delete forums' messages and topics
                 $fmid = eF_getTableDataFlat("f_messages", "id", "f_topics_ID in (".implode(",", $topics['id']).")");
                 EfrontSearch :: removeText('f_messages', implode(",", $fmid['id']), '', true);
-                eF_deleteTableData("f_messages", "topics_id in (".implode(",", $topics['id']).")");
+                eF_deleteTableData("f_messages", "f_topics_id in (".implode(",", $topics['id']).")");
                 eF_deleteTableData("f_topics", "id in (".implode(",", $topics['id']).")");
             }
             $fpid = eF_getTableDataFlat("f_poll", "id", "f_forums_ID in (".implode(",", $children).")");
@@ -1962,6 +1962,7 @@ class EfrontLesson
                  if (!$this -> lesson['share_folder']) {
                   $directory = new EfrontDirectory($this -> directory);
                   $directory -> delete();
+      mkdir($this -> directory, 0755);
                  }
                  break;
                 case 'calendar':

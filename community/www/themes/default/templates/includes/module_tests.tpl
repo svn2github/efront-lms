@@ -130,43 +130,49 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <tr><td class = "labelCell">{$smarty.const._AUTOMATICALLYASSIGNLESSONS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.automatic_assignment.html}<img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)"><div id = 'automatic_assignment_info' onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)" class = "popUpInfoDiv" style = "display:none">{$smarty.const._AUTOMATICASSIGNMENTINFO}</div></td>
             {/if}
-                <tr><td class = "labelCell">{$smarty.const._PUBLISH}:&nbsp;</td>
+    <tr><td></td><td class = "elementCell">
+     <span>
+      <img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;
+      <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();">{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
+     </span>
+    </td></tr>
+                <tr style="display:none;" id = "publish"><td class = "labelCell">{$smarty.const._PUBLISH}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.publish.html}</td></tr>
                 {if $T_TEST_FORM.publish.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.publish.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._ONEBYONE}:&nbsp;</td>
+                <tr style="display:none;" id = "onebyone"><td class = "labelCell">{$smarty.const._ONEBYONE}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.onebyone.html}</td></tr>
                 {if $T_TEST_FORM.onebyone.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.onebyone.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._ONLYFORWARD}:&nbsp;</td>
+                <tr style="display:none;" id = "only_forward"><td class = "labelCell">{$smarty.const._ONLYFORWARD}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.only_forward.html} <span class = "infoCell">{$smarty.const._APPLICABLETOONEBYONE}</span></td></tr>
                 {if $T_TEST_FORM.only_forward.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.only_forward.error}</td></tr>{/if}
             {if !$T_SKILLGAP_TEST}
-                <tr><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWGIVENANSWERS}:&nbsp;</td>
+                <tr style="display:none;" id = "given_answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWGIVENANSWERS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.given_answers.html}</td></tr>
                 {if $T_TEST_FORM.given_answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.given_answers.error}</td></tr>{/if}
-                <tr><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWRIGHTANSWERS}:&nbsp;</td>
+                <tr style="display:none;" id = "answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWRIGHTANSWERS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.answers.html}</td></tr>
                 {if $T_TEST_FORM.answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answers.error}</td></tr>{/if}
             {/if}
-                <tr><td class = "labelCell">{$smarty.const._SHUFFLEANSWERS}:&nbsp;</td>
+                <tr style="display:none;" id = "shuffle_answers"><td class = "labelCell">{$smarty.const._SHUFFLEANSWERS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.shuffle_answers.html}</td></tr>
                 {if $T_TEST_FORM.shuffle_answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_answers.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._SHUFFLEQUESTIONS}:&nbsp;</td>
+                <tr style="display:none;" id = "shuffle_questions"><td class = "labelCell">{$smarty.const._SHUFFLEQUESTIONS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.shuffle_questions.html}</td></tr>
-                <tr><td class = "labelCell">{$smarty.const._DISPLAYORDEREDLIST}:&nbsp;</td>
+    {if $T_TEST_FORM.shuffle_questions.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_questions.error}</td></tr>{/if}
+                <tr style="display:none;" id = "display_list"><td class = "labelCell">{$smarty.const._DISPLAYORDEREDLIST}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.display_list.html} <span class = "infoCell">{$smarty.const._DISPLAYORDEREDLISTINFO}</span></td></tr>
             {if !$T_SKILLGAP_TEST}
-                {if $T_TEST_FORM.shuffle_questions.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_questions.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._TESTCANBEPAUSED}:&nbsp;</td>
+                <tr style="display:none;" id = "pause_test"><td class = "labelCell">{$smarty.const._TESTCANBEPAUSED}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.pause_test.html}</td></tr>
                 {if $T_TEST_FORM.pause_test.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.pause_test.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._DISPLAYQUESTIONWEIGHTS}:&nbsp;</td>
+                <tr style="display:none;" id = "display_weights"><td class = "labelCell">{$smarty.const._DISPLAYQUESTIONWEIGHTS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.display_weights.html}</td></tr>
                 {if $T_TEST_FORM.display_weights.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.display_weights.error}</td></tr>{/if}
-    <tr><td class = "labelCell">{$smarty.const._FORCEUSERANSERALLQUESTIONS}:&nbsp;</td>
+    <tr style="display:none;" id = "answer_all"><td class = "labelCell">{$smarty.const._FORCEUSERANSERALLQUESTIONS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.answer_all.html}</td></tr>
                 {if $T_TEST_FORM.answer_all.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answer_all.error}</td></tr>{/if}
 {if $smarty.const.G_VERSIONTYPE != 'community'}
-    <tr><td class = "labelCell">{$smarty.const._ALLOWUSERANSERALLRONG}:&nbsp;</td>
+    <tr style="display:none;" id = "redo_wrong"><td class = "labelCell">{$smarty.const._ALLOWUSERANSERALLRONG}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.redo_wrong.html} <span class = "infoCell">{$smarty.const._ALLOWANSWERWRONGINFO}</span></td></tr>
                 {if $T_TEST_FORM.redo_wrong.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redo_wrong.error}</td></tr>{/if}
 {/if}

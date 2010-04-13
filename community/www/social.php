@@ -159,7 +159,7 @@
         }
         /*Comments list*/
         if (!empty($lessons_list)) {
-            $comments = eF_getTableData("comments cm JOIN content c JOIN lessons l ON c.lessons_ID = l.id", "cm.id AS id, cm.data AS data, cm.users_LOGIN AS users_LOGIN, cm.timestamp AS timestamp, c.name AS content_name, c.id AS content_ID, c.ctg_type AS content_type, l.name as show_lessons_name, l.id as show_lessons_id", "c.lessons_ID IN ('".implode("','", $lessons_list)."') AND cm.content_ID=c.id AND c.active=1 AND cm.active=1", "cm.timestamp DESC LIMIT 5");
+            $comments = eF_getTableData("comments cm JOIN content c JOIN lessons l ON c.lessons_ID = l.id", "cm.id AS id, cm.data AS data, cm.users_LOGIN AS users_LOGIN, cm.timestamp AS timestamp, c.name AS content_name, c.id AS content_ID, c.ctg_type AS content_type, l.name as show_lessons_name, l.id as show_lessons_id", "c.lessons_ID IN ('".implode("','", $lessons_list)."') AND cm.content_ID=c.id AND c.active=1 AND cm.active=1 AND cm.private=0", "cm.timestamp DESC LIMIT 5");
         }
         $smarty -> assign("T_LESSON_COMMENTS", $comments); //Assign to smarty
         /* Calendar */

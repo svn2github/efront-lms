@@ -837,6 +837,39 @@ function initDragDrop(questionId, keys) {
  }
 }
 
+function toggleAdvancedParameters() {
+
+ $('onebyone').toggle();
+ $('only_forward').toggle();
+ if ($('given_answers')) {
+  $('given_answers').toggle();
+ }
+ if ($('answers')) {
+  $('answers').toggle();
+ }
+ $('shuffle_answers').toggle();
+ $('shuffle_questions').toggle();
+ if ($('pause_test')) {
+  $('pause_test').toggle();
+ }
+ $('publish').toggle();
+ $('display_list').toggle();
+ if ($('redo_wrong')) {
+  $('redo_wrong').toggle();
+ }
+ if ($('answer_all')) {
+  $('answer_all').toggle();
+ }
+ if ($('display_weights')) {
+  $('display_weights').toggle();
+ }
+ if ($('advenced_parameter_image').className.match("down")) {
+  setImageSrc($('advenced_parameter_image'), 16, 'navigate_up.png');
+ } else {
+  setImageSrc($('advenced_parameter_image'), 16, 'navigate_down.png');
+ }
+}
+
 
 //These must be run when a test is shown
 if (typeof(showtest) != 'undefined' && showtest) {

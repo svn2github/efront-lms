@@ -1027,21 +1027,6 @@ class EfrontCourse
     public function delete() {
         eF_deleteTableData("users_to_courses", "courses_ID=".$this -> course['id']);
         eF_deleteTableData("courses", "id=".$this -> course['id']);
-        // Delete the skill correlated with this lesson
-        $skills = $this -> getSkills();
-        foreach ($skills as $skid => $skill) {
-            if ($skill['courses_ID'] != $this -> course['id']) {
-                unset($skills[$skid]);
-            }
-        }
-        $courseSkill = $this ->getCourseSkill();
-        if ($courseSkill) {
-            eF_deleteTableData("questions_to_skills", "skills_ID = '". $courseSkill['skill_ID'] . "'");
-        }
-        eF_deleteTableData("module_hcd_course_offers_skill", "courses_ID = '". $this -> course['id'] . "'");
-        if (!empty($skills)) {
-            eF_deleteTableData("module_hcd_skills", "skill_ID IN ('". implode("','", array_keys($skills)) . "')");
-        }
         EfrontSearch :: removeText('courses', $this -> course['id'], '');
     }
     /**

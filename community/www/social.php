@@ -842,18 +842,20 @@
 
        foreach ($related_events as $key => $event) {
            if ($related_events[$key] -> createMessage($allModules)) {
-      $new_event = array("avatar" => $related_events[$key] ->event['avatar'],"avatar_width" => $related_events[$key] ->event['avatar_width'], "avatar_height" => $related_events[$key] ->event['avatar_height'], "time" => $related_events[$key] ->event['time'], "message" => $related_events[$key] ->event['message']);
-            if ($related_events[$key] ->event['editlink']) {
-             $new_event['editlink'] = $related_events[$key] ->event['editlink'];
-            }
-         if ($related_events[$key] ->event['deletelink']) {
-             $new_event['deletelink'] = $related_events[$key] ->event['deletelink'];
-            }
+      if (strpos($related_events[$key] ->event['time'], "-") === false) { // Added this to prevent events that changed time in the future as project expiration
 
-            if ($new_event['message'] != "" ){
-             $events[] = $new_event;
-            }
+       $new_event = array("avatar" => $related_events[$key] ->event['avatar'],"avatar_width" => $related_events[$key] ->event['avatar_width'], "avatar_height" => $related_events[$key] ->event['avatar_height'], "time" => $related_events[$key] ->event['time'], "message" => $related_events[$key] ->event['message']);
+       if ($related_events[$key] ->event['editlink']) {
+        $new_event['editlink'] = $related_events[$key] ->event['editlink'];
+       }
+       if ($related_events[$key] ->event['deletelink']) {
+        $new_event['deletelink'] = $related_events[$key] ->event['deletelink'];
+       }
 
+       if ($new_event['message'] != "" ){
+        $events[] = $new_event;
+       }
+            }
            }
 
        }
@@ -904,19 +906,21 @@
       foreach ($myEvents as $key => $event) {
 
           if ($myEvents[$key] -> createMessage($allModules)) {
-           $new_event = array("time" => $myEvents[$key] ->event['time'], "message" => $myEvents[$key] ->event['message']);
+     if (strpos($myEvents[$key]->event['time'], "-") === false) { // Added this to prevent events that changed time in the future as project expiration
+      $new_event = array("time" => $myEvents[$key] ->event['time'], "message" => $myEvents[$key] ->event['message']);
 
-           if ($myEvents[$key] ->event['editlink']) {
-            $new_event['editlink'] = $myEvents[$key] ->event['editlink'];
-           }
-        if ($myEvents[$key] ->event['deletelink']) {
-            $new_event['deletelink'] = $myEvents[$key] ->event['deletelink'];
-           }
+      if ($myEvents[$key] ->event['editlink']) {
+       $new_event['editlink'] = $myEvents[$key] ->event['editlink'];
+      }
+      if ($myEvents[$key] ->event['deletelink']) {
+       $new_event['deletelink'] = $myEvents[$key] ->event['deletelink'];
+      }
 
-           // Keep that for the avatar searching after the filtering
-           $new_event['users_LOGIN'] = $event -> event['users_LOGIN'];
-           $events[] = $new_event;
-          }
+      // Keep that for the avatar searching after the filtering
+      $new_event['users_LOGIN'] = $event -> event['users_LOGIN'];
+      $events[] = $new_event;
+     }
+    }
       }
 
 

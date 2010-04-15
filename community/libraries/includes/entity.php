@@ -29,6 +29,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
     try {
         $entity = new $entityName($_GET['activate']);
         $entity -> activate();
+        echo json_encode(array('active' => 1));
     } catch (Exception $e) {
         header("HTTP/1.0 500 ");
         echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
@@ -38,6 +39,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
     try {
         $entity = new $entityName($_GET['deactivate']);
         $entity -> deactivate();
+        echo json_encode(array('active' => 0));
     } catch (Exception $e) {
         header("HTTP/1.0 500 ");
         echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';

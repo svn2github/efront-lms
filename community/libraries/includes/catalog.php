@@ -103,14 +103,20 @@ if (isset($_GET['fct'])) {
 
     $totalPrice = $cart['total_price'];
     if (isset($_GET['voucher'])) {
-        if ($_GET['voucher'] && $GLOBALS['configuration']['voucher'] && $_GET['voucher'] == $GLOBALS['configuration']['voucher']) {
-            $totalPrice = $totalPrice * (1 - $GLOBALS['configuration']['voucher_discount'] / 100);
-            echo json_encode(array('price' => $totalPrice, 'price_string' => formatPrice($totalPrice)));
-        } else {
-            header("HTTP/1.0 500 ");
-            echo _INVALIDVOUCHER;
-        }
-        exit;
+     try {
+      $coupon = new coupons($_GET['voucher'], true);
+      if (!$coupon -> checkEligibility()) {
+       throw new Exception(_INVALIDVOUCHER);
+      }
+      $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);
+      echo json_encode(array('id' => $coupon -> {$coupon -> entity}['id'],
+              'price' => $totalPrice,
+              'price_string' => formatPrice($totalPrice)));
+     } catch (Exception $e) {
+      header("HTTP/1.0 500 ");
+      echo _INVALIDVOUCHER;
+     }
+     exit;
     }
 
     //$form = new HTML_QuickForm("checkout_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=lessons&catalog=1&checkout=1', "", null, true);
@@ -165,8 +171,11 @@ if (isset($_GET['fct'])) {
             }
             if (sizeof($nonFreeLessons) > 0 || sizeof($nonFreeCourses) > 0) {
                 if (isset($_POST['submit_checkout_balance'])) {
-                    if ($form -> exportValue('voucher') && $form -> exportValue('voucher') == $GLOBALS['configuration']['voucher']) {
-                        $totalPrice = $totalPrice * (1 - $GLOBALS['configuration']['voucher_discount'] / 100);
+                 if ($form -> exportValue('voucher') && $coupon = new coupons($form -> exportValue('voucher'), true)) {
+         if (!$coupon -> checkEligibility()) {
+          throw new Exception(_INVALIDVOUCHER);
+         }
+                  $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);
                     }
                     if ($currentUser -> user['balance'] < $totalPrice) {
                         throw new EfrontPaymentsException(_INADEQUATEBALANCE, EfrontPaymentsException::INADEQUATE_BALANCE);
@@ -185,6 +194,9 @@ if (isset($_GET['fct'])) {
                                  "status" => "completed",
                            "users_LOGIN" => $currentUser -> user['login']);
                     $payment = payments :: create($fields);
+                    if ($coupon) {
+                     $coupon -> useCoupon($currentUser, $payment, $nonFreeLessons + $nonFreeCourses);
+                    }
 /*
 
                 } else if ($_POST['submit_checkout_paypal']) {

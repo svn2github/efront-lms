@@ -143,8 +143,6 @@ class EfrontConfiguration
         'paypaldebug' => 0,
         'enable_balance' => 1,
      'total_discount' => 0,
-        'voucher_discount' => 0,
-        'voucher' => '',
         'discount_period' => '',
         'discount_start' => '',
 

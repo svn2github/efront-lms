@@ -251,7 +251,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 6446;
+    $build = 6488;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
@@ -582,6 +582,9 @@ function __autoload($className) {
     } else if (strpos($className, "payments") !== false || strpos($className, "cart") !== false) {
         /** Payments class */
         require_once "payments.class.php";
+    } else if (strpos($className, "coupons") !== false) {
+        /**coupons class*/
+        require_once "coupons.class.php";
     } else if (strpos($className, "news") !== false) {
         /**News (announcements) class*/
         require_once "news.class.php";

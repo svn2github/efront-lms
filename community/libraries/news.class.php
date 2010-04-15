@@ -1,7 +1,7 @@
 <?php
 /**
 
-* EfrontNews Class file
+* news Class file
 
 *
 
@@ -65,7 +65,7 @@ class news extends EfrontEntity
 
 	 *
 
-	 * $news = EfrontNews :: create($fields, 0));
+	 * $news = news :: create($fields, 0));
 
 	 * 
 
@@ -77,7 +77,7 @@ class news extends EfrontEntity
 
      * @param $sendEmail Whether to send the announcement as an email as well 
 
-     * @return EfrontNews The new object
+     * @return news The new object
 
      * @since 3.6.0
 
@@ -157,7 +157,7 @@ class news extends EfrontEntity
 
      * <code>
 
-     * $news = new Efrontnews(12);                //Instantiate news with id 12
+     * $news = new news(12);                //Instantiate news with id 12
 
      * $news -> delete();                            //Delete news and all associated information
 

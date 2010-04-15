@@ -1,4 +1,79 @@
-{if $smarty.get.add}
+ {capture name = "t_payment_coupons_code"}
+   <div class = "headerTools">
+                <span>
+                    <img src = "images/16x16/add.png" title = "{$smarty.const._ADDCOUPON}" alt = "{$smarty.const._ADDCOUPON}">
+                    <a href = "{$smarty.server.PHP_SELF}?ctg=payments&coupons=1&add=1&popup=1" title = "{$smarty.const._ADDCOUPON}" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOUPON}', 2)">{$smarty.const._ADDCOUPON}</a>
+                </span>
+            </div>
+<!--ajax:couponsTable-->
+            <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "couponsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=payments&">
+                <tr class = "topTitle defaultRowHeight">
+                    <td class = "topTitle" name = "code">{$smarty.const._COUPONCODE}</td>
+                    <td class = "topTitle centerAlign" name = "max_uses">{$smarty.const._TOTALUSES}</td>
+                    <td class = "topTitle centerAlign" name = "max_user_uses">{$smarty.const._TOTALUSESBYSINGLEUSER}</td>
+                    <td class = "topTitle" name = "from_timestamp">{$smarty.const._VALIDFROM}</td>
+                    <td class = "topTitle centerAlign" name = "duration">{$smarty.const._DURATION}</td>
+                    <td class = "topTitle centerAlign" name = "discount">{$smarty.const._DISCOUNT}</td>
+                    <td class = "topTitle centerAlign" name = "active">{$smarty.const._ACTIVE}</td>
+                    <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
+                </tr>
+                {foreach name = 'users_list' key = 'key' item = 'coupon' from = $T_DATA_SOURCE}
+                <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+                 <td>{$coupon.code}</td>
+                 <td class = "centerAlign">{$coupon.max_uses}</td>
+                 <td class = "centerAlign">{$coupon.max_user_uses}</td>
+                 <td>#filter:timestamp_time-{$coupon.from_timestamp}#</td>
+                 <td class = "centerAlign">{$coupon.duration} {$smarty.const._DAYS}</td>
+                 <td class = "centerAlign">{$coupon.discount} %</td>
+                 <td class = "centerAlign">
+      <img {if $coupon.active == 0}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" onclick = "deactivateEntity(this, '{$coupon.id}', {ldelim}coupons:1{rdelim});">
+      <img {if $coupon.active == 1}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" onclick = "activateEntity(this, '{$coupon.id}', {ldelim}coupons:1{rdelim})">
+     </td>
+                 <td class = "centerAlign">
+                  <a href = "{$smarty.server.PHP_SELF}?ctg=payments&coupons=1&edit={$coupon.id}&popup=1" target = "POPUP_FRAME"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" onclick = "eF_js_showDivPopup('{$smarty.const._EDIT}', 2)"/></a>
+                  <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteEntity(this, '{$coupon.id}', {ldelim}coupons:1{rdelim})"/>
+     </td>
+                </tr>
+    {foreachelse}
+                <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "6">{$smarty.const._NODATAFOUND}</td></tr>
+    {/foreach}
+   </table>
+<!--/ajax:couponsTable-->
+ {/capture}
+
+{if $smarty.get.add || $smarty.get.edit}
+ {if $smarty.get.coupons}
+     {capture name = 't_add_code'}
+        {$T_ENTITY_FORM.javascript}
+        <form {$T_ENTITY_FORM.attributes}>
+            {$T_ENTITY_FORM.hidden}
+            <table class = "formElements">
+                <tr><td class = "labelCell">{$T_ENTITY_FORM.code.label}:&nbsp;</td>
+                    <td class = "elementCell">{$T_ENTITY_FORM.code.html} <img class = "ajaxHandle" src = "images/16x16/wizard.png" alt = "{$smarty.const._CREATEUNIQUECOUPON}" title = "{$smarty.const._CREATEUNIQUECOUPON}" onclick = "createCouponCode(this)" /></td></tr>
+                <tr><td class = "labelCell">{$T_ENTITY_FORM.max_uses.label}:&nbsp;</td>
+                    <td class = "elementCell">{$T_ENTITY_FORM.max_uses.html} {$smarty.const._BLANKFORUNLIMITED}</td></tr>
+                <tr><td class = "labelCell">{$T_ENTITY_FORM.max_user_uses.label}:&nbsp;</td>
+                    <td class = "elementCell">{$T_ENTITY_FORM.max_user_uses.html} {$smarty.const._BLANKFORUNLIMITED}</td></tr>
+                <tr><td class = "labelCell">{$T_ENTITY_FORM.from_timestamp.label}:&nbsp;</td>
+                    <td class = "elementCell">{eF_template_html_select_date prefix="from_timestamp_" time = $T_ENTITY_FORM.from_timestamp start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+                <tr><td class = "labelCell">{$T_ENTITY_FORM.duration.label}:&nbsp;</td>
+                    <td class = "elementCell">{$T_ENTITY_FORM.duration.html} {$smarty.const._DAYS}</td></tr>
+                <tr><td class = "labelCell">{$T_ENTITY_FORM.discount.label}:&nbsp;</td>
+                    <td class = "elementCell">{$T_ENTITY_FORM.discount.html} %</td></tr>
+                <tr><td class = "labelCell">{$T_ENTITY_FORM.active.label}:&nbsp;</td>
+                    <td class = "elementCell">{$T_ENTITY_FORM.active.html}</td></tr>
+                <tr><td></td>
+                    <td class = "submitCell">{$T_ENTITY_FORM.submit_coupon.html}</td>
+                </tr>
+            </table>
+        </form>
+  {if $T_MESSAGE_TYPE == 'success'}
+      <script>parent.location = parent.location;</script>
+  {/if}
+        {/capture}
+        {eF_template_printBlock title = $smarty.const._COUPONPROPERTIES data = $smarty.capture.t_add_code image = '32x32/shopping_basket_add.png'}
+
+ {else}
      {capture name = 't_add_code'}
    {$T_ENTITY_FORM.javascript}
    <form {$T_ENTITY_FORM.attributes}>
@@ -30,7 +105,7 @@
   {/capture}
 
   {eF_template_printBlock title = $smarty.const._PAYMENT data = $smarty.capture.t_add_code image = '32x32/shopping_basket_add.png'}
-
+ {/if}
 {else}
  {capture name = "t_payments_history_code"}
    <div class = "headerTools">
@@ -46,12 +121,12 @@
 <!--ajax:paymentsTable-->
             <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "paymentsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=payments&">
                 <tr class = "topTitle defaultRowHeight">
-                    <td class = "topTitle">{$smarty.const._DATE}</td>
-                    <td class = "topTitle">{$smarty.const._USER}</td>
-                    <td class = "topTitle centerAlign">{$smarty.const._AMOUNT}</td>
-                    <td class = "topTitle">{$smarty.const._METHOD}</td>
-                    <td class = "topTitle">{$smarty.const._STATUS}</td>
-                    <td class = "topTitle centerAlign">{$smarty.const._OPERATIONS}</td>
+                    <td class = "topTitle" name = "timestamp">{$smarty.const._DATE}</td>
+                    <td class = "topTitle" name = "users_LOGIN">{$smarty.const._USER}</td>
+                    <td class = "topTitle centerAlign" name = "amount">{$smarty.const._AMOUNT}</td>
+                    <td class = "topTitle" name = "method">{$smarty.const._METHOD}</td>
+                    <td class = "topTitle" name = "status">{$smarty.const._STATUS}</td>
+                    <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
                 </tr>
                 {foreach name = 'users_list' key = 'key' item = 'payment' from = $T_DATA_SOURCE}
                 <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
@@ -62,7 +137,7 @@
                  <td>{$payment.status}</td>
                  <td class = "centerAlign">
                   <div style = "display:none" id = "details_div_{$payment.id}">
-                   {eF_template_printBlock title = $smarty.const._DETAILS data = $payment.comments image='32x32/information.png'}
+                   {eF_template_printBlock title = $smarty.const._DETAILS data = "<pre>`$payment.comments`</pre>" image='32x32/information.png'}
                   </div>
                   <img class = "handle" src = "images/16x16/information.png" title = "{$smarty.const._DETAILS}" alt = "{$smarty.const._DETAILS}" onclick = "eF_js_showDivPopup('{$smarty.const._DETAILS}', 1, 'details_div_{$payment.id}')"/>
                   <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteEntity(this, '{$payment.id}')"/>
@@ -75,301 +150,6 @@
 <!--/ajax:paymentsTable-->
  {/capture}
 
-{*
- {capture name = "t_successfull_transactions_code"}
-            <table style = "width:100%" class = "sortedTable">
-                <tr class = "topTitle defaultRowHeight">
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLEUSER}</td>
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLELESSONS}</td>
-                    <td class = "topTitle centerAlign">{$smarty.const._PAYPALTABLEPRICE}</td>
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLEDATESUBMIT}</td>
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLEDATEPAYPAL}</td>
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLESTATUS}</td>
-                    <td class = "topTitle centerAlign">{$smarty.const._FUNCTIONS}</td>
-                </tr>
-                {foreach name = 'users_list' key = 'key' item = 'orders' from = $T_PAYPALDATA_S}
-                <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-                    <td>{$orders.user}</td>
-                    <td>{$orders.item_name}</td>
-                    <td class = "centerAlign">{$orders.mc_gross} {$T_CURRENCYSYMBOLS[$orders.mc_currency]}</td>
-                    <td>#filter:timestamp_time-{$orders.timestamp}#</td>
-                    <td>#filter:timestamp_time-{$orders.timestamp_finish}#</td>
-                    <td>{$orders.payment_status}</td>
-                    <td class = "centerAlign">
-                        <img class = "ajaxHandle" src = "images/16x16/information.png" alt = "{$smarty.const._DESCRIPTION}" title = "{$smarty.const._DESCRIPTION}" onclick = "eF_js_showDivPopup('{$smarty.const._PAYPALORDERINFO}', 1,'payment_view_{$orders.id}')"/>
-                        <div id = "payment_view_{$orders.id}" style = "display:none;">
-                         <table>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>id:</b></td>
-         <td>{$orders.id}&nbsp;</td>
-         <td><b>mc_gross:</b></td>
-         <td>{$orders.mc_gross}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>settle_amount:</b></td>
-         <td>{$orders.settle_amount}&nbsp;</td>
-         <td><b>address_status:</b></td>
-         <td>{$orders.address_status}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>payer_id:</b></td>
-         <td>{$orders.payer_id}&nbsp;</td>
-         <td><b>tax:</b></td>
-         <td>{$orders.tax}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>address_street:</b></td>
-         <td>{$orders.address_street}&nbsp;</td>
-         <td><b>payment_date:</b></td>
-         <td>{$orders.payment_date}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>payment_status:</b></td>
-         <td>{$orders.payment_status}&nbsp;</td>
-         <td><b>charset:</b></td>
-         <td>{$orders.charset}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>address_zip:</b></td>
-         <td>{$orders.address_zip}&nbsp;</td>
-         <td><b>first_name:</b></td>
-         <td>{$orders.first_name}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>mc_fee:</b></td>
-         <td>{$orders.mc_fee}&nbsp;</td>
-         <td><b>address_country_code:</b></td>
-         <td>{$orders.address_country_code}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>exchange_rate:</b></td>
-         <td>{$orders.exchange_rate}&nbsp;</td>
-         <td><b>address_name:</b></td>
-         <td>{$orders.address_name}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>notify_version:</b></td>
-         <td>{$orders.notify_version}&nbsp;</td>
-         <td><b>settle_currency:</b></td>
-         <td>{$orders.settle_currency}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>custom:</b></td>
-         <td>{$orders.custom}</td>
-         <td><b>payer_status:</b></td>
-         <td>{$orders.payer_status}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>business:</b></td>
-         <td>{$orders.business}&nbsp;</td>
-         <td><b>address_country:</b></td>
-         <td>{$orders.address_country}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>address_city:</b></td>
-         <td>{$orders.address_city}&nbsp;</td>
-         <td><b>quantity:</b></td>
-         <td>{$orders.quantity}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>verify_sign:</b></td>
-         <td>{$orders.verify_sign}&nbsp;</td>
-         <td><b>payer_email:</b></td>
-         <td>{$orders.payer_email}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>txn_id:</b></td>
-         <td>{$orders.txn_id}&nbsp;</td>
-         <td><b>payment_type:</b></td>
-         <td>{$orders.payment_type}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>last_name:</b></td>
-         <td>{$orders.last_name}&nbsp;</td>
-         <td><b>address_state:</b></td>
-         <td>{$orders.address_state}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>receiver_email:</b></td>
-         <td>{$orders.receiver_email}&nbsp;</td>
-         <td><b>payment_fee:</b></td>
-         <td>{$orders.payment_fee}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>receiver_id:</b></td>
-         <td>{$orders.receiver_id}&nbsp;</td>
-         <td><b>txn_type:</b></td>
-         <td>{$orders.txn_type}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>item_name:</b></td>
-         <td>{$orders.item_name}&nbsp;</td>
-         <td><b>mc_currency:</b></td>
-         <td>{$orders.mc_currency}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>item_number:</b></td>
-         <td>{$orders.item_number}&nbsp;</td>
-         <td><b>residence_country:</b></td>
-         <td>{$orders.residence_country}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>test_ipn:</b></td>
-         <td>{$orders.test_ipn}&nbsp;</td>
-         <td><b>payment_gross:</b></td>
-         <td>{$orders.payment_gross}</td></tr>
-                             <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-         <td><b>shipping:</b></td>
-         <td>{$orders.shipping}&nbsp;</td>
-         <td><b>status:</b></td>
-         <td>{$orders.status}</td></tr>
-                         </table>
-                        </div>
-                    </td>
-                </tr>
-                {foreachelse}
-                <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
-                {/foreach}
-            </table>
- {/capture}
-*}
-{*
- {capture name = "t_unsuccessfull_transactions_code"}
-            <table style = "width:100%" class = "sortedTable">
-                <tr class = "topTitle defaultRowHeight">
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLEUSER}</td>
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLELESSONS}</td>
-                    <td class = "topTitle centerAlign">{$smarty.const._PAYPALTABLEPRICE}</td>
-                    <td class = "topTitle">{$smarty.const._TYPE}</td>
-                    <td class = "topTitle">{$smarty.const._PAYPALTABLEDATESUBMIT}</td>
-                    <td class = "topTitle">{$smarty.const._STATUS}</td>
-                    <td class = "topTitle centerAlign">{$smarty.const._FUNCTIONS}</td>
-                </tr>
-                {foreach name = 'users_list' key = 'key' item = 'orders' from = $T_PAYPALDATA_NS}
-                <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-                    <td>{$orders.user}</td>
-                    <td>{$orders.item_name}</td>
-                    <td align="center">{$orders.mc_gross} {$T_CURRENCYSYMBOLS[$orders.mc_currency]}</td>
-                    <td>{$orders.txn_type}</td>
-                    <td>#filter:timestamp_time-{$orders.timestamp}#</td>
-                    <td>{$orders.status}</td>
-                    <td class = "centerAlign">
-                        <a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._PAYPALORDERINFO}', 1,
-                            'payment_view_{$orders.id}')" title = "{$smarty.const._DESCRIPTION}">
-                            <img src = "images/16x16/information.png" alt = "{$smarty.const._DESCRIPTION}" title = "{$smarty.const._DESCRIPTION}" border = "0"/>
-                        </a>
-                        <div id = "payment_view_{$orders.id}" style = "display:none;">
-                        <table style = "width:100%">
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>id:</b></td>
-        <td>{$orders.id}&nbsp;</td>
-        <td><b>mc_gross:</b></td>
-        <td>{$orders.mc_gross}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>settle_amount:</b></td>
-        <td>{$orders.settle_amount}&nbsp;</td>
-        <td><b>address_status:</b></td>
-        <td>{$orders.address_status}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>payer_id:</b></td>
-        <td>{$orders.payer_id}&nbsp;</td>
-        <td><b>tax:</b></td>
-        <td>{$orders.tax}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>address_street:</b></td>
-        <td>{$orders.address_street}&nbsp;</td>
-        <td><b>payment_date:</b></td>
-        <td>{$orders.payment_date}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>payment_status:</b></td>
-        <td>{$orders.payment_status}&nbsp;</td>
-        <td><b>charset:</b></td>
-        <td>{$orders.charset}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>address_zip:</b></td>
-        <td>{$orders.address_zip}&nbsp;</td>
-        <td><b>first_name:</b></td>
-        <td>{$orders.first_name}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>mc_fee:</b></td>
-        <td>{$orders.mc_fee}&nbsp;</td>
-        <td><b>address_country_code:</b></td>
-        <td>{$orders.address_country_code}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>exchange_rate:</b></td>
-        <td>{$orders.exchange_rate}&nbsp;</td>
-        <td><b>address_name:</b></td>
-        <td>{$orders.address_name}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>notify_version:</b></td>
-        <td>{$orders.notify_version}&nbsp;</td>
-        <td><b>settle_currency:</b></td>
-        <td>{$orders.settle_currency}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>custom:</b></td>
-        <td>{$orders.custom}</td>
-        <td><b>payer_status:</b></td>
-        <td>{$orders.payer_status}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>business:</b></td>
-        <td>{$orders.business}&nbsp;</td>
-        <td><b>address_country:</b></td>
-        <td>{$orders.address_country}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>address_city:</b></td>
-        <td>{$orders.address_city}&nbsp;</td>
-        <td><b>quantity:</b></td>
-        <td>{$orders.quantity}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>verify_sign:</b></td>
-        <td>{$orders.verify_sign}&nbsp;</td>
-        <td><b>payer_email:</b></td>
-        <td>{$orders.payer_email}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>txn_id:</b></td>
-        <td>{$orders.txn_id}&nbsp;</td>
-        <td><b>payment_type:</b></td>
-        <td>{$orders.payment_type}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>last_name:</b></td>
-        <td>{$orders.last_name}&nbsp;</td>
-        <td><b>address_state:</b></td>
-        <td>{$orders.address_state}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>receiver_email:</b></td>
-        <td>{$orders.receiver_email}&nbsp;</td>
-        <td><b>payment_fee:</b></td>
-        <td>{$orders.payment_fee}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>receiver_id:</b></td>
-        <td>{$orders.receiver_id}&nbsp;</td>
-        <td><b>txn_type:</b></td>
-        <td>{$orders.txn_type}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>item_name:</b></td>
-        <td>{$orders.item_name}&nbsp;</td>
-        <td><b>mc_currency:</b></td>
-        <td>{$orders.mc_currency}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>item_number:</b></td>
-        <td>{$orders.item_number}&nbsp;</td>
-        <td><b>residence_country:</b></td>
-        <td>{$orders.residence_country}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>test_ipn:</b></td>
-        <td>{$orders.test_ipn}&nbsp;</td>
-        <td><b>payment_gross:</b></td>
-        <td>{$orders.payment_gross}</td></tr>
-                            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-        <td><b>shipping:</b></td>
-        <td>{$orders.shipping}&nbsp;</td>
-        <td><b>status:</b></td>
-        <td>{$orders.status}</td></tr>
-                        </table>
-                        </div>
-                    </td>
-                </tr>
-                {foreachelse}
-                <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
-                {/foreach}
-            </table>
- {/capture}
-*}
-{*
- {capture name = 't_paypal_data'}
-  <div class = "tabber">
-         <div class = "tabbertab">
-             <h3>{$smarty.const._COMPLETED}</h3>
-    {$smarty.capture.t_successfull_transactions_code}
-         </div>
-         <div class="tabbertab">
-             <h3>{$smarty.const._PENDING}</h3>
-    {$smarty.capture.t_unsuccessfull_transactions_code}
-         </div>
-     </div>
- {/capture}
-*}
  {capture name = 't_payment_accounts_code'}
 <!--ajax:usersTable-->
             <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=payments&">
@@ -403,17 +183,13 @@
         {$T_CONFIG_FORM_DEFAULT.javascript}
         <form {$T_CONFIG_FORM_DEFAULT.attributes}>
             {$T_CONFIG_FORM_DEFAULT.hidden}
-            <table class = "formElements" align="center">
+            <table class = "formElements">
                 <tr><td class = "labelCell">{$smarty.const._CURRENCY}:&nbsp;</td>
                     <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.currency.html}</td></tr>
                 <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.currency_order.label}:&nbsp;</td>
                     <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.currency_order.html}</td></tr>
                 <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.enable_balance.label}:&nbsp;</td>
                     <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.enable_balance.html}</td></tr>
-                <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.voucher.label}:&nbsp;</td>
-                    <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.voucher.html} <img src = "images/16x16/wizard.png" alt = "{$smarty.const._CREATEVOUCHER}" title = "{$smarty.const._CREATEVOUCHER}" onclick = "Element.extend(this).previous().value = '{$T_NEW_UNIQUE_KEY}'" /></td></tr>
-                <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.voucher_discount.label} (%):&nbsp;</td>
-                    <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.voucher_discount.html}</td></tr>
                 <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.total_discount.label} (%):&nbsp;</td>
                     <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.total_discount.html}</td></tr>
                 <tr><td class = "labelCell">{$smarty.const._DISCOUNTSTARTSAT}:&nbsp;</td>
@@ -429,7 +205,6 @@
                 </tr>
             </table>
         </form>
-
  {/capture}
 
  {capture name = 't_payments_code'}
@@ -447,6 +222,9 @@
 *}
         <div class = "tabbertab {if $smarty.get.tab == 'settings'}tabbertabdefault{/if}" title = "{$smarty.const._SETTINGS}">
    {eF_template_printBlock title = $smarty.const._SETTINGS data = $smarty.capture.t_payment_settings_code image='32x32/settings.png'}
+        </div>
+        <div class = "tabbertab {if $smarty.get.tab == 'coupons'}tabbertabdefault{/if}" title = "{$smarty.const._COUPONS}">
+   {eF_template_printBlock title = $smarty.const._COUPONS data = $smarty.capture.t_payment_coupons_code image='32x32/cart.png'}
         </div>
     </div>
     {/capture}

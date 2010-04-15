@@ -175,7 +175,9 @@ if (isset($_GET['fct'])) {
          if (!$coupon -> checkEligibility()) {
           throw new Exception(_INVALIDVOUCHER);
          }
-                  $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);
+         if (!$GLOBALS['configuration']['paypalbusiness']) { //If we have paypal, the reduction is already done
+                      $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);
+         }
                     }
                     if ($currentUser -> user['balance'] < $totalPrice) {
                         throw new EfrontPaymentsException(_INADEQUATEBALANCE, EfrontPaymentsException::INADEQUATE_BALANCE);
@@ -195,7 +197,7 @@ if (isset($_GET['fct'])) {
                            "users_LOGIN" => $currentUser -> user['login']);
                     $payment = payments :: create($fields);
                     if ($coupon) {
-                     $coupon -> useCoupon($currentUser, $payment, $nonFreeLessons + $nonFreeCourses);
+                     $coupon -> useCoupon($currentUser, $payment, array('lessons' => $nonFreeLessons, 'courses' => $nonFreeCourses));
                     }
 /*
 

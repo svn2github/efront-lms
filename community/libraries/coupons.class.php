@@ -47,16 +47,26 @@ class coupons extends EfrontEntity
      parent :: __construct($param);
     }
     public function checkEligibility($user = false) {
-     $returnValue = true;
-     if (!$this -> {$this -> entity}['active']) {
-      $returnValue = false;
-     }
-     if ($this -> {$this -> entity}['from_timestamp'] > time()) {
-      $returnValue = false;
-     }
-     if ($this -> {$this -> entity}['duration'] && $this -> {$this -> entity}['from_timestamp'] + $this -> {$this -> entity}['duration']*24*3600 < time()) {
-      $returnValue = false;
-     }
+     $returnValue = $this -> checkStartDate() &&
+                    $this -> checkActive() &&
+                    $this -> checkExpired() &&
+                    $this -> checkExceededUses();
+  return $returnValue;
+    }
+    private function checkStartDate() {
+     $this -> {$this -> entity}['from_timestamp'] > time() ? $returnValue = false : $returnValue = true;
+     return $returnValue;
+    }
+    private function checkActive() {
+     !$this -> {$this -> entity}['active'] ? $returnValue = false : $returnValue = true;
+     return $returnValue;
+    }
+    private function checkExpired() {
+     $this -> {$this -> entity}['duration'] && $this -> {$this -> entity}['from_timestamp'] + $this -> {$this -> entity}['duration']*24*3600 < time() ? $returnValue = false : $returnValue = true;
+     return $returnValue;
+    }
+    private function checkExceededUses() {
+        $returnValue = true;
   if ($this -> {$this -> entity}['max_uses'] && $this -> getTotalUsedTimes() >= $this -> {$this -> entity}['max_uses']) {
       $returnValue = false;
   }
@@ -89,6 +99,41 @@ class coupons extends EfrontEntity
          'products_list' => serialize($productsList),
          'timestamp' => time());
      eF_insertTableData("users_to_coupons", $fields);
+    }
+    public function getCouponStatistics() {
+        $result = eF_getTableData("users_to_coupons", "*", "coupons_ID=".$this -> {$this -> entity}['id']);
+        $stats = array('total_uses' => sizeof($result),
+                       'remaining_uses' => $this -> {$this -> entity}['max_uses'] - sizeof($result) >= 0 ? $this -> {$this -> entity}['max_uses'] - sizeof($result) : 0,
+                       'expired' => !$this -> checkExpired(),
+                       'valid_until' => $this -> {$this -> entity}['duration'] ? $this -> {$this -> entity}['from_timestamp'] + $this -> {$this -> entity}['duration']*24*3600 : false
+        );
+        return $stats;
+    }
+    public function getCouponCourses() {
+        $couponCourses = array();
+        $courseNames = eF_getTableDataFlat("courses", "id,name");
+        $courseNames = array_combine($courseNames['id'], $courseNames['name']);
+        $result = eF_getTableData("users_to_coupons", "*", "coupons_ID=".$this -> {$this -> entity}['id']);
+        foreach ($result as $value) {
+            $products = unserialize($value['products_list']);
+            foreach ($products['courses'] as $id) {
+                $couponCourses[$value['id']][] = $courseNames[$id];
+            }
+        }
+        return $couponCourses;
+    }
+    public function getCouponLessons() {
+        $couponLessons = array();
+        $lessonNames = eF_getTableDataFlat("lessons", "id,name");
+        $lessonNames = array_combine($lessonNames['id'], $lessonNames['name']);
+        $result = eF_getTableData("users_to_coupons", "*", "coupons_ID=".$this -> {$this -> entity}['id']);
+        foreach ($result as $value) {
+            $products = unserialize($value['products_list']);
+            foreach ($products['lessons'] as $id) {
+                $couponLessons[$value['id']][] = $lessonNames[$id];
+            }
+        }
+        return $couponLessons;
     }
     /**
 

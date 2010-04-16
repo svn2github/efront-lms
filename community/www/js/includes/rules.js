@@ -1,33 +1,33 @@
 function deleteRule(el, id) {
-	parameters = {delete_rule:id, method: 'get'};
-	var url    = location.toString();
-	ajaxRequest(el, url, parameters, onDeleteEntity);	
+ parameters = {delete_rule:id, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onDeleteEntity);
 }
 function onDeleteEntity(el, response) {
-	new Effect.Fade(el.up().up());
+ new Effect.Fade(el.up().up());
 }
 function deleteCondition(el, id) {
-	parameters = {delete_condition:id, method: 'get'};
-	var url    = location.toString();
-	ajaxRequest(el, url, parameters, onDeleteEntity);	
+ parameters = {delete_condition:id, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onDeleteEntity);
 }
 function onDeleteEntity(el, response) {
-	new Effect.Fade(el.up().up());
+ new Effect.Fade(el.up().up());
 }
 
 
 function selectRule(el) {
-	Element.extend(el);
-	$('rule_unit').hide();
-	$('test_unit').hide();
-	$('test_score').hide();
+ Element.extend(el);
+ $('rule_unit').hide();
+ $('test_unit').hide();
+ $('test_score').hide();
 
-	if (el.options[el.selectedIndex].value == 'hasnot_seen') {
-		$('rule_unit').show();
-	} else if (el.options[el.selectedIndex].value == 'hasnot_passed') {
-		$('test_unit').show();
-		$('test_score').show();
-	}
+ if (el.options[el.selectedIndex].value == 'hasnot_seen') {
+  $('rule_unit').show();
+ } else if (el.options[el.selectedIndex].value == 'hasnot_passed') {
+  $('test_unit').show();
+  $('test_score').show();
+ }
 }
 
 function selectCondition(el) {
@@ -56,16 +56,17 @@ function selectCondition(el) {
     }
 }
 function setAutoComplete(el) {
-	el.insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+ Element.extend(el);
+ el.insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
 
-	parameters = {action:'auto_complete', method: 'get'};
-	var url    = location.toString();
-	ajaxRequest(el, url, parameters, onSetAutoComplete);	
+ parameters = {action:'auto_complete', method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onSetAutoComplete);
 }
 function onSetAutoComplete(el, response) {
-	if (response == 0) {
-		el.update(autocompleteno);
-	} else {
-		el.update(autocompleteyes);
-	}	
+ if (response == 0) {
+  el.update(autocompleteno);
+ } else {
+  el.update(autocompleteyes);
+ }
 }

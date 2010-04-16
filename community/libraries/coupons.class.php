@@ -14,15 +14,6 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
-/**
-
- * 
-
- * @author user
-
- *
-
- */
 class coupons extends EfrontEntity
 {
     /**
@@ -122,6 +113,7 @@ class coupons extends EfrontEntity
         }
         return $couponCourses;
     }
+
     public function getCouponLessons() {
         $couponLessons = array();
         $lessonNames = eF_getTableDataFlat("lessons", "id,name");
@@ -135,6 +127,7 @@ class coupons extends EfrontEntity
         }
         return $couponLessons;
     }
+
     /**
 
      * Create coupons
@@ -143,35 +136,9 @@ class coupons extends EfrontEntity
 
      * This function is used to create coupons
 
-     * <br>Example:
-
-     * <code>
-
-	 * $fields = array("title"       => $form -> exportValue('title'),
-
-	 *       "data"        => $form -> exportValue('data'),
-
-	 *       "timestamp"   => $from_timestamp,
-
-	 *		 "expire"      => $to_timestamp,
-
-	 *       "lessons_ID"  => isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : 0,
-
-	 *       "users_LOGIN" => $_SESSION['s_login']);
-
-	 *
-
-	 * $coupons = coupons :: create($fields, 0));
-
-	 * 
-
-     * </code>
-
      * 
 
      * @param $fields An array of data
-
-     * @param $sendEmail Whether to send the announcement as an email as well 
 
      * @return coupons The new object
 
@@ -182,7 +149,7 @@ class coupons extends EfrontEntity
      * @static
 
      */
-    public static function create($fields = array(), $sendEmail = false) {
+    public static function create($fields = array()) {
         $fields = array('code' => $fields['code'],
                         'max_uses' => $fields['max_uses'] ? $fields['max_uses'] : 0,
                         'max_user_uses' => $fields['max_user_uses'] ? $fields['max_user_uses'] : 0,

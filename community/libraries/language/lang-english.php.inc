@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER", "And the messages of user");
 define("_ALLUSERS", "All users");
 define("_INVALIDUSER", "Invalid user name");
 define("_REPLACEEXISTINGUSERS", "Replace duplicate users");
-define("_KEEPEXISTINGUSERS", "Keep duplicate users");
+define("_KEEPEXISTINGUSERS", "Don't update duplicate users");
 define("_NOOTHERUSERSONLINE", "No other users currently online");
 define("_USERNAME", "User name");
 define("_STATISTICSFORUSER", "Reports for user");

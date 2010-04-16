@@ -6,6 +6,7 @@
 - Fixed bug in importing lesson with reseting files options
 - Fixed issue in community edition about deleting a course
 - Fixed problem of loading file manager while editing a skill gap test
+- Fixed toggling lesson auto complete when using IE6/7
 - Added check for OpenSSL libraries need for pdf certificates
 - Redo only wrong answered questions improvements
 

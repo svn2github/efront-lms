@@ -26,10 +26,10 @@ try {
     $smarty -> assign("T_TABLE_OPTIONS", $options);
 
     try {
-        if (isset($_GET['delete_nodes']) && $_GET['delete_nodes']) {
+        if (isset($_POST['delete_nodes']) && $_POST['delete_nodes']) {
             //Needed in order to delete branches as well            
-            $_GET['delete_nodes'] = array_reverse($_GET['delete_nodes']);
-            foreach ($_GET['delete_nodes'] as $value) {
+            $_POST['delete_nodes'] = array_reverse($_POST['delete_nodes']);
+            foreach ($_POST['delete_nodes'] as $value) {
                 try {
                     if (in_array($value, $legalValues)) {
                         $currentContent -> removeNode($value);
@@ -43,9 +43,9 @@ try {
             }
         }
 
-        if (isset($_GET['activate_nodes']) && $_GET['activate_nodes']) {
+        if (isset($_POST['activate_nodes']) && $_POST['activate_nodes']) {
 
-            foreach ($_GET['activate_nodes'] as $value) {
+            foreach ($_POST['activate_nodes'] as $value) {
                 if (in_array($value, $legalValues)) {
                     try {
                         $currentContent -> seekNode($value) -> activate();
@@ -55,8 +55,8 @@ try {
                 }
             }
         }
-        if (isset($_GET['deactivate_nodes']) && $_GET['deactivate_nodes']) {
-            foreach ($_GET['deactivate_nodes'] as $value) {
+        if (isset($_POST['deactivate_nodes']) && $_POST['deactivate_nodes']) {
+            foreach ($_POST['deactivate_nodes'] as $value) {
                 if (in_array($value, $legalValues)) {
                     try {
                         $currentContent -> seekNode($value) -> deactivate();
@@ -66,10 +66,10 @@ try {
                 }
             }
         }
-        if (isset($_GET['node_orders']) && $_GET['node_orders']) {
+        if (isset($_POST['node_orders']) && $_POST['node_orders']) {
             //$nodeOrders        = explode(",", $_GET['node_orders']);
             $previousContentId = 0;
-            foreach ($_GET['node_orders'] as $value) {
+            foreach ($_POST['node_orders'] as $value) {
                 list($id, $parentContentId) = explode("-", $value);
                 $contentUnits[] = 0; //Add 0 to possible content units, since both parent and previous units may be 0      
     $legalValues[] = 0;
@@ -88,7 +88,7 @@ try {
             }
    //echo $previousContentId;exit;
         }
-        if (isset($_GET['repair_tree'])) {
+        if (isset($_POST['repair_tree'])) {
             $currentContent -> repairTree();
         }
 

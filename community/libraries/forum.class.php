@@ -391,7 +391,7 @@ class f_messages extends EfrontEntity {
      */
     public function getForm($form) {
      $form -> addElement('text', 'title', _TITLE, 'class = "inputText"');
-     $form -> addElement('textarea', 'body', _BODY, 'class = "inputTextarea simpleEditor"');
+     $form -> addElement('textarea', 'body', _BODY, 'id = "editor_message_data" class = "inputTextarea simpleEditor"');
      $form -> addElement('hidden', 'replyto', null);
      $form -> addElement('submit', 'submit_add_message', _SUBMIT, 'class = "flatButton"');
      if (isset($_GET['replyto']) && in_array($_GET['replyto'], $GLOBALS['legalValues'])) {

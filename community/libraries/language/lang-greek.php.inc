@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER", "Και τα μηνύματα του χρήστ�
 define("_ALLUSERS", "Όλοι οι χρήστες");
 define("_INVALIDUSER", "Λανθασμένο όνομα χρήστη");
 define("_REPLACEEXISTINGUSERS", "Αντικατέστησε τους χρήστης που είναι κοινοί");
-define("_KEEPEXISTINGUSERS", "Διατήρησε τους χρήστης που είναι κοινοί");
+define("_KEEPEXISTINGUSERS", "Να μην εισαχθούν οι χρήστες που είναι κοινοί");
 define("_NOOTHERUSERSONLINE", "Δεν υπάρχουν άλλοι χρήστης συνδεδεμένοι στο σύστημα αυτήν τη στιγμή");
 define("_USERNAME", "Όνομα χρήστη");
 define("_STATISTICSFORUSER", "Στατιστικά για τον χρήστη");

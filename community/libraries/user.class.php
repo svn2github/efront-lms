@@ -341,9 +341,9 @@ abstract class EfrontUser
         //!isset($userProperties['password'])       ? $userProperties['password']       = md5($userProperties['login'].G_MD5KEY)        : $userProperties['password'] = md5($userProperties['password'].G_MD5KEY);        //If password is not specified, use login instead
         !isset($userProperties['email']) ? $userProperties['email'] = '' : null; // 0 means not pending, 1 means pending
   !isset($userProperties['languages_NAME']) ? $userProperties['languages_NAME'] = $GLOBALS['configuration']['default_language'] : null; //If language is not specified, use default language
-        !isset($userProperties['active']) ? $userProperties['active'] = 0 : null; // 0 means inactive, 1 means active
-        !isset($userProperties['pending']) ? $userProperties['pending'] = 0 : null; // 0 means not pending, 1 means pending
-        !isset($userProperties['timestamp']) ? $userProperties['timestamp'] = time() : null;
+  !isset($userProperties['active']) || $userProperties['active'] == "" ? $userProperties['active'] = 0 : null; // 0 means inactive, 1 means active
+  !isset($userProperties['pending']) ? $userProperties['pending'] = 0 : null; // 0 means not pending, 1 means pending
+        !isset($userProperties['timestamp']) || $userProperties['timestamp'] == "" ? $userProperties['timestamp'] = time() : null;
         !isset($userProperties['user_types_ID']) ? $userProperties['user_types_ID'] = 0 : null;
         if (eF_insertTableData("users", $userProperties)) {
             $user_dir = G_UPLOADPATH.$userProperties['login'].'/';

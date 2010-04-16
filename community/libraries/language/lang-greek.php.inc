@@ -3561,4 +3561,26 @@ define("_SKILLCATEGORYAMBIGUOUS", "Το όνομα της κατηγορίας �
 define("_MISSING_JOB_DESCRIPTION","Δεν υπάρχει τίτλος θέσης εργασίας");
 define("_SKILLDOESNOTEXIST", "Το προσόν δεν υπάρχει");
 define("_USERALREADYEXISTSINGROUP", "Ο χρήστης υπάρχει ήδη στην ομάδα");
+define("_COUPONS", "Κουπόνια");
+define("_COUPONCODE", "Κωδικός κουπονιού");
+define("_TOTALUSES", "Συνολικές χρήσεις");
+define("_TOTALUSESBYSINGLEUSER", "Συνολικές χρήσεις από ένα χρήστη");
+define("_MAXIMUMUSESBYSINGLEUSER", "Μέγιστες χρήσεις από ένα χρήστη");
+define("_VALIDFROM", "Έγκυρο από");
+define("_DISCOUNT", "Έκπτωση");
+define("_SUCCESSFULLYUPDATEDCOUPON", "Το κουπόνι ενημερώθηκε επιτυχώς");
+define("_CREATEUNIQUECOUPON", "Δημιουργία μοναδικού κουπονιού");
+define("_ADDCOUPON", "Προσθήκη κουπονιού");
+define("_COUPONPROPERTIES", "Ιδιότητες κουπονιού");
+define("_REPORTS", "Αναφορές");
+define("_EXPIRED", "Έληξε");
+define("_USES", "Χρήσεις");
+define("_VALIDUNTIL", "Έγκυρο έως");
+define("_USESREMAINING", "Χρήσεις που απομένουν");
+define("_MAXIMUMUSES", "Μέγιστες χρήσεις");
+define("_USESSOFAR", "Χρήσεις μέχρι τώρα");
+define("_COUPON", "Κουπόνι");
+define("_INVALIDCOUPON", "Το κουπόνι που εισάγατε δεν είναι έγκυρο");
+define("_CLICKTOENTERDISCOUNTCOUPON", "Κάντε κλικ για να εισάγετε εκπτωτικό κουπόνι");
+define("_TESTREDONE","Διόρθωση");
 ?>

@@ -1589,7 +1589,11 @@ class EfrontTest
         //4. Get additional information that might be useful
         $completedTest -> getUnit();
         $completedTest -> getLesson();
-        //5. Store test
+  //5. When redo only wrong, set it
+  if ($recentlyCompleted -> redoOnlyWrong == true) {
+   $completedTest -> correctPrevious = true;
+  }
+  //6. Store test
         $completedTest -> save();
         try {
          $lesson = new EfrontLesson($this ->test['lessons_ID']);
@@ -1693,6 +1697,8 @@ class EfrontTest
             }
             $testIds[] = $value['id'];
             $timestamps[] = $value['timestamp'];
+   $testObject = unserialize($value['test']);
+   $correctPrevious[] = $testObject -> correctPrevious;
         }
         if ($this -> options['redoable']) {
             $timesLeft = $this -> options['redoable'] - $timesDone;
@@ -1705,7 +1711,8 @@ class EfrontTest
                         'lastTest' => $lastTest,
                         'completedTest' => $completedTest,
                         'testIds' => $testIds,
-                        'timestamps' => $timestamps);
+                        'timestamps' => $timestamps,
+      'correctPrevious' => $correctPrevious);
         return $status;
     }
     /**
@@ -2621,8 +2628,8 @@ class EfrontCompletedTest extends EfrontTest
             $url = htmlspecialchars_decode(basename($_SERVER['PHP_SELF']).'?'.http_build_query($_GET));//$_SERVER['QUERY_STRING'];
 //      }
         $parentTest = new EfrontTest($this -> test['id']);
-        $currentStatus = $parentTest -> getStatus($this -> completedTest['login']); //Get the current test status, to check whether the student is undergoing the test right now
-        $status = $parentTest -> getStatus($this -> completedTest['login'], $this -> completedTest['id'], true); //Get the completed tests status
+        $currentStatus = $parentTest -> getStatus($this -> completedTest['login']); //Get the current test status, to check whether the student is undergoing the test right now        
+  $status = $parentTest -> getStatus($this -> completedTest['login'], $this -> completedTest['id'], true); //Get the completed tests status
         $potentialScore = $this -> getPotentialScore(); //Get the potential score for the test, taking into account pending questions	
         $str = '
         <table class = "doneTestHeader">
@@ -2675,7 +2682,7 @@ class EfrontCompletedTest extends EfrontTest
                 '._JUMPTOEXECUTION.':
                 <select style = "vertical-align:middle" onchange = "location.toString().match(/show_solved_test/) ? location = location.toString().replace(/show_solved_test=\d+/, \'show_solved_test=\'+this.options[this.selectedIndex].value) : location = location + \'&show_solved_test=\'+this.options[this.selectedIndex].value">';
             foreach ($status['testIds'] as $count => $testId) {
-                $jumpString .= '<option value = "'.$testId.'" '.($this -> completedTest['id'] == $testId ? "selected" : "").'>#'.($count + 1).' - '.formatTimestamp($status['timestamps'][$count], 'time').'</option>';
+                $jumpString .= '<option value = "'.$testId.'" '.($this -> completedTest['id'] == $testId ? "selected" : "").'>#'.($count + 1).' - '.formatTimestamp($status['timestamps'][$count], 'time').' '.($status['correctPrevious'][$count] ? _TESTREDONE : null) .'</option>';
             }
             $jumpString .= '</select>';
         }

@@ -261,17 +261,19 @@
       foreach ($myEvents as $key => $event) {
 
           if ($myEvents[$key] -> createMessage($allModules)) {
-           $new_event = array("time" => $myEvents[$key] -> event['time'], "message" => $myEvents[$key] ->event['message']);
+     if (strpos($myEvents[$key] ->event['time'], "-") === false) { // Added this to prevent events that changed time in the future as project expiration
 
-           if (isset($myEvents[$key] -> event['editlink']) && $myEvents[$key] -> event['editlink']) {
-            $new_event['editlink'] = $myEvents[$key] -> event['editlink'];
-           }
-        if (isset($myEvents[$key] -> event['deletelink']) && $myEvents[$key] -> event['deletelink']) {
-            $new_event['deletelink'] = $myEvents[$key] -> event['deletelink'];
-           }
-           $events[] = $new_event;
-          }
+      $new_event = array("time" => $myEvents[$key] -> event['time'], "message" => $myEvents[$key] ->event['message']);
 
+      if (isset($myEvents[$key] -> event['editlink']) && $myEvents[$key] -> event['editlink']) {
+       $new_event['editlink'] = $myEvents[$key] -> event['editlink'];
+      }
+      if (isset($myEvents[$key] -> event['deletelink']) && $myEvents[$key] -> event['deletelink']) {
+       $new_event['deletelink'] = $myEvents[$key] -> event['deletelink'];
+      }
+      $events[] = $new_event;
+     }
+       }
       }
 
       $my_timeline_options = array(array('text' => _GOTOCOMPLETESYSTEMTIMELINE, 'image' => "16x16/go_into.png", 'href' => $_SESSION['s_type']. ".php?ctg=social&op=timeline"));

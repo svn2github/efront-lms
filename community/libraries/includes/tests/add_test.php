@@ -27,7 +27,7 @@ if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['f
                'metadata' => 0);
 }
 //Default url for the file manager
-$url = basename($_SERVER['PHP_SELF']).'?ctg=tests&'.(isset($_GET['edit_test']) ? 'edit_test='.$_GET['edit'] : 'add_test=1');
+$url = basename($_SERVER['PHP_SELF']).'?ctg=tests&'.(isset($_GET['edit_test']) ? 'edit_test='.$_GET['edit_test'] : 'add_test=1');
 $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
 /**The file manager*/
 include "file_manager.php";

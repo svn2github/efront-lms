@@ -1,11 +1,11 @@
-function updateVoucher(el) {
+function updateCoupon(el) {
  var url = location.toString();
- parameters = {voucher:$('voucher_bogus').value, ajax:'voucher', method: 'get'};
- ajaxRequest(el, url, parameters, onUpdateVoucher);
+ parameters = {coupon:$('coupon_bogus').value, ajax:'coupon', method: 'get'};
+ ajaxRequest(el, url, parameters, onUpdateCoupon);
 }
-function onUpdateVoucher(el, response) {
+function onUpdateCoupon(el, response) {
  try {
-  $('voucher_code').value = $('voucher_bogus').value;
+  $('coupon_code').value = $('coupon_bogus').value;
   $('total_price_string').update(response.evalJSON().price_string);
   if ($('paypal_form')) {
    if ($('paypal_form')['amount']) {
@@ -18,6 +18,12 @@ function onUpdateVoucher(el, response) {
     //$('paypal_form')['item_number'].value = $('paypal_form')['item_number'].value.slice(0, -1); //Remove trailing ','
    }
   }
+  if ($('coupon_bogus').value) {
+   $('enter_coupon_link').update(translations['_COUPON'] + ': ' + $('coupon_bogus').value);
+  } else {
+   $('enter_coupon_link').update(translations['_CLICKTOENTERDISCOUNTCOUPON']);
+  }
+  eF_js_showDivPopup('', '', 'coupon_table');
  } catch (e) {alert(e);}
 }
 

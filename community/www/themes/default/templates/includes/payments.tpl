@@ -20,8 +20,8 @@
     {foreach name = 'users_list' key = 'key' item = 'coupon' from = $T_DATA_SOURCE}
     <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
      <td>{$coupon.code}</td>
-     <td class = "centerAlign">{$coupon.max_uses}</td>
-     <td class = "centerAlign">{$coupon.max_user_uses}</td>
+     <td class = "centerAlign">{if $coupon.max_uses}{$coupon.max_uses}{else}{$smarty.const._UNLIMITED}{/if}</td>
+     <td class = "centerAlign">{if $coupon.max_uses}{$coupon.max_user_uses}{else}{$smarty.const._UNLIMITED}{/if}</td>
      <td>#filter:timestamp_time-{$coupon.from_timestamp}#</td>
      <td class = "centerAlign">{$coupon.duration} {$smarty.const._DAYS}</td>
      <td class = "centerAlign">{$coupon.discount} %</td>
@@ -69,7 +69,7 @@
    </table>
   </form>
   {if $T_MESSAGE_TYPE == 'success'}
-   <script>parent.location = parent.location;</script>
+   <script>parent.location = parent.location+'&tab=coupons';</script>
   {/if}
   {/capture}
   {eF_template_printBlock title = $smarty.const._COUPONPROPERTIES data = $smarty.capture.t_add_code image = '32x32/shopping_basket_add.png'}
@@ -169,10 +169,12 @@
      <img src = "images/16x16/add.png" title = "{$smarty.const._ADDMANUALPAYMENT}" alt = "{$smarty.const._ADDMANUALPAYMENT}">
      <a href = "{$smarty.server.PHP_SELF}?ctg=payments&add=1&popup=1" title = "{$smarty.const._ADDMANUALPAYMENT}" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDMANUALPAYMENT}', 2)">{$smarty.const._ADDMANUALPAYMENT}</a>
     </span>
+    {if $T_TRANSACTIONS_LOG_FILE}
     <span>
      <img src = "images/16x16/search.png" title = "{$smarty.const._VIEWTRANSACTIONLOGFILE}" alt = "{$smarty.const._VIEWTRANSACTIONLOGFILE}">
      <a href = "view_file.php?file={$T_TRANSACTIONS_LOG_FILE}&download=1" title = "{$smarty.const._VIEWTRANSACTIONLOGFILE}" >{$smarty.const._VIEWTRANSACTIONLOGFILE}</a>
     </span>
+    {/if}
    </div>
 <!--ajax:paymentsTable-->
    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "paymentsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=payments&">

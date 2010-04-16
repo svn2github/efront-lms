@@ -102,19 +102,25 @@ if (isset($_GET['fct'])) {
     }
 
     $totalPrice = $cart['total_price'];
-    if (isset($_GET['voucher'])) {
+    if (isset($_GET['coupon'])) {
      try {
-      $coupon = new coupons($_GET['voucher'], true);
+         if ($_GET['coupon']) {
+      $coupon = new coupons($_GET['coupon'], true);
       if (!$coupon -> checkEligibility()) {
-       throw new Exception(_INVALIDVOUCHER);
+       throw new Exception(_INVALIDCOUPON);
       }
       $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);
       echo json_encode(array('id' => $coupon -> {$coupon -> entity}['id'],
               'price' => $totalPrice,
               'price_string' => formatPrice($totalPrice)));
+         } else {
+       echo json_encode(array('id' => '',
+               'price' => $totalPrice,
+               'price_string' => formatPrice($totalPrice)));
+         }
      } catch (Exception $e) {
       header("HTTP/1.0 500 ");
-      echo _INVALIDVOUCHER;
+      echo _INVALIDCOUPON;
      }
      exit;
     }
@@ -171,9 +177,9 @@ if (isset($_GET['fct'])) {
             }
             if (sizeof($nonFreeLessons) > 0 || sizeof($nonFreeCourses) > 0) {
                 if (isset($_POST['submit_checkout_balance'])) {
-                 if ($form -> exportValue('voucher') && $coupon = new coupons($form -> exportValue('voucher'), true)) {
+                 if ($form -> exportValue('coupon') && $coupon = new coupons($form -> exportValue('coupon'), true)) {
          if (!$coupon -> checkEligibility()) {
-          throw new Exception(_INVALIDVOUCHER);
+          throw new Exception(_INVALIDCOUPON);
          }
          if (!$GLOBALS['configuration']['paypalbusiness']) { //If we have paypal, the reduction is already done
                       $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);

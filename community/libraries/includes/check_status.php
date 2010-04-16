@@ -76,6 +76,9 @@ $optional['gd'] = array('enabled' => in_array('gd', $extensions),
 $optional['soap'] = array('enabled' => in_array('soap', $extensions),
                           'name' => 'SOAP libraries',
                           'help' => 'SOAP libraries are used for creating PDF certificates using phplivedocx');
+$optional['openssl'] = array('enabled' => in_array('openssl', $extensions),
+                          'name' => 'OpenSSL libraries',
+                          'help' => 'OpenSSL libraries are used for creating PDF certificates using phplivedocx');
 foreach ($optional as $key => $value) {
     if (isset($exclude_normal) && $exclude_normal && $value['enabled']) { //Use $exclude_normal in order to not list sections without problem
         unset($optional[$key]);

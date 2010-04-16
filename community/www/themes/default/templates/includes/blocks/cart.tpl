@@ -77,15 +77,22 @@
          <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEALLFROMCART}" title = "{$smarty.const._REMOVEALLFROMCART}" onclick = "removeAllFromCart(this);">
         </div>
     &nbsp;</div>
-    {if $T_CONFIGURATION.voucher && $smarty.get.checkout}
+    {if $smarty.get.checkout}
     <div class = "cartElement">
      <div class = "cartDelete">
      {if $T_CART.total_price != "" && $T_CART.total_price != 0}
-      <span style = "display:none">
-       <input name = "voucher_bogus" id = "voucher_bogus" type = "text">
-       <img class = "ajaxHandle" src = "images/16x16/success.png" alt = "{$smarty.const._OK}" title = "{$smarty.const._OK}" onclick = "updateVoucher(this)"/>
-      </span>
-      <a href = "javascript:void(0)" onclick = "Element.extend(this).previous().show();this.hide()">{$smarty.const._CLICKTOENTERDISCOUNTVOUCHER}</a>
+      <div id = "coupon_table" style = "display:none">
+      {capture name = "t_coupon_form_code"}
+      <table>
+       <tr><td class = "labelCell">{$smarty.const._COUPON}:&nbsp;</td>
+        <td class = "elementCell"><input name = "coupon_bogus" id = "coupon_bogus" type = "text"></td></tr>
+       <tr><td></td>
+        <td class = "submitCell"><input class = "flatButton" type = "button" value = "submit" onclick = "updateCoupon(this)"></td></tr>
+      </table>
+      {/capture}
+      {eF_template_printBlock title = $smarty.const._COUPON data = $smarty.capture.t_coupon_form_code image = '32x32/shopping_basket_add.png'}
+      </div>
+      <a id = "enter_coupon_link" href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._COUPON}', 0, 'coupon_table')">{$smarty.const._CLICKTOENTERDISCOUNTCOUPON}</a>
      {/if}
      </div>
     &nbsp;</div>
@@ -101,7 +108,7 @@
    {$T_CHECKOUT_FORM.javascript}
    <form {$T_CHECKOUT_FORM.attributes}>
        {$T_CHECKOUT_FORM.hidden}
-       {$T_CHECKOUT_FORM.voucher.html}
+       {$T_CHECKOUT_FORM.coupon.html}
        {$T_CHECKOUT_FORM.submit_order.html}
        {$T_CHECKOUT_FORM.submit_checkout_balance.html}
    </form>
@@ -147,6 +154,8 @@
 </div>
 
 <script type = "text/javascript">
+translations['_COUPON'] = '{$smarty.const._COUPON}';
+translations['_CLICKTOENTERDISCOUNTCOUPON'] = '{$smarty.const._CLICKTOENTERDISCOUNTCOUPON}';
 function buyRedirect() {ldelim}
  {if $smarty.session.s_login}
   {if $smarty.server.PHP_SELF|basename|replace:'.php':'' == 'index'}

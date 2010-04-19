@@ -1,4 +1,4 @@
-=== Version 3.6.2 build ===
+=== Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality
 - Added multiple coupons functionality (community++)
 - Added code for deleting templates cache in upgrade script

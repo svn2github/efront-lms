@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Умения категория е двусм�
 define("_MISSING_JOB_DESCRIPTION","Липсва длъжностна характеристика");//Missing job description
 define("_SKILLDOESNOTEXIST","Това умение не съществува");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Потребителите вече съществува в групата");//User already exists in group
-define("_COUPONS","Купони");//Coupons (New)
-define("_COUPONCODE","Купон кодекс");//Coupon code (New)
-define("_TOTALUSES","Общо употреба");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Общо приложение по един и същи потребител");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Максимално използване от един и същи потребител");//Maximum uses by single user (New)
-define("_VALIDFROM","Валидна от");//Valid from (New)
-define("_DISCOUNT","Отстъпка");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Успешно осъвременяване купон");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Създайте уникален купон");//Create unique coupon (New)
-define("_ADDCOUPON","Добави купон");//Add coupon (New)
-define("_COUPONPROPERTIES","Купон имоти");//Coupon properties (New)
-define("_REPORTS","Доклади");//Reports (New)
-define("_EXPIRED","Изтекъл");//Expired (New)
-define("_USES","Използва");//Uses (New)
-define("_VALIDUNTIL","Валиден до");//Valid until (New)
-define("_USESREMAINING","Използва останалите");//Uses remaining (New)
-define("_MAXIMUMUSES","Максимално използване");//Maximum uses (New)
-define("_USESSOFAR","Използва досега");//Uses so far (New)
-define("_COUPON","Купон");//Coupon (New)
-define("_INVALIDCOUPON","Невалидна купон");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Кликнете, за да въведе отстъпка купон");//Click to enter discount coupon (New)
-define("_TESTREDONE","Коригирана");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Не мога да намеря курс");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Внос резултатите за");//Import results for (New)
+define("_COUPONS","Купони");//Coupons
+define("_COUPONCODE","Купон кодекс");//Coupon code
+define("_TOTALUSES","Общо употреба");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Общо приложение по един и същи потребител");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Максимално използване от един и същи потребител");//Maximum uses by single user
+define("_VALIDFROM","Валидна от");//Valid from
+define("_DISCOUNT","Отстъпка");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Успешно осъвременяване купон");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Създайте уникален купон");//Create unique coupon
+define("_ADDCOUPON","Добави купон");//Add coupon
+define("_COUPONPROPERTIES","Купон имоти");//Coupon properties
+define("_REPORTS","Доклади");//Reports
+define("_EXPIRED","Изтекъл");//Expired
+define("_USES","Използва");//Uses
+define("_VALIDUNTIL","Валиден до");//Valid until
+define("_USESREMAINING","Използва останалите");//Uses remaining
+define("_MAXIMUMUSES","Максимално използване");//Maximum uses
+define("_USESSOFAR","Използва досега");//Uses so far
+define("_COUPON","Купон");//Coupon
+define("_INVALIDCOUPON","Невалидна купон");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Кликнете, за да въведе отстъпка купон");//Click to enter discount coupon
+define("_TESTREDONE","Коригирана");//Corrected
+define("_COULDNOTFINDCOURSE","Не мога да намеря курс");//Could not find course
+define("_IMPORTRESULTSFOR","Внос резултатите за");//Import results for
 ?>

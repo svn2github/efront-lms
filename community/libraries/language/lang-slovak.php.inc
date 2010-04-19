@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill kategórie je nejednoznačné");//Skill 
 define("_MISSING_JOB_DESCRIPTION","Chýbajúce opis pracovnej náplne");//Missing job description
 define("_SKILLDOESNOTEXIST","Táto zručnosť neexistuje");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Používateľ už existuje v skupine");//User already exists in group
-define("_COUPONS","Kupóny");//Coupons (New)
-define("_COUPONCODE","Kupon kód");//Coupon code (New)
-define("_TOTALUSES","Celkom použitie");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Celkom použitia od jedného užívateľa");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maximálne využitie od jedného užívateľa");//Maximum uses by single user (New)
-define("_VALIDFROM","Platnosť od");//Valid from (New)
-define("_DISCOUNT","Zľava");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Úspešne aktualizované kupón");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Vytvorte jedinečný kupón");//Create unique coupon (New)
-define("_ADDCOUPON","Pridať kupón");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupon vlastnosti");//Coupon properties (New)
-define("_REPORTS","Správy");//Reports (New)
-define("_EXPIRED","Uplynula");//Expired (New)
-define("_USES","Používa");//Uses (New)
-define("_VALIDUNTIL","V platnosti až do");//Valid until (New)
-define("_USESREMAINING","Používa zostávajúcich");//Uses remaining (New)
-define("_MAXIMUMUSES","Maximálne využitie");//Maximum uses (New)
-define("_USESSOFAR","Používa tak ďaleko");//Uses so far (New)
-define("_COUPON","Kupón");//Coupon (New)
-define("_INVALIDCOUPON","Neplatný kupón");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Kliknite pre vstup zľavový kupón");//Click to enter discount coupon (New)
-define("_TESTREDONE","Opravené");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Nepodarilo sa nájsť kurz");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Import výsledky");//Import results for (New)
+define("_COUPONS","Kupóny");//Coupons
+define("_COUPONCODE","Kupon kód");//Coupon code
+define("_TOTALUSES","Celkom použitie");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Celkom použitia od jedného užívateľa");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maximálne využitie od jedného užívateľa");//Maximum uses by single user
+define("_VALIDFROM","Platnosť od");//Valid from
+define("_DISCOUNT","Zľava");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Úspešne aktualizované kupón");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Vytvorte jedinečný kupón");//Create unique coupon
+define("_ADDCOUPON","Pridať kupón");//Add coupon
+define("_COUPONPROPERTIES","Kupon vlastnosti");//Coupon properties
+define("_REPORTS","Správy");//Reports
+define("_EXPIRED","Uplynula");//Expired
+define("_USES","Používa");//Uses
+define("_VALIDUNTIL","V platnosti až do");//Valid until
+define("_USESREMAINING","Používa zostávajúcich");//Uses remaining
+define("_MAXIMUMUSES","Maximálne využitie");//Maximum uses
+define("_USESSOFAR","Používa tak ďaleko");//Uses so far
+define("_COUPON","Kupón");//Coupon
+define("_INVALIDCOUPON","Neplatný kupón");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Kliknite pre vstup zľavový kupón");//Click to enter discount coupon
+define("_TESTREDONE","Opravené");//Corrected
+define("_COULDNOTFINDCOURSE","Nepodarilo sa nájsť kurz");//Could not find course
+define("_IMPORTRESULTSFOR","Import výsledky");//Import results for
 ?>

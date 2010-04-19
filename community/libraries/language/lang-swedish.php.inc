@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill kategori är tvetydigt");//Skill categor
 define("_MISSING_JOB_DESCRIPTION","Saknade arbetsbeskrivning");//Missing job description
 define("_SKILLDOESNOTEXIST","Denna kompetens finns inte");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Användaren finns redan i gruppen");//User already exists in group
-define("_COUPONS","Kuponger");//Coupons (New)
-define("_COUPONCODE","Kupongkod");//Coupon code (New)
-define("_TOTALUSES","Användning totalt");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Användning totalt av samma användare");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maximal användning av samma användare");//Maximum uses by single user (New)
-define("_VALIDFROM","Gäller från");//Valid from (New)
-define("_DISCOUNT","Rabatt");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Har uppdaterats kupong");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Skapa unika kupong");//Create unique coupon (New)
-define("_ADDCOUPON","Lägg kupong");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupong egenskaper");//Coupon properties (New)
-define("_REPORTS","Rapporter");//Reports (New)
-define("_EXPIRED","Utgångna");//Expired (New)
-define("_USES","Använder");//Uses (New)
-define("_VALIDUNTIL","Giltig till");//Valid until (New)
-define("_USESREMAINING","Använder återstående");//Uses remaining (New)
-define("_MAXIMUMUSES","Maximal användning");//Maximum uses (New)
-define("_USESSOFAR","Använder hittills");//Uses so far (New)
-define("_COUPON","Kupong");//Coupon (New)
-define("_INVALIDCOUPON","Ogiltig kupong");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Klicka för att ange rabatt kupong");//Click to enter discount coupon (New)
-define("_TESTREDONE","Rättad");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Kunde inte hitta kurs");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Import resultat för");//Import results for (New)
+define("_COUPONS","Kuponger");//Coupons
+define("_COUPONCODE","Kupongkod");//Coupon code
+define("_TOTALUSES","Användning totalt");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Användning totalt av samma användare");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maximal användning av samma användare");//Maximum uses by single user
+define("_VALIDFROM","Gäller från");//Valid from
+define("_DISCOUNT","Rabatt");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Har uppdaterats kupong");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Skapa unika kupong");//Create unique coupon
+define("_ADDCOUPON","Lägg kupong");//Add coupon
+define("_COUPONPROPERTIES","Kupong egenskaper");//Coupon properties
+define("_REPORTS","Rapporter");//Reports
+define("_EXPIRED","Utgångna");//Expired
+define("_USES","Använder");//Uses
+define("_VALIDUNTIL","Giltig till");//Valid until
+define("_USESREMAINING","Använder återstående");//Uses remaining
+define("_MAXIMUMUSES","Maximal användning");//Maximum uses
+define("_USESSOFAR","Använder hittills");//Uses so far
+define("_COUPON","Kupong");//Coupon
+define("_INVALIDCOUPON","Ogiltig kupong");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Klicka för att ange rabatt kupong");//Click to enter discount coupon
+define("_TESTREDONE","Rättad");//Corrected
+define("_COULDNOTFINDCOURSE","Kunde inte hitta kurs");//Could not find course
+define("_IMPORTRESULTSFOR","Import resultat för");//Import results for
 ?>

@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","कौशल श्रेणी अस्प�
 define("_MISSING_JOB_DESCRIPTION","नौकरी का विवरण गुम");//Missing job description
 define("_SKILLDOESNOTEXIST","इस कौशल मौजूद नहीं है");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","उपयोक्ता पहले समूह में मौजूद है");//User already exists in group
-define("_COUPONS","कूपन");//Coupons (New)
-define("_COUPONCODE","कूपन कोड");//Coupon code (New)
-define("_TOTALUSES","कुल का उपयोग करता है");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","एकल उपयोगकर्ता द्वारा कुल का उपयोग करता है");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","अधिकतम एक उपयोगकर्ता द्वारा उपयोग करता है");//Maximum uses by single user (New)
-define("_VALIDFROM","से मान्य");//Valid from (New)
-define("_DISCOUNT","छूट");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","कूपन सफलतापूर्वक नवीनीकृत");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","बनाने के अद्वितीय कूपन");//Create unique coupon (New)
-define("_ADDCOUPON","कूपन जोड़ें");//Add coupon (New)
-define("_COUPONPROPERTIES","कूपन गुण");//Coupon properties (New)
-define("_REPORTS","रिपोर्ट");//Reports (New)
-define("_EXPIRED","समय सीमा समाप्त हो");//Expired (New)
-define("_USES","का उपयोग करता है");//Uses (New)
-define("_VALIDUNTIL","जब तक मान्य");//Valid until (New)
-define("_USESREMAINING","शेष का उपयोग करता है");//Uses remaining (New)
-define("_MAXIMUMUSES","अधिकतम उपयोग करता है");//Maximum uses (New)
-define("_USESSOFAR","अब तक का उपयोग करता है");//Uses so far (New)
-define("_COUPON","कूपन");//Coupon (New)
-define("_INVALIDCOUPON","अवैध कूपन");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","क्लिक करें दर्ज करने के लिए डिस्काउंट कूपन");//Click to enter discount coupon (New)
-define("_TESTREDONE","सही");//Corrected (New)
-define("_COULDNOTFINDCOURSE","बिल्कुल नहीं मिल सकता है");//Could not find course (New)
-define("_IMPORTRESULTSFOR","आयात के लिए परिणाम");//Import results for (New)
+define("_COUPONS","कूपन");//Coupons
+define("_COUPONCODE","कूपन कोड");//Coupon code
+define("_TOTALUSES","कुल का उपयोग करता है");//Total uses
+define("_TOTALUSESBYSINGLEUSER","एकल उपयोगकर्ता द्वारा कुल का उपयोग करता है");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","अधिकतम एक उपयोगकर्ता द्वारा उपयोग करता है");//Maximum uses by single user
+define("_VALIDFROM","से मान्य");//Valid from
+define("_DISCOUNT","छूट");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","कूपन सफलतापूर्वक नवीनीकृत");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","बनाने के अद्वितीय कूपन");//Create unique coupon
+define("_ADDCOUPON","कूपन जोड़ें");//Add coupon
+define("_COUPONPROPERTIES","कूपन गुण");//Coupon properties
+define("_REPORTS","रिपोर्ट");//Reports
+define("_EXPIRED","समय सीमा समाप्त हो");//Expired
+define("_USES","का उपयोग करता है");//Uses
+define("_VALIDUNTIL","जब तक मान्य");//Valid until
+define("_USESREMAINING","शेष का उपयोग करता है");//Uses remaining
+define("_MAXIMUMUSES","अधिकतम उपयोग करता है");//Maximum uses
+define("_USESSOFAR","अब तक का उपयोग करता है");//Uses so far
+define("_COUPON","कूपन");//Coupon
+define("_INVALIDCOUPON","अवैध कूपन");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","क्लिक करें दर्ज करने के लिए डिस्काउंट कूपन");//Click to enter discount coupon
+define("_TESTREDONE","सही");//Corrected
+define("_COULDNOTFINDCOURSE","बिल्कुल नहीं मिल सकता है");//Could not find course
+define("_IMPORTRESULTSFOR","आयात के लिए परिणाम");//Import results for
 ?>

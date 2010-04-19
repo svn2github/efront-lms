@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill kategória egyértelmű");//Skill catego
 define("_MISSING_JOB_DESCRIPTION","Hiányzik a munkaköri leírás");//Missing job description
 define("_SKILLDOESNOTEXIST","Ez a képesség nem létezik");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Felhasználó már létezik csoportban");//User already exists in group
-define("_COUPONS","Kuponok");//Coupons (New)
-define("_COUPONCODE","Szelvény kód");//Coupon code (New)
-define("_TOTALUSES","Teljes felhasználás");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Teljes felhasználás Egyetlen felhasználó");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maximális felhasználási Egyetlen felhasználó");//Maximum uses by single user (New)
-define("_VALIDFROM","Érvényes");//Valid from (New)
-define("_DISCOUNT","Kedvezmény");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Sikeresen frissítve kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Hozzon létre egyedülálló kupon");//Create unique coupon (New)
-define("_ADDCOUPON","Add hozzá kupon");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupon tulajdonságok");//Coupon properties (New)
-define("_REPORTS","Jelentések");//Reports (New)
-define("_EXPIRED","Lejárt");//Expired (New)
-define("_USES","Használ");//Uses (New)
-define("_VALIDUNTIL","Érvényes, amíg");//Valid until (New)
-define("_USESREMAINING","Felhasználás fennmaradó");//Uses remaining (New)
-define("_MAXIMUMUSES","Maximális használ");//Maximum uses (New)
-define("_USESSOFAR","Használ, amennyiben");//Uses so far (New)
-define("_COUPON","Szelvény");//Coupon (New)
-define("_INVALIDCOUPON","Érvénytelen kupon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Kattintson a be kedvezményes kamatozású");//Click to enter discount coupon (New)
-define("_TESTREDONE","Helyesbített");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Nem található a kurzus");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Import eredményei");//Import results for (New)
+define("_COUPONS","Kuponok");//Coupons
+define("_COUPONCODE","Szelvény kód");//Coupon code
+define("_TOTALUSES","Teljes felhasználás");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Teljes felhasználás Egyetlen felhasználó");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maximális felhasználási Egyetlen felhasználó");//Maximum uses by single user
+define("_VALIDFROM","Érvényes");//Valid from
+define("_DISCOUNT","Kedvezmény");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Sikeresen frissítve kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Hozzon létre egyedülálló kupon");//Create unique coupon
+define("_ADDCOUPON","Add hozzá kupon");//Add coupon
+define("_COUPONPROPERTIES","Kupon tulajdonságok");//Coupon properties
+define("_REPORTS","Jelentések");//Reports
+define("_EXPIRED","Lejárt");//Expired
+define("_USES","Használ");//Uses
+define("_VALIDUNTIL","Érvényes, amíg");//Valid until
+define("_USESREMAINING","Felhasználás fennmaradó");//Uses remaining
+define("_MAXIMUMUSES","Maximális használ");//Maximum uses
+define("_USESSOFAR","Használ, amennyiben");//Uses so far
+define("_COUPON","Szelvény");//Coupon
+define("_INVALIDCOUPON","Érvénytelen kupon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Kattintson a be kedvezményes kamatozású");//Click to enter discount coupon
+define("_TESTREDONE","Helyesbített");//Corrected
+define("_COULDNOTFINDCOURSE","Nem található a kurzus");//Could not find course
+define("_IMPORTRESULTSFOR","Import eredményei");//Import results for
 ?>

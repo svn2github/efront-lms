@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","categoria de îndemânare este ambiguă");//Sk
 define("_MISSING_JOB_DESCRIPTION","Lipseşte descrierea de locuri de muncă");//Missing job description
 define("_SKILLDOESNOTEXIST","Aceasta abilitate nu exista");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Utilizatorul există deja în grupul");//User already exists in group
-define("_COUPONS","Cupoane");//Coupons (New)
-define("_COUPONCODE","Cod promoţional");//Coupon code (New)
-define("_TOTALUSES","Total utilizări");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Total utilizări de către un singur utilizator");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maximă foloseste de un singur utilizator");//Maximum uses by single user (New)
-define("_VALIDFROM","Valabil de la");//Valid from (New)
-define("_DISCOUNT","Reducere");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","actualizat cu succes cupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Creaţi unic cupon");//Create unique coupon (New)
-define("_ADDCOUPON","Adauga promoţional");//Add coupon (New)
-define("_COUPONPROPERTIES","Cuponul de proprietăţi");//Coupon properties (New)
-define("_REPORTS","Rapoarte");//Reports (New)
-define("_EXPIRED","Expirat");//Expired (New)
-define("_USES","Utilizeaza");//Uses (New)
-define("_VALIDUNTIL","Valabil până la");//Valid until (New)
-define("_USESREMAINING","Utilizeaza rămase");//Uses remaining (New)
-define("_MAXIMUMUSES","Maximă foloseşte");//Maximum uses (New)
-define("_USESSOFAR","Utilizeaza măsura");//Uses so far (New)
-define("_COUPON","Cupon");//Coupon (New)
-define("_INVALIDCOUPON","Invalid cupon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Click pentru a intra cupon reducere");//Click to enter discount coupon (New)
-define("_TESTREDONE","Rectificat");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Nu sa putut găsi curs");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Rezultatele de import pentru");//Import results for (New)
+define("_COUPONS","Cupoane");//Coupons
+define("_COUPONCODE","Cod promoţional");//Coupon code
+define("_TOTALUSES","Total utilizări");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Total utilizări de către un singur utilizator");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maximă foloseste de un singur utilizator");//Maximum uses by single user
+define("_VALIDFROM","Valabil de la");//Valid from
+define("_DISCOUNT","Reducere");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","actualizat cu succes cupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Creaţi unic cupon");//Create unique coupon
+define("_ADDCOUPON","Adauga promoţional");//Add coupon
+define("_COUPONPROPERTIES","Cuponul de proprietăţi");//Coupon properties
+define("_REPORTS","Rapoarte");//Reports
+define("_EXPIRED","Expirat");//Expired
+define("_USES","Utilizeaza");//Uses
+define("_VALIDUNTIL","Valabil până la");//Valid until
+define("_USESREMAINING","Utilizeaza rămase");//Uses remaining
+define("_MAXIMUMUSES","Maximă foloseşte");//Maximum uses
+define("_USESSOFAR","Utilizeaza măsura");//Uses so far
+define("_COUPON","Cupon");//Coupon
+define("_INVALIDCOUPON","Invalid cupon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Click pentru a intra cupon reducere");//Click to enter discount coupon
+define("_TESTREDONE","Rectificat");//Corrected
+define("_COULDNOTFINDCOURSE","Nu sa putut găsi curs");//Could not find course
+define("_IMPORTRESULTSFOR","Rezultatele de import pentru");//Import results for
 ?>

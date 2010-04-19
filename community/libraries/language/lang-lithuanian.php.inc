@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Įgūdžių kategorija yra dviprasmiškas");//
 define("_MISSING_JOB_DESCRIPTION","Trūksta darbo aprašymas");//Missing job description
 define("_SKILLDOESNOTEXIST","Šis įgūdis nėra");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Vartotojas jau yra grupės");//User already exists in group
-define("_COUPONS","Kuponai");//Coupons (New)
-define("_COUPONCODE","Kupono kodas");//Coupon code (New)
-define("_TOTALUSES","Panaudojimas iš viso");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Panaudojimas iš viso vienu vartotojo");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Didžiausias naudoja vienu vartotojo");//Maximum uses by single user (New)
-define("_VALIDFROM","Galioja nuo");//Valid from (New)
-define("_DISCOUNT","Nuolaida");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Sėkmingai atnaujintas kuponas");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Sukurkite unikalius kuponas");//Create unique coupon (New)
-define("_ADDCOUPON","Pridėti kuponas");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupono savybės");//Coupon properties (New)
-define("_REPORTS","Ataskaitos");//Reports (New)
-define("_EXPIRED","Pasibaigęs");//Expired (New)
-define("_USES","Naudoja");//Uses (New)
-define("_VALIDUNTIL","Galioja iki");//Valid until (New)
-define("_USESREMAINING","Naudoja likusių");//Uses remaining (New)
-define("_MAXIMUMUSES","Didžiausias naudoja");//Maximum uses (New)
-define("_USESSOFAR","Naudoja iki šiol");//Uses so far (New)
-define("_COUPON","Kuponas");//Coupon (New)
-define("_INVALIDCOUPON","Neteisingas kuponas");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Spustelėkite norėdami įvesti diskonto kuponą");//Click to enter discount coupon (New)
-define("_TESTREDONE","Ištaisė");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Negaliu rasti kursai");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Importo rezultatai");//Import results for (New)
+define("_COUPONS","Kuponai");//Coupons
+define("_COUPONCODE","Kupono kodas");//Coupon code
+define("_TOTALUSES","Panaudojimas iš viso");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Panaudojimas iš viso vienu vartotojo");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Didžiausias naudoja vienu vartotojo");//Maximum uses by single user
+define("_VALIDFROM","Galioja nuo");//Valid from
+define("_DISCOUNT","Nuolaida");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Sėkmingai atnaujintas kuponas");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Sukurkite unikalius kuponas");//Create unique coupon
+define("_ADDCOUPON","Pridėti kuponas");//Add coupon
+define("_COUPONPROPERTIES","Kupono savybės");//Coupon properties
+define("_REPORTS","Ataskaitos");//Reports
+define("_EXPIRED","Pasibaigęs");//Expired
+define("_USES","Naudoja");//Uses
+define("_VALIDUNTIL","Galioja iki");//Valid until
+define("_USESREMAINING","Naudoja likusių");//Uses remaining
+define("_MAXIMUMUSES","Didžiausias naudoja");//Maximum uses
+define("_USESSOFAR","Naudoja iki šiol");//Uses so far
+define("_COUPON","Kuponas");//Coupon
+define("_INVALIDCOUPON","Neteisingas kuponas");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Spustelėkite norėdami įvesti diskonto kuponą");//Click to enter discount coupon
+define("_TESTREDONE","Ištaisė");//Corrected
+define("_COULDNOTFINDCOURSE","Negaliu rasti kursai");//Could not find course
+define("_IMPORTRESULTSFOR","Importo rezultatai");//Import results for
 ?>

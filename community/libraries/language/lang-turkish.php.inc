@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Beceri kategorisi belirsiz");//Skill category 
 define("_MISSING_JOB_DESCRIPTION","iş tanımı Eksik");//Missing job description
 define("_SKILLDOESNOTEXIST","Bu beceri yok");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Kullanıcı zaten grup var");//User already exists in group
-define("_COUPONS","Kuponlar");//Coupons (New)
-define("_COUPONCODE","Kupon şifre");//Coupon code (New)
-define("_TOTALUSES","Toplam kullanır");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Tek kullanıcı tarafından Toplam kullanır");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maksimum tek kullanıcı tarafından kullanır");//Maximum uses by single user (New)
-define("_VALIDFROM","Geçerli dan");//Valid from (New)
-define("_DISCOUNT","Indirim");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Başarıyla kupon güncellendi");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Oluşturmak eşsiz kupon");//Create unique coupon (New)
-define("_ADDCOUPON","kupon ekle");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupon özellikleri");//Coupon properties (New)
-define("_REPORTS","Raporlar");//Reports (New)
-define("_EXPIRED","Süresi geçmiş");//Expired (New)
-define("_USES","Kullanır");//Uses (New)
-define("_VALIDUNTIL","Tarihine kadar geçerlidir");//Valid until (New)
-define("_USESREMAINING","Kullanır kalan");//Uses remaining (New)
-define("_MAXIMUMUSES","Maksimum kullanır");//Maximum uses (New)
-define("_USESSOFAR","Kullanır şimdiye kadar");//Uses so far (New)
-define("_COUPON","Kupon");//Coupon (New)
-define("_INVALIDCOUPON","Geçersiz kupon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Tıklayın kupon indirim girmek için");//Click to enter discount coupon (New)
-define("_TESTREDONE","Düzeltilmiş");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Tabii bulunamadı");//Could not find course (New)
-define("_IMPORTRESULTSFOR","İthalat sonuçları");//Import results for (New)
+define("_COUPONS","Kuponlar");//Coupons
+define("_COUPONCODE","Kupon şifre");//Coupon code
+define("_TOTALUSES","Toplam kullanır");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Tek kullanıcı tarafından Toplam kullanır");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimum tek kullanıcı tarafından kullanır");//Maximum uses by single user
+define("_VALIDFROM","Geçerli dan");//Valid from
+define("_DISCOUNT","Indirim");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Başarıyla kupon güncellendi");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Oluşturmak eşsiz kupon");//Create unique coupon
+define("_ADDCOUPON","kupon ekle");//Add coupon
+define("_COUPONPROPERTIES","Kupon özellikleri");//Coupon properties
+define("_REPORTS","Raporlar");//Reports
+define("_EXPIRED","Süresi geçmiş");//Expired
+define("_USES","Kullanır");//Uses
+define("_VALIDUNTIL","Tarihine kadar geçerlidir");//Valid until
+define("_USESREMAINING","Kullanır kalan");//Uses remaining
+define("_MAXIMUMUSES","Maksimum kullanır");//Maximum uses
+define("_USESSOFAR","Kullanır şimdiye kadar");//Uses so far
+define("_COUPON","Kupon");//Coupon
+define("_INVALIDCOUPON","Geçersiz kupon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Tıklayın kupon indirim girmek için");//Click to enter discount coupon
+define("_TESTREDONE","Düzeltilmiş");//Corrected
+define("_COULDNOTFINDCOURSE","Tabii bulunamadı");//Could not find course
+define("_IMPORTRESULTSFOR","İthalat sonuçları");//Import results for
 ?>

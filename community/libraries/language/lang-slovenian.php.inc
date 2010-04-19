@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill kategorija je dvoumno");//Skill category
 define("_MISSING_JOB_DESCRIPTION","Manjka opis delovnega mesta");//Missing job description
 define("_SKILLDOESNOTEXIST","Ta spretnost ne obstaja");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Uporabnik že obstaja v skupini");//User already exists in group
-define("_COUPONS","Kuponi");//Coupons (New)
-define("_COUPONCODE","Bon zbornik");//Coupon code (New)
-define("_TOTALUSES","Poraba skupaj");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Skupaj poraba po enega uporabnika");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Največja poraba po enega uporabnika");//Maximum uses by single user (New)
-define("_VALIDFROM","Velja od");//Valid from (New)
-define("_DISCOUNT","Popust");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Uspešno posodobljeni kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Ustvari edinstveno bon");//Create unique coupon (New)
-define("_ADDCOUPON","Dodaj kupon");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupon lastnosti");//Coupon properties (New)
-define("_REPORTS","Poročila");//Reports (New)
-define("_EXPIRED","Potekel");//Expired (New)
-define("_USES","Uporabe");//Uses (New)
-define("_VALIDUNTIL","Velja, dokler");//Valid until (New)
-define("_USESREMAINING","Uporabe preostalih");//Uses remaining (New)
-define("_MAXIMUMUSES","Največja uporabe");//Maximum uses (New)
-define("_USESSOFAR","Uporabe doslej");//Uses so far (New)
-define("_COUPON","Kupon");//Coupon (New)
-define("_INVALIDCOUPON","Neveljavna bon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Klikni za vstop skonto bon");//Click to enter discount coupon (New)
-define("_TESTREDONE","Popravljena");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Ne najdem tečaj");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Import rezultati za");//Import results for (New)
+define("_COUPONS","Kuponi");//Coupons
+define("_COUPONCODE","Bon zbornik");//Coupon code
+define("_TOTALUSES","Poraba skupaj");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Skupaj poraba po enega uporabnika");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Največja poraba po enega uporabnika");//Maximum uses by single user
+define("_VALIDFROM","Velja od");//Valid from
+define("_DISCOUNT","Popust");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Uspešno posodobljeni kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Ustvari edinstveno bon");//Create unique coupon
+define("_ADDCOUPON","Dodaj kupon");//Add coupon
+define("_COUPONPROPERTIES","Kupon lastnosti");//Coupon properties
+define("_REPORTS","Poročila");//Reports
+define("_EXPIRED","Potekel");//Expired
+define("_USES","Uporabe");//Uses
+define("_VALIDUNTIL","Velja, dokler");//Valid until
+define("_USESREMAINING","Uporabe preostalih");//Uses remaining
+define("_MAXIMUMUSES","Največja uporabe");//Maximum uses
+define("_USESSOFAR","Uporabe doslej");//Uses so far
+define("_COUPON","Kupon");//Coupon
+define("_INVALIDCOUPON","Neveljavna bon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Klikni za vstop skonto bon");//Click to enter discount coupon
+define("_TESTREDONE","Popravljena");//Corrected
+define("_COULDNOTFINDCOURSE","Ne najdem tečaj");//Could not find course
+define("_IMPORTRESULTSFOR","Import rezultati za");//Import results for
 ?>

@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Kỹ năng thể loại rất mơ hồ");//Ski
 define("_MISSING_JOB_DESCRIPTION","Thiếu mô tả công việc");//Missing job description
 define("_SKILLDOESNOTEXIST","Kỹ năng này không tồn tại");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Người dùng đã tồn tại trong nhóm");//User already exists in group
-define("_COUPONS","Phiếu giảm giá");//Coupons (New)
-define("_COUPONCODE","Coupon code");//Coupon code (New)
-define("_TOTALUSES","Tổng số sử dụng");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Tổng số sử dụng bởi người dùng đơn");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Tối đa sử dụng bởi người dùng đơn");//Maximum uses by single user (New)
-define("_VALIDFROM","Hợp lệ từ");//Valid from (New)
-define("_DISCOUNT","Giảm");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Cập nhật thành công phiếu giảm giá");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Tạo phiếu giảm giá duy nhất");//Create unique coupon (New)
-define("_ADDCOUPON","Thêm phiếu giảm giá");//Add coupon (New)
-define("_COUPONPROPERTIES","Phiếu giảm giá tài sản");//Coupon properties (New)
-define("_REPORTS","Báo cáo");//Reports (New)
-define("_EXPIRED","Hết hạn");//Expired (New)
-define("_USES","Sử dụng");//Uses (New)
-define("_VALIDUNTIL","Giá trị đến");//Valid until (New)
-define("_USESREMAINING","Sử dụng còn lại");//Uses remaining (New)
-define("_MAXIMUMUSES","Sử dụng tối đa");//Maximum uses (New)
-define("_USESSOFAR","Sử dụng cho đến nay");//Uses so far (New)
-define("_COUPON","Coupon");//Coupon (New)
-define("_INVALIDCOUPON","Phiếu giảm giá không hợp lệ");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Nhấn vào đây để nhập vào phiếu mua hàng giảm giá");//Click to enter discount coupon (New)
-define("_TESTREDONE","Sửa chữa");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Không tìm thấy khóa học");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Kết quả nhập khẩu");//Import results for (New)
+define("_COUPONS","Phiếu giảm giá");//Coupons
+define("_COUPONCODE","Coupon code");//Coupon code
+define("_TOTALUSES","Tổng số sử dụng");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Tổng số sử dụng bởi người dùng đơn");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Tối đa sử dụng bởi người dùng đơn");//Maximum uses by single user
+define("_VALIDFROM","Hợp lệ từ");//Valid from
+define("_DISCOUNT","Giảm");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Cập nhật thành công phiếu giảm giá");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Tạo phiếu giảm giá duy nhất");//Create unique coupon
+define("_ADDCOUPON","Thêm phiếu giảm giá");//Add coupon
+define("_COUPONPROPERTIES","Phiếu giảm giá tài sản");//Coupon properties
+define("_REPORTS","Báo cáo");//Reports
+define("_EXPIRED","Hết hạn");//Expired
+define("_USES","Sử dụng");//Uses
+define("_VALIDUNTIL","Giá trị đến");//Valid until
+define("_USESREMAINING","Sử dụng còn lại");//Uses remaining
+define("_MAXIMUMUSES","Sử dụng tối đa");//Maximum uses
+define("_USESSOFAR","Sử dụng cho đến nay");//Uses so far
+define("_COUPON","Coupon");//Coupon
+define("_INVALIDCOUPON","Phiếu giảm giá không hợp lệ");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Nhấn vào đây để nhập vào phiếu mua hàng giảm giá");//Click to enter discount coupon
+define("_TESTREDONE","Sửa chữa");//Corrected
+define("_COULDNOTFINDCOURSE","Không tìm thấy khóa học");//Could not find course
+define("_IMPORTRESULTSFOR","Kết quả nhập khẩu");//Import results for
 ?>

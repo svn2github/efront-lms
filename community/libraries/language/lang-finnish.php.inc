@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill luokka on epäselvä");//Skill category 
 define("_MISSING_JOB_DESCRIPTION","Puuttuvat työnkuva");//Missing job description
 define("_SKILLDOESNOTEXIST","Tämä taito ei ole");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Käyttäjä on jo olemassa ryhmä");//User already exists in group
-define("_COUPONS","Kupongit");//Coupons (New)
-define("_COUPONCODE","Kuponkikoodi");//Coupon code (New)
-define("_TOTALUSES","Kokonaiskäyttö");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Yhteensä käyttötarkoituksiin ainoa käyttäjä");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Suurin käyttötarkoituksiin ainoa käyttäjä");//Maximum uses by single user (New)
-define("_VALIDFROM","Voimassa");//Valid from (New)
-define("_DISCOUNT","Alennus");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Onnistuneesti päivitetty kuponki");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Luo ainutlaatuinen kuponki");//Create unique coupon (New)
-define("_ADDCOUPON","Lisää kuponki");//Add coupon (New)
-define("_COUPONPROPERTIES","Kaappaus ominaisuudet");//Coupon properties (New)
-define("_REPORTS","Raportit");//Reports (New)
-define("_EXPIRED","Vanhentunut");//Expired (New)
-define("_USES","Käyttää");//Uses (New)
-define("_VALIDUNTIL","Voimassa asti");//Valid until (New)
-define("_USESREMAINING","Käyttää jäljellä");//Uses remaining (New)
-define("_MAXIMUMUSES","Suurin käyttö");//Maximum uses (New)
-define("_USESSOFAR","Käyttää toistaiseksi");//Uses so far (New)
-define("_COUPON","Kuponki");//Coupon (New)
-define("_INVALIDCOUPON","Invalidi kaappaus");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Napsauta ja anna alennus kuponki");//Click to enter discount coupon (New)
-define("_TESTREDONE","Oikaisu");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Ei löytynyt tietenkään");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Tuo tulokset");//Import results for (New)
+define("_COUPONS","Kupongit");//Coupons
+define("_COUPONCODE","Kuponkikoodi");//Coupon code
+define("_TOTALUSES","Kokonaiskäyttö");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Yhteensä käyttötarkoituksiin ainoa käyttäjä");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Suurin käyttötarkoituksiin ainoa käyttäjä");//Maximum uses by single user
+define("_VALIDFROM","Voimassa");//Valid from
+define("_DISCOUNT","Alennus");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Onnistuneesti päivitetty kuponki");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Luo ainutlaatuinen kuponki");//Create unique coupon
+define("_ADDCOUPON","Lisää kuponki");//Add coupon
+define("_COUPONPROPERTIES","Kaappaus ominaisuudet");//Coupon properties
+define("_REPORTS","Raportit");//Reports
+define("_EXPIRED","Vanhentunut");//Expired
+define("_USES","Käyttää");//Uses
+define("_VALIDUNTIL","Voimassa asti");//Valid until
+define("_USESREMAINING","Käyttää jäljellä");//Uses remaining
+define("_MAXIMUMUSES","Suurin käyttö");//Maximum uses
+define("_USESSOFAR","Käyttää toistaiseksi");//Uses so far
+define("_COUPON","Kuponki");//Coupon
+define("_INVALIDCOUPON","Invalidi kaappaus");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Napsauta ja anna alennus kuponki");//Click to enter discount coupon
+define("_TESTREDONE","Oikaisu");//Corrected
+define("_COULDNOTFINDCOURSE","Ei löytynyt tietenkään");//Could not find course
+define("_IMPORTRESULTSFOR","Tuo tulokset");//Import results for
 ?>

@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","categoria de professió és ambigua");//Skill 
 define("_MISSING_JOB_DESCRIPTION","Manca descripció del treball");//Missing job description
 define("_SKILLDOESNOTEXIST","Aquesta habilitat no existeix");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","L&#39;usuari ja existeix en el grup");//User already exists in group
-define("_COUPONS","Cupons");//Coupons (New)
-define("_COUPONCODE","Codi de promoció");//Coupon code (New)
-define("_TOTALUSES","Utilització total");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Utilització total per un sol usuari");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Màxim els usos per un sol usuari");//Maximum uses by single user (New)
-define("_VALIDFROM","En vigor des del");//Valid from (New)
-define("_DISCOUNT","Descompte");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Actualitzat correctament cupó");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Crear únic cupó");//Create unique coupon (New)
-define("_ADDCOUPON","Afegir cupons");//Add coupon (New)
-define("_COUPONPROPERTIES","propietats de descompte");//Coupon properties (New)
-define("_REPORTS","Informes");//Reports (New)
-define("_EXPIRED","Caducat");//Expired (New)
-define("_USES","Usos");//Uses (New)
-define("_VALIDUNTIL","Vàlid fins al");//Valid until (New)
-define("_USESREMAINING","La resta usos");//Uses remaining (New)
-define("_MAXIMUMUSES","Màxima usos");//Maximum uses (New)
-define("_USESSOFAR","Utilitza la mesura");//Uses so far (New)
-define("_COUPON","Cupó");//Coupon (New)
-define("_INVALIDCOUPON","Cupó vàlid");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Premeu per entrar al cupó de descompte");//Click to enter discount coupon (New)
-define("_TESTREDONE","Corregit");//Corrected (New)
-define("_COULDNOTFINDCOURSE","No s&#39;ha pogut trobar el curs");//Could not find course (New)
-define("_IMPORTRESULTSFOR","resultats d&#39;importació de");//Import results for (New)
+define("_COUPONS","Cupons");//Coupons
+define("_COUPONCODE","Codi de promoció");//Coupon code
+define("_TOTALUSES","Utilització total");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Utilització total per un sol usuari");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Màxim els usos per un sol usuari");//Maximum uses by single user
+define("_VALIDFROM","En vigor des del");//Valid from
+define("_DISCOUNT","Descompte");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Actualitzat correctament cupó");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Crear únic cupó");//Create unique coupon
+define("_ADDCOUPON","Afegir cupons");//Add coupon
+define("_COUPONPROPERTIES","propietats de descompte");//Coupon properties
+define("_REPORTS","Informes");//Reports
+define("_EXPIRED","Caducat");//Expired
+define("_USES","Usos");//Uses
+define("_VALIDUNTIL","Vàlid fins al");//Valid until
+define("_USESREMAINING","La resta usos");//Uses remaining
+define("_MAXIMUMUSES","Màxima usos");//Maximum uses
+define("_USESSOFAR","Utilitza la mesura");//Uses so far
+define("_COUPON","Cupó");//Coupon
+define("_INVALIDCOUPON","Cupó vàlid");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Premeu per entrar al cupó de descompte");//Click to enter discount coupon
+define("_TESTREDONE","Corregit");//Corrected
+define("_COULDNOTFINDCOURSE","No s&#39;ha pogut trobar el curs");//Could not find course
+define("_IMPORTRESULTSFOR","resultats d&#39;importació de");//Import results for
 ?>

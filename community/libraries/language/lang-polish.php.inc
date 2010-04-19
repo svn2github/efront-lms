@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill jest niejednoznaczny kategorii");//Skill
 define("_MISSING_JOB_DESCRIPTION","Brakuje opisu stanowiska pracy");//Missing job description
 define("_SKILLDOESNOTEXIST","Ta umiejętność nie istnieje");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Użytkownik już istnieje w grupie");//User already exists in group
-define("_COUPONS","Kupony");//Coupons (New)
-define("_COUPONCODE","kod kuponu");//Coupon code (New)
-define("_TOTALUSES","Wykorzystanie ogółem");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Całkowitego zastosowania przez jednego użytkownika");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maksymalna używany przez jednego użytkownika");//Maximum uses by single user (New)
-define("_VALIDFROM","Obowiązuje od");//Valid from (New)
-define("_DISCOUNT","Rabat");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Pomyślnie zaktualizowany kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Twórz niepowtarzalne kupon");//Create unique coupon (New)
-define("_ADDCOUPON","Dodaj kupon");//Add coupon (New)
-define("_COUPONPROPERTIES","Oferta nieruchomości");//Coupon properties (New)
-define("_REPORTS","Raportów");//Reports (New)
-define("_EXPIRED","Minął");//Expired (New)
-define("_USES","Zastosowań");//Uses (New)
-define("_VALIDUNTIL","Ważne do dnia");//Valid until (New)
-define("_USESREMAINING","Pozostałych zastosowań");//Uses remaining (New)
-define("_MAXIMUMUSES","Maksymalnie wykorzystuje");//Maximum uses (New)
-define("_USESSOFAR","Korzysta do tej pory");//Uses so far (New)
-define("_COUPON","Kupon");//Coupon (New)
-define("_INVALIDCOUPON","Nieprawidłowy kupon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Kliknij, aby wprowadzić zniżki kupon");//Click to enter discount coupon (New)
-define("_TESTREDONE","Poprawione");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Oczywiście nie mogłem znaleźć");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Wyniki na przywóz");//Import results for (New)
+define("_COUPONS","Kupony");//Coupons
+define("_COUPONCODE","kod kuponu");//Coupon code
+define("_TOTALUSES","Wykorzystanie ogółem");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Całkowitego zastosowania przez jednego użytkownika");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maksymalna używany przez jednego użytkownika");//Maximum uses by single user
+define("_VALIDFROM","Obowiązuje od");//Valid from
+define("_DISCOUNT","Rabat");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Pomyślnie zaktualizowany kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Twórz niepowtarzalne kupon");//Create unique coupon
+define("_ADDCOUPON","Dodaj kupon");//Add coupon
+define("_COUPONPROPERTIES","Oferta nieruchomości");//Coupon properties
+define("_REPORTS","Raportów");//Reports
+define("_EXPIRED","Minął");//Expired
+define("_USES","Zastosowań");//Uses
+define("_VALIDUNTIL","Ważne do dnia");//Valid until
+define("_USESREMAINING","Pozostałych zastosowań");//Uses remaining
+define("_MAXIMUMUSES","Maksymalnie wykorzystuje");//Maximum uses
+define("_USESSOFAR","Korzysta do tej pory");//Uses so far
+define("_COUPON","Kupon");//Coupon
+define("_INVALIDCOUPON","Nieprawidłowy kupon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Kliknij, aby wprowadzić zniżki kupon");//Click to enter discount coupon
+define("_TESTREDONE","Poprawione");//Corrected
+define("_COULDNOTFINDCOURSE","Oczywiście nie mogłem znaleźć");//Could not find course
+define("_IMPORTRESULTSFOR","Wyniki na przywóz");//Import results for
 ?>

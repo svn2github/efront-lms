@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Kasanayan kategorya ay hindi maliwanag");//Ski
 define("_MISSING_JOB_DESCRIPTION","Nawawala ang description ng trabaho");//Missing job description
 define("_SKILLDOESNOTEXIST","kasanayan na ito ay hindi na umiiral");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","User ay mayroon na sa grupo");//User already exists in group
-define("_COUPONS","Ang mga kupon");//Coupons (New)
-define("_COUPONCODE","Kupon code");//Coupon code (New)
-define("_TOTALUSES","Kabuuang gumagamit");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Total ay gumagamit sa pamamagitan ng iisang user");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Pinakamataas na gumagamit ng iisang user");//Maximum uses by single user (New)
-define("_VALIDFROM","Valid mula sa");//Valid from (New)
-define("_DISCOUNT","Diskuwento");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Matagumpay na na-update kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Gumawa ng mga natatanging kupon");//Create unique coupon (New)
-define("_ADDCOUPON","Magdagdag ng mga kupon");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupon-aari");//Coupon properties (New)
-define("_REPORTS","Ulat");//Reports (New)
-define("_EXPIRED","Expired");//Expired (New)
-define("_USES","Gumagamit");//Uses (New)
-define("_VALIDUNTIL","Valid hanggang");//Valid until (New)
-define("_USESREMAINING","Gumagamit ng natitirang");//Uses remaining (New)
-define("_MAXIMUMUSES","Pinakamataas na gumagamit ng");//Maximum uses (New)
-define("_USESSOFAR","Gumagamit ng gana");//Uses so far (New)
-define("_COUPON","Kupon");//Coupon (New)
-define("_INVALIDCOUPON","Hindi balidong kupon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","I-click upang ipasok ang discount kupon");//Click to enter discount coupon (New)
-define("_TESTREDONE","Nawastong");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Hindi makahanap ng kurso");//Could not find course (New)
-define("_IMPORTRESULTSFOR","I-import ng mga resulta para sa");//Import results for (New)
+define("_COUPONS","Ang mga kupon");//Coupons
+define("_COUPONCODE","Kupon code");//Coupon code
+define("_TOTALUSES","Kabuuang gumagamit");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Total ay gumagamit sa pamamagitan ng iisang user");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Pinakamataas na gumagamit ng iisang user");//Maximum uses by single user
+define("_VALIDFROM","Valid mula sa");//Valid from
+define("_DISCOUNT","Diskuwento");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Matagumpay na na-update kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Gumawa ng mga natatanging kupon");//Create unique coupon
+define("_ADDCOUPON","Magdagdag ng mga kupon");//Add coupon
+define("_COUPONPROPERTIES","Kupon-aari");//Coupon properties
+define("_REPORTS","Ulat");//Reports
+define("_EXPIRED","Expired");//Expired
+define("_USES","Gumagamit");//Uses
+define("_VALIDUNTIL","Valid hanggang");//Valid until
+define("_USESREMAINING","Gumagamit ng natitirang");//Uses remaining
+define("_MAXIMUMUSES","Pinakamataas na gumagamit ng");//Maximum uses
+define("_USESSOFAR","Gumagamit ng gana");//Uses so far
+define("_COUPON","Kupon");//Coupon
+define("_INVALIDCOUPON","Hindi balidong kupon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","I-click upang ipasok ang discount kupon");//Click to enter discount coupon
+define("_TESTREDONE","Nawastong");//Corrected
+define("_COULDNOTFINDCOURSE","Hindi makahanap ng kurso");//Could not find course
+define("_IMPORTRESULTSFOR","I-import ng mga resulta para sa");//Import results for
 ?>

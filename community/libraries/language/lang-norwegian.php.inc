@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill kategori er tvetydig");//Skill category 
 define("_MISSING_JOB_DESCRIPTION","Manglende stillingsbeskrivelse");//Missing job description
 define("_SKILLDOESNOTEXIST","Denne ferdigheten finnes ikke");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Brukeren finnes allerede i gruppe");//User already exists in group
-define("_COUPONS","Kuponger");//Coupons (New)
-define("_COUPONCODE","Kupongkode");//Coupon code (New)
-define("_TOTALUSES","Totalt bruker");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Totalt bruker av én enkelt bruker");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maksimal bruk av én enkelt bruker");//Maximum uses by single user (New)
-define("_VALIDFROM","Gyldig fra");//Valid from (New)
-define("_DISCOUNT","Rabatt");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Oppdatert kupong");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Lag unike kupong");//Create unique coupon (New)
-define("_ADDCOUPON","Legg kupong");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupongen egenskaper");//Coupon properties (New)
-define("_REPORTS","Rapporter");//Reports (New)
-define("_EXPIRED","Utløpt");//Expired (New)
-define("_USES","Bruker");//Uses (New)
-define("_VALIDUNTIL","Gyldig til");//Valid until (New)
-define("_USESREMAINING","Bruker gjenværende");//Uses remaining (New)
-define("_MAXIMUMUSES","Maksimum bruker");//Maximum uses (New)
-define("_USESSOFAR","Bruker så langt");//Uses so far (New)
-define("_COUPON","Kupong");//Coupon (New)
-define("_INVALIDCOUPON","Ugyldig kupong");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Klikk for å skrive inn rabatt kupong");//Click to enter discount coupon (New)
-define("_TESTREDONE","Korrigert");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Kunne ikke finne kurs");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Import resultater for");//Import results for (New)
+define("_COUPONS","Kuponger");//Coupons
+define("_COUPONCODE","Kupongkode");//Coupon code
+define("_TOTALUSES","Totalt bruker");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Totalt bruker av én enkelt bruker");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimal bruk av én enkelt bruker");//Maximum uses by single user
+define("_VALIDFROM","Gyldig fra");//Valid from
+define("_DISCOUNT","Rabatt");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Oppdatert kupong");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Lag unike kupong");//Create unique coupon
+define("_ADDCOUPON","Legg kupong");//Add coupon
+define("_COUPONPROPERTIES","Kupongen egenskaper");//Coupon properties
+define("_REPORTS","Rapporter");//Reports
+define("_EXPIRED","Utløpt");//Expired
+define("_USES","Bruker");//Uses
+define("_VALIDUNTIL","Gyldig til");//Valid until
+define("_USESREMAINING","Bruker gjenværende");//Uses remaining
+define("_MAXIMUMUSES","Maksimum bruker");//Maximum uses
+define("_USESSOFAR","Bruker så langt");//Uses so far
+define("_COUPON","Kupong");//Coupon
+define("_INVALIDCOUPON","Ugyldig kupong");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Klikk for å skrive inn rabatt kupong");//Click to enter discount coupon
+define("_TESTREDONE","Korrigert");//Corrected
+define("_COULDNOTFINDCOURSE","Kunne ikke finne kurs");//Could not find course
+define("_IMPORTRESULTSFOR","Import resultater for");//Import results for
 ?>

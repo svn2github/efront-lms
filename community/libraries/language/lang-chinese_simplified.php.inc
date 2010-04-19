@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","技能类是暧昧");//Skill category is ambig
 define("_MISSING_JOB_DESCRIPTION","缺少工作描述");//Missing job description
 define("_SKILLDOESNOTEXIST","这项技能不存在");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","用户已经存在于组");//User already exists in group
-define("_COUPONS","优惠券");//Coupons (New)
-define("_COUPONCODE","优惠券代码");//Coupon code (New)
-define("_TOTALUSES","共有使用");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","由单个用户总使用");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","由单个用户的最大使用");//Maximum uses by single user (New)
-define("_VALIDFROM","有效期从");//Valid from (New)
-define("_DISCOUNT","折扣");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","优惠券已成功更新");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","创建独特的优惠券");//Create unique coupon (New)
-define("_ADDCOUPON","添加优惠券");//Add coupon (New)
-define("_COUPONPROPERTIES","优惠券性质");//Coupon properties (New)
-define("_REPORTS","报告");//Reports (New)
-define("_EXPIRED","过期");//Expired (New)
-define("_USES","用途");//Uses (New)
-define("_VALIDUNTIL","有效期至");//Valid until (New)
-define("_USESREMAINING","其余用途");//Uses remaining (New)
-define("_MAXIMUMUSES","最大使用");//Maximum uses (New)
-define("_USESSOFAR","到目前为止用途");//Uses so far (New)
-define("_COUPON","优惠券");//Coupon (New)
-define("_INVALIDCOUPON","无效的优惠券");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","点击进入优惠券");//Click to enter discount coupon (New)
-define("_TESTREDONE","更正");//Corrected (New)
-define("_COULDNOTFINDCOURSE","当然找不到");//Could not find course (New)
-define("_IMPORTRESULTSFOR","导入结果");//Import results for (New)
+define("_COUPONS","优惠券");//Coupons
+define("_COUPONCODE","优惠券代码");//Coupon code
+define("_TOTALUSES","共有使用");//Total uses
+define("_TOTALUSESBYSINGLEUSER","由单个用户总使用");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","由单个用户的最大使用");//Maximum uses by single user
+define("_VALIDFROM","有效期从");//Valid from
+define("_DISCOUNT","折扣");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","优惠券已成功更新");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","创建独特的优惠券");//Create unique coupon
+define("_ADDCOUPON","添加优惠券");//Add coupon
+define("_COUPONPROPERTIES","优惠券性质");//Coupon properties
+define("_REPORTS","报告");//Reports
+define("_EXPIRED","过期");//Expired
+define("_USES","用途");//Uses
+define("_VALIDUNTIL","有效期至");//Valid until
+define("_USESREMAINING","其余用途");//Uses remaining
+define("_MAXIMUMUSES","最大使用");//Maximum uses
+define("_USESSOFAR","到目前为止用途");//Uses so far
+define("_COUPON","优惠券");//Coupon
+define("_INVALIDCOUPON","无效的优惠券");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","点击进入优惠券");//Click to enter discount coupon
+define("_TESTREDONE","更正");//Corrected
+define("_COULDNOTFINDCOURSE","当然找不到");//Could not find course
+define("_IMPORTRESULTSFOR","导入结果");//Import results for
 ?>

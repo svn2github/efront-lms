@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill Kategorie ist zweideutig");//Skill categ
 define("_MISSING_JOB_DESCRIPTION","Fehlende Stellen-Beschreibung");//Missing job description
 define("_SKILLDOESNOTEXIST","Diese Fähigkeit ist nicht vorhanden");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Benutzer existiert bereits in der Gruppe");//User already exists in group
-define("_COUPONS","Gutscheine");//Coupons (New)
-define("_COUPONCODE","Coupon-Code");//Coupon code (New)
-define("_TOTALUSES","Verwendung insgesamt");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Insgesamt nutzt durch einzelne Nutzer");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maximale Nutzung durch einzelne Nutzer");//Maximum uses by single user (New)
-define("_VALIDFROM","Gültig ab");//Valid from (New)
-define("_DISCOUNT","Nachlass");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Erfolgreich aktualisiert Kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Erstellen Sie einzigartige Kupon");//Create unique coupon (New)
-define("_ADDCOUPON","Coupon hinzufügen");//Add coupon (New)
-define("_COUPONPROPERTIES","Coupon-Eigenschaften");//Coupon properties (New)
-define("_REPORTS","Reports");//Reports (New)
-define("_EXPIRED","Abgelaufen");//Expired (New)
-define("_USES","Verwendet");//Uses (New)
-define("_VALIDUNTIL","Gültig bis");//Valid until (New)
-define("_USESREMAINING","Verwendet verbleibenden");//Uses remaining (New)
-define("_MAXIMUMUSES","Maximale verwendet");//Maximum uses (New)
-define("_USESSOFAR","Verwendet so weit");//Uses so far (New)
-define("_COUPON","Coupon");//Coupon (New)
-define("_INVALIDCOUPON","Invalid Coupon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Klicken Sie hier für Rabatt-Coupon");//Click to enter discount coupon (New)
-define("_TESTREDONE","Berichtigt");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Natürlich konnte nicht gefunden werden");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Import Ergebnisse für");//Import results for (New)
+define("_COUPONS","Gutscheine");//Coupons
+define("_COUPONCODE","Coupon-Code");//Coupon code
+define("_TOTALUSES","Verwendung insgesamt");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Insgesamt nutzt durch einzelne Nutzer");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maximale Nutzung durch einzelne Nutzer");//Maximum uses by single user
+define("_VALIDFROM","Gültig ab");//Valid from
+define("_DISCOUNT","Nachlass");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Erfolgreich aktualisiert Kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Erstellen Sie einzigartige Kupon");//Create unique coupon
+define("_ADDCOUPON","Coupon hinzufügen");//Add coupon
+define("_COUPONPROPERTIES","Coupon-Eigenschaften");//Coupon properties
+define("_REPORTS","Reports");//Reports
+define("_EXPIRED","Abgelaufen");//Expired
+define("_USES","Verwendet");//Uses
+define("_VALIDUNTIL","Gültig bis");//Valid until
+define("_USESREMAINING","Verwendet verbleibenden");//Uses remaining
+define("_MAXIMUMUSES","Maximale verwendet");//Maximum uses
+define("_USESSOFAR","Verwendet so weit");//Uses so far
+define("_COUPON","Coupon");//Coupon
+define("_INVALIDCOUPON","Invalid Coupon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Klicken Sie hier für Rabatt-Coupon");//Click to enter discount coupon
+define("_TESTREDONE","Berichtigt");//Corrected
+define("_COULDNOTFINDCOURSE","Natürlich konnte nicht gefunden werden");//Could not find course
+define("_IMPORTRESULTSFOR","Import Ergebnisse für");//Import results for
 ?>

@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","kategori aftësia është e paqartë");//Skill
 define("_MISSING_JOB_DESCRIPTION","E humbur përshkrimit të punës");//Missing job description
 define("_SKILLDOESNOTEXIST","Kjo aftësi nuk ekziston");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","User ekziston në grup");//User already exists in group
-define("_COUPONS","Kuponat");//Coupons (New)
-define("_COUPONCODE","Kodi kupon");//Coupon code (New)
-define("_TOTALUSES","Totali i përdor");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Totali përdor nga përdorues të vetëm");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maksimumi përdor nga përdorues të vetëm");//Maximum uses by single user (New)
-define("_VALIDFROM","E vlefshme nga");//Valid from (New)
-define("_DISCOUNT","Zbritje");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","-freskua me sukses kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","kupon Krijo unike");//Create unique coupon (New)
-define("_ADDCOUPON","Shto kupon");//Add coupon (New)
-define("_COUPONPROPERTIES","pronat kupon");//Coupon properties (New)
-define("_REPORTS","Raportet");//Reports (New)
-define("_EXPIRED","Skaduar");//Expired (New)
-define("_USES","Përdor");//Uses (New)
-define("_VALIDUNTIL","E vlefshme deri");//Valid until (New)
-define("_USESREMAINING","Përdor mbetur");//Uses remaining (New)
-define("_MAXIMUMUSES","Maksimumi i përdor");//Maximum uses (New)
-define("_USESSOFAR","Përdor deri tani");//Uses so far (New)
-define("_COUPON","Kupon");//Coupon (New)
-define("_INVALIDCOUPON","kupon pavlefshme");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Kliko për të hyrë në zbritje kupon");//Click to enter discount coupon (New)
-define("_TESTREDONE","Korrigjohen");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Nuk mund të gjeni kursin");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Rezultatet e importit për");//Import results for (New)
+define("_COUPONS","Kuponat");//Coupons
+define("_COUPONCODE","Kodi kupon");//Coupon code
+define("_TOTALUSES","Totali i përdor");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Totali përdor nga përdorues të vetëm");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimumi përdor nga përdorues të vetëm");//Maximum uses by single user
+define("_VALIDFROM","E vlefshme nga");//Valid from
+define("_DISCOUNT","Zbritje");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","-freskua me sukses kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","kupon Krijo unike");//Create unique coupon
+define("_ADDCOUPON","Shto kupon");//Add coupon
+define("_COUPONPROPERTIES","pronat kupon");//Coupon properties
+define("_REPORTS","Raportet");//Reports
+define("_EXPIRED","Skaduar");//Expired
+define("_USES","Përdor");//Uses
+define("_VALIDUNTIL","E vlefshme deri");//Valid until
+define("_USESREMAINING","Përdor mbetur");//Uses remaining
+define("_MAXIMUMUSES","Maksimumi i përdor");//Maximum uses
+define("_USESSOFAR","Përdor deri tani");//Uses so far
+define("_COUPON","Kupon");//Coupon
+define("_INVALIDCOUPON","kupon pavlefshme");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Kliko për të hyrë në zbritje kupon");//Click to enter discount coupon
+define("_TESTREDONE","Korrigjohen");//Corrected
+define("_COULDNOTFINDCOURSE","Nuk mund të gjeni kursin");//Could not find course
+define("_IMPORTRESULTSFOR","Rezultatet e importit për");//Import results for
 ?>

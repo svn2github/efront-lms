@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","مهارة فئة غامضة");//Skill categor
 define("_MISSING_JOB_DESCRIPTION","مفقود التوصيف الوظيفي");//Missing job description
 define("_SKILLDOESNOTEXIST","هذه المهارة لا وجود له");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","المستخدم موجود بالفعل في المجموعة");//User already exists in group
-define("_COUPONS","كوبونات");//Coupons (New)
-define("_COUPONCODE","رمز القسيمة");//Coupon code (New)
-define("_TOTALUSES","إجمالي الاستخدامات");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","مجموع يستخدم من قبل مستخدم واحد");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","الحد الأقصى ليستخدم من قبل مستخدم واحد");//Maximum uses by single user (New)
-define("_VALIDFROM","صالحة من");//Valid from (New)
-define("_DISCOUNT","خصم");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","تحديث بنجاح القسيمة");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","إنشاء قسيمة فريد");//Create unique coupon (New)
-define("_ADDCOUPON","إضافة قسيمة");//Add coupon (New)
-define("_COUPONPROPERTIES","القسيمة خصائص");//Coupon properties (New)
-define("_REPORTS","تقارير");//Reports (New)
-define("_EXPIRED","انتهت");//Expired (New)
-define("_USES","يستخدم");//Uses (New)
-define("_VALIDUNTIL","ساري المفعول حتى");//Valid until (New)
-define("_USESREMAINING","الاستخدامات المتبقية");//Uses remaining (New)
-define("_MAXIMUMUSES","يستخدم أقصى");//Maximum uses (New)
-define("_USESSOFAR","يستخدم حتى الآن");//Uses so far (New)
-define("_COUPON","قسيمة");//Coupon (New)
-define("_INVALIDCOUPON","القسيمة غير صالحة");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","اضغط للدخول خصم القسيمة");//Click to enter discount coupon (New)
-define("_TESTREDONE","تصحيح");//Corrected (New)
-define("_COULDNOTFINDCOURSE","بالطبع لا يمكن أن تجد");//Could not find course (New)
-define("_IMPORTRESULTSFOR","نتائج لاستيراد");//Import results for (New)
+define("_COUPONS","كوبونات");//Coupons
+define("_COUPONCODE","رمز القسيمة");//Coupon code
+define("_TOTALUSES","إجمالي الاستخدامات");//Total uses
+define("_TOTALUSESBYSINGLEUSER","مجموع يستخدم من قبل مستخدم واحد");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","الحد الأقصى ليستخدم من قبل مستخدم واحد");//Maximum uses by single user
+define("_VALIDFROM","صالحة من");//Valid from
+define("_DISCOUNT","خصم");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","تحديث بنجاح القسيمة");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","إنشاء قسيمة فريد");//Create unique coupon
+define("_ADDCOUPON","إضافة قسيمة");//Add coupon
+define("_COUPONPROPERTIES","القسيمة خصائص");//Coupon properties
+define("_REPORTS","تقارير");//Reports
+define("_EXPIRED","انتهت");//Expired
+define("_USES","يستخدم");//Uses
+define("_VALIDUNTIL","ساري المفعول حتى");//Valid until
+define("_USESREMAINING","الاستخدامات المتبقية");//Uses remaining
+define("_MAXIMUMUSES","يستخدم أقصى");//Maximum uses
+define("_USESSOFAR","يستخدم حتى الآن");//Uses so far
+define("_COUPON","قسيمة");//Coupon
+define("_INVALIDCOUPON","القسيمة غير صالحة");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","اضغط للدخول خصم القسيمة");//Click to enter discount coupon
+define("_TESTREDONE","تصحيح");//Corrected
+define("_COULDNOTFINDCOURSE","بالطبع لا يمكن أن تجد");//Could not find course
+define("_IMPORTRESULTSFOR","نتائج لاستيراد");//Import results for
 ?>

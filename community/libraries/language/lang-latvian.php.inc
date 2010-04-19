@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Prasme kategorija ir neskaidrs");//Skill categ
 define("_MISSING_JOB_DESCRIPTION","Trūkstošo darba apraksts");//Missing job description
 define("_SKILLDOESNOTEXIST","Šī prasme neeksistē");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Lietotājs jau eksistē grupas");//User already exists in group
-define("_COUPONS","Kuponi");//Coupons (New)
-define("_COUPONCODE","Kupona kods");//Coupon code (New)
-define("_TOTALUSES","Kopējais izlietojums");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Kopējais izlietojums pa vienam lietotājam");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maksimālais izmanto ar vienu lietotāju");//Maximum uses by single user (New)
-define("_VALIDFROM","Derīgs no");//Valid from (New)
-define("_DISCOUNT","Atlaide");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Veiksmīgi atjaunināts kupons");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Izveidot unikālu kupons");//Create unique coupon (New)
-define("_ADDCOUPON","Pievienot kupons");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupons īpašības");//Coupon properties (New)
-define("_REPORTS","Ziņojumi");//Reports (New)
-define("_EXPIRED","Beidzies");//Expired (New)
-define("_USES","Izlietojumi");//Uses (New)
-define("_VALIDUNTIL","Derīga līdz");//Valid until (New)
-define("_USESREMAINING","Izmanto atlikušo");//Uses remaining (New)
-define("_MAXIMUMUSES","Maksimālais izmanto");//Maximum uses (New)
-define("_USESSOFAR","Izmanto šim");//Uses so far (New)
-define("_COUPON","Kupons");//Coupon (New)
-define("_INVALIDCOUPON","Nederīgs kupons");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Noklikšķiniet, lai ievadītu atlaides kuponu");//Click to enter discount coupon (New)
-define("_TESTREDONE","Labots");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Neizdevās atrast kursu");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Importa rezultāti");//Import results for (New)
+define("_COUPONS","Kuponi");//Coupons
+define("_COUPONCODE","Kupona kods");//Coupon code
+define("_TOTALUSES","Kopējais izlietojums");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Kopējais izlietojums pa vienam lietotājam");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimālais izmanto ar vienu lietotāju");//Maximum uses by single user
+define("_VALIDFROM","Derīgs no");//Valid from
+define("_DISCOUNT","Atlaide");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Veiksmīgi atjaunināts kupons");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Izveidot unikālu kupons");//Create unique coupon
+define("_ADDCOUPON","Pievienot kupons");//Add coupon
+define("_COUPONPROPERTIES","Kupons īpašības");//Coupon properties
+define("_REPORTS","Ziņojumi");//Reports
+define("_EXPIRED","Beidzies");//Expired
+define("_USES","Izlietojumi");//Uses
+define("_VALIDUNTIL","Derīga līdz");//Valid until
+define("_USESREMAINING","Izmanto atlikušo");//Uses remaining
+define("_MAXIMUMUSES","Maksimālais izmanto");//Maximum uses
+define("_USESSOFAR","Izmanto šim");//Uses so far
+define("_COUPON","Kupons");//Coupon
+define("_INVALIDCOUPON","Nederīgs kupons");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Noklikšķiniet, lai ievadītu atlaides kuponu");//Click to enter discount coupon
+define("_TESTREDONE","Labots");//Corrected
+define("_COULDNOTFINDCOURSE","Neizdevās atrast kursu");//Could not find course
+define("_IMPORTRESULTSFOR","Importa rezultāti");//Import results for
 ?>

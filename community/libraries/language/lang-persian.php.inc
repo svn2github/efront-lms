@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","رده مهارت است مبهم");//Skill ca
 define("_MISSING_JOB_DESCRIPTION","گمشده شرح شغل");//Missing job description
 define("_SKILLDOESNOTEXIST","این مهارت وجود ندارد");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","کاربر در حال حاضر در گروه وجود دارد");//User already exists in group
-define("_COUPONS","کوپن");//Coupons (New)
-define("_COUPONCODE","کد کوپن");//Coupon code (New)
-define("_TOTALUSES","ها استفاده می کند");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","با استفاده از تعداد شده توسط کاربر تنها");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","حداکثر استفاده شده توسط کاربر تنها");//Maximum uses by single user (New)
-define("_VALIDFROM","معتبر از");//Valid from (New)
-define("_DISCOUNT","تخفیف");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","با موفقیت به روزآوری کوپن");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","کوپن های منحصر به فرد ایجاد کنید");//Create unique coupon (New)
-define("_ADDCOUPON","افزودنیهای کوپن");//Add coupon (New)
-define("_COUPONPROPERTIES","خواص کارت");//Coupon properties (New)
-define("_REPORTS","گزارش");//Reports (New)
-define("_EXPIRED","منقضی شده");//Expired (New)
-define("_USES","موارد استفاده");//Uses (New)
-define("_VALIDUNTIL","معتبر تا");//Valid until (New)
-define("_USESREMAINING","استفاده باقی مانده");//Uses remaining (New)
-define("_MAXIMUMUSES","حداکثر استفاده می کند");//Maximum uses (New)
-define("_USESSOFAR","استفاده تا کنون");//Uses so far (New)
-define("_COUPON","کوپن");//Coupon (New)
-define("_INVALIDCOUPON","کوپن نامعتبر");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","کلیک کنید برای ورود به کوپن تخفیف");//Click to enter discount coupon (New)
-define("_TESTREDONE","تصحیح شده");//Corrected (New)
-define("_COULDNOTFINDCOURSE","البته ممکن است پیدا نشد");//Could not find course (New)
-define("_IMPORTRESULTSFOR","نتایج برای واردات");//Import results for (New)
+define("_COUPONS","کوپن");//Coupons
+define("_COUPONCODE","کد کوپن");//Coupon code
+define("_TOTALUSES","ها استفاده می کند");//Total uses
+define("_TOTALUSESBYSINGLEUSER","با استفاده از تعداد شده توسط کاربر تنها");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","حداکثر استفاده شده توسط کاربر تنها");//Maximum uses by single user
+define("_VALIDFROM","معتبر از");//Valid from
+define("_DISCOUNT","تخفیف");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","با موفقیت به روزآوری کوپن");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","کوپن های منحصر به فرد ایجاد کنید");//Create unique coupon
+define("_ADDCOUPON","افزودنیهای کوپن");//Add coupon
+define("_COUPONPROPERTIES","خواص کارت");//Coupon properties
+define("_REPORTS","گزارش");//Reports
+define("_EXPIRED","منقضی شده");//Expired
+define("_USES","موارد استفاده");//Uses
+define("_VALIDUNTIL","معتبر تا");//Valid until
+define("_USESREMAINING","استفاده باقی مانده");//Uses remaining
+define("_MAXIMUMUSES","حداکثر استفاده می کند");//Maximum uses
+define("_USESSOFAR","استفاده تا کنون");//Uses so far
+define("_COUPON","کوپن");//Coupon
+define("_INVALIDCOUPON","کوپن نامعتبر");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","کلیک کنید برای ورود به کوپن تخفیف");//Click to enter discount coupon
+define("_TESTREDONE","تصحیح شده");//Corrected
+define("_COULDNOTFINDCOURSE","البته ممکن است پیدا نشد");//Could not find course
+define("_IMPORTRESULTSFOR","نتایج برای واردات");//Import results for
 ?>

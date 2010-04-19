@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","");//Skill category is ambiguous
 define("_MISSING_JOB_DESCRIPTION","");//Missing job description
 define("_SKILLDOESNOTEXIST","");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","");//User already exists in group
-define("_COUPONS","");//Coupons (New)
-define("_COUPONCODE","");//Coupon code (New)
-define("_TOTALUSES","");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","");//Maximum uses by single user (New)
-define("_VALIDFROM","");//Valid from (New)
-define("_DISCOUNT","");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","");//Create unique coupon (New)
-define("_ADDCOUPON","");//Add coupon (New)
-define("_COUPONPROPERTIES","");//Coupon properties (New)
-define("_REPORTS","");//Reports (New)
-define("_EXPIRED","");//Expired (New)
-define("_USES","");//Uses (New)
-define("_VALIDUNTIL","");//Valid until (New)
-define("_USESREMAINING","");//Uses remaining (New)
-define("_MAXIMUMUSES","");//Maximum uses (New)
-define("_USESSOFAR","");//Uses so far (New)
-define("_COUPON","");//Coupon (New)
-define("_INVALIDCOUPON","");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","");//Click to enter discount coupon (New)
-define("_TESTREDONE","");//Corrected (New)
-define("_COULDNOTFINDCOURSE","");//Could not find course (New)
-define("_IMPORTRESULTSFOR","");//Import results for (New)
+define("_COUPONS","");//Coupons
+define("_COUPONCODE","");//Coupon code
+define("_TOTALUSES","");//Total uses
+define("_TOTALUSESBYSINGLEUSER","");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","");//Maximum uses by single user
+define("_VALIDFROM","");//Valid from
+define("_DISCOUNT","");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","");//Create unique coupon
+define("_ADDCOUPON","");//Add coupon
+define("_COUPONPROPERTIES","");//Coupon properties
+define("_REPORTS","");//Reports
+define("_EXPIRED","");//Expired
+define("_USES","");//Uses
+define("_VALIDUNTIL","");//Valid until
+define("_USESREMAINING","");//Uses remaining
+define("_MAXIMUMUSES","");//Maximum uses
+define("_USESSOFAR","");//Uses so far
+define("_COUPON","");//Coupon
+define("_INVALIDCOUPON","");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","");//Click to enter discount coupon
+define("_TESTREDONE","");//Corrected
+define("_COULDNOTFINDCOURSE","");//Could not find course
+define("_IMPORTRESULTSFOR","");//Import results for
 ?>

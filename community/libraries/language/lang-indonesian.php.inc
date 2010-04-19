@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Keterampilan kategori ambigu");//Skill categor
 define("_MISSING_JOB_DESCRIPTION","Hilang deskripsi pekerjaan");//Missing job description
 define("_SKILLDOESNOTEXIST","Keterampilan ini tidak ada");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Pengguna sudah ada dalam grup");//User already exists in group
-define("_COUPONS","Kupon");//Coupons (New)
-define("_COUPONCODE","Kupon kode");//Coupon code (New)
-define("_TOTALUSES","Total menggunakan");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Total menggunakan oleh user tunggal");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Maksimum menggunakan oleh user tunggal");//Maximum uses by single user (New)
-define("_VALIDFROM","Berlaku dari");//Valid from (New)
-define("_DISCOUNT","Diskon");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Berhasil diperbarui kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Membuat kupon yang unik");//Create unique coupon (New)
-define("_ADDCOUPON","Tambahkan kupon");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupon sifat");//Coupon properties (New)
-define("_REPORTS","Laporan");//Reports (New)
-define("_EXPIRED","Kadaluarsa");//Expired (New)
-define("_USES","Menggunakan");//Uses (New)
-define("_VALIDUNTIL","Berlaku sampai");//Valid until (New)
-define("_USESREMAINING","Menggunakan sisa");//Uses remaining (New)
-define("_MAXIMUMUSES","Maksimum menggunakan");//Maximum uses (New)
-define("_USESSOFAR","Menggunakan sejauh");//Uses so far (New)
-define("_COUPON","Kupon");//Coupon (New)
-define("_INVALIDCOUPON","Kupon tidak valid");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Klik untuk memasukkan kupon diskon");//Click to enter discount coupon (New)
-define("_TESTREDONE","Dikoreksi");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Tidak dapat menemukan program");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Impor hasil untuk");//Import results for (New)
+define("_COUPONS","Kupon");//Coupons
+define("_COUPONCODE","Kupon kode");//Coupon code
+define("_TOTALUSES","Total menggunakan");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Total menggunakan oleh user tunggal");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimum menggunakan oleh user tunggal");//Maximum uses by single user
+define("_VALIDFROM","Berlaku dari");//Valid from
+define("_DISCOUNT","Diskon");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Berhasil diperbarui kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Membuat kupon yang unik");//Create unique coupon
+define("_ADDCOUPON","Tambahkan kupon");//Add coupon
+define("_COUPONPROPERTIES","Kupon sifat");//Coupon properties
+define("_REPORTS","Laporan");//Reports
+define("_EXPIRED","Kadaluarsa");//Expired
+define("_USES","Menggunakan");//Uses
+define("_VALIDUNTIL","Berlaku sampai");//Valid until
+define("_USESREMAINING","Menggunakan sisa");//Uses remaining
+define("_MAXIMUMUSES","Maksimum menggunakan");//Maximum uses
+define("_USESSOFAR","Menggunakan sejauh");//Uses so far
+define("_COUPON","Kupon");//Coupon
+define("_INVALIDCOUPON","Kupon tidak valid");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Klik untuk memasukkan kupon diskon");//Click to enter discount coupon
+define("_TESTREDONE","Dikoreksi");//Corrected
+define("_COULDNOTFINDCOURSE","Tidak dapat menemukan program");//Could not find course
+define("_IMPORTRESULTSFOR","Impor hasil untuk");//Import results for
 ?>

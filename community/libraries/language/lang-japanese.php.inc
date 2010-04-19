@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","スキルカテゴリのあいまいさ");//Sk
 define("_MISSING_JOB_DESCRIPTION","ジョブの説明が表示されない");//Missing job description
 define("_SKILLDOESNOTEXIST","このスキルは存在しない");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","ユーザーはすでにグループ内に存在する");//User already exists in group
-define("_COUPONS","クーポン");//Coupons (New)
-define("_COUPONCODE","クーポンコード");//Coupon code (New)
-define("_TOTALUSES","合計が使用");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","シングルユーザーでの合計使用");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","最大は、単一のユーザーが使用して");//Maximum uses by single user (New)
-define("_VALIDFROM","有効から");//Valid from (New)
-define("_DISCOUNT","ディスカウント");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","正常にクーポンを更新しました");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","作成独自のクーポン");//Create unique coupon (New)
-define("_ADDCOUPON","クーポンを追加");//Add coupon (New)
-define("_COUPONPROPERTIES","クーポンのプロパティ");//Coupon properties (New)
-define("_REPORTS","レポート");//Reports (New)
-define("_EXPIRED","期限切れ");//Expired (New)
-define("_USES","使用");//Uses (New)
-define("_VALIDUNTIL","有効期限");//Valid until (New)
-define("_USESREMAINING","使用残りの");//Uses remaining (New)
-define("_MAXIMUMUSES","最大で使用する");//Maximum uses (New)
-define("_USESSOFAR","使用今のところ");//Uses so far (New)
-define("_COUPON","クーポン");//Coupon (New)
-define("_INVALIDCOUPON","無効なクーポン");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","をクリックしてクーポン割引を入力する");//Click to enter discount coupon (New)
-define("_TESTREDONE","修正");//Corrected (New)
-define("_COULDNOTFINDCOURSE","コースを見つけることができませんでした");//Could not find course (New)
-define("_IMPORTRESULTSFOR","インポート結果");//Import results for (New)
+define("_COUPONS","クーポン");//Coupons
+define("_COUPONCODE","クーポンコード");//Coupon code
+define("_TOTALUSES","合計が使用");//Total uses
+define("_TOTALUSESBYSINGLEUSER","シングルユーザーでの合計使用");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","最大は、単一のユーザーが使用して");//Maximum uses by single user
+define("_VALIDFROM","有効から");//Valid from
+define("_DISCOUNT","ディスカウント");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","正常にクーポンを更新しました");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","作成独自のクーポン");//Create unique coupon
+define("_ADDCOUPON","クーポンを追加");//Add coupon
+define("_COUPONPROPERTIES","クーポンのプロパティ");//Coupon properties
+define("_REPORTS","レポート");//Reports
+define("_EXPIRED","期限切れ");//Expired
+define("_USES","使用");//Uses
+define("_VALIDUNTIL","有効期限");//Valid until
+define("_USESREMAINING","使用残りの");//Uses remaining
+define("_MAXIMUMUSES","最大で使用する");//Maximum uses
+define("_USESSOFAR","使用今のところ");//Uses so far
+define("_COUPON","クーポン");//Coupon
+define("_INVALIDCOUPON","無効なクーポン");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","をクリックしてクーポン割引を入力する");//Click to enter discount coupon
+define("_TESTREDONE","修正");//Corrected
+define("_COULDNOTFINDCOURSE","コースを見つけることができませんでした");//Could not find course
+define("_IMPORTRESULTSFOR","インポート結果");//Import results for
 ?>

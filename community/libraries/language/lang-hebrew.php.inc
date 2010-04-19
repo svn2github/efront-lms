@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","קטגוריית מיומנות הוא מעו�
 define("_MISSING_JOB_DESCRIPTION","חסר תיאור העבודה");//Missing job description
 define("_SKILLDOESNOTEXIST","מיומנות זו אינה קיימת");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","משתמש כבר קיים בקבוצה");//User already exists in group
-define("_COUPONS","קופונים");//Coupons (New)
-define("_COUPONCODE","קוד קופון");//Coupon code (New)
-define("_TOTALUSES","סך משתמש");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","משתמש סך של משתמש יחיד");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","מרבית השימושים של משתמש יחיד");//Maximum uses by single user (New)
-define("_VALIDFROM","תקף מ");//Valid from (New)
-define("_DISCOUNT","הנחה");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","עודכן בהצלחה קופון");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","יצירה ייחודית קופון");//Create unique coupon (New)
-define("_ADDCOUPON","הוסף קופון");//Add coupon (New)
-define("_COUPONPROPERTIES","קופון נכסים");//Coupon properties (New)
-define("_REPORTS","דוחות");//Reports (New)
-define("_EXPIRED","פג תוקף");//Expired (New)
-define("_USES","שימושים");//Uses (New)
-define("_VALIDUNTIL","תקף עד");//Valid until (New)
-define("_USESREMAINING","שימושים הנותרים");//Uses remaining (New)
-define("_MAXIMUMUSES","מרבית השימושים");//Maximum uses (New)
-define("_USESSOFAR","שימושים כה");//Uses so far (New)
-define("_COUPON","קופון");//Coupon (New)
-define("_INVALIDCOUPON","חוקי קופון");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","לחץ כדי להיכנס קופון הנחה");//Click to enter discount coupon (New)
-define("_TESTREDONE","מתוקן");//Corrected (New)
-define("_COULDNOTFINDCOURSE","לא ניתן למצוא כמובן");//Could not find course (New)
-define("_IMPORTRESULTSFOR","ייבוא תוצאות עבור");//Import results for (New)
+define("_COUPONS","קופונים");//Coupons
+define("_COUPONCODE","קוד קופון");//Coupon code
+define("_TOTALUSES","סך משתמש");//Total uses
+define("_TOTALUSESBYSINGLEUSER","משתמש סך של משתמש יחיד");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","מרבית השימושים של משתמש יחיד");//Maximum uses by single user
+define("_VALIDFROM","תקף מ");//Valid from
+define("_DISCOUNT","הנחה");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","עודכן בהצלחה קופון");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","יצירה ייחודית קופון");//Create unique coupon
+define("_ADDCOUPON","הוסף קופון");//Add coupon
+define("_COUPONPROPERTIES","קופון נכסים");//Coupon properties
+define("_REPORTS","דוחות");//Reports
+define("_EXPIRED","פג תוקף");//Expired
+define("_USES","שימושים");//Uses
+define("_VALIDUNTIL","תקף עד");//Valid until
+define("_USESREMAINING","שימושים הנותרים");//Uses remaining
+define("_MAXIMUMUSES","מרבית השימושים");//Maximum uses
+define("_USESSOFAR","שימושים כה");//Uses so far
+define("_COUPON","קופון");//Coupon
+define("_INVALIDCOUPON","חוקי קופון");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","לחץ כדי להיכנס קופון הנחה");//Click to enter discount coupon
+define("_TESTREDONE","מתוקן");//Corrected
+define("_COULDNOTFINDCOURSE","לא ניתן למצוא כמובן");//Could not find course
+define("_IMPORTRESULTSFOR","ייבוא תוצאות עבור");//Import results for
 ?>

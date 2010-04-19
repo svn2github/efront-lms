@@ -3561,28 +3561,28 @@ define("_SKILLCATEGORYAMBIGUOUS","Skill kategori er tvetydig");//Skill category 
 define("_MISSING_JOB_DESCRIPTION","Manglende jobbeskrivelse");//Missing job description
 define("_SKILLDOESNOTEXIST","Denne færdighed eksisterer ikke");//This skill does not exist
 define("_USERALREADYEXISTSINGROUP","Brugeren findes allerede i gruppe");//User already exists in group
-define("_COUPONS","Kuponer");//Coupons (New)
-define("_COUPONCODE","Kuponkode");//Coupon code (New)
-define("_TOTALUSES","Anvendelse i alt");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","Anvendelse i alt ved en enkelt bruger");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","Største bruger ved en enkelt bruger");//Maximum uses by single user (New)
-define("_VALIDFROM","Gyldig fra");//Valid from (New)
-define("_DISCOUNT","Rabat");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","Opdateret kupon");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","Skabe unikke kupon");//Create unique coupon (New)
-define("_ADDCOUPON","Tilføj kupon");//Add coupon (New)
-define("_COUPONPROPERTIES","Kupon egenskaber");//Coupon properties (New)
-define("_REPORTS","Rapporter");//Reports (New)
-define("_EXPIRED","Udløbet");//Expired (New)
-define("_USES","Bruger");//Uses (New)
-define("_VALIDUNTIL","Gyldig indtil");//Valid until (New)
-define("_USESREMAINING","Bruger resterende");//Uses remaining (New)
-define("_MAXIMUMUSES","Største bruger");//Maximum uses (New)
-define("_USESSOFAR","Bruger hidtil");//Uses so far (New)
-define("_COUPON","Kupon");//Coupon (New)
-define("_INVALIDCOUPON","Ugyldig kupon");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","Klik for at angive rabat kupon");//Click to enter discount coupon (New)
-define("_TESTREDONE","Berigtiget");//Corrected (New)
-define("_COULDNOTFINDCOURSE","Kunne ikke finde kursus");//Could not find course (New)
-define("_IMPORTRESULTSFOR","Import resultater for");//Import results for (New)
+define("_COUPONS","Kuponer");//Coupons
+define("_COUPONCODE","Kuponkode");//Coupon code
+define("_TOTALUSES","Anvendelse i alt");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Anvendelse i alt ved en enkelt bruger");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Største bruger ved en enkelt bruger");//Maximum uses by single user
+define("_VALIDFROM","Gyldig fra");//Valid from
+define("_DISCOUNT","Rabat");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Opdateret kupon");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Skabe unikke kupon");//Create unique coupon
+define("_ADDCOUPON","Tilføj kupon");//Add coupon
+define("_COUPONPROPERTIES","Kupon egenskaber");//Coupon properties
+define("_REPORTS","Rapporter");//Reports
+define("_EXPIRED","Udløbet");//Expired
+define("_USES","Bruger");//Uses
+define("_VALIDUNTIL","Gyldig indtil");//Valid until
+define("_USESREMAINING","Bruger resterende");//Uses remaining
+define("_MAXIMUMUSES","Største bruger");//Maximum uses
+define("_USESSOFAR","Bruger hidtil");//Uses so far
+define("_COUPON","Kupon");//Coupon
+define("_INVALIDCOUPON","Ugyldig kupon");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Klik for at angive rabat kupon");//Click to enter discount coupon
+define("_TESTREDONE","Berigtiget");//Corrected
+define("_COULDNOTFINDCOURSE","Kunne ikke finde kursus");//Could not find course
+define("_IMPORTRESULTSFOR","Import resultater for");//Import results for
 ?>

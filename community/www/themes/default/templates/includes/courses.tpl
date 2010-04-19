@@ -163,7 +163,7 @@
                                                         </tr>
                                         {foreach name = 'courses_list' key = 'key' item = 'course' from = $T_COURSES_DATA}
                                                         <tr id="row_{$course.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$course.active}deactivatedTableElement{/if}">
-                                                            <td class = "editLink"><span style = "display:none">{$course.name}</span>{$course.link}</td>
+                                                            <td class = "editLink"><a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$course.id}">{$course.name}</a></td>
                                                             <td>{$course.directionsPath}</td>
                <td>{$course.languages_NAME}</td>
                <td class = "centerAlign">{if $course.max_users}{$course.students}/{$course.max_users}{else}{$course.students}{/if}</td>

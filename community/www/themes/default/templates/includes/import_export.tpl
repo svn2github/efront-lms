@@ -34,7 +34,8 @@
                             <tr><td></td></tr>
                             {foreach name = 'help_list' key = "type" item = "fields" from = $T_HELP_IMPORT_INFO}
                             <tr><td id = "{$type}_help" style="display:none">
-                              <span style = "color:red">{$fields.mandatory}</span>{if $fields.optional != ""}, {$fields.optional}{/if}
+                              <span style = "color:red">{$fields.mandatory}</span>{if $fields.optional != ""}, {$fields.optional}{/if} <br>(<a href="{$smarty.server.PHP_SELF}?ctg=import_export&csv_sample=1&sample_type={$fields.sample_type}">{$smarty.const._DOWNLOADEXAMPLE}</a>)
+
                               {*
                               <table class = "formElements">
                                <tr><td class = "labelCell">{$smarty.const._MANDATORYFIELDS}:</td><td class = "elementCell" style = "color:red">{$fields.mandatory}</td></tr>

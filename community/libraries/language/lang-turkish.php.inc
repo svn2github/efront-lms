@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Ve kullanıcı mesajları");//And the messages o
 define("_ALLUSERS","Tüm kullanıcılar");//All users
 define("_INVALIDUSER","Geçersiz kullanıcı adı");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Değiştir yinelenen kullanıcılar");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Yinelenen kullanıcılar tutun");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Yinelenen kullanıcılar tutun");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Başka kullanıcıları şu anda çevrimiçi");//No other users currently online
 define("_USERNAME","Kullanıcı adı");//User name
 define("_STATISTICSFORUSER","Kullanıcı için Raporlar");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Yeni beceri atama");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Yerine mevcut şube");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Yerine mevcut iş");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Yerine mevcut beceri");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Şube zaten var");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","beceri kategori Eksik");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Beceri zaten var");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Şube yok");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Şube ismi belirsiz");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","İş unvanı belirsiz");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Beceri ismi belirsiz");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Beceri kategorisi belirsiz");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","iş tanımı Eksik");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Bu beceri yok");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Kullanıcı zaten grup var");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Şube zaten var");//Branch exists already
+define("_MISSINGSKILLCATEGORY","beceri kategori Eksik");//Missing skill category
+define("_SKILLALREADYEXISTS","Beceri zaten var");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Şube yok");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Şube ismi belirsiz");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","İş unvanı belirsiz");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Beceri ismi belirsiz");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Beceri kategorisi belirsiz");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","iş tanımı Eksik");//Missing job description
+define("_SKILLDOESNOTEXIST","Bu beceri yok");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Kullanıcı zaten grup var");//User already exists in group
+define("_COUPONS","Kuponlar");//Coupons (New)
+define("_COUPONCODE","Kupon şifre");//Coupon code (New)
+define("_TOTALUSES","Toplam kullanır");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Tek kullanıcı tarafından Toplam kullanır");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimum tek kullanıcı tarafından kullanır");//Maximum uses by single user (New)
+define("_VALIDFROM","Geçerli dan");//Valid from (New)
+define("_DISCOUNT","Indirim");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Başarıyla kupon güncellendi");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Oluşturmak eşsiz kupon");//Create unique coupon (New)
+define("_ADDCOUPON","kupon ekle");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupon özellikleri");//Coupon properties (New)
+define("_REPORTS","Raporlar");//Reports (New)
+define("_EXPIRED","Süresi geçmiş");//Expired (New)
+define("_USES","Kullanır");//Uses (New)
+define("_VALIDUNTIL","Tarihine kadar geçerlidir");//Valid until (New)
+define("_USESREMAINING","Kullanır kalan");//Uses remaining (New)
+define("_MAXIMUMUSES","Maksimum kullanır");//Maximum uses (New)
+define("_USESSOFAR","Kullanır şimdiye kadar");//Uses so far (New)
+define("_COUPON","Kupon");//Coupon (New)
+define("_INVALIDCOUPON","Geçersiz kupon");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Tıklayın kupon indirim girmek için");//Click to enter discount coupon (New)
+define("_TESTREDONE","Düzeltilmiş");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Tabii bulunamadı");//Could not find course (New)
+define("_IMPORTRESULTSFOR","İthalat sonuçları");//Import results for (New)
 ?>

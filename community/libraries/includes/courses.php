@@ -402,14 +402,21 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
     foreach ($result as $value) {
         $courseLessons[$value['courses_ID']][] = $value['lessons_ID'];
     }
+ $studentRoles = array();
+ foreach (EfrontLessonUser :: getLessonsRoles() as $key => $value) {
+     if ($value == 'student') {
+         $studentRoles[] = $key;
+     }
+ }
+    $result = eF_getTableDataFlat("users_to_courses", "courses_ID, count(*)", "user_type in ('".implode("','", $studentRoles)."')", "", "courses_ID");
+    $result = array_combine($result['courses_ID'], $result['count(*)']);
     foreach ($allCourses as $key => $course) {
         //$obj = new EfrontCourse($course['id']);
         $course -> course['directions_ID'] ? $course -> course['directionsPath'] = $directions[$course -> course['directions_ID']] : $course -> course['directionsPath'] = '';
         $course -> course['languages_NAME'] = $languages[$course -> course['languages_NAME']];
         $course -> course['lessons_num'] = isset($courseLessons[$course -> course['id']]) ? sizeof($courseLessons[$course -> course['id']]) : 0;
-        $course -> course['link'] = $course -> toHTMLTooltipLink(basename($_SERVER['PHP_SELF']).'?ctg=courses&edit_course='.$course -> course['id']);
-        $course -> course['students'] = sizeof($course -> getUsers('student'));
-  //$courses[$key]['price_string']   = $obj -> course['price_string'];
+        $course -> course['students'] = $result[$course -> course['id']];
+        //$course -> course['students']		= sizeof($course -> getUsers('student'));   
         $courses[$course -> course['id']] = $course -> course;
     }
     if (G_VERSIONTYPE == 'enterprise') {

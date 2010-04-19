@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Và các bài viết của người sử dụng"
 define("_ALLUSERS","Tất cả các người dùng");//All users
 define("_INVALIDUSER","Tên người sử dụng không hợp lệ");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Bị trùng lặp người sử dụng thay thế");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Giữ bản sao người dùng");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Giữ bản sao người dùng");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Không có những người dùng khác hiện đang trực tuyến");//No other users currently online
 define("_USERNAME","Tên người dùng");//User name
 define("_STATISTICSFORUSER","Các báo cáo cho người sử dụng");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","New kỹ năng giao");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Thay thế hiện tại chi nhánh");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Thay thế công việc hiện tại");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Thay thế kỹ năng hiện tại");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Chi nhánh đã tồn tại");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Thiếu kỹ năng thể loại");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Kỹ năng đã tồn tại");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Chi nhánh không tồn tại");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Chi nhánh tên là mơ hồ");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Tiêu đề công việc là mơ hồ");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Kỹ năng tên là mơ hồ");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Kỹ năng thể loại rất mơ hồ");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Thiếu mô tả công việc");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Kỹ năng này không tồn tại");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Người dùng đã tồn tại trong nhóm");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Chi nhánh đã tồn tại");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Thiếu kỹ năng thể loại");//Missing skill category
+define("_SKILLALREADYEXISTS","Kỹ năng đã tồn tại");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Chi nhánh không tồn tại");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Chi nhánh tên là mơ hồ");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Tiêu đề công việc là mơ hồ");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Kỹ năng tên là mơ hồ");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Kỹ năng thể loại rất mơ hồ");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Thiếu mô tả công việc");//Missing job description
+define("_SKILLDOESNOTEXIST","Kỹ năng này không tồn tại");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Người dùng đã tồn tại trong nhóm");//User already exists in group
+define("_COUPONS","Phiếu giảm giá");//Coupons (New)
+define("_COUPONCODE","Coupon code");//Coupon code (New)
+define("_TOTALUSES","Tổng số sử dụng");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Tổng số sử dụng bởi người dùng đơn");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Tối đa sử dụng bởi người dùng đơn");//Maximum uses by single user (New)
+define("_VALIDFROM","Hợp lệ từ");//Valid from (New)
+define("_DISCOUNT","Giảm");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Cập nhật thành công phiếu giảm giá");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Tạo phiếu giảm giá duy nhất");//Create unique coupon (New)
+define("_ADDCOUPON","Thêm phiếu giảm giá");//Add coupon (New)
+define("_COUPONPROPERTIES","Phiếu giảm giá tài sản");//Coupon properties (New)
+define("_REPORTS","Báo cáo");//Reports (New)
+define("_EXPIRED","Hết hạn");//Expired (New)
+define("_USES","Sử dụng");//Uses (New)
+define("_VALIDUNTIL","Giá trị đến");//Valid until (New)
+define("_USESREMAINING","Sử dụng còn lại");//Uses remaining (New)
+define("_MAXIMUMUSES","Sử dụng tối đa");//Maximum uses (New)
+define("_USESSOFAR","Sử dụng cho đến nay");//Uses so far (New)
+define("_COUPON","Coupon");//Coupon (New)
+define("_INVALIDCOUPON","Phiếu giảm giá không hợp lệ");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Nhấn vào đây để nhập vào phiếu mua hàng giảm giá");//Click to enter discount coupon (New)
+define("_TESTREDONE","Sửa chữa");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Không tìm thấy khóa học");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Kết quả nhập khẩu");//Import results for (New)
 ?>

@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Og meldinger av ansattes");//And the messages of
 define("_ALLUSERS","Alle ansatte");//All users
 define("_INVALIDUSER","Ugyldig ansattes navn");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Erstatt dupliserte ansatte");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Hold dupliserte ansatte");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Hold dupliserte ansatte");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Ingen andre ansatte er tilkoblet for øyeblikket");//No other users currently online
 define("_USERNAME","Ansattes navn");//User name
 define("_STATISTICSFORUSER","Rapporter til ansatt");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nye ferdigheter oppdrag");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Erstattet eksisterende gren");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Erstattet eksisterende jobb");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Erstattet eksisterende ferdigheter");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch finnes allerede");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Manglende ferdigheter kategori");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill finnes allerede");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Branch finnes ikke");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Avdelingsnavn er tvetydig");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Jobbtittel er tvetydig");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill navn er tvetydig");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Skill kategori er tvetydig");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Manglende stillingsbeskrivelse");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Denne ferdigheten finnes ikke");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Brukeren finnes allerede i gruppe");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Branch finnes allerede");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Manglende ferdigheter kategori");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill finnes allerede");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Branch finnes ikke");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Avdelingsnavn er tvetydig");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Jobbtittel er tvetydig");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill navn er tvetydig");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Skill kategori er tvetydig");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Manglende stillingsbeskrivelse");//Missing job description
+define("_SKILLDOESNOTEXIST","Denne ferdigheten finnes ikke");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Brukeren finnes allerede i gruppe");//User already exists in group
+define("_COUPONS","Kuponger");//Coupons (New)
+define("_COUPONCODE","Kupongkode");//Coupon code (New)
+define("_TOTALUSES","Totalt bruker");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Totalt bruker av én enkelt bruker");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimal bruk av én enkelt bruker");//Maximum uses by single user (New)
+define("_VALIDFROM","Gyldig fra");//Valid from (New)
+define("_DISCOUNT","Rabatt");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Oppdatert kupong");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Lag unike kupong");//Create unique coupon (New)
+define("_ADDCOUPON","Legg kupong");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupongen egenskaper");//Coupon properties (New)
+define("_REPORTS","Rapporter");//Reports (New)
+define("_EXPIRED","Utløpt");//Expired (New)
+define("_USES","Bruker");//Uses (New)
+define("_VALIDUNTIL","Gyldig til");//Valid until (New)
+define("_USESREMAINING","Bruker gjenværende");//Uses remaining (New)
+define("_MAXIMUMUSES","Maksimum bruker");//Maximum uses (New)
+define("_USESSOFAR","Bruker så langt");//Uses so far (New)
+define("_COUPON","Kupong");//Coupon (New)
+define("_INVALIDCOUPON","Ugyldig kupong");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Klikk for å skrive inn rabatt kupong");//Click to enter discount coupon (New)
+define("_TESTREDONE","Korrigert");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Kunne ikke finne kurs");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Import resultater for");//Import results for (New)
 ?>

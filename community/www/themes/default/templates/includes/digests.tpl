@@ -83,12 +83,14 @@
         <td align="left"><a href = "javascript:void(0)" onClick = "addTemplatizedText($('template_add'))"><img src = "images/16x16/add.png" alt = "{$smarty.const._ADDTEXTTEMPLATE}" title = "{$smarty.const._ADDTEXTTEMPLATE}" border =0></a></td>
         <td></td>
        </tr>
+       {if !$T_CONFIGURATION.onelanguage}
        <tr>
         <td class = "fixedLabelCell">{$T_DIGESTS_FORM.languages_NAME.label}:&nbsp;</td>
         <td width="5%">{$T_DIGESTS_FORM.languages_NAME.html}</td>
         <td align="left"><table><tr><td><img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, 'language_set_info', event)"><div id = 'language_set_info' onclick = "eF_js_showHideDiv(this, 'language_set_info', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:450px;height:100px;position:absolute;display:none">{$smarty.const._NOTIFICATIONLANGUAGETEMPLATEINFO}</div></td></tr></table></td>
         <td></td>
        </tr>
+       {/if}
        <tr><td colspan = 4>&nbsp;</td></tr>
        <tr><td></td><td colspan=4>{$T_DIGESTS_FORM.submit_digest.html}</td></tr>
       </table>

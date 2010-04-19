@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Och meddelandena av anställd");//And the messag
 define("_ALLUSERS","Alla anställda");//All users
 define("_INVALIDUSER","Ogiltig anställd namn");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Ersätt dubbletter anställda");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Håll två exemplar anställda");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Håll två exemplar anställda");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Inga andra anställda nu online");//No other users currently online
 define("_USERNAME","Employee namn");//User name
 define("_STATISTICSFORUSER","Rapporter om anställd");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Ny färdighet uppdrag");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Ersatte existerande filial");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Ersatt befintliga jobb");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Ersatt befintliga kompetensen");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch finns redan");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Saknade skill kategori");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill finns redan");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Branch finns inte");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Branch namn är tvetydigt");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Befattning är tvetydigt");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill namn är tvetydigt");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Skill kategori är tvetydigt");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Saknade arbetsbeskrivning");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Denna kompetens finns inte");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Användaren finns redan i gruppen");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Branch finns redan");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Saknade skill kategori");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill finns redan");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Branch finns inte");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Branch namn är tvetydigt");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Befattning är tvetydigt");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill namn är tvetydigt");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Skill kategori är tvetydigt");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Saknade arbetsbeskrivning");//Missing job description
+define("_SKILLDOESNOTEXIST","Denna kompetens finns inte");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Användaren finns redan i gruppen");//User already exists in group
+define("_COUPONS","Kuponger");//Coupons (New)
+define("_COUPONCODE","Kupongkod");//Coupon code (New)
+define("_TOTALUSES","Användning totalt");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Användning totalt av samma användare");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maximal användning av samma användare");//Maximum uses by single user (New)
+define("_VALIDFROM","Gäller från");//Valid from (New)
+define("_DISCOUNT","Rabatt");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Har uppdaterats kupong");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Skapa unika kupong");//Create unique coupon (New)
+define("_ADDCOUPON","Lägg kupong");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupong egenskaper");//Coupon properties (New)
+define("_REPORTS","Rapporter");//Reports (New)
+define("_EXPIRED","Utgångna");//Expired (New)
+define("_USES","Använder");//Uses (New)
+define("_VALIDUNTIL","Giltig till");//Valid until (New)
+define("_USESREMAINING","Använder återstående");//Uses remaining (New)
+define("_MAXIMUMUSES","Maximal användning");//Maximum uses (New)
+define("_USESSOFAR","Använder hittills");//Uses so far (New)
+define("_COUPON","Kupong");//Coupon (New)
+define("_INVALIDCOUPON","Ogiltig kupong");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Klicka för att ange rabatt kupong");//Click to enter discount coupon (New)
+define("_TESTREDONE","Rättad");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Kunde inte hitta kurs");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Import resultat för");//Import results for (New)
 ?>

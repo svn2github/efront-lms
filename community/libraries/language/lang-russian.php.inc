@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","И сообщения пользователя")
 define("_ALLUSERS","Все пользователи");//All users
 define("_INVALIDUSER","Неверное имя пользователя");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Заменять дубликаты записей");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Сохранять дубликаты записей");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Сохранять дубликаты записей");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Нет других пользователей в системе");//No other users currently online
 define("_USERNAME","Имя пользователя");//User name
 define("_STATISTICSFORUSER","Отчеты по пользователю");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Новые навыки уступки");//New ski
 define("_REPLACEDEXISTINGBRANCH","Заменены существующие отрасли");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Заменены существующего задания");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Заменены существующих навыков");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Отделение уже существует");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Отсутствие навыков категории");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Мастерство уже существует");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Отделение не существует");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Сфера деятельности неоднозначно");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Должность неоднозначно");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Мастерство название неоднозначно");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Мастерство категории неоднозначно");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Отсутствует описание работы");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Это умение не существует");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Пользователь уже существует в группе");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Отделение уже существует");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Отсутствие навыков категории");//Missing skill category
+define("_SKILLALREADYEXISTS","Мастерство уже существует");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Отделение не существует");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Сфера деятельности неоднозначно");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Должность неоднозначно");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Мастерство название неоднозначно");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Мастерство категории неоднозначно");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Отсутствует описание работы");//Missing job description
+define("_SKILLDOESNOTEXIST","Это умение не существует");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Пользователь уже существует в группе");//User already exists in group
+define("_COUPONS","Купоны");//Coupons (New)
+define("_COUPONCODE","Код купона");//Coupon code (New)
+define("_TOTALUSES","Всего использует");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Всего использует на одного пользователя");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Максимальная использует по одному пользователю");//Maximum uses by single user (New)
+define("_VALIDFROM","Действует с");//Valid from (New)
+define("_DISCOUNT","Скидка");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Успешно обновленного купона");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Создать уникальный купон");//Create unique coupon (New)
+define("_ADDCOUPON","Добавить купон");//Add coupon (New)
+define("_COUPONPROPERTIES","Купон свойства");//Coupon properties (New)
+define("_REPORTS","Отчеты");//Reports (New)
+define("_EXPIRED","Истекший");//Expired (New)
+define("_USES","Использованию");//Uses (New)
+define("_VALIDUNTIL","Действителен до");//Valid until (New)
+define("_USESREMAINING","Использованию оставшихся");//Uses remaining (New)
+define("_MAXIMUMUSES","Максимальное использование");//Maximum uses (New)
+define("_USESSOFAR","Использование до сих пор");//Uses so far (New)
+define("_COUPON","Купон");//Coupon (New)
+define("_INVALIDCOUPON","Неверный купон");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Нажмите, чтобы ввести купон на скидку");//Click to enter discount coupon (New)
+define("_TESTREDONE","Исправленный");//Corrected (New)
+define("_COULDNOTFINDCOURSE","не нашел курс");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Импорт результатов");//Import results for (New)
 ?>

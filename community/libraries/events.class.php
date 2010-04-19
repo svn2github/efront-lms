@@ -158,6 +158,10 @@ class EfrontEvent
     // Groups: [325-
     const NEW_ASSIGNMENT_TO_GROUP = 325; // users_LOGIN, entity_ID (=group_ID), entity_name (=group_name)
     const REMOVAL_FROM_GROUP = 326; // users_LOGIN, entity_ID (=group_ID), entity_name (=group_name)
+    // Payments: 350-352
+    const NEW_BALANCE_PAYMENT = 350;
+    const NEW_PAYPAL_PAYMENT = 351;
+    const COUPON_USAGE = 352; // users_LOGIN, users_name/surname, entity_ID (=coupons_ID), entity_name (=coupon_code)
  const MODULE_BASE_TYPE_CODE = 1000; // all events with type > 1000 are considered module-related events
            // the type of each event inside each module class is [type_value] - 1000
            // the class of the module involved is defined in the entity_ID field 
@@ -294,7 +298,10 @@ class EfrontEvent
              EfrontEvent::NEW_LESSON_ANNOUNCEMENT => array("text" => _NEWLESSONANNOUNCEMENT, "category" => "news", "priority" => 1),
              EfrontEvent::NEW_ASSIGNMENT_TO_GROUP => array("text" => _GROUPASSIGNMENT, "category" => "groups"),
              EfrontEvent::REMOVAL_FROM_GROUP => array("text" => _REMOVALFROMGROUP, "category" => "groups"),
-             EfrontEvent::NEW_SURVEY => array("text" => _NEWSURVEY, "category" => "survey", "afterEvent" => 1)
+             EfrontEvent::NEW_SURVEY => array("text" => _NEWSURVEY, "category" => "survey", "afterEvent" => 1),
+             EfrontEvent::NEW_BALANCE_PAYMENT => array("text" => _NEWBALANCEPAYMENT, "category" => "payments"),
+             EfrontEvent::NEW_PAYPAL_PAYMENT => array("text" => _NEWPAYPALPAYMENT, "category" => "payments"),
+             EfrontEvent::COUPON_USAGE => array("text" => _COUPONUSAGE, "category" => "payments")
           );
 //2222222222222222222222222
      return $system_events;
@@ -1098,7 +1105,12 @@ class EfrontEvent
     $this -> event['message'] .= _WASASSIGNEDTOGROUP . " <b>" . $this -> event['entity_name'] ."</b>";
    } else if ($this -> event['type'] == EfrontEvent::REMOVAL_FROM_GROUP) {
     $this -> event['message'] .= _WASREMOVEDFROMGROUP . " <b>" . $this -> event['entity_name'] ."</b>";
-//33333333333333333333333
+   } else if ($this -> event['type'] == EfrontEvent::NEW_PAYPAL_PAYMENT) {
+       $this -> event['message'] .= _PAYEDWITHPAYPAL . " <b>" . $this -> event['entity_name'] ."</b>";
+   } else if ($this -> event['type'] == EfrontEvent::NEW_BALANCE_PAYMENT) {
+                $this -> event['message'] .= _PAYEDWITHBALANCE . " <b>" . $this -> event['entity_name'] ."</b>";
+   } else if ($this -> event['type'] == EfrontEvent::COUPON_USAGE) {
+       $this -> event['message'] .= _USEDCOUPON . " <b>" . $this -> event['entity_name'] ."</b>";
    } else if ($this -> event['type'] == EfrontEvent::HCD_NEW_SKILL) {
     $this -> event['message'] .= _WASASSIGNEDSKILL . " <b>" . $this -> event['entity_name'] ."</b>";
    } else if ($this -> event['type'] == EfrontEvent::HCD_REMOVE_SKILL) {

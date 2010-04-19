@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","และข่าวสารของสมา
 define("_ALLUSERS","สมาชิกทุกคน");//All users
 define("_INVALIDUSER","ชื่อสมาชิกไม่ถูกต้อง");//Invalid user name
 define("_REPLACEEXISTINGUSERS","แทนที่ชื่อสมาชิกที่ซ้ำซ้อน");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","ให้จัดเก็บรายชื่อที่ซ้ำกันไว้");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","ให้จัดเก็บรายชื่อที่ซ้ำกันไว้");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","ไม่มีสมาชิกท่านอื่นที่กำลังใช้งาน");//No other users currently online
 define("_USERNAME","ชื่อสมาชิก");//User name
 define("_STATISTICSFORUSER","รานงานสถิติสำหรับสมาชิกชื่อ");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","กำหนดทักษะใหม่");//New
 define("_REPLACEDEXISTINGBRANCH","เปลี่ยนสาขาที่มีอยู่");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","เปลี่ยนงานที่มีอยู่");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","เปลี่ยนความสามารถที่มีอยู่");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","สาขาอยู่แล้ว");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","หายไปประเภททักษะ");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","ทักษะอยู่แล้ว");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","สาขาไม่มี");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","ชื่อสาขาที่คลุมเครือ");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","ตำแหน่งงานที่คลุมเครือ");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","ชื่อ Skill จะคลุมเครือ");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","ประเภททักษะจะคลุมเครือ");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","หายไปรายละเอียดงาน");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","ทักษะนี้ไม่พบ");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","ผู้ใช้อยู่แล้วในกลุ่ม");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","สาขาอยู่แล้ว");//Branch exists already
+define("_MISSINGSKILLCATEGORY","หายไปประเภททักษะ");//Missing skill category
+define("_SKILLALREADYEXISTS","ทักษะอยู่แล้ว");//Skill exists already
+define("_BRANCHDOESNOTEXIST","สาขาไม่มี");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","ชื่อสาขาที่คลุมเครือ");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","ตำแหน่งงานที่คลุมเครือ");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","ชื่อ Skill จะคลุมเครือ");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","ประเภททักษะจะคลุมเครือ");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","หายไปรายละเอียดงาน");//Missing job description
+define("_SKILLDOESNOTEXIST","ทักษะนี้ไม่พบ");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","ผู้ใช้อยู่แล้วในกลุ่ม");//User already exists in group
+define("_COUPONS","คูปอง");//Coupons (New)
+define("_COUPONCODE","รหัสคูปอง");//Coupon code (New)
+define("_TOTALUSES","Total ใช้");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Total ใช้โดยผู้ใช้คนเดียว");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","สูงสุดใช้โดยผู้ใช้คนเดียว");//Maximum uses by single user (New)
+define("_VALIDFROM","ถูกต้องจาก");//Valid from (New)
+define("_DISCOUNT","ส่วนลด");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","ปรับปรุงเรียบร้อยแล้วคูปอง");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","สร้างคูปองที่ไม่ซ้ำกัน");//Create unique coupon (New)
+define("_ADDCOUPON","เพิ่มคูปอง");//Add coupon (New)
+define("_COUPONPROPERTIES","คุณสมบัติของคูปอง");//Coupon properties (New)
+define("_REPORTS","รายงาน");//Reports (New)
+define("_EXPIRED","หมดอายุ");//Expired (New)
+define("_USES","จะใช้");//Uses (New)
+define("_VALIDUNTIL","มีผลถึง");//Valid until (New)
+define("_USESREMAINING","ใช้เหลือ");//Uses remaining (New)
+define("_MAXIMUMUSES","สูงสุดใช้");//Maximum uses (New)
+define("_USESSOFAR","ใช้จนถึง");//Uses so far (New)
+define("_COUPON","คูปอง");//Coupon (New)
+define("_INVALIDCOUPON","คูปองไม่ถูกต้อง");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","คลิกเพื่อเข้าสู่คูปองส่วนลด");//Click to enter discount coupon (New)
+define("_TESTREDONE","แก้ไข");//Corrected (New)
+define("_COULDNOTFINDCOURSE","ไม่พบหลักสูตร");//Could not find course (New)
+define("_IMPORTRESULTSFOR","ผลการนำเข้าสำหรับ");//Import results for (New)
 ?>

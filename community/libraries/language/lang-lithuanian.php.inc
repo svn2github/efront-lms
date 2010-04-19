@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Ir pranešimus Vartotojų");//And the messages o
 define("_ALLUSERS","Visi vartotojai");//All users
 define("_INVALIDUSER","Neteisingas vartotojo vardas");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Pakeisti dublikatas vartotojams");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Laikyti dublikatas vartotojams");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Laikyti dublikatas vartotojams");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Nr kiti vartotojai dabar internete");//No other users currently online
 define("_USERNAME","Vartotojo vardas");//User name
 define("_STATISTICSFORUSER","Ataskaitos apie vartotoją");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Naujų įgūdžių paskyrimo");//New skill assignm
 define("_REPLACEDEXISTINGBRANCH","Pakeitė galiojančias filialas");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Pakeitė buvusias pareigas");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Pakeitė esamas kvalifikacijos");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Skyrius jau egzistuoja");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Trūksta kvalifikacijos kategorija");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Įgūdžių jau egzistuoja");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Filialo nėra");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Filialo pavadinimas yra dviprasmiškas");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Darbo pavadinimas yra dviprasmiškas");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Įgūdžių pavadinimas yra dviprasmiškas");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Įgūdžių kategorija yra dviprasmiškas");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Trūksta darbo aprašymas");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Šis įgūdis nėra");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Vartotojas jau yra grupės");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Skyrius jau egzistuoja");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Trūksta kvalifikacijos kategorija");//Missing skill category
+define("_SKILLALREADYEXISTS","Įgūdžių jau egzistuoja");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Filialo nėra");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Filialo pavadinimas yra dviprasmiškas");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Darbo pavadinimas yra dviprasmiškas");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Įgūdžių pavadinimas yra dviprasmiškas");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Įgūdžių kategorija yra dviprasmiškas");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Trūksta darbo aprašymas");//Missing job description
+define("_SKILLDOESNOTEXIST","Šis įgūdis nėra");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Vartotojas jau yra grupės");//User already exists in group
+define("_COUPONS","Kuponai");//Coupons (New)
+define("_COUPONCODE","Kupono kodas");//Coupon code (New)
+define("_TOTALUSES","Panaudojimas iš viso");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Panaudojimas iš viso vienu vartotojo");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Didžiausias naudoja vienu vartotojo");//Maximum uses by single user (New)
+define("_VALIDFROM","Galioja nuo");//Valid from (New)
+define("_DISCOUNT","Nuolaida");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Sėkmingai atnaujintas kuponas");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Sukurkite unikalius kuponas");//Create unique coupon (New)
+define("_ADDCOUPON","Pridėti kuponas");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupono savybės");//Coupon properties (New)
+define("_REPORTS","Ataskaitos");//Reports (New)
+define("_EXPIRED","Pasibaigęs");//Expired (New)
+define("_USES","Naudoja");//Uses (New)
+define("_VALIDUNTIL","Galioja iki");//Valid until (New)
+define("_USESREMAINING","Naudoja likusių");//Uses remaining (New)
+define("_MAXIMUMUSES","Didžiausias naudoja");//Maximum uses (New)
+define("_USESSOFAR","Naudoja iki šiol");//Uses so far (New)
+define("_COUPON","Kuponas");//Coupon (New)
+define("_INVALIDCOUPON","Neteisingas kuponas");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Spustelėkite norėdami įvesti diskonto kuponą");//Click to enter discount coupon (New)
+define("_TESTREDONE","Ištaisė");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Negaliu rasti kursai");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Importo rezultatai");//Import results for (New)
 ?>

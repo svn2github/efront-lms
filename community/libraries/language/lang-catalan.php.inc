@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","I els missatges de l&#39;usuari");//And the mess
 define("_ALLUSERS","Tots els usuaris");//All users
 define("_INVALIDUSER","Nom d&#39;usuari no vàlid");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Reemplaça duplicats dels usuaris");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Mantingui duplicat els usuaris");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Mantingui duplicat els usuaris");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","No a la resta d&#39;usuaris connectats en aquell moment");//No other users currently online
 define("_USERNAME","Nom d&#39;usuari");//User name
 define("_STATISTICSFORUSER","Informes per a l&#39;usuari");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nova assignació de competències");//New skill as
 define("_REPLACEDEXISTINGBRANCH","Substituït existents branca");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Substituït existents d&#39;ocupació");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Substituït existents habilitat");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branca ja existeix");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Manca categoria de professió");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Habilitat ja existeix");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Branca no existeix");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","nom de la sucursal és ambigua");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Títol del treball és ambigua");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Habilitat nom és ambigu");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","categoria de professió és ambigua");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Manca descripció del treball");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Aquesta habilitat no existeix");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","L&#39;usuari ja existeix en el grup");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Branca ja existeix");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Manca categoria de professió");//Missing skill category
+define("_SKILLALREADYEXISTS","Habilitat ja existeix");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Branca no existeix");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","nom de la sucursal és ambigua");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Títol del treball és ambigua");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Habilitat nom és ambigu");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","categoria de professió és ambigua");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Manca descripció del treball");//Missing job description
+define("_SKILLDOESNOTEXIST","Aquesta habilitat no existeix");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","L&#39;usuari ja existeix en el grup");//User already exists in group
+define("_COUPONS","Cupons");//Coupons (New)
+define("_COUPONCODE","Codi de promoció");//Coupon code (New)
+define("_TOTALUSES","Utilització total");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Utilització total per un sol usuari");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Màxim els usos per un sol usuari");//Maximum uses by single user (New)
+define("_VALIDFROM","En vigor des del");//Valid from (New)
+define("_DISCOUNT","Descompte");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Actualitzat correctament cupó");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Crear únic cupó");//Create unique coupon (New)
+define("_ADDCOUPON","Afegir cupons");//Add coupon (New)
+define("_COUPONPROPERTIES","propietats de descompte");//Coupon properties (New)
+define("_REPORTS","Informes");//Reports (New)
+define("_EXPIRED","Caducat");//Expired (New)
+define("_USES","Usos");//Uses (New)
+define("_VALIDUNTIL","Vàlid fins al");//Valid until (New)
+define("_USESREMAINING","La resta usos");//Uses remaining (New)
+define("_MAXIMUMUSES","Màxima usos");//Maximum uses (New)
+define("_USESSOFAR","Utilitza la mesura");//Uses so far (New)
+define("_COUPON","Cupó");//Coupon (New)
+define("_INVALIDCOUPON","Cupó vàlid");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Premeu per entrar al cupó de descompte");//Click to enter discount coupon (New)
+define("_TESTREDONE","Corregit");//Corrected (New)
+define("_COULDNOTFINDCOURSE","No s&#39;ha pogut trobar el curs");//Could not find course (New)
+define("_IMPORTRESULTSFOR","resultats d&#39;importació de");//Import results for (New)
 ?>

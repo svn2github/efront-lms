@@ -90,7 +90,14 @@ class coupons extends EfrontEntity
          'products_list' => serialize($productsList),
          'timestamp' => time());
      eF_insertTableData("users_to_coupons", $fields);
+     EfrontEvent::triggerEvent(array("type" => EfrontEvent::COUPON_USAGE,
+             "users_LOGIN" => $user -> user['login'],
+             "users_name" => $user -> user['name'],
+             "users_surname" => $user -> user['surname'],
+             "entity_name" => $this -> {$this -> entity}['code'],
+             "entity_ID" => $this -> {$this -> entity}['id']));
     }
+
     public function getCouponStatistics() {
         $result = eF_getTableData("users_to_coupons", "*", "coupons_ID=".$this -> {$this -> entity}['id']);
         $stats = array('total_uses' => sizeof($result),
@@ -100,6 +107,7 @@ class coupons extends EfrontEntity
         );
         return $stats;
     }
+
     public function getCouponCourses() {
         $couponCourses = array();
         $courseNames = eF_getTableDataFlat("courses", "id,name");
@@ -156,6 +164,7 @@ class coupons extends EfrontEntity
                         'from_timestamp' => $fields['from_timestamp'] ? $fields['from_timestamp'] : time(),
                         'duration' => $fields['duration'] ? $fields['duration'] : 0,
             'discount' => $fields['discount'] ? $fields['discount'] : 0,
+                        'description' => $fields['description'],
                         'active' => $fields['active'] ? $fields['active'] : 1);
         $newId = eF_insertTableData("coupons", $fields);
         $result = eF_getTableData("coupons", "*", "id=".$newId); //We perform an extra step/query for retrieving data, sinve this way we make sure that the array fields will be in correct order (forst id, then name, etc)
@@ -177,6 +186,7 @@ class coupons extends EfrontEntity
      $form -> addElement('text', 'duration', _DURATION, 'class = "inputText" style = "width:50px"');
      $form -> addElement('text', 'discount', _DISCOUNT, 'class = "inputText" style = "width:50px"');
      $form -> addElement('advcheckbox', 'active', _ACTIVE, null, null, array(0, 1));
+     $form -> addElement('textarea', 'description', _DESCRIPTION, 'class = "inputTextarea" style = "width:100%;height:50px"');
      $form -> addElement('submit', 'submit_coupon', _CREATE, 'class = "flatButton"');
      $form -> addRule('code', _THEFIELD.' "'._COUPONCODE.'" '._ISMANDATORY, 'required', null, 'client');
      $form -> addRule('discount', _MAXDISCOUNT100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The maximum discount is 100
@@ -207,6 +217,7 @@ class coupons extends EfrontEntity
             $this -> {$this -> entity}["from_timestamp"] = $values['from_timestamp'];
             $this -> {$this -> entity}["duration"] = $values['duration'];
             $this -> {$this -> entity}["discount"] = $values['discount'];
+            $this -> {$this -> entity}["description"] = $values['description'];
             $this -> {$this -> entity}["active"] = $values['active'];
             $this -> persist();
         } else {

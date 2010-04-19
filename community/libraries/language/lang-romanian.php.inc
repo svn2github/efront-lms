@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Si mesajele de salariat");//And the messages of 
 define("_ALLUSERS","Toţi angajaţii");//All users
 define("_INVALIDUSER","Nevalabil nume de salariat");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Înlocuiţi duplicat de angajati");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Păstraţi angajaţii duplicat");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Păstraţi angajaţii duplicat");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Nici un alt curent de angajaţi online");//No other users currently online
 define("_USERNAME","Numele de angajati");//User name
 define("_STATISTICSFORUSER","Rapoarte pentru angajat");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Noi de calificare cesiune");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Înlocuit existente sucursală");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Înlocuit de locuri de muncă existente");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Înlocuit existente de calificare");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Sucursala există deja");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Lipseşte categorie de calificare");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Îndemânare există deja");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Sucursala nu exista");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Numele Sucursala este ambiguă");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Titlul de locuri de muncă este ambiguă");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Numele de îndemânare este ambiguă");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","categoria de îndemânare este ambiguă");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Lipseşte descrierea de locuri de muncă");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Aceasta abilitate nu exista");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Utilizatorul există deja în grupul");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Sucursala există deja");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Lipseşte categorie de calificare");//Missing skill category
+define("_SKILLALREADYEXISTS","Îndemânare există deja");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Sucursala nu exista");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Numele Sucursala este ambiguă");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Titlul de locuri de muncă este ambiguă");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Numele de îndemânare este ambiguă");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","categoria de îndemânare este ambiguă");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Lipseşte descrierea de locuri de muncă");//Missing job description
+define("_SKILLDOESNOTEXIST","Aceasta abilitate nu exista");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Utilizatorul există deja în grupul");//User already exists in group
+define("_COUPONS","Cupoane");//Coupons (New)
+define("_COUPONCODE","Cod promoţional");//Coupon code (New)
+define("_TOTALUSES","Total utilizări");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Total utilizări de către un singur utilizator");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maximă foloseste de un singur utilizator");//Maximum uses by single user (New)
+define("_VALIDFROM","Valabil de la");//Valid from (New)
+define("_DISCOUNT","Reducere");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","actualizat cu succes cupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Creaţi unic cupon");//Create unique coupon (New)
+define("_ADDCOUPON","Adauga promoţional");//Add coupon (New)
+define("_COUPONPROPERTIES","Cuponul de proprietăţi");//Coupon properties (New)
+define("_REPORTS","Rapoarte");//Reports (New)
+define("_EXPIRED","Expirat");//Expired (New)
+define("_USES","Utilizeaza");//Uses (New)
+define("_VALIDUNTIL","Valabil până la");//Valid until (New)
+define("_USESREMAINING","Utilizeaza rămase");//Uses remaining (New)
+define("_MAXIMUMUSES","Maximă foloseşte");//Maximum uses (New)
+define("_USESSOFAR","Utilizeaza măsura");//Uses so far (New)
+define("_COUPON","Cupon");//Coupon (New)
+define("_INVALIDCOUPON","Invalid cupon");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Click pentru a intra cupon reducere");//Click to enter discount coupon (New)
+define("_TESTREDONE","Rectificat");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Nu sa putut găsi curs");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Rezultatele de import pentru");//Import results for (New)
 ?>

@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","I poruke od zaposlenika");//And the messages of 
 define("_ALLUSERS","Svi zaposlenici");//All users
 define("_INVALIDUSER","Neispravan naziv zaposlenika");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Zamijeni duple zaposlenika");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Keep duple zaposlenika");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Keep duple zaposlenika");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Nema drugih djelatnika trenutno online");//No other users currently online
 define("_USERNAME","Zaposlenika ime");//User name
 define("_STATISTICSFORUSER","Izvješća za zaposlenika");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nove vještine dodjela");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Zamijenjeni postojeće podružnice");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Zamijenjeni postojeći posao");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Zamijenjeni postojeće vještine");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch već postoji");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Nedostaje vještine kategoriji");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Vještina već postoji");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Područna ne postoji");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Naziv poslovnice je dvosmislen");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Posao naslov je dvosmislen");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Vještina ime je dvosmislen");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Vještina kategoriji je dvosmislen");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Nedostaje opis radnog mjesta");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Ova vještina ne postoji");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Korisnik već postoji u skupini");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Branch već postoji");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Nedostaje vještine kategoriji");//Missing skill category
+define("_SKILLALREADYEXISTS","Vještina već postoji");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Područna ne postoji");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Naziv poslovnice je dvosmislen");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Posao naslov je dvosmislen");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Vještina ime je dvosmislen");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Vještina kategoriji je dvosmislen");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Nedostaje opis radnog mjesta");//Missing job description
+define("_SKILLDOESNOTEXIST","Ova vještina ne postoji");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Korisnik već postoji u skupini");//User already exists in group
+define("_COUPONS","Kuponi");//Coupons (New)
+define("_COUPONCODE","Kupon kod");//Coupon code (New)
+define("_TOTALUSES","Ukupno koristi");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Ukupno se koristi od strane jednog korisnika");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimalno koristi od strane jednog korisnika");//Maximum uses by single user (New)
+define("_VALIDFROM","Vrijedi od");//Valid from (New)
+define("_DISCOUNT","Popust");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Uspješno obnovljeno kupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Stvaranje jedinstvene kupon");//Create unique coupon (New)
+define("_ADDCOUPON","Dodaj kupon");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupon nekretnine");//Coupon properties (New)
+define("_REPORTS","Izvješća");//Reports (New)
+define("_EXPIRED","Istekao");//Expired (New)
+define("_USES","Koristi");//Uses (New)
+define("_VALIDUNTIL","Vrijedi do");//Valid until (New)
+define("_USESREMAINING","Koristi preostalih");//Uses remaining (New)
+define("_MAXIMUMUSES","Maksimalno koristi");//Maximum uses (New)
+define("_USESSOFAR","Koristi tako daleko");//Uses so far (New)
+define("_COUPON","Kupon");//Coupon (New)
+define("_INVALIDCOUPON","Neispravan kupon");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Kliknite za unos kupon");//Click to enter discount coupon (New)
+define("_TESTREDONE","Ispravljena");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Ne mogu pronaći tečaj");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Uvoz rezultate za");//Import results for (New)
 ?>

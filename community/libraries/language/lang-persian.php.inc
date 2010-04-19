@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","و پیامهای کاربر");//And the message
 define("_ALLUSERS","از همه ی کاربران");//All users
 define("_INVALIDUSER","نام کاربر نامعتبر است");//Invalid user name
 define("_REPLACEEXISTINGUSERS","اعضای جایگزینی تکراری");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","نگه داشتن اعضای تکراری");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","نگه داشتن اعضای تکراری");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","هیچ کاربر دیگری در حال حاضر افراد آنلاین");//No other users currently online
 define("_USERNAME","نام کاربری");//User name
 define("_STATISTICSFORUSER","گزارش کاربر");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","جدید انتساب مهارت");//New skill ass
 define("_REPLACEDEXISTINGBRANCH","شعبه Replaced موجود");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","شغل Replaced موجود");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","مهارت Replaced موجود");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","شعبه در حال حاضر وجود دارد");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","گمشده رده مهارت");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","مهارت در حال حاضر وجود دارد");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","واحد وجود ندارد");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","نام شعبه مبهم است");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","عنوان شغلی مبهم است");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","نام مهارت است مبهم");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","رده مهارت است مبهم");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","گمشده شرح شغل");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","این مهارت وجود ندارد");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","کاربر در حال حاضر در گروه وجود دارد");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","شعبه در حال حاضر وجود دارد");//Branch exists already
+define("_MISSINGSKILLCATEGORY","گمشده رده مهارت");//Missing skill category
+define("_SKILLALREADYEXISTS","مهارت در حال حاضر وجود دارد");//Skill exists already
+define("_BRANCHDOESNOTEXIST","واحد وجود ندارد");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","نام شعبه مبهم است");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","عنوان شغلی مبهم است");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","نام مهارت است مبهم");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","رده مهارت است مبهم");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","گمشده شرح شغل");//Missing job description
+define("_SKILLDOESNOTEXIST","این مهارت وجود ندارد");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","کاربر در حال حاضر در گروه وجود دارد");//User already exists in group
+define("_COUPONS","کوپن");//Coupons (New)
+define("_COUPONCODE","کد کوپن");//Coupon code (New)
+define("_TOTALUSES","ها استفاده می کند");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","با استفاده از تعداد شده توسط کاربر تنها");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","حداکثر استفاده شده توسط کاربر تنها");//Maximum uses by single user (New)
+define("_VALIDFROM","معتبر از");//Valid from (New)
+define("_DISCOUNT","تخفیف");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","با موفقیت به روزآوری کوپن");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","کوپن های منحصر به فرد ایجاد کنید");//Create unique coupon (New)
+define("_ADDCOUPON","افزودنیهای کوپن");//Add coupon (New)
+define("_COUPONPROPERTIES","خواص کارت");//Coupon properties (New)
+define("_REPORTS","گزارش");//Reports (New)
+define("_EXPIRED","منقضی شده");//Expired (New)
+define("_USES","موارد استفاده");//Uses (New)
+define("_VALIDUNTIL","معتبر تا");//Valid until (New)
+define("_USESREMAINING","استفاده باقی مانده");//Uses remaining (New)
+define("_MAXIMUMUSES","حداکثر استفاده می کند");//Maximum uses (New)
+define("_USESSOFAR","استفاده تا کنون");//Uses so far (New)
+define("_COUPON","کوپن");//Coupon (New)
+define("_INVALIDCOUPON","کوپن نامعتبر");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","کلیک کنید برای ورود به کوپن تخفیف");//Click to enter discount coupon (New)
+define("_TESTREDONE","تصحیح شده");//Corrected (New)
+define("_COULDNOTFINDCOURSE","البته ممکن است پیدا نشد");//Could not find course (New)
+define("_IMPORTRESULTSFOR","نتایج برای واردات");//Import results for (New)
 ?>

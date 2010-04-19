@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","和郵件的使用者");//And the messages of us
 define("_ALLUSERS","所有使用者");//All users
 define("_INVALIDUSER","無效的使用者名稱");//Invalid user name
 define("_REPLACEEXISTINGUSERS","取代重複的使用者");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","不斷重複的使用者");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","不斷重複的使用者");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","沒有其他的使用者目前在線");//No other users currently online
 define("_USERNAME","使用者姓名");//User name
 define("_STATISTICSFORUSER","使用者報告");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","新技能任務");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","取代現有的分支");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","取代現有的工作");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","取代現有的技能");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","科已經存在");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","缺少技能類");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","技術已經存在");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","分支不存在");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","分公司的名稱是模糊的");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","職稱是模糊的");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","技能名稱是模糊的");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","技能類是曖昧");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","缺少工作描述");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","這項技能不存在");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","用戶已經存在於組");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","科已經存在");//Branch exists already
+define("_MISSINGSKILLCATEGORY","缺少技能類");//Missing skill category
+define("_SKILLALREADYEXISTS","技術已經存在");//Skill exists already
+define("_BRANCHDOESNOTEXIST","分支不存在");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","分公司的名稱是模糊的");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","職稱是模糊的");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","技能名稱是模糊的");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","技能類是曖昧");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","缺少工作描述");//Missing job description
+define("_SKILLDOESNOTEXIST","這項技能不存在");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","用戶已經存在於組");//User already exists in group
+define("_COUPONS","優惠券");//Coupons (New)
+define("_COUPONCODE","優惠券代碼");//Coupon code (New)
+define("_TOTALUSES","總使用");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","共有使用由單個用戶");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","由單個用戶的最大使用");//Maximum uses by single user (New)
+define("_VALIDFROM","有效期從");//Valid from (New)
+define("_DISCOUNT","折扣");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","優惠券已成功更新");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","創建獨特的優惠券");//Create unique coupon (New)
+define("_ADDCOUPON","添加優惠券");//Add coupon (New)
+define("_COUPONPROPERTIES","優惠券性質");//Coupon properties (New)
+define("_REPORTS","報告");//Reports (New)
+define("_EXPIRED","過期");//Expired (New)
+define("_USES","用途");//Uses (New)
+define("_VALIDUNTIL","有效期至");//Valid until (New)
+define("_USESREMAINING","其餘用途");//Uses remaining (New)
+define("_MAXIMUMUSES","最大使用");//Maximum uses (New)
+define("_USESSOFAR","到目前為止用途");//Uses so far (New)
+define("_COUPON","優惠券");//Coupon (New)
+define("_INVALIDCOUPON","無效的優惠券");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","點擊進入優惠券");//Click to enter discount coupon (New)
+define("_TESTREDONE","更正");//Corrected (New)
+define("_COULDNOTFINDCOURSE","當然找不到");//Could not find course (New)
+define("_IMPORTRESULTSFOR","導入結果");//Import results for (New)
 ?>

@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Dan pesan dari pengguna");//And the messages of 
 define("_ALLUSERS","Semua pengguna");//All users
 define("_INVALIDUSER","Nama pengguna tidak valid");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Ganti duplikat pengguna");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Menyimpan duplikat pengguna");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Menyimpan duplikat pengguna");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Tidak ada pengguna lainnya yang sedang online");//No other users currently online
 define("_USERNAME","Nama pengguna");//User name
 define("_STATISTICSFORUSER","Laporan untuk pengguna");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","New keterampilan tugas");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Ganti ada cabang");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Ganti pekerjaan yang ada");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Ganti keterampilan yang ada");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Cabang sudah ada");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Kategori keterampilan Hilang");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill sudah ada");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Cabang tidak ada");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Nama Cabang adalah ambigu");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Ayub judul ambigu");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Nama ambigu Keterampilan");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Keterampilan kategori ambigu");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Hilang deskripsi pekerjaan");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Keterampilan ini tidak ada");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Pengguna sudah ada dalam grup");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Cabang sudah ada");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Kategori keterampilan Hilang");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill sudah ada");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Cabang tidak ada");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Nama Cabang adalah ambigu");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Ayub judul ambigu");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Nama ambigu Keterampilan");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Keterampilan kategori ambigu");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Hilang deskripsi pekerjaan");//Missing job description
+define("_SKILLDOESNOTEXIST","Keterampilan ini tidak ada");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Pengguna sudah ada dalam grup");//User already exists in group
+define("_COUPONS","Kupon");//Coupons (New)
+define("_COUPONCODE","Kupon kode");//Coupon code (New)
+define("_TOTALUSES","Total menggunakan");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Total menggunakan oleh user tunggal");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimum menggunakan oleh user tunggal");//Maximum uses by single user (New)
+define("_VALIDFROM","Berlaku dari");//Valid from (New)
+define("_DISCOUNT","Diskon");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Berhasil diperbarui kupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Membuat kupon yang unik");//Create unique coupon (New)
+define("_ADDCOUPON","Tambahkan kupon");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupon sifat");//Coupon properties (New)
+define("_REPORTS","Laporan");//Reports (New)
+define("_EXPIRED","Kadaluarsa");//Expired (New)
+define("_USES","Menggunakan");//Uses (New)
+define("_VALIDUNTIL","Berlaku sampai");//Valid until (New)
+define("_USESREMAINING","Menggunakan sisa");//Uses remaining (New)
+define("_MAXIMUMUSES","Maksimum menggunakan");//Maximum uses (New)
+define("_USESSOFAR","Menggunakan sejauh");//Uses so far (New)
+define("_COUPON","Kupon");//Coupon (New)
+define("_INVALIDCOUPON","Kupon tidak valid");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Klik untuk memasukkan kupon diskon");//Click to enter discount coupon (New)
+define("_TESTREDONE","Dikoreksi");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Tidak dapat menemukan program");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Impor hasil untuk");//Import results for (New)
 ?>

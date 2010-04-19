@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Ja viestejä, työntekijä");//And the messages 
 define("_ALLUSERS","Kaikki työntekijät");//All users
 define("_INVALIDUSER","Virheellinen työntekijän nimi");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Korvaa kahtena kappaleena työntekijää");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Pidä kahtena kappaleena työntekijää");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Pidä kahtena kappaleena työntekijää");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Mitään muuta työntekijää tällä hetkellä verkossa");//No other users currently online
 define("_USERNAME","Työntekijän nimi");//User name
 define("_STATISTICSFORUSER","Raportit henkilöstöedustusta");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Uusia taitoja tehtävä");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Korvataan nykyinen sivuliike");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Korvattu nykyisen työpaikan");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Korvataan nykyinen taito");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch on jo olemassa");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Puuttuvat taidot luokka");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Taito on jo olemassa");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Sivuliike ei ole");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Branch nimi on epäselvä");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Titteli on epäselvä");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill nimi on epäselvä");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Skill luokka on epäselvä");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Puuttuvat työnkuva");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Tämä taito ei ole");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Käyttäjä on jo olemassa ryhmä");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Branch on jo olemassa");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Puuttuvat taidot luokka");//Missing skill category
+define("_SKILLALREADYEXISTS","Taito on jo olemassa");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Sivuliike ei ole");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Branch nimi on epäselvä");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Titteli on epäselvä");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill nimi on epäselvä");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Skill luokka on epäselvä");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Puuttuvat työnkuva");//Missing job description
+define("_SKILLDOESNOTEXIST","Tämä taito ei ole");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Käyttäjä on jo olemassa ryhmä");//User already exists in group
+define("_COUPONS","Kupongit");//Coupons (New)
+define("_COUPONCODE","Kuponkikoodi");//Coupon code (New)
+define("_TOTALUSES","Kokonaiskäyttö");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Yhteensä käyttötarkoituksiin ainoa käyttäjä");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Suurin käyttötarkoituksiin ainoa käyttäjä");//Maximum uses by single user (New)
+define("_VALIDFROM","Voimassa");//Valid from (New)
+define("_DISCOUNT","Alennus");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Onnistuneesti päivitetty kuponki");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Luo ainutlaatuinen kuponki");//Create unique coupon (New)
+define("_ADDCOUPON","Lisää kuponki");//Add coupon (New)
+define("_COUPONPROPERTIES","Kaappaus ominaisuudet");//Coupon properties (New)
+define("_REPORTS","Raportit");//Reports (New)
+define("_EXPIRED","Vanhentunut");//Expired (New)
+define("_USES","Käyttää");//Uses (New)
+define("_VALIDUNTIL","Voimassa asti");//Valid until (New)
+define("_USESREMAINING","Käyttää jäljellä");//Uses remaining (New)
+define("_MAXIMUMUSES","Suurin käyttö");//Maximum uses (New)
+define("_USESSOFAR","Käyttää toistaiseksi");//Uses so far (New)
+define("_COUPON","Kuponki");//Coupon (New)
+define("_INVALIDCOUPON","Invalidi kaappaus");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Napsauta ja anna alennus kuponki");//Click to enter discount coupon (New)
+define("_TESTREDONE","Oikaisu");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Ei löytynyt tietenkään");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Tuo tulokset");//Import results for (New)
 ?>

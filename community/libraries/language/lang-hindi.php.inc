@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","और संदेशों के कर्म
 define("_ALLUSERS","सभी कर्मचारियों");//All users
 define("_INVALIDUSER","अवैध कर्मचारी का नाम");//Invalid user name
 define("_REPLACEEXISTINGUSERS","कर्मचारियों डुप्लिकेट बदलें");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","डुप्लिकेट कर्मचारियों रखें");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","डुप्लिकेट कर्मचारियों रखें");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","वर्तमान में कोई अन्य कर्मचारियों ऑनलाइन");//No other users currently online
 define("_USERNAME","कर्मचारी का नाम");//User name
 define("_STATISTICSFORUSER","रिपोर्ट के लिए कर्मचारी");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","नए कौशल काम");//New skill assign
 define("_REPLACEDEXISTINGBRANCH","प्रतिस्थापित मौजूदा शाखा");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","प्रतिस्थापित मौजूदा नौकरी");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","प्रतिस्थापित मौजूदा कौशल");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","शाखा पहले से मौजूद है");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","कौशल श्रेणी गुम");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","कौशल पहले से मौजूद है");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","शाखा मौजूद नहीं है");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","शाखा नाम अस्पष्ट है");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","नौकरी शीर्षक अस्पष्ट है");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","कौशल नाम अस्पष्ट है");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","कौशल श्रेणी अस्पष्ट है");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","नौकरी का विवरण गुम");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","इस कौशल मौजूद नहीं है");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","उपयोक्ता पहले समूह में मौजूद है");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","शाखा पहले से मौजूद है");//Branch exists already
+define("_MISSINGSKILLCATEGORY","कौशल श्रेणी गुम");//Missing skill category
+define("_SKILLALREADYEXISTS","कौशल पहले से मौजूद है");//Skill exists already
+define("_BRANCHDOESNOTEXIST","शाखा मौजूद नहीं है");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","शाखा नाम अस्पष्ट है");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","नौकरी शीर्षक अस्पष्ट है");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","कौशल नाम अस्पष्ट है");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","कौशल श्रेणी अस्पष्ट है");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","नौकरी का विवरण गुम");//Missing job description
+define("_SKILLDOESNOTEXIST","इस कौशल मौजूद नहीं है");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","उपयोक्ता पहले समूह में मौजूद है");//User already exists in group
+define("_COUPONS","कूपन");//Coupons (New)
+define("_COUPONCODE","कूपन कोड");//Coupon code (New)
+define("_TOTALUSES","कुल का उपयोग करता है");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","एकल उपयोगकर्ता द्वारा कुल का उपयोग करता है");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","अधिकतम एक उपयोगकर्ता द्वारा उपयोग करता है");//Maximum uses by single user (New)
+define("_VALIDFROM","से मान्य");//Valid from (New)
+define("_DISCOUNT","छूट");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","कूपन सफलतापूर्वक नवीनीकृत");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","बनाने के अद्वितीय कूपन");//Create unique coupon (New)
+define("_ADDCOUPON","कूपन जोड़ें");//Add coupon (New)
+define("_COUPONPROPERTIES","कूपन गुण");//Coupon properties (New)
+define("_REPORTS","रिपोर्ट");//Reports (New)
+define("_EXPIRED","समय सीमा समाप्त हो");//Expired (New)
+define("_USES","का उपयोग करता है");//Uses (New)
+define("_VALIDUNTIL","जब तक मान्य");//Valid until (New)
+define("_USESREMAINING","शेष का उपयोग करता है");//Uses remaining (New)
+define("_MAXIMUMUSES","अधिकतम उपयोग करता है");//Maximum uses (New)
+define("_USESSOFAR","अब तक का उपयोग करता है");//Uses so far (New)
+define("_COUPON","कूपन");//Coupon (New)
+define("_INVALIDCOUPON","अवैध कूपन");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","क्लिक करें दर्ज करने के लिए डिस्काउंट कूपन");//Click to enter discount coupon (New)
+define("_TESTREDONE","सही");//Corrected (New)
+define("_COULDNOTFINDCOURSE","बिल्कुल नहीं मिल सकता है");//Could not find course (New)
+define("_IMPORTRESULTSFOR","आयात के लिए परिणाम");//Import results for (New)
 ?>

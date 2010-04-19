@@ -180,7 +180,7 @@
  function addValueToSelect(value, text, select_item) {
   var elOptNew = document.createElement('option');
   elOptNew.value = value;
-  elOptNew.text = text;
+  elOptNew.text = text.replace('&#039;', "'");
   try {
       select_item.add(elOptNew,null);
   } catch(ex) {

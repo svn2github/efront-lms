@@ -771,9 +771,9 @@ class EfrontDirectionsTree extends EfrontTree
                              <td class = "listPadding"><div style = "width:'.(20 * $iterator -> getDepth()).'px;">&nbsp;</div></td>
                              <td class = "listToggle">';
       if ($iterator -> getDepth() >= 1) {
-        $treeString .= '<img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_up.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
+        $treeString .= '<img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_up.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "Element.extend(this);showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
       } else {
-       $treeString .= '<img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
+       $treeString .= '<img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "Element.extend(this);showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
       }
                                $treeString .= '</td>
                              <td class = "listIcon">
@@ -915,11 +915,15 @@ class EfrontDirectionsTree extends EfrontTree
           function showHideCourses(el, course) {
         Element.extend(el);
            if (el.hasClassName('visible')) {
-            course.hide();
+            if (course) {
+             course.hide();
+            }
             setImageSrc(el, 16, 'navigate_down.png');
             el.removeClassName('visible');
            } else {
-            course.show();
+            if (course) {
+             course.show();
+            }
             setImageSrc(el, 16, 'navigate_up');
             el.addClassName('visible');
            }

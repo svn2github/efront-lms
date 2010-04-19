@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","És az üzenetek a felhasználó");//And the mes
 define("_ALLUSERS","All users");//All users
 define("_INVALIDUSER","Érvénytelen felhasználói név");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Csere példányban felhasználók");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Keep példányban felhasználók");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Keep példányban felhasználók");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Nincs más felhasználók Jelenleg online");//No other users currently online
 define("_USERNAME","Felhasználói név");//User name
 define("_STATISTICSFORUSER","Reports for user");//Reports for user
@@ -3521,44 +3521,68 @@ define("_AUTOLOGINITHLINK","A felhasználó bejelentkezési automatikusan link")
 define("_DEFAULTUSERTYPE","Alapértelmezett felhasználói típus");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force hallgató minden kérdésre");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Meg kell válaszolni minden kérdésre");//You have to answer all questions
-define("_SHOWHELP","A súgó megjelenítése linkek");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","Hogy a diákok a redo csak a rossz válaszolt");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Csak ha a vizsgálati ismétlés engedélyezett");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Újra csak rossz válasz");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Alapértelmezett téma nem inported");//Default theme can not be inported (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nem fejléc volt, meg vagy a fejléc nem kompatibilis behozatali típus");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","Importált felhasználó");//Imported user (New)
-define("_USERSTOCOURSES","Felhasználók tanfolyamok");//Users to courses (New)
-define("_USERSTOGROUPS","Felhasználókat csoportokba");//Users to groups (New)
-define("_IMPORTANYTHING","Bármi elismert");//Anything recognized (New)
-define("_DATATOIMPORT","Adatokat importálni");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","sikeres import");//successfull imports (New)
-define("_FAILEDIMPORTS","nem import");//failed imports (New)
-define("_REPLACEDUSER","Helyébe felhasználó");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","A fájl nem tartalmazza a szükséges oszlopokat");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Helyébe a meglévő megbízás");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Természetesen az új feladat");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Új csoport hozzárendelés");//New group assignment (New)
-define("_USERSTOJOBS","Felhasználók számára, hogy munkahelyet");//Users to jobs (New)
-define("_USERSTOSKILLS","Felhasználók készségek");//Users to skills (New)
-define("_DATATOEXPORT","Adatokat exportálni");//Data to export (New)
-define("_MANDATORYFIELDS","Kötelező mezők");//Mandatory fields (New)
-define("_OPTIONALFIELDS","Nem kötelező mezők");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","Adja meg a fájlt tartalmazó fejléc sort minden egyes behozatali típus, az összes kötelező és nem kötelező minden területén címei közül az alább tetszőleges sorrendben. A cím egyes oszlop jelzi a jelentését. Felismerhetetlen oszlopok fogják hagyni, anélkül, hogy befolyásolnák a többi eljárás.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Új munkaköri leírás feladat");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Új ügyességi feladat");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Helyébe a meglévő ágazati");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Helyébe a meglévő munkahely");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Helyébe a meglévő készségek");//Replaced existing skill (New)
-define("_BRANCHALREADYEXISTS","Branch már létezik");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Hiányzó ügyességi kategóriában");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill már létezik");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Fióktelep nem létezik");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Ág neve nem egyértelmű,");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Munkaköri cím kétértelmű");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill neve nem egyértelmű,");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Skill kategória egyértelmű");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Hiányzik a munkaköri leírás");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Ez a képesség nem létezik");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Felhasználó már létezik csoportban");//User already exists in group (New)
+define("_SHOWHELP","A súgó megjelenítése linkek");//Display help links
+define("_ALLOWUSERANSERALLRONG","Hogy a diákok a redo csak a rossz válaszolt");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Csak ha a vizsgálati ismétlés engedélyezett");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Újra csak rossz válasz");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Alapértelmezett téma nem inported");//Default theme can not be inported
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nem fejléc volt, meg vagy a fejléc nem kompatibilis behozatali típus");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","Importált felhasználó");//Imported user
+define("_USERSTOCOURSES","Felhasználók tanfolyamok");//Users to courses
+define("_USERSTOGROUPS","Felhasználókat csoportokba");//Users to groups
+define("_IMPORTANYTHING","Bármi elismert");//Anything recognized
+define("_DATATOIMPORT","Adatokat importálni");//Data to import
+define("_SUCCESSFULLIMPORTS","sikeres import");//successfull imports
+define("_FAILEDIMPORTS","nem import");//failed imports
+define("_REPLACEDUSER","Helyébe felhasználó");//Replaced user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","A fájl nem tartalmazza a szükséges oszlopokat");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Helyébe a meglévő megbízás");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Természetesen az új feladat");//New course assignment
+define("_NEWGROUPASSIGNMENT","Új csoport hozzárendelés");//New group assignment
+define("_USERSTOJOBS","Felhasználók számára, hogy munkahelyet");//Users to jobs
+define("_USERSTOSKILLS","Felhasználók készségek");//Users to skills
+define("_DATATOEXPORT","Adatokat exportálni");//Data to export
+define("_MANDATORYFIELDS","Kötelező mezők");//Mandatory fields
+define("_OPTIONALFIELDS","Nem kötelező mezők");//Optional fields
+define("_CSVIMPORTEXPLAINATION","Adja meg a fájlt tartalmazó fejléc sort minden egyes behozatali típus, az összes kötelező és nem kötelező minden területén címei közül az alább tetszőleges sorrendben. A cím egyes oszlop jelzi a jelentését. Felismerhetetlen oszlopok fogják hagyni, anélkül, hogy befolyásolnák a többi eljárás.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Új munkaköri leírás feladat");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Új ügyességi feladat");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Helyébe a meglévő ágazati");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Helyébe a meglévő munkahely");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Helyébe a meglévő készségek");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","Branch már létezik");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Hiányzó ügyességi kategóriában");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill már létezik");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Fióktelep nem létezik");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Ág neve nem egyértelmű,");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Munkaköri cím kétértelmű");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill neve nem egyértelmű,");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Skill kategória egyértelmű");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Hiányzik a munkaköri leírás");//Missing job description
+define("_SKILLDOESNOTEXIST","Ez a képesség nem létezik");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Felhasználó már létezik csoportban");//User already exists in group
+define("_COUPONS","Kuponok");//Coupons (New)
+define("_COUPONCODE","Szelvény kód");//Coupon code (New)
+define("_TOTALUSES","Teljes felhasználás");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Teljes felhasználás Egyetlen felhasználó");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maximális felhasználási Egyetlen felhasználó");//Maximum uses by single user (New)
+define("_VALIDFROM","Érvényes");//Valid from (New)
+define("_DISCOUNT","Kedvezmény");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Sikeresen frissítve kupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Hozzon létre egyedülálló kupon");//Create unique coupon (New)
+define("_ADDCOUPON","Add hozzá kupon");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupon tulajdonságok");//Coupon properties (New)
+define("_REPORTS","Jelentések");//Reports (New)
+define("_EXPIRED","Lejárt");//Expired (New)
+define("_USES","Használ");//Uses (New)
+define("_VALIDUNTIL","Érvényes, amíg");//Valid until (New)
+define("_USESREMAINING","Felhasználás fennmaradó");//Uses remaining (New)
+define("_MAXIMUMUSES","Maximális használ");//Maximum uses (New)
+define("_USESSOFAR","Használ, amennyiben");//Uses so far (New)
+define("_COUPON","Szelvény");//Coupon (New)
+define("_INVALIDCOUPON","Érvénytelen kupon");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Kattintson a be kedvezményes kamatozású");//Click to enter discount coupon (New)
+define("_TESTREDONE","Helyesbített");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Nem található a kurzus");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Import eredményei");//Import results for (New)
 ?>

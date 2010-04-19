@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","En de berichten van gebruiker");//And the messag
 define("_ALLUSERS","Alle gebruikers");//All users
 define("_INVALIDUSER","Ongeldige gebruikersnaam");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Vervang dubbele gebruikers");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","behoud dubbele gebruikers");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","behoud dubbele gebruikers");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Geen andere gebruikers momenteel online");//No other users currently online
 define("_USERNAME","Gebruikersnaam");//User name
 define("_STATISTICSFORUSER","Rapporten voor de gebruiker");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nieuwe vaardigheden opdracht");//New skill assignm
 define("_REPLACEDEXISTINGBRANCH","Vervangen bestaande branche-");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Vervangen bestaande job");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Vervangen bestaande vaardigheden");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch bestaat al");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Ontbrekende vaardigheid categorie");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill bestaat al");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Branch bestaat niet");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Branch naam is dubbelzinnig");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Functie is dubbelzinnig");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill naam is dubbelzinnig");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Skill categorie is dubbelzinnig");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Ontbrekende functiebeschrijving");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Deze vaardigheid bestaat niet");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Gebruiker bestaat al in groep");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Branch bestaat al");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Ontbrekende vaardigheid categorie");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill bestaat al");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Branch bestaat niet");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Branch naam is dubbelzinnig");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Functie is dubbelzinnig");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill naam is dubbelzinnig");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Skill categorie is dubbelzinnig");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Ontbrekende functiebeschrijving");//Missing job description
+define("_SKILLDOESNOTEXIST","Deze vaardigheid bestaat niet");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Gebruiker bestaat al in groep");//User already exists in group
+define("_COUPONS","Coupons");//Coupons (New)
+define("_COUPONCODE","Coupon-code");//Coupon code (New)
+define("_TOTALUSES","Totaal gebruikt");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Totaal gebruikt bij een enkele gebruiker");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maximaal gebruik door een gebruiker");//Maximum uses by single user (New)
+define("_VALIDFROM","Geldig vanaf");//Valid from (New)
+define("_DISCOUNT","Korting");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Succesvol bijgewerkt coupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Maak unieke coupon");//Create unique coupon (New)
+define("_ADDCOUPON","Voeg coupon");//Add coupon (New)
+define("_COUPONPROPERTIES","Coupon eigenschappen");//Coupon properties (New)
+define("_REPORTS","Verslagen");//Reports (New)
+define("_EXPIRED","Verlopen");//Expired (New)
+define("_USES","Gebruikt");//Uses (New)
+define("_VALIDUNTIL","Geldig tot");//Valid until (New)
+define("_USESREMAINING","Maakt gebruik van de resterende");//Uses remaining (New)
+define("_MAXIMUMUSES","Maximaal gebruik");//Maximum uses (New)
+define("_USESSOFAR","Gebruikt tot nu toe");//Uses so far (New)
+define("_COUPON","Coupon");//Coupon (New)
+define("_INVALIDCOUPON","Ongeldige coupon");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Klik hier voor meer voer coupon korting");//Click to enter discount coupon (New)
+define("_TESTREDONE","Gerectificeerd");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Natuurlijk kon het niet vinden");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Import resultaten voor");//Import results for (New)
 ?>

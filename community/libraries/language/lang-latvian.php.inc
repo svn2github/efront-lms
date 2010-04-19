@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Un sludinājumi lietotāju");//And the messages 
 define("_ALLUSERS","Visi lietotāji");//All users
 define("_INVALIDUSER","Nepareizs lietotāja vārds");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Aizstāt dublēt lietotājiem");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Uzglabāt dublēt lietotājiem");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Uzglabāt dublēt lietotājiem");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Nekādi citi lietotāji patlaban tiešsaistē");//No other users currently online
 define("_USERNAME","Lietotāja vārds");//User name
 define("_STATISTICSFORUSER","Ziņojumi lietotāju");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Jaunajām kvalifikācijas piešķiršana");//New s
 define("_REPLACEDEXISTINGBRANCH","Punktu aizstāj esošos filiāle");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Punktu aizstāj esošo darba vietu");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Punktu aizstāj esošās prasmes");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Filiāle jau pastāv");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Trūkstošo prasmju kategorijas");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill jau pastāv");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Filiāle neeksistē");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Filiāles nosaukums ir neskaidrs");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Darba nosaukums ir neskaidrs");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Prasme nosaukums ir neskaidrs");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Prasme kategorija ir neskaidrs");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Trūkstošo darba apraksts");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Šī prasme neeksistē");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Lietotājs jau eksistē grupas");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Filiāle jau pastāv");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Trūkstošo prasmju kategorijas");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill jau pastāv");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Filiāle neeksistē");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Filiāles nosaukums ir neskaidrs");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Darba nosaukums ir neskaidrs");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Prasme nosaukums ir neskaidrs");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Prasme kategorija ir neskaidrs");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Trūkstošo darba apraksts");//Missing job description
+define("_SKILLDOESNOTEXIST","Šī prasme neeksistē");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Lietotājs jau eksistē grupas");//User already exists in group
+define("_COUPONS","Kuponi");//Coupons (New)
+define("_COUPONCODE","Kupona kods");//Coupon code (New)
+define("_TOTALUSES","Kopējais izlietojums");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Kopējais izlietojums pa vienam lietotājam");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimālais izmanto ar vienu lietotāju");//Maximum uses by single user (New)
+define("_VALIDFROM","Derīgs no");//Valid from (New)
+define("_DISCOUNT","Atlaide");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Veiksmīgi atjaunināts kupons");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Izveidot unikālu kupons");//Create unique coupon (New)
+define("_ADDCOUPON","Pievienot kupons");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupons īpašības");//Coupon properties (New)
+define("_REPORTS","Ziņojumi");//Reports (New)
+define("_EXPIRED","Beidzies");//Expired (New)
+define("_USES","Izlietojumi");//Uses (New)
+define("_VALIDUNTIL","Derīga līdz");//Valid until (New)
+define("_USESREMAINING","Izmanto atlikušo");//Uses remaining (New)
+define("_MAXIMUMUSES","Maksimālais izmanto");//Maximum uses (New)
+define("_USESSOFAR","Izmanto šim");//Uses so far (New)
+define("_COUPON","Kupons");//Coupon (New)
+define("_INVALIDCOUPON","Nederīgs kupons");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Noklikšķiniet, lai ievadītu atlaides kuponu");//Click to enter discount coupon (New)
+define("_TESTREDONE","Labots");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Neizdevās atrast kursu");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Importa rezultāti");//Import results for (New)
 ?>

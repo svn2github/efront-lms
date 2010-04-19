@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","At ang mga mensahe ng mga gumagamit");//And the 
 define("_ALLUSERS","Lahat ng gumagamit");//All users
 define("_INVALIDUSER","Hindi wastong user name");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Palitan ang mga dobleng user");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Panatilihin ang mga dobleng user");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Panatilihin ang mga dobleng user");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Walang iba pang mga user sa kasalukuyan online");//No other users currently online
 define("_USERNAME","User name");//User name
 define("_STATISTICSFORUSER","Mga ulat para sa mga user");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Bagong kasanayan assignment");//New skill assignme
 define("_REPLACEDEXISTINGBRANCH","Pinalitan umiiral na sangay");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Pinalitan umiiral na trabaho");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Pinalitan umiiral na kasanayan");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Sangay ng umiiral na");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Nawawalang kasanayan kategorya");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Kasanayan umiiral na");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Branch ay hindi umiiral");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Sangay ng pangalan ay hindi maliwanag");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Job pamagat ay hindi tiyak");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Kasanayan pangalan ay hindi maliwanag");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Kasanayan kategorya ay hindi maliwanag");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Nawawala ang description ng trabaho");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","kasanayan na ito ay hindi na umiiral");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","User ay mayroon na sa grupo");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Sangay ng umiiral na");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Nawawalang kasanayan kategorya");//Missing skill category
+define("_SKILLALREADYEXISTS","Kasanayan umiiral na");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Branch ay hindi umiiral");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Sangay ng pangalan ay hindi maliwanag");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Job pamagat ay hindi tiyak");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Kasanayan pangalan ay hindi maliwanag");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Kasanayan kategorya ay hindi maliwanag");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Nawawala ang description ng trabaho");//Missing job description
+define("_SKILLDOESNOTEXIST","kasanayan na ito ay hindi na umiiral");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","User ay mayroon na sa grupo");//User already exists in group
+define("_COUPONS","Ang mga kupon");//Coupons (New)
+define("_COUPONCODE","Kupon code");//Coupon code (New)
+define("_TOTALUSES","Kabuuang gumagamit");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Total ay gumagamit sa pamamagitan ng iisang user");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Pinakamataas na gumagamit ng iisang user");//Maximum uses by single user (New)
+define("_VALIDFROM","Valid mula sa");//Valid from (New)
+define("_DISCOUNT","Diskuwento");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Matagumpay na na-update kupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Gumawa ng mga natatanging kupon");//Create unique coupon (New)
+define("_ADDCOUPON","Magdagdag ng mga kupon");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupon-aari");//Coupon properties (New)
+define("_REPORTS","Ulat");//Reports (New)
+define("_EXPIRED","Expired");//Expired (New)
+define("_USES","Gumagamit");//Uses (New)
+define("_VALIDUNTIL","Valid hanggang");//Valid until (New)
+define("_USESREMAINING","Gumagamit ng natitirang");//Uses remaining (New)
+define("_MAXIMUMUSES","Pinakamataas na gumagamit ng");//Maximum uses (New)
+define("_USESSOFAR","Gumagamit ng gana");//Uses so far (New)
+define("_COUPON","Kupon");//Coupon (New)
+define("_INVALIDCOUPON","Hindi balidong kupon");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","I-click upang ipasok ang discount kupon");//Click to enter discount coupon (New)
+define("_TESTREDONE","Nawastong");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Hindi makahanap ng kurso");//Could not find course (New)
+define("_IMPORTRESULTSFOR","I-import ng mga resulta para sa");//Import results for (New)
 ?>

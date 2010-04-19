@@ -136,8 +136,10 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
         'online' => array('title' => _USERSONLINE, 'image' => '32x32/users.png'),
         'lessons' => array('title' => _LESSONS, 'image' => '32x32/theory.png'),
                  'selectedLessons' => array('title' => _SELECTEDLESSONS, 'image' => '32x32/shopping_basket.png'),
-        'news' => array('title' => _SYSTEMNEWS, 'image' => '32x32/announcements.png'),
-                 'links' => array('title' => _LINKS, 'image' => '32x32/generic.png'));
+        'news' => array('title' => _SYSTEMNEWS, 'image' => '32x32/announcements.png'));
+ if (!empty($GLOBALS['currentTheme'] -> layout['positions']['enabled'])) {
+  $blocks['links'] = array('title' => _LINKS, 'image' => '32x32/generic.png');
+ }
  //$customBlocks = unserialize($GLOBALS['configuration']['custom_blocks']);
  if (isset($currentTheme -> layout['custom_blocks']) && is_array($currentTheme -> layout['custom_blocks'])) {
      $customBlocks = $currentTheme -> layout['custom_blocks'];
@@ -174,9 +176,13 @@ if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
    //pr($result['login'][$key]);
    $user = EfrontUserFactory :: factory($result['login'][$key]);
    $pattern = $user -> user['login']."_".$user -> user['timestamp'];
-   $pattern = $pattern = md5($pattern.G_MD5KEY);
+   $pattern = md5($pattern.G_MD5KEY);
    if (strcmp($pattern, $_GET['autologin']) == 0) {
     $user -> login($user -> user['password'], true);
+    if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
+    //check for valid lesson
+     setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 300);
+    }
     eF_redirect("".$user -> user['user_type']."page.php");
     exit;
    }

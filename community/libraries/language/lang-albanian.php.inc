@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Dhe mesazhet e përdoruesit");//And the messages
 define("_ALLUSERS","Të gjithë përdoruesit e");//All users
 define("_INVALIDUSER","Emri i përdoruesit e pavlefshme");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Replace dubloj përdoruesit");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Keep dubloj përdoruesit");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Keep dubloj përdoruesit");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Asnjë përdorues të tjerë aktualisht online");//No other users currently online
 define("_USERNAME","Emri i përdoruesit");//User name
 define("_STATISTICSFORUSER","Raportet për përdoruesin");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","caktimit të reja aftësi");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","Dega e zëvendësuara ekzistues");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","punë e zëvendësuara ekzistues");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","aftësi të zëvendësuara ekzistues");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Dega Ekziston");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","E humbur kategori aftësi");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Aftësi Ekziston");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Dega nuk ekziston");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Emri Dega është e paqartë");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Titulli i punës është e paqartë");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Emri aftësia është e paqartë");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","kategori aftësia është e paqartë");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","E humbur përshkrimit të punës");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Kjo aftësi nuk ekziston");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","User ekziston në grup");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Dega Ekziston");//Branch exists already
+define("_MISSINGSKILLCATEGORY","E humbur kategori aftësi");//Missing skill category
+define("_SKILLALREADYEXISTS","Aftësi Ekziston");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Dega nuk ekziston");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Emri Dega është e paqartë");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Titulli i punës është e paqartë");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Emri aftësia është e paqartë");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","kategori aftësia është e paqartë");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","E humbur përshkrimit të punës");//Missing job description
+define("_SKILLDOESNOTEXIST","Kjo aftësi nuk ekziston");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","User ekziston në grup");//User already exists in group
+define("_COUPONS","Kuponat");//Coupons (New)
+define("_COUPONCODE","Kodi kupon");//Coupon code (New)
+define("_TOTALUSES","Totali i përdor");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Totali përdor nga përdorues të vetëm");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maksimumi përdor nga përdorues të vetëm");//Maximum uses by single user (New)
+define("_VALIDFROM","E vlefshme nga");//Valid from (New)
+define("_DISCOUNT","Zbritje");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","-freskua me sukses kupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","kupon Krijo unike");//Create unique coupon (New)
+define("_ADDCOUPON","Shto kupon");//Add coupon (New)
+define("_COUPONPROPERTIES","pronat kupon");//Coupon properties (New)
+define("_REPORTS","Raportet");//Reports (New)
+define("_EXPIRED","Skaduar");//Expired (New)
+define("_USES","Përdor");//Uses (New)
+define("_VALIDUNTIL","E vlefshme deri");//Valid until (New)
+define("_USESREMAINING","Përdor mbetur");//Uses remaining (New)
+define("_MAXIMUMUSES","Maksimumi i përdor");//Maximum uses (New)
+define("_USESSOFAR","Përdor deri tani");//Uses so far (New)
+define("_COUPON","Kupon");//Coupon (New)
+define("_INVALIDCOUPON","kupon pavlefshme");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Kliko për të hyrë në zbritje kupon");//Click to enter discount coupon (New)
+define("_TESTREDONE","Korrigjohen");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Nuk mund të gjeni kursin");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Rezultatet e importit për");//Import results for (New)
 ?>

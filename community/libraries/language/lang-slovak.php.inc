@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","A správy užívateľa");//And the messages of u
 define("_ALLUSERS","Všetci užívatelia");//All users
 define("_INVALIDUSER","Neplatné užívateľské meno");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Nahradiť duplicitných užívateľov");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Ponechajte duplicitných užívateľov");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Ponechajte duplicitných užívateľov");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Žiadny ďalší užívatelia online");//No other users currently online
 define("_USERNAME","Užívateľské meno");//User name
 define("_STATISTICSFORUSER","Správy pre užívateľov");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nové zručnosti priradenie");//New skill assignme
 define("_REPLACEDEXISTINGBRANCH","Nahrádza existujúcu pobočky");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Nahrádza existujúcu pracovné miesto");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Nahrádza existujúcu kvalifikačné");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Pobočka už existuje");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Chýbajúce kvalifikácia kategórie");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill už existuje");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Pobočka neexistuje");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Pobočka meno je nejednoznačné");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Názov práce je nejednoznačné");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill meno je nejednoznačné");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Skill kategórie je nejednoznačné");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Chýbajúce opis pracovnej náplne");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Táto zručnosť neexistuje");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Používateľ už existuje v skupine");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Pobočka už existuje");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Chýbajúce kvalifikácia kategórie");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill už existuje");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Pobočka neexistuje");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Pobočka meno je nejednoznačné");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Názov práce je nejednoznačné");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill meno je nejednoznačné");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Skill kategórie je nejednoznačné");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Chýbajúce opis pracovnej náplne");//Missing job description
+define("_SKILLDOESNOTEXIST","Táto zručnosť neexistuje");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Používateľ už existuje v skupine");//User already exists in group
+define("_COUPONS","Kupóny");//Coupons (New)
+define("_COUPONCODE","Kupon kód");//Coupon code (New)
+define("_TOTALUSES","Celkom použitie");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Celkom použitia od jedného užívateľa");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maximálne využitie od jedného užívateľa");//Maximum uses by single user (New)
+define("_VALIDFROM","Platnosť od");//Valid from (New)
+define("_DISCOUNT","Zľava");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Úspešne aktualizované kupón");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Vytvorte jedinečný kupón");//Create unique coupon (New)
+define("_ADDCOUPON","Pridať kupón");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupon vlastnosti");//Coupon properties (New)
+define("_REPORTS","Správy");//Reports (New)
+define("_EXPIRED","Uplynula");//Expired (New)
+define("_USES","Používa");//Uses (New)
+define("_VALIDUNTIL","V platnosti až do");//Valid until (New)
+define("_USESREMAINING","Používa zostávajúcich");//Uses remaining (New)
+define("_MAXIMUMUSES","Maximálne využitie");//Maximum uses (New)
+define("_USESSOFAR","Používa tak ďaleko");//Uses so far (New)
+define("_COUPON","Kupón");//Coupon (New)
+define("_INVALIDCOUPON","Neplatný kupón");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Kliknite pre vstup zľavový kupón");//Click to enter discount coupon (New)
+define("_TESTREDONE","Opravené");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Nepodarilo sa nájsť kurz");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Import výsledky");//Import results for (New)
 ?>

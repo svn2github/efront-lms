@@ -50,7 +50,6 @@ abstract class EfrontImport
      * @since 3.6.1
      * @access public
      */
- public abstract function import($type);
 
 
     /**
@@ -70,11 +69,21 @@ abstract class EfrontImport
   return $this -> log;
  }
 
+
+ private $datatypes = false;
  public static function getImportTypes() {
-  $datatypes = array("anything" => _IMPORTANYTHING,
-         "users" => _USERS,
-         "users_to_courses" => _USERSTOCOURSES);
+  if (!$datatypes) {
+   $datatypes = array("anything" => _IMPORTANYTHING,
+          "users" => _USERS,
+          "users_to_courses" => _USERSTOCOURSES);
+  }
   return $datatypes;
+ }
+ public function getImportTypeName($import_type) {
+  if (!$datatypes) {
+   $datatypes = EfrontImport::getImportTypes();
+  }
+  return $datatypes[$import_type];
  }
  public function __construct($filename, $_options) {
   $this -> fileContents = file_get_contents($filename);
@@ -313,10 +322,18 @@ class EfrontImportCsv extends EfrontImport
   }
   return false;
  }
+ private function cleanUpEmptyValues(&$data) {
+  foreach ($data as $key => $info) {
+   if ($info == "") {
+    unset($data[$key]);
+   }
+  }
+ }
  /*
 	 * Update the data of an existing record
 	 */
  private function updateExistingData($line, $type, $data) {
+  $this -> cleanUpEmptyValues(&$data);
   try {
    switch($type) {
     case "users":
@@ -349,12 +366,16 @@ class EfrontImportCsv extends EfrontImport
      $courses_ID = $this -> getCourseByName($data['course_name']);
      $courses_name = $data['course_name'];
      unset($data['course_name']);
-     foreach($courses_ID as $course_ID) {
-      $data['courses_ID'] = $course_ID;
-      $course = new EfrontCourse($course_ID);
-      $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
-      eF_updateTableData("users_to_courses", $data, "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID']);
-      $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
+     if ($courses_ID) {
+      foreach($courses_ID as $course_ID) {
+       $data['courses_ID'] = $course_ID;
+       $course = new EfrontCourse($course_ID);
+       $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
+       eF_updateTableData("users_to_courses", $data, "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID']);
+       $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
+      }
+     } else {
+      $this -> log["failure"][] = _LINE . " $line: " . _COULDNOTFINDCOURSE . " " . $courses_name;
      }
      break;
     case "users_to_groups":
@@ -407,10 +428,10 @@ class EfrontImportCsv extends EfrontImport
   $lineContents = $this -> explodeBySeparator($line);
   $data = $this -> getEmptyData();
   foreach ($this -> mappings as $dbAttribute => $fileInfo) {
-   if (strpos($dbAttribute, "timestamp") === false) {
-    $data[$dbAttribute] = trim($lineContents[$fileInfo], "\"");
+   if (strpos($dbAttribute, "timestamp") === false && $dbAttribute != "hired_on" && $dbAttribute != "left_on") {
+    $data[$dbAttribute] = trim($lineContents[$fileInfo], "\r\n\"");
    } else {
-    $data[$dbAttribute] = $this -> createTimestampFromDate(trim($lineContents[$fileInfo], "\""));
+    $data[$dbAttribute] = $this -> createTimestampFromDate(trim($lineContents[$fileInfo], "\r\n\""));
    }
   }
   return $data;
@@ -427,7 +448,6 @@ class EfrontImportCsv extends EfrontImport
    $this -> types = EfrontImport::getTypes($type);
    // Pairs of values <eFront DB field> => <import file column> 
    $this -> mappings = $this -> parseHeaderLine(&$headerLine);
-   //echo "MAPPING:";pr($this -> mappings );
    if ($this -> mappings) {
     if ($this -> checkImportEssentialField($type)) {
      for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
@@ -441,10 +461,27 @@ class EfrontImportCsv extends EfrontImport
   }
   return $this -> log;
  }
+ /*
+	 * Set the memory and time limits for an import according to the number of lines to be imported
+	 */
+ private function setLimits() {
+  $factor = $this->lines / 500;
+  if ($factor < 1) {
+   return;
+  }
+  if ($factor > 20) {
+   $factor = 20;
+  }
+  $maxmemory = 128 * $factor;
+  $maxtime = 300 * $factor;
+  ini_set("memory_limit",$maxmemory . "M");
+        ini_set("max_execution_time", $maxtime);
+ }
  public function __construct($filename, $_options) {
   $this -> fileContents = file_get_contents($filename);
   $this -> fileContents = explode("\n", trim($this -> fileContents));
   $this -> lines = sizeof($this -> fileContents);
+  $this -> setLimits();
   $this -> options = $_options;
  }
 }
@@ -658,7 +695,7 @@ class EfrontExportCsv extends EfrontExport
   foreach ($data as $info) {
          unset($info['password']);
          foreach ($info as $field => $value) {
-          if (!(strpos($field, "timestamp") === false)) {
+          if (!(strpos($field, "timestamp") === false) || $field=="hired_on" || $field=="left_on") {
            $info[$field] = $this -> createDatesFromTimestamp($value);
           }
          }

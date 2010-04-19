@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","და მონაწილის გზავ�
 define("_ALLUSERS","ყველა მონაწილე");//All users
 define("_INVALIDUSER","მონაწილის სახელი უმართებლოა");//Invalid user name
 define("_REPLACEEXISTINGUSERS","დუბლირებულ მონაწილეთა ჩანაცვლება");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","დუბლირებულ მონაწილეთა შენარჩუნება");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","დუბლირებულ მონაწილეთა შენარჩუნება");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","ამ დროისთვის სისტემაში სხვა მონაწილეები არ არიან");//No other users currently online
 define("_USERNAME","მონაწილის სახელი");//User name
 define("_STATISTICSFORUSER","ოქმები მონაწილეზე");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","");//New skill assignment
 define("_REPLACEDEXISTINGBRANCH","");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","");//Branch exists already
+define("_MISSINGSKILLCATEGORY","");//Missing skill category
+define("_SKILLALREADYEXISTS","");//Skill exists already
+define("_BRANCHDOESNOTEXIST","");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","");//Missing job description
+define("_SKILLDOESNOTEXIST","");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","");//User already exists in group
+define("_COUPONS","");//Coupons (New)
+define("_COUPONCODE","");//Coupon code (New)
+define("_TOTALUSES","");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","");//Maximum uses by single user (New)
+define("_VALIDFROM","");//Valid from (New)
+define("_DISCOUNT","");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","");//Create unique coupon (New)
+define("_ADDCOUPON","");//Add coupon (New)
+define("_COUPONPROPERTIES","");//Coupon properties (New)
+define("_REPORTS","");//Reports (New)
+define("_EXPIRED","");//Expired (New)
+define("_USES","");//Uses (New)
+define("_VALIDUNTIL","");//Valid until (New)
+define("_USESREMAINING","");//Uses remaining (New)
+define("_MAXIMUMUSES","");//Maximum uses (New)
+define("_USESSOFAR","");//Uses so far (New)
+define("_COUPON","");//Coupon (New)
+define("_INVALIDCOUPON","");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","");//Click to enter discount coupon (New)
+define("_TESTREDONE","");//Corrected (New)
+define("_COULDNOTFINDCOURSE","");//Could not find course (New)
+define("_IMPORTRESULTSFOR","");//Import results for (New)
 ?>

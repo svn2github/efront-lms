@@ -156,6 +156,17 @@ if ($_GET['scorm_review']) {
 
         }
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+     $renderer->setRequiredTemplate(
+        '{$html}{if $required}
+             &nbsp;<span class = "formRequired">*</span>
+         {/if}'
+         );
+
+     $renderer->setErrorTemplate(
+        '{$html}{if $error}
+             <div class = "formError">{$error}</div>
+         {/if}'
+         );
         $form -> accept($renderer);
         $smarty -> assign('T_UPLOAD_SCORM_FORM', $renderer -> toArray());
     } catch (Exception $e) {

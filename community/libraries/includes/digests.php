@@ -271,7 +271,6 @@ $loadScripts[] = "administrator/digests";
 
 
 
-
         $form -> addElement('select', 'available_lessons', _LESSON, $av_lessons, 'id = "available_lessons" class = "inputSelectMed"');
         $form -> addElement('select', 'available_courses', _COURSE, array_merge(array(0=> _ANYCOURSE), $courses), 'id = "available_courses" class = "inputSelectMed"');
         $form -> addElement('select', 'available_tests', _TEST, $tests, 'id = "available_tests" class = "inputSelectMed"');

@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","И порукама корисник");//And the
 define("_ALLUSERS","Сви корисници");//All users
 define("_INVALIDUSER","Погрешна корисничко име");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Замените дупле корисника");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Имајте дупле корисника");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Имајте дупле корисника");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Тренутно нема других корисника онлине");//No other users currently online
 define("_USERNAME","Корисничко име");//User name
 define("_STATISTICSFORUSER","Извештаји корисника");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Нову вештину задатак");//New ski
 define("_REPLACEDEXISTINGBRANCH","Замењује постојеће филијале");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Заменио постојећи посао");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Замењује постојеће вештине");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Филијала већ постоји");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Недостаје вештина категорији");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Вештина већ постоји");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Грана не постоји");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Филијала име је двосмислена");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Посао наслов је нејасан");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Вештина име је двосмислена");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Вештина категорија је двосмислен");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Недостаје опис посла");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Ова вештина не постоји");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Корисник већ постоји у групи");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Филијала већ постоји");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Недостаје вештина категорији");//Missing skill category
+define("_SKILLALREADYEXISTS","Вештина већ постоји");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Грана не постоји");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Филијала име је двосмислена");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Посао наслов је нејасан");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Вештина име је двосмислена");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Вештина категорија је двосмислен");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Недостаје опис посла");//Missing job description
+define("_SKILLDOESNOTEXIST","Ова вештина не постоји");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Корисник већ постоји у групи");//User already exists in group
+define("_COUPONS","Купони");//Coupons (New)
+define("_COUPONCODE","Купон код");//Coupon code (New)
+define("_TOTALUSES","Укупно користи");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Укупно се користи од стране једног корисника");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Максимално користи од стране једног корисника");//Maximum uses by single user (New)
+define("_VALIDFROM","Важи од");//Valid from (New)
+define("_DISCOUNT","Попуст");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Успешно ажурирани купон");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Креирате јединствене купон");//Create unique coupon (New)
+define("_ADDCOUPON","Додај купон");//Add coupon (New)
+define("_COUPONPROPERTIES","Купон својства");//Coupon properties (New)
+define("_REPORTS","Извештаји");//Reports (New)
+define("_EXPIRED","Истекао");//Expired (New)
+define("_USES","Користи");//Uses (New)
+define("_VALIDUNTIL","Важи све до");//Valid until (New)
+define("_USESREMAINING","Користи преосталих");//Uses remaining (New)
+define("_MAXIMUMUSES","Максимално користи");//Maximum uses (New)
+define("_USESSOFAR","Користи до сада");//Uses so far (New)
+define("_COUPON","Купон");//Coupon (New)
+define("_INVALIDCOUPON","Неважећи купон");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Кликните да бисте унели попуст купон");//Click to enter discount coupon (New)
+define("_TESTREDONE","Исправљена");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Није могуће пронаћи курс");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Увоз резултате за");//Import results for (New)
 ?>

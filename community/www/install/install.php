@@ -472,6 +472,10 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 addLanguagesDB();
                 EfrontNotification::addDefaultNotifications();
                 Installation :: addModules();
+                if (is_file('post_install.php')) {
+                 include('post_install.php');
+                 runPostInstallationFunctions();
+                }
                 header("location:".$_SERVER['PHP_SELF']."?finish=1");
                 exit;
             }

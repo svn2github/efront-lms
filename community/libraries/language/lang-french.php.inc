@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Et les messages de l&#39;utilisateur");//And the
 define("_ALLUSERS","Tous les utilisateurs");//All users
 define("_INVALIDUSER","Nom de l&#39;utilisateur non valide");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Remplacer les doubles utilisateurs");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Garder les doubles utilisateurs");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Garder les doubles utilisateurs");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Pas d&#39;autres utilisateurs actuellement connectés");//No other users currently online
 define("_USERNAME","Nom de l&#39;utilisateur");//User name
 define("_STATISTICSFORUSER","Rapports des utilisateurs");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","cession de nouvelles compétences");//New skill as
 define("_REPLACEDEXISTINGBRANCH","Remplacé branche existante");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Remplacé emplois existants");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Remplacé compétences existantes");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Direction générale existe déjà");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Missing catégorie de qualification");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill existe déjà");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Direction n&#39;existe pas");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Nom de l&#39;agence est ambigu");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Titre de l&#39;emploi est ambigu");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Nom de compétences est ambigu");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","catégorie de qualification est ambiguë");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Missing description de poste");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Cette compétence n&#39;existe pas");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","L&#39;utilisateur existe déjà dans le groupe");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Direction générale existe déjà");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Missing catégorie de qualification");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill existe déjà");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Direction n&#39;existe pas");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Nom de l&#39;agence est ambigu");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Titre de l&#39;emploi est ambigu");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Nom de compétences est ambigu");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","catégorie de qualification est ambiguë");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Missing description de poste");//Missing job description
+define("_SKILLDOESNOTEXIST","Cette compétence n&#39;existe pas");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","L&#39;utilisateur existe déjà dans le groupe");//User already exists in group
+define("_COUPONS","Coupons");//Coupons (New)
+define("_COUPONCODE","Code promo");//Coupon code (New)
+define("_TOTALUSES","Total des emplois");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Total des emplois par un seul utilisateur");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maximum utilisation par un seul utilisateur");//Maximum uses by single user (New)
+define("_VALIDFROM","Valable à partir du");//Valid from (New)
+define("_DISCOUNT","Rabais");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Mise à jour réussie coupon");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Créer coupon unique");//Create unique coupon (New)
+define("_ADDCOUPON","Ajouter coupon");//Add coupon (New)
+define("_COUPONPROPERTIES","propriétés coupon");//Coupon properties (New)
+define("_REPORTS","Rapports");//Reports (New)
+define("_EXPIRED","Expiré");//Expired (New)
+define("_USES","Usages");//Uses (New)
+define("_VALIDUNTIL","Valable jusqu&#39;au");//Valid until (New)
+define("_USESREMAINING","Utilisations restantes");//Uses remaining (New)
+define("_MAXIMUMUSES","Maximum utilise");//Maximum uses (New)
+define("_USESSOFAR","Utilise la mesure où");//Uses so far (New)
+define("_COUPON","Coupon");//Coupon (New)
+define("_INVALIDCOUPON","coupon Blancs");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Cliquez pour entrer coupon de réduction");//Click to enter discount coupon (New)
+define("_TESTREDONE","Corrigé");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Impossible de trouver le cours");//Could not find course (New)
+define("_IMPORTRESULTSFOR","les résultats d&#39;importation pour");//Import results for (New)
 ?>

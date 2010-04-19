@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","С посланията на работници�
 define("_ALLUSERS","Всички служители");//All users
 define("_INVALIDUSER","Невалидно име на работниците и служителите");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Замяна на дублиращи се служители");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Придържайте се дублират служители");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Придържайте се дублират служители");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Никакви други служители в момента онлайн");//No other users currently online
 define("_USERNAME","Името на служителите");//User name
 define("_STATISTICSFORUSER","Доклади за работниците и служителите");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Нови умения работа");//New skill a
 define("_REPLACEDEXISTINGBRANCH","Заменен съществуващите клон");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Заменен съществуващите работа");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Заменен съществуващите умения");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Клон вече съществува");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Липсващи умения категория");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Умения вече съществува");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Клонът не съществува");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Име на клона е двусмислен");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Длъжността е двусмислен");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Умения име е двусмислен");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Умения категория е двусмислен");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Липсва длъжностна характеристика");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Това умение не съществува");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Потребителите вече съществува в групата");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Клон вече съществува");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Липсващи умения категория");//Missing skill category
+define("_SKILLALREADYEXISTS","Умения вече съществува");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Клонът не съществува");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Име на клона е двусмислен");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Длъжността е двусмислен");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Умения име е двусмислен");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Умения категория е двусмислен");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Липсва длъжностна характеристика");//Missing job description
+define("_SKILLDOESNOTEXIST","Това умение не съществува");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Потребителите вече съществува в групата");//User already exists in group
+define("_COUPONS","Купони");//Coupons (New)
+define("_COUPONCODE","Купон кодекс");//Coupon code (New)
+define("_TOTALUSES","Общо употреба");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Общо приложение по един и същи потребител");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Максимално използване от един и същи потребител");//Maximum uses by single user (New)
+define("_VALIDFROM","Валидна от");//Valid from (New)
+define("_DISCOUNT","Отстъпка");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Успешно осъвременяване купон");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Създайте уникален купон");//Create unique coupon (New)
+define("_ADDCOUPON","Добави купон");//Add coupon (New)
+define("_COUPONPROPERTIES","Купон имоти");//Coupon properties (New)
+define("_REPORTS","Доклади");//Reports (New)
+define("_EXPIRED","Изтекъл");//Expired (New)
+define("_USES","Използва");//Uses (New)
+define("_VALIDUNTIL","Валиден до");//Valid until (New)
+define("_USESREMAINING","Използва останалите");//Uses remaining (New)
+define("_MAXIMUMUSES","Максимално използване");//Maximum uses (New)
+define("_USESSOFAR","Използва досега");//Uses so far (New)
+define("_COUPON","Купон");//Coupon (New)
+define("_INVALIDCOUPON","Невалидна купон");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Кликнете, за да въведе отстъпка купон");//Click to enter discount coupon (New)
+define("_TESTREDONE","Коригирана");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Не мога да намеря курс");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Внос резултатите за");//Import results for (New)
 ?>

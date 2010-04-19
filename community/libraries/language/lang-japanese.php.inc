@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","とのメッセージの従業員");//And the me
 define("_ALLUSERS","すべての従業員");//All users
 define("_INVALIDUSER","従業員の名前が無効です");//Invalid user name
 define("_REPLACEEXISTINGUSERS","重複する従業員に置き換えます");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","重複する従業員の維持");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","重複する従業員の維持");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","現在オンライン上の他の従業員");//No other users currently online
 define("_USERNAME","従業員名");//User name
 define("_STATISTICSFORUSER","従業員のレポートを作成");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","新しいスキルの割り当て");//New skill as
 define("_REPLACEDEXISTINGBRANCH","置き換え、既存の支店");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","置き換え、既存のジョブ");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","置き換え、既存のスキル");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","ブランチは既に存在します");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","スキルカテゴリが表示されない");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","スキルが既に存在する");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","ブランチが存在しない");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","ブランチの名前があいまいである");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","ジョブのタイトルがあいまいな");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","スキル名があいまいです");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","スキルカテゴリのあいまいさ");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","ジョブの説明が表示されない");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","このスキルは存在しない");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","ユーザーはすでにグループ内に存在する");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","ブランチは既に存在します");//Branch exists already
+define("_MISSINGSKILLCATEGORY","スキルカテゴリが表示されない");//Missing skill category
+define("_SKILLALREADYEXISTS","スキルが既に存在する");//Skill exists already
+define("_BRANCHDOESNOTEXIST","ブランチが存在しない");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","ブランチの名前があいまいである");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","ジョブのタイトルがあいまいな");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","スキル名があいまいです");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","スキルカテゴリのあいまいさ");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","ジョブの説明が表示されない");//Missing job description
+define("_SKILLDOESNOTEXIST","このスキルは存在しない");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","ユーザーはすでにグループ内に存在する");//User already exists in group
+define("_COUPONS","クーポン");//Coupons (New)
+define("_COUPONCODE","クーポンコード");//Coupon code (New)
+define("_TOTALUSES","合計が使用");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","シングルユーザーでの合計使用");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","最大は、単一のユーザーが使用して");//Maximum uses by single user (New)
+define("_VALIDFROM","有効から");//Valid from (New)
+define("_DISCOUNT","ディスカウント");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","正常にクーポンを更新しました");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","作成独自のクーポン");//Create unique coupon (New)
+define("_ADDCOUPON","クーポンを追加");//Add coupon (New)
+define("_COUPONPROPERTIES","クーポンのプロパティ");//Coupon properties (New)
+define("_REPORTS","レポート");//Reports (New)
+define("_EXPIRED","期限切れ");//Expired (New)
+define("_USES","使用");//Uses (New)
+define("_VALIDUNTIL","有効期限");//Valid until (New)
+define("_USESREMAINING","使用残りの");//Uses remaining (New)
+define("_MAXIMUMUSES","最大で使用する");//Maximum uses (New)
+define("_USESSOFAR","使用今のところ");//Uses so far (New)
+define("_COUPON","クーポン");//Coupon (New)
+define("_INVALIDCOUPON","無効なクーポン");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","をクリックしてクーポン割引を入力する");//Click to enter discount coupon (New)
+define("_TESTREDONE","修正");//Corrected (New)
+define("_COULDNOTFINDCOURSE","コースを見つけることができませんでした");//Could not find course (New)
+define("_IMPORTRESULTSFOR","インポート結果");//Import results for (New)
 ?>

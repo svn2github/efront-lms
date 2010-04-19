@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","ورسائل للموظف");//And the messages o
 define("_ALLUSERS","جميع العاملين");//All users
 define("_INVALIDUSER","اسم الموظف غير صالح");//Invalid user name
 define("_REPLACEEXISTINGUSERS","يحل محل الموظفين المكرره");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","ابقاء الموظفين المكرره");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","ابقاء الموظفين المكرره");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","اي موظفين آخرين في الوقت الراهن على الانترنت");//No other users currently online
 define("_USERNAME","اسم الموظف");//User name
 define("_STATISTICSFORUSER","تقارير للموظف");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","مهارة مهمة جديدة");//New skill assig
 define("_REPLACEDEXISTINGBRANCH","استبدال فرع القائمة");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","محل العمل الحالي");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","استبدال المهارات الموجودة");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","فرع موجود مسبقا");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","مفقود فئة المهارات");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","مهارة مسبقا");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","فرع غير موجود");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","فرع اسم يدعو للالتباس");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","الوظيفة غامض");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","مهارة اسم يدعو للالتباس");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","مهارة فئة غامضة");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","مفقود التوصيف الوظيفي");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","هذه المهارة لا وجود له");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","المستخدم موجود بالفعل في المجموعة");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","فرع موجود مسبقا");//Branch exists already
+define("_MISSINGSKILLCATEGORY","مفقود فئة المهارات");//Missing skill category
+define("_SKILLALREADYEXISTS","مهارة مسبقا");//Skill exists already
+define("_BRANCHDOESNOTEXIST","فرع غير موجود");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","فرع اسم يدعو للالتباس");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","الوظيفة غامض");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","مهارة اسم يدعو للالتباس");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","مهارة فئة غامضة");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","مفقود التوصيف الوظيفي");//Missing job description
+define("_SKILLDOESNOTEXIST","هذه المهارة لا وجود له");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","المستخدم موجود بالفعل في المجموعة");//User already exists in group
+define("_COUPONS","كوبونات");//Coupons (New)
+define("_COUPONCODE","رمز القسيمة");//Coupon code (New)
+define("_TOTALUSES","إجمالي الاستخدامات");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","مجموع يستخدم من قبل مستخدم واحد");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","الحد الأقصى ليستخدم من قبل مستخدم واحد");//Maximum uses by single user (New)
+define("_VALIDFROM","صالحة من");//Valid from (New)
+define("_DISCOUNT","خصم");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","تحديث بنجاح القسيمة");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","إنشاء قسيمة فريد");//Create unique coupon (New)
+define("_ADDCOUPON","إضافة قسيمة");//Add coupon (New)
+define("_COUPONPROPERTIES","القسيمة خصائص");//Coupon properties (New)
+define("_REPORTS","تقارير");//Reports (New)
+define("_EXPIRED","انتهت");//Expired (New)
+define("_USES","يستخدم");//Uses (New)
+define("_VALIDUNTIL","ساري المفعول حتى");//Valid until (New)
+define("_USESREMAINING","الاستخدامات المتبقية");//Uses remaining (New)
+define("_MAXIMUMUSES","يستخدم أقصى");//Maximum uses (New)
+define("_USESSOFAR","يستخدم حتى الآن");//Uses so far (New)
+define("_COUPON","قسيمة");//Coupon (New)
+define("_INVALIDCOUPON","القسيمة غير صالحة");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","اضغط للدخول خصم القسيمة");//Click to enter discount coupon (New)
+define("_TESTREDONE","تصحيح");//Corrected (New)
+define("_COULDNOTFINDCOURSE","بالطبع لا يمكن أن تجد");//Could not find course (New)
+define("_IMPORTRESULTSFOR","نتائج لاستيراد");//Import results for (New)
 ?>

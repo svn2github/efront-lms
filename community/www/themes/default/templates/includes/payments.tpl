@@ -19,7 +19,7 @@
     </tr>
     {foreach name = 'users_list' key = 'key' item = 'coupon' from = $T_DATA_SOURCE}
     <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-     <td>{$coupon.code}</td>
+     <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=payments&coupons=1&edit={$coupon.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._EDIT}', 2)">{$coupon.code}</a></td>
      <td class = "centerAlign">{if $coupon.max_uses}{$coupon.max_uses}{else}{$smarty.const._UNLIMITED}{/if}</td>
      <td class = "centerAlign">{if $coupon.max_uses}{$coupon.max_user_uses}{else}{$smarty.const._UNLIMITED}{/if}</td>
      <td>#filter:timestamp_time-{$coupon.from_timestamp}#</td>
@@ -63,6 +63,8 @@
      <td class = "elementCell">{$T_ENTITY_FORM.discount.html} %</td></tr>
     <tr><td class = "labelCell">{$T_ENTITY_FORM.active.label}:&nbsp;</td>
      <td class = "elementCell">{$T_ENTITY_FORM.active.html}</td></tr>
+    <tr><td class = "labelCell">{$T_ENTITY_FORM.description.label}:&nbsp;</td>
+     <td class = "elementCell">{$T_ENTITY_FORM.description.html}</td></tr>
     <tr><td></td>
      <td class = "submitCell">{$T_ENTITY_FORM.submit_coupon.html}</td>
     </tr>

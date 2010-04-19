@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","וגם את ההודעות של המשתמש");/
 define("_ALLUSERS","כל המשתמשים");//All users
 define("_INVALIDUSER","שם משתמש לא חוקי");//Invalid user name
 define("_REPLACEEXISTINGUSERS","החלף כפולים משתמשים");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","שמור על משתמשים כפולים");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","שמור על משתמשים כפולים");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","כרגע אין משתמשים אחרים באופן מקוון");//No other users currently online
 define("_USERNAME","שם משתמש");//User name
 define("_STATISTICSFORUSER","דוח ות עבור המשתמש");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","חדש הקצאה מיומנות");//New skill ass
 define("_REPLACEDEXISTINGBRANCH","הוחלף הקיים הסניף");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","הוחלף הקיימים העבודה");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","הוחלף הקיים מיומנות");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","סניף קיים כבר");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","חסר קטגוריה מיומנות");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","מיומנות קיים כבר");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","סניף אינו קיים");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","שם סניף הוא מעורפל");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","התפקיד הוא מעורפל");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","שם מיומנות הוא מעורפל");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","קטגוריית מיומנות הוא מעורפל");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","חסר תיאור העבודה");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","מיומנות זו אינה קיימת");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","משתמש כבר קיים בקבוצה");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","סניף קיים כבר");//Branch exists already
+define("_MISSINGSKILLCATEGORY","חסר קטגוריה מיומנות");//Missing skill category
+define("_SKILLALREADYEXISTS","מיומנות קיים כבר");//Skill exists already
+define("_BRANCHDOESNOTEXIST","סניף אינו קיים");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","שם סניף הוא מעורפל");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","התפקיד הוא מעורפל");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","שם מיומנות הוא מעורפל");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","קטגוריית מיומנות הוא מעורפל");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","חסר תיאור העבודה");//Missing job description
+define("_SKILLDOESNOTEXIST","מיומנות זו אינה קיימת");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","משתמש כבר קיים בקבוצה");//User already exists in group
+define("_COUPONS","קופונים");//Coupons (New)
+define("_COUPONCODE","קוד קופון");//Coupon code (New)
+define("_TOTALUSES","סך משתמש");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","משתמש סך של משתמש יחיד");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","מרבית השימושים של משתמש יחיד");//Maximum uses by single user (New)
+define("_VALIDFROM","תקף מ");//Valid from (New)
+define("_DISCOUNT","הנחה");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","עודכן בהצלחה קופון");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","יצירה ייחודית קופון");//Create unique coupon (New)
+define("_ADDCOUPON","הוסף קופון");//Add coupon (New)
+define("_COUPONPROPERTIES","קופון נכסים");//Coupon properties (New)
+define("_REPORTS","דוחות");//Reports (New)
+define("_EXPIRED","פג תוקף");//Expired (New)
+define("_USES","שימושים");//Uses (New)
+define("_VALIDUNTIL","תקף עד");//Valid until (New)
+define("_USESREMAINING","שימושים הנותרים");//Uses remaining (New)
+define("_MAXIMUMUSES","מרבית השימושים");//Maximum uses (New)
+define("_USESSOFAR","שימושים כה");//Uses so far (New)
+define("_COUPON","קופון");//Coupon (New)
+define("_INVALIDCOUPON","חוקי קופון");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","לחץ כדי להיכנס קופון הנחה");//Click to enter discount coupon (New)
+define("_TESTREDONE","מתוקן");//Corrected (New)
+define("_COULDNOTFINDCOURSE","לא ניתן למצוא כמובן");//Could not find course (New)
+define("_IMPORTRESULTSFOR","ייבוא תוצאות עבור");//Import results for (New)
 ?>

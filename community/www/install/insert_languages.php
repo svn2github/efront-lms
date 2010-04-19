@@ -1,4 +1,9 @@
 <?php
+//This file cannot be called directly, only included.
+if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
+    exit;
+}
+
 function addLanguagesDB() {
  $langsArray[] = array('name' => 'albanian', 'active' => (setlocale(LC_ALL, "albanian") == "") ? 0:1, 'translation' => 'Shqipe');
  $langsArray[] = array('name' => 'arabic', 'active' => (setlocale(LC_ALL, "arabic") == "") ? 0:1, 'translation' => 'العربية');

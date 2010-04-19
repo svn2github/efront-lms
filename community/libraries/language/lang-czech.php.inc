@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","A zprávy uživatele");//And the messages of use
 define("_ALLUSERS","Všichni uživatelé");//All users
 define("_INVALIDUSER","Neplatné jméno uživatele");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Nahradit duplicitní uživatele");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Ponechte duplicitní uživatele");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Ponechte duplicitní uživatele");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Žádní další uživatelé nejsou v současné době on-line");//No other users currently online
 define("_USERNAME","Uživatelské jméno");//User name
 define("_STATISTICSFORUSER","Zprávy pro uživatele");//Reports for user
@@ -3474,44 +3474,44 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Musíte zadat počet otázek");//You must s
 define("_MUSTSPECIFYVALUEFROM","Musíte zadat hodnotu od");//You must specify a value from
 define("_COURSEPROFESSORS","Samozřejmě profesoři");//Course professors
 define("_PROFESSORSOFCOURSE","Profesoři samozřejmě");//Professors of course
-define("_USERSUPERVISORS","Uživatel dohledu");//User supervisors (New)
-define("_USEROPTIONSFOR","Možnosti pro uživatele");//Options for user (New)
-define("_MYSTATUS","Stav mé učení");//my Learning Status (New)
-define("_MYCOURSES","my Kurzy");//my Courses (New)
-define("_CERTIFICATIONS","Certifikáty");//Certificates (New)
-define("_MYCERTIFICATIONS","my Certifikáty");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Žádné certifikáty byly vydány pro uživatele ještě");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Chcete-li být aktivována Garant");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","No pobočka dohledu nalezeny");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Uživatel dohledu");//User supervisors
+define("_USEROPTIONSFOR","Možnosti pro uživatele");//Options for user
+define("_MYSTATUS","Stav mé učení");//my Learning Status
+define("_MYCOURSES","my Kurzy");//my Courses
+define("_CERTIFICATIONS","Certifikáty");//Certificates
+define("_MYCERTIFICATIONS","my Certifikáty");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Žádné certifikáty byly vydány pro uživatele ještě");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Chcete-li být aktivována Garant");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","No pobočka dohledu nalezeny");//No branch supervisors found
 define("_PRINTCONTENT","Tisk obsahu");//Print content
 define("_USERHASNOTDONETEST","Uživatel ješte neudělal tento test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Ověřte prosím, že tyto informace jsou správné");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Neexistují žádné definované kategorie");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Vedoucí aktivační e-mail");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Pracovník aktivace účtu e-mailem");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tento e-mail umožňuje aktivaci nového systému uživatel");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","přidělené pobočky");//assigned to branch (New)
+define("_SUPERVISORMAILUSERACTIVATION","Vedoucí aktivační e-mail");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Pracovník aktivace účtu e-mailem");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tento e-mail umožňuje aktivaci nového systému uživatel");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","přidělené pobočky");//assigned to branch
 define("_WITHTHEJOBDESCRIPTION","v popisu práce");//with the job description
-define("_BYCLICKINGONTHELINK","po kliknutí na následující odkaz");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Váš účet byl úspěšně aktivován zaměstnanců");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","Hrazda");//Horizontal bar (New)
-define("_BRANCHINFORMATION","Pobočka informace");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","Pobočka název pole");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","Job název pole");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","Aktivace vedoucí název pole");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","Ponechte prázdné, aby ommit");//Leave empty to ommit (New)
-define("_PLEASESELECT","Vyberte prosím");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Váš nadřízený bude aktivovat účet");//Your supervisor will activate your account (New)
-define("_IMS","IMS");//IMS (New)
-define("_IMSIMPORT","Import IMS Content");//Import IMS Content (New)
-define("_IMSEXPORT","Export IMS Content");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS nahrát soubor ve formátu ZIP");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS volby");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS soubor byl úspěšně dovezeno");//IMS file was successfully imported (New)
-define("_TOOLTIP","Tooltip");//Tooltip (New)
-define("_HIDDEN","Skryté od uživatelů");//Hidden from users (New)
-define("_RESETSCORMDATA","Reset uživatelských dat");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","Rozšířené nastavení");//Advanced settings (New)
+define("_BYCLICKINGONTHELINK","po kliknutí na následující odkaz");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Váš účet byl úspěšně aktivován zaměstnanců");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","Hrazda");//Horizontal bar
+define("_BRANCHINFORMATION","Pobočka informace");//Branch information
+define("_BRANCHNAMEDESCRIPTION","Pobočka název pole");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","Job název pole");//Job field name
+define("_SUPERVISORDESCRIPTION","Aktivace vedoucí název pole");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","Ponechte prázdné, aby ommit");//Leave empty to ommit
+define("_PLEASESELECT","Vyberte prosím");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Váš nadřízený bude aktivovat účet");//Your supervisor will activate your account
+define("_IMS","IMS");//IMS
+define("_IMSIMPORT","Import IMS Content");//Import IMS Content
+define("_IMSEXPORT","Export IMS Content");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","IMS nahrát soubor ve formátu ZIP");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS volby");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS soubor byl úspěšně dovezeno");//IMS file was successfully imported
+define("_TOOLTIP","Tooltip");//Tooltip
+define("_HIDDEN","Skryté od uživatelů");//Hidden from users
+define("_RESETSCORMDATA","Reset uživatelských dat");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","Rozšířené nastavení");//Advanced settings
 define("_SHOWMOTTOONHEADER","Zobrazit jméno a motto také v hlavičce");//Show name and motto also on header
 define("_SEARCHRESULTSINGLOSSARY","Výsledky hledání ve slovníku");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Ve slovníku nebyly nalazeney žádné výsledky");//No results found in glossary
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nové dovednosti přiřazení");//New skill assign
 define("_REPLACEDEXISTINGBRANCH","Nahrazuje stávající pobočky");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Nahrazuje stávající pracovní místo");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Nahrazuje stávající kvalifikační");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Pobočka již existuje");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Chybějící kvalifikace kategorie");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill již existuje");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Pobočka neexistuje");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Pobočka jméno je nejednoznačné");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Název práce je nejednoznačné");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill jméno je nejednoznačné");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","Skill kategorie je nejednoznačné");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Chybějící popis pracovní náplně");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Tato dovednost neexistuje");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","Uživatel již existuje ve skupině");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Pobočka již existuje");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Chybějící kvalifikace kategorie");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill již existuje");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Pobočka neexistuje");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Pobočka jméno je nejednoznačné");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Název práce je nejednoznačné");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill jméno je nejednoznačné");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Skill kategorie je nejednoznačné");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Chybějící popis pracovní náplně");//Missing job description
+define("_SKILLDOESNOTEXIST","Tato dovednost neexistuje");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Uživatel již existuje ve skupině");//User already exists in group
+define("_COUPONS","Kupóny");//Coupons (New)
+define("_COUPONCODE","Kupon kód");//Coupon code (New)
+define("_TOTALUSES","Celkem použití");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Celkem použití od jednoho uživatele");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Maximální využití od jednoho uživatele");//Maximum uses by single user (New)
+define("_VALIDFROM","Platnost od");//Valid from (New)
+define("_DISCOUNT","Sleva");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Úspěšně aktualizováno kupón");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Vytvořte jedinečný kupón");//Create unique coupon (New)
+define("_ADDCOUPON","Přidat kupón");//Add coupon (New)
+define("_COUPONPROPERTIES","Kupon vlastnosti");//Coupon properties (New)
+define("_REPORTS","Zprávy");//Reports (New)
+define("_EXPIRED","Uplynula");//Expired (New)
+define("_USES","Používá");//Uses (New)
+define("_VALIDUNTIL","V platnosti až do");//Valid until (New)
+define("_USESREMAINING","Používá zbývajících");//Uses remaining (New)
+define("_MAXIMUMUSES","Maximální využití");//Maximum uses (New)
+define("_USESSOFAR","Používá tak daleko");//Uses so far (New)
+define("_COUPON","Kupón");//Coupon (New)
+define("_INVALIDCOUPON","Neplatný kupón");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Klikněte pro vstup slevový kupón");//Click to enter discount coupon (New)
+define("_TESTREDONE","Opraveno");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Nepodařilo se najít kurz");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Import výsledky");//Import results for (New)
 ?>

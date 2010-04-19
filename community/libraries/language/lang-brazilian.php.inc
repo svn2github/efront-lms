@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","E as mensagens do usuário");//And the messages 
 define("_ALLUSERS","Todos os usuários");//All users
 define("_INVALIDUSER","Nome do usuário inválido");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Substituir usuários duplos");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Manter usuários duplos");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Manter usuários duplos");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Nenhum outro usuário atualmente on-line");//No other users currently online
 define("_USERNAME","Nome do usuário");//User name
 define("_STATISTICSFORUSER","Relatórios para usuários");//Reports for user
@@ -3550,15 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nova assinatura da habilidade");//New skill assign
 define("_REPLACEDEXISTINGBRANCH","Seção existente substituido");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Trabalho existente substituido");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Habilidade existente substituida");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch já existe");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","Faltando categoria habilidade");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","Skill já existe");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","Branch não existe");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","Nome da filial é ambígua");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","Cargo é ambígua");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","Skill nome é ambíguo");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","categoria Skill é ambígua");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","Faltando descrição do trabalho");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","Esta habilidade não existe");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","O usuário já existe no grupo");//User already exists in group (New)
+define("_BRANCHALREADYEXISTS","Branch já existe");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Faltando categoria habilidade");//Missing skill category
+define("_SKILLALREADYEXISTS","Skill já existe");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Branch não existe");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Nome da filial é ambígua");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Cargo é ambígua");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Skill nome é ambíguo");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","categoria Skill é ambígua");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Faltando descrição do trabalho");//Missing job description
+define("_SKILLDOESNOTEXIST","Esta habilidade não existe");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","O usuário já existe no grupo");//User already exists in group
+define("_COUPONS","Cupons");//Coupons (New)
+define("_COUPONCODE","código de cupão");//Coupon code (New)
+define("_TOTALUSES","Total de empregos");//Total uses (New)
+define("_TOTALUSESBYSINGLEUSER","Total de empregos por usuário único");//Total uses by single user (New)
+define("_MAXIMUMUSESBYSINGLEUSER","Máxima usa por usuário único");//Maximum uses by single user (New)
+define("_VALIDFROM","Válido a partir de");//Valid from (New)
+define("_DISCOUNT","Desconto");//Discount (New)
+define("_SUCCESSFULLYUPDATEDCOUPON","Atualizado com sucesso cupom");//Successfully updated coupon (New)
+define("_CREATEUNIQUECOUPON","Criar um cupom exclusivo");//Create unique coupon (New)
+define("_ADDCOUPON","Adicionar cupom");//Add coupon (New)
+define("_COUPONPROPERTIES","propriedades Cupom");//Coupon properties (New)
+define("_REPORTS","Relatórios");//Reports (New)
+define("_EXPIRED","Expirado");//Expired (New)
+define("_USES","Usos");//Uses (New)
+define("_VALIDUNTIL","Válido até");//Valid until (New)
+define("_USESREMAINING","Usos restantes");//Uses remaining (New)
+define("_MAXIMUMUSES","Máxima usa");//Maximum uses (New)
+define("_USESSOFAR","Usa até agora");//Uses so far (New)
+define("_COUPON","Cupom");//Coupon (New)
+define("_INVALIDCOUPON","cupão inválido");//Invalid coupon (New)
+define("_CLICKTOENTERDISCOUNTCOUPON","Clique para entrar cupom de desconto");//Click to enter discount coupon (New)
+define("_TESTREDONE","Rectificado");//Corrected (New)
+define("_COULDNOTFINDCOURSE","Não foi possível encontrar o curso");//Could not find course (New)
+define("_IMPORTRESULTSFOR","Resultados de importação de");//Import results for (New)
 ?>

@@ -85,11 +85,21 @@ class payments extends EfrontEntity
     }
     /**
 
+     * Create Payment
+
      * 
 
-     * @param $fields
+     * This function is used to create a new payment entry
 
-     * @return unknown_type
+     * 
+
+     * @param array $fields The payment properties 
+
+     * @return payment The created payment
+
+     * @since 3.6.0
+
+     * @access public
 
      */
     public static function create($fields = array()) {
@@ -100,13 +110,21 @@ class payments extends EfrontEntity
                         'txn_id' => $fields['txn_id'],
                         'comments' => $fields['comments'],
                         'method' => isset($fields['method']) && in_array($fields['method'], array_keys(self :: $methods)) ? $fields['method'] : 'manual');
+        $user = EfrontUserFactory :: factory($fields['users_LOGIN']);
         if ($fields['method'] == 'paypal') {
             //@todo: get corresponding paypal_data id
-            //$result = eF_getTableData()
+   $eventType = EfrontEvent::NEW_PAYPAL_PAYMENT;
+        } else if ($fields['method'] == 'balance') {
+   $eventType = EfrontEvent::NEW_BALANCE_PAYMENT;
         }
         $newId = eF_insertTableData("payments", $fields);
         $result = eF_getTableData("payments", "*", "id=".$newId); //We perform an extra step/query for retrieving data, sinve this way we make sure that the array fields will be in correct order (forst id, then name, etc)
         $payment = new payments($result[0]['id']);
+  EfrontEvent::triggerEvent(array("type" => $eventType,
+             "users_LOGIN" => $user -> user['login'],
+             "users_name" => $user -> user['name'],
+             "users_surname" => $user -> user['surname'],
+             "entity_ID" => $newId));
         return $payment;
     }
 }

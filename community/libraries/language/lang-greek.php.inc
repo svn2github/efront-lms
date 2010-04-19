@@ -3583,4 +3583,12 @@ define("_COUPON", "Κουπόνι");
 define("_INVALIDCOUPON", "Το κουπόνι που εισάγατε δεν είναι έγκυρο");
 define("_CLICKTOENTERDISCOUNTCOUPON", "Κάντε κλικ για να εισάγετε εκπτωτικό κουπόνι");
 define("_TESTREDONE","Διόρθωση");
+define("_COULDNOTFINDCOURSE", "Δε βρέθηκε δέσμη με τίτλο");
+define("_IMPORTRESULTSFOR", "Αποτελέσματα εισαγωγής για");
+define("_COUPONUSAGE", "Χρήση κουπονιού");
+define("_NEWPAYPALPAYMENT", "Νέα πληρωμή paypal");
+define("_NEWBALANCEPAYMENT", "Νέα πληρωμή με υπόλοιπο");
+define("_USEDCOUPON ", "Χρησιμοποιήθηκε κουπόνι");
+define("_PAYEDWITHBALANCE", "Πληρωμή με υπόλοιπο");
+define("_PAYEDWITHPAYPAL", "Πληρωμή με paypal");
 ?>

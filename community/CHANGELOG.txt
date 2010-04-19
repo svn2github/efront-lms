@@ -1,4 +1,5 @@
 === Version 3.6.2 build ===
+- Added new automatic importing functionality
 - Added multiple coupons functionality (community++)
 - Added code for deleting templates cache in upgrade script
 - Fixed issue about social page in eF_template_printProjects
@@ -7,8 +8,12 @@
 - Fixed issue in community edition about deleting a course
 - Fixed problem of loading file manager while editing a skill gap test
 - Fixed toggling lesson auto complete when using IE6/7
+- Fixed toggling courses/categories in the catalog, when using IE6/7
 - Added check for OpenSSL libraries need for pdf certificates
 - Redo only wrong answered questions improvements
+- Deleting a user logs him out first
+- Fixed issue with custom blocks and links block
+- Added payments notifications
 
 === Version 3.6.1 build 6440 ===
 - Added online help functionality

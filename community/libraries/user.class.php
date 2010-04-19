@@ -1210,6 +1210,7 @@ abstract class EfrontUser
 
      */
     public function delete() {
+        $this -> logout();
         ///MODULES2 - Module user delete events - Before anything else
         // Get all modules (NOT only the ones that have to do with the user type)
         $modules = eF_loadAllModules();

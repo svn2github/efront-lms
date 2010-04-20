@@ -641,7 +641,24 @@ class EfrontDirectionsTree extends EfrontTree
      * @access public
 
      */
-    public function toHTML($iterator = false, $lessons = false, $courses = false, $userInfo = array(), $options = array()) {
+    public function toHTML($iterator = false, $lessons = false, $courses = false, $userInfo = array(), $options = array(), $cacheKey = 1) {
+/*        
+
+        if ($cacheKey) {
+
+	        if ($tree = Cache::getCache('direction_tree:'.$cacheKey)) {
+
+	            return $tree;
+
+	        } else  {
+
+	            $storeCache = true;
+
+	        }
+
+        }
+
+*/
         //!isset($options['show_cart'])   ? $options['show_cart']   = false : null;
         //!isset($options['information']) ? $options['information'] = false : null;
         !isset($options['lessons_link']) ? $options['lessons_link'] = false : null;
@@ -960,6 +977,15 @@ class EfrontDirectionsTree extends EfrontTree
         });
           }
                             </script>";
+/*
+
+        if ($storeCache) {
+
+        	Cache::setCache('direction_tree:'.$cacheKey, $treeString);
+
+        }
+
+*/
         return $treeString;
     }
     /* Return an array to be inputed as the contents of a select item or

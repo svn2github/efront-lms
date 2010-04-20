@@ -1147,7 +1147,24 @@ class EfrontStats
      * @access public
 
      */
-    public static function getUsersLessonStatus($lessons = false, $users = false, $options = array()) {
+    public static function getUsersLessonStatus($lessons = false, $users = false, $options = array(), $cacheKey = 1) {
+/*
+
+        if ($cacheKey) {
+
+	        if ($status = Cache::getCache('user_lesson_status:'.$cacheKey)) {
+
+	            return unserialize($status);
+
+	        } else  {
+
+	            $storeCache = true;
+
+	        }
+
+        }
+
+*/
 /*        
 
         $studentLessons = array();
@@ -1416,6 +1433,15 @@ class EfrontStats
                 }
             }
         }
+/*
+
+        if ($storeCache) {
+
+        	Cache::setCache('user_lesson_status:'.$cacheKey, serialize($lessonStatus));
+
+        }
+
+*/
         return $lessonStatus;
     }
     /**
@@ -1459,7 +1485,24 @@ class EfrontStats
      * @access public
 
      */
-    public static function getUsersCourseStatus($courses = false, $users = false, $options = array()) {
+    public static function getUsersCourseStatus($courses = false, $users = false, $options = array(), $cacheKey = 1) {
+/*
+
+        if ($cacheKey) {
+
+	        if ($status = Cache::getCache('user_lesson_status:'.$cacheKey)) {
+
+	            return unserialize($status);
+
+	        } else  {
+
+	            $storeCache = true;
+
+	        }
+
+        }
+
+*/
         $roles = EfrontLessonUser :: getLessonsRoles();
         foreach ($roles as $key => $value) {
          $value == 'student' ? $studentLessonRoles[] = $key : null;
@@ -1508,7 +1551,12 @@ class EfrontStats
             $users[$value['login']] = $value;
         }
         //Get lessons info for users
-        $result = eF_getTableData("users_to_courses", "*");
+        if (sizeof($users) == 1) {
+            $user = current($users);
+            $result = eF_getTableData("users_to_courses", "*", "users_LOGIN='".$user['login']."'");
+        } else {
+            $result = eF_getTableData("users_to_courses", "*");
+        }
         foreach ($result as $value) {
             if (in_array($value['users_LOGIN'], array_keys($users))) {
                 $course = $courses[$value['courses_ID']];
@@ -1572,6 +1620,15 @@ class EfrontStats
                 }
             }
         }
+/*
+
+        if ($storeCache) {
+
+        	Cache::setCache('user_lesson_status:'.$cacheKey, serialize($courseStatus));
+
+        }
+
+*/
         return $courseStatus;
     }
     /**

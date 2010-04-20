@@ -415,10 +415,9 @@ function eF_getCalendar($timestamp = false, $type = 1) {
         if ($currentUser -> getType() != 'administrator') {
             $tmp = eF_getTableData("users_to_lessons", "lessons_ID", "users_LOGIN='".$login."'");
         } else {
-            $tmp = eF_getTableData("users_to_lessons", "lessons_ID", "");
+            //$tmp = eF_getTableData("users_to_lessons", "lessons_ID", "");
         }
-        for ($i = 0; $i < sizeof($tmp); $i++)
-        {
+        for ($i = 0; $i < sizeof($tmp); $i++) {
             $lessons[] = $tmp[$i]['lessons_ID'];
         }
         // All including organizational profile

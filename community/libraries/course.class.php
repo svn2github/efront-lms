@@ -470,6 +470,7 @@ class EfrontCourse
     public function getUsers($returnObjects = false) {
         if (sizeof($this -> users) == 0) {
             $result = eF_getTableData("users_to_lessons", "users_LOGIN, lessons_ID"); //We will check if all the course's lessons are assigned to the user. So first, get all users to lessons assignments (so we don't have to perform loops with queries)
+            //pr($result);exit;
             foreach ($result as $value) {
                 $usersToLessons[$value['users_LOGIN']][] = $value['lessons_ID']; //Create a practical array representation
             }

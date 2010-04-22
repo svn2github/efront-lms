@@ -1,3 +1,9 @@
+=== Version 3.6.3 build ===
+- Fixed bug in certificate reports
+- Fixed issue about counting deactivated uses in license users count
+- Fixed bug in notifications about returning also archived courses
+- Fixed display issue in lesson information about lesson completion rules
+
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality
 - Added multiple coupons functionality (community++)

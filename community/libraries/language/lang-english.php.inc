@@ -3591,4 +3591,5 @@ define("_NEWBALANCEPAYMENT", "New balance payment");
 define("_USEDCOUPON ", "Used coupon");
 define("_PAYEDWITHBALANCE", "Payed with balance");
 define("_PAYEDWITHPAYPAL", "Payed with paypal");
+define("_YOUMUSTCOMPLETEALLTESTS", "You must complete all tests");
 ?>

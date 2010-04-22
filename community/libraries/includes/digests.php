@@ -220,7 +220,7 @@ $loadScripts[] = "administrator/digests";
         sizeof($lessons) > 0 ? $av_lessons = array_combine(array_merge(array("0"), $lessons['id']), array_merge(array(_ANYLESSON), $lessons['name'])): $av_lessons = array(0 => _ANYLESSON);
         sizeof($lessons) > 0 ? $lessons = array_combine($lessons['id'], $lessons['name']) : $lessons = array();
         // Get available courses
-        $courses = eF_getTableDataFlat("courses", "id,name", "", "name");
+        $courses = eF_getTableDataFlat("courses", "id,name", "archive=0", "name"); //return only unarchived courses
         sizeof($courses) > 0 ? $courses = array_combine($courses['id'], $courses['name']) : $courses = array();
         $smarty -> assign("T_COURSES", $courses);
         // Get available tests

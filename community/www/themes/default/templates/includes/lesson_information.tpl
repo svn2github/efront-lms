@@ -81,7 +81,7 @@
                  {elseif $condition.type == 'specific_unit'}
                      {$smarty.const._YOUMUSTSEEUNIT} &quot;{$T_TREE_NAMES[$condition.options.0]}&quot;
                  {elseif $condition.type == 'all_tests'}
-                     {$smarty.const._YOUMUSTCOMPLETEALLTESTSWITHSCORE} {$condition.options.0}%
+                     {$smarty.const._YOUMUSTCOMPLETEALLTESTS}
                  {elseif $condition.type == 'specific_test'}
                      {$smarty.const._YOUMUSTCOMPLETETEST} &quot;{$T_TREE_NAMES[$condition.options.0]}&quot; {$smarty.const._WITHSCORE} #filter:score-{$condition.test_passing_score}#%
                  {/if}

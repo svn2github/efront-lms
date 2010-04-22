@@ -276,7 +276,7 @@ define("_LESSONPERIODS","Lektions-Zeit");//Lesson periods
 define("_COPY","Kopieren");//Copy
 define("_EXCLUDECONSTRAINT","Ausschlussbedingung");//Exclusion constraint
 define("_EXCLUSIONUNIT","Ausschlusseinheit");//Exclusion unit
-define("_FUNCTIONS","Kursfortschritt");//Functions
+define("_FUNCTIONS","Funktionen");//Functions
 define("_THETEST","der Test");//the test
 define("_WITHSCOREATLEAST","Ergebnis mit mindestens");//with rate at least
 define("_NOQUESTIONSTOCORRECTFORTHISLESSON","Keine Fragen zu korrigieren für diese Lektion.");//No questions to correct for this lesson.
@@ -1160,7 +1160,7 @@ define("_SUCCESFULLYCREATEDLESSONFOLDERS","Lektions-Ordner erfolgreich erstellt"
 define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Die Ordner für die folgenden Lektionen konnten nicht erstellt werden");//The folders for the following lessons could not be created
 define("_EDITCONTENT","Inhalt bearbeiten");//Edit content
 define("_NORMALSTATUS","Normaler Status");//Normal status
-define("_APPLICATIONPENDING","Bewerbung anhängig. Drücken Sie zur Bestätigung auf \"Abschicken\"");//Application pending
+define("_APPLICATIONPENDING","Bewerbung nicht bestätigt. Zur Bestätigung hier klicken");//Application pending
 define("_SUCCESS","IMS Datei erfolgreich importiert");// imported IMS fileSuccess
 define("_WARNING","Warnung");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definition konnte nicht eingefügt werden");//Definition could not be inserted
@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","und die Nachrichten der Nutzer");//And the messa
 define("_ALLUSERS","Alle Nutzer");//All users
 define("_INVALIDUSER","Ungültiger Nutzer-Name");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Doppelte Nutzer ersetzen");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Doppelte Nutzer erhalten");//Don't update duplicate users
+define("_KEEPEXISTINGUSERS","Doppelte Nutzer nicht aktualisieren");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Kein anderer Nutzer online");//No other users currently online
 define("_USERNAME","Nutzer-Name");//User name
 define("_STATISTICSFORUSER","Berichte für Nutzer");//Reports for user
@@ -1716,7 +1716,7 @@ define("_PAYPALCONFIGURATIONPANEL","Paypal Konfigurations-Panel");//Paypal confi
 define("_PAYPALMYTRANSACTIONS","Meine Transaktionen");//My transactions
 define("_PAYPALTRANSACTION","Transaktion");//Transaction
 define("_PAYPALCONFIGURATION","Konfiguration");//Configuration
-define("_PAYPALBUSINESSMAIL","Geschäftskonto-Adresse");//Paypal business address
+define("_PAYPALBUSINESSMAIL","Geschäftskonto-eMail-Adresse");//Paypal business address
 define("_PAYPALBUSINESSMAILPLZ","Füllen Sie die Geschäftskonto-Adresse aus");//Fill in the Paypal business address
 define("_PAYPALMAILSTUDENTS","Studenten informieren");//Inform students
 define("_PAYPALMAILPROFESSORS","Lehrer informieren");//Inform professors
@@ -2613,7 +2613,7 @@ define("_RELATEDPEOPLE","In Verbindung stehende Personen");//Related people
 define("_LEARNINGACTIVITY","Lernaktivität");//Learning activity
 define("_TIMELINE","Zeitleiste");//Timeline
 define("_WASASSIGNEDTHELESSON","wurde der Lektion zugewiesen");//was assigned lesson
-define("_WILLBETEACHINGLESSON","wird Lektion anbieten");//will be teaching the lesson
+define("_WILLBETEACHINGLESSON","bietet die folgende Lektion an:");//will be teaching the lesson
 define("_HASCOMPLETEDLESSON","hat Lektion abgeschlossen");//has completed lesson
 define("_NOLONGERATTENDSLESSON","nimmt nicht mehr an der Lektion teil");//no longer attends lesson
 define("_WROTEACOMMENTFORUNIT","schrieb einen Kommentar für die Einheit");//wrote a comment for unit
@@ -2633,7 +2633,7 @@ define("_APPLYPROFILECHANGES","Profil-Änderungen anwenden");//Apply profile cha
 define("_IS","ist");//is
 define("_SUCCESFULLYUPDATEDPROFILE","Profil erfolgreich aktualisiert");//Successfully updated profile
 define("_WRITESOMETHINGABOUTYOURSELF","Schreiben Sie etwas über sich selbst");//write something about yourself
-define("_NAMEARTICLE","Bezeichnung");//
+define("_NAMEARTICLE","");//
 define("_INVITETOCHATINCURRENTROOM","Zum Chat in den aktuellen Raum einladen");//Invite to chat in current room
 define("_GOTODASHBOARD","Gehen Sie zum Dashboard");//Go to dashboard
 define("_GOTOMYPROFILE","Gehen Sie zu Mein Profil");//Go to my profile
@@ -3193,7 +3193,7 @@ define("_USETHEMEBROWSER","Verwenden Sie das Thema standardmäßig für diesen B
 define("_ACTIVETHEMEBROWSER","Standard-Theme für diesen Browser");//Default theme for this browser
 define("_JOBNOTASSIGNED","Stelle nicht zugeordnet");//Job not assigned
 define("_DISCOUNTVOUCHER","Rabatt-Gutschein");//Discount voucher
-define("_CLICKTOENTERDISCOUNTVOUCHER","Klicken Sie hier, um den Rabatt-Gutschein einzugeben");//Click to enter discount voucher
+define("_CLICKTOENTERDISCOUNTVOUCHER","Klicken Sie hier, um den Rabatt-Gutschein einzugeben. Nach Eingabe auf den grünen Haken klicken!");//Click to enter discount voucher
 define("_INVALIDVOUCHER","Der von Ihnen eingegebene Gutschein-Code ist nicht gültig");//The voucher code you entered is not valid
 define("_TOTALPRICEAFTERDISCOUNT","Gesamtpreis nach Rabatt");//Total price after discount
 define("_SUCCESSFULLYENROLLED","Das Einschreibeverfahren wurde erfolgreich abgeschlossen");//The enrollment procedure was completed successfully
@@ -3534,7 +3534,7 @@ define("_IMPORTANYTHING","Jedes Erkannte");//Anything recognized
 define("_DATATOIMPORT","Zu importierende Daten");//Data to import
 define("_SUCCESSFULLIMPORTS","erfolgreich Importierte");//successfull imports
 define("_FAILEDIMPORTS","nicht erfolgreich Importierte");//failed imports
-define("_REPLACEDUSER","Ersetzter Nutzer");//Replaced user
+define("_REPLACEDUSER","Aktualisierter Nutzer");//Replaced user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Die Datei enthält nicht die erforderlichen Spalten");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Bestehende Zuordnung ersetzt");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Neue Kurs-Zuordnung");//New course assignment
@@ -3550,39 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Neue Fähigkeiten-Zuordnung");//New skill assignme
 define("_REPLACEDEXISTINGBRANCH","Vorhandene Abteilung ersetzt");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Vorhandene Stelle ersetzt");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Vorhandene Fähigkeit ersetzt");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch existiert bereits");//Branch exists already
-define("_MISSINGSKILLCATEGORY","Fehlende Berufs");//Missing skill category
-define("_SKILLALREADYEXISTS","Skill existiert bereits");//Skill exists already
-define("_BRANCHDOESNOTEXIST","Branch existiert nicht");//Branch does not exist
-define("_BRANCHNAMEAMBIGUOUS","Branch Name ist zweideutig");//Branch name is ambiguous
-define("_JOBTITLEAMBIGUOUS","Job-Titel ist zweideutig");//Job title is ambiguous
-define("_SKILLAMBIGUOUS","Skill Name ist zweideutig");//Skill name is ambiguous
-define("_SKILLCATEGORYAMBIGUOUS","Skill Kategorie ist zweideutig");//Skill category is ambiguous
-define("_MISSING_JOB_DESCRIPTION","Fehlende Stellen-Beschreibung");//Missing job description
-define("_SKILLDOESNOTEXIST","Diese Fähigkeit ist nicht vorhanden");//This skill does not exist
-define("_USERALREADYEXISTSINGROUP","Benutzer existiert bereits in der Gruppe");//User already exists in group
+define("_BRANCHALREADYEXISTS","Abteilung existiert bereits");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Fähigkeiten-Kategorie fehlt");//Missing skill category
+define("_SKILLALREADYEXISTS","Fähigkeit existiert bereits");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Abteilung existiert nicht");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Abteilungsname nicht eindeutig");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Stellenbezeichnung ist nicht eineutig");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Fähigkeitenbezeichnung ist nicht eindeutig");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Fähigkeiten-Kategorie ist nicht eindeutig");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Stellenbeschreibung fehlt");//Missing job description
+define("_SKILLDOESNOTEXIST","Die Fähigkeit existiert nicht");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","Der Nutzer ist bereits in dieser Gruppe vorhanden");//User already exists in group
 define("_COUPONS","Gutscheine");//Coupons
-define("_COUPONCODE","Coupon-Code");//Coupon code
-define("_TOTALUSES","Verwendung insgesamt");//Total uses
-define("_TOTALUSESBYSINGLEUSER","Insgesamt nutzt durch einzelne Nutzer");//Total uses by single user
-define("_MAXIMUMUSESBYSINGLEUSER","Maximale Nutzung durch einzelne Nutzer");//Maximum uses by single user
+define("_COUPONCODE","Gutschein-Code");//Coupon code
+define("_TOTALUSES","Insgesamt genutzt");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Insgesamt genutzt durch einzelnen Nutzer");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Maximale Nutzung durch einzelnen Nutzer");//Maximum uses by single user
 define("_VALIDFROM","Gültig ab");//Valid from
-define("_DISCOUNT","Nachlass");//Discount
-define("_SUCCESSFULLYUPDATEDCOUPON","Erfolgreich aktualisiert Kupon");//Successfully updated coupon
-define("_CREATEUNIQUECOUPON","Erstellen Sie einzigartige Kupon");//Create unique coupon
-define("_ADDCOUPON","Coupon hinzufügen");//Add coupon
-define("_COUPONPROPERTIES","Coupon-Eigenschaften");//Coupon properties
-define("_REPORTS","Reports");//Reports
+define("_DISCOUNT","Rabatt");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","Gutschein erfolgreich aktualisiert");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Erstelle Gutschein zur einmaligen Nutzung");//Create unique coupon
+define("_ADDCOUPON","Gutschein hinzufügen");//Add coupon
+define("_COUPONPROPERTIES","Eigenschaften des Gutscheins");//Coupon properties
+define("_REPORTS","Berichte");//Reports
 define("_EXPIRED","Abgelaufen");//Expired
-define("_USES","Verwendet");//Uses
+define("_USES","Nutzungen");//Uses
 define("_VALIDUNTIL","Gültig bis");//Valid until
-define("_USESREMAINING","Verwendet verbleibenden");//Uses remaining
-define("_MAXIMUMUSES","Maximale verwendet");//Maximum uses
-define("_USESSOFAR","Verwendet so weit");//Uses so far
-define("_COUPON","Coupon");//Coupon
-define("_INVALIDCOUPON","Invalid Coupon");//Invalid coupon
-define("_CLICKTOENTERDISCOUNTCOUPON","Klicken Sie hier für Rabatt-Coupon");//Click to enter discount coupon
+define("_USESREMAINING","Verbleibende Anzahl der Nutzung");//Uses remaining
+define("_MAXIMUMUSES","Maximale Anzahl der Nutzung");//Maximum uses
+define("_USESSOFAR","Bisher genutzt");//Uses so far
+define("_COUPON","Gutschein");//Coupon
+define("_INVALIDCOUPON","Ungültiger Gutschein");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Hier klicken, um den Rabatt-Gutschein einzugeben");//Click to enter discount coupon
 define("_TESTREDONE","Berichtigt");//Corrected
-define("_COULDNOTFINDCOURSE","Natürlich konnte nicht gefunden werden");//Could not find course
-define("_IMPORTRESULTSFOR","Import Ergebnisse für");//Import results for
+define("_COULDNOTFINDCOURSE","Konnte Kurs nicht finden");//Could not find course
+define("_IMPORTRESULTSFOR","Ergebnisse importieren für");//Import results for
 ?>

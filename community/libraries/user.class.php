@@ -317,6 +317,12 @@ abstract class EfrontUser
      */
     public static function createUser($userProperties) {
         $users = eF_getTableDataFlat("users", "*");
+  $activatedUsers = array(); //not taking into account deactivated users in license users count
+  foreach ($users['active'] as $key => $value) {
+   if($value == 1) {
+    $activatedUsers[] = $users['login'][$key];
+   }
+  }
         //$versionDetails = eF_checkVersionKey($GLOBALS['configuration']['version_key']);
         if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {
             throw new EfrontUserException(_INVALIDLOGIN.': '.$userProperties['login'], EfrontUserException :: INVALID_LOGIN);
@@ -1692,8 +1698,8 @@ abstract class EfrontUser
 
      */
     public function unarchive() {
+  $this -> activate();
         $this -> user['archive'] = 0;
-        $this -> user['active'] = 1;
         $this -> persist();
     }
     /**

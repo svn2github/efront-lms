@@ -280,7 +280,7 @@ define("_FUNCTIONS","Funções");//Functions
 define("_THETEST","o teste");//the test
 define("_WITHSCOREATLEAST","com valor de pelo menos");//with rate at least
 define("_NOQUESTIONSTOCORRECTFORTHISLESSON","Nenhuma pergunta para corrigir para esta lição.");//No questions to correct for this lesson.
-define("_QUESTIONSTOCORRECT","Perguntas para corrigir");//Questions to correct
+define("_QUESTIONSTOCORRECT","Questões para corrigir");//Questions to correct
 define("_DELETESELECTED","Excluir selecionados");//Delete selected
 define("_REDOABLE","Repetições de teste");//Test repetitions
 define("_PROFESSORS","Professores");//Professors
@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","E as mensagens do usuário");//And the messages 
 define("_ALLUSERS","Todos os usuários");//All users
 define("_INVALIDUSER","Nome do usuário inválido");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Substituir usuários duplos");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Manter usuários duplos");//Don't update duplicate users
+define("_KEEPEXISTINGUSERS","Não atualizar úsuarios duplos");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Nenhum outro usuário atualmente on-line");//No other users currently online
 define("_USERNAME","Nome do usuário");//User name
 define("_STATISTICSFORUSER","Relatórios para usuários");//Reports for user
@@ -3534,7 +3534,7 @@ define("_IMPORTANYTHING","Qualquer reconhecido");//Anything recognized
 define("_DATATOIMPORT","Dados a importar");//Data to import
 define("_SUCCESSFULLIMPORTS","Importados com sucesso");//successfull imports
 define("_FAILEDIMPORTS","Importados sem sucesso");//failed imports
-define("_REPLACEDUSER","Úsuario substituido");//Replaced user
+define("_REPLACEDUSER","Úsuario atualizado");//Replaced user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","O arquivo não cóntem as colunas necessarias");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Assinaturas existentes substituidas");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Nova assinatura do curso");//New course assignment
@@ -3550,39 +3550,39 @@ define("_NEWSKILLASSIGNMENT","Nova assinatura da habilidade");//New skill assign
 define("_REPLACEDEXISTINGBRANCH","Seção existente substituido");//Replaced existing branch
 define("_REPLACEDEXISTINGJOB","Trabalho existente substituido");//Replaced existing job
 define("_REPLACEDEXISTINGSKILL","Habilidade existente substituida");//Replaced existing skill
-define("_BRANCHALREADYEXISTS","Branch já existe");//Branch exists already
-define("_MISSINGSKILLCATEGORY","Faltando categoria habilidade");//Missing skill category
-define("_SKILLALREADYEXISTS","Skill já existe");//Skill exists already
-define("_BRANCHDOESNOTEXIST","Branch não existe");//Branch does not exist
-define("_BRANCHNAMEAMBIGUOUS","Nome da filial é ambígua");//Branch name is ambiguous
-define("_JOBTITLEAMBIGUOUS","Cargo é ambígua");//Job title is ambiguous
-define("_SKILLAMBIGUOUS","Skill nome é ambíguo");//Skill name is ambiguous
-define("_SKILLCATEGORYAMBIGUOUS","categoria Skill é ambígua");//Skill category is ambiguous
-define("_MISSING_JOB_DESCRIPTION","Faltando descrição do trabalho");//Missing job description
-define("_SKILLDOESNOTEXIST","Esta habilidade não existe");//This skill does not exist
-define("_USERALREADYEXISTSINGROUP","O usuário já existe no grupo");//User already exists in group
-define("_COUPONS","Cupons");//Coupons
-define("_COUPONCODE","código de cupão");//Coupon code
-define("_TOTALUSES","Total de empregos");//Total uses
-define("_TOTALUSESBYSINGLEUSER","Total de empregos por usuário único");//Total uses by single user
-define("_MAXIMUMUSESBYSINGLEUSER","Máxima usa por usuário único");//Maximum uses by single user
+define("_BRANCHALREADYEXISTS","Deparatamento já existente");//Branch exists already
+define("_MISSINGSKILLCATEGORY","Categoría de habilidades está faltando");//Missing skill category
+define("_SKILLALREADYEXISTS","Habilidade já existente");//Skill exists already
+define("_BRANCHDOESNOTEXIST","Departamento não existente");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","Nome do deparatamento não está único");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","Nome do trabalho não está único");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","Nome da habilidade não está único");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","Categoría de habilidades não está unico");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","Descrição do trabalho está faltando");//Missing job description
+define("_SKILLDOESNOTEXIST","A habilidade não está existente");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","O úsuario ja está nesse grupo");//User already exists in group
+define("_COUPONS","Voucher");//Coupons
+define("_COUPONCODE","Codigo do voucher");//Coupon code
+define("_TOTALUSES","Uso em total");//Total uses
+define("_TOTALUSESBYSINGLEUSER","Uso total pelo úsuario singular");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","Uso maximo pelo úsuario singular");//Maximum uses by single user
 define("_VALIDFROM","Válido a partir de");//Valid from
 define("_DISCOUNT","Desconto");//Discount
-define("_SUCCESSFULLYUPDATEDCOUPON","Atualizado com sucesso cupom");//Successfully updated coupon
-define("_CREATEUNIQUECOUPON","Criar um cupom exclusivo");//Create unique coupon
-define("_ADDCOUPON","Adicionar cupom");//Add coupon
-define("_COUPONPROPERTIES","propriedades Cupom");//Coupon properties
+define("_SUCCESSFULLYUPDATEDCOUPON","Voucher atualizado com sucesso");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","Criar voucher para uso unico");//Create unique coupon
+define("_ADDCOUPON","Adicionar voucher");//Add coupon
+define("_COUPONPROPERTIES","Propriedades do voucher");//Coupon properties
 define("_REPORTS","Relatórios");//Reports
-define("_EXPIRED","Expirado");//Expired
-define("_USES","Usos");//Uses
-define("_VALIDUNTIL","Válido até");//Valid until
-define("_USESREMAINING","Usos restantes");//Uses remaining
-define("_MAXIMUMUSES","Máxima usa");//Maximum uses
-define("_USESSOFAR","Usa até agora");//Uses so far
-define("_COUPON","Cupom");//Coupon
-define("_INVALIDCOUPON","cupão inválido");//Invalid coupon
-define("_CLICKTOENTERDISCOUNTCOUPON","Clique para entrar cupom de desconto");//Click to enter discount coupon
-define("_TESTREDONE","Rectificado");//Corrected
-define("_COULDNOTFINDCOURSE","Não foi possível encontrar o curso");//Could not find course
-define("_IMPORTRESULTSFOR","Resultados de importação de");//Import results for
+define("_EXPIRED","Vencido");//Expired
+define("_USES","Utilizações");//Uses
+define("_VALIDUNTIL","Valido até");//Valid until
+define("_USESREMAINING","Utilizações sobrandos");//Uses remaining
+define("_MAXIMUMUSES","Utilizações maximos");//Maximum uses
+define("_USESSOFAR","Utilizado até agora");//Uses so far
+define("_COUPON","Voucher");//Coupon
+define("_INVALIDCOUPON","Voucher inválido");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","Clique aqui para inserir o voucher de desconto");//Click to enter discount coupon
+define("_TESTREDONE","Corregido");//Corrected
+define("_COULDNOTFINDCOURSE","Curso não encontrado");//Could not find course
+define("_IMPORTRESULTSFOR","Importar os resultados para");//Import results for
 ?>

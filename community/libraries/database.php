@@ -26,7 +26,7 @@ define("G_MAXIMUMQUERYSIZE", 500000);
 /**ADODB database abstraction class*/
 require_once('adodb/adodb.inc.php');
 require_once('adodb/adodb-exceptions.inc.php');
-require_once('adodb/adodb-memcache.lib.inc.php');
+//require_once('adodb/adodb-memcache.lib.inc.php');
 $ADODB_CACHE_DIR = $path."adodb/cache";
 $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 if (!isset($GLOBALS['db']) || !$GLOBALS['db']) {

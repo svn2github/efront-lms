@@ -3591,4 +3591,5 @@ define("_NEWBALANCEPAYMENT", "Νέα πληρωμή με υπόλοιπο");
 define("_USEDCOUPON ", "Χρησιμοποιήθηκε κουπόνι");
 define("_PAYEDWITHBALANCE", "Πληρωμή με υπόλοιπο");
 define("_PAYEDWITHPAYPAL", "Πληρωμή με paypal");
+define("_YOUMUSTCOMPLETEALLTESTS", "Πρέπει να ολοκληρώσετε όλες τις αξιολογήσεις");
 ?>

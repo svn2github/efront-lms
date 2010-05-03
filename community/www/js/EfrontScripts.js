@@ -555,6 +555,18 @@ function changeAccount(login) {
         }
     });
 }
+function handleException(e) {
+ if (typeof('_DEBUG') != 'undefined' && _DEBUG) {
+  var errorDetails = '';
+  for (var i in e) {
+   errorDetails += e[i] + '<br>';
+  }
+  $('defaultExceptionHandlerDiv').update(errorDetails);
+  eF_js_showDivPopup('Error details', 2, 'defaultExceptionHandlerDiv');
+ } else {
+  alert(e);
+ }
+}
 // used in printBlock for help popups
 function PopupCenter(pageURL, title,w,h) {
 var left = (screen.width/2)-(w/2);

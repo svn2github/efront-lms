@@ -72,11 +72,11 @@
          <tr><td class = "moduleCell">
              {capture name = 't_new_lessons_code'}
                  {section name = 'new_lessons_list' loop = "$T_NEW_LESSONS"}
-                             {counter}. <a href = "administrator.php?ctg=users&edit_user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&tab=attending">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a><br/>
+                             {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&tab=attending">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a><br/>
                  {/section}
-                 {section name = 'new_courses_list' loop = "$T_NEW_COURSES"}
-                             {counter}. <a href = "administrator.php?ctg=users&edit_user={$T_NEW_COURSES[new_courses_list].users_LOGIN}&tab=attending&subtab=courses">#filter:login-{$T_NEW_COURSES[new_courses_list].users_LOGIN}# ({$T_NEW_COURSES[new_courses_list].count} {if $T_NEW_COURSES[new_courses_list].count == 1}{$smarty.const._COURSE}{else}{$smarty.const._COURSES}{/if})</a><br/>
-                 {/section}
+                 {foreach name = 'new_courses_list' item = "item" key = "key" from = $T_NEW_COURSES}
+                  {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item->course.id}&tab=users">#filter:login-{$item->course.users_LOGIN}# ({$item->course.name})</a> <br/>
+                 {/foreach}
              {/capture}
 
              {eF_template_printBlock title = $smarty.const._LESSONSREGISTRATIONS data = $smarty.capture.t_new_lessons_code image = '32x32/lessons.png' array = $T_NEW_LESSONS link = 'administrator.php?ctg=lessons'}

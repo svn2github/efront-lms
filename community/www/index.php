@@ -155,7 +155,6 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  $smarty -> assign("T_CUSTOM_BLOCKS", $customBlocks);
  $smarty -> assign("T_BLOCKS", $blocks);
  $smarty -> assign("T_POSITIONS", $GLOBALS['currentTheme'] -> layout['positions']);
-//pr($blocks);
     $directionsTree = new EfrontDirectionsTree();
  $options = array('lessons_link' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_info&lessons_ID=',
                             'courses_link' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_info&courses_ID=',
@@ -163,7 +162,8 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
                          'catalog' => true,
                             'url' => $_SERVER['PHP_SELF'],
        'collapse' => $GLOBALS['configuration']['collapse_catalog'],
-       'buy_link' => true);
+       'buy_link' => true,
+       'course_lessons' => false);
  include("directions_tree.php");
 }
 /* -------------------------------------------------------Login part-------------------------------------------------------------------*/
@@ -183,7 +183,7 @@ if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
     //check for valid lesson
      setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 300);
     }
-    eF_redirect("".$user -> user['user_type']."page.php");
+    LoginRedirect($user -> user['user_type']);
     exit;
    }
   }
@@ -199,7 +199,7 @@ if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
    // Check if the mobile version of eFront is required - if so set a session variable accordingly
    //eF_setMobile();
             EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
-   eF_redirect("".$user -> user['user_type']."page.php");
+   LoginRedirect($user -> user['user_type']);
   }
   exit;
  } catch (EfrontUserException $e) {}
@@ -257,7 +257,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
       eF_redirect("index.php?ctg=checkout&checkout=1");
   } else {
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
-   eF_redirect("".$user -> user['user_type']."page.php");
+   LoginRedirect($user -> user['user_type']);
   }
   exit;
  } catch (EfrontUserException $e) {
@@ -313,7 +313,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
     // Check if the mobile version of eFront is required - if so set a session variable accordingly
     //eF_setMobile();
     EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
-    eF_redirect("".$user -> user['user_type']."page.php");
+    LoginRedirect($user -> user['user_type']);
    } else {
     $user -> logout();
     eF_redirect("index.php");
@@ -567,7 +567,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
      } else if ($_SESSION['login_mode']) {
          eF_redirect("index.php?ctg=checkout&checkout=1&message=".urlencode($message)."&message_type=".$message_type);
      } else {
-      eF_redirect($newUser -> user['user_type']."page.php?message=".urlencode($message)."&message_type=".$message_type);
+      eF_redirect("userpage.php?message=".urlencode($message)."&message_type=".$message_type);
      }
     }
    } catch (Exception $e) {
@@ -628,7 +628,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
 }
 /* -------------------------------------------------------End of Contact part--------------------------------------------------------- */
 /* -------------------------------------------------------Lesson information part--------------------------------------------------------- */
-if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to display information on a lesson
+if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to display information on a lesson	
  //session_start();			//Isn't needed here if the head session_start() is in place
  if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
   try {
@@ -659,10 +659,36 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to 
     }
    } else if ($_GET['courses_ID']) {
     $course = new EfrontCourse($_GET['courses_ID']);
-                $course -> course['price_string'] = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true);
+    $course -> course['num_students'] = sizeof($course -> getStudentUsers());
+    $course -> course['seats_remaining'] = $course -> course['max_users'] - $course -> course['num_students'];
+    $course -> course['seats_remaining'] >= 0 OR $course -> course['seats_remaining'] = 0;
     $smarty -> assign("T_COURSE", $course);
-    $lessons = $course -> getLessons();
+    if ((isset($_SESSION['s_type']) && $_SESSION['s_type'] == 'administrator') || in_array($_SESSION['s_login'], array_keys($course -> getUsers()))) {
+     $smarty -> assign("T_HAS_COURSE", true);
+    }
+                $lessons = $course -> getCourseLessons();
+                foreach ($lessons as $key => $lesson) {
+                 $content = new EfrontContentTree($lesson);
+                 if (sizeof($content -> tree) > 0) {
+                  $contentTree[$key] = $content -> toHTML(false, 'dhtml_content_tree_'.$lesson -> lesson['id'], array('noclick' => 1));
+                 }
+                 $lessonInfo[$key] = new LearningObjectInformation(unserialize($lesson -> lesson['info']));
+                 $additionalInfo[$key] = $lesson -> getInformation();
+                }
+                $smarty -> assign("T_ADDITIONAL_LESSON_INFO", $additionalInfo);
+                $smarty -> assign("T_COURSE_LESSON_INFO", $lessonInfo);
+                $smarty -> assign("T_CONTENT_TREE", $contentTree);
+                $smarty -> assign("T_LANGUAGES", EfrontSystem :: getLanguages(true));
     $smarty -> assign("T_COURSE_LESSONS", $lessons);
+    if ($course -> course['instance_source']) {
+     $parentCourse = new EfrontCourse($course -> course['instance_source']);
+     $instances = $parentCourse -> getInstances();
+     $instances[$parentCourse -> course['id']] = $parentCourse;
+    } else {
+     $instances = $course -> getInstances();
+     $instances[$course -> course['id']] = $course;
+    }
+    $smarty -> assign("T_COURSE_INSTANCES", $instances);
     $courseInfo = new LearningObjectInformation(unserialize($course -> course['info']));
     $smarty -> assign("T_COURSE_INFO", $courseInfo);
     $additionalInfo = $course -> getInformation();
@@ -766,5 +792,12 @@ $benchmark -> set('smarty');
 $benchmark -> stop();
 if (G_DEBUG) {
  echo $benchmark -> display();
+}
+function LoginRedirect($user_type) {
+ if ($GLOBALS['configuration']['login_redirect_page'] == "user_dashboard" && $user_type != "administrator") {
+  eF_redirect("userpage.php?ctg=personal");
+ } else {
+  eF_redirect("userpage.php");
+ }
 }
 ?>

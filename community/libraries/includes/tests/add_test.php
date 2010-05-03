@@ -79,6 +79,7 @@ $form -> addElement('advcheckbox', 'onebyone', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'only_forward', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'given_answers', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'answers', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'redirect', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'shuffle_answers', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'shuffle_questions', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'pause_test', null, null, null, array(0, 1));
@@ -209,6 +210,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'given_answers' => $values['given_answers'],
                                 'maintain_history' => $values['maintain_history'],
                                 'answers' => $values['answers'],
+        'redirect' => $values['redirect'],
                                 'shuffle_answers' => $values['shuffle_answers'],
                                 'shuffle_questions' => $values['shuffle_questions'],
                                 'pause_test' => $values['pause_test'],

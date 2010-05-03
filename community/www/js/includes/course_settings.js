@@ -1,3 +1,13 @@
+function issueCertificateAll(el) {
+ Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+ parameters = {CertificateAll:1, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onIssueCertificateAll);
+}
+function onIssueCertificateAll(el, response) {
+ location.reload();
+}
 function setAutoComplete(el) {
  Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
 
@@ -16,7 +26,7 @@ function onSetAutoComplete(el, response) {
  }
 }
 function setAutoCertificate(el) {
- el.insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+ Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
 
  parameters = {auto_certificate:1, method: 'get'};
  var url = location.toString();
@@ -32,13 +42,15 @@ function onSetAutoCertificate(el, response) {
 
 function showEdit(id) {
  $('add_schedule_link_'+id).hide();
+ $('schedule_dates_'+id).hide();
  $('remove_schedule_link_'+id).show();
  $('schedule_dates_form_'+id).show();
  $('set_schedules_link_'+id).show();
 }
 function hideEdit(id) {
- $('remove_schedule_link_'+id).hide();
  $('add_schedule_link_'+id).show();
+ $('schedule_dates_'+id).show();
+ $('remove_schedule_link_'+id).hide();
  $('schedule_dates_form_'+id).hide();
  $('set_schedules_link_'+id).hide();
 }

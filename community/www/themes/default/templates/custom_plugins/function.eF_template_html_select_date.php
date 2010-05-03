@@ -34,55 +34,62 @@
  */
 function smarty_function_eF_template_html_select_date($params, &$smarty)
 {
-   
+
     require_once $smarty->_get_plugin_filepath('shared','escape_special_chars');
     require_once $smarty->_get_plugin_filepath('shared','make_timestamp');
     require_once $smarty->_get_plugin_filepath('function','html_options');
     /* Default values. */
     if(strcmp($params['instant']," ") == 0){ $instance = "0";}
     else{ $instance = $params['instant']; }
-    $prefix          = "Date_";
-    $start_year      = strftime("%Y");
-    $end_year        = $start_year;
-    $display_days    = true;
-    $display_months  = true;
-    $display_years   = true;
-    $month_format    = "%B";
+    $prefix = "Date_";
+    $start_year = strftime("%Y");
+    $end_year = $start_year;
+    $display_days = true;
+    $display_months = true;
+    $display_years = true;
+    $month_format = "%B";
     /* Write months as numbers by default  GL */
     $month_value_format = "%m";
-    $day_format      = "%02d";
+    $day_format = "%02d";
     /* Write day values using this format MB */
     $day_value_format = "%d";
-    $year_as_text    = false;
+    $year_as_text = false;
     /* Display years in reverse order? Ie. 2000,1999,.... */
-    $reverse_years   = false;
+    $reverse_years = false;
     /* Should the select boxes be part of an array when returned from PHP?
        e.g. setting it to "birthday", would create "birthday[Day]",
        "birthday[Month]" & "birthday[Year]". Can be combined with prefix */
-    $field_array     = null;
+    $field_array = null;
     /* <select size>'s of the different <select> tags.
        If not set, uses default dropdown. */
-    $day_size        = null;
-    $month_size      = null;
-    $year_size       = null;
+    $day_size = null;
+    $month_size = null;
+    $year_size = null;
     /* Unparsed attributes common to *ALL* the <select>/<input> tags.
        An example might be in the template: all_extra ='class ="foo"'. */
-    $all_extra       = null;
+    $all_extra = null;
     /* Separate attributes for the tags. */
-    $day_extra       = null;
-    $month_extra     = null;
-    $year_extra      = null;
+    $day_extra = null;
+    $month_extra = null;
+    $year_extra = null;
     /* Order in which to display the fields.
        "D" -> day, "M" -> month, "Y" -> year. */
-    $field_order     = 'MDY';
+    $field_order = 'MDY';
     /* String printed between the different fields. */
     $field_separator = "\n";
     $time = time();
-    $all_empty       = null;
-    $day_empty       = null;
-    $month_empty     = null;
-    $year_empty      = null;
-    $extra_attrs     = '';
+    $all_empty = null;
+
+    if (isset($params['emptyvalues'])) {
+     $day_empty = _DAY;
+     $month_empty = _MONTH;
+     $year_empty = _YEAR;
+    } else {
+     $day_empty = null;
+     $month_empty = null;
+     $year_empty = null;
+    }
+    $extra_attrs = '';
 
     foreach ($params as $_key=>$_value) {
         switch ($_key) {
@@ -133,19 +140,20 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
         }
     }
 
-    if(preg_match('!^-\d+$!',$time)) {
-        // negative timestamp, use date()
-        $time = date('Y-m-d',$time);
+    if ($time) {
+     if(preg_match('!^-\d+$!',$time)) {
+         // negative timestamp, use date()
+         $time = date('Y-m-d',$time);
+     }
+     // If $time is not in format yyyy-mm-dd
+     if (!preg_match('/^\d{0,4}-\d{0,2}-\d{0,2}$/', $time)) {
+         // use smarty_make_timestamp to get an unix timestamp and
+         // strftime to make yyyy-mm-dd
+         $time = strftime('%Y-%m-%d', smarty_make_timestamp($time));
+     }
+     // Now split this in pieces, which later can be used to set the select
+     $time = explode("-", $time);
     }
-    // If $time is not in format yyyy-mm-dd
-    if (!preg_match('/^\d{0,4}-\d{0,2}-\d{0,2}$/', $time)) {
-        // use smarty_make_timestamp to get an unix timestamp and
-        // strftime to make yyyy-mm-dd
-        $time = strftime('%Y-%m-%d', smarty_make_timestamp($time));
-    }
-    // Now split this in pieces, which later can be used to set the select
-    $time = explode("-", $time);
-    
     // make syntax "+N" or "-N" work with start_year and end_year
     if (preg_match('!^(\+|\-)\s*(\d+)$!', $end_year, $match)) {
         if ($match[1] == '+') {
@@ -161,7 +169,7 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
             $start_year = strftime('%Y') - $match[2];
         }
     }
-    if (strlen($time[0]) > 0) { 
+    if (strlen($time[0]) > 0) {
         if ($start_year > $time[0] && !isset($params['start_year'])) {
             // force start year to include given date if not explicitly set
             $start_year = $time[0];
@@ -171,7 +179,7 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
             $end_year = $time[0];
         }
     }
-    
+
     $field_order = strtoupper($field_order);
 
     $html_result = $month_result = $day_result = $year_result = "";
@@ -195,7 +203,7 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
             $month_name = '"' . $prefix . 'Month'.$instance.'"';
         }
         $month_result .= $month_name . "' id = '". $month_name ."' ";
-        
+
         if (null !== $month_size){
             $month_result .= ' size="' . $month_size . '"';
         }
@@ -207,9 +215,9 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
         }
         $month_result .= $extra_attrs . '>'."\n";
 
-        $month_result .= smarty_function_html_options(array('output'     => $month_names,
-                                                            'values'     => $month_values,
-                                                            'selected'   => (int)$time[1] ? strftime($month_value_format, mktime(0, 0, 0, (int)$time[1], 1, 2000)) : '',
+        $month_result .= smarty_function_html_options(array('output' => $month_names,
+                                                            'values' => $month_values,
+                                                            'selected' => (isset($params['emptyvalues']) && !$time)?'':((int)$time[1] ? strftime($month_value_format, mktime(0, 0, 0, (int)$time[1], 1, 2000)) : ''),
                                                             'print_result' => false),
                                                       $smarty);
         $month_result .= '</select>';
@@ -243,9 +251,9 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
             $day_result .= ' ' . $day_extra;
         }
         $day_result .= $extra_attrs . '>'."\n";
-        $day_result .= smarty_function_html_options(array('output'     => $days,
-                                                          'values'     => $day_values,
-                                                          'selected'   => $time[2],
+        $day_result .= smarty_function_html_options(array('output' => $days,
+                                                          'values' => $day_values,
+                                                          'selected' => (isset($params['emptyvalues']) && !$time)?'':$time[2],
                                                           'print_result' => false),
                                                     $smarty);
         $day_result .= '</select>';
@@ -291,7 +299,7 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
             $year_result .= $extra_attrs . '>'."\n";
             $year_result .= smarty_function_html_options(array('output' => $years,
                                                                'values' => $yearvals,
-                                                               'selected'   => $time[0],
+                                                               'selected' => (isset($params['emptyvalues']) && !$time)?'':$time[0],
                                                                'print_result' => false),
                                                          $smarty);
             $year_result .= '</select>';

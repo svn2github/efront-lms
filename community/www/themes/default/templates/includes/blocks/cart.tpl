@@ -1,3 +1,4 @@
+<!--ajax:cart-->
 {strip}
 <div id = "cart" class = "cart">
 {foreach name = 'cartlist' key = 'key' item = 'cartlist' from = $T_CART.lesson}
@@ -169,3 +170,4 @@ function buyRedirect() {ldelim}
 {rdelim}
 </script>
 {/strip}
+<!--/ajax:cart-->

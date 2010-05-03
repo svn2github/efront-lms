@@ -42,6 +42,7 @@ class EfrontLessonException extends Exception
     const DIRECTION_NOT_EXISTS = 208;
     const MAX_USERS_LIMIT = 209;
     const CATEGORY_NOT_EXISTS = 210;
+    const INVALID_PARAMETER = 211;
     const GENERAL_ERROR = 299;
 }
 /**
@@ -61,6 +62,18 @@ class EfrontLessonException extends Exception
  */
 class EfrontLesson
 {
+ /**
+
+	 * The maximum length of a lesson name
+
+	 *
+
+	 * @var string
+
+	 * @since 3.6.1
+
+	 */
+ const MAX_NAME_LENGTH = 150;
     /**
 
      * The lesson array.
@@ -201,37 +214,395 @@ class EfrontLesson
 
      */
     function __construct($lesson) {
-        if (!is_array($lesson)) {
-            if (!eF_checkParameter($lesson, 'id')) {
-                throw new EfrontLessonException(_INVALIDID.": $lesson", EfrontLessonException :: INVALID_ID);
-            }
-            $result = eF_getTableData("lessons", "*", "id = $lesson");
-            if (sizeof($result) == 0) {
-                throw new EfrontLessonException(_LESSONDOESNOTEXIST.": $lesson", EfrontLessonException :: LESSON_NOT_EXISTS);
-            }
-            $this -> lesson = $result[0];
-        } else {
-            $this -> lesson = $lesson;
-        }
-        if (!is_dir(G_LESSONSPATH.$this -> lesson['id'])) {
-            mkdir(G_LESSONSPATH.$this -> lesson['id'], 0755);
-        }
-        if ($this -> lesson['options'] && $options = unserialize($this -> lesson['options'])) {
-            $newOptions = array_diff_key($this -> options, $options); //$newOptions are lesson options that were added to the EfrontLesson object AFTER the lesson options serialization took place
-            $this -> options = $options + $newOptions; //Set lesson options
-        }
-  if ($this -> lesson['share_folder'] && is_dir(G_LESSONSPATH.$this -> lesson['share_folder'])) {
+  $this -> initializeDataFromSource($lesson);
+  $this -> initializeDirectory();
+  $this -> initializeOptions();
+  $this -> buildPriceString();
+    }
+ /**
+
+	 * Initialize lesson data based on the passed parameter. If the parameter is an id, then
+
+	 * a db query takes place in order to retrive lesson values. Otherwise, if it's an array
+
+	 * it is used for the lesson values. 
+
+	 * 
+
+	 * @param mixed $lesson A lesson id or an array with lesson values
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+    private function initializeDataFromSource($lesson) {
+  if (is_array($lesson)) {
+   $this -> lesson = $lesson;
+  } elseif (!$this -> validateId($lesson)) {
+   throw new EfrontLessonException(_INVALIDID, EfrontLessonException :: INVALID_ID);
+  } else {
+   $lesson = eF_getTableData("lessons", "*", "id = $lesson");
+   if (empty($lesson)) {
+    throw new EfrontLessonException(_LESSONDOESNOTEXIST, EfrontLessonException :: LESSON_NOT_EXISTS);
+   }
+   $this -> lesson = $lesson[0];
+  }
+ }
+ /**
+
+	 * Initialize lesson directory and create if it does not exist
+
+	 * 
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function initializeDirectory() {
+  if ($this -> lesson['share_folder']) {
       $this -> directory = G_LESSONSPATH.$this -> lesson['share_folder'].'/';
   } else {
       $this -> directory = G_LESSONSPATH.$this -> lesson['id'].'/';
   }
-        if ($this -> lesson['price']) { //Create the string representing the lesson price
-   isset($this -> options['recurring']) && $this -> options['recurring'] ? $recurring = array($this -> options['recurring'], $this -> options['recurring_duration']) : $recurring = false;
-            $this -> lesson['price_string'] = formatPrice($this -> lesson['price'], $recurring);
+        if (!is_dir($this -> directory)) {
+            mkdir($this -> directory, 0755);
+        }
+ }
+ /**
+
+	 * Initialize lesson options, by unserializing the stored options array
+
+	 * 
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function initializeOptions() {
+  $this -> validateSerializedArray($this -> lesson['options']) OR $this -> lesson['options'] = $this -> sanitizeSerialized($this -> lesson['options']);
+  $options = unserialize($this -> lesson['options']);
+  $newOptions = array_diff_key($this -> options, $options); //$newOptions are lesson options that were added to the EfrontLesson object AFTER the lesson options serialization took place
+  $this -> options = $options + $newOptions; //Set lesson options
+ }
+ /**
+
+	 * Build the price string. This function takes the lesson price and
+
+	 * creates a human-readable version, based on whether it is a one-time
+
+	 * or a recurring price
+
+	 * 
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function buildPriceString() {
+  if ($this -> validateFloat($this -> lesson['price'])) { //Create the string representing the lesson price
+   $this -> options['recurring'] ? $recurring = array($this -> options['recurring'], $this -> options['recurring_duration']) : $recurring = false;
+   $this -> lesson['price_string'] = formatPrice($this -> lesson['price'], $recurring);
   } else {
-      $this -> lesson['price_string'] = formatPrice(0);
+   $this -> lesson['price_string'] = formatPrice(0);
   }
-    }
+ }
+ private static function validateAndSanitizeLessonFields($lessonFields) {
+  $lessonFields = self :: setDefaultLessonValues($lessonFields);
+  $fields = array('name' => self :: validateAndSanitize($lessonFields['name'], 'name'),
+                        'active' => self :: validateAndSanitize($lessonFields['active'], 'boolean'),
+            'archive' => self :: validateAndSanitize($lessonFields['archive'], 'boolean'),
+      'course_only' => self :: validateAndSanitize($lessonFields['course_only'], 'boolean'),
+      'share_folder' => self :: validateAndSanitize($lessonFields['share_folder'], 'boolean'),
+      'shift' => self :: validateAndSanitize($lessonFields['shift'], 'boolean'),
+            'created' => self :: validateAndSanitize($lessonFields['created'], 'boolean_or_timestamp'),
+      'from_timestamp' => self :: validateAndSanitize($lessonFields['from_timestamp'], 'boolean_or_timestamp'),
+      'to_timestamp' => self :: validateAndSanitize($lessonFields['to_timestamp'], 'boolean_or_timestamp'),
+            'options' => self :: validateAndSanitize($lessonFields['options'], 'serialized'),
+            'metadata' => self :: validateAndSanitize($lessonFields['metadata'], 'serialized'),
+            'info' => self :: validateAndSanitize($lessonFields['info'], 'serialized'),
+            //'description'               => self :: validateAndSanitize($lessonFields['description'], 			'text'),
+            'price' => self :: validateAndSanitize($lessonFields['price'], 'float'),
+      'duration' => self :: validateAndSanitize($lessonFields['duration'], 'integer'),
+            'show_catalog' => self :: validateAndSanitize($lessonFields['show_catalog'], 'boolean'),
+            'publish' => self :: validateAndSanitize($lessonFields['publish'], 'boolean'),
+            'directions_ID' => self :: validateAndSanitize($lessonFields['directions_ID'], 'directions_foreign_key'),
+                        'languages_NAME' => self :: validateAndSanitize($lessonFields['languages_NAME'], 'languages_foreign_key'),
+                        'max_users' => self :: validateAndSanitize($lessonFields['max_users'], 'integer'),
+      'certificate' => self :: validateAndSanitize($lessonFields['certificate'], 'text'),
+            'instance_source' => self :: validateAndSanitize($lessonFields['instance_source'], 'lessons_foreign_key'),
+      'originating_course' => self :: validateAndSanitize($lessonFields['originating_course'], 'courses_foreign_key'));
+  return $fields;
+ }
+ private static function setDefaultLessonValues($lessonFields) {
+  $defaultValues = array('name' => '',
+                            'active' => 1,
+                'archive' => 0,
+          'course_only' => 1,
+          'share_folder' => 0,
+          'shift' => 0,
+                'created' => 0,
+          'from_timestamp' => 0,
+          'to_timestamp' => 0,
+                'options' => '',
+                'metadata' => '',
+                'info' => '',
+                'description' => '',
+                'price' => 0,
+          'duration' => 0,
+                'show_catalog' => 1,
+                'publish' => 1,
+                'directions_ID' => 0,
+                         'languages_NAME' => 'english',
+                         'max_users' => 0,
+          'certificate' => '',
+                         'originating_course' => 0,
+                'instance_source' => 0);
+  return array_merge($defaultValues, $lessonFields);
+ }
+ /**
+
+	 * Validate and sanitize parameters
+
+	 *
+
+	 * This function is used to validate and sanitize the passed parameter.
+
+	 * It accepts the $field argument and its type and validates the field argument against the
+
+	 * desired type. 
+
+	 * <br/>Example:
+
+	 * <code>
+
+	 * $lesson -> validateAndSanitize(32, 'float');	//returns 32
+
+	 * $lesson -> validateAndSanitize('32asd', 'integer');	//returns 32
+
+	 * </code>
+
+	 *
+
+	 * @param mixed $field The field to validate and optionally sanitize
+
+	 * @param string $type The desired parameter type
+
+	 * @return mixed The original passed parameter, sanitized
+
+	 * @since 3.6.1
+
+	 * @access public
+
+	 */
+ public static function validateAndSanitize($field, $type) {
+  try {
+   self :: validate($field, $type);
+  } catch (EfrontLessonException $e) {
+   if ($e -> getCode() == EfrontLessonException::INVALID_PARAMETER) {
+    $field = self :: sanitize($field, $type);
+   } else {
+    throw $e;
+   }
+  }
+  return $field;
+ }
+ /**
+
+	 * Validate input based on the specified type
+
+	 * 
+
+	 * This function validates the parameter value against the specified
+
+	 * type. If it does not match, an exception is thrown.
+
+	 * <br/>Example:
+
+	 * <code>
+
+	 * $lesson -> validate(32, 'float');	//returns true
+
+	 * $lesson -> validate('32asd', 'integer');	//throws exception.
+
+	 * </code>
+
+	 * 
+
+	 * @param mixed $field The field to validate
+
+	 * @param string $type The desired parameter type
+
+	 * @return boolean Whether the passed parameter is valid
+
+	 * @since 3.6.1
+
+	 * @access public
+
+	 */
+ public static function validate($field, $type) {
+  $validParameter = true;
+  switch ($type) {
+   case 'id': self :: validateId($field) OR $validParameter = false; break;
+   case 'name': self :: validateName($field) OR $validParameter = false; break;
+   case 'boolean': self :: validateBoolean($field) OR $validParameter = false; break;
+   case 'float': self :: validateFloat($field) OR $validParameter = false; break;
+   case 'integer': self :: validateInteger($field) OR $validParameter = false; break;
+   case 'directions_foreign_key': self :: validateDirectionsForeignKey($field) OR $validParameter = false; break;
+   case 'languages_foreign_key': self :: validateLanguagesForeignKey($field) OR $validParameter = false; break;
+   case 'lessons_foreign_key': self :: validateLessonsForeignKey($field) OR $validParameter = false; break;
+   case 'text': self :: validateText($field) OR $validParameter = false; break;
+   case 'serialized': self :: validateSerialized($field) OR $validParameter = false; break;
+   case 'boolean_or_timestamp': (self :: validateBoolean($field) || self :: validateTimestamp($field)) OR $validParameter = false; break;
+   default: break;
+  }
+  if ($validParameter) {
+   return true;
+  } else {
+   throw new EfrontLessonException(_INVALIDPARAMETER.' ('.$type.'): "'.$field.'"', EfrontLessonException::INVALID_PARAMETER);
+  }
+ }
+ private static function validateId($field) {
+  !eF_checkParameter($field, 'id') ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateName($field) {
+  mb_strlen($field) > self::MAX_NAME_LENGTH ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateText($field) {
+  return true;
+ }
+ private static function validateBoolean($field) {
+  $field !== true && $field !== false ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateTimestamp($field) {
+   !eF_checkParameter($field, 'timestamp') ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateSerialized($field) {
+  unserialize($field) === false && $field !== serialize(false) ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateSerializedArray($field) {
+  $unserialized = unserialize($field);
+  $unserialized === false || !is_array($unserialized) ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateNull($field) {
+  !is_null($field) ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateFloat($field) {
+  !is_numeric($field) ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateInteger($field) {
+  !is_numeric($field) ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateDirectionsForeignKey($field) {
+  !eF_checkParameter($field, 'id') || sizeof(eF_getTableData("directions", "id", "id=".$field)) == 0 ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateLessonsForeignKey($field) {
+  !eF_checkParameter($field, 'id') || sizeof(eF_getTableData("lessons", "id", "id=".$field)) == 0 ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateCoursesForeignKey($field) {
+  !eF_checkParameter($field, 'id') || sizeof(eF_getTableData("courses", "id", "id=".$field)) == 0 ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateLanguagesForeignKey($field) {
+  !eF_checkParameter($field, 'login') || sizeof(eF_getTableData("languages", "name", "name='".$field."'")) == 0 ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ private static function validateUsersForeignKey($field) {
+  !eF_checkParameter($field, 'login') || sizeof(eF_getTableData("users", "login", "login='$field'")) == 0 ? $returnValue = false : $returnValue = true;
+  return $returnValue;
+ }
+ /**
+
+	 * Sanitize parameter
+
+	 * 
+
+	 * This function is used to sanitize the passed parameter, based on the type
+
+	 * specified
+
+	 * <br/>Example:
+
+	 * <code>
+
+	 * $lesson -> sanitize(32, 'float');	//returns 32
+
+	 * $lesson -> sanitize('32asd', 'integer');	//returns 32
+
+	 * </code>
+
+	 *  
+
+	 * @param mixed $field The field to sanitize
+
+	 * @param string $type The desired parameter type
+
+	 * @return mixed The sanitized passed parameter
+
+	 * @since 3.6.1
+
+	 * @access public
+
+	 */
+ public function sanitize($field, $type) {
+  switch ($type) {
+   case 'name': $field = self :: sanitizeName($field); break;
+   case 'boolean': $field = self :: sanitizeBoolean($field); break;
+   case 'boolean_or_timestamp': $field = self :: sanitizeBoolean($field); break;
+   case 'timestamp': $field = self :: sanitizeTimestamp($field); break;
+   case 'serialized': $field = self :: sanitizeSerialized($field); break;
+   case 'float': $field = self :: sanitizeFloat($field); break;
+   case 'integer':
+   case 'id': $field = self :: sanitizeInteger($field); break;
+   case 'directions_foreign_key':
+   case 'languages_foreign_key':
+   case 'lessons_foreign_key': $field = self :: sanitizeForeignKey($field); break;
+   case 'text': default: break;
+  }
+  return $field;
+ }
+ private static function sanitizeTimestamp($field) {
+  $field = time();
+  return $field;
+ }
+ private static function sanitizeName($field) {
+  $field = mb_substr($field, 0, self::MAX_NAME_LENGTH);
+  return $field;
+ }
+ private static function sanitizeBoolean($field) {
+  $field = ($field != 0);
+  return $field;
+ }
+ private static function sanitizeSerialized($field) {
+  $field = serialize(array());
+  return $field;
+ }
+ private static function sanitizeFloat($field) {
+  $field = (float)$field;
+  return $field;
+ }
+ private static function sanitizeInteger($field) {
+  $field = (int)$field;
+  return $field;
+ }
+ private static function sanitizeForeignKey($field) {
+  $field = 0;
+  return $field;
+ }
     /**
 
      * Create lesson
@@ -292,65 +663,106 @@ class EfrontLesson
 
      */
     public static function createLesson($fields) {
-        is_dir(G_LESSONSPATH) || mkdir(G_LESSONSPATH, 0755);
-        //These are the mandatory fields. In case one of these is absent, fill it in with a default value
-        !isset($fields['name']) ? $fields['name'] = 'Default name' : null;
-        !isset($fields['languages_NAME']) ? $fields['languages_NAME'] = $GLOBALS['configuration']['default_language'] : null;
-        if (!isset($fields['directions_ID'])) {
-            $directions = eF_getTableData("directions", "id");
-            sizeof($directions) > 0 ? $fields['directions_ID'] = $directions[0]['id'] : $fields['directions_ID'] = 1;
-        }
-        $fields['created'] = time();
-        $languages = EfrontSystem :: getLanguages(true);
-        $lessonMetadata = array('title' => $fields['name'],
-                                'creator' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
-                                'publisher' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
-                                'contributor' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
+        is_dir(G_LESSONSPATH) OR mkdir(G_LESSONSPATH, 0755);
+  $fields['metadata'] = self::createLessonMetadata($fields);
+  $fields['directions_ID'] = self::computeNewLessonDirectionsId($fields);
+  $fields['id'] = self::computeNewLessonId();
+  $fields = self::validateAndSanitizeLessonFields($fields);
+  $lessonId = eF_insertTableData("lessons", $fields);
+  $newLesson = new EfrontLesson($lessonId);
+  EfrontSearch :: insertText($fields['name'], $lessonId, "lessons", "title");
+  self::addNewLessonSkills($newLesson);
+  self::createLessonForum($newLesson);
+  self::createLessonChat($newLesson);
+  self::notifyModuleListenersForLessonCreation($newLesson);
+        return $newLesson;
+    }
+ /**
+
+	 * Create lesson metadata
+
+	 * 
+
+	 * @param array $fields Lesson properties
+
+	 * @return string Serialized representation of metadata array
+
+	 * @since 3.6.1
+
+	 * @access private
+
+	 */
+ private static function createLessonMetadata($fields) {
+  $languages = EfrontSystem :: getLanguages(true);
+  $lessonMetadata = array('title' => $fields['name'],
+                                'creator' => isset($GLOBALS['currentUser']) ? formatLogin($GLOBALS['currentUser'] -> user['login']) : '',
+                                'publisher' => isset($GLOBALS['currentUser']) ? formatLogin($GLOBALS['currentUser'] -> user['login']) : '',
+                                'contributor' => isset($GLOBALS['currentUser']) ? formatLogin($GLOBALS['currentUser'] -> user['login']) : '',
                                 'date' => date("Y/m/d", time()),
                                 'language' => $languages[$fields['languages_NAME']],
                                 'type' => 'lesson');
-        $fields['metadata'] = serialize($lessonMetadata);
-        $lessonId = eF_insertTableData("lessons", $fields); //Insert the lesson to the database
-        //If a folder with the name $lessonId already exists, delete the lessons entry and retry, so that a new id will be used
-        while (is_dir(G_LESSONSPATH.$lessonId) && $q++ < 10000 && !isset($fields['id'])) { //$q is put here to prevent infinite loops
-            $newLessonId = eF_insertTableData("lessons", $fields); //"Issue" the new id by inserting a new database entry
-            eF_deleteTableData("lessons", "id=$lessonId"); //delete the previous entry
-            $lessonId = $newLessonId;
+  $metadata = serialize($lessonMetadata);
+  return $metadata;
+ }
+ private static function computeNewLessonId() {
+  $fileSystemTree = new FileSystemTree(G_LESSONSPATH, true);
+  foreach ($fileSystemTree -> tree as $key => $value) {
+   if (preg_match("/\d+/", basename($key))) {
+    $directories[] = basename($key);
+   }
+  }
+  $result = eF_getTableData("lessons", "max(id) as max_id");
+  $firstFreeSlot = (max($result[0]['max_id'], max($directories))) + 1;
+  return $firstFreeSlot;
+ }
+ private static function computeNewLessonDirectionsId($fields) {
+  if (!isset($fields['directions_ID'])) {
+            $directions = eF_getTableData("directions", "id");
+            sizeof($directions) > 0 ? $fields['directions_ID'] = $directions[0]['id'] : $fields['directions_ID'] = 1;
         }
-        if ($q == 10000) {
-            return false;
-        }
-        EfrontSearch :: insertText($fields['name'], $lessonId, "lessons", "title");
-        if (!mkdir(G_LESSONSPATH.$lessonId, 0755)) {
-            eF_deleteTableData("lessons", "id=$lessonId"); //If the folder could not be created, delete the stored lesson database entry and then propagate the exception
-            throw new EfrontLessonException(_LESSONDIRECTORYCANNOTBCREATED, EfrontLessonException :: CANNOT_CREATE_DIR);
-        }
-        //Create corresponding forum and chat entries for the new lesson
-        $forumFields = array('title' => $fields['name'],
-                             'lessons_ID' => $lessonId,
+        return $fields['directions_ID'];
+ }
+ private static function createLessonForum($lesson) {
+  if ($lesson -> lesson['originating_course']) {
+   $originatingCourse = new EfrontCourse($lesson -> lesson['originating_course']);
+   $titleString = $originatingCourse -> course['name'].'&nbsp;&raquo;&nbsp;'.$lesson -> lesson['name'];
+  } else {
+   $titleString = $lesson -> lesson['name'];
+  }
+        $forumFields = array('title' => $titleString,
+                             'lessons_ID' => $lesson -> lesson['id'],
                              'parent_id' => 0,
                              'status' => 1,
-                             'users_LOGIN' => $_SESSION['s_login'] ? $_SESSION['s_login'] : '',
+                             'users_LOGIN' => isset($_SESSION['s_login']) ? $_SESSION['s_login'] : '',
                              'comments' => '');
-        $forum_id = eF_insertTableData("f_forums", $forumFields);
-        EfrontSearch :: insertText($fields['name'], $forum_id, "f_forums", "title");
-        $chatFields = array('name' => $fields['name'],
+        $forumId = eF_insertTableData("f_forums", $forumFields);
+  EfrontSearch :: insertText($lesson -> lesson['name'], $forumId, "f_forums", "title");
+ }
+ private static function createLessonChat($lesson) {
+  if ($lesson -> lesson['originating_course']) {
+   $originatingCourse = new EfrontCourse($lesson -> lesson['originating_course']);
+   $titleString = $originatingCourse -> course['name'].'&nbsp;&raquo;&nbsp;'.$lesson -> lesson['name'];
+  } else {
+   $titleString = $lesson -> lesson['name'];
+  }
+  $chatFields = array('name' => $titleString,
                             'create_timestamp' => time(),
                             'type' => 'public',
-                            'users_LOGIN' => $_SESSION['s_login'] ? $_SESSION['s_login'] : '',
-                            'lessons_ID' => $lessonId,
+                            'users_LOGIN' => isset($_SESSION['s_login']) ? $_SESSION['s_login'] : '',
+                            'lessons_ID' => $lesson -> lesson['id'],
                             'active' => 1);
         eF_insertTableData("chatrooms", $chatFields);
-        $newLesson = new EfrontLesson($lessonId);
-        ///MODULES1 - Module lesson add events
+ }
+ private static function addNewLessonSkills($lesson) {
+ }
+ private static function notifyModuleListenersForLessonCreation($lesson) {
         // Get all modules (NOT only the ones that have to do with the user type)
         $modules = eF_loadAllModules();
         // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
         foreach ($modules as $module) {
-            $module -> onNewLesson($lessonId);
+            $module -> onNewLesson($lesson -> lesson['id']);
         }
-        return $newLesson;
-    }
+ }
     /**
 
      * Archive lesson
@@ -415,14 +827,11 @@ class EfrontLesson
         $this -> lesson['active'] = 1;
         //Check whether the original category exists
         $result = eF_getTableDataFlat("directions", "id");
-        if (in_array($this -> lesson['directions_ID'], $result['id'])) {
-         // If the original category exists, no problem
+        if (in_array($this -> lesson['directions_ID'], $result['id'])) { // If the original category exists, no problem
          $this -> persist();
-        } elseif (empty($result)) {
-         //If no categories exist in the system, throw exception
+        } elseif (empty($result)) { //If no categories exist in the system, throw exception
          throw new EfrontLessonException(_NOCATEGORIESDEFINED, EfrontLessonException::CATEGORY_NOT_EXISTS);
-        } else {
-         //If some other category exists, assign it there
+        } else { //If some other category exists, assign it there
          $this -> lesson['directions_ID'] = $result['id'][0];
          $this -> persist();
         }
@@ -461,71 +870,47 @@ class EfrontLesson
 
      *
 
-     * @return boolean True if everything is ok
+     * @param boolean $removeFromCourse whether to remove the lesson from its belonging courses. Useful in case a course initiates the deletion
 
      * @since 3.5.0
 
      * @access public
 
-     * @todo: add getForums() to OO delete
-
-     * @todo: add getChatrooms to OO delete
-
      */
-    public function delete() {
-        $id = $this -> lesson['id'];
+    public function delete($removeFromCourse = true) {
         $this -> initialize('all');
-        foreach ($this -> getCourses(true) as $course) {
-         $course -> removeLessons($this -> lesson['id']);
+        if ($removeFromCourse) {
+         $this -> removeLessonFromCourses();
         }
+        $this -> removeLessonChat();
+        $this -> removeLessonForums();
+        $this -> removeLessonSkills();
         eF_deleteTableData("events", "lessons_ID=".$this -> lesson['id']);
         eF_deleteTableData("lessons_to_groups", "lessons_ID=".$this -> lesson['id']);
         eF_deleteTableData("lessons_timeline_topics", "lessons_ID=".$this -> lesson['id']);
-        $chatroom = eF_getTableData("chatrooms", "id", "lessons_ID=".$this -> lesson['id']); //Get the lesson chat room
-        if (sizeof($chatroom) > 0) {
-            eF_deleteTableData("chatmessages", "chatrooms_ID=".$chatroom[0]['id']); //Delete the chat room messages
-            eF_deleteTableData("chatrooms", "id=".$chatroom[0]['id']); //Delete the lesson chatroom
+        eF_deleteTableData("lessons", "id=".$this -> lesson['id']);
+        EfrontSearch :: removeText('lessons', $this -> lesson['id'], '');
+    }
+    private function removeLessonSkills() {
+    }
+    private function removeLessonFromCourses() {
+     foreach ($this -> getCourses(true) as $course) {
+      $course -> removeLessons($this);
+     }
+    }
+    private function removeLessonForums() {
+     $lessonsForums = eF_getTableData("f_forums", "*", "lessons_ID=".$this -> lesson['id']);
+     foreach($lessonsForums as $value) {
+      $forum = new f_forums($value);
+      $forum -> delete();
+     }
+    }
+    private function removeLessonChat() {
+        $lessonChatrooms = eF_getTableData("chatrooms", "id", "lessons_ID=".$this -> lesson['id']); //Get the lesson chat room
+        foreach($lessonChatrooms as $value) {
+            eF_deleteTableData("chatmessages", "chatrooms_ID=".$value['id']);
+            eF_deleteTableData("chatrooms", "id=".$value['id']);
         }
-        //delete the forums of this lesson
-        $lessons_forums = eF_getTableData("f_forums", "id","lessons_ID=$id");
-        foreach($lessons_forums as $value) {
-            $result_forums = eF_getTableData("f_forums", "*");
-            $forum_tree = array();
-            //Convert array to tree. At the end of the loop, the $forums array will hold the forum tree, where each node is an array of its child nodes
-            while (sizeof($result_forums) > 0 && $count++ < 10000) { //$count is put here to prevent infinite loops
-                $node = current($result_forums); //Get the key/node pairs of the first array element
-                $key = key($result_forums);
-                $parent_id = $node['parent_id'];
-                $forum_tree[$parent_id][] = $node['id']; //Append to the tree array, at the forum id index, the id of its child
-                $forum_tree[$node['id']] = array();
-                $forums[$node['id']] = $node; //Copy node to forums, which will be used later as forums source
-                unset($result_forums[$key]); //We visited the node, so delete it from the (array) graph
-            }
-            $children = $forum_tree[$value[id]]; //Get all the forum's direct siblings
-            for ($i = 0; isset($children[$i]); $i++) { //Find all the forum siblings' siblings
-                $children = array_merge ($children, $forum_tree[$children[$i]]);
-            }
-            $children[] = $value[id]; //Append the deleted forum to the childrens list
-            $topics = eF_getTableDataFlat("f_topics", "id", "f_forums_ID in (".implode(",", $children).")"); //Get forums' topics
-            if (sizeof($topics) > 0) { //Delete forums' messages and topics
-                $fmid = eF_getTableDataFlat("f_messages", "id", "f_topics_ID in (".implode(",", $topics['id']).")");
-                EfrontSearch :: removeText('f_messages', implode(",", $fmid['id']), '', true);
-                eF_deleteTableData("f_messages", "f_topics_id in (".implode(",", $topics['id']).")");
-                eF_deleteTableData("f_topics", "id in (".implode(",", $topics['id']).")");
-            }
-            $fpid = eF_getTableDataFlat("f_poll", "id", "f_forums_ID in (".implode(",", $children).")");
-            if (sizeof($fmid) > 0) {
-                EfrontSearch :: removeText('f_poll', implode(",", $fmid['id']), '', true);
-            }
-            if (sizeof($children) > 0) {
-                eF_deleteTableData("f_poll", "f_forums_ID in (".implode(",", $children).")"); //Delete polls
-                EfrontSearch :: removeText('f_forums', implode(",", $children), '', true);
-                eF_deleteTableData("f_forums", "id in (".implode(",", $children).")"); //Finally, delete forums themselves
-            }
-        }
-        eF_deleteTableData("lessons", "id=$id");
-        EfrontSearch :: removeText('lessons', $id, '');
-        return true;
     }
     /**
 
@@ -553,48 +938,8 @@ class EfrontLesson
 
      */
     public function getDirection(){
-        $result = array();
-        $res = eF_getTableData("directions", "name", "id=".$this -> lesson['directions_ID']);
-        $direction_name = $res[0]['name'];
-        $result['id'] = $this -> lesson['directions_ID'];
-        $result['name'] = $direction_name;
-        return $result;
-    }
-    /**
-
-     * Check if a lesson with a specified lesson_id exists
-
-     *
-
-     * This function is used to check if a lesson with a specified id exists
-
-     * <br/>Example:
-
-     * <code>
-
-     * $flg -> EfrontLesson :: exists(2);
-
-     * </code>
-
-     *
-
-     * @param  int  The lesson id to check
-
-     * @return boolean True if the lesson exists
-
-     * @since 3.5.0
-
-     * @access public
-
-     */
-    public static function exists($lessonId){
-        $res = ef_getTableData("lessons","id","id=".$lessonId);
-        if (sizeof($res) > 0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        $result = eF_getTableData("directions", "id, name", "id=".$this -> lesson['directions_ID']);
+     return array($result[0]['id'] => $result[0]['name']);
     }
     /**
 
@@ -655,59 +1000,6 @@ class EfrontLesson
         $this -> lesson['active'] = 0;
         $this -> persist();
         return true;
-    }
-    /**
-
-     * Delete lesson (statically)
-
-     *
-
-     * This function is used to delete an existing lesson. In order to do
-
-     * this, it caclulates all the lesson dependendant elements, deletes them
-
-     * and finally deletes the lesson itself. This function is the same as
-
-     * EfrontLesson :: delete(), except that it is called statically, so it
-
-     * instatiates first the lesson objects and then calls delete() on it.
-
-     * Alternatively, $lesson may be already a lesson object.
-
-     * <br/>Example:
-
-     * <code>
-
-     * try {
-
-     *   EfrontLesson :: delete(32);                     //32 is the lesson id
-
-     * } catch (Exception $e) {
-
-     *   echo $e -> getMessage();
-
-     * }
-
-     * </code>
-
-     *
-
-     * @param mixed $lesson The lesson id or a lesson object
-
-     * @return boolean True if everything is ok
-
-     * @since 3.5.0
-
-     * @access public
-
-     * @static
-
-     */
-    public static function deleteLesson($lesson) {
-        if (!($lesson instanceof EfrontLesson)) {
-            $lesson = new EfrontLesson($lesson);
-        }
-        return $lesson -> delete();
     }
     /**
 
@@ -808,7 +1100,7 @@ class EfrontLesson
     public function getUsers($basicType = false, $refresh = false) {
         if ($this -> users === false || $refresh) { //Make a database query only if the variable is not initialized, or it is explicitly asked
             $this -> users = array();
-            $result = eF_getTableData("users u, users_to_lessons ul", "u.*, ul.user_type as role, ul.from_timestamp", "u.user_type != 'administrator' and users_LOGIN = login and lessons_ID=".$this -> lesson['id']);
+            $result = eF_getTableData("users u, users_to_lessons ul", "u.*, ul.user_type as role, ul.from_timestamp, ul.completed", "u.user_type != 'administrator' and ul.archive = 0 and u.archive = 0 and ul.users_LOGIN = login and lessons_ID=".$this -> lesson['id']);
             foreach ($result as $value) {
                 $this -> users[$value['login']] = array('login' => $value['login'],
                                                         'email' => $value['email'],
@@ -821,6 +1113,7 @@ class EfrontLesson
               'from_timestamp' => $value['from_timestamp'],
                                                         'active' => $value['active'],
                           'avatar' => $value['avatar'],
+                          'completed' => $value['completed'],
                                                         'partof' => 1);
             }
         }
@@ -837,6 +1130,215 @@ class EfrontLesson
             return $this -> users;
         }
     }
+    //TO REPLACE getUsers
+ public function getLessonUsers($returnObjects = false) {
+  if (sizeof($this -> users) == 0) {
+   $this -> initializeUsers();
+  }
+  if ($returnObjects) {
+   foreach ($this -> users as $key => $user) {
+    $users[$key] = EfrontUserFactory :: factory($key);
+   }
+   return $users;
+  } else {
+   return $this -> users;
+  }
+ }
+ private function initializeUsers() {
+  $this -> lesson['total_students'] = $this -> lesson['total_professors'] = 0;
+  $roles = EfrontLessonUser :: getLessonsRoles();
+  $result = eF_getTableData("users_to_lessons ul, users u", "u.*, u.user_type as basic_user_type, ul.user_type as role, ul.from_timestamp as active_in_lesson, ul.score, ul.completed", "u.archive = 0 and ul.archive = 0 and ul.users_LOGIN = u.login and ul.lessons_ID=".$this -> lesson['id']);
+  foreach ($result as $value) {
+   $this -> users[$value['login']] = $value;
+   if ($roles[$value['role']] == 'student') {
+    $this -> lesson['total_students']++;
+   } elseif ($roles[$value['role']] == 'professor') {
+    $this -> lesson['total_professors']++;
+   }
+  }
+ }
+ public function getStudentUsers($returnObjects = false) {
+  $lessonUsers = $this -> getLessonUsers($returnObjects);
+  foreach ($lessonUsers as $key => $value) {
+   if ($value instanceOf EfrontUser) {
+    $value = $value -> user;
+   }
+   if (!$this -> isStudentRole($value['role'])) {
+    unset($lessonUsers[$key]);
+   }
+  }
+  return $lessonUsers;
+ }
+ public function getLessonNonUsers($returnObjects = false) {
+  $subquery = "select u.*, u.user_type as basic_user_type,ul.lessons_ID as has_lesson from users u left outer join users_to_lessons ul on (ul.users_login=u.login and lessons_id=".$this -> lesson['id']." and ul.archive != 0) where u.archive = 0 and u.active=1 and u.user_type != 'administrator'";
+  $result = eF_getTableData("($subquery) s", "s.*, s.has_lesson is null");
+  $users = array();
+  foreach ($result as $user) {
+   $user['user_types_ID'] ? $user['role'] = $user['user_types_ID'] : $user['role'] = $user['basic_user_type'];
+   $returnObjects ? $users[$user['login']] = EfrontUserFactory :: factory($user['login']) : $users[$user['login']] = $user;
+  }
+  return $users;
+ }
+ /**
+
+	 * Check if the specified user has a 'student' role in the course
+
+	 * 
+
+	 * @param mixed $user a login or an EfrontUser object
+
+	 * @return boolean True if the user's role in the course is 'student'
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ public function isStudentInLesson($user) {
+  if ($user instanceOf EfrontUser) {
+   $user = $user -> user['login'];
+  }
+  $roles = $this -> getPossibleLessonRoles();
+  $courseUsers = $this -> getUsers();
+  if (in_array($user, array_keys($courseUsers)) && $roles[$courseUsers[$user]['role']] = 'student') {
+   return true;
+  } else {
+   return false;
+  }
+ }
+ /**
+
+	 * Check if the specified user has a 'professor' role in the course
+
+	 * 
+
+	 * @param mixed $user a login or an EfrontUser object
+
+	 * @return boolean True if the user's role in the course is 'professor'
+
+	 * @since 3.6.1
+
+	 * @access public
+
+	 */
+ public function isProfessorInLesson($user) {
+  if ($user instanceOf EfrontUser) {
+   $user = $user -> user['login'];
+  }
+  $roles = $this -> getPossibleLessonRoles();
+  $courseUsers = $this -> getUsers();
+  if (in_array($user, array_keys($courseUsers)) && $roles[$courseUsers[$user]['role']] = 'professor') {
+   return true;
+  } else {
+   return false;
+  }
+ }
+ /**
+
+	 * This function parses an array of users and verifies that they are
+
+	 * correct and converts it to an array if it's a single entry 
+
+	 * 
+
+	 * @param mixed $users The users to verify
+
+	 * @return array The array of verified users
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function verifyUsersList($users) {
+  if (!is_array($users)) {
+   $users = array($users);
+  }
+  foreach ($users as $key => $value) {
+   if ($value instanceOf EfrontUser) {
+    $users[$key] = $value['login'];
+   } elseif (!eF_checkParameter($value, 'login')) {
+    unset($users[$key]);
+   }
+  }
+  return array_values(array_unique($users)); //array_values() to reindex array   
+ }
+ /**
+
+	 * This function parses an array of roles and verifies that they are
+
+	 * correct, converts it to an array if it's a single entry and
+
+	 * pads the array with extra values, if its length is less than the
+
+	 * desired
+
+	 * 
+
+	 * @param mixed $roles The roles to verify
+
+	 * @param int $length The desired length of the roles array
+
+	 * @return array The array of verified roles
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function verifyRolesList($roles, $length) {
+  if (!is_array($roles)) {
+   $roles = array($roles);
+  }
+  if (sizeof($roles) < $length) {
+   $roles = array_pad($roles, $length, $roles[0]);
+  }
+  return array_values($roles); //array_values() to reindex array
+ }
+ /**
+
+	 * Check whether the specified role is of type 'student'
+
+	 * 
+
+	 * @param mixed $role The role to check
+
+	 * @return boolean Whether it's a 'student' role
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function isStudentRole($role) {
+  $courseRoles = $this -> getPossibleLessonRoles();
+  if ($courseRoles[$role] == 'student') {
+   return true;
+  } else {
+   return false;
+  }
+ }
+ /**
+
+	 * Get the possible roles for a user in a lesson. This function caches EfrontLessonUser :: getLessonsRoles() results
+
+	 * for improved efficiency
+
+	 * 
+
+	 * @return array the possible users' roles in the lesson
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function getPossibleLessonRoles() {
+  if (!$this -> roles) {
+   $this -> roles = EfrontLessonUser :: getLessonsRoles();
+  }
+  return $this -> roles;
+ }
     /**
 
      * Get lesson students according to whether they have completed the lesson or not
@@ -867,8 +1369,6 @@ class EfrontLesson
 
      * @param boolean $completed Whether the returned users should have completed the lesson or not
 
-     * @param boolean $refresh Whether to explicitly refresh the object cached data set
-
      * @return array A 2-dimensional array with lesson users per type, or a 1-dimensional array with lesson users of the specified type
 
      * @since 3.6.0
@@ -876,30 +1376,13 @@ class EfrontLesson
      * @access public
 
      */
-    public function getUsersCompleted($completed, $refresh = false) {
-        if ($this -> users === false || $refresh) { //Make a database query only if the variable is not initialized, or it is explicitly asked
-            $this -> users = array();
-            if ($completed) {
-                $completedInt = 1;
-            } else {
-                $completedInt = 0;
-            }
-            $result = eF_getTableData("users u, users_to_lessons ul", "u.*, ul.user_type as role, ul.from_timestamp", "u.user_type != 'administrator' and users_LOGIN = login and ul.user_type = 'student' and lessons_ID=".$this -> lesson['id'] . " AND completed = " . $completedInt);
-            foreach ($result as $value) {
-                $this -> users[$value['login']] = array('login' => $value['login'],
-                                                        'email' => $value['email'],
-                                                        'name' => $value['name'],
-                                                        'surname' => $value['surname'],
-                                                        'basic_user_type' => $value['user_type'],
-                                                        'user_types_ID' => $value['user_types_ID'],
-                                                        'role' => $value['role'],
-              'from_timestamp' => $value['from_timestamp'],
-                                                        'active' => $value['active'],
-                          'avatar' => $value['avatar'],
-                                                        'partof' => 1);
-            }
-        }
-        return $this -> users;
+    public function getUsersCompleted($completed) {
+     foreach ($this -> getUsers() as $key => $user) {
+      if (($completed && !$user['completed']) || (!$completed && $user['completed'])) {
+       unset($users[$key]);
+      }
+     }
+        return $users;
     }
     /**
 
@@ -1036,74 +1519,113 @@ class EfrontLesson
      * @access public
 
      */
-    public function addUsers($login, $role = 'student', $confirmed = true) {
-        if (!is_array($login)) {
-            $login = array($login);
-            $role = array($role);
-        }
-  $temp = array();
-  if (!is_array($role) && is_array($login)) { //in case second param is not defined by call and first is an array
-   foreach ($login as $value){
-    $temp[] = $role;
+    public function addUsers($users, $roles = 'student', $confirmed = true) {
+  $users = $this -> verifyUsersList($users);
+  $roles = $this -> verifyRolesList($roles, sizeof($users));
+  $lessonUsers = array_keys($this -> getUsers());
+  $count = sizeof($this -> getStudentUsers());
+  foreach ($users as $key => $user) {
+   $roleInLesson = $roles[$key];
+   if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && $this -> isStudentRole($roleInLesson)) {
+    throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
    }
-   $role = $temp;
+   if (!in_array($user, $lessonUsers)) { //added this to avoid adding existing user when admin changes his role
+    $this -> addUserToLesson($user, $roleInLesson, $confirmed);
+   } else {
+    $this -> setUserRoleInLesson($user, $roleInLesson);
+   }
+   if (!$confirmed) {
+    eF_updateTableData("users_to_lessons", array("from_timestamp" => 0), "users_LOGIN = '".$user."' and lessons_ID=".$this -> lesson['id']);
+          $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
+          Cache::resetCache($cacheKey);
+   }
   }
-        $userTypes = EfrontLessonUser :: getLessonsRoles();
-        $lessonUsers = $this -> getUsers();
-        $addedStudents = array();
-        $count = sizeof($this -> getUsers('student'));
-        foreach ($login as $key => $value) {
-            if (!in_array($value, array_keys($lessonUsers))) {
-                if (eF_checkParameter($value, 'login')) {
-                    $fields = array('users_LOGIN' => $value,
-                                    'lessons_ID' => $this -> lesson['id'],
-                                    'active' => 1,
-                                    'from_timestamp' => $confirmed ? time() : 0,
-                                    'user_type' => current($role));
-                    if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && ($fields['user_type'] == 'student' || $userTypes[$fields['user_type']]['basic_user_type'] == 'student')) {
-                        throw new EfrontLessonException(_MAXIMUMUSERSREACHEDFORLESSON, EfrontLessonException :: MAX_USERS_LIMIT);
-                    }
-                    next($role);
-                    try {
-                        eF_insertTableData("users_to_lessons", $fields);
-                        if ($fields['user_type'] == 'student' || $userTypes[$fields['user_type']]['basic_user_type'] == 'student') {
-                            $addedStudents[] = $value;
-                            // Timelines: new event
-                            EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_ACQUISITION_AS_STUDENT, "users_LOGIN" => $value, "lessons_ID" => $this -> lesson['id'], "lessons_name" => $this -> lesson['name']));
-                        } else {
-                            EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR, "users_LOGIN" => $value, "lessons_ID" => $this -> lesson['id'], "lessons_name" => $this -> lesson['name']));
-                        }
-                    } catch (Exception $e) {
-                        $errors[] = _CANNOTADDUSERTOLESSON.' ('.EfrontLessonException :: DATABASE_ERROR.': '.$e->getMessage().')';
-                    }
-                } else {
-                    $errors[] = _INVALIDLOGIN.': '.$value.' ('.EfrontLessonException :: INVALID_LOGIN.')';
-                }
-            } else {
-                if ($lessonUsers[$value]['role'] != $role[$key]) {
-                    $this -> setRoles($value, $role[$key]);
-                }
+  $this -> users = false; //Reset users cache
+  return $this -> getUsers();
+    }
+ public static function convertLessonObjectsToArrays($lessonObjects) {
+  foreach ($lessonObjects as $key => $value) {
+   $lessonObjects[$key] = $value -> lesson;
+  }
+  return $lessonObjects;
+ }
+ /**
+
+	 * Add the user in the lesson having the specified role
+
+	 * 
+
+	 * @param string $user The user's login
+
+	 * @param mixed $roleInLesson the user's role in the lesson
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function addUserToLesson($user, $roleInLesson, $confirmed) {
+  $fields = array('users_LOGIN' => $user,
+      'lessons_ID' => $this -> lesson['id'],
+      'active' => 1,
+      'archive' => 0,
+      'from_timestamp' => time(),
+      'user_type' => $roleInLesson,
+      'positions' => '',
+      'done_content' => '',
+      'current_unit' => 0,
+      'completed' => 0,
+      'score' => 0,
+      'comments' => '',
+      'to_timestamp' => 0);
+        //Check if tracking data for this user already exists
+  $result = eF_getTableData("users_to_lessons", "*", "users_LOGIN='$user' and lessons_ID=".$this -> lesson['id']." and archive != 0");
+  if (sizeof($result) > 0) {
+   eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0), "users_LOGIN='$user' and lessons_ID=".$this -> lesson['id']);
+         $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
+         Cache::resetCache($cacheKey);
+  } else {
+   eF_insertTableData("users_to_lessons", $fields);
+            foreach ($this -> getAutoAssignProjects() as $project) {
+                $project -> addUsers($addedStudents);
             }
-        }
-        //Assign new users to auto projects
-        $lessonProjects = $this -> getProjects();
+  }
+  $event = array("type" => $this -> isStudentRole($roleInLesson) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
+        "users_LOGIN" => $user,
+        "lessons_ID" => $this -> lesson['id'],
+        "lessons_name" => $this -> lesson['name']);
+  EfrontEvent::triggerEvent($event);
+ }
+ /**
+
+	 * Set the user's role in the lesson
+
+	 * 
+
+	 * @param $user The user to set the role for
+
+	 * @param $roleInLesson The role in the lesson
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function setUserRoleInLesson($user, $roleInLesson) {
+  $lessonUsers = $this -> getUsers();
+  if ($lessonUsers[$user]['role'] != $roleInLesson) {
+   $this -> setRoles($user, $roleInLesson);
+  }
+ }
+ private function getAutoAssignProjects() {
         $autoAssignProjects = array();
-        foreach ($lessonProjects as $id => $project) {
+        foreach ($this -> getProjects() as $id => $project) {
             if ($project['auto_assign']) {
                 $autoAssignProjects[$id] = new EfrontProject($id);
             }
         }
-        if (sizeof($addedStudents) > 0) {
-            foreach ($autoAssignProjects as $project) {
-                $project -> addUsers($addedStudents);
-            }
-        }
-        if (!isset($errors)) {
-            return true;
-        } else {
-            throw new EfrontLessonException(_PROBLEMADDINGUSERSTOLESSON.': '.implode("<br>", $errors), EfrontLessonException :: GENERAL_ERROR);
-        }
-    }
+        return $autoAssignProjects;
+ }
     /**
 
      * Remove user from lesson
@@ -1135,27 +1657,74 @@ class EfrontLesson
      * @todo remove him from projects list
 
      */
-    public function removeUsers($login) {
-        if (!is_array($login)) {
-            $login = array($login);
-        }
-        foreach ($login as $value) {
-            if (eF_checkParameter($value, 'login')) {
-                eF_deleteTableData("users_to_lessons", "users_LOGIN='$value' and lessons_ID=".$this -> lesson['id']);
-    $lessonTests = $this -> getTests(false);
-    if (sizeof($lessonTests) > 0) {
-     eF_updateTableData("completed_tests", array('archive' => 1), "users_LOGIN='$value' and tests_ID in (".implode(",", $lessonTests).")");
+    public function removeUsers($users) {
+  $users = $this -> verifyUsersList($users);
+  $this -> deleteUserTests($users);
+  $this -> sendNotificationsRemoveLessonUsers($users);
+  foreach ($users as $user) {
+   eF_deleteTableData("users_to_lessons", "users_LOGIN='$user' and lessons_ID=".$this -> lesson['id']);
+         $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
+         Cache::resetCache($cacheKey);
+  }
+  $this -> users = false; //Reset users cache
+  return $this -> getUsers();
     }
-                //Timelines event
-                EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_REMOVAL, "users_LOGIN" => $value, "lessons_ID" => $this -> lesson['id'], "lessons_name" => $this -> lesson['name']));
-            }
-        }
-        if (!isset($errors)) {
-            return true;
-        } else {
-            throw new EfrontLessonException(_PROBLEMADDINGUSERSTOLESSON.': '.implode("<br>", $errors), EfrontLessonException :: GENERAL_ERROR);
-        }
+    private function deleteUserTests($users) {
+     $lessonTests = $this -> getTests(false);
+     foreach ($users as $user) {
+      if (sizeof($lessonTests) > 0) {
+       eF_deleteTableData("completed_tests", "users_LOGIN='$user' and tests_ID in (".implode(",", $lessonTests).")");
+      }
+     }
     }
+ private function sendNotificationsRemoveLessonUsers($users) {
+  foreach ($users as $user) {
+   EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_REMOVAL,
+           "users_LOGIN" => $user,
+           "lessons_ID" => $this -> lesson['id'],
+           "lessons_name" => $this -> lesson['name']));
+  }
+ }
+ /**
+
+	 * Archive user in lesson
+
+	 *
+
+	 * This function is used to archive a user in the current lesson. It's similar to removing,
+
+	 * only the user relation to the tracking data is not lost but retained
+
+	 * <br/>Example:
+
+	 * <code>
+
+	 * $lesson -> archiveLessonUsers('jdoe');   //Archive user with login 'jdoe'
+
+	 * </code>
+
+	 *
+
+	 * @param array $user the user login to archive
+
+	 * @return array The new list of lesson users
+
+	 * @since 3.5.0
+
+	 * @access public
+
+	 */
+ public function archiveLessonUsers($users) {
+  $users = $this -> verifyUsersList($users);
+  $this -> sendNotificationsRemoveLessonUsers($users);
+  foreach ($users as $user) {
+   eF_updateTableData("users_to_lessons", array("archive" => time()), "users_LOGIN='$user' and lessons_ID=".$this -> lesson['id']);
+         $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
+         Cache::resetCache($cacheKey);
+  }
+  $this -> users = false; //Reset users cache
+  return $this -> getUsers();
+ }
     /**
 
      * Confirm user registration
@@ -1185,14 +1754,26 @@ class EfrontLesson
      * @access public
 
      */
-    public function confirm($login) {
-        if ($login instanceof EfrontLessonUser) {
-            $login = $login -> user['login'];
-        } else if (!eF_checkParameter($login, 'login')) {
-            throw new EfrontUserException(_INVALIDLOGIN, EfrontUserException::INVALID_LOGIN);
-        }
-        eF_updateTableData("users_to_lessons", array("from_timestamp" => time()), "users_LOGIN='".$login."' and lessons_ID=".$this -> lesson['id']." and from_timestamp=0");
-    }
+ public function confirm($login) {
+  $login = $this -> convertArgumentToUserLogin($login);
+  eF_updateTableData("users_to_lessons", array("from_timestamp" => time()), "users_LOGIN='".$login."' and lessons_ID=".$this -> lesson['id']." and from_timestamp=0");
+        $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$login;
+        Cache::resetCache($cacheKey);
+ }
+ public function unConfirm($login) {
+  $login = $this -> convertArgumentToUserLogin($login);
+  eF_updateTableData("users_to_lessons", array("from_timestamp" => 0), "users_LOGIN='".$login."' and lessons_ID=".$this -> lesson['id']);
+        $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$login;
+        Cache::resetCache($cacheKey);
+ }
+ private function convertArgumentToUserLogin($login) {
+  if ($login instanceof EfrontLessonUser) {
+   $login = $login -> user['login'];
+  } else if (!eF_checkParameter($login, 'login')) {
+   throw new EfrontUserException(_INVALIDLOGIN, EfrontUserException::INVALID_LOGIN);
+  }
+  return $login;
+ }
     /**
 
      * Set user roles in lesson
@@ -1226,25 +1807,14 @@ class EfrontLesson
      * @access public
 
      */
-    public function setRoles($login, $role) {
-        if (!is_array($login)) {
-            $login = array($login);
-            $role = array($role);
-        }
-        foreach ($login as $key => $value) {
-            if (eF_checkParameter($value, 'login')) {
-                if (!eF_updateTableData("users_to_lessons", array('user_type' => $role[$key]), "users_LOGIN='".$value."' and lessons_ID=".$this -> lesson['id'])) {
-                    $errors[] = _CANNOTUPDATEUSERLESSONINFORMATION.' ('.EfrontLessonException :: DATABASE_ERROR.')';
-                }
-            } else {
-                $errors[] = _INVALIDLOGIN.': '.$value.' ('.EfrontLessonException :: INVALID_LOGIN.')';
-            }
-        }
-        if (!isset($errors)) {
-            return true;
-        } else {
-            throw new EfrontLessonException(_PROBLEMUPDATINGUSERSTOLESSON.': '.implode("<br>", $errors), EfrontLessonException :: GENERAL_ERROR);
-        }
+    public function setRoles($users, $roles) {
+  $users = $this -> verifyUsersList($users);
+  $roles = $this -> verifyRolesList($roles, sizeof($users));
+  foreach ($users as $key => $value) {
+   eF_updateTableData("users_to_lessons", array('user_type' => $roles[$key]), "users_LOGIN='".$value."' and lessons_ID=".$this -> lesson['id']);
+         $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$value;
+         Cache::resetCache($cacheKey);
+  }
     }
     /**
 
@@ -1396,31 +1966,6 @@ class EfrontLesson
 
     */
     public function getQuestions($returnObjects = false){
-        /* //old implementation
-
-        $questions = array();
-
-        $question_data = eF_getTableData("questions q, tests_to_questions tq, content c, tests t", "distinct (q.id)", "tq.questions_ID = q.id and tq.tests_ID = t.id and t.content_id = c.id and c.lessons_ID=".$this -> lesson['id']);
-
-        foreach ($question_data as $qid){
-
-            if (!$returnObjects){
-
-                $questions[] = $qid['id'];
-
-            } else {
-
-                $question = QuestionFactory :: factory($qid['id']);
-
-                $questions[$qid['id']] = $question;
-
-            }
-
-        }
-
-        return $questions;
-
-	*/
         $questions = array();
         $result = eF_getTableData("questions", "*", "lessons_ID=".$this -> lesson['id']);
         if (sizeof($result) > 0) {
@@ -1726,96 +2271,6 @@ class EfrontLesson
     }
     /**
 
-     * Get lesson news
-
-     * 
-
-     * This function is used to retrieve any news related to this lesson
-
-     * <br/>Example:
-
-     * <code>
-
-     * $lesson = new EfrontLesson(45);		//Initialize lesson with id 45
-
-     * $news = $lesson -> getNews();		//Get the lesson news
-
-     * $news = $lesson -> getNews(true);	//Get the only lesson news that are set to past dates
-
-     * </code>
-
-     *
-
-     * @param boolean $showPrevious Whether to only return past news
-
-     * @return array An array of news
-
-     * @since 3.5.2
-
-     * @access public
-
-     */
-    public function getNews($showPrevious = true) {
-        if ($showPrevious){ // students see only previous news
-            $result = eF_getTableData("news n, users u", "n.*, u.surname, u.name", "n.users_LOGIN = u.login and n.lessons_ID=".$this -> lesson['id']." AND n.timestamp<=".time(), "n.timestamp desc, n.id desc"); //"            
-        } else {
-            $result = eF_getTableData("news n, users u", "n.*", "n.users_LOGIN = u.login and n.lessons_ID=".$this -> lesson['id'], "n.timestamp desc, n.id desc");
-        }
-        $news = array();
-        foreach ($result as $value) {
-            $news[$value['id']] = $value;
-        }
-        return $news;
-    }
-    /**
-
-     * Delete lesson news
-
-     * 
-
-     * This function is used to delete the specified news from the 
-
-     * lesson.
-
-     * <br/>Example:
-
-     * <code>
-
-     * $lesson = new EfrontLesson(45);		//Initialize lesson with id 45
-
-     * $lesson -> deleteNews(12);									//Delete lesson announcement with id 12 
-
-     * $lesson -> deleteNews(array(12, 43, 765));					//Delete lesson announcements with ids 12, 43, 765 
-
-     * $lesson -> deleteNews(array_keys($lesson -> getNews()));		//Delete all lesson announcements 
-
-     * </code>
-
-     *
-
-     * @param unknown_type $news
-
-     * @return unknown
-
-     */
-    public function deleteNews($news) {
-        if (!is_array($news)) {
-            $news = array($news);
-        }
-        $lessonNews = array_keys($this -> getNews());
-        $ids = array();
-        foreach ($news as $key => $value) {
-            if (in_array($value, $lessonNews)) {
-                $ids[] = $value;
-            }
-        }
-        if (sizeof($ids) > 0) {
-            $result = eF_deleteTableData("news", "id in (".implode(",", $ids).")");
-        }
-        return $result;
-    }
-    /**
-
      * Get lesson units
 
      * 
@@ -1954,8 +2409,11 @@ class EfrontLesson
                     $this -> removeUsers(array_keys($lessonUsers));
                     break;
                 case 'news':
-                    $lessonNews = $this -> getNews();
-                    $this -> deleteNews(array_keys($lessonNews));
+                    $lessonNews = news :: getNews($this -> lesson['id']);//$this -> getNews();
+                    foreach ($lessonNews as $value) {
+                     $value = new news($value);
+                     $value -> delete();
+                    }
                     break;
                 case 'files':
                  //Only delete files if this lesson is not sharing its folder
@@ -1985,6 +2443,10 @@ class EfrontLesson
                                            "current_unit" => 0,
                                            "score" => 0);
                     eF_updateTableData("users_to_lessons", $tracking_info, "lessons_ID = ".$this -> lesson['id']);
+                    foreach ($this -> getUsers as $user => $foo) {
+                     $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
+                     Cache::resetCache($cacheKey);
+                    }
                     if (!isset($lessonTests)) {
                         $lessonTests = $this -> getTests(true);
                     }
@@ -2815,7 +3277,7 @@ class EfrontLesson
 
      * @access public
 
-     * @see EfrontLesson :: initialize()"
+     * @see EfrontLesson :: initialize()
 
      */
     public function import($file, $deleteEntities = false, $lessonProperties = false, $keepName = false) {
@@ -2828,7 +3290,7 @@ class EfrontLesson
         $fileList = $file -> uncompress();
         $file -> delete();
         $fileList = array_unique(array_reverse($fileList, true));
-        $dataFile = new EfrontFile($this -> directory.'data.dat');
+        $dataFile = new EfrontFile($file['directory'].'/data.dat');
         $filedata = file_get_contents($dataFile['path']);
         $dataFile -> delete();
         $data = unserialize($filedata);
@@ -3252,6 +3714,8 @@ class EfrontLesson
 
      * @param boolean $rename Whether to rename the exported file with the same name as the lesson
 
+     * @param boolean $exportFiles Whether to export files as well
+
      * @return EfrontFile The object of the exported data file
 
      * @since 3.5.0
@@ -3259,21 +3723,15 @@ class EfrontLesson
      * @access public
 
      */
-    public function export($exportEntities, $rename = true) {
+    public function export($exportEntities, $rename = true, $exportFiles = true) {
         if (!$exportEntities) {
             $exportEntities = array('export_surveys' => 1, 'export_announcements' => 1, 'export_glossary' => 1,
                                     'export_calendar' => 1, 'export_comments' => 1, 'export_rules' => 1);
         }
-        if (is_file($this -> directory.'data.tar.gz')) {
-            try {
-                $file = new EfrontFile($this -> directory.'data.tar.gz');
-                $file -> delete();
-            } catch (EfrontFileException $e) {
-                unlink($this -> directory.'data.tar.gz');
-            }
-        }
         $data['lessons'] = $this -> lesson;
-        unset($data['lessons']['shared_folder']);
+        unset($data['lessons']['share_folder']);
+        unset($data['lessons']['instance_source']);
+        unset($data['lessons']['originating_course']);
         $content = eF_getTableData("content", "*", "lessons_ID=".$this -> lesson['id']);
         if (sizeof($content) > 0) {
             for ($i = 0; $i < sizeof($content); $i++) {
@@ -3369,8 +3827,13 @@ class EfrontLesson
             }
         }
         file_put_contents($this -> directory.'/'."data.dat", serialize($data)); //Create database dump file
-        $lessonDirectory = new EfrontDirectory($this -> directory);
-        $file = $lessonDirectory -> compress($this -> lesson['id'].'_exported.zip', false); //Compress the lesson files
+        if ($exportFiles) {
+         $lessonDirectory = new EfrontDirectory($this -> directory);
+         $file = $lessonDirectory -> compress($this -> lesson['id'].'_exported.zip', false); //Compress the lesson files
+        } else {
+         $dataFile = new EfrontFile($this -> directory.'/'."data.dat");
+         $file = $dataFile -> compress($this -> lesson['id'].'_exported.zip');
+        }
         $newList = FileSystemTree :: importFiles($file['path']); //Import the file to the database, so we can download it
         $file = new EfrontFile(current($newList));
         $userTempDir = $GLOBALS['currentUser'] -> user['directory'].'/temp'; //The compressed file will be moved to the user's temp directory
@@ -3464,8 +3927,8 @@ if ($element == 'data') $value = htmlentities($value);
      * @static
 
      */
-    public static function getLessons($returnObjects = false) {
-        $result = eF_getTableData("lessons l, directions d", "l.*, d.name as direction_name", "l.directions_ID=d.id and l.archive=0", "l.name");
+    public static function getLessons($returnObjects = false, $instances = false) {
+        $result = eF_getTableData("lessons l, directions d", "l.*, d.name as direction_name", "l.directions_ID=d.id and l.archive=0".(!$instances ? " and l.instance_source=0" : null), "l.name");
         foreach ($result as $value) {
             if ($returnObjects){
                 $lessons[$value['id']] = new EfrontLesson($value);
@@ -4361,5 +4824,106 @@ if ($element == 'data') $value = htmlentities($value);
             return $filtered_related_events;
         }
     }
+ /**
+
+	 * Create lesson instance
+
+	 * 
+
+	 * This function is used to create a lesson instance.
+
+	 * <br/>Example:
+
+	 * <code>
+
+	 * $instance = EfrontLesson :: createInstance(43);
+
+	 * </code>
+
+	 * 
+
+	 * @param mixed $instanceSource Either a lesson id or an EfrontLesson object.  
+
+	 * @return EfrontLesson The new lesson instance
+
+	 * @since 3.6.1
+
+	 * @access public
+
+	 * @static
+
+	 */
+ public static function createInstance($instanceSource, $originateCourse) {
+  if (!($instanceSource instanceof EfrontLesson)) {
+   $instanceSource = new EfrontLesson($instanceSource);
+  }
+  if (!($originateCourse instanceof EfrontCourse)) {
+   $originateCourse = new EfrontCourse($originateCourse);
+  }
+  $result = eF_getTableData("lessons", "*", "id=".$instanceSource -> lesson['id']);
+  unset($result[0]['id']);
+  //unset($result[0]['directions_ID']);			//Instances don't belong to a category
+  if (!$result[0]['share_folder']) {
+   $result[0]['share_folder'] = $instanceSource -> lesson['id'];
+  }
+  //$result[0]['name'] .= ' ('._INSTANCE.')';
+  $result[0]['originating_course'] = $originateCourse -> course['id'];
+  $result[0]['instance_source'] = $instanceSource -> lesson['id'];
+  $file = $instanceSource -> export(false, true, false);
+  $instance = EfrontLesson :: createLesson($result[0]);
+  $instance -> import($file, true, true, true);
+  $instance -> course['originating_course'] = $originateCourse -> course['id'];
+  $instance -> course['instance_source'] = $instanceSource -> lesson['id'];
+  $instance -> persist();
+  return $instance;
+ }
+ /**
+
+	 * Convert a lesson argument to a lesson id 
+
+	 * 
+
+	 * @param mixed $lesson The lesson argument, can be an id or an EfrontLesson object
+
+	 * @return int The lesson id
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 * @static
+
+	 */
+ public static function convertArgumentToLessonId($lesson) {
+  if ($lesson instanceOf EfrontLesson) {
+   $lesson = $lesson -> lesson['id'];
+  } else if (!eF_checkParameter($lesson, 'id')) {
+   throw new EfrontLessonException(_INVALIDID, EfrontLessonException :: INVALID_ID);
+  }
+  return $lesson;
+ }
+    /**
+
+     * Convert argument to an EfrontLesson object
+
+     * 
+
+     * @param mixed $lesson The parameter to convert 
+
+     * @return EfrontLesson a new EfrontLesson object
+
+     * @since 3.6.3
+
+     * @access public
+
+     * @static
+
+     */
+ public static function convertArgumentToLessonObject($lesson) {
+  if (!($lesson instanceOf EfrontLesson)) {
+   $lesson = new EfrontLesson($lesson);
+  }
+  return $lesson;
+ }
 }
 ?>

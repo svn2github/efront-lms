@@ -200,9 +200,9 @@ class EfrontSystem
       if ($matches[1]) {
           $temp[$matches[1]] = array($sql[$i], $sql[$i + 1]);
       }
-   //eF_executeNew($query);
   }
   $sql = $temp;
+  //For each one of the tables that have backup data, recreate its table and import data
   $iterator = new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($node), RecursiveIteratorIterator :: SELF_FIRST));
   foreach ($iterator as $file => $value) {
       $tableName = preg_replace("/\.\d+/", "", basename($file));
@@ -217,6 +217,13 @@ class EfrontSystem
           $data = unserialize(file_get_contents($file));
           eF_insertTableDataMultiple($tableName, $data);
       }
+  }
+  //For each one of the tables that don't have backup data, simply recreate
+  foreach ($sql as $tableName => $query) {
+      try {
+          eF_executeNew($query[0]);
+      } catch (Exception $e) {/*Don't halt for missing tables that can't be deleted*/}
+      eF_executeNew($query[1]);
   }
   if (is_dir(G_BACKUPPATH.'temp/upload')) {
       $dir = new EfrontDirectory(G_BACKUPPATH.'temp/upload');

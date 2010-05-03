@@ -247,7 +247,19 @@
         {/capture}
     {/if}
 {/if}
-
+{if (isset($T_CTG) && $T_CTG == 'curriculums')}
+ {capture name = "moduleCurriculums"}
+ {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=curriculums'>`$smarty.const._CURRICULUM`</a>"}
+ {if $smarty.get.edit}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=curriculums&edit=`$smarty.get.edit`'>`$smarty.const._EDITCURRICULUM`</a>"}
+ {elseif $smarty.get.add}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=curriculums&add=1'>`$smarty.const._ADDCURRICULUM`</a>"}
+ {/if}
+  <tr><td class="moduleCell">
+   {include file = "includes/curriculums.tpl"}
+  </td></tr>
+ {/capture}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'tests')}
         {*moduleTests: Print the Tests page*}
         {capture name = "moduleTests"}
@@ -367,7 +379,7 @@
     {elseif $smarty.get.option == 'course'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course">'|cat:$smarty.const._COURSESTATISTICS|cat:'</a>'}
         {if isset($smarty.get.sel_course)}
-            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course&sel_course='|cat:$smarty.get.sel_course|cat:'">'|cat:$T_COURSE_INFO.name|cat:'</a>'}
+            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course&sel_course='|cat:$smarty.get.sel_course|cat:'">'|cat:$T_CURRENT_COURSE->course.name|cat:'</a>'}
         {/if}
     {elseif $smarty.get.option == 'system'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=system">'|cat:$smarty.const._SYSTEMSTATISTICS|cat:'</a>'}
@@ -384,6 +396,10 @@
   {if isset($smarty.get.sel_group)}
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=groups&sel_group='|cat:$smarty.get.sel_group|cat:'">'|cat:$T_GROUP_NAME|cat:'</a>'}
   {/if}
+
+
+
+
 
 
 
@@ -511,9 +527,9 @@
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=skills">'|cat:$smarty.const._SKILLS|cat:'</a>'}
         {if $smarty.get.add_skill || $smarty.get.edit_skill}
                 {if $smarty.get.edit_skill != ""}
-                    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=skills&edit_skill='|cat:$smarty.get.edit_skill|cat:'">'|cat:$smarty.const._SKILLDATA|cat:'</a>'}
+                    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=skills&edit_skill='|cat:$smarty.get.edit_skill|cat:'">'|cat:$smarty.const._EDITSKILL|cat:' <span class="innerTableName">&quot;'|cat:$T_SKILL_NAME|cat:'&quot;</span></a>'}
                 {else}
-                    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=skills&add_skill=1">'|cat:$smarty.const._SKILLDATA|cat:'</a>'}
+                    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=skills&add_skill=1">'|cat:$smarty.const._NEWSKILL|cat:'</a>'}
                 {/if}
          {/if}
     {/if}
@@ -595,6 +611,7 @@
   {$smarty.capture.moduleCalendarPage}
   {$smarty.capture.moduleSearchCoursesPage}
   {$smarty.capture.modulePayments}
+  {$smarty.capture.moduleCurriculums}
   {$smarty.capture.moduleVersionKey}
   {$smarty.capture.moduleSocialAdmin}
   {$smarty.capture.moduleSocial}

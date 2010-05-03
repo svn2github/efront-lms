@@ -12,19 +12,19 @@ if (!$_student_) {
     } else {
         $testString = $showTest -> toHTML($showTest -> toHTMLQuickForm(), false);
     }
-    
+
     $smarty -> assign("T_TEST", $testString);
 } else {
-    $test   = new EfrontTest($currentUnit['id'], true);
+    $test = new EfrontTest($currentUnit['id'], true);
     $status = $test -> getStatus($currentUser, $_GET['show_solved_test']);
-    $form    = new HTML_QuickForm("test_form", "post", basename($_SERVER['PHP_SELF']).'?view_unit='.$_GET['view_unit'], "", null, true);
+    $form = new HTML_QuickForm("test_form", "post", basename($_SERVER['PHP_SELF']).'?view_unit='.$_GET['view_unit'], "", null, true);
     switch ($status['status']) {
         case 'incomplete':
-            if (!$testInstance  = unserialize($status['completedTest']['test'])) {
+            if (!$testInstance = unserialize($status['completedTest']['test'])) {
                 throw new EfrontTestException(_TESTCORRUPTEDASKRESETEXECUTION, EfrontTestException::CORRUPTED_TEST);
             }
             if ($testInstance -> time['pause'] && isset($_GET['resume'])) {
-                $testInstance -> time['pause']  = 0;
+                $testInstance -> time['pause'] = 0;
                 $testInstance -> time['resume'] = time();
                 //unset($testInstance -> currentQuestion);
                 $testInstance -> save();
@@ -35,32 +35,38 @@ if (!$_student_) {
             if ($form -> isSubmitted() || ($testInstance -> options['duration'] && $remainingTime < 0) || $status['status'] == 'incomplete') {
                 $nocache = true;
             }
-            $testString    = $testInstance -> toHTMLQuickForm($form, false, false, false, $nocache);
-            $testString    = $testInstance -> toHTML($testString, $remainingTime);
+            $testString = $testInstance -> toHTMLQuickForm($form, false, false, false, $nocache);
+            $testString = $testInstance -> toHTML($testString, $remainingTime);
 
             if ($testInstance -> options['duration'] && $remainingTime < 0) {
                 $values = $form -> exportValues();
-                $testInstance -> complete($values['question']);                
-                if ($testInstance -> completedTest['status'] == 'failed') {                 
-                    $currentUser  -> setSeenUnit($currentUnit, $currentLesson, 0);
+                $testInstance -> complete($values['question']);
+                if ($testInstance -> completedTest['status'] == 'failed') {
+                    $currentUser -> setSeenUnit($currentUnit, $currentLesson, 0);
                 } else {
-                    $currentUser  -> setSeenUnit($currentUnit, $currentLesson, 1);
+                    $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
                 }
                 eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
-                exit;	//<-- This exit is necessary here, otherwise test might be counted twice
+                exit; //<-- This exit is necessary here, otherwise test might be counted twice
             }
             $smarty -> assign("T_TEST_UNDERGOING", true);
             //$testUndergoing = true;
             //pr($remainingTime);
             break;
         case 'completed':case 'passed':case 'failed':case 'pending':
+
             if (!$testInstance = unserialize($status['completedTest']['test'])) {
                 throw new EfrontTestException(_TESTCORRUPTEDASKRESETEXECUTION, EfrontTestException::CORRUPTED_TEST);
             }
 
-            //$url          = basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$_GET['view_unit'];
-            $testString   = $testInstance -> toHTMLQuickForm($form, false, true);
-            $testString   = $testInstance -> toHTMLSolved($testString, false);
+   //$url          = basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$_GET['view_unit'];
+   $testString = $testInstance -> toHTMLQuickForm($form, false, true);
+   $testString = $testInstance -> toHTMLSolved($testString, false);
+
+   //Added for test redirect option
+   //$currentStatus not needed because he can not jump to previous execution
+   $status = $testInstance -> getStatus($currentUser -> user['login']);
+   $smarty -> assign("T_TEST_STATUS", $status);
 
             if (isset($_GET['test_analysis'])) {
                 require_once 'charts/php-ofc-library/open-flash-chart.php';
@@ -89,30 +95,30 @@ if (!$_student_) {
                 //The user specified himself the size of the test
                 if ($test -> options['user_configurable']) {
                     //Get the size of the test, so that we can verify that the value specified is at most equal to it  
-	                $test  -> getQuestions();                                    //This way the test's questions are populated, and we will be needing this information
-	                $test -> options['random_pool'] && $test -> options['random_pool'] <= sizeof($test -> questions) ? $questionsNumber = $test -> options['random_pool'] : $questionsNumber = sizeof($test -> questions);
+                 $test -> getQuestions(); //This way the test's questions are populated, and we will be needing this information
+                 $test -> options['random_pool'] && $test -> options['random_pool'] <= sizeof($test -> questions) ? $questionsNumber = $test -> options['random_pool'] : $questionsNumber = sizeof($test -> questions);
 
-	                //Assigning the 'user_configurable' value to the 'random_pool' option gives us a test instance with the appropriate number of questions 
-	                if (is_numeric($_GET['user_configurable']) && $_GET['user_configurable'] <= $questionsNumber && $_GET['user_configurable'] > 0) {                    
+                 //Assigning the 'user_configurable' value to the 'random_pool' option gives us a test instance with the appropriate number of questions 
+                 if (is_numeric($_GET['user_configurable']) && $_GET['user_configurable'] <= $questionsNumber && $_GET['user_configurable'] > 0) {
                         $test -> options['random_pool'] = $_GET['user_configurable'];
-	                } else if (!isset($_GET['user_configurable']) || !$_GET['user_configurable']) {
-	                    eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_MUSTSPECIFYQUESTIONNUMBER));
-	                    exit;
-	                } else if ($_GET['user_configurable'] > $questionsNumber || $_GET['user_configurable'] <= 0) {
-	                    eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_MUSTSPECIFYVALUEFROM.' 1 '._TO.' '.$questionsNumber));
-	                    exit;
-	                } else {
-	                    eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_INVALIDFIELDDATA));
-	                    exit;
-	                }
+                 } else if (!isset($_GET['user_configurable']) || !$_GET['user_configurable']) {
+                     eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_MUSTSPECIFYQUESTIONNUMBER));
+                     exit;
+                 } else if ($_GET['user_configurable'] > $questionsNumber || $_GET['user_configurable'] <= 0) {
+                     eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_MUSTSPECIFYVALUEFROM.' 1 '._TO.' '.$questionsNumber));
+                     exit;
+                 } else {
+                     eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_INVALIDFIELDDATA));
+                     exit;
+                 }
                 }
                 $testInstance = $test -> start($currentUser -> user['login']);
                 eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
                 exit;
             } else {
                 $testInstance = $test;
-                $test  -> getQuestions();                                    //This way the test's questions are populated, and we will be needing this information
-                $testInstance -> options['random_pool'] && $testInstance -> options['random_pool'] <= sizeof($testInstance -> questions) ? $questionsNumber = $testInstance -> options['random_pool'] : $questionsNumber = sizeof($testInstance -> questions);            
+                $test -> getQuestions(); //This way the test's questions are populated, and we will be needing this information
+                $testInstance -> options['random_pool'] && $testInstance -> options['random_pool'] <= sizeof($testInstance -> questions) ? $questionsNumber = $testInstance -> options['random_pool'] : $questionsNumber = sizeof($testInstance -> questions);
             }
             break;
     }
@@ -132,12 +138,12 @@ if (!$_student_) {
     $smarty -> assign("T_TEST", $testString);
     $smarty -> assign("T_TEST_STATUS", $status);
 
-    if (!$status['status'] || ($status['status'] == 'incomplete' && $testInstance -> time['pause'])) {          //If the user hasn't confirmed he wants to do the test, display confirmation buttons
+    if (!$status['status'] || ($status['status'] == 'incomplete' && $testInstance -> time['pause'])) { //If the user hasn't confirmed he wants to do the test, display confirmation buttons
         $smarty -> assign("T_SHOW_CONFIRMATION", true);
-    } else {                                                                                     //The user confirmed he wants to do the test, so display it
+    } else { //The user confirmed he wants to do the test, so display it
 
-        $form   -> addElement('hidden', 'time_start', $timeStart);                                       //This element holds the time the test started, so we know the remaining time even if the user left the system
-        $form   -> addElement('submit', 'submit_test', _SUBMITTEST, 'class = "flatButton" onclick = "return checkQuestions()"');
+        $form -> addElement('hidden', 'time_start', $timeStart); //This element holds the time the test started, so we know the remaining time even if the user left the system
+        $form -> addElement('submit', 'submit_test', _SUBMITTEST, 'class = "flatButton" onclick = "return checkQuestions()"');
         if ($testInstance -> options['pause_test']) {
             $form -> addElement('submit', 'pause_test', _PAUSETEST, 'class = "flatButton"');
         }
@@ -157,17 +163,17 @@ if (!$_student_) {
             } else {
                 //Set the unit as "seen"
                 $testInstance -> complete($values['question']);
-                if ($testInstance -> completedTest['status'] == 'failed') {                 
-                    $currentUser  -> setSeenUnit($currentUnit, $currentLesson, 0);
+                if ($testInstance -> completedTest['status'] == 'failed') {
+                    $currentUser -> setSeenUnit($currentUnit, $currentLesson, 0);
                 } else {
-                    $currentUser  -> setSeenUnit($currentUnit, $currentLesson, 1);
+                    $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
                 }
                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
             }
         }
 
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-        $form   -> accept($renderer);
+        $form -> accept($renderer);
         $smarty -> assign('T_TEST_FORM', $renderer -> toArray());
     }
 }

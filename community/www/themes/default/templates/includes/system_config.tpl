@@ -20,7 +20,9 @@
          <tr><td class = "labelCell">{$smarty.const._LOGOUTREDIRECT}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.logout_redirect.html}</td></tr>
    <tr><td class = "labelCell">{$smarty.const._ADDITIONALACCOUNTS}:&nbsp;</td>
-                  <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.mapped_accounts.html}</td></tr>
+                 <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.mapped_accounts.html}</td></tr>
+   <tr><td class = "labelCell">{$smarty.const._ELIMINATEPOSTXSS}:&nbsp;</td>
+                 <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.eliminate_post_xss.html}</td></tr>
  {* <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.smarty_caching.label}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.smarty_caching.html}</td></tr>
          {if $T_SYSTEM_VARIABLES_FORM.smarty_caching.error}<tr><td></td><td class = "formError">{$T_SYSTEM_VARIABLES_FORM.smarty_caching.error}</td></tr>{/if}
@@ -55,11 +57,12 @@
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.default_type.html}</td></tr>
          <tr><td class = "labelCell">{$smarty.const._VIEWINSERTGROUPKEY}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.insert_group_key.html}</td></tr>
+         <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.lesson_enroll.label}:&nbsp;</td>
+             <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.lesson_enroll.html}</td></tr>
          <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.show_license_note.label}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.show_license_note.html}</td></tr>
          <tr id = "license_note" style = "{if !$T_CONFIGURATION.show_license_note}display:none{/if}"><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.license_note.label}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.license_note.html}</td></tr>
-         {if $T_SYSTEM_VARIABLES_FORM.license_note.error}<tr><td></td><td class = "formError">{$T_SYSTEM_VARIABLES_FORM.license_note.error}</td></tr>{/if}
          <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.reset_license_note.label}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.reset_license_note.html}</td></tr>
          <tr><td></td><td class = "infoCell">{$smarty.const._USETHISINCASEYOUWANTALLUSERSTORECOMPLYTOLICENSENOTE}</td></tr>
@@ -131,6 +134,10 @@
                  <td class = "elementCell">{$T_CUSTOMIZATION_FORM.username_format.html}</td></tr>
     <tr><td></td>
      <td class = "infoCell">{$smarty.const._USERNAMEFORMATINFO}</td></tr>
+    <tr><td class = "labelCell">{$T_CUSTOMIZATION_FORM.login_redirect_page.label}:&nbsp;</td>
+                 <td class = "elementCell">{$T_CUSTOMIZATION_FORM.login_redirect_page.html}</td></tr>
+    <tr><td class = "labelCell">{$T_CUSTOMIZATION_FORM.editor_type.label}:&nbsp;</td>
+                 <td class = "elementCell">{$T_CUSTOMIZATION_FORM.editor_type.html}</td></tr>
     <tr><td colspan = "2">&nbsp;</td></tr>
           <tr><td></td><td class = "submitCell">{$T_CUSTOMIZATION_FORM.submit_system_variables.html}</td></tr>
    </table>

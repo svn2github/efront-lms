@@ -65,7 +65,11 @@ try {
                 }
             }
             $smarty -> assign("T_LESSON_STUDENTS", sizeof($logins));
-            $status = EfrontStats :: getUsersLessonStatus($infoLesson, $logins);
+            foreach ($logins as $login) {
+                $cacheKey = 'lesson:'.$infoLesson -> lesson['id'].':user:'.$login;
+                $result = EfrontStats :: getUsersLessonStatus($infoLesson, $login);
+                $status[$infoLesson -> lesson['id']][$login] = $result[$infoLesson -> lesson['id']][$login];
+            }
             $allUserTimes = EfrontStats :: getUsersTimeAll();
             $userTimes = array();
             foreach ($logins as $value) {

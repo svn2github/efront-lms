@@ -88,7 +88,8 @@ if (isset($_GET['fct'])) {
  if (!cart :: compactCart($cart)) {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
  }
-    $cart = cart :: filterCart($cart, $lessons, $courses);
+
+ $cart = cart :: filterCart($cart, $lessons, $courses);
     cart :: storeCart($cart);
 
     if (empty($cart)) {
@@ -156,7 +157,7 @@ if (isset($_GET['fct'])) {
             $nonFreeCourses = $freeCourses = array();
             foreach ($cart['course'] as $key => $value) {
                 //Remove the course from the cart if it's not eligible
-                if (!$value['show_catalog'] || !$value['active'] || !$value['publish']) {
+                if ((!$value['show_catalog'] && $course -> course['instance_source']) || !$value['active'] || !$value['publish']) {
                     //Do nothing, simpy bypassing course
                 } else if (!$value['price']) {
                     $freeCourses[] = $key;

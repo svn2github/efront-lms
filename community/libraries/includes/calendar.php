@@ -110,9 +110,9 @@ if (isset($_GET['delete_calendar']) && eF_checkParameter($_GET['delete_calendar'
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
     $form -> addElement('textarea', 'event', _EVENT, 'id="event" class = "simpleEditor" style = "width:100%;height:10em;"');
     if ($currentUser -> getType() == 'professor') {
-        $tmp = eF_getTableData("users_to_lessons u, lessons l", "u.lessons_ID, l.name", "u.lessons_ID = l.ID AND u.users_LOGIN='".$_SESSION['s_login']."'");
+        $tmp = eF_getTableData("users_to_lessons u, lessons l", "u.lessons_ID, l.name", "u.archive=0 and l.archive = 0  and u.lessons_ID = l.ID AND u.users_LOGIN='".$_SESSION['s_login']."'");
     } else {
-        $tmp = eF_getTableData("users_to_lessons u, lessons l", "u.lessons_ID, l.name", "u.lessons_ID = l.ID");
+        $tmp = eF_getTableData("users_to_lessons u, lessons l", "u.lessons_ID, l.name", "u.archive=0 and l.archive = 0 and u.lessons_ID = l.ID");
     }
    $lessons = array();
     if ($currentUser -> getType() != 'student') {

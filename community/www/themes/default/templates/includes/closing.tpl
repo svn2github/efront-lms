@@ -6,44 +6,11 @@
 <script type = "text/javascript" src = "js/scripts.php?build={$smarty.const.G_BUILD}&load={$T_HEADER_MAIN_SCRIPTS}"> </script> {*Main scripts, such as prototype*}
 
 {if $T_HEADER_EDITOR}
-  <script type = "text/javascript" src = "editor/tiny_mce/tiny_mce_gzip.js"></script>
-     {literal}
-
-        <script type = "text/javascript" >
-
-function myHandleEvent(e) {
-    if (tinyMCE.activeEditor.id == "messageBody") {
-        if (e.type == 'click') {
-            alert(tinyMCE.activeEditor.id);
-        }
-        return true;
-    }
- }
-        <!--
-            tinyMCE_GZ.init({
-                mode : "specific_textareas",
-                editor_selector : "mceEditor,templateEditor,simpleEditor,digestEditor",
-                plugins : 'java,asciimath,asciisvg,table,style,save,advhr,advimage,advlink,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,fullscreen,index_link',
-                themes : 'simple,advanced',
-                languages : '{/literal}{$smarty.const._CURRENTLANGUAGESYMBOL}{literal}', //theoritically, here must be all suported languages but tinymce reads only the last one (possibly a bug). So we load only the session language(makriria 2207/07/30)
-                disk_cache : true, // it was false... check lang issue
-                debug : false,
-                events : "onClick",
-                handle_event_callback : "myHandleEvent"
-        });
-        // -->
-
-        </script>
- {/literal}
- <script type="text/javascript" src="editor/tiny_mce/plugins/asciimath/js/ASCIIMathMLwFallback.js"></script>
- <script type="text/javascript" src="editor/tiny_mce/plugins/asciisvg/js/ASCIIsvgPI.js"></script>
- {literal}
- <script type="text/javascript">
-  var AScgiloc = 'editor/tiny_mce/php/svgimg.php';
-  var AMTcgiloc = '{/literal}{$T_CONFIGURATION.math_server}{literal}';
- </script>
- {/literal}
- <script type = "text/javascript" src = "editor/efront_init_tiny_mce.php"></script>
+ {if $T_CONFIGURATION.editor_type == 'tinymce_new'}
+  {include file = "includes/editor_new.tpl"}
+ {elseif $T_CONFIGURATION.editor_type == 'tinymce'}
+  {include file = "includes/editor.tpl"}
+ {/if}
 {/if}
 
 
@@ -87,7 +54,7 @@ $$('div.block').ancestors().each(function (s) {
 <div id = "error_details" style = "display:none">{eF_template_printBlock title=$smarty.const._ERRORDETAILS data="<pre>`$T_EXCEPTION_TRACE`</pre>" image='32x32/error_delete.png'}</div>
 <div id = 'showMessageDiv' style = "display:none"></div>
 <div id="dimmer" class = "dimmerDiv" style = "display:none;"></div>
-
+<div id = "defaultExceptionHandlerDiv" style = "color:#ffffff;display:none"></div>
 
 <script>
 
@@ -143,13 +110,14 @@ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElement
 {/if}
 
 
+
 {if $T_FACEBOOK_API_KEY != ""}
 //If facebook enabled prompt for permissions
  FB.init("{$T_FACEBOOK_API_KEY}", "facebook/xd_receiver.htm");
  {if isset($T_FACEBOOK_SHOULD_UPDATE_STATUS) && $T_FACEBOOK_SHOULD_UPDATE_STATUS != 1}
   {literal}
   function onUpdateDone() {
-   top.location=top.location + "?fb_authenticated=1";
+   top.location="{$smarty.session.s_type}page.php?fb_authenticated=1";
   }
   FB.ensureInit(function() { FB.Connect.showPermissionDialog("status_update", onUpdateDone); });
   {/literal}

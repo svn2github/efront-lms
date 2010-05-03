@@ -24,6 +24,6 @@ function onEditBalance(el, response) {
 if ($('autocomplete_users')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_users",
-         "ask_users.php?type=1", {paramName: "preffix",
+         "ask.php?ask_type=users", {paramName: "preffix",
              indicator : "busy"});
 }

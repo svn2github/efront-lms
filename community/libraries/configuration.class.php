@@ -46,50 +46,54 @@ class EfrontConfiguration
         'ip_black_list' => '',
         'ip_white_list' => '*.*.*.*',
      'logout_redirect' => '',
-        'password_length' => 6,
-  'autologout_time' => 30,
-        'encrypt_url' => 0, //0: don't encrypt. 1: encrypt
+        'password_length' => '6',
+  'autologout_time' => '30',
+        'encrypt_url' => '0', //0: don't encrypt. 1: encrypt
+        'eliminate_post_xss' => 1,
         //System settings - language
-        'onelanguage' => 0,
+        'onelanguage' => '0',
         'default_language' => 'english',
      'file_encoding' => 'UTF-8', //UTF7-IMAP for Windows servers who want to support international file names uploading
         //System settings - user activation/registration
-        'activation' => 1,
-        'mail_activation' => 0,
-     'supervisor_mail_activation' => 0,
-        'signup' => 1,
-        'show_license_note' => 0,
-     'insert_group_key' => 1, // 0 means 'no', 1 means 'yes'
+        'activation' => '1',
+        'mail_activation' => '0',
+     'supervisor_mail_activation' => '0',
+        'signup' => '1',
+        'show_license_note' => '0',
+     'insert_group_key' => '1', // 0 means 'no', 1 means 'yes'
+        'lesson_enroll' => '1',
   'default_type' => 'student',
         //System settings - 3rd party tools
         'license_server' => 'http://keys.efrontlearning.net/list.php',
-        'api' => 1,
-  'math_content' => 0,
+        'api' => '1',
+  'math_content' => '0',
   'math_server' => 'http://www.imathas.com/cgi-bin/mimetex.cgi',
-  'math_images' => 0,
+  'math_images' => '0',
   'phplivedocx_server' => 'https://api.livedocx.com/1.1/mailmerge.asmx?WSDL',
   'phplivedocx_username' => '',
   'phplivedocx_password' => '',
         //Appearance
         'site_name' => _EFRONTNAME,
         'site_motto' => _THENEWFORMOFADDITIVELEARNING,
-  'motto_on_header' => 1,
-     'lessons_directory' => 1, //0 means 'no', 1 means 'yes', and 2 means 'only after login'
-     'collapse_catalog' => 0, // 0 means 'no', 1 means 'yes' and  2 means 'only for lessons'
+  'motto_on_header' => '1',
+     'lessons_directory' => '1', //0 means 'no', 1 means 'yes', and 2 means 'only after login'
+     'collapse_catalog' => '0', // 0 means 'no', 1 means 'yes' and  2 means 'only for lessons'
         'logo' => '',
         'favicon' => '',
         'username_format' => '#surname# #n#. (#login#)', //Possible values: #name#, #n#, #surname#, #login#
-        'username_format_resolve'=> 1, //If 2 formatted usernames are the same, include the login too
-        'display_empty_blocks' => 1, //0 means 'no', 1 means 'yes'
+        'username_format_resolve'=> '1', //If 2 formatted usernames are the same, include the login too
+        'display_empty_blocks' => '1', //0 means 'no', 1 means 'yes'
+  'login_redirect_page' => 'lesson_catalog', // possilbe values 'lesson_catalog', 'user_dashboard'
+  'editor_type' => 'tinymce', // possible values 'tinymce', 'tinymce_new'
         //LDAP
-        'activate_ldap' => 0,
-        'only_ldap' => 0,
+        'activate_ldap' => '0',
+        'only_ldap' => '0',
         'ldap_base_dn' => '',
         'ldap_bind_dn' => '',
-        'ldap_protocol' => 3,
+        'ldap_protocol' => '3',
         'ldap_server' => 'ldap://localhost',
         'ldap_password' => '',
-        'ldap_port' => 389,
+        'ldap_port' => '389',
         'ldap_cn' => 'cn',
         'ldap_l' => 'l',
         'ldap_mail' => 'mail',
@@ -102,8 +106,8 @@ class EfrontConfiguration
         'smtp_user' => '',
         'smtp_pass' => '',
         'smtp_port' => '25',
-        'smtp_auth' => 0,
-        'smtp_timeout' => 3,
+        'smtp_auth' => '0',
+        'smtp_timeout' => '3',
         //Locale
         'decimal_point' => '.',
         'thousands_sep' => ',',
@@ -111,33 +115,33 @@ class EfrontConfiguration
         'location' => 'Greece',
         'time_zone' => '',
         //PHP
-        'max_file_size' => 50000,
-        'gz_handler' => 1,
+        'max_file_size' => '50000',
+        'gz_handler' => '1',
         //Multiple logins
         'multiple_logins' => '',
-        'mapped_accounts' => 0, //0: Enabled, 1: disabled for students, 2: disabled for students and professors, 3: disabled for all
+        'mapped_accounts' => '0', //0: Enabled, 1: disabled for students, 2: disabled for students and professors, 3: disabled for all
         //Global disable
-  'disable_projects' => 0,
-  'disable_bookmarks' => 0,
-  'disable_comments' => 0,
-  'disable_online_users' => 0,
-  'disable_glossary' => 0,
-  'disable_calendar' => 0,
-  'disable_surveys' => 0,
-  'disable_news' => 0,
-  'disable_messages' => 0,
-  'disable_forum' => 0,
-  'disable_tests' => 0,
-  'disable_tooltip' => 0,
+  'disable_projects' => '0',
+  'disable_bookmarks' => '0',
+  'disable_comments' => '0',
+  'disable_online_users' => '0',
+  'disable_glossary' => '0',
+  'disable_calendar' => '0',
+  'disable_surveys' => '0',
+  'disable_news' => '0',
+  'disable_messages' => '0',
+  'disable_forum' => '0',
+  'disable_tests' => '0',
+  'disable_tooltip' => '0',
   'disable_help' => 0,
         //Social - Facebook settings
         'facebook_api_key' => '',
         'facebook_secret' => '',
-        'social_modules_activated' => 63,
+        'social_modules_activated' => '63',
 
         //Payments settings    
         'currency' => 'EUR',
-  'currency_order' => 1,
+  'currency_order' => '1',
      'paypalbusiness' => '',
         'paypalmode' => 'normal',
         'paypaldebug' => 0,
@@ -147,24 +151,24 @@ class EfrontConfiguration
         'discount_start' => '',
 
         //Invisible
-     'lock_down' => 0,
-        'chat_enabled' => 1,
+     'lock_down' => '0',
+        'chat_enabled' => '1',
         'zip_method' => 'php',
         'version_key' => '',
-     'theme' => 1, //Default theme id, in a clean install this is 1
+     'theme' => '1', //Default theme id, in a clean install this is 1
         'database_version' => G_VERSION_NUM,
   'help_url' => 'http://docs.efrontlearning.net/index.php',
 
         //Notifications
-        'notifications_pageloads' => 10,
-        'notifications_messages_per_time' => 5,
-        'notifications_max_sent_messages' => 100,
+        'notifications_pageloads' => '10',
+        'notifications_messages_per_time' => '5',
+        'notifications_max_sent_messages' => '100',
 
         //Unclassified - deprecated
         'cms_page' => '',
         'css' => '',
-     'smarty_cache' => 1, //Whether to cache smarty templates
-     'smarty_cache_timeout' => 60 //Default caching time for smarty templates
+     'smarty_cache' => '1', //Whether to cache smarty templates
+     'smarty_cache_timeout' => '60' //Default caching time for smarty templates
         );
 
     /**

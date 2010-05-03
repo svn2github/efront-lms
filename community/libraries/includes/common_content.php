@@ -305,6 +305,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         }
         if ($_professor_ && !$currentUnit && $currentContent -> getFirstNode()) { //If a unit is not specified, then consider the first content unit by default
    $currentUnit = new EfrontUnit($currentContent -> getFirstNode() -> offsetGet('id'));
+   $smarty -> assign("T_CURRENTUNITID", $currentUnit['id']);
   }
         if ($currentUnit) {
             //Let the template know that it is dealing with a SCORM unit

@@ -130,7 +130,7 @@ class EfrontUnit extends ArrayObject
      * The maximum length for unit names. After that, the names appear truncated
 
      */
-    const MAXIMUM_NAME_LENGTH = 50;
+    const MAXIMUM_NAME_LENGTH = 40;
     /**
 
      * Class constructor

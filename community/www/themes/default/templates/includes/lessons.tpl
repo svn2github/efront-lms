@@ -25,9 +25,9 @@
                             <td>{$T_LESSON_FORM.course_only.1.html}</td></tr>
                         <tr><td class = "labelCell">{$T_LESSON_FORM.active.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_LESSON_FORM.active.html}</td></tr>
-                        <tr class = "only_lesson" {if $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.show_catalog.label}:&nbsp;</td>
+                        <tr class = "only_lesson" {if !$T_EDIT_LESSON || $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.show_catalog.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_LESSON_FORM.show_catalog.html}</td></tr>
-                        <tr id = "price_row" class = "only_lesson" {if $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.price.label}:&nbsp;</td>
+                        <tr id = "price_row" class = "only_lesson" {if !$T_EDIT_LESSON || $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.price.label}:&nbsp;</td>
                             <td>{$T_LESSON_FORM.price.html} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}</td></tr>
                         <tr><td></td>
                          <td class = "submitCell">{$T_LESSON_FORM.submit_lesson.html}</td></tr>
@@ -162,7 +162,7 @@
                                         </td>
                                         <td>{$lesson.direction_name}</td>
                                         <td>{$lesson.languages_NAME}</td>
-                                        <td class = "centerAlign">{if $lesson.max_users}{$lesson.students}/{$lesson.max_users}{else}{$lesson.students}{/if}</td>
+                                        <td class = "centerAlign">{if !$lesson.course_only}{if $lesson.max_users}{$lesson.students}/{$lesson.max_users}{else}{$lesson.students}{/if}{else}-{/if}</td>
                                         <td class = "centerAlign">
                                     {if $lesson.course_only}
                                             <img class = "ajaxHandle" src = "images/16x16/courses.png" alt = "{$smarty.const._COURSEONLY}" title = "{$smarty.const._COURSEONLY}" {if $change_lessons}onclick = "setLessonAccess(this, '{$lesson.id}')"{/if}>
@@ -170,7 +170,7 @@
                                             <img class = "ajaxHandle" src = "images/16x16/lessons.png" alt = "{$smarty.const._DIRECTLY}" title = "{$smarty.const._DIRECTLY}" {if $change_lessons}onclick = "setLessonAccess(this, '{$lesson.id}')"{/if}>
                                     {/if}
                                         </td>
-                                        <td class = "centerAlign">{if $lesson.price == 0}{$smarty.const._FREELESSON}{else}{$lesson.price_string}{/if}</td>
+                                        <td class = "centerAlign">{if !$lesson.course_only}{if $lesson.price == 0}{$smarty.const._FREELESSON}{else}{$lesson.price_string}{/if}{else}-{/if}</td>
                                         <td>#filter:timestamp-{$lesson.created}#</td>
                                         <td class = "centerAlign">
                                     {if $lesson.active == 1}

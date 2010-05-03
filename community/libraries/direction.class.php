@@ -641,24 +641,7 @@ class EfrontDirectionsTree extends EfrontTree
      * @access public
 
      */
-    public function toHTML($iterator = false, $lessons = false, $courses = false, $userInfo = array(), $options = array(), $cacheKey = 1) {
-/*        
-
-        if ($cacheKey) {
-
-	        if ($tree = Cache::getCache('direction_tree:'.$cacheKey)) {
-
-	            return $tree;
-
-	        } else  {
-
-	            $storeCache = true;
-
-	        }
-
-        }
-
-*/
+    public function toHTML($iterator = false, $lessons = false, $courses = false, $userInfo = array(), $options = array()) {
         //!isset($options['show_cart'])   ? $options['show_cart']   = false : null;
         //!isset($options['information']) ? $options['information'] = false : null;
         !isset($options['lessons_link']) ? $options['lessons_link'] = false : null;
@@ -668,10 +651,11 @@ class EfrontDirectionsTree extends EfrontTree
         !isset($options['catalog']) ? $options['catalog'] = false : null;
         !isset($options['tree_tools']) ? $options['tree_tools'] = true : null;
         !isset($options['url']) ? $options['url'] = $_SERVER['REQUEST_URI'] : null; //Pay attention since REQUEST_URI is empty if accessing index.php with the url http://localhost/
+        !isset($options['course_lessons']) ? $options['course_lessons'] = true : null;
         if (!$iterator) {
             $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($this -> tree), RecursiveIteratorIterator :: SELF_FIRST));
         }
-//		isset($options['catalog']) ? $catalogString    = " AND show_catalog = 1"  : $catalogString = "";
+//		isset($options['catalog']) ? $catalogString    = " AND show_catalog = 1"  : $catalogString = "";       
         if ($lessons === false) { //If a lessons list is not specified, get all active lessons
             $result = eF_getTableData("lessons", "*", "archive = 0 && active=1", "name"); //Get all lessons at once, thus avoiding looping queries
             foreach ($result as $value) {
@@ -680,8 +664,8 @@ class EfrontDirectionsTree extends EfrontTree
         }
         $directionsLessons = array();
         foreach ($lessons as $id => $lesson) {
-            if (!$lesson -> lesson['active'] || ($options['catalog'] && !$lesson -> lesson['show_catalog'])) { //Remove inactive lessons
-                unset($lessons[$id]);
+            if ((!$GLOBALS['configuration']['lesson_enroll'] && !$userInfo['lessons'][$id]) || !$lesson -> lesson['active'] || ($options['catalog'] && !$lesson -> lesson['show_catalog'])) { //Remove inactive lessons
+             unset($lessons[$id]);
             } elseif (!$lesson -> lesson['course_only']) { //Lessons in courses will be handled by the course's display method, so remove them from the list
                 $directionsLessons[$lesson -> lesson['directions_ID']][] = $id; //Create an intermediate array that maps lessons to directions
             }
@@ -694,10 +678,16 @@ class EfrontDirectionsTree extends EfrontTree
         }
         $directionsCourses = array();
         foreach ($courses as $id => $course) {
-            if (!$course -> course['active'] || ($options['catalog'] && !$course -> course['show_catalog'])) { //Remove inactive courses
+         $displayCatalogEntry[$course -> course['id']] = $course -> shouldDisplayInCatalog();
+            if (!$course -> course['active'] || ($options['catalog'] && !$displayCatalogEntry[$course -> course['id']])) { //Remove inactive courses
                 unset($courses[$id]);
             } else {
-                $directionsCourses[$course -> course['directions_ID']][] = $id; //Create an intermediate array that maps courses to directions
+             if ($courses[$id] -> course['instance_source']) {
+              $instanceSource = new EfrontCourse($courses[$id] -> course['instance_source']);
+              $directionsCourses[$instanceSource -> course['directions_ID']][] = $id; //Course instances don't have a directions on their own
+             } else {
+                 $directionsCourses[$course -> course['directions_ID']][] = $id; //Create an intermediate array that maps courses to directions
+             }
             }
         }
         $roles = EfrontLessonUser :: getLessonsRoles();
@@ -885,7 +875,54 @@ class EfrontDirectionsTree extends EfrontTree
                                 <td class = "lessonsList_nocolor">&nbsp;</td>
                                 <td colspan = "2">';
                 foreach ($current -> offsetGet('courses') as $courseId) {
-                    $treeString .= $courses[$courseId] -> toHTML($userInfo, $options);
+                 if ($options['course_lessons']) {
+                     $treeString .= $courses[$courseId] -> toHTML($userInfo, $options);
+                 } else {
+                  $treeString .= '
+                   <table width = "100%">
+                    <tr class = "directionEntry">';
+                    $treeString .= '
+                                        <td>';
+     $treeString .= '&nbsp;';
+                    if (!isset($userInfo['courses'][$courseId]['from_timestamp']) || $userInfo['courses'][$courseId]['from_timestamp']) { //from_timestamp in user status means that the user's status in the course is not 'pending'
+                        $classNames = array();
+                        $courseLink = $options['courses_link'];
+                        if ($userInfo['courses'][$courseId]['user_type'] && $roles[$userInfo['courses'][$courseId]['user_type']] == 'student' && (($courses[$courseId] -> course['from_timestamp'] && $courses[$courseId] -> course['from_timestamp'] > time()) || ($courses[$courseId] -> course['to_timestamp'] && $courses[$courseId] -> course['to_timestamp'] < time()))) { //here, from_timestamp and to_timestamp refer to the course periods
+                            $courseLink = false;
+                            $classNames[] = 'inactiveLink';
+                        }
+      $href = str_replace("#user_type#", $roleBasicType, $courseLink).$displayCatalogEntry[$courses[$courseId] -> course['id']];
+                        if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
+                            $treeString .= '<a href = "'.($courseLink ? $href : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$courseId.', \'course\')">'.$courses[$courseId] -> course['name'].'
+                                  <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/>
+                                  <span class = "tooltipSpan"></span>
+                                 </a>';
+                        } else {
+                            $courseLink ? $treeString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $courseLink).$courses[$courseId] -> course['id'].'">'.$courses[$courseId] -> course['name'].'</a>' : $treeString .= $courses[$courseId] -> course['name'];
+                        }
+                    } else {
+                        $treeString .= '<a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$courses[$courseId] -> course['name'].'</a>';
+                    }
+                    if (isset($options['buy_link'])) {
+                     if ($options['buy_link'] && !$courses[$courseId] -> course['has_instances'] && !$courses[$courseId] -> course['has_course'] && !$courses[$courseId] -> course['reached_max_users'] && $_SESSION['s_type'] != 'administrator') {
+                      $courses[$courseId] -> course['price'] ? $priceString = formatPrice($courses[$courseId] -> course['price'], array($courses[$courseId] -> options['recurring'], $courses[$courseId] -> options['recurring_duration']), true) : $priceString = '';
+                      $treeString .= '
+                          <span class = "buyLesson">
+                                          <span>'.$priceString.'</span>
+                                          <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$courseId.', \'course\')">
+                                         </span>';
+                     } else {
+                      $treeString .= '
+                         <span class = "buyLesson">
+                                         &nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
+                                        </span>';                    		
+                     }
+                    }
+                 $treeString .= '	
+                     </td>
+                    </tr>
+                   </table>';
+                 }
                 }
                 $treeString .= '
                                 </td>
@@ -945,9 +982,12 @@ class EfrontDirectionsTree extends EfrontTree
             el.addClassName('visible');
            }
           }
-          function updateInformation(el, id, type) {
+          function updateInformation(el, id, type, from_course) {
            Element.extend(el);
            type == 'lesson' ? url = 'ask_information.php?lessons_ID='+id : url = 'ask_information.php?courses_ID='+id;
+           if (from_course) {
+            url += '&from_course='+from_course;
+           }
            el.select('span').each(function (s) {
             if (s.hasClassName('tooltipSpan') && s.empty()) {
              s.setStyle({height:'50px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url(\"images/others/progress1.gif\")'}));
@@ -977,15 +1017,6 @@ class EfrontDirectionsTree extends EfrontTree
         });
           }
                             </script>";
-/*
-
-        if ($storeCache) {
-
-        	Cache::setCache('direction_tree:'.$cacheKey, $treeString);
-
-        }
-
-*/
         return $treeString;
     }
     /* Return an array to be inputed as the contents of a select item or

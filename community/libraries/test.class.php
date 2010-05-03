@@ -135,7 +135,8 @@ class EfrontTest
                             'display_weights' => 1,
           'only_forward' => 0,
        'answer_all' => 0,
-       'redo_wrong' => 0);
+       'redo_wrong' => 0,
+       'redirect' => 0);
     /**
 
      * Class constructor
@@ -804,15 +805,18 @@ class EfrontTest
      * @static
 
      */
+    private static $auto_assigned = false;
     public static function getAutoAssignedTests() {
         // Skillgap tests have lessons_ID equal to zero by default
-        $all_skillgaps = eF_getTableData("tests", "id, options", "lessons_ID = 0");
-        $auto_assigned = array();
-        foreach ($all_skillgaps as $skillgap) {
-            $options = unserialize($skillgap['options']);
-            if ($options['assign_to_new']) {
-                $auto_assigned[] = $skillgap['id'];
-            }
+        if (!$auto_assigned) {
+         $all_skillgaps = eF_getTableData("tests", "id, options", "lessons_ID = 0");
+         $auto_assigned = array();
+         foreach ($all_skillgaps as $skillgap) {
+             $options = unserialize($skillgap['options']);
+             if ($options['assign_to_new']) {
+                 $auto_assigned[] = $skillgap['id'];
+             }
+         }
         }
         return $auto_assigned;
     }

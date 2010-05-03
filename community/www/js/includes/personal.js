@@ -725,6 +725,8 @@ function ajaxPost(id, el, table_id) {
         ajaxUserPost('lesson', id, el, table_id);
     } else if (table_id == 'coursesTable') {
         ajaxUserPost('course', id, el, table_id);
+    } else if (table_id == 'instancesTable') {
+        ajaxUserPost('instance', id, el, table_id);
     } else {
         ajaxUserPost('group', id, el, table_id);
     }
@@ -735,7 +737,7 @@ function ajaxPost(id, el, table_id) {
 // el: the element of the form corresponding to that skill/lesson
 // table_id: the id of the ajax-enabled table
 function ajaxUserPost(type, id, el, table_id) {
-    Element.extend(el);
+ Element.extend(el);
     var baseUrl = sessionType + '.php?ctg=users&edit_user=' + editUserLogin + '&op=' + operationCategory + '&postAjaxRequest=1';
     if (type == 'skill') {
         if (id) {
@@ -749,16 +751,42 @@ function ajaxUserPost(type, id, el, table_id) {
             }
             var img_id = 'img_selectAll';
         }
-    } else if (type == 'lesson' || type == 'course') {
+    } else if (type == 'lesson') {
         if (id) {
-            var url = baseUrl + '&add_'+type+'=' + id + '&tab='+type+'s&insert=' + document.getElementById(type+'_'+id).checked + '&user_type='+encodeURI(document.getElementById(type+'_type_'+id).value);
+            var url = baseUrl + '&add_'+type+'=' + id + '&tab='+type+'s&insert=' + $(type+'_'+id).checked + '&user_type='+encodeURI($(type+'_type_'+id).value);
             var img_id = 'img_'+ id;
-        } else if (table_id && table_id == (type+'sTable') ) {
+        } else if (table_id && table_id == ('lessonsTable') ) {
             el.checked ? url = baseUrl + '&addAll=1' : url = baseUrl + '&removeAll=1';
             if ($(table_id+'_currentFilter')) {
                 url = url+'&filter='+$(table_id+'_currentFilter').innerHTML;
             }
             url += '&add_'+type+'=1&tab='+type+'s';
+            var img_id = 'img_selectAll';
+        }
+    } else if (type == 'course') {
+     var baseUrl = augmentUrl(table_id) + '&postAjaxRequest=1';
+        if (id) {
+            var url = baseUrl + '&add_'+type+'=' + id + '&tab='+type+'s&insert=' + $(type+'_'+id).checked + '&user_type='+encodeURI($(type+'_type_'+id).value);
+            var img_id = 'img_'+ id;
+        } else if (table_id && table_id == ('coursesTable')) {
+            el.checked ? url = baseUrl + '&addAll=1' : url = baseUrl + '&removeAll=1';
+            if ($(table_id+'_currentFilter')) {
+                url = url+'&filter='+$(table_id+'_currentFilter').innerHTML;
+            }
+            url += '&add_'+type+'=1&tab='+type+'s';
+            var img_id = 'img_selectAll';
+        }
+    } else if (type == 'instance') {
+     var baseUrl = augmentUrl(table_id) + '&postAjaxRequest=1';
+        if (id) {
+            var url = baseUrl + '&add_course=' + id + '&tab=courses&insert=' + $('course_'+id).checked + '&user_type='+encodeURI($('course_type_'+id).value);
+            var img_id = 'img_'+ id;
+        } else if (table_id && table_id == ('instancesTable')) {
+            el.checked ? url = baseUrl + '&addAll=1' : url = baseUrl + '&removeAll=1';
+            if ($(table_id+'_currentFilter')) {
+                url = url+'&filter='+$(table_id+'_currentFilter').innerHTML;
+            }
+            url += '&add_course=1&tab=courses';
             var img_id = 'img_selectAll';
         }
     } else if (type == 'group') {
@@ -859,8 +887,8 @@ var __initStatus;
 var __noChangeEscape = 0;
 function showStatusChange() {
     __initStatus = $('inputStatusText').value;
-    $('statusText').style.display = 'none';
-    $('inputStatusText').style.display = 'block';
+    $('statusText').hide();
+    $('inputStatusText').show();//style.display = 'block';
     $('inputStatusText').focus();
 }
 function changeStatus() {
@@ -870,7 +898,7 @@ function changeStatus() {
         } else {
          var url = serverName+sessionType+".php?ctg=users&edit_user=" + sessionLogin + "&postAjaxRequest=1&setStatus=" + $('inputStatusText').value;
         }
-        $('inputStatusText').style.display = 'none';
+        $('inputStatusText').hide();
         //$('statusTextProgressImg').show();
         //$('statusTextProgressImg').writeAttribute('src', 'images/others/progress_big.gif').show();
         if ($('inputStatusText').value != '') {
@@ -886,13 +914,13 @@ function changeStatus() {
              top.sideframe.document.getElementById('inputStatusText').value = "";
           }
         }
-        $('statusText').style.display = 'block';
+        $('statusText').show();
         //$('statusTextProgressImg').setAttribute("position", "relative");
         parameters = {method: 'get'};
         ajaxRequest($('statusTextProgressImg'), url, parameters, onChangeAccountSuccess);
     } else {
-        $('inputStatusText').style.display="none";
-        $('statusText').style.display = 'block';
+        $('inputStatusText').hide();
+        $('statusText').show();//style.display = 'block';
     }
     __noChangeEscape = 0;
 }
@@ -977,6 +1005,11 @@ function deleteFacebookAccount(el, login) {
             }
         }
     });
+}
+function onBeforeSortedTable(table) {
+ if (table.id == 'coursesTable') {
+  $('coursesTable').insert({after:$('instancesTable').hide().remove()});
+ }
 }
 jobsAvailable = jobsRows.length;
 var j = 0;

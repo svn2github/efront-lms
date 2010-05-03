@@ -1,20 +1,25 @@
 <?php
 /**
- * 
- * @author user
- *
- */
 
+ * General Entity Class file
+
+ * @author eFront
+
+ *
+
+ */
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
-
-
 /**
- * 
- * @author user
+
+ * Entity exceptions
+
+ * @author eFront
+
  *
+
  */
 class EfrontEntityException extends Exception
 {
@@ -22,90 +27,225 @@ class EfrontEntityException extends Exception
     const ENTITY_NOT_EXIST = 2002;
     const INVALID_PARAMETER = 2003;
 }
-
 /**
+
+ * General Entity Class
+
  * 
- * @author user
+
+ * @author eFront
+
  *
+
  */
 abstract class EfrontEntity
 {
     /**
-     * 
+
+     * The entity variable
+
      * @var string
+
      */
     public $entity;
-    
     /**
+
+     * Instantiate entity
+
      * 
-     * @param $entity
-     * @param $name
-     * @return unknown_type
+
+     * @param $param The parameters to instantiate entity with
+
+     * @since 3.6.0
+
+     * @access public
+
      */
     public function __construct($param) {
         if (!$this -> entity) {
             $this -> entity = strtolower(str_replace('Efront', '', get_class($this)));
         }
-            
         if (!is_array($param)) {
-	        if (!eF_checkParameter($param, 'id')) {
-	            throw new EfrontEntityException(_INVALIDID.': '.$param, EfrontEntityException :: INVALID_ID);
-	        }
-	        $result = eF_getTableData($this -> entity, "*", "id=$param");
-	        if (sizeof($result) == 0) {
-	            throw new EfrontEntityException(_ENTITYNOTFOUND.': '.htmlspecialchars($param), EfrontEntityException :: ENTITY_NOT_EXIST);
-	        }
-	        $this -> {$this -> entity} = $result[0];
+         if (!eF_checkParameter($param, 'id')) {
+             throw new EfrontEntityException(_INVALIDID.': '.$param, EfrontEntityException :: INVALID_ID);
+         }
+         $result = eF_getTableData($this -> entity, "*", "id=$param");
+         if (sizeof($result) == 0) {
+             throw new EfrontEntityException(_ENTITYNOTFOUND.': '.htmlspecialchars($param), EfrontEntityException :: ENTITY_NOT_EXIST);
+         }
+         $this -> {$this -> entity} = $result[0];
         } else {
             $this -> {$this -> entity} = $param;
         }
-        
     }
-    
     /**
+
+     * Delete entity
+
      * 
-     * @return unknown_type
+
+     * @since 3.6.0
+
+     * @access public
+
      */
     public function delete() {
         eF_deleteTableData($this -> entity, "id=".$this -> {$this -> entity}['id']);
     }
-    
     /**
-     * 
-     * @param $fields
-     * @return unknown_type
+
+     * Create entity
+
+     *  
+
+     * @param $fields The fields to create the entity with
+
+     * @since 3.6.0
+
+     * @access public
+
+     * @static
+
      */
     public abstract static function create($fields = array());
-    
     /**
-     * 
-     * @return unknown_type
+
+     * Persist entity
+
+     *  
+
+     * @since 3.6.0
+
+     * @access public
+
      */
     public function persist() {
         eF_updateTableData($this -> entity, $this -> {$this -> entity}, "id=".$this -> {$this -> entity}['id']);
     }
-    
     /**
-     * 
-     * @return unknown_type
+
+     * Activate entity
+
+     *  
+
+     * @since 3.6.0
+
+     * @access public
+
      */
     public function activate() {
         $this -> {$this -> entity}['active'] = 1;
         $this -> persist();
-    } 
-
+    }
     /**
+
+     * Deactivate entity
+
      * 
-     * @return unknown_type
+
+     * @since 3.6.0
+
+     * @access public
+
      */
     public function deactivate() {
         $this -> {$this -> entity}['active'] = 0;
         $this -> persist();
-    } 
-    
+    }
     /**
+
+     * Archive entity (if applicable)
+
      * 
-     * @return unknown_type
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function archive() {
+     if (isset($this -> {$this -> entity}['archive'])) {
+      $this -> {$this -> entity}['archive'] = 1;
+      $this -> persist();
+     }
+    }
+    /**
+
+     * Export entity
+
+     * 
+
+     * @param string $type The type of the exported data, for example 'xml' or 'csv'
+
+     * @return string The string corresponding to the exported data
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function export($type) {
+     $result = eF_getTableData($this -> entity, "*");
+     switch ($type) {
+      case 'csv':
+       break;
+      case 'json':
+       break;
+      case 'xml':
+      default:
+       $export = "<?xml version = \"1.0\" encoding=\"UTF-8\" >";
+       foreach ($result as $value) {
+        unset($value['id']);
+        $export .= "<entry>";
+        foreach ($value as $k => $v) {
+         $export .= "<$k>".htmlentities($v)."</$k>";
+        }
+        $export .= "</entry>";
+       }
+      break;
+     }
+     return $export;
+    }
+    /**
+
+     * Import entity
+
+     * 
+
+     * @param string $type The type of the imported data, for example 'xml' or 'csv'
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function import($type) {
+     switch ($type) {
+      case 'csv':
+       break;
+      case 'json':
+       break;
+      case 'xml':
+      default:
+       break;
+     }
+    }
+    /**
+
+     * Get all entity entries
+
+     *
+
+     * @param string $name The name of the entity
+
+     * @param boolean $returnObjects whether to return an array of arrays or objects
+
+     * @since 3.6.0
+
+     * @access public
+
+     * @static
+
      */
     public static function getAll($name, $returnObjects = false) {
        $result = eF_getTableData($name, "*");
@@ -116,25 +256,40 @@ abstract class EfrontEntity
            } else {
                $entity[$value['id']] = $value;
            }
-       } 
+       }
        return $entity;
     }
-    
     /**
+
+     * Produce the creation form for this entity 
+
      * 
-     * @param $form
-     * @return unknown_type
+
+     * @param $form The initial form object
+
+     * @since 3.6.0
+
+     * @access public
+
+     * @static
+
      */
     public abstract function getForm($form);
-    
     /**
+
+     * Handle the posted form values
+
      * 
-     * @param $form
-     * @return unknown_type
+
+     * @param $form The form object
+
+     * @since 3.6.0
+
+     * @access public
+
+     * @static
+
      */
     public abstract function handleForm($form);
-    
-    
 }
-
 ?>

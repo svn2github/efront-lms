@@ -25,16 +25,6 @@ function initSidebar(s_login)
      top.sideframe.document.getElementById('toggleSidebarImage').style.left = "0px";
      top.sideframe.document.getElementById('toggleSidebarImage').style.top = "4px";
     }
-    //top.sideframe.document.getElementById('logoutImage').style.position="absolute";
-    //top.sideframe.document.getElementById('logoutImage').style.left = "1px";
-    //top.sideframe.document.getElementById('logoutImage').style.top = "45px";
-    //top.sideframe.document.getElementById('mainPageImage').style.position="absolute";
-    //top.sideframe.document.getElementById('mainPageImage').style.left = "1px";
-    //top.sideframe.document.getElementById('mainPageImage').style.top = "25px";
-
-    //changeImage(top.sideframe.document.getElementById('toggleSidebarImage'));
-    //changeImage(top.sideframe.document.getElementById('logoutImage'));
-    //changeImage(top.sideframe.document.getElementById('mainPageImage'));
    }
   }
   else
@@ -46,7 +36,7 @@ function initSidebar(s_login)
 
     if(top.sideframe.document.getElementById('toggleSidebarImage').src) {
      top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.png';
-     top.sideframe.document.getElementById('toggleSidebarImage').addClassName('sprite16').addClassName('sprite16-navigate_left');
+     Element.extend(top.sideframe.document.getElementById('toggleSidebarImage')).addClassName('sprite16').addClassName('sprite16-navigate_left');
     }
 
 
@@ -65,7 +55,7 @@ function initSidebar(s_login)
 
    }
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'initSidebar');}
 }
 function toggleSidebar(s_login)
 {
@@ -154,7 +144,7 @@ function toggleSidebar(s_login)
    }
 
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'toggleSidebar');}
 }
 function checkToOpenSidebar(s_login)
 {
@@ -164,7 +154,7 @@ function checkToOpenSidebar(s_login)
   if(value == 'automatic'){
    toggleSidebar(s_login);
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'checkToOpenSidebar');}
 }
 function show_user_box(user_str,user,send_msg,view_page,user_type,user_time, user_stats, user_profile, logout_user)
 {
@@ -187,7 +177,7 @@ function show_user_box(user_str,user,send_msg,view_page,user_type,user_time, use
   if (top.mainframe && top.mainframe.document.getElementById('user_box')) {
    top.mainframe.document.getElementById('user_box').innerHTML=user_time+"<hr class='bluethin'/>"+href_str;
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'show_user_box');}
 }
 
 function getPeriodicData() {
@@ -237,7 +227,7 @@ function getPeriodicData() {
    $(tabmenu).innerHTML= text + '(' + transport.responseText.evalJSON().online.length + ')';
 
   }});
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'getPeriodicData');}
 }
 
 
@@ -261,7 +251,7 @@ function getWindowSize() {
   return [myWidth, myHeight];
   //window.alert( 'Width = ' + myWidth );
   //window.alert( 'Height = ' + myHeight );
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'getWindowSize');}
 }
 
 //Chat functions that are globally used
@@ -279,7 +269,7 @@ function stopAjaxChat() {
    }
    chatactivityIntervalId = setInterval("makeAjaxRequest('ask_chat.php?chatrooms_ID='+$('current_chatroom_id').value+'&any_activity=1','special_get_request','chat')", 60000);
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'stopAjaxChat');}
 }
 
 //Function to get the room's messages. During the first time the room is loaded ($('first_time_messages').value =1) and
@@ -295,7 +285,7 @@ function ajaxGetMessages() {
     makeAjaxRequest('ask_chat.php?chatrooms_ID='+$('current_chatroom_id').value,'special_get_request','chat')
    }
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'ajaxGetMessages');}
 }
 
 function startAjaxChat() {
@@ -317,7 +307,7 @@ function startAjaxChat() {
    enableChat();
    chatroomIntervalId = setInterval("ajaxGetMessages()",2500);
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'startAjaxChat');}
 }
 
 //Function to resize the Chat iframe
@@ -365,7 +355,7 @@ function resize_iframe()
 
    }
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'resize_iframe');}
 }
 
 //The following functions are used to highlight the correct menu on page load or refresh
@@ -415,7 +405,7 @@ function changeTDcolor(id) {
    }
 
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'changeTDcolor');}
 }
 
 function hideLoadingDiv() {
@@ -434,7 +424,7 @@ function hideLoadingDiv() {
   if ($('loading_sidebar')) {
    $('loading_sidebar').setStyle({display:'none'});
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'hideLoadingDiv');}
 }
 
 function initArrows() {
@@ -446,7 +436,7 @@ function initArrows() {
 
 
   //hideLoadingDiv();
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'initArrows');}
 }
 window.onresize = resizeFunction;
 
@@ -454,7 +444,7 @@ function setArrowStatus(status) {
  try {
   arrow_status = status;
   initArrows();
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'setArrowStatus');}
 }
 
 
@@ -487,7 +477,7 @@ function miniFixCurtains() {
     $('listmenu'+i).setStyle("height: " +(offset+1)+"px;");
    }
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'miniFixCurtains');}
 }
 
 //Function to fix the height of the curtains used to hide underlying menus - the menus must follow an order menu = <menu1,menu2...,menuN,logout>
@@ -523,7 +513,7 @@ function fixCurtains() {
 
   // Code to correct sizes of the iframe.
   resize_iframe();
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'fixCurtains');}
 }
 
 //Function called on resizing the window. Changes the position of the tabheaders and fixes the Curtains by calling fixCurtain
@@ -582,7 +572,7 @@ function resizeFunction() {
    // Fix the curtains used to hide the menus
    fixCurtains();
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'resizeFunction');}
 }
 
 
@@ -620,7 +610,7 @@ function hideAllLessonSpecific() {
   // Change the name of the header
   lessonsName = $('tabmenu1').innerHTML;
   $('tabmenu1').innerHTML = translations['lessons'];
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'hideAllLessonSpecific');}
 }
 
 
@@ -657,7 +647,7 @@ function hideAllLessonGeneral() {
     $('tabmenu1').innerHTML = lessonsName;
    }
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'hideAllLessonGeneral');}
 }
 
 
@@ -745,7 +735,7 @@ document.move = function(element) {
    setTimeout(function(){fixCurtains();}, 250);
    setTimeout(function(){lock = 0;},250);
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'document.move');}
 }
 
 Effect.MoveUpDown = function(element, offset) {
@@ -764,7 +754,7 @@ Effect.MoveUpDown = function(element, offset) {
          effect.effects[0].element.setStyle(oldStyle);
         }
         }, arguments[1] || { }));
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'Effect.MoveUpDown');}
 };
 
 
@@ -856,7 +846,7 @@ function fixUpperMenu() {
   }
 
   hideLoadingDiv();
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'fixUpperMenu');}
 }
 
 //Function used to hide and show the upper part of the sidebar
@@ -896,7 +886,7 @@ document.myhide = function() {
   $('logout').setStyle({top: (windowHeight-$('logout').getHeight())+'px'});
 
   fixCurtains();
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'document.myhide');}
 };
 
 
@@ -962,7 +952,7 @@ function ajaxBringRooms() {
    }
   }
   });
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'ajaxBringRooms');}
 }
 
 //Only JS: get name from the chat_room select list
@@ -976,7 +966,7 @@ function getChatRoomName() {
   } else {
    return allText;
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'getChatRoomName');}
 
 }
 
@@ -1007,7 +997,7 @@ function ajaxEnterRoom(el) {
    //alert($('current_chatroom_id').value);
   }
   });
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'ajaxEnterRoom');}
 }
 
 function ajaxGetRoomUsers(el, event) {
@@ -1015,7 +1005,7 @@ function ajaxGetRoomUsers(el, event) {
   parameters = {chatrooms_ID:$('chat_rooms').value, get_users:1, method: 'get'};
   var url = 'ask_chat.php';
   ajaxRequest(el, url, parameters, onAjaxGetRoomUsers);
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'ajaxGetRoomUsers');}
 }
 function onAjaxGetRoomUsers(el, response) {
  try {
@@ -1032,13 +1022,13 @@ function onAjaxGetRoomUsers(el, response) {
   //eF_js_showHideDiv(el, 'room_users', null);
   //$('room_users_image').writeAttribute({src:'themes/default/images/16x16/users3.gif'}).show();
   $('room_users').setStyle({top:'20px',left:'1px'});
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'onAjaxGetRoomUsers');}
 }
 
 function exportChatRoomHistory(el) {
  try {
   el.href = translations['s_type']+".php?ctg=chat&chat_room_options=1&past_messages=1&chat_room=" + $('current_chatroom_id').value;
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'exportChatRoomHistory');}
 }
 
 function returnToMainRoom() {
@@ -1050,7 +1040,7 @@ function returnToMainRoom() {
   $('delete_room').setStyle({display:'none'});
   test.document.getElementById("chat_content").innerHTML += '<span style="font-size:10px;color:red;">' + translations['redirectedtomain'] + '</span>';
   $('current_chatroom_id').value = 0; // sync complete - lock released
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'returnToMainRoom');}
 }
 
 function ajaxDeleteRoom() {
@@ -1077,7 +1067,7 @@ function ajaxDeleteRoom() {
 
   }
   });
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'ajaxDeleteRoom');}
 }
 
 
@@ -1101,7 +1091,7 @@ function increaseChatboxFontSize() {
 
   // Get sidebar to the end
   test.document.getElementById('chat_content').scrollTop=test.document.getElementById('chat_content').scrollHeight + 100;
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'increaseChatboxFontSize');}
 }
 
 
@@ -1117,7 +1107,7 @@ function checkSidebarMode(s_login) {
   } else {
    createCookie(s_login+'_sidebarMode','manual',30);
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'checkSidebarMode');}
 }
 
 //Functions to change user status
@@ -1129,7 +1119,7 @@ function showStatusChange() {
   $('statusText').style.display = 'none';
   $('inputStatusText').style.display = 'block';
   $('inputStatusText').focus();
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'showStatusChange');}
 }
 
 function changeStatus() {
@@ -1184,7 +1174,7 @@ function changeStatus() {
    $('statusText').style.display = 'block';
   }
   __noChangeEscape = 0;
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'changeStatus');}
 }
 
 
@@ -1201,7 +1191,7 @@ function checkIfEnter(event) {
    $('inputStatusText').style.display="none";
    $('statusText').style.display = 'block';
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'checkIfEnter');}
 }
 
 
@@ -1275,7 +1265,7 @@ function setActiveId(ctg, op, tab, type, module_menu, stats_options, user_type) 
   } else {
    changeTDcolor(ctg);
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'setActiveId');}
 }
 function setMenuPositions() {
  try {
@@ -1378,11 +1368,12 @@ function setMenuPositions() {
    // Hide the loading bar, just after all menu item movements
    hideLoadingDiv();
   }
- } catch (e) {sidebarExceptionHandler(e);}
+ } catch (e) {sidebarExceptionHandler(e, 'setMenuPositions');}
 }
 
-function sidebarExceptionHandler(e) {
+function sidebarExceptionHandler(e, fnc) {
  //alert(e);
+ //alert(fnc);
 }
 
 function startUpdater() {
@@ -1392,6 +1383,7 @@ function startUpdater() {
          }
 }
 if (startUpdater) { startUpdater();}
+
 
 /*
 

@@ -1,9 +1,10 @@
-    var minimumRows = 3; //Below minimumRows, the table does not display the status/tool bar below it
+ var minimumRows = 3; //Below minimumRows, the table does not display the status/tool bar below it
     var defaultRowsPerPage = 20; //This will change    
 
     var allTables = document.getElementsByTagName('table'); //Get all the tables in this document
     var sortedTables = new Array(); //This global array will hold all the tables that need to have sorting/paging capabilities
     var useAjax = new Array();
+    var autoAjax = new Array();
     var rowsPerPage = new Array();
     var tableSize = new Array();
     var ajaxUrl = new Array();
@@ -14,6 +15,11 @@
     var currentOrder = new Array();
     var currentOther = new Array();
     var currentFilter = new Array();
+
+    var branchFilter = new Array();
+    var jobFilter = new Array();
+    var currentBranchFilter = new Array();
+    var currentJobFilter = new Array();
 
     var checkedEntries = new Array();
 
@@ -26,7 +32,8 @@
     }
 
     function init(table, isFirst, idx) {
-        var count = 0;
+
+     var count = 0;
         if (isFirst) {
             sortedTables.push(table);
             tableIndex = sortedTables.length-1;
@@ -57,8 +64,12 @@
                 anchor.innerHTML = table.rows[0].cells[i].innerHTML; //Copy the cells content inside the link
                 table.rows[0].cells[i].innerHTML = ''; //Remove the cell content, since it was copied to the link
                 table.rows[0].cells[i].appendChild(anchor); //Append the link to the cell
+
                 if (table.getAttribute('sortBy') && table.getAttribute('sortBy') == i) {
                     var sortBy = anchor; //Assign the element that will be initially sorted for
+                    if (table.getAttribute('order') && table.getAttribute('order') == 'desc') {
+                     anchor.setAttribute('order', 'desc');
+                    }
                 }
             }
         }
@@ -72,6 +83,7 @@
   }
 
         if (isFirst) {
+
             checkedEntries[tableIndex] = new Array();
             if (getCookie('cookieTableRows')) {
              rowsPerPage[tableIndex] = getCookie('cookieTableRows');
@@ -91,21 +103,39 @@
 
                 useAjax[tableIndex] = true;
                 ajaxUrl[tableIndex] = table.getAttribute('url');
+                autoAjax[tableIndex] = true;
+                if (table.getAttribute('no_auto')) {
+     loadingDiv.hide();
+     loadingDiv.writeAttribute({loaded:true});
+                 autoAjax[tableIndex] = false;
+                }
             }
+            if (table.getAttribute('branchFilter')) {
+             branchFilter[tableIndex] = table.getAttribute('branchFilter');
+            } else {
+             branchFilter[tableIndex] = false;
+            }
+            if (table.getAttribute('jobFilter')) {
+             jobFilter[tableIndex] = table.getAttribute('jobFilter');
+            } else {
+             jobFilter[tableIndex] = false;
+            }
+
 
             if (table.getAttribute('noFooter') == 'true') {
                 noFooter[tableIndex] = true;
             }
             tableSize[tableIndex] = Math.ceil(table.getAttribute('size') / rowsPerPage[tableIndex]);
 
-
             eF_js_pageTable(tableIndex); //Convert this table to paged table.
-            if (sortBy) {
+
+            if (sortBy && autoAjax[tableIndex]) {
                 eF_js_sortTable(sortBy);
-            } else if (useAjax[tableIndex]) {
+            } else if (useAjax[tableIndex] && autoAjax[tableIndex]) {
                 eF_js_sortTable(anchor, other); //Ajax must be initialized some way, and sortBy is a convenient one.
             }
             sortBy = false;
+
 
         } else {
             tableSize[tableIndex] = Math.ceil(table.getAttribute('size') / rowsPerPage[tableIndex]);
@@ -114,92 +144,118 @@
 
     }
 
-
     function eF_js_rebuildTable(tableIndex, offset, column_name, order, other, noDiv) {
+     try {
+      if (window.onBeforeSortedTable) {
+       window.onBeforeSortedTable(sortedTables[tableIndex]);
+      }
 
-        //eF_js_getChecked (tableIndex);
+      //eF_js_getChecked (tableIndex);
+      if (!column_name) {
+       column_name = '';
+      }
+      if (!order) {
+       order = '';
+      }
 
-        currentOffset[tableIndex] = offset;
-        currentSort[tableIndex] = column_name;
-        currentOrder[tableIndex] = order;
-        if (Object.isUndefined(other)) {
-         other = '';
-        }
-        currentOther[tableIndex] = other;
+      currentOffset[tableIndex] = offset;
+      currentSort[tableIndex] = column_name;
+      currentOrder[tableIndex] = order;
+      if (Object.isUndefined(other)) {
+       other = '';
+      }
+      currentOther[tableIndex] = other;
 
-        var el = document.getElementById(tableIndex+ '_' + column_name);
-        url = ajaxUrl[tableIndex]+'ajax='+sortedTables[tableIndex].id+'&limit='+rowsPerPage[tableIndex]+'&offset='+offset+'&sort='+column_name+'&order='+order+'&other='+other;
-        if (currentFilter[tableIndex]) {
-            url = url + '&filter='+currentFilter[tableIndex];
-        }
-        var loadingDiv = $('loading_'+sortedTables[tableIndex].id);
-        loadingDiv.clonePosition(sortedTables[tableIndex]);
-        //sortedTables[tableIndex].ancestors().each(function (s) {alert(s.getDimensions().height + ' ' + s.tagName + ' ' + s.id);});
-        //alert(sortedTables[tableIndex].up().getDimensions().up().up().up().height);
-  if (!noDiv && (loadingDiv.getDimensions().height > 0 || loadingDiv.getDimensions().width > 0)) {
-   loadingDiv.show();
-  }
+      var el = document.getElementById(tableIndex+ '_' + column_name);
+      url = ajaxUrl[tableIndex]+'ajax='+sortedTables[tableIndex].id+'&limit='+rowsPerPage[tableIndex]+'&offset='+offset+'&sort='+column_name+'&order='+order+'&other='+other;
 
-        new Ajax.Request(url, {
-                method:'get',
-                asynchronous:true,
-                onSuccess: function (transport) {
-                    var tableId = sortedTables[tableIndex].id;
-                    var spanElement = document.createElement('span');
+      if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
+       //url = url + '&filter='+currentFilter[tableIndex]+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
+       url = url + '&filter='+currentFilter[tableIndex]+'||||'+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
+      }
 
-     var re2 = new RegExp("<!--ajax:"+tableId+"-->((.*[\n])*)<!--\/ajax:"+tableId+"-->"); //Does not work with smarty {strip} tags!
-                    var tableText = re2.exec(transport.responseText);
+      var loadingDiv = $('loading_'+sortedTables[tableIndex].id);
+      loadingDiv.clonePosition(sortedTables[tableIndex]);
+      //sortedTables[tableIndex].ancestors().each(function (s) {alert(s.getDimensions().height + ' ' + s.tagName + ' ' + s.id);});
+      //alert(sortedTables[tableIndex].up().getDimensions().up().up().up().height);
+      if (!noDiv && (loadingDiv.getDimensions().height > 0 || loadingDiv.getDimensions().width > 0)) {
+       loadingDiv.show();
+      }
 
-     if (!tableText) {
-                     var re = new RegExp("<!--ajax:"+tableId+"-->((.*[\r\n\u2028\u2029])*)<!--\/ajax:"+tableId+"-->"); //Does not work with smarty {strip} tags!
-                     tableText = re.exec(transport.responseText);
-     }
+      new Ajax.Request(url, {
+       method:'get',
+       asynchronous:true,
+       onFailure: function (transport) {
+       var tableId = sortedTables[tableIndex].id;
+       var spanElement = document.createElement('span');
+       spanElement.innerHTML += transport.responseText;
+       sortedTables[tableIndex].parentNode.replaceChild(spanElement, sortedTables[tableIndex]);
+       loadingDiv.hide();
+       loadingDiv.writeAttribute({loaded:true});
+       //alert(transport.responseText);
+      },
+      onSuccess: function (transport) {
+       var tableId = sortedTables[tableIndex].id;
+       var spanElement = document.createElement('span');
 
-                    spanElement.innerHTML += tableText[1];
-                    //spanElement.innerHTML += transport.responseText;
+       var re2 = new RegExp("<!--ajax:"+tableId+"-->((.*[\n])*)<!--\/ajax:"+tableId+"-->"); //Does not work with smarty {strip} tags!
+       var tableText = re2.exec(transport.responseText);
+       if (!tableText) {
+        var re = new RegExp("<!--ajax:"+tableId+"-->((.*[\r\n\u2028\u2029])*)<!--\/ajax:"+tableId+"-->"); //Does not work with smarty {strip} tags!
+        tableText = re.exec(transport.responseText);
+       }
 
-                    sortedTables[tableIndex].parentNode.replaceChild(spanElement, sortedTables[tableIndex]);
+       spanElement.innerHTML += tableText[1];
+       //spanElement.innerHTML += transport.responseText;
 
-     loadingDiv.hide();
-     loadingDiv.writeAttribute({loaded:true});
+       sortedTables[tableIndex].parentNode.replaceChild(spanElement, sortedTables[tableIndex]);
 
-                    init(document.getElementById(tableId), false, tableIndex);
+       loadingDiv.hide();
+       loadingDiv.writeAttribute({loaded:true});
 
-                    document.getElementById(tableIndex+'_sortedTable_currentPage').selectedIndex = Math.ceil(currentOffset[tableIndex]/rowsPerPage[tableIndex]);
+       init(document.getElementById(tableId), false, tableIndex);
 
-     sortedTables[tableIndex].style.visibility = 'visible';
-                    loadingDiv.clonePosition(sortedTables[tableIndex]);
+       document.getElementById(tableIndex+'_sortedTable_currentPage').selectedIndex = Math.ceil(currentOffset[tableIndex]/rowsPerPage[tableIndex]);
 
-                    if (el) {
-         if (currentOrder[tableIndex] == 'desc') { //Set the icons through the class to reflect the order, ascending or descending
-          document.getElementById(el.id).className = 'sortDescending';
-       document.getElementById(el.id).setAttribute('order', 'asc');
-                      if (document.getElementById(el.id).up().select('img').length == 0) {
-                       document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({verticalAlign:'middle'}));
-                      } else {
-                       document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.png';
-                       document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_down');
-                      }
+       sortedTables[tableIndex].style.visibility = 'visible';
+       loadingDiv.clonePosition(sortedTables[tableIndex]);
+
+       if (el) {
+        if (currentOrder[tableIndex] == 'desc') { //Set the icons through the class to reflect the order, ascending or descending
+         document.getElementById(el.id).className = 'sortDescending';
+         document.getElementById(el.id).setAttribute('order', 'asc');
+         if (document.getElementById(el.id).up().select('img').length == 0) {
+          document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({verticalAlign:'middle'}));
          } else {
-       document.getElementById(el.id).className = 'sortAscending';
-       document.getElementById(el.id).setAttribute('order', 'desc');
-                      if (document.getElementById(el.id).up().select('img').length == 0) {
-                       document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
-                      } else {
-                       document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.png';
-                       document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
-                      }
-                     }
-              }
+          document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+          document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_down');
+         }
+        } else {
+         document.getElementById(el.id).className = 'sortAscending';
+         document.getElementById(el.id).setAttribute('order', 'desc');
+         if (document.getElementById(el.id).up().select('img').length == 0) {
+          document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
+         } else {
+          document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.png';
+          document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
+         }
+        }
+       }
 
-                    //eF_js_setChecked(tableIndex);
-                    //table.rows[0].style.visibility = 'visible';
+       //eF_js_setChecked(tableIndex);
+       //table.rows[0].style.visibility = 'visible';
 
-      if (window.onSortedTableComplete) {
-      window.onSortedTableComplete();
+       if (window.onSortedTableComplete) {
+        window.onSortedTableComplete();
+       }
+       if (sortedTables[tableIndex].hasClassName('subSection')) {
+        onLoadSubSection(sortedTables[tableIndex]);
+       }
+      }
+      });
+     } catch (e) {
+      handleException(e);
      }
-                }
-            });
 
     }
 
@@ -375,74 +431,75 @@ function eF_js_sortTable(el, other) {
 
 
     function eF_js_selectAll (el, tableIndex) {
+     try {
+      var table = sortedTables[tableIndex]; //Get the table to perform paging on
+      if (window.ajaxPost && !table.getAttribute('nomass')) {
+       ajaxPost('', el, sortedTables[tableIndex].id);
+      }
+      var inputs = table.getElementsByTagName('input'); //Get all the \"input\" elements on the table
 
-        if (window.ajaxPost) {
-         ajaxPost('', el, sortedTables[tableIndex].id);
+      for (var i = 0; i < inputs.length; i++) {
+
+       if (inputs[i].type == 'checkbox') { //for each checkbox, set its \"checked\" state to match the global checkbox
+        inputs[i].checked = el.checked;
+
+        // MODULE HCD INTERVENTION FOR APPEARANCES OF HIDDEN BOXES -- The following should leave from here (by mpaltas)
+        if (typeof(myform) != 'undefined' && myform == "branch_to_employees") {
+         if (document.getElementById("job_selection_row" + i) && document.getElementById("position_select_row" + i)) {
+          if (!inputs[i].checked) { //for each job descriptions select, make it appear/disappear
+           document.getElementById("job_selection_row" + i).style.visibility = "hidden";
+           document.getElementById("position_select_row" + i).style.visibility = "hidden";
+           document.getElementById('position_select_row' + i).name = "_";
+          } else {
+           document.getElementById("job_selection_row" + i).style.visibility = "visible";
+           document.getElementById("position_select_row" + i).style.visibility = "visible";
+           document.getElementById("position_select_row" + i).name = "visible";
+           document.getElementById('position_select_row' + i).name = document.getElementById('position_select_row'+i).value + "_" + document.getElementById('job_selection_row'+i).value;
+
+          }
+         }
         }
-        var table = sortedTables[tableIndex]; //Get the table to perform paging on
-        var inputs = table.getElementsByTagName('input'); //Get all the \"input\" elements on the table
 
-        for (var i = 0; i < inputs.length; i++) {
-
-            if (inputs[i].type == 'checkbox') { //for each checkbox, set its \"checked\" state to match the global checkbox
-                inputs[i].checked = el.checked;
-
-                // MODULE HCD INTERVENTION FOR APPEARANCES OF HIDDEN BOXES -- The following should leave from here (by mpaltas)
-                if (typeof(myform) != 'undefined' && myform == "branch_to_employees") {
-                    if (document.getElementById("job_selection_row" + i) && document.getElementById("position_select_row" + i)) {
-                        if (!inputs[i].checked) { //for each job descriptions select, make it appear/disappear
-                            document.getElementById("job_selection_row" + i).style.visibility = "hidden";
-                            document.getElementById("position_select_row" + i).style.visibility = "hidden";
-                            document.getElementById('position_select_row' + i).name = "_";
-                        } else {
-                            document.getElementById("job_selection_row" + i).style.visibility = "visible";
-                            document.getElementById("position_select_row" + i).style.visibility = "visible";
-                            document.getElementById("position_select_row" + i).name = "visible";
-              document.getElementById('position_select_row' + i).name = document.getElementById('position_select_row'+i).value + "_" + document.getElementById('job_selection_row'+i).value;
-
-                        }
-                    }
-                }
-
-                if (typeof(myform) != 'undefined' && (myform == "employee_to_skills" || myform == "employees_to_skill" )) {
-                    skill_id = inputs[i].name;
-                    spec_text = document.getElementById('spec_skill_'+skill_id);
-                    if (spec_text) {
-                        if (!inputs[i].checked) {
-                            spec_text.style.visibility = "hidden";
-                        } else {
-                            spec_text.style.visibility = "visible";
-                        }
-                    }
-                }
-
-                if (typeof(myform) != 'undefined' && myform == "skills_to_lesson") {
-
-                    skill_id = inputs[i].name;
-                    spec_text = document.getElementById('spec_skill_'+skill_id);
-                    if (spec_text) {
-                        if (!inputs[i].checked) {
-                            spec_text.style.visibility = "hidden";
-                        } else {
-                            spec_text.style.visibility = "visible";
-                        }
-                    }
-                }
-
-                if (typeof(myform) != 'undefined' && myform == "skills_to_course") {
-
-                    skill_id = inputs[i].name;
-                    spec_text = document.getElementById('spec_skill_'+skill_id);
-                    if (spec_text) {
-                        if (!inputs[i].checked) {
-                            spec_text.style.visibility = "hidden";
-                        } else {
-                            spec_text.style.visibility = "visible";
-                        }
-                    }
-                }
-            }
+        if (typeof(myform) != 'undefined' && (myform == "employee_to_skills" || myform == "employees_to_skill" )) {
+         skill_id = inputs[i].name;
+         spec_text = document.getElementById('spec_skill_'+skill_id);
+         if (spec_text) {
+          if (!inputs[i].checked) {
+           spec_text.style.visibility = "hidden";
+          } else {
+           spec_text.style.visibility = "visible";
+          }
+         }
         }
+
+        if (typeof(myform) != 'undefined' && myform == "skills_to_lesson") {
+
+         skill_id = inputs[i].name;
+         spec_text = document.getElementById('spec_skill_'+skill_id);
+         if (spec_text) {
+          if (!inputs[i].checked) {
+           spec_text.style.visibility = "hidden";
+          } else {
+           spec_text.style.visibility = "visible";
+          }
+         }
+        }
+
+        if (typeof(myform) != 'undefined' && myform == "skills_to_course") {
+
+         skill_id = inputs[i].name;
+         spec_text = document.getElementById('spec_skill_'+skill_id);
+         if (spec_text) {
+          if (!inputs[i].checked) {
+           spec_text.style.visibility = "hidden";
+          } else {
+           spec_text.style.visibility = "visible";
+          }
+         }
+        }
+       }
+      }
+     } catch (e) {alert(e);}
 
     }
 /*
@@ -533,12 +590,14 @@ function eF_js_sortTable(el, other) {
             //checkbox.setAttribute('onclick', 'eF_js_selectAll(this, '+tableIndex+')');                  //Only workds in FF, not IE. the code below works in both browsers
             checkbox.onclick = function () {
              if (!useAjax[tableIndex] || confirm(sorted_translations["operationaffectmany"])) {
-              eF_js_selectAll(this, tableIndex)
+              eF_js_selectAll(this, tableIndex);
              }
             };
             td_checkbox.appendChild(checkbox);
         } else {
-            td.colSpan = table.rows[0].cells.length; //Spread it to span over all columns
+         if (table.rows[0].cells.length) {
+          td.colSpan = table.rows[0].cells.length; //Spread it to span over all columns
+         }
         }
         td.className = 'sortedTableFooter'; //Assign it its special class
 //Prototype implementation --not ready yet
@@ -551,16 +610,75 @@ function eF_js_sortTable(el, other) {
         var input = document.createElement('input'); //Create a text box that will be used for the filtering function
         input.setAttribute('type', 'text');
         input.setAttribute('id', tableIndex+'_sortedTable_filter'); //Set its id to retrieve it easily
-        input.setAttribute('style', 'width:100%'); //Added by mpaltas to avoid overlapping - using a new table inside the td might be a better idea
+        //input.setAttribute('size', '10');           //Added by mpaltas **But removed from venakis due to IE incompatibility (sic)** to avoid overlapping - using a new table inside the td might be a better idea
         //input.setAttribute('onkeypress', 'if (event.which == 13) eF_js_filterData('+tableIndex+')');
         input.setAttribute('onkeypress', 'if (event.which == 13 || event.keyCode == 13) {eF_js_filterData('+tableIndex+'); return false;}'); //Set an onkeypress event, so that pressing \"enter\" fires the function. We put the return false here, so that if the table is inside a form, enter will not submit it 
-        if (currentFilter[tableIndex]) {
+        if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
          input.setAttribute("value", currentFilter[tableIndex]);
-         div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentFilter">'+currentFilter[tableIndex]+'</span>';
+         if (currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
+          div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentFilter">' + currentFilter[tableIndex]+'||||'+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'')+'</span>';
+         } else {
+          div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentFilter">' + currentFilter[tableIndex]+'</span>';
+         }
         }
-         input.className = 'inputText inputSearchText';
+        //input.className = 'inputSearchText';
         div.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["filter"]+':&nbsp;</span>';
         div.appendChild(input); //Append it to the footer cell
+  // Enterprise filters
+  if (branchFilter[tableIndex]) {
+         var selectBranch = document.createElement('select'); //Create a select element that will hold the rows per page
+            var temp = branchFilter[tableIndex].split('||||');
+            var elOptNew;
+            var i;
+            for (i = 0; i < temp.length-1; i = i + 2) {
+                elOptNew = document.createElement('option');
+                elOptNew.value = temp[i];
+                elOptNew.text = temp[i+1];
+                try {
+                    selectBranch.add(elOptNew,null);
+                } catch(ex) {
+                 selectBranch.add(elOptNew); // IE only
+                }
+                if (currentBranchFilter[tableIndex] && temp[i] == currentBranchFilter[tableIndex]) {
+                 elOptNew.setAttribute('selected', 'selected');
+                }
+            }
+            selectBranch.setAttribute('class', 'inputSelectMed');
+         selectBranch.setAttribute('onchange', 'eF_js_filterData('+tableIndex+'); return false;'); //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+         selectBranch.setAttribute('id', tableIndex+'_sortedTable_branchFilter'); //Set its id so we can retrieve its data easily
+         if (currentBranchFilter[tableIndex]) {
+          div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentBranchFilter">'+currentBranchFilter[tableIndex]+'</span>';
+         }
+         div.appendChild(selectBranch);
+  }
+  if (jobFilter[tableIndex]) {
+         var selectJob = document.createElement('select'); //Create a select element that will hold the rows per page
+            var temp = jobFilter[tableIndex].split('||||');
+            var elOptNew;
+            var i;
+            var selectedValueIndex = 0;
+            for (i = 0; i < temp.length; i++) {
+                elOptNew = document.createElement('option');
+                elOptNew.value = temp[i];
+                elOptNew.text = temp[i];
+                try {
+                 selectJob.add(elOptNew,null);
+                } catch(ex) {
+                 selectJob.add(elOptNew); // IE only
+                }
+                if (currentJobFilter[tableIndex] && temp[i] == currentJobFilter[tableIndex]) {
+                 elOptNew.setAttribute('selected', 'selected');
+                }
+            }
+            selectJob.setAttribute('class', 'inputSelectMed');
+            selectJob.setAttribute('onchange', 'eF_js_filterData('+tableIndex+'); return false;'); //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+         selectJob.setAttribute('id', tableIndex+'_sortedTable_jobFilter'); //Set its id so we can retrieve its data easily						
+         if (currentJobFilter[tableIndex]) {
+          div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentJobFilter">'+currentJobFilter[tableIndex]+'</span>';
+         }
+         div.appendChild(selectJob);
+         selectJob.selectedIndex = selectedValueIndex;
+  }
         div.className = 'sortTablefilter';
         td.appendChild(div);
   if (useAjax[tableIndex]) {
@@ -577,13 +695,15 @@ function eF_js_sortTable(el, other) {
     endResult = table.getAttribute('size');
    }
         }
+
+
         var select = document.createElement('select'); //Create a select element that will hold the rows per page
         //select.setAttribute('type', 'text');
         //var option = document.createElement('option');                      //Add the first option, which is the current setting
         //option.setAttribute('value', rowsPerPage[tableIndex]);
         //option.innerHTML = rowsPerPage[tableIndex];
         //select.appendChild(option);
-        rowsPerPageArray = new Array('10', '15', '20', '50', '200', '500');
+        rowsPerPageArray = new Array('10', '15', '20', '50', '200');
         for (var i = 0; i < rowsPerPageArray.length; i++) { //Append 10 values, 5,10,15, ..., 45 rows per page
             var option = document.createElement('option');
             option.setAttribute('value', rowsPerPageArray[i]);
@@ -596,12 +716,16 @@ function eF_js_sortTable(el, other) {
         select.setAttribute('onchange', 'numRows = parseInt(this.options[this.selectedIndex].value);eF_js_changeRowsPerPage('+tableIndex+', numRows)'); //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
         select.setAttribute('id', tableIndex+'_sortedTable_rowsPerPage'); //Set its id so we can retrieve its data easily
         select.style.verticalAlign = 'middle';
+
         td.innerHTML += '<span style = "vertical-align:middle;">'+sorted_translations["rowsperpage"]+':&nbsp;</span>';
         td.appendChild(select); //Append it to the footer cell
+
+
         var input = document.createElement('input'); //Create a hidden element, that holds the current page.
         input.setAttribute('type', 'hidden');
         input.setAttribute('id', tableIndex+'_sortedTable_sortBy');
         td.appendChild(input); //Append it to the footer cell
+
         if (table.toolsCell) { //If we are repaginating table, then we will replace the previous footer cell with this one
             table.toolsCell.parentNode.replaceChild(td, table.toolsCell);
         } else { //If we are creating pagination for the first time, append this cell to the table
@@ -613,6 +737,7 @@ function eF_js_sortTable(el, other) {
                 tr.appendChild(td_checkbox);
             }
         }
+
         var select = document.createElement('select'); //Create a select element, that lists the pages
         select.setAttribute('id', tableIndex+'_sortedTable_currentPage');
         select.setAttribute('onchange', 'eF_js_changePage('+tableIndex+', this.options[this.selectedIndex].value)'); //Set an onchange event, so that changing the value fires a change on the page
@@ -622,7 +747,9 @@ function eF_js_sortTable(el, other) {
             option.innerHTML = (1 + i*rowsPerPage[tableIndex])+'-'+Math.min((i + 1)*rowsPerPage[tableIndex], table.getAttribute('size') ? table.getAttribute('size') : table.rows.length-2);
             select.appendChild(option);
         }
+
         select.style.verticalAlign = 'middle';
+
         td.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["displayingresults"]+':&nbsp;</span>';
         td.innerHTML += '<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+',0)\"><img src = "js/ajax_sorted_table/images/navigate_left2.png" border = "0" style = "vertical-align:middle" /></a>&nbsp;'; //Add a \"first page\" handler
         td.innerHTML += '<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+',\'previous\')\"><img src = "js/ajax_sorted_table/images/navigate_left.png" border = "0" style = "vertical-align:middle" /></a>&nbsp;'; //Add a \"previous page\" handler
@@ -630,28 +757,57 @@ function eF_js_sortTable(el, other) {
         td.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["outof"]+'&nbsp;' + (table.getAttribute('size') ? table.getAttribute('size') : table.rows.length-2) + '</span>';
         td.innerHTML += '&nbsp;<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+',\'next\')\"><img src = "js/ajax_sorted_table/images/navigate_right.png" border = "0" style = "vertical-align:middle" /></a>'; //Add a \"next page\" handler
         td.innerHTML += '&nbsp;<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+','+(pages - 1)+')\"><img src = "js/ajax_sorted_table/images/navigate_right2.png" border = "0" style = "vertical-align:middle" /></a>'; //Add a \"last page\" handler
-        if (!Object.isUndefined(noFooter[tableIndex]) || ((table.rows.length < minimumRows + 2 || parseInt(table.getAttribute('size')) < minimumRows) && !currentFilter[tableIndex] && !currentOffset[tableIndex])) {
+
+        if (!Object.isUndefined(noFooter[tableIndex]) || ((table.rows.length < minimumRows + 2 || parseInt(table.getAttribute('size')) < minimumRows) && !currentFilter[tableIndex] && !currentOffset[tableIndex] && !currentBranchFilter[tableIndex] && !currentJobFilter[tableIndex])) {
             tr.style.display = 'none';
             if (!Object.isUndefined(noFooter[tableIndex])) {
              tr.setAttribute('id', 'noFooterRow'+tableIndex);
             }
         }
+
         table.toolsCell = td; //Assign the current cell to a global variable
+
         if (!useAjax[tableIndex]) {
             eF_js_changePage(tableIndex, 0); //Display the first page
          table.style.visibility = 'visible'; //The table is not visible by default (to avoid displaying effects). Make the table visible
         }
+
 //        if (tr && table.rows.length <= minimumRows) {                              //Do not show footer table raw, if table rows are up to minimumRows (10)
 //            tr.style.display = 'none';
 //        }
+
     }
+
     function eF_js_filterData(tableIndex) {
 //debugger;
         if (useAjax[tableIndex]) {
-         Element.extend($(tableIndex+'_sortedTable_filter')).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+         var showing_image = false;
+         if ($(tableIndex+'_sortedTable_jobFilter')) {
+          Element.extend($(tableIndex+'_sortedTable_jobFilter')).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+
+          var jobStr = document.getElementById(tableIndex+'_sortedTable_jobFilter').value;
+          currentJobFilter[tableIndex] = jobStr;
+          showing_image = true;
+         }
+
+         if ($(tableIndex+'_sortedTable_branchFilter')) {
+          if (!showing_image) {
+           Element.extend($(tableIndex+'_sortedTable_branchFilter')).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+           showing_image = true;
+          }
+
+          var branchStr = document.getElementById(tableIndex+'_sortedTable_branchFilter').value;
+          currentBranchFilter[tableIndex] = branchStr;
+         }
+
+         if (!showing_image) {
+          Element.extend($(tableIndex+'_sortedTable_filter')).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+         }
+
             var str = document.getElementById(tableIndex+'_sortedTable_filter').value; //Get the filter value, from the corresponding text box
             currentFilter[tableIndex] = str;
             currentOffset[tableIndex] = 0;
+
             eF_js_rebuildTable(tableIndex, currentOffset[tableIndex], currentSort[tableIndex], currentOrder[tableIndex], currentOther[tableIndex], true);
         } else {
             var table = sortedTables[tableIndex]; //Get the current table
@@ -661,7 +817,9 @@ function eF_js_sortTable(el, other) {
                     table.rows[0].parentNode.insertBefore(table.filteredRows[i], table.rows[table.rows.length-1]); //Append the rows at the bottom of the table
                 }
             }
+
             table.filteredRows = new Array(); //This array will hold the filtered rows
+
             var i = 0;
             while (i < table.rows.length - 2) {
                 keepRow = false;
@@ -676,6 +834,7 @@ function eF_js_sortTable(el, other) {
                     i++;
                 }
             }
+
             newPages = (Math.ceil((table.rows.length - 2) / rowsPerPage[tableIndex])); //Recalculate the number of pages
 
             var select = document.getElementById(tableIndex+'_sortedTable_currentPage'); //Recreate the pages select box to match the new sum of pages
@@ -743,5 +902,128 @@ if (typeof(tabberObj) != 'undefined') {
      }
     }
    });
+ };
+}
+
+function toggleSubSection(el, id, sectionId, trailUrl) {
+ try {
+  Element.extend(el);
+  var sectionTable = $(sectionId);
+  var tr = el.up().up(); //The table row holding the clicked element
+
+  if (el.hasClassName('sprite16-plus') || el.hasClassName('sprite16-plus2')) {
+
+   tr.up().select('img.sprite16-minus').each(function (s) {setImageSrc(s, 16, 'plus');});
+   tr.up().select('img.sprite16-minus2').each(function (s) {setImageSrc(s, 16, 'plus2');});
+   el.hasClassName('sprite16-plus') ? setImageSrc(el, 16, 'minus') : setImageSrc(el, 16, 'minus2');
+   newTr = new Element('tr', {id:'subsection_row_'+sectionId+id}).insert(new Element('td', {colspan:tr.childElements().length}).insert(sectionTable.show().remove()));
+   tr.insert({after:newTr});
+
+   sectionTable.writeAttribute({no_auto:0});
+   for (var i = 0; i < sortedTables.size(); i++) {
+    if (sortedTables[i].id.match(sectionId) && ajaxUrl[i]) {
+     ajaxUrl[i] = ajaxUrl[i] + sectionId+'_source=' + id + '&' + trailUrl + '&';
+     eF_js_rebuildTable(i, 0, column_name, order);
+    }
+   }
+  } else {
+   onCloseSubSection(sectionTable);
+   el.hasClassName('sprite16-minus') ? setImageSrc(el, 16, 'plus') : setImageSrc(el, 16, 'plus2');
+   document.body.insert({after:sectionTable.hide().remove()});
+   $('subsection_row_'+sectionId+id).remove();
+  }
+ } catch (e) {alert(e);}
+}
+function onCloseSubSection(table) {
+ containers = findContainers(table);
+ activeRows = findActiveRows(table);
+
+ containers[0].select('tr').each(function (s) {
+  enableRow(s);
+ });
+ activeRows.each(function (s) {
+  enableRow(s.previous());
+  enableRow(s);
+ });
+
+}
+function onLoadSubSection(table) {
+ try {
+  containers = findContainers(table);
+  activeRows = findActiveRows(table);
+
+  containers.each( function (c) {
+   c.select('tr').each(function (s) {
+    enableRow(s);
+   });
+   c.select('tr').each(function (s) {
+    if (s.visible()) {
+     disableRow(s);
+    };
+   });
+  });
+  activeRows.each(function (a) {
+   enableRow(a);
+  });
+  if (activeRows[0]) {
+   enableRow(activeRows[0].previous());
+  }
+  table.select('tr').each(function (s) {
+   enableRow(s);
+  });
+ } catch (e) {
+  handleException(e);
  }
+}
+function findActiveRows(el) {
+ var activeRows = new Array();
+ el.ancestors().each(function (s) {
+  if (s.id.match('subsection_row')) {
+   activeRows.push(s);
+  }});
+ return activeRows;
+}
+function findContainers(el) {
+ var containers = new Array();
+ el.ancestors().each(function (s) {
+  if (s.hasClassName('sortedTable')) {
+   containers.push(s);
+  }});
+ //containers.reverse();
+ return containers;
+}
+
+function isDisabledRow(tr) {
+ if ($('loading_'+tr.identify())) {
+  return true;
+ } else {
+  return false;
+ }
+}
+function disableRow(tr) {
+    var loadingDiv = new Element('div', {id:'loading_'+tr.identify()}).addClassName('loading');//.setStyle({border:'2px solid green'});
+    loadingDiv.setOpacity(0.4);
+    document.body.appendChild(loadingDiv);
+    //Unfortunately, IE doesn't like clonePosition(tr), so we have to go with this solution    
+    loadingDiv.setStyle({width:tr.getDimensions().width+'px',
+          height:tr.getDimensions().height+'px',
+          left:tr.down().cumulativeOffset().left+'px',
+          top:tr.down().cumulativeOffset().top+'px'});
+}
+function enableRow(tr) {
+ if ($('loading_'+tr.identify())) {
+  $('loading_'+tr.identify()).remove();
+ }
+
+}
+function augmentUrl(table_id) {
+ augmentedUrl = '';
+ tables = sortedTables.size();
+ for (var i = 0; i < tables; i++) {
+  if (sortedTables[i].id.match(table_id) && ajaxUrl[i]) {
+   tableIndex = i;
+   augmentedUrl = ajaxUrl[tableIndex]+'ajax='+sortedTables[tableIndex].id+'&limit='+rowsPerPage[tableIndex]+'&offset='+currentOffset[tableIndex]+'&sort='+currentSort[tableIndex]+'&order='+currentOrder[tableIndex]+'&other='+currentOther[tableIndex];
+  }
+ }
+ return augmentedUrl;
 }

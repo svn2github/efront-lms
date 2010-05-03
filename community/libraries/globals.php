@@ -39,7 +39,7 @@ $debugMode = 0;
 //Set the default content type to be utf-8, as everything in the system
 header('Content-Type: text/html; charset=utf-8');
 error_reporting( E_ERROR );
-//error_reporting( E_ALL );ini_set("display_errors", true);        //Uncomment this to get a full list of errors
+//error_reporting( E_ALL );ini_set("display_errors", true);define("NO_OUTPUT_BUFFERING", true);        //Uncomment this to get a full list of errors
 //Prepend the include path with efront folders
 set_include_path($path.'../PEAR/'
                 . PATH_SEPARATOR . $path.'includes/'
@@ -86,6 +86,13 @@ foreach ($_GET as $key => $value) {
     if (is_string($value)) {
         $_GET[$key] = strip_tags($value);
     }
+}
+if ($GLOBALS['configuration']['eliminate_post_xss']) {
+ foreach ($_POST as $key => $value) {
+     if (is_string($value)) {
+         $_POST[$key] = strip_script_tags($value);
+     }
+ }
 }
 //Language settings. $GLOBALS['loadLanguage'] can be used to exclude language files from loading, for example during certain ajax calls
 if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
@@ -251,7 +258,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 6556;
+    $build = 6679;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
@@ -582,6 +589,9 @@ function __autoload($className) {
     } else if (strpos($className, "payments") !== false || strpos($className, "cart") !== false) {
         /** Payments class */
         require_once "payments.class.php";
+    } else if (strpos($className, "curriculums") !== false) {
+        /**curriculums class*/
+        require_once "curriculums.class.php";
     } else if (strpos($className, "coupons") !== false) {
         /**coupons class*/
         require_once "coupons.class.php";

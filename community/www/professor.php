@@ -384,7 +384,7 @@ try {
      require_once "module_surveys.php";
  }
  elseif ($ctg == "social") {
-     include "social.php";
+     require_once "social.php";
  }
  elseif ($ctg == 'glossary') {
      /***/

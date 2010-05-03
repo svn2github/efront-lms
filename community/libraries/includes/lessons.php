@@ -124,9 +124,8 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     $form = new HTML_QuickForm("add_lessons_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=lessons&".$post_target, "", null, true); //Build the form
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register our custom input check function
     $form -> addElement('text', 'name', _LESSONNAME, 'class = "inputText"'); //The lesson name, it is required and of type 'text'
-
     $form -> addRule('name', _THEFIELD.' "'._LESSONNAME.'" '._ISMANDATORY, 'required', null, 'client');
-    //$form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
+    $form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'noscript');
     if ($GLOBALS['configuration']['onelanguage'] != true){
         $form -> addElement('select', 'languages_NAME', _LANGUAGE, EfrontSystem :: getLanguages(true, true)); //Add a language select box to the form
     }
@@ -196,7 +195,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
         $form -> setDefaults(array('active' => 1, //For a new lesson, by default active is set to 1 and price to 0
                                    'show_catalog' => 1,
            'price' => 0,
-                                   'course_only' => 0,
+                                   'course_only' => 1,
                                    'languages_NAME' => $GLOBALS['configuration']['default_language']));
     }
 
@@ -221,7 +220,8 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                        'max_users' => $form -> exportValue('max_users') ? $form -> exportValue('max_users') : null,
                         'show_catalog' => $form -> exportValue('show_catalog'),
                                        'course_only' => $form -> exportValue('course_only') == '' ? 0 : $form -> exportValue('course_only'),
-                                       'price' => $form -> exportValue('price'));
+                        'created' => time(),
+                        'price' => $form -> exportValue('price'));
 
 
                 try {
@@ -286,7 +286,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                     $copyPropertiesLesson = new EfrontLesson($values['copy_properties']);
                     unset($copyPropertiesLesson -> options['recurring']);
                     unset($copyPropertiesLesson -> options['recurring_duration']);
-                    $fields_update['options'] = serialize($copyPropertiesLesson -> options);
+                    $editLesson -> options = $copyPropertiesLesson -> options;
                 }
                 $editLesson -> lesson = array_merge($editLesson -> lesson, $fields_update);
 
@@ -385,7 +385,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                         $editLesson -> addUsers($_GET['login'], $userType);
                     }
                     if (in_array($_GET['login'], array_keys($lessonUsers))) {
-                        $userType != $lessonUsers[$_GET['login']]['role'] ? $editLesson -> setRoles($_GET['login'], $userType) : $editLesson -> removeUsers($_GET['login']);
+                        $userType != $lessonUsers[$_GET['login']]['role'] ? $editLesson -> setRoles($_GET['login'], $userType) : $editLesson -> archiveLessonUsers($_GET['login']);
                     }
                 } else if (isset($_GET['addAll'])) {
                     $userTypes = array();
@@ -396,7 +396,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                     $editLesson -> addUsers(array_keys($nonLessonUsers), $userTypes);
                 } else if (isset($_GET['removeAll'])) {
                     isset($_GET['filter']) ? $lessonUsers = eF_filterData($lessonUsers, $_GET['filter']) : null;
-                    $editLesson -> removeUsers(array_keys($lessonUsers));
+                    $editLesson -> archiveLessonUsers(array_keys($lessonUsers));
                 }
                 exit;
             } catch (Exception $e) {
@@ -461,11 +461,13 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     if (G_VERSIONTYPE == 'enterprise') {
         $result = eF_getTableDataFlat("lessons LEFT OUTER JOIN module_hcd_lesson_offers_skill ON module_hcd_lesson_offers_skill.lesson_ID = lessons.id","lessons.id, count(skill_ID) as skills_offered","lessons.archive=0","","id");
         foreach ($result['id'] as $key => $lesson_id) {
-            $lessons[$lesson_id]['skills_offered'] = $result['skills_offered'][$key];
+         if (isset($lessons[$lesson_id])) {
+             $lessons[$lesson_id]['skills_offered'] = $result['skills_offered'][$key];
+         }
         }
     }
     //Perform a query to get all the 'student' and 'student-like' users of every lesson 
-    $result = eF_getTableDataFlat("lessons l,users_to_lessons ul left outer join user_types ut on ul.user_type=ut.id", "l.id,count(*)", "l.id=ul.lessons_ID and (ul.user_type='student' or (ul.user_type = ut.id and ut.basic_user_type = 'student'))", "", "l.id" );
+    $result = eF_getTableDataFlat("lessons l,users_to_lessons ul left outer join user_types ut on ul.user_type=ut.id", "l.id,count(*)", "ul.archive=0 and l.id=ul.lessons_ID and (ul.user_type='student' or (ul.user_type = ut.id and ut.basic_user_type = 'student'))", "", "l.id" );
     if (sizeof($result) > 0) {
         $lessonUsers = array_combine($result['id'], $result['count(*)']);
     }

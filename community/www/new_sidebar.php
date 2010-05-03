@@ -163,7 +163,7 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
          $currentLesson = new EfrontLesson($_GET['new_lesson_id']);
      }
      $lessonMenu = eF_getMenu();
-     $lessons = eF_getTableData("users_to_lessons ul, lessons l", "l.name","ul.users_LOGIN='".$_SESSION['s_login']."' AND ul.active=1 AND l.id=ul.lessons_ID AND l.active=1 AND l.id = '".$_GET['new_lesson_id']."'");
+     $lessons = eF_getTableData("users_to_lessons ul, lessons l", "l.name","ul.archive =0 and ul.users_LOGIN='".$_SESSION['s_login']."' AND ul.active=1 AND l.id=ul.lessons_ID AND l.active=1 AND l.id = '".$_GET['new_lesson_id']."'");
      $lessonMenuId = $newMenu -> createMenu( array("title" => $lessons[0][name], "image" => "go_back.png", "link" => "new_sidebar.php?sbctg=lessons")); //onclick="top.mainframe.location='{$smarty.session.s_type}.php?ctg=lessons';"
      // Get current lesson menu modules
      $moduleMenus = eF_getModuleMenu($modules, "current_lesson");
@@ -205,7 +205,7 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
 
 	          */
       // baltas: why was this commented out? is needed to be hidden behind lesson specific options so that change lesson does not trigger sidebar reloading 
-         $newMenu -> insertMenuOption(array("id" => "lessons_a", "image" => "lessons", "link" => $_SESSION['s_type'].".php?ctg=lessons", "title" => _MYLESSONS), $lessonMenuId);
+         $newMenu -> insertMenuOption(array("id" => "lessons_a", "image" => "lessons", "link" => $_SESSION['s_type'].".php?ctg=lessons", "title" => _MYCOURSES), $lessonMenuId);
          // Get lessons menu modules
          $moduleMenus = eF_getModuleMenu($modules, "lessons");
          foreach ($moduleMenus as $moduleMenu) {
@@ -240,7 +240,7 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
                 $previousLesson -> removeChatroomUser($currentUser -> user ['login']);
              }
          }
-         $newMenu -> insertMenuOption(array("id" => "lessons_a", "image" => "lessons", "link" => $_SESSION['s_type'].".php?ctg=lessons", "title" => _MYLESSONS), $lessonMenuId);
+         $newMenu -> insertMenuOption(array("id" => "lessons_a", "image" => "lessons", "link" => $_SESSION['s_type'].".php?ctg=lessons", "title" => _MYCOURSES), $lessonMenuId);
          // Get lessons menu modules
          $moduleMenus = eF_getModuleMenu($modules, "lessons");
          foreach ($moduleMenus as $moduleMenu) {
@@ -283,13 +283,17 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
  $toolsMenuId = $newMenu -> createMenu( array("title" => _PERSONALOPTIONS));
  //$newMenu -> insertMenuOption(array("id" => "forum_a", "image" => "messages", "link" => basename($_SERVER['PHP_SELF'])."?ctg=forum", "title" => _ALLFORUMS), $toolsMenuId);
  if ($_SESSION['s_type'] == 'administrator') {
-     $newMenu -> insertMenuOption(array("id" => "personal_a", "image" => "user", "link" => "administrator.php?ctg=users&edit_user=".$_SESSION['s_login'], "title" => _PERSONALDATA), $toolsMenuId);
-     if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
+  if ($GLOBALS['configuration']['disable_dashboard'] != 1 && (!isset($currentUser -> coreAccess['dashboard']) || $currentUser -> coreAccess['dashboard'] != 'hidden')) {
+   $newMenu -> insertMenuOption(array("id" => "personal_a", "image" => "user", "link" => "administrator.php?ctg=users&edit_user=".$_SESSION['s_login'], "title" => _PERSONALDATA), $toolsMenuId);
+     }
+  if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
          $newMenu -> insertMenuOption(array("id" => "calendar_a", "image" => "calendar", "link" => "administrator.php?ctg=calendar", "title" => _CALENDAR), $toolsMenuId);
      }
  } else {
-     $newMenu -> insertMenuOption(array("id" => "personal_a", "image" => "user", "link" => $_SESSION['s_type'].".php?ctg=personal", "title" => _PERSONALDATA), $toolsMenuId);
-     if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
+  if ($GLOBALS['configuration']['disable_dashboard'] != 1 && (!isset($currentUser -> coreAccess['dashboard']) || $currentUser -> coreAccess['dashboard'] != 'hidden')) {
+   $newMenu -> insertMenuOption(array("id" => "personal_a", "image" => "user", "link" => $_SESSION['s_type'].".php?ctg=personal", "title" => _PERSONALDATA), $toolsMenuId);
+     }
+  if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
          $newMenu -> insertMenuOption(array("id" => "calendar_a", "image" => "calendar", "link" => $_SESSION['s_type'].".php?ctg=calendar", "title" => _CALENDAR), $toolsMenuId);
      }
      if (!isset($currentUser -> coreAccess['statistics']) || $currentUser -> coreAccess['statistics'] != 'hidden') {

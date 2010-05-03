@@ -187,6 +187,18 @@ abstract class EfrontUser
     public $core_access = array();
     /**
 
+     * Cache for modules
+
+     * @var array
+
+     * @since 3.6.1
+
+     * @access public
+
+     */
+    private static $cached_modules = false;
+    /**
+
      * Instantiate class
 
      *
@@ -367,9 +379,9 @@ abstract class EfrontUser
                 mkdir($user_dir.'message_attachments/Drafts/', 0755);
                 mkdir($user_dir.'avatars/', 0755);
                 //Create database representations for personal messages folders (it has nothing to do with filsystem database representation)
-                eF_insertTableData("f_folders", array('name' => 'Incoming', 'users_LOGIN' => $userProperties['login']));
-                eF_insertTableData("f_folders", array('name' => 'Sent', 'users_LOGIN' => $userProperties['login']));
-                eF_insertTableData("f_folders", array('name' => 'Drafts', 'users_LOGIN' => $userProperties['login']));
+    eF_insertTableDataMultiple("f_folders", array(array('name' => 'Incoming', 'users_LOGIN' => $userProperties['login']),
+                 array('name' => 'Sent', 'users_LOGIN' => $userProperties['login']),
+                 array('name' => 'Drafts', 'users_LOGIN' => $userProperties['login'])));
                 // Assign to the new user all skillgap tests that should be automatically assigned to every new student
                 $newUser = EfrontUserFactory :: factory($userProperties['login']);
                 $newUser -> user['password'] = $passwordNonTransformed;
@@ -380,9 +392,11 @@ abstract class EfrontUser
                 EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_JOIN, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname']));
                 ///MODULES1 - Module user add events
                 // Get all modules (NOT only the ones that have to do with the user type)
-                $modules = eF_loadAllModules();
+                if (!$cached_modules) {
+                 $cached_modules = eF_loadAllModules();
+                }
                 // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
-                foreach ($modules as $module) {
+                foreach ($cached_modules as $module) {
                     $module -> onNewUser($userProperties['login']);
                 }
                 return $newUser;
@@ -865,32 +879,13 @@ abstract class EfrontUser
 
      */
     public function logout($destroySession = true) {
-     /*
-
-    	if (isset($_SESSION['facebook_user'])) {
-
-			require_once($path . "external/facebook-platform/php/facebook.php");
-
-		    $api_key = '1248fb9768a98f1fc6afc23e89d11d93';
-
-		    $secret_key = '14726293d8ac04015547bcffb8beae4c';
-
-			$facebook = new Facebook($api_key, $secret_key);
-
-			//$facebook->clear_cookie_state();
-
-			//$facebook->
-
-			$facebook->expire_session();
-
-			//unset($_SESSION['facebook_user']);
-
-			//echo "ontws";	
-
-    	}
-
-    	*/
+     // Delete FB-connect related cookies - without this code the "Session key invalid problem" appears
      if (isset($GLOBALS['configuration']['facebook_api_key']) && $GLOBALS['configuration']['facebook_api_key'] && $_COOKIE[$GLOBALS['configuration']['facebook_api_key'] . "_user"]) {
+      foreach ($_COOKIE as $cookie_key => $cookie) {
+       if (strpos($GLOBALS['configuration']['facebook_api_key'], $cookie) !== false) {
+        unset($_COOKIE[$key]);
+       }
+      }
       //$path = "../libraries/";
    //require_once $path . "external/facebook-platform/php/facebook.php";
    //$facebook = new Facebook($GLOBALS['configuration']['facebook_api_key'], $GLOBALS['configuration']['facebook_secret']);		    
@@ -1843,6 +1838,39 @@ abstract class EfrontUser
         }
         return $encrypted;
     }
+    /**
+
+     * Convert the user argument to a user login
+
+     *
+
+     * @param mixed $login The argument to convert
+
+     * @return string The user's login
+
+     * @since 3.6.3
+
+     * @access public
+
+     * @static
+
+     */
+    public static function convertArgumentToUserLogin($login) {
+     if ($login instanceof EfrontLessonUser) {
+      $login = $login -> user['login'];
+     } else if (!eF_checkParameter($login, 'login')) {
+      throw new EfrontUserException(_INVALIDLOGIN, EfrontUserException::INVALID_LOGIN);
+     }
+     return $login;
+    }
+ public static function convertUserObjectsToArrays($userObjects) {
+  foreach ($userObjects as $key => $value) {
+   if ($value instanceOf EfrontUser) {
+    $userObjects[$key] = $value -> user;
+   }
+  }
+  return $userObjects;
+ }
 }
 /**
 
@@ -1995,7 +2023,7 @@ abstract class EfrontLessonUser extends EfrontUser
      * @access public
 
      */
-    public $lessons = array();
+    public $lessons = false;
     /**
 
      * Assign lessons to user.
@@ -2146,6 +2174,10 @@ abstract class EfrontLessonUser extends EfrontUser
             }
         }
         eF_deleteTableData("users_to_lessons", "users_LOGIN = '".$this -> user['login']."' and lessons_ID in (".implode(",", $lessonIds).")"); //delete lessons from list
+        foreach ($lessonIds as $lessonId) {
+         $cacheKey = "user_lesson_status:lesson:".$lessonId."user:".$this -> user['login'];
+         Cache::resetCache($cacheKey);
+        }
         //Timelines event
         EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_REMOVAL, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $lessonIds));
         $userLessons = eF_getTableDataFlat("users_to_lessons", "lessons_ID, user_type", "users_LOGIN = '".$this -> user['login']."'");
@@ -2198,13 +2230,13 @@ abstract class EfrontLessonUser extends EfrontUser
             if ($returnObjects) {
                 $userLessons = array();
                 //Assign all lessons to an array, this way avoiding looping queries
-                $result = eF_getTableData("lessons l, users_to_lessons ul", "l.*", "l.archive=0 and l.id=ul.lessons_ID and ul.users_LOGIN = '".$this -> user['login']."'", "l.name");
+                $result = eF_getTableData("lessons l, users_to_lessons ul", "l.*", "l.archive=0 and l.id=ul.lessons_ID and ul.archive = 0 and ul.users_LOGIN = '".$this -> user['login']."'", "l.name");
                 foreach ($result as $value) {
                     $lessons[$value['id']] = $value;
                 }
                 $courseLessons = array();
                 $nonCourseLessons = array();
-                $result = eF_getTableData("users u,users_to_lessons ul, lessons l", "ul.*, u.user_type as basic_user_type, u.user_types_ID", "l.archive=0 and l.id = ul.lessons_ID and ul.users_LOGIN = u.login and ul.users_LOGIN = '".$this -> user['login']."' and ul.lessons_ID != 0", "l.name");
+                $result = eF_getTableData("users u,users_to_lessons ul, lessons l", "ul.*, u.user_type as basic_user_type, u.user_types_ID", "l.archive=0 and l.id = ul.lessons_ID and ul.archive=0 and ul.users_LOGIN = u.login and ul.users_LOGIN = '".$this -> user['login']."' and ul.lessons_ID != 0", "l.name");
                 foreach ($result as $value) {
                     try {
                         $lesson = new EfrontLesson($lessons[$value['lessons_ID']]);
@@ -2218,7 +2250,7 @@ abstract class EfrontLessonUser extends EfrontUser
                 }
                 $userLessons = $courseLessons + $nonCourseLessons;
             } else {
-                $result = eF_getTableDataFlat("users_to_lessons, lessons", "lessons_ID, user_type", "archive=0 and lessons_ID=id and users_LOGIN = '".$this -> user['login']."'", "name");
+                $result = eF_getTableDataFlat("users_to_lessons ul, lessons l", "ul.lessons_ID, ul.user_type", "l.archive=0 and ul.archive=0 and ul.lessons_ID=l.id and ul.users_LOGIN = '".$this -> user['login']."'", "l.name");
                 if (sizeof($result) > 0) {
                  $this -> lessons = array_combine($result['lessons_ID'], $result['user_type']);
                 } else {
@@ -2229,6 +2261,8 @@ abstract class EfrontLessonUser extends EfrontUser
                         $userType = $this -> user['user_type'];
                         $this -> lessons[$lessonId] = $userType;
                         eF_updateTableData("users_to_lessons", array("user_type" => $userType), "lessons_ID=$lessonId and users_LOGIN='".$this -> user['login']."'");
+                  $cacheKey = "user_lesson_status:lesson:".$lessonId."user:".$this -> user['login'];
+                  Cache::resetCache($cacheKey);
                     }
                 }
                 unset($userType);
@@ -2251,6 +2285,49 @@ abstract class EfrontLessonUser extends EfrontUser
         }
         return $userLessons;
     }
+    //@TODO: REPLACE getLessons
+ public function getUserLessons() {
+  //if ($this -> lessons === false) {			//COMMENT-IN WHEN IT REPLACES getLessons()
+   $this -> initializeLessons();
+  //}
+  $lessons = array();
+  foreach ($this -> lessons as $key => $lesson) {
+   $lessons[$key] = new EfrontLesson($lesson);
+  }
+  return $lessons;
+ }
+ /**
+
+	 * Initialize user lessons
+
+	 * 
+
+	 * @since 3.6.1
+
+	 * @access protected
+
+	 */
+ private function initializeLessons() {
+  $result = eF_getTableData("users_to_lessons ul, lessons l",
+          "ul.*, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, 1 as has_lesson",
+          "l.archive = 0 and ul.archive = 0 and l.id=ul.lessons_ID and ul.users_LOGIN='".$this -> user['login']."'");
+  if (empty($result)) {
+   $this -> lessons = array();
+  } else {
+   foreach ($result as $value) {
+    $this -> lessons[$value['id']] = $value;
+   }
+  }
+ }
+ public function getUserAutonomousLessons() {
+  $lessons = $this -> getUserLessons();
+  foreach ($lessons as $key => $lesson) {
+   if ($lesson -> lesson['instance_source']) {
+    unset($lessons[$key]);
+   }
+  }
+  return $lessons;
+ }
     /**
 
      * Get user's eligible lessons
@@ -2337,7 +2414,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
      */
     public function getNonLessons($returnObjects = false) {
-        $userLessons = eF_getTableDataFlat("users_to_lessons", "lessons_ID", "users_LOGIN = '".$this -> user['login']."'");
+        $userLessons = eF_getTableDataFlat("users_to_lessons", "lessons_ID", "archive=0 and users_LOGIN = '".$this -> user['login']."'");
         //sizeof($userLessons) > 0 ? $sql = "and id not in (".implode(",", $userLessons['lessons_ID']).")" : $sql = '';
         sizeof($userLessons) > 0 ? $sql = "id not in (".implode(",", $userLessons['lessons_ID']).")" : $sql = '';
         if ($returnObjects) {
@@ -2430,7 +2507,7 @@ abstract class EfrontLessonUser extends EfrontUser
     public function getCourses($returnObjects = false, $basicType = false, $options = array()) {
         if ($returnObjects) {
             $userCourses = array();
-            $result = eF_getTableData("users_to_courses uc, courses c", "uc.courses_ID, uc.user_type, c.*", "uc.courses_ID=c.id and uc.users_LOGIN='".$this -> user['login']."'", "c.name");
+            $result = eF_getTableData("users_to_courses uc, courses c", "(select count( * ) from courses l where instance_source=c.id) as has_instances, uc.courses_ID, uc.user_type, c.*", "uc.archive=0 and uc.courses_ID=c.id and uc.users_LOGIN='".$this -> user['login']."'", "c.name");
             foreach ($result as $value) {
                 try {
                     $userCourses[$value['courses_ID']] = new EfrontCourse($value);
@@ -2444,7 +2521,7 @@ abstract class EfrontLessonUser extends EfrontUser
             }
             return $userCourses;
         } else {
-            $userCourses = eF_getTableDataFlat("users_to_courses, courses", "courses_ID, user_type", "courses_ID=id and users_LOGIN='".$this -> user['login']."'", "name");
+            $userCourses = eF_getTableDataFlat("users_to_courses uc, courses c", "uc.courses_ID, uc.user_type", "uc.archive=0 and uc.courses_ID=c.id and uc.users_LOGIN='".$this -> user['login']."'", "c.name");
             if (sizeof($userCourses) > 0) {
                 return array_combine($userCourses['courses_ID'], $userCourses['user_type']);
             } else {
@@ -2466,6 +2543,401 @@ abstract class EfrontLessonUser extends EfrontUser
             }
         }
     }
+    /**
+
+     * The same as self::getUserCoursesAggregatingResultsIncludingUnassigned, only it has an addition "where" condition
+
+     * @param array $constraints
+
+     * @return array
+
+     * @since 3.6.2
+
+     */
+    public function getUserCoursesAggregatingResults($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $select = "c.*,
+       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
+         as user_type,
+       (select max(score) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as score,
+       (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as completed,
+       (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as to_timestamp,
+       (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as has_course,
+       (select count( * ) from courses c1 where c1.instance_source=c.id )
+         as has_instances,
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+         as num_students,
+       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
+         as num_lessons";
+  $where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
+     $result = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select,
+         implode(" and ", $where), $orderby, $groupby, $limit);
+  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+    }
+    public function countUserCoursesAggregatingResults($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+     list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $where[] = "d.id=c.directions_ID and (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
+     $result = eF_countTableData("directions d,courses c left outer join (select id from courses) r on c.id=r.id", "c.id",
+         implode(" and ", $where));
+  return $result[0]['count'];
+    }
+    public function getUserCourses($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $select = "c.*, uc.courses_ID,uc.completed,uc.score,uc.user_type,uc.from_timestamp as active_in_course, uc.to_timestamp, 1 as has_course,
+       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
+         as user_type,
+       (select count( * ) from courses c1, users_to_courses uc1 where c1.instance_source=c.id and uc1.courses_ID=c1.id and uc.users_LOGIN='".$this -> user['login']."')
+         as has_instances,
+       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
+         as num_lessons,
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+         as num_students";
+  $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
+     $result = eF_getTableData("courses c, users_to_courses uc", $select,
+         implode(" and ", $where), $orderby, $groupby, $limit);
+  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+    }
+    public function countUserCourses($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+     list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
+     $result = eF_countTableData("courses c, users_to_courses uc", "c.id",
+         implode(" and ", $where));
+  return $result[0]['count'];
+    }
+    public function getUserCoursesIncludingUnassigned($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $select = "c.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course,
+       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
+         as user_type,
+       (select count( * ) from courses l where instance_source=c.id)
+         as has_instances,
+       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
+         as num_lessons,
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+         as num_students";
+  //$where[] = "d.id=c.directions_ID";
+  $result = eF_getTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select,
+         implode(" and ", $where), $orderby, "", $limit);
+  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+    }
+    public function countUserCoursesIncludingUnassigned($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+     list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  //$where[] = "d.id=c.directions_ID";
+     $result = eF_countTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", "c.id",
+         implode(" and ", $where));
+  return $result[0]['count'];
+    }
+    /**
+
+     * Get all courses, signifying those that the user already has, and aggregate instance results
+
+     * 
+
+     * @param array $constraints The constraints for the query
+
+     * @return array An array of EfrontCourse objects
+
+     * @since 3.6.2
+
+     * @access public
+
+     */
+    public function getUserCoursesAggregatingResultsIncludingUnassigned($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+     list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $select = "c.*,
+       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
+         as user_type,
+       (select max(score) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as score,
+       (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as completed,
+       (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as to_timestamp,
+       (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
+         as has_course,
+       (select count( * ) from courses c1 where c1.instance_source=c.id )
+         as has_instances,
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+         as num_students,
+       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
+         as num_lessons";
+  //$where[] = "d.id=c.directions_ID";
+     $result = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select,
+         implode(" and ", $where), $orderby, $groupby, $limit);
+  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+    }
+    public function countUserCoursesAggregatingResultsIncludingUnassigned($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+     list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  //$where[] = "d.id=c.directions_ID";
+     $result = eF_countTableData("courses c left outer join (select id from courses) r on c.id=r.id", "c.id",
+         implode(" and ", $where));
+  return $result[0]['count'];
+    }
+    public function filterCoursesBasedOnInstance($courses, $instanceSource) {
+     foreach ($courses as $key => $course) {
+   if ($course -> course['instance_source'] != $instanceSource && $course -> course['id'] != $instanceSource) {
+    unset($courses[$key]);
+   } else {
+    $courses[$key] -> course['num_lessons'] = $course -> countCourseLessons();
+   }
+  }
+     return $courses;
+    }
+    /**
+
+     * Return only regular courses, not instances. 
+
+     * Assign the completion and highest instance score to the parent course, from its instances.
+
+     *  
+
+     */
+    public function filterCoursesWithInstanceStatus($courses) {
+     foreach ($courses as $key => $course) {
+      if ($course -> course['instance_source']) {
+       $instanceSource = $course -> course['instance_source'];
+       if ($course -> course['completed']) {
+        $courses[$instanceSource] -> course['completed'] = 1;
+        if ($course -> course['score'] > $courses[$instanceSource] -> course['score']) {
+         $courses[$instanceSource] -> course['score'] = $course -> course['score'];
+        }
+       }
+    unset($courses[$key]);
+   } else {
+    $courses[$key] -> course['num_lessons'] = $course -> countCourseLessons();
+   }
+  }
+     return $courses;
+    }
+ public function getUserStatusInIndependentLessons() {
+  $userLessons = $this -> getUserStatusInLessons();
+  foreach ($userLessons as $key => $lesson) {
+   if ($lesson -> lesson['course_only']) {
+    unset($userLessons[$key]);
+   }
+  }
+  return $userLessons;
+ }
+ public function getUserStatusInCourseLessons($course) {
+  $userLessons = $this -> getUserStatusInLessons();
+  $courseLessons = $course -> getCourseLessons();
+  foreach ($userLessons as $key => $lesson) {
+   if (!in_array($key, array_keys($courseLessons))) {
+    unset($userLessons[$key]);
+   }
+  }
+  return $userLessons;
+ }
+ public function getUserStatusInLessons($lessons = false) {
+  $userLessons = $this -> getUserLessons();
+  if ($lessons !== false) {
+   $lessonIds = $this -> verifyLessonsList($lessons);
+   foreach ($lessonIds as $id) {
+    if (in_array($id, array_keys($userLessons))) {
+     $temp[$id] = $userLessons[$id];
+    }
+   }
+   $userLessons = $temp;
+  }
+  foreach ($userLessons as $key => $lesson) {
+   $userLessons[$key] -> lesson['project_status'] = $this -> getUserProjectsStatusInLesson($lesson);
+   $userLessons[$key] -> lesson['test_status'] = $this -> getUserTestsStatusInLesson($lesson);
+   $userLessons[$key] -> lesson['overall_progress'] = $this -> getUserOverallProgressInLesson($lesson);
+   $userLessons[$key] -> lesson['time_in_lesson'] = $this -> getUserTimeInLesson($lesson);
+  }
+  return $userLessons;
+ }
+    public function archiveUserCourses($courses) {
+  $courses = $this -> verifyCoursesList($courses);
+  $this -> sendNotificationsRemoveUserCourses($courses);
+  foreach ($courses as $course) {
+   $fields = array("archive" => time());
+   $where = "users_LOGIN='".$this -> user['login']."' and courses_ID=$course";
+   EfrontCourse::persistCourseUsers($fields, $where, $course, $this -> user['login']);
+  }
+  $this -> courses = false; //Reset users cache
+  return $this -> getCourses();
+    }
+ private function verifyCoursesList($courses) {
+  if (!is_array($courses)) {
+   $courses = array($courses);
+  }
+  foreach ($courses as $key => $value) {
+   if ($value instanceOf EfrontCourse) {
+    $courses[$key] = $value -> course['id'];
+   } elseif (!eF_checkParameter($value, 'id')) {
+    unset($courses[$key]);
+   }
+  }
+  return array_values(array_unique($courses)); //array_values() to reindex array   
+ }
+ private function verifyRolesList($roles, $length) {
+  if (!is_array($roles)) {
+   $roles = array($roles);
+  }
+  if (sizeof($roles) < $length) {
+   $roles = array_pad($roles, $length, $roles[0]);
+  }
+  return array_values($roles); //array_values() to reindex array
+ }
+ private function sendNotificationsRemoveUserCourses($courses) {
+  foreach ($courses as $key => $course) {
+   $courseIds[] = $key;
+  }
+  EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_REMOVAL,
+          "users_LOGIN" => $this -> user['login'],
+          "lessons_ID" => $courseIds));
+ }
+ public function archiveUserLessons($lessons) {
+  $lessons = $this -> verifyLessonsList($lessons);
+  $this -> sendNotificationsRemoveUserLessons($lessons);
+  foreach ($lessons as $lesson) {
+   eF_updateTableData("users_to_lessons", array("archive" => time()), "users_LOGIN='".$this -> user['login']."' and lessons_ID=$lesson");
+   $cacheKey = "user_lesson_status:lesson:".$lesson."user:".$this -> user['login'];
+   Cache::resetCache($cacheKey);
+  }
+  $this -> lessons = false; //Reset users cache
+  return $this -> getLessons();
+    }
+ private function verifyLessonsList($lessons) {
+  if (!is_array($lessons)) {
+   $lessons = array($lessons);
+  }
+  foreach ($lessons as $key => $value) {
+   if ($value instanceOf EfrontLesson) {
+    $lessons[$key] = $value['id'];
+   } elseif (!eF_checkParameter($value, 'id')) {
+    unset($lessons[$key]);
+   }
+  }
+  return array_values(array_unique($lessons)); //array_values() to reindex array   
+ }
+ private function verifyLessonObjectsList($lessons) {
+  if (!is_array($lessons)) {
+   $lessons = array($lessons);
+  }
+  $lessonsList = array();
+  foreach ($lessons as $value) {
+   if (!($value instanceOf EfrontLesson)) {
+    $value = new EfrontLesson($value);
+    $lessonsList[$value -> lesson['id']] = $value;
+   }
+  }
+  return $lessonsList;
+ }
+ private function sendNotificationsRemoveUserLessons($lessons) {
+  foreach ($lessons as $key => $lesson) {
+   $lessonIds[] = $key;
+  }
+  EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_REMOVAL,
+          "users_LOGIN" => $this -> user['login'],
+          "lessons_ID" => $lessonIds));
+ }
+ private function getUserTimeInLesson($lesson) {
+  $userTimes = EfrontStats :: getUsersTimeAll(false, false, array($lesson -> lesson['id'] => $lesson -> lesson['id']), array($this -> user['login'] => $this -> user['login']));
+  $userTimes = $userTimes[$lesson -> lesson['id']][$this -> user['login']];
+  $userTimes['time_string'] = '';
+  if ($userTimes['total_seconds']) {
+   !$userTimes['hours'] OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
+   !$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
+   !$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
+  }
+  return $userTimes;
+ }
+ private function getUserOverallProgressInLesson($lesson) {
+  $totalUnits = $completedUnits = 0;
+  $contentTree = new EfrontContentTree($lesson);
+  foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($contentTree -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
+   $totalUnits++;
+  }
+  if ($doneContent = unserialize($lesson -> lesson['done_content'])) {
+   $completedUnits = sizeof($doneContent);
+  }
+  if ($totalUnits) {
+   $completedUnitsPercentage = round(100 * $completedUnits/$totalUnits, 2);
+   return array('total' => $totalUnits,
+       'completed' => $completedUnits,
+       'percentage' => $completedUnitsPercentage);
+  } else {
+   return array();
+  }
+ }
+ private function getUserTestsStatusInLesson($lesson) {
+  $completedTests = $meanTestScore = 0;
+  $tests = $lesson -> getTests(true, true);
+  $totalTests = sizeof($tests);
+  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score", "t.id=ct.tests_ID and ct.users_LOGIN='".$this -> user['login']."' and ct.archive=0 and t.lessons_ID=".$lesson -> lesson['id']);
+  foreach ($result as $value) {
+   if (in_array($value['tests_ID'], array_keys($tests))) {
+    $meanTestScore += $value['score'];
+    $completedTests++;
+   }
+  }
+  $scormTests = $this -> getUserScormTestsStatusInLesson($lesson);
+  $totalTests += sizeof($scormTests);
+  foreach ($scormTests as $value) {
+   $meanTestScore += $value['score'];
+   $completedTests++;
+  }
+  if ($totalTests) {
+   $completedTestsPercentage = round(100 * $completedTests/$totalTests, 2);
+   $meanTestScore = round($meanTestScore/$completedTests, 2);
+   return array('total' => $totalTests,
+       'completed' => $completedTests,
+       'percentage' => $completedTestsPercentage,
+       'mean_score' => $meanTestScore);
+  } else {
+   return array();
+  }
+ }
+ private function getUserScormTestsStatusInLesson($lesson) {
+        $usersDoneScormTests = eF_getTableData("scorm_data sd left outer join content c on c.id=sd.content_ID",
+                    "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
+                    "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$this -> user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$lesson -> lesson['id']);
+  $tests = array();
+        foreach ($usersDoneScormTests as $doneScormTest) {
+         if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {
+          $doneScormTest['score'] = 100 * $doneScormTest['score'] / ($doneScormTest['minscore'] + $doneScormTest['maxscore']);
+         } else {
+          $doneScormTest['score'] = $doneScormTest['score'];
+         }
+         $tests[$doneScormTest['id']] = $doneScormTest['score'];
+        }
+  return $tests;
+ }
+ private function getUserProjectsStatusInLesson($lesson) {
+  $completedProjects = $meanProjectScore = 0;
+  $projects = $lesson -> getProjects(true, $this);
+  $totalProjects = sizeof($projects);
+  foreach ($projects as $project) {
+   if ($project -> project['grade'] || $project -> project['grade'] === 0) {
+    $completedProjects++;
+    $meanProjectScore += $project -> project['grade'];
+   }
+  }
+  if ($totalProjects) {
+   $completedProjectsPercentage = round(100 * $completedProjects/$totalProjects, 2);
+   $meanProjectScore = round($meanProjectScore/$completedProjects, 2);
+   return array('total' => $totalProjects,
+       'completed' => $completedProjects,
+       'percentage' => $completedProjectsPercentage,
+       'mean_score' => $meanProjectScore);
+  } else {
+   return array();
+  }
+ }
     /**
 
      * Get user certificates
@@ -2492,19 +2964,21 @@ abstract class EfrontLessonUser extends EfrontUser
 
      */
     public function getIssuedCertificates() {
-     $result = eF_getTableData("users_to_courses uc, courses c", "c.id, c.certificate_expiration, uc.issued_certificate, c.active", "uc.courses_ID=c.id AND uc.issued_certificate IS NOT NULL AND uc.users_LOGIN='".$this -> user['login']."'", "c.name");
+     $courses = $this -> getCourses(true);
      $certificates = array();
-        foreach ($result as $value) {
-         $certificateInfo = unserialize($value['issued_certificate']);
-         $certificates[] = array("courses_ID" => $value['id'],
-               "course_name" => $certificateInfo['course_name'],
-               "serial_number" => $certificateInfo['serial_number'],
-               "grade" => $certificateInfo['grade'],
-               "issue_date" => $certificateInfo['date'],
-               "active" => $value['active'],
-               "expiration_date"=> ($value['certificate_expiration'])?($certificateInfo['date']+$value['certificate_expiration']):_NEVER);
-        }
-        return $certificates;
+     foreach ($courses as $course) {
+      if ($certificateInfo = unserialize($course -> userStatus['issued_certificate'])) {
+       $certificateInfo = unserialize($course -> userStatus['issued_certificate']);
+          $certificates[] = array("courses_ID" => $course -> course['id'],
+                "course_name" => $course -> course['name'],
+                "serial_number" => $certificateInfo['serial_number'],
+                "grade" => $certificateInfo['grade'],
+                "issue_date" => $certificateInfo['date'],
+                "active" => $course -> course['active'],
+                "expiration_date"=> ($course -> course['certificate_expiration']) ? ($certificateInfo['date'] + $course -> course['certificate_expiration']) : _NEVER);
+      }
+     }
+     return $certificates;
     }
     /**
 
@@ -2551,20 +3025,13 @@ abstract class EfrontLessonUser extends EfrontUser
      * @todo auto_projects
 
      */
-    public function addCourses($courseIds, $userTypes, $activate = 0) {
-        if (sizeof($this -> courses) == 0) {
-            $this -> getCourses();
-        }
-        if (!is_array($courseIds)) {
-            $courseIds = array($courseIds);
-        }
-        if (!is_array($userTypes)) {
-            $userTypes = array($userTypes);
-        }
-        $courses = eF_getTableData("courses", "*", "id in (".implode(",", $courseIds).")");
+    public function addCourses($courses, $roles = 'student', $confirmed = true) {
+     $courses = $this -> verifyCoursesList($courses);
+     $roles = $this -> verifyRolesList($roles, sizeof($courses));
+        $courses = eF_getTableData("courses", "*", "id in (".implode(",", $courses).")");
         foreach ($courses as $key => $course) {
             $course = new EfrontCourse($course);
-            $course -> addUsers($this -> user['login'], $userTypes[$key], $activate);
+            $course -> addUsers($this -> user['login'], $roles[$key], $confirmed);
         }
         $this -> courses = false; //Reset courses information
         return $this -> getCourses();
@@ -2602,17 +3069,11 @@ abstract class EfrontLessonUser extends EfrontUser
      * @access public
 
      */
-    public function confirmCourses($courseIds) {
-        if (sizeof($this -> courses) == 0) {
-            $this -> getCourses();
-        }
-        if (!is_array($courseIds)) {
-            $courseIds = array($courseIds);
-        }
-        $courses = eF_getTableData("courses", "*", "id in (".implode(",", $courseIds).")");
+    public function confirmCourses($courses) {
+     $courses = $this -> verifyCoursesList($courses);
         foreach ($courses as $key => $course) {
             $course = new EfrontCourse($course);
-            $course -> confirm($this -> user['login']);
+            $course -> confirm($this);
         }
         $this -> courses = false; //Reset courses information
         return $this -> getCourses();
@@ -2648,23 +3109,22 @@ abstract class EfrontLessonUser extends EfrontUser
      * @access public
 
      */
-    public function removeCourses($courseIds) {
-        if (!is_array($courseIds)) {
-            $courseIds = array($courseIds);
-        }
-        foreach ($courseIds as $key => $courseID) {
-            if (!eF_checkParameter($courseID, 'id')) {
-                unset($courseIds[$key]); //Remove illegal vaues from courses array.
-            }
-        }
+    public function removeCourses($courses) {
+     $courseIds = $this -> verifyCoursesList($courses);
         $result = eF_getTableData("lessons_to_courses lc, users_to_courses uc", "lc.*", "lc.courses_ID=uc.courses_ID and uc.users_LOGIN = '".$this -> user['login']."'");
         foreach ($result as $value) {
             $lessonsToCourses[$value['lessons_ID']][] = $value['courses_ID'];
             $coursesToLessons[$value['courses_ID']][] = $value['lessons_ID'];
         }
-        $userLessonsThroughCourse = eF_getTableDataFlat("lessons_to_courses lc, users_to_courses uc", "lc.lessons_ID", "lc.courses_ID=uc.courses_ID and uc.courses_ID in (".implode(",", $courseIds).") and uc.users_LOGIN = '".$this -> user['login']."'");
-        $userLessonsThroughCourse = $userLessonsThroughCourse['lessons_ID'];
+        if (!empty($courseIds)) {
+         $userLessonsThroughCourse = eF_getTableDataFlat("lessons_to_courses lc, users_to_courses uc", "lc.lessons_ID", "lc.courses_ID=uc.courses_ID and uc.courses_ID in (".implode(",", $courseIds).") and uc.users_LOGIN = '".$this -> user['login']."'");
+         $userLessonsThroughCourse = $userLessonsThroughCourse['lessons_ID'];
+        }
         eF_deleteTableData("users_to_courses", "users_LOGIN = '".$this -> user['login']."' and courses_ID in (".implode(",", $courseIds).")"); //delete courses from list
+        foreach ($courseIds as $id) {
+         $cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
+         Cache::resetCache($cacheKey);
+        }
         EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_REMOVAL, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $courseIds));
         foreach ($userLessonsThroughCourse as $lesson) {
             if (sizeof($lessonsToCourses[$lesson]) == 1) {
@@ -2709,11 +3169,11 @@ abstract class EfrontLessonUser extends EfrontUser
 
      */
     public function getNonCourses($returnObjects = false) {
-        $userCourses = eF_getTableDataFlat("users_to_courses", "courses_ID", "users_LOGIN = '".$this -> user['login']."'");
+        $userCourses = eF_getTableDataFlat("users_to_courses", "courses_ID", "archive = 0 and users_LOGIN = '".$this -> user['login']."'");
         //sizeof($userCourses) > 0 ? $sql = "and id not in (".implode(",", $userCourses['courses_ID']).")" : $sql = '';
         sizeof($userCourses) > 0 ? $sql = "id not in (".implode(",", $userCourses['courses_ID']).")" : $sql = '';
         if ($returnObjects) {
-            $nonUserCourses = array();
+         $nonUserCourses = array();
             //$courses        = eF_getTableData("courses", "*", "languages_NAME='".$this -> user['languages_NAME']."'".$sql);
             $courses = eF_getTableData("courses", "*", $sql);
             foreach ($courses as $value) {
@@ -2750,7 +3210,7 @@ abstract class EfrontLessonUser extends EfrontUser
     public function getEligibleNonCourses() {
         $courses = $this -> getNonCourses(true);
         foreach ($courses as $key => $course) {
-            if (!$course -> course['active'] || !$course -> course['publish'] || !$course -> course['show_catalog']) {
+            if (!$course -> course['active'] || !$course -> course['publish'] || (!$course -> course['show_catalog'] && !$course -> course['instance_source'])) {
                 unset($courses[$key]);
             }
         }
@@ -2799,6 +3259,8 @@ abstract class EfrontLessonUser extends EfrontUser
         }
         if ($lessonId && eF_checkParameter($lessonId, 'id')) {
             eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$this -> user['login']."' and lessons_ID=$lessonId");
+            $cacheKey = "user_lesson_status:lesson:".$lessonId."user:".$this -> user['login'];
+            Cache::resetCache($cacheKey);
         } else {
             eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$this -> user['login']."'");
         }
@@ -2977,7 +3439,8 @@ abstract class EfrontLessonUser extends EfrontUser
         $info['user_types_ID'] = $this -> user['user_types_ID'];
         $info['student_lessons'] = $this -> getLessons(true, 'student');
         $info['professor_lessons'] = $this -> getLessons(true, 'professor');
-        $info['total_lessons'] = sizeof($info['student_lessons']) + sizeof($info['professor_lessons']);
+        $info['total_lessons'] = sizeof($this -> getUserLessons());
+        $info['total_courses'] = sizeof($this -> getUserCourses());
         $info['total_login_time'] = self :: getLoginTime($this -> user['login']);
         $info['language'] = $languages[$this -> user['languages_NAME']];
         $info['active'] = $this -> user['active'];
@@ -3018,7 +3481,7 @@ abstract class EfrontLessonUser extends EfrontUser
      */
     public function getRelatedUsers() {
         $myLessons = $this ->getLessons();
-        $other_users = eF_getTableDataFlat("users_to_lessons", "distinct users_LOGIN" , "lessons_ID IN ('" . implode("','", array_keys($myLessons)) . "') AND users_LOGIN <> '" . $this -> user['login'] . "'");
+        $other_users = eF_getTableDataFlat("users_to_lessons", "distinct users_LOGIN" , "archive=0 and lessons_ID IN ('" . implode("','", array_keys($myLessons)) . "') AND users_LOGIN <> '" . $this -> user['login'] . "'");
         $users = $other_users['users_LOGIN'];
         return $users;
     }
@@ -3046,7 +3509,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
      */
     public function getCommonLessons($login) {
-        $result = eF_getTableData("users_to_lessons as ul1 JOIN users_to_lessons as ul2 ON ul1.lessons_ID = ul2.lessons_ID JOIN lessons ON ul1.lessons_ID = lessons.id", "lessons.id, lessons.name", "ul1.users_LOGIN = '".$this -> user['login']."' AND ul2.users_LOGIN = '".$login."'");
+        $result = eF_getTableData("users_to_lessons as ul1 JOIN users_to_lessons as ul2 ON ul1.lessons_ID = ul2.lessons_ID JOIN lessons ON ul1.lessons_ID = lessons.id", "lessons.id, lessons.name", "ul1.archive=0 and ul2.archive=0 and ul1.users_LOGIN = '".$this -> user['login']."' AND ul2.users_LOGIN = '".$login."'");
         $common_lessons = array();
         foreach ($result as $common_lesson) {
             $common_lessons[$common_lesson['id']] = $common_lesson;
@@ -3083,6 +3546,30 @@ abstract class EfrontLessonUser extends EfrontUser
     public function getSkillgapTests() {
         $skillgap_tests = array();
         return $skillgap_tests;
+    }
+    public function getUserStatusInCourses() {
+    }
+    public function hasCourse($course) {
+        if ($course instanceOf EfrontCourse) {
+            $course = $course -> course['id'];
+        } elseif (!eF_checkParameter($course, 'id')) {
+            throw new EfrontCourseException(_INVALIDID.": $course", EfrontCourseException :: INVALID_ID);
+        }
+        $result = eF_getTableData("users_to_courses", "courses_ID", "courses_ID=$course and users_LOGIN='".$this -> user['login']."' and archive=0");
+        return sizeof($result) > 0;
+    }
+    public function getUserTypeInCourse($course) {
+        if ($course instanceOf EfrontCourse) {
+            $course = $course -> course['id'];
+        } elseif (!eF_checkParameter($course, 'id')) {
+            throw new EfrontCourseException(_INVALIDID.": $course", EfrontCourseException :: INVALID_ID);
+        }
+        $result = eF_getTableData("users_to_courses", "user_type", "courses_ID=$course and users_LOGIN='".$this -> user['login']."' and archive=0");
+        if (!empty($result)) {
+            return $result[0]['user_type'];
+        } else {
+            return false;
+        }
     }
 }
 /**
@@ -3129,6 +3616,10 @@ class EfrontProfessor extends EfrontLessonUser
         parent :: delete();
         eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
+        foreach ($this -> getCourses() as $id => $value) {
+         $cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
+         Cache::resetCache($cacheKey);
+        }
     }
 }
 /**
@@ -3180,6 +3671,10 @@ class EfrontStudent extends EfrontLessonUser
         }
         eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
+        foreach ($this -> getCourses() as $id => $value) {
+         $cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
+         Cache::resetCache($cacheKey);
+        }
         eF_deleteTableData("users_to_projects", "users_LOGIN='".$this -> user['login']."'");
         //eF_deleteTableData("users_to_done_tests",   "users_LOGIN='".$this -> user['login']."'");
         eF_deleteTableData("completed_tests", "users_LOGIN='".$this -> user['login']."'");
@@ -3225,20 +3720,22 @@ class EfrontStudent extends EfrontLessonUser
                             'score' => $score,
                             'comments' => $comments);
             eF_updateTableData("users_to_lessons", $fields, "users_LOGIN = '".$this -> user['login']."' and lessons_ID=".$lesson -> lesson['id']);
+            $cacheKey = "user_lesson_status:lesson:".$lesson -> lesson['id']."user:".$this -> user['login'];
+            Cache::resetCache($cacheKey);
             // Timelines event
             EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $lesson -> lesson['id'], "lessons_name" => $lesson -> lesson['name']));
-            $courses = $lesson -> getCourses(); //Get the courses that this lesson is part of. This way, we can auto complete a course, if it should be auto completed
+            $courses = $lesson -> getCourses(true); //Get the courses that this lesson is part of. This way, we can auto complete a course, if it should be auto completed
             $userStatus = EfrontStats :: getUsersCourseStatus(array_keys($courses), $this -> user['login']);
             foreach ($courses as $course) {
-                if ($course['auto_complete']) {
+                if ($course -> options['auto_complete']) {
                     $completed = array();
                     $score = array();
-                    foreach ($userStatus[$course['id']][$this -> user['login']]['lesson_status'] as $status) {
+                    foreach ($userStatus[$course -> course['id']][$this -> user['login']]['lesson_status'] as $status) {
                         $status['completed'] ? $completed[] = 1 : $completed[] = 0;
                         $score[] = $status['score'];
                     }
                     if (array_sum($completed) == sizeof($completed)) { //If all the course's lessons are completed, then auto complete the course, using the mean lessons score
-                        $this -> completeCourse($course['id'], round(array_sum($score) / sizeof($score)), _AUTOCOMPLETEDCOURSE);
+                        $this -> completeCourse($course -> course['id'], round(array_sum($score) / sizeof($score)), _AUTOCOMPLETEDCOURSE);
                     }
                 }
             }
@@ -3291,8 +3788,9 @@ class EfrontStudent extends EfrontLessonUser
                             'to_timestamp' => time(),
                             'score' => $score,
                             'comments' => $comments);
-            $result = eF_updateTableData("users_to_courses", $fields, "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id']);
-            if ($result && $course -> course['auto_certificate']) {
+   $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];
+   EfrontCourse::persistCourseUsers($fields, $where, $course -> course['id'], $this -> user['login']);
+   if ($result && $course -> options['auto_certificate']) {
                 $certificate = $course -> prepareCertificate($this -> user['login']);
                 $course -> issueCertificate($this -> user['login'], $certificate);
             }
@@ -3378,6 +3876,8 @@ class EfrontStudent extends EfrontLessonUser
         }
         sizeof($doneContent) ? $doneContent = serialize($doneContent) : $doneContent = null;
         $result = eF_updateTableData("users_to_lessons", array('done_content' => $doneContent, 'current_unit' => $current_unit), "users_LOGIN='".$this -> user['login']."' and lessons_ID=".$lesson);
+        $cacheKey = "user_lesson_status:lesson:".$lesson."user:".$this -> user['login'];
+        Cache::resetCache($cacheKey);
         if ($current_unit) {
             EfrontEvent::triggerEvent(array("type" => EfrontEvent::CONTENT_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $lesson, "entity_ID" => $current_unit));
         }

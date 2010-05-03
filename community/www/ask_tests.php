@@ -1,7 +1,7 @@
 <?php
 /**
- */
 
+ */
 $path = "../libraries/";
 
 /** Configuration file.*/
@@ -12,10 +12,10 @@ $preffix = $_POST['preffix'];
 $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
 
 if ($_SESSION['s_type'] == "administrator"){
-    $tests_info       = eF_getTableDataFlat("tests t,   lessons l", "t.id, t.name as test_name, l.name as lesson_name ","t.active=1 and t.lessons_ID = l.id AND t.name like '%$preffix%'", "t.name");
+    $tests_info = eF_getTableDataFlat("tests t,   lessons l", "t.id, t.name as test_name, l.name as lesson_name ","t.active=1 and t.lessons_ID = l.id AND t.name like '%$preffix%'", "t.name");
     $scorm_tests_info = eF_getTableDataFlat("content c, lessons l", "c.id, c.name as test_name, l.name as lesson_name ","c.active=1 and c.lessons_ID = l.id AND c.name like '%$preffix%' and c.ctg_type = 'scorm_test'", "c.name");
 } else {
-    $tests_info       = eF_getTableDataFlat("tests t,   users_to_lessons ul, lessons l", "t.id, t.name as test_name, l.name as lesson_name ", "(ul.user_type = 'professor' OR ul.user_type =".$currentUser->user['user_types_ID'].") AND t.active=1 and t.lessons_ID = l.id AND ul.users_LOGIN='".$_SESSION['s_login']."' and ul.lessons_ID=l.id AND t.name like '%$preffix%'", "t.name");
+    $tests_info = eF_getTableDataFlat("tests t,   users_to_lessons ul, lessons l", "t.id, t.name as test_name, l.name as lesson_name ", "(ul.user_type = 'professor' OR ul.user_type =".$currentUser->user['user_types_ID'].") AND t.active=1 and t.lessons_ID = l.id AND ul.users_LOGIN='".$_SESSION['s_login']."' and ul.lessons_ID=l.id AND t.name like '%$preffix%'", "t.name");
     $scorm_tests_info = eF_getTableDataFlat("content c, users_to_lessons ul, lessons l", "c.id, c.name as test_name, l.name as lesson_name ", "(ul.user_type = 'professor' OR ul.user_type =".$currentUser->user['user_types_ID'].") AND c.active=1 and c.lessons_ID = l.id AND ul.users_LOGIN='".$_SESSION['s_login']."' and ul.lessons_ID=l.id AND c.name like '%$preffix%' and c.ctg_type = 'scorm_test'", "c.name");
 }
 

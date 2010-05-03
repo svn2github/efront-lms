@@ -1,10 +1,46 @@
+function deleteJob(el, job) {
+ parameters = {delete_job_description:job, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onDeleteJob);
+}
+function onDeleteJob(el, response) {
+ new Effect.Fade(el.up().up());
+}
+function removeJobFromUser(el, user, job) {
+ parameters = {remove_user_job:job, user: user, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onRemoveJobFromUser);
+}
+function onRemoveJobFromUser(el, response) {
+ new Effect.Fade(el.up().up());
+}
+function deleteSkill(el, skill) {
+ parameters = {delete_skill:skill, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onDeleteSkill);
+}
+function onDeleteSkill(el, response) {
+ new Effect.Fade(el.up().up());
+}
+function removeSkillFromUser(el, user, skill) {
+ parameters = {remove_user_skill:skill, user: user, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onRemoveSkillFromUser);
+}
+function onRemoveSkillFromUser(el, response) {
+ new Effect.Fade(el.up().up());
+}
 function deleteBranch(el, id, fatherId) {
  var url = location.toString();
  parameters = {delete_branch:id, father_ID:fatherId, ajax:'branch', method: 'get'};
  ajaxRequest(el, url, parameters, onDeleteBranch);
 }
 function onDeleteBranch(el, response) {
- new Effect.Fade(el.up().up());
+    for (var i = 0; i < sortedTables.size(); i++) {
+        if (sortedTables[i].id == 'branchesTable') {
+            eF_js_rebuildTable(i, 0, 'null', 'desc');
+        }
+    }
 }
 
 /****************************************************************************
@@ -117,9 +153,9 @@ function refreshResults()
 
     for (i = 0; i < tables; i++) {
         ajaxUrl[i] = newUrl + "&";
-        if (sortedTables[i].id == 'foundEmployees') {
+        //if (sortedTables[i].id == 'foundEmployees' || sortedTables[i].id == 'foundEmployees') {
             eF_js_rebuildTable(i, 0, 'null', 'desc');
-        }
+        //}
     }
     //location.href = newUrl;
 }
@@ -231,7 +267,7 @@ function change_skill_category(element)
      edit_link.style.visibility = "visible";
      del_link.style.visibility = "visible";
      var main_url = edit_link.href.split("?");
-     edit_link.href = main_url[0] + "?ctg=module_hcd&op=skill_cat&edit_skill_cat=" + skill_cat_ID;
+     edit_link.href = main_url[0] + "?ctg=module_hcd&op=skill_cat&popup=1&edit_skill_cat=" + skill_cat_ID;
      del_link.href = main_url[0] + "?ctg=module_hcd&op=skill_cat&del_skill_cat=" + skill_cat_ID;
  }
 
@@ -706,6 +742,159 @@ function ajaxBranchCoursePost(id, el, table_id) {
         }
     }
  ajaxRequest(el, url, parameters);//, onBranchCourseAssignment);
+}
+function onCoursesAssigned(el, response) {
+ setImageSrc(el, 16, 'success');
+    //el.onClick = "";//writeAttribute({title:translationsToJS['_USERHASTHECOURSE'], alt:translationsToJS['_USERHASTHECOURSE']});	
+}
+function assignCourseToUsers(el, id) {
+
+ var usersFound = $('usersFound').value;
+
+ if (usersFound == "") {
+  alert(noUsersFound);
+  return;
+ }
+ var url = location.toString();
+ var parameters = {postAjaxRequest:'courses', courses_ID: id, method: 'get'};
+
+    if (id) {
+     Object.extend(parameters, {add_users: usersFound, insert: el.checked});
+    }
+ ajaxRequest(el, url, parameters, onCoursesAssigned);
+
+}
+
+
+
+
+
+//Function for inserting the new job row into the edit_user profile
+//The row argument denotes how many placements were initially present
+//so that only one extra job may be inserted each time
+var __eF_prerequisites_total_number = 0;
+function add_job_prerequisite(row) {
+
+ if (!document.getElementById('noCourses')) {
+
+  if ($('noFooterRow1')) {
+     $('noFooterRow1').remove();
+  }
+  var table = document.getElementById('prerequisitesTable');
+  if (document.getElementById('no_training_found')) {
+   document.getElementById(table.deleteRow(1));
+  }
+
+  noOfRows = table.rows.length;
+
+  var row = noOfRows;
+  var x = table.insertRow(row);
+  row = table.rows.length;
+  //row = (++__eF_prerequisites_total_number);
+  x.setAttribute("id","row_"+row);
+  newCell = x.insertCell(0);
+  newCell.setAttribute("id","conditions_row_"+row);
+  //    $form -> addElement('select', 'search_skill_template' , null, $skills_list ,'id="search_skill_row" onchange="javascript:refreshResults();"');
+
+  var newCellHTML = newTrainingCondition;
+
+  // Replacing the "row" strings of the HTML code of the select to the correct row. For example the onclick="change(row)" will become onclick="change(2)"
+  newCellHTML = newCellHTML.replace('row', row);
+  newCellHTML = newCellHTML.replace('row', row);
+  newCellHTML = newCellHTML.replace('col', 0);
+
+  //newCell.innerHTML= '<table><tr><td>'+newCellHTML+'</td></td<td align="right"><a id="courses_details_link_'+row+'" name="courses_details_link" style="visibility:hidden"><img src="images/16x16/search.png" title="'+detailsConst+'" alt="'+detailsConst+'" border="0" /></a></td></tr></table>';
+  newCell.update(newCellHTML);
+
+  newCell = x.insertCell(1);
+  newCell.setAttribute("align", "center");
+  newCell.update('<a id="training_add_'+row+'" href="javascript:void(0);" onclick="add_prerequisite_alternative(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_add handle" src = "themes/default/images/others/transparent.png" alt = "'+addAlternativeTrainingConst+'" title= "'+addAlternativeTrainingConst+'"/></a>' +'&nbsp;<a id="training_'+row+'" href="javascript:void(0);" onclick="delete_job_prerequisite(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.png" alt = "'+deleteConst+'" title= "'+deleteConst+'"/></a>');
+  //document.getElementById('training_' + row).setAttribute('rowCount', row);
+  ajaxPostRequiredTraining();
+ }
+
+}
+
+//delete row
+function delete_job_prerequisite(id, el)
+{
+ var criteriaTable = document.getElementById('prerequisitesTable');
+
+ if ($('noFooterRow1')) {
+    $('noFooterRow1').remove();
+ }
+
+ noOfRows = criteriaTable.rows.length;
+ var rowId;
+ for (i = 0; i < noOfRows; i++) {
+     rowId = "row_"+id;
+     if (criteriaTable.rows[i].id == rowId) {
+         // el.up.up.id has the form 'row_'*
+         //deleteInHidden(rowId);
+         criteriaTable.deleteRow(i);
+         break;
+     }
+ }
+
+ if (criteriaTable.rows.length == 2) {
+     var x = criteriaTable.insertRow(1);
+     var newCell = x.insertCell(0);
+     var newCellHTML = noTrainingDefinedYet;
+     newCell.update(newCellHTML);
+     newCell.setAttribute("id", "no_training_found");
+     newCell.colSpan = 5;
+     newCell.className = "emptyCategory";
+ }
+ ajaxPostRequiredTraining();
+ return false;
+}
+
+function add_prerequisite_alternative(id, el) {
+ var table = document.getElementById('prerequisitesTable');
+ var firstRowCondition = $('prerequisites_'+id+'_0');
+ var newCellHTML = newTrainingCondition;
+
+ // Replacing the "row" strings of the HTML code of the select to the correct row. For example the onclick="change(row)" will become onclick="change(2)"
+ newCellHTML = newCellHTML.replace('row', id);
+ newCellHTML = newCellHTML.replace('row', id);
+
+ newCellHTML = newCellHTML.replace('col', firstRowCondition.nextSiblings().length/2+1);
+ var orLabelHTML = '<span>&nbsp;'+orConst+'&nbsp;</span>'//	alert(newCellHTML);
+ $('conditions_row_'+id).update($('conditions_row_'+id).innerHTML+orLabelHTML+newCellHTML);
+ ajaxPostRequiredTraining();
+}
+
+function ajaxPostRequiredTraining() {
+ var table = document.getElementById('prerequisitesTable');
+ var noOfRows = table.rows.length;
+ var newTrainingSet = "";
+ for (i = 1; i<=noOfRows; i++) {
+  firstRowCondition = $("prerequisites_" + i + "_0");
+  if (firstRowCondition) {
+
+   if (newTrainingSet != "") {
+    newTrainingSet += ";";
+   }
+   newTrainingSet += firstRowCondition.value;
+   if (firstRowCondition.nextSiblings()) {
+    var length = firstRowCondition.nextSiblings().length/2;
+    for (j = 1; j <= length; j++) {
+     newTrainingSet += "_" + $("prerequisites_" + i + "_" + j).value;
+    }
+   }
+  }
+ }
+
+    parameters = {postAjaxRequest: '1',
+         apply_to_all: ($('training_changes_apply_to_all').checked == true)?1:0,
+         training: newTrainingSet,
+      method: 'get'};
+    url = location.toString();
+    ajaxRequest($('add_training_img'), url, parameters);
+}
+
+function updateSelectedValue(el) {
+ el.options[el.selectedIndex].setAttribute("selected", "selected");
 }
 function ajaxPost(id, el, table_id) {
  if ($('branchJobsTable')) {

@@ -152,6 +152,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <tr style="display:none;" id = "answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWRIGHTANSWERS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.answers.html}</td></tr>
                 {if $T_TEST_FORM.answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answers.error}</td></tr>{/if}
+    <tr style="display:none;" id = "redirect"><td class = "labelCell" style = "white-space:normal">{$smarty.const._DONOTSHOWTESTAFTERSUBMITTING}:&nbsp;</td>
+                    <td class = "elementCell">{$T_TEST_FORM.redirect.html}</td></tr>
+                {if $T_TEST_FORM.redirect.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redirect.error}</td></tr>{/if}
             {/if}
                 <tr style="display:none;" id = "shuffle_answers"><td class = "labelCell">{$smarty.const._SHUFFLEANSWERS}:&nbsp;</td>
                     <td class = "elementCell">{$T_TEST_FORM.shuffle_answers.html}</td></tr>

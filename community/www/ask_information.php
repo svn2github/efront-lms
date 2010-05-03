@@ -29,6 +29,15 @@ try {
         //        unset($lessonInformation['price_string']);
         //    }
 
+        try {
+         if ($_GET['from_course']) {
+          $course = new EfrontCourse($_GET['from_course']);
+          $schedule = $course -> getLessonScheduleInCourse($lesson);
+          $lessonInformation['from_timestamp'] = $schedule['start_date'];
+          $lessonInformation['to_timestamp'] = $schedule['end_date'];
+         }
+        } catch (Exception $e) {};
+
         foreach ($lessonInformation as $key => $value) {
             if ($value) {
                 switch ($key) {
@@ -76,6 +85,7 @@ try {
                     case 'language' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LANGUAGE."</span><span>: $languages[$value]</span></div>"; break;
                     case 'professors' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>"; break;
                     case 'lessons_number' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONS."</span><span>: $value</span></div>"; break;
+     case 'instances' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._COURSEINSTANCES."</span><span>: $value</span></div>"; break;
                     case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._GENERALDESCRIPTION."</span><span>: $value</span></div>"; break;
                     case 'assessment' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>"; break;
                     case 'objectives' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>"; break;

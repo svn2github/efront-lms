@@ -39,7 +39,7 @@ try {
             $module = new $className("administrator.php?ctg=module&op=".$className, $folder);
             $module -> onUninstall();
         } else {
-            $message      = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
+            $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
             $message_type = 'failure';
         }
 
@@ -48,7 +48,7 @@ try {
         $folder -> delete();
         eF_deleteTableData("modules", "className='".$className."'");
 
-        $message      = _SUCCESFULLYDELETEDMODULE;
+        $message = _SUCCESFULLYDELETEDMODULE;
         $message_type = 'success';
 
     } elseif(isset($_GET['activate_module']) && eF_checkParameter($_GET['activate_module'], 'filename')) {
@@ -75,7 +75,7 @@ try {
         exit;
     }
 } catch (Exception $e) {
-    $message      = _THEUSERCOULDNOTBEDELETED.': '.$e -> getMessage().' ('.$e->getCode().')';
+    $message = _THEUSERCOULDNOTBEDELETED.': '.$e -> getMessage().' ('.$e->getCode().')';
     header("HTTP/1.0 500 ");
     echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
     exit;
@@ -85,8 +85,8 @@ $modulesList = eF_getTableData("modules", "*");
 
 // Check for errors in modules
 foreach ($modulesList as $key => $module) {
-    $folder      = $module['position'];
-    $className   = $module['className'];
+    $folder = $module['position'];
+    $className = $module['className'];
     $permissions = explode(",", $module['permissions']);
 
     // Check if module folder exists
@@ -97,7 +97,7 @@ foreach ($modulesList as $key => $module) {
         // Check if module class exists
         $modulesList[$key]['class_exists'] = is_file(G_MODULESPATH. $folder.'/'.$className. ".class.php");
         if (!$modulesList[$key]['class_exists']) {
-            $modulesList[$key]['errors'] =  _NOMODULECLASSFOUND . ' "'. $className .'" : '.G_MODULESPATH. $folder .'/'.$className. ".class.php";
+            $modulesList[$key]['errors'] = _NOMODULECLASSFOUND . ' "'. $className .'" : '.G_MODULESPATH. $folder .'/'.$className. ".class.php";
         } else {
             // The module class can be instantiated if the module is not to be upgraded now
             if ($_GET['upgrade'] != $className) {
@@ -112,7 +112,7 @@ foreach ($modulesList as $key => $module) {
                         $modulesList[$key]['errors'] = $error;
                     }
                 } else {
-                    $message      = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
+                    $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
                     $message_type = 'failure';
                 }
             }
@@ -123,7 +123,7 @@ foreach ($modulesList as $key => $module) {
 $smarty -> assign("T_MODULES", $modulesList);
 
 $upload_form = new HTML_QuickForm("upload_file_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=modules', "", null, true);
-$upload_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+$upload_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 $upload_form -> addElement('file', 'file_upload[0]', null, 'class = "inputText"');
 $upload_form -> addElement('submit', 'submit_upload_file', _UPLOAD, 'class = "flatButton"');
 if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
@@ -148,10 +148,10 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
     }
 
     if (!$ok) {
-        $message      = $upload_messages[0];
+        $message = $upload_messages[0];
         $message_type = $upload_messages_type[0];
     } elseif (is_dir(G_MODULESPATH.$module_folder) && !isset($_GET['upgrade'])) {
-        $message      = _FOLDERWITHMODULENAMEEXISTSIN . G_MODULESPATH;
+        $message = _FOLDERWITHMODULENAMEEXISTSIN . G_MODULESPATH;
         $message_type = 'failure';
     } else {
         $zip = new ZipArchive;
@@ -161,12 +161,11 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
 
             if (is_file(G_MODULESPATH.$module_folder.'/module.xml')) {
 
-                $xml         = simplexml_load_file(G_MODULESPATH.$module_folder.'/module.xml');
+                $xml = simplexml_load_file(G_MODULESPATH.$module_folder.'/module.xml');
 
                 $className = (string)$xml -> className;
                 $className = str_replace(" ", "", $className);
                 $database_file = (string)$xml -> database;
-
                 if (is_file(G_MODULESPATH.$module_folder.'/'.$className. ".class.php")) {
                     $module_exists = 0;
 
@@ -204,19 +203,19 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
                             }
 
                             if ($roles_failure) {
-                            	$dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-								$dir -> delete();
+                             $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
+        $dir -> delete();
                             } else {
 
-                                $fields      = array('className'   => $className,
-                                                             'db_file'     => $database_file,
-                                                             'name'        => $className,
-                                                             'active'      => 1,
-                                                             'title'       => ((string)$xml -> title)?(string)$xml -> title:" ",
-                                                             'author'      => (string)$xml -> author,
-                                                             'version'     => (string)$xml -> version,
+                                $fields = array('className' => $className,
+                                                             'db_file' => $database_file,
+                                                             'name' => $className,
+                                                             'active' => 1,
+                                                             'title' => ((string)$xml -> title)?(string)$xml -> title:" ",
+                                                             'author' => (string)$xml -> author,
+                                                             'version' => (string)$xml -> version,
                                                              'description' => (string)$xml -> description,
-                                                             'position'    => $module_position,
+                                                             'position' => $module_position,
                                                              'permissions' => implode(",", $module -> getPermittedRoles()));
 
 
@@ -224,24 +223,24 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
                                     // Install module database
                                     if ($module -> onInstall()) {
                                         if (eF_insertTableData("modules", $fields)) {
-                                            $message      = _MODULESUCCESFULLYINSTALLED;
+                                            $message = _MODULESUCCESFULLYINSTALLED;
                                             $message_type = 'success';
                                             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=modules&message=".urlencode($message)."&message_type=".$message_type."&refresh_side=1");
                                         } else {
                                             $module -> onUninstall();
-                                            $message      = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
+                                            $message = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
                                             $message_type = 'failure';
-                                            
-			                            	$dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-											$dir -> delete();                                            
+
+                                $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
+           $dir -> delete();
                                             //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
                                         }
                                     } else {
-                                        $message      = _MODULEDBERRORONINSTALL;
+                                        $message = _MODULEDBERRORONINSTALL;
                                         $message_type = 'failure';
-                                        
-		                            	$dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-										$dir -> delete();                                                                                    
+
+                               $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
+          $dir -> delete();
                                         //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
                                     }
                                 } else {
@@ -257,53 +256,53 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
                                         if (eF_updateTableData("modules", $fields, "className ='".$_GET['upgrade']."'")) {
 
                                             // Delete the existing module folder
-                                            $message      = _MODULESUCCESFULLYUPGRADED;
+                                            $message = _MODULESUCCESFULLYUPGRADED;
                                             $message_type = 'success';
                                             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=modules&message=".urlencode($message)."&message_type=".$message_type);
                                         } else {
-                                            $message      = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
+                                            $message = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
                                             $message_type = 'failure';
                                         }
 
                                     } else {
-                                        $message      = _MODULEDBERRORONUPGRADECHECKUPGRADEFUNCTION;
+                                        $message = _MODULEDBERRORONUPGRADECHECKUPGRADEFUNCTION;
                                         $message_type = 'failure';
                                     }
                                 }
                             }
                         } else {
-                            $message      = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$module_folder.'/'.$className.'.class.php';
+                            $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$module_folder.'/'.$className.'.class.php';
                             $message_type = 'failure';
                             $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-							$dir -> delete();                                                                        
+       $dir -> delete();
                             //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
                         }
                     } else {
-                        $message      = '"'.$className .'": '. _MODULEISALREADYINSTALLED;
+                        $message = '"'.$className .'": '. _MODULEISALREADYINSTALLED;
                         $message_type = 'failure';
                         //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
                         $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-						$dir -> delete();                                                                    
+      $dir -> delete();
                     }
                 } else {
-                    $message      = _NOMODULECLASSFOUND . ' "'. $className .'" : '.G_MODULESPATH.$module_folder;
+                    $message = _NOMODULECLASSFOUND . ' "'. $className .'" : '.G_MODULESPATH.$module_folder;
                     $message_type = 'failure';
                     $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-					$dir -> delete();                                                                
+     $dir -> delete();
                     //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
                 }
             } else if (!is_dir(G_MODULESPATH.$module_folder)) {
-                $message      = _THISFOLDERDOESNOTEXIT.': '.G_MODULESPATH.$module_folder;
+                $message = _THISFOLDERDOESNOTEXIT.': '.G_MODULESPATH.$module_folder;
                 $message_type = 'failure';
             } else {
-                $message      = _DESCRIPTIONFILECOULDNOTBEFOUND;
+                $message = _DESCRIPTIONFILECOULDNOTBEFOUND;
                 $message_type = 'failure';
                 $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-				$dir -> delete();                                                            
+    $dir -> delete();
                 //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
             }
         } else {
-            $message      = _COULDNOTOPENZIPFILE;
+            $message = _COULDNOTOPENZIPFILE;
             $message_type = 'failure';
         }
     }

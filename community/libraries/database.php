@@ -47,7 +47,9 @@ if (!isset($GLOBALS['db']) || !$GLOBALS['db']) {
  $GLOBALS['db'] -> Connect(G_DBHOST, G_DBUSER, G_DBPASSWD, G_DBNAME);
 }
 //$perf = NewPerfMonitor($GLOBALS['db']);$perf->UI($pollsecs=5);
-$GLOBALS['db'] -> Execute("SET NAMES 'UTF8'");
+if (G_DBTYPE == 'mysql') {
+ $GLOBALS['db'] -> Execute("SET NAMES 'UTF8'");
+}
 $GLOBALS['db'] -> databaseTime = 0;
 $GLOBALS['db'] -> databaseQueries = 0;
 /**
@@ -166,7 +168,7 @@ function eF_insertTableData($table, $fields)
     }
     isset($fields['id']) ? $customId = $fields['id'] : $customId = 0;
     $fields = eF_addSlashes($fields);
-    array_walk($fields, create_function('&$v, $k', 'if (is_string($v)) $v = "\'".$v."\'"; else if (is_null($v)) $v = "null";'));
+    array_walk($fields, create_function('&$v, $k', 'if (is_string($v)) $v = "\'".$v."\'"; else if (is_null($v)) $v = "null"; else if ($v === false) $v = 0; else if ($v === true) $v = 1;'));
     $sql = "insert into $table (".implode(",", array_keys($fields)).") values (".implode(",", ($fields)).")";
     $result = $GLOBALS['db'] -> Execute($sql);
     logProcess($thisQuery, $sql);
@@ -300,7 +302,7 @@ function eF_insertTableDataMultiple($table, $fields, $checkGpc = true) {
 
  */
 function eF_NullifyRecursive(&$v, $k) {
- if (is_string($v)) $v = "'".$v."'"; else if (is_null($v)) $v = "null";
+ if (is_string($v)) $v = "'".$v."'"; else if (is_null($v)) $v = "null";else if ($v === false) $v = 0; else if ($v === true) $v = 1;
 }
 /**
 
@@ -343,7 +345,8 @@ function eF_updateTableData($table, $fields, $where)
         return false;
     }
     $fields = eF_addSlashes($fields);
-    array_walk($fields, create_function('&$v, $k', 'if (is_string($v)) $v = "\'".$v."\'"; else if (is_null($v)) $v = "null"; $v=$k."=".$v;'));
+    //array_walk($fields, create_function('&$v, $k', 'if (is_string($v)) $v = "\'".$v."\'"; else if (is_null($v)) $v = "null"; $v=$k."=".$v;'));
+    array_walk($fields, create_function('&$v, $k', 'if (is_string($v)) $v = "\'".$v."\'"; else if (is_null($v)) $v = "null"; else if ($v === false) $v = 0; else if ($v === true) $v = 1; $v=$k."=".$v;'));
     $sql = "update $table set ".implode(",", $fields)." where ".$where;
     $result = $GLOBALS['db'] -> Execute($sql);
     logProcess($thisQuery, $sql);
@@ -437,12 +440,14 @@ function eF_deleteTableData($table, $where="")
 
 * @param string $group The group by clause of the SQL Select.
 
+* @param string $limit The limit clause of the SQL Select.
+
 * @return mixed an array holding the query result.
 
 * @version 1.0
 
 */
-function eF_getTableData($table, $fields="*", $where="", $order="", $group="")
+function eF_getTableData($table, $fields = "*", $where = "", $order = "", $group = "", $limit = "")
 {
     $thisQuery = microtime(true);
     $tables = explode(",", $table);
@@ -456,13 +461,51 @@ function eF_getTableData($table, $fields="*", $where="", $order="", $group="")
     if ($where != "") {
         $sql .= " WHERE ".$where;
     }
+    if ($group != "") {
+        $sql .= " GROUP BY ".$group;
+    }
     if ($order != "") {
         $sql .= " ORDER BY ".$order;
+    }
+    if ($limit != "") {
+        $sql .= " limit ".$limit;
+    }
+    $result = $GLOBALS['db'] -> GetAll($sql);
+    if ($GLOBALS['db']->debug == true) {
+        echo '<span style = "color:red">Time spent on this query: '.(microtime(true) - $thisQuery).'</span>';
+    }
+    $GLOBALS['db'] -> databaseTime = $GLOBALS['db'] -> databaseTime + microtime(true) - $thisQuery;
+    $GLOBALS['db'] -> databaseQueries++;
+    if ($result == false) {
+        return array();
+    } else {
+        return $result;
+    }
+}
+function eF_countTableData($table, $fields = "*", $where = "", $order = "", $group = "", $limit = "")
+{
+    $thisQuery = microtime(true);
+    $tables = explode(",", $table);
+    foreach ($tables as $key => $value) {
+        //Prepend prefix to the table    
+        $tables[$key] = G_DBPREFIX.trim($value);
+    }
+    $table = implode(",", $tables);
+    $table = str_ireplace(" join ", " join ".G_DBPREFIX, $table);
+    $sql = "SELECT ".$fields." FROM ".$table;
+    if ($where != "") {
+        $sql .= " WHERE ".$where;
     }
     if ($group != "") {
         $sql .= " GROUP BY ".$group;
     }
-    $result = $GLOBALS['db'] -> GetAll($sql);
+    if ($order != "") {
+        $sql .= " ORDER BY ".$order;
+    }
+    if ($limit != "") {
+        $sql .= " limit ".$limit;
+    }
+    $result = $GLOBALS['db'] -> GetAll("select count(*) as count from ($sql) count_query");
     logProcess($thisQuery, $sql);
     if ($result == false) {
         return array();
@@ -653,14 +696,12 @@ function eF_describeTable($table, $fields = false) {
     //Prepend prefix to the table    
     $table = G_DBPREFIX.$table;
     if (!$fields) {
-        $result = eF_execute("describe $table");
-        while($temp = mysql_fetch_assoc($result)) {
-            $desc[] = $temp;
-        }
+        $desc = $GLOBALS['db'] -> GetAll("describe $table");
     } else {
+     $desc = array();
         foreach ($fields as $field) {
-            $result = eF_execute("describe $table $field");
-            $desc[] = mysql_fetch_assoc($result);
+            //$result = eF_executeNew("describe $table $field");
+            $desc = array_merge($desc, $GLOBALS['db'] -> GetAll("describe $table $field"));
         }
     }
     return $desc;
@@ -820,40 +861,34 @@ function logProcess($thisQuery, $sql) {
 }
 class EfrontDB
 {
+    public $databaseTime = 0;
+    public $databaseQueries = 0;
+    public $queries = array();
     public function __construct($db) {
         $this -> db = $db;
     }
-    public function cacheGetTableData($table, $fields="*", $where="", $order="", $group="") {
-        $thisQuery = microtime(true);
-        $tables = explode(",", $table);
-        foreach ($tables as $key => $value) {
-            //Prepend prefix to the table
-            $tables[$key] = G_DBPREFIX.trim($value);
-        }
-        $table = implode(",", $tables);
-        $table = str_ireplace(" join ", " join ".G_DBPREFIX, $table);
-        $sql = "SELECT ".$fields." FROM ".$table;
-        if ($where != "") {
-            $sql .= " WHERE ".$where;
-        }
-        if ($order != "") {
-            $sql .= " ORDER BY ".$order;
-        }
-        if ($group != "") {
-            $sql .= " GROUP BY ".$group;
-        }
+    public function cacheGetTableData($table, $fields = "*", $where = "", $order = "", $group = "") {
+        $this -> initializeStats();
+        $sql = $this -> createSQL($table, $fields = "*", $where = "", $order = "", $group = "");
         $result = $this -> db -> GetAll($sql);
-        if ($this -> db->debug == true) {
-            echo '<span style = "color:red">Time spent on this query: '.(microtime(true) - $thisQuery).'</span>';
-        }
-        $this -> db -> databaseTime = $this -> db -> databaseTime + microtime(true) - $thisQuery;
+        $result OR $result = array();
+        $this -> calculateStats();
+        return $result;
+    }
+    private function createSQL($table, $fields = "*", $where = "", $order = "", $group = "") {
+        $sql = "SELECT ".$fields." FROM ".$table;
+        !$where OR $sql .= " WHERE ".$where;
+        !$order OR $sql .= " ORDER BY ".$order;
+        !$group OR $sql .= " GROUP BY ".$group;
+        return $sql;
+    }
+    private function initializeStats() {
+        $this -> queryTime = microtime(true);
+    }
+    private function calculateStats() {
+        $this -> db -> databaseTime = $this -> db -> databaseTime + microtime(true) - $this -> queryTime;
         $this -> db -> databaseQueries++;
-        $this -> db -> queries[$sql][] = microtime(true) - $thisQuery;
-        if ($result == false) {
-            return array();
-        } else {
-            return $result;
-        }
+        $this -> db -> queries[$sql][] = microtime(true) - $this -> queryTime;
     }
 }
 ?>

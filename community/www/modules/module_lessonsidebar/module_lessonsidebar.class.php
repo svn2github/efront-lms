@@ -48,7 +48,8 @@ class module_lessonsidebar extends EfrontModule {
             if ($roleBasicType == 'student') {
              $eligible = $course -> checkRules($userInfo['courses'][$course -> course['id']]['login']);
          } else {
-             $eligible = array_combine(array_keys($course -> getLessons()), array_fill(0, sizeof($course -> getLessons()), 1)); //All lessons set to true
+          $courseLessons = $course -> getCourseLessons();
+             $eligible = array_combine(array_keys($courseLessons), array_fill(0, sizeof($courseLessons), 1)); //All lessons set to true
          }
 
          foreach ($eligible as $lessonId => $value) {

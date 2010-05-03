@@ -63,26 +63,9 @@
           </div>
         {/if}
     {elseif $T_COURSE_INFO}
-        {capture name = 't_lesson_info_code'}
-         {foreach name = 'info_list' item = "item" key = "key" from = $T_COURSE_INFO->metadataArray}
-          <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_INFO->metadataAttributes.$key}:</span> {$item}</div>
-         {/foreach}
-      <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$T_ADDITIONAL_COURSE_INFO.language]}</div>
 
-         {if $T_COURSE_LESSONS}
-          <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._COURSELESSONS}:</span>
-          {foreach name = 'course_lessons_list' item = "item" key = "key" from = $T_COURSE_LESSONS}
-
-    {if $smarty.get.catalog}
-     <a href = "{$smarty.server.PHP_SELF}?{if $smarty.get.ctg}ctg={$smarty.get.ctg}&{/if}catalog=1&info_lesson={$item.id}&from_course={if $smarty.get.courses_ID}{$smarty.get.courses_ID}{else}{$smarty.get.info_course}{/if}" class = "editLink">{$item.name}{if !$smarty.foreach.course_lessons_list.last},{/if}</a>
-    {else}
-     <a href = "{$smarty.server.PHP_SELF}?{if $smarty.get.ctg}ctg={$smarty.get.ctg}&{/if}lessons_ID={$item.id}&course={if $smarty.get.courses_ID}{$smarty.get.courses_ID}{else}{$smarty.get.info_course}{/if}" class = "editLink">{$item.name}{if !$smarty.foreach.course_lessons_list.last},{/if}</a>
-    {/if}
-
-    {/foreach}
-          </div>
-         {/if}
-         {if !$T_CURRENT_USER || $T_CURRENT_USER->user.user_type == 'student'}
+  {capture name = "t_buy_course_code"}
+         {if !$T_HAS_COURSE}
               <div id = "buy">
           {if $T_COURSE->course.price}
               {if $T_HAS_COURSE}
@@ -103,4 +86,71 @@
        {/if}
                  </div>
              {/if}
+         {/capture}
+
+         {if $T_COURSE_INSTANCES && sizeof($T_COURSE_INSTANCES) > 1}
+         <div class = "lessonInfo"><span class = "infoTitle">Available Instances:</span>
+          <select onchange = "var val = this.options[this.options.selectedIndex].value;location = '{$smarty.server.PHP_SELF}?'+'{$smarty.server.QUERY_STRING}'.replace(/&courses_ID=\d*/, '&courses_ID='+val).replace(/&info_course=\d*/, '&info_course='+val);">
+           {foreach name = 'instances_list' item = "item" key = 'key' from = $T_COURSE_INSTANCES}
+           <option value = "{$key}" {if $smarty.get.courses_ID == $key || $smarty.get.info_course == $key}selected{/if}>{$item->course.name}</option>
+           {/foreach}
+          </select>
+         </div>
+         {/if}
+         {foreach name = 'info_list' item = "item" key = "key" from = $T_COURSE_INFO->metadataArray}
+          <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_INFO->metadataAttributes.$key}:</span> {$item}</div>
+         {/foreach}
+      <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$T_ADDITIONAL_COURSE_INFO.language]}</div>
+
+   {if $T_COURSE->course.max_users}
+    <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._MAXIMUMUSERS}:</span>
+    {$T_COURSE->course.max_users} {if $T_COURSE->course.seats_remaining}({$T_COURSE->course.seats_remaining} {$smarty.const._SEATSREMAINING}){/if}
+    </div>
+   {/if}
+
+   {if $T_COURSE->options.training_hours}
+    <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TRAININGHOURS}:</span> {$T_COURSE->options.training_hours}</div>
+   {/if}
+   {if $T_COURSE->course.start_date}
+    <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._COURSESTARTSAT}:</span> #filter:timestamp_time_nosec-{$T_COURSE->course.start_date}#</div>
+    <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._COURSEENDSAT}:</span> #filter:timestamp_time_nosec-{$T_COURSE->course.end_date}#</div>
+   {/if}
+   {if $T_COURSE->course.location}
+    <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LOCATION}:</span> {$T_COURSE->course.location}</div>
+   {/if}
+         {if $T_COURSE_LESSONS}
+          <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._COURSELESSONS}:</span>
+          {foreach name = 'course_lessons_list' item = "lesson" key = "id" from = $T_COURSE_LESSONS}
+           <a href = "{$smarty.server.PHP_SELF}?{$smarty.server.QUERY_STRING}#{$lesson->lesson.id}" class = "editLink">{$lesson->lesson.name}{if !$smarty.foreach.course_lessons_list.last},{/if}</a>
+          {/foreach}
+          </div>
+          {$smarty.capture.t_buy_course_code}
+          {foreach name = 'course_lessons_list' item = "lesson" key = "id" from = $T_COURSE_LESSONS}
+           <div style = "border-left:1px solid grey;border-right:1px solid grey;border-bottom:1px solid grey;margin-top:10px;">
+           <div class = "topTitle" >
+            <a href = "javascript:scroll(0,0)" name = "{$lesson->lesson.id}" >{$lesson->lesson.name}</a>
+            {if $lesson->lesson.start_date}
+            <a href = "javascript:void(0)" style = "text-decoration:none;cursor:default;margin-left:30px">(#filter:timestamp_time_nosec-{$lesson->lesson.start_date}# - #filter:timestamp_time_nosec-{$lesson->lesson.end_date}#)</a>
+            {/if}
+           </div>
+           {foreach name = 'info_list' item = "item" key = "key" from = $T_COURSE_LESSON_INFO[$id]->metadataArray}
+            <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_LESSON_INFO[$id]->metadataAttributes.$key}:</span> {$item}</div>
+           {/foreach}
+            {assign var = "language" value = $T_ADDITIONAL_LESSON_INFO[$id].language}
+            <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$language]}</div>
+            {if $T_ADDITIONAL_LESSON_INFO[$id].professors_string}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._PROFESSORS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].professors_string}</div>{/if}
+            <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALUNITS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].content}</div>
+            {if $T_ADDITIONAL_LESSON_INFO[$id].tests}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALTESTS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].tests}</div>{/if}
+            {if $T_ADDITIONAL_LESSON_INFO[$id].projects}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALPROJECTS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].projects}</div>{/if}
+           {if $T_CONTENT_TREE[$id]}
+            <fieldset class = "fieldsetSeparator">
+                <legend>{$smarty.const._LESSONCONTENT}</legend>
+                {$T_CONTENT_TREE[$id]}
+            </fieldset>
+           {/if}
+           </div>
+          {/foreach}
+         {/if}
+
+   {$smarty.capture.t_buy_course_code}
  {/if}

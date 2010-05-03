@@ -30,6 +30,7 @@
         {/if}
 
         var sessionLogin = "{$smarty.session.s_login}";
+        var translationsToJS = new Array();
     </script>
 
 {* Do not check for menus when called by popups or the sidebar*}

@@ -101,8 +101,8 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
             $languages = EfrontSystem :: getLanguages(true);
             $smarty -> assign("T_LANGUAGES", $languages);
             $users = eF_getTableData("users", "*", "archive = 0");
-            $user_lessons = eF_getTableDataFlat("users_to_lessons", "users_LOGIN, count(lessons_ID) as lessons_num", "", "", "users_LOGIN");
-            $user_courses = eF_getTableDataFlat("users_to_courses", "users_LOGIN, count(courses_ID) as courses_num", "", "", "users_LOGIN");
+            $user_lessons = eF_getTableDataFlat("users_to_lessons", "users_LOGIN, count(lessons_ID) as lessons_num", "archive=0", "", "users_LOGIN");
+            $user_courses = eF_getTableDataFlat("users_to_courses", "users_LOGIN, count(courses_ID) as courses_num", "archive=0", "", "users_LOGIN");
             $user_groups = eF_getTableDataFlat("users_to_groups", "users_LOGIN, count(groups_ID) as groups_num", "", "", "users_LOGIN");
             $user_lessons = array_combine($user_lessons['users_LOGIN'], $user_lessons['lessons_num']);
             $user_courses = array_combine($user_courses['users_LOGIN'], $user_courses['courses_num']);

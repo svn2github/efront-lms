@@ -122,7 +122,6 @@
                     <input class = "searchBox" type="text" name="search_text"
                         value = "{if isset($smarty.post.search_text)}{$smarty.post.search_text}{else}{$smarty.const._SEARCH}...{/if}"
                         onclick="if(this.value=='{$smarty.const._SEARCH}...')this.value='';" onblur="if(this.value=='')this.value='{$smarty.const._SEARCH}...';"
-                        onFocus = "makeAjaxRequest('ask_suggestions.php','special_get_request','suggestions');"
                         style = "background-image:url('images/16x16/search.png'); "
                         " /> <!-- width:134px;-->
                     <input type = "hidden" name = "current_location" id = "current_location" value = ""/>
@@ -249,7 +248,7 @@
                         </td>
                     </tr>
                     <tr><td align="{if $T_BROWSER == 'IE6' || $T_BROWSER == 'IE7'}left{else}center{/if}" width="100%">
-                        <iframe name = "test" frameborder = "no" scrolling="no" id="glu" width = "{$generalWidth}" onload="resize_iframe()" src = "chat_blank.php" />{$smarty.const._SORRYNEEDIFRAME}</iframe>
+                        <iframe name = "test" frameborder = "no" scrolling="no" id="glu" width = "{$generalWidth}" onload="resize_iframe();" src = "chat_blank.php" />{$smarty.const._SORRYNEEDIFRAME}</iframe>
                         </td>
                     </tr>
                     <form style="display:inline;" name = "chat_form" action = "javascript:sendMessage(document.chat_form.chat_message.value,$('current_chatroom_id').value); " method = "post">

@@ -138,6 +138,12 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
       {/if}
          {eF_template_printBlock title = $lesson_title data = $smarty.capture.t_lesson_info_code image = "32x32/information.png"}
      {else}
+      {*
+      {capture name = "t_catalog_code"}
+       {eF_template_printCatalog source = $T_DIRECTIONS}
+      {/capture}
+      {eF_template_printBlock title = $smarty.const._COURSECATALOG data = $smarty.capture.t_catalog_code image = '32x32/catalog.png'}
+      *}
       {eF_template_printBlock title = $smarty.const._COURSECATALOG data = $T_DIRECTIONS_TREE image = '32x32/catalog.png'}
      {/if}
      {capture name = "moduleSideOperations"}
@@ -149,9 +155,10 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
         {capture name = "t_directions_tree_code"}
       <table class = "lessonListOptions">
         <tr>
+      {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
                  <td class = "lessonListOption"><img src = "images/32x32/user.png" title = "{$smarty.const._MYACCOUNT}" alt = "{$smarty.const._MYACCOUNT}" ></td>
                  <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}">{$smarty.const._MYACCOUNT}</a></td>
-
+      {/if}
             {if $T_SKILLGAP_TESTS}
                  <td class = "lessonListOption"><img src = "images/32x32/skill_gap.png" title = "{$T_SKILLGAP_TESTS}" alt = "{$T_SKILLGAP_TESTS}" ></td>
                  <td><a href = "student.php?ctg=lessons&op=tests" title="{$T_SKILLGAP_TESTS}">{$smarty.const._NEWSKILLGAPTESTS}</a></td>
@@ -177,7 +184,7 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
 
         {$T_DIRECTIONS_TREE}
     {/capture}
-    {eF_template_printBlock title = $smarty.const._MYLESSONS data = $smarty.capture.t_directions_tree_code image = '32x32/theory.png'}
+    {eF_template_printBlock title = $smarty.const._MYCOURSES data = $smarty.capture.t_directions_tree_code image = '32x32/theory.png'}
 
    {elseif $T_OP == 'search'}
            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="javascript:void(0)" onclick = "location.reload()">'|cat:$smarty.const._SEARCHRESULTS|cat:'</a>'}
@@ -193,10 +200,12 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
      <table class = "emptyLessonsList">
          <tr><td class = "mediumHeader">{$smarty.const._YOUDONTHAVEANYLESSONS}</td></tr>
 
+     {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
                <tr><td class = "lessonListOption">
         <a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}"><img class = "handle" src = "images/32x32/user.png" title = "{$smarty.const._MYACCOUNT}" alt = "{$smarty.const._MYACCOUNT}" ></a>
                 <div><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}">{$smarty.const._MYACCOUNT}</a></div>
                </td></tr>
+     {/if}
 
      {if $T_CONFIGURATION.lessons_directory}
                <tr><td class = "lessonListOption">
@@ -222,7 +231,7 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
            {/if}
         </table>
        {/capture}
-       {eF_template_printBlock title = $smarty.const._MYLESSONS data = $smarty.capture.t_empty_lessons_list_code image = '32x32/catalog.png'}
+       {eF_template_printBlock title = $smarty.const._MYCOURSES data = $smarty.capture.t_empty_lessons_list_code image = '32x32/catalog.png'}
    {/if}
   {/if}
  </td></tr>

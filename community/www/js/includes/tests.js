@@ -847,6 +847,9 @@ function toggleAdvancedParameters() {
  if ($('answers')) {
   $('answers').toggle();
  }
+ if ($('redirect')) {
+  $('redirect').toggle();
+ }
  $('shuffle_answers').toggle();
  $('shuffle_questions').toggle();
  if ($('pause_test')) {

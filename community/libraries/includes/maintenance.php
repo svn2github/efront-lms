@@ -144,8 +144,11 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     }
     if (isset($_GET['cleanup']) && ($_GET['cleanup'] == 'lessons_without_folders' || $_GET['cleanup'] == 'all')) {
         foreach ($orphan_lessons as $lesson_id) {
-            if (!EfrontLesson::deleteLesson($lesson_id)){
-                $errors[] = $folder;
+            try {
+             $lesson = new EfrontLesson($lesson_id);
+             $lesson -> delete();
+            } catch (Exception $e) {
+             $errors[] = $folder;
             }
         }
         if ($_GET['cleanup'] != 'all') {

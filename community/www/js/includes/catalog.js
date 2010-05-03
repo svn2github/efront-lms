@@ -31,58 +31,13 @@ function addToCart(el, id, type) {
  var url = location.toString();
  parameters = {fct:'addToCart', id:id, ajax:'cart', type:type, method: 'get'};
  ajaxRequest(el, url, parameters, onCartOperation, false, false);
-//	if (subscription) {
-//		parameters = {fct:'addSubscriptionToCart', id:id, ajax:'cart', type:type, method: 'get'};
-//	} else {
-//	}
-}
-function onAddToCart(el, response) {
- $('cart').innerHTML = response;
-/*
-
-	if (!response) {
-
-		$('cart').up().up().up().hide();
-
-	} else {
-
-		$('cart').up().up().up().show();
-
-	} 			
-
-*/
 }
 function removeFromCart(el, id, type) {
  var url = location.toString();
  parameters = {fct:'removeFromCart', ajax:'cart', id:id, type:type, method: 'get'};
  ajaxRequest(el, url, parameters, onCartOperation);
 }
-function onremoveFromCart(el, response) {
- $('cart').innerHTML = response;
-/*	
 
-	if (cart_preview) {
-
-		if ($('cart_'+el.id)) {
-
-			new Effect.Fade($('cart_'+el.id).up().up().up());
-
-		} else {
-
-			new Effect.Fade(el.up().up());
-
-			location.reload();
-
-		}
-
-	} else {
-
-		$('cart').innerHTML = response;
-
-	}
-
-*/
-}
 function removeAllFromCart(el) {
  var url = location.toString();
  parameters = {fct:'removeAllFromCart', ajax:'cart', method: 'get'};
@@ -92,8 +47,18 @@ function onRemoveAllFromCart(el, response) {
  $('cart').innerHTML = response;
 }
 function onCartOperation(el, response) {
- $('cart').innerHTML = response;
+ var re2 = new RegExp("<!--ajax:cart-->((.*[\n])*)<!--\/ajax:cart-->"); //Does not work with smarty {strip} tags!
+    var tableText = re2.exec(response);
+
+ if (!tableText) {
+        var re = new RegExp("<!--ajax:cart-->((.*[\r\n\u2028\u2029])*)<!--\/ajax:cart-->"); //Does not work with smarty {strip} tags!
+        tableText = re.exec(response);
+ }
+
+    $('cart').innerHTML = tableText[1];
+ //$('cart').innerHTML = response;
 }
+
 function paypalSubmit() {
  $('checkout_form').request();
  return false;

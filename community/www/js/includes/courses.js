@@ -1,29 +1,29 @@
 function activateCourse(el, course) {
-	if (el.className.match('red')) {
-    	parameters = {activate_course:course, method: 'get'};
-	} else {
-		parameters = {deactivate_course:course, method: 'get'};
-	}
-    var url    = 'administrator.php?ctg=courses';
+ if (el.className.match('red')) {
+     parameters = {activate_course:course, method: 'get'};
+ } else {
+  parameters = {deactivate_course:course, method: 'get'};
+ }
+    var url = 'administrator.php?ctg=courses';
     ajaxRequest(el, url, parameters, onActivateCourse);
 }
 function onActivateCourse(el, response) {
     if (response == 0) {
-    	setImageSrc(el, 16, "trafficlight_red.png");
-        el.writeAttribute({alt:activate, title:activate});
+     setImageSrc(el, 16, "trafficlight_red.png");
+        el.writeAttribute({alt:translationsToJS['_ACTIVATE'], title:translationsToJS['_ACTIVATE']});
     } else if (response == 1) {
-    	setImageSrc(el, 16, "trafficlight_green.png");
-        el.writeAttribute({alt:deactivate, title:deactivate});
+     setImageSrc(el, 16, "trafficlight_green.png");
+        el.writeAttribute({alt:translationsToJS['_DEACTIVATE'], title:translationsToJS['_DEACTIVATE']});
     }
 }
 
 function deleteCourse(el, course) {
-	parameters = {delete_course:course, method: 'get'};
-	var url    = 'administrator.php?ctg=courses';
-	ajaxRequest(el, url, parameters, onDeleteCourse);	
+ parameters = {delete_course:course, method: 'get'};
+ var url = 'administrator.php?ctg=courses';
+ ajaxRequest(el, url, parameters, onDeleteCourse);
 }
 function onDeleteCourse(el, response) {
-	new Effect.Fade(el.up().up());
+ new Effect.Fade(el.up().up());
 }
 
 
@@ -31,34 +31,57 @@ function ajaxPost(id, el, table_id) {
     //Since in the same page there are 3 ajax post lists, we create a "wrapper" which decides which one to call
     if (table_id == 'lessonsTable') {
         lessonsAjaxPost(id, el, table_id);
-    } else if(table_id == 'skillsTable') {
+    } else if (table_id == 'skillsTable') {
         ajaxCourseSkillUserPost(1, id, el, table_id);
-    } else if(table_id == 'branchesTable') {
-    	ajaxCourseBranchPost(id, el, table_id);        
-    } else {
+    } else if (table_id == 'branchesTable') {
+     ajaxCourseBranchPost(id, el, table_id);
+    } else if (table_id == 'usersTable') {
         usersAjaxPost(id, el, table_id);
     }
 }
 
 function lessonsAjaxPost(id, el, table_id) {
-	var url = location.toString();
-	var parameters = {postAjaxRequest:'lessons', method: 'get'};
-    
+ var url = location.toString();
+ var parameters = {postAjaxRequest:'lessons', method: 'get'};
+
     if (id) {
         Object.extend(parameters, {id: id});
     } else if (table_id && table_id == 'lessonsTable') {
         el.checked ? Object.extend(parameters, {addAll: 1}) : Object.extend(parameters, {removeAll: 1});
         if ($(table_id+'_currentFilter')) {
-        	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+         Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
         }
     }
-	ajaxRequest(el, url, parameters);	
-    
+ ajaxRequest(el, url, parameters, onLessonsAjaxPost);
+}
+function onLessonsAjaxPost(el, response) {
+ $('lessonsTable').select('select').each(function (s) {
+  if (s.id.match('lesson_mode')) {
+   s.hide();
+  }
+
+ });
+ response.evalJSON(true).lessons.each(function (s) {
+  $('lesson_mode_'+s).show();
+ });
+}
+function setLessonMode(el, id, mode) {
+ var url = location.toString();
+ var parameters = {lesson:id, mode: mode, method: 'get'};
+ ajaxRequest(el, url, parameters, onSetLessonMode);
+}
+function onSetLessonMode(el, response) {
+ tables = sortedTables.size();
+ for (var i = 0; i < tables; i++) {
+  if (sortedTables[i].id.match('lessonsTable') && ajaxUrl[i]) {
+   eF_js_rebuildTable(i, 0, 'has_lesson', 'desc');
+  }
+ }
 }
 
 function usersAjaxPost(login, el, table_id) {
-	var url = location.toString();
-	var parameters = {postAjaxRequest:'users', method: 'get'};
+ var url = location.toString();
+ var parameters = {postAjaxRequest:'users', method: 'get'};
 
     if (login) {
         var userType = $('type_'+login).options[$('type_'+login).selectedIndex].value;
@@ -66,28 +89,28 @@ function usersAjaxPost(login, el, table_id) {
     } else if (table_id && table_id == 'usersTable') {
         el.checked ? Object.extend(parameters, {addAll: 1}) : Object.extend(parameters, {removeAll: 1});
         if ($(table_id+'_currentFilter')) {
-        	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+         Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
         }
     }
-	ajaxRequest(el, url, parameters);	
-    
+ ajaxRequest(el, url, parameters);
+
 }
 
 //Used to associate courses and branches
 function ajaxCourseBranchPost(id, el, table_id) {
-	var url = location.toString();
-	var parameters = {postAjaxRequest:1, method: 'get'};
+ var url = location.toString();
+ var parameters = {postAjaxRequest:'branches', method: 'get'};
 
     if (id) {
-    	Object.extend(parameters, {add_branch: id, insert: el.checked});
+     Object.extend(parameters, {add_branch: id, insert: el.checked});
     } else if (table_id && table_id == 'branchesTable') {
         el.checked ? Object.extend(parameters, {add_branch:1, addAll: 1}) : Object.extend(parameters, {add_branch:1, removeAll: 1});
         if ($(table_id+'_currentFilter')) {
-        	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+         Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
         }
     }
- 
-	ajaxRequest(el, url, parameters);	
+
+ ajaxRequest(el, url, parameters);
 
 }
 
@@ -97,8 +120,8 @@ function ajaxCourseBranchPost(id, el, table_id) {
 // el: the element of the form corresponding to that skill/course
 // table_id: the id of the ajax-enabled table
 function ajaxCourseSkillUserPost(type, id, el, table_id) {
-	var url = location.toString();
-	var parameters = {postAjaxRequest:1, method: 'get'};
+ var url = location.toString();
+ var parameters = {postAjaxRequest:'skills', method: 'get'};
 
     if (type == 1) {
         if (id) {
@@ -106,7 +129,7 @@ function ajaxCourseSkillUserPost(type, id, el, table_id) {
         } else if (table_id && table_id == 'skillsTable') {
             el.checked ? Object.extend(parameters, {add_skill:1, addAll: 1}) : Object.extend(parameters, {add_skill:1, removeAll: 1});
             if ($(table_id+'_currentFilter')) {
-            	Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
+             Object.extend(parameters, {filter: $(table_id+'_currentFilter').innerHTML});
             }
         }
     } else if (type == 2) {
@@ -116,7 +139,7 @@ function ajaxCourseSkillUserPost(type, id, el, table_id) {
     } else {
         return false;
     }
-	ajaxRequest(el, url, parameters);	
+ ajaxRequest(el, url, parameters);
 
 }
 
@@ -126,10 +149,47 @@ function show_hide_spec(i)
     spec.style.visibility == "hidden" ? spec.style.visibility = "visible" : spec.style.visibility = "hidden";
 }
 function archiveCourse(el, course) {
-	parameters = {archive_course:course, method: 'get'};	
-	var url    = location.toString();
-	ajaxRequest(el, url, parameters, onArchiveCourse);	
+ parameters = {archive_course:course, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onArchiveCourse);
 }
 function onArchiveCourse(el, response) {
-	new Effect.Fade(el.up().up());
+ new Effect.Fade(el.up().up());
+}
+
+function addInstance(el) {
+ el.insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+ parameters = {add_instance:1, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onAddInstance);
+}
+function onAddInstance(el, response) {
+ el.select('img.handle')[0].remove();
+ tables = sortedTables.size();
+ for (var i = 0; i < tables; i++) {
+  if (sortedTables[i].id.match('instancesTable') && ajaxUrl[i]) {
+   eF_js_rebuildTable(i, 0, 'null', 'desc');
+  }
+ }
+}
+
+
+function confirmUser(el, user) {
+ parameters = {ajax:'confirm_user', user: user, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onConfirmUser);
+}
+function onConfirmUser(el, response) {
+ setImageSrc(el, 16, 'success');
+    el.writeAttribute({title:translationsToJS['_USERHASTHECOURSE'], alt:translationsToJS['_USERHASTHECOURSE']});
+}
+function unConfirmUser(el, user) {
+ parameters = {ajax:'unconfirm_user', user: user, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onUnConfirmUser);
+}
+function onUnConfirmUser(el, response) {
+ setImageSrc(el, 16, 'warning');
+    el.writeAttribute({title:translationsToJS['_APPLICATIONPENDING'], alt:translationsToJS['_APPLICATIONPENDING']});
 }

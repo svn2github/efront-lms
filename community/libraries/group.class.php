@@ -778,6 +778,65 @@ class EfrontGroup
          }
         return $this -> courses;
     }
+    public function getGroupUsers($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  $where[] = "ug.users_LOGIN=u.login";
+  $result = eF_getTableData("users u, users_to_groups ug", "u.*, 1 as has_group", implode(" and ", $where), $orderby, "", $limit);
+  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+    }
+    public function getGroupUsersIncludingUnassigned($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+     $result = eF_getTableData("users u left outer join users_to_groups ug on ug.users_LOGIN=u.login",
+         implode(" and ", $where), $orderby, "", $limit);
+  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+    }
+    public function getGroupCourses($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $select = "c.*, cg.user_type, 1 as has_course,
+       (select count( * ) from courses c1, courses_to_groups cg1 where c1.instance_source=c.id and cg1.courses_ID=c1.id and cg.groups_ID=".$this -> group['id'].")
+         as has_instances,
+       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
+         as num_lessons,
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+         as num_students";
+  $where[] = "c.id=cg.courses_ID and cg.groups_ID=".$this -> group['id'];
+     $result = eF_getTableData("courses c, courses_to_groups cg", $select,
+         implode(" and ", $where), $orderby, $groupby, $limit);
+  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+    }
+    public function countGroupCourses($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+     list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $where[] = "c.id=cg.courses_ID and cg.groups_ID=".$this -> group['id'];
+     $result = eF_getTableData("courses c, courses_to_groups cg", "c.id",
+         implode(" and ", $where));
+  return $result[0]['count'];
+    }
+    public function getGroupCoursesIncludingUnassigned($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $select = "c.*, r.courses_ID is not null as has_course, 
+       (select count( * ) from courses l where instance_source=c.id)
+         as has_instances,
+       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
+         as num_lessons,
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+         as num_students";
+  //$where[] = "d.id=c.directions_ID";
+     $result = eF_getTableData("courses c left outer join (select courses_ID from courses_to_groups where groups_ID=".$this -> group['id'].") r on c.id=r.courses_ID", $select,
+         implode(" and ", $where), $orderby, $groupby, $limit);
+  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+    }
+    public function countGroupCoursesIncludingUnassigned($constraints = array()) {
+     !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+     list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+     $result = eF_countTableData("courses c left outer join (select courses_ID from courses_to_groups where groups_ID=".$this -> group['id'].") r on c.id=r.courses_ID", "c.id",
+         implode(" and ", $where));
+  return $result[0]['count'];
+    }
      /**
 
      * Add courses to group
@@ -960,6 +1019,7 @@ class EfrontGroup
      * @access public
 
      */
+   private static $default_group = false;
    public static function addToDefaultGroup($user) {
        if (!($user instanceof EfrontUser)) {
          $login = $user['login'];
@@ -967,10 +1027,17 @@ class EfrontGroup
          $login = $user -> user['login'];
        }
        // Get the default eFront group
-       $default_group = eF_getTableData("groups", "*", "is_default = 1 AND active = 1");
+       if (!$default_group) {
+         $default_group = eF_getTableData("groups", "*", "is_default = 1 AND active = 1");
+         if (sizeof($default_group)) {
+          $default_group = $default_group[0];
+         } else {
+          $default_group = true;
+          return;
+         }
+       }
       // pr($default_group);
-       if (sizeof($default_group)) {
-           $default_group = $default_group[0];
+       try {
            $group = new EfrontGroup($default_group);
            $group -> addUsers($login);
            $group -> updateUsers($login);
@@ -1004,7 +1071,8 @@ class EfrontGroup
     }
     $user -> addCourses($courseIds, $user_types, 1);
    }
-       } // otherwise no default group has been defined
+       } catch (Exception $e) {// otherwise no default group has been defined
+       }
        return true;
    }
    /**
@@ -1091,9 +1159,9 @@ class EfrontGroup
     public function getLessonGroupUsers($returnObjects = false, $returnDisabled = false){
         $lessons = array();
         if ($returnDisabled){
-            $data = eF_getTableData("lessons JOIN users_to_lessons ON lessons.id = users_to_lessons.lessons_ID JOIN users_to_groups ON users_to_groups.users_LOGIN = users_to_lessons.users_LOGIN", "lessons.*, count(users_to_lessons.users_LOGIN) as group_users_count", "groups_ID = ". $this -> group['id'], "", "lessons_ID");
+            $data = eF_getTableData("lessons JOIN users_to_lessons ON lessons.id = users_to_lessons.lessons_ID JOIN users_to_groups ON users_to_groups.users_LOGIN = users_to_lessons.users_LOGIN", "lessons.*, count(users_to_lessons.users_LOGIN) as group_users_count", "users_to_lessons.archive=0 and groups_ID = ". $this -> group['id'], "", "lessons_ID");
         } else{
-            $data = eF_getTableData("lessons JOIN users_to_lessons ON lessons.id = users_to_lessons.lessons_ID JOIN users_to_groups ON users_to_groups.users_LOGIN = users_to_lessons.users_LOGIN", "lessons.*, count(users_to_lessons.users_LOGIN) as group_users_count", "lessons.active = 1 AND groups_ID = ". $this -> group['id'], "", "lessons_ID");
+            $data = eF_getTableData("lessons JOIN users_to_lessons ON lessons.id = users_to_lessons.lessons_ID JOIN users_to_groups ON users_to_groups.users_LOGIN = users_to_lessons.users_LOGIN", "lessons.*, count(users_to_lessons.users_LOGIN) as group_users_count", "users_to_lessons.archive=0 and lessons.active = 1 AND groups_ID = ". $this -> group['id'], "", "lessons_ID");
         }
         if ($returnObjects){
             foreach ($data as $lesson_info){

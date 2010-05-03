@@ -195,6 +195,10 @@ try {
      /***/
      require_once ("versionkey.php");
  }
+ elseif ($ctg == 'curriculums') {
+     /***/
+     require_once ("curriculums.php");
+ }
  elseif ($ctg == 'payments') {
      /***/
      require_once ("payments.php");
@@ -235,10 +239,6 @@ try {
         $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
 
         include "file_manager.php";
- }
- elseif ($ctg == "social") {
-  /**The pages related with the social eFront (3.6.0 on)*/
-     require_once "social.php";
  }
  elseif ($ctg == 'logout_user') {
 

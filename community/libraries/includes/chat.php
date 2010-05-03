@@ -415,7 +415,7 @@ function eF_local_roomInfo($room_type) {
         if ($_SESSION['s_type'] == "administrator"){
             $rooms_array = eF_getTableData("chatrooms", "id, name, create_timestamp, users_LOGIN, active, lessons_ID", "");
         }else {
-            $rooms_array = eF_getTableData("chatrooms,users_to_lessons as ul", "distinct id, name, create_timestamp, chatrooms.users_LOGIN, chatrooms.active", "type = 'public' AND (chatrooms.lessons_ID=ul.lessons_ID OR chatrooms.lessons_ID IS NULL) AND ul.users_LOGIN='".$_SESSION['s_login']."'");
+            $rooms_array = eF_getTableData("chatrooms,users_to_lessons as ul", "distinct id, name, create_timestamp, chatrooms.users_LOGIN, chatrooms.active", "ul.archive=0 and type = 'public' AND (chatrooms.lessons_ID=ul.lessons_ID OR chatrooms.lessons_ID IS NULL) AND ul.users_LOGIN='".$_SESSION['s_login']."'");
         }
     } elseif ($room_type == 'private') {
         $rooms_array = eF_getTableData("chatrooms", "id, name, create_timestamp, users_LOGIN, active", "users_LOGIN = '".$_SESSION['s_login']."' AND type = 'private'");

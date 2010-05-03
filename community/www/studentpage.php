@@ -22,7 +22,7 @@ if ($GLOBALS['currentTheme'] -> options['sidebar_width']) {
     $smarty -> assign("T_SIDEFRAME_WIDTH", 175);
 }
 if (isset($_SESSION['previousSideUrl'])) {
-  $smarty -> assign("T_SIDEBAR_URL", $_SESSION['previousSideUrl']);
+ $smarty -> assign("T_SIDEBAR_URL", $_SESSION['previousSideUrl']);
 }
 if (isset($_GET['dashboard'])) {
  $smarty -> assign("T_MAIN_URL", "student.php?ctg=personal");

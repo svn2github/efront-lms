@@ -61,6 +61,8 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
                 $lessonUser -> completeLesson($currentLesson -> lesson['id'], $form -> exportValue('score'), $form -> exportValue('comments'));
             } else {
                 eF_updateTableData("users_to_lessons", array('completed' => 0, 'score' => 0, 'to_timestamp' => null), "users_LOGIN = '".$_GET['edit_user']."' and lessons_ID=".$currentLesson -> lesson['id']);
+          $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$_GET['edit_user'];
+          Cache::resetCache($cacheKey);
             }
 
             eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=progress&message='.urlencode(_STUDENTSTATUSCHANGED).'&message_type=success');

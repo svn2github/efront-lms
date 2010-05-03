@@ -792,7 +792,7 @@ try {
                     $directionCourses = $direction -> getCourses();
                     foreach ($directionCourses as $courseId => $courseInfo) {
                         $course = new EfrontCourse($courseId);
-                        $courseLessons = $course -> getLessons();
+                        $courseLessons = EfrontCourse::convertLessonObjectsToArrays($course -> getCourseLessons());
                         // Direction lessons and direction courses lessons overlapping is ommitted here
                         // but will be correctly handled by the random questions assignment
                         $directions_to_cover[$directionId]['lessonsCount'] += sizeof($courseLessons);
@@ -807,7 +807,7 @@ try {
                 // Get all lessons array for the courses and directions involved
                 foreach ($courses_to_cover as $courseId => $courseInfo) {
                     $course = new EfrontCourse($courseId);
-                    $courseLessons = $course -> getLessons();
+                    $courseLessons = EfrontCourse::convertLessonObjectsToArrays($course -> getCourseLessons());
                     // The copying into the $courses_to_cover[$courseId]['lessons'] array is made to facilitate random selection
                     $courses_to_cover[$courseId]['lessons'] = array();
                     $courses_to_cover[$courseId]['lessonsCount'] = sizeof($courseLessons);

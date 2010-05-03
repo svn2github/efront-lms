@@ -279,9 +279,9 @@ class module_dimdim extends EfrontModule {
             } else if ($_GET['insert'] == "false") {
                 eF_deleteTableData("module_dimdim_users_to_meeting", "users_LOGIN = '". $_GET['user'] . "' AND meeting_ID = '".$_GET['edit_dimdim']."'");
             } else if (isset($_GET['addAll'])) {
-                $users = eF_getTableData("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_dimdim_users_to_meeting ON users.login = module_dimdim_users_to_meeting.users_LOGIN","users.login, users.name, users.surname, meeting_ID","users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND (meeting_ID <> '".$_GET['edit_dimdim']."' OR meeting_ID IS NULL)");
+                $users = eF_getTableData("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_dimdim_users_to_meeting ON users.login = module_dimdim_users_to_meeting.users_LOGIN","users.login, users.name, users.surname, meeting_ID","users_to_lessons.archive=0 and users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND (meeting_ID <> '".$_GET['edit_dimdim']."' OR meeting_ID IS NULL)");
 
-                $users_attending = eF_getTableDataFlat("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_dimdim_users_to_meeting ON users.login = module_dimdim_users_to_meeting.users_LOGIN","users.login","users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND meeting_ID = '".$_GET['edit_dimdim']."'");
+                $users_attending = eF_getTableDataFlat("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_dimdim_users_to_meeting ON users.login = module_dimdim_users_to_meeting.users_LOGIN","users.login","users_to_lessons.archive=0 and users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND meeting_ID = '".$_GET['edit_dimdim']."'");
 
                 isset($_GET['filter']) ? $users = eF_filterData($users, $_GET['filter']) : null;
                 $users_attending = $users_attending['login'];
@@ -293,7 +293,7 @@ class module_dimdim extends EfrontModule {
                     }
                 }
             } else if (isset($_GET['removeAll'])) {
-                $users_attending = eF_getTableData("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_dimdim_users_to_meeting ON users.login = module_dimdim_users_to_meeting.users_LOGIN","users.login","users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND meeting_ID = '".$_GET['edit_dimdim']."'");
+                $users_attending = eF_getTableData("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_dimdim_users_to_meeting ON users.login = module_dimdim_users_to_meeting.users_LOGIN","users.login","users_to_lessons.archive=0 and users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND meeting_ID = '".$_GET['edit_dimdim']."'");
                 //$users_attending = $users_attending['login'];
                 isset($_GET['filter']) ? $users_attending = eF_filterData($users_attending, $_GET['filter']) : null;
 
@@ -408,7 +408,7 @@ class module_dimdim extends EfrontModule {
                                                     JOIN module_dimdim ON module_dimdim.lessons_ID = users_to_lessons.lessons_ID
                                                     LEFT OUTER JOIN module_dimdim_users_to_meeting ON module_dimdim.id = module_dimdim_users_to_meeting.meeting_ID AND users.login = module_dimdim_users_to_meeting.users_LOGIN",
                                                     "users.login, users.name, users.surname, users.email, meeting_ID",
-                                                    "users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND users.login <> '".$currentUser -> user['login'] . "' AND module_dimdim.id = '".$_GET['edit_dimdim']."'");
+                                                    "users_to_lessons.archive=0 and users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND users.login <> '".$currentUser -> user['login'] . "' AND module_dimdim.id = '".$_GET['edit_dimdim']."'");
 
                     $users = eF_multiSort($users, $_GET['sort'], $order);
                     if (isset($_GET['filter'])) {
@@ -432,7 +432,7 @@ class module_dimdim extends EfrontModule {
                                                     JOIN module_dimdim ON module_dimdim.lessons_ID = users_to_lessons.lessons_ID
                                                     LEFT OUTER JOIN module_dimdim_users_to_meeting ON module_dimdim.id = module_dimdim_users_to_meeting.meeting_ID AND users.login = module_dimdim_users_to_meeting.users_LOGIN",
                                                     "users.login, users.name, users.surname, meeting_ID",
-                                                    "users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND users.login <> '".$currentUser -> user['login'] . "' AND module_dimdim.id = '".$_GET['edit_dimdim']."'");
+                                                    "users_to_lessons.archive=0 and users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND users.login <> '".$currentUser -> user['login'] . "' AND module_dimdim.id = '".$_GET['edit_dimdim']."'");
 
 
                     $smarty -> assign("T_USERS", $users);
@@ -492,7 +492,7 @@ class module_dimdim extends EfrontModule {
 
 
             $currentLesson = $this -> getCurrentLesson();
-            $students = eF_getTableData("users_to_lessons", "count(users_LOGIN) as total_students", "lessons_ID = '".$currentLesson -> lesson['id']."'");
+            $students = eF_getTableData("users_to_lessons", "count(users_LOGIN) as total_students", "archive=0 and lessons_ID = '".$currentLesson -> lesson['id']."'");
 
             $total_students = $students[0]['total_students'];
             $students_count = array();

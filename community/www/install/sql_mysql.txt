@@ -30,9 +30,12 @@ CREATE TABLE bookmarks (
 -- Fields:
 -- cache_key (primary key): The sha256 unique cached entity id
 -- value: The cached entity
+-- timestamp: A 10-digit number representing the event's date and time
 CREATE TABLE cache (
   cache_key char(64) NOT NULL,
   value longtext,
+  timestamp int(10) unsigned NOT NULL,
+  timeout int(10) unsigned NOT NULL,
   PRIMARY KEY (cache_key)
 ) DEFAULT CHARSET=utf8;
 
@@ -178,58 +181,107 @@ CREATE TABLE content (
 -- Fields:
 -- id (primary key): A numerical identifier
 -- name: The course name
--- directions_ID: The id of the direction (category) that this course belongs to, corresponding to the 'id' field of the 'directions' table
+-- active: Whether this course is active or not. Possible values are 0 (not active) and 1 (active)
+-- archive: A timestamp indicating when this entity was archived. If 0, then the entity is not archived. Archived entities MUST have active = 0 also
+-- created: Course creation timestamp
+-- start_date: The time when the course starts. Must be a db field in order to sort/filter by this
+-- end_date: The time when the course ends. Must be a db field in order to sort/filter by this
+-- options: A serialized array that holds the course options
+-- metadata: A string holding a serialized array with unit metadata
+-- description: A textual description of this entity
 -- info: A serialized array holding course information
 -- price: The price of the course, or 0 if it's free
--- active: Whether this course is active or not. Possible values are 0 (not active) and 1 (active)
--- languages_NAME: The language that this course supports. It's value corresponds to the 'name' field of the 'languages' table
--- metadata: A string holding a serialized array with unit metadata
--- certficate:
--- auto_certificate: Whether a certificate should be issued automatically when a user auto completes a course. Possible values are 0 (no auto-complete) or 1 (auto-complete)
--- certificate_tpl:
--- auto_complete: Whether this course should be completed automatically when a user completed all its lessons. Possible values are 0 (no auto-complete) or 1 (auto-complete)
--- rules: A serialized array that corresponds to the succession rules applied among lessons in the course
--- from_timestamp: A timestamp that dictates when the course will become available
--- to_timestamp: A timestamp that dictates when the course will stop beeing available
--- shift: Sets whether shifting based on user registration time should be perform on the 'from_timestamp' and 'to_timestamp' field values
--- certificate_tpl_id
--- certificate_expiration: The time duration until the certificate expires(from being issued)
--- reset: Whether course is reset when certificate expires
--- publish: Whether the course created should be visible to students (ie 'published')
--- created: Course creation timestamp
 -- show_catalog: Whether to show this course on the course catalog list
--- options: A serialized array that holds the course options
+-- publish: Whether the course created should be visible to students (ie 'published')
+-- directions_ID: The id of the direction (category) that this course belongs to, corresponding to the 'id' field of the 'directions' table
+-- languages_NAME: The language that this course supports. It's value corresponds to the 'name' field of the 'languages' table
+-- reset: Whether course is reset when certificate expires
+-- certificate_expiration: The time duration until the certificate expires(from being issued)
 -- max_users: The maximum number of users a lesson is allowed to have
--- archive: A timestamp indicating when this entity was archived. If 0, then the entity is not archived. Archived entities MUST have active = 0 also
+-- rules: A serialized array that corresponds to the succession rules applied among lessons in the course
+-- instance_source: If set, this course is an instance, and the field points to the original course id
 CREATE TABLE courses (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
-  directions_ID mediumint(8) unsigned NOT NULL default '0',
+  active tinyint(1) NOT NULL default '1',
+  archive int(10) unsigned default 0,
+  created int(10) unsigned default NULL,
+  start_date int(10) unsigned default NULL,
+  end_date int(10) unsigned default NULL,
+  options text,
+  metadata text,
+  description text,
   info text,
   price float default '0',
-  active tinyint(1) NOT NULL default '1',
-  languages_NAME varchar(50) NOT NULL,
-  metadata text,
-  certificate text,
-  auto_certificate tinyint(1) default '0',
-  certificate_tpl text,
-  auto_complete tinyint(1) default '0',
-  rules text,
-  from_timestamp int(10) unsigned default NULL,
-  to_timestamp int(10) unsigned default NULL,
-  shift tinyint(1) default '0',
-  certificate_tpl_id mediumint(8) default 0,
-  certificate_expiration int(10) unsigned default NULL,
-  reset tinyint(1) NOT NULL default '0',
-  publish tinyint(1) default '1',
-  created int(10) unsigned default NULL,
-  duration int(10) default 0,
   show_catalog tinyint(1) NOT NULL default '1',
-  options text,
+  publish tinyint(1) default '1',
+  directions_ID mediumint(8) unsigned default NULL,
+  languages_NAME varchar(50) NOT NULL,
+  reset tinyint(1) NOT NULL default '0',
+  certificate_expiration int(10) unsigned default NULL,
   max_users int(10) unsigned default NULL,
-  archive int(10) unsigned default 0,
+  rules text,
+  instance_source mediumint(8) unsigned default '0',
+-- FOREIGN KEY (directions_ID) REFERENCES directions (id),
+-- FOREIGN KEY (languages_ID) REFERENCES languages (id),
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
+
+
+--
+-- Table 'users_to_courses'
+--
+-- This table represents the relation between a user and a course
+-- Fields:
+-- users_LOGIN: user's login that is assiciated with the course
+-- courses_ID: id of the course
+-- active: if 0, then the user cannot access the course, even though he/she has it
+-- archive: A timestamp indicating whether the user relation to the lesson is considered active. If 0, then it is active.
+-- from_timestamp: Time when user enrolled to course. If it's 0, the user has the course but has yet to be activated by the admin
+-- user_type: Type that user enrolled to course as (student, professor, etc)
+-- completed: shows if course is completed by user (for student types)
+-- score: shows the score that user has for the course
+-- issued_certificate: stores data about the certificate that user takes for the course
+-- comments: stores comments from professor or admininstrator when user completes course
+-- to_timestamp: time that user completes course
+CREATE TABLE users_to_courses (
+  users_LOGIN varchar(100) NOT NULL,
+  courses_ID mediumint(8) unsigned NOT NULL default '0',
+  active tinyint(1) NOT NULL default '0',
+  archive int(10) unsigned default 0,
+  from_timestamp int(10) unsigned default NULL,
+  user_type varchar(50) default NULL,
+  completed tinyint(1) NOT NULL default '0',
+  score int(11) NOT NULL default '0',
+  issued_certificate text,
+  comments text,
+  to_timestamp int(10) unsigned default NULL,
+-- FOREIGN KEY (users_ID) REFERENCES users (id),
+-- FOREIGN KEY (courses_ID) REFERENCES courses (id),
+  primary key (users_LOGIN, courses_ID)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'lessons_to_courses'
+--
+-- This table represents the relationship between lessons and courses
+-- Fields:
+-- courses_ID: The course id
+-- lessons_ID: The lesson id
+-- previous_lessons_ID: The id of the previous lesson. This defines the succession of lessons in the course
+CREATE TABLE lessons_to_courses (
+  courses_ID mediumint(8) unsigned NOT NULL,
+  lessons_ID mediumint(8) unsigned NOT NULL,
+  previous_lessons_ID mediumint(8) unsigned default 0,
+  start_date int(10) unsigned default NULL,
+  end_date int(10) unsigned default NULL,
+-- FOREIGN KEY (courses_ID) REFERENCES courses (id),
+-- FOREIGN KEY (lessons_ID) REFERENCES lessons (id),
+-- FOREIGN KEY (previous_lessons_ID) REFERENCES lessons (id),
+  PRIMARY KEY (lessons_ID, courses_ID)
+) DEFAULT CHARSET=utf8;
+
+
 
 --
 -- Table 'directions'
@@ -507,17 +559,21 @@ CREATE TABLE glossary (
 -- Table 'languages'
 --
 -- Fields:
--- name (primary key): The language name
+-- id (primary key): A numerical identifier
+-- name: The language name, must be unique
 -- active: Whether this language is available, can be either 1 (active) or 0
 -- translation: The language name in its native language
 -- rtl: Whether this is a Right-To-Left written language, can be either 1 (rtl) or 0
 CREATE TABLE languages (
+  id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(50) NOT NULL,
   active tinyint(1) NOT NULL default '1',
   translation varchar(50),
   rtl tinyint(1) NOT NULL default '0',
-  PRIMARY KEY (name)
+  PRIMARY KEY (id),
+  UNIQUE (name)
 ) DEFAULT CHARSET=utf8;
+
 
 --
 -- Table 'lessons'
@@ -545,7 +601,7 @@ CREATE TABLE languages (
 CREATE TABLE lessons (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
-  directions_ID mediumint(8) unsigned NOT NULL default '0',
+  directions_ID mediumint(8) unsigned default '0',
   info text,
   price float default '0',
   active tinyint(1) NOT NULL default '1',
@@ -564,7 +620,43 @@ CREATE TABLE lessons (
   created int(10) unsigned default NULL,
   max_users int(10) unsigned default NULL,
   archive int(10) unsigned default 0,
+  instance_source mediumint(8) unsigned default '0',
+  originating_course mediumint(8) unsigned default '0',
   PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'users_to_lessons'
+--
+-- This table represents the relation between a user and a lesson
+-- Fields:
+-- users_LOGIN: user's login that is assiciated with the lesson
+-- lessons_ID: id of the lesson
+-- active: if 0, then the user cannot access the lesson, even though he/she has it
+-- archive: A timestamp indicating whether the user relation to the lesson is considered active. If 0, then it is active.
+-- from_timestamp: Time when user enrolled to lesson. If it's 0, the user has the lesson but has yet to be activated by the admin
+-- user_type: Type that user enrolled to lesson as (student, professor, etc)
+-- completed: shows if lesson is completed by user (for student types)
+-- score: shows the score that user has for the lesson
+-- issued_certificate: stores data about the certificate that user takes for the lesson
+-- comments: stores comments from professor or admininstrator when user completes lesson
+-- to_timestamp: time that user completes lesson
+CREATE TABLE users_to_lessons (
+  users_LOGIN varchar(100) NOT NULL,
+  lessons_ID mediumint(8) unsigned NOT NULL default '0',
+  active tinyint(1) NOT NULL default '0',
+  archive int(10) unsigned default 0,
+  from_timestamp int(10) unsigned default NULL,
+  user_type varchar(50) default NULL,
+  positions text,
+  done_content text,
+  current_unit mediumint(8) unsigned default 0,
+  completed tinyint(1) NOT NULL default '0',
+  score tinyint(3) unsigned NOT NULL default '0',
+  issued_certificate blob,
+  comments text,
+  to_timestamp int(10) unsigned default NULL,
+  primary key (users_LOGIN, lessons_ID)
 ) DEFAULT CHARSET=utf8;
 
 --
@@ -935,74 +1027,9 @@ CREATE TABLE users_to_chatrooms (
   primary key (users_LOGIN, chatrooms_ID)
 ) DEFAULT CHARSET=utf8;
 
---
--- Table 'users_to_courses'
---
--- This table represents the relation between a user and a course
--- Fields:
--- users_LOGIN: user's login that is assiciated with the course
--- courses_ID: id of the course
--- active: shows if user is still related to the course
--- from_timestamp: Time when user enrolled to course. If it's 0, the user has the course but has yet to be activated by the admin
--- user_type: Type that user enrolled to course as (student, professor, etc)
--- completed: shows if course is completed by user (for student types)
--- score: shows the score that user has for the course
--- issued_certificate: stores data about the certificate that user takes for the course
--- comments: stores comments from professor or admininstrator when user completes course
--- to_timestamp: time that user completes course
-CREATE TABLE users_to_courses (
-  users_LOGIN varchar(100) NOT NULL,
-  courses_ID mediumint(8) unsigned NOT NULL default '0',
-  active tinyint(1) NOT NULL default '0',
-  from_timestamp int(10) unsigned default NULL,
-  user_type varchar(50) default NULL,
-  completed tinyint(1) NOT NULL default '0',
-  score int(11) NOT NULL default '0',
-  issued_certificate text,
-  comments text,
-  to_timestamp int(10) unsigned default NULL,
-  primary key (users_LOGIN, courses_ID)
-) DEFAULT CHARSET=utf8;
-
-CREATE TABLE lessons_to_courses (
-  courses_ID mediumint(8) unsigned NOT NULL,
-  lessons_ID mediumint(8) unsigned NOT NULL,
-  previous_lessons_ID mediumint(8) unsigned default 0,
-  PRIMARY KEY (lessons_ID, courses_ID)
-) DEFAULT CHARSET=utf8;
 
 
---
--- Table 'users_to_lessons'
---
--- This table represents the relation between a user and a lesson
--- Fields:
--- users_LOGIN: user's login that is assiciated with the lesson
--- lessons_ID: id of the lesson
--- active: shows if user is still related to the lesson
--- from_timestamp: Time when user enrolled to lesson. If it's 0, the user has the lesson but has yet to be activated by the admin
--- user_type: Type that user enrolled to lesson as (student, professor, etc)
--- completed: shows if lesson is completed by user (for student types)
--- score: shows the score that user has for the lesson
--- issued_certificate: stores data about the certificate that user takes for the lesson
--- comments: stores comments from professor or admininstrator when user completes lesson
--- to_timestamp: time that user completes lesson
-CREATE TABLE users_to_lessons (
-  users_LOGIN varchar(100) NOT NULL,
-  lessons_ID mediumint(8) unsigned NOT NULL default '0',
-  active tinyint(1) NOT NULL default '0',
-  from_timestamp int(10) unsigned default NULL,
-  user_type varchar(50) default NULL,
-  positions text,
-  done_content text,
-  current_unit mediumint(8) unsigned default 0,
-  completed tinyint(1) NOT NULL default '0',
-  score tinyint(3) unsigned NOT NULL default '0',
-  issued_certificate blob,
-  comments text,
-  to_timestamp int(10) unsigned default NULL,
-  primary key (users_LOGIN, lessons_ID)
-) DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE users_to_projects (
   users_LOGIN varchar(100) NOT NULL,

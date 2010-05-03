@@ -632,7 +632,56 @@ class EfrontFile extends ArrayObject
         }
         $this['url_path'] = implode("/", $pathParts);
     }
-    public function compress($method = 'zip') {
+ /**
+
+	 * Compress file
+
+	 * 
+
+     * @param string $zipName The name if the compressed file
+
+     * @param boolean $decode Whether the file name should be decoded
+
+     * @return EfrontFile The compressed file
+
+     * @since 3.6.1
+
+     * @access public
+
+	 */
+    public function compress($zipName = false, $decode = false) {
+     if (!$zipName) {
+            $zipName = $this['path'].'.zip';
+        } else {
+            $zipName = $this['directory'].'/'.(EfrontFile :: encode(basename($zipName)));
+        }
+        try { //This way we delete the file, if it already exists
+            $file = new EfrontFile($zipName);
+            $file -> delete();
+        } catch (Exception $e) {}
+        if ($GLOBALS['configuration']['zip_method'] == 'system') {
+            $dir = getcwd();
+            chdir($this['directory']);
+            $response = exec('zip -r "'.$zipName.'" '.$this['name'].' 2>&1', $output, $code);
+            chdir($dir);
+            if ($code != 0) {
+                throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response.". "._PERHAPSDONTSUPPORTZIP, EfrontFileException :: ERROR_ZIP_PROCESSING);
+            }
+            return new EfrontFile($zipName);
+        } else {
+            $zip = new ZipArchive;
+            if ($zip -> open($zipName, ZIPARCHIVE::CREATE ) === true) {
+                if ($decode) {
+                 $zip -> addFile($this['path'], EfrontFile :: decode($this['name']));
+                } else {
+                 $zip -> addFile($this['path'], $this['name']);
+                }
+                $zip -> close();
+                return new EfrontFile($zipName);
+            } else {
+                throw new EfrontFileException(_CANNOTOPENCOMPRESSEDFILE.': '.$this['path'], EfrontFileException :: ERROR_OPEN_ZIP);
+            }
+        }
     }
     /**
 
@@ -1745,11 +1794,12 @@ class FileSystemTree extends EfrontTree
 
      */
     public function reset() {
-        //Get all files that are within the dsignated directory
+        //Get all files that are within the designated directory
         $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."%'");
-        foreach ($result as $file) {
+        foreach ($result as $key => $file) {
             $file['path'] = G_ROOTPATH.$file['path'];
             $files[$file['path']] = $file;
+            unset($result[$key]); //Releasing memory
         }
         $it = $this -> iterator;
         //$it = new EfrontREFilterIterator(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this -> dir['path']), RecursiveIteratorIterator :: SELF_FIRST), array('/.svn/', '/.htaccess/'), false);
@@ -2486,7 +2536,7 @@ class FileSystemTree extends EfrontTree
          $fileArrays = array_slice($fileArrays, $ajaxOptions['offset'], $ajaxOptions['limit']);
         }
         $filesCode = '
-                        <table class = "sortedTable" style = "width:100%" size = "'.$size.'" id = "'.$tableId.'" useAjax = "1" rowsPerPage = "20" other = "'.urlencode($currentDirectory).'" url = "'.$url.'&" currentDir = "'.(isset($currentDir['path']) ? $currentDir['path'] : '').'">
+                        <table class = "sortedTable" style = "width:100%" size = "'.$size.'" id = "'.$tableId.'" useAjax = "1" rowsPerPage = "20" other = "'.urlencode($currentDirectory).'" url = "'.$url.'&" nomass = "1" currentDir = "'.(isset($currentDir['path']) ? $currentDir['path'] : '').'">
                       <tr>'.($options['show_type'] ? '<td class = "topTitle centerAlign" name = "extension">'._FILETYPE.'</td>' : '').'
                        '.($options['show_name'] ? '<td class = "topTitle" name = "name" id = "filename_'.$tableId.'">'._FILENAME.'</td>' : '').'
                        '.($options['show_size'] ? '<td class = "topTitle" name = "size">'._SIZE.'</td>' : '').'
@@ -2878,7 +2928,7 @@ class FileSystemTree extends EfrontTree
      * @static
 
      */
-    public function uploadFile($fieldName, $destinationDirectory = false, $offset = false) {
+    public function uploadFile($fieldName, $destinationDirectory = false, $offset = false) {debug();
         if (!$destinationDirectory) {
             $destinationDirectory = $this -> dir;
         }

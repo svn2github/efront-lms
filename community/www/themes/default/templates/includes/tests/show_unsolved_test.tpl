@@ -1,8 +1,8 @@
 {if $T_SHOW_CONFIRMATION}
             {assign var = 't_show_side_menu' value = true}
-            	{if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
-            		{assign var = "resume_test" value = "1"}	{*This means we are resuming a paused test, rather than starting a new one*}
-            	{/if}
+             {if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
+              {assign var = "resume_test" value = "1"} {*This means we are resuming a paused test, rather than starting a new one*}
+             {/if}
                 <table class = "testHeader">
                     <tr><td id = "testName">{$T_TEST_DATA->test.name}</td></tr>
                     <tr><td id = "testDescription">{$T_TEST_DATA->test.description}</td></tr>
@@ -14,7 +14,7 @@
                                 <tr><td>{$smarty.const._TESTDURATION}:&nbsp;</td>
                                     <td>
                                     {if $T_TEST_DATA->options.duration}
-                                        {if $T_TEST_DATA->convertedDuration.hours}{$T_TEST_DATA->convertedDuration.hours}     {$smarty.const._HOURS}&nbsp;{/if}
+                                        {if $T_TEST_DATA->convertedDuration.hours}{$T_TEST_DATA->convertedDuration.hours} {$smarty.const._HOURS}&nbsp;{/if}
                                         {if $T_TEST_DATA->convertedDuration.minutes}{$T_TEST_DATA->convertedDuration.minutes} {$smarty.const._MINUTES}&nbsp;{/if}
                                         {if $T_TEST_DATA->convertedDuration.seconds}{$T_TEST_DATA->convertedDuration.seconds} {$smarty.const._SECONDS}{/if}
                                     {else}
@@ -23,12 +23,12 @@
                                     </td></tr>
                                 <tr><td>{$smarty.const._NUMOFQUESTIONS}:&nbsp;</td>
                                     <td>
-							{if $T_TEST_DATA->options.user_configurable && !$resume_test}
-										<input type = "text" id = "user_configurable" value = "" size = "3"> ({$smarty.const._MAXIMUM} {$T_TEST_QUESTIONS_NUM})
-							{else}
-								{$T_TEST_QUESTIONS_NUM}
-							{/if}
-									</td></tr>
+       {if $T_TEST_DATA->options.user_configurable && !$resume_test}
+          <input type = "text" id = "user_configurable" value = "" size = "3"> ({$smarty.const._MAXIMUM} {$T_TEST_QUESTIONS_NUM})
+       {else}
+        {$T_TEST_QUESTIONS_NUM}
+       {/if}
+         </td></tr>
                                 <tr><td>{$smarty.const._QUESTIONSARESHOWN}:&nbsp;</td>
                                     <td>{if $T_TEST_DATA->options.onebyone}{$smarty.const._ONEBYONEQUESTIONS}{else}{$smarty.const._ALLTOGETHER}{/if}</td></tr>
                             {if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
@@ -46,7 +46,7 @@
                     {if $resume_test}
                         <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._RESUMETEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&resume=1'" />
                     {elseif $T_TEST_DATA->options.user_configurable}
-                    	<input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1&user_configurable='+parseInt($('user_configurable').value ? $('user_configurable').value : 0)" />
+                     <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1&user_configurable='+parseInt($('user_configurable').value ? $('user_configurable').value : 0)" />
                     {else}
                         <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'" />
                     {/if}
@@ -87,11 +87,43 @@
             {/capture}
         {/if}
         {if !$T_NO_TEST}
-            {$T_TEST_FORM.javascript}
-            <form {$T_TEST_FORM.attributes}>
-                {$T_TEST_FORM.hidden}
-                {$T_TEST}
-                {$smarty.capture.test_footer}
-            </form>
+   {if !$T_TEST_DATA->options.redirect || $T_TEST_STATUS.status != 'completed'}
+    {$T_TEST_FORM.javascript}
+    <form {$T_TEST_FORM.attributes}>
+     {$T_TEST_FORM.hidden}
+     {$T_TEST}
+     {$smarty.capture.test_footer}
+    </form>
+   {else}
+    <table class = "doneTestInfo">
+                    <tr><td>
+                        {$smarty.const._THETESTISDONE} {$T_TEST_STATUS.timesDone} {$smarty.const._TIMES}
+                                {if $T_TEST_DATA->options.redoable}
+         {$smarty.const._ANDCANBEDONE}
+         {if $T_TEST_STATUS.timesLeft > 0} {$T_TEST_STATUS.timesLeft}{else}0{/if}
+         {$smarty.const._TIMESMORE}
+        {/if}
+
+     </td></tr>
+      <tr><td>
+      <div class = "headerTools">
+       {if $T_TEST_STATUS.lastTest && ($T_TEST_STATUS.timesLeft > 0 || $T_TEST_STATUS.timesLeft === false)}
+        <span id = "redoLink">
+          <img src = "images/16x16/undo.png" alt = "{$smarty.const._USERREDOTEST}" title = "{$smarty.const._USERREDOTEST}" border = "0" style = "vertical-align:middle">
+          <a href = "javascript:void(0)" id="redoLinkHref" onclick = "redoTest(this)" style = "vertical-align:middle">{$smarty.const._USERREDOTEST}</a></span>
+
+
+       {/if}
+      </div>
+     </table>
+    <div style = "display:none">
+     {$T_TEST_FORM.javascript}
+     <form {$T_TEST_FORM.attributes}>
+      {$T_TEST_FORM.hidden}
+      {$T_TEST}
+      {$smarty.capture.test_footer}
+     </form>
+    </div>
+   {/if}
         {/if}
 {/if}

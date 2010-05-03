@@ -323,8 +323,8 @@
                                              <br/> {$smarty.const._BY} #filter:user_loginNoIcon-{$subforum.last_post.users_LOGIN}#
                                              <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$subforum.last_post.f_topics_ID}&view_message={$subforum.last_post.id}">&raquo;</a>
                              {else}
-                                             {$smarty.const._NOFORUMPOSTSYET}
-                             {/if}
+                                             -
+        {/if}
                                              </td>
             <td class = "centerAlign">
                              {if $subforum.status == '2'}
@@ -496,7 +496,7 @@
                              <br/> {$smarty.const._BY} #filter:user_loginNoIcon-{$subforum.last_post.users_LOGIN}#
                              <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$subforum.last_post.f_topics_ID}&view_message={$subforum.last_post.id}">&raquo;</a></td>
                       {else}
-                       {$smarty.const._NOFORUMPOSTSYET}
+                       -
                       {/if}
        </td>
        <td class = "centerAlign">

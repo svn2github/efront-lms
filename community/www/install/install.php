@@ -121,14 +121,14 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
     $form = new HTML_QuickForm("info_form", "post", $_SERVER['PHP_SELF']."?step=2".($_GET['upgrade'] ? '&upgrade=1': ''), "", "class = 'indexForm'", true);
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
-    $form -> addElement('select', 'db_type', null, array('mysql' => 'MySQL'));
+    $form -> addElement('select', 'db_type', null, array('mysql' => 'MySQL', 'mssql' => 'MSSQL'));
     $form -> addRule('db_type', 'The field "database type" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
     $form -> addRule('db_type', 'Invalid database type', 'checkParameter', 'string'); //The database type can only be string and is mandatory
     $form -> setDefaults(array('db_type' => 'mysql'));
-    $form -> freeze(array('db_type')); //Freeze this element, since it can't change for now
+    //$form -> freeze(array('db_type'));                                                               //Freeze this element, since it can't change for now
     $form -> addElement('text', 'db_host', null, 'class = "inputText"');
     $form -> addRule('db_host', 'The field "Database host" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
-    $form -> addRule('db_host', 'Invalid database host', 'checkParameter', 'alnum_general'); //The database host can only be string and is mandatory
+    //$form -> addRule('db_host', 'Invalid database host', 'checkParameter', 'alnum_general');         //The database host can only be string and is mandatory
     $form -> addElement('text', 'db_user', null, 'class = "inputText"');
     $form -> addRule('db_user', 'The field "Database user" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
     $form -> addRule('db_user', 'Invalid database user', 'checkParameter', 'alnum_general'); //The database user can only be string
@@ -142,6 +142,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      $form -> addElement('text', 'old_db_name', null, 'class = "inputText"');
      $form -> addRule('old_db_name', 'The field "Upgrade from database" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
      $form -> addRule('old_db_name', 'Invalid database name', 'checkParameter', 'alnum_general'); //The database name can only be string
+     $form -> addElement('checkbox', 'upgrade_search', null, null, 'style = "vertical-align:middle"');
     } else {
      $form -> addElement('text', 'admin_name', null, 'class = "inputText"');
      $form -> addRule('admin_name', 'The field "Administrator user name" is mandatory', 'required', null, 'client');
@@ -161,6 +162,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                                'db_name' => 'efront',
                                'db_prefix' => '',
                                'admin_name' => 'admin',
+             'upgrade_search' => true,
                                'default_data' => true));
     if ($_GET['upgrade']) {
         $form -> setDefaults($currentVersion);
@@ -186,7 +188,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
          }
             //first, try to connect to the host
          $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password']);
-         $db -> Execute("SET NAMES 'UTF8'");
+         if ($values['db_type'] == 'mysql') {
+          $db -> Execute("SET NAMES 'UTF8'");
+         }
          $file_contents = trim(file_get_contents("sql_".$values['db_type'].".txt")); //Get the sql queries text
          $file_contents = explode(';',$file_contents); //Form the sql queries, by splitting each CREATE statement
          if (!end($file_contents)) {
@@ -201,14 +205,17 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
               $db -> Execute("create database ".$values['db_name']." DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci"); //Create the new database
               $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
           }
-          $db -> Execute("SET NAMES 'UTF8'");
-                foreach ($file_contents as $query) {
+          if ($values['db_type'] == 'mysql') {
+           $db -> Execute("SET NAMES 'UTF8'");
+          }
+          foreach ($file_contents as $query) {
                     //Apply the selected prefix to table names
                     $query = preg_replace('/CREATE TABLE (\w+) (.*)/', 'CREATE TABLE '.$values['db_prefix'].'$1 $2', $query);
                     preg_match('/CREATE TABLE (\w+) .*/', $query, $matches);
                     try {
                         if (isset($values['delete_form']) && $matches[1]) {
-                            $db -> Execute("drop table if exists ".$matches[1]);
+                            //$db -> Execute("drop table if exists ".$matches[1]);
+                            Installation :: dropTableIfExists($matches[1], $values['db_type']);
                         }
                         $db -> Execute($query);
                     } catch (Exception $e) {
@@ -349,7 +356,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                     }
                 }
                 Installation :: createConfigurationFile($values, true);
-                EfrontSearch::reBuiltIndex();
+                if ($values['upgrade_search']) {
+                 EfrontSearch::reBuiltIndex();
+                }
                 $options = EfrontConfiguration :: getValues();
                 //This means that the version upgrading from is 3.5
                 if ($dbVersion == '3.5') {
@@ -430,7 +439,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      }
      if (is_dir($key.'/jscripts')) {
       try {
-       if ($key != 'preview') {
+       if ($value['name'] != 'preview') {
         $directory = new EfrontDirectory($key.'/jscripts');
         $directory -> delete();
        }
@@ -455,6 +464,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 if (stripos(php_uname(), 'windows') !== false) {
                     EfrontConfiguration :: setValue('file_encoding', 'UTF7-IMAP');
                 }
+                /*Languages declarations. Must be put before creating default users and lessons*/
+                include_once "insert_languages.php";
+                addLanguagesDB();
                 //If the current version is enterprise, set another theme as default
                 //Create the default system users and lessons
                 if (isset($values['default_data']) && $values['default_data']) {
@@ -468,8 +480,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 } else {
                     $result = Installation :: createDefaultUsers($values, true);
                 }
-                include_once "insert_languages.php";
-                addLanguagesDB();
                 EfrontNotification::addDefaultNotifications();
                 Installation :: addModules();
                 if (is_file('post_install.php')) {
@@ -622,18 +632,16 @@ class Installation
      */
    public static function createDefaultLessons($values, $users) {
         //Check if any lessons were created in a previous attempt
-        $result = eF_getTableDataFlat("lessons", "id");
-        if (sizeof($result) > 0) {
-            foreach ($result['id'] as $id) {
-                EfrontLesson::deleteLesson($id);
-            }
+        $result = eF_getTableData("lessons", "*");
+        foreach ($result as $value) {
+         $lesson = new EfrontLesson($value);
+         $lesson -> delete();
         }
         //Check if any courses were created in a previous attempt
-        $result = eF_getTableDataFlat("courses", "id");
-        if (sizeof($result) > 0) {
-            foreach ($result['id'] as $id) {
-                EfrontCourse::deleteCourse($id);
-            }
+        $result = eF_getTableData("courses", "id");
+        foreach ($result as $value) {
+         $course = new EfrontLesson($value);
+         $course -> delete();
         }
         //Check if any categories were created in a previous attempt
         $result = eF_getTableDataFlat("directions", "id");
@@ -1023,9 +1031,25 @@ php_value register_globals Off
          } else if ($table == 'payments') {
              unset($data[$i]['paypal_data_ID']); //Obsolete field
          } else if ($table == 'courses') {
-             if ($data[$i]['created'] == '') {
-     $data[$i]['created'] = time();
-             }
+             $data[$i]['created'] != '' OR $data[$i]['created'] = time(); //Set a creation date to a course, if it doesn't have one
+    //Convert old table properties to options 	            
+             $options = unserialize($data[$i]['options']) OR $options = array(); //initialize the course options for the below operations
+             !$data[$i]['certificate'] OR $options['certificate'] = $data[$i]['certificate'];
+             !$data[$i]['auto_certificate'] OR $options['auto_certificate'] = $data[$i]['auto_certificate'];
+             !$data[$i]['auto_complete'] OR $options['auto_complete'] = $data[$i]['auto_complete'];
+             !$data[$i]['certificate_tpl_id'] OR $options['certificate_tpl_id'] = $data[$i]['certificate_tpl_id'];
+             !$data[$i]['duration'] OR $options['duration'] = $data[$i]['duration'];
+             $data[$i]['options'] = serialize($options);
+    //Unset old and deprecated fields	            
+             unset($data[$i]['certificate']);
+             unset($data[$i]['auto_certificate']);
+             unset($data[$i]['auto_complete']);
+             unset($data[$i]['certificate_tpl_id']);
+             unset($data[$i]['duration']);
+             unset($data[$i]['certificate_tpl']);
+             unset($data[$i]['from_timestamp']);
+             unset($data[$i]['to_timestamp']);
+             unset($data[$i]['shift']);
          }
          //Convert any '' values inside fields that are now integers, to 0 (for example timestamps that used to be varchars)	        
          if (isset($data[$i])) {
@@ -1151,6 +1175,13 @@ php_value register_globals Off
      </table>
      ';
      return $str;
+ }
+ public static function dropTableIfExists($table, $driver = 'mysql') {
+  if ($driver == 'mysql') {
+   $GLOBALS['db'] -> Execute("drop table if exists ".$table);
+  } elseif ($driver == 'mssql') {
+   $GLOBALS['db'] -> Execute("IF EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table') DROP TABLE $table;");
+  }
  }
 }
 ?>

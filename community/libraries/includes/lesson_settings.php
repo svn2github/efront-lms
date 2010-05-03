@@ -248,14 +248,14 @@ if ($_GET['op'] == 'reset_lesson') {
                     $currentLesson -> addUsers($_GET['login'], $userType);
                 }
                 if (in_array($_GET['login'], array_keys($lessonUsers))) {
-                    $userType != $lessonUsers[$_GET['login']]['role'] ? $currentLesson -> setRoles($_GET['login'], $userType) : $currentLesson -> removeUsers($_GET['login']);
+                    $userType != $lessonUsers[$_GET['login']]['role'] ? $currentLesson -> setRoles($_GET['login'], $userType) : $currentLesson -> archiveLessonUsers($_GET['login']);
                 }
             } else if (isset($_GET['addAll'])) {
                 isset($_GET['filter']) ? $nonLessonUsers = eF_filterData($nonLessonUsers, $_GET['filter']) : null;
                 $currentLesson -> addUsers(array_keys($nonLessonUsers));
             } else if (isset($_GET['removeAll'])) {
                 isset($_GET['filter']) ? $lessonUsers = eF_filterData($lessonUsers, $_GET['filter']) : null;
-                $currentLesson -> removeUsers(array_keys($lessonUsers));
+                $currentLesson -> archiveLessonUsers(array_keys($lessonUsers));
             }
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");

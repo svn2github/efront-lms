@@ -1,8 +1,17 @@
 === Version 3.6.3 build ===
+- Added course instances functionality
+- Upgrade now asks whether to upgrade search table as well
+- Updated adodb libraries to 5.10
+- Added ".hiddenElement" class
+- Added "tr.rowColor:hover" class
 - Fixed bug in certificate reports
 - Fixed issue about counting deactivated uses in license users count
 - Fixed bug in notifications about returning also archived courses
 - Fixed display issue in lesson information about lesson completion rules
+- Fixed issue about inserting (in caret) file to editor from file manager
+- Fixed issue with update unit/create subunit links when redirected to first unit
+- Added option about where to redirect after user login (user dashboard or user courses)
+- Fixed issue about not sending mass e-mails when a user has not e-mail address defined
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality
@@ -48,7 +57,7 @@
 - Fixed issue about corrupting title path when lesson name contains a slash
 - Fixed issue with double slash in browse.php returning to editor popups
 
-=== Version 3.6.0 build 6235===
+=== Version 3.6.1 build 6235===
 - Fixed content rules not taken into account when auto_complete is on
 - Fixed bug in upgrading modules
 - Fixed problem in custom blobks with {,} characters

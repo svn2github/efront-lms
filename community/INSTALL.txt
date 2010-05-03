@@ -66,7 +66,8 @@ and perform the following chages:
 4. Using the XAMPP control panel (or manually) restart Apache service
 
 Note: Several directories should be writable by the web server, but the most important is libraries/smarty,
-since it is needed in order to perform installation
+since it is needed in order to perform installation. You will see a list of directories that are not writable, in
+step 1 of the installation process
 
 Troubleshooting
 ===============

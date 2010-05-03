@@ -61,6 +61,8 @@ try {
             $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         } else if ($isSupervisor) {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
+            $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
+            $options[] = array('text' => _BRANCHSTATISTICS, 'image' => "32x32/branch.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=branches");
             $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         }
     } else if ($_GET['option'] == 'user') {

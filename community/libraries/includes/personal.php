@@ -52,6 +52,11 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
+if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
+ exit;
+}
+!isset($currentUser -> coreAccess['users']) || $currentUser -> coreAccess['users'] == 'change' ? $_change_ = 1 : $_change_ = 0;
+$smarty -> assign("_change_", $_change_);
 //error_reporting(E_ALL);
 //echo "<pre>";print_r($_POST);print_r($_GET);
 //print_r($_FILES);
@@ -97,8 +102,9 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $previous_url = substr($previous_url, 0, $position);
     }
     $form -> setDefaults(array( 'previous_url' => $previous_url));
-    $form -> addElement('text', 'specification', _EVALUATIONCOMMENT, 'class = "inputText"');
-    if(isset($_GET['edit_evaluation'])) {
+    $load_editor = true;
+    $form -> addElement('textarea', 'specification', _EVALUATIONCOMMENT, 'class = "simpleEditor inputTextArea" style = "width:100%;height:14em;"');
+    if (isset($_GET['edit_evaluation'])) {
         $evaluations = eF_getTableData("module_hcd_events","*","event_ID = '".$_GET['edit_evaluation']."'");
         if ($currentUser -> getType() != 'administrator' && ($evaluations[0]['author'] != $currentUser -> login)) {
             $message = _YOUCANNOTEDITSOMEELSESEVALUATION;
@@ -109,7 +115,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         }
         $form -> setDefaults( array('specification' => $evaluations[0]['specification']));
     }
-    $form -> addRule('specification', _THEFIELD.' '._EVALUATIONCOMMENT .' '._ISMANDATORY, 'required', null, 'client');
+    //$form -> addRule('specification', _THEFIELD.' '._EVALUATIONCOMMENT .' '._ISMANDATORY, 'required', null, 'client');//Commented out because it creates problem with tinymce's simpleEditor
     $form -> addElement('submit', 'submit_evaluation_details', _SUBMIT, 'class = "flatButton" tabindex="2"');
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
     $renderer -> setRequiredTemplate(
@@ -273,7 +279,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
    $_GET['op'] = 'account';
   }
   $options = array(array('image' => '16x16/generic.png', 'title' => _EDITUSER, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false),
-       array('image' => '16x16/user_timeline.png', 'title' => _USERSTATUS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=status' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'status' ? true : false));
+       array('image' => '16x16/user_timeline.png', 'title' => _LEARNINGSTATUS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=status' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'status' ? true : false));
   $titles = array ( "account" => array("edituser" => _EDITUSER,
             "profile" => _USERPROFILE,
             "mapped" => _ADDITIONALACCOUNTS,
@@ -338,8 +344,9 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $loadScripts[] = 'scriptaculous/dragdrop';
         require_once 'social.php';
     }
-    if (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') {
-        $form -> freeze();
+//pr($currentUser);
+    if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') || (isset($currentUser -> coreAccess['dashboard']) && $currentUser -> coreAccess['dashboard'] != 'change')) {
+  $form -> freeze();
     } else {
         if ($personal_profile_form) {
             $form -> addElement('submit', 'submit_upload_file', _APPLYPROFILECHANGES, 'class = "flatButton"');
@@ -419,7 +426,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
     /*** Ajax Methods - Add/remove skills/jobs***/
     if (isset($_GET['postAjaxRequest'])) {
         try {
-            echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">';
+            //echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">';
             /** Post skill - Ajax skill **/
             if (isset($_GET['add_skill'])) {
                 if ($_GET['insert'] == "true") {
@@ -463,98 +470,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
                         $editedEmployee -> addSkills($skillId, $skillDescription, true);
                     }
                 }
-            } else if (isset($_GET['add_lesson'])) {
-                if ($_GET['insert'] == "true") {
-                    $editedUser -> addLessons($_GET['add_lesson'], $_GET['user_type'], 1);
-                } else if ($_GET['insert'] == "false") {
-                    $editedUser -> removeLessons($_GET['add_lesson']);
-                } else if (isset($_GET['addAll'])) {
-                    $userNonLessons = $editedUser -> getNonLessons(true);
-                    $lessons = array();
-                    foreach ($userNonLessons as $key => $lesson) {
-                        if (!$lesson -> lesson['course_only']) {
-                            $lessons[$lesson -> lesson['id']] = $lesson -> lesson;
-                        }
-                    }
-                    isset($_GET['filter']) ? $lessons = eF_filterData($lessons, $_GET['filter']) : null;
-                    $editedUser -> addLessons(array_keys($lessons), 0, 1);
-                } else if (isset($_GET['removeAll'])) {
-                    $userLessons = $editedUser -> getLessons(true);
-                    $lessons = array();
-                    foreach ($userLessons as $key => $lesson) {
-                        if (!$lesson -> lesson['course_only']) {
-                            $lessons[$lesson -> lesson['id']] = $lesson -> lesson;
-                        }
-                    }
-                    isset($_GET['filter']) ? $lessons = eF_filterData($lessons, $_GET['filter']) : null;
-                    $editedUser -> removeLessons(array_keys($lessons));
-                } else if (isset($_GET['addAllLessonsFromTest'])) {
-                    // The missing and required skill set is sent over with the ajax request
-                    $skills_missing = array();
-                    $all_skills = "";
-                    foreach ($_GET as $key => $value) {
-                        // all skill-related posted values are just the skill_ID ~ a uint value
-                        if (eF_checkParameter($key, 'unit')) {
-                            if ($value == 1) {
-                                $skills_missing[] = $key;
-                            }
-                        }
-                    }
-                    // We found all the skills missing
-                    $skills_missing = implode("','", $skills_missing);
-                    // We have all the already attended courses
-                    $alredy_attending = implode("','", array_keys($editedUser -> getLessons()));
-                    // Thus we can find the missing courses to fill the skill gap
-                    $lessons_proposed = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_lesson_offers_skill ON module_hcd_skills.skill_ID = module_hcd_lesson_offers_skill.skill_ID JOIN lessons ON lessons.id = module_hcd_lesson_offers_skill.lesson_ID","module_hcd_lesson_offers_skill.lesson_ID, lessons.*, count(module_hcd_lesson_offers_skill.skill_ID) as skills_offered", "module_hcd_lesson_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_lesson_offers_skill.lesson_ID NOT IN ('".$alredy_attending."')","","module_hcd_lesson_offers_skill.lesson_ID ORDER BY skills_offered DESC");
-                    // And assign them
-                    foreach ($lessons_proposed as $lesson) {
-                        $editedUser -> addLessons($lesson['lesson_ID']);
-                    }
-                }
-            } else if (isset($_GET['add_course'])) {
-                if ($_GET['insert'] == "true") {
-                    $editedUser -> addCourses($_GET['add_course'], $_GET['user_type'], 1);
-                } else if ($_GET['insert'] == "false") {
-                    $editedUser -> removeCourses($_GET['add_course']);
-                } else if (isset($_GET['addAll'])) {
-                    $nonCourses = $editedUser -> getNonCourses(true);
-                    $courses = array();
-                    foreach($nonCourses as $course) {
-                        $courses[$course -> course['id']] = $course -> course;
-                    }
-                    isset($_GET['filter']) ? $courses = eF_filterData($courses, $_GET['filter']) : null;
-                    $editedUser -> addCourses(array_keys($courses), 0, 1);
-                } else if (isset($_GET['removeAll'])) {
-                    $userCourses = $editedUser -> getCourses(true);
-                    $courses = array();
-                    foreach($userCourses as $course) {
-                        $courses[$course -> course['id']] = $course -> course;
-                    }
-                    isset($_GET['filter']) ? $courses = eF_filterData($courses, $_GET['filter']) : null;
-                    $editedUser -> removeCourses(array_keys($courses));
-                } else if (isset($_GET['addAllCoursesFromTest'])) {
-                    // The missing and required skill set is sent over with the ajax request
-                    $skills_missing = array();
-                    $all_skills = "";
-                    foreach ($_GET as $key => $value) {
-                        // all skill-related posted values are just the skill_ID ~ a uint value
-                        if (eF_checkParameter($key, 'unit')) {
-                            if ($value == 1) {
-                                $skills_missing[] = $key;
-                            }
-                        }
-                    }
-                    // We found all the skills missing
-                    $skills_missing = implode("','", $skills_missing);
-                    // We have all the already attended courses
-                    $alredy_attending = implode("','", array_keys($editedUser -> getCourses()));
-                    // Thus we can find the missing courses to fill the skill gap
-                    $courses_proposed = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_course_offers_skill ON module_hcd_skills.skill_ID = module_hcd_course_offers_skill.skill_ID JOIN courses ON courses.id = module_hcd_course_offers_skill.courses_ID","module_hcd_course_offers_skill.courses_ID, courses.*, count(module_hcd_course_offers_skill.skill_ID) as skills_offered", "module_hcd_course_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_course_offers_skill.courses_ID NOT IN ('".$alredy_attending."')","","module_hcd_course_offers_skill.courses_ID ORDER BY skills_offered DESC");
-                    // And assign them
-                    foreach ($courses_proposed as $course) {
-                        $editedUser -> addCourses($course['courses_ID']);
-                    }
-                }
+             exit;
             } else if (isset($_GET['add_group'])) {
                 if ($_GET['insert'] == "true") {
                     $editedUser -> addGroups($_GET['add_group']);
@@ -569,10 +485,11 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
                     isset($_GET['filter']) ? $groups = eF_filterData($groups, $_GET['filter']) : null;
                     $editedUser -> removeGroups($groups['id']);
                 }
+             exit;
             } else if (isset($_GET['setStatus'])) {
                 $editedUser -> setStatus($_GET['setStatus']);
+             exit;
             }
-            exit;
         } catch (Exception $e) {
             header("HTTP/1.0 500");
             echo $e -> getMessage().' ('.$e -> getCode().')';
@@ -608,27 +525,6 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         }
         $smarty -> display($_SESSION['s_type'].'.tpl');
         exit;
-    }
-    if (isset($_GET['ajax']) && $_GET['ajax'] == 'JobsFormTable') {
-        isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-        if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
-            $sort = $_GET['sort'];
-            isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
-        } else {
-            $sort = 'name';
-        }
-        // ** Get skills **
-        // We do not use the getSkills() method, because it will only return the skills of the employee and we need to present them ALL
-        try {
-            $employees_placements = $editedEmployee -> getJobs();
-            if (!empty($employees_placements)) {
-                $smarty -> assign("T_FORM_PLACEMENTS", $employees_placements);
-            }
-            $smarty -> display($_SESSION['s_type'].'.tpl');
-        } catch (Exception $e) {
-            header("HTTP/1.0 500");
-            $message = _COULDNOTRETRIEVEEMPLOYEESJOBS;
-        }
     }
     /** Get the employees history by ajax **/
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'historyFormTable') {
@@ -673,105 +569,14 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $smarty -> display($_SESSION['s_type'].'.tpl');
         exit;
     }
-    if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonsTable' && $editedUser -> user['user_type'] != "administrator") {
-        $directionsTree = new EfrontDirectionsTree();
-        $directionPaths = $directionsTree -> toPathString();
-        $lessons = EfrontLesson :: getLessons();
-        $userLessons = $editedUser -> getLessons(true);
-        foreach ($lessons as $key => $lesson) {
-            $obj = new EfrontLesson($lesson);
-            $lessons[$key]['directions_name'] = $directionPaths[$lesson['directions_ID']];
-            $lessons[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
-            $lessons[$key]['partof'] = 0;
-            $lessons[$key]['price_string'] = $obj -> lesson['price_string'];
-            $lessons[$key]['completed'] = 2; //This is to display sorting correctly. It doesn't matter, since if the user doesn't have the lesson, completed status isn't displayed at all
-            $lessons[$key]['score'] = null;
-            $lessons[$key]['active'] = -1; //-1 helps for sorting, has no other effect
-            if (in_array($lesson['id'], array_keys($userLessons))) {
-                $lessons[$key]['from_timestamp'] = $userLessons[$key] -> userStatus['from_timestamp'];
-                $lessons[$key]['partof'] = 1;
-                $lessons[$key]['user_type'] = $userLessons[$key] -> userStatus['user_type'];
-                $lessons[$key]['completed'] = $userLessons[$key] -> userStatus['completed'] ? $userLessons[$key] -> userStatus['completed'] : false;
-                $lessons[$key]['score'] = $userLessons[$key] -> userStatus['score'];
-                $lessons[$key]['active'] = $userLessons[$key] -> userStatus['active'];
-            } else if ($currentUser -> user['user_type'] != 'administrator' || !$lesson['active']) {
-                unset($lessons[$key]);
-            }
-            if ($lesson['course_only']) {
-                unset($lessons[$key]);
-            }
+        /** Calculate and display course users ajax lists*/
+        $courseUser = $editedUser;
+        if ($ctg != 'personal' || $currentUser -> user['user_type'] == 'administrator') {
+         $showUnassigned = true;
+        } else {
+         $showUnassigned = false;
         }
-        $roles = EfrontLessonUser :: getLessonsRoles(true);
-        $smarty -> assign("T_ROLES_ARRAY", $roles);
-        $rolesBasic = EfrontLessonUser :: getLessonsRoles();
-        $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
-        isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-        if (isset($_GET['sort'])) {
-            isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
-            $lessons = eF_multiSort($lessons, $_GET['sort'], $order);
-        }
-        if (isset($_GET['filter'])) {
-            $lessons = eF_filterData($lessons, $_GET['filter']);
-        }
-        $smarty -> assign("T_LESSONS_SIZE", sizeof($lessons));
-        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
-            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-            $lessons = array_slice($lessons, $offset, $limit);
-        }
-        //foreach ($lessons as $key => $lesson) {
-        //$lessons[$key]['languages_NAME'] = $languages[$lesson['languages_NAME']];
-        //}
-        $smarty -> assign("T_LESSONS_DATA", $lessons);
-        $smarty -> assign("T_EDITED_USER", $editedUser);
-        $smarty -> display($_SESSION['s_type'].'.tpl');
-        exit;
-    }
-    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable' && $editedUser -> user['user_type'] != "administrator") {
-        $directionsTree = new EfrontDirectionsTree();
-        $directionPaths = $directionsTree -> toPathString();
-        $courses = EfrontCourse :: getCourses();
-        $userCourses = $editedUser -> getCourses(true);
-        foreach ($courses as $key => $course) {
-            $courses[$key]['partof'] = 0;
-            $courses[$key]['directions_name'] = $directionPaths[$course['directions_ID']];
-            $courses[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
-            $courses[$key]['active'] = -1; //-1 helps for sorting, has no other effect
-            if (in_array($course['id'], array_keys($userCourses))) {
-                $courses[$key]['from_timestamp'] = $userCourses[$key] -> userStatus['from_timestamp'];
-                $courses[$key]['partof'] = 1;
-                $courses[$key]['user_type'] = $userCourses[$key] -> userStatus['user_type'];
-                $courses[$key]['completed'] = $userCourses[$key] -> userStatus['completed'];
-                $courses[$key]['score'] = $userCourses[$key] -> userStatus['score'];
-                $courses[$key]['active'] = $userCourses[$key] -> userStatus['active'];
-            } else if ($currentUser -> user['user_type'] != 'administrator' || !$course['active']) {
-                unset($courses[$key]);
-            }
-        }
-        $courses = array_values($courses); //Reindex so that sorting works
-        $roles = EfrontLessonUser :: getLessonsRoles(true);
-        $smarty -> assign("T_ROLES_ARRAY", $roles);
-        $rolesBasic = EfrontLessonUser :: getLessonsRoles();
-        $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
-        isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-        if (isset($_GET['sort'])) {
-            isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
-            $courses = eF_multiSort($courses, $_GET['sort'], $order);
-        }
-        if (isset($_GET['filter'])) {
-            $courses = eF_filterData($courses, $_GET['filter']);
-        }
-        $smarty -> assign("T_COURSES_SIZE", sizeof($courses));
-        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
-            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-            $courses = array_slice($courses, $offset, $limit);
-        }
-        //foreach ($courses as $key => $course) {
-        //$courses[$key]['languages_NAME'] = $languages[$course['languages_NAME']];
-        //}
-        $smarty -> assign("T_COURSES_DATA", $courses);
-        $smarty -> display($_SESSION['s_type'].'.tpl');
-        exit;
-    }
+     require_once("includes/personal/user_courses.php");
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'confirm_user') {
         try {
             if ($_GET['type'] == 'course') {
@@ -924,7 +729,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
     /****************************************************************************************************************************************************/
     /*********************************************************** Submit posted form: personal information ******************************************************************/
     /****************************************************************************************************************************************************/
-    if (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') {
+    if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') || (isset($currentUser -> coreAccess['dashboard']) && $currentUser -> coreAccess['dashboard'] != 'change')) {
         $form -> freeze();
     } else {
         $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
@@ -961,7 +766,13 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
                         'timestamp' => $insertionTimestamp,
                                        'user_types_ID' => $values['user_types_ID']);
                 foreach ($user_profile as $field) { //Get the custom fields values
-                    $users_content[$field['name']] = $values[$field['name']];
+                 if ($field['type'] == "date") {
+                  if ($_POST[$field['name'] . '_Month'] != "" && $_POST[$field['name'] . '_Day'] != "" && $_POST[$field['name'] . '_Year'] != "") {
+                   $users_content[$field['name']] = mktime(0, 0, 0, $_POST[$field['name'] . '_Month'], $_POST[$field['name'] . '_Day'], $_POST[$field['name'] . '_Year']);
+                  }
+                 } else {
+                     $users_content[$field['name']] = $values[$field['name']];
+                 }
                 }
                 // Insert the user into the database
                 try {
@@ -995,7 +806,13 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
                     $users_content['pending'] = 0; //The user cannot be pending, since the admin sent this information
                 }
                 foreach ($user_profile as $field) { //Get the custom fields values
-                    $users_content[$field['name']] = $form -> exportValue($field['name']);
+           if ($field['type'] == "date") {
+                  if ($_POST[$field['name'] . '_Month'] != "" && $_POST[$field['name'] . '_Day'] != "" && $_POST[$field['name'] . '_Year'] != "") {
+                   $users_content[$field['name']] = mktime(0, 0, 0, $_POST[$field['name'] . '_Month'], $_POST[$field['name'] . '_Day'], $_POST[$field['name'] . '_Year']);
+                  }
+                 } else {
+                     $users_content[$field['name']] = $values[$field['name']];
+                 }
                 }
                 if (isset($values['password_']) && $values['password_']) {
                     $users_content['password'] = EfrontUser::createPassword($values['password_']);

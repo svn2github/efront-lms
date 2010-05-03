@@ -249,8 +249,10 @@ class EfrontEvent
      * @access public
 
      */
+    private static $system_events = false;
     public static function getEventTypes($get_module_events = false) {
-     $system_events = array(EfrontEvent::SYSTEM_JOIN => array("text" => _SYSTEMJOIN, "category" => "system", "priority" => 1, "afterEvent" => 1),
+     if (!$system_events) {
+      $system_events = array(EfrontEvent::SYSTEM_JOIN => array("text" => _SYSTEMJOIN, "category" => "system", "priority" => 1, "afterEvent" => 1),
              EfrontEvent::SYSTEM_REMOVAL => array("text" => _SYSTEM_REMOVAL, "category" => "system"),
              EfrontEvent::SYSTEM_VISITED => array("text" => _SYSTEM_VISITED, "category" => "system", "canBeNegated" => _SYSTEM_NOT_VISITED, "priority" => 1, "afterEvent" => 1),
              EfrontEvent::SYSTEM_FORGOTTEN_PASSWORD => array("text" => _SYSTEM_ONPASSWORD_FORGOTTEN, "category" => "system"),
@@ -304,6 +306,7 @@ class EfrontEvent
              EfrontEvent::COUPON_USAGE => array("text" => _COUPONUSAGE, "category" => "payments")
           );
 //2222222222222222222222222
+     }
      return $system_events;
     }
     /**

@@ -151,8 +151,8 @@ try {
             $roles = EfrontUser :: getRoles(true);
         } else {
             $smarty -> assign("T_FULL_ACCESS", 0);
-            $lessons = eF_getTableDataFlat("lessons JOIN users_to_lessons", "id,name", "lessons.id = users_to_lessons.lessons_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
-            $courses = eF_getTableDataFlat("courses JOIN users_to_courses", "id,name", "courses.id = users_to_courses.courses_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
+            $lessons = eF_getTableDataFlat("lessons JOIN users_to_lessons", "id,name", "users_to_lessons.archive=0 and lessons.archive=0 and lessons.id = users_to_lessons.lessons_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
+            $courses = eF_getTableDataFlat("courses JOIN users_to_courses", "id,name", "users_to_courses.archive=0 and courses.archive=0 and courses.id = users_to_courses.courses_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
         }
         sizeof($lessons) > 0 ? $lessons = array_combine($lessons['id'], $lessons['name']) : $lessons = array();
         sizeof($courses) > 0 ? $courses = array_combine($courses['id'], $courses['name']) : $courses = array();
@@ -306,7 +306,7 @@ try {
                     $values['body'] = _THISPMISSENTALLUSERS.'<br />'.$values['body'];
                     break;
                 case 'specific_lesson':
-                    $result = eF_getTableDataFlat("users, users_to_lessons", "login", "users.active=1 AND users_to_lessons.active=1 AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=".($form -> exportValue('lesson')));
+                    $result = eF_getTableDataFlat("users, users_to_lessons", "login", "users_to_lessons.archive=0 and lessons.archive=0 and users.active=1 AND users_to_lessons.active=1 AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=".($form -> exportValue('lesson')));
                     $lesson = new EfrontLesson($form -> exportValue('lesson'));
                     $values['body'] = _THISPMISSENTLESSONUSERS.' <a href='.G_SERVERNAME.'##EFRONTINNERLINK##.php?lessons_ID='.$form -> exportValue('lesson').'>'.$lesson->lesson['name'].'</a><br />'.$values['body'];
                     break;
@@ -322,7 +322,7 @@ try {
                     $result = eF_getTableDataFlat("users, users_to_courses", "login", "users.active=1 AND users_to_courses.active=1 AND users.login=users_to_courses.users_LOGIN " . $and_completed_criterium . " AND users_to_courses.courses_ID=".($form -> exportValue('specific_course')));
                     break;
                 case 'specific_lesson_professor':
-                    $result = eF_getTableDataFlat("users, users_to_lessons", "login", "users.active=1 AND users_to_lessons.active=1 AND users_to_lessons.user_type = 'professor' AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=".($form -> exportValue('professor')));
+                    $result = eF_getTableDataFlat("users, users_to_lessons", "login", "users_to_lessons.archive=0 and lessons.archive=0 and users.active=1 AND users_to_lessons.active=1 AND users_to_lessons.user_type = 'professor' AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=".($form -> exportValue('professor')));
                     $lesson = new EfrontLesson($form -> exportValue('professor'));
                     $values['body'] = _THISPMISSENTLESSONPROFESSORS.' <a href='.G_SERVERNAME.'##EFRONTINNERLINK##.php?lessons_ID='.$form -> exportValue('professor').'>'.$lesson->lesson['name'].'</a><br />'.$values['body'];
                     break;

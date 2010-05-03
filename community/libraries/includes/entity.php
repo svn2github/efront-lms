@@ -21,8 +21,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         $entity = new $entityName($_GET['delete']);
         $entity -> delete();
     } catch (Exception $e) {
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+        handleAjaxExceptions($e);
     }
     exit;
 } else if (isset($_GET['activate']) && in_array($_GET['activate'], $legalValues) && $_change_) {
@@ -31,8 +30,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         $entity -> activate();
         echo json_encode(array('active' => 1));
     } catch (Exception $e) {
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+        handleAjaxExceptions($e);
     }
     exit;
 } else if (isset($_GET['deactivate']) && in_array($_GET['deactivate'], $legalValues) && $_change_) {
@@ -41,8 +39,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         $entity -> deactivate();
         echo json_encode(array('active' => 0));
     } catch (Exception $e) {
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+        handleAjaxExceptions($e);
     }
     exit;
 } else if ((isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $legalValues))) && $_change_) {
@@ -72,37 +69,20 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
 
              $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
              $message_type = 'success';
+
+             $processedForm = true; //This can be used outside to signify that the form processing is complete (to allow, for example, for redirecting)
          }
      } catch (Exception $e) {
-         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-         $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-         $message_type = 'failure';
+         handleNormalFlowExceptions($e);
      }
 
-
-        $entityForm -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
-        $entityForm -> setRequiredNote(_REQUIREDNOTE);
-
-        $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-     $renderer->setRequiredTemplate(
-        '{$html}{if $required}
-             &nbsp;<span class = "formRequired">*</span>
-         {/if}'
-         );
-
-     $renderer->setErrorTemplate(
-        '{$html}{if $error}
-             <div class = "formError">{$error}</div>
-         {/if}'
-         );
+     $renderer = prepareFormRenderer($entityForm);
         $entityForm -> accept($renderer);
 
      $smarty -> assign('T_ENTITY_FORM', $renderer -> toArray());
 
     } catch (Exception $e) {
-        $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-        $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-        $message_type = 'failure';
+        handleNormalFlowExceptions($e);
     }
 }
 

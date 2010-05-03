@@ -31,6 +31,8 @@ $systemForm -> addElement("advcheckbox", "api", _ENABLEDAPI, null, 'class = "inp
 $systemForm -> addElement("advcheckbox", "math_content", _ENABLEMATHCONTENT, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "show_license_note", _ENABLELICENSENOTE, null, 'class = "inputCheckBox" onclick = "this.checked ? $(\'license_note\').show() : $(\'license_note\').hide();"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "reset_license_note", _RESETLICENSENOTE, null, 'class = "inputCheckBox"', array(0, 1));
+$systemForm -> addElement("advcheckbox", "lesson_enroll", _ALLOWINDEPENDENTLESSONS, null, 'class = "inputCheckBox"', array(0, 1));
+$systemForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "math_images", _LOADMATHTYPESASIMAGES, null, 'class = "inputCheckBox"', array(0, 1));
 //$systemForm -> addElement("advcheckbox", "smarty_caching", 	_SMARTYCACHING,       	 null, 'class = "inputCheckBox"', array(0, 1));
 //$systemForm -> addElement("advcheckbox", "smarty_caching_timeout", _SMARTYCACHETIMEOUT, null, 'class = "inputCheckBox"', array(0, 1));
@@ -251,6 +253,8 @@ $customizationForm -> addElement("text", "username_format", _USERNAMEFORMAT, 'cl
 $customizationForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG, array(_NO, _YES, _ONLYFORLESSONS), 'class = "inputCheckBox"');
 $customizationForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEMPTYBLOCKS, null, 'class = "inputCheckBox"', array(0,1));
 $customizationForm -> addElement("select", "lessons_directory", _VIEWDIRECTORY, array(_NO, _YES, _YESAFTERLOGIN), 'class = "inputSelect"');
+$customizationForm -> addElement("select", "login_redirect_page", _LOGINREDIRECTPAGE, array('lesson_catalog' => _LESSONSCATALOG, 'user_dashboard' => _USERDASHBOARD), 'class = "inputCheckBox"');
+$customizationForm -> addElement("select", "editor_type", _EDITORTYPE, array('tinymce' => _TINYMCE, 'tinymce_new' => _NEWTINYMCE), 'class = "inputCheckBox"');
 $customizationForm -> addElement("submit", "submit_system_variables", _SAVE, 'class = "flatButton"');
 $customizationForm -> setDefaults($GLOBALS['configuration']);
 if ($customizationForm -> isSubmitted() && $customizationForm -> validate()) {
@@ -259,6 +263,11 @@ if ($customizationForm -> isSubmitted() && $customizationForm -> validate()) {
     //Reset viewed license status
     foreach ($values as $key => $value) {
         $result = EfrontConfiguration :: setValue($key, $value);
+  //delete cache when changing editor type
+  $cacheTree = new FileSystemTree(G_THEMECACHE, true);
+        foreach (new EfrontDirectoryOnlyFilterIterator($cacheTree -> tree) as $value) {
+            $value -> delete();
+        }
         if (!$result) {
             $failed_updates[] = _COULDNOTUPDATE." $key "._WITHVALUE." ".$value;
         }

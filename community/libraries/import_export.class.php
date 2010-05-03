@@ -340,7 +340,9 @@ class EfrontImportCsv extends EfrontImport
      eF_updateTableData("users", $data, "login='".$data['login']."'"); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDUSER . " " . $data['login'];
      break;
     case "users_to_courses":
-     eF_updateTableData("users_to_courses", $data, "users_login='".$data['users_login']."' AND courses_ID = " . $data['courses_ID']); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDEXISTINGASSIGNMENT;
+     $where = "users_login='".$data['users_login']."' AND courses_ID = " . $data['courses_ID'];
+     EfrontCourse::persistCourseUsers($data, $where, $data['courses_ID'], $data['users_login']);
+     $this -> log["success"][] = _LINE . " $line: " . _REPLACEDEXISTINGASSIGNMENT;
      break;
     case "users_to_groups":
      break;
@@ -371,7 +373,8 @@ class EfrontImportCsv extends EfrontImport
        $data['courses_ID'] = $course_ID;
        $course = new EfrontCourse($course_ID);
        $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
-       eF_updateTableData("users_to_courses", $data, "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID']);
+       $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID'];
+       EfrontCourse::persistCourseUsers($data, $where, $data['courses_ID'], $data['users_login']);
        $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
       }
      } else {

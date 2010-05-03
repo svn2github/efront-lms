@@ -96,7 +96,13 @@
                                     {/if}
                                         </td>
                                         <td>{$field.description|eF_truncate:40}</td>
-                                        <td>{if $field.type == 'text'}{$smarty.const._TEXTBOX}{elseif $field.type == 'select'}{$smarty.const._SELECTBOX}{elseif $field.type == 'textarea'}{$smarty.const._TEXTAREA}{elseif $field.type == 'branchinfo'}{$smarty.const._BRANCHINFORMATION}{/if}</td>
+                                        <td>
+           {if $field.type == 'text'}{$smarty.const._TEXTBOX}
+           {elseif $field.type == 'select'}{$smarty.const._SELECTBOX}
+           {elseif $field.type == 'textarea'}{$smarty.const._TEXTAREA}
+           {elseif $field.type == 'branchinfo'}{$smarty.const._BRANCHINFORMATION}
+           {elseif $field.type == 'date'}{$smarty.const._DATE}
+           {else}{$field.type}{/if}</td>
                                         <td>{$field.languages_NAME}</td>
                                         <td class = "centerAlign">
                                             {if $field.active}

@@ -8,6 +8,57 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
+function prepareFormRenderer($form) {
+ $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+ $form -> setRequiredNote(_REQUIREDNOTE);
+
+ $renderer = new HTML_QuickForm_Renderer_ArraySmarty($GLOBALS['smarty']);
+ $renderer->setRequiredTemplate(
+         '{$html}{if $required}
+              &nbsp;<span class = "formRequired">*</span>
+          {/if}'
+          );
+
+ $renderer->setErrorTemplate(
+         '{$html}{if $error}
+              <span class = "formError">{$error}</span>
+          {/if}'
+          );
+ $form -> accept($renderer);
+
+    return $renderer;
+}
+
+function createConstraintsFromSortedTable() {
+ $constraints = array();
+
+ isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $constraints['offset'] = $_GET['offset'] : null;
+ isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int') ? $constraints['limit'] = $_GET['limit'] : $constraints['limit'] = G_DEFAULT_TABLE_SIZE;
+ isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'alnum_with_spaces') ? $constraints['sort'] = $_GET['sort'] : null;
+ isset($_GET['filter']) ? $constraints['filter'] = $_GET['filter'] : null;
+ isset($_GET['order']) && in_array($_GET['order'], array('asc', 'desc')) ? $constraints['order'] = $_GET['order'] : $constraints['order'] = 'asc';
+
+ //These 2 lines remove the ||| limits of the branch/job filter
+ $filter = explode("||||", $constraints['filter']);
+
+ $constraints['filter'] = $filter[0];
+ !isset($filter[1]) OR $constraints['branch'] = $filter[1];
+ !isset($filter[2]) OR $constraints['jobs'] = $filter[2];
+
+ return $constraints;
+}
+
+function handleAjaxExceptions($e) {
+ header("HTTP/1.0 500");
+ echo $e -> getMessage().' ('.$e -> getCode().')';
+ exit;
+}
+
+function handleNormalFlowExceptions($e) {
+ $GLOBALS['smarty'] -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+ $GLOBALS['message'] = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+ $GLOBALS['message_type'] = 'failure';
+}
 
 /**
 
@@ -413,9 +464,9 @@ function eF_getCalendar($timestamp = false, $type = 1) {
         $lessons = array();
         global $currentUser;
         if ($currentUser -> getType() != 'administrator') {
-            $tmp = eF_getTableData("users_to_lessons", "lessons_ID", "users_LOGIN='".$login."'");
+            $tmp = eF_getTableData("users_to_lessons", "lessons_ID", "archive=0 and users_LOGIN='".$login."'");
         } else {
-            //$tmp = eF_getTableData("users_to_lessons", "lessons_ID", "");
+            //$tmp = eF_getTableData("users_to_lessons", "lessons_ID", "archive=0");
         }
         for ($i = 0; $i < sizeof($tmp); $i++) {
             $lessons[] = $tmp[$i]['lessons_ID'];
@@ -816,6 +867,7 @@ function eF_ldapConnect() {
     $ds = ldap_connect($GLOBALS['configuration']['ldap_server'], $GLOBALS['configuration']['ldap_port']);
     ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, $GLOBALS['configuration']['ldap_protocol']);
     ldap_set_option($ds, LDAP_OPT_TIMELIMIT, 10);
+    ldap_set_option($ds, LDAP_OPT_REFERRALS, 0);
     $b = ldap_bind($ds, $GLOBALS['configuration']['ldap_binddn'], $GLOBALS['configuration']['ldap_password']);
     return $ds;
 }
@@ -907,7 +959,7 @@ function eF_ldapConnect() {
 
 * @param mixed $param The parameter to check
 
-* @param string $type The parameter type
+* @param string $type The parameter type (One of: string | uint | id | login | email | file | filename | directory | hex | timestamp | date | alnum | ldap_attribute | alnum_with_spaces | alnum_general | text | path)
 
 * @return mixed The parameter, if it is of the specified type, or false otherwise
 
@@ -994,6 +1046,11 @@ function eF_checkParameter($parameter, $type, $correct = false)
                 return false;
             }
        break;
+       case 'noscript':
+            if (preg_match("/^.*<script>.*<\/script>.*$/i", $parameter)) {
+                return false;
+            }
+       break;
        case 'path':
            if (preg_match("/^.*[$\'\"]+.*$/", $parameter)) {
                 return false;
@@ -1003,6 +1060,10 @@ function eF_checkParameter($parameter, $type, $correct = false)
             break;
     }
     return $parameter;
+}
+function strip_script_tags($str) {
+    $str = preg_replace("/<script>(.*)<\/script>/i", "$1", $str);
+    return $str;
 }
 /**
 
@@ -1118,6 +1179,9 @@ function eF_getMenu()
                     if ($GLOBALS['currentLesson'] -> options['tests'] && $GLOBALS['configuration']['disable_tests'] != 1) {
                         $menu['lesson']['tests'] = array('title' => _TESTS, 'link' => 'professor.php?ctg=tests', 'image' => 'tests', 'id' => 'tests_a');
                     }
+     if ($GLOBALS['currentLesson'] -> options['feedback'] && $GLOBALS['configuration']['disable_feedback'] != 1) {
+                        $menu['lesson']['feedback'] = array('title' => _FEEDBACK, 'link' => 'professor.php?ctg=feedback', 'image' => 'surveys', 'id' => 'feedback_a');
+                    }
                     if ($GLOBALS['currentLesson'] -> options['rules']) {
                         $menu['lesson']['rules'] = array('title' => _ACCESSRULES, 'link' => 'professor.php?ctg=rules', 'image' => 'rules', 'id' => 'rules_a');
                     }
@@ -1162,7 +1226,9 @@ function eF_getMenu()
    if ((!isset($GLOBALS['currentUser'] -> coreAccess['personal_messages']) || $GLOBALS['currentUser'] -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
                 $menu['general']['messages'] = array('title' => _MESSAGES, 'link' => $_SESSION['s_type'].".php?ctg=messages", 'image' => 'mail');
    }
-            $menu['general']['personal'] = array('title' => _SETTINGS, 'link' => 'professor.php?ctg=personal', 'image' => 'user');
+   if (!isset($GLOBALS['currentUser'] -> coreAccess['dashboard']) || $GLOBALS['currentUser'] -> coreAccess['dashboard'] != 'hidden') {
+    $menu['general']['personal'] = array('title' => _SETTINGS, 'link' => 'professor.php?ctg=personal', 'image' => 'user');
+   }
             $menu['general']['logout'] = array('title' => _LOGOUT, 'link' => 'index.php?logout=true', 'image' => 'logout');
         break;
         case 'student':
@@ -1228,7 +1294,9 @@ function eF_getMenu()
             if ((!isset($GLOBALS['currentUser'] -> coreAccess['personal_messages']) || $GLOBALS['currentUser'] -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
                 $menu['general']['messages'] = array('title' => _MESSAGES, 'link' => $_SESSION['s_type'].".php?ctg=messages", 'image' => 'mail', 'target' => "mainframe");
             }
-            $menu['general']['personal'] = array('title' => _SETTINGS, 'link' => 'student.php?ctg=personal', 'image' => 'user', 'target' => "mainframe");
+   if (!isset($GLOBALS['currentUser'] -> coreAccess['dashboard']) || $GLOBALS['currentUser'] -> coreAccess['dashboard'] != 'hidden') {
+    $menu['general']['personal'] = array('title' => _SETTINGS, 'link' => 'student.php?ctg=personal', 'image' => 'user', 'target' => "mainframe");
+   }
             $menu['general']['logout'] = array('title' => _LOGOUT, 'link' => '/index.php?logout=true', 'image' => 'logout', 'target' => "mainframe");
         break;
     }
@@ -1282,8 +1350,8 @@ function eF_convertIntervalToTime($interval, $ago = false)
     $hours = ($interval - $seconds - ($minutes * 60)) / 3600;
     if ($ago) {
         if ($hours > 24) {
-            $str = floor($hours/24).' '.mb_strtolower(floor($hours/24) == 1 ? _DAY : _DAYS);
-            if (floor($hours / 24) == 1 && $hours % 24 >= 1) {
+            $str = round($hours/24).' '.mb_strtolower(round($hours/24) == 1 ? _DAY : _DAYS);
+            if (round($hours / 24) == 1 && $hours % 24 >= 1) {
                 $str.= ' '.($hours % 24).' '.mb_strtolower($hours == 1 ? _HOUR : _HOURS);
             }
             return $str;
@@ -1411,6 +1479,9 @@ function eF_checkNotExist($needle, $type) {
 function pr($ar) {
     echo "<pre>";print_r($ar);echo "</pre>";
 }
+function pre($ar) {
+    echo "<pre>";print_r($ar);echo "</pre>";exit;
+}
 function vd($ar) {
     echo "<pre>";var_dump($ar);echo "</pre>";
 }
@@ -1440,15 +1511,15 @@ function vd($ar) {
 
 */
 function eF_filterData($data, $filter) {
-    $filter = mb_strtolower($filter);
-    if ($filter) {
-        foreach ($data as $key => $value) {
-            $imploded_string = implode(",", $value); //Instead of checking each row value one-by-one, check it all at once
-            if (strpos(mb_strtolower($imploded_string), $filter) === false) {
-                unset($data[$key]);
-            }
-        }
-    }
+ $filter = mb_strtolower($filter);
+ if ($filter) {
+     foreach ($data as $key => $value) {
+         $imploded_string = implode(",", $value); //Instead of checking each row value one-by-one, check it all at once
+         if (strpos(mb_strtolower($imploded_string), $filter) === false) {
+             unset($data[$key]);
+         }
+     }
+ }
     return $data;
 }
 /**
@@ -2161,16 +2232,21 @@ function eF_redirect($url, $js = false, $target = 'top') {
 
  */
 function encryptString($string, $method = 'base64') {
+ $hashResidue = strrchr($string, '#');
+ $string = str_replace($hashResidue, '', $string);
     switch ($method) {
         case 'rot13' : $encodedString = urlencode(str_rot13($string));break;
         case 'base64': $encodedString = urlencode(base64_encode($string));break;
         default : $encodedString = $string;break;
     }
+    $encodedString .= $hashResidue;
     return $encodedString;
 }
 /**
 
  * Decode a string based on the specified parameter
+
+ * If the string ends with #somechars, then this part will not be encrypted
 
  * 
 
@@ -2184,11 +2260,14 @@ function encryptString($string, $method = 'base64') {
 
  */
 function decryptString($string, $method = 'base64') {
-    switch ($method) {
+ $hashResidue = strrchr($string, '#');
+ $string = str_replace($hashResidue, '', $string);
+ switch ($method) {
         case 'rot13' : $decodedString = str_rot13(urldecode($string));break;
         case 'base64': $decodedString = base64_decode(urldecode($string));break;
         default : $decodedString = $string;break;
     }
+    $decodedString .= $hashResidue;
     return $decodedString;
 }
 /**

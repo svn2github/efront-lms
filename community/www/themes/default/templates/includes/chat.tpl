@@ -1,5 +1,5 @@
 {if isset($T_SHOW_ROOM)}
-{**moduleShowRoom: Show the room*}
+
     {capture name = "moduleShowRoom"}
                             <tr><td class = "moduleCell" >
        {assign var = 't_show_side_menu' value = true}
@@ -298,10 +298,10 @@
                  <td>
              {if $T_PUBLIC_ROOMS[public_rooms_list].active}
                  {capture name = 't_assign'}<img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" class = "handle">{/capture}
-                  {$T_PUBLIC_ROOMS[public_rooms_list].name|eF_truncate:25:"...":true}
+                  {$T_PUBLIC_ROOMS[public_rooms_list].name}
              {else}
                  {capture name = 't_assign'}<img src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" class = "handle"/>{/capture}
-                  <span title="{$T_PUBLIC_ROOMS[public_rooms_list].name}">{$T_PUBLIC_ROOMS[public_rooms_list].name|eF_truncate:25:"...":true}</span>
+                  <span title="{$T_PUBLIC_ROOMS[public_rooms_list].name}">{$T_PUBLIC_ROOMS[public_rooms_list].name}</span>
              {/if}
               </td>
               <td>#filter:timestamp-{$T_PUBLIC_ROOMS[public_rooms_list].create_timestamp}#</td>

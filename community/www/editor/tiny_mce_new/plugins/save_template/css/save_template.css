@@ -1,0 +1,18 @@
+.messageDivGreen {
+background-color:#F0E68C;
+vertical-align:middle;
+color:green;
+top:100px;
+right:100px;
+text-align:center;
+z-index:10;
+}
+.messageDivRed {
+background-color:#F0E68C;
+vertical-align:middle;
+color:red;
+top:100px;
+right:100px;
+text-align:center;
+z-index:10;
+}

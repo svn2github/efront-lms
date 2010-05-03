@@ -81,9 +81,10 @@ try {
             }
             //New lessons block (Admin block)
             if (!isset($currentUser -> coreAccess['lessons']) || $currentUser -> coreAccess['lessons'] != 'hidden') {
-                $lessons = eF_getTableData("users_to_lessons ul, lessons l", "DISTINCT users_LOGIN,  count(lessons_ID) AS count", "ul.lessons_ID = l.id and l.course_only = 0 and ul.from_timestamp=0", "", "users_LOGIN"); //Get the new lesson registrations
-                $courses = eF_getTableData("users_to_courses uc, courses c", "DISTINCT users_LOGIN,  count(courses_ID) AS count", "uc.courses_ID = c.id and uc.from_timestamp=0", "", "users_LOGIN"); //Get the new course registrations
+                $lessons = eF_getTableData("users_to_lessons ul, lessons l", "DISTINCT users_LOGIN,  count(lessons_ID) AS count", "ul.archive=0 and l.archive=0 and ul.lessons_ID = l.id and l.course_only = 0 and ul.from_timestamp=0", "", "users_LOGIN"); //Get the new lesson registrations
                 $smarty -> assign("T_NEW_LESSONS", $lessons); //Assign the list to smarty, to be displayed at the first page
+                $constraints = array('archive' => false, 'active' => true);
+                $courses = EfrontCourse :: getCoursesWithPendingUsers($constraints);
                 $smarty -> assign("T_NEW_COURSES", $courses); //Assign the list to smarty, to be displayed at the first page
             }
         }
@@ -252,6 +253,8 @@ try {
                 }
                 unset($elementPositions['update']);
                 eF_updateTableData("users_to_lessons", array("positions" => serialize($elementPositions)), "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
+          $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$currentUser -> user['login'];
+          Cache::resetCache($cacheKey);
             }
         } else {
             $smarty -> assign("T_POSITIONS", array());

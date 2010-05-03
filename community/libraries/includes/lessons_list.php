@@ -71,10 +71,41 @@ try {
                  }
              } else if ($_GET['info_course']) {
                  $course = new EfrontCourse($_GET['info_course']);
-                 $course -> course['price_string'] = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true);
+     $course -> course['num_students'] = sizeof($course -> getStudentUsers());
+     $course -> course['seats_remaining'] = $course -> course['max_users'] - $course -> course['num_students'];
+     $course -> course['seats_remaining'] >= 0 OR $course -> course['seats_remaining'] = 0;
                  $smarty -> assign("T_COURSE", $course);
-                 $lessons = $course -> getLessons();
+     if ((isset($_SESSION['s_type']) && $_SESSION['s_type'] == 'administrator') || in_array($_SESSION['s_login'], array_keys($course -> getUsers()))) {
+      $smarty -> assign("T_HAS_COURSE", true);
+     }
+                 $lessons = $course -> getCourseLessons();
+                 foreach ($lessons as $key => $lesson) {
+                  $content = new EfrontContentTree($lesson);
+                  if (sizeof($content -> tree) > 0) {
+                   $contentTree[$key] = $content -> toHTML(false, 'dhtml_content_tree_'.$lesson -> lesson['id'], array('noclick' => 1));
+                  }
+                  $lessonInfo[$key] = new LearningObjectInformation(unserialize($lesson -> lesson['info']));
+                  $additionalInfo[$key] = $lesson -> getInformation();
+                 }
+                 $smarty -> assign("T_ADDITIONAL_LESSON_INFO", $additionalInfo);
+                 $smarty -> assign("T_COURSE_LESSON_INFO", $lessonInfo);
+                 $smarty -> assign("T_CONTENT_TREE", $contentTree);
+                 $smarty -> assign("T_LANGUAGES", EfrontSystem :: getLanguages(true));
                  $smarty -> assign("T_COURSE_LESSONS", $lessons);
+                 if ($course -> course['instance_source']) {
+                  $parentCourse = new EfrontCourse($course -> course['instance_source']);
+                  $instances = $parentCourse -> getInstances();
+                  $instances[$parentCourse -> course['id']] = $parentCourse;
+                 } else {
+                  $instances = $course -> getInstances();
+                  $instances[$course -> course['id']] = $course;
+                 }
+                 foreach ($instances as $key => $instance) {
+                  if (!$instance -> course['show_catalog']) {
+                   unset($instances[$key]);
+                  }
+                 }
+                 $smarty -> assign("T_COURSE_INSTANCES", $instances);
                  $courseInfo = new LearningObjectInformation(unserialize($course -> course['info']));
                  $smarty -> assign("T_COURSE_INFO", $courseInfo);
                  $additionalInfo = $course -> getInformation();
@@ -87,7 +118,8 @@ try {
                               'catalog' => true,
                         'url' => $_SERVER['PHP_SELF'].'?ctg=lessons&catalog=1',
          'collapse' => $GLOBALS['configuration']['collapse_catalog'],
-         'buy_link' => true);
+         'buy_link' => true,
+                  'course_lessons' => false);
              include("directions_tree.php");
              $smarty -> assign("T_CART", cart :: prepareCart());
          }
@@ -95,7 +127,7 @@ try {
             $options = array('noprojects' => 1, 'notests' => 1);
             $userLessons = $currentUser -> getLessons(true);
             $userLessonProgress = EfrontStats :: getUsersLessonStatus($userLessons, $currentUser -> user['login'], $options);
-            $userLessons = array_intersect_key($userLessons, $userLessonProgress); //Needed because EfrontStats :: getUsersLessonStatus might remove automatically lessons, based on time constraints 
+            $userLessons = array_intersect_key($userLessons, $userLessonProgress); //Needed because EfrontStats :: getUsersLessonStatus might remove automatically lessons, based on time constraints
    //this must be here (before $userCourses assignment) in order to revoke a certificate if it is expired and/or re-assign a course to a student if needed
    $userCourses = $currentUser -> getCourses(true, false, $options);
             $userCourseProgress = EfrontStats :: getUsersCourseStatus($userCourses, $currentUser -> user['login'], $options);
@@ -113,10 +145,11 @@ try {
             }
             $userProgress['courses'] = $temp;
             $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
-                                  'courses_link' => false);
+                                  'courses_link' => false,
+                   'catalog' => false);
+//pr($userProgress);
             if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {
                 $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $userLessons, $userCourses, $userProgress, $options));
-             //include("directions_tree.php");
             }
         }
     }

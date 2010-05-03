@@ -370,91 +370,91 @@ $(type+'_row').show();
 if ($('autocomplete_users')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_users",
-         "ask_users.php?type=1", {paramName: "preffix",
+         "ask.php?ask_type=users", {paramName: "preffix",
              afterUpdateElement : function (t, li) {document.location=document.location+'&sel_user='+li.id;},
              indicator : "busy"});
 }
 if ($('autocomplete_lessons')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_lessons",
-         "ask_lessons.php", {paramName: "preffix",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
               afterUpdateElement : function (t, li) {document.location=document.location+'&sel_lesson='+li.id;},
               indicator : "busy"});
 }
 if ($('autocomplete_courses')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_courses",
-         "ask_courses.php", {paramName: "preffix",
+         "ask.php?ask_type=courses", {paramName: "preffix",
               afterUpdateElement : function (t, li) {document.location=document.location+'&sel_course='+li.id;},
               indicator : "busy"});
 }
 if ($('autocomplete_tests')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_tests",
-         "ask_tests.php", {paramName: "preffix",
+         "ask.php?ask_type=tests", {paramName: "preffix",
             afterUpdateElement : function (t, li) {document.location=document.location+'&sel_test='+li.id;},
             indicator : "busy"});
 }
 if ($('lesson_choices_enrolled')) {
  new Ajax.Autocompleter("autocomplete_lesson_enrolled",
          "lesson_choices_enrolled",
-         "ask_lessons.php", {paramName: "preffix",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('lesson_id_enrolled').value=li.id;},
               indicator : "busy_lesson_enrolled"});
 }
 if ($('course_choices_enrolled')) {
  new Ajax.Autocompleter("autocomplete_course_enrolled",
          "course_choices_enrolled",
-         "ask_courses.php", {paramName: "preffix",
+         "ask.php?ask_type=courses", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('course_id_enrolled').value=li.id;},
               indicator : "busy_course_enrolled"});
 }
 if ($('lesson_choices_completed')) {
  new Ajax.Autocompleter("autocomplete_lesson_completed",
          "lesson_choices_completed",
-         "ask_lessons.php", {paramName: "preffix",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('lesson_id_completed').value=li.id;},
               indicator : "busy_lesson_completed"});
 }
 if ($('course_choices_completed')) {
  new Ajax.Autocompleter("autocomplete_course_completed",
          "course_choices_completed",
-         "ask_courses.php", {paramName: "preffix",
+         "ask.php?ask_type=courses", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('course_id_completed').value=li.id;},
               indicator : "busy_course_completed"});
 }
 if ($('lesson_choices_participation')) {
  new Ajax.Autocompleter("autocomplete_lesson_participation",
          "lesson_choices_participation",
-         "ask_lessons.php", {paramName: "preffix",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('lesson_id_participation').value=li.id;},
               indicator : "busy_lesson_participation"});
 }
 if ($('course_choices_participation')) {
  new Ajax.Autocompleter("autocomplete_course_participation",
          "course_choices_participation",
-         "ask_courses.php", {paramName: "preffix",
+         "ask.php?ask_type=courses", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('course_id_participation').value=li.id;},
               indicator : "busy_course_participation"});
 }
 if ($('course_choices_certificated')) {
  new Ajax.Autocompleter("autocomplete_course_certificated",
          "course_choices_certificated",
-         "ask_courses.php", {paramName: "preffix",
+         "ask.php?ask_type=courses", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('course_id_certificated').value=li.id;},
               indicator : "busy_course_certificated"});
 }
 if ($('project_choices_submitted')) {
  new Ajax.Autocompleter("autocomplete_project_submitted",
          "project_choices_submitted",
-         "ask_projects.php", {paramName: "preffix",
+         "ask.php?ask_type=projects", {paramName: "preffix",
                afterUpdateElement : function (t, li) {$('project_id_submitted').value=li.id;},
                indicator : "busy_project_submitted"});
 }
 if ($('test_choices_completed')) {
  new Ajax.Autocompleter("autocomplete_test_completed",
          "test_choices_completed",
-         "ask_tests.php", {paramName: "preffix",
+         "ask.php?ask_type=tests", {paramName: "preffix",
             afterUpdateElement : function (t, li) {$('test_id_completed').value=li.id;},
             indicator : "busy_test_completed"});
 }
@@ -462,7 +462,7 @@ if ($('test_choices_completed')) {
 if ($('autocomplete_event_users')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_event_users",
-         "ask_users.php?type=1", {paramName: "preffix",
+         "ask.php?ask_type=users", {paramName: "preffix",
              afterUpdateElement : function (t, li) {$('event_user_login').value=li.id; $('autocomplete_event_users').value=li.id;refreshEventResults(); },
              indicator : "busy"});
 }
@@ -470,21 +470,21 @@ if ($('autocomplete_event_users')) {
 if ($('autocomplete_event_lessons')) {
  new Ajax.Autocompleter("autocomplete_lessons_ev",
          "autocomplete_event_lessons",
-         "ask_lessons.php", {paramName: "preffix",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('event_lesson_id').value=li.id; $('autocomplete_event_lessons').value=li.id;refreshEventResults();},
               indicator : "busy_event_lesson"});
 }
 if ($('autocomplete_event_courses')) {
  new Ajax.Autocompleter("autocomplete_courses_ev",
          "autocomplete_event_courses",
-         "ask_courses.php", {paramName: "preffix",
+         "ask.php?ask_type=courses", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('event_course_id').value=li.id; $('autocomplete_event_courses').value=li.id;refreshEventResults();},
               indicator : "busy_event_course"});
 }
 if ($('autocomplete_groups')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_groups",
-         "ask_groups.php", {paramName: "preffix",
+         "ask.php?ask_type=groups", {paramName: "preffix",
              afterUpdateElement : function (t, li) {document.location=document.location+'&sel_group='+li.id;},
              indicator : "busy"});
 }

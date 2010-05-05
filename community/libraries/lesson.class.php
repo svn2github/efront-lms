@@ -1335,7 +1335,7 @@ class EfrontLesson
 
 	 */
  private function getPossibleLessonRoles() {
-  if (!$this -> roles) {
+  if (!isset($this -> roles) || !$this -> roles) {
    $this -> roles = EfrontLessonUser :: getLessonsRoles();
   }
   return $this -> roles;
@@ -1525,23 +1525,21 @@ class EfrontLesson
   $roles = $this -> verifyRolesList($roles, sizeof($users));
   $lessonUsers = array_keys($this -> getUsers());
   $count = sizeof($this -> getStudentUsers());
+  $usersToAddToLesson = $usersToSetRoleToLesson = array();
   foreach ($users as $key => $user) {
    $roleInLesson = $roles[$key];
    if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && $this -> isStudentRole($roleInLesson)) {
     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
    }
    if (!in_array($user, $lessonUsers)) { //added this to avoid adding existing user when admin changes his role
-    $this -> addUserToLesson($user, $roleInLesson, $confirmed);
+    $usersToAddToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
    } else {
-    $this -> setUserRoleInLesson($user, $roleInLesson);
-   }
-   if (!$confirmed) {
-    eF_updateTableData("users_to_lessons", array("from_timestamp" => 0), "users_LOGIN = '".$user."' and lessons_ID=".$this -> lesson['id']);
-          $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
-          Cache::resetCache($cacheKey);
+    $usersToSetRoleToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
    }
   }
-  $this -> users = false; //Reset users cache
+  $this -> addUsersToLesson($usersToAddToLesson);
+  $this -> setUserRolesInLesson($usersToSetRoleToLesson);
+  $this -> users = false; //Reset users cache		
   return $this -> getUsers();
     }
  public static function convertLessonObjectsToArrays($lessonObjects) {
@@ -1549,6 +1547,14 @@ class EfrontLesson
    $lessonObjects[$key] = $value -> lesson;
   }
   return $lessonObjects;
+ }
+ private function getArchivedUsers() {
+  $result = eF_getTableDataFlat("users_to_lessons", "users_LOGIN", "archive!=0 and lessons_ID=".$this->lesson['id']);
+  if (empty($result)) {
+   return array();
+  } else {
+   return $result['users_LOGIN'];
+  }
  }
  /**
 
@@ -1565,37 +1571,55 @@ class EfrontLesson
 	 * @access protected
 
 	 */
- private function addUserToLesson($user, $roleInLesson, $confirmed) {
-  $fields = array('users_LOGIN' => $user,
-      'lessons_ID' => $this -> lesson['id'],
-      'active' => 1,
-      'archive' => 0,
-      'from_timestamp' => time(),
-      'user_type' => $roleInLesson,
-      'positions' => '',
-      'done_content' => '',
-      'current_unit' => 0,
-      'completed' => 0,
-      'score' => 0,
-      'comments' => '',
-      'to_timestamp' => 0);
-        //Check if tracking data for this user already exists
-  $result = eF_getTableData("users_to_lessons", "*", "users_LOGIN='$user' and lessons_ID=".$this -> lesson['id']." and archive != 0");
-  if (sizeof($result) > 0) {
-   eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0), "users_LOGIN='$user' and lessons_ID=".$this -> lesson['id']);
-         $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
-         Cache::resetCache($cacheKey);
-  } else {
-   eF_insertTableData("users_to_lessons", $fields);
-            foreach ($this -> getAutoAssignProjects() as $project) {
-                $project -> addUsers($addedStudents);
-            }
+ private function addUsersToLesson($usersData) {
+  $autoAssignedProjects = $this -> getAutoAssignProjects();
+  $archivedLessonUsers = $this -> getArchivedUsers();
+  $newUsers = array();
+  foreach ($usersData as $value) {
+   if (in_array($value['login'], $archivedLessonUsers)) {
+    eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0), "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
+   } else {
+    $newUsers[] = $value['login'];
+    $fields[] = array('users_LOGIN' => $value['login'],
+         'lessons_ID' => $this -> lesson['id'],
+         'active' => 1,
+         'archive' => 0,
+         'from_timestamp' => $value['confirmed'] ? time() : 0,
+         'user_type' => $value['role'],
+         'positions' => '',
+         'done_content' => '',
+         'current_unit' => 0,
+         'completed' => 0,
+         'score' => 0,
+         'comments' => '',
+         'to_timestamp' => 0);
+   }
   }
-  $event = array("type" => $this -> isStudentRole($roleInLesson) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
-        "users_LOGIN" => $user,
-        "lessons_ID" => $this -> lesson['id'],
-        "lessons_name" => $this -> lesson['name']);
-  EfrontEvent::triggerEvent($event);
+  if (!empty($newUsers)) {
+   eF_insertTableDataMultiple("users_to_lessons", $fields);
+   foreach ($autoAssignedProjects as $project) {
+    $project -> addUsers($newUsers);
+   }
+  }
+/*
+
+		foreach ($usersData as $value) {
+
+			$event = array("type" 		  => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR, 
+
+						   "users_LOGIN"  => $value['login'], 
+
+						   "lessons_ID"   => $this -> lesson['id'], 
+
+						   "lessons_name" => $this -> lesson['name']);
+
+//@TODO: temporarily disabled event!			
+
+			//EfrontEvent::triggerEvent($event);
+
+		}
+
+*/
  }
  /**
 
@@ -1612,10 +1636,17 @@ class EfrontLesson
 	 * @access protected
 
 	 */
- private function setUserRoleInLesson($user, $roleInLesson) {
+ private function setUserRolesInLesson($usersData) {
   $lessonUsers = $this -> getUsers();
-  if ($lessonUsers[$user]['role'] != $roleInLesson) {
-   $this -> setRoles($user, $roleInLesson);
+  foreach ($usersData as $value) {
+   if ($lessonUsers[$value['login']]['role'] != $value['role']) {
+    $fields = array('archive' => 0,
+        'user_type' => $value['role'],
+        'from_timestamp' => $value['confirmed'] ? time() : 0);
+    eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
+   }
+   //$cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$value;
+   //Cache::resetCache($cacheKey);
   }
  }
  private function getAutoAssignProjects() {
@@ -1812,9 +1843,9 @@ class EfrontLesson
   $users = $this -> verifyUsersList($users);
   $roles = $this -> verifyRolesList($roles, sizeof($users));
   foreach ($users as $key => $value) {
-   eF_updateTableData("users_to_lessons", array('user_type' => $roles[$key]), "users_LOGIN='".$value."' and lessons_ID=".$this -> lesson['id']);
-         $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$value;
-         Cache::resetCache($cacheKey);
+   eF_updateTableData("users_to_lessons", array('archive' => 0, 'user_type' => $roles[$key]), "users_LOGIN='".$value."' and lessons_ID=".$this -> lesson['id']);
+         //$cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$value;
+         //Cache::resetCache($cacheKey);            
   }
     }
     /**

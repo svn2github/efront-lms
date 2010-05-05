@@ -53,7 +53,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
- exit;
+ eF_redirect($_SESSION['s_type'].".php");
 }
 !isset($currentUser -> coreAccess['users']) || $currentUser -> coreAccess['users'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);

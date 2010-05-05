@@ -51,6 +51,7 @@ function createConstraintsFromSortedTable() {
 function handleAjaxExceptions($e) {
  header("HTTP/1.0 500");
  echo $e -> getMessage().' ('.$e -> getCode().')';
+ //pr($e);
  exit;
 }
 
@@ -151,11 +152,14 @@ function profile($start = true, &$path) {
 function debug($mode = true) {
     ini_set("display_errors", true);
     if ($mode) {
+     $_SESSION['debug_start'] = microtime(true);
         error_reporting(E_ALL);
         $GLOBALS['db']->debug=true;
     } else {
         error_reporting(E_ERROR);
         $GLOBALS['db']->debug=false;
+        pr("time for this part: ".(microtime(true) - $_SESSION['debug_start']));
+        unset($_SESSION['debug_start']);
     }
 }
 /**

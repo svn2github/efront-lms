@@ -1,5 +1,7 @@
 <?php
 //This file cannot be called directly, only included.
+define("_ONLYXCANBEAPPLIEDATATIME", "Only %x entities where processed, which is the limit for this operation");
+
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
  exit;
 }
@@ -159,7 +161,10 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
   } elseif ($_GET['ajax'] == 'unconfirm_user') {
    $editCourse -> unConfirm($_GET['user']);
   }
-
+$benchmark -> set('script');
+$benchmark -> set('smarty');
+$benchmark -> stop();
+echo $benchmark -> display();
  } catch (Exception $e) {
      handleAjaxExceptions($e);
  }

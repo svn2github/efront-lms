@@ -1718,11 +1718,19 @@ class EfrontStats
         $cacheKey = 'user_course_status:';
         $course instanceOf EfrontCourse ? $cacheKey .= 'course:'.$course -> course['id'] : $cacheKey .= 'course:'.$course;
         $user instanceOf EfrontUser ? $cacheKey .= 'user:'.$user -> user['login'] : $cacheKey .= 'user:'.$user;
+/*            
+
         if ($status = Cache::getCache($cacheKey)) {
+
             return unserialize($status);
-        } else {
+
+        } else  {
+
             $storeCache = true;
+
         }
+
+*/
         if (!($user instanceOf EfrontUser)) {
             $user = EfrontUserFactory :: factory($user);
             $user = $user -> user;
@@ -1796,7 +1804,7 @@ class EfrontStats
             }
         }
         if ($storeCache) {
-         Cache::setCache($cacheKey, serialize($courseStatus));
+         //Cache::setCache($cacheKey, serialize($courseStatus));
         }
         return $courseStatus;
     }
@@ -1804,11 +1812,19 @@ class EfrontStats
         $cacheKey = 'user_lesson_status:';
         $lesson instanceOf EfrontLesson ? $cacheKey .= 'lesson:'.$lesson -> lesson['id'] : $cacheKey .= 'lesson:'.$lesson;
         $user instanceOf EfrontUser ? $cacheKey .= 'user:'.$user -> user['login'] : $cacheKey .= 'user:'.$user;
+/*            
+
         if ($status = Cache::getCache($cacheKey)) {
+
             return unserialize($status);
-        } else {
+
+        } else  {
+
             $storeCache = true;
+
         }
+
+*/
      $usersDoneContent = EfrontStats :: getStudentsSeenContent($lesson, $user, $options); //Calculate the done content for users in this lesson
      $usersAssignedProjects = array();
      if (!isset($options['noprojects']) || !$options['noprojects']) {
@@ -1969,7 +1985,7 @@ class EfrontStats
                 }
             }
         if ($storeCache) {
-         Cache::setCache($cacheKey, serialize($lessonStatus));
+         //Cache::setCache($cacheKey, serialize($lessonStatus));
         }
         return $lessonStatus;
     }

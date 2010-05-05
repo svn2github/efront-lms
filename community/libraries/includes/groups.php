@@ -100,6 +100,11 @@ $loadScripts[] = 'includes/groups';
                 $message_type = 'failure';
             }
 
+   $stats_link = array(
+   array('text' => _STATISTICS, 'image' => "16x16/reports.png", 'href' => $_SESSION['s_type'].".php?ctg=statistics&option=groups&sel_group=" . $_GET['edit_user_group'], 'target' => '_self')
+   );
+
+   $smarty -> assign ("T_STATS_LINK", $stats_link);
             $form -> setDefaults(array('name' => $currentGroup -> group['name'],
                                        'description' => $currentGroup -> group['description'],
                                        'group_status' => $currentGroup -> group['users_active'],

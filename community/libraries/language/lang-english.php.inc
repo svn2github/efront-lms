@@ -3668,4 +3668,6 @@ define("_SUBMITANDEDITGROUP","Submit and edit group");
 define("_SEARCHGROUPUSERS","Search users to add to group");
 define("_AFTER","After");
 define("_BEFORE","Before");
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Participation of all users in the courses of the group");
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Participation of group users in the courses of the system");
 ?>

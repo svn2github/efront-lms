@@ -103,7 +103,7 @@
  {/capture}
   {capture name='t_new_group_code'}
    <div class = "tabber">
-    {eF_template_printBlock tabber = "groups" title=$smarty.const._GROUPOPTIONS data=$smarty.capture.t_group_form image='32x32/generic.png'}
+    {eF_template_printBlock tabber = "groups" title=$smarty.const._GROUPOPTIONS data=$smarty.capture.t_group_form image='32x32/generic.png' options = $T_STATS_LINK}
    {if $smarty.get.edit_user_group}
     <script>var editGroup = '{$smarty.get.edit_user_group}';</script>
     {eF_template_printBlock tabber = "users" title=$smarty.const._GROUPUSERS data=$smarty.capture.t_group_users_code image='32x32/users.png'}

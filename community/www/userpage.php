@@ -26,7 +26,7 @@ if (isset($_SESSION['previousSideUrl'])) {
 }
 if (isset($_GET['dashboard']) && $_SESSION['s_type'] == "administrator") {
  $smarty -> assign("T_MAIN_URL", $_SESSION['s_type'].".php?ctg=users&edit_user=". $_GET['dashboard']);
-} elseif (isset($_GET['dashboard'])) {
+} elseif (isset($_GET['dashboard']) || $_GET['ctg'] == 'personal') {
  $smarty -> assign("T_MAIN_URL", $_SESSION['s_type'].".php?ctg=personal");
 } else {
  if (isset($_SESSION['previousMainUrl'])) {

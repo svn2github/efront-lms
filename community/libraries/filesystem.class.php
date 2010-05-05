@@ -2928,7 +2928,7 @@ class FileSystemTree extends EfrontTree
      * @static
 
      */
-    public function uploadFile($fieldName, $destinationDirectory = false, $offset = false) {debug();
+    public function uploadFile($fieldName, $destinationDirectory = false, $offset = false) {
         if (!$destinationDirectory) {
             $destinationDirectory = $this -> dir;
         }

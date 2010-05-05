@@ -63,3 +63,87 @@ function paypalSubmit() {
  $('checkout_form').request();
  return false;
 }
+
+
+
+//Direction tree functions
+function showAll() {
+ $$('tr').each(function (tr) {tr.id.match(/subtree/) ? tr.show() : null;});
+  $$('table').each(function (table) {table.id.match(/direction_/) ? table.show() : null;});
+  $$('img').each(function (img) {!img.hasClassName('visible') ? img.addClassName('visible') : null;});
+}
+function hideAll() {
+ $$('tr').each(function (tr) {tr.id.match(/subtree/) ? tr.hide() : null;});
+  //$$('table').each(function (table) {table.id.match(/direction_/) ? table.hide() : null;});
+  $$('img').each(function (img) {img.hasClassName('visible') ? img.removeClassName('visible') : null;});
+}
+
+function showHideDirections(el, ids, id, mode) {
+ Element.extend(el); //IE intialization
+ if (mode == 'show') {
+  el.up().up().nextSiblings().each(function(s) {s.show()});
+  if (ids) {
+   ids.split(',').each(function (s) { showHideDirections($('subtree_img'+id), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'show') });
+   ids.split(',').each(function (s) { obj = $('direction_'+s); obj ? obj.show() : '';});
+  }
+  setImageSrc(el, 16, 'navigate_up');
+  $('subtree_img'+id) ? $('subtree_img'+id).addClassName('visible') : '';
+ } else {
+  el.up().up().nextSiblings().each(function(s) {s.hide()});
+  if (ids) {
+   ids.split(',').each(function (s) { showHideDirections($('subtree_img'+id), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'hide') });
+   ids.split(',').each(function (s) { obj = $('direction_'+s); obj ? obj.hide() : ''});
+  }
+  setImageSrc(el, 16, 'navigate_down.png');
+  $('subtree_img'+id) ? $('subtree_img'+id).removeClassName('visible') : '';
+ }
+}
+function showHideCourses(el, course) {
+ Element.extend(el);
+ if (el.hasClassName('visible')) {
+  if (course) {
+   course.hide();
+  }
+  setImageSrc(el, 16, 'navigate_down.png');
+  el.removeClassName('visible');
+ } else {
+  if (course) {
+   course.show();
+  }
+  setImageSrc(el, 16, 'navigate_up');
+  el.addClassName('visible');
+ }
+}
+function updateInformation(el, id, type, from_course) {
+ Element.extend(el);
+ type == 'lesson' ? url = 'ask_information.php?lessons_ID='+id : url = 'ask_information.php?courses_ID='+id;
+ if (from_course) {
+  url += '&from_course='+from_course;
+ }
+ el.select('span').each(function (s) {
+  if (s.hasClassName('tooltipSpan') && s.empty()) {
+   s.setStyle({height:'50px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url(\"images/others/progress1.gif\")'}));
+   new Ajax.Request(url, {
+    method:'get',
+    asynchronous:true,
+    onSuccess: function (transport) {
+     s.setStyle({height:'auto'}).update(transport.responseText);
+    }
+   });
+  }
+  });
+}
+function filterTree(el, url) {
+ Element.extend(el);
+ //$$('tr.directionEntry').each(function (s) {if(s.innerHTML.stripTags().toLowerCase().match(el.value.toLowerCase())) {s.show()} else {s.hide()}});
+ url.match(/\?/) ? url = url+'&' : url = url + '?';
+ el.addClassName('loadingImg').setStyle({background:'url(\"images/others/progress1.gif\") center right no-repeat'});
+ new Ajax.Request(url+'filter='+el.value, {
+  method:'get',
+  asynchronous:true,
+  onSuccess: function (transport) {
+   $('directions_tree').innerHTML = transport.responseText;
+   el.removeClassName('loadingImg').setStyle({background:''});
+  }
+ });
+}

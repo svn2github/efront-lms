@@ -3642,7 +3642,7 @@ define("_IMPORTRESULTSFOR", "Αποτελέσματα εισαγωγής για"
 define("_COUPONUSAGE", "Χρήση κουπονιού");
 define("_NEWPAYPALPAYMENT", "Νέα πληρωμή paypal");
 define("_NEWBALANCEPAYMENT", "Νέα πληρωμή με υπόλοιπο");
-define("_USEDCOUPON ", "Χρησιμοποιήθηκε κουπόνι");
+define("_USEDCOUPON", "Χρησιμοποιήθηκε κουπόνι");
 define("_PAYEDWITHBALANCE", "Πληρωμή με υπόλοιπο");
 define("_PAYEDWITHPAYPAL", "Πληρωμή με paypal");
 define("_YOUMUSTCOMPLETEALLTESTS", "Πρέπει να ολοκληρώσετε όλες τις αξιολογήσεις");
@@ -3658,4 +3658,14 @@ define("_DONOTSHOWTESTAFTERSUBMITTING","Εμφάνιση μόνο ενός μη�
 define("_TESTSUCCESSFULLYSUBMITTED","Η αξιολόγηση έχει αποσταλεί επιτυχώς");
 define("_LEARNINGSTATUS","Εκπαιδευτική Κατάσταση");
 define("_HASNOTANEMAILADDRESS","δεν έχει διεύθυνση ηλεκτρονικού ταχυδρομείου");
+define("_FEEDBACK", "Ανάδραση");
+define("_SETFOUNDEMPLOYEESINTOGROUP", "Εισαγωγή χρηστών σε ομάδα");
+define("_INSERTINTONEWGROUP","Εισαγωγή σε νέα ομάδα");
+define("_INSERTINTOEXISTINGGROUP","Εισαγωγή σε υπάρχουσα ομάδα");
+define("_NEWGROUPNAME","Όνομα νέας ομάδας");
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Πρέπει είτε να επιλέξετε μία ομάδα ή να δώσετε το όνομα για μια νέα ομάδα");
+define("_SUBMITANDEDITGROUP","Αποστολή και προβολή ομάδας");
+define("_SEARCHGROUPUSERS","Εύρεση χρηστών για το προσθήκη σε ομάδα");
+define("_AFTER","Μετά από");
+define("_BEFORE","Πριν από");
 ?>

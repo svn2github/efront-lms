@@ -333,7 +333,9 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
 
 */
         if (!($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_USERSTATUS)) {
-            $smarty -> assign("T_HIDE_USER_STATUS", 1);
+   if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
+    $smarty -> assign("T_HIDE_USER_STATUS", 1);
+   }
         }
         $form -> addElement('textarea', 'short_description', _SHORTDESCRIPTIONCV, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:14em;"'); //The unit content itself
         $load_editor = true;

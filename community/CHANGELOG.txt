@@ -12,6 +12,9 @@
 - Fixed issue with update unit/create subunit links when redirected to first unit
 - Added option about where to redirect after user login (user dashboard or user courses)
 - Fixed issue about not sending mass e-mails when a user has not e-mail address defined
+- Added option in user type for dashboard
+- Fixed issue with new line in lesson information
+- Fixed bug about taking into account archived lessons in users page
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

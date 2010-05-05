@@ -190,6 +190,7 @@ class EfrontGroup
      */
     public static function create($fields) {
         //These are the mandatory fields. In case one of these is absent, fill it in with a default value
+        $fields['name'] = trim($fields['name']);
         !isset($fields['name']) ? $fields['name'] = 'Default name' : null;
         $group_id = eF_insertTableData("groups", $fields); //Insert the group to the database
         $newGroup = new EfrontGroup($group_id);

@@ -282,7 +282,7 @@ class EfrontImportCsv extends EfrontImport
    $candidate_header = $this -> explodeBySeparator($line);
    $size_of_header = sizeof($candidate_header);
    for ($header_record = 0; $header_record < $size_of_header; ++$header_record) {
-    $candidate_header[$header_record] = trim($candidate_header[$header_record], "\"");
+    $candidate_header[$header_record] = trim($candidate_header[$header_record], "\"\r\n ");
     if ($candidate_header[$header_record] != "" && in_array($candidate_header[$header_record], $legitimate_column_names)) {
      $this -> mappings[$this -> types[$candidate_header[$header_record]]] = $header_record;
      $found_header = true;
@@ -455,7 +455,7 @@ class EfrontImportCsv extends EfrontImport
     if ($this -> checkImportEssentialField($type)) {
      for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
       $data = $this -> parseDataLine($line);
-      $this -> importData($line, $type, $data);
+      $this -> importData($line+1, $type, $data);
      }
     }
    } else {

@@ -133,7 +133,8 @@ class EfrontConfiguration
   'disable_forum' => '0',
   'disable_tests' => '0',
   'disable_tooltip' => '0',
-  'disable_help' => 0,
+  'disable_help' => '0',
+  'disable_feedback' => '1',
         //Social - Facebook settings
         'facebook_api_key' => '',
         'facebook_secret' => '',

@@ -89,6 +89,8 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
      $month_empty = null;
      $year_empty = null;
     }
+
+
     $extra_attrs = '';
 
     foreach ($params as $_key=>$_value) {
@@ -183,6 +185,30 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
     $field_order = strtoupper($field_order);
 
     $html_result = $month_result = $day_result = $year_result = "";
+    if (isset($params['searchtype'])) {
+
+        $search_type_result = '<select name=';
+        if (null !== $field_array){
+            $search_type_name = '"' . $field_array . '[' . $prefix . 'SearchType'.$instance.']"';
+        } else {
+            $search_type_name = '"' . $prefix . 'SearchType'.$instance.'"';
+        }
+//        $search_type_name = '"' . $prefix . 'SearchType'.$instance.'"';
+
+        $search_type_result .= $search_type_name . " id = '". $search_type_name ."' ";
+
+        $search_type_result .= $extra_attrs . '>'."\n";
+
+        $search_type_result .= smarty_function_html_options(array('output' => array(_AFTER,_BEFORE,_ON),
+                                                            'values' => array(1,2,3),
+                                                            'selected' => 0,
+                                                            'print_result' => false),
+                                                      $smarty);
+        $search_type_result .= '</select>';
+    }
+
+
+
 
     if ($display_months) {
         $month_names = array();
@@ -304,6 +330,10 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
                                                          $smarty);
             $year_result .= '</select>';
         }
+    }
+
+    if (isset($params['searchtype'])) {
+     $html_result .= $search_type_result;
     }
 
     // Loop thru the field_order field

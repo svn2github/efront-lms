@@ -352,7 +352,7 @@
 
     {capture name = 't_job_prerequisites'}
      <script>
-     var newTrainingCondition = '{$T_JOB_DESCRIPTIONS_FORM.prerequisites_row_col.html|replace:"\n":""}';
+     var newTrainingCondition = '';//{$T_JOB_DESCRIPTIONS_FORM.prerequisites_row_col.html|replace:"\n":""|replace:"'":"\'"}';
      var noTrainingDefinedYet = '{$smarty.const._NOREQUIREDTRAININGSETYET}';
      var addAlternativeTrainingConst = '{$smarty.const._ADDALTERNATIVETRAINING}';
      var orConst = '{$smarty.const._OR}';

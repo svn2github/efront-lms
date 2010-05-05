@@ -321,7 +321,7 @@ try {
                     }
                 }
                 // Job prerequisites handling
-                $allCourses = EfrontCourse::getAllCourses(array("instance" => false));
+                $allCourses = EfrontCourse::getAllCourses(array("instance" => false, "sort" => "name"));
                 if (!empty($allCourses)) {
                  $trainingCourses = array();
                  foreach ($allCourses as $courseObject) {

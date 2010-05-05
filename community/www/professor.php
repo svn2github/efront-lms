@@ -339,6 +339,22 @@ try {
      /**The tests module file*/
      require_once ('module_tests.php');
  }
+ elseif ($ctg == 'feedback') {
+  if ($GLOBALS['configuration']['disable_feedback'] == 1) {
+      eF_redirect("".basename($_SERVER['PHP_SELF']));
+  }
+     if (isset($currentUser -> coreAccess['content']) && $currentUser -> coreAccess['content'] == 'hidden') {
+         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
+     }
+  if ($configuration['math_content'] && $configuration['math_images']) {
+   $loadScripts[] = 'ASCIIMath2Tex';
+  } elseif ($configuration['math_content']) {
+   $loadScripts[] = 'ASCIIMathML';
+  }
+     $loadScripts[] = 'scriptaculous/dragdrop';
+     /**The tests module file*/
+     require_once ('module_tests.php');
+ }
  elseif ($ctg == 'file_manager') {
      /***/
      if (isset($_GET['folder'])) {

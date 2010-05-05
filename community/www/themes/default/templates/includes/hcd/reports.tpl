@@ -1,6 +1,7 @@
  {*moduleReports: Show employees satisfying some criteria *}
   <script>
   var searchSkillTemplate = '{$T_REPORT_FORM.search_skill_template.html|replace:"\n":""}';
+  var youShouldEitherProvideExistingOrNewGroup = '{$smarty.const._YOUSHOULDPROVIDEEXISTINGORNEWGROUP}';
   </script>
 
     {capture name = 't_reports_code'}
@@ -98,13 +99,23 @@
       <tr><td class = "labelCell">{$T_REPORT_FORM.user_type.label}:&nbsp;</td><td>{$T_REPORT_FORM.user_type.html}</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.active.label}:&nbsp;</td><td>{$T_REPORT_FORM.active.html}</td></tr>
 
+      <script>
+      // Comma separated fields that required special handling by Javascript search
+      var customProfileSearchCriteria = "{$T_USER_PROFILE_FIELDS_CRITERIA}";
+      var datesSearchCriteria = "{$T_DATES_SEARCH_CRITERIA}";
+      </script>
       {foreach name = 'profile_fields' key = key item = item from = $T_USER_PROFILE_FIELDS }
        <tr><td class = "labelCell">{$T_REPORT_FORM.$item.label}:&nbsp;</td>
         <td class = "elementCell">{$T_REPORT_FORM.$item.html}</td></tr>
        {if $T_REPORT_FORM.$item.error}<tr><td></td><td class = "formError">{$T_REPORT_FORM.$item.error}</td></tr>{/if}
+
+      {/foreach}
+      {foreach name = 'profile_fields' key = key item = item from = $T_USER_PROFILE_DATES }
+       <tr><td class = "labelCell">{$item.name}:&nbsp;</td>
+        <td class = "elementCell" NOWRAP>{eF_template_html_select_date searchtype=1 prefix=$item.prefix emptyvalues="1" time=$item.value start_year="-10" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
       {/foreach}
 
-      <tr><td class = "labelCell">{$T_REPORT_FORM.registration.label}:&nbsp;</td><td>{$T_REPORT_FORM.registration.html}</td></tr>
+      <tr><td class = "labelCell">{$T_REPORT_FORM.registration.label}:&nbsp;</td><td NOWRAP>{eF_template_html_select_date searchtype=1 prefix="timestamp" emptyvalues="1" time=$item.value start_year="-10" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
      </table>
      </td>
      <td width = "15%">
@@ -118,8 +129,8 @@
       <tr><td class = "labelCell">{$T_REPORT_FORM.country.label}:&nbsp;</td><td>{$T_REPORT_FORM.country.html}</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.homephone.label}:&nbsp;</td><td>{$T_REPORT_FORM.homephone.html}</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.mobilephone.label}:&nbsp;</td><td>{$T_REPORT_FORM.mobilephone.html}</td></tr>
-      <tr><td class = "labelCell">{$T_REPORT_FORM.hired_on.label}:&nbsp;</td><td>{$T_REPORT_FORM.hired_on.html}</td></tr>
-      <tr><td class = "labelCell">{$T_REPORT_FORM.left_on.label}:&nbsp;</td><td>{$T_REPORT_FORM.left_on.html}</td></tr>
+      <tr><td class = "labelCell">{$T_REPORT_FORM.hired_on.label}:&nbsp;</td><td NOWRAP>{eF_template_html_select_date searchtype=1 prefix="hired_on" emptyvalues="1" time=$item.value start_year="-10" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
+      <tr><td class = "labelCell">{$T_REPORT_FORM.left_on.label}:&nbsp;</td><td NOWRAP>{eF_template_html_select_date searchtype=1 prefix="left_on" emptyvalues="1" time=$item.value start_year="-10" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
       <tr><td colspan=2>&nbsp;</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.employement_type.label}:&nbsp;</td><td>{$T_REPORT_FORM.employement_type.html}</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.way_of_working.label}:&nbsp;</td><td>{$T_REPORT_FORM.way_of_working.html}</td></tr>
@@ -151,20 +162,21 @@
   {*moduleShowemployees: Show employees*}
   {capture name = 't_employees_code'}
 {*222222222222*}
+{if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'foundEmployees'}
 <!--ajax:foundEmployees-->
-  <table style = "width:100%" class = "sortedTable" size = "{$T_EMPLOYEES_SIZE}" sortBy = "0" id = "foundEmployees" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=module_hcd&op=reports&">
+  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "foundEmployees" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=module_hcd&op=reports&">
    <tr class = "topTitle">
-    <td class = "topTitle">{$smarty.const._USER}</td>
-    <td class = "topTitle">{$smarty.const._LANGUAGE}</td>
-    <td class = "topTitle" align="center">{$smarty.const._JOBSASSIGNED}</td>
-    <td class = "topTitle" align="center">{$smarty.const._SENDMESSAGE}</td>
+    <td class = "topTitle" name="login">{$smarty.const._USER}</td>
+    <td class = "topTitle" name="languages_NAME">{$smarty.const._LANGUAGE}</td>
+    <td class = "topTitle" align="center" name="jobs_num">{$smarty.const._JOBSASSIGNED}</td>
+    <td class = "topTitle noSort" align="center">{$smarty.const._SENDMESSAGE}</td>
     <td class = "topTitle noSort" align="center">{$smarty.const._STATISTICS}</td>
     <td class = "topTitle noSort" align="center">{$smarty.const._OPERATIONS}</td>
    </tr>
 
-    {if $T_EMPLOYEES_SIZE > 0}
-   {foreach name = 'users_list' key = 'key' item = 'user' from = $T_EMPLOYEES}
-   <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+    {if $T_TABLE_SIZE > 0}
+   {foreach name = 'users_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
+   <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
    <td>
     {if ($user.pending == 1)}
     <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
@@ -197,23 +209,17 @@
    {/if}
    <td align="center"><a style="" href="{$smarty.server.PHP_SELF}?ctg=messages&add=1&recipient={$user.login}&popup=1" onclick='eF_js_showDivPopup("{$smarty.const._SENDMESSAGE}", 2)' target="POPUP_FRAME"><img src="images/16x16/mail.png" border="0"></a></td>
    <td align="center"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>
-   <td align="center">
-    <table>
-    <tr><td width="45%">
-    {if $user.active == 1}
+   <td class="centerAlign">
+    {if 1}
      <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
     {else}
      <img border = "0" src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
     {/if}
-
-    </td><td></td><td width="45%">
-     {if $smarty.session.s_login != $user.login}
-      <a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOFIREEMPLOYEE}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
-     {else}
-      <a href = "javascript:void(0);" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" class = "inactiveImage" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
-     {/if}
-    </td></tr>
-    </table>
+    {if $smarty.session.s_login != $user.login}
+     <a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOFIREEMPLOYEE}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
+    {else}
+     <a href = "javascript:void(0);" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" class = "inactiveImage" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
+    {/if}
    </td>
 
 
@@ -225,6 +231,7 @@
       <img style="display:none" src="images/16x16/question_type_free_text.png" onLoad="javascript:new Effect.Appear('sendToAllId');" />
      {else}
       <script>
+      new Effect.Appear('groupUsersId');
       new Effect.Appear('sendToAllId');
       </script>
      {/if}
@@ -236,6 +243,7 @@
      <img style="display:none" src="images/16x16/question_type_free_text.png" onLoad="javascript:$('sendToAllId').style.display='none';" />
      {else}
       <script>
+      document.getElementById('groupUsersId').style.display = 'none';
       document.getElementById('sendToAllId').style.display = 'none';
       </script>
      {/if}
@@ -243,6 +251,8 @@
 
   </table>
 <!--/ajax:foundEmployees-->
+
+{/if}
   {/capture}
 
 
@@ -270,7 +280,6 @@
    <td>{$T_DIRECTION_PATHS[$course.directions_ID]}</td>
 
    <td class = "centerAlign">
-
     {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
      <img class = "ajaxHandle" src = "images/16x16/goto_student.png" alt = "{$smarty.const._SELECTION}" title = "{$smarty.const._SELECTION}" onclick = "assignCourseToUsers(this, '{$course.id}')">
     {/if}
@@ -317,6 +326,179 @@
  {/capture}
 
 
+ {*moduleShowemployees: Show courses to be assigned*}
+ {capture name = 't_custom_group_stats_code'}
+ <div class = "statisticsDiv" id = "statsDivCustomGroup">
+
+<!--ajax:customGroupStats-->
+
+  {if isset($T_USER_TRAFFIC)}
+  <!--
+  {*
+                     <form name = "period">
+                     <table class = "statisticsSelectDate">
+                      <tr><td class = "labelCell">{$smarty.const._SETPERIOD}:&nbsp;</td>
+                          <td class = "elementCell">
+                           <select id="predefined_periods" onChange="setPeriod(this)">
+                            {foreach name = 'predefined_periods' key = "id" item = "period" from = $T_PREDEFINED_PERIODS}
+                             <option value = "{$period.value}" {if $smarty.get.predefined !="" && $smarty.get.predefined == $period.value}selected{/if}>{$period.name}</option>
+                            {/foreach}
+                           </select>
+                           </td></tr> -->
+                         <tr><td class = "labelCell">{$smarty.const._FROM}:&nbsp;</td>
+                             <td class = "elementCell">{eF_template_html_select_date prefix = "from_" time = $T_FROM_TIMESTAMP start_year = "-2" end_year = "+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $T_FROM_TIMESTAMP display_seconds = false}</td></tr>
+                         <tr><td class = "labelCell">{$smarty.const._TO}:&nbsp;</td>
+                             <td class = "elementCell">{eF_template_html_select_date prefix = "to_" time = $T_TO_TIMESTAMP start_year = "-2" end_year = "+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $T_TO_TIMESTAMP display_seconds = false}</td></tr>
+                         {*<tr><td class = "labelCell">{$smarty.const._ANALYTICLOG}:</td>
+                          <td class = "elementCell"><input class = "inputCheckbox" type = checkbox id = "showLog" {if (isset($T_USER_LOG))}checked{/if}></td></tr>*}
+                         <tr><td class = "labelCell">{$smarty.const._ONLYFORGROUPLESSONS}:</td>
+                          <td class = "elementCell"><input class = "inputCheckbox" type = checkbox id = "showOnlyGroupLessons" {if $smarty.get.showOnlyGroupLessons == "true"}checked{/if}></td></tr>
+                         <tr><td class = "labelCell"></td>
+                             <td class = "elementCell"><a href = "javascript:void(0)" onclick = "showStats('day')">{$smarty.const._LAST24HOURS}</a> - <a href = "javascript:void(0)" onclick = "showStats('week')">{$smarty.const._LASTWEEK}</a> - <a href = "javascript:void(0)" onclick = "showStats('month')">{$smarty.const._LASTMONTH}</a></td></tr>
+
+       <tr><td></td>
+                             <td class = "elementCell"><input type = "button" class = "flatButton" value = "{$smarty.const._SHOW}" onclick = "document.location='{$T_BASIC_TYPE}.php?ctg=statistics&option=groups&sel_group={$smarty.get.sel_group}&tab=grouptraffic&from_year='+document.period.from_Year.value+'&from_month='+document.period.from_Month.value+'&from_day='+document.period.from_Day.value+'&from_hour='+document.period.from_Hour.value+'&from_min='+document.period.from_Minute.value+'&to_year='+document.period.to_Year.value+'&to_month='+document.period.to_Month.value+'&to_day='+document.period.to_Day.value+'&to_hour='+document.period.to_Hour.value+'&to_min='+document.period.to_Minute.value+'&showOnlyGroupLessons='+document.period.showOnlyGroupLessons.checked"></td>
+                         </tr>
+      </table>
+                     </form>
+      *}
+      {*
+                     <table class = "statisticsTools">
+                         <tr><td id = "right">
+                           {$smarty.const._ACCESSSTATISTICS}:
+                                 <a href = "display_chart.php?id=11&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$T_USER_LOGIN}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
+                                  <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
+                             </td></tr>
+                     </table>
+                     *}
+                     -->
+                     <table class = "statisticsGeneralInfo">
+                         <tr><td class = "topTitle" colspan = "2">{$smarty.const._GROUPUSERTRAFFIC}</td></tr>
+                         <tr class = "oddRowColor">
+                          <td class = "labelCell">{$smarty.const._TOTALLOGINS}: </td>
+                          <td class = "elementCell">{$T_USER_TRAFFIC.total_logins}</td></tr>
+                         <tr class = "evenRowColor">
+                          <td class = "labelCell">{$smarty.const._LESSONACCESS}: </td>
+                          <td class = "elementCell">{$T_USER_TRAFFIC.total_access}</td></tr>
+                     </table>
+
+      <br/>
+                     <table class = "statisticsTools">
+                         <tr><td>{$smarty.const._ACCESSPERLESSON}</td></tr>
+                     </table>
+                     <table class = "sortedTable">
+                         <tr>
+                             <td class = "topTitle">{$smarty.const._LESSON}</td>
+                             <td class = "topTitle centerAlign">{$smarty.const._ACCESSNUMBER}</td>
+                             <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
+                             {*<td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>*}
+                         </tr>
+                         {foreach name = 'lesson_traffic_list' key = "id" item = "lesson" from = $T_USER_TRAFFIC.lessons}
+                             <tr class = "{cycle name = 'lessontraffic' values = 'oddRowColor, evenRowColor'} {if !$lesson.active}deactivatedTableElement{/if}">
+                                 <td>{$lesson.name}</td>
+                                 <td class = "centerAlign">{$lesson.accesses}</td>
+                                 <td class = "centerAlign">
+                                  <span style="display:none">{$lesson.total_seconds}</span>
+                                     {if $lesson.total_seconds}
+                                      {if $lesson.hours}{$lesson.hours}{$smarty.const._HOURSSHORTHAND} {/if}
+                                      {if $lesson.minutes}{$lesson.minutes}{$smarty.const._MINUTESSHORTHAND} {/if}
+                                      {if $lesson.seconds}{$lesson.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}
+                                     {else}
+                                      {$smarty.const._NOACCESSDATA}
+                                     {/if}
+                                 </td>
+                                 {*
+                                 <td class = "centerAlign">
+                                     <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$T_USER_LOGIN}&lesson_id={$id}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
+                                      <img src = "images/16x16/reports.png" title = "{$smarty.const._ACCESSSTATISTICS}" alt = "{$smarty.const._ACCESSSTATISTICS}"/></a>
+                                 </td>
+                                 *}
+                             </tr>
+                         {foreachelse}
+                          <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
+                         {/foreach}
+                     </table>
+                     <br/>
+                   {if isset($T_USER_LOG)}
+                     <table class = "statisticsTools">
+                         <tr><td>{$smarty.const._ANALYTICLOG}</td></tr>
+                     </table>
+                     <table width="100%">
+                      <tr>
+                             <td class = "topTitle">{$smarty.const._LESSON}</td>
+                             <td class = "topTitle">{$smarty.const._UNIT}</td>
+                             <td class = "topTitle">{$smarty.const._ACTION}</td>
+                             <td class = "topTitle">{$smarty.const._TIME}</td>
+                             <td class = "topTitle">{$smarty.const._IPADDRESS}</td>
+                         </tr>
+                     {foreach name = 'user_log_loop' key = "key" item = "info" from = $T_USER_LOG}
+                         <tr class = "{cycle name = 'user_log_list' values = 'oddRowColor, evenRowColor'}">
+                             <td>{$info.lesson_name}</td>
+                             <td>{$info.content_name}</td>
+                             <td>{$T_ACTIONS[$info.action]}</td>
+                             <td>#filter:timestamp_time-{$info.timestamp}#</td>
+                             <td>{$info.session_ip|eF_decodeIp}</td>
+                         </tr>
+      {foreachelse}
+       <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
+                     {/foreach}
+                     </table>
+                 {/if}
+
+                     <table class = "statisticsTools">
+                         <tr><td>{$smarty.const._ACCESSNUMBER}</td>
+                     {if $T_LESSON_TRAFFIC.total_seconds > 0 }
+                       {*
+                             <td id = "right">
+                                 <a href = "display_chart.php?id=5&lesson_id={$T_LESSON_ID}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME" style = "vertical-align:middle">
+                                  {$smarty.const._MOSTACTIVEUSERS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._MOSTACTIVEUSERS}" title = "{$smarty.const._MOSTACTIVEUSERS}"/></a>
+                             </td>
+                             *}
+                     {/if}
+                      </tr>
+                     </table>
+                     <table class = "sortedTable">
+                         <tr>
+                             <td class = "topTitle">{$smarty.const._LOGIN}</td>
+                             <td class = "topTitle centerAlign">{$smarty.const._ACCESSNUMBER}</td>
+                             <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
+                             {*<td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>*}
+                         </tr>
+                         {foreach name = 'user_traffic_list' key = "login" item = "info" from = $T_LESSON_TRAFFIC.users}
+                          {if $info.accesses}
+                             <tr class = "{cycle name = 'usertraffic' values = 'oddRowColor, evenRowColor'} {if !$info.active}deactivatedTableElement{/if}">
+                                 <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$login}">#filter:login-{$login}#</a></td>
+                                 <td class = "centerAlign">{$info.accesses}</td>
+                                 <td class = "centerAlign">{strip}<span style = "display:none">{$info.total_seconds}&nbsp;</span>
+                                     {if $info.total_seconds}
+                                   {if $info.hours}{$info.hours}{$smarty.const._HOURSSHORTHAND} {/if}
+                                   {if $info.minutes}{$info.minutes}{$smarty.const._MINUTESSHORTHAND} {/if}
+                                   {if $info.seconds}{$info.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}
+                                     {else}
+                                      {$smarty.const._NOACCESSDATA}
+                                     {/if}
+                                 {/strip}</td>
+                                 {*
+                                 <td class = "centerAlign">
+                                     <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$login}&lesson_id={$T_LESSON_ID}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
+                                      <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
+                                 </td>
+                                 *}
+                             </tr>
+                             {/if}
+                         {foreachelse}
+                          <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
+                         {/foreach}
+                     </table>
+
+  {else}
+  <span class = "emptyCategory">{$smarty.const._NOUSERSFOUND}</span>
+  {/if}
+
+<!--/ajax:customGroupStats-->
+
+ </div>
+ {/capture}
 
    {* **************************************************************
     DISPLAYING THE CAPTURED TABLES
@@ -331,14 +513,16 @@
      <h3>{$smarty.const._BASICCRITERIA}</h3>
      {eF_template_printBlock title = $smarty.const._BASICSEARCHOPTIONS data = $smarty.capture.t_reports_code image = '32x32/search.png'}
      <br>
-
-
      <div class="tabber">
       <div class="tabbertab" title="{$smarty.const._SEARCHRESULTS}">
        {eF_template_printBlock title = $smarty.const._EMPLOYEESFULFILLINGCRITERIA data = $smarty.capture.t_employees_code image = '32x32/user.png' options = $T_SENDALLMAIL_LINK}
       </div>
       <div class="tabbertab" title="{$smarty.const._ASSIGNCOURSES}">
        {eF_template_printBlock title = $smarty.const._MASSCOURSESASSIGNMENTINFO data = $smarty.capture.t_courses_to_be_assigned_code image = '32x32/courses.png'}
+      </div>
+      <div class="tabbertab">
+       <h3>{$smarty.const._USERSTRAFFIC}</h3>
+       {eF_template_printBlock title = $smarty.const._USERSTRAFFIC data = $smarty.capture.t_custom_group_stats_code image = '32x32/search.png'}
       </div>
      </div>
     </div>
@@ -347,7 +531,26 @@
      <h3>{$smarty.const._ADVANCED}</h3>
      {eF_template_printBlock title = $smarty.const._ADVANCEDSEARCH data = $smarty.capture.t_reports_advanced_search image = '32x32/search.png'}
     </div>
+
+
     </div>
   </form>
 {/capture}
     {eF_template_printBlock title = $smarty.const._FINDEMPLOYEES data = $smarty.capture.t_search_all image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
+
+
+<div id='insert_into_group' style="display:none">
+{capture name = 't_insert_into_group_code'}
+ {$T_INSERT_INTO_GROUP_POPUP_FORM.javascript}
+  <form {$T_INSERT_INTO_GROUP_POPUP_FORM.attributes}>
+   {$T_INSERT_INTO_GROUP_POPUP_FORM.hidden}
+   <table class = "formElements" width="100%">
+   <tr><td class = "labelCell">{$T_INSERT_INTO_GROUP_POPUP_FORM.existing_group.label}:&nbsp;</td><td>{$T_INSERT_INTO_GROUP_POPUP_FORM.existing_group.html}</td></tr>
+   <tr><td class = "labelCell">{$T_INSERT_INTO_GROUP_POPUP_FORM.new_group.label}:&nbsp;</td><td>{$T_INSERT_INTO_GROUP_POPUP_FORM.new_group.html}</td></tr>
+   <tr><td>&nbsp;</td></tr>
+   <tr><td></td><td><input type="button" class="flatButton" onclick="insertFoundUsersIntoGroup(this)" value="{$smarty.const._SUBMIT}" /><input type="button" class="flatButton" onclick="insertFoundUsersIntoGroupAndGotoIt(this)" value="{$smarty.const._SUBMITANDEDITGROUP}" /></td></tr>
+   </table>
+  </form>
+{/capture}
+{eF_template_printBlock title = $smarty.const._INSERTINTOGROUP data = $smarty.capture.t_insert_into_group_code image = '32x32/users.png'}
+</div>

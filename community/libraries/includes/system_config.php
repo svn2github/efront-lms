@@ -415,6 +415,7 @@ $disable_form -> addElement("advcheckbox", "disable_tests", null, null, 'class =
 $disable_form -> addElement("advcheckbox", "chat_enabled", null, null, 'class = "inputCheckBox"', array(1, 0));
 $disable_form -> addElement("advcheckbox", "disable_tooltip", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> addElement("advcheckbox", "disable_help", null, null, 'class = "inputCheckBox"', array(0, 1));
+$disable_form -> addElement("advcheckbox", "disable_feedback", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> setDefaults($configuration);
 isset($configuration['disable_projects']) ? $disable_form -> setDefaults(array('disable_projects' => $configuration['disable_projects'])) : $disable_form -> setDefaults(array('disable_projects' => 0));
 isset($configuration['disable_bookmarks']) ? $disable_form -> setDefaults(array('disable_bookmarks' => $configuration['disable_bookmarks'])) : $disable_form -> setDefaults(array('disable_bookmarks' => 0));

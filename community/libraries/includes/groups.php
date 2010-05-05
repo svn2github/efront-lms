@@ -330,8 +330,10 @@ $loadScripts[] = 'includes/groups';
              }
              if (isset($_GET['ajax']) && $_GET['ajax'] == "usersTable") {
               $smarty -> assign("T_USERS_SIZE", sizeof($users));
+
               $dataSource = $users;
               $tableName = $_GET['ajax'];
+
               include("sorted_table.php");
              }
              if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {

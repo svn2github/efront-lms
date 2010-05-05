@@ -181,7 +181,8 @@ class EfrontLesson
                             'show_dashboard' => 1,
           'show_horizontal_bar' => 1,
                             //'complete_next_lesson'=> 0,
-          'default_positions' => '');
+          'default_positions' => '',
+       'feedback' => 1);
     /**
 
      * Class constructor

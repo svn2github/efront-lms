@@ -14,70 +14,418 @@ if ($currentUser -> getType() != "administrator" && $currentEmployee -> getType(
  exit;
 }
 
-if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable' && $editedUser -> user['user_type'] != "administrator") {
- $directionsTree = new EfrontDirectionsTree();
- $directionPaths = $directionsTree -> toPathString();
- $smarty -> assign("T_DIRECTION_PATHS", $directionPaths);
-
- $roles = EfrontLessonUser :: getLessonsRoles(true);
- $smarty -> assign("T_ROLES_ARRAY", $roles);
- $rolesBasic = EfrontLessonUser :: getLessonsRoles();
- $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
-
- $smarty -> assign("T_EDITED_USER_TYPE", $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type']);
-
- $constraints = array('instance' => false, 'archive' => false, 'active' => true);
- $courses = EfrontCourse :: getCourses(true);
- $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
-
- $legalValues = array_keys($courses);
- $dataSource = $courses;
- $tableName = $_GET['ajax'];
- /**Handle sorted table's sorting and filtering*/
- include("sorted_table.php");
-
-}
-if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
- $directionsTree = new EfrontDirectionsTree();
- $directionPaths = $directionsTree -> toPathString();
- $smarty -> assign("T_DIRECTION_PATHS", $directionPaths);
-
- $roles = EfrontLessonUser :: getLessonsRoles(true);
- $smarty -> assign("T_ROLES_ARRAY", $roles);
- $rolesBasic = EfrontLessonUser :: getLessonsRoles();
- $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
-
- $smarty -> assign("T_EDITED_USER_TYPE", $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type']);
-
- $constraints = array('instance' => $_GET['instancesTable_source'], 'archive' => false, 'active' => true);
- $instances = EfrontCourse :: getAllCourses($constraints);
- $instances = EfrontCourse :: convertCourseObjectsToArrays($instances);
-
- $legalValues = array_keys($instances);
- $dataSource = $instances;
- $tableName = $_GET['ajax'];
- /**Handle sorted table's sorting and filtering*/
- include("sorted_table.php");
-
-}
-
-if (isset($_GET['postAjaxRequest']) && $_GET['postAjaxRequest'] == "courses") {
+/* Create a new courses/instances list for mass assignments */
+if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
  try {
-  $course = new EfrontCourse($_GET['courses_ID']);
-  $course -> addUsers(explode(";", $_GET['add_users']));
+  if ($_GET['ajax'] == 'coursesTable') {
+   $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => false);
+  }
+  if ($_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
+   $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $_GET['instancesTable_source']);
+  }
+
+  $courses = EfrontCourse :: getAllCourses($constraints);
+  $totalEntries = EfrontCourse :: countAllCourses($constraints);
+  $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);
+  $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+  $tableName = $_GET['ajax'];
+  $alreadySorted = 1;
+  include("sorted_table.php");
  } catch (Exception $e) {
-  header("HTTP/1.0 500");
-  echo $e -> getMessage().' ('.$e -> getCode().')';
+  handleAjaxExceptions($e);
  }
  exit;
 }
 
+/* Return the employees that match the search criteria */
+if (isset($_GET['search'])) {
+
+ /*****************************************************
+
+	 GET EMPLOYEES FILLING THE CRITERIA
+
+	 **************************************************** */
+ if (((isset($_GET['branch_ID']) && $_GET['branch_ID']!="" && $_GET['branch_ID']!="0") || (isset($_GET['job_description_ID']) && $_GET['job_description_ID'] !="0" && $_GET['job_description_ID']!="") || ( (isset($_GET['skill_ID']) && $_GET['skill_ID']!= "" && $_GET['skill_ID']!=0) || (isset($_GET['other_skills']) && $_GET['other_skills'] != "")))) {
+  // Check or not the include subbranches checkbox
+  if ($_GET['include_sb'] == "true" || $_POST['include_subbranches']) {
+   $include_sb = 1;
+  } else {
+   $include_sb = 0;
+  }
+  /* branch_ID equals zero when ANY is selected */
+  if ($_GET['branch_ID'] != 0) {
+
+   if ($_GET['branch_ID'] > 0) {
+    if ($include_sb) {
+     $branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","");
+     $subbranches = eF_subBranches($_GET['branch_ID'], $branches);
+
+     $subbranches[] = $_GET['branch_ID'];
+     $branches_list = implode("','",$subbranches);
+
+     $where_part = "module_hcd_employee_works_at_branch.branch_ID IN ('" . $branches_list . "')";
+    } else {
+     $where_part = "module_hcd_employee_works_at_branch.branch_ID = '" . $_GET['branch_ID'] . "'";
+    }
+   } else {
+
+
+    $leavesArray = eF_getAllBranchLeaves();
+    if ($_GET['branch_ID'] == -1) {
+     $branches_list = implode("','", $leavesArray);
+    } else {
+
+     $branches_list = implode("','", $leavesArray);
+     $father_branchesArray = eF_getTableDataFlat("module_hcd_branch as branches JOIN module_hcd_branch as father_branches ON branches.father_branch_ID = father_branches.branch_ID", "father_branches.branch_ID", "branches.branch_ID IN ('".$branches_list."')");
+     $father_branchesArray = $father_branchesArray['branch_ID'];
+     if ($include_sb) {
+      $branches_list = implode("','", array_merge($leavesArray, $father_branchesArray));
+     } else {
+      $branches_list = implode("','", $father_branchesArray);
+     }
+    }
+    $where_part = "module_hcd_employee_works_at_branch.branch_ID IN ('" . $branches_list . "')";
+
+   }
+
+   $employees_data1 = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = users.login AND module_hcd_employee_works_at_branch.assigned = '1' LEFT OUTER JOIN module_hcd_job_description ON module_hcd_job_description.job_description_ID = module_hcd_employee_has_job_description.job_description_ID", "users.*", $where_part,"","login");
+   foreach ($employees_data1 as $empl1) {
+    $log = $empl1['login'];
+    $employees1[$log] = $empl1;
+   }
+  }
+
+  if ($_GET['job_description_ID'] != "0") {
+   $where_part = "module_hcd_job_description.description = '" . $_GET['job_description_ID'] . "'";
+   $employees_data2 = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_job_description ON module_hcd_job_description.job_description_ID = module_hcd_employee_has_job_description.job_description_ID", "users.*", $where_part,"","login");
+   foreach ($employees_data2 as $empl2) {
+    $log = $empl2['login'];
+    $employees2[$log] = $empl2;
+   }
+  }
+
+
+  if (($_GET['skill_ID'] != 0) || (isset($_GET['other_skills']) && $_GET['other_skills'] != "")) {
+
+   $skills_to_be_found = array();
+   if ($_GET['skill_ID'] != 0) {
+    $skills_to_be_found[$_GET['skill_ID']] = $_GET['skill_ID'];
+   }
+
+   if (isset($_GET['other_skills']) && $_GET['other_skills'] != "") {
+    $other_skills = explode("_", $_GET['other_skills']);
+    foreach ($other_skills as $skill) {
+     $skills_to_be_found[$skill] = $skill;
+    }
+   }
+
+   $where_part = "";
+
+   $basic_condition = " EXISTS (SELECT login FROM module_hcd_employee_has_skill WHERE users_login = login AND ";
+   if ($_GET['all'] == "true") {
+    $connector = "AND";
+   } else {
+    $connector = "OR";
+   }
+   foreach ($skills_to_be_found as $skill) {
+    if ($where_part == "") {
+     $where_part = $basic_condition . "skill_ID = " . $skill . ") ";
+    } else {
+     $where_part .= " " . $connector . $basic_condition . " skill_ID = " . $skill . ") ";
+    }
+
+   }
+
+   //skill_ID= '" .  . "'";
+   $employees_data3 = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_skill ON module_hcd_employee_has_skill.users_login = users.login", "users.*", $where_part,"","login");
+   foreach ($employees_data3 as $empl3) {
+    $log = $empl3['login'];
+    $employees3[$log] = $empl3;
+   }
+  }
+
+
+  if ($_GET['all'] == "false") {
+   if ($employees1) {
+    $employees = $employees1;
+   }
+   if ($employees2) {
+    if (!$employees1) {
+     $employees = $employees2;
+    } else {
+     $employees = array_merge($employees1,$employees2);
+    }
+   }
+   if ($employees3) {
+    if (!$employees1 && !$employees2) {
+     $employees = $employees3;
+    } else {
+     $employees = array_merge($employees,$employees3);
+    }
+   }
+
+  } else {
+   if ($employees1) {
+    $employees = $employees1;
+   } else {
+    // No employee was found while one should => return empty array
+    if ($_GET['branch_ID'] != 0) {
+     $employees2 = 0;
+     $employees3 = 0;
+    }
+   }
+
+   if ($employees2) {
+    if ($_GET['branch_ID'] == 0) {
+     $employees = $employees2;
+    } else {
+     $employees = array_intersect_assoc($employees1,$employees2);
+    }
+   } else {
+    // No employee was found while one should => return empty array
+    if ($_GET['job_description_ID'] != "0") {
+     $employees = array();
+     $employees3 = 0;
+    }
+   }
+   if ($employees3) {
+    if ($_GET['branch_ID'] == 0 && $_GET['job_description_ID'] == "0") {
+     $employees = $employees3;
+    } else {
+     $employees = array_intersect_assoc($employees,$employees3);
+    }
+   } else {
+    // No employee was found while one should => return empty array
+    if ($_GET['skill_ID'] != "0") {
+     $employees = array();
+    }
+   }
+
+  }
+
+
+ } else if (isset($_GET['login']) || isset($_POST['login'])) {
+  $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN", "users.*","","","login");
+ }
+
+ //echo "employees<Br>";
+ //pr($employees);
+
+ /* Filter those data according to whether all or some of the criteria need to be fulfilled */
+ if ($_GET['all'] == "false") {
+  $preposition = " OR ";
+ } else {
+  $preposition = " AND ";
+ }
+
+ /* If advanced criteria are enabled */
+ if (isset($_GET['login']) || isset($_POST['login'])) {
+  $size = sizeof($employees);
+  if ($size > 0) {
+   $list = "users.login IN (";
+   $k = 0;
+
+   foreach ($employees as $employee) {
+    $list = $list . "'" . $employee['login'] . "'" ;
+
+    if ($k++ != $size - 1) {
+     $list = $list . ",";
+    }
+
+   }
+   $list = $list . ") ";
+  }
+
+  $sql_query = $list;
+  $found_field = 0;
+
+  // Dates management - search needs to know which fields are dates
+  $datesFields = array("timestamp", "hired_on" , "left_on");
+
+  /* Get all employees fulfilling the "advanced criteria" */
+  // Need to create the criteria - we could check the field names of the current user object
+  $criteria = array_merge(array_keys($currentUser -> user), array_keys($currentUser -> aspects['hcd'] -> employee));
+  foreach ($criteria as $field) {
+   if (isset($_GET[$field]) && $_GET[$field] != "") {
+    $value = $_GET[$field];
+    if (($value || $field == "sex" || $field =="marital_status" || $field == "way_of_working") && $field != "search_branch" && $field != "search_job_description" && $field != "search_skill" && $field != "criteria" && $field != "submit_personal_details" && $field != "include_subbranches") {
+     if ($field == "new_login") {
+      $field = "login";
+     }
+
+     if ($field == "user_type" && $value != '' && $value != "administrator" && $value != "professor" && $value != "student") {
+      // then we have identified a custom user type
+      $field = "user_types_ID";
+     }
+
+     if (in_array($field, $datesFields)) {
+      $value = mktime(0, 0, 0, $_GET[$field . "Month"], $_GET[$field ."Day"], $_GET[$field . "Year"]);
+      switch ($_GET[$field]) {
+       case 2: $sign = "<"; break;
+       case 3: $sign = "="; break;
+       default: $sign = ">";
+      }
+
+      if ($sql_query != $list) {
+       $sql_query .= $preposition . " (($field IS NOT NULL) AND ($field $sign $value)) ";
+      } else {
+       $sql_query .= $preposition . " ((($field IS NOT NULL) AND ($field $sign $value)) ";
+      }
+
+     } else {
+      if ($sql_query != $list) {
+       $sql_query .= $preposition . " ($field LIKE '%$value%') ";
+      } else {
+       $sql_query .= $preposition . " (($field LIKE '%$value%') ";
+      }
+     }
+     $found_field = 1;
+
+    }
+   }
+  }
+
+//		if ($found_field) {
+//			$sql_query .= ")";
+//			$found_field = 0;
+//		}
+
+  // Custom fields management
+  if ($found_field) {
+   $sql_query .= ")";
+  }
+  /*************** THE SEARCH QUERY ****************/
+//		echo $sql_query."<Br>";		
+  $result = eF_getTableDataFlat("users LEFT OUTER JOIN module_hcd_employees ON users.login = module_hcd_employees.users_login","login", $sql_query . " LIMIT 100");
+  //pr($result);
+  $k = 0;
+  /* Get the intersection of the two arrays */
+  foreach ($employees as $key => $employee) {
+   if (!in_array($employee['login'], $result['login'])) {
+    unset($employees[$key]);
+   }
+   $k++;
+  }
+ }
+ /* Get employee jobs */
+ $recipients_array = array();
+ foreach ($employees as $key => $employee) {
+  $recipients_array[] = $employee['login'];
+  $temp_employee = EfrontEmployeeFactory :: factory($employee['login']);
+  $employees[$key]['jobs'] = $temp_employee -> getJobs();
+  $employees[$key]['jobs_num'] = sizeof($employees[$key]['jobs']);
+  //pr($employees[$key]['jobs']);
+  // Calculate the size of the div for this employee
+  $maxlen = 0;
+  foreach ($employees[$key]['jobs'] as $job) {
+   if (($tempsump = strlen($job['description']) + strlen($job['name'])) > $maxlen) {
+    $maxlen = $tempsum;
+   }
+  }
+  $employees[$key]['div_size'] = ($maxlen + strlen(_ATBRANCH) + 2) * 15 ; // length of _ATBRANCH + 2 spaces - formula chars*size_per_char=20 / 2
+  if ($employees[$key]['div_size'] > 400) {
+   $employees[$key]['div_size'] = 400;
+  }
+ }
+ // Management of the 'send email to all found' link icon on the top right of the table
+ // During ajax refresh
+ if (isset($_GET['ajax']) && $_GET['ajax'] == 'foundEmployees') {
+  $smarty -> assign("T_SENDALLMAIL_URL", implode($recipients_array, ";"));
+  $dataSource = $employees;
+  $tableName = $_GET['ajax'];
+  /**Handle sorted table's sorting and filtering*/
+  include("sorted_table.php");
+ } else if (isset($_GET['stats']) && $_GET['stats'] == 1) {
+  $user_logins = $recipients_array;
+  $lessonNames = eF_getTableDataFlat("lessons", "id, name");
+  $lessonNames = array_combine($lessonNames['id'], $lessonNames['name']);
+  $contentNames = eF_getTableDataFlat("content", "id, name");
+  $contentNames = array_combine($contentNames['id'], $contentNames['name']);
+  $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID");
+  $testNames = array_combine($testNames['id'], $testNames['name']);
+  //$result = eF_getTableData("logs", "*", "timestamp between $from and $to and users_LOGIN in ('".implode("','", $user_logins)."') order by timestamp desc");
+  $result = eF_getTableData("logs", "*", "users_LOGIN in ('".implode("','", $user_logins)."') order by timestamp desc");
+  foreach ($result as $key => $value) {
+   $value['lessons_ID'] ? $result[$key]['lesson_name'] = $lessonNames[$value['lessons_ID']] : null;
+   if ($value['action'] == 'content') {
+    $result[$key]['content_name'] = $contentNames[$value['comments']];
+   } else if ($value['action'] == 'tests' || $value['action'] == 'test_begin') {
+    $result[$key]['content_name'] = $testNames[$value['comments']];
+   }
+  }
+  $smarty -> assign("T_USER_LOG", $result);
+  $traffic = array();
+  $traffic['lessons'] = array();
+  $allStats = EfrontStats :: getUsersTimeAll();
+  //$allStats = EfrontStats :: getUsersTimeAll($from, $to);
+  $result = EfrontLesson::getLessons();
+  $probed_lessons = array();
+  foreach ($result as $value) {
+   $probed_lessons[$value['id']] = array("lessons_ID" => $value['id'], "lessons_name" => $value['name'], "active" => $value['active']);
+  }
+  foreach ($probed_lessons as $id => $lesson) {
+   $userTraffic = $allStats[$id];
+   //$userTraffic = EfrontStats :: getUsersTime($id, $user_logins, $from, $to);
+   foreach ($user_logins as $user => $login) {
+    if ($userTraffic[$login]['accesses']) {
+     if (!isset($traffic['lessons'][$id])) {
+      $traffic['lessons'][$id] = $userTraffic[$login];
+      $traffic['lessons'][$id]['name'] = $lesson['lessons_name'];
+      $traffic['lessons'][$id]['active'] = $lesson['active'];
+     } else {
+      $traffic['lessons'][$id]['accesses'] += $userTraffic[$login]['accesses'];
+      addTime($traffic['lessons'][$id], $userTraffic[$login]);
+      //$traffic['lessons'][$id]['total_seconds'] +=???????
+     }
+     $traffic['total_access'] += $userTraffic[$login]['accesses'];
+    }
+   }
+  }
+  //and timestamp between $from and $to
+  $result = eF_getTableData("logs", "count(*)", "action = 'login' and users_LOGIN in ('".implode("','", $user_logins)."') order by timestamp");
+  $traffic['total_logins'] = $result[0]['count(*)'];
+  $smarty -> assign("T_USER_TRAFFIC", $traffic);
+  $actions = array('login' => _LOGIN,
+                               'logout' => _LOGOUT,
+                               'lesson' => _ACCESSEDLESSON,
+                               'content' => _ACCESSEDCONTENT,
+                               'tests' => _ACCESSEDTEST,
+                               'test_begin' => _BEGUNTEST,
+                               'lastmove' => _NAVIGATEDSYSTEM);
+  $smarty -> assign("T_ACTIONS", $actions);
+  $smarty -> display($_SESSION['s_type'].'.tpl');
+ } else if (isset($_GET['add_to_existing_group'])) {
+  try {
+   $group = new EfrontGroup($_GET['add_to_existing_group']);
+   $group -> addUsers($recipients_array);
+  } catch (Exception $e) {
+   echo $e->getMessage();
+  }
+ } else if(isset($_GET['add_to_new_group'])) {
+  try {
+   $group = EfrontGroup::create(array("name" => $_GET['add_to_new_group']));
+   $group -> addUsers($recipients_array);
+   echo $group -> group['id'];
+  } catch (Exception $e) {
+   echo $e->getMessage();
+  }
+ } else if(isset($_GET['add_course'])) {
+  try {
+   $course = new EfrontCourse($_GET['add_course']);
+   $course -> addUsers($recipients_array);
+  } catch (Exception $e) {
+   header("HTTP/1.0 500");
+   echo $e -> getMessage().' ('.$e -> getCode().')';
+  }
+ }
+ exit;
+}
+/********************** REPORTS PAGE PRESENTATION - FORM CREATION *********************/
 /* Create the link to the search for course user page */
 if ($currentUser -> getType() == "administrator") {
  $options = array(array('image' => '16x16/scorm.png', 'title' => _SEARCHFOREMPLOYEE, 'link' => $_SESSION['s_type'].'.php?ctg=module_hcd&op=reports' , 'selected' => true),
  array('image' => '16x16/glossary.png', 'title' => _SEARCHCOURSEUSERS, 'link' => 'administrator.php?ctg=search_courses', 'selected' => false));
  $smarty -> assign("T_TABLE_OPTIONS", $options);
-
  /*
 
 	 $search_course_user = array(
@@ -104,21 +452,10 @@ if (isset($_GET['branch_ID'])) {
 } else {
  $onclick_event = '';
 }
-
 $form -> addElement('advcheckbox', 'include_subbranches', _INCLUDESUBBRANCHES, null, 'class = "inputCheckbox" id="include_subbranchesId" onClick="javascript:includeSubbranches()"');
-// Check or not the include subbranches checkbox
-if ($_GET['include_sb'] == "true" || $_POST['include_subbranches']) {
- $form -> setDefaults(array('include_subbranches' => '1'));
- $include_sb = 1;
-} else {
- $form -> setDefaults(array('include_subbranches' => '0'));
- $include_sb = 0;
-}
-
 /* Job descriptions (all different job descriptions irrespective of the branch they belong to) */
 if (isset($_GET['branch_ID']) && $_GET['branch_ID']!="" && $_GET['branch_ID']>0) {
  $activeBranch = new EfrontBranch($_GET['branch_ID']);
-
  $job_description_list = $activeBranch -> createJobDescriptionsSelect();
  $job_description_list[0] = _DONTTAKEINTOACCOUNT;
 } else {
@@ -130,7 +467,6 @@ if (isset($_GET['branch_ID']) && $_GET['branch_ID']!="" && $_GET['branch_ID']>0)
  }
 }
 $form -> addElement('select', 'search_job_description', _WITHJOBDESCRIPTION, $job_description_list, 'id = "search_job_description" class = "inputSelectMed" onchange="javascript:refreshResults()"');
-
 /* Skills */
 $skills = eF_getTableData("module_hcd_skills", "skill_ID, description","");
 $skills_list = array("0" => _DONTTAKEINTOACCOUNT);
@@ -138,38 +474,28 @@ foreach ($skills as $skill) {
  $log = $skill['skill_ID'];
  $skills_list["$log"] = $skill['description'];
 }
-
 $form -> addElement('select', 'search_skill', _WITHSKILL, $skills_list, 'id = "search_skill" class = "inputSelectMed" onchange="javascript:refreshResults()"');
-
-
 $form -> addElement('select', 'search_skill_template' , null, $skills_list ,'id="search_skill_row" class = "inputSelectMed"  onchange="javascript:refreshResults();"');
-
 $form -> addElement('submit', 'submit_report', _SUBMIT, 'class = "flatButton"');
-
 /* For advanced search form: All information that regard employees (taken from the main form) */
 $form -> addElement('text', 'new_login', _LOGIN, 'class = "inputText" id="new_login" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('text', 'name', _FIRSTNAME, 'class = "inputText" id="name" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText" id="surname" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText" id="email" onChange="javascript:setAdvancedCriterion(this);"');
-
-
 $roles = eF_getTableDataFlat("user_types", "*");
 $roles_array[''] = "";
 $roles_array['student'] = _STUDENT;
 $roles_array['professor'] = _PROFESSOR;
-
 // Only the administrator may assign administrator rights
 if ($currentUser -> getType() == "administrator") {
  $roles_array['administrator'] = _ADMINISTRATOR;
 }
-
 for ($k = 0; $k < sizeof($roles['id']); $k++) {
  if ($roles['active'][$k] == 1 || (isset($editedUser) && $editedUser -> user['user_types_ID'] == $roles['id'][$k])) { //Make sure that the user's current role will be listed, even if it's deactivated
   $roles_array[$roles['id'][$k]] = $roles['name'][$k];
  }
 }
 $form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_type" onChange="javascript:setAdvancedCriterion(this);"');
-
 /*
 
  $roles = eF_getTableDataFlat("user_types", "user_type", "active=1");
@@ -196,7 +522,7 @@ $form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_ty
 
  */
 $form -> addElement('advcheckbox', 'active', _ACTIVE, null, ' id ="active" class = "inputCheckbox" onChange="javascript:setAdvancedCriterion(this);"');
-$form -> addElement('text', 'registration', _REGISTRATIONDATE, 'class = "inputText" id="registration" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('text', 'registration', _REGISTRATIONDATE, 'class = "inputText" id="timestamp" onChange="javascript:setAdvancedCriterion(this);"');
 // Permanent data of personal records of employees
 $form -> addElement('text', 'father', _FATHERNAME, 'class = "inputText" id="father" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('select', 'sex' , _GENDER, array("" => "", "0" => _MALE, "1" => _FEMALE), 'class = "inputText" id="sex" onChange="javascript:setAdvancedCriterion(this);"');
@@ -233,7 +559,7 @@ $form -> addElement('select', 'way_of_working', _WAYOFWORKING, array("" => "", "
 /* The default values are either posted ($POST array) when the submit button 'submit_personal_details' is used, or gotten ($GET array) on page
 
  reload, which occurs every time each of the branches,jobs,skills selects changes its value    */
-$form -> setDefaults(array( 'new_login' => $_POST['new_login']?$_POST['new_login']:$_GET['new_login'],
+$form -> setDefaults(array( 'new_login' => $_POST['login']?$_POST['login']:$_GET['login'],
                                                   'name' => $_POST['name']?$_POST['name']:$_GET['name'],
                                                   'surname' => $_POST['surname']?$_POST['surname']:$_GET['surname'],
                                                   'email' => $_POST['email']?$_POST['email']:$_GET['email'],
@@ -269,283 +595,35 @@ $form -> setDefaults(array( 'new_login' => $_POST['new_login']?$_POST['new_login
                                                   'transport' => $_POST['transport']?$_POST['transport']:$_GET['transport'],
                                                   'way_of_working' => $_POST['way_of_working']?$_POST['way_of_working']:$_GET['way_of_working'],
                                                   'user_type' => $_POST['user_type']?$_POST['user_type']:$_GET['user_type']));
+// Dates management - search needs to know which fields are dates
+$datesFields = array("timestamp", "hired_on" , "left_on");
+// Custom fields management
+$smarty -> assign("T_DATES_SEARCH_CRITERIA", implode(",", $datesFields));
 $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
 $renderer -> setRequiredTemplate(
             '{$html}{if $required}
                 &nbsp;<span class = "formRequired">*</span>
             {/if}');
-/*****************************************************
-
- GET EMPLOYEES FILLING THE CRITERIA
-
- **************************************************** */
-if (isset($_GET['search']) && ((isset($_GET['branch_ID']) && $_GET['branch_ID']!="" && $_GET['branch_ID']!="0") || (isset($_GET['job_description_ID']) && $_GET['job_description_ID'] !="0" && $_GET['job_description_ID']!="") || ( (isset($_GET['skill_ID']) && $_GET['skill_ID']!= "" && $_GET['skill_ID']!=0) || (isset($_GET['other_skills']) && $_GET['other_skills'] != "")))) {
- /* branch_ID equals zero when ANY is selected */
- if ($_GET['branch_ID'] != 0) {
-  if ($_GET['branch_ID'] > 0) {
-   if ($include_sb) {
-    $branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","");
-    $subbranches = eF_subBranches($_GET['branch_ID'], $branches);
-    $subbranches[] = $_GET['branch_ID'];
-    $branches_list = implode("','",$subbranches);
-    $where_part = "module_hcd_employee_works_at_branch.branch_ID IN ('" . $branches_list . "')";
-   } else {
-    $where_part = "module_hcd_employee_works_at_branch.branch_ID = '" . $_GET['branch_ID'] . "'";
-   }
-  } else {
-   $leavesArray = eF_getAllBranchLeaves();
-   if ($_GET['branch_ID'] == -1) {
-    $branches_list = implode("','", $leavesArray);
-   } else {
-    $branches_list = implode("','", $leavesArray);
-    $father_branchesArray = eF_getTableDataFlat("module_hcd_branch as branches JOIN module_hcd_branch as father_branches ON branches.father_branch_ID = father_branches.branch_ID", "father_branches.branch_ID", "branches.branch_ID IN ('".$branches_list."')");
-    $father_branchesArray = $father_branchesArray['branch_ID'];
-    if ($include_sb) {
-     $branches_list = implode("','", array_merge($leavesArray, $father_branchesArray));
-    } else {
-     $branches_list = implode("','", $father_branchesArray);
-    }
-   }
-   $where_part = "module_hcd_employee_works_at_branch.branch_ID IN ('" . $branches_list . "')";
-  }
-  $employees_data1 = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = users.login AND module_hcd_employee_works_at_branch.assigned = '1' LEFT OUTER JOIN module_hcd_job_description ON module_hcd_job_description.job_description_ID = module_hcd_employee_has_job_description.job_description_ID", "users.*", $where_part,"","login");
-  foreach ($employees_data1 as $empl1) {
-   $log = $empl1['login'];
-   $employees1[$log] = $empl1;
-  }
- }
- if ($_GET['job_description_ID'] != "0") {
-  $where_part = "module_hcd_job_description.description = '" . $_GET['job_description_ID'] . "'";
-  $employees_data2 = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_job_description ON module_hcd_job_description.job_description_ID = module_hcd_employee_has_job_description.job_description_ID", "users.*", $where_part,"","login");
-  foreach ($employees_data2 as $empl2) {
-   $log = $empl2['login'];
-   $employees2[$log] = $empl2;
-  }
- }
- if (($_GET['skill_ID'] != 0) || (isset($_GET['other_skills']) && $_GET['other_skills'] != "")) {
-
-  $skills_to_be_found = array();
-  if ($_GET['skill_ID'] != 0) {
-   $skills_to_be_found[$_GET['skill_ID']] = $_GET['skill_ID'];
-  }
-
-  if (isset($_GET['other_skills']) && $_GET['other_skills'] != "") {
-   $other_skills = explode("_", $_GET['other_skills']);
-   foreach ($other_skills as $skill) {
-    $skills_to_be_found[$skill] = $skill;
-   }
-  }
-
-  $where_part = "";
-
-  $basic_condition = " EXISTS (SELECT login FROM module_hcd_employee_has_skill WHERE users_login = login AND ";
-  if ($_GET['all'] == "true") {
-   $connector = "AND";
-  } else {
-   $connector = "OR";
-  }
-  foreach ($skills_to_be_found as $skill) {
-   if ($where_part == "") {
-    $where_part = $basic_condition . "skill_ID = " . $skill . ") ";
-   } else {
-    $where_part .= " " . $connector . $basic_condition . " skill_ID = " . $skill . ") ";
-   }
-
-  }
-
-  //skill_ID= '" .  . "'";
-  $employees_data3 = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_skill ON module_hcd_employee_has_skill.users_login = users.login", "users.*", $where_part,"","login");
-  foreach ($employees_data3 as $empl3) {
-   $log = $empl3['login'];
-   $employees3[$log] = $empl3;
-  }
- }
-
-
- if ($_GET['all'] == "false") {
-  if ($employees1) {
-   $employees = $employees1;
-  }
-  if ($employees2) {
-   if (!$employees1) {
-    $employees = $employees2;
-   } else {
-    $employees = array_merge($employees1,$employees2);
-   }
-  }
-  if ($employees3) {
-   if (!$employees1 && !$employees2) {
-    $employees = $employees3;
-   } else {
-    $employees = array_merge($employees,$employees3);
-   }
-  }
-
- } else {
-  if ($employees1) {
-   $employees = $employees1;
-  } else {
-   // No employee was found while one should => return empty array
-   if ($_GET['branch_ID'] != 0) {
-    $employees2 = 0;
-    $employees3 = 0;
-   }
-  }
-
-  if ($employees2) {
-   if ($_GET['branch_ID'] == 0) {
-    $employees = $employees2;
-   } else {
-    $employees = array_intersect_assoc($employees1,$employees2);
-   }
-  } else {
-   // No employee was found while one should => return empty array
-   if ($_GET['job_description_ID'] != "0") {
-    $employees = array();
-    $employees3 = 0;
-   }
-  }
-  if ($employees3) {
-   if ($_GET['branch_ID'] == 0 && $_GET['job_description_ID'] == "0") {
-    $employees = $employees3;
-   } else {
-    $employees = array_intersect_assoc($employees,$employees3);
-   }
-  } else {
-   // No employee was found while one should => return empty array
-   if ($_GET['skill_ID'] != "0") {
-    $employees = array();
-   }
-  }
-
- }
-
-
-} else if (isset($_GET['new_login']) || isset($_POST['new_login'])) {
- $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN", "users.*","","","login");
-}
-
-//echo "employees<Br>";
-//pr($employees);
-
-/* Filter those data according to whether all or some of the criteria need to be fulfilled */
-if ($_GET['all'] == "false") {
- $preposition = " OR ";
-} else {
- $preposition = " AND ";
-}
-
-/* If advanced criteria are enabled */
-if (isset($_GET['new_login']) || isset($_POST['new_login'])) {
- $size = sizeof($employees);
- if ($size > 0) {
-  $list = "users.login IN (";
-  $k = 0;
-
-  foreach ($employees as $employee) {
-   $list = $list . "'" . $employee['login'] . "'" ;
-
-   if ($k++ != $size - 1) {
-    $list = $list . ",";
-   }
-
-  }
-  $list = $list . ") ";
- }
-
- /* Get all employees fulfilling the "advanced criteria" */
- $formvalues = $form -> exportValues();
- $sql_query = $list;
- $found_field = 0;
- foreach ($formvalues as $field => $value) {
-
-
-  if (($value || $field == "sex" || $field =="marital_status" || $field == "way_of_working") && $field != "search_branch" && $field != "search_job_description" && $field != "search_skill" && $field != "criteria" && $field != "submit_personal_details" && $field != "include_subbranches") {
-   if ($field == "new_login") {
-    $field = "login";
-   }
-
-   if ($field == "user_type" && $value != '' && $value != "administrator" && $value != "professor" && $value != "student") {
-    // then we have identified a custom user type
-    $field = "user_types_ID";
-   }
-   if ($value != '') {
-    if ($sql_query != $list) {
-     $sql_query .= $preposition . " ($field LIKE '%$value%') ";
-    } else {
-     $sql_query .= $preposition . " (($field LIKE '%$value%') ";
-    }
-    $found_field = 1;
-   }
-  }
- }
- /*
-
-	 $sql_query = $list . " (login LIKE '%". $form->exportValue('new_login') ."%' ".$preposition."name  LIKE '%". $form->exportValue('name') ."%' " .$preposition . "surname LIKE '%". $form->exportValue('surname') ."%' " .$preposition . "email LIKE '%". $form->exportValue('email') ."%' " .$preposition . "active LIKE '%". $form->exportValue('active') ."%' " .$preposition . "timestamp LIKE '%". $form->exportValue('registration') ."%' " .$preposition . "(wage IS NULL OR wage LIKE '%". $form->exportValue('wage') ."%') " .$preposition . "(hired_on IS NULL OR hired_on LIKE '%". $form->exportValue('hired_on') ."%') " .$preposition . "(address IS NULL OR address LIKE '%". $form->exportValue('address') ."%') " .$preposition . "(city IS NULL OR city LIKE '%". $form->exportValue('city') ."%') " .$preposition . "(country IS NULL OR country LIKE '%". $form->exportValue('country') ."%') " .$preposition . "(father IS NULL OR father LIKE '%". $form->exportValue('father') ."%') " .$preposition . "(homephone IS NULL OR homephone LIKE '%". $form->exportValue('homephone') ."%') " .$preposition . "(mobilephone IS NULL OR mobilephone LIKE '%". $form->exportValue('mobilephone') ."%') ".$preposition . "(sex IS NULL OR sex LIKE '%". $form->exportValue('sex') ."%') " .$preposition . "(birthday IS NULL OR birthday LIKE '%". $form->exportValue('birthday') ."%') " .$preposition . "(birthplace IS NULL OR birthplace LIKE '%". $form->exportValue('birthplace') ."%') " .$preposition . "(birthcountry IS NULL OR birthcountry LIKE '%". $form->exportValue('birthcountry') ."%') " .$preposition . "(mother_tongue IS NULL OR mother_tongue LIKE '%". $form->exportValue('mother_tongue') ."%') " .$preposition . "(nationality IS NULL OR nationality LIKE '%". $form->exportValue('nationality') ."%') " .$preposition . "(company_internal_phone IS NULL OR company_internal_phone LIKE '%". $form->exportValue('company_internal_phone') ."%') " .$preposition . "(office IS NULL OR office LIKE '%". $form->exportValue('office') ."%') " .$preposition . "(doy IS NULL OR doy LIKE '%". $form->exportValue('doy') ."%') " .$preposition . "(afm IS NULL OR afm LIKE '%". $form->exportValue('afm') ."%') " .$preposition . "(police_id_number IS NULL OR police_id_number LIKE '%". $form->exportValue('police_id_number') ."%') " .$preposition . "(driving_licence IS NULL OR driving_licence LIKE '%". $form->exportValue('driving_licence') ."%') " .$preposition . "(work_permission_data IS NULL OR work_permission_data LIKE '%". $form->exportValue('work_permission_data') ."%') " .$preposition . "(national_service_completed IS NULL OR national_service_completed LIKE '%". $form->exportValue('national_service_completed') ."%') " .$preposition . "(employement_type IS NULL OR employement_type LIKE '%". $form->exportValue('employement_type') ."%') " .$preposition . "(bank IS NULL OR bank LIKE '%". $form->exportValue('bank') ."%') " .$preposition . "(bank_account IS NULL OR bank_account LIKE '%". $form->exportValue('bank_account') ."%') " .$preposition . "(marital_status IS NULL OR marital_status LIKE '%". $form->exportValue('marital_status') ."%') " .$preposition . "(transport IS NULL OR transport LIKE '%". $form->exportValue('transport') ."%') " .$preposition . "(way_of_working IS NULL OR way_of_working LIKE '%". $form->exportValue('way_of_working') ."%') " . $preposition . " (left_on IS NULL OR left_on LIKE '%". $form->exportValue('left_on') ."%')";
-
-	 if ($form->exportValue('user_type') != '') {
-
-	 $sql_query .= $preposition . "(user_type IS NULL OR user_type ='". $form->exportValue('user_type') ."'))";
-
-	 } else {
-
-	 $sql_query .= ")";
-
-	 }
-
-	 */
- if ($found_field) {
-  $sql_query .= ")";
- }
- //echo $sql_query."<Br>";
- $result = eF_getTableDataFlat("users LEFT OUTER JOIN module_hcd_employees ON users.login = module_hcd_employees.users_login","login", $sql_query );
- //echo "result<br>";
- //pr($result);
- $k = 0;
- /* Get the intersection of the two arrays */
- foreach ($employees as $key => $employee) {
-  if (!in_array($employee['login'], $result['login'])) {
-   unset($employees[$key]);
-  }
-  $k++;
- }
-}
-/* Get employee jobs */
-$recipients_array = array();
-foreach ($employees as $key => $employee) {
- $recipients_array[] = $employee['login'];
- $temp_employee = EfrontEmployeeFactory :: factory($employee['login']);
- $employees[$key]['jobs'] = $temp_employee -> getJobs();
- $employees[$key]['jobs_num'] = sizeof($employees[$key]['jobs']);
- //pr($employees[$key]['jobs']);
- // Calculate the size of the div for this employee
- $maxlen = 0;
- foreach ($employees[$key]['jobs'] as $job) {
-  if (($tempsump = strlen($job['description']) + strlen($job['name'])) > $maxlen) {
-   $maxlen = $tempsum;
-  }
- }
- $employees[$key]['div_size'] = ($maxlen + strlen(_ATBRANCH) + 2) * 15 ; // length of _ATBRANCH + 2 spaces - formula chars*size_per_char=20 / 2
- if ($employees[$key]['div_size'] > 400) {
-  $employees[$key]['div_size'] = 400;
- }
-}
 // Management of the 'send email to all found' link icon on the top right of the table
 // During page load create the item
-if (!isset($_GET['ajax'])) {
- $sendmail_link = array(
- array('id' => 'sendToAllId', 'text' => _SENDMESSAGETOALLFOUNDEMPLOYEES, 'image' => "16x16/mail.png", 'href' => "javascript:void(0);".implode($recipients_array, ";"), "onClick" => "this.href='".$currentUser->getType().".php?ctg=messages&add=1&recipient='+document.getElementById('usersFound').value;eF_js_showDivPopup('"._SENDMESSAGE."', 2)", 'target' => 'POPUP_FRAME')
- );
- $smarty -> assign("T_SENDALLMAIL_LINK", $sendmail_link);
-} else {
- // During ajax refresh
- $smarty -> assign("T_SENDALLMAIL_URL", implode($recipients_array, ";"));
-}
-$smarty -> assign("T_EMPLOYEES_SIZE",sizeof($employees));
-$smarty -> assign("T_EMPLOYEES", $employees);
-//}
+$mass_operations = array(array('id' => 'groupUsersId', 'text' => _SETFOUNDEMPLOYEESINTOGROUP, 'image' => "16x16/users.png", 'href' => "javascript:void(0);", "onClick" => "eF_js_showDivPopup('"._SETFOUNDEMPLOYEESINTOGROUP."', 0, 'insert_into_group')", 'target' => 'POPUP_FRAME'),
+        array('id' => 'sendToAllId', 'text' => _SENDMESSAGETOALLFOUNDEMPLOYEES, 'image' => "16x16/mail.png", 'href' => "javascript:void(0);", "onClick" => "this.href='".$currentUser->getType().".php?ctg=messages&add=1&recipient='+document.getElementById('usersFound').value;eF_js_showDivPopup('"._SENDMESSAGE."', 2)", 'target' => 'POPUP_FRAME'));
+$smarty -> assign("T_SENDALLMAIL_LINK", $mass_operations);
 $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
 $form -> setRequiredNote(_REQUIREDNOTE);
 $form -> accept($renderer);
 $smarty -> assign('T_REPORT_FORM', $renderer -> toArray());
+// Popup to set to custom group form
+$group_form = new HTML_QuickForm("insert_into_groups_form", "post", $_SESSION['s_type'].".php?ctg=module_hcd&op=reports&search=1&branch_ID=".$_GET['branch_ID']."&job_description_ID=".$_GET['job_description_ID'], "", null, true);
+$groups = array("0" => _INSERTINTONEWGROUP);
+$groupsResult = EfrontGroup::getGroups();
+foreach ($groupsResult as $group) {
+ $groups[$group['id']] = $group['name'];
+}
+$group_form -> addElement('select', 'existing_group', _INSERTINTOEXISTINGGROUP, $groups, 'id = "existing_group_id" class = "inputSelectMed" onchange="javascript:updateNewGroup(this, \'new_group_id\')"');
+$group_form -> addElement('text', 'new_group', _NEWGROUPNAME, 'class = "inputText" id="new_group_id" onChange="javascript:$(\'existing_group_id\').value = 0;"');
+$group_form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+$group_form -> setRequiredNote(_REQUIREDNOTE);
+$group_form -> accept($renderer);
+$smarty -> assign('T_INSERT_INTO_GROUP_POPUP_FORM', $renderer -> toArray());
 ?>

@@ -510,7 +510,9 @@ if (!(isset($GLOBALS['currentTheme'] -> options['images_displaying']) && $GLOBAL
 }
 /**** FOR USER STATUS ****/
 if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_USERSTATUS) {
-    $smarty -> assign("T_SHOW_USER_STATUS",1);
+    if ($currentUser -> coreAccess['dashboard'] != 'hidden') {
+  $smarty -> assign("T_SHOW_USER_STATUS",1);
+ }
 }
 // We calculated the size of the input message bar as a linear function y=ax+b
 // for experimental extreme values(sidebar width, textbox size)->(175,27) and (450,82)

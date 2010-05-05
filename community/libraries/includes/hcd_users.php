@@ -31,11 +31,13 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
         exit;
     } else {
         if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'login') && !$unprivileged) { //The administrator asked to delete a user
-            if (eF_deleteUser($_GET['delete_user'])) {
+         $user = EfrontUserFactory::factory($login);
+         try {
+    $user -> delete();
                 $message = _USERDELETED;
                 $message_type = 'success';
-            } else {
-                $message = _SOMEORALLOFTHEUSERELEMENTSCOULDNOTBEDELETED;
+            } catch (Exception $e) {
+                $message = _SOMEPROBLEMOCCURED . ": " . $e->getMessage();
                 $message_type = "failure";
             }
             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=users&message=".$message."&message_type=".$message_type);

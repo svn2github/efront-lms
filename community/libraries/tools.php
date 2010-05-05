@@ -2495,57 +2495,6 @@ function eF_getUserBasicType($login = false, $lessons_ID = false){
 }
 /**
 
-* Delete user
-
-*
-
-* This function deletes the designated user
-
-* @param string $login The user to delete
-
-* @return bool true if the user was deleted
-
-* @todo Ask if to delete forum data
-
-* @version 1.0
-
-*/
-function eF_deleteUser($login) {
-    if (eF_checkParameter($login, 'login')) {
-        $user = eF_getTableData("users", "user_type, avatar", "login='".$login."'");
-        eF_deleteTableData("users", "login='".$login."'");
-        eF_deleteTableData("comments", "users_LOGIN='".$login."'");
-        eF_deleteTableData("logs", "users_LOGIN='".$login."'");
-        eF_deleteTableData("rules", "users_LOGIN='".$login."'");
-        eF_deleteTableData("users_to_lessons", "users_LOGIN='".$login."'");
-        eF_deleteTableData("scorm_data", "users_LOGIN='".$login."'");
-        $result = eF_getTableData("done_tests", "id", "users_LOGIN='".$login."'");
-        $done_tests_list = implode(",", array_keys($result));
-        if ($done_tests_list) {
-            eF_deleteTableData("done_questions", "done_tests_ID IN ($done_tests_list)");
-        }
-        eF_deleteTableData("done_tests", "users_LOGIN='".$login."'");
-        eF_deleteTableData("f_folders", "users_LOGIN='".$login."'");
-        eF_deleteTableData("f_messages", "users_LOGIN='".$login."'");
-        eF_deleteTableData("f_personal_messages", "users_LOGIN='".$login."'");
-        eF_deleteTableData("chatmessages", "users_LOGIN='".$login."'");
-        if ($user[0]['user_type'] != 'administrator') { //Delete chat and some other data, only if the users is not an administrator, otherwise you risk loosing much useful data
-            eF_deleteTableData("groups", "users_LOGIN='".$login."'");
-            eF_deleteTableData("chatrooms", "users_LOGIN='".$login."'");
-        }
-        if (is_dir(G_UPLOADPATH.$login)) { //Delete personal messages folder from system directory
-            eF_deleteFolder(G_UPLOADPATH.$login);
-        }
-        if (is_file(G_AVATARSPATH.$user[0]['avatar'])) { //Delete user avatar
-            unlink(G_AVATARSPATH.$user[0]['avatar']);
-        }
-        return true;
-    } else {
-        return false;
-    }
-}
-/**
-
 * Add time
 
 *

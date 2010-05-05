@@ -27,7 +27,7 @@ if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['f
                'metadata' => 0);
 }
 //Default url for the file manager
-$url = basename($_SERVER['PHP_SELF']).'?ctg=tests&'.(isset($_GET['edit_test']) ? 'edit_test='.$_GET['edit_test'] : 'add_test=1');
+$url = basename($_SERVER['PHP_SELF']).'?ctg='.$_GET['ctg'].'&'.(isset($_GET['edit_test']) ? 'edit_test='.$_GET['edit_test'] : 'add_test=1');
 $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
 /**The file manager*/
 include "file_manager.php";
@@ -68,7 +68,7 @@ if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['f
 $loadScripts[] = 'scriptaculous/slider';
 $load_editor = true;
 
-$form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=tests".(isset($_GET['from_unit']) && in_array($_GET['from_unit'], $legalUnits) ? '&from_unit='.$_GET['from_unit'] : '').(isset($_GET['add_test']) ? '&add_test=1' : '&edit_test='.$_GET['edit_test']), "", null, true);
+$form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=".$_GET['ctg'].(isset($_GET['from_unit']) && in_array($_GET['from_unit'], $legalUnits) ? '&from_unit='.$_GET['from_unit'] : '').(isset($_GET['add_test']) ? '&add_test=1' : '&edit_test='.$_GET['edit_test']), "", null, true);
 
 $form -> addElement('text', 'name', null, 'class = "inputText"');
 $form -> addElement('text', 'duration', null, 'id = "test_duration" size = "5"');
@@ -235,12 +235,12 @@ if ($form -> isSubmitted() && $form -> validate()) {
             $testUnit['parent_content_ID'] = $values['parent_content'];
             $testUnit -> persist();
         }
-        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=tests&from_unit=".$_GET['from_unit']."&message=".urlencode(_SUCCESFULLYMODIFIEDTEST)."&message_type=success");
+        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=".$_GET['ctg']."&from_unit=".$_GET['from_unit']."&message=".urlencode(_SUCCESFULLYMODIFIEDTEST)."&message_type=success");
     } else {
         $contentFields = array('data' => '',
                                        'name' => $values['name'],
                                        'lessons_ID' => $currentLesson -> lesson['id'],
-                                       'ctg_type' => "tests",
+                                       'ctg_type' => $_GET['ctg'],
                                        'active' => 1,
                                        'timestamp' => time(),
                                        'parent_content_ID' => $values['parent_content']);
@@ -277,7 +277,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                 }
             }
         }
-        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=tests&edit_test=".$newTest -> test['id']."&from_unit=".$_GET['from_unit']."&tab=questions&&message=".urlencode(_SUCCESFULLYMODIFIEDTEST)."&message_type=success");
+        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=".$_GET['ctg']."&edit_test=".$newTest -> test['id']."&from_unit=".$_GET['from_unit']."&tab=questions&&message=".urlencode(_SUCCESFULLYMODIFIEDTEST)."&message_type=success");
     }
 }
 $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

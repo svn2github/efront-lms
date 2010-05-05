@@ -22,8 +22,11 @@
     <input type ="hidden" id = "online_users_text" value="{$smarty.const._ONLINEUSERS}&nbsp;" class ="online_users_display" />*}
 
       {/if}
-
-   <span class = "headerText"><!--{$smarty.const._YOUARECURRENTLYLOGGEDINAS}:--></span><a href = "{$smarty.session.s_type}.php?{if $smarty.session.s_type == "administrator"}ctg=users&edit_user={$smarty.session.s_login}{else}ctg=personal{/if}" class="headerText">#filter:login-{$smarty.session.s_login}#</a><span class="headerText">&nbsp;</span>
+   {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
+    <span class = "headerText"><!--{$smarty.const._YOUARECURRENTLYLOGGEDINAS}:--></span><a href = "{$smarty.session.s_type}.php?{if $smarty.session.s_type == "administrator"}ctg=users&edit_user={$smarty.session.s_login}{else}ctg=personal{/if}" class="headerText">#filter:login-{$smarty.session.s_login}#</a><span class="headerText">&nbsp;</span>
+   {else}
+    <span class = "headerText"><!--{$smarty.const._YOUARECURRENTLYLOGGEDINAS}:-->#filter:login-{$smarty.session.s_login}#</span><span class="headerText">&nbsp;</span>
+   {/if}
    {if isset($T_BAR_ADDITIONAL_ACCOUNTS)}
     {*<script type = "text/javascript" src = "js/sidebar.php"> </script>*}
     <select class = "inputSelectMed" onChange = "if (this.value != '') changeAccount(this.value)" >

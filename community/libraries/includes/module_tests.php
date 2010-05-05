@@ -48,6 +48,7 @@ try {
      $result = eF_getTableDataFlat("tests", "id", "lessons_ID=0");
      $legalValues = $result['id'];
      if (!empty($legalValues)) {
+
       $legalSolvedValues = eF_getTableDataFlat("completed_tests JOIN users_to_skillgap_tests ON completed_tests.tests_ID = users_to_skillgap_tests.tests_ID AND users_to_skillgap_tests.solved = 1", "completed_tests.id", "users_to_skillgap_tests.tests_ID in (".implode(",", $legalValues).")");
       $legalSolvedValues = $legalSolvedValues['id'];
      }

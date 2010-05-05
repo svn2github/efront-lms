@@ -40,6 +40,7 @@ try {
 
         foreach ($lessonInformation as $key => $value) {
             if ($value) {
+    $value = str_replace ("\n","<br />", $value);
                 switch ($key) {
                     case 'language' : $GLOBALS['configuration']['onelanguage'] OR $tooltipInfo[] = '<div class = "infoEntry"><span>'._LANGUAGE."</span><span>: $languages[$value]</span></div>"; break;
                     case 'professors' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>"; break;
@@ -81,6 +82,7 @@ try {
         $courseInformation['price_string'] = $priceString;
         foreach ($courseInformation as $key => $value) {
             if ($value) {
+    $value = str_replace ("\n","<br />", $value);
                 switch ($key) {
                     case 'language' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LANGUAGE."</span><span>: $languages[$value]</span></div>"; break;
                     case 'professors' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>"; break;

@@ -16,58 +16,56 @@ try {
 
     if (isset($_GET['from_year'])) { //the admin has chosen a period
         $from = mktime($_GET['from_hour'], $_GET['from_min'], 0, $_GET['from_month'], $_GET['from_day'], $_GET['from_year']);
-        $to   = mktime($_GET['to_hour'],   $_GET['to_min'],   0, $_GET['to_month'],   $_GET['to_day'],   $_GET['to_year']);
+        $to = mktime($_GET['to_hour'], $_GET['to_min'], 0, $_GET['to_month'], $_GET['to_day'], $_GET['to_year']);
     } else {
-        $from    = mktime(date("H"), date("i"), 0, date("m"), date("d") - 7, date("Y"));
-        $to      = mktime(date("H"), date("i"), 0, date("m"), date("d"),     date("Y"));
+        $from = mktime(date("H"), date("i"), 0, date("m"), date("d") - 7, date("Y"));
+        $to = mktime(date("H"), date("i"), 0, date("m"), date("d"), date("Y"));
     }
     $smarty -> assign('T_FROM_TIMESTAMP', $from);
-    $smarty -> assign('T_TO_TIMESTAMP',   $to);
+    $smarty -> assign('T_TO_TIMESTAMP', $to);
 
-    $actions = array('login'      => _LOGIN,
-                             'logout'     => _LOGOUT,
-                             'lesson'     => _ACCESSEDLESSON,
-                             'content'    => _ACCESSEDCONTENT,
-                             'tests'      => _ACCESSEDTEST,
+    $actions = array('login' => _LOGIN,
+                             'logout' => _LOGOUT,
+                             'lesson' => _ACCESSEDLESSON,
+                             'content' => _ACCESSEDCONTENT,
+                             'tests' => _ACCESSEDTEST,
                              'test_begin' => _BEGUNTEST,
-                             'lastmove'   => _NAVIGATEDSYSTEM);
+                             'lastmove' => _NAVIGATEDSYSTEM);
     $smarty -> assign("T_ACTIONS", $actions);
 
     if (isset($_GET['showlog']) && $_GET['showlog'] == "true") {
-        $lessonNames  = eF_getTableDataFlat("lessons", "id, name");
-        $lessonNames  = array_combine($lessonNames['id'], $lessonNames['name']);
+        $lessonNames = eF_getTableDataFlat("lessons", "id, name");
+        $lessonNames = array_combine($lessonNames['id'], $lessonNames['name']);
         $contentNames = eF_getTableDataFlat("content", "id, name");
         $contentNames = array_combine($contentNames['id'], $contentNames['name']);
-        $testNames    = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID");
-        $testNames    = array_combine($testNames['id'], $testNames['name']);
-        $result       = eF_getTableData("logs", "*", "timestamp between $from and $to order by timestamp");
+        $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID");
+        $testNames = array_combine($testNames['id'], $testNames['name']);
+        $result = eF_getTableData("logs", "*", "timestamp between $from and $to order by timestamp");
 
         foreach ($result as $key => $value) {
             $value['lessons_ID'] ? $result[$key]['lesson_name'] = $lessonNames[$value['lessons_ID']] : null;
-            if ($value['action'] == 'content') {
+            if ($value['action'] == 'content' || $value['action'] == 'tests' || $value['action'] == 'test_begin') {
                 $result[$key]['content_name'] = $contentNames[$value['comments']];
-            } else if ($value['action'] == 'tests' || $value['action'] == 'test_begin') {
-                $result[$key]['content_name'] = $testNames[$value['comments']];
             }
         }
 
         $smarty -> assign("T_SYSTEM_LOG", $result);
     }
 
-    $users   = array();
-    $result  = eF_getTableData("logs, users", "users.name, users.surname, users.active, users_LOGIN, count(logs.id) as cnt ", "users.login=users_LOGIN and action = 'login' and logs.timestamp between $from and $to group by users_LOGIN order by count(logs.id) desc");
+    $users = array();
+    $result = eF_getTableData("logs, users", "users.name, users.surname, users.active, users_LOGIN, count(logs.id) as cnt ", "users.login=users_LOGIN and action = 'login' and logs.timestamp between $from and $to group by users_LOGIN order by count(logs.id) desc");
     $userTimes = EfrontUser :: getLoginTime(false, array('from' => $from, 'to' => $to));
 
     foreach($result as $value) {
-        $users[$value['users_LOGIN']]['name']     = $value['name'];
-        $users[$value['users_LOGIN']]['surname']  = $value['surname'];
-        $users[$value['users_LOGIN']]['active']   = $value['active'];
+        $users[$value['users_LOGIN']]['name'] = $value['name'];
+        $users[$value['users_LOGIN']]['surname'] = $value['surname'];
+        $users[$value['users_LOGIN']]['active'] = $value['active'];
         $users[$value['users_LOGIN']]['accesses'] = $value['cnt'];
-        $users[$value['users_LOGIN']]['seconds']  = $userTimes[$value['users_LOGIN']]['total_seconds'];
+        $users[$value['users_LOGIN']]['seconds'] = $userTimes[$value['users_LOGIN']]['total_seconds'];
     }
 
     $lessons = array();
-    $result  = eF_getTableData("logs", "*", "timestamp between $from and $to");
+    $result = eF_getTableData("logs", "*", "timestamp between $from and $to");
     foreach ($result as $value) {
 
         if ($value['lessons_ID']) {
@@ -79,8 +77,8 @@ try {
     foreach ($users as $key => $user) {
         $users[$key]['time'] = eF_convertIntervalToTime($user['seconds']);
         $totalUserAccesses += $user['accesses'];
-        $totalUserTime     += $user['seconds'];
-        $userTimes[$key]    = $user['seconds'];                         //Needed only for chart
+        $totalUserTime += $user['seconds'];
+        $userTimes[$key] = $user['seconds']; //Needed only for chart
     }
     if (!isset($_GET['showusers'])) {
         $users = array_slice($users, 0, 20);
@@ -89,13 +87,13 @@ try {
     $smarty -> assign("T_ACTIVE_USERS", $users);
     $smarty -> assign("T_TOTAL_USER_ACCESSES", $totalUserAccesses);
     $smarty -> assign("T_TOTAL_USER_TIME", eF_convertIntervalToTime($totalUserTime));
-    $smarty -> assign("T_USER_TIMES", array('logins' => implode(",", array_keys($userTimes)), 'times' => implode(",", $userTimes)));                    //Needed only for chart
+    $smarty -> assign("T_USER_TIMES", array('logins' => implode(",", array_keys($userTimes)), 'times' => implode(",", $userTimes))); //Needed only for chart
 
     $directionsTree = new EfrontDirectionsTree();
     $directionsTreePaths = $directionsTree -> toPathString();
 
-    $result       = eF_getTableDataFlat("lessons", "id, name, active, directions_ID");
-    $lessonNames  = array_combine($result['id'], $result['name']);
+    $result = eF_getTableDataFlat("lessons", "id, name, active, directions_ID");
+    $lessonNames = array_combine($result['id'], $result['name']);
     $lessonActive = array_combine($result['id'], $result['active']);
     $lessonCategory = array_combine($result['id'], $result['directions_ID']);
 
@@ -105,11 +103,11 @@ try {
             $stats = $allStats[$key];
             foreach ($stats as $user => $info) {
                 $lessons[$key]['accesses'] += $info['accesses'];
-                $lessons[$key]['seconds']  += $info['total_seconds'];
+                $lessons[$key]['seconds'] += $info['total_seconds'];
             }
-            $lessons[$key]['name']   = $directionsTreePaths[$lessonCategory[$key]].'&nbsp;&rarr;&nbsp;'.$lessonNames[$key];
+            $lessons[$key]['name'] = $directionsTreePaths[$lessonCategory[$key]].'&nbsp;&rarr;&nbsp;'.$lessonNames[$key];
             $lessons[$key]['active'] = $lessonActive[$key];
-        } catch (Exception $e) {}                    //Don't halt on a single error
+        } catch (Exception $e) {} //Don't halt on a single error
         if (!$lessonNames[$key]) {
             unset($lessons[$key]);
         }
@@ -128,7 +126,7 @@ try {
     $smarty -> assign("T_USER_TYPES", $userTypes);
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
 ?>

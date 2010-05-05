@@ -243,7 +243,17 @@ try {
             $form -> setDefaults(array('subject' => $subject_str, 'body' => $body_str));
         }
         if (isset($_GET['recipient'])) {
-            $form -> setDefaults(array('recipient' => $GLOBALS['_usernames'][$_GET['recipient']]));
+         // Multiple recipients can be pre-defined by having their logins separated with ;
+         $predefined_recipients_array = explode(";",$_GET['recipient']);
+         $predefined_recipients = "";
+         foreach ($predefined_recipients_array as $recipient_login) {
+          if ($predefined_recipients != "") {
+           $predefined_recipients .= ";".$GLOBALS['_usernames'][$recipient_login];
+          } else {
+           $predefined_recipients = $GLOBALS['_usernames'][$recipient_login];
+          }
+         }
+            $form -> setDefaults(array('recipient' => $predefined_recipients));
         }
         if (isset($_GET['reply']) && in_array($_GET['reply'], $legalValues)) {
             $recipient = eF_getTableData("f_personal_messages", "sender, title, body", "id=".$_GET['reply']);

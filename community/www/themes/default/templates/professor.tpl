@@ -526,6 +526,34 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
                             </td></tr>
                         {/capture}
 {/if}
+{if (isset($T_CTG) && $T_CTG == 'feedback')} {*moduleFeedback: Print the Feedback page*}
+                        {capture name = "moduleFeedback"}
+                            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=feedback">'|cat:$smarty.const._FEEDBACK|cat:'</a>'}
+                            {if $smarty.get.edit_test}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&edit_test=`$smarty.get.edit_test`'>`$smarty.const._EDITTEST` <span class='innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span></a>"}
+                            {elseif $smarty.get.add_test}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&add_test=1'>`$smarty.const._ADDTEST`</a>"}
+                            {elseif $smarty.get.edit_question}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&edit_question=`$smarty.get.edit_question`&question_type=`$smarty.get.question_type`'>`$smarty.const._EDITQUESTION`</a>"}
+                            {elseif $smarty.get.add_question}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&add_question=1&question_type=`$smarty.get.question_type`'>`$smarty.const._ADDQUESTION`</a>"}
+                            {elseif $smarty.get.test_results}
+        {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&test_results=`$smarty.get.test_results`'>&quot;`$T_TEST->test.name`&quot; `$smarty.const._RESULTS`</a>"}
+                {elseif $smarty.get.view_unit}
+                    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?view_unit='|cat:$smarty.get.view_unit|cat:'">'|cat:$smarty.const._PREVIEW|cat:'</a>'}
+                            {elseif $smarty.get.show_solved_test}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&test_results=`$T_TEST_DATA->completedTest.testsId`'>`$smarty.const._TESTRESULTS`</a>"}
+                                {if !$smarty.get.test_analysis}
+                                    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&show_solved_test=`$T_TEST_DATA->completedTest.id`'>`$smarty.const._VIEWSOLVEDTEST`: &quot;`$T_TEST_DATA->test.name`&quot; `$smarty.const._BYUSER`: #filter:login-`$T_TEST_DATA->completedTest.login`#</a>"}
+                                {else}
+                                    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=feedback&show_solved_test='|cat:$smarty.get.show_solved_test|cat:'&test_analysis='|cat:$smarty.get.test_analysis|cat:'&user='|cat:$smarty.get.user|cat:'">'|cat:$smarty.const._USERRESULTS|cat:'</a>'}
+                                {/if}
+                            {/if}
+                            <tr><td class = "moduleCell">
+                                {include file = "includes/module_tests.tpl"}
+                            </td></tr>
+                        {/capture}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'calendar')}
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=calendar">'|cat:$smarty.const._CALENDAR|cat:'</a>'}
     {*moduleCalendarPage: Display the calendar page*}
@@ -675,6 +703,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
   {$smarty.capture.moduleRules}
   {$smarty.capture.moduleShowUnit}
   {$smarty.capture.moduleTests}
+  {$smarty.capture.moduleFeedback}
   {$smarty.capture.moduleAddQuestion}
   {$smarty.capture.moduleAddTest}
   {$smarty.capture.moduleProjects}

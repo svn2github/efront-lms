@@ -48,7 +48,32 @@ try {
 
 
      $userCourses = $currentUser -> getUserCourses();
-     //this must be here (before $userCourses assignment) in order to revoke a certificate if it is expired and/or re-assign a course to a student if needed
+      foreach ($userCourses as $key => $course) {
+       //this must be here (before $userCourses assignment) in order to revoke a certificate if it is expired and/or re-assign a course to a student if needed
+       if ($course -> course['start_date'] && $course -> course['start_date'] > time()) {
+        $value['remaining'] = null;
+       } elseif ($course -> course['end_date'] && $course -> course['end_date'] < time()) {
+        $value['remaining'] = 0;
+       } else if ($course -> options['duration'] && $course -> course['active_in_course']) {
+        if ($course -> course['active_in_course'] < $course -> course['start_date']) {
+         $course -> course['active_in_course'] = $course -> course['start_date'];
+        }
+        $course -> course['remaining'] = $course -> course['active_in_course'] + $course -> options['duration']*3600*24 - time();
+        if ($course -> course['end_date'] && $course -> course['end_date'] < $course -> course['active_in_course'] + $course -> options['duration']*3600*24) {
+         $course -> course['remaining'] = $course -> course['end_date'] - time();
+        }
+       } else {
+        $course -> course['remaining'] = null;
+       }
+       //Check whether the course registration is expired. If so, set $value['active_in_course'] to false, so that the effect is to appear disabled
+       if ($course -> course['duration'] && $course -> course['active_in_course'] && $course -> course['duration'] * 3600 * 24 + $course -> course['active_in_course'] < time()) {
+        $course -> archiveCourseUsers($course -> course['users_LOGIN']);
+       }
+       if ($course -> course['user_type'] != $currentUser -> user['user_type']) {
+        $course -> course['different_role'] = 1;
+       }
+       $userCourses[$key] = $course;
+      }
      //$userCourses        = $currentUser -> getCourses(true, false, $options);
      //$userCourseProgress = EfrontStats :: getUsersCourseStatus($userCourses, $currentUser -> user['login'], $options);
      //$userCourses        = array_intersect_key($userCourses, $userCourseProgress); //Needed because EfrontStats :: getUsersCourseStatus might remove automatically courses, based on time constraints
@@ -79,8 +104,8 @@ try {
 
     	 */
      $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
-                                  'courses_link' => false,
-                   'catalog' => false);
+                              'courses_link' => false,
+                  'catalog' => false);
      if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {
       $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $userLessons, $userCourses, $userProgress, $options));
      }

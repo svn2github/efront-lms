@@ -222,7 +222,7 @@ if (isset($_GET['register_lessons'])) {
 //	setcookie('c_request', '', time() - 86400);
  $_SESSION['login_mode'] = '0';
 }
-isset($_GET['ctg']) && $_GET['ctg'] == 'login' ? $postTarget = basename($_SERVER['PHP_SELF'])."?ctg=login" : $postTarget = basename($_SERVER['PHP_SELF'])."?index_efront";
+isset($_GET['ctg']) && $_GET['ctg'] == 'login' ? $postTarget = basename($_SERVER['PHP_SELF'])."?ctg=login" : $postTarget = basename($_SERVER['PHP_SELF'])."?index_page";
 $form = new HTML_QuickForm("login_form", "post", $postTarget, "", "class = 'indexForm'", true);
 $form -> removeAttribute('name');
 $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter

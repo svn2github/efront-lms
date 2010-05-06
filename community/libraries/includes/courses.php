@@ -161,10 +161,6 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
   } elseif ($_GET['ajax'] == 'unconfirm_user') {
    $editCourse -> unConfirm($_GET['user']);
   }
-$benchmark -> set('script');
-$benchmark -> set('smarty');
-$benchmark -> stop();
-echo $benchmark -> display();
  } catch (Exception $e) {
      handleAjaxExceptions($e);
  }

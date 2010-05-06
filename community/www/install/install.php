@@ -655,7 +655,7 @@ class Installation
         $ProgrammingId = eF_insertTableData("directions", array('name' => 'Programming', 'active' => 1));
         try {
    //Create "Greedy Algorithms" lesson
-   $fields = array('directions_ID' => $ProgrammingId, 'active' => 1);
+   $fields = array('directions_ID' => $ProgrammingId, 'active' => 1, 'course_only' => 0);
    $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Greedy Algorithms.zip');
    $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Greedy algorithms'), $fields));
    $file = $file -> copy($lesson -> getDirectory());
@@ -664,7 +664,7 @@ class Installation
         } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
         try {
    //Create "Maya civilization" lesson
-   $fields = array('directions_ID' => $ancientCivId, 'active' => 1);
+   $fields = array('directions_ID' => $ancientCivId, 'active' => 1, 'course_only' => 0);
    $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Maya civilization.zip');
    $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Maya civilization'), $fields));
    $file = $file -> copy($lesson -> getDirectory());

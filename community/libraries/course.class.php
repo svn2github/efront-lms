@@ -386,8 +386,7 @@ class EfrontCourse
   $from = "lessons l left outer join (select lessons_ID from lessons_to_courses where courses_ID='".$this -> course['id']."') r on l.id=r.lessons_ID ";
   $select = "l.*, r.lessons_ID is not null as has_lesson";
   $where[] = "l.course_only=1";
-  $result = eF_getTableData($from, $select,
-  implode(" and ", $where), $orderby, $groupby, $limit);
+  $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
   return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
  }
  public function countCourseLessonsIncludingUnassigned($constraints = array()) {
@@ -396,8 +395,7 @@ class EfrontCourse
   $from = "lessons l left outer join (select lessons_ID from lessons_to_courses where courses_ID='".$this -> course['id']."') r on l.id=r.lessons_ID ";
   $select = "l.id";
   $where[] = "l.course_only=1";
-  $result = eF_countTableData($from, $select,
-  implode(" and ", $where));
+  $result = eF_countTableData($from, $select, implode(" and ", $where));
   return $result[0]['count'];
  }
  /**
@@ -539,13 +537,14 @@ class EfrontCourse
  public function addLessons($lessons) {
   $lessonObjects = $this -> verifyLessonsList($lessons);
   $lastLessonId = $this -> getCourseLastLesson();
-  $result = eF_getTableDataFlat("lessons_to_courses", "lessons_ID", "courses_ID=".$this -> course['id']); //We don't call getCourseLessons() because we need all and every lesson
+  $courseUsers = $this -> getUsers();
+  $result = eF_getTableDataFlat("lessons_to_courses", "lessons_ID", "courses_ID=".$this -> course['id']); //We don't call getCourseLessons() because we need all and every lesson, so this is faster 
   foreach ($lessonObjects as $key => $lesson) {
    if (!in_array($key, $result['lessons_ID'])) {
     eF_insertTableData("lessons_to_courses", array('courses_ID' => $this -> course['id'],
                                     'lessons_ID' => $key,
                   'previous_lessons_ID' => $lastLessonId));
-    $this -> addCourseUsersToLesson($lesson);
+    $this -> addCourseUsersToLesson($lesson, $courseUsers);
     $lastLessonId = $key;
    }
   }
@@ -678,7 +677,6 @@ class EfrontCourse
 
 	 */
  private function countLessonsOccurencesInCourses() {
-  //$result           = eF_getTableDataFlat("lessons l, users_to_courses uc, users_to_lessons ul, lessons_to_courses lc", "lc.lessons_ID, count(lc.lessons_ID)", "l.course_only = 1 and l.id=lc.lessons_ID and ul.users_LOGIN=uc.users_LOGIN and lc.lessons_ID=ul.lessons_ID and lc.courses_ID=uc.courses_ID", "", "lc.lessons_ID");
   $result = eF_getTableDataFlat("lessons l, lessons_to_courses lc", "lc.lessons_ID, count(lc.lessons_ID)", "l.course_only = 1 and l.id=lc.lessons_ID", "", "lc.lessons_ID");
   $lessonsToCourses = array_combine($result['lessons_ID'], $result['count(lc.lessons_ID)']);
   return $lessonsToCourses;
@@ -967,7 +965,7 @@ class EfrontCourse
 
 	 */
  public function getStudentUsers($returnObjects = false) {
-  $courseUsers = $this -> getUsers($returnObjects);
+  $courseUsers = $this -> getUsers($returnObjects) OR $courseUsers = array();
   foreach ($courseUsers as $key => $value) {
    if ($value instanceOf EfrontUser) {
     $value = $value -> user;
@@ -1000,7 +998,7 @@ class EfrontCourse
 
 	 */
  public function getProfessorUsers($returnObjects = false) {
-  $courseUsers = $this -> getUsers($returnObjects);
+  $courseUsers = $this -> getUsers($returnObjects) OR $courseUsers = array();
   foreach ($courseUsers as $key => $value) {
    if ($value instanceOf EfrontUser) {
     $value = $value -> user;
@@ -1087,11 +1085,24 @@ class EfrontCourse
  public function getCourseUsersAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
-  $from = "users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r";
+  $from = "(users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
   $where[] = "u.login=r.users_LOGIN";
+  $select = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, 1 as has_course";
   $groupby = "users_LOGIN";
-  $result = eF_getTableData($from, "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, 1 as has_course",
-  implode(" and ", $where), $orderby, $groupby, $limit);
+/*		
+
+#ifdef ENTERPRISE
+
+			$from   .= " left outer join module_hcd_employees e on e.users_LOGIN=u.login";
+
+			//$where[] = "e.users_LOGIN=u.login";
+
+			$select .= ",e.*, e.users_LOGIN as has_hcd";		
+
+#endif
+
+*/
+  $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, $groupby, $limit);
   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
  }
  /**
@@ -1115,7 +1126,7 @@ class EfrontCourse
   $select = "u.*, uc.courses_ID,uc.completed,uc.score,uc.user_type as role,uc.from_timestamp as active_in_course, uc.to_timestamp, uc.comments, uc.issued_certificate, 1 as has_course";
   $where[] = "u.login=uc.users_LOGIN and uc.courses_ID='".$this -> course['id']."' and uc.archive=0";
   $result = eF_getTableData("users u, users_to_courses uc", $select,
-  implode(" and ", $where), $orderby, $groupby, $limit);
+  implode(" and ", $where), $orderby, false, $limit);
   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
  }
  /**
@@ -1164,7 +1175,7 @@ class EfrontCourse
   $select = "u.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course, r.role";
   $from = "users u left outer join (select completed,score,courses_ID,from_timestamp,users_LOGIN,user_type as role from users_to_courses where courses_ID='".$this -> course['id']."' and archive=0) r on u.login=r.users_LOGIN";
   $result = eF_getTableData($from, $select,
-  implode(" and ", $where), $orderby, $groupby, $limit);
+  implode(" and ", $where), $orderby, false, $limit);
   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
  }
  /**
@@ -1553,9 +1564,10 @@ class EfrontCourse
    if (!in_array($user, $courseUsers)) { //added this to avoid adding existing user when admin changes his role
     $usersToAddToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
    } else {
-    $usersToSetRoleToCourse[$user] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
+    $usersToSetRoleToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
    }
   }
+//pr($usersToSetRoleToCourse);throw new Exception();
   $this -> addUsersToCourse($usersToAddToCourse);
   $this -> setUserRolesInCourse($usersToSetRoleToCourse);
   $this -> users = false; //Reset users cache
@@ -2807,19 +2819,31 @@ class EfrontCourse
      $courseString .= '<td style = "padding-bottom:2px"></td><td><a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$lesson -> lesson['name'].'</a></td>';
     } else if (!$lesson -> eligible) {
      if ($lesson -> lesson['completed']) {
-      $courseString .= '
+      if ($lesson->options['show_percentage'] != 0) {
+       $courseString .= '
        <td class = "lessonProgress">
                                 <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
                                 <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
                                 &nbsp;&nbsp;
                             </td>'; 
+      } else {
+       $courseString .= '
+       <td class = "lessonProgress">
+                            </td>'; 
+      }
      } else {
-      $courseString .= '
+      if ($lesson->options['show_percentage'] != 0) {
+       $courseString .= '
        <td class = "lessonProgress">
                                 <span class = "progressNumber" style = "width:50px;">'.$lesson -> lesson['overall_progress']['percentage'].'%</span>
                                 <span class = "progressBar" style = "width:'.($lesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
                                 &nbsp;&nbsp;
                             </td>';
+      } else {
+       $courseString .= '
+       <td class = "lessonProgress">
+                            </td>'; 
+      }
      }
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
       $courseString .= '
@@ -2840,19 +2864,31 @@ class EfrontCourse
      }
     } else {
      if ($lesson -> lesson['user_type'] && $roles[$lesson -> lesson['user_type']] == 'student' && $lesson -> lesson['completed']) { //Show the progress bar
-      $courseString .= '
+      if ($lesson->options['show_percentage'] != 0) {
+       $courseString .= '
        <td class = "lessonProgress">
                                 <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
                                 <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
                                 &nbsp;&nbsp;
-                            </td>';                            
+                            </td>'; 
+      } else {
+       $courseString .= '
+       <td class = "lessonProgress">
+                            </td>'; 
+      }
      } elseif ($lesson -> lesson['user_type'] && $roles[$lesson -> lesson['user_type']] == 'student') {
-      $courseString .= '
+      if ($lesson->options['show_percentage'] != 0) {
+       $courseString .= '
        <td class = "lessonProgress">
                                 <span class = "progressNumber" style = "width:50px;">'.$lesson -> lesson['overall_progress']['percentage'].'%</span>
                                 <span class = "progressBar" style = "width:'.($lesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
                                 &nbsp;&nbsp;
                             </td>';  
+      } else {
+       $courseString .= '
+       <td class = "lessonProgress">
+                            </td>'; 
+      }
      } else {
       $courseString .= '
        <td></td>';
@@ -3568,8 +3604,7 @@ class EfrontCourse
  public static function countAllCourses($constraints = array()) {
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   //$where[] = "d.id=c.directions_ID";
-  $result = eF_countTableData("courses c", "c.id",
-  implode(" and ", $where));
+  $result = eF_countTableData("courses c", "c.id", implode(" and ", $where));
   return $result[0]['count'];
  }
  public static function convertDatabaseResultToLessonObjects($result) {
@@ -4201,6 +4236,7 @@ class EfrontCourse
 		}
 
 */
+  $roles = EfrontLessonUser :: getLessonsRoles();
   if ($courseLessons == false) {
    $courseLessons = $this -> getCourseLessons();
   }
@@ -4210,17 +4246,13 @@ class EfrontCourse
   } else {
    $allowed = array();
   }
+  $completedLessons = array();
   foreach ($courseLessons as $key => $value) {
    !isset($value['start_date']) OR $dates[$key]['from_timestamp'] = $value['start_date'];
    !isset($value['end_date']) OR $dates[$key]['to_timestamp'] = $value['end_date'];
-  }
-  //$result  = eF_getTableDataFlat("users_to_lessons ul, lessons l", "ul.lessons_ID, ul.completed, ul.user_type, l.from_timestamp, l.to_timestamp", "ul.lessons_ID = l.id and ul.users_LOGIN='$user'");
-  $result = eF_getTableDataFlat("lessons_to_courses lc, users_to_lessons ul, lessons l", "ul.lessons_ID, ul.completed, ul.user_type, l.from_timestamp, l.to_timestamp", "lc.lessons_ID=ul.lessons_ID and lc.courses_ID=".$this -> course['id']." and ul.lessons_ID = l.id and ul.users_LOGIN='$user'");
-  $roles = EfrontLessonUser :: getLessonsRoles();
-  if ($roles[$result['user_type'][0]] == 'student') { // fixed to apply checkRules to sub-student user types
-   $completedLessons = array_combine($result['lessons_ID'], $result['completed']);
-  } else {
-   return $allowed;
+   if ($roles[$value['user_type']] == 'student') {
+    $completedLessons[$key] = $value['completed'];
+   }
   }
   foreach ($this -> rules as $lessonId => $lessonRules) {
    $evalString = '';

@@ -471,11 +471,7 @@ function eF_getTableData($table, $fields = "*", $where = "", $order = "", $group
         $sql .= " limit ".$limit;
     }
     $result = $GLOBALS['db'] -> GetAll($sql);
-    if ($GLOBALS['db']->debug == true) {
-        echo '<span style = "color:red">Time spent on this query: '.(microtime(true) - $thisQuery).'</span>';
-    }
-    $GLOBALS['db'] -> databaseTime = $GLOBALS['db'] -> databaseTime + microtime(true) - $thisQuery;
-    $GLOBALS['db'] -> databaseQueries++;
+    logProcess($thisQuery, $sql);
     if ($result == false) {
         return array();
     } else {

@@ -201,9 +201,13 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $_GET['instancesTable_source']);
      }
      $courses = $currentBranch -> getBranchCoursesIncludingUnassigned($constraints);
+     $totalEntries = $currentBranch -> countBranchCoursesIncludingUnassigned($constraints);
+pr($totalEntries);
      $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);
      $tableName = $_GET['ajax'];
      $alreadySorted = 1;
+     $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+
      include("sorted_table.php");
     } catch (Exception $e) {
      handleAjaxExceptions($e);
@@ -309,7 +313,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     }
 
     $employees = $currentBranch -> createEmployeeJobsHtml($employees);
-    pr($employees);
+
     if ($employees) { // if false, then there are no job descriptions
      $smarty -> assign("T_EMPLOYEES", $employees);
     } else {

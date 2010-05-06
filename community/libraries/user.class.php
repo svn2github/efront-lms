@@ -2309,7 +2309,7 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  private function initializeLessons() {
   $result = eF_getTableData("users_to_lessons ul, lessons l",
-          "ul.*, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, 1 as has_lesson",
+          "ul.*, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, l.duration,l.options, 1 as has_lesson",
           "l.archive = 0 and ul.archive = 0 and l.id=ul.lessons_ID and ul.users_LOGIN='".$this -> user['login']."'");
   if (empty($result)) {
    $this -> lessons = array();
@@ -2752,6 +2752,10 @@ abstract class EfrontLessonUser extends EfrontUser
    $userLessons = $temp;
   }
   foreach ($userLessons as $key => $lesson) {
+   $lesson = $this -> checkUserAccessToLessonBasedOnDuration($lesson);
+   if ($lesson -> lesson['user_type'] != $this -> user['user_type']) {
+    $lesson -> lesson['different_role'] = 1;
+   }
    $userLessons[$key] -> lesson['overall_progress'] = $this -> getUserOverallProgressInLesson($lesson);
    if (!$onlyContent) {
     $userLessons[$key] -> lesson['project_status'] = $this -> getUserProjectsStatusInLesson($lesson);
@@ -2760,6 +2764,18 @@ abstract class EfrontLessonUser extends EfrontUser
    }
   }
   return $userLessons;
+ }
+ private function checkUserAccessToLessonBasedOnDuration($lesson) {
+  if ($lesson -> lesson['duration'] && $lesson -> lesson['from_timestamp']) {
+   $lesson -> lesson['remaining'] = $lesson -> lesson['from_timestamp'] + $lesson -> lesson['duration']*3600*24 - time();
+  } else {
+   $lesson -> lesson['remaining'] = null;
+  }
+  //Check whether the lesson registration is expired. If so, set $value['from_timestamp'] to false, so that the effect is to appear disabled
+  if ($lesson -> lesson['duration'] && $lesson -> lesson['from_timestamp'] && $lesson -> lesson['duration'] * 3600 * 24 + $lesson -> lesson['from_timestamp'] < time()) {
+   $lesson -> archiveLessonUsers($lesson -> lesson['users_LOGIN']);
+  }
+  return $lesson;
  }
  public function archiveUserCourses($courses) {
   $courses = $this -> verifyCoursesList($courses);
@@ -3972,7 +3988,7 @@ class EfrontUserFactory
 
 	 */
  public static function factory($user, $password = false, $forceType = false) {
-  if (eF_checkParameter($user, 'login')) {
+  if (is_string($user) && eF_checkParameter($user, 'login')) {
    $result = eF_getTableData("users", "*", "login='".$user."'");
    if (sizeof($result) == 0) {
     throw new EfrontUserException(_USERDOESNOTEXIST.': '.$user, EfrontUserException :: USER_NOT_EXISTS);

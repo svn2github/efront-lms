@@ -76,7 +76,8 @@ try {
                                       //"surveys"           => _SURVEYS,
                                       "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
-           "dashboard" => _DASHBOARD);
+           "dashboard" => _DASHBOARD,
+           "social" => _SOCIAL);
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $professorOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_surveys'] != 1 ? $professorOptions["surveys"] = _SURVEYS : null;
   $GLOBALS['configuration']['disable_news'] != 1 ? $professorOptions["news"] = _ANNOUNCEMENTS : null;
@@ -95,7 +96,8 @@ try {
                                       //"surveys"           => _SURVEYS,
                                       "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
-           "dashboard" => _DASHBOARD);
+           "dashboard" => _DASHBOARD,
+           "social" => _SOCIAL);
   $GLOBALS['configuration']['disable_glossary'] != 1 ? $professorOptions["glossary"] = _GLOSSARY : null;
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $professorOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_surveys'] != 1 ? $professorOptions["surveys"] = _SURVEYS : null;
@@ -122,7 +124,8 @@ try {
                                       "chat" => _CHAT,
                                       "notifications" => _EMAILDIGESTS,
                                       "control_panel" => _CONTROLPANEL,
-           "dashboard" => _DASHBOARD);
+           "dashboard" => _DASHBOARD,
+           "social" => _SOCIAL);
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $administratorOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_news'] != 1 ? $administratorOptions["news"] = _ANNOUNCEMENTS : null;
   $GLOBALS['configuration']['disable_forum'] != 1 ? $administratorOptions["forum"] = _FORUM : null;

@@ -13,7 +13,7 @@ $smarty -> assign("_change_", $_change_);
 
 $loadScripts[] = 'scriptaculous/dragdrop';
 $loadScripts[] = 'includes/themes';
-$loadScripts[] = 'includes/entity'; 
+$loadScripts[] = 'includes/entity';
 
 try {
     try {
@@ -22,47 +22,47 @@ try {
         //EfrontConfiguration :: setValue('theme', 1);
         $currentSetTheme = new themes('default');
     }
-    
+
     !isset($currentUser -> coreAccess['themes']) || $currentUser -> coreAccess['themes'] == 'change' ? $_change_ = 1 : $_change_ = 0;
     $smarty -> assign("_change_", $_change_);
 
     $themes = themes :: getAll("themes");
-	$allBrowsers  = themes :: $browsers;
+ $allBrowsers = themes :: $browsers;
     $usedBrowsers = array();
-        
+
     foreach ($themes as $value) {
         $themeNames[] = $value['name'];
     }
-    
+
     $filesystem = new FileSystemTree(G_THEMESPATH, true);
     foreach (new EfrontDirectoryOnlyFilterIterator(new ArrayIterator($filesystem -> tree)) as $key => $value) {
         //Automatically import themes that don't have an equivalent database representation
         if (!in_array($value['name'], $themeNames)) {
             try {
-                $file      = new EfrontFile($value['path']."/theme.xml");
+                $file = new EfrontFile($value['path']."/theme.xml");
                 $xmlValues = themes :: parseFile($file);
-                $newTheme  = themes :: create($xmlValues);
+                $newTheme = themes :: create($xmlValues);
                 //$themes[$newTheme -> themes['id']] = $newTheme -> themes;
             } catch (Exception $e) {/*Don't halt for themes that can't be processed*/}
         }
     }
     $themes = themes :: getAll("themes");
-    
+
     foreach ($themes as $value) {
         $themeNames[] = $value['name'];
         //$browserThemes[$value['id']] = $value['options']['browsers'];
-	    foreach ($allBrowsers as $browser => $foo) {
-	        if (isset($value['options']['browsers'][$browser])) {
-	            $usedBrowsers[$browser] = $value['id'];
-	            unset($allBrowsers[$browser]);
-	        }
-	    }
+     foreach ($allBrowsers as $browser => $foo) {
+         if (isset($value['options']['browsers'][$browser])) {
+             $usedBrowsers[$browser] = $value['id'];
+             unset($allBrowsers[$browser]);
+         }
+     }
     }
     foreach ($allBrowsers as $key => $foo) {
         $currentSetTheme -> options['browsers'][$key] = 1;
         $themes[$currentSetTheme -> themes['id']]['options']['browsers'][$key] = 1;
     }
-    
+
     $legalValues = array_merge(array_keys($themes), $themeNames);
 
     if (!isset($_GET['theme'])) {
@@ -73,8 +73,8 @@ try {
     if ((!isset($currentSetTheme -> remote) || !$currentSetTheme -> remote) && is_dir(G_EXTERNALPATH)) {
         /********** CMS / External pages from here over ************/
         $default_page = $GLOBALS['configuration']['cms_page'];
-        $filesystem   = new FileSystemTree(G_EXTERNALPATH);
-        $pages        = array();
+        $filesystem = new FileSystemTree(G_EXTERNALPATH);
+        $pages = array();
         foreach (new EfrontFileTypeFilterIterator(new ArrayIterator($filesystem -> tree), array('php')) as $key => $value) {
             $pages[] = basename($key, '.php');
         }
@@ -123,22 +123,22 @@ try {
             $form -> addElement('textarea', 'page', _PAGECONTENT, 'id="editor_cms_data" class = "inputContentTextarea templateEditor" style = "width:100%;height:30em;"');
 
             if (isset($_GET['edit_page'])) {
-                $pageContent      = file_get_contents(G_EXTERNALPATH."".$_GET['edit_page'].".php");
+                $pageContent = file_get_contents(G_EXTERNALPATH."".$_GET['edit_page'].".php");
                 $defaults['name'] = $_GET['edit_page'];
                 $defaults['page'] = preg_replace("/.*<<<EOT(.*)EOT.*/s", "\$1", $pageContent);//, false, $matches);
                 $form -> setDefaults($defaults);
             } else {
-                $defaults['page'] = '<a href="'.G_SERVERNAME.'index.php?index_efront">'._EFRONTLOGIN.'</a>';
+                $defaults['page'] = '<a href="'.G_SERVERNAME.'index.php?index_page">'._EFRONTLOGIN.'</a>';
                 $form -> setDefaults($defaults);
             }
             $form -> addElement('submit', 'submit_cms', _SUBMIT, 'class = "flatButton"');
 
             if ($form -> isSubmitted() && $form -> validate()) {
-                $values   = $form -> exportValues();
+                $values = $form -> exportValues();
                 $filename = G_EXTERNALPATH.$values['name'].'.php';
                 if (is_file(G_ADMINPATH.'cms_templates/default_template.php')) {
                     $defaultContent = file_get_contents(G_ADMINPATH.'cms_templates/default_template.php');
-                    $newContent     = preg_replace("/put_content_here/", $values['page'], $defaultContent);
+                    $newContent = preg_replace("/put_content_here/", $values['page'], $defaultContent);
                 } else {
                     $newContent = $values['page'];
                 }
@@ -147,7 +147,7 @@ try {
                 try {
                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$currentSetTheme -> {$currentSetTheme -> entity}['id']."&tab=external&message=".urlencode(_SUCCESFULLYADDEDPAGE)."&message_type=success");
                 } catch (Exception $e) {
-                    $message      = $e -> getMessage().'('.$e -> getCode().')';
+                    $message = $e -> getMessage().'('.$e -> getCode().')';
                     $message_type = 'failure';
                 }
             }
@@ -159,7 +159,7 @@ try {
             $form -> accept($renderer);
             $smarty -> assign('T_CMS_FORM', $renderer -> toArray());
 
-            $basedir    = G_EXTERNALPATH;
+            $basedir = G_EXTERNALPATH;
             try {
                 $filesystem = new FileSystemTree($basedir);
                 $filesystem -> handleAjaxActions($currentUser);
@@ -169,12 +169,12 @@ try {
                 }else{
                     $url = basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$currentSetTheme -> {$currentSetTheme -> entity}['id'].'&tab=external&add_page=1';
                 }
-                $options    = array('share' => false);
+                $options = array('share' => false);
 
                 include "file_manager.php";
             } catch (Exception $e) {
                 $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+                $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
                 $message_type = 'failure';
             }
         }
@@ -185,7 +185,7 @@ try {
     } else {
     }
 
-    
+
     /*Layout part from here over*/
     if (isset($_GET['theme_layout']) && in_array($_GET['theme_layout'], $legalValues)) {
         $layoutTheme = new themes($_GET['theme_layout']);
@@ -198,13 +198,13 @@ try {
     if (isset($_GET['add_block']) || isset($_GET['edit_header']) || isset($_GET['edit_footer']) || (isset($_GET['edit_block']) && in_array($_GET['edit_block'], array_keys($customBlocks)))) {
 
         $basedir = G_EXTERNALPATH;
-        
+
         try {
             if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
                 throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
             }
-            $smarty -> assign("T_EDITOR_PATH", $basedir);    //This is used for the browse.php method to know where to look
-                
+            $smarty -> assign("T_EDITOR_PATH", $basedir); //This is used for the browse.php method to know where to look
+
             $filesystem = new FileSystemTree($basedir);
             $filesystem -> handleAjaxActions($currentUser);
 
@@ -213,32 +213,32 @@ try {
             } else {
                 $url = basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$layoutTheme -> {$layoutTheme -> entity}['id'].'&add_block=1';
             }
-            $options        = array('share' => false);
+            $options = array('share' => false);
             $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
             include "file_manager.php";
-             
+
         } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
             $message_type = 'failure';
         }
 
 
         //These are the entities that will be automatically replaced in custom header/footer
         $systemEntities = array('logo.png',
-						 	    '#siteName', 
-							    '#siteMoto', 
-							    '#languages', 
-							    '#path',
-						 	    '#version');
+            '#siteName',
+           '#siteMoto',
+           '#languages',
+           '#path',
+            '#version');
         $smarty -> assign("T_SYSTEM_ENTITIES", $systemEntities);
         //And these are the replacements of the above entities
         $systemEntitiesReplacements = array('{$T_LOGO}',
-        								    '{$T_CONFIGURATION.site_name}',
-											'{$T_CONFIGURATION.site_motto}',
-											'{$smarty.capture.header_language_code}',
-											'{$title}',
-        									'{$smarty.const.G_VERSION_NUM}');
+                    '{$T_CONFIGURATION.site_name}',
+           '{$T_CONFIGURATION.site_motto}',
+           '{$smarty.capture.header_language_code}',
+           '{$title}',
+                 '{$smarty.const.G_VERSION_NUM}');
 
         $load_editor = true;
 
@@ -258,9 +258,9 @@ try {
 
         if ($layout_form -> isSubmitted() && $layout_form -> validate()) {
             $values = $layout_form -> exportValues();
-            $values['name'] = time();                //Use the timestamp as name
-            $block = array('name'   => $values['name'],
-                		   'title'  => $values['title']);
+            $values['name'] = time(); //Use the timestamp as name
+            $block = array('name' => $values['name'],
+                     'title' => $values['title']);
             file_put_contents($basedir.$values['name'].'.tpl', $values['content']);
 
             if (isset($_GET['edit_block'])) {
@@ -281,16 +281,16 @@ try {
     } else {
         $form = new HTML_QuickForm("import_settings_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$layoutTheme -> {$layoutTheme -> entity}['id'], "", null, true);
 
-        $form -> addElement('file', 'file_upload', _SETTINGSFILE, 'class = "inputText"');                    //Lesson file
-        $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024);            //getUploadMaxSize returns size in KB
+        $form -> addElement('file', 'file_upload', _SETTINGSFILE, 'class = "inputText"'); //Lesson file
+        $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
         $form -> addElement('submit', 'submit_import', _SUBMIT, 'class = "flatButton"');
 
         $smarty -> assign("T_MAX_FILESIZE", FileSystemTree :: getUploadMaxSize());
 
         if ($form -> isSubmitted() && $form -> validate()) {
             try {
-                $values       = $form -> exportValues();
-                $filesystem   = new FileSystemTree(G_EXTERNALPATH);
+                $values = $form -> exportValues();
+                $filesystem = new FileSystemTree(G_EXTERNALPATH);
                 $uploadedFile = $filesystem -> uploadFile('file_upload', G_EXTERNALPATH);
                 $uploadedFile -> uncompress();
                 $uploadedFile -> delete();
@@ -299,14 +299,14 @@ try {
                 if ($settings = unserialize($settings)) {
                     $layoutTheme -> layout = $settings;
                     $layoutTheme -> persist();
-                }                
-                
+                }
+
                 eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']."&message=".rawurlencode(_SETTINGSIMPORTEDSUCCESFULLY)."&message_type=success");
                 //$message      = _SETTINGSIMPORTEDSUCCESFULLY;
                 //$message_type = 'success';
             } catch (Exception $e) {
                 $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message      = _PROBLEMIMPORTINGFILE.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+                $message = _PROBLEMIMPORTINGFILE.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
                 $message_type = 'failure';
             }
         }
@@ -314,14 +314,14 @@ try {
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
         $form -> accept($renderer);
         $smarty -> assign('T_IMPORT_SETTINGS_FORM', $renderer -> toArray());
-        
 
-        $blocks = array('login'           => _LOGINENTRANCE,
-                        'online'          => _USERSONLINE,
-                        'lessons'         => _LESSONS,
+
+        $blocks = array('login' => _LOGINENTRANCE,
+                        'online' => _USERSONLINE,
+                        'lessons' => _LESSONS,
                         'selectedLessons' => _SELECTEDLESSONS,
-                        'news'            => _SYSTEMNEWS,
-                        'links'           => _MENU);
+                        'news' => _SYSTEMNEWS,
+                        'links' => _MENU);
 
         foreach ($customBlocks as $key => $block) {
             $blocks[$key] = htmlspecialchars($block['title'], ENT_QUOTES);
@@ -333,21 +333,21 @@ try {
 //pr($layoutTheme -> layout);
         try {
             if (isset($_GET['ajax']) && $_GET['ajax'] == 'set_layout') {
-                
+
                 parse_str($_POST['leftList']);
                 parse_str($_POST['centerList']);
                 parse_str($_POST['rightList']);
 
-                !isset($leftList)   ? $leftList   = array() : null;
+                !isset($leftList) ? $leftList = array() : null;
                 !isset($centerList) ? $centerList = array() : null;
-                !isset($rightList)  ? $rightList  = array() : null;
+                !isset($rightList) ? $rightList = array() : null;
 
-                array_pop($leftList);array_pop($rightList);array_pop($centerList);        //Remove emmpty values, that are the 'bogus' li element
+                array_pop($leftList);array_pop($rightList);array_pop($centerList); //Remove emmpty values, that are the 'bogus' li element
 
-                $layoutTheme -> layout['positions']['leftList']   = $leftList;
+                $layoutTheme -> layout['positions']['leftList'] = $leftList;
                 $layoutTheme -> layout['positions']['centerList'] = $centerList;
-                $layoutTheme -> layout['positions']['rightList']  = $rightList;
-                $layoutTheme -> layout['positions']['layout']     = $_POST['layout'];
+                $layoutTheme -> layout['positions']['rightList'] = $rightList;
+                $layoutTheme -> layout['positions']['layout'] = $_POST['layout'];
 
                 $layoutTheme -> persist();
 
@@ -359,28 +359,28 @@ try {
                 exit;
             } else if (isset($_GET['delete_block'])) {
                 //Remove the block's file
-                if (is_file($file = G_EXTERNALPATH.$customBlocks[$_GET['delete_block']]['name'].'.tpl')) {                
-	                $file = new EfrontFile($file);
-	                $file -> delete();
+                if (is_file($file = G_EXTERNALPATH.$customBlocks[$_GET['delete_block']]['name'].'.tpl')) {
+                 $file = new EfrontFile($file);
+                 $file -> delete();
                 }
 
                 //Remove the block from the custom blocks list 
                 unset($customBlocks[$_GET['delete_block']]);
-                $layoutTheme -> layout['custom_blocks'] = $customBlocks;                
+                $layoutTheme -> layout['custom_blocks'] = $customBlocks;
 
                 //Remove the deleted block from any position it may occupy
                 foreach ($layoutTheme -> layout['positions'] as $key => $value) {
-	                if (is_array($value)  && ($offset = array_search($_GET['delete_block'], $value))  !== false) {
-	                    array_splice($layoutTheme -> layout['positions'][$key], $offset, 1); 
-	                }                    
+                 if (is_array($value) && ($offset = array_search($_GET['delete_block'], $value)) !== false) {
+                     array_splice($layoutTheme -> layout['positions'][$key], $offset, 1);
+                 }
                 }
-                
-                $layoutTheme -> persist();                
+
+                $layoutTheme -> persist();
                 exit;
             } else if (isset($_GET['toggle_block'])) {
                 if (isset($layoutTheme -> layout['positions']['enabled'][$_GET['toggle_block']])) {
                    unset($layoutTheme -> layout['positions']['enabled'][$_GET['toggle_block']]);
-                   echo json_encode(array('enabled' => false));                    
+                   echo json_encode(array('enabled' => false));
                 } else {
                     $layoutTheme -> layout['positions']['enabled'][$_GET['toggle_block']] = true;
                     echo json_encode(array('enabled' => true));
@@ -391,19 +391,19 @@ try {
                 exit;
             } else if (isset($_GET['export_layout'])) {
                 file_put_contents(G_EXTERNALPATH.'layout_settings.php.inc', serialize($layoutTheme -> layout));
-                
+
                 $directory = new EfrontDirectory(G_EXTERNALPATH);
-                $tempDir   = $currentUser -> getDirectory().'temp/';
+                $tempDir = $currentUser -> getDirectory().'temp/';
                 if (!is_dir($tempDir) && !mkdir($tempDir, 0755)) {
-                    throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$tempDir, EfrontFileException :: CANNOT_CREATE_DIR); 
-                } 
+                    throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$tempDir, EfrontFileException :: CANNOT_CREATE_DIR);
+                }
                 //pr($tempDir.'layout.zip');debug();
                 $file = $directory -> compress(false, false);
                 $file -> rename($tempDir.$layoutTheme -> {$layoutTheme -> entity}['name'].'_layout.zip', true);
-                               
+
                 echo json_encode(array('file' => $file['path']));
                 exit;
-            } 
+            }
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");
             echo $e -> getMessage().' ('.$e -> getCode().')';
@@ -412,7 +412,7 @@ try {
     }
 
     //Themes list and add/edit/delete operations
-    $smarty -> assign("T_THEMES", $themes);    
+    $smarty -> assign("T_THEMES", $themes);
     $smarty -> assign("T_CURRENT_THEME", $currentSetTheme);
     $smarty -> assign("T_MAX_FILESIZE", FileSystemTree :: getUploadMaxSize());
     $smarty -> assign("T_BROWSERS", themes :: $browsers);
@@ -455,11 +455,11 @@ try {
             } else {
                 echo basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes';
             }
-            
+
             if (!isset($_GET['ajax'])) {
                 eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes");
             }
-            
+
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");
             echo $e -> getMessage().' ('.$e -> getCode().')';
@@ -480,7 +480,7 @@ try {
             $theme = new themes($_GET['export_theme']);
             if ($theme -> options['locked']) {
                 throw new EfrontThemesException(_THEMELOCKED, EfrontThemesException::THEME_LOCKED);
-            }            
+            }
             $file = $theme -> export();
             echo $file['path'];
             //$theme -> applySettings();
@@ -493,7 +493,7 @@ try {
     }
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
 

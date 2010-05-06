@@ -74,10 +74,18 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
    </td>
 {/if}
 {if in_array('location', $T_DATASOURCE_COLUMNS)}
-   <td class = "location" name = "location">{$course.location}</td>
+   <td class = "location" name = "location">
+   {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    {$course.location}
+   {/if}
+   </td>
 {/if}
 {if in_array('directions_name', $T_DATASOURCE_COLUMNS)}
-         <td class = "directions_name">{$course.directions_name}</td>
+         <td class = "directions_name">
+   {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+          {$course.directions_name}
+   {/if}
+         </td>
 {/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)}
          <td class = "user_type">
@@ -96,35 +104,56 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
          </td>
 {/if}
 {if in_array('num_students', $T_DATASOURCE_COLUMNS)}
-   <td class = "num_students">{if $course.max_users}{$course.num_students}/{$course.max_users}{else}{$course.num_students}{/if}</td>
+   <td class = "num_students">
+         {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    {if $course.max_users}{$course.num_students}/{$course.max_users}{else}{$course.num_students}{/if}
+   {/if}
+   </td>
 {/if}
 {if in_array('num_lessons', $T_DATASOURCE_COLUMNS)}
-   <td class = "num_lessons">{$course.num_lessons}</td>
+   <td class = "num_lessons">
+         {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    {$course.num_lessons}
+   {/if}
+   </td>
 {/if}
-
-
-
-
-
 {if in_array('price', $T_DATASOURCE_COLUMNS)}
-   <td class = "price">{if $course.price == 0}-{else}{$course.price_string}{/if}</td>
+   <td class = "price">
+         {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    {if $course.price == 0}-{else}{$course.price_string}{/if}
+   {/if}
+   </td>
 {/if}
 {if in_array('start_date', $T_DATASOURCE_COLUMNS)}
-   <td class = "start_date">#filter:timestamp-{$course.start_date}#</td>
+   <td class = "start_date">
+         {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    #filter:timestamp-{$course.start_date}#
+   {/if}
+   </td>
 {/if}
 {if in_array('end_date', $T_DATASOURCE_COLUMNS)}
-   <td class = "end_date">#filter:timestamp-{$course.end_date}#</td>
+   <td class = "end_date">
+         {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    #filter:timestamp-{$course.end_date}#
+   {/if}
+   </td>
 {/if}
 {if in_array('created', $T_DATASOURCE_COLUMNS)}
-   <td class = "created">#filter:timestamp-{$course.created}#</td>
+   <td class = "created">
+         {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    #filter:timestamp-{$course.created}#
+         {/if}
+   </td>
 {/if}
 {if in_array('active', $T_DATASOURCE_COLUMNS)}
    <td class = "active">
-  {if $course.active == 1}
+         {if !$course.has_instances || $T_SORTED_TABLE == 'instancesTable'}
+    {if $course.active == 1}
     <img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $_change_handles_}class = "ajaxHandle" onclick = "activateCourse(this, '{$course.id}')"{/if}>
-  {else}
+    {else}
     <img src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $_change_handles_}class = "ajaxHandle" onclick = "activateCourse(this, '{$course.id}')"{/if}>
-  {/if}
+    {/if}
+   {/if}
    </td>
 {/if}
 {if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}
@@ -172,16 +201,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
  {/if}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('delete', $T_DATASOURCE_OPERATIONS)}
   {if $_change_handles_}
-
-
-
-
-
-
-
     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETECOURSE}')) deleteCourse(this, '{$course.id}');"/>
-
-
   {/if}
  {/if}
    {/strip}</td>
@@ -201,7 +221,6 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
         <img src = "images/16x16/success.png" alt = "{$smarty.const._COURSEUSER}" title = "{$smarty.const._COURSEUSER}">
               {/if}
        {/if}
-
          </td>
 {/if}
      </tr>
@@ -209,7 +228,6 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
      <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>
   {/foreach}
 {/capture}
-
 {capture name = 'lessons_list'}
 <style>
 {literal}
@@ -313,7 +331,6 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
        {else}
         <img src = "images/16x16/success.png" alt = "{$smarty.const._LESSONUSER}" title = "{$smarty.const._LESSONUSER}">
        {/if}
-
          </td>
 {/if}
   </tr>

@@ -17,6 +17,7 @@
 - Fixed bug about taking into account archived lessons in users page
 - Fixed bug about string compare instead of numeric in ini_set
 - Added quick upgrade functionality (automatic)
+- Added purge logs functionality in maintenance
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

@@ -188,6 +188,24 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         }
     }
 
+    $logSize = eF_countTableData("logs");
+    $smarty -> assign("T_LOG_SIZE", $logSize[0]['count']);
+    $lastLogEntry = eF_getTableData("logs", "timestamp", "", "timestamp", false, 1);
+    $smarty -> assign("T_LAST_LOG_ENTRY", $lastLogEntry[0]['timestamp']);
+    $cleanupForm = new HTML_QuickForm("cleanup_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup", "", null, true);
+ $cleanupForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
+ $cleanupForm -> addElement("text", "logs_size", null, 'class = "inputText" style = "width:60px"');
+    $cleanupForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+    if ($cleanupForm -> isSubmitted() && $cleanupForm -> validate()) {
+     $timestamp = mktime(0, 0, 0, $_POST['purge_Month'], $_POST['purge_Day'], $_POST['purge_Year']);
+     if (eF_checkParameter($timestamp, 'int')) {
+      eF_deleteTableData("logs", "timestamp < $timestamp");
+     }
+     eF_redirect(basename($_SERVER['PHP_SELF']."?ctg=maintenance&tab=cleanup&message=".urlencode(_SUCCESSFULLYPURGEDLOGS)."&message_type=success"));
+    }
+    $renderer = prepareFormRenderer($cleanupForm);
+    $smarty -> assign("T_CLEANUP_FORM", $renderer -> toArray());
+
     //Recreate search table
     if (isset($_GET['reindex']) && $_GET['ajax'] == 1) {
         try {

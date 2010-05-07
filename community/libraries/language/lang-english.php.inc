@@ -3670,4 +3670,13 @@ define("_AFTER","After");
 define("_BEFORE","Before");
 define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Participation of all users in the courses of the group");
 define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Participation of group users in the courses of the system");
+define("_PURGELOGS", "Purge logs");
+define("_LOGSSIZE", "Logs size");
+define("_OLDESTLOG", "Oldest log entry");
+define("_PURGELOGSOLDERTHAN", "Purge logs older than");
+define("_SUCCESSFULLYPURGEDLOGS", "Successfully purged logs");
+define("_ONLYXCANBEAPPLIEDATATIME", "Only %x entities where processed, which is the limit for this operation");
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "You cannot assign users to this curriculum because it has no courses");
+define("_CURRICULUMPROPERTIES", "Curriculum properties");
+define("_ENTRIES", "Entries");
 ?>

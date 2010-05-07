@@ -3670,4 +3670,13 @@ define("_AFTER","Μετά από");
 define("_BEFORE","Πριν από");
 define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Συμμετοχή όλων των χρηστών στις δέσμες της ομάδας");
 define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Συμμετοχή των χρηστών της ομάδας στις δέσμες του συστήματος");
+define("_PURGELOGS", "Εκκαθάριση logs");
+define("_LOGSSIZE", "Μέγεθος logs");
+define("_OLDESTLOG", "Παλαιότερη εγγραφή στα logs");
+define("_PURGELOGSOLDERTHAN", "Εκκαθάριση των logs που είναι παλαιότερα από");
+define("_SUCCESSFULLYPURGEDLOGS", "Τα logs εκκαθαρίστηκαν επιτυχώς");
+define("_ONLYXCANBEAPPLIEDATATIME", "Μόνο %x οντότητες επεξεργάστηκαν, που είναι το όριο για αυτήν τη λειτουργία");
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "Δεν μπορείτε να αναθέσετε χρήστες σε αυτό το πρόγραμμα μαθημαων γιατί δεν περιλαμβάνει δέσμες");
+define("_CURRICULUMPROPERTIES", "Ιδιότητες προγράμματος μαθημάτων");
+define("_ENTRIES", "Εγγραφές");
 ?>

@@ -4,8 +4,8 @@
 
  {capture name = 't_cleanup_code'}
      <table>
-         <tr><td>{$smarty.const._ORPHANUSERFOLDERSCHECK}:&nbsp;</td>
-             <td>
+         <tr><td class = "labelCell">{$smarty.const._ORPHANUSERFOLDERSCHECK}:&nbsp;</td>
+             <td class = "elementCell">
              {if $T_ORPHAN_USER_FOLDERS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._ORPHANUSERFOLDERSCHECK}', 0, 'orphan_user_folders')"/>&nbsp;
@@ -14,8 +14,8 @@
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
              </td></tr>
-         <tr><td>{$smarty.const._USERSWITHOUTFOLDERSCHECK}:&nbsp;</td>
-             <td>
+         <tr><td class = "labelCell">{$smarty.const._USERSWITHOUTFOLDERSCHECK}:&nbsp;</td>
+             <td class = "elementCell">
              {if $T_ORPHAN_USERS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._USERSWITHOUTFOLDERSCHECK}', 0, 'users_without_folders')"/>&nbsp;
@@ -25,8 +25,8 @@
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
              </td></tr>
-         <tr><td>{$smarty.const._ORPHANLESSONFOLDERSCHECK}:&nbsp;</td>
-             <td>
+         <tr><td class = "labelCell">{$smarty.const._ORPHANLESSONFOLDERSCHECK}:&nbsp;</td>
+             <td class = "elementCell">
              {if $T_ORPHAN_LESSON_FOLDERS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._ORPHANLESSONFOLDERSCHECK}', 0, 'orphan_lesson_folders')"/>&nbsp;
@@ -35,8 +35,8 @@
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
          </td></tr>
-         <tr><td>{$smarty.const._LESSONSWITHOUTFOLDERSCHECK}:&nbsp;</td>
-             <td>
+         <tr><td class = "labelCell">{$smarty.const._LESSONSWITHOUTFOLDERSCHECK}:&nbsp;</td>
+             <td class = "elementCell">
              {if $T_ORPHAN_LESSONS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._LESSONSWITHOUTFOLDERSCHECK}', 0, 'lessons_without_folders')"/>&nbsp;
@@ -46,8 +46,8 @@
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
          </td></tr>
-         <tr><td colspan = "2">&nbsp;</td></tr>
-         <tr><td></td><td><input class = "flatButton" type = "button" value = "{$smarty.const._CHECKAGAIN}" onclick = "location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup'">&nbsp;<input class = "flatButton" type = "button" value = "{$smarty.const._CLEANUPALL}" onclick = "if (confirm('{$smarty.const._THISOPERATIONALTERSYSTEM}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup&cleanup=all'"></td></tr>
+         <tr><td></td>
+          <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CHECKAGAIN}" onclick = "location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup'"></td></tr>
      </table>
      <div id = "orphan_user_folders" style = "display:none;">
      {capture name = 't_orphan_user_folders_code'}
@@ -73,6 +73,25 @@
      {/capture}
      {eF_template_printBlock title=$smarty.const._LESSONSWITHOUTAFOLDER data=$smarty.capture.t_lessons_without_folders_code image='32x32/cleanup.png'}
      </div>
+
+  {$T_CLEANUP_FORM.javascript}
+   <form {$T_CLEANUP_FORM.attributes}>
+   {$T_CLEANUP_FORM.hidden}
+   <fieldset class = "fieldsetSeparator">
+    <legend>{$smarty.const._PURGELOGS}</legend>
+   <table>
+    <tr><td class="labelCell">{$smarty.const._LOGSSIZE}:&nbsp;</td>
+     <td class="elementCell">{$T_LOG_SIZE} {$smarty.const._ENTRIES}</td></tr>
+    <tr><td class="labelCell">{$smarty.const._OLDESTLOG}:&nbsp;</td>
+     <td class="elementCell">#filter:timestamp-{$T_LAST_LOG_ENTRY}#</td></tr>
+          <tr><td class = "labelCell">{$smarty.const._PURGELOGSOLDERTHAN}:&nbsp;</td>
+              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_LOG_ENTRY start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+    <tr><td></td>
+     <td class = "submitCell">{$T_CLEANUP_FORM.submit.html}</td></tr>
+   </table>
+   </fieldset>
+  </form>
+
  {/capture}
  {capture name = "t_maintenance_code"}
  <table class = "formElements">

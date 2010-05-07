@@ -185,7 +185,7 @@
                                          {/if}
            </td></tr>
                                 {/capture}
-
+<table style = "width:100%"><tr><td>
                         <div id="sortableList">
                             <div style="float: right; width:49%;height: 100%;">
                                 <ul class="sortable" id="secondlist" style="height:100%;width:100%;">
@@ -282,7 +282,7 @@
 
 
                         </div>
-
+    </td></tr></table>
     {**************** SHOW PROFILE POPUP ********************}
                 {elseif $T_OP == "show_profile"}
      {capture name = "t_show_profile_code"}

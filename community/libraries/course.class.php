@@ -3588,18 +3588,18 @@ class EfrontCourse
   return self :: convertDatabaseResultToCourseObjects($result);
  }
  public static function getAllCourses($constraints = array()) {
+  $select['main'] = 'c.*';
+  $select['has_instances'] = "(select count( * ) from courses l where instance_source=c.id) as has_instances";
+  $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
+  $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+  $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $select = "c.*,
-       (select count( * ) from courses l where instance_source=c.id)
-         as has_instances,
-       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
-         as num_lessons,
-       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
-         as num_students";
-  //$where[] = "d.id=c.directions_ID";
-  $result = eF_getTableData("courses c", $select,
-  implode(" and ", $where), $orderby, $groupby, $limit);
-  return self :: convertDatabaseResultToCourseObjects($result);
+  $result = eF_getTableData("courses c", $select, implode(" and ", $where), $orderby, false, $limit);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return self :: convertDatabaseResultToCourseObjects($result);
+  } else {
+   return $result;
+  }
  }
  public static function countAllCourses($constraints = array()) {
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
@@ -3683,6 +3683,14 @@ class EfrontCourse
   $limit = self::addLimitConditionToConstraints($constraints);
   $order = self::addSortOrderConditionToConstraints($constraints);
   return array($where, $limit, $order);
+ }
+ public function convertCourseConstraintsToRequiredFields($constraints, $select) {
+  foreach ($select as $key => $value) {
+   if ((!isset($constraints['required_fields']) || !in_array($key, $constraints['required_fields'])) && $key != 'main') {
+    unset($select[$key]);
+   }
+  }
+  return implode(",", $select);
  }
  public static function convertCourseConstraintsToSqlParameters($constraints) {
   $where = self::addWhereConditionToCourseConstraints($constraints);

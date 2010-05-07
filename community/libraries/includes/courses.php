@@ -341,6 +341,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    if ($_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $_GET['instancesTable_source']);
    }
+   $constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
    $courses = EfrontCourse :: getAllCourses($constraints);
    $totalEntries = EfrontCourse :: countAllCourses($constraints);
    $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);
@@ -348,7 +349,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;
    include("sorted_table.php");
-  } catch (Exception $e) {
+  } catch (Exception $e) {pr($e);
    handleAjaxExceptions($e);
   }
  }

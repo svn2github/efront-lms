@@ -100,6 +100,9 @@
                 <div class = "formRow">
                  <div class = "formLabel">
                   <div class = "header">Database name:&nbsp;</div>
+ {if $smarty.get.upgrade}
+                  <div class = "explanation">Upgading to a different database is safer (leaving old data intact) but may be very slow</div>
+ {/if}
                  </div>
                  <div class = "formElement">
                   <div class = "field">{$T_DATABASE_FORM.db_name.html}</div>
@@ -159,10 +162,17 @@
                   {if $T_DATABASE_FORM.old_db_name.error}<div class = "error">{$T_DATABASE_FORM.old_db_name.error}</div>{/if}
                  </div>
                 </div>
+{*
                 <div class = "formRow">
                  <div class = "formLabel">
                   <div class = "header"><span style = "vertical-align:middle">Upgrade search table:&nbsp;</span>{$T_DATABASE_FORM.upgrade_search.html}</div>
                   <div class = "explanation">If you leave this unchecked, the upgrade will be much faster, but the search table must be rebuilt from the administrator's "maintenance" option</div>
+                 </div>
+                </div>
+*}
+                <div class = "formRow">
+                 <div class = "formLabel">
+                  <div class = "header"><span style = "vertical-align:middle">Backup database:&nbsp;</span>{$T_DATABASE_FORM.backup.html}</div>
                  </div>
                 </div>
  {/if}

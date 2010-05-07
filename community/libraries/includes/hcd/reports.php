@@ -24,6 +24,7 @@ if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
    $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $_GET['instancesTable_source']);
   }
 
+  $constraints['required_fields'] = array('has_instances');
   $courses = EfrontCourse :: getAllCourses($constraints);
   $totalEntries = EfrontCourse :: countAllCourses($constraints);
   $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);

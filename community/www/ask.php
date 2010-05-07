@@ -423,9 +423,9 @@ function askCourses() {
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
  if ($_SESSION['s_type'] == "administrator") {
   //$result = eF_getTableData("courses", "id, name, directions_ID","active=1 AND name like '%$preffix%'");
-  $constraints = array('instance' => false, 'archive' => false, 'active' => true, 'filter' => $preffix);
-  $courses = EfrontCourse :: getAllCourses($constraints);
-  $result = EfrontCourse :: convertCourseObjectsToArrays($courses);
+  $constraints = array("return_objects" => false, 'instance' => false, 'archive' => false, 'active' => true, 'filter' => $preffix);
+  $result = EfrontCourse :: getAllCourses($constraints);
+  //$result 	 = EfrontCourse :: convertCourseObjectsToArrays($courses);
  } else {
   $result = eF_getTableData("courses c, users_to_courses uc", "c.id, c.name, c.directions_ID", "uc.user_type = 'professor' AND c.active=1 AND c.id = uc.courses_ID AND uc.users_LOGIN='".$_SESSION['s_login']."' AND c.name like '%$preffix%'");
  }

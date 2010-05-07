@@ -346,7 +346,6 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
         $loadScripts[] = 'scriptaculous/dragdrop';
         require_once 'social.php';
     }
-//pr($currentUser);
     if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') || (isset($currentUser -> coreAccess['dashboard']) && $currentUser -> coreAccess['dashboard'] != 'change')) {
   $form -> freeze();
     } else {

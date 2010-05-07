@@ -301,7 +301,7 @@ try {
                 $controlPanelOptions[] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => "administrator.php?ctg=statistics");
             }
             if (!isset($currentUser -> coreAccess['backup']) || $currentUser -> coreAccess['backup'] != 'hidden') {
-                $controlPanelOptions[] = array('text' => _BACKUP." - "._RESTORE, 'image' => "32x32/backup_restore.png", 'href' => "administrator.php?ctg=backup");
+                $controlPanelOptions['backup'] = array('text' => _BACKUP." - "._RESTORE, 'image' => "32x32/backup_restore.png", 'href' => "administrator.php?ctg=backup");
             }
             if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAccess['maintenance'] != 'hidden') {
                 $controlPanelOptions[] = array('text' => _MAINTENANCE, 'image' => "32x32/maintenance.png", 'href' => "administrator.php?ctg=maintenance");

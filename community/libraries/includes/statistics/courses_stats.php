@@ -44,6 +44,8 @@ if (isset($_GET['sel_course'])) {
       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
       $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
+      $constraints['required_fields'] = array('num_lessons', 'location');
+      $constraints['return_objects'] = false;
       $infoUser = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);
       $courses = $infoUser -> getUserCourses($constraints);
       $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
@@ -61,6 +63,7 @@ if (isset($_GET['sel_course'])) {
       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics', 'settings'));
       $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
+      $constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
       $courses = EfrontCourse :: getAllCourses($constraints);
       $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
       array_walk($courses, create_function('&$v,$k', '$v["has_instances"] = 0;')); //Eliminate the information on whether this course has instances, since this table only lists a course's instances anyway (and we want the + to expand its lessons always)

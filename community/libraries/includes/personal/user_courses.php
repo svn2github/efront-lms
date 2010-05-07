@@ -139,9 +139,11 @@ try {
     if ($showUnassigned) {
      $courses = $courseUser -> getUserCoursesAggregatingResultsIncludingUnassigned($constraints);
      $totalEntries = $courseUser -> countUserCoursesAggregatingResultsIncludingUnassigned($constraints);
+     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     } else {
      $courses = $courseUser -> getUserCoursesAggregatingResults($constraints);
      $totalEntries = $courseUser -> countUserCoursesAggregatingResults($constraints);
+     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     }
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
@@ -149,12 +151,16 @@ try {
     if ($showUnassigned) {
      $courses = $courseUser -> getUserCoursesIncludingUnassigned($constraints);
      $totalEntries = $courseUser -> countUserCoursesIncludingUnassigned($constraints);
+     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     } else {
+     $constraints['required_fields'] = array('num_lessons', 'location');
+     $constraints['return_objects'] = false;
      $courses = $courseUser -> getUserCourses($constraints);
      $totalEntries = $courseUser -> countUserCourses($constraints);
+     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     }
    }
-   $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
+
    $dataSource = $courses;
    $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);

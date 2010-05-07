@@ -788,7 +788,7 @@ class EfrontDirectionsTree extends EfrontTree
   if (isset($options['buy_link']) && $options['buy_link'] && !$treeLesson -> lesson['has_lesson'] && !$treeLesson -> lesson['reached_max_users'] && $_SESSION['s_type'] != 'administrator') {
    $treeString .= '
     <span class = "buyLesson">
-     <span>'.$treeLesson -> lesson['price_string'].'</span>
+     <span>'.($treeLesson -> lesson['price'] ? $treeLesson -> lesson['price_string'] : '').'</span>
      <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\')">
     </span>';
   }
@@ -815,7 +815,7 @@ class EfrontDirectionsTree extends EfrontTree
    if ($options['buy_link'] && !$treeCourse -> course['has_instances'] && !$treeCourse -> course['has_course'] && !$treeCourse -> course['reached_max_users'] && $_SESSION['s_type'] != 'administrator') {
     $treeString .= '
         <span class = "buyLesson">
-         <span>'.$treeCourse -> course['price_string'].'</span>
+         <span>'.($treeCourse -> course['price'] ? $treeCourse -> course['price_string'] : '').'</span>
          <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
         </span>';
    } else {

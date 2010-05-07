@@ -321,11 +321,11 @@ try {
                     }
                 }
                 // Job prerequisites handling
-                $allCourses = EfrontCourse::getAllCourses(array("instance" => false, "sort" => "name"));
+                $allCourses = EfrontCourse::getAllCourses(array("return_objects" => false, "instance" => false, "sort" => "name"));
                 if (!empty($allCourses)) {
                  $trainingCourses = array();
-                 foreach ($allCourses as $courseObject) {
-                  $trainingCourses[$courseObject -> course['id']] = $courseObject -> course['name'];
+                 foreach ($allCourses as $course) {
+                  $trainingCourses[$course['id']] = $course['name'];
                  }
                  $form -> addElement('select', 'prerequisites_row_col', null, $trainingCourses, 'id = "prerequisites_row_col" class = "inputSelect" onChange="updateSelectedValue(this);ajaxPostRequiredTraining();"');
                  //    $form -> addElement('select', 'search_skill_template' , null, $skills_list ,'id="search_skill_row" class = "inputSelectMed"  onchange="javascript:refreshResults();"');

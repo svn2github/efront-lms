@@ -37,73 +37,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
      if ($currentUser -> getType() != "administrator" ) {
       $eligibleLessons = $currentUser -> getEligibleLessons();
          $lessons_list = array_keys($eligibleLessons);
-/*	        
-
-	    	if ($currentUser -> getType() == "student" ) {		    	
-
-		        $userLessons        = $currentUser -> getLessons(true);
-
-		        $userCourses        = $currentUser -> getCourses(true);
-
-		                   
-
-		        $roles     = EfrontLessonUser :: getLessonsRoles();
-
-		        $roleNames = EfrontLessonUser :: getLessonsRoles(true);
-
-		                    		        
-
-		        foreach ($userCourses as $course) {
-
-		        	//$roleBasicType = $roles[$userInfo['courses'][$course -> course['id']]['user_type']];        //The basic type of the user's role in the course
-
-		
-
-		            $eligible = $course -> checkRules($currentUser -> user['login']);
-
-
-
-			        foreach ($eligible as $lessonId => $value) {
-
-			        	if (!$value) {
-
-			        		unset($userLessons[$lessonId]); 
-
-			        	}	        
-
-			        }           	
-
-		        }    
-
-	
-
-    	        $lessons_array = array();       
-
-		        foreach ($userLessons as $lesson) {
-
-		            if ($lesson->userStatus['from_timestamp'] && (!isset($lesson -> lesson['eligible']) || (isset($lesson -> lesson['eligible']) && $lesson -> lesson['eligible']))) {
-
-		            	$lessons_array[] = $lesson -> lesson['id'];
-
-		            }
-
-		        }
-
-				//$lessons_list = implode("','", $lessons_array);
-
-				$lessons_list = $lessons_array;
-
-	    	} else {
-
-		    	$lessons_array = $currentUser -> getLessons();
-
-		    	//$lessons_list = implode("','", array_keys($lessons_array));
-
-		    	$lessons_list = array_keys($lessons_array);
-
-	    	}
-
-*/
      }
      /*Projects list - Users get only projects for their lessons while administrators none*/
      if ($GLOBALS['configuration']['disable_projects'] != 1 && !empty($lessons_list)) {
@@ -114,10 +47,13 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
              // See projects related to your lessons
              $not_expired_projects = eF_getTableData("projects p, lessons", "p.*, lessons.name as show_lessons_name, lessons.id as show_lessons_id", "p.lessons_ID = lessons.id AND lessons.id IN ('" . implode("','", $lessons_list). "') AND p.deadline > ".time()." ORDER BY p.deadline ASC LIMIT 5");
          }
+
       if (!empty($not_expired_projects)) {
           $smarty -> assign("T_ALL_PROJECTS", $not_expired_projects);
       }
+
         }
+
         /*Forum messages list*/
   // Users see forum messages from the system forum and their own lessons while administrators for all 
      if (!empty($lessons_list)) {
@@ -126,6 +62,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
       $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id", "fm.timestamp desc LIMIT 5");
      }
         $smarty -> assign("T_FORUM_MESSAGES", $forum_messages); //Assign forum messages and categoru information to smarty
+
         if (isset($forum_lessons_ID[0]['id'])) { //If there is a forum category associated to this lesson (and the user is eligible to use it), display corresponding links
             $smarty -> assign("T_FORUM_LESSONS_ID", $forum_lessons_ID[0]['id']);
             $smarty -> assign("T_FORUM_LINK", basename($_SERVER['PHP_SELF'])."?ctg=forum&forum=".$forum_lessons_ID[0]['id']);
@@ -140,6 +77,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     );
         }
         $smarty -> assign("T_FORUM_OPTIONS", $forum_options); //Assign forum options to smarty
+
         /*Lesson announcements list*/
         if (!isset($currentUser -> coreAccess['news']) || $currentUser -> coreAccess['news'] != 'hidden') {
       if (!empty($lessons_list)) {
@@ -156,7 +94,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
           $news = news :: getNews(0, true);
     //$announcements         = eF_getTableData("users u, news n LEFT OUTER JOIN lessons l ON n.lessons_ID = l.id", "n.*, l.name as show_lessons_name, l.id as show_lessons_id", "n.users_LOGIN = u.login", "n.timestamp desc, n.id desc LIMIT 5");		    	
       }
+
             $announcements_options = array(array('text' => _ANNOUNCEMENTGO, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news&lessons_ID=all"));
+
             $smarty -> assign("T_NEWS", $news); //Assign announcements to smarty            
             $smarty -> assign("T_NEWS_OPTIONS",$announcements_options);
             $smarty -> assign("T_NEWS_LINK", "student.php?ctg=news");
@@ -166,6 +106,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
             $comments = eF_getTableData("comments cm JOIN content c JOIN lessons l ON c.lessons_ID = l.id", "cm.id AS id, cm.data AS data, cm.users_LOGIN AS users_LOGIN, cm.timestamp AS timestamp, c.name AS content_name, c.id AS content_ID, c.ctg_type AS content_type, l.name as show_lessons_name, l.id as show_lessons_id", "c.lessons_ID IN ('".implode("','", $lessons_list)."') AND cm.content_ID=c.id AND c.active=1 AND cm.active=1 AND cm.private=0", "cm.timestamp DESC LIMIT 5");
         }
         $smarty -> assign("T_LESSON_COMMENTS", $comments); //Assign to smarty
+
         /* Calendar */
         if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden') {
             $calendar_options = array( //Create calendar options and assign them to smarty, to be displayed at the calendar inner table
@@ -173,27 +114,35 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
             );
             $smarty -> assign("T_CALENDAR_OPTIONS", $calendar_options);
             $smarty -> assign("T_CALENDAR_LINK", "student.php?ctg=calendar");
+
             $today = getdate(time()); //Get current time in an array
             $today = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']); //Create a timestamp that is today, 00:00. this will be used in calendar for displaying today
             (isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp')) ? $view_calendar = $_GET['view_calendar']: $view_calendar = $today; //If a specific calendar date is not defined in the GET, set as the current day to be today
+
             if (isset($lessons_list)) {
              $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON l.id = lessons_ID","c.*, l.name as show_lessons_name","lessons_ID IN ('0', '".implode("','", $lessons_list)."')");
             } else {
              $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON l.id = lessons_ID","c.*, l.name as show_lessons_name","");
             }
+
             $calendar_events = array();
             foreach ($result as $event) {
+
                 $calendar_events[$event['timestamp']]['data'][] = "<b>" .$event['show_lessons_name'] . "</b>: " . $event['data'];
                 $calendar_events[$event['timestamp']]['id'][] = $event['id'];
             }
+
             $smarty -> assign("T_CALENDAR_EVENTS", $calendar_events); //Assign events and specific day timestamp to smarty, to be used from calendar
             $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
         }
+
         /********** Facebook profile ******/
         if ($GLOBALS['configuration']['social_modules_activated'] & FB_FUNC_DATA_ACQUISITION) {
+
             if (isset($_SESSION['facebook_user']) && $_SESSION['facebook_user']) {
     $smarty -> assign("T_FB_INFORMATION", $_SESSION['facebook_details']);
             } else {
+
              $smarty -> assign("T_PREVIOUSMAINURL", $_SESSION['previousMainUrl'] );
              $smarty -> assign("T_OPEN_FACEBOOK_SESSION",1);
              $smarty -> assign("T_FACEBOOK_API_KEY", $GLOBALS['configuration']['facebook_api_key']);
@@ -202,10 +151,14 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
              //);
              //$smarty -> assign("T_FB_OPTIONS", $fb_options);	
             }
+
         }
      //-----------------------------------------
+
+
      if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_COMMENTS) {
       $my_info_options = array(array('text' => _ADDCOMMENTTOMYPROFILE, 'image' => "16x16/edit.png", 'href' => $_SESSION['s_type'].".php?ctg=social&op=comments&action=insert&popup=1&user=". $currentUser -> user['login'], 'onClick' => "eF_js_showDivPopup('"._USERPROFILE."', 1)", 'target' => 'POPUP_FRAME'));
+
       $comments = $currentUser -> getProfileComments();
          if (sizeof($comments) > 0) {
              foreach ($comments as $id => $comment) {
@@ -223,24 +176,31 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
          } else {
     $smarty -> assign("T_COMMENTS", array());
          }
+
          $smarty -> assign("T_MY_INFO_OPTIONS", $my_info_options );
      }
         // Generally needed for the next social modules
         $all_related_users = $currentUser ->getRelatedUsers();
+
      /* My six people */
      if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_PEOPLE) {
+
       $related_users_count = sizeof($all_related_users);
+
       $max_related_users_to_show = 5;
       if ($related_users_count > $max_related_users_to_show) {
           $my_six_related_users_keys = array_rand($all_related_users, $max_related_users_to_show);
+
           $my_six_related_users = array();
           foreach ($my_six_related_users_keys as $key) {
               $my_six_related_users[] = $all_related_users[$key];
           }
+
           $related_users = $my_six_related_users;
       } else {
           $related_users = $all_related_users;
       }
+
       $my_related_users = eF_getTableData("users", "login, name, surname, avatar, status", "archive=0 AND login IN ('".implode("','", $related_users)."')");
       foreach ($my_related_users as $key => $user) {
           try {
@@ -252,13 +212,19 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
               $my_related_users[$key]['avatar_height'] = 50;
           }
       }
+
       $smarty -> assign("T_MY_RELATED_USERS", $my_related_users);
       $my_related_people_options = array(array('text' => _GOTOPEOPLELIST, 'image' => "16x16/go_into.png", 'href' => $_SESSION['s_type']. ".php?ctg=social&op=people"));
+
       $smarty -> assign("T_MY_RELATED_PEOPLE_OPTIONS", $my_related_people_options );
+
+
       $smarty -> assign("T_MY_INCOMING_MESSAGES_OPTIONS", array(array('text' => _GOTOMYMESSAGES, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages")));
      }
+
      /* Timeline for the 10 most recent system events */
      if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_SYSTEM_TIMELINES) {
+
       $myEvents = EfrontEvent::getEvents($all_related_users, true, 5);
       $allModules = eF_loadAllModules();
       $eventMessages = array();

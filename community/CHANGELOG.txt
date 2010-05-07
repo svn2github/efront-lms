@@ -15,6 +15,8 @@
 - Added option in user type for dashboard
 - Fixed issue with new line in lesson information
 - Fixed bug about taking into account archived lessons in users page
+- Fixed bug about string compare instead of numeric in ini_set
+- Added quick upgrade functionality (automatic)
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

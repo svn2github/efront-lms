@@ -107,28 +107,35 @@ if (isset($_GET['sel_user'])) {
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => false);
      $courses = $infoUser -> getUserCoursesAggregatingResults($constraints);
+     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     }
-    if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
-     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
-     $courses = $infoUser -> getUserCourses($constraints);
-    }
-    $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
+/*				
+
+				if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
+
+					$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
+
+					$constraints['required_fields'] = array('num_lessons', 'location');
+
+					$constraints['return_objects']  = false;
+
+					$courses	 = $infoUser -> getUserCourses($constraints);
+
+				}
+
+*/
     $dataSource = $courses;
     $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
    }
-
    $tableName = $_GET['ajax'];
    include("sorted_table.php");
-
   } catch (Exception $e) {
    handleAjaxExceptions($e);
   }
-
   try {
    $userInfo = array();
    $userInfo['general'] = $infoUser -> getInformation();
    $userInfo['communication'] = EfrontStats :: getUserCommunicationInfo($infoUser);
-
    if ($GLOBALS['configuration']['chat_enabled']) {
     if (sizeof($userInfo['communication']['chat_messages'])) {
      $last = current($userInfo['communication']['chat_messages']);
@@ -143,9 +150,7 @@ if (isset($_GET['sel_user'])) {
    } else {
     $userInfo['communication']['forum_last_message'] = "";
    }
-
    $userInfo['usage'] = EfrontStats :: getUserUsageInfo($infoUser);
-
    try {
     $avatar = new EfrontFile($userInfo['general']['avatar']);
     $avatar['id'] != -1 ? $smarty -> assign ("T_AVATAR", $avatar['id']) : $smarty -> assign ("T_AVATAR", $avatar['path']);

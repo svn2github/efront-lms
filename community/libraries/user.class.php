@@ -2360,12 +2360,12 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 */
  public function getEligibleLessons() {
-  $userLessons = $this -> getLessons(true);
-  $userCourses = $this -> getCourses(true);
+  $userCourses = $this -> getUserCourses();
+  $userLessons = $this -> getUserStatusInLessons(false, true);
   $roles = self :: getLessonsRoles();
   $roleNames = self :: getLessonsRoles(true);
   foreach ($userCourses as $course) {
-   $eligible = $course -> checkRules($this -> user['login']);
+   $eligible = $course -> checkRules($this -> user['login'], $userLessons);
    foreach ($eligible as $lessonId => $value) {
     if (!$value) {
      unset($userLessons[$lessonId]);
@@ -2589,27 +2589,26 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  public function getUserCourses($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  $select['main'] = 'c.*, uc.users_LOGIN,uc.courses_ID,uc.completed,uc.score,uc.user_type,uc.issued_certificate,uc.from_timestamp as active_in_course, uc.to_timestamp, 1 as has_course';
+  //$select['user_type'] 	 = "(select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) as user_type";
+  $select['has_instances'] = "(select count( * ) from courses c1, users_to_courses uc1 where c1.instance_source=c.id and uc1.courses_ID=c1.id and uc.users_LOGIN='".$this -> user['login']."') as has_instances";
+  $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
+  $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+  $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $select = "c.*, uc.users_LOGIN,uc.courses_ID,uc.completed,uc.score,uc.user_type,uc.issued_certificate,uc.from_timestamp as active_in_course, uc.to_timestamp, 1 as has_course,
-       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
-         as user_type,
-       (select count( * ) from courses c1, users_to_courses uc1 where c1.instance_source=c.id and uc1.courses_ID=c1.id and uc.users_LOGIN='".$this -> user['login']."')
-         as has_instances,
-       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
-         as num_lessons,
-       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
-         as num_students";
   $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
-  $result = eF_getTableData("courses c, users_to_courses uc", $select,
-     implode(" and ", $where), $orderby, false, $limit);
-  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+  $result = eF_getTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+  } else {
+   return $result;
+  }
  }
  public function countUserCourses($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
-  $result = eF_countTableData("courses c, users_to_courses uc", "c.id",
-  implode(" and ", $where));
+  $result = eF_countTableData("courses c, users_to_courses uc", "c.id", implode(" and ", $where));
   return $result[0]['count'];
  }
  public function getUserCoursesIncludingUnassigned($constraints = array()) {
@@ -2982,11 +2981,13 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 */
  public function getIssuedCertificates() {
-  $courses = $this -> getCourses(true);
+  //$courses 	  = $this -> getCourses(true);
+  $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != 0 or issued_certificate is not null');
+  $courses = $this -> getUserCourses($constraints);
   $certificates = array();
   foreach ($courses as $course) {
-   if ($certificateInfo = unserialize($course -> userStatus['issued_certificate'])) {
-    $certificateInfo = unserialize($course -> userStatus['issued_certificate']);
+   if ($certificateInfo = unserialize($course -> course['issued_certificate'])) {
+    $certificateInfo = unserialize($course -> course['issued_certificate']);
     $certificates[] = array("courses_ID" => $course -> course['id'],
                 "course_name" => $course -> course['name'],
                 "serial_number" => $certificateInfo['serial_number'],
@@ -3458,7 +3459,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $info['student_lessons'] = $this -> getLessons(true, 'student');
   $info['professor_lessons'] = $this -> getLessons(true, 'professor');
   $info['total_lessons'] = sizeof($this -> getUserLessons());
-  $info['total_courses'] = sizeof($this -> getUserCourses());
+  $info['total_courses'] = sizeof($this -> getUserCourses(array('active' => true, 'return_objects' => false)));
   $info['total_login_time'] = self :: getLoginTime($this -> user['login']);
   $info['language'] = $languages[$this -> user['languages_NAME']];
   $info['active'] = $this -> user['active'];

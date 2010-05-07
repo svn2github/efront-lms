@@ -125,7 +125,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     $form -> addRule('db_type', 'The field "database type" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
     $form -> addRule('db_type', 'Invalid database type', 'checkParameter', 'string'); //The database type can only be string and is mandatory
     $form -> setDefaults(array('db_type' => 'mysql'));
-    //$form -> freeze(array('db_type'));                                                               //Freeze this element, since it can't change for now
+    $form -> freeze(array('db_type')); //Freeze this element, since it can't change for now
     $form -> addElement('text', 'db_host', null, 'class = "inputText"');
     $form -> addRule('db_host', 'The field "Database host" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
     //$form -> addRule('db_host', 'Invalid database host', 'checkParameter', 'alnum_general');         //The database host can only be string and is mandatory
@@ -142,7 +142,8 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      $form -> addElement('text', 'old_db_name', null, 'class = "inputText"');
      $form -> addRule('old_db_name', 'The field "Upgrade from database" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
      $form -> addRule('old_db_name', 'Invalid database name', 'checkParameter', 'alnum_general'); //The database name can only be string
-     $form -> addElement('checkbox', 'upgrade_search', null, null, 'style = "vertical-align:middle"');
+     //$form -> addElement('checkbox', 'upgrade_search', null, null, 'style = "vertical-align:middle"');
+     $form -> addElement('checkbox', 'backup', null, null, 'style = "vertical-align:middle"');
     } else {
      $form -> addElement('text', 'admin_name', null, 'class = "inputText"');
      $form -> addRule('admin_name', 'The field "Administrator user name" is mandatory', 'required', null, 'client');
@@ -162,7 +163,8 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                                'db_name' => 'efront',
                                'db_prefix' => '',
                                'admin_name' => 'admin',
-             'upgrade_search' => true,
+           'backup' => true,
+             //'upgrade_search' => true,
                                'default_data' => true));
     if ($_GET['upgrade']) {
         $form -> setDefaults($currentVersion);
@@ -255,7 +257,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                     $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
                     $db -> Execute("SET NAMES 'UTF8'");
                     ini_set("memory_limit", "-1");
-                    $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
+                    if ($values['backup']) {
+                     $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
+                    }
                     //Delete old temporary installation tables
                     foreach ($tables as $table) {
                         try {
@@ -332,10 +336,14 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                     }
                 }
     unset($tables['userpage']); //deprecated table
+    $upgradedTables = array();
                 foreach ($tables as $table) {
                     if ($values['old_db_name'] == $values['db_name']) {
                         if (!in_array($table, $existingTables)) {
-                            Installation :: updateDBTable($table, "install_".$table);
+                            //Installation :: updateDBTable($table, "install_".$table);
+                            if (Installation :: quickUpgrade($table)) {
+                             $upgradedTables[] = $table;
+                            }
                         }
                     } else {
                         $oldDB = array('db_host' => $values['db_host'], 'db_user' => $values['db_user'], 'db_password' => $values['db_password'], 'db_name' => $values['old_db_name']);
@@ -348,16 +356,23 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                 $GLOBALS['db'] -> Execute("SET NAMES 'UTF8'");
                 //The upgrade completed successfully, so delete old tables and rename temporary install_ tables to its original names
                 if ($values['old_db_name'] == $values['db_name']) {
-                    foreach ($tables as $table) {
+                    foreach ($upgradedTables as $table) {
                         if (!in_array($table, $existingTables)) {
                             $db -> Execute("drop table $table");
                             $db -> Execute("RENAME TABLE install_$table TO $table");
                         }
                     }
+                    foreach ($tables as $table) {
+                        if (!in_array($table, $existingTables)) {
+                         try {
+                             $db -> Execute("drop table install_$table");
+                         } catch (Exception $e) {}
+                        }
+                    }
                 }
                 Installation :: createConfigurationFile($values, true);
                 if ($values['upgrade_search']) {
-                 EfrontSearch::reBuiltIndex();
+                 //EfrontSearch::reBuiltIndex();
                 }
                 $options = EfrontConfiguration :: getValues();
                 //This means that the version upgrading from is 3.5
@@ -617,7 +632,9 @@ class Installation
             '${1}'.'http://\'.$_SERVER["HTTP_HOST"].\''.rtrim($servername, "/").'/${2}',
                            '${1}'.G_VERSION_NUM.'${2}');
      $new_file_contents = preg_replace($patterns, $replacements, $file_contents, -1, $count); //Replace sample settings with current settings
-     return file_put_contents($GLOBALS['path'].'configuration.php', $new_file_contents);
+     if (!file_put_contents($GLOBALS['path'].'configuration.php', $new_file_contents)) {
+      throw new Exception("The configuration file could not be created");
+     }
  }
     /**
 
@@ -972,15 +989,15 @@ php_value register_globals Off
  }
  /**
 
-	 * 
+	 * Update all tables by copying each one of them  
 
 	 * 
 
-	 * @param $table
+	 * @param array $table The table to upgrade
 
-	 * @param $data
+	 * @param array $data The table content
 
-	 * @return unknown_type
+	 * @return array The upgraded data
 
 	 */
  public static function updateDBData($table, $data, $table_fields, $fieldTypes) {
@@ -1067,6 +1084,24 @@ php_value register_globals Off
          }
      }
      return $data;
+ }
+ public static function quickUpgrade($table) {
+  $oldTable = $GLOBALS['db'] -> GetAll("describe $table");
+  $newTable = $GLOBALS['db'] -> GetAll("describe install_$table");
+  $changed = false;
+  if (sizeof($newTable) != sizeof($oldTable)) {
+   $changed = true;
+  }
+  foreach ($oldTable as $key => $value) {
+   if (array_diff($oldTable[$key], $newTable[$key]) || array_diff($newTable[$key], $oldTable[$key])) {
+    $changed = true;
+   }
+  }
+  if ($changed) {
+   //echo "UPDATING $table<br>";
+   Installation :: updateDBTable($table, "install_".$table);
+  }
+  return $changed;
  }
  /**
 

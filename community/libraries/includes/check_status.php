@@ -192,6 +192,7 @@ foreach ($permissions as $key => $value) {
         unset($permissions[$key]);
     }
 }
+
 $smarty -> assign("T_PERMISSIONS", $permissions);
 
 $pear['PEAR.php'] = array('exists' => ($f = fopen ('PEAR.php', 'r', true)) ? true : false,

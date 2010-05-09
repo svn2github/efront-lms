@@ -21,27 +21,27 @@ ob_end_clean();
 $info = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $info);
 $smarty -> assign("T_PHPINFO", $info);
 
-
+ 
 //Lock down operations
 if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAccess['maintenance'] == 'change') {
     $load_editor = true;
     if (G_VERSION_NUM != $GLOBALS['configuration']['database_version']) {
-        $smarty -> assign("T_DIFFERENT_VERSIONS", true);
+        $smarty -> assign("T_DIFFERENT_VERSIONS", true); 
     }
 
-    $lockdown_form = new HTML_QuickForm("lockdown_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=lock_down", "", null, true); //Build the form
-    $lockdown_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register our custom input check function
+    $lockdown_form = new HTML_QuickForm("lockdown_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=lock_down", "", null, true);  //Build the form
+    $lockdown_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                                                   //Register our custom input check function
 
     $lockdown_form -> addElement('textarea', 'lock_message', _LOCKDOWNMESSAGE, 'class = "inputContentTextarea mceEditor" style = "width:100%;height:20em;"');
     $lockdown_form -> addElement('checkbox', 'logout_users', null, null, 'class = "inputCheckBox"');
-    $lockdown_form -> setDefaults(array("lock_message" => $GLOBALS['configuration']['lock_message'] ? $GLOBALS['configuration']['lock_message'] : _SYSTEMDOWNFORMAINTENANCE,
-                                                "logout_users" => true));
+    $lockdown_form -> setDefaults(array("lock_message"  => $GLOBALS['configuration']['lock_message'] ? $GLOBALS['configuration']['lock_message'] : _SYSTEMDOWNFORMAINTENANCE,
+                                                "logout_users"  => true));
 
     $lockdown_form -> addElement('submit', 'submit_lockdown', _LOCKDOWN, 'class = "flatButton"');
     $lockdown_form -> addElement('submit', 'submit_unlock', _UNLOCK, 'class = "flatButton"');
 
     //Check here, whether the system is already locked, and present unlock button
-    if ($lockdown_form -> isSubmitted() && $lockdown_form -> validate()) { //If the form is submitted and validated
+    if ($lockdown_form -> isSubmitted() && $lockdown_form -> validate()) {                                                              //If the form is submitted and validated
         $values = $lockdown_form -> exportValues();
         if ($GLOBALS['configuration']['lock_down'] && isset($values['submit_unlock'])) {
             EfrontSystem :: unlockSystem();
@@ -51,13 +51,13 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=lock_down");
     }
 
-    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
-    $lockdown_form -> accept($renderer); //Assign this form to the renderer, so that corresponding template code is created
+    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);                  //Create a smarty renderer
+    $lockdown_form -> accept($renderer);                                                     //Assign this form to the renderer, so that corresponding template code is created
 
-    $smarty -> assign('T_LOCKDOWN_FORM', $renderer -> toArray()); //Assign the form to the template
+    $smarty -> assign('T_LOCKDOWN_FORM', $renderer -> toArray());                     //Assign the form to the template
 
     //User check
-    $users = eF_getTableDataFlat("users", "login");
+    $users     = eF_getTableDataFlat("users", "login");
     //$users_dir = eF_getDirContents(G_ROOTPATH.'upload/', '', false, false);
     $users_dir = scandir(G_ROOTPATH.'upload/');
     foreach ($users_dir as $key => $value) {
@@ -66,7 +66,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         }
     }
     $orphan_user_folders = array_diff($users_dir, $users['login']);
-    $orphan_users = array_diff($users['login'], $users_dir);
+    $orphan_users        = array_diff($users['login'], $users_dir);
 
     $orphanUserStr = implode(", ", $orphan_user);
     $smarty -> assign("T_ORPHAN_USERS", mb_strlen($orphanUserStr) > 200 ? mb_substr($orphanUserStr, 0, 200).'...' : $orphanUserStr);
@@ -74,17 +74,17 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     $smarty -> assign("T_ORPHAN_USER_FOLDERS", mb_strlen($orphanUserFoldersStr) > 200 ? mb_substr($orphanUserFoldersStr, 0, 200).'...' : $orphanUserFoldersStr);
 
     //Lessons check
-    $lessons = eF_getTableDataFlat("lessons", "id, name");
-    $lessons = array_combine($lessons['id'], $lessons['name']);
+    $lessons     = eF_getTableDataFlat("lessons", "id, name");
+    $lessons     = array_combine($lessons['id'], $lessons['name']);
     //$lessons_dir = eF_getDirContents(G_ROOTPATH.'www/content/lessons/', '', false, false);
     $lessons_dir = scandir(G_LESSONSPATH);
-    foreach ($lessons_dir as $key => $dir) { //Remove non-integer lessons from list (such as scorm_uploaded_files);
+    foreach ($lessons_dir as $key => $dir) {                                                    //Remove non-integer lessons from list (such as scorm_uploaded_files);
         if (!preg_match("/^\d+$/", $dir)) {
             unset($lessons_dir[$key]);
         }
     }
     $orphan_lesson_folders = array_diff($lessons_dir, array_keys($lessons));
-    $orphan_lessons = array_diff(array_keys($lessons), $lessons_dir);
+    $orphan_lessons        = array_diff(array_keys($lessons), $lessons_dir);
 
     $orphanLessonStr = implode(", ", $orphan_lessons);
     $smarty -> assign("T_ORPHAN_LESSONS", mb_strlen($orphanLessonStr) > 200 ? mb_substr($orphanLessonStr, 0, 200).'...' : $orphanLessonStr);
@@ -145,10 +145,10 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     if (isset($_GET['cleanup']) && ($_GET['cleanup'] == 'lessons_without_folders' || $_GET['cleanup'] == 'all')) {
         foreach ($orphan_lessons as $lesson_id) {
             try {
-             $lesson = new EfrontLesson($lesson_id);
-             $lesson -> delete();
+            	$lesson = new EfrontLesson($lesson_id);
+            	$lesson -> delete();
             } catch (Exception $e) {
-             $errors[] = $folder;
+            	$errors[] = $folder;
             }
         }
         if ($_GET['cleanup'] != 'all') {
@@ -159,12 +159,12 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
             }
         }
     }
-    if (isset($_GET['create']) && $_GET['create'] == 'user_folders') {
+    if (isset($_GET['create'])  && $_GET['create']  == 'user_folders') {
         foreach ($orphan_users as $login) {
-            if (!mkdir(G_ROOTPATH.'upload/'.$login, 0755) ||
-            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments', 0755) ||
+            if (!mkdir(G_ROOTPATH.'upload/'.$login, 0755)                           ||
+            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments', 0755)        ||
             !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Drafts', 0755) ||
-            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Sent', 0755) ||
+            !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Sent', 0755)   ||
             !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Incoming', 0755)) {
                 $errors[] = $login;
             }
@@ -175,7 +175,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup&message=".urlencode(_THEFOLLOWINGUSERFOLDERSCOULDNOTBECREATED).': '.implode(", ", $errors).'&message_type=failure');
         }
     }
-    if (isset($_GET['create']) && $_GET['create'] == 'lesson_folders') {
+    if (isset($_GET['create'])  && $_GET['create']  == 'lesson_folders') {
         foreach ($orphan_lessons as $lesson_name => $lesson_id) {
             if (!mkdir(G_ROOTPATH.'www/content/lessons/'.$lesson_id)) {
                 $errors[] = $lesson_name;
@@ -187,21 +187,21 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
             eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup&message=".urlencode(_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED).': '.implode(", ", $errors).'&message_type=failure');
         }
     }
-
-    $logSize = eF_countTableData("logs");
+    
+    $logSize 	  = eF_countTableData("logs");
     $smarty -> assign("T_LOG_SIZE", $logSize[0]['count']);
     $lastLogEntry = eF_getTableData("logs", "timestamp", "", "timestamp", false, 1);
     $smarty -> assign("T_LAST_LOG_ENTRY", $lastLogEntry[0]['timestamp']);
     $cleanupForm = new HTML_QuickForm("cleanup_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup", "", null, true);
- $cleanupForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
- $cleanupForm -> addElement("text", "logs_size", null, 'class = "inputText" style = "width:60px"');
+	$cleanupForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
+	$cleanupForm -> addElement("text", "logs_size", null, 'class = "inputText" style = "width:60px"');
     $cleanupForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
     if ($cleanupForm -> isSubmitted() && $cleanupForm -> validate()) {
-     $timestamp = mktime(0, 0, 0, $_POST['purge_Month'], $_POST['purge_Day'], $_POST['purge_Year']);
-     if (eF_checkParameter($timestamp, 'int')) {
-      eF_deleteTableData("logs", "timestamp < $timestamp");
-     }
-     eF_redirect(basename($_SERVER['PHP_SELF']."?ctg=maintenance&tab=cleanup&message=".urlencode(_SUCCESSFULLYPURGEDLOGS)."&message_type=success"));
+    	$timestamp = mktime(0, 0, 0, $_POST['purge_Month'], $_POST['purge_Day'], $_POST['purge_Year']);
+    	if (eF_checkParameter($timestamp, 'int')) {
+	    	eF_deleteTableData("logs", "timestamp < $timestamp");
+    	}
+    	eF_redirect(basename($_SERVER['PHP_SELF']."?ctg=maintenance&tab=cleanup&message=".urlencode(_SUCCESSFULLYPURGEDLOGS)."&message_type=success"));
     }
     $renderer = prepareFormRenderer($cleanupForm);
     $smarty -> assign("T_CLEANUP_FORM", $renderer -> toArray());
@@ -233,13 +233,13 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         exit;
     }
 
- if (isset($_GET['autologin'])) {
-  $users = eF_getTableData("users", "login,name,surname,active,autologin,timestamp");
-  foreach ($users as $key => $value) {
-   $usersArray[$value['login']] = $value;
-  }
+	if (isset($_GET['autologin'])) {
+		$users     = eF_getTableData("users", "login,name,surname,active,autologin,timestamp");
+		foreach ($users as $key => $value) {
+			$usersArray[$value['login']] = $value;
+		}
 //pr($usersArray);		
-  if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
+		if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
                 isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
                 if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
@@ -262,35 +262,35 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
                 $smarty -> display('administrator.tpl');
                 exit;
         }
-  if (isset($_GET['postAjaxRequest'])) {
+		if (isset($_GET['postAjaxRequest'])) {
             try {
                 if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
-     $user = EfrontUserFactory :: factory($_GET['login']);
-     if ($user -> user['autologin'] == "" ) {
-      $convert = $_GET['login']."_".$usersArray[$_GET['login']]['timestamp'];
-      $converted = md5($convert.G_MD5KEY);
-      $user -> user['autologin'] = $converted;
-     } else {
-      $user -> user['autologin'] = "";
-     }
-     $user -> persist();
-     echo $converted;
+					$user = EfrontUserFactory :: factory($_GET['login']);
+					if ($user -> user['autologin'] == "" ) {
+						$convert = $_GET['login']."_".$usersArray[$_GET['login']]['timestamp'];
+						$converted = md5($convert.G_MD5KEY); 			
+						$user -> user['autologin'] = $converted;
+					} else {
+						$user -> user['autologin'] = "";
+					}
+					$user -> persist();  
+					echo $converted;
                 } else if (isset($_GET['addAll'])) {
-     isset($_GET['filter']) ? $usersArray = eF_filterData($usersArray, $_GET['filter']) : null;
-     foreach ($usersArray as $key => $value) {
-      if ($value['autologin'] == "") {
-       $autologin = md5($key."_".$value['timestamp'].G_MD5KEY);
-       eF_updateTableData("users", array('autologin' => $autologin), "login='".$key."'");
-      }
-     }
+					isset($_GET['filter']) ? $usersArray = eF_filterData($usersArray, $_GET['filter']) : null;
+					foreach ($usersArray as $key => $value) {
+						if ($value['autologin'] == "") {
+							$autologin = md5($key."_".$value['timestamp'].G_MD5KEY);
+							eF_updateTableData("users", array('autologin' => $autologin), "login='".$key."'");
+						}
+					}	
                 } else if (isset($_GET['removeAll'])) {
-     if (isset($_GET['filter'])) {
-      $usersArray = eF_filterData($usersArray, $_GET['filter']);
-      $queryString = "'".implode("','", array_keys($usersArray))."'";
-      eF_updateTableData("users", array('autologin' => ""),"login IN (".$queryString.")");
-     } else {
-      eF_updateTableData("users", array('autologin' => ""),"login !=''");
-     }
+					if (isset($_GET['filter'])) {
+						$usersArray = eF_filterData($usersArray, $_GET['filter']);
+						$queryString = "'".implode("','", array_keys($usersArray))."'";
+						eF_updateTableData("users", array('autologin' => ""),"login IN (".$queryString.")");
+					} else {
+						eF_updateTableData("users", array('autologin' => ""),"login !=''");
+					}
                 }
                 exit;
             } catch (Exception $e) {
@@ -299,9 +299,9 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
             }
             exit;
         }
-
- }
-
+	
+	}
+	   
 }
 
 

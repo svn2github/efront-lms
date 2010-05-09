@@ -7,91 +7,91 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $smarty -> assign("T_OPTION", $_GET['option']);
 
 if (isset($_GET['sel_course'])) {
- $directionsTree = new EfrontDirectionsTree();
- $directionsPaths = $directionsTree -> toPathString();
+	$directionsTree  = new EfrontDirectionsTree();
+	$directionsPaths = $directionsTree -> toPathString();
 
- $course_id = $_GET['sel_course'];
+	$course_id  = $_GET['sel_course'];
     $infoCourse = new EfrontCourse($_GET['sel_course']);
-    $infoCourse -> course['num_lessons'] = $infoCourse -> countCourseLessons();
-    $infoCourse -> course['num_students'] = sizeof($infoCourse -> getStudentUsers());
+    $infoCourse -> course['num_lessons'] 	= $infoCourse -> countCourseLessons();
+    $infoCourse -> course['num_students']   = sizeof($infoCourse -> getStudentUsers());
     $infoCourse -> course['num_professors'] = sizeof($infoCourse -> getProfessorUsers());
-    $infoCourse -> course['category_path'] = $directionsPaths[$infoCourse -> course['directions_ID']];
+    $infoCourse -> course['category_path'] 	  = $directionsPaths[$infoCourse -> course['directions_ID']];
 
     $smarty -> assign("T_CURRENT_COURSE", $infoCourse);
-
+    
     try {
-     $roles = EfrontLessonUser :: getLessonsRoles(true);
-     $smarty -> assign("T_ROLES_ARRAY", $roles);
+    	$roles = EfrontLessonUser :: getLessonsRoles(true);
+    	$smarty -> assign("T_ROLES_ARRAY", $roles);
 
-     $rolesBasic = EfrontLessonUser :: getLessonsRoles();
-     $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
-
-     $courseInstances = $infoCourse -> getInstances();
-     $smarty -> assign("T_COURSE_INSTANCES", $courseInstances);
-     $smarty -> assign("T_COURSE_HAS_INSTANCES", sizeof($courseInstances) > 1);
-
-     $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
-      $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
-      $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
-      $users = EfrontCourse :: convertUserObjectsToArrays($users);
-      $dataSource = $users;
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations'));
-      $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
-      $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
-      $constraints['required_fields'] = array('num_lessons', 'location');
-      $constraints['return_objects'] = false;
-      $infoUser = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);
-      $courses = $infoUser -> getUserCourses($constraints);
-      $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
-      $dataSource = $courses;
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsUsersTable' && eF_checkParameter($_GET['courseLessonsUsersTable_source'], 'id')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'time_in_lesson', 'overall_progress', 'test_status', 'project_status', 'completed', 'score'));
-      $infoUser = EfrontUserFactory :: factory($_GET['courseLessonsUsersTable_login']);
-      $lessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsUsersTable_source']));
-      $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
-      $dataSource = $lessons;
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_students', 'num_lessons', 'num_skills', 'price', 'created', 'operations', 'sort_by_column' => 8));
-      $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics', 'settings'));
-      $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
-      $constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
-      $courses = EfrontCourse :: getAllCourses($constraints);
-      $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
-      array_walk($courses, create_function('&$v,$k', '$v["has_instances"] = 0;')); //Eliminate the information on whether this course has instances, since this table only lists a course's instances anyway (and we want the + to expand its lessons always)
-      $dataSource = $courses;
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name'));
-      $lessons = $infoCourse -> getCourseLessons();
-      $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
-      $dataSource = $lessons;
-     }
-
-     $tableName = $_GET['ajax'];
-     $alreadySorted = true;
-     include("sorted_table.php");
+    	$rolesBasic = EfrontLessonUser :: getLessonsRoles();
+    	$smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
+    	 
+    	$courseInstances = $infoCourse -> getInstances();
+    	$smarty -> assign("T_COURSE_INSTANCES", $courseInstances);
+    	$smarty -> assign("T_COURSE_HAS_INSTANCES", sizeof($courseInstances) > 1);
+    	
+    	$smarty -> assign("T_DATASOURCE_SORT_BY", 0);
+    	if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
+    		$smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
+    		$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
+    		$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+    		$users	 = $infoCourse -> getCourseUsersAggregatingResults($constraints);
+    		$users	 = EfrontCourse :: convertUserObjectsToArrays($users);
+    		$dataSource   = $users;
+    	}
+    	if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {
+    		$smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations'));
+    		$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
+    		$smarty -> assign("T_SHOW_COURSE_LESSONS", true);
+    		$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
+    		$constraints['required_fields'] = array('num_lessons', 'location');
+    		$constraints['return_objects']  = false;
+    		$infoUser 	 = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);
+    		$courses	 = $infoUser -> getUserCourses($constraints);
+    		$courses	 = EfrontCourse :: convertCourseObjectsToArrays($courses);
+    		$dataSource  = $courses;
+    	}
+    	if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsUsersTable' && eF_checkParameter($_GET['courseLessonsUsersTable_source'], 'id')) {    		
+    		$smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'time_in_lesson', 'overall_progress', 'test_status', 'project_status', 'completed', 'score'));
+    		$infoUser 	 = EfrontUserFactory :: factory($_GET['courseLessonsUsersTable_login']);
+    		$lessons 	 = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsUsersTable_source']));
+    		$lessons 	 = EfrontLesson :: convertLessonObjectsToArrays($lessons);    		
+    		$dataSource  = $lessons;
+    	}
+    	if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
+    		$smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_students', 'num_lessons', 'num_skills', 'price', 'created', 'operations', 'sort_by_column' => 8));
+    		$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics', 'settings'));
+    		$smarty -> assign("T_SHOW_COURSE_LESSONS", true);
+    		$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
+    		$constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
+    		$courses  	 = EfrontCourse :: getAllCourses($constraints);
+    		$courses 	 = EfrontCourse :: convertCourseObjectsToArrays($courses);
+    		array_walk($courses, create_function('&$v,$k', '$v["has_instances"] = 0;'));		//Eliminate the information on whether this course has instances, since this table only lists a course's instances anyway (and we want the + to expand its lessons always)
+    		$dataSource  = $courses;
+    	}
+    	if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
+    		$smarty -> assign("T_DATASOURCE_COLUMNS", array('name'));
+    		$lessons 	 = $infoCourse -> getCourseLessons();
+    		$lessons 	 = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+    		$dataSource  = $lessons;
+    	}
+    	
+    	$tableName     = $_GET['ajax'];
+    	$alreadySorted = true;
+    	include("sorted_table.php");
     } catch (Exception $e) {
-     handleAjaxExceptions($e);
+    	handleAjaxExceptions($e);
     }
 
-    $groups = EfrontGroup :: getGroups();
+    $groups     = EfrontGroup :: getGroups();
     $smarty -> assign("T_GROUPS", $groups);
-
+    
 }
 
 if (isset($_GET['excel'])) {
     require_once 'Spreadsheet/Excel/Writer.php';
 
-    $workBook = new Spreadsheet_Excel_Writer();
+    $workBook  = new Spreadsheet_Excel_Writer();
     $workBook -> setTempDir(G_UPLOADPATH);
     $workBook -> setVersion(8);
 
@@ -123,21 +123,21 @@ if (isset($_GET['excel'])) {
     $workBook -> send($filename.'.xls');
 
     $formatExcelHeaders = & $workBook -> addFormat(array('Size' => 14, 'Bold' => 1, 'HAlign' => 'left'));
-    $headerFormat = & $workBook -> addFormat(array('border' => 0, 'bold' => '1', 'size' => '11', 'color' => 'black', 'fgcolor' => 22, 'align' => 'center'));
-    $formatContent = & $workBook -> addFormat(array('HAlign' => 'left', 'Valign' => 'top', 'TextWrap' => 1));
-    $headerBigFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'FgColor' => 22, 'Size' => 16, 'Bold' => 1));
-    $titleCenterFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 11, 'Bold' => 1));
-    $titleLeftFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 11, 'Bold' => 1));
-    $fieldLeftFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 10));
-    $fieldRightFormat = & $workBook -> addFormat(array('HAlign' => 'right', 'Size' => 10));
-    $fieldCenterFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 10));
+    $headerFormat       = & $workBook -> addFormat(array('border' => 0, 'bold' => '1', 'size' => '11', 'color' => 'black', 'fgcolor' => 22, 'align' => 'center'));
+    $formatContent      = & $workBook -> addFormat(array('HAlign' => 'left', 'Valign' => 'top', 'TextWrap' => 1));
+    $headerBigFormat    = & $workBook -> addFormat(array('HAlign' => 'center', 'FgColor' => 22, 'Size' => 16, 'Bold' => 1));
+    $titleCenterFormat  = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 11, 'Bold' => 1));
+    $titleLeftFormat    = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 11, 'Bold' => 1));
+    $fieldLeftFormat    = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 10));
+    $fieldRightFormat   = & $workBook -> addFormat(array('HAlign' => 'right', 'Size' => 10));
+    $fieldCenterFormat  = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 10));
 
     //first tab
     $workSheet = & $workBook -> addWorksheet("General Course Info");
     $workSheet -> setInputEncoding('utf-8');
 
     $workSheet -> setColumn(0, 0, 5);
-
+     
     //basic info
     if ($groupname || $branchName) {
         $celltitle = "";
@@ -155,7 +155,7 @@ if (isset($_GET['excel'])) {
     } else {
         $workSheet -> write(1, 1, _BASICINFO, $headerFormat);
     }
-
+     
     $workSheet -> mergeCells(1, 1, 1, 2);
     $workSheet -> setColumn(1, 2, 30);
 
@@ -179,7 +179,7 @@ if (isset($_GET['excel'])) {
     }
 
     $workSheet -> write(7, 1, _PRICE, $fieldLeftFormat);
-    $workSheet -> write(7, 2, $infoCourse -> course['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], $fieldRightFormat);
+    $workSheet -> write(7, 2,  $infoCourse -> course['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], $fieldRightFormat);
     $workSheet -> write(8, 1, _LANGUAGE, $fieldLeftFormat);
     $workSheet -> write(8, 2, $basicInfo['language'], $fieldRightFormat);
 
@@ -291,22 +291,22 @@ if (isset($_GET['excel'])) {
         $pdf -> Cell(100, 10, _BASICINFO, 0, 1, L, 0);
     }
 
-
+     
     $pdf -> SetFont("FreeSerif", "", 10);
-    $pdf -> Cell(70, 5, _COURSE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoCourse -> course['name'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _CATEGORY, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['direction'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _LESSONS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['lessons'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    $pdf -> Cell(70, 5, _COURSE,     0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoCourse -> course['name'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    $pdf -> Cell(70, 5, _CATEGORY,   0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['direction'],       0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    $pdf -> Cell(70, 5, _LESSONS,    0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['lessons'],         0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
 
     if ($groupname || $branchName) {
-        $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($studentLogins).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-        $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($professorLogins).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(70, 5, _STUDENTS,      0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($studentLogins).' ',          0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(70, 5, _PROFESSORS,    0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($professorLogins).' ',        0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     } else {
-        $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['students'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-        $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['professors'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(70, 5, _STUDENTS,   0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['students'],        0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['professors'],      0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     }
 
-    $pdf -> Cell(70, 5, _PRICE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoCourse -> course['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _LANGUAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['language'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    $pdf -> Cell(70, 5, _PRICE,      0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoCourse -> course['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+    $pdf -> Cell(70, 5, _LANGUAGE,   0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['language'],        0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
 
     //users
     $pdf -> AddPage('L');

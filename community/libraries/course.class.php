@@ -3669,7 +3669,7 @@ class EfrontCourse
   if (isset($constraints['active'])) {
    $constraints['active'] ? $where[] = 'l.active=1' : $where[] = 'l.active=0';
   }
-  if (isset($constraints['filter']) && eF_checkParameter($constraints['filter'], 'alnum')) {
+  if (isset($constraints['filter']) && eF_checkParameter($constraints['filter'], 'alnum_with_spaces')) {
    $result = eF_describeTable("lessons");
    $tableFields = array();
    foreach ($result as $value) {

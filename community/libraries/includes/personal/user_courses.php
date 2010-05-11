@@ -127,10 +127,13 @@ try {
    $dataSource = $lessons;
   }
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'completed', 'score'));
+
    $lessons = $courseUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsTable_source']));
    $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
    $dataSource = $lessons;
   }
+
 
   if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));

@@ -221,16 +221,16 @@
                 <div class="resultsTitle">
                 {$item.name} ({$item.score|string_format:"%.0f"}%)
                 {if $smarty.session.s_type == 'professor'}
-                    <a href="{$smarty.session.s_type}.php?ctg=lessons&course={$item.id}&op=course_info"><img border="0" style="vertical-align: middle;" alt="{$smarty.const._COURSEINFORMATION}" title="{$smarty.const._COURSEINFORMATION}" src="images/16x16/information.png"/></a>
-                    <a href="{$smarty.session.s_type}.php?ctg=lessons&course={$item.id}&op=course_certificates"><img border="0" style="vertical-align: middle;" alt="Course certificates" title="Course certificates" src="images/16x16/certificate\.png"/></a>
-                    <a href="{$smarty.session.s_type}.php?ctg=lessons&course={$item.id}&op=course_rules"><img border="0" style="vertical-align: middle;" alt="Course Rules" title="Course Rules" src="images/16x16/order.png"/></a>
+                    <a href="{$smarty.session.s_type}.php?ctg=lessons&course={$item.id}&op=course_info"><img class = "handle" alt="{$smarty.const._COURSEINFORMATION}" title="{$smarty.const._COURSEINFORMATION}" src="images/16x16/information.png"/></a>
+                    <a href="{$smarty.session.s_type}.php?ctg=lessons&course={$item.id}&op=course_certificates"><img class = "handle" alt="Course certificates" title="Course certificates" src="images/16x16/autocomplete.png"/></a>
+                    <a href="{$smarty.session.s_type}.php?ctg=lessons&course={$item.id}&op=course_rules"><img class = "handle" alt="Course Rules" title="Course Rules" src="images/16x16/order.png"/></a>
                 {/if}
                 {if $smarty.session.s_type == 'administrator'}
-                    <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_info"><img border="0" style="vertical-align: middle;" alt="{$smarty.const._COURSEINFORMATION}" title="{$smarty.const._COURSEINFORMATION}" src="images/16x16/information.png"/></a>
-                    <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_certificates"><img border="0" style="vertical-align: middle;" alt="Course certificates" title="Course certificates" src="images/16x16/certificate.png"/></a>
-                    <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_rules"><img border="0" style="vertical-align: middle;" alt="Course Rules" title="Course Rules" src="images/16x16/order.png"/></a>
-                    <a href = "{$smarty.session.s_type}.php?ctg=courses&edit_course=1" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-                                        <a href = "a{$smarty.session.s_type}.php?ctg=courses&delete_course=1" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETECOURSE}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
+                    <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_info"><img class = "handle" alt="{$smarty.const._COURSEINFORMATION}" title="{$smarty.const._COURSEINFORMATION}" src="images/16x16/information.png"/></a>
+                    <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_certificates"><img class = "handle" alt="Course certificates" title="Course certificates" src="images/16x16/autocomplete.png"/></a>
+                    <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_rules"><img class = "handle" alt="Course Rules" title="Course Rules" src="images/16x16/order.png"/></a>
+                    <a href = "{$smarty.session.s_type}.php?ctg=courses&edit_course={$item.id}" class = "editLink"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                    <a href = "a{$smarty.session.s_type}.php?ctg=courses&delete_course=1" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETECOURSE}')" class = "deleteLink"><img class = "handle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
                 {/if}
                 </div>
                 </div>
@@ -270,7 +270,7 @@
 {/capture}
 
 
-
+{capture name = 't_search_results_code'}
 <div class = "tabber">
     {if sizeof($T_SEARCH_COMMAND) >0}
         <div class = "tabbertab" title = "{$smarty.const._COMMANDS}">
@@ -314,3 +314,5 @@
     {/if}
 
 </div>
+{/capture}
+{eF_template_printBlock title=$smarty.const._SEARCHRESULTS data=$smarty.capture.t_search_results_code image='32x32/search.png'}

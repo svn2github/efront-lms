@@ -1,12 +1,13 @@
+
 <script>
 var noSearchCriteriaDefined = '{$smarty.const._NOSEARCHCRITERIADEFINED}';
-var sessionType				= '{$smarty.session.s_type}';
-var searchCourseUsersFormCourses	= '{$T_SEARCH_COURSE_USERS_FORM.courses.html|replace:"\n":""}';
-var searchCourseUsersFormCondition	= '{$T_SEARCH_COURSE_USERS_FORM.condition.html|replace:"\n":""}';
-var searchCourseUsersFormDateFrom 	= '<table><tr><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_cond.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_day.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_month.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_year.html|replace:"\n":""}</td></tr></table>'
-var searchCourseUsersFormDateTo		= '<table><tr><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_cond.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_day.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_month.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_year.html|replace:"\n":""}</td></tr></table>';
-var deleteConst 			= '{$smarty.const._DELETE}';
-var detailsConst			= '{$smarty.const._DETAILS}';
+var sessionType = '{$smarty.session.s_type}';
+var searchCourseUsersFormCourses = '{$T_SEARCH_COURSE_USERS_FORM.courses.html|replace:"\n":""}';
+var searchCourseUsersFormCondition = '{$T_SEARCH_COURSE_USERS_FORM.condition.html|replace:"\n":""}';
+var searchCourseUsersFormDateFrom = '<table><tr><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_cond.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_day.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_month.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.from_date_year.html|replace:"\n":""}</td></tr></table>'
+var searchCourseUsersFormDateTo = '<table><tr><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_cond.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_day.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_month.html|replace:"\n":""}</td><td>{$T_SEARCH_COURSE_USERS_FORM.to_date_year.html|replace:"\n":""}</td></tr></table>';
+var deleteConst = '{$smarty.const._DELETE}';
+var detailsConst = '{$smarty.const._DETAILS}';
 </script>
 
 {capture name = 't_search_course_code'}
@@ -42,7 +43,7 @@ var detailsConst			= '{$smarty.const._DETAILS}';
         <tr class = "topTitle">
             <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
             <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
-{*            <td class = "topTitle" name = "timestamp">{$smarty.const._DETAILS}</td>*}
+{* <td class = "topTitle" name = "timestamp">{$smarty.const._DETAILS}</td>*}
             <td class = "topTitle noSort" align="center">{$smarty.const._USERFORM}</td>
             <td class = "topTitle noSort" align="center">{$smarty.const._SENDMESSAGE}</td>
             <td class = "topTitle noSort" align="center">{$smarty.const._STATISTICS}</td>
@@ -63,20 +64,20 @@ var detailsConst			= '{$smarty.const._DETAILS}';
                     <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/>
                     <span class="tooltipSpan">
                         {if isset($lesson.info.general_description)}<strong>{$smarty.const._GENERALDESCRIPTION|cat:'</strong>:&nbsp;'|cat:$lesson.info.general_description}<br/>{/if}
-                        {if isset($lesson.info.assessment)}         <strong>{$smarty.const._ASSESSMENT|cat:'</strong>:&nbsp;'|cat:$lesson.info.assessment}<br/>                 {/if}
-                        {if isset($lesson.info.objectives)}         <strong>{$smarty.const._OBJECTIVES|cat:'</strong>:&nbsp;'|cat:$lesson.info.objectives}<br/>                 {/if}
-                        {if isset($lesson.info.lesson_topics)}      <strong>{$smarty.const._LESSONTOPICS|cat:'</strong>:&nbsp;'|cat:$lesson.info.lesson_topics}<br/>            {/if}
-                        {if isset($lesson.info.resources)}          <strong>{$smarty.const._RESOURCES|cat:'</strong>:&nbsp;'|cat:$lesson.info.resources}<br/>                   {/if}
-                        {if isset($lesson.info.other_info)}         <strong>{$smarty.const._OTHERINFO|cat:'</strong>:&nbsp;'|cat:$lesson.info.other_info}<br/>                  {/if}
+                        {if isset($lesson.info.assessment)} <strong>{$smarty.const._ASSESSMENT|cat:'</strong>:&nbsp;'|cat:$lesson.info.assessment}<br/> {/if}
+                        {if isset($lesson.info.objectives)} <strong>{$smarty.const._OBJECTIVES|cat:'</strong>:&nbsp;'|cat:$lesson.info.objectives}<br/> {/if}
+                        {if isset($lesson.info.lesson_topics)} <strong>{$smarty.const._LESSONTOPICS|cat:'</strong>:&nbsp;'|cat:$lesson.info.lesson_topics}<br/> {/if}
+                        {if isset($lesson.info.resources)} <strong>{$smarty.const._RESOURCES|cat:'</strong>:&nbsp;'|cat:$lesson.info.resources}<br/> {/if}
+                        {if isset($lesson.info.other_info)} <strong>{$smarty.const._OTHERINFO|cat:'</strong>:&nbsp;'|cat:$lesson.info.other_info}<br/> {/if}
                     </span>
                 </a>
             </td>
     *}
             <td align="center">
                 {if $user.user_type != 'administrator'}
-                    <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&print_preview=1" onclick = "eF_js_showDivPopup('{if $smarty.const.G_VERSIONTYPE == 'enterprise'}{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}{else}{$smarty.const._USERFORMPRINTPREVIEW}{/if}', 2)" target = "POPUP_FRAME"><img src='images/16x16/printer.png' title=  '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' /></a>
+                    <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&print_preview=1" onclick = "eF_js_showDivPopup('{if $smarty.const.G_VERSIONTYPE == 'enterprise'}{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}{else}{$smarty.const._USERFORMPRINTPREVIEW}{/if}', 2)" target = "POPUP_FRAME"><img src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' /></a>
                 {else}
-                    <img src='images/16x16/printer.png' title=  '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' />
+                    <img src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' />
                 {/if}
             </td>
 
@@ -91,13 +92,13 @@ var detailsConst			= '{$smarty.const._DETAILS}';
                     <img border = "0" src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
                 {/if}
 
-                </td><td></td><td  width="45%">
+                </td><td></td><td width="45%">
                     <a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETEUSER}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
                 </td></tr>
                 </table>
             </td>
 
-    {*        <td align="center"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>*}
+    {* <td align="center"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>*}
             </tr>
             {/foreach}
 

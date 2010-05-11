@@ -2888,7 +2888,9 @@ abstract class EfrontLessonUser extends EfrontUser
        'completed' => $completedUnits,
        'percentage' => $completedUnitsPercentage);
   } else {
-   return array();
+   return array('total' => 0,
+       'completed' => 0,
+       'percentage' => 0);
   }
  }
  private function getUserTestsStatusInLesson($lesson) {

@@ -3293,7 +3293,7 @@ class EfrontCourse
  private function importLessonsToCourse($data, $courseFile) {
   $data['lessons_to_courses'] = $this -> setCorrectLessonOrder($data['lessons_to_courses']);
   foreach ($data['lessons_to_courses'] as $value) {
-   $lesson = EfrontLesson :: createLesson(array('name' => $value['name'],
+   $lesson = EfrontLesson :: createLesson(array('name' => 'imported_lesson', //This is changed right below, during import
                 'course_only' => true,
                 'directions_ID' => $this -> course['directions_ID']));
    $lessonFile = new EfrontFile($courseFile['directory'].'/'.$value['lessons_ID'].'_exported.zip');

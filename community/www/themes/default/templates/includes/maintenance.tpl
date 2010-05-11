@@ -1,3 +1,5 @@
+{*moduleCleanup: Clean up old data*}
+{capture name = "moduleCleanup"}
  <tr><td class = "moduleCell">
 
  {capture name = 't_cleanup_code'}

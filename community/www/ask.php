@@ -1,3 +1,5 @@
+<?php
+/**
 
  * Respond to ajax query returing a list
 

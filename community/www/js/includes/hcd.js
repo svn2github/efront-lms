@@ -1,3 +1,5 @@
+function deleteJob(el, job) {
+ parameters = {delete_job_description:job, method: 'get'};
  var url = location.toString();
  ajaxRequest(el, url, parameters, onDeleteJob);
 }

@@ -1,3 +1,5 @@
+<?php
+/**
 
 * Chat functionality page
 

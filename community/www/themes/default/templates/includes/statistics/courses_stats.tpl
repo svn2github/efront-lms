@@ -1,3 +1,5 @@
+    {capture name='course_statistics'}
+            <table class = "statisticsTools statisticsSelectList">
                 <tr><td class = "labelCell">{$smarty.const._CHOOSECOURSE}:</td>
                     <td class = "elementCell" colspan = "4">
                         <input type = "text" id = "autocomplete" class = "autoCompleteTextBox"/>

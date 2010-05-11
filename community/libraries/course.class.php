@@ -1,3 +1,5 @@
+<?php
+/**
 
  * File for courses
 

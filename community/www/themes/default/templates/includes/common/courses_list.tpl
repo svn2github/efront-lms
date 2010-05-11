@@ -1,3 +1,5 @@
+{* INSTRUCTIONS FOR THIS FILE
+ Define $T_DATASOURCE_COLUMNS to specify which columns to show
  Define $T_DATASOURCE_OPERATIONS to specify which handles to show inside the 'operations' column
  Define $T_DATASOURCE_SORT_BY to specify which column to sort by
  Define $T_DATASOURCE_SORT_ORDER to specify the default ordering of the above sort column

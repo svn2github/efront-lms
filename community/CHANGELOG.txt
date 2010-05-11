@@ -1,3 +1,5 @@
+=== Version 3.6.3 build ===
+- Added course instances functionality
 - Upgrade now asks whether to upgrade search table as well
 - Updated adodb libraries to 5.10
 - Added ".hiddenElement" class

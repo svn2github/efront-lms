@@ -1,3 +1,5 @@
+{capture name = "moduleCourses"}
+ <tr><td class = "moduleCell">
 
  {if $smarty.get.course}
   {include file = "includes/course_settings.tpl"}

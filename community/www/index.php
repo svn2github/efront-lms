@@ -1,3 +1,5 @@
+<?php
+/**
 
  * Platform index page
 
@@ -33,7 +35,6 @@ $benchmark -> set('init');
 //Set headers in order to eliminate browser cache (especially IE's)
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-
 //Delete installation directory after install/upgrade
 if (is_dir("install") && isset($_GET['delete_install'])) {
  try {

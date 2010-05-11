@@ -1,3 +1,5 @@
+ {*moduleReports: Show employees satisfying some criteria *}
+  <script>
   var searchSkillTemplate = '{$T_REPORT_FORM.search_skill_template.html|replace:"\n":""}';
   var youShouldEitherProvideExistingOrNewGroup = '{$smarty.const._YOUSHOULDPROVIDEEXISTINGORNEWGROUP}';
   </script>

@@ -867,12 +867,13 @@ class EfrontCourse
 	 */
 	public function getCourseUsersAggregatingResults($constraints = array()) {
 		!empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-		 
+		
 		list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
 		$from    = "(users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
+		$from 	 = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
 		$where[] = "u.login=r.users_LOGIN";
 		$select  = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, 1 as has_course";
-		$groupby = "users_LOGIN";
+		$groupby = "r.users_LOGIN";
 /*		
 		if (G_VERSIONTYPE == 'enterprise') { #cpp#ifdef ENTERPRISE
 			$from   .= " left outer join module_hcd_employees e on e.users_LOGIN=u.login";
@@ -880,6 +881,7 @@ class EfrontCourse
 			$select .= ",e.*, e.users_LOGIN as has_hcd";		
 		} #cpp#endif
 */
+		
 		$result  = eF_getTableData($from, $select, implode(" and ", $where), $orderby, $groupby, $limit);
 
 		return EfrontCourse :: convertDatabaseResultToUserObjects($result);
@@ -977,6 +979,7 @@ class EfrontCourse
 				$from .= " LEFT OUTER JOIN module_hcd_employee_has_job_description ON module_hcd_employee_has_job_description.users_login = u.login JOIN module_hcd_job_description ON module_hcd_job_description.job_description_ID = module_hcd_employee_has_job_description.job_description_ID";
 			}
 		} #cpp#endif
+
 		$result  = eF_countTableData($from, $select, implode(" and ", $where));
 
 		return $result[0]['count'];
@@ -3006,7 +3009,7 @@ class EfrontCourse
 		$select['has_instances'] = "(select count( * ) from courses l where instance_source=c.id) as has_instances";
 		$select['num_lessons']  = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
 		// num_students: assigned+completed
-		$select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+		$select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.active=1 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
 //		$select['num_assigned'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student' and uc.completed=0) as num_assigned";
 //		$select['num_completed'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and uc.completed=1) as num_completed";
 		
@@ -3015,11 +3018,11 @@ class EfrontCourse
 			$select['location'] 	= "(select b.name from module_hcd_branch b, module_hcd_course_to_branch cb where cb.branches_ID=b.branch_ID and cb.courses_ID=c.id limit 1) as location";
 		} #cpp#endif
 
-		
-		$select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
+		$select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);		
 		list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
 		
 		$result = eF_getTableData("courses c", $select, implode(" and ", $where), $orderby, false, $limit);
+		
 		
 		if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
 			return self :: convertDatabaseResultToCourseObjects($result);
@@ -3120,6 +3123,18 @@ class EfrontCourse
 
 		return array($where, $limit, $order);
 	}
+	
+	/*
+	 * Append the tables that are used from the statistics filters to the FROM table list
+	 */
+	public static function appendTableFiltersUserConstraints($from, $constraints) {
+		foreach ($constraints['table_filters'] as $constraint) {
+			if (isset($constraint['table']) && isset($constraint['joinField'])) {
+				$from .= " JOIN " . $constraint['table'] . " ON u.login = " . $constraint['joinField'];
+			}
+		}
+		return $from;
+	}
 
 	public function convertCourseConstraintsToRequiredFields($constraints, $select) {
 		foreach ($select as $key => $value) {
@@ -3140,6 +3155,7 @@ class EfrontCourse
 	}
 
 	private static function addWhereConditionToUserConstraints($constraints) {
+		
 		if (isset($constraints['archive'])) {
 			$constraints['archive'] ? $where[] = 'u.archive!=0' : $where[] = 'u.archive=0';
 		}
@@ -3161,11 +3177,15 @@ class EfrontCourse
 			if (isset($constraints['branch']) && is_numeric($constraints['branch'])) {
 				$where[] = "module_hcd_employee_works_at_branch.branch_ID = '".$constraints['branch']."' AND module_hcd_employee_works_at_branch.assigned = 1";
 			}
-			if (isset($constraints['jobs']) && $constraints['jobs'] != _ALLJOBS) {
+			if (isset($constraints['jobs']) && $constraints['jobs'] != _ALLJOBS && $constraints['jobs'] != '') {
 				$where[] = "module_hcd_job_description.description = '".$constraints['jobs']."'";
 			}
 		} #cpp#endif
 
+		foreach ($constraints['table_filters'] as $constraint) {
+			$where[] = $constraint['condition'];
+		}
+		
 		return $where;
 	}
 
@@ -3388,10 +3408,12 @@ class EfrontCourse
 	 * @since 3.6.1
 	 * @access public
 	 */
-	public function getInstances() {
-		$constraints 	 = array('instance' => $this -> course['id'], 'archive'  => false);
+	public function getInstances($constraints = array()) {
+		!empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+		$constraints['instance'] = $this -> course['id'];
+		$constraints['required_fields'] = array('num_students', 'num_lessons', 'num_skills', 'location');
 		$courseInstances = self :: getAllCourses($constraints);
-
+/*
 		if (G_VERSIONTYPE == 'enterprise') { #cpp#ifdef ENTERPRISE
 			$result 	  = eF_getTableData("module_hcd_course_to_branch cb, module_hcd_branch b", "cb.branches_ID, cb.courses_ID, b.name", "b.branch_ID=cb.branches_ID");
 			$branchResult = array();
@@ -3403,7 +3425,7 @@ class EfrontCourse
 				$courseInstances[$key] -> course['branch_name'] = implode(",", $courseInstances[$key] -> branches);
 			}
 		} #cpp#endif
-
+*/
 		return $courseInstances;
 	}
 

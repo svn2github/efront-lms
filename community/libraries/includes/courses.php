@@ -112,6 +112,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
 	        $constraints   = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
 			$users         = $editCourse -> getCourseUsersIncludingUnassigned($constraints);						
 			$totalEntries  = $editCourse -> countCourseUsersIncludingUnassigned($constraints);
+
 			$dataSource	   = EfrontUser :: convertUserObjectsToArrays($users);
 			$tableName     = $_GET['ajax'];
 			$alreadySorted = 1;
@@ -125,7 +126,8 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
 		    } else {
 		        $courseInstances = $editCourse -> getInstances();
 		    }
-
+		    $courseInstances	 = EfrontCourse :: convertCourseObjectsToArrays($courseInstances);
+/*
 		    foreach ($courseInstances as $key => $instance) {
 		        $courseInstances[$key] -> course['num_students'] = sizeof($courseInstances[$key] -> getStudentUsers());
 		        $courseInstances[$key] -> course['num_lessons']  = $courseInstances[$key] -> countCourseLessons();
@@ -136,11 +138,14 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
 		        } #cpp#endif
 		    }
 		    $courseInstances	 = EfrontCourse :: convertCourseObjectsToArrays($courseInstances);
+*/
+			$totalEntries  = sizeof($courseInstances);
 
 			$dataSource   = $courseInstances;
-			$tableName    = 'instancesTable';
-			/**Handle sorted table's sorting and filtering*/
-			include("sorted_table.php");
+			$tableName     = $_GET['ajax'];
+			$alreadySorted = 1;
+			$smarty -> assign("T_TABLE_SIZE", $totalEntries);
+			include("sorted_table.php");			
 		} elseif (isset($_GET['mode'])) {
 			$editCourse -> setLessonMode($_GET['lesson'], $_GET['mode']);
 		} elseif (isset($_GET['add_instance'])) {
@@ -221,24 +226,25 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
 		include "../libraries/module_hcd_tools.php";
 		
 		if ($currentEmployee -> getType() == _SUPERVISOR) {
-			$branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","branch_ID IN (" . implode(",",$currentEmployee -> supervisesBranches). ")");
+			$branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","branch_ID IN (" . implode(",",$currentEmployee -> supervisesBranches). ")","father_branch_ID ASC,branch_ID ASC");
 			// Show only existing branches
 			$only_existing = 1;
 		} else {
-			$branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","");
+			$branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","","father_branch_ID ASC,branch_ID ASC");
 			// Show all branches
 			$only_existing = 0;
 		}
-		$form -> addElement('select', 'branches_ID', _LOCATIONBRANCH, eF_createBranchesTreeSelect($branches,$only_existing));
 		
+		$form -> addElement('select', 'branches_ID', _LOCATIONBRANCH, eF_createBranchesTreeSelect($branches,$only_existing));		
 		$smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect());
-		$smarty -> assign("T_JOBS_FILTER", eF_createJobFilterSelect());		
+		$smarty -> assign("T_JOBS_FILTER", eF_createJobFilterSelect());
+
 	} #cpp#endif
 		
 	$form -> addElement('text', 'max_users', _MAXIMUMUSERS, 'class = "inputText" style = "width:50px"');
 	$form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
 	$form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
-	
+
 	if (isset($_GET['edit_course'])) {
 		$editCourse = new EfrontCourse($_GET['edit_course']);
 		$smarty -> assign('T_EDIT_COURSE', $editCourse);

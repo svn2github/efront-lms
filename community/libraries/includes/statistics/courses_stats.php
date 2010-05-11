@@ -6,6 +6,8 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $smarty -> assign("T_OPTION", $_GET['option']);
 
+require_once $path."includes/statistics/stats_filters.php";
+
 if (isset($_GET['sel_course'])) {
 	$directionsTree  = new EfrontDirectionsTree();
 	$directionsPaths = $directionsTree -> toPathString();
@@ -18,7 +20,8 @@ if (isset($_GET['sel_course'])) {
     $infoCourse -> course['category_path'] 	  = $directionsPaths[$infoCourse -> course['directions_ID']];
 
     $smarty -> assign("T_CURRENT_COURSE", $infoCourse);
-    
+    $smarty -> assign("T_STATS_ENTITY_ID", $_GET['sel_course']);
+    	
     try {
     	$roles = EfrontLessonUser :: getLessonsRoles(true);
     	$smarty -> assign("T_ROLES_ARRAY", $roles);
@@ -34,7 +37,7 @@ if (isset($_GET['sel_course'])) {
     	if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
     		$smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
     		$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
-    		$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+    		$constraints = createConstraintsFromSortedTable() + array('archive' => false) + array('table_filters' => $stats_filters);
     		$users	 = $infoCourse -> getCourseUsersAggregatingResults($constraints);
     		$users	 = EfrontCourse :: convertUserObjectsToArrays($users);
     		$dataSource   = $users;
@@ -43,9 +46,10 @@ if (isset($_GET['sel_course'])) {
     		$smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations'));
     		$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
     		$smarty -> assign("T_SHOW_COURSE_LESSONS", true);
-    		$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
+    		$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
     		$constraints['required_fields'] = array('num_lessons', 'location');
     		$constraints['return_objects']  = false;
+    		$constraints['table_filters'] = $stats_filters;
     		$infoUser 	 = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);
     		$courses	 = $infoUser -> getUserCourses($constraints);
     		$courses	 = EfrontCourse :: convertCourseObjectsToArrays($courses);

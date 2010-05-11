@@ -440,7 +440,7 @@ if (isset($_GET['search'])) {
 		//and timestamp between $from and $to
 		$result = eF_getTableData("logs", "count(*)", "action = 'login' and users_LOGIN in ('".implode("','", $user_logins)."') order by timestamp");
 		$traffic['total_logins'] = $result[0]['count(*)'];
-
+ 
 		$smarty -> assign("T_USER_TRAFFIC", $traffic);
 		$actions = array('login'      => _LOGIN,
 		                             'logout'     => _LOGOUT,
@@ -504,7 +504,7 @@ $form -> addElement('radio', 'criteria', null, null, 'any_criteria', 'id="any_cr
 /* Get data for creating the selects */
 
 /* Braches (in hierarchical form) */
-$branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","");
+$branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","","father_branch_ID ASC,branch_ID ASC");
 $branches_list = eF_createBranchesTreeSelect($branches, 6);
 $branches_list[0] = _DONTTAKEINTOACCOUNT;
 $form -> addElement('select', 'search_branch', _WORKINGATBRANCH, $branches_list, 'id = "search_branch" class = "inputSelectMed" onchange="javascript:refreshResults()"');

@@ -780,10 +780,10 @@ function askBranches() {
 	eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
 
 	if($_SESSION['s_type'] == "administrator"){
-		$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%'");
+		$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%'","father_branch_ID ASC,branch_ID ASC");
 	} else {
 		if (isset($_SESSION['supervises_branches'])) {
-			$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%' AND branch_ID IN (".$_SESSION['supervises_branches'].")");
+			$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%' AND branch_ID IN (".$_SESSION['supervises_branches'].")","father_branch_ID ASC,branch_ID ASC");
 		}
 	}
 

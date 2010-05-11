@@ -33,6 +33,7 @@ $benchmark -> set('init');
 //Set headers in order to eliminate browser cache (especially IE's)
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
 //Delete installation directory after install/upgrade
 if (is_dir("install") && isset($_GET['delete_install'])) {
  try {
@@ -42,6 +43,7 @@ if (is_dir("install") && isset($_GET['delete_install'])) {
   echo "The installation directory could not be deleted. Please delete it manually or your system security is at risk.";
  }
 }
+
 //			$loadScripts[] = 'index';
 //$smarty -> caching 	      = $GLOBALS['configuration']['smarty_cache'];					
 //$smarty -> cache_lifetime = $GLOBALS['configuration']['smarty_cache_timeout'];	

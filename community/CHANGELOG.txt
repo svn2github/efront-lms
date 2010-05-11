@@ -1,21 +1,19 @@
-=== Version 3.6.3 build ===
-- Added course instances functionality
 - Upgrade now asks whether to upgrade search table as well
-- Updated adodb libraries to 5.10 
+- Updated adodb libraries to 5.10
 - Added ".hiddenElement" class
 - Added "tr.rowColor:hover" class
 - Fixed bug in certificate reports
 - Fixed issue about counting deactivated uses in license users count
 - Fixed bug in notifications about returning also archived courses
 - Fixed display issue in lesson information about lesson completion rules
-- Fixed issue about inserting (in caret) file to editor from file manager 
-- Fixed issue with update unit/create subunit links when redirected to first unit 
+- Fixed issue about inserting (in caret) file to editor from file manager
+- Fixed issue with update unit/create subunit links when redirected to first unit
 - Added option about where to redirect after user login (user dashboard or user courses)
 - Fixed issue about not sending mass e-mails when a user has not e-mail address defined
 - Added option in user type for dashboard
 - Fixed issue with new line in lesson information
 - Fixed bug about taking into account archived lessons in users page
-- Fixed bug about string compare instead of numeric in ini_set 
+- Fixed bug about string compare instead of numeric in ini_set
 - Added quick upgrade functionality (automatic)
 - Added purge logs functionality in maintenance
 
@@ -27,20 +25,20 @@
 - Fixed bug in social page about displaying private comments in professor dashboard
 - Fixed bug in importing lesson with reseting files options
 - Fixed issue in community edition about deleting a course
-- Fixed problem of loading file manager while editing a skill gap test 
+- Fixed problem of loading file manager while editing a skill gap test
 - Fixed toggling lesson auto complete when using IE6/7
 - Fixed toggling courses/categories in the catalog, when using IE6/7
 - Added check for OpenSSL libraries need for pdf certificates
 - Redo only wrong answered questions improvements
 - Deleting a user logs him out first
-- Fixed issue with custom blocks and links block 
+- Fixed issue with custom blocks and links block
 - Added payments notifications
 
 === Version 3.6.1 build 6440 ===
 - Added online help functionality
 - Extended tests to allow students to redo only the wrong questions (community++)
 - Fixed bug about news not taking into account expire field
-- Fixed error in forum configuration panel with mysql strict mode 
+- Fixed error in forum configuration panel with mysql strict mode
 - Fixed bug about not checking course rules in sub-student user types
 - Fixed default timezone in configuration to empty string (ticket 120)
 - Fixed error in creating user when default group has no lessons or courses
@@ -49,7 +47,7 @@
 - Fixed user type display in forum
 - Fixed problem about showing archived users in "Users who share lessons with me"
 - Fixed display of lessons and courses info by sorting info fields
-- Fixed error about active and inactive projects 
+- Fixed error about active and inactive projects
 - Fixed error about displaying archived lessons in user -> getLessons
 - Fixed issue with default value and select type in user profile
 - Fixed redo test redirecting when showing previous text executions
@@ -70,12 +68,12 @@
 - Fixed issue with lessons info in catalog
 - Fixed issue in number of lesson of a course when lesson is archived
 - Fixed problem about viewing avatars list in popup
-- Fixed sorting of languages based to translation field 
+- Fixed sorting of languages based to translation field
 - Fixed issue with a notification in community version
 - Removed enter voucher field when total price of selected lessons is 0
 - Added checkbox for separating if site name and site moto will de displayed in header (except browser title bar)
 - Extended search functionality for glossary
-- Fixed problem with moduleIconFunctions in layout  
+- Fixed problem with moduleIconFunctions in layout
 - Fixed problem about considering examples in flashcard module (EF-545)
 - Added autologin functionality
 - Fixed link for file manager in organization section
@@ -95,7 +93,7 @@
 - Fixed paths in smiles icons for chat
 - Fixed bug about export chat history (EF-526)
 - Fixed bug about importing user with invalid user type
-- Fixed js error about undefined getPeriodicData 
+- Fixed js error about undefined getPeriodicData
 - Added disable tooltip option
 - Fixed test analysis charts not loading with PHP 5.1.x
 - Fixed voucher code not being accepted as valid in certain circumstances
@@ -105,13 +103,13 @@
 - Added header hide option
 - Added job self-registering and activating supervisor with branch information custom profile field
 - Added hiddenHeader style for horizontal template
-- Fixed problem with unicode characters in calendar tooltip 
+- Fixed problem with unicode characters in calendar tooltip
 - Fixed problem in horizontal themes with search box by calling eF_formatTitlePath that was missing
 - Fixed forum configuration panel that was missing
 - Fixed EF-534. If a lesson is available only via course, it can not be hidden from catalog
 - Fixed error when adding additional option in multiple questions with IE7
 - Added additional check whether themes directories are recursively writable
-- Fixed copying media along with questions and tests 
+- Fixed copying media along with questions and tests
 - Fixed issue when editing a notification (EF-539)
 - Fixed error in selecting recipients in community edition (EF-537)
 - Fixed SCORM score reporting in user and test reports
@@ -119,13 +117,13 @@
 - Fixed nested categories indentation
 - Fixed problem with editor templates in Internet Explorer
 - Fixed deleting multiple units at once
-- Disabled copying to a lesson from itself 
+- Disabled copying to a lesson from itself
 
 === Version 3.6.0 build 5997 ===
 - Fixed phplivedocx configuration file creation
 - Fixed upgrading from 3.5.5 not retaining all kinds of custom blocks
 - Fixed community ++ issue where users where archived instead of being deleted
-- Fixed issue with error appearing when deleting users  
+- Fixed issue with error appearing when deleting users
 - Fixed issue with listing archived lessons in new notification list
 - Fixed theme exporting problem
 - Added allow_url_fopen = on to recommended PHP settings
@@ -141,13 +139,13 @@
 - Added "Print content" lesson property
 - Added list of not solved tests in user progress
 - List of category now does not include other categories' lessons and courses (EF-500)
-- Fixed issue with tags and scripts when printing a unit 
+- Fixed issue with tags and scripts when printing a unit
 - Fixed deleting categories containing archived items
 - Fixed SCORM content alert box popping up after error
 - Fixed bug in content management when more than one possible action was set
 - Fixed leaving orphaned entities while deleting lesson
 - Fixed bug about new message link for user types with only view permissions in messages
-- Added object{position: relative; z-index: 0} in css for properly display videos and tooltips together. Objects also need <param name="wmode" value="transparent"> 
+- Added object{position: relative; z-index: 0} in css for properly display videos and tooltips together. Objects also need <param name="wmode" value="transparent">
 - Added events in lesson initialization list
 - Fixed SCORM 1.2 detected as 2004 in enterprise edition
 - Fixed requesting sidebar in horizontal themes
@@ -164,16 +162,16 @@
 - Installation fixes to better support 3.5.x upgrades (logo, motto, custom blocks)
 - Edition separation in statistics fix
 - Fixed custom footer to replace default
-- When duplicate formatted user names appear, the login is displayed in order to tell who is who 
+- When duplicate formatted user names appear, the login is displayed in order to tell who is who
 - Added maintain test history setting
-- Added user configurable random pool option  
+- Added user configurable random pool option
 - Added optional prerequisite for php_soap, which is needed by phplivedocx
 - Fixed custom header propagating from 3.5.5 to 3.6.0, even though it's not supported there
 - Fixed user names not displaying in project assignment list
 - Fixed issue with not displaying media list properly in edit theme block
-- Fixed issue with editor link popup window not displaying content list correctly 
+- Fixed issue with editor link popup window not displaying content list correctly
 - Security fix for editor browsing popup
-- Fixed default notifications missing in upgrades 
+- Fixed default notifications missing in upgrades
 - Fixed students not to have access to lessons that are not activated, from the dashboard
 - Fixed dashboard results not to list information for ineligible lessons
 - Fixed forum list not displaying when the user does not have lessons
@@ -183,7 +181,7 @@
 
 === Version 3.6.0 build 5751 ===
 eFront 3.6.0 is a completely new version, introducing many important new features
-and important enhancements in all aspects of the platform. The hightlights of this 
+and important enhancements in all aspects of the platform. The hightlights of this
 version are:
 * 3x Faster than the 3.5.x branch
 * Greater interoperability

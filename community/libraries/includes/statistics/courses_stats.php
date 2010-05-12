@@ -15,8 +15,9 @@ if (isset($_GET['sel_course'])) {
  $course_id = $_GET['sel_course'];
     $infoCourse = new EfrontCourse($_GET['sel_course']);
     $infoCourse -> course['num_lessons'] = $infoCourse -> countCourseLessons();
-    $infoCourse -> course['num_students'] = sizeof($infoCourse -> getStudentUsers());
-    $infoCourse -> course['num_professors'] = sizeof($infoCourse -> getProfessorUsers());
+    $constraints = array('table_filters' => $stats_filters);
+    $infoCourse -> course['num_students'] = sizeof($infoCourse -> getStudentUsers(false, $constraints));
+    $infoCourse -> course['num_professors'] = sizeof($infoCourse -> getProfessorUsers(false, $constraints));
     $infoCourse -> course['category_path'] = $directionsPaths[$infoCourse -> course['directions_ID']];
 
     $smarty -> assign("T_CURRENT_COURSE", $infoCourse);
@@ -66,8 +67,10 @@ if (isset($_GET['sel_course'])) {
       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_students', 'num_lessons', 'num_skills', 'price', 'created', 'operations', 'sort_by_column' => 8));
       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics', 'settings'));
       $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $infoCourse -> course['id']);
+      // the 'active' is now part of the table filters 
+      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
       $constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
+      $constraints['table_filters'] = $stats_filters;
       $courses = EfrontCourse :: getAllCourses($constraints);
       $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
       array_walk($courses, create_function('&$v,$k', '$v["has_instances"] = 0;')); //Eliminate the information on whether this course has instances, since this table only lists a course's instances anyway (and we want the + to expand its lessons always)

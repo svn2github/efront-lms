@@ -3377,6 +3377,9 @@ class EfrontLesson
                 unset($data[$module->className]);
             }
         }
+  if (isset($data['glossary_words'])) { // to avoid excluding it with the lines below
+   $data['glossary'] = $data['glossary_words'];
+  }
         $dbtables = eF_showTables();
         //Skip tables that don't exist in current installation, such as modules' tables
         foreach (array_diff(array_keys($data), $dbtables) as $value) {
@@ -3389,9 +3392,13 @@ class EfrontLesson
             unset($data['tests_to_questions']);
         }
         foreach ($data as $table => $tabledata) {
-            if ($table == "glossary_words") {
+            /*if ($table == "glossary_words") {
+
                 $table = "glossary";
-            }
+
+			
+
+            } */ // moved 20 lines above
             if ($table == "lessons") { //from v3 lessons parameters also imported
                 if ($lessonProperties) {
                     unset($data['lessons']['id']);

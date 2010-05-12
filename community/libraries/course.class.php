@@ -930,9 +930,9 @@ class EfrontCourse
 	 * @todo: Replace with getCourseUsersXXX()
 
 	 */
- public function getUsers($returnObjects = false) {
+ public function getUsers($returnObjects = false, $constraints = array()) {
   if ($this -> users === false) {
-   $this -> initializeUsers();
+   $this -> initializeUsers($constraints);
   }
   if ($returnObjects) {
    foreach ($this -> users as $key => $user) {
@@ -964,8 +964,8 @@ class EfrontCourse
 	 * @todo: Replace with getCourseUsersXXX()
 
 	 */
- public function getStudentUsers($returnObjects = false) {
-  $courseUsers = $this -> getUsers($returnObjects) OR $courseUsers = array();
+ public function getStudentUsers($returnObjects = false, $constraints = array()) {
+  $courseUsers = $this -> getUsers($returnObjects, $constraints) OR $courseUsers = array();
   foreach ($courseUsers as $key => $value) {
    if ($value instanceOf EfrontUser) {
     $value = $value -> user;
@@ -997,8 +997,8 @@ class EfrontCourse
 	 * @todo: Replace with getCourseUsersXXX()
 
 	 */
- public function getProfessorUsers($returnObjects = false) {
-  $courseUsers = $this -> getUsers($returnObjects) OR $courseUsers = array();
+ public function getProfessorUsers($returnObjects = false, $constraints = array()) {
+  $courseUsers = $this -> getUsers($returnObjects, $constraints) OR $courseUsers = array();
   foreach ($courseUsers as $key => $value) {
    if ($value instanceOf EfrontUser) {
     $value = $value -> user;
@@ -1250,6 +1250,13 @@ class EfrontCourse
   }
   return $this -> roles;
  }
+ public static function convertCourseUserConstraintsToSqlParameters($constraints) {
+  list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
+  $where = self::addWhereConditionToUserConstraints($constraints);
+  $limit = self::addLimitConditionToConstraints($constraints);
+  $order = self::addSortOrderConditionToConstraints($constraints);
+  return array($where, $limit, $order);
+ }
  /**
 
 	 * Initialize course users
@@ -1263,10 +1270,16 @@ class EfrontCourse
 	 * @todo remove when not needed
 
 	 */
- private function initializeUsers() {
+ private function initializeUsers($constraints = array()) {
   $this -> course['total_students'] = $this -> course['total_professors'] = 0;
   $roles = EfrontLessonUser :: getLessonsRoles();
-  $result = eF_getTableData("users_to_courses uc, users u", "u.*, u.user_type as basic_user_type, uc.user_type as role, uc.from_timestamp as active_in_course, uc.score, uc.completed", "u.archive = 0 and uc.archive = 0 and uc.users_LOGIN = u.login and uc.courses_ID=".$this -> course['id']);
+  !empty($constraints) OR $constraints = array('archive' => false);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseUserConstraintsToSqlParameters($constraints);
+  $from = "users_to_courses uc, users u";
+  $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
+  $select = "u.*, u.user_type as basic_user_type, uc.user_type as role, uc.from_timestamp as active_in_course, uc.score, uc.completed";
+  $where[] = "uc.archive = 0 and uc.users_LOGIN = u.login and uc.courses_ID=".$this -> course['id'];
+  $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
   foreach ($result as $value) {
    $this -> users[$value['login']] = $value;
    if ($roles[$value['role']] == 'student') {
@@ -3588,14 +3601,27 @@ class EfrontCourse
   $result = eF_getTableData("courses c left outer join ($innerQuery) r on c.id=r.courses_ID", "c.*,r.*,r.courses_ID is not null as has_course, (select count( * ) from courses l where instance_source=c.id) as has_instances", implode(" and ", $where), $orderby, $groupby, $limit);
   return self :: convertDatabaseResultToCourseObjects($result);
  }
+ private static function setCourseUserSelection($constraints = array()) {
+  //"(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.active=1 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+  if (empty($constraints['table_filters'])) {
+   return "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.active=1 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+  } else {
+   list($where, $limit, $orderby) = EfrontCourse :: convertCourseUserConstraintsToSqlParameters($constraints);
+   $from = "users_to_courses uc, users u";
+   $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
+   $where[] = "uc.courses_ID=c.id";
+   $where[] = "u.archive=0";
+   $where[] = "u.login=uc.users_LOGIN";
+   $where[] = "u.user_type='student'";
+   unset($constraints['table_filters']); // to avoid using the filters again in courses....
+   return "(select count(*) FROM " . $from . " WHERE " . implode(" AND ", $where) . ") as num_students";
+  }
+ }
  public static function getAllCourses($constraints = array()) {
   $select['main'] = 'c.*';
   $select['has_instances'] = "(select count( * ) from courses l where instance_source=c.id) as has_instances";
   $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
-  // num_students: assigned+completed
-  $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.active=1 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
-//		$select['num_assigned'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student' and uc.completed=0) as num_assigned";
-//		$select['num_completed'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and uc.completed=1) as num_completed";
+  $select['num_students'] = EfrontCourse :: setCourseUserSelection(&$constraints);
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $result = eF_getTableData("courses c", $select, implode(" and ", $where), $orderby, false, $limit);
@@ -3766,6 +3792,9 @@ class EfrontCourse
   }
   if (isset($constraints['condition'])) {
    $where[] = $constraints['condition'];
+  }
+  foreach ($constraints['table_filters'] as $constraint) {
+   $where[] = $constraint['condition'];
   }
   return $where;
  }

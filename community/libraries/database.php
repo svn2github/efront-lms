@@ -450,26 +450,7 @@ function eF_deleteTableData($table, $where="")
 function eF_getTableData($table, $fields = "*", $where = "", $order = "", $group = "", $limit = "")
 {
     $thisQuery = microtime(true);
-    $tables = explode(",", $table);
-    foreach ($tables as $key => $value) {
-        //Prepend prefix to the table    
-        $tables[$key] = G_DBPREFIX.trim($value);
-    }
-    $table = implode(",", $tables);
-    $table = str_ireplace(" join ", " join ".G_DBPREFIX, $table);
-    $sql = "SELECT ".$fields." FROM ".$table;
-    if ($where != "") {
-        $sql .= " WHERE ".$where;
-    }
-    if ($group != "") {
-        $sql .= " GROUP BY ".$group;
-    }
-    if ($order != "") {
-        $sql .= " ORDER BY ".$order;
-    }
-    if ($limit != "") {
-        $sql .= " limit ".$limit;
-    }
+    $sql = prepareGetTableData($table, $fields, $where, $order, $group, $limit);
     $result = $GLOBALS['db'] -> GetAll($sql);
     logProcess($thisQuery, $sql);
     if ($result == false) {
@@ -481,6 +462,16 @@ function eF_getTableData($table, $fields = "*", $where = "", $order = "", $group
 function eF_countTableData($table, $fields = "*", $where = "", $order = "", $group = "", $limit = "")
 {
     $thisQuery = microtime(true);
+    $sql = prepareGetTableData($table, $fields, $where, $order, $group, $limit);
+    $result = $GLOBALS['db'] -> GetAll("select count(*) as count from ($sql) count_query");
+    logProcess($thisQuery, $sql);
+    if ($result == false) {
+        return array();
+    } else {
+        return $result;
+    }
+}
+function prepareGetTableData($table, $fields = "*", $where = "", $order = "", $group = "", $limit = "") {
     $tables = explode(",", $table);
     foreach ($tables as $key => $value) {
         //Prepend prefix to the table    
@@ -501,13 +492,7 @@ function eF_countTableData($table, $fields = "*", $where = "", $order = "", $gro
     if ($limit != "") {
         $sql .= " limit ".$limit;
     }
-    $result = $GLOBALS['db'] -> GetAll("select count(*) as count from ($sql) count_query");
-    logProcess($thisQuery, $sql);
-    if ($result == false) {
-        return array();
-    } else {
-        return $result;
-    }
+    return $sql;
 }
 /**
 

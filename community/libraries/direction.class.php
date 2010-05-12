@@ -785,7 +785,7 @@ class EfrontDirectionsTree extends EfrontTree
  }
  private function printLessonBuyLink($treeLesson, $options) {
   $treeString = '';
-  if (isset($options['buy_link']) && $options['buy_link'] && !$treeLesson -> lesson['has_lesson'] && !$treeLesson -> lesson['reached_max_users'] && $_SESSION['s_type'] != 'administrator') {
+  if (isset($options['buy_link']) && $options['buy_link'] && (!isset($treeLesson -> lesson['has_lesson']) || !$treeLesson -> lesson['has_lesson']) && (!isset($treeLesson -> lesson['reached_max_users']) || !$treeLesson -> lesson['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
    $treeString .= '
     <span class = "buyLesson">
      <span>'.($treeLesson -> lesson['price'] ? $treeLesson -> lesson['price_string'] : '').'</span>
@@ -812,7 +812,7 @@ class EfrontDirectionsTree extends EfrontTree
    $treeString .= '<a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$treeCourse -> course['name'].'</a>';
   }
   if (isset($options['buy_link'])) {
-   if ($options['buy_link'] && !$treeCourse -> course['has_instances'] && !$treeCourse -> course['has_course'] && !$treeCourse -> course['reached_max_users'] && $_SESSION['s_type'] != 'administrator') {
+   if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || $treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
     $treeString .= '
         <span class = "buyLesson">
          <span>'.($treeCourse -> course['price'] ? $treeCourse -> course['price_string'] : '').'</span>
@@ -880,10 +880,12 @@ class EfrontDirectionsTree extends EfrontTree
    $display = '';
    $display_lessons = 'style = "display:none"';
    $imageString = 'down';
+   $classString = '';
   } elseif (isset($options['collapse']) && $options['collapse'] == 1) {
    $display = 'style = "display:none"';
    $display_lessons = 'style = "display:none"';
    $imageString = 'down';
+   $classString = '';
   } else {
    $display = '';
    $display_lessons = '';
@@ -911,7 +913,7 @@ class EfrontDirectionsTree extends EfrontTree
          <table width = "100%">';
    foreach ($current -> offsetGet('lessons') as $lessonId) {
     $treeLesson = $lessons[$lessonId];
-    if ($treeLesson -> lesson['user_type']) {
+    if (isset($treeLesson -> lesson['user_type']) && $treeLesson -> lesson['user_type']) {
      $roleInLesson = $treeLesson -> lesson['user_type'];
      $roleBasicType = $roles[$roleInLesson]; //Indicates that this is a catalog with user data
     } else {
@@ -924,8 +926,8 @@ class EfrontDirectionsTree extends EfrontTree
     $treeString .= $this -> printLessonBuyLink($treeLesson, $options);
     $treeString .= '&nbsp;';
     $treeString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
-    $treeString .= ($treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
-           '.(!is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
+    $treeString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
+           '.(isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
           </td>
          </tr>';									
    }
@@ -948,7 +950,7 @@ class EfrontDirectionsTree extends EfrontTree
         <td colspan = "2">';
    foreach ($current -> offsetGet('courses') as $courseId) {
     $treeCourse = $courses[$courseId];
-    if ($treeCourse -> course['user_type']) {
+    if (isset($treeCourse -> course['user_type']) && $treeCourse -> course['user_type']) {
      $roleInCourse = $treeCourse -> course['user_type'];
      $roleBasicType = $roles[$roleInCourse]; //Indicates that this is a catalog with user data
     } else {

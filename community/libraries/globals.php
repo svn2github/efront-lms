@@ -108,7 +108,7 @@ if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
         } elseif ($GLOBALS['configuration']['default_language'] && is_file($path."language/lang-".$GLOBALS['configuration']['default_language'].".php.inc")) {
             /** If there isn't a language in the session, use the default system language*/
             require_once $path."language/lang-".$GLOBALS['configuration']['default_language'].".php.inc";
-            $setLanguage = $result[0]['value'];
+            $setLanguage = $GLOBALS['configuration']['default_language'];
         } else {
             //If there isn't neither a session language, or a default language in the configuration, use english by default
             require_once $path."language/lang-english.php.inc";
@@ -258,7 +258,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 6722;
+    $build = 6794;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/

@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Δεν έχουν ακόμη εκδο
 define("_SUPERVISORTOACTIVATE","Θα ενεργοποιηθεί από τον προϊστάμενο");
 define("_NOSUPERVISORSFOUND", "Δε βρέθηκαν προϊστάμενοι στο τμήμα");
 define("_PRINTCONTENT", "Εκτύπωση περιεχομένου");
-define("_USERHASNOTDONETEST", "Ο χρήστης δεν έχει κάνει αυτήν την αξιολόγηση");
 define("_VERIFYFOLLOWINGINFOISCORRECT", "Παρακαλούμε επιβεβαιώστε ότι οι ακόλουθες πληροφορίες είναι σωστές");
 define("_NOCATEGORIESDEFINED", "Δεν έχουν οριστεί κατηγορίες");
 define("_SUPERVISORMAILUSERACTIVATION","Ενεργοποίηση από προϊστάμενο μέσω email");
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Email ενεργοποίησης λογαριασμού συνεργάτη");
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Με το email αυτό μπορείτε να ενεργοποιήσετε το λογαριασμό του νέου συνεργάτη");
 define("_ASSIGNEDTOBRANCH","που ανατέθηκε στο τμήμα");
-define("_WITHTHEJOBDESCRIPTION","με τη θέση εργασίας");
 define("_BYCLICKINGONTHELINK", "κάνοντας κλικ στο παρακάτω");
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Ο λογαριασμός του συνεργάτη σας ενεργοποιήθηκε επιτυχώς");
 define("_SHOWHORIZONTALBAR","Οριζόντιο μενού");

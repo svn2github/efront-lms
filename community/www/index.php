@@ -754,7 +754,7 @@ if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2 && $GLOBALS['c
   } catch (Exception $e) {
   }
  }
- if (((isset($GLOBALS['currentLesson']) && $GLOBALS['currentLesson'] -> options['online']) && $GLOBALS['currentLesson'] -> options['online'] == 1) || $_SESSION['s_type'] == 'administrator' ){
+ if (((isset($GLOBALS['currentLesson']) && $GLOBALS['currentLesson'] -> options['online']) && $GLOBALS['currentLesson'] -> options['online'] == 1) || (isset($_SESSION['s_type']) && $_SESSION['s_type'] == 'administrator')) {
   $loadScripts[] = 'sidebar';
      //$currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
      $onlineUsers = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
@@ -765,12 +765,14 @@ if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2 && $GLOBALS['c
      $smarty -> assign("T_ONLINE_USERS_LIST", $onlineUsers);
  }
 }
-if ($_SESSION['s_login']) { //This way, logged in users that stay on index.php are not logged out
+if (isset($_SESSION['s_login']) && $_SESSION['s_login']) { //This way, logged in users that stay on index.php are not logged out
     $loadScripts[] = 'sidebar';
 }
 $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
-$smarty -> assign("T_SEARCH_MESSAGE", $search_message);
+if (isset($search_message)) {
+ $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
+}
 if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
  //Main scripts, such as prototype
  $mainScripts = array('scriptaculous/prototype',

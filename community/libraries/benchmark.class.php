@@ -66,7 +66,7 @@ class EfrontBenchmark
   $str .= "
    </table>
    <table style = 'display:none;background-color:white;width:100%' id = 'queries_table'>";
-  if ($heavyQueries) {
+  if (isset($heavyQueries)) {
    $str .= "
     <tr><td>&nbsp;</td></tr>
     <tr><td class = 'topTitle'>Heavy queries</td></tr>

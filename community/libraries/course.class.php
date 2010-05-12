@@ -968,8 +968,11 @@ class EfrontCourse
    $this -> initializeUsers($constraints);
   }
   if ($returnObjects) {
-   foreach ($this -> users as $key => $user) {
-    $users[$key] = EfrontUserFactory :: factory($key);
+   $users = array();
+   if (is_array($this -> users)) {
+    foreach ($this -> users as $key => $user) {
+     $users[$key] = EfrontUserFactory :: factory($key);
+    }
    }
    return $users;
   } else {
@@ -3634,7 +3637,7 @@ class EfrontCourse
   $result = eF_getTableData("courses c left outer join ($innerQuery) r on c.id=r.courses_ID", "c.*,r.*,r.courses_ID is not null as has_course, (select count( * ) from courses l where instance_source=c.id) as has_instances", implode(" and ", $where), $orderby, $groupby, $limit);
   return self :: convertDatabaseResultToCourseObjects($result);
  }
- private static function setCourseUserSelection($constraints = array()) {
+ private static function setCourseUserSelection(&$constraints = array()) {
   //"(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.active=1 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
   if (empty($constraints['table_filters'])) {
    return "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.active=1 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
@@ -3654,7 +3657,7 @@ class EfrontCourse
   $select['main'] = 'c.*';
   $select['has_instances'] = "(select count( * ) from courses l where instance_source=c.id) as has_instances";
   $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
-  $select['num_students'] = EfrontCourse :: setCourseUserSelection(&$constraints);
+  $select['num_students'] = EfrontCourse :: setCourseUserSelection($constraints);
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $result = eF_getTableData("courses c", $select, implode(" and ", $where), $orderby, false, $limit);
@@ -3753,9 +3756,11 @@ class EfrontCourse
 
 	 */
  public static function appendTableFiltersUserConstraints($from, $constraints) {
-  foreach ($constraints['table_filters'] as $constraint) {
-   if (isset($constraint['table']) && isset($constraint['joinField'])) {
-    $from .= " JOIN " . $constraint['table'] . " ON u.login = " . $constraint['joinField'];
+  if (isset($constraints['table_filters'])) {
+   foreach ($constraints['table_filters'] as $constraint) {
+    if (isset($constraint['table']) && isset($constraint['joinField'])) {
+     $from .= " JOIN " . $constraint['table'] . " ON u.login = " . $constraint['joinField'];
+    }
    }
   }
   return $from;
@@ -3792,8 +3797,10 @@ class EfrontCourse
   if (isset($constraints['condition'])) {
    $where[] = $constraints['condition'];
   }
-  foreach ($constraints['table_filters'] as $constraint) {
-   $where[] = $constraint['condition'];
+  if (isset($constraints['table_filters'])) {
+   foreach ($constraints['table_filters'] as $constraint) {
+    $where[] = $constraint['condition'];
+   }
   }
   return $where;
  }

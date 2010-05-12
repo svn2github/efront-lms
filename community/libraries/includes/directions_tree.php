@@ -17,32 +17,35 @@ try {
 
  //Mark the lessons and courses that the user already has, so that they can't be selected
  try {
-     $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
-     if ($currentUser -> user['user_type'] == 'administrator') {
-         throw new Exception();
-     }
-     foreach ($currentUser -> getLessons() as $key => $value) {
-         if (in_array($key, array_keys($lessons))) {
-             $lessons[$key] -> lesson['has_lesson'] = 1;
-         }
-     }
-     foreach ($currentUser -> getCourses() as $key => $value) {
-         if (in_array($key, array_keys($courses))) {
-             $courses[$key] -> course['has_course'] = 1;
-         }
-     }
- } catch (Exception $e) {/*do nothing, it doesn't matter*/}
+  if (isset($_SESSION['s_login']) && $_SESSION['s_login']) {
+   $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
+   if ($currentUser -> user['user_type'] == 'administrator') {
+    throw new Exception();
+   }
+   foreach ($currentUser -> getLessons() as $key => $value) {
+    if (in_array($key, array_keys($lessons))) {
+     $lessons[$key] -> lesson['has_lesson'] = 1;
+    }
+   }
+   foreach ($currentUser -> getCourses() as $key => $value) {
+    if (in_array($key, array_keys($courses))) {
+     $courses[$key] -> course['has_course'] = 1;
+    }
+   }
 
- foreach ($lessons as $key => $lesson) {
-     if ($lesson -> lesson['max_users'] && sizeof($lesson -> getUsers('student')) >= $lesson -> lesson['max_users']) {
-         $lessons[$key] -> lesson['reached_max_users'] = 1;
-     }
- }
- foreach ($courses as $key => $course) {
-     if ($course -> course['max_users'] && sizeof($course -> getUsers('student')) >= $course -> course['max_users']) {
-         $courses[$key] -> course['reached_max_users'] = 1;
-     }
- }
+   foreach ($lessons as $key => $lesson) {
+    if ($lesson -> lesson['max_users'] && sizeof($lesson -> getUsers('student')) >= $lesson -> lesson['max_users']) {
+     $lessons[$key] -> lesson['reached_max_users'] = 1;
+    }
+   }
+
+   foreach ($courses as $key => $course) {
+    if ($course -> course['max_users'] && sizeof($course -> getUsers('student')) >= $course -> course['max_users']) {
+     $courses[$key] -> course['reached_max_users'] = 1;
+    }
+   }
+  }
+ } catch (Exception $e) {/*do nothing, it doesn't matter*/}
 
  if (isset($_GET['filter'])) {
   foreach ($lessons as $value) {

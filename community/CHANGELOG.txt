@@ -19,6 +19,7 @@
 - Added quick upgrade functionality (automatic)
 - Added purge logs functionality in maintenance
 - Fixed bug about importing lesson with glossary terms
+- Fixed issue with php.ini when it exists in www folder by copying it to install folder
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

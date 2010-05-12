@@ -177,12 +177,20 @@ if ($_GET['op'] == 'course_info') {
    exit;
   }
 
-  $roles = EfrontLessonUser :: getLessonsRoles();
+  $rolesBasic = EfrontLessonUser :: getLessonsRoles();
+  $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
+   $studentRoles = array();
+   foreach ($rolesBasic as $key => $role) {
+    $role != 'student' OR $studentRoles[] = $key;
+   }
+   pr($studentRoles);
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
       $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+      $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
       $users = $currentCourse -> getCourseUsers($constraints);
+
    $totalEntries = $currentCourse -> countCourseUsers($constraints);
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);
 

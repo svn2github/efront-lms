@@ -78,6 +78,9 @@ if (is_file($path."configuration.php")) {
     $smarty -> assign("T_CONFIGURATION_EXISTS", true);
 }
 if ((isset($_GET['step']) && $_GET['step'] == 1) || isset($_GET['unattended'])) {
+ if (is_file('../php.ini') && !is_file('php.ini') && copy('../php.ini', 'php.ini')) {
+        header("location:".$_SERVER['PHP_SELF']."?step=1");
+    }
     $exclude_normal = true;
     require_once $path."includes/check_status.php";
  if ($_GET['mode'] != 'none' && sizeof($settings_mandatory) > 0) {
@@ -904,9 +907,9 @@ class Installation
          if ($settings['register_globals']) {
              $localPhpIniString .= "register_globals = Off\n";
          }
-         file_put_contents("../php.ini", $localPhpIniString);
-         file_put_contents("php.ini", $localPhpIniString);
-   file_put_contents("../editor/tiny_mce/php.ini", $localPhpIniString);
+         file_put_contents("../php.ini", $localPhpIniString, FILE_APPEND);
+         file_put_contents("php.ini", $localPhpIniString, FILE_APPEND);
+   file_put_contents("../editor/tiny_mce/php.ini", $localPhpIniString, FILE_APPEND);
      } else if ($mode == 'htaccess') {
          $localHtaccess = "<IfModule mod_php5.c>
 php_value magic_quotes_gpc Off

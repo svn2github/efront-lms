@@ -338,7 +338,7 @@ var enableMyJobSelect = false;
      {eF_template_printBlock title = $T_TITLES.account.edituser data = $smarty.capture.t_personal_data_code image = '32x32/profile.png'}
     </div>
     {if isset($T_ADDITIONAL_ACCOUNTS) && $T_CONFIGURATION.mapped_accounts == 0 || ($T_CONFIGURATION.mapped_accounts == 1 && $T_CURRENT_USER->user.user_type != 'student') || ($T_CONFIGURATION.mapped_accounts == 2 && $_admin_)}
-    <div class="tabbertab" title = "{$T_TITLES.account.mapped}">
+    <div class="tabbertab{if ($smarty.get.tab == "mapped_accounts")} tabbertabdefault {/if}" title = "{$T_TITLES.account.mapped}">
      {eF_template_printBlock title = $T_TITLES.account.mapped data = $smarty.capture.t_additional_accounts_code image = '32x32/users.png'}
     </div>
     {/if}

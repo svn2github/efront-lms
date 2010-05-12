@@ -14,6 +14,7 @@ try {
   require_once("rtf_export.php");
 
  } elseif (isset($_GET['course'])) {
+  //@todo: You don't have to retrieve all courses just to check one
   $userCourses = $currentUser -> getCourses();
   if ($roles[$userCourses[$_GET['course']]] != 'professor' || !in_array($_GET['course'], array_keys($userCourses))) {
    throw new Exception(_UNAUTHORIZEDACCESS);

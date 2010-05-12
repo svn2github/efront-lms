@@ -17,6 +17,8 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  */
 function runPostInstallationFunctions() {
  //addRestrictedAdministrator();
+ //customizeSite();
+ //ReplaceProfessorUser();
 }
 function addRestrictedAdministrator() {
  $values['core_access'] = array("configuration" => 'hidden',
@@ -29,5 +31,24 @@ function addRestrictedAdministrator() {
      "basic_user_type" => 'administrator',
      "core_access" => serialize($values['core_access']));
  eF_insertTableData("user_types", $fields);
+}
+function customizeSite() {
+ EfrontConfiguration :: setValue('site_name', 'ACME');
+ EfrontConfiguration :: setValue('site_motto', 'Corporate Learning Portal');
+ EfrontConfiguration :: setValue('disable_help', '1');
+}
+function ReplaceProfessorUser() {
+ $professorData = array('login' => 'professor',
+                           'password' => 'professor',
+                           'email' => $GLOBALS['configuration']['system_email'],
+                           'name' => 'Default',
+                           'surname' => 'Professor',
+                           'languages_NAME' => 'english',
+                           'active' => '1',
+                           'user_type'=> 'professor',
+                           'additional_accounts' => serialize('admin', 'student'));
+ $professor = EfrontUser :: createUser($professorData);
+ $oldUser =FEfrontUserFactory::factory('professor');
+ $oldUser -> delete();
 }
 ?>

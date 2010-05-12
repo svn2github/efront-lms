@@ -96,7 +96,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
    <td class = "to_timestamp">{if $user.has_course}#filter:timestamp_time-{$user.to_timestamp}#{/if}</td>
 {/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
-   <td class = "score">{if $user.has_course}#filter:score-{$user.score}#%{/if}</td>
+   <td class = "score">{if $user.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}#filter:score-{$user.score}#%{/if}</td>
 {/if}
 {if in_array('issued_certificate', $T_DATASOURCE_COLUMNS)}
    <td class = "centerAlign issued_certificate">{if $user.has_course}{$user.serial_number}{/if}</td>

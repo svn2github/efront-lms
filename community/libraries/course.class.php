@@ -188,7 +188,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function initializeDataFromSource($source) {
@@ -203,6 +203,39 @@ class EfrontCourse
    }
    $this -> course = $source[0];
   }
+  if (!$this -> course['directions_ID']) {
+   $this -> setCategoryId();
+  }
+ }
+ /**
+
+	 * Set a category (direction) id, in case it's missing.
+
+	 * If this course is an instance, set it to be the same as the originating course. Otherwise, 
+
+	 * set it to be the first active category
+
+	 * 
+
+	 * @since 3.6.3
+
+	 * @access private
+
+	 */
+ private function setCategoryId() {
+  if ($this -> course['instance_source']) {
+   $parentCourse = new EfrontCourse($this -> course['instance_source']);
+   if ($parentCourse -> course['directions_ID']) {
+    $this -> course['directions_ID'] = $parentCourse -> course['directions_ID'];
+    $this -> persist();
+   }
+  } else {
+   $result = eF_getTableData("directions", "id", "active=1", "", "", 1);
+   if (!empty($result)) {
+    $this -> course['directions_ID'] = $result[0]['id'];
+    $this -> persist();
+   }
+  }
  }
  /**
 
@@ -212,7 +245,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function initializeRules() {
@@ -227,7 +260,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function initializeOptions() {
@@ -248,7 +281,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function buildPriceString() {
@@ -472,7 +505,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function sortLessons($result) {
@@ -653,7 +686,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function getPreviousLessonsInCourse() {
@@ -673,7 +706,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function countLessonsOccurencesInCourses() {
@@ -691,7 +724,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function getCourseLastLesson() {
@@ -719,7 +752,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function verifyLessonsList($lessonsList) {
@@ -771,7 +804,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function addCourseUsersToLesson($lesson, $usersToAdd = false) {
@@ -865,7 +898,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function addLessonQuestionsToCourseSkill($lesson) {
@@ -889,7 +922,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function removeLessonQuestionsFromCourseSkill($lesson) {
@@ -1021,7 +1054,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access public
 
 	 * @todo: Replace with getCourseUsersXXX()
 
@@ -1241,7 +1274,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function getPossibleCourseRoles() {
@@ -1265,7 +1298,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 * @todo remove when not needed
 
@@ -1344,7 +1377,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function verifyUsersList($users) {
@@ -1380,7 +1413,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function verifyRolesList($roles, $length) {
@@ -1404,7 +1437,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function isStudentRole($role) {
@@ -1427,7 +1460,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function isProfessorRole($role) {
@@ -1450,7 +1483,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function addUsersToCourse($usersData) {
@@ -1461,7 +1494,7 @@ class EfrontCourse
     $fields = array("active" => 1, "archive" => 0);
     $where = "users_LOGIN='".$value['login']."' and courses_ID=".$this -> course['id'];
     self::persistCourseUsers($fields, $where, $this -> course['id'], $value['login']);
-    eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0), "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
+    //eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0), "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
    } else {
     $newUsers[] = $value['login'];
     $fields[] = array('users_LOGIN' => $value['login'],
@@ -1510,7 +1543,7 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access protected
+	 * @access private
 
 	 */
  private function setUserRolesInCourse($usersData) {
@@ -3695,7 +3728,7 @@ class EfrontCourse
   if (isset($constraints['active'])) {
    $constraints['active'] ? $where[] = 'l.active=1' : $where[] = 'l.active=0';
   }
-  if (isset($constraints['filter']) && eF_checkParameter($constraints['filter'], 'alnum_with_spaces')) {
+  if (isset($constraints['filter']) && eF_checkParameter($constraints['filter'], 'text')) {
    $result = eF_describeTable("lessons");
    $tableFields = array();
    foreach ($result as $value) {
@@ -4488,7 +4521,7 @@ class EfrontCourse
   }
  }
  private function handlePostAjaxRequestForSingleUser() {
-  isset($_GET['user_type']) && in_array($_GET['user_type'], EfrontLessonUser :: getLessonsRoles()) ? $userType = $_GET['user_type'] : $userType = 'student';
+  isset($_GET['user_type']) && in_array($_GET['user_type'], array_keys(EfrontLessonUser :: getLessonsRoles())) ? $userType = $_GET['user_type'] : $userType = 'student';
   $user = EfrontUserFactory :: factory($_GET['login']);
   if (!$user -> hasCourse($this) || $user -> getUserTypeInCourse($this) != $userType) {
    $this -> addUsers($user, $userType);

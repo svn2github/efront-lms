@@ -118,40 +118,45 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 //Get users list through ajax
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
 
-    $users = EfrontStats::getUsersLessonStatus($currentLesson);
-    $users = $users[$currentLesson -> lesson['id']];
-    $result = eF_getTableDataFlat("user_types", "id", "basic_user_type='student'");
-    $studentTypes = $result["id"];
-    $studentTypes[] = "student";
+ try {
+  $users = EfrontStats::getUsersLessonStatus($currentLesson);
 
-    foreach ($users as $key => $user) {
-        if (is_array($studentTypes) && array_search($user['user_type'], $studentTypes) === false){ //keep only students and sub-students
-            unset($users[$key]);
-        }
-    }
+  $users = $users[$currentLesson -> lesson['id']];
+  $result = eF_getTableDataFlat("user_types", "id", "basic_user_type='student'");
+  $studentTypes = $result["id"];
+  $studentTypes[] = "student";
 
-    isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+  foreach ($users as $key => $user) {
+   if (is_array($studentTypes) && array_search($user['user_type'], $studentTypes) === false){ //keep only students and sub-students
+    unset($users[$key]);
+   }
+  }
 
-    if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
-        $sort = $_GET['sort'];
-        isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
-    } else {
-        $sort = 'login';
-    }
-    $users = eF_multiSort($users, $sort, $order);
-    $smarty -> assign("T_USERS_SIZE", sizeof($users));
-    if (isset($_GET['filter'])) {
-        $users = eF_filterData($users, $_GET['filter']);
-    }
-    if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
-        isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-        $users = array_slice($users, $offset, $limit);
-    }
-    foreach ($users as $key => $value) {
-        $users[$key]['issued_certificate'] = unserialize($value['issued_certificate']);
-    }
-    $smarty -> assign("T_USERS_PROGRESS", $users);
-    $smarty -> display('professor.tpl');
+  isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+
+  if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
+   $sort = $_GET['sort'];
+   isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
+  } else {
+   $sort = 'login';
+  }
+  $users = eF_multiSort($users, $sort, $order);
+  $smarty -> assign("T_USERS_SIZE", sizeof($users));
+  if (isset($_GET['filter'])) {
+   $users = eF_filterData($users, $_GET['filter']);
+  }
+  if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+   isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+   $users = array_slice($users, $offset, $limit);
+  }
+  foreach ($users as $key => $value) {
+   $users[$key]['issued_certificate'] = unserialize($value['issued_certificate']);
+  }
+  $smarty -> assign("T_USERS_PROGRESS", $users);
+  $smarty -> display('professor.tpl');
+ } catch (Exception $e) {
+  handleAjaxExceptions($e);
+ }
     exit;
 }
 

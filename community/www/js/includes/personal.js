@@ -966,6 +966,8 @@ function onAddAccountSuccess(el, responseText) {
  }
  if (top.sideframe) {
   top.sideframe.location.reload();
+ } else {
+  window.location = window.location.toString()+'&tab=mapped_accounts';
  }
 }
 function deleteAccount(el, login) {

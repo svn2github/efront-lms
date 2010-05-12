@@ -31,7 +31,7 @@
       <tr><td class = "labelCell">{$smarty.const._CONTENTDONE}:&nbsp;</td>
        <td class = "progressCell" style = "vertical-align:top">
         <span class = "progressNumber">{if $lesson->lesson.overall_progress.percentage}{$lesson->lesson.overall_progress.percentage}{else}0{/if}%</span>
-        <span class = "progressBar" style = "width:{$lesson->lesson.percentage_done}px;">&nbsp;</span>
+        <span class = "progressBar" style = "width:{$lesson->lesson.overall_progress.percentage}px;">&nbsp;</span>
        </td></tr>
      </table>
      </td>

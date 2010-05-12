@@ -154,7 +154,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)}
          <td class = "completed">
-   {if $course.has_course}
+   {if $course.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}
     {if $course.completed}
      <img src = "images/16x16/success.png" alt = "#filter:timestamp_time-{$course.to_timestamp}#" title = "#filter:timestamp_time-{$course.to_timestamp}#">
     {else}
@@ -167,7 +167,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
    <td class = "to_timestamp">{if $user.has_course}#filter:timestamp_time-{$user.to_timestamp}#{/if}</td>
 {/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
-         <td class = "score">{if $course.has_course}#filter:score-{$course.score}#%{/if}</td>
+         <td class = "score">{if $course.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}#filter:score-{$course.score}#%{/if}</td>
 {/if}
 {if in_array('operations', $T_DATASOURCE_COLUMNS)}
    <td class = "operations">{strip}

@@ -173,6 +173,8 @@
          <td><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'templates')"/></td></tr>
      <tr><td class = "labelCell">{$smarty.const._CLEARTESTSCACHE}:&nbsp;</td>
          <td><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'tests')"/></td></tr>
+     <tr><td class = "labelCell">{$smarty.const._CLEARQUERYCACHE}:&nbsp;</td>
+         <td><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'query')"/></td></tr>
          </table>
          {/capture}
 

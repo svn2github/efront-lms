@@ -3677,4 +3677,6 @@ define("_ONLYXCANBEAPPLIEDATATIME", "Only %x entities where processed, which is 
 define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "You cannot assign users to this curriculum because it has no courses");
 define("_CURRICULUMPROPERTIES", "Curriculum properties");
 define("_ENTRIES", "Entries");
+define("_FEEDBACKOPTIONS","Feedback options");
+define("_OPTIONSFORFEEDBACK","Options for feedback");
 ?>

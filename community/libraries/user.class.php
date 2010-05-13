@@ -2615,18 +2615,14 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  public function getUserCoursesIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  $select['main'] = "c.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course";
+  $select['user_type'] = "(select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) as user_type";
+  $select['has_instances'] = "(select count( * ) from courses l where instance_source=c.id) as has_instances";
+  $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
+  $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+  $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $select = "c.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course,
-       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
-         as user_type,
-       (select count( * ) from courses l where instance_source=c.id)
-         as has_instances,
-       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
-         as num_lessons,
-       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
-         as num_students";
-  //$where[] = "d.id=c.directions_ID";
-  $result = eF_getTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select,
+  $result = eF_getTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp,archive from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select,
   implode(" and ", $where), $orderby, "", $limit);
   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
  }
@@ -2675,7 +2671,7 @@ abstract class EfrontLessonUser extends EfrontUser
          as num_lessons";
   //$where[] = "d.id=c.directions_ID";
   $result = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select,
-  implode(" and ", $where), $orderby, $groupby, $limit);
+  implode(" and ", $where), $orderby, false, $limit);
   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
  }
  public function countUserCoursesAggregatingResultsIncludingUnassigned($constraints = array()) {
@@ -3157,87 +3153,6 @@ abstract class EfrontLessonUser extends EfrontUser
    }
   }
   return $true;
- }
- /**
-
-	 * Get user potential courses
-
-	 *
-
-	 * This function returns a list with the courses that the user
-
-	 * may take, but doesn't have. The list may be either a list of ids
-
-	 * (faster) or a list of EfrontCourse objects.
-
-	 * <br/>Example:
-
-	 * <code>
-
-	 * $user -> getNonCourses();            //Returns a list with potential courses ids
-
-	 * $user -> getNonCourses(true);        //Returns a list of EfrontCourse objects
-
-	 * </code>
-
-	 *
-
-	 * @param boolean $returnObjects Whether to return a list of objects
-
-	 * @return array The list of ids or objects
-
-	 * @since 3.5.0
-
-	 * @access public
-
-	 */
- public function getNonCourses($returnObjects = false) {
-  $userCourses = eF_getTableDataFlat("users_to_courses", "courses_ID", "archive = 0 and users_LOGIN = '".$this -> user['login']."'");
-  //sizeof($userCourses) > 0 ? $sql = "and id not in (".implode(",", $userCourses['courses_ID']).")" : $sql = '';
-  sizeof($userCourses) > 0 ? $sql = "id not in (".implode(",", $userCourses['courses_ID']).")" : $sql = '';
-  if ($returnObjects) {
-   $nonUserCourses = array();
-   //$courses        = eF_getTableData("courses", "*", "languages_NAME='".$this -> user['languages_NAME']."'".$sql);
-   $courses = eF_getTableData("courses", "*", $sql);
-   foreach ($courses as $value) {
-    $nonUserCourses[$value['id']] = new EfrontCourse($value['id']);
-   }
-   return $nonUserCourses;
-  } else {
-   //$courses = eF_getTableDataFlat("courses", "*", "languages_NAME='".$this -> user['languages_NAME']."'".$sql);
-   $courses = eF_getTableDataFlat("courses", "*", $sql);
-   return $courses['id'];
-  }
- }
- /**
-
-	 * Return only "non courses" that can be selected by the student
-
-	 *
-
-	 * This function is similar to getNonCourses, the only difference being that it excludes courses
-
-	 * that can't be directly assigned, for example inactive, unpublished etc
-
-	 *
-
-	 * @return array The eligible courses
-
-	 * @since 3.6.0
-
-	 * @access public
-
-	 * @see EfrontLessonUser :: getNonCourses()
-
-	 */
- public function getEligibleNonCourses() {
-  $courses = $this -> getNonCourses(true);
-  foreach ($courses as $key => $course) {
-   if (!$course -> course['active'] || !$course -> course['publish'] || (!$course -> course['show_catalog'] && !$course -> course['instance_source'])) {
-    unset($courses[$key]);
-   }
-  }
-  return $courses;
  }
  /**
 

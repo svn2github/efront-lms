@@ -530,9 +530,9 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
                         {capture name = "moduleFeedback"}
                             {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=feedback">'|cat:$smarty.const._FEEDBACK|cat:'</a>'}
                             {if $smarty.get.edit_test}
-                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&edit_test=`$smarty.get.edit_test`'>`$smarty.const._EDITTEST` <span class='innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span></a>"}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&edit_test=`$smarty.get.edit_test`'>`$smarty.const._EDITFEEDBACK` <span class='innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span></a>"}
                             {elseif $smarty.get.add_test}
-                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&add_test=1'>`$smarty.const._ADDTEST`</a>"}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&add_test=1'>`$smarty.const._ADDFEEDBACK`</a>"}
                             {elseif $smarty.get.edit_question}
                                 {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&edit_question=`$smarty.get.edit_question`&question_type=`$smarty.get.question_type`'>`$smarty.const._EDITQUESTION`</a>"}
                             {elseif $smarty.get.add_question}

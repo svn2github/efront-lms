@@ -79,7 +79,9 @@ if (isset($_GET['fct'])) {
     $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
     if ($currentUser -> user['user_type'] != 'administrator') {
      $lessons = $currentUser -> getEligibleNonLessons();
-     $courses = $currentUser -> getEligibleNonCourses();
+     //$courses = $currentUser -> getEligibleNonCourses();
+     $constraints = array('active' => 1, 'archive' => 0, 'condition' => 'c.show_catalog=1 and c.publish=1 and r.courses_ID is null or r.archive != 0');
+     $courses = $currentUser -> getUserCoursesIncludingUnassigned($constraints);
     } else {
         $lessons = $courses = array();
     }

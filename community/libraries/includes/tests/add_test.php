@@ -90,11 +90,14 @@ $form -> addElement('advcheckbox', 'answer_all', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'redo_wrong', null, null, null, array(0, 1));
 $form -> addElement('textarea', 'description', null, 'id="editor_content_data" class = "inputTestTextarea mceEditor" style = "width:100%;height:16em;"');
 
-$form -> addRule('mastery_score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
-$form -> addRule('mastery_score', _THEFIELD.' "'._MASTERYSCORE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
-$form -> addRule('duration', _THEFIELD.' "'._DURATIONINMINUTES.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+if ($_GET['ctg'] != 'feedback') {
+ $form -> addRule('mastery_score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
+ $form -> addRule('mastery_score', _THEFIELD.' "'._MASTERYSCORE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+ $form -> addRule('duration', _THEFIELD.' "'._DURATIONINMINUTES.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+ $form -> addRule('redoable', _THEFIELD.' "'._REDOABLE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+}
 $form -> addRule('name', _THEFIELD.' "'._NAME.'" '._ISMANDATORY, 'required', null, 'client');
-$form -> addRule('redoable', _THEFIELD.' "'._REDOABLE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+
 
 if (!$skillgap_tests) {
     $optionsArray = $currentContent -> toHTMLSelectOptions(); //Get the units as an array of formated strings, that can be used to form an HTML select list
@@ -102,9 +105,10 @@ if (!$skillgap_tests) {
     $select_units -> addOption(_ROOTUNIT, 0);
     $select_units -> loadArray($optionsArray);
     $form -> addElement($select_units);
-
-    $form -> addRule('parent_content', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required', null, 'client');
-    $form -> addRule('parent_content', _INVALIDID, 'numeric');
+ if ($_GET['ctg'] != 'feedback') {
+  $form -> addRule('parent_content', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required', null, 'client');
+  $form -> addRule('parent_content', _INVALIDID, 'numeric');
+ }
 
     isset($_GET['from_unit']) && eF_checkParameter($_GET['from_unit'], 'id') ? $selectedUnit = $_GET['from_unit'] : $selectedUnit = 0;
     $selectedUnit ? $units = $currentContent -> getNodeChildren($selectedUnit) : $units = $currentContent -> tree;
@@ -164,7 +168,7 @@ if (isset($_GET['add_test'])) {
                                'answers' => 1,
                                'maintain_history' => 5,
                                'publish' => 1,
-                               'mastery_score' => 50,
+                               'mastery_score' => $_GET['ctg'] != 'feedback' ? 50 : 0,
                    'redoable' => 1));
     if (isset($_GET['from_unit'])) {
         $form -> setDefaults(array('parent_content' => $_GET['from_unit']));
@@ -203,7 +207,8 @@ if (isset($_GET['add_test'])) {
 
 if ($form -> isSubmitted() && $form -> validate()) {
     $values = $form -> exportValues();
-    $testOptions = array('duration' => $values['duration'] * 60, //Duration is displayed in minutes, but is stored in seconds
+    if ($_GET['ctg'] != 'feedback') {
+  $testOptions = array('duration' => $values['duration'] * 60, //Duration is displayed in minutes, but is stored in seconds
                                 'redoable' => $values['redoable'] ? $values['redoable'] : 0,
                                 'onebyone' => $values['onebyone'],
                           'only_forward' => $values['only_forward'],
@@ -221,6 +226,26 @@ if ($form -> isSubmitted() && $form -> validate()) {
                           'general_threshold' => $values['general_threshold'], //skill-gap option
                               'assign_to_new' => $values['assign_to_new'], //skill-gap option
                           'automatic_assignment' => $values['automatic_assignment']); //skill-gap option
+ } else {
+  $testOptions = array('duration' => 0, //Duration is displayed in minutes, but is stored in seconds
+                                'redoable' => 0,
+                                'onebyone' => 0,
+                          'only_forward' => 0,
+                                'given_answers' => 0,
+                                'maintain_history' => 1,
+                                'answers' => 0,
+        'redirect' => 1,
+                                'shuffle_answers' => 0,
+                                'shuffle_questions' => 0,
+                                'pause_test' => 0,
+                                'display_list' => 0,
+                                'display_weights' => 0,
+        'answer_all' => 1,
+        'redo_wrong' => 0,
+                          'general_threshold' => 0, //skill-gap option
+                              'assign_to_new' => 0, //skill-gap option
+                          'automatic_assignment' => 0); //skill-gap option
+ }
     if (isset($_GET['edit_test']) && !isset($values['submit_test_new'])) {
         $currentTest -> test['publish'] = $values['publish'];
         $currentTest -> test['description'] = $values['description'];
@@ -243,7 +268,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                        'ctg_type' => $_GET['ctg'],
                                        'active' => 1,
                                        'timestamp' => time(),
-                                       'parent_content_ID' => $values['parent_content']);
+                                       'parent_content_ID' => $_GET['ctg'] != 'feedback' ? $values['parent_content'] : 0);
         $testFields = array('active' => 1,
                               'lessons_ID' => (isset($currentLesson -> lesson['id']))?$currentLesson -> lesson['id']:0,
                               'content_ID' => $test_content_ID,

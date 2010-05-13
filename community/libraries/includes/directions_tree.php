@@ -10,9 +10,9 @@ try {
      $lessons = EfrontLesson :: getLessons(true);
     }
     if (!isset($courses) || !$courses) {
-     $courses = EfrontCourse :: getCourses(true);
-     //$constraints = array('active' => true, 'archive' => false, 'instance' => false);
-     //$courses = EfrontCourse :: getAllCourses($constraints);
+     //$courses = EfrontCourse :: getCourses(true);
+     $constraints = array('active' => true, 'archive' => false, 'instance' => false);
+     $courses = EfrontCourse :: getAllCourses($constraints);
     }
 
  //Mark the lessons and courses that the user already has, so that they can't be selected

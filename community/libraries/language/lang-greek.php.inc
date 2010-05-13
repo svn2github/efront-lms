@@ -3677,4 +3677,6 @@ define("_ONLYXCANBEAPPLIEDATATIME", "Μόνο %x οντότητες επεξερ
 define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "Δεν μπορείτε να αναθέσετε χρήστες σε αυτό το πρόγραμμα μαθημαων γιατί δεν περιλαμβάνει δέσμες");
 define("_CURRICULUMPROPERTIES", "Ιδιότητες προγράμματος μαθημάτων");
 define("_ENTRIES", "Εγγραφές");
+define("_FEEDBACKOPTIONS","Επιλογές ανάδρασης");
+define("_OPTIONSFORFEEDBACK","Επιλογές για την ανάδραση");
 ?>

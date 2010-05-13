@@ -96,113 +96,121 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
         <form {$T_TEST_FORM.attributes}>
             {$T_TEST_FORM.hidden}
             <table class = "formElements" >
-            {if $smarty.get.edit_test && $T_CONFIGURATION.use_sso == 'sumtotal'}
-                <tr><td class = "labelCell">{$smarty.const._HACPURL}:&nbsp;</td>
-                    <td class = "elementCell">{$smarty.const.G_SERVERNAME}hacp.php?sso=sumtotal&view_unit={$T_CURRENT_TEST->test.content_ID}</td></tr>
-            {/if}
-            {if $T_TEST_FORM.parent_content}
-                <tr><td class = "labelCell">{$T_TEST_FORM.parent_content.label}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.parent_content.html}</td></tr>
-                {if $T_TEST_FORM.parent_content.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.parent_content.error}</td></tr>{/if}
-            {/if}
-                <tr><td class = "labelCell">{$smarty.const._NAME}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.name.html}</td></tr>
-                {if $T_TEST_FORM.name.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.name.error}</td></tr>{/if}
-            {if !$T_SKILLGAP_TEST}
-                <tr><td class = "labelCell">{$smarty.const._DURATIONINMINUTES}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.duration.html}&nbsp;<span class = "infoCell">{$smarty.const._BLANKFORNOLIMIT}</span></td></tr>
-                {if $T_TEST_FORM.duration.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.duration.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._REDOABLE}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.redoable.html} <span class = "infoCell">{$smarty.const._BLANKFORUNLIMITED}</span></td></tr>
-                {if $T_TEST_FORM.redoable.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redoable.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._MAINTAINHISTORY}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.maintain_history.html}<span> {$smarty.const._REPETITIONS} </span><span class = "infoCell">({$smarty.const._BLANKFORUNLIMITED})</span></td></tr>
-                {if $T_TEST_FORM.mastery_score.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.mastery_score.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._MASTERYSCORE}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.mastery_score.html} %</td></tr>
-                {if $T_TEST_FORM.mastery_score.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.mastery_score.error}</td></tr>{/if}
-            {else}
-                <tr><td class = "labelCell">{$smarty.const._GENERALTHRESHOLD}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.general_threshold.html}</td></tr>
-    {if $T_TEST_FORM.general_threshold.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.general_threshold.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._ASSIGNTOALLNEWSTUDENTS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.assign_to_new.html}</td></tr>
-                <tr><td class = "labelCell">{$smarty.const._AUTOMATICALLYASSIGNLESSONS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.automatic_assignment.html}<img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)"><div id = 'automatic_assignment_info' onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)" class = "popUpInfoDiv" style = "display:none">{$smarty.const._AUTOMATICASSIGNMENTINFO}</div></td>
-            {/if}
-    <tr><td></td><td class = "elementCell">
-     <span>
-      <img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;
-      <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();">{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
-     </span>
-    </td></tr>
-                <tr style="display:none;" id = "publish"><td class = "labelCell">{$smarty.const._PUBLISH}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.publish.html}</td></tr>
-                {if $T_TEST_FORM.publish.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.publish.error}</td></tr>{/if}
-                <tr style="display:none;" id = "onebyone"><td class = "labelCell">{$smarty.const._ONEBYONE}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.onebyone.html}</td></tr>
-                {if $T_TEST_FORM.onebyone.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.onebyone.error}</td></tr>{/if}
-                <tr style="display:none;" id = "only_forward"><td class = "labelCell">{$smarty.const._ONLYFORWARD}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.only_forward.html} <span class = "infoCell">{$smarty.const._APPLICABLETOONEBYONE}</span></td></tr>
-                {if $T_TEST_FORM.only_forward.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.only_forward.error}</td></tr>{/if}
-            {if !$T_SKILLGAP_TEST}
-                <tr style="display:none;" id = "given_answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWGIVENANSWERS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.given_answers.html}</td></tr>
-                {if $T_TEST_FORM.given_answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.given_answers.error}</td></tr>{/if}
-                <tr style="display:none;" id = "answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWRIGHTANSWERS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.answers.html}</td></tr>
-                {if $T_TEST_FORM.answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answers.error}</td></tr>{/if}
-    <tr style="display:none;" id = "redirect"><td class = "labelCell" style = "white-space:normal">{$smarty.const._DONOTSHOWTESTAFTERSUBMITTING}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.redirect.html}</td></tr>
-                {if $T_TEST_FORM.redirect.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redirect.error}</td></tr>{/if}
-            {/if}
-                <tr style="display:none;" id = "shuffle_answers"><td class = "labelCell">{$smarty.const._SHUFFLEANSWERS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.shuffle_answers.html}</td></tr>
-                {if $T_TEST_FORM.shuffle_answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_answers.error}</td></tr>{/if}
-                <tr style="display:none;" id = "shuffle_questions"><td class = "labelCell">{$smarty.const._SHUFFLEQUESTIONS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.shuffle_questions.html}</td></tr>
-    {if $T_TEST_FORM.shuffle_questions.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_questions.error}</td></tr>{/if}
-                <tr style="display:none;" id = "display_list"><td class = "labelCell">{$smarty.const._DISPLAYORDEREDLIST}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.display_list.html} <span class = "infoCell">{$smarty.const._DISPLAYORDEREDLISTINFO}</span></td></tr>
-            {if !$T_SKILLGAP_TEST}
-                <tr style="display:none;" id = "pause_test"><td class = "labelCell">{$smarty.const._TESTCANBEPAUSED}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.pause_test.html}</td></tr>
-                {if $T_TEST_FORM.pause_test.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.pause_test.error}</td></tr>{/if}
-                <tr style="display:none;" id = "display_weights"><td class = "labelCell">{$smarty.const._DISPLAYQUESTIONWEIGHTS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.display_weights.html}</td></tr>
-                {if $T_TEST_FORM.display_weights.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.display_weights.error}</td></tr>{/if}
-    <tr style="display:none;" id = "answer_all"><td class = "labelCell">{$smarty.const._FORCEUSERANSERALLQUESTIONS}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.answer_all.html}</td></tr>
-                {if $T_TEST_FORM.answer_all.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answer_all.error}</td></tr>{/if}
-{if $smarty.const.G_VERSIONTYPE != 'community'}
-    <tr style="display:none;" id = "redo_wrong"><td class = "labelCell">{$smarty.const._ALLOWUSERANSERALLRONG}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.redo_wrong.html} <span class = "infoCell">{$smarty.const._ALLOWANSWERWRONGINFO}</span></td></tr>
-                {if $T_TEST_FORM.redo_wrong.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redo_wrong.error}</td></tr>{/if}
-{/if}
-            {/if}
-    <tr><td></td><td id = "toggleeditor_cell1">
-     <div class = "headerTools">
+   {if $T_CTG != "feedback"}
+    {if $smarty.get.edit_test && $T_CONFIGURATION.use_sso == 'sumtotal'}
+     <tr><td class = "labelCell">{$smarty.const._HACPURL}:&nbsp;</td>
+      <td class = "elementCell">{$smarty.const.G_SERVERNAME}hacp.php?sso=sumtotal&view_unit={$T_CURRENT_TEST->test.content_ID}</td></tr>
+    {/if}
+    {if $T_TEST_FORM.parent_content}
+     <tr><td class = "labelCell">{$T_TEST_FORM.parent_content.label}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.parent_content.html}</td></tr>
+     {if $T_TEST_FORM.parent_content.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.parent_content.error}</td></tr>{/if}
+    {/if}
+     <tr><td class = "labelCell">{$smarty.const._NAME}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.name.html}</td></tr>
+     {if $T_TEST_FORM.name.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.name.error}</td></tr>{/if}
+    {if !$T_SKILLGAP_TEST}
+     <tr><td class = "labelCell">{$smarty.const._DURATIONINMINUTES}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.duration.html}&nbsp;<span class = "infoCell">{$smarty.const._BLANKFORNOLIMIT}</span></td></tr>
+     {if $T_TEST_FORM.duration.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.duration.error}</td></tr>{/if}
+     <tr><td class = "labelCell">{$smarty.const._REDOABLE}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.redoable.html} <span class = "infoCell">{$smarty.const._BLANKFORUNLIMITED}</span></td></tr>
+     {if $T_TEST_FORM.redoable.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redoable.error}</td></tr>{/if}
+     <tr><td class = "labelCell">{$smarty.const._MAINTAINHISTORY}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.maintain_history.html}<span> {$smarty.const._REPETITIONS} </span><span class = "infoCell">({$smarty.const._BLANKFORUNLIMITED})</span></td></tr>
+     {if $T_TEST_FORM.mastery_score.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.mastery_score.error}</td></tr>{/if}
+     <tr><td class = "labelCell">{$smarty.const._MASTERYSCORE}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.mastery_score.html} %</td></tr>
+     {if $T_TEST_FORM.mastery_score.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.mastery_score.error}</td></tr>{/if}
+    {else}
+     <tr><td class = "labelCell">{$smarty.const._GENERALTHRESHOLD}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.general_threshold.html}</td></tr>
+     {if $T_TEST_FORM.general_threshold.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.general_threshold.error}</td></tr>{/if}
+     <tr><td class = "labelCell">{$smarty.const._ASSIGNTOALLNEWSTUDENTS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.assign_to_new.html}</td></tr>
+     <tr><td class = "labelCell">{$smarty.const._AUTOMATICALLYASSIGNLESSONS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.automatic_assignment.html}<img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)"><div id = 'automatic_assignment_info' onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)" class = "popUpInfoDiv" style = "display:none">{$smarty.const._AUTOMATICASSIGNMENTINFO}</div></td>
+    {/if}
+     <tr><td></td><td class = "elementCell">
       <span>
-       <img class = "handle" id = "arrow_down" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._OPENCLOSEFILEMANAGER}" title = "{$smarty.const._OPENCLOSEFILEMANAGER}"/>&nbsp;
-       <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
+       <img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;
+       <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();">{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
       </span>
-      <span>
-       <img src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-       <a href = "javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
-      </span>
-     </div>
      </td></tr>
-             <tr><td></td><td id = "filemanager_cell"></td></tr>
-                <tr><td class = "labelCell">{$smarty.const._DESCRIPTION}:&nbsp;</td>
-                    <td class = "elementCell">{$T_TEST_FORM.description.html}</td></tr>
-                {if $T_TEST_FORM.description.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.description.error}</td></tr>{/if}
-                <tr><td colspan = "2">&nbsp;</td></tr>
-                <tr><td></td>
-                    <td class = "elementCell">
-                        {$T_TEST_FORM.submit_test.html}&nbsp;
-                        {if $smarty.get.edit_test}{$T_TEST_FORM.submit_test_new.html}{/if}
-                    </td></tr>
-            </table>
+     <tr style="display:none;" id = "publish"><td class = "labelCell">{$smarty.const._PUBLISH}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.publish.html}</td></tr>
+     {if $T_TEST_FORM.publish.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.publish.error}</td></tr>{/if}
+     <tr style="display:none;" id = "onebyone"><td class = "labelCell">{$smarty.const._ONEBYONE}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.onebyone.html}</td></tr>
+     {if $T_TEST_FORM.onebyone.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.onebyone.error}</td></tr>{/if}
+     <tr style="display:none;" id = "only_forward"><td class = "labelCell">{$smarty.const._ONLYFORWARD}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.only_forward.html} <span class = "infoCell">{$smarty.const._APPLICABLETOONEBYONE}</span></td></tr>
+     {if $T_TEST_FORM.only_forward.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.only_forward.error}</td></tr>{/if}
+    {if !$T_SKILLGAP_TEST}
+     <tr style="display:none;" id = "given_answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWGIVENANSWERS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.given_answers.html}</td></tr>
+     {if $T_TEST_FORM.given_answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.given_answers.error}</td></tr>{/if}
+     <tr style="display:none;" id = "answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWRIGHTANSWERS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.answers.html}</td></tr>
+     {if $T_TEST_FORM.answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answers.error}</td></tr>{/if}
+     <tr style="display:none;" id = "redirect"><td class = "labelCell" style = "white-space:normal">{$smarty.const._DONOTSHOWTESTAFTERSUBMITTING}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.redirect.html}</td></tr>
+     {if $T_TEST_FORM.redirect.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redirect.error}</td></tr>{/if}
+    {/if}
+     <tr style="display:none;" id = "shuffle_answers"><td class = "labelCell">{$smarty.const._SHUFFLEANSWERS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.shuffle_answers.html}</td></tr>
+     {if $T_TEST_FORM.shuffle_answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_answers.error}</td></tr>{/if}
+     <tr style="display:none;" id = "shuffle_questions"><td class = "labelCell">{$smarty.const._SHUFFLEQUESTIONS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.shuffle_questions.html}</td></tr>
+     {if $T_TEST_FORM.shuffle_questions.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.shuffle_questions.error}</td></tr>{/if}
+     <tr style="display:none;" id = "display_list"><td class = "labelCell">{$smarty.const._DISPLAYORDEREDLIST}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.display_list.html} <span class = "infoCell">{$smarty.const._DISPLAYORDEREDLISTINFO}</span></td></tr>
+    {if !$T_SKILLGAP_TEST}
+     <tr style="display:none;" id = "pause_test"><td class = "labelCell">{$smarty.const._TESTCANBEPAUSED}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.pause_test.html}</td></tr>
+     {if $T_TEST_FORM.pause_test.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.pause_test.error}</td></tr>{/if}
+     <tr style="display:none;" id = "display_weights"><td class = "labelCell">{$smarty.const._DISPLAYQUESTIONWEIGHTS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.display_weights.html}</td></tr>
+     {if $T_TEST_FORM.display_weights.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.display_weights.error}</td></tr>{/if}
+     <tr style="display:none;" id = "answer_all"><td class = "labelCell">{$smarty.const._FORCEUSERANSERALLQUESTIONS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.answer_all.html}</td></tr>
+     {if $T_TEST_FORM.answer_all.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answer_all.error}</td></tr>{/if}
+ {if $smarty.const.G_VERSIONTYPE != 'community'}
+     <tr style="display:none;" id = "redo_wrong"><td class = "labelCell">{$smarty.const._ALLOWUSERANSERALLRONG}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.redo_wrong.html} <span class = "infoCell">{$smarty.const._ALLOWANSWERWRONGINFO}</span></td></tr>
+     {if $T_TEST_FORM.redo_wrong.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redo_wrong.error}</td></tr>{/if}
+ {/if}
+    {/if}
+   {else}
+    <tr><td class = "labelCell">{$smarty.const._NAME}:&nbsp;</td>
+     <td class = "elementCell">{$T_TEST_FORM.name.html}</td></tr>
+     {if $T_TEST_FORM.name.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.name.error}</td></tr>{/if}
+    <tr id = "publish"><td class = "labelCell">{$smarty.const._PUBLISH}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.publish.html}</td></tr>
+   {/if}
+     <tr><td></td><td id = "toggleeditor_cell1">
+      <div class = "headerTools">
+       <span>
+        <img class = "handle" id = "arrow_down" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._OPENCLOSEFILEMANAGER}" title = "{$smarty.const._OPENCLOSEFILEMANAGER}"/>&nbsp;
+        <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
+       </span>
+       <span>
+        <img src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+        <a href = "javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+       </span>
+      </div>
+      </td></tr>
+     <tr><td></td><td id = "filemanager_cell"></td></tr>
+     <tr><td class = "labelCell">{$smarty.const._DESCRIPTION}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.description.html}</td></tr>
+     {if $T_TEST_FORM.description.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.description.error}</td></tr>{/if}
+     <tr><td colspan = "2">&nbsp;</td></tr>
+     <tr><td></td>
+      <td class = "elementCell">
+       {$T_TEST_FORM.submit_test.html}&nbsp;
+       {if $smarty.get.edit_test}{$T_TEST_FORM.submit_test_new.html}{/if}
+      </td></tr>
+   </table>
   </form>
   <div id = "fmInitial"><div id = "filemanager_div" style = "display:none;">{$T_FILE_MANAGER}</div></div>
  {/capture}
@@ -445,9 +453,14 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
 <!--/ajax:questionsTable-->
  {/capture}
  {capture name = 't_edit_test_code'}
+  {if $T_CTG != "feedback"}
+   {assign var = 'tempTitle' value = $smarty.const._TESTOPTIONS}
+  {else}
+   {assign var = 'tempTitle' value = $smarty.const._FEEDBACKOPTIONS}
+  {/if}
   <div class = "tabber">
-         <div class = "tabbertab" id="test_options" title = "{$smarty.const._TESTOPTIONS}">
-    {eF_template_printBlock title=$smarty.const._TESTOPTIONS data=$smarty.capture.t_test_properties image='32x32/generic.png'}
+         <div class = "tabbertab" id="test_options" title = "{$tempTitle}">
+    {eF_template_printBlock title=$tempTitle data=$smarty.capture.t_test_properties image='32x32/generic.png'}
             </div>
         {if $smarty.get.edit_test}
          <div class = "tabbertab {if $smarty.get.tab == 'question' || $smarty.get.tab == 'questions'}tabbertabdefault{/if}" id = "test_questions" title = "{$smarty.const._TESTQUESTIONS}">
@@ -491,14 +504,18 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
  {if $smarty.get.edit_test}
      {if $T_SKILLGAP_TEST}
          {eF_template_printBlock title = "`$smarty.const._OPTIONSFORSKILLGAPTEST` <span class = 'innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span>" data=$smarty.capture.t_edit_test_code image='32x32/skill_gap.png'}
-     {else}
+     {elseif $T_CTG != "feedback"}
          {eF_template_printBlock title = "`$smarty.const._OPTIONSFORTEST` <span class = 'innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span>" data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
-     {/if}
+     {else}
+    {eF_template_printBlock title = "`$smarty.const._OPTIONSFORFEEDBACK` <span class = 'innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span>" data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
+  {/if}
  {elseif $smarty.get.add_test}
      {if $T_SKILLGAP_TEST}
          {eF_template_printBlock title = "`$smarty.const._ADDSKILLGAPTEST`" data=$smarty.capture.t_edit_test_code image='32x32/skill_gap.png'}
-     {else}
+     {elseif $T_CTG != "feedback"}
          {eF_template_printBlock title = $smarty.const._ADDTEST data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
+  {else}
+   {eF_template_printBlock title = $smarty.const._ADDFEEDBACK data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
      {/if}
  {/if}
 {elseif $smarty.get.add_question || $smarty.get.edit_question}
@@ -1411,9 +1428,16 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
               {eF_template_printBlock title=$smarty.const._RECENTLYCOMPLETEDTESTS data=$smarty.capture.t_pending_tests image='32x32/tests.png'}
           {/if}
   {/capture}
+  {if $T_CTG != "feedback"}
+   {assign var = 'tempTitle' value = $smarty.const._TESTS}
+   {assign var = 'tempImage' value = 'tests'}
+  {else}
+   {assign var = 'tempTitle' value = $smarty.const._FEEDBACK}
+   {assign var = 'tempImage' value = 'surveys'}
+  {/if}
   <div class = "tabber">
-      <div class = "tabbertab" title = "{$smarty.const._TESTS}" id = "tests">
-    {eF_template_printBlock title=$smarty.const._TESTS data=$smarty.capture.t_all_tests_code image='32x32/tests.png'}
+      <div class = "tabbertab" title = "{$tempTitle}" id = "tests">
+    {eF_template_printBlock title=$tempTitle data=$smarty.capture.t_all_tests_code image="32x32/`$tempImage`.png"}
    </div>
       <div title = "{$smarty.const._QUESTIONS}" class = "tabbertab {if $smarty.get.tab == 'question' || $smarty.get.tab == 'questions'} tabbertabdefault{/if}" id = "question" title = "{$smarty.const._QUESTIONS}">
     {eF_template_printBlock title=$smarty.const._QUESTIONS data=$smarty.capture.t_questions_code image='32x32/question_and_answer.png'}
@@ -1422,7 +1446,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
  {/capture}
  {*Exclude from skillgap tests*}
  {if !$T_SKILLGAP_TEST}
-  {eF_template_printBlock title=$smarty.const._UNITANDSUBUNITSTESTS data=$smarty.capture.t_tests_and_questions_code image='32x32/tests.png' help = 'Tests'}
+  {if $T_CTG != "feedback"}
+   {eF_template_printBlock title=$smarty.const._UNITANDSUBUNITSTESTS data=$smarty.capture.t_tests_and_questions_code image='32x32/tests.png' help = 'Tests'}
+  {else}
+   {eF_template_printBlock title=$smarty.const._FEEDBACK data=$smarty.capture.t_tests_and_questions_code image='32x32/surveys.png'}
+  {/if}
  {else}
   {eF_template_printBlock title=$smarty.const._SKILLGAPTESTS data=$smarty.capture.t_tests_and_questions_code image='32x32/skill_gap.png' help = 'Skill_gap_tests'}
  {/if}

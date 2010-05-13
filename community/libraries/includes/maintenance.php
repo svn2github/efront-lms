@@ -225,6 +225,8 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
                 }
             } else if ($_GET['cache'] == 'tests') {
                 eF_deleteTableData("cache");
+            } else if ($_GET['cache'] == 'query') {
+             eF_executeNew("reset query cache");
             }
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");

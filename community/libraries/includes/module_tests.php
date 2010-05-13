@@ -307,7 +307,7 @@ try {
              foreach ($iterator = new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($units)), array('id', 'name')) as $key => $value) {
                  $key == 'id' ? $ids[] = $value : $names[] = $value;
              }
-             $tests = eF_getTableData("content c,tests t", "c.id as content_ID, c.name, t.id, t.active, t.publish, t.mastery_score, t.description, t.options", "ctg_type='tests' AND c.id IN (".implode(",", $ids).") AND c.active=1 and c.id=t.content_ID", "c.id ASC");
+             $tests = eF_getTableData("content c,tests t", "c.id as content_ID, c.name, t.id, t.active, t.publish, t.mastery_score, t.description, t.options", "ctg_type='".$_GET['ctg']."' AND c.id IN (".implode(",", $ids).") AND c.active=1 and c.id=t.content_ID", "c.id ASC");
             }
             $result = eF_getTableData("tests_to_questions", "tests_ID, count(*)", "", "", "tests_ID");
             foreach ($result as $value) {

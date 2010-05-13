@@ -112,6 +112,6 @@ try {
   }
  }
 } catch (Exception $e) {
- handleNormalFlowException($e);
+ handleNormalFlowExceptions($e);
 }
 ?>

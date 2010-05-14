@@ -2590,7 +2590,6 @@ abstract class EfrontLessonUser extends EfrontUser
  public function getUserCourses($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   $select['main'] = 'c.id, uc.users_LOGIN,uc.courses_ID,uc.completed,uc.score,uc.user_type,uc.issued_certificate,uc.from_timestamp as active_in_course, uc.to_timestamp, 1 as has_course';
-  //$select['user_type'] 	 = "(select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) as user_type";
   $select['has_instances'] = "(select count( * ) from courses c1, users_to_courses uc1 where c1.instance_source=c.id and uc1.courses_ID=c1.id and uc.users_LOGIN='".$this -> user['login']."') as has_instances";
   $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
   $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
@@ -2615,16 +2614,21 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  public function getUserCoursesIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  $select['main'] = "c.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course";
+  $select['main'] = "c.id, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course";
   $select['user_type'] = "(select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) as user_type";
   $select['has_instances'] = "(select count( * ) from courses l where instance_source=c.id) as has_instances";
   $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
   $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $result = eF_getTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp,archive from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select,
-  implode(" and ", $where), $orderby, "", $limit);
-  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+  //$result  = eF_getTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp,archive from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select, implode(" and ", $where), $orderby, "", $limit);
+  $sql = prepareGetTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp,archive from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select, implode(" and ", $where), $orderby, "", $limit);
+  $result = eF_getTableData("courses, ($sql) t", "courses.*, t.*", "courses.id=t.id");
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+  } else {
+   return $result;
+  }
  }
  public function countUserCoursesIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);

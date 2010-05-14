@@ -168,6 +168,15 @@ function askTests() {
  } else {
   $tests_info = eF_getTableDataFlat("tests t,   users_to_lessons ul, lessons l", "t.id, t.name as test_name, l.name as lesson_name, l.originating_course ", "ul.archive=0 and (ul.user_type = 'professor' OR ul.user_type =".$currentUser->user['user_types_ID'].") AND t.active=1 and t.lessons_ID = l.id AND ul.users_LOGIN='".$_SESSION['s_login']."' and ul.lessons_ID=l.id AND t.name like '%$preffix%'", "t.name");
   $scorm_tests_info = eF_getTableDataFlat("content c, users_to_lessons ul, lessons l", "c.id, c.name as test_name, l.name as lesson_name, l.originating_course ", "ul.archive=0 and (ul.user_type = 'professor' OR ul.user_type =".$currentUser->user['user_types_ID'].") AND c.active=1 and c.lessons_ID = l.id AND ul.users_LOGIN='".$_SESSION['s_login']."' and ul.lessons_ID=l.id AND c.name like '%$preffix%' and c.ctg_type = 'scorm_test'", "c.name");
+  $lessons = $currentUser -> getLessons(false,'professor'); //must return tests for lessons that he has a professor role
+  $lessons = array_keys($lessons);
+  if (!empty($lessons)) {
+   $lessonsStr = implode(',', $lessons);
+   $legalTests = eF_getTableDataFlat("tests","id","lessons_ID IN ($lessonsStr)");
+   $legalTestsId = $legalTests['id'];
+   $legalScormTests = eF_getTableDataFlat("content","id","lessons_ID IN ($lessonsStr)");
+   $legalScormTestsId = $legalScormTests['id'];
+  }
  }
  $result = eF_getTableDataFlat("courses", "id, name");
  if (!empty($result)) {
@@ -182,7 +191,9 @@ function askTests() {
   if ($courseNames[$tests_info['originating_course'][$i]]) {
    $path_string = $courseNames[$tests_info['originating_course'][$i]].'&nbsp;&raquo;&nbsp;'.$path_string;
   }
-  $info_array[] = array('id' => $tests_info['id'][$i],'name' => $tests_info['test_name'][$i],'path_string' =>$path_string);
+  if (empty($legalTestsId) || in_array($tests_info['id'][$i], $legalTestsId)) {
+   $info_array[] = array('id' => $tests_info['id'][$i],'name' => $tests_info['test_name'][$i],'path_string' =>$path_string);
+  }
  }
  for ($i = 0 ; $i < sizeof($scorm_tests_info['test_name']) ; $i ++){
   $hiname = highlightSearch($scorm_tests_info['test_name'][$i], $preffix);
@@ -190,7 +201,9 @@ function askTests() {
   if ($courseNames[$scorm_tests_info['originating_course'][$i]]) {
    $path_string = $courseNames[$scorm_tests_info['originating_course'][$i]].'&nbsp;&raquo;&nbsp;'.$path_string;
   }
-  $info_array[] = array('id' => $scorm_tests_info['id'][$i],'name' => $scorm_tests_info['test_name'][$i],'path_string' =>$path_string);
+  if (empty($legalScormTestsId) || in_array($scorm_tests_info['id'][$i], $legalScormTestsId)) {
+   $info_array[] = array('id' => $scorm_tests_info['id'][$i],'name' => $scorm_tests_info['test_name'][$i],'path_string' =>$path_string);
+  }
  }
  $str = '<ul>';
  for ($k = 0; $k < sizeof($info_array); $k++){

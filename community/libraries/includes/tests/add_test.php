@@ -120,6 +120,7 @@ if (!$skillgap_tests) {
     $result = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
 
 } else {
+
     $form -> addElement('text', 'general_threshold', null, 'class = "inputText"');
     $form->registerRule('decimal2digits','regex','/^\d{1,2}(\.\d{1,2})?$/');
     $form->addRule('general_threshold',_INVALIDFIELDDATAFORFIELD.' "'._GENERALTHRESHOLD.'": '. _NUMBERFROM000TO9999REQUIRED,'decimal2digits');
@@ -360,20 +361,8 @@ if ($skillgap_tests) {
         }
 
         $smarty -> assign('T_ALL_USERS', $testUsers);
-        $smarty -> display('administrator.tpl');
+        $smarty -> display($_SESSION['s_type'].'.tpl');
         exit;
-    } elseif (isset($_GET['edit_test'])) {
-        $testUsers = eF_getTableData("users LEFT OUTER JOIN users_to_skillgap_tests ON login = users_login AND tests_ID = '".$_GET['edit_test']."'", "distinct login, name,surname,tests_ID,solved", "users.user_type = 'student'");
-        $test_info = eF_getTableData("completed_tests", "id, users_LOGIN", "status != 'deleted' and tests_ID = " . $_GET['edit_test']);
-        // Find the completed test for each user
-        foreach ($testUsers as $uid => $user) {
-            foreach($test_info as $info) {
-                if ($info['users_LOGIN'] == $user['login']) {
-                    $testUsers[$uid]['completed_test_id'] = $info['id'];
-                }
-            }
-        }
-        $smarty -> assign('T_ALL_USERS', $testUsers);
     }
 }
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
@@ -427,10 +416,11 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
     }
 
     $smarty -> assign('T_UNIT_QUESTIONS', $questions);
+//pr($questions);exit;    
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
     $form -> accept($renderer);
     $smarty -> assign('T_TEST_FORM', $renderer -> toArray());
-    $smarty -> display( 'professor.tpl');
+    $smarty -> display($_SESSION['s_type'].'.tpl');
     exit;
 }
 

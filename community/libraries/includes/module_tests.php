@@ -722,6 +722,7 @@ try {
             $directionsTree = new EfrontDirectionsTree();
             $selectArray = $directionsTree ->toSelect(true,true, true); //return in HTML coloured format with SKILLGAPTESTS option and including questions number
             $smarty -> assign("T_QUICKFORM_LESSON_COURSES_SELECT" , $selectArray);
+//echo "A";exit;
             //$form -> addElement('select', 'lesson_courses_row' , null, $selectArray ,'id="lesson_courses_row"');
             //$form -> addElement('select', 'system_avatar' , _ORSELECTONEFROMLIST, $systemAvatars, "id = 'select_avatar'");
             //$start = strpos($selectArray,"(") + 1;

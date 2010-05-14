@@ -3677,7 +3677,9 @@ define("_ONLYXCANBEAPPLIEDATATIME", "Μόνο %x οντότητες επεξερ
 define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "Δεν μπορείτε να αναθέσετε χρήστες σε αυτό το πρόγραμμα μαθημαων γιατί δεν περιλαμβάνει δέσμες");
 define("_CURRICULUMPROPERTIES", "Ιδιότητες προγράμματος μαθημάτων");
 define("_ENTRIES", "Εγγραφές");
+define("_CLEARQUERYCACHE", "Διαγραφή query cache");
 define("_FEEDBACKOPTIONS","Επιλογές ανάδρασης");
 define("_OPTIONSFORFEEDBACK","Επιλογές για την ανάδραση");
 define("_RECENTLYCOMPLETEDFEEDBACK","Πρόσφατα ολοκληρωμένες αναδράσεις");
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE", "Το αρχείο ρυθμίσεων του PHP LiveDocx (libraries/phplivedocx_config.php) δεν είναι εγγράψιμο. Τυχόν αλλαγές που κάνατε στις ρυθμίσεις του livedocx δεν αποθηκεύτηκαν");
 ?>

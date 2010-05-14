@@ -334,18 +334,18 @@ try {
                 }
                 ($currentLesson -> options['projects'] && $GLOBALS['configuration']['disable_projects'] != 1) ? $controlPanelOptions[2] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects") : null;
                 ($currentLesson -> options['tests'] && $GLOBALS['configuration']['disable_tests'] != 1) ? $controlPanelOptions[3] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=tests") : null;
-                $currentLesson -> options['rules'] ? $controlPanelOptions[9] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=rules") : null;
+                $currentLesson -> options['rules'] ? $controlPanelOptions[10] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=rules") : null;
     $currentLesson -> options['scorm'] ? $controlPanelOptions[18] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scorm") : null;
                 $currentLesson -> options ? $controlPanelOptions[22] = array('text' => _IMS, 'image' => "32x32/autocomplete.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=ims") : null;
             }
             if ($currentUser -> coreAccess['glossary'] != 'hidden' && $GLOBALS['configuration']['disable_glossary'] != 1) {
-                $currentLesson -> options['glossary'] ? $controlPanelOptions[10] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=glossary") : null;
+                $currentLesson -> options['glossary'] ? $controlPanelOptions[11] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=glossary") : null;
             }
             if ($currentUser -> coreAccess['statistics'] != 'hidden') {
-                $controlPanelOptions[13] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
+                $controlPanelOptions[14] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
             }
             if ($currentUser -> coreAccess['settings'] != 'hidden') {
-                $controlPanelOptions[12] = array('text' => _SCHEDULING, 'image' => "32x32/schedule.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scheduling");
+                $controlPanelOptions[13] = array('text' => _SCHEDULING, 'image' => "32x32/schedule.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scheduling");
             }
             if ($currentUser -> coreAccess['files'] != 'hidden') {
                 $controlPanelOptions[17] = array('text' => _FILES, 'image' => "32x32/file_explorer.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=file_manager");
@@ -353,8 +353,11 @@ try {
             if ($currentUser -> coreAccess['settings'] != 'hidden') {
                 $controlPanelOptions[20] = array('text' => _LESSONSETTINGS, 'image' => "32x32/tools.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=settings");
             }
+   if ($currentUser -> coreAccess['feedback'] != 'hidden' && $GLOBALS['configuration']['disable_feedback'] != 1) {
+                    $currentLesson -> options['feedback'] ? $controlPanelOptions[9] = array('text' => _FEEDBACK, 'image' => "32x32/surveys.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=feedback") : null;
+                }
             if ($currentUser -> coreAccess['progress'] != 'hidden') {
-                $controlPanelOptions[11] = array('text' => _USERSPROGRESS, 'image' => "32x32/status.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=progress");
+                $controlPanelOptions[12] = array('text' => _USERSPROGRESS, 'image' => "32x32/status.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=progress");
             }
             if ($currentUser -> coreAccess['forum'] != 'hidden' && $GLOBALS['configuration']['disable_forum'] != 1) {
                 $resultForum = eF_getTableData("f_forums","id","lessons_ID=".$_SESSION['s_lessons_ID']);

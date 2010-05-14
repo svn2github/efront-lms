@@ -3677,7 +3677,9 @@ define("_ONLYXCANBEAPPLIEDATATIME", "Only %x entities where processed, which is 
 define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "You cannot assign users to this curriculum because it has no courses");
 define("_CURRICULUMPROPERTIES", "Curriculum properties");
 define("_ENTRIES", "Entries");
+define("_CLEARQUERYCACHE", "Clear query cache");
 define("_FEEDBACKOPTIONS","Feedback options");
 define("_OPTIONSFORFEEDBACK","Options for feedback");
 define("_RECENTLYCOMPLETEDFEEDBACK","Recently completed feedback");
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE", "PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved");
 ?>

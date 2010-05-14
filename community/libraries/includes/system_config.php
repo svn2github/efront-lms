@@ -100,7 +100,7 @@ define("PHPLIVEDOCXAPI","'.$values['phplivedocx_server'].'");
   if (is_writable($path."phplivedocx_config.php")) {
    file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
   } else {
-   $failed_updates[] = _SOMEFILESARENOTWRITABLE;
+   $failed_updates[] = _PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE;
   }
 /*        
 

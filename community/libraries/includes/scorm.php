@@ -73,7 +73,7 @@ if ($_GET['scorm_review']) {
 
     try {
         $smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
-        $maxUploads = 100;
+        $maxUploads = 10;
 
         $form = new HTML_QuickForm("upload_scorm_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=scorm&scorm_import=1', "", null, true);
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter

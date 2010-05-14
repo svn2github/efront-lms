@@ -125,7 +125,13 @@ try {
     $lessons = $courseUser -> getUserStatusInIndependentLessons();
    }
    $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+   foreach ($lessons as $key => $value) {
+    if ($value['course_only']) {
+     unset($lessons[$key]);
+    }
+   }
    $dataSource = $lessons;
+
   }
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'completed', 'score'));
@@ -165,13 +171,13 @@ try {
     }
    }
 
+   $alreadySorted = true;
    $dataSource = $courses;
    $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);
   }
 
   $tableName = $_GET['ajax'];
-  $alreadySorted = true;
   include("sorted_table.php");
  }
 

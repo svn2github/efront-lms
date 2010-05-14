@@ -35,6 +35,11 @@ function setSeenUnit(status) {
 function onSetSeenUnit(el, response) {
  try {
   results = response.evalJSON();
+  if (unitType == 'scorm') {
+   unitType = 'theory'; //scorm does not have icons of its own any more 
+  } else if (unitType == 'scorm_test') {
+   unitType = 'tests';
+  }
         if (hasSeen) {
          if ($('seenLink')) {
           setImageSrc($('seenLink').down(), 32, 'unit.png');
@@ -149,6 +154,7 @@ function answerQuestion(el) {
    setSeenUnit(0);
   }
   $('progress_image').remove();
+
  }
  });
 }

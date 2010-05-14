@@ -64,8 +64,8 @@ function askUsers() {
     } else {
      $lesson = new EfrontLesson($_SESSION['s_lessons_ID']);
      $students = array_keys($lesson -> getUsers('student'));
-     //pr($students);
     }
+
     $logins = array();
     $size = sizeof($students);
     for ($i = 0; $i < $size; $i++) {
@@ -79,7 +79,7 @@ function askUsers() {
     $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "login IN ($students_list) AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
    }
   } else {
-   if($_SESSION['s_type'] == "administrator"){
+   if ($_SESSION['s_type'] == "administrator") {
     $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%'", "login");
     $users[] = array('login' => "[*]",'name' => _ALLUSERS, 'surname' => _ALLUSERS);
    } else {

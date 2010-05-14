@@ -165,5 +165,9 @@ function onArchiveLesson(el, response) {
 function resetProgress(el, login) {
  var url = location.toString();
  var parameters = {reset_user:login, method: 'get'};
- ajaxRequest(el, url, parameters);
+ ajaxRequest(el, url, parameters, onResetProgress);
+}
+function onResetProgress(el, response) {
+ setImageSrc(el, 16, 'success');
+ new Effect.Fade(el, {afterFinish:function (s) {setImageSrc(el, 16, 'refresh');el.show();}});
 }

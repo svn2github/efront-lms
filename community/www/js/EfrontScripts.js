@@ -556,7 +556,7 @@ function changeAccount(login) {
     });
 }
 function handleException(e) {
- if (typeof('_DEBUG') != 'undefined' && _DEBUG) {
+ if (typeof(_DEBUG) != 'undefined' && _DEBUG) {
   var errorDetails = '';
   for (var i in e) {
    errorDetails += e[i] + '<br>';

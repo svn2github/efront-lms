@@ -2,7 +2,7 @@
 
 // For ajax calls just create the filters
 $stats_filters = array();
-if (isset($_GET['group_filter']) && $_GET['group_filter'] != -1) {
+if (isset($_GET['group_filter']) && $_GET['group_filter'] && $_GET['group_filter'] != -1) {
  $stats_filters[] = array("table" => "users_to_groups as filter_ug",
         "joinField" => "filter_ug.users_LOGIN",
         "condition" => "filter_ug.groups_ID = " . $_GET['group_filter']);

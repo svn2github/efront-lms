@@ -392,6 +392,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
    <span {if !$T_TEST_QUESTIONS_STATISTICS.random_pool}style = "display:none"{/if}>{$smarty.const._WHEREARANDOMPOOLOF} <span id = "questions_random_pool">{$T_TEST_QUESTIONS_STATISTICS.random_pool}</span> {$smarty.const._QUESTIONSISUSEDEACHTIME}</span>
   </div>
 {*This is the ajax table for the questions inside the edit test*}
+{if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'questionsTable'}
 <!--ajax:questionsTable-->
         <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "7" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&">
             <tr><td class = "topTitle" name = "text">{$smarty.const._QUESTIONTEXT}</td>
@@ -450,7 +451,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     <td class = "centerAlign">
                     <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$item.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 2)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
             {if $T_SKILLGAP_TEST}
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&ctg=tests&edit_question={$item.id}&lessonId={$item.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
+                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&lessonId={$item.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
             {/if}
                     <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
                 </td>
@@ -461,6 +462,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
             {/foreach}
         </table>
 <!--/ajax:questionsTable-->
+{/if}
  {/capture}
  {capture name = 't_edit_test_code'}
   {if $T_CTG != "feedback"}
@@ -482,6 +484,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   {*Interface to ajax-assign users to a test*}
         {if $T_SKILLGAP_TEST && $smarty.get.edit_test}
    {capture name = "t_test_users_code"}
+{if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'testUsersTable'}
 <!--ajax:testUsersTable-->
          <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "testUsersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=tests&edit_test={$smarty.get.edit_test}&">
              <tr class = "topTitle">
@@ -505,6 +508,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {/foreach}
          </table>
 <!--/ajax:testUsersTable-->
+{/if}
    {/capture}
          <div class = "tabbertab" id = "test_users" title = "{$smarty.const._USERS}">
     {eF_template_printBlock title=$smarty.const._USERS data=$smarty.capture.t_test_users_code image='32x32/users.png'}
@@ -1265,7 +1269,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       {if $T_SKILLGAP_TEST}
           <span>
               <img src = "images/16x16/wizard.png" alt = "{$smarty.const._ADDQUICKSKILLGAP}" title = "{$smarty.const._ADDQUICKSKILLGAP}" />
-                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&ctg=tests&add_test=1&create_quick_test=1">{$smarty.const._ADDQUICKSKILLGAP}</a>
+                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&add_test=1&create_quick_test=1">{$smarty.const._ADDQUICKSKILLGAP}</a>
              </span>
       {/if}
          </div>
@@ -1382,7 +1386,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
               <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$question.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 1)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
              {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
                  {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.skillgaptests) || $T_CURRENT_USER->coreAccess.skillgaptests == 'change')}
-                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&ctg=tests&edit_question={$question.id}&lessonId={$question.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
+                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&lessonId={$question.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
                  {/if}
                  <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._CORRECTION}" title = "{$smarty.const._CORRECTION}"/></a>
                  <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteQuestion(this, '{$question.id}')"/>

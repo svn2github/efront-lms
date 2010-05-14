@@ -1140,7 +1140,11 @@ class EfrontCourse
 
 */
   $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, $groupby, $limit);
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  } else {
+   return $result;
+  }
  }
  /**
 
@@ -1164,7 +1168,11 @@ class EfrontCourse
   $where[] = "u.login=uc.users_LOGIN and uc.courses_ID='".$this -> course['id']."' and uc.archive=0";
   $result = eF_getTableData("users u, users_to_courses uc", $select,
   implode(" and ", $where), $orderby, false, $limit);
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  } else {
+   return $result;
+  }
  }
  /**
 
@@ -1213,7 +1221,11 @@ class EfrontCourse
   $from = "users u left outer join (select completed,score,courses_ID,from_timestamp,users_LOGIN,user_type as role from users_to_courses where courses_ID='".$this -> course['id']."' and archive=0) r on u.login=r.users_LOGIN";
   $result = eF_getTableData($from, $select,
   implode(" and ", $where), $orderby, false, $limit);
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  } else {
+   return $result;
+  }
  }
  /**
 
@@ -1263,7 +1275,11 @@ class EfrontCourse
      group by users_LOGIN) r on u.login=r.users_login";						 
   $result = eF_getTableData($from, "u.*, r.*",
   implode(" and ", $where), $orderby, $groupby, $limit);
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  } else {
+   return $result;
+  }
  }
  /**
 

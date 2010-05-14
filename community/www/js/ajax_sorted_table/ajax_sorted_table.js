@@ -200,6 +200,7 @@
 
        var re2 = new RegExp("<!--ajax:"+tableId+"-->((.*[\n])*)<!--\/ajax:"+tableId+"-->"); //Does not work with smarty {strip} tags!
        var tableText = re2.exec(transport.responseText);
+
        if (!tableText) {
         var re = new RegExp("<!--ajax:"+tableId+"-->((.*[\r\n\u2028\u2029])*)<!--\/ajax:"+tableId+"-->"); //Does not work with smarty {strip} tags!
         tableText = re.exec(transport.responseText);

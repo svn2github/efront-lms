@@ -83,11 +83,13 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
 {/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)}
    <td class = "completed">
-   {if $user.has_course}
-    {if $user.completed}
-     <img src = "images/16x16/success.png" alt = "#filter:timestamp_time-{$user.to_timestamp}#" title = "#filter:timestamp_time-{$user.to_timestamp}#">
-    {else}
-     <img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    {if $user.has_course}
+     {if $user.completed}
+      <img src = "images/16x16/success.png" alt = "#filter:timestamp_time-{$user.to_timestamp}#" title = "#filter:timestamp_time-{$user.to_timestamp}#">
+     {else}
+      <img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}">
+     {/if}
     {/if}
    {/if}
    </td>

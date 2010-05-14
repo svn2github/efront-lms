@@ -2204,7 +2204,12 @@ class EfrontContentTree extends EfrontTree
         }
         while ($iterator -> valid()) {
             $iterator -> next();
-            $current['ctg_type'] == 'tests' ? $contentType = 'tests' : $contentType = 'content';
+            //$current['ctg_type'] == 'tests' ? $contentType = 'tests' : $contentType = 'content';
+   if ($current['ctg_type'] == "tests" || $current['ctg_type'] == "feedback") {
+    $contentType = $current['ctg_type'];
+   } else {
+    $contentType = 'content';
+   }
             $scorm2004 = in_array($current['scorm_version'], EfrontContentTree::$scorm2004Versions);
             $linkClass = array();
             $liClass = array();

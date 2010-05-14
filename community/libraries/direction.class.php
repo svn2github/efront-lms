@@ -788,11 +788,23 @@ class EfrontDirectionsTree extends EfrontTree
   if (isset($options['buy_link']) && $options['buy_link'] && (!isset($treeLesson -> lesson['has_lesson']) || !$treeLesson -> lesson['has_lesson']) && (!isset($treeLesson -> lesson['reached_max_users']) || !$treeLesson -> lesson['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
    $treeString .= '
     <span class = "buyLesson">
-     <span>'.($treeLesson -> lesson['price'] ? $treeLesson -> lesson['price_string'] : '').'</span>
+     <span>'.$this -> showLessonPrice($treeLesson).'</span>
      <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\')">
     </span>';
   }
   return $treeString;
+ }
+ private function showLessonPrice($lesson) {
+  if ($lesson -> lesson['price']) {
+   $lesson -> lesson['price'] ? $priceString = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true) : $priceString = false;
+   return $priceString;
+  }
+ }
+ private function showCoursePrice($course) {
+  if ($course -> course['price']) {
+   $course -> course['price'] ? $priceString = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true) : $priceString = false;
+   return $priceString;
+  }
  }
  private function printCourseLinks($treeCourse, $options, $roleBasicType) {
   $treeString = '';
@@ -800,7 +812,7 @@ class EfrontDirectionsTree extends EfrontTree
    if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || $treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
     $treeString .= '
         <span class = "buyLesson">
-         <span>'.($treeCourse -> course['price'] ? $treeCourse -> course['price_string'] : '').'</span>
+         <span>'.$this -> showCoursePrice($treeCourse).'</span>
          <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
         </span>';
    } else {

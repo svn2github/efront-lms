@@ -2007,31 +2007,67 @@ class EfrontLesson
         }
         return $questions;
     }
+/*
+
     public function getLessonStatusForUsers($users = false, $onlyContent = false) {
-     $lessonUsers = $this -> getUsers('student');
-  if ($users !== false) {
-   $userLogins = $this -> verifyUsersList($users);
-   foreach ($userLogins as $login) {
-    if (in_array($login, array_keys($lessonUsers))) {
-     $temp[$login] = $lessonUsers[$login];
+
+
+
+    	$lessonUsers = $this -> getUsers('student');
+
+		if ($users !== false) {
+
+			$userLogins = $this -> verifyUsersList($users);
+
+			foreach ($userLogins as $login) {
+
+				if (in_array($login, array_keys($lessonUsers))) {
+
+					$temp[$login] = $lessonUsers[$login];
+
+				}
+
+			}
+
+			$lessonUsers = $temp;
+
+		}
+
+		
+
+		
+
+		foreach ($lessonUsers as $key => $user) {
+
+			if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
+
+				$user['different_role'] = 1;
+
+			}
+
+			$lessonUsers[$key]['overall_progress'] = $this -> getUserOverallProgressInLesson($lesson);
+
+			if (!$onlyContent) {
+
+				$lessonUsers[$key]['project_status']   = $this -> getUserProjectsStatusInLesson($lesson);
+
+				$lessonUsers[$key]['test_status']	   = $this -> getUserTestsStatusInLesson($lesson);
+
+				$lessonUsers[$key]['time_in_lesson']   = $this -> getUserTimeInLesson($lesson);
+
+			}
+
+		}
+
+
+
+		return $userLessons;
+
+    	
+
     }
-   }
-   $lessonUsers = $temp;
-  }
-pr($lessonUsers);exit;
-  foreach ($lessonUsers as $key => $user) {
-   if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
-    $user['different_role'] = 1;
-   }
-   $lessonUsers[$key]['overall_progress'] = $this -> getUserOverallProgressInLesson($lesson);
-   if (!$onlyContent) {
-    $lessonUsers[$key]['project_status'] = $this -> getUserProjectsStatusInLesson($lesson);
-    $lessonUsers[$key]['test_status'] = $this -> getUserTestsStatusInLesson($lesson);
-    $lessonUsers[$key]['time_in_lesson'] = $this -> getUserTimeInLesson($lesson);
-   }
-  }
-  return $userLessons;
-    }
+
+*/
     /**
 
      * Get lesson information

@@ -1808,11 +1808,14 @@ class EfrontStats
         }
         return $courseStatus;
     }
-    public function getUserLessonStatus($lesson, $user) {
-        $cacheKey = 'user_lesson_status:';
-        $lesson instanceOf EfrontLesson ? $cacheKey .= 'lesson:'.$lesson -> lesson['id'] : $cacheKey .= 'lesson:'.$lesson;
-        $user instanceOf EfrontUser ? $cacheKey .= 'user:'.$user -> user['login'] : $cacheKey .= 'user:'.$user;
+    public function getUserLessonStatus($lesson, $user, $options) {
 /*            
+
+    	$cacheKey = 'user_lesson_status:';
+
+        $lesson instanceOf EfrontLesson ? $cacheKey .= 'lesson:'.$lesson -> lesson['id'] : $cacheKey .= 'lesson:'.$lesson;
+
+        $user   instanceOf EfrontUser   ? $cacheKey .= 'user:'.$user -> user['login']    : $cacheKey .= 'user:'.$user;
 
         if ($status = Cache::getCache($cacheKey)) {
 

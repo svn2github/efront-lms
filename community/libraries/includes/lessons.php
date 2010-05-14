@@ -373,37 +373,39 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                 exit;
             }
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         handleNormalFlowExceptions($e);
         }
-        if (isset($_GET['postAjaxRequest'])) {
-            try {
-                if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
-                    isset($_GET['user_type']) && in_array($_GET['user_type'], array_keys($roles)) ? $userType = $_GET['user_type'] : $userType = 'student';
-                    if (in_array($_GET['login'], array_keys($nonLessonUsers))) {
-                        $editLesson -> addUsers($_GET['login'], $userType);
-                    }
-                    if (in_array($_GET['login'], array_keys($lessonUsers))) {
-                        $userType != $lessonUsers[$_GET['login']]['role'] ? $editLesson -> setRoles($_GET['login'], $userType) : $editLesson -> archiveLessonUsers($_GET['login']);
-                    }
-                } else if (isset($_GET['addAll'])) {
-                    $userTypes = array();
-                    isset($_GET['filter']) ? $nonLessonUsers = eF_filterData($nonLessonUsers, $_GET['filter']) : null;
-                    foreach ($nonLessonUsers as $user) {
-                        $user['user_types_ID'] ? $userTypes[] = $user['user_types_ID'] : $userTypes[] = $user['basic_user_type'];
-                    }
-                    $editLesson -> addUsers(array_keys($nonLessonUsers), $userTypes);
-                } else if (isset($_GET['removeAll'])) {
-                    isset($_GET['filter']) ? $lessonUsers = eF_filterData($lessonUsers, $_GET['filter']) : null;
-                    $editLesson -> archiveLessonUsers(array_keys($lessonUsers));
-                }
-                exit;
-            } catch (Exception $e) {
-                header("HTTP/1.0 500 ");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
-            }
-            exit;
+        try {
+         if (isset($_GET['ajax']) && isset($_GET['reset_user'])) {
+          $user = EfrontUserFactory :: factory($_GET['reset_user']);
+          $user -> resetProgressInLesson($editLesson);
+          exit;
+         }
+         if (isset($_GET['postAjaxRequest'])) {
+          if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
+           isset($_GET['user_type']) && in_array($_GET['user_type'], array_keys($roles)) ? $userType = $_GET['user_type'] : $userType = 'student';
+           if (in_array($_GET['login'], array_keys($nonLessonUsers))) {
+            $editLesson -> addUsers($_GET['login'], $userType);
+           }
+           if (in_array($_GET['login'], array_keys($lessonUsers))) {
+            $userType != $lessonUsers[$_GET['login']]['role'] ? $editLesson -> setRoles($_GET['login'], $userType) : $editLesson -> archiveLessonUsers($_GET['login']);
+           }
+          } else if (isset($_GET['addAll'])) {
+           $userTypes = array();
+           isset($_GET['filter']) ? $nonLessonUsers = eF_filterData($nonLessonUsers, $_GET['filter']) : null;
+           foreach ($nonLessonUsers as $user) {
+            $user['user_types_ID'] ? $userTypes[] = $user['user_types_ID'] : $userTypes[] = $user['basic_user_type'];
+           }
+           $editLesson -> addUsers(array_keys($nonLessonUsers), $userTypes);
+          } else if (isset($_GET['removeAll'])) {
+           isset($_GET['filter']) ? $lessonUsers = eF_filterData($lessonUsers, $_GET['filter']) : null;
+           $editLesson -> archiveLessonUsers(array_keys($lessonUsers));
+          }
+          exit;
+          exit;
+         }
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
         }
     }
 } else if (isset($_GET['lesson_info']) && eF_checkParameter($_GET['lesson_info'], 'id')) {

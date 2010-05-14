@@ -3682,4 +3682,5 @@ define("_FEEDBACKOPTIONS","Επιλογές ανάδρασης");
 define("_OPTIONSFORFEEDBACK","Επιλογές για την ανάδραση");
 define("_RECENTLYCOMPLETEDFEEDBACK","Πρόσφατα ολοκληρωμένες αναδράσεις");
 define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE", "Το αρχείο ρυθμίσεων του PHP LiveDocx (libraries/phplivedocx_config.php) δεν είναι εγγράψιμο. Τυχόν αλλαγές που κάνατε στις ρυθμίσεις του livedocx δεν αποθηκεύτηκαν");
+define("_RESETPROGRESSDATA", "Διαγραφή δεδομένων προόδου");
 ?>

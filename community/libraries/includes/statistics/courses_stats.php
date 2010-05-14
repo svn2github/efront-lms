@@ -224,6 +224,8 @@ if (isset($_GET['excel'])) {
     $row += 2;
 /*
 
+    //COMMENTED OUT BECAUSE WE CHANGED THE REPORTING METHOD NOT TO INCLUDE LESSONS
+
     //lessons
 
     $workSheet -> write($row, 4, _LESSONS, $headerFormat);
@@ -350,6 +352,7 @@ if (isset($_GET['excel'])) {
         $pdf -> Cell(45, 7, formatScore($info['score'])."%", 0, 0, C, 0);
         $pdf -> Cell(45, 7, $info['completed'] ? _YES : _NO, 0, 1, C, 0);
     }
+//COMMENTED OUT BECAUSE WE CHANGED THE REPORTING METHOD NOT TO INCLUDE LESSONS    
 /*
 
     //lessons

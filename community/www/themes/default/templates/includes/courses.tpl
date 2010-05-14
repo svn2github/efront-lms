@@ -75,6 +75,7 @@
            <td class = "topTitle centerAlign" name = "from_timestamp" style = "width:5%">{$smarty.const._STATUS}</td>
            <td class = "topTitle centerAlign" name = "completed" style = "width:5%">{$smarty.const._COMPLETED}</td>
            <td class = "topTitle centerAlign" name = "score" style = "width:5%">{$smarty.const._SCORE}</td>
+     <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
      <td class = "topTitle centerAlign" name = "active_in_course">{$smarty.const._CHECK}</td>
     </tr>
    {foreach name = 'users_to_lessons_list' key = 'login' item = 'user' from = $T_DATA_SOURCE}
@@ -107,6 +108,8 @@
      {if !$user.active_in_course|@is_null}
       {if $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student'}#filter:score-{$user.score}#%{/if}
      {/if}
+     </td>
+     <td class = "centerAlign">
      </td>
      <td class = "centerAlign">
     {if $_change_}

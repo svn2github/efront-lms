@@ -796,6 +796,20 @@ class EfrontDirectionsTree extends EfrontTree
  }
  private function printCourseLinks($treeCourse, $options, $roleBasicType) {
   $treeString = '';
+  if (isset($options['buy_link'])) {
+   if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || $treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
+    $treeString .= '
+        <span class = "buyLesson">
+         <span>'.($treeCourse -> course['price'] ? $treeCourse -> course['price_string'] : '').'</span>
+         <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
+        </span>';
+   } else {
+    $treeString .= '
+       <span class = "buyLesson">
+        &nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
+       </span>';							
+   }
+  }
   if (!isset($treeCourse -> course['from_timestamp']) || $treeCourse -> course['from_timestamp']) { //from_timestamp in user status means that the user's status in the course is not 'pending'
    $classNames = array();
    $courseLink = $options['courses_link'];
@@ -810,20 +824,6 @@ class EfrontDirectionsTree extends EfrontTree
    }
   } else {
    $treeString .= '<a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$treeCourse -> course['name'].'</a>';
-  }
-  if (isset($options['buy_link'])) {
-   if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || $treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
-    $treeString .= '
-        <span class = "buyLesson">
-         <span>'.($treeCourse -> course['price'] ? $treeCourse -> course['price_string'] : '').'</span>
-         <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
-        </span>';
-   } else {
-    $treeString .= '
-       <span class = "buyLesson">
-        &nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
-       </span>';							
-   }
   }
   return $treeString;
  }
@@ -924,7 +924,7 @@ class EfrontDirectionsTree extends EfrontTree
     }
     $treeString .= '<td>';
     $treeString .= $this -> printLessonBuyLink($treeLesson, $options);
-    $treeString .= '&nbsp;';
+    //$treeString .= '&nbsp;';
     $treeString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
     $treeString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
            '.(isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
@@ -963,7 +963,6 @@ class EfrontDirectionsTree extends EfrontTree
       <table width = "100%">
        <tr class = "directionEntry">
         <td>';
-     $treeString .= '&nbsp;';
      $treeString .= $this -> printCourseLinks($treeCourse, $options, $roleBasicType);
      $treeString .= '
         </td>

@@ -3682,4 +3682,5 @@ define("_FEEDBACKOPTIONS","Feedback options");
 define("_OPTIONSFORFEEDBACK","Options for feedback");
 define("_RECENTLYCOMPLETEDFEEDBACK","Recently completed feedback");
 define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE", "PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved");
+define("_RESETPROGRESSDATA", "Reset progress data");
 ?>

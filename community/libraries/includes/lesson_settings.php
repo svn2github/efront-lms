@@ -194,8 +194,10 @@ if ($_GET['op'] == 'reset_lesson') {
     try {
         $lessonUsers = $currentLesson -> getUsers(); //Get all users that have this lesson        
         unset($lessonUsers[$currentUser -> login]); //Remove the current user from the list, he can't set parameters for his self!
-        $nonLessonUsers = $currentLesson -> getNonUsers(); //Get all the users that can, but don't, have this lesson
-        $users = array_merge($lessonUsers, $nonLessonUsers); //Merge users to a single array, which will be useful for displaying them
+        //COMMENTED OUT BECAUSE WE DON'T WANT TO SET USERS FROM THIS LIST
+        //$nonLessonUsers = $currentLesson -> getNonUsers();                 //Get all the users that can, but don't, have this lesson
+        //$users          = array_merge($lessonUsers, $nonLessonUsers);      //Merge users to a single array, which will be useful for displaying them
+  $users = $lessonUsers;
 
         foreach ($users as $key => $user) {
             in_array($key, array_keys($nonLessonUsers)) ? $users[$key]['in_lesson'] = false : $users[$key]['in_lesson'] = true;
@@ -233,11 +235,14 @@ if ($_GET['op'] == 'reset_lesson') {
             $smarty -> display('includes/lesson_settings.tpl');
             exit;
         }
+        if (isset($_GET['ajax']) && isset($_GET['reset_user'])) {
+         $user = EfrontUserFactory :: factory($_GET['reset_user']);
+         $user -> resetProgressInLesson($currentLesson);
+         exit;
+        }
 
     } catch (Exception $e) {
-        $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-        $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-        $message_type = 'failure';
+     handleNormalFlowExceptions($e);
     }
 
     if (isset($_GET['postAjaxRequest'])) {
@@ -258,8 +263,7 @@ if ($_GET['op'] == 'reset_lesson') {
                 $currentLesson -> archiveLessonUsers(array_keys($lessonUsers));
             }
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     }

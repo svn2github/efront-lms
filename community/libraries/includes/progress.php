@@ -12,8 +12,8 @@ if ($_student_) {
     $currentUser -> coreAccess['progress'] = 'view';
 }
 
-$load_editor = true;
 if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login')) {
+ $load_editor = true;
     //$lessonUser  = EfrontUserFactory :: factory($_GET['edit_user']);
 
     //Check conditions
@@ -117,10 +117,10 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 
 //Get users list through ajax
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
-
+//debug();
  try {
-  $users = EfrontStats::getUsersLessonStatus($currentLesson);
-
+  $users = EfrontStats::getUsersLessonStatus($currentLesson, array_keys($currentLesson -> getUsers('student')), array('notests' => 1, 'noprojects' => 1));
+//debug(false);exit;		
   $users = $users[$currentLesson -> lesson['id']];
   $result = eF_getTableDataFlat("user_types", "id", "basic_user_type='student'");
   $studentTypes = $result["id"];

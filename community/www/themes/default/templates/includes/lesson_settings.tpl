@@ -69,9 +69,7 @@
                                                             <td class = "topTitle" name = "surname">{$smarty.const._SURNAME}</td>
                                                             <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
                                                             <td class = "topTitle" name = "role">{$smarty.const._USERROLEINLESSON}</td>
-
-
-
+                                                            <td class = "topTitle centerAlign">{$smarty.const._OPERATIONS}</td>
                                                             <td class = "topTitle centerAlign" name = "in_lesson">{$smarty.const._STATUS}</td>
                                                         </tr>
                                 {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_ALL_USERS}
@@ -92,6 +90,17 @@
                                     {/if}
                                                             </td>
                                                             <td align="center">
+
+
+
+
+
+
+                                                            {if $user.basic_user_type == 'student'}
+                                                                    <img class = "ajaxHandle" src="images/16x16/refresh.png" title="{$smarty.const._RESETPROGRESSDATA}" alt="{$smarty.const._RESETPROGRESSDATA}" onclick = "resetProgress(this, '{$user.login}');">
+                                                            {/if}
+                                                            </td>
+                                                            <td align="center">
                                     {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
                                                                 <input class = "inputCheckbox" type = "checkbox" name = "checked_{$user.login}" id = "checked_{$user.login}" onclick = "ajaxPost('{$user.login}', this);" {if in_array($user.login, $T_LESSON_USERS)}checked = "checked"{/if} />
                                     {else}
@@ -104,6 +113,8 @@
 <!--/ajax:usersTable-->
         {/capture}
                     {eF_template_printBlock title = "`$smarty.const._UPDATEUSERSTOLESSONS`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_users_to_lessons_code image = '32x32/users.png' main_options = $T_TABLE_OPTIONS help = 'Administration'}
+
+
     {elseif isset($T_OP) && $T_OP == 'lesson_layout'}
          {capture name = "t_layout_code"}
                     {capture name = "layout_moduleIconFunctions"}
@@ -142,6 +153,7 @@
                                         {$smarty.const._PROJECTS}
                                     </th>
                                     <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleProjectsList) && $T_DEFAULT_POSITIONS.visibility.moduleProjectsList == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+
                                 <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleProjectsList) && $T_DEFAULT_POSITIONS.visibility.moduleProjectsList == 0}display:none;{/if}"><img src = "images/others/projects_thumbnail.png"></td></tr>
                             </table>
                         </li>
@@ -157,6 +169,7 @@
                                         {$smarty.const._ANNOUNCEMENTS}
                                     </th>
                                     <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleNewsList) && $T_DEFAULT_POSITIONS.visibility.moduleNewsList == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+
                                 <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleNewsList) && $T_DEFAULT_POSITIONS.visibility.moduleNewsList == 0}display:none;{/if}"><img src = "images/others/news_thumbnail.png"></td></tr>
                             </table>
                         </li>
@@ -172,6 +185,7 @@
                                         {$smarty.const._PERSONALMESSAGES}
                                     </th>
                                     <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.modulePersonalMessagesList) && $T_DEFAULT_POSITIONS.visibility.modulePersonalMessagesList == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+
                                 <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.modulePersonalMessagesList) && $T_DEFAULT_POSITIONS.visibility.modulePersonalMessagesList == 0}display:none;{/if}"><img src = "images/others/personal_messages_thumbnail.png"></td></tr>
                             </table>
                         </li>
@@ -187,6 +201,7 @@
                                         {$smarty.const._RECENTMESSAGESATFORUM}
                                     </th>
                                     <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleForumList) && $T_DEFAULT_POSITIONS.visibility.moduleForumList == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+
                                 <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleForumList) && $T_DEFAULT_POSITIONS.visibility.moduleForumList == 0}display:none;{/if}"><img src = "images/others/forum_thumbnail.png"></td></tr>
                             </table>
                         </li>
@@ -202,6 +217,7 @@
                                         {$smarty.const._COMMENTS}
                                     </th>
                                     <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleComments) && $T_DEFAULT_POSITIONS.visibility.moduleComments == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+
                                 <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleComments) && $T_DEFAULT_POSITIONS.visibility.moduleComments == 0}display:none;{/if}"><img src = "images/others/comments_thumbnail.png"></td></tr>
                             </table>
                         </li>
@@ -217,6 +233,7 @@
                                         {$smarty.const._CALENDAR}
                                     </th>
                                     <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleCalendar) && $T_DEFAULT_POSITIONS.visibility.moduleCalendar == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+
                                 <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleCalendar) && $T_DEFAULT_POSITIONS.visibility.moduleCalendar == 0}display:none;{/if}"><img src = "images/others/calendar_thumbnail.png"></td></tr>
                             </table>
                         </li>
@@ -231,6 +248,7 @@
                                         {$smarty.const._DIGITALLIBRARY}
                                     </th>
                                     <td class = "innerTableHeader" style = "text-align:right"><img src = "images/16x16/{if isset($T_DEFAULT_POSITIONS.visibility.moduleDigitalLibrary) && $T_DEFAULT_POSITIONS.visibility.moduleDigitalLibrary == 0}navigate_down.png{else}navigate_up.png{/if}" onclick = "toggleVisibility(Element.extend(this).up().up().next().down(), this);"></td></tr>
+
                                 <tr><td colspan = "2" style = "height:60px;text-align:center;vertical-align:top;{if isset($T_DEFAULT_POSITIONS.visibility.moduleDigitalLibrary) && $T_DEFAULT_POSITIONS.visibility.moduleDigitalLibrary == 0}display:none;{/if}"><img src = "images/others/digital_library_thumbnail.png"></td></tr>
                             </table>
                         </li>

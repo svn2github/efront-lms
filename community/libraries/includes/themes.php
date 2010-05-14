@@ -429,8 +429,14 @@ try {
                 $value -> persist();
             }
             $theme -> options['browsers'][$_GET['browser']] = 1;
-            echo $_GET['browser'];
             $theme -> persist();
+            if (detectBrowser() == $_GET['browser']) {
+             if ($theme -> options['sidebar_interface'] > 0) {
+                 echo basename($_SERVER['PHP_SELF']).'?ctg=themes';
+             } else {
+                 echo basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes';
+             }
+            }
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");
             echo $e -> getMessage().' ('.$e -> getCode().')';

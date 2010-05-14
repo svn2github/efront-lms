@@ -260,6 +260,7 @@ tr.lessonsList td.listTitle{width:100%;}
 tr.lessonsList td.listToggle{border-right: 1px solid #AAAAAA;width:1px;}
 tr.lessonsList span.listName{font-weight:bold;font-size:14px;}
 tr.lessonsList span.courseActions{margin-left:20px;}
+tr.lessonsList span.courseRole{color:green; font-size: 11px;}
 .buyLesson{float:right;cursor:pointer;font-weight:bold;white-space:nowrap;}
 
 tr.directionEntry td{padding-bottom:2px;}

@@ -215,11 +215,11 @@ abstract class EfrontUser
 
 	 * <code>
 
-	 * $user = EfrontUserFactory :: factory('jdoe');            //Use factory to instantiate user object with login 'jdoe'
+	 * $user = EfrontUserFactory :: factory('jdoe');			//Use factory to instantiate user object with login 'jdoe'
 
 	 * $user = EfrontUserFactory :: factory('jdoe', 'mypass');  //Use factory to instantiate user object with login 'jdoe' and perform password verification
 
-	 * $user = new EfrontAdministrator('jdoe')                  //Instantiate administrator user object with login 'jdoe'
+	 * $user = new EfrontAdministrator('jdoe')				  //Instantiate administrator user object with login 'jdoe'
 
 	 * </code>
 
@@ -356,7 +356,7 @@ abstract class EfrontUser
   if ($userProperties['password'] != 'ldap') {
    !isset($userProperties['password']) ? $userProperties['password'] = EfrontUser::createPassword($userProperties['login']) : $userProperties['password'] = self :: createPassword($userProperties['password']);
   }
-  //!isset($userProperties['password'])       ? $userProperties['password']       = md5($userProperties['login'].G_MD5KEY)        : $userProperties['password'] = md5($userProperties['password'].G_MD5KEY);        //If password is not specified, use login instead
+  //!isset($userProperties['password'])	   ? $userProperties['password']	   = md5($userProperties['login'].G_MD5KEY)		: $userProperties['password'] = md5($userProperties['password'].G_MD5KEY);		//If password is not specified, use login instead
   !isset($userProperties['email']) ? $userProperties['email'] = '' : null; // 0 means not pending, 1 means pending
   !isset($userProperties['languages_NAME']) ? $userProperties['languages_NAME'] = $GLOBALS['configuration']['default_language'] : null; //If language is not specified, use default language
   !isset($userProperties['active']) || $userProperties['active'] == "" ? $userProperties['active'] = 0 : null; // 0 means inactive, 1 means active
@@ -477,9 +477,9 @@ abstract class EfrontUser
 
 	 * <code>
 
-	 *      $user = EfrontUserFactory :: factory('admin');
+	 *	  $user = EfrontUserFactory :: factory('admin');
 
-	 *      echo $user -> getType();            //Returns 'administrator'
+	 *	  echo $user -> getType();			//Returns 'administrator'
 
 	 * </code>
 
@@ -549,7 +549,7 @@ abstract class EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * echo $user -> getPassword();             //echos something like '36f49e43c662986b838258ab099d0d5a'
+	 * echo $user -> getPassword();			 //echos something like '36f49e43c662986b838258ab099d0d5a'
 
 	 * </code>
 
@@ -583,11 +583,11 @@ abstract class EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> setLoginType('ldap');               //Set login type to 'ldap'
+	 * $user -> setLoginType('ldap');			   //Set login type to 'ldap'
 
 	 * $user -> setLoginType('normal', 'testpass'); //Set login type to 'normal' using password 'testpass'
 
-	 * $user -> setLoginType();                     //Set login type to 'normal' and use default password (the user's login)
+	 * $user -> setLoginType();					 //Set login type to 'normal' and use default password (the user's login)
 
 	 * </code>
 
@@ -636,7 +636,7 @@ abstract class EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> getLoginType();                     //Returns either 'normal' or 'ldap'
+	 * $user -> getLoginType();					 //Returns either 'normal' or 'ldap'
 
 	 * </code>
 
@@ -738,7 +738,7 @@ abstract class EfrontUser
 
 	 * <code>
 
-	 * $file = new EfrontFile(32);                                             //This is a file uploaded -for example- in the filesystem.
+	 * $file = new EfrontFile(32);											 //This is a file uploaded -for example- in the filesystem.
 
 	 * $user -> setAvatar($file);
 
@@ -916,10 +916,10 @@ abstract class EfrontUser
   $result = eF_getTableData("logs", "action", "users_LOGIN = '".$this -> user['login']."'", "timestamp desc limit 1"); //?? ??? ????? ???????? ???, ????? ??? logs ??? ????? logout, ???? ?? ????? logout ??? ??? ??? ?? ???????
   if ($result[0]['action'] != 'logout') {
    $fields_insert = array('users_LOGIN' => $this -> user['login'],
-                                   'timestamp' => time(),
-                                   'action' => 'logout',
-                                   'comments' => 0,
-                                   'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+           'timestamp' => time(),
+           'action' => 'logout',
+           'comments' => 0,
+           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
    eF_insertTableData("logs", $fields_insert);
   }
   eF_deleteTableData('users_online', "users_LOGIN='".$this -> user['login']."'");
@@ -1002,15 +1002,15 @@ abstract class EfrontUser
   $_SESSION['s_language'] = $login_language;
   //Insert log entry
   $fields_insert = array('users_LOGIN' => $this -> user['login'],
-                                'timestamp' => time(),
-                                'action' => 'login',
-                                'comments' => session_id(),
-                                'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+           'timestamp' => time(),
+           'action' => 'login',
+           'comments' => session_id(),
+           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
   $fields = array('users_LOGIN' => $this -> user['login'],
-                         'timestamp' => time(),
-                         'timestamp_now' => time(),
-                         'session_ip' => $_SERVER['REMOTE_ADDR']);
+       'timestamp' => time(),
+       'timestamp_now' => time(),
+       'session_ip' => $_SERVER['REMOTE_ADDR']);
   if (!$this -> isLoggedIn()) {
    eF_insertTableData("users_online", $fields);
   } else {
@@ -1074,7 +1074,7 @@ abstract class EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> refreshLogin();                               //Returns true if the user is logged in
+	 * $user -> refreshLogin();							   //Returns true if the user is logged in
 
 	 * </code>
 
@@ -1133,12 +1133,12 @@ abstract class EfrontUser
   foreach ($result as $value) {
    if (time() - $value['timestamp_now'] < $interval || !$interval) {
     $usersOnline[] = array('login' => $value['login'],
-                        'name' => $value['name'],
-                        'surname' => $value['surname'],
-                                       'formattedLogin'=> formatLogin(false, $value),
-                        'user_type' => $value['user_type'],
-                        'timestamp_now' => $value['timestamp_now'],
-                        'time' => eF_convertIntervalToTime(time() - $value['login_time']));
+            'name' => $value['name'],
+            'surname' => $value['surname'],
+            'formattedLogin'=> formatLogin(false, $value),
+            'user_type' => $value['user_type'],
+            'timestamp_now' => $value['timestamp_now'],
+            'time' => eF_convertIntervalToTime(time() - $value['login_time']));
    } else {
     EfrontUserFactory :: factory($value) -> logout();
    }
@@ -1159,7 +1159,7 @@ abstract class EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> isLoggedIn();                               //Returns true if the user is logged in
+	 * $user -> isLoggedIn();							   //Returns true if the user is logged in
 
 	 * </code>
 
@@ -1302,9 +1302,9 @@ abstract class EfrontUser
 
 	 * <code>
 
-	 * $user -> surname = 'doe';                            //Change object's surname
+	 * $user -> surname = 'doe';							//Change object's surname
 
-	 * $user -> persist();                                  //Persist changed value
+	 * $user -> persist();								  //Persist changed value
 
 	 * </code>
 
@@ -1319,23 +1319,23 @@ abstract class EfrontUser
 	 */
  public function persist() {
   $fields = array('password' => $this -> user['password'],
-                        'email' => $this -> user['email'],
-                        'languages_NAME' => $this -> user['languages_NAME'],
-                        'name' => $this -> user['name'],
-                        'surname' => $this -> user['surname'],
-                        'active' => $this -> user['active'],
-                        'comments' => $this -> user['comments'],
-                        'user_type' => $this -> user['user_type'],
-                        'timestamp' => $this -> user['timestamp'],
-                        'avatar' => $this -> user['avatar'],
-                        'pending' => $this -> user['pending'],
-                        'user_types_ID' => $this -> user['user_types_ID'],
-                        'viewed_license' => $this -> user['viewed_license'],
-                        'status' => $this -> user['status'],
-                        'balance' => $this -> user['balance'],
-                        'archive' => $this -> user['archive'],
-            'additional_accounts' => $this -> user['additional_accounts'],
-                        'short_description' => $this -> user['short_description'],
+      'email' => $this -> user['email'],
+      'languages_NAME' => $this -> user['languages_NAME'],
+      'name' => $this -> user['name'],
+      'surname' => $this -> user['surname'],
+      'active' => $this -> user['active'],
+      'comments' => $this -> user['comments'],
+      'user_type' => $this -> user['user_type'],
+      'timestamp' => $this -> user['timestamp'],
+      'avatar' => $this -> user['avatar'],
+      'pending' => $this -> user['pending'],
+      'user_types_ID' => $this -> user['user_types_ID'],
+      'viewed_license' => $this -> user['viewed_license'],
+      'status' => $this -> user['status'],
+      'balance' => $this -> user['balance'],
+      'archive' => $this -> user['archive'],
+      'additional_accounts' => $this -> user['additional_accounts'],
+      'short_description' => $this -> user['short_description'],
       'autologin' => $this -> user['autologin']);
   eF_updateTableData("users", $fields, "login='".$this -> user['login']."'");
   return true;
@@ -1350,7 +1350,7 @@ abstract class EfrontUser
 
 	 * <code>
 
-	 * $groupsList    = $user -> getGroups();                         //Returns an array with pairs [groups id] => [employee specification for this group]
+	 * $groupsList	= $user -> getGroups();						 //Returns an array with pairs [groups id] => [employee specification for this group]
 
 	 * </code>
 
@@ -1387,9 +1387,9 @@ abstract class EfrontUser
 
 	 * $user = EfrontHcdUserFactory :: factory('jdoe');
 
-	 * $user -> addGroups(23);                         //Add a single group with id 23
+	 * $user -> addGroups(23);						 //Add a single group with id 23
 
-	 * $user -> addGroups(array(23,24,25));            //Add multiple groups using an array
+	 * $user -> addGroups(array(23,24,25));			//Add multiple groups using an array
 
 	 * </code>
 
@@ -1443,9 +1443,9 @@ abstract class EfrontUser
 
 	 * $employee = EfrontHcdUserFactory :: factory('jdoe');
 
-	 * $employee -> removeGroups(23);                          //Remove a signle group with id 23
+	 * $employee -> removeGroups(23);						  //Remove a signle group with id 23
 
-	 * $employee -> removeGroups(array(23,24,25));             //Remove multiple groups using an array
+	 * $employee -> removeGroups(array(23,24,25));			 //Remove multiple groups using an array
 
 	 * </code>
 
@@ -1552,13 +1552,13 @@ abstract class EfrontUser
 
 	 * <code>
 
-	 *      $interval['from'] = "00000000";
+	 *	  $interval['from'] = "00000000";
 
-	 *      $interval['to']   = time();
+	 *	  $interval['to']   = time();
 
-	 *      $time  = EfrontUser :: getLoginTime('jdoe', $interval); //$time['jdoe'] now holds his times
+	 *	  $time  = EfrontUser :: getLoginTime('jdoe', $interval); //$time['jdoe'] now holds his times
 
-	 *      $times = EfrontUser :: getLoginTime($interval); //$times now holds an array of times for all users
+	 *	  $times = EfrontUser :: getLoginTime($interval); //$times now holds an array of times for all users
 
 	 * </code>
 
@@ -1711,7 +1711,7 @@ abstract class EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> applyRoleOptions(4);                        //Apply the role options for user type with id 4 to the $user object
+	 * $user -> applyRoleOptions(4);						//Apply the role options for user type with id 4 to the $user object
 
 	 * </code>
 
@@ -1796,7 +1796,7 @@ abstract class EfrontUser
 
 	 * <code>
 
-	 * $commentsList    = $user -> getProfileComments();                         //Returns an array with pairs [groups id] => [employee specification for this group]
+	 * $commentsList	= $user -> getProfileComments();						 //Returns an array with pairs [groups id] => [employee specification for this group]
 
 	 * </code>
 
@@ -1899,7 +1899,7 @@ class EfrontAdministrator extends EfrontUser
 
 	 * <code>
 
-	 * $info = $user -> getInformation();         //Get lesson information
+	 * $info = $user -> getInformation();		 //Get lesson information
 
 	 * </code>
 
@@ -2042,13 +2042,13 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> addLessons(23);                         //Add a signle lesson with id 23
+	 * $user -> addLessons(23);						 //Add a signle lesson with id 23
 
-	 * $user -> addLessons(23, 'professor');            //Add a signle lesson with id 23 and set the user type to 'professor'
+	 * $user -> addLessons(23, 'professor');			//Add a signle lesson with id 23 and set the user type to 'professor'
 
-	 * $user -> addLessons(array(23,24,25));            //Add multiple lessons using an array
+	 * $user -> addLessons(array(23,24,25));			//Add multiple lessons using an array
 
-	 * $user -> addLessons(array(23,24,25), array('professor', 'student', 'professor'));            //Add multiple lessons using an array for lesson ids and another for corresponding user types
+	 * $user -> addLessons(array(23,24,25), array('professor', 'student', 'professor'));			//Add multiple lessons using an array for lesson ids and another for corresponding user types
 
 	 * </code>
 
@@ -2101,9 +2101,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> confirmLessons(23);                         //Confirms the lesson with id 23
+	 * $user -> confirmLessons(23);						 //Confirms the lesson with id 23
 
-	 * $user -> addLessons(array(23,24,25));            //Confirms multiple lessons using an array
+	 * $user -> addLessons(array(23,24,25));			//Confirms multiple lessons using an array
 
 	 * </code>
 
@@ -2147,9 +2147,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> removeLessons(23);                          //Remove a signle lesson with id 23
+	 * $user -> removeLessons(23);						  //Remove a signle lesson with id 23
 
-	 * $user -> removeLessons(array(23,24,25));             //Remove multiple lessons using an array
+	 * $user -> removeLessons(array(23,24,25));			 //Remove multiple lessons using an array
 
 	 * </code>
 
@@ -2186,6 +2186,64 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  /**
 
+	 * Reset the user's progress in the specified lesson
+
+	 * 
+
+	 * @param mixed $lesson The lesson to reset
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
+ public function resetProgressInLesson($lesson) {
+  if (!($lesson instanceOf EfrontLesson)) {
+   $lesson = new EfrontLesson($lesson);
+  }
+  $tracking_info = array("done_content" => "",
+          "issued_certificate" => "",
+          "comments" => "",
+          "completed" => 0,
+          "current_unit" => 0,
+          "score" => 0);
+  eF_updateTableData("users_to_lessons", $tracking_info, "lessons_ID = ".$lesson -> lesson['id']);
+  eF_deleteTableData("completed_tests", "users_LOGIN = '".$this -> user['login']."' and tests_ID in (select id from tests where lessons_ID='".$lesson -> lesson['id']."')");
+  eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
+ }
+ /**
+
+	 * Reset the user's progress in the specified course
+
+	 * 
+
+	 * @param mixed $course The course to reset
+
+	 * @param boolean $resetLessons whether to reset lesson progress as well
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
+ public function resetProgressInCourse($course, $resetLessons = false) {
+  if (!($course instanceOf EfrontCourse)) {
+   $course = new EfrontLesson($course);
+  }
+  $tracking_info = array("issued_certificate" => "",
+          "comments" => "",
+          "to_timestamp" => 0,
+          "completed" => 0,
+          "score" => 0);
+  eF_updateTableData("users_to_courses", $tracking_info, "courses_ID = ".$course -> course['id']);
+  if ($resetLessons) {
+   foreach ($course -> getCourseLessons() as $lesson) {
+    $this -> resetProgressInLesson($lesson);
+   }
+  }
+ }
+ /**
+
 	 * Get the users's lessons list
 
 	 *
@@ -2200,9 +2258,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $lessonsList    = $user -> getLessons();                         //Returns an array with pairs [lessons id] => [user type]
+	 * $lessonsList	= $user -> getLessons();						 //Returns an array with pairs [lessons id] => [user type]
 
-	 * $lessonsObjects = $user -> getLessons(true);                     //Returns an array of lesson objects
+	 * $lessonsObjects = $user -> getLessons(true);					 //Returns an array of lesson objects
 
 	 * </code>
 
@@ -2344,7 +2402,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $eligibleLessons = $user -> getEligibleLessons();                         //Returns an array of EfrontLesson objects
+	 * $eligibleLessons = $user -> getEligibleLessons();						 //Returns an array of EfrontLesson objects
 
 	 * </code>
 
@@ -2396,9 +2454,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $user -> getNonLessons();            //Returns a list with potential lessons ids
+	 * $user -> getNonLessons();			//Returns a list with potential lessons ids
 
-	 * $user -> getNonLessons(true);        //Returns a list of EfrontLesson objects
+	 * $user -> getNonLessons(true);		//Returns a list of EfrontLesson objects
 
 	 * </code>
 
@@ -2419,7 +2477,7 @@ abstract class EfrontLessonUser extends EfrontUser
   sizeof($userLessons) > 0 ? $sql = "id not in (".implode(",", $userLessons['lessons_ID']).")" : $sql = '';
   if ($returnObjects) {
    $nonUserLessons = array();
-   //$lessons        = eF_getTableData("lessons", "*", "languages_NAME='".$this -> user['languages_NAME']."'".$sql);
+   //$lessons		= eF_getTableData("lessons", "*", "languages_NAME='".$this -> user['languages_NAME']."'".$sql);
    $lessons = eF_getTableData("lessons", "*", $sql);
    foreach ($lessons as $value) {
     $nonUserLessons[$value['id']] = new EfrontLesson($value['id']);
@@ -2479,9 +2537,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $user -> getCourses();                           //Get an array where keys are course ids and values are user type
+	 * $user -> getCourses();						   //Get an array where keys are course ids and values are user type
 
-	 * $user -> getCourses(true);                       //Return an array of EfrontCourse objects
+	 * $user -> getCourses(true);					   //Return an array of EfrontCourse objects
 
 	 * </code>
 
@@ -2925,8 +2983,8 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  private function getUserScormTestsStatusInLesson($lesson) {
   $usersDoneScormTests = eF_getTableData("scorm_data sd left outer join content c on c.id=sd.content_ID",
-                    "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
-                    "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$this -> user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$lesson -> lesson['id']);
+              "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
+              "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$this -> user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$lesson -> lesson['id']);
   $tests = array();
   foreach ($usersDoneScormTests as $doneScormTest) {
    if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {
@@ -2971,7 +3029,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $user -> getIssuedCertificates();       //Get an array with the information on the certificates
+	 * $user -> getIssuedCertificates();	   //Get an array with the information on the certificates
 
 	 * </code>
 
@@ -2993,12 +3051,12 @@ abstract class EfrontLessonUser extends EfrontUser
    if ($certificateInfo = unserialize($course -> course['issued_certificate'])) {
     $certificateInfo = unserialize($course -> course['issued_certificate']);
     $certificates[] = array("courses_ID" => $course -> course['id'],
-                "course_name" => $course -> course['name'],
-                "serial_number" => $certificateInfo['serial_number'],
-                "grade" => $certificateInfo['grade'],
-                "issue_date" => $certificateInfo['date'],
-                "active" => $course -> course['active'],
-                "expiration_date"=> ($course -> course['certificate_expiration']) ? ($certificateInfo['date'] + $course -> course['certificate_expiration']) : _NEVER);
+          "course_name" => $course -> course['name'],
+          "serial_number" => $certificateInfo['serial_number'],
+          "grade" => $certificateInfo['grade'],
+          "issue_date" => $certificateInfo['date'],
+          "active" => $course -> course['active'],
+          "expiration_date"=> ($course -> course['certificate_expiration']) ? ($certificateInfo['date'] + $course -> course['certificate_expiration']) : _NEVER);
    }
   }
   return $certificates;
@@ -3021,13 +3079,13 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> addCourses(23);                         //Add a signle course with id 23
+	 * $user -> addCourses(23);						 //Add a signle course with id 23
 
-	 * $user -> addCourses(23, 'professor');            //Add a signle course with id 23 and set the user type to 'professor'
+	 * $user -> addCourses(23, 'professor');			//Add a signle course with id 23 and set the user type to 'professor'
 
-	 * $user -> addCourses(array(23,24,25));            //Add multiple courses using an array
+	 * $user -> addCourses(array(23,24,25));			//Add multiple courses using an array
 
-	 * $user -> addCourses(array(23,24,25), array('professor', 'student', 'professor'));            //Add multiple courses using an array for course ids and another for corresponding user types
+	 * $user -> addCourses(array(23,24,25), array('professor', 'student', 'professor'));			//Add multiple courses using an array for course ids and another for corresponding user types
 
 	 * </code>
 
@@ -3075,9 +3133,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> addCourses(23);                         //Confirm a signle course with id 23
+	 * $user -> addCourses(23);						 //Confirm a signle course with id 23
 
-	 * $user -> addCourses(array(23,24,25));            //Confirm multiple courses using an array
+	 * $user -> addCourses(array(23,24,25));			//Confirm multiple courses using an array
 
 	 * </code>
 
@@ -3115,9 +3173,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * $user = EfrontUserFactory :: factory('jdoe');
 
-	 * $user -> removeCourses(23);                          //Remove a signle course with id 23
+	 * $user -> removeCourses(23);						  //Remove a signle course with id 23
 
-	 * $user -> removeCourses(array(23,24,25));             //Remove multiple courses using an array
+	 * $user -> removeCourses(array(23,24,25));			 //Remove multiple courses using an array
 
 	 * </code>
 
@@ -3170,13 +3228,13 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $user -> setRole(23, 'simpleUser');          //Set this user's role to 'simpleUser' for lesson with id 23
+	 * $user -> setRole(23, 'simpleUser');		  //Set this user's role to 'simpleUser' for lesson with id 23
 
-	 * $user -> setRole(23);                        //Set this user's role to the same as its basic type (for example 'student') for lesson with id 23
+	 * $user -> setRole(23);						//Set this user's role to the same as its basic type (for example 'student') for lesson with id 23
 
-	 * $user -> setRole(false, 'simpleUser');       //Set this user's role to 'simpleUser' for all lessons
+	 * $user -> setRole(false, 'simpleUser');	   //Set this user's role to 'simpleUser' for all lessons
 
-	 * $user -> setRole();                          //Set this user's role to the same as its basic type (for example 'student') for all lessons
+	 * $user -> setRole();						  //Set this user's role to the same as its basic type (for example 'student') for all lessons
 
 	 * </code>
 
@@ -3219,7 +3277,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $this -> getRole(4);                                 //Get the role for lesson with id 4
+	 * $this -> getRole(4);								 //Get the role for lesson with id 4
 
 	 * </code>
 
@@ -3310,9 +3368,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 *      $user = EfrontUserFactory :: factory('professor');
+	 *	  $user = EfrontUserFactory :: factory('professor');
 
-	 *      $students = $user -> getProfessorStudents();
+	 *	  $students = $user -> getProfessorStudents();
 
 	 * </code>
 
@@ -3355,7 +3413,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $info = $user -> getInformation();         //Get lesson information
+	 * $info = $user -> getInformation();		 //Get lesson information
 
 	 * </code>
 
@@ -3408,7 +3466,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $myRelatedUsers = $user -> getRelatedUsers();         //Get related users
+	 * $myRelatedUsers = $user -> getRelatedUsers();		 //Get related users
 
 	 * </code>
 
@@ -3437,7 +3495,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $common_lessons    = $user -> getCommonLessons('joe'); // find the common lessons between this user and 'joe'
+	 * $common_lessons	= $user -> getCommonLessons('joe'); // find the common lessons between this user and 'joe'
 
 	 * </code>
 
@@ -3470,7 +3528,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * <code>
 
-	 * $user -> getSkillgapTests();                           //Set the unit with id 32 in lesson 2 as seen
+	 * $user -> getSkillgapTests();						   //Set the unit with id 32 in lesson 2 as seen
 
 	 * </code>
 
@@ -3635,7 +3693,7 @@ class EfrontStudent extends EfrontLessonUser
 
 	 * <code>
 
-	 * $user -> completeLesson(5, 87, 'Very good progress');                                      //Complete lesson with id 5
+	 * $user -> completeLesson(5, 87, 'Very good progress');									  //Complete lesson with id 5
 
 	 * </code>
 
@@ -3658,9 +3716,9 @@ class EfrontStudent extends EfrontLessonUser
   }
   if (in_array($lesson -> lesson['id'], array_keys($this -> getLessons()))) {
    $fields = array('completed' => 1,
-                            'to_timestamp' => time(),
-                            'score' => $score,
-                            'comments' => $comments);
+       'to_timestamp' => time(),
+       'score' => $score,
+       'comments' => $comments);
    eF_updateTableData("users_to_lessons", $fields, "users_LOGIN = '".$this -> user['login']."' and lessons_ID=".$lesson -> lesson['id']);
    $cacheKey = "user_lesson_status:lesson:".$lesson -> lesson['id']."user:".$this -> user['login'];
    Cache::resetCache($cacheKey);
@@ -3706,7 +3764,7 @@ class EfrontStudent extends EfrontLessonUser
 
 	 * <code>
 
-	 * $user -> completeCourse(5, 87, 'Very good progress');                                      //Complete course with id 5
+	 * $user -> completeCourse(5, 87, 'Very good progress');									  //Complete course with id 5
 
 	 * </code>
 
@@ -3727,9 +3785,9 @@ class EfrontStudent extends EfrontLessonUser
   }
   if (in_array($course -> course['id'], array_keys($this -> getCourses()))) {
    $fields = array('completed' => 1,
-                            'to_timestamp' => time(),
-                            'score' => $score,
-                            'comments' => $comments);
+       'to_timestamp' => time(),
+       'score' => $score,
+       'comments' => $comments);
    $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];
    EfrontCourse::persistCourseUsers($fields, $where, $course -> course['id'], $this -> user['login']);
    if ($result && $course -> options['auto_certificate']) {
@@ -3763,9 +3821,9 @@ class EfrontStudent extends EfrontLessonUser
 
 	 * <code>
 
-	 * $user -> setSeenUnit(32, 2, true);                           //Set the unit with id 32 in lesson 2 as seen
+	 * $user -> setSeenUnit(32, 2, true);						   //Set the unit with id 32 in lesson 2 as seen
 
-	 * $user -> setSeenUnit(32, 2, false);                          //Set the unit with id 32 in lesson 2 as not seen
+	 * $user -> setSeenUnit(32, 2, false);						  //Set the unit with id 32 in lesson 2 as not seen
 
 	 * </code>
 
@@ -3886,11 +3944,11 @@ class EfrontUserFactory
 
 	 * <code>
 
-	 * $user = EfrontUserFactory :: factory('jdoe');            //Use factory function to instantiate user object with login 'jdoe'
+	 * $user = EfrontUserFactory :: factory('jdoe');			//Use factory function to instantiate user object with login 'jdoe'
 
 	 * $userData = eF_getTableData("users", "*", "login='jdoe'");
 
-	 * $user = EfrontUserFactory :: factory($userData[0]);      //Use factory function to instantiate user object using prepared data
+	 * $user = EfrontUserFactory :: factory($userData[0]);	  //Use factory function to instantiate user object using prepared data
 
 	 * </code>
 

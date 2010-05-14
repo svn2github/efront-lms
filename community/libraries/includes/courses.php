@@ -174,6 +174,9 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    $editCourse -> confirm($_GET['user']);
   } elseif ($_GET['ajax'] == 'unconfirm_user') {
    $editCourse -> unConfirm($_GET['user']);
+  } elseif (isset($_GET['reset_user'])) {
+   $user = EfrontUserFactory :: factory($_GET['reset_user']);
+   $user -> resetProgressInCourse($editCourse);
   }
  } catch (Exception $e) {
      handleAjaxExceptions($e);

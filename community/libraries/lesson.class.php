@@ -2007,6 +2007,31 @@ class EfrontLesson
         }
         return $questions;
     }
+    public function getLessonStatusForUsers($users = false, $onlyContent = false) {
+     $lessonUsers = $this -> getUsers('student');
+  if ($users !== false) {
+   $userLogins = $this -> verifyUsersList($users);
+   foreach ($userLogins as $login) {
+    if (in_array($login, array_keys($lessonUsers))) {
+     $temp[$login] = $lessonUsers[$login];
+    }
+   }
+   $lessonUsers = $temp;
+  }
+pr($lessonUsers);exit;
+  foreach ($lessonUsers as $key => $user) {
+   if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
+    $user['different_role'] = 1;
+   }
+   $lessonUsers[$key]['overall_progress'] = $this -> getUserOverallProgressInLesson($lesson);
+   if (!$onlyContent) {
+    $lessonUsers[$key]['project_status'] = $this -> getUserProjectsStatusInLesson($lesson);
+    $lessonUsers[$key]['test_status'] = $this -> getUserTestsStatusInLesson($lesson);
+    $lessonUsers[$key]['time_in_lesson'] = $this -> getUserTimeInLesson($lesson);
+   }
+  }
+  return $userLessons;
+    }
     /**
 
      * Get lesson information
@@ -2475,10 +2500,17 @@ class EfrontLesson
                                            "current_unit" => 0,
                                            "score" => 0);
                     eF_updateTableData("users_to_lessons", $tracking_info, "lessons_ID = ".$this -> lesson['id']);
+/*                    
+
                     foreach ($this -> getUsers as $user => $foo) {
-                     $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
-                     Cache::resetCache($cacheKey);
+
+	                    $cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$user;
+
+	                    Cache::resetCache($cacheKey);
+
                     }
+
+*/
                     if (!isset($lessonTests)) {
                         $lessonTests = $this -> getTests(true);
                     }

@@ -3679,4 +3679,5 @@ define("_CURRICULUMPROPERTIES", "Ιδιότητες προγράμματος μ�
 define("_ENTRIES", "Εγγραφές");
 define("_FEEDBACKOPTIONS","Επιλογές ανάδρασης");
 define("_OPTIONSFORFEEDBACK","Επιλογές για την ανάδραση");
+define("_RECENTLYCOMPLETEDFEEDBACK","Πρόσφατα ολοκληρωμένες αναδράσεις");
 ?>

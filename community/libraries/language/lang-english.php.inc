@@ -3679,4 +3679,5 @@ define("_CURRICULUMPROPERTIES", "Curriculum properties");
 define("_ENTRIES", "Entries");
 define("_FEEDBACKOPTIONS","Feedback options");
 define("_OPTIONSFORFEEDBACK","Options for feedback");
+define("_RECENTLYCOMPLETEDFEEDBACK","Recently completed feedback");
 ?>

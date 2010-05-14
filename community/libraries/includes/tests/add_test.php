@@ -178,9 +178,12 @@ if (isset($_GET['add_test'])) {
     if (!$skillgap_tests) {
         $testUnit = new EfrontUnit($currentTest -> test['content_ID']);
     }
-    $form -> addElement('submit', 'submit_test', _SAVETEST, 'class = "flatButton"');
-    $form -> addElement('submit', 'submit_test_new', _SAVEASNEWTEST, 'class = "flatButton"');
-
+ if ($_GET['ctg'] != 'feedback') {
+  $form -> addElement('submit', 'submit_test', _SAVETEST, 'class = "flatButton"');
+  $form -> addElement('submit', 'submit_test_new', _SAVEASNEWTEST, 'class = "flatButton"');
+ } else {
+  $form -> addElement('submit', 'submit_test', _SAVE, 'class = "flatButton"');
+ }
     $form -> freeze('parent_content');
     $form -> setDefaults($currentTest -> options);
     $form -> setDefaults(array('name' => $currentTest -> test['name'],

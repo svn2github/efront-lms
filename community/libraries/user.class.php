@@ -2367,7 +2367,7 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  private function initializeLessons() {
   $result = eF_getTableData("users_to_lessons ul, lessons l",
-          "ul.*, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, l.duration,l.options, 1 as has_lesson",
+          "ul.*, ul.to_timestamp as timestamp_completed, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, l.duration,l.options,l.to_timestamp, 1 as has_lesson",
           "l.archive = 0 and ul.archive = 0 and l.id=ul.lessons_ID and ul.users_LOGIN='".$this -> user['login']."'");
   if (empty($result)) {
    $this -> lessons = array();
@@ -3895,6 +3895,48 @@ class EfrontStudent extends EfrontLessonUser
    }
   }
   return $result;
+ }
+ /**
+
+	 * Get the next lesson in row, or in the course, if specified
+
+	 * 
+
+	 * @param EfrontLesson $lesson The lesson to account 
+
+	 * @param mixed $course The course to regard, or false
+
+	 * @return int The id of the next lesson in row
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
+ public function getNextLesson($lesson, $course = false) {
+  $nextLesson = false;
+  if ($course) {
+   ($course instanceOf EfrontCourse) OR $course = new EfrontCourse($course);
+   $eligibility = new ArrayIterator($course -> checkRules($_SESSION['s_login']));
+   while ($eligibility -> valid() && ($key = $eligibility -> key()) != $lesson -> lesson['id']) {
+    $eligibility -> next();
+   }
+   $eligibility -> next();
+   if ($eligibility -> valid() && $eligibility -> key() && $eligibility -> current()) {
+    $nextLesson = $eligibility -> key();
+   }
+  } else {
+   $directionsTree = new EfrontDirectionsTree();
+   $userLessons = new ArrayIterator($directionsTree -> getLessonsList($this -> getUserLessons()));
+   while ($userLessons -> valid() && ($key = $userLessons -> current()) != $lesson -> lesson['id']) {
+    $userLessons -> next();
+   }
+   $userLessons -> next();
+   if ($userLessons -> valid() && $userLessons -> current()) {
+    $nextLesson = $userLessons -> current();
+   }
+  }
+  return $nextLesson;
  }
 }
 /**

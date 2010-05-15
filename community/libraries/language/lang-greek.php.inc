@@ -3683,4 +3683,10 @@ define("_OPTIONSFORFEEDBACK","Επιλογές για την ανάδραση");
 define("_RECENTLYCOMPLETEDFEEDBACK","Πρόσφατα ολοκληρωμένες αναδράσεις");
 define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE", "Το αρχείο ρυθμίσεων του PHP LiveDocx (libraries/phplivedocx_config.php) δεν είναι εγγράψιμο. Τυχόν αλλαγές που κάνατε στις ρυθμίσεις του livedocx δεν αποθηκεύτηκαν");
 define("_RESETPROGRESSDATA", "Διαγραφή δεδομένων προόδου");
+define("_DEBUGMODE", "Debug mode");
+define("_GENERALSETTINGS", "Γενικές ρυθμίσεις");
+define("_FINISHLESSONMESSAGE", "Συγχαρητήρια! Ολοκληρώσατε το μάθημα. Παρακαλούμε επιλέξτε πού θα μεταβείτε τώρα:");
+define("_NEXTLESSON", "Επόμενο μάθημα");
+define("_LESSONFINISHED", "Το μάθημα ολοκληρώθηκε");
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT", "Βρίσκεστε στο τελευταίο μάθημα που μπορείτε να επισκεφθείτε");
 ?>

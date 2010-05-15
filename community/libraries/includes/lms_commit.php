@@ -91,7 +91,7 @@ try {
  //pr($trackActivityInfo);
  echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, $scormState, $redirectTo, $trackActivityInfo));
 } catch (Exception $e) {
- pr($e);
+ //pr($e);
 }
 exit;
 ?>

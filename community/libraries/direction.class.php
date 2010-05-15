@@ -589,6 +589,31 @@ class EfrontDirectionsTree extends EfrontTree
  public function removeNode($node) {}
  /**
 
+	 * Return an array of lesson ids, corresponding to the lessons of this categories tree
+
+	 * 
+
+	 * @param array $lessons The lessons list
+
+	 * @return array The lesson ids list
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
+ public function getLessonsList($lessons = array()) {
+  $lessonsList = array();
+  $iterator = $this -> initializeIterator(false, $lessons, $courses);
+  foreach ($iterator as $key => $value) {
+   foreach($value['lessons'] as $id) {
+    $lessonsList[] = $id;
+   }
+  }
+  return $lessonsList;
+ }
+ /**
+
 	 * Print an HTML representation of the directions tree
 
 	 *

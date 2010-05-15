@@ -60,14 +60,14 @@ require_once("entity.class.php");
 //Get configuration values
 $configuration = EfrontConfiguration :: getValues();
 //Set debugging parameter
-if (isset($_GET['debug'])) {
-    define("NO_OUTPUT_BUFFERING", 1);
+if (isset($_GET['debug']) && $configuration['debug_mode']) {
     debug();
-    /** Debug mode*/
+ define("NO_OUTPUT_BUFFERING", 1);
     define("G_DEBUG", 1);
+} elseif ($configuration['debug_mode']) {
+ define("G_DEBUG", 1);
 } else {
-    /** Debug mode*/
-    define("G_DEBUG", 1);
+ define("G_DEBUG", 0);
 }
 //Turn on compressed output buffering, unless NO_OUTPUT_BUFFERING is defined or it's turned off from the configuration
 !defined('NO_OUTPUT_BUFFERING') && $configuration['gz_handler'] ? ob_start ("ob_gzhandler") : null;
@@ -78,6 +78,7 @@ isset($configuration['max_execution_time']) && $configuration['max_execution_tim
 isset($GLOBALS['configuration']['time_zone']) && isset($GLOBALS['configuration']['time_zone']) ? date_default_timezone_set($GLOBALS['configuration']['time_zone']) : null;
 ini_set('magic_quotes_runtime', false); // check http://www.smarty.net/forums/viewtopic.php?t=4936
 //handleSEO();
+
 //Setup the current version
 setupVersion();
 
@@ -259,7 +260,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 6854;
+    $build = 6859;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/

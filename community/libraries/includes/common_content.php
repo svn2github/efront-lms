@@ -289,7 +289,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             $smarty -> assign("T_USER_PROGRESS", $userProgress);
         }
         if ($_student_) {
-            if ($_change_ && $currentLesson -> options['tracking'] && $currentUnit['options']['auto_complete'] && $ruleCheck) {
+   //$smarty -> assign("T_NEXT_LESSON", $currentLesson -> getNextLesson());
+         if ($_change_ && $currentLesson -> options['tracking'] && $currentUnit['options']['auto_complete'] && $ruleCheck) {
                 $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
                 $currentContent -> markSeenNodes($currentUser);
             }
@@ -374,8 +375,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                                 echo 'correct';
                             }
                         } catch (Exception $e) {
-                            header("HTTP/1.0 500 ");
-                            echo $e -> getMessage().' ('.$e -> getCode().')';
+                         handleAjaxExceptions($e);
                         }
                         exit;
                     }
@@ -388,12 +388,27 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                     $newPercentage = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['overall_progress'];
                     $newConditionsPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['conditions_passed'];
                     $newLessonPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['lesson_passed'];
-                    echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed));
+                    $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID']);
+                    echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, false, false, false));
                 } catch (Exception $e) {
-                    header("HTTP/1.0 500 ");
-                    echo $e -> getMessage().' ('.$e -> getCode().')';
+                 handleAjaxExceptions($e);
                 }
                 exit;
+            }
+            if (isset($_GET['ajax']) && $_GET['ajax'] == 'next_lesson') {
+             try {
+              $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID']);
+              if ($nextLesson) {
+               $nextLessonUrl = $_SERVER['PHP_SELF'].'?lessons_ID='.$nextLesson;
+               !$_SESSION['s_courses_ID'] OR $nextLessonUrl .= '&from_course='.$_SESSION['s_courses_ID'];
+               echo json_encode(array('url' => $nextLessonUrl));
+              } else {
+               echo json_encode(array('url' => ''));
+              }
+             } catch (Exception $e) {
+              handleAjaxExceptions($e);
+             }
+             exit;
             }
         }
         $options = array();

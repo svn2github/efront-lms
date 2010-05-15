@@ -39,13 +39,15 @@ class EfrontConfiguration
 
      */
     private static $defaultOptions = array(
-        //System settings - security
+     //System settings - general
         'system_email' => 'admin@example.com',
+     'logout_redirect' => '',
+     'debug_mode' => 0,
+        //System settings - security
      'file_black_list' => 'php,php3,jsp,asp,cgi,pl,exe,com,bat',
         'file_white_list' => '',
         'ip_black_list' => '',
         'ip_white_list' => '*.*.*.*',
-     'logout_redirect' => '',
         'password_length' => '6',
   'autologout_time' => '30',
         'encrypt_url' => '0', //0: don't encrypt. 1: encrypt
@@ -135,6 +137,7 @@ class EfrontConfiguration
   'disable_tooltip' => '0',
   'disable_help' => '0',
   'disable_feedback' => '1',
+
         //Social - Facebook settings
         'facebook_api_key' => '',
         'facebook_secret' => '',

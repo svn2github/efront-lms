@@ -190,7 +190,7 @@ try {
                     if (!$firstUnseenUnit) {
                         $firstUnseenUnit = $currentContent -> getFirstNode();
                     }
-                    if ($currentLesson -> options['start_resume'] && !$userProgress['completed'] && !$userProgress['lesson_passed']) {
+                    if ($currentLesson -> options['start_resume']) {
                         $headerOptions[] = array('text' => _RESUMELESSON, 'image' => '32x32/continue.png', 'href' => basename($_SERVER['PHP_SELF']).'?view_unit='.$firstUnseenUnit['id']);
                     }
                     $smarty -> assign("T_CURRENT_UNIT", $firstUnseenUnit);
@@ -198,7 +198,7 @@ try {
                     $iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
                     $iterator -> next();
                     $firstUnseenUnit = $firstUnit = $iterator -> current();
-                    if ($firstUnit && $currentLesson -> options['start_resume'] && !$userProgress['completed'] && !$userProgress['lesson_passed']) {
+                    if ($firstUnit && $currentLesson -> options['start_resume']) {
                         $headerOptions[] = array('text' => _STARTLESSON, 'image' => '32x32/start.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$firstUnit['id']);
                     }
                 }

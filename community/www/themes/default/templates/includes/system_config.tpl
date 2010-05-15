@@ -3,10 +3,19 @@
  <form {$T_SYSTEM_VARIABLES_FORM.attributes}>
  {$T_SYSTEM_VARIABLES_FORM.hidden}
  <fieldset class = "fieldsetSeparator">
-  <legend>{$smarty.const._SECURITYSETTINGS}</legend>
+  <legend>{$smarty.const._GENERALSETTINGS}</legend>
   <table class = "configurationSettings">
          <tr><td class = "labelCell">{$smarty.const._ADMINEMAIL}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.system_email.html}</td></tr>
+         <tr><td class = "labelCell">{$smarty.const._LOGOUTREDIRECT}:&nbsp;</td>
+             <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.logout_redirect.html}</td></tr>
+         <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.debug_mode.label}:&nbsp;</td>
+             <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.debug_mode.html}</td></tr>
+  </table>
+ </fieldset>
+ <fieldset class = "fieldsetSeparator">
+  <legend>{$smarty.const._SECURITYSETTINGS}</legend>
+  <table class = "configurationSettings">
          <tr><td class = "labelCell">{$smarty.const._ALLOWEDEXTENSIONS}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.file_white_list.html}</td></tr>
          <tr><td></td><td class = "infoCell">{$smarty.const._COMMASEPARATEDLISTASTERISKEXTENSIONEXAMPLE}</td></tr>
@@ -17,8 +26,6 @@
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.password_length.html}</td></tr>
          <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.autologout_time.label}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.autologout_time.html} {$smarty.const._MINUTESOFINACTIVITY}</td></tr>
-         <tr><td class = "labelCell">{$smarty.const._LOGOUTREDIRECT}:&nbsp;</td>
-             <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.logout_redirect.html}</td></tr>
    <tr><td class = "labelCell">{$smarty.const._ADDITIONALACCOUNTS}:&nbsp;</td>
                  <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.mapped_accounts.html}</td></tr>
    <tr><td class = "labelCell">{$smarty.const._ELIMINATEPOSTXSS}:&nbsp;</td>

@@ -73,6 +73,21 @@ function onSetSeenUnit(el, response) {
         }
  } catch (e) {alert(e);}
 }
+function nextLesson(el) {
+ parameters = {ajax:'next_lesson', method: 'get'};
+ var url = window.location.toString();
+ ajaxRequest(el, url, parameters, onNextLesson);
+}
+function onNextLesson(el, response) {
+ if (response.evalJSON(true)) {
+  if (response.evalJSON(true).url) {
+   window.location = response.evalJSON(true).url;
+  } else {
+   alert(translations['_YOUAREATTHELASTLESSONYOUMAYVISIT']);
+  }
+ }
+ ////'{$smarty.server.PHP_SELF}?lessons_ID={$T_NEXT_LESSON}{if $smarty.session.s_courses_ID}&from_course={$smarty.session.s_courses_ID}{/if}'
+}
 /**
 
  * This function automatically navigates to the next unit, if any
@@ -125,6 +140,7 @@ function togglePdf() {
  $('toggleTools').toggle();
 }
 function toggleAdvancedParameters() {
+
  $('maximize_viewport').toggle();
  $('no_before_unload').toggle();
  $('indexed').toggle();
@@ -135,6 +151,7 @@ function toggleAdvancedParameters() {
   setImageSrc($('advenced_parameter_image'), 16, 'navigate_down.png');
  }
 }
+
 function answerQuestion(el) {
  Element.extend(el);
  $('correct_answer').hide();

@@ -3683,4 +3683,10 @@ define("_OPTIONSFORFEEDBACK","Options for feedback");
 define("_RECENTLYCOMPLETEDFEEDBACK","Recently completed feedback");
 define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE", "PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved");
 define("_RESETPROGRESSDATA", "Reset progress data");
+define("_DEBUGMODE", "Debug mode");
+define("_GENERALSETTINGS", "General settings");
+define("_FINISHLESSONMESSAGE", "Congratulations! You have finished the lesson. Please select a place to go now:");
+define("_NEXTLESSON", "Next lesson");
+define("_LESSONFINISHED", "Lesson finished");
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT", "You are at the last lesson you may visit");
 ?>

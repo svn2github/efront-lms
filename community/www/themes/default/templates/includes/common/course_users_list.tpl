@@ -48,7 +48,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
     {if $T_COURSE_HAS_INSTANCES && $T_SORTED_TABLE == 'courseUsersTable'}
      <img src = "images/16x16/plus.png" class = "ajaxHandle" alt = "{$smarty.const._COURSEINSTANCES}" title = "{$smarty.const._COURSEINSTANCES}" onclick = "currentUserLogin = '{$user.login}';toggleSubSection(this, '{$user.login}', 'instanceUsersTable')"/>
     {/if}
-    <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink" title = "{$smarty.const._EDIT}">#filter:login-{$user.login}#</a>
+    <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=user&sel_user={$user.login}" class = "editLink" title = "{$smarty.const._EDIT}">#filter:login-{$user.login}#</a>
    </td>
 {/if}
 {if in_array('location', $T_DATASOURCE_COLUMNS)}

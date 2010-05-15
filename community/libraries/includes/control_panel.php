@@ -253,12 +253,13 @@ try {
                 }
                 unset($elementPositions['update']);
                 eF_updateTableData("users_to_lessons", array("positions" => serialize($elementPositions)), "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
-          $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$currentUser -> user['login'];
-          Cache::resetCache($cacheKey);
+          //$cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$currentUser -> user['login'];
+          //Cache::resetCache($cacheKey);
             }
         } else {
             $smarty -> assign("T_POSITIONS", array());
         }
+//pr($elementPositions['visibility']);exit;
         $controlPanelOptions = array();
         //Set control panel elemenets for administrator
         if ($_admin_) {

@@ -48,7 +48,7 @@
            </table>
           {/capture}
 
-          {eF_template_printBlock title = $smarty.const._ANNOUNCEMENTS content = $smarty.capture.t_news_code image = '32x32/announcements.png' options = $T_NEWS_OPTIONS link = $T_NEWS_LINK}
+          {eF_template_printBlock title = $smarty.const._ANNOUNCEMENTS content = $smarty.capture.t_news_code image = '32x32/announcements.png' options = $T_NEWS_OPTIONS link = $T_NEWS_LINK expand = $T_POSITIONS_VISIBILITY.moduleNewsList}
    </td></tr>
         {/capture}
  {/if}
@@ -61,7 +61,7 @@
                     {eF_template_printCalendar events=$T_CALENDAR_EVENTS timestamp=$T_VIEW_CALENDAR}
                 {/capture}
                 {assign var="calendar_title" value = "`$smarty.const._CALENDAR` (#filter:timestamp-`$T_VIEW_CALENDAR`#)"}
-                {eF_template_printBlock title=$calendar_title data=$smarty.capture.t_calendar_code image='32x32/calendar.png' options=$T_CALENDAR_OPTIONS link=$T_CALENDAR_LINK}
+                {eF_template_printBlock title=$calendar_title data=$smarty.capture.t_calendar_code image='32x32/calendar.png' options=$T_CALENDAR_OPTIONS link=$T_CALENDAR_LINK expand = $T_POSITIONS_VISIBILITY.moduleCalendar}
             </td></tr>
      {/capture}
     {/if}
@@ -79,7 +79,7 @@
                  {/foreach}
              {/capture}
 
-             {eF_template_printBlock title = $smarty.const._LESSONSREGISTRATIONS data = $smarty.capture.t_new_lessons_code image = '32x32/lessons.png' array = $T_NEW_LESSONS link = 'administrator.php?ctg=lessons'}
+             {eF_template_printBlock title = $smarty.const._LESSONSREGISTRATIONS data = $smarty.capture.t_new_lessons_code image = '32x32/lessons.png' array = $T_NEW_LESSONS link = 'administrator.php?ctg=lessons' }
          </td></tr>
         {/capture}
     {/if}
@@ -93,7 +93,7 @@
               {eF_template_printProjects data=$T_PROJECTS limit=5}
           {/capture}
 
-          {eF_template_printBlock title=$smarty.const._PROJECTS data=$smarty.capture.t_projects_code image='32x32/projects.png' options=$T_PROJECTS_OPTIONS link=$T_PROJECTS_LINK}
+          {eF_template_printBlock title=$smarty.const._PROJECTS data=$smarty.capture.t_projects_code image='32x32/projects.png' options=$T_PROJECTS_OPTIONS link=$T_PROJECTS_LINK expand = $T_POSITIONS_VISIBILITY.moduleProjectsList}
    </td></tr>
         {/capture}
     {/if}
@@ -106,7 +106,7 @@
               {eF_template_printForumMessages data=$T_FORUM_MESSAGES forum_lessons_ID = $T_FORUM_LESSONS_ID limit = 3}
           {/capture}
 
-          {eF_template_printBlock title=$smarty.const._RECENTMESSAGESATFORUM data=$smarty.capture.t_forum_messages_code image='32x32/forum.png' options=$T_FORUM_OPTIONS link=$T_FORUM_LINK}
+          {eF_template_printBlock title=$smarty.const._RECENTMESSAGESATFORUM data=$smarty.capture.t_forum_messages_code image='32x32/forum.png' options=$T_FORUM_OPTIONS link=$T_FORUM_LINK expand = $T_POSITIONS_VISIBILITY.moduleForumList}
    </td></tr>
         {/capture}
     {/if}
@@ -119,7 +119,7 @@
               {eF_template_printPersonalMessages data=$T_PERSONAL_MESSAGES}
           {/capture}
 
-          {eF_template_printBlock title=$smarty.const._RECENTUNREADPERSONALMESSAGES data=$smarty.capture.t_personal_messages_code image='32x32/mail.png' options=$T_PERSONAL_MESSAGES_OPTIONS link=$T_PERSONAL_MESSAGES_LINK}
+          {eF_template_printBlock title=$smarty.const._RECENTUNREADPERSONALMESSAGES data=$smarty.capture.t_personal_messages_code image='32x32/mail.png' options=$T_PERSONAL_MESSAGES_OPTIONS link=$T_PERSONAL_MESSAGES_LINK expand = $T_POSITIONS_VISIBILITY.modulePersonalMessagesList}
    </td></tr>
         {/capture}
     {/if}
@@ -132,7 +132,7 @@
                     {eF_template_printComments data=$T_COMMENTS}
                 {/capture}
 
-                {eF_template_printBlock title=$smarty.const._RECENTCOMMENTS data=$smarty.capture.t_comments_code image='32x32/note.png' link=$T_COMMENTS_LINK}
+                {eF_template_printBlock title=$smarty.const._RECENTCOMMENTS data=$smarty.capture.t_comments_code image='32x32/note.png' link=$T_COMMENTS_LINK expand = $T_POSITIONS_VISIBILITY.moduleCommentsList}
    </td></tr>
         {/capture}
     {/if}
@@ -190,7 +190,7 @@
             {/if}
     {/capture}
 
-          {eF_template_printBlock title=$smarty.const._TIMELINE data=$smarty.capture.t_timeline_code image='32x32/user_timeline.png' options=$T_TIMELINE_OPTIONS link=$T_TIMELINE_LINK}
+          {eF_template_printBlock title=$smarty.const._TIMELINE data=$smarty.capture.t_timeline_code image='32x32/user_timeline.png' options=$T_TIMELINE_OPTIONS link=$T_TIMELINE_LINK }
       </td></tr>
   {/capture}
  {/if}
@@ -202,7 +202,7 @@
              {capture name = 't_content_tree'}
                  {$T_CONTENT_TREE}
              {/capture}
-             {eF_template_printBlock title = $smarty.const._CURRENTCONTENT data = $smarty.capture.t_content_tree image = "32x32/content.png" alt = '<span class = "emptyCategory">'|cat:$smarty.const._NOCONTENTFOUND|cat:'</span>' options = $T_TREE_OPTIONS}
+             {eF_template_printBlock title = $smarty.const._CURRENTCONTENT data = $smarty.capture.t_content_tree image = "32x32/content.png" alt = '<span class = "emptyCategory">'|cat:$smarty.const._NOCONTENTFOUND|cat:'</span>' options = $T_TREE_OPTIONS expand = $T_POSITIONS_VISIBILITY.moduleContentTree}
          </td></tr>
         {/capture}
     {/if}
@@ -215,7 +215,7 @@
                  {$T_FILE_MANAGER}
              {/capture}
 
-             {eF_template_printBlock title = $smarty.const._SHAREDFILES data = $smarty.capture.t_digital_library image = "32x32/file_explorer.png" link = $T_FILE_LIST_LINK options=$T_FILES_LIST_OPTIONS}
+             {eF_template_printBlock title = $smarty.const._SHAREDFILES data = $smarty.capture.t_digital_library image = "32x32/file_explorer.png" link = $T_FILE_LIST_LINK options=$T_FILES_LIST_OPTIONS expand = $T_POSITIONS_VISIBILITY.moduleDigitalLibrary}
          </td></tr>
         {/capture}
     {/if}
@@ -224,7 +224,7 @@
     {if $T_CURRENT_USER->coreAccess.control_panel != 'hidden' && (!$_student_ || ($T_CURRENT_LESSON && $T_CURRENT_LESSON->options.show_student_cpanel))}
         {capture name = "moduleIconFunctions"}
      <tr><td class = "moduleCell">
-         {eF_template_printBlock title=$smarty.const._OPTIONS columns=4 links=$T_CONTROL_PANEL_OPTIONS image='32x32/options.png'}
+         {eF_template_printBlock title=$smarty.const._OPTIONS columns=4 links=$T_CONTROL_PANEL_OPTIONS image='32x32/options.png' expand = $T_POSITIONS_VISIBILITY.moduleIconFunctions}
         </td></tr>
         {/capture}
  {/if}

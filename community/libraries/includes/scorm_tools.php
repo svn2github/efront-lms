@@ -5,18 +5,18 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 
 /**
+
 * H synarthsh afth dhmiourgei tis synarthseis Javascript pou einai aparaithtes gia na tre3ei se scorm-enabled perivallon
+
 */
 function get_APIFunctions()
 {
     $func1 = '
         var startDate;
         var exitPageStatus;
-
         function loadPage()
         {
            var result = doLMSInitialize();
-
            var status = doLMSGetValue( "cmi.core.lesson_status" );
 
            if (status == "not attempted")
@@ -77,7 +77,7 @@ function get_APIFunctions()
 
            var mode = doLMSGetValue( "cmi.core.lesson_mode" );
 
-           if ( mode != "review"  &&  mode != "browse" )
+           if ( mode != "review" && mode != "browse" )
            {
               doLMSSetValue( "cmi.core.lesson_status", status );
            }
@@ -125,29 +125,29 @@ function get_APIFunctions()
         }
 
         /*******************************************************************************
+
         ** this function will convert seconds into hours, minutes, and seconds in
+
         ** CMITimespan type format - HHHH:MM:SS.SS (Hours has a max of 4 digits &
+
         ** Min of 2 digits
+
         *******************************************************************************/
         function convertTotalSeconds(ts)
         {
            var sec = (ts % 60);
-
            ts -= sec;
-           var tmp = (ts % 3600);  //# of seconds in the total # of minutes
-           ts -= tmp;              //# of seconds in the total # of hours
-
+           var tmp = (ts % 3600); //# of seconds in the total # of minutes
+           ts -= tmp; //# of seconds in the total # of hours
            // convert seconds to conform to CMITimespan type (e.g. SS.00)
            sec = Math.round(sec*100)/100;
-
            var strSec = new String(sec);
            var strWholeSec = strSec;
            var strFractionSec = "";
-
            if (strSec.indexOf(".") != -1)
            {
-              strWholeSec =  strSec.mb_substring(0, strSec.indexOf("."));
-              strFractionSec = strSec.mb_substring(strSec.indexOf(".")+1, strSec.length);
+              strWholeSec = strSec.substring(0, strSec.indexOf("."));
+              strFractionSec = strSec.substring(strSec.indexOf(".")+1, strSec.length);
            }
 
            if (strWholeSec.length < 2)
@@ -182,7 +182,7 @@ function get_APIFunctions()
 
     $func2 = '
 
-        var _Debug = false;  // set this to false to turn debugging off
+        var _Debug = false; // set this to false to turn debugging off
                              // and get rid of those annoying alert boxes.
 
         // Define exception/error codes
@@ -420,7 +420,7 @@ function get_APIFunctions()
            {
               findAPITries++;
               // Note: 7 is an arbitrary number, but should be more than sufficient
-              if (findAPITries > 7) 
+              if (findAPITries > 7)
               {
                  alert("Error finding API -- too deeply nested.");
                  return null;
@@ -453,28 +453,28 @@ function get_APIFunctions()
 }
 
  /**
-* ÐÜñå ôá äåäïìÝíá ôïõ manifest êáé âÜëå ôá óå Ýíá ðïëõåðßðåäï array
+
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ manifest ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ array
+
 */
-    
 function eF_local_parseManifest($path)
 {
     $filename = $path."/imsmanifest.xml";
-    $data     = iconv("ISO-8859-7", "UTF-8", implode("", file($filename))); 
-    $parser   = xml_parser_create(); 
-
-    xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1); 
-    xml_parse_into_struct($parser, $data, $tagContents, $tags); 
-    xml_parser_free($parser);   
+    $data = iconv("ISO-8859-7", "UTF-8", implode("", file($filename)));
+    $parser = xml_parser_create();
+    xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
+    xml_parse_into_struct($parser, $data, $tagContents, $tags);
+    xml_parser_free($parser);
 
     $currentParent = array(0 => 0);
 
     for ($i = 0; $i < sizeof($tagContents); $i++) {
         if ($tagContents[$i]['type'] != 'close') {
-            $tagArray[$i] = array('parent_index' => end($currentParent), 
-                                  'tag'          => $tagContents[$i]['tag'],
-                                  'value'        => $tagContents[$i]['value'],
-                                  'attributes'   => $tagContents[$i]['attributes'],
-                                  'children'     => array()
+            $tagArray[$i] = array('parent_index' => end($currentParent),
+                                  'tag' => $tagContents[$i]['tag'],
+                                  'value' => $tagContents[$i]['value'],
+                                  'attributes' => $tagContents[$i]['attributes'],
+                                  'children' => array()
                             );
             array_push($tagArray[end($currentParent)]['children'], $i);
         }
@@ -483,13 +483,13 @@ function eF_local_parseManifest($path)
         } else if ($tagContents[$i]['type'] == 'close') {
             array_pop($currentParent);
         }
-        
+
     }
-    return $tagArray;   
+    return $tagArray;
 }
 
 function eF_local_buildDirectories($new_absolute_dir, $scorm_dir)
-{   
+{
     $current_dir = getcwd();
     chdir($scorm_dir);
     $path_array = eF_local_readDirRecursive();
@@ -498,7 +498,7 @@ function eF_local_buildDirectories($new_absolute_dir, $scorm_dir)
 
     foreach ($path_array as $value) {
         $path_parts = explode("/", $value);
-        $this_dir   = $new_absolute_dir;
+        $this_dir = $new_absolute_dir;
         for ($i = 1; $i < sizeof($path_parts); $i++) {
             if (!file_exists($this_dir.$path_parts[$i]."/")) {
                 chdir($this_dir);
@@ -516,13 +516,13 @@ function eF_local_readDirRecursive($path = '.')
     $path_array[0] = $path;
     while (isset($path_array[$count])) {
         $handle = opendir($path_array[$count]);
-        while (false !== ($file = readdir($handle))) { 
+        while (false !== ($file = readdir($handle))) {
             if ($file != '.' && $file != '..') {
                 if (is_dir($path_array[$count]."/".$file)) {
                     array_push($path_array, $path_array[$count]."/".$file);
                 }
             }
-        } 
+        }
         closedir($handle);
         $count++;
     }
@@ -533,22 +533,22 @@ function eF_local_readDirRecursive($path = '.')
 function build_tarfile($lessons_id, $path)
 {
     $main_dirname = $path."/lesson" . $lessons_id . "/";
-    $filelist     = eF_getDirContents($main_dirname);
-    $tarname      = $main_dirname . "../scorm_lesson.tgz";
-    $tar          = new Archive_Tar($tarname, true);
+    $filelist = eF_getDirContents($main_dirname);
+    $tarname = $main_dirname . "../scorm_lesson.tgz";
+    $tar = new Archive_Tar($tarname, true);
     $tar -> createModify($filelist, "", $main_dirname);
 }
 
 /**
+
 *
+
 */
-function get_asset_metadata($el) 
+function get_asset_metadata($el)
 {
-
     $metadata = '<?xml version="1.0" encoding="ISO-8859-1"?>
-
         <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
 
             <general>
@@ -608,7 +608,7 @@ function get_asset_metadata($el)
                     <date>
                     </date>
                 </contribute>
-                <metadatascheme>        
+                <metadatascheme>
                 </metadatascheme>
                 <language>
                 </language>
@@ -738,13 +738,13 @@ function get_asset_metadata($el)
 function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
 {
     $GLOBALS['configuration']['G_DELIMITER'] = '/';
-    
-    $first_dir_token  = "lesson" . $lessons_id;
+
+    $first_dir_token = "lesson" . $lessons_id;
     $second_dir_token = "html";
-    $third_dir_token  = "content/lessons/$lessons_id";
-    
-    $main_dirname  = $path  ."/". $first_dir_token;
-    $html_dirname  = $main_dirname ."/". $second_dir_token;
+    $third_dir_token = "content/lessons/$lessons_id";
+
+    $main_dirname = $path ."/". $first_dir_token;
+    $html_dirname = $main_dirname ."/". $second_dir_token;
     $files_dirname = $html_dirname ."/". $third_dir_token;
 
     mkdir($main_dirname, 0755);
@@ -758,25 +758,25 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
         chdir($value);
     }
     chdir($cur_dir);
-    
+
     /*Gia ka8e periexomeno, ftia3e th lista me ta arxeia pou perilamvanei, to arxeio html pou to periexei, kai ta metadata*/
     for ($i = 0; $i < sizeof($lesson_entries); $i++) {
         $content = $lesson_entries[$i]['data'];
-        $count   = 0;
+        $count = 0;
 
         /*Gia ka8e arxeio, an afto fainetai sto periexomeno, alla3e to path kai vale to onoma toy sth lista tou periexomenou*/
         foreach ($filelist as $value) {
             $file_count = 0;
             /*replace back-slash "\" with forward-slash "/"   */
             if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $value = strtr($value, "\\", "/");
-            
+
             $pattern = "#\"\s*((http:\/\/.*)|(\.\.\/))?content\/lessons\/$lessons_id\/$value\s*\"#";
             if (preg_match($pattern, $content, $matches)) {
                 $lesson_entries[$i]['files'][$count++] = basename($value);
                 $content = preg_replace($pattern, '"'.$third_dir_token.'/'.$value.'"', $content);
             }
         }
-    
+
         /*Syndyase to content ths selidas me ta katallhla html tags, wste na parax8ei sygkrothmenh selida*/
         $content = create_html_files($content);
         if ($fp = fopen($html_dirname . "/" . $lesson_entries[$i]['name'] . ".html", "wb")) {
@@ -788,9 +788,9 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
         if ($fp = fopen($html_dirname . "/" . $lesson_entries[$i]['name'] . ".xml", "wb")) {
             fwrite($fp, $metadata);
         }
-        fclose($fp);        
+        fclose($fp);
     }
-    
+
     $questions = ef_getTableData("questions q, content c", "q.*", "q.content_id = c.id and c.lessons_id=$lessons_id");
     for ($i = 0; $i < sizeof($questions); $i++){
         $data = $questions[$i]['text'];
@@ -799,7 +799,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
             $file_count = 0;
             /*replace back-slash "\" with forward-slash "/"   */
             if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $value = strtr($value, "\\", "/");
-            
+
             $pattern = "#\"\s*((http:\/\/.*)|(\.\.\/))?content\/lessons\/$lessons_id\/$value\s*\"#";
             if (preg_match($pattern, $data, $matches)) {
                 $data = preg_replace($pattern, '"'.$third_dir_token.'/'.$value.'"', $data);
@@ -810,7 +810,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
         }
         fclose($fp);
     }
-    
+
     //create the test files
     $tests = ef_getTableData("tests t, content c", "t.*", "t.content_id = c.id and c.lessons_id=$lessons_id");
     for ($i = 0; $i < sizeof($tests); $i++){
@@ -820,7 +820,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
             $file_count = 0;
             /*replace back-slash "\" with forward-slash "/"   */
             if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $value = strtr($value, "\\", "/");
-            
+
             $pattern = "#\"\s*((http:\/\/.*)|(\.\.\/))?content\/lessons\/$lessons_id\/$value\s*\"#";
             if (preg_match($pattern, $data, $matches)) {
                 $data = preg_replace($pattern, '"'.$third_dir_token.'/'.$value.'"', $data);
@@ -838,7 +838,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
 
         /*Recursively create directories*/
         $dir_parts = explode("/", dirname($value));
-        $cur_dir   = getcwd();
+        $cur_dir = getcwd();
         if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $cur_dir = strtr($cur_dir, "\\", "/");
 
         chdir($cur_dir."/".$files_dirname."/");
@@ -857,19 +857,19 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
         fwrite($fp, $metadata);
         fclose($fp);
     }
-    
+
     /*Create manifest*/
-    $prerequisites     = get_prerequisites();
+    $prerequisites = get_prerequisites();
     $organizations_str = build_manifest_organizations($lessons_id, $prerequisites);
-    $resources_str     = build_manifest_resources($lesson_entries, $tests, $questions, $second_dir_token."/".$third_dir_token);
-    $metadata_str      = build_manifest_metadata(0);
-    $manifest          = build_manifest_main($metadata_str . $organizations_str . $resources_str);
+    $resources_str = build_manifest_resources($lesson_entries, $tests, $questions, $second_dir_token."/".$third_dir_token);
+    $metadata_str = build_manifest_metadata(0);
+    $manifest = build_manifest_main($metadata_str . $organizations_str . $resources_str);
 
     if ($fp = fopen($main_dirname . "/imsmanifest.xml", "wb")) {
         fwrite ($fp, $manifest);
     }
     fclose($fp);
-    
+
     /*Create functions files*/
     list($func1, $func2) = get_APIFunctions();
     if ($fp = fopen($main_dirname . "/APIWrapper.js", "wb")) {
@@ -879,28 +879,30 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
     if ($fp = fopen($main_dirname . "/SCOFunctions.js", "wb")) {
         fwrite($fp, $func2);
         fclose($fp);
-    }    
+    }
 }
 
 /**
+
 * H parakatw synarthsh analamvanei na metasxhmatisei tous kanones toy ma8hmatos se prerequisites katallhla 
+
 * gia export se scorm.
+
 */
 function get_prerequisites()
 {
     /*Pare olous tous kanones toy typoy "an den exei dei thn enothta"*/
     $rules = eF_getTableData("rules", "content_ID,rule_content_ID", "rule_type='hasnot_seen'");
-
     /*Vale tous se ena pinakaki, pou 8a xrhsimopoih8ei argotera*/
     foreach ($rules as $value) {
         $prerequisites[$value['content_ID']] = $value['rule_content_ID'];
     }
     return $prerequisites;
-
 }
-
 /**
+
 *       www.php.net
+
 */
 function deldir($dir)
 {
@@ -919,17 +921,16 @@ function deldir($dir)
     }
 }
 
-
-
 /**
+
 *
+
 */
 function build_manifest_metadata($metadata)
 {
-    $schema         = isset($metadata['schema'])         ? $metadata['schema']         : 'ADL SCORM';
-    $schemaversion  = isset($metadata['schemaversion'])  ? $metadata['schemaversion']  : '1.2';
+    $schema = isset($metadata['schema']) ? $metadata['schema'] : 'ADL SCORM';
+    $schemaversion = isset($metadata['schemaversion']) ? $metadata['schemaversion'] : '1.2';
     $adlcp_location = isset($metadata['adlcp_location']) ? $metadata['adlcp_location'] : '';
-
     $str='
         <metadata>
             <schema>'.
@@ -942,14 +943,13 @@ function build_manifest_metadata($metadata)
                 $adlcp_location
             .'</adlcp:location>
         </metadata>';
-
     return $str;
 }
 
 function build_manifest_resources($lesson_entries, $tests, $questions, $files_dir)
 {
 
-    $resource_str   = '';
+    $resource_str = '';
     $dependency_str = '';
 
     for ($i = 0 ; $i < sizeof($lesson_entries) ; $i++) {
@@ -959,7 +959,7 @@ function build_manifest_resources($lesson_entries, $tests, $questions, $files_di
         $resource_str .= '<dependency identifierref="dep_SPECIAL"/>';
 
         for ($j = 0 ; $j < sizeof($lesson_entries[$i]['files']) ; $j++) {
-            $resource_str   .= '<dependency identifierref="dep_' . $i . '_' . $j . '"/>';
+            $resource_str .= '<dependency identifierref="dep_' . $i . '_' . $j . '"/>';
             $dependency_str .= '<resource identifier="dep_' . $i . '_' . $j . '" type="webcontent" adlcp:scormtype="asset" href="'.$files_dir.'/'. $lesson_entries[$i]['files'][$j] .'">';
             $dependency_str .= '<metadata></metadata>';
             $dependency_str .= '<file href="'.$files_dir.'/' . $lesson_entries[$i]['files'][$j] . '"/>';
@@ -967,7 +967,7 @@ function build_manifest_resources($lesson_entries, $tests, $questions, $files_di
         }
         $resource_str .= '</resource>';
     }
-    
+
     for ($i = 0; $i < sizeof($tests); $i++){
         $resource_str .= '<resource identifier="t' . $tests[$i]['id'] . '" type="webcontent" adlcp:scormtype="sco" href="html/test' . $tests[$i]['id'] . '.html">';
         $resource_str .= '<metadata></metadata>';
@@ -996,7 +996,9 @@ function build_manifest_resources($lesson_entries, $tests, $questions, $files_di
 }
 
 /**
+
 *
+
 */
 function build_manifest_organizations($lessons_id, $prerequisites)
 {
@@ -1005,12 +1007,10 @@ function build_manifest_organizations($lessons_id, $prerequisites)
     for ($i = 0 ; $i < sizeof($tree) ; $i++) {
         $levels[$i] = $tree[$i]['level'];
     }
-
     for ($i = max($levels) ; $i>= 0 ; $i--) {
         for ($j = 0 ; $j < sizeof($tree) ; $j++) {
-            if ($tree[$j]["level"] == $i && $tree[$j]["ctg_type"] != "tests") {
+            if ($tree[$j]["level"] == $i && $tree[$j]["ctg_type"] != "tests" && $tree[$j]["ctg_type"] != "scorm" && $tree[$j]["ctg_type"] != "scorm_test") {
                 $tree[$j]["string"] = "\n<item identifier=\"item" . $tree[$j]["id"] . "\" identifierref=\"" . $tree[$j]["id"] . "\">\n\t<title>" . ($tree[$j]["name"]) . "</title>\n";
-
                 /*An to antikeimeno exei prerequisites, pros8ese tis katallhles grammes*/
                 if ($prerequisites[$tree[$j]["id"]]) {
                     //echo "<br> A".$tree[$j]["id"]; 
@@ -1038,34 +1038,38 @@ function build_manifest_organizations($lessons_id, $prerequisites)
 
     //write out the questions
     /*$questions = ef_getTableData("questions q, content c", "q.*", "q.content_id = c.id and c.lessons_id=$lessons_id");
+
     for ($i = 0; $i < sizeof($questions); $i++){
+
         $final_str .= "<item identifier='question".$questions[$i]['id']."' identifierref='q".$questions[$i]['id']."' type='question'><title>question ".($i+1)."</title></item>";
+
     }*/
-    
     //write the tests
     /*$tests = ef_getTableData("tests t, content c", "c.name, t.*", "t.content_id = c.id and c.lessons_id=$lessons_id");
+
     for ($i = 0; $i < sizeof($tests); $i++){
+
         $final_str .= "<item identifier='test".$tests[$i]['id']."' identifierref='t".$tests[$i]['id']."' type='test'><title>".$tests[$i]['name']."</title></item>";
+
     }*/
-    
     //write the projects
     /*$projects = ef_getTableData("projects","*", "lessons_id=$lessons_id");
-    for ($i = 0; $i < sizeof($projects); $i++){
-        $final_str .= "<item identifier='project".$projects[$i]['id']."' identifierref='p".$projects[$i]['id']."' type='project'><title>project ".($i+1)."</title></item>";
-    }*/
 
+    for ($i = 0; $i < sizeof($projects); $i++){
+
+        $final_str .= "<item identifier='project".$projects[$i]['id']."' identifierref='p".$projects[$i]['id']."' type='project'><title>project ".($i+1)."</title></item>";
+
+    }*/
     $content .= "\t" . '<organizations default="org1">' . "\n";
     $content .= "\t<organization identifier=\"Org\" structure=\"hierarchical\"><title>default</title>" . "\n";
     $content .= $final_str . "\t" . '</organization></organizations>' . "\n";
-
     return $content;
-
-
 }
-
 /**
+
 *
-*/ 
+
+*/
 function build_manifest_main($str)
 {
     $manifest = '<?xml version="1.0" encoding="ISO-8859-7"?>
@@ -1079,12 +1083,12 @@ function build_manifest_main($str)
         ';
     $manifest .= $str;
     $manifest .= '</manifest>';
-
     return $manifest;
 }
-
 /**
+
 * H synarthsh afth dhmiourgei to outline enos arxeiou html kai emvy8izei mesa to periexomeno. 
+
 */
 function create_html_files($content)
 {
@@ -1092,14 +1096,12 @@ function create_html_files($content)
         var apiHandle = null;
         var API = null;
         var findAPITries = 0;
-
         function getAPIHandle()
         {
            if (apiHandle == null)
            {
               apiHandle = getAPI();
            }
-
            return apiHandle;
         }
         function findAPI(win)
@@ -1108,14 +1110,12 @@ function create_html_files($content)
            {
               findAPITries++;
               // Note: 7 is an arbitrary number, but should be more than sufficient
-              if (findAPITries > 7) 
+              if (findAPITries > 7)
               {
                  alert("Error finding API -- too deeply nested.");
                  return null;
               }
-
               win = win.parent;
-
            }
            return win.API;
         }

@@ -34,6 +34,16 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     }
     /**
 
+     * $params['expand'] is used to specify whether the block will show up expanded (default) or collapsed. This behavior is overriden
+
+     * by the user's preference (via cookie)
+
+     */
+    if (isset($params['expand'])) {
+        $params['expand'] ? $expand = true : $expand = false;
+    }
+    /**
+
      * $params['options'] is an array with handles that are displayed on the block header,
 
      * and are encompassing custom functionality. Each handle is an <a> element that contains an <img> element.
@@ -186,7 +196,7 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
         $handleString .= '<a href = "javascript:void(0);"><img src = "images/16x16/help.png"  title = "'.$GLOBALS['configuration']['help_url'].'/'.$params['help'].'" onclick = "PopupCenter(\''.$GLOBALS['configuration']['help_url'].'?title='.$params['help'].'&useskin=cologneblue&printable=yes\', \'helpwindow\', \'800\', \'500\')"></a>';
     }
     if (!$nohandle) {
-        if ($cookieValue == 'hidden') {
+        if ($cookieValue == 'hidden' || (!$cookieValue && isset($expand) && !$expand)) {
             $handleString .= '<img class = "close" src = "images/16x16/navigate_down.png" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';
             $showContent = 'display:none';
         } else {

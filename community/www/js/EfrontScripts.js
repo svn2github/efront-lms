@@ -543,6 +543,19 @@ function onGetBookmarks(el, response) {
      eF_js_showDivPopup(BOOKMARKTRANSLATION, 1, 'bookmarks_div_code');
  }
 }
+function addBookmark(el) {
+ parameters = {bookmarks:'add', method: 'get'};
+ var url = window.location.toString();
+ ajaxRequest(el, url, parameters);
+}
+function removeBookmark(el, id) {
+ parameters = {bookmarks:'remove', id: id, method: 'get'};
+ var url = window.location.toString();
+ ajaxRequest(el, url, parameters, onRemoveBookmark);
+}
+function onRemoveBookmark(el, response) {
+ new Effect.Fade(el.up());
+}
 function changeAccount(login) {
     new Ajax.Request('change_account.php?login='+login, {
         method:'get',

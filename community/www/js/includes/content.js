@@ -177,19 +177,6 @@ function answerQuestion(el) {
 }
 
 
-function addBookmark(el) {
- parameters = {bookmarks:'add', method: 'get'};
- var url = window.location.toString();
- ajaxRequest(el, url, parameters);
-}
-function removeBookmark(el, id) {
- parameters = {bookmarks:'remove', id: id, method: 'get'};
- var url = window.location.toString();
- ajaxRequest(el, url, parameters, onRemoveBookmark);
-}
-function onRemoveBookmark(el, response) {
- new Effect.Fade(el.up());
-}
 
 /**
 

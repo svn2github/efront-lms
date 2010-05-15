@@ -122,7 +122,11 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
         }
 
         if (in_array($_GET['lessons_ID'], array_keys($userLessons))) {
-            $_SESSION['s_lessons_ID'] = $_GET['lessons_ID'];
+            $newLesson = new EfrontLesson($_GET['lessons_ID']);
+            if ($roles[$userLessons[$_GET['lessons_ID']]] == 'student' && ($newLesson -> lesson['from_timestamp'] && $newLesson -> lesson['from_timestamp'] > time()) || ($newLesson -> lesson['to_timestamp'] && $newLesson -> lesson['to_timestamp'] < time())) {
+             eF_redirect("student.php?ctg=lessons");
+            }
+         $_SESSION['s_lessons_ID'] = $_GET['lessons_ID'];
             $_SESSION['s_type'] = $roles[$userLessons[$_GET['lessons_ID']]];
 
             //$justVisited = 1;   // used to trigger the event when the lesson info is available
@@ -299,6 +303,32 @@ foreach ($loadedModules as $module) {
             echo "WK"; //wrong key
         }
         exit;
+}
+if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] != 1) {
+    try {
+        $bookmarks = bookmarks :: getBookmarks($currentUser, $currentLesson);
+        if ($_GET['bookmarks'] == 'remove' && in_array($_GET['id'], array_keys($bookmarks))) {
+            $bookmark = new bookmarks($_GET['id']);
+            $bookmark -> delete();
+        } elseif ($_GET['bookmarks'] == 'add') {
+            foreach ($bookmarks as $value) {
+                $urls[] = $value['url'];
+            }
+            if (!in_array($_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id'], $urls)) {
+             $fields = array('users_LOGIN' => $currentUser -> user['login'],
+                          'lessons_ID' => $currentLesson -> lesson['id'],
+                          'name' => $currentUnit['name'],
+                          'url' => $_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id']);
+             bookmarks :: create($fields);
+            }
+        } else {
+            echo json_encode($bookmarks);
+        }
+    } catch (Exception $e) {
+        header("HTTP/1.0 500 ");
+        echo $e -> getMessage().' ('.$e -> getCode().')';
+    }
+    exit;
 }
 /*Added Session variable for search results*/
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];

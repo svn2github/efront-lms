@@ -200,7 +200,7 @@ if ($_GET['scorm_review']) {
                 ($value instanceOf EfrontDirectory) ? $filelist[] = preg_replace("#".$currentLesson -> getDirectory()."#", "", $key).'/' : $filelist[] = preg_replace("#".$currentLesson -> getDirectory()."#", "", $key);
             }
 
-            $lesson_entries = eF_getTableData("content", "id,name,data", "lessons_ID=" . $lessons_id . " and ctg_type!='tests' and active=1");
+            $lesson_entries = eF_getTableData("content", "id,name,data", "lessons_ID=" . $lessons_id . " and ctg_type!='tests' and ctg_type!='scorm_test' and ctg_type!='scorm' and active=1");
 
             require_once("scorm_tools.php");
             create_manifest($lessons_id, $lesson_entries, $filelist, SCORM_FOLDER);

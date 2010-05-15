@@ -408,18 +408,18 @@
   <tr class = "{cycle name = "user_lessons_list" values = "oddRowColor, evenRowColor"}">
    <td>{$lesson->lesson.name}</td>
    <td class = "progressCell">
-    <span class = "progressNumber">{$lesson->lesson.overall_progress.percentage}%</span>
+    <span class = "progressNumber">#filter:score-{$lesson->lesson.overall_progress.percentage}#%</span>
     <span class = "progressBar" style = "width:{$lesson->lesson.overall_progress.percentage}px;">&nbsp;</span>
    </td>
    {if !$T_CONFIGURATION.disable_tests}
    <td class = "progressCell">
-    <span class = "progressNumber">{$lesson->lesson.test_status.percentage}%</span>
+    <span class = "progressNumber">#filter:score-{$lesson->lesson.test_status.percentage}#%</span>
     <span class = "progressBar" style = "width:{$lesson->lesson.test_status.percentage}px;">&nbsp;</span>
    </td>
    {/if}
    {if !$T_CONFIGURATION.disable_projects}
    <td class = "progressCell">
-    <span class = "progressNumber">{$lesson->lesson.project_status.percentage}%</span>
+    <span class = "progressNumber">#filter:score-{$lesson->lesson.project_status.percentage}#%</span>
     <span class = "progressBar" style = "width:{$lesson->lesson.project_status.percentage}px;">&nbsp;</span>
    </td>
    {/if}

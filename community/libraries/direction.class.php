@@ -866,7 +866,7 @@ class EfrontDirectionsTree extends EfrontTree
  }
  private function printLessonLink($treeLesson, $options, $roleBasicType) {
   $treeString = '';
-  if (!$roleBasicType || $treeLesson -> lesson['from_timestamp']) { //from_timestamp in user status means that the user's status in the lesson is not 'pending'
+  if (!$roleBasicType || $treeLesson -> lesson['active_in_lesson']) { //active_in_lesson (equals from_timestamp in users_to_lessons) in user status means that the user's status in the lesson is not 'pending'
    $classNames = array();
    $lessonLink = $options['lessons_link'];
    if ($roleBasicType == 'student' && (($treeLesson -> lesson['from_timestamp'] && $treeLesson -> lesson['from_timestamp'] > time()) || ($treeLesson -> lesson['to_timestamp'] && $treeLesson -> lesson['to_timestamp'] < time()))) { //here, from_timestamp and to_timestamp refer to the lesson periods

@@ -486,32 +486,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         $message_type = 'failure';
     }
 }
-if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] != 1) {
-    try {
-        $bookmarks = bookmarks :: getBookmarks($currentUser, $currentLesson);
-        if ($_GET['bookmarks'] == 'remove' && in_array($_GET['id'], array_keys($bookmarks))) {
-            $bookmark = new bookmarks($_GET['id']);
-            $bookmark -> delete();
-        } elseif ($_GET['bookmarks'] == 'add') {
-            foreach ($bookmarks as $value) {
-                $urls[] = $value['url'];
-            }
-            if (!in_array($_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id'], $urls)) {
-             $fields = array('users_LOGIN' => $currentUser -> user['login'],
-                          'lessons_ID' => $currentLesson -> lesson['id'],
-                          'name' => $currentUnit['name'],
-                          'url' => $_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id']);
-             bookmarks :: create($fields);
-            }
-        } else {
-            echo json_encode($bookmarks);
-        }
-    } catch (Exception $e) {
-        header("HTTP/1.0 500 ");
-        echo $e -> getMessage().' ('.$e -> getCode().')';
-    }
-    exit;
-}
 // Used for toggle horizontal sidebar
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
  $smarty -> assign("T_HORIZONTAL_BAR", 1);

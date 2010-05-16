@@ -92,7 +92,7 @@ try {
     $skills_missing = implode("','", $skills_missing);
 
     // We have all the already attended courses
-    $alredy_attending = implode("','", array_keys($courseUser -> getCourses()));
+    $alredy_attending = implode("','", array_keys($courseUser -> getUserCourses()));
 
     // Thus we can find the missing courses to fill the skill gap
     $courses_proposed = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_course_offers_skill ON module_hcd_skills.skill_ID = module_hcd_course_offers_skill.skill_ID JOIN courses ON courses.id = module_hcd_course_offers_skill.courses_ID","module_hcd_course_offers_skill.courses_ID, courses.*, count(module_hcd_course_offers_skill.skill_ID) as skills_offered", "module_hcd_course_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_course_offers_skill.courses_ID NOT IN ('".$alredy_attending."')","","module_hcd_course_offers_skill.courses_ID ORDER BY skills_offered DESC");

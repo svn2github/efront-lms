@@ -833,6 +833,8 @@ class EfrontDirectionsTree extends EfrontTree
  }
  private function printCourseLinks($treeCourse, $options, $roleBasicType) {
   $treeString = '';
+  $courseLink = $options['courses_link'];
+  $href = str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> shouldDisplayInCatalog();
   if (isset($options['buy_link'])) {
    if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || $treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
     $treeString .= '
@@ -849,8 +851,6 @@ class EfrontDirectionsTree extends EfrontTree
   }
   if (!isset($treeCourse -> course['from_timestamp']) || $treeCourse -> course['from_timestamp']) { //from_timestamp in user status means that the user's status in the course is not 'pending'
    $classNames = array();
-   $courseLink = $options['courses_link'];
-   $href = str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> shouldDisplayInCatalog();
    if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
     $treeString .= '<a href = "'.($courseLink ? $href : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$treeCourse -> course['id'].', \'course\')">'.$treeCourse -> course['name'].'
           <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/>

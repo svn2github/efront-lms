@@ -36,24 +36,16 @@
               </tr>
               <tr><td>{$smarty.const._OVERALLPROGRESS}:&nbsp;</td>
                   <td class = "progressCell">
-                      <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.overall_progress}#%</span>
-                      <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.overall_progress}px;">&nbsp;</span>
+                      <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.overall_progress.percentage}#%</span>
+                      <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.overall_progress.percentage}px;">&nbsp;</span>
                   </td><td></td>
               </tr>
-              <tr><td>{$smarty.const._CONTENTPROGRESSEXCLUDINGTESTS}:&nbsp;</td>
-                  <td class = "progressCell">
-                      <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.content_progress}#%</span>
-                      <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.content_progress}px;">&nbsp;</span>
-                  </td><td></td>
-              </tr>
-              {if !empty($T_USER_LESSONS_INFO.done_tests)}
               <tr><td>{$smarty.const._AVERAGETESTSCOREOFLASTEXECUTIONS}:&nbsp;</td>
                   <td class = "progressCell">
-                      <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.tests_avg_score}#%</span>
-                      <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.tests_avg_score}px;">&nbsp;</span>
+                      <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.test_status.mean_score}#%</span>
+                      <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.test_status.mean_score}px;">&nbsp;</span>
                   </td><td></td>
               </tr>
-              {/if}
               {foreach name = 'done_tests_list' item = "test" key = "id" from = $T_USER_LESSONS_INFO.done_tests}
               <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span> ({$smarty.const._AVERAGESCOREON} {$test.times_done} {if $test.times_done == 1}{$smarty.const._EXECUTION|@mb_strtolower}{else}{$smarty.const._EXECUTIONS|@mb_strtolower}{/if}):&nbsp;</td>
                   <td class = "progressCell">
@@ -73,7 +65,9 @@
                   </td>
               </tr>
               {foreachelse}
+              {if $T_USER_LESSONS_INFO.scorm_done_tests|@sizeof == 0}
               <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._TESTS}: {$smarty.const._NODATAFOUND}</td></tr>
+              {/if}
               {/foreach}
               {foreach name = 'scorm_done_tests_list' item = "test" key = "id" from = $T_USER_LESSONS_INFO.scorm_done_tests}
               <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span></td>
@@ -93,8 +87,8 @@
               {if !empty($T_USER_LESSONS_INFO.assigned_projects)}
               <tr><td>{$smarty.const._AVERAGEPROJECTSCORE}:&nbsp;</td>
                   <td class = "progressCell">
-                      <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.projects_avg_score}#%</span>
-                      <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.projects_avg_score}px;">&nbsp;</span>
+                      <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.project_status.mean_score}#%</span>
+                      <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.project_status.mean_score}px;">&nbsp;</span>
                  </td><td></td>
               </tr>
               {/if}
@@ -137,7 +131,7 @@
              </form>
          </fieldset>
      {/capture}
-     {eF_template_printBlock title = "`$smarty.const._PROGRESSFORUSER`: <span class = 'innerTableName'>&quot;#filter:login-`$T_USER_LESSONS_INFO.login`#&quot;</span>" data = $smarty.capture.t_edit_progress_code image = '32x32/users.png' help = 'Users_status'}
+     {eF_template_printBlock title = "`$smarty.const._PROGRESSFORUSER`: <span class = 'innerTableName'>&quot;#filter:login-`$T_USER_LESSONS_INFO.users_LOGIN`#&quot;</span>" data = $smarty.capture.t_edit_progress_code image = '32x32/users.png' help = 'Users_status'}
  {else}
          {capture name = 't_progress_code'}
 <!--ajax:usersTable-->

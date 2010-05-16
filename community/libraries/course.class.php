@@ -352,7 +352,11 @@ class EfrontCourse
   $result = eF_getTableData($from, "lc.start_date, lc.end_date, lc.previous_lessons_ID, l.*",
   implode(" and ", $where), $orderby, false, $limit);
   $result = $this -> sortLessons($result);
-  return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
+  } else {
+   return $result;
+  }
  }
  /**
 
@@ -2881,7 +2885,7 @@ class EfrontCourse
    foreach ($eligible as $lessonId => $lesson) {
     $roleBasicType = $roles[$lesson -> lesson['user_type']]; //The basic type of the user's role in the lesson
     $courseString .= '<tr class = "directionEntry">';
-    if (isset($lesson -> lesson['from_timestamp']) && !$lesson -> lesson['from_timestamp']) {
+    if (isset($lesson -> lesson['active_in_lesson']) && !$lesson -> lesson['active_in_lesson']) {
      $courseString .= '<td style = "padding-bottom:2px"></td><td><a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$lesson -> lesson['name'].'</a></td>';
     } else if (!$lesson -> eligible) {
      if ($lesson -> lesson['completed']) {

@@ -1967,16 +1967,6 @@ class EfrontAdministrator extends EfrontUser
  public function getLessons() {
   return array();
  }
- /**
-
-	 *
-
-	 * @return unknown_type
-
-	 */
- public function getCourses() {
-  return array();
- }
  public function getIssuedCertificates() {
   return array();
  }
@@ -2521,88 +2511,6 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  /**
 
-	 * Get user courses
-
-	 *
-
-	 * This function gets the courses that the user has enrolled to,
-
-	 * along with his declared type. If $returnObjects is set, then
-
-	 * a list of objects is returned. Otherwise return value is an array
-
-	 * containing only id/user_type pairs
-
-	 * <br/>Example:
-
-	 * <code>
-
-	 * $user -> getCourses();						   //Get an array where keys are course ids and values are user type
-
-	 * $user -> getCourses(true);					   //Return an array of EfrontCourse objects
-
-	 * </code>
-
-	 * If $returnObjects is true, then each EfrontCourse object will contain
-
-	 * an additional field named "userStatus" holding user-specific information, such
-
-	 * as his type
-
-	 *
-
-	 * @param boolean $returnObjects If true, then return list of objects
-
-	 * @param string $basicType If set, then return only lessons that the user has the specific basic role in them
-
-	 * @return array An array with the user courses, where either keys are course ids and values are user types or it contains EfrontCourse objects
-
-	 * @since 3.5.0
-
-	 * @access public
-
-	 */
- public function getCourses($returnObjects = false, $basicType = false, $options = array()) {
-  if ($returnObjects) {
-   $userCourses = array();
-   $result = eF_getTableData("users_to_courses uc, courses c", "(select count( * ) from courses l where instance_source=c.id) as has_instances, uc.courses_ID, uc.user_type, c.*", "uc.archive=0 and uc.courses_ID=c.id and uc.users_LOGIN='".$this -> user['login']."'", "c.name");
-   foreach ($result as $value) {
-    try {
-     $userCourses[$value['courses_ID']] = new EfrontCourse($value);
-    } catch (Exception $e) {} //Do nothing in case of exception, simply do not take into account this course
-   }
-   $userStatus = EfrontStats :: getUsersCourseStatus($userCourses, $this -> user['login'], $options);
-   foreach ($result as $value) {
-    try {
-     $userCourses[$value['courses_ID']] -> userStatus = $userStatus[$value['courses_ID']][$this -> user['login']];
-    } catch (Exception $e) {} //Do nothing in case of exception, simply do not take into account this course
-   }
-   return $userCourses;
-  } else {
-   $userCourses = eF_getTableDataFlat("users_to_courses uc, courses c", "uc.courses_ID, uc.user_type", "uc.archive=0 and uc.courses_ID=c.id and uc.users_LOGIN='".$this -> user['login']."'", "c.name");
-   if (sizeof($userCourses) > 0) {
-    return array_combine($userCourses['courses_ID'], $userCourses['user_type']);
-   } else {
-    return array();
-   }
-  }
-  if ($basicType) {
-   $roles = EfrontLessonUser :: getLessonsRoles();
-   foreach ($userCourses as $id => $role) {
-    if ($role instanceof EfrontCourse) { //$returnObjects is true
-     if ($roles[$role -> userStatus['user_type']] != $basicType) {
-      unset($userCourses[$id]);
-     }
-    } else {
-     if ($roles[$role] != $basicType) {
-      unset($userCourses[$id]);
-     }
-    }
-   }
-  }
- }
- /**
-
 	 * The same as self::getUserCoursesAggregatingResultsIncludingUnassigned, only it has an addition "where" condition
 
 	 * @param array $constraints
@@ -2845,7 +2753,7 @@ abstract class EfrontLessonUser extends EfrontUser
    EfrontCourse::persistCourseUsers($fields, $where, $course, $this -> user['login']);
   }
   $this -> courses = false; //Reset users cache
-  return $this -> getCourses();
+  return $this -> getUserCourses();
  }
  private function verifyCoursesList($courses) {
   if (!is_array($courses)) {
@@ -2894,7 +2802,7 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   foreach ($lessons as $key => $value) {
    if ($value instanceOf EfrontLesson) {
-    $lessons[$key] = $value['id'];
+    $lessons[$key] = $value -> lesson['id'];
    } elseif (!eF_checkParameter($value, 'id')) {
     unset($lessons[$key]);
    }
@@ -2967,7 +2875,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $scormTests = $this -> getUserScormTestsStatusInLesson($lesson);
   $totalTests += sizeof($scormTests);
   foreach ($scormTests as $value) {
-   $meanTestScore += $value['score'];
+   $meanTestScore += $value;
    $completedTests++;
   }
   if ($totalTests) {
@@ -3043,7 +2951,6 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 */
  public function getIssuedCertificates() {
-  //$courses 	  = $this -> getCourses(true);
   $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != 0 or issued_certificate is not null');
   $courses = $this -> getUserCourses($constraints);
   $certificates = array();
@@ -3115,7 +3022,7 @@ abstract class EfrontLessonUser extends EfrontUser
    $course -> addUsers($this -> user['login'], $roles[$key], $confirmed);
   }
   $this -> courses = false; //Reset courses information
-  return $this -> getCourses();
+  return $this -> er();
  }
  /**
 
@@ -3157,7 +3064,7 @@ abstract class EfrontLessonUser extends EfrontUser
    $course -> confirm($this);
   }
   $this -> courses = false; //Reset courses information
-  return $this -> getCourses();
+  return $this -> getserUCourses();
  }
  /**
 
@@ -3616,10 +3523,17 @@ class EfrontProfessor extends EfrontLessonUser
   parent :: delete();
   eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
-  foreach ($this -> getCourses() as $id => $value) {
-   $cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
-   Cache::resetCache($cacheKey);
-  }
+/*
+
+		foreach ($this -> getCourses() as $id => $value) {
+
+			$cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
+
+			Cache::resetCache($cacheKey);
+
+		}
+
+*/
  }
 }
 /**
@@ -3671,10 +3585,17 @@ class EfrontStudent extends EfrontLessonUser
   }
   eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
-  foreach ($this -> getCourses() as $id => $value) {
-   $cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
-   Cache::resetCache($cacheKey);
-  }
+/*
+
+		foreach ($this -> getCourses() as $id => $value) {
+
+			$cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
+
+			Cache::resetCache($cacheKey);
+
+		}
+
+*/
   eF_deleteTableData("users_to_projects", "users_LOGIN='".$this -> user['login']."'");
   //eF_deleteTableData("users_to_done_tests",   "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("completed_tests", "users_LOGIN='".$this -> user['login']."'");
@@ -3720,19 +3641,34 @@ class EfrontStudent extends EfrontLessonUser
        'score' => $score,
        'comments' => $comments);
    eF_updateTableData("users_to_lessons", $fields, "users_LOGIN = '".$this -> user['login']."' and lessons_ID=".$lesson -> lesson['id']);
-   $cacheKey = "user_lesson_status:lesson:".$lesson -> lesson['id']."user:".$this -> user['login'];
-   Cache::resetCache($cacheKey);
+   //$cacheKey = "user_lesson_status:lesson:".$lesson -> lesson['id']."user:".$this -> user['login'];
+   //Cache::resetCache($cacheKey);
    // Timelines event
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $lesson -> lesson['id'], "lessons_name" => $lesson -> lesson['name']));
-   $courses = $lesson -> getCourses(true); //Get the courses that this lesson is part of. This way, we can auto complete a course, if it should be auto completed
-   $userStatus = EfrontStats :: getUsersCourseStatus(array_keys($courses), $this -> user['login']);
-   foreach ($courses as $course) {
+   //Get results in lessons
+   $userLessons = array();
+   $result = eF_getTableData("users_to_lessons", "lessons_ID,completed,score", "users_LOGIN='".$this -> user['login']."'");
+   foreach ($result as $value) {
+    if ($userLessons[$value['lessons_ID']] = $value);
+   }
+   $lessonCourses = $lesson -> getCourses(true); //Get the courses that this lesson is part of. This way, we can auto complete a course, if it should be auto completed
+   //Filter out courses that the student doesn't have
+   $result = eF_getTableDataFlat("users_to_courses", "courses_ID", "users_LOGIN='".$this -> user['login']."'");
+   $userCourses = $result['courses_ID'];
+   foreach ($lessonCourses as $id => $course) {
+    if (!in_array($id, $userCourses)) {
+     unset($lessonCourses[$id]);
+    }
+   }
+   //$userStatus = EfrontStats :: getUsersCourseStatus(array_keys($courses), $this -> user['login']);
+   foreach ($lessonCourses as $course) {
     if ($course -> options['auto_complete']) {
-     $completed = array();
-     $score = array();
-     foreach ($userStatus[$course -> course['id']][$this -> user['login']]['lesson_status'] as $status) {
-      $status['completed'] ? $completed[] = 1 : $completed[] = 0;
-      $score[] = $status['score'];
+     $constraints = array('archive' => false, 'active' => true, 'return_objects' => false);
+     $courseLessons = $course -> getCourseLessons($constraints);
+     $completed = $score = array();
+     foreach ($courseLessons as $lessonId => $lesson) {
+      $userLessons[$lessonId]['completed'] ? $completed[] = 1 : $completed[] = 0;
+      $score[] = $userLessons[$lessonId]['score'];
      }
      if (array_sum($completed) == sizeof($completed)) { //If all the course's lessons are completed, then auto complete the course, using the mean lessons score
       $this -> completeCourse($course -> course['id'], round(array_sum($score) / sizeof($score)), _AUTOCOMPLETEDCOURSE);
@@ -3783,7 +3719,7 @@ class EfrontStudent extends EfrontLessonUser
   if (!($course instanceof EfrontCourse)) {
    $course = new EfrontCourse($course);
   }
-  if (in_array($course -> course['id'], array_keys($this -> getCourses()))) {
+  if (in_array($course -> course['id'], array_keys($this -> getUserCourses()))) {
    $fields = array('completed' => 1,
        'to_timestamp' => time(),
        'score' => $score,

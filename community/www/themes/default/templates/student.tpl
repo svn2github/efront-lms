@@ -47,6 +47,9 @@
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'progress')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=progress">'|cat:$smarty.const._PROGRESS|cat:'</a>'}
+ {if $T_USER_LESSONS_INFO}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=progress&edit_user=`$smarty.get.edit_user`'>`$smarty.const._PROGRESSFORUSER`1: #filter:login-`$T_USER_LESSONS_INFO.users_LOGIN`#</a>"}
+ {/if}
     {include file = "includes/progress.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'comments')}

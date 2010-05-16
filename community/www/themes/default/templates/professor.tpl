@@ -199,7 +199,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 {if (isset($T_CTG) && $T_CTG == 'progress')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=progress">'|cat:$smarty.const._PROGRESS|cat:'</a>'}
  {if $smarty.get.edit_user}
-  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=progress&edit_user=`$smarty.get.edit_user`'>`$smarty.const._PROGRESSFORUSER`: #filter:login-`$T_USER_LESSONS_INFO.login`#</a>"}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=progress&edit_user=`$smarty.get.edit_user`'>`$smarty.const._PROGRESSFORUSER`: #filter:login-`$T_USER_LESSONS_INFO.users_LOGIN`#</a>"}
  {/if}
     {include file = "includes/progress.tpl"}
 {/if}

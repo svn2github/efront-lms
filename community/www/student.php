@@ -262,7 +262,7 @@ foreach ($loadedModules as $module) {
                                 $lessonTypes[] = $lesson['user_type'];
                             }
                         }
-                        $currentCourseIds = array_keys($currentUser -> getCourses()); // get ids of current user courses
+                        $currentCourseIds = array_keys($currentUser -> getUserCourses()); // get ids of current user courses
                         $courseIds = array();
                         $courseTypes = array();
                         foreach ($groupCourses as $course_ID => $course) {

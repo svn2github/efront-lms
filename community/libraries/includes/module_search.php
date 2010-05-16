@@ -258,14 +258,8 @@ if (isset($_POST['search_text'])) {
                 $lessons_have[] = $value->lesson['id'];
             }
         }
-        $userCourses = $currentUser -> getCourses(true);
-        foreach ($userCourses as $key => $value){
-            if (!$value->course['active']) {
-                unset($userCourses[$key]);
-            } else {
-                $courses_have[] = $value->course['id'];
-            }
-        }
+        $userCourses = $currentUser -> getUserCourses();
+        $courses_have = array_keys($userCourses);
 
     }
 

@@ -5,7 +5,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-        $result   = eF_getTableData("completed_tests", "*", "status != 'deleted' and id=".$_GET['show_solved_test']);
+        $result = eF_getTableData("completed_tests", "*", "status != 'deleted' and id=".$_GET['show_solved_test']);
         if (sizeof($result) == 0) {
             throw new EfrontTestException(_NONEXISTENTTEST.': '.$_GET['show_solved_test'], EfrontTestException :: NOT_DONE_TEST);
         }
@@ -14,9 +14,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
         }
 
         if (!isset($_GET['test_analysis'])) {
-            $status        = $completedTest -> getStatus($result[0]['users_LOGIN']);
+            $status = $completedTest -> getStatus($result[0]['users_LOGIN']);
 
-            $url     = basename($_SERVER['PHP_SELF']).'?ctg=tests&show_solved_test='.$completedTest -> completedTest['id'];
+            $url = basename($_SERVER['PHP_SELF']).'?ctg=tests&show_solved_test='.$completedTest -> completedTest['id'];
             $baseUrl = basename($_SERVER['PHP_SELF']).'?ctg=tests';
 
             //WARNING! This must be above the options set right below (answers, given answers) or else the test will be saved with the changed options
@@ -24,7 +24,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 $completedTest -> handleAjaxActions();
                 exit;
             }
-            $completedTest -> options['answers']       = true;
+            $completedTest -> options['answers'] = true;
             $completedTest -> options['given_answers'] = true;
 
             // We do not want all handles for test editing for skillgap tests - the students do not see the tests
@@ -50,7 +50,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
                     $directionsTree = new EfrontDirectionsTree();
                     $directionsPaths = $directionsTree -> toPathString();
-                    $languages       = EfrontSystem :: getLanguages(true);
+                    $languages = EfrontSystem :: getLanguages(true);
 
                     $skills_missing = array();
                     $all_skills = "";
@@ -70,10 +70,10 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $smarty -> assign("T_MISSING_SKILLS_URL", $all_skills);
 
                     // check what you GET and keep only the skills
-                    $skills_missing = implode("','",  $skills_missing);
+                    $skills_missing = implode("','", $skills_missing);
 
                     $user = EfrontUserFactory :: factory($_GET['user']);
-                    $alredy_attending = implode("','",  array_keys($user -> getLessons()));
+                    $alredy_attending = implode("','", array_keys($user -> getLessons()));
 
                     $lessons_proposed = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_lesson_offers_skill ON module_hcd_skills.skill_ID = module_hcd_lesson_offers_skill.skill_ID JOIN lessons ON lessons.id = module_hcd_lesson_offers_skill.lesson_ID","module_hcd_lesson_offers_skill.lesson_ID, lessons.*, count(module_hcd_lesson_offers_skill.skill_ID) as skills_offered", "module_hcd_lesson_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_lesson_offers_skill.lesson_ID NOT IN ('".$alredy_attending."')","","module_hcd_lesson_offers_skill.lesson_ID ORDER BY skills_offered DESC");
 
@@ -108,7 +108,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
                     $directionsTree = new EfrontDirectionsTree();
                     $directionsPaths = $directionsTree -> toPathString();
-                    $languages       = EfrontSystem :: getLanguages(true);
+                    $languages = EfrontSystem :: getLanguages(true);
 
                     $skills_missing = array();
                     $all_skills = "";
@@ -128,11 +128,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $smarty -> assign("T_MISSING_SKILLS_URL", $all_skills);
 
                     // check what you GET and keep only the skills
-                    $skills_missing = implode("','",  $skills_missing);
+                    $skills_missing = implode("','", $skills_missing);
 
                     $user = EfrontUserFactory :: factory($_GET['user']);
 
-                    $alredy_attending = implode("','",  array_keys($user -> getCourses()));
+                    $alredy_attending = implode("','", array_keys($user -> getUserCourses()));
                     $courses_proposed = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_course_offers_skill ON module_hcd_skills.skill_ID = module_hcd_course_offers_skill.skill_ID JOIN courses ON courses.id = module_hcd_course_offers_skill.courses_ID","module_hcd_course_offers_skill.courses_ID, courses.*, count(module_hcd_course_offers_skill.skill_ID) as skills_offered", "module_hcd_course_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_course_offers_skill.courses_ID NOT IN ('".$alredy_attending."')","","module_hcd_course_offers_skill.courses_ID ORDER BY skills_offered DESC");
 
                     if (isset($_GET['sort'])) {
@@ -164,23 +164,23 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 }
 
                 // AJAX CODE TO RELOAD ALREADY ASSIGNED LESSONS
-                if (isset($_GET['ajax'])  && $_GET['ajax'] == 'assignedLessonsTable') {
+                if (isset($_GET['ajax']) && $_GET['ajax'] == 'assignedLessonsTable') {
                     $directionsTree = new EfrontDirectionsTree();
                     $directionPaths = $directionsTree -> toPathString();
-                    $lessons        = EfrontLesson :: getLessons();
+                    $lessons = EfrontLesson :: getLessons();
 
                     $editedUser = EfrontUserFactory :: factory($_GET['user']);
-                    $userLessons    = $editedUser -> getLessons(true);
+                    $userLessons = $editedUser -> getLessons(true);
                     foreach ($lessons as $key => $lesson) {
                         $lessons[$key]['directions_name'] = $directionPaths[$lesson['directions_ID']];
-                        $lessons[$key]['user_type']       = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
-                        $lessons[$key]['partof']          = 0;
+                        $lessons[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
+                        $lessons[$key]['partof'] = 0;
                         if (in_array($lesson['id'], array_keys($userLessons))) {
-                            $lessons[$key]['from_timestamp']  = $userLessons[$key] -> userStatus['from_timestamp'];
-                            $lessons[$key]['partof']          = 1;
-                            $lessons[$key]['user_type']       = $userLessons[$key] -> userStatus['user_type'];
-                            $lessons[$key]['completed']       = $userLessons[$key] -> userStatus['completed'];
-                            $lessons[$key]['score']           = $userLessons[$key] -> userStatus['score'];
+                            $lessons[$key]['from_timestamp'] = $userLessons[$key] -> userStatus['from_timestamp'];
+                            $lessons[$key]['partof'] = 1;
+                            $lessons[$key]['user_type'] = $userLessons[$key] -> userStatus['user_type'];
+                            $lessons[$key]['completed'] = $userLessons[$key] -> userStatus['completed'];
+                            $lessons[$key]['score'] = $userLessons[$key] -> userStatus['score'];
                         } else if ($currentUser -> user['user_type'] != 'administrator' || !$lesson['active']) {
                             unset($lessons[$key]);
                         } else if ($lesson['languages_NAME'] != $editedUser -> user['languages_NAME']) {
@@ -226,23 +226,23 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 }
 
                 // AJAX CODE TO RELOAD ALREADY ASSIGNED COURSES
-                if (isset($_GET['ajax'])  && $_GET['ajax'] == 'assignedCoursesTable') {
+                if (isset($_GET['ajax']) && $_GET['ajax'] == 'assignedCoursesTable') {
                     $directionsTree = new EfrontDirectionsTree();
                     $directionPaths = $directionsTree -> toPathString();
-                    $courses        = EfrontCourse :: getCourses();
+                    $courses = EfrontCourse :: getCourses();
 
                     $editedUser = EfrontUserFactory :: factory($_GET['user']);
-                    $userCourses    = $editedUser -> getCourses(true);
+                    $userCourses = $editedUser -> getUserCourses();
                     foreach ($courses as $key => $course) {
                         $courses[$key]['directions_name'] = $directionPaths[$course['directions_ID']];
-                        $courses[$key]['user_type']       = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
-                        $courses[$key]['partof']          = 0;
+                        $courses[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
+                        $courses[$key]['partof'] = 0;
                         if (in_array($course['id'], array_keys($userCourses))) {
-                            $courses[$key]['from_timestamp']  = $userCourses[$key] -> userStatus['from_timestamp'];
-                            $courses[$key]['partof']          = 1;
-                            $courses[$key]['user_type']       = $userCourses[$key] -> userStatus['user_type'];
-                            $courses[$key]['completed']       = $userCourses[$key] -> userStatus['completed'];
-                            $courses[$key]['score']           = $userCourses[$key] -> userStatus['score'];
+                            $courses[$key]['from_timestamp'] = $userCourses[$key] -> course['active_in_course'];
+                            $courses[$key]['partof'] = 1;
+                            $courses[$key]['user_type'] = $userCourses[$key] -> course['user_type'];
+                            $courses[$key]['completed'] = $userCourses[$key] -> course['completed'];
+                            $courses[$key]['score'] = $userCourses[$key] -> course['score'];
                         } else if ($currentUser -> user['user_type'] != 'administrator' || !$course['active']) {
                             unset($courses[$key]);
                         } else if ($course['languages_NAME'] != $editedUser -> user['languages_NAME']) {
@@ -287,23 +287,23 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 }
 
 
-                if (isset($_GET['ajax'])  && $_GET['ajax'] == 'coursesTable') {
+                if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
                     $directionsTree = new EfrontDirectionsTree();
                     $directionPaths = $directionsTree -> toPathString();
-                    $courses        = EfrontCourse :: getCourses();
+                    $courses = EfrontCourse :: getCourses();
 
                     $editedUser = EfrontUserFactory :: factory($_GET['user']);
-                    $userCourses    = $editedUser -> getCourses(true);
+                    $userCourses = $editedUser -> getUserCourses();
                     foreach ($courses as $key => $course) {
-                        $courses[$key]['partof']          = 0;
+                        $courses[$key]['partof'] = 0;
                         $courses[$key]['directions_name'] = $directionPaths[$course['directions_ID']];
-                        $courses[$key]['user_type']       = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
+                        $courses[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
                         if (in_array($course['id'], array_keys($userCourses))) {
-                            $courses[$key]['from_timestamp']  = $userCourses[$key] -> userStatus['from_timestamp'];
-                            $courses[$key]['partof']          = 1;
-                            $courses[$key]['user_type']       = $userCourses[$key] -> userStatus['user_type'];
-                            $courses[$key]['completed']       = $userCourses[$key] -> userStatus['completed'];
-                            $courses[$key]['score']           = $userCourses[$key] -> userStatus['score'];
+                            $courses[$key]['from_timestamp'] = $userCourses[$key] -> course['active_in_course'];
+                            $courses[$key]['partof'] = 1;
+                            $courses[$key]['user_type'] = $userCourses[$key] -> course['user_type'];
+                            $courses[$key]['completed'] = $userCourses[$key] -> course['completed'];
+                            $courses[$key]['score'] = $userCourses[$key] -> course['score'];
                         } else if ($currentUser -> user['user_type'] != 'administrator' || !$course['active']) {
                             unset($courses[$key]);
                         } else if ($course['languages_NAME'] != $editedUser -> user['languages_NAME']) {

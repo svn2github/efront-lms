@@ -27,7 +27,7 @@ try {
      $lessons[$key] -> lesson['has_lesson'] = 1;
     }
    }
-   foreach ($currentUser -> getCourses() as $key => $value) {
+   foreach ($currentUser -> getUserCourses() as $key => $value) {
     if (in_array($key, array_keys($courses))) {
      $courses[$key] -> course['has_course'] = 1;
     }

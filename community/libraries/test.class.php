@@ -3032,100 +3032,106 @@ class EfrontCompletedTest extends EfrontTest
 
      */
     public function handleAjaxActions() {
-        try {
-            if (isset($_GET['test_score'])) {
-                if (is_numeric($_GET['test_score']) && $_GET['test_score'] <= 100 && $_GET['test_score'] >= 0) {
-                    $this -> completedTest['score'] = $_GET['test_score'];
-                    if ($this -> test['mastery_score'] && $this -> test['mastery_score'] > $this -> completedTest['score']) {
-                        if ($this -> getPotentialScore() < $this -> test['mastery_score']) {
-                            $this -> completedTest['status'] = 'failed';
-                        } else {
-                            $this -> completedTest['status'] = 'pending';
-                        }
-                    } else if ($this -> test['mastery_score'] && $this -> test['mastery_score'] <= $this -> completedTest['score']) {
-                        $this -> completedTest['status'] = 'passed';
-                    }
-                    $this -> save();
-                    echo $this -> completedTest['status'];
-                } else {
-                    throw new EfrontTestException(_INVALIDSCORE.': '.$_GET['test_score'], EfrontTestException :: INVALID_SCORE);
-                }
-            } else if (isset($_GET['test_feedback'])) {
-                $this -> completedTest['feedback'] = $_GET['test_feedback'];
-                $this -> save();
-                echo $_GET['test_feedback'];
-            } else if (isset($_GET['redo_test']) && eF_checkParameter($_GET['redo_test'], 'id')) {
-                $result = eF_getTableData("completed_tests", "tests_ID, users_LOGIN", "id=".$_GET['redo_test']);
-                $test = new EfrontTest($result[0]['tests_ID']);
-                $test -> redo($result[0]['users_LOGIN']);
-            } else if (isset($_GET['redo_wrong_test']) && eF_checkParameter($_GET['redo_wrong_test'], 'id')) {
-                $result = eF_getTableData("completed_tests", "tests_ID, users_LOGIN", "id=".$_GET['redo_wrong_test']);
-                $test = new EfrontTest($result[0]['tests_ID']);
-                $test -> redoOnlyWrong($result[0]['users_LOGIN']);
-            } else if (isset($_GET['delete_done_test'])) {
-                if (isset($_GET['all'])) {
-                 $this -> undo($this -> completedTest['login']);
-                    //eF_deleteTableData("completed_tests", "users_LOGIN='".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId']);
-                } else {
-                 $this -> undo($this -> completedTest['login'], $this -> completedTest['id']);
-                    //eF_deleteTableData("completed_tests", "id=".$this -> completedTest['id']);
-                }
-            } else if (isset($_GET['question_score'])) {
-                if (in_array($_GET['question'], array_keys($this -> questions))) {
-                    if (is_numeric($_GET['question_score']) && $_GET['question_score'] <= 100 && $_GET['question_score'] >= 0) {
-                        $this -> questions[$_GET['question']] -> score = $_GET['question_score'];
-                        $this -> questions[$_GET['question']] -> scoreInTest = round($_GET['question_score'] * $this -> getQuestionWeight($_GET['question']), 3);
-                        $this -> questions[$_GET['question']] -> pending = 0;
-                        $score = 0;
-                        foreach ($this -> questions as $question) {
-                            $this -> completedTest['scoreInTest'][$question -> question['id']] = $question -> scoreInTest;
-                            $score += $question -> scoreInTest;
-                        }
-                        $this -> completedTest['score'] = round($score, 2);
-                        $testUser = EfrontUserFactory::factory($this -> completedTest['login']);
-                        if ($this -> test['mastery_score'] && $this -> test['mastery_score'] > $this -> completedTest['score']) {
-                            if ($this -> getPotentialScore() < $this -> test['mastery_score']) {
-                                $this -> completedTest['status'] = 'failed';
-                                $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 0);
-                            }
-                        } else if ($this -> test['mastery_score'] && $this -> test['mastery_score'] <= $this -> completedTest['score']) {
-                            $this -> completedTest['status'] = 'passed';
-                            $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 1);
-                        }
-                        $this -> completedTest['pending'] = 0;
-                        foreach ($this -> getQuestions(true) as $question) {
-                         if ($question -> pending) {
-                          $this -> completedTest['pending'] = 1;
-                         }
-                        }
-                        $this -> save();
-                        echo json_encode($this -> completedTest);
-                    } else {
-                        throw new EfrontTestException(_INVALIDSCORE.': '.$_GET['test_score'], EfrontTestException :: INVALID_SCORE);
-                    }
-                } else {
-                    throw new EfrontTestException(_INVALIDID.': '.$_GET['question'], EfrontTestException :: QUESTION_NOT_EXISTS);
-                }
-            } else if (isset($_GET['question_feedback'])) {
-                if (in_array($_GET['question'], array_keys($this -> questions))) {
-                    $this -> questions[$_GET['question']] -> feedback = $_GET['question_feedback'];
-                    $this -> save();
-                    echo $_GET['question_feedback'];
-                } else {
-                    throw new EfrontTestException(_INVALIDID.': '.$_GET['question'], EfrontTestException :: QUESTION_NOT_EXISTS);
-                }
-            } else if (isset($_GET['delete_file'])) {
-                $file = new EfrontFile($_GET['delete_file']);
-                $testDirectory = $this -> getDirectory();
-                if (strpos($file['path'], $testDirectory['path']) !== false) {
-                    $file -> delete();
-                }
-            }
-        } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+     try {
+      if (isset($_GET['test_score'])) {
+       if (is_numeric($_GET['test_score']) && $_GET['test_score'] <= 100 && $_GET['test_score'] >= 0) {
+        $this -> completedTest['score'] = $_GET['test_score'];
+        if ($this -> test['mastery_score'] && $this -> test['mastery_score'] > $this -> completedTest['score']) {
+         if ($this -> getPotentialScore() < $this -> test['mastery_score']) {
+          $this -> completedTest['status'] = 'failed';
+         } else {
+          $this -> completedTest['status'] = 'pending';
+         }
+        } else if ($this -> test['mastery_score'] && $this -> test['mastery_score'] <= $this -> completedTest['score']) {
+         $this -> completedTest['status'] = 'passed';
         }
-        exit;
+        $this -> save();
+        echo $this -> completedTest['status'];
+       } else {
+        throw new EfrontTestException(_INVALIDSCORE.': '.$_GET['test_score'], EfrontTestException :: INVALID_SCORE);
+       }
+       exit;
+      } else if (isset($_GET['test_feedback'])) {
+       $this -> completedTest['feedback'] = $_GET['test_feedback'];
+       $this -> save();
+       echo $_GET['test_feedback'];
+       exit;
+      } else if (isset($_GET['redo_test']) && eF_checkParameter($_GET['redo_test'], 'id')) {
+       $result = eF_getTableData("completed_tests", "tests_ID, users_LOGIN", "id=".$_GET['redo_test']);
+       $test = new EfrontTest($result[0]['tests_ID']);
+       $test -> redo($result[0]['users_LOGIN']);
+       exit;
+      } else if (isset($_GET['redo_wrong_test']) && eF_checkParameter($_GET['redo_wrong_test'], 'id')) {
+       $result = eF_getTableData("completed_tests", "tests_ID, users_LOGIN", "id=".$_GET['redo_wrong_test']);
+       $test = new EfrontTest($result[0]['tests_ID']);
+       $test -> redoOnlyWrong($result[0]['users_LOGIN']);
+       exit;
+      } else if (isset($_GET['delete_done_test'])) {
+       if (isset($_GET['all'])) {
+        $this -> undo($this -> completedTest['login']);
+        //eF_deleteTableData("completed_tests", "users_LOGIN='".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId']);
+       } else {
+        $this -> undo($this -> completedTest['login'], $this -> completedTest['id']);
+        //eF_deleteTableData("completed_tests", "id=".$this -> completedTest['id']);
+       }
+       exit;
+      } else if (isset($_GET['question_score'])) {
+       if (in_array($_GET['question'], array_keys($this -> questions))) {
+        if (is_numeric($_GET['question_score']) && $_GET['question_score'] <= 100 && $_GET['question_score'] >= 0) {
+         $this -> questions[$_GET['question']] -> score = $_GET['question_score'];
+         $this -> questions[$_GET['question']] -> scoreInTest = round($_GET['question_score'] * $this -> getQuestionWeight($_GET['question']), 3);
+         $this -> questions[$_GET['question']] -> pending = 0;
+         $score = 0;
+         foreach ($this -> questions as $question) {
+          $this -> completedTest['scoreInTest'][$question -> question['id']] = $question -> scoreInTest;
+          $score += $question -> scoreInTest;
+         }
+         $this -> completedTest['score'] = round($score, 2);
+         $testUser = EfrontUserFactory::factory($this -> completedTest['login']);
+         if ($this -> test['mastery_score'] && $this -> test['mastery_score'] > $this -> completedTest['score']) {
+          if ($this -> getPotentialScore() < $this -> test['mastery_score']) {
+           $this -> completedTest['status'] = 'failed';
+           $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 0);
+          }
+         } else if ($this -> test['mastery_score'] && $this -> test['mastery_score'] <= $this -> completedTest['score']) {
+          $this -> completedTest['status'] = 'passed';
+          $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 1);
+         }
+         $this -> completedTest['pending'] = 0;
+         foreach ($this -> getQuestions(true) as $question) {
+          if ($question -> pending) {
+           $this -> completedTest['pending'] = 1;
+          }
+         }
+         $this -> save();
+         echo json_encode($this -> completedTest);
+        } else {
+         throw new EfrontTestException(_INVALIDSCORE.': '.$_GET['test_score'], EfrontTestException :: INVALID_SCORE);
+        }
+       } else {
+        throw new EfrontTestException(_INVALIDID.': '.$_GET['question'], EfrontTestException :: QUESTION_NOT_EXISTS);
+       }
+       exit;
+      } else if (isset($_GET['question_feedback'])) {
+       if (in_array($_GET['question'], array_keys($this -> questions))) {
+        $this -> questions[$_GET['question']] -> feedback = $_GET['question_feedback'];
+        $this -> save();
+        echo $_GET['question_feedback'];
+       } else {
+        throw new EfrontTestException(_INVALIDID.': '.$_GET['question'], EfrontTestException :: QUESTION_NOT_EXISTS);
+       }
+       exit;
+      } else if (isset($_GET['delete_file'])) {
+       $file = new EfrontFile($_GET['delete_file']);
+       $testDirectory = $this -> getDirectory();
+       if (strpos($file['path'], $testDirectory['path']) !== false) {
+        $file -> delete();
+       }
+       exit;
+      }
+     } catch (Exception $e) {
+      handleAjaxExceptions($e);
+     }
     }
  /**
 
@@ -3460,7 +3466,7 @@ class EfrontCompletedTest extends EfrontTest
         // SUB-COMPONENT 3: Propose lessons and courses
         $lessons_attending = implode("','", array_keys($user -> getLessons()));
         $analysisResults['lessons'] = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_lesson_offers_skill ON module_hcd_skills.skill_ID = module_hcd_lesson_offers_skill.skill_ID","module_hcd_lesson_offers_skill.lesson_ID, count(module_hcd_lesson_offers_skill.skill_ID) as skills_offered", "module_hcd_lesson_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_lesson_offers_skill.lesson_ID NOT IN ('".$lessons_attending."')","","module_hcd_lesson_offers_skill.lesson_ID ORDER BY skills_offered DESC");
-        $courses_attending = implode("','", array_keys($user -> getCourses()));
+        $courses_attending = implode("','", array_keys($user -> getUserCourses()));
         $analysisResults['courses'] = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_course_offers_skill ON module_hcd_skills.skill_ID = module_hcd_course_offers_skill.skill_ID","module_hcd_course_offers_skill.courses_ID, count(module_hcd_course_offers_skill.skill_ID) as skills_offered", "module_hcd_course_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_course_offers_skill.courses_ID NOT IN ('".$courses_attending."')","","module_hcd_course_offers_skill.courses_ID ORDER BY skills_offered DESC");
         return $analysisResults;
     }

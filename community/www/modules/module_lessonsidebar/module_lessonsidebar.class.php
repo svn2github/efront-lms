@@ -21,7 +21,7 @@ class module_lessonsidebar extends EfrontModule {
 
         $userLessons = $currentUser -> getLessons(true);
         $userLessonProgress = EfrontStats :: getUsersLessonStatus($userLessons, $currentUser -> user['login']);
-        $userCourses = $currentUser -> getCourses(true);
+        $userCourses = $currentUser -> getUserCourses();
         $userCourseProgress = EfrontStats :: getUsersCourseStatus($userCourses, $currentUser -> user['login']);
 
         /*Assign progress in a per-lesson fashion*/

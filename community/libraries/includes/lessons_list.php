@@ -14,13 +14,12 @@ try {
   require_once("rtf_export.php");
 
  } elseif (isset($_GET['course'])) {
-  //@todo: You don't have to retrieve all courses just to check one
-  $userCourses = $currentUser -> getCourses();
-  if ($roles[$userCourses[$_GET['course']]] != 'professor' || !in_array($_GET['course'], array_keys($userCourses))) {
+  $currentCourse = new EfrontCourse($_GET['course']);
+  $result = eF_getTableData("users_to_courses", "user_type", "users_LOGIN='".$currentUser -> user['login']."' and courses_ID=".$currentCourse -> course['id']);
+  if (empty($result) || $roles[$result[0]['user_type']] != 'professor') {
    throw new Exception(_UNAUTHORIZEDACCESS);
   }
 
-  $currentCourse = new EfrontCourse($_GET['course']);
   $baseUrl = 'ctg=lessons&course='.$currentCourse -> course['id'];
   $smarty -> assign("T_BASE_URL", $baseUrl);
   $smarty -> assign("T_CURRENT_COURSE", $currentCourse);

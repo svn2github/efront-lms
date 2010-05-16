@@ -8,17 +8,18 @@ if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess[
 }
 
 if ($_student_) {
-    $_GET['edit_user'] = $currentUser -> user['login'];
     $currentUser -> coreAccess['progress'] = 'view';
+    $_GET['edit_user'] = $currentUser -> user['login'];
 }
 
 if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login')) {
+ $editedUser = EfrontUserFactory :: factory($_GET['edit_user']);
  $load_editor = true;
     //$lessonUser  = EfrontUserFactory :: factory($_GET['edit_user']);
 
     //Check conditions
     $currentContent = new EfrontContentTree($currentLesson);
-    $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $_GET['edit_user']);
+    $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $editedUser -> user['login']);
     $conditions = $currentLesson -> getConditions();
     foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
         $visitableContentIds[$key] = $key; //Get the not-test unit ids for this content
@@ -27,7 +28,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
         $testsIds[$key] = $key; //Get the not-test unit ids for this content
     }
 
-    list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$_GET['edit_user']], $conditions, $visitableContentIds, $testsIds);
+    list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$editedUser -> user['login']], $conditions, $visitableContentIds, $testsIds);
     $smarty -> assign("T_CONDITIONS", $conditions);
     $smarty -> assign("T_CONDITIONS_STATUS", $conditionsStatus);
     foreach ($iterator = new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree)), array('id', 'name')) as $key => $value) {
@@ -35,21 +36,25 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     }
     $smarty -> assign("T_TREE_NAMES", array_combine($ids, $names));
 
-    $form = new HTML_QuickForm("edit_user_complete_lesson_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=progress&edit_user='.$_GET['edit_user'], "", null, true);
+    $form = new HTML_QuickForm("edit_user_complete_lesson_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=progress&edit_user='.$editedUser -> user['login'], "", null, true);
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 
     $form -> addElement('advcheckbox', 'completed', _COMPLETED, null, 'class = "inputCheckbox"'); //Whether the user has completed the lesson
     $form -> addElement('text', 'score', _SCORE, 'class = "inputText"'); //The user lesson score
     $form -> addRule('score', _THEFIELD.' "'._SCORE.'" '._MUSTBENUMERIC, 'numeric', null, 'client'); //The score must be numeric
     $form -> addRule('score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
-
     $form -> addElement('textarea', 'comments', _COMMENTS, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:5em;"'); //Comments on student's performance
 
-    $user_data = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$_GET['edit_user']."' and lessons_ID=".$_SESSION['s_lessons_ID']);
-    $userStats = EfrontStats::getUsersLessonStatus($currentLesson, $_GET['edit_user']);
-    $form -> setDefaults(array("completed" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['completed'],
-                               "score" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['score'],
-                               "comments" => $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['comments'] ? $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['comments'] : ''));
+    //$user_data  = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_SESSION['s_lessons_ID']);    
+//    $userStats  = EfrontStats::getUsersLessonStatus($currentLesson, $editedUser -> user['login']);
+//    pr($userStats);
+    $userStats = $editedUser -> getUserStatusInLessons($currentLesson);
+    $userStats = $userStats[$currentLesson -> lesson['id']] -> lesson;
+//    pr($userStats);exit;
+
+    $form -> setDefaults(array("completed" => $userStats['completed'],
+                               "score" => $userStats['score'],
+                               "comments" => $userStats['comments'] ? $userStats['comments'] : ''));
 
     if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess['progress'] != 'change') {
         $form -> freeze();
@@ -57,11 +62,11 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
         $form -> addElement('submit', 'submit_lesson_complete', _SUBMIT, 'class = "flatButton"'); //The submit button
         if ($form -> isSubmitted() && $form -> validate()) {
             if ($form -> exportValue('completed')) {
-                $lessonUser = EfrontUserFactory :: factory($_GET['edit_user'], false, 'student');
+                $lessonUser = EfrontUserFactory :: factory($editedUser -> user['login'], false, 'student');
                 $lessonUser -> completeLesson($currentLesson -> lesson['id'], $form -> exportValue('score'), $form -> exportValue('comments'));
             } else {
-                eF_updateTableData("users_to_lessons", array('completed' => 0, 'score' => 0, 'to_timestamp' => null), "users_LOGIN = '".$_GET['edit_user']."' and lessons_ID=".$currentLesson -> lesson['id']);
-          $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$_GET['edit_user'];
+                eF_updateTableData("users_to_lessons", array('completed' => 0, 'score' => 0, 'to_timestamp' => null), "users_LOGIN = '".$editedUser -> user['login']."' and lessons_ID=".$currentLesson -> lesson['id']);
+          $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$editedUser -> user['login'];
           Cache::resetCache($cacheKey);
             }
 
@@ -76,12 +81,16 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $form -> accept($renderer);
 
     $smarty -> assign('T_COMPLETE_LESSON_FORM', $renderer -> toArray());
-    $doneTests = EfrontStats :: getDoneTestsPerUser($_GET['edit_user']);
+    //$doneTests = EfrontStats :: getDoneTestsPerUser($editedUser -> user['login']);
 
-    $result = EfrontStats :: getStudentsDoneTests($currentLesson -> lesson['id'], $_GET['edit_user']);
-    foreach ($result[$_GET['edit_user']] as $key => $value) {
+    $doneTests = array();
+
+    $result = EfrontStats :: getStudentsDoneTests($currentLesson -> lesson['id'], $editedUser -> user['login']);
+    foreach ($result[$editedUser -> user['login']] as $key => $value) {
         if ($value['scorm']) {
             $scormDoneTests[$key] = $value;
+        } else {
+      $doneTests[$key] = $value;
         }
     }
 
@@ -89,24 +98,24 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $testNames = array_combine($testNames['id'], $testNames['name']);
 
 
-    foreach($doneTests[$_GET['edit_user']] as $key => $value) {
+    foreach($doneTests as $key => $value) {
         if (in_array($key, array_keys($testNames))) {
-            $lastTest = unserialize($doneTests[$_GET['edit_user']][$value['last_test_id']]);
-            $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['done_tests'][$key] = array('name' => $testNames[$key], 'score' => $value['average_score'], 'last_test_id' => $value['last_test_id'], 'last_score' => $value['scores'][$value['last_test_id']], 'times_done' => $value['times_done'], 'content_ID' => $value[$value['last_test_id']]['content_ID']);
+            $lastTest = unserialize($doneTests[$value['last_test_id']]);
+            $userStats['done_tests'][$key] = array('name' => $testNames[$key], 'score' => $value['average_score'], 'last_test_id' => $value['last_test_id'], 'last_score' => $value['scores'][$value['last_test_id']], 'times_done' => $value['times_done'], 'content_ID' => $value[$value['last_test_id']]['content_ID']);
         }
     }
     foreach($scormDoneTests as $key => $value) {
-        $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['scorm_done_tests'][$key] = array('name' => $value['name'], 'score' => $value['score'], 'content_ID' => $key);
+        $userStats['scorm_done_tests'][$key] = array('name' => $value['name'], 'score' => $value['score'], 'content_ID' => $key);
     }
 
-    $notDoneTests = array_diff(array_keys($testNames), array_keys($doneTests[$_GET['edit_user']]));
+    $notDoneTests = array_diff(array_keys($testNames), array_keys($doneTests));
     $smarty -> assign("T_PENDING_TESTS", $notDoneTests);
 
-    unset($userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]['done_tests']['average_score']);
-    //pr($userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]);
-    $userTime = EfrontStats :: getUsersTime($currentLesson -> lesson['id'], $_GET['edit_user']);
-    $smarty -> assign("T_USER_LESSONS_INFO", $userStats[$currentLesson -> lesson['id']][$_GET['edit_user']]);
-    $smarty -> assign("T_USER_TIME", $userTime[$_GET['edit_user']]);
+    //unset($userStats['done_tests']['average_score']);
+    //pr($userStats[$editedUser -> user['login']]);
+    $userTime = EfrontStats :: getUsersTime($currentLesson -> lesson['id'], $editedUser -> user['login']);
+    $smarty -> assign("T_USER_LESSONS_INFO", $userStats);
+    $smarty -> assign("T_USER_TIME", $userTime[$editedUser -> user['login']]);
 
 
 
@@ -117,10 +126,9 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 
 //Get users list through ajax
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
-//debug();
+
  try {
   $users = EfrontStats::getUsersLessonStatus($currentLesson, array_keys($currentLesson -> getUsers('student')), array('notests' => 1, 'noprojects' => 1));
-//debug(false);exit;		
   $users = $users[$currentLesson -> lesson['id']];
   $result = eF_getTableDataFlat("user_types", "id", "basic_user_type='student'");
   $studentTypes = $result["id"];

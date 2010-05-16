@@ -177,4 +177,5 @@ if (!$_student_) {
         $smarty -> assign('T_TEST_FORM', $renderer -> toArray());
     }
 }
+
 ?>

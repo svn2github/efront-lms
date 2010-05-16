@@ -267,7 +267,7 @@
                                         </tr>
                         {foreach name = 'projects_list' key = 'key' item = 'project' from = $T_EXPIRED_PROJECTS}
                                         <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-                                            <td><a href = "{$smarty.server.PHP_SELF}.php?ctg=projects&{if $_student_}view_project{else}edit_project{/if}={$project->project.id}">{$project->project.title}</a></td>
+                                            <td><a href = "{$smarty.server.PHP_SELF}?ctg=projects&{if $_student_}view_project{else}edit_project{/if}={$project->project.id}">{$project->project.title}</a></td>
                                             <td><span style = "display:none">{$project->project.deadline}</span>#filter:timestamp_time_nosec-{$project->project.deadline}#</td>
                                             <td>#filter:login-{$project->project.creator_LOGIN}#</td>
                         {if $_student_}

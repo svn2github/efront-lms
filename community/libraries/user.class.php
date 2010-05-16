@@ -2620,9 +2620,9 @@ abstract class EfrontLessonUser extends EfrontUser
   $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $where[] = "u.archive=0 and u.login=uc.users_LOGIN and c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
+  $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
   //$result  = eF_getTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
-  $sql = prepareGetTableData("users u, courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
+  $sql = prepareGetTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData("courses, ($sql) t", "courses.*, t.*", "courses.id=t.id");
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
@@ -2633,8 +2633,8 @@ abstract class EfrontLessonUser extends EfrontUser
  public function countUserCourses($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $where[] = "u.archive=0 and u.login=uc.users_LOGIN and c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
-  $result = eF_countTableData("users u, courses c, users_to_courses uc", "c.id", implode(" and ", $where));
+  $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
+  $result = eF_countTableData("courses c, users_to_courses uc", "c.id", implode(" and ", $where));
   return $result[0]['count'];
  }
  public function getUserCoursesIncludingUnassigned($constraints = array()) {
@@ -3011,18 +3011,19 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  public function getIssuedCertificates() {
   $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != 0 or issued_certificate is not null');
+  $constraints['return_objects'] = false;
   $courses = $this -> getUserCourses($constraints);
   $certificates = array();
   foreach ($courses as $course) {
-   if ($certificateInfo = unserialize($course -> course['issued_certificate'])) {
-    $certificateInfo = unserialize($course -> course['issued_certificate']);
-    $certificates[] = array("courses_ID" => $course -> course['id'],
-          "course_name" => $course -> course['name'],
+   if ($certificateInfo = unserialize($course['issued_certificate'])) {
+    $certificateInfo = unserialize($course['issued_certificate']);
+    $certificates[] = array("courses_ID" => $course['id'],
+          "course_name" => $course['name'],
           "serial_number" => $certificateInfo['serial_number'],
           "grade" => $certificateInfo['grade'],
           "issue_date" => $certificateInfo['date'],
-          "active" => $course -> course['active'],
-          "expiration_date"=> ($course -> course['certificate_expiration']) ? ($certificateInfo['date'] + $course -> course['certificate_expiration']) : _NEVER);
+          "active" => $course['active'],
+          "expiration_date"=> ($course['certificate_expiration']) ? ($certificateInfo['date'] + $course['certificate_expiration']) : _NEVER);
    }
   }
   return $certificates;

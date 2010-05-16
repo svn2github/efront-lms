@@ -177,9 +177,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
                         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=projects&message=".urlencode($message)."&message_type=success");
                     }
                 } catch (Exception $e) {
-                    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                    $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-                    $message_type = 'failure';
+                 handleNormalFlowExceptions($e);
                 }
             } else {
                 $message = _DEADLINEDATEMUSTBEINFUTURE;

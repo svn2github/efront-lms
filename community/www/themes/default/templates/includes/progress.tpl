@@ -134,21 +134,24 @@
      {eF_template_printBlock title = "`$smarty.const._PROGRESSFORUSER`: <span class = 'innerTableName'>&quot;#filter:login-`$T_USER_LESSONS_INFO.users_LOGIN`#&quot;</span>" data = $smarty.capture.t_edit_progress_code image = '32x32/users.png' help = 'Users_status'}
  {else}
          {capture name = 't_progress_code'}
+ {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'usersTable'}
 <!--ajax:usersTable-->
-                 <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=progress&">
+                 <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=progress&">
                      <tr class = "topTitle">
                          <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
-                         <td class = "topTitle centerAlign" name = "conditions_passed" >{$smarty.const._CONDITIONSCOMPLETED}</td>
+                         {*<td class = "topTitle centerAlign" name = "conditions_passed" >{$smarty.const._CONDITIONSCOMPLETED}</td>*}
                          <td class = "topTitle centerAlign" name = "completed" >{$smarty.const._LESSONSTATUS}</td>
                          <td class = "topTitle centerAlign" name = "score" >{$smarty.const._LESSONSCORE}</td>
                          <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
                      </tr>
-         {foreach name = 'users_progress_list' item = 'item' key = 'login' from = $T_USERS_PROGRESS}
+         {foreach name = 'users_progress_list' item = 'item' key = 'login' from = $T_DATA_SOURCE}
                      <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$item.active}deactivatedTableElement{/if}">
                          <td><a href = "{$smarty.server.PHP_SELF}?ctg=progress&edit_user={$item.login}" class = "editLink">#filter:login-{$item.login}#</a></td>
+{*
                          <td class = "centerAlign">
                              {$item.conditions_passed}/{$item.total_conditions}
                          </td>
+*}
                          <td class = "centerAlign">
                              {if $item.completed}
                                  <img src = "images/16x16/success.png" title = "{$smarty.const._COMPLETED}" alt = "{$smarty.const._COMPLETED}" />
@@ -170,6 +173,7 @@
          {/foreach}
              </table>
 <!--/ajax:usersTable-->
+{/if}
          {/capture}
          {eF_template_printBlock title = $smarty.const._USERSPROGRESS data = $smarty.capture.t_progress_code image = '32x32/users.png' help = 'Users_status'}
  {/if}

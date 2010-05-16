@@ -121,18 +121,18 @@ class curriculums extends EfrontEntity
     public function getCurriculumUsers($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
 
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $select = "u.*, cu.users_LOGIN, 1 as has_user";
   $where[] = "u.login=cu.users_LOGIN and cu.curriculums_ID='".$this -> curriculums['id']."'";
      $result = eF_getTableData("users u, curriculums_to_users cu", $select,
          implode(" and ", $where), $orderby, $groupby, $limit);
 
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  return EfrontUser :: convertDatabaseResultToUserObjects($result);
     }
 
     public function countCurriculumUsers($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-     list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+     list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "u.login=cu.users_LOGIN and cu.curriculums_ID='".$this -> curriculums['id']."'";
      $result = eF_countTableData("users u, curriculums_to_users cu", "u.login",
          implode(" and ", $where));
@@ -142,18 +142,18 @@ class curriculums extends EfrontEntity
     public function getCurriculumUsersIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
 
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $select = "u.*, r.users_LOGIN is not null as has_user";
   $where[] = "u.user_type != 'administrator'";
   $result = eF_getTableData("users u left outer join (select users_LOGIN from curriculums_to_users where curriculums_ID='".$this -> curriculums['id']."') r on u.login=r.users_LOGIN ", $select,
          implode(" and ", $where), $orderby, "", $limit);
 
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  return EfrontUser :: convertDatabaseResultToUserObjects($result);
     }
 
     public function countCurriculumUsersIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-     list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+     list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "u.user_type != 'administrator'";
      $result = eF_countTableData("users u left outer join (select users_LOGIN from curriculums_to_users where curriculums_ID='".$this -> curriculums['id']."') r on u.login=r.users_LOGIN ", "u.login",
          implode(" and ", $where));

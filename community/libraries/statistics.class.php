@@ -671,7 +671,7 @@ class EfrontStats
 	 * @static
 
 	 */
- public static function getDoneTestsPerTest($users = false, $test = false, $from = false, $to = false) {
+ public static function getDoneTestsPerTest($users = false, $test = false, $from = false, $to = false, $lesson = false) {
   if ($from !== false && $to !== false) {
    $timeString = " and ct.timestamp between $from and $to ";
   }
@@ -699,14 +699,18 @@ class EfrontStats
              throw new EfrontTestException(_INVALIDID.': '.$test, EfrontTestException :: INVALID_ID);
          }
      }
+     if ($lesson) {
+      $sql = ' and t.lessons_ID='.$lesson;
+     }
      if ($user && $test) {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test and ct.users_LOGIN in ('$user')");
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test and ct.users_LOGIN in ('$user') $sql");
      } else if ($user) {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.users_LOGIN in ('$user')");
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.users_LOGIN in ('$user') $sql");
+         //$result = eF_getTableData("completed_tests ct, tests t", "ct.users_LOGIN, ct.status, ct.timestamp, ct.archive, ct.time_start, ct.time_end, ct.time_spent, ct.score, ct.pending", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.users_LOGIN in ('$user') $sql");
      } else if ($test) {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test");
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." and ct.tests_ID=$test $sql");
      } else {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString);
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*", "ct.status != 'deleted' and ct.tests_ID = t.id and ct.status != '' and ct.status != 'incomplete'".$timeString." $sql");
      }
      //Unserialize EfrontCompletedTest objects
      $testResults = array();
@@ -2257,7 +2261,7 @@ class EfrontStats
      * @static
 
      */
-    public static function getTestInfo($tests = false, $categories = false, $show_all = false) {
+    public static function getTestInfo($tests = false, $categories = false, $show_all = false, $lesson = false) {
         if ($tests == false) {
             $tests = eF_getTableDataFlat("tests, content", "tests.id", "tests.content_ID=content.id and tests.lessons_ID != 0"); //This way we get tests that have a corresponding unit
             $tests = $tests['id'];
@@ -2271,7 +2275,7 @@ class EfrontStats
         foreach ($result as $user) {
             $users[$user['login']] = $user;
         }
-        $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users));
+        $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users), false, false, false, $lesson);
         foreach ($tests as $id) {
             $testInfo = array();
             $test = new EfrontTest($id);

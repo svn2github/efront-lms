@@ -28,120 +28,55 @@ try {
     //get the lesson information
     if (isset($infoLesson)) {
         try {
-            $lessonInfo = $infoLesson -> getStatisticInformation();
-            $groups = EfrontGroup :: getGroups();
-            $smarty -> assign("T_GROUPS", $groups);
+         $directionsTree = new EfrontDirectionsTree();
+         $directionsPaths = $directionsTree -> toPathString();
 
-            $smarty -> assign("T_LESSON_NAME", $infoLesson -> lesson['name']);
-            $smarty -> assign("T_LESSON_ID", $infoLesson -> lesson['id']);
+      $roles = EfrontLessonUser :: getLessonsRoles(true);
+      $smarty -> assign("T_ROLES_ARRAY", $roles);
+
+      $rolesBasic = EfrontLessonUser :: getLessonsRoles();
+      $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
+
+      foreach ($rolesBasic as $key => $role) {
+       $role == 'student' ? $studentRoles[] = $key : $professorRoles[] = $key;
+      }
+
+      $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type in ("'.implode('","', $studentRoles).'")');
+         $infoLesson -> lesson['num_students'] = ($infoLesson -> countLessonUsers($constraints));
+      $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type in ("'.implode('","', $professorRoles).'")');
+         $infoLesson -> lesson['num_professors'] = ($infoLesson -> countLessonUsers($constraints));
+         $infoLesson -> lesson['category_path'] = $directionsPaths[$infoLesson -> lesson['directions_ID']];
+
+      $smarty -> assign("T_CURRENT_LESSON", $infoLesson);
             $smarty -> assign("T_STATS_ENTITY_ID", $infoLesson -> lesson['id']);
 
+         $lessonInfo = $infoLesson -> getStatisticInformation();
             $smarty -> assign("T_LESSON_INFO", $lessonInfo);
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         handleNormalFlowExceptions($e);
         }
 
         require_once $path."includes/statistics/stats_filters.php";
 
         try {
-            $smarty -> assign("T_ROLES", EfrontLessonUser :: getLessonsRoles(true));
-
-            $students = $infoLesson -> getUsers('student');
-            $logins = array();
-
-            foreach ($students as $key => $user) {
-                if (isset($groupUsers) && !in_array($user['login'], $groupUsers['student'])) {
-                    unset($students[$key]);
-                } else if (((!$_GET['user_filter'] || $_GET['user_filter'] == 1) && !$user['active']) || ($_GET['user_filter'] == 2 && $user['active'])) {
-                    unset($students[$key]);
-                } else {
-                    $logins[] = $user['login'];
-                }
-            }
-            $smarty -> assign("T_LESSON_STUDENTS", sizeof($logins));
-
-            foreach ($logins as $login) {
-                $cacheKey = 'lesson:'.$infoLesson -> lesson['id'].':user:'.$login;
-                $result = EfrontStats :: getUsersLessonStatus($infoLesson, $login);
-                $status[$infoLesson -> lesson['id']][$login] = $result[$infoLesson -> lesson['id']][$login];
-            }
-
-            $allUserTimes = EfrontStats :: getUsersTimeAll();
-            $userTimes = array();
-            foreach ($logins as $value) {
-                $userTimes[$value] = $allUserTimes[$infoLesson -> lesson['id']][$value];
-            }
-            $doneTests = EfrontStats :: getStudentsDoneTests($infoLesson -> lesson['id'], $logins);
-            $assignedProjects = EfrontStats :: getStudentsAssignedProjects($infoLesson -> lesson['id'], $logins);
-            $studentsPosts = EfrontStats :: getUsersForumPosts($infoLesson -> lesson['id'], $logins);
-
-            $studentsInfo = array();
-            foreach ($logins as $login) {
-                $studentsInfo[$login] = array('name' => $status[$infoLesson -> lesson['id']][$login]['name'],
-                                                      'surname' => $status[$infoLesson -> lesson['id']][$login]['surname'],
-                                                      'role' => $status[$infoLesson -> lesson['id']][$login]['user_type'],
-                                 'active' => $status[$infoLesson -> lesson['id']][$login]['active'],
-                                                      'time' => $userTimes[$login],
-                                                      'seconds' => $userTimes[$login]['total_seconds'],
-                                                      'content' => $status[$infoLesson -> lesson['id']][$login]['content_progress'],
-                                                      'tests' => $status[$infoLesson -> lesson['id']][$login]['tests_avg_score'],
-                                                      'tests_progress' => $status[$infoLesson -> lesson['id']][$login]['tests_progress'],
-                                                      'total_tests' => sizeof($infoLesson -> getTests() + $infoLesson -> getScormTests()),
-                                                      'projects_progress' => $status[$infoLesson -> lesson['id']][$login]['projects_progress'],
-                           'total_projects' => sizeof($infoLesson -> getProjects()),
-                                 'projects' => $status[$infoLesson -> lesson['id']][$login]['projects_avg_score'],
-                                                      'completed' => $status[$infoLesson -> lesson['id']][$login]['completed'],
-                                                      'score' => $status[$infoLesson -> lesson['id']][$login]['score'],
-                                                      'posts' => $studentsPosts[$login]);
-            }
-
-            $smarty -> assign("T_STUDENTS_INFO", $studentsInfo);
+         if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonUsersTable') {
+          $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
+          $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
+          $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
+          $users = $infoLesson -> getLessonStatusForUsers($constraints);
+          $totalEntries = $infoLesson -> countLessonUsers($constraints);
+          $dataSource = $users;
+          $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+         //pr($users);
+         }
+         $tableName = $_GET['ajax'];
+         $alreadySorted = true;
+         include("sorted_table.php");
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         handleAjaxExceptions($e);
         }
 
-        try {
-            $professors = $infoLesson -> getUsers('professor');
-            $logins = array();
-            foreach ($professors as $key => $professor) {
-                if (isset($groupUsers) && !in_array($professor['login'], $groupUsers['professor'])) {
-                    unset($professors[$key]);
-                } else if (((!$_GET['user_filter'] || $_GET['user_filter'] == 1) && !$professor['active']) || ($_GET['user_filter'] == 2 && $professor['active'])) {
-                    unset($professor[$key]);
-                } else {
-                    $logins[] = $professor['login'];
-                }
-            }
-            $smarty -> assign("T_LESSON_PROFESSORS", sizeof($logins));
 
-            $professorTimes = array();
-            foreach ($logins as $value) {
-                $professorTimes[$value] = $allUserTimes[$infoLesson -> lesson['id']][$value];
-            }
-            $professorPosts = EfrontStats :: getUsersForumPosts($infoLesson -> lesson['id'], $logins);
-            $professorComments = EfrontStats :: getUsersComments($infoLesson -> lesson['id'], $logins);
-
-            $professorsInfo = array();
-            foreach ($logins as $login) {
-                $professorsInfo[$login] = array('name' => $professors[$login]['name'],
-                                                      'surname' => $professors[$login]['surname'],
-                                                        'role' => $professors[$login]['role'],
-                                                      'active' => $professors[$login]['active'],
-                                 'time' => $professorTimes[$login],
-                                                      'seconds' => $professorTimes[$login]['total_seconds'],
-                                                      'posts' => $professorPosts[$login],
-                                                      'comments' => $professorComments[$login]);
-            }
-            $smarty -> assign("T_PROFESSORS_INFO", $professorsInfo);
-        } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
-        }
 
         /*
 
@@ -153,13 +88,14 @@ try {
             $scormTests = $infoLesson -> getScormTests();
             if (sizeof($lessonTests) > 0 || sizeof($scormTests) > 0) {
                 if (sizeof($lessonTests) > 0) {
-                    $testsInfo = EfrontStats :: getTestInfo(array_keys($lessonTests));
+                    $testsInfo = EfrontStats :: getTestInfo(array_keys($lessonTests), false, false, $infoLesson -> lesson['id']);
                 } else {
                     $testsInfo = array();
                 }
                 if (sizeof($scormTestsInfo = EfrontStats :: getScormTestInfo($scormTests)) > 0) {
                     $testsInfo = $testsInfo + $scormTestsInfo;
                 }
+
                 if (isset($groupUsers)) {
                     foreach ($testsInfo as $id => $test) {
                         foreach ($test['done'] as $key => $value) {
@@ -173,52 +109,92 @@ try {
                 $smarty -> assign("T_TESTS_INFO", $testsInfo);
             }
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         handleNormalFlowExceptions($e);
         }
+
 
         /*
 
          *      Lesson's questions
 
          */
+/*        
+
         try {
+
             $lessonQuestions = array_keys($infoLesson -> getQuestions());
+
             if (sizeof($lessonQuestions) > 0) {
+
                 $info = EfrontStats :: getQuestionInfo($lessonQuestions);
+
+
+
                 $questionsInfo = array();
+
                 foreach ($info as $id => $questionInfo) {
-                    $questionsInfo[$id] = array('text' => $questionInfo['general']['reduced_text'],
-                                                        'type' => $questionInfo['general']['type'],
+
+                    $questionsInfo[$id] = array('text'       => $questionInfo['general']['reduced_text'],
+
+                                                        'type'       => $questionInfo['general']['type'],
+
                                                         'difficulty' => $questionInfo['general']['difficulty'],
+
                                                         'times_done' => $questionInfo['done']['times_done'],
-                                                        'avg_score' => round($questionInfo['done']['avg_score'], 2));
+
+                                                        'avg_score'  => round($questionInfo['done']['avg_score'], 2));
+
                 }
+
                 $smarty -> assign("T_QUESTIONS_INFORMATION", $questionsInfo);
+
             }
+
         } catch (Exception $e) {
+
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+
+            $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+
             $message_type = 'failure';
+
         }
+
+*/
         /*
 
          *      Lesson's projects
 
          */
+/*        
+
         try {
+
             $lessonProjects = $infoLesson -> getProjects(true, false, false);
+
+
+
             if (sizeof($lessonProjects) > 0) {
+
                 $projectsInfo = EfrontStats :: getProjectInfo(array_keys($lessonProjects));
+
+
+
                 $smarty -> assign("T_PROJECTS_INFORMATION", $projectsInfo);
+
             }
+
         } catch (Exception $e) {
+
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+
+            $message      = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+
             $message_type = 'failure';
+
         }
 
+*/
         /*
 
          *  lesson traffic
@@ -246,7 +222,6 @@ try {
                 $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID");
                 $testNames = array_combine($testNames['id'], $testNames['name']);
                 $result = eF_getTableData("logs", "*", "timestamp between $from and $to and lessons_ID='".$infoLesson -> lesson['id']."' order by timestamp desc");
-
                 foreach ($result as $key => $value) {
                     if ($value['action'] == 'content') {
                         $result[$key]['content_name'] = $contentNames[$value['comments']];
@@ -256,7 +231,6 @@ try {
                 }
                 $smarty -> assign("T_LESSON_LOG", $result);
             }
-
             $users = eF_getTableDataFlat("users", "login, active");
             $users = array_combine($users['login'], $users['active']);
             $traffic['users'] = EfrontStats :: getUsersTime($infoLesson -> lesson['id'], false, $from, $to);
@@ -267,39 +241,32 @@ try {
                     $traffic['users'][$key]['active'] = $users[$key];
                 }
             }
-
             foreach ($traffic['users'] as $value) {
                 $traffic['total_seconds'] += $value['total_seconds'];
                 $traffic['total_access'] += $value['accesses'];
             }
             $traffic['total_time'] = eF_convertIntervalToTime($traffic['total_seconds']);
-
             $smarty -> assign("T_LESSON_TRAFFIC", $traffic);
             $smarty -> assign('T_FROM_TIMESTAMP', $from);
             $smarty -> assign('T_TO_TIMESTAMP', $to);
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         handleNormalFlowExceptions($e);
         }
+        $groups = EfrontGroup :: getGroups();
+        $smarty -> assign("T_GROUPS", $groups);
     }
 } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
+ handleNormalFlowExceptions($e);
 }
-
 if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     //http://localhost/trunc/www/administrator.php?ctg=statistics&option=lesson&sel_lesson=111&group_filter=1&excel=lesson
     // Get the associated group name
     if (isset($_GET['group_filter']) && $_GET['group_filter']) {
         try {
             $group = new EfrontGroup($_GET['group_filter']);
-
             $groupname = str_replace(" ", "_" , $group -> group['name']);
         } catch (Exception $e) {
             $groupname = false;
-
         }
     }
     if (G_VERSIONTYPE == 'enterprise' && isset($_GET['branch_filter']) && $_GET['branch_filter']) {
@@ -311,11 +278,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         }
     }
     require_once 'Spreadsheet/Excel/Writer.php';
-
     $workBook = new Spreadsheet_Excel_Writer();
     $workBook -> setTempDir(G_UPLOADPATH);
     $workBook -> setVersion(8);
-
     $filename = 'export_'.$infoLesson -> lesson['name'];
     if ($groupname) {
         $filename .= '_group_'.str_replace(" ", "_" , $groupname);
@@ -324,8 +289,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $filename .= '_branch_'.str_replace(" ", "_" , $branchName);
     }
     $workBook -> send($filename.'.xls');
-
-
     $formatExcelHeaders = & $workBook -> addFormat(array('Size' => 14, 'Bold' => 1, 'HAlign' => 'left'));
     $headerFormat = & $workBook -> addFormat(array('border' => 0, 'bold' => '1', 'size' => '11', 'color' => 'black', 'fgcolor' => 22, 'align' => 'center'));
     $formatContent = & $workBook -> addFormat(array('HAlign' => 'left', 'Valign' => 'top', 'TextWrap' => 1));
@@ -337,13 +300,10 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $fieldCenterFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 10));
     $fieldLeftBoldFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 10, 'Bold' => 1));
     $fieldLeftItalicFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 10, 'Italic' => 1));
-
     //first tab
     $workSheet = & $workBook -> addWorksheet("General Lesson Info");
     $workSheet -> setInputEncoding('utf-8');
-
     $workSheet -> setColumn(0, 0, 5);
-
     //basic info
     if ($groupname || $branchName) {
         $celltitle = "";
@@ -363,16 +323,12 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     }
     $workSheet -> mergeCells(1, 1, 1, 2);
     $workSheet -> setColumn(1, 2, 30);
-
     $directionName = eF_getTableData("directions", "name", "id=".$infoLesson -> lesson['directions_ID']);
     $languages = EfrontSystem :: getLanguages(true);
-
     $workSheet -> write(2, 1, _LESSON, $fieldLeftFormat);
     $workSheet -> write(2, 2, $infoLesson -> lesson['name'], $fieldRightFormat);
     $workSheet -> write(3, 1, _CATEGORY, $fieldLeftFormat);
     $workSheet -> write(3, 2, $directionName[0]['name'], $fieldRightFormat);
-
-
     if ($groupname || $branchName) {
         $workSheet -> write(4, 1, _STUDENTS, $fieldLeftFormat);
         $workSheet -> writeNumber(4, 2, sizeof($students), $fieldRightFormat);
@@ -390,24 +346,20 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $workSheet -> write(7, 2, $languages[$infoLesson -> lesson['languages_NAME']], $fieldRightFormat);
     $workSheet -> write(8, 1, _ACTIVE, $fieldLeftFormat);
     $workSheet -> write(8, 2, $infoLesson -> lesson['active'] ? _YES : _NO, $fieldRightFormat);
-
     //participation info
     $workSheet -> write(9, 1, _LESSONPARTICIPATIONINFO, $headerFormat);
     $workSheet -> mergeCells(9, 1, 9, 2);
     //$workSheet -> setColumn(9, 9, 30);
-
     $workSheet -> write(10, 1, _COMMENTS, $fieldLeftFormat);
     $workSheet -> write(10, 2, $lessonInfo['comments'], $fieldRightFormat);
     $workSheet -> write(11, 1, _MESSAGES, $fieldLeftFormat);
     $workSheet -> write(11, 2, $lessonInfo['messages'], $fieldRightFormat);
     $workSheet -> write(12, 1, _CHATMESSAGES, $fieldLeftFormat);
     $workSheet -> write(12, 2, $lessonInfo['chatmessages'], $fieldRightFormat);
-
     //lesson content info
     $workSheet -> write(14, 1, _LESSONCONTENTINFO, $headerFormat);
     $workSheet -> mergeCells(14, 1, 14, 2);
     //$workSheet -> setColumn(14, 14, 30);
-
     $workSheet -> write(15, 1, _THEORY, $fieldLeftFormat);
     $workSheet -> write(15, 2, $lessonInfo['theory'], $fieldRightFormat);
     if ($GLOBALS['configuration']['disable_projects'] != 1) {
@@ -421,12 +373,10 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> write(18, 2, $lessonInfo['tests'], $fieldRightFormat);
     }
     $workSheet -> setColumn(3, 3, 5);
-
     //lesson users info
     $workSheet -> write(1, 4, _USERSINFO, $headerFormat);
     $workSheet -> mergeCells(1, 4, 1, 11);
     $workSheet -> setColumn(4, 10, 15);
-
     $workSheet -> write(2, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write(2, 5, _LESSONROLE, $titleLeftFormat);
     $workSheet -> write(2, 6, _TIME, $titleCenterFormat);
@@ -439,9 +389,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     }
     $workSheet -> write(2, 10, _COMPLETED, $titleCenterFormat);
     $workSheet -> write(2, 11, _GRADE, $titleCenterFormat);
-
     $roles = EfrontLessonUser :: getLessonsRoles(true);
-
     $row = 3;
     foreach ($students as $login => $user) {
         $workSheet -> write($row, 4, $login, $fieldLeftFormat);
@@ -459,7 +407,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $row++;
     }
     $row += 2;
-
     //lesson professors info
     $workSheet -> write($row, 4, _PROFESSORSINFO, $headerFormat);
     $workSheet -> mergeCells($row, 4, $row++, 11);
@@ -472,14 +419,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> write($row, 6, $professorsInfo[$login]['time']['hours']."h ".$professorsInfo[$login]['time']['minutes']."' ".$professorsInfo[$login]['time']['seconds']."''", $fieldCenterFormat);
         $row++;
     }
-
     //Sheet with lesson's tests and questions
     if (isset($testsInfo)) {
         $workSheet = & $workBook -> addWorksheet('Tests Info');
         $workSheet -> setInputEncoding('utf-8');
-
         $workSheet -> setColumn(0, 0, 5);
-
         $workSheet -> write(1, 1, _TESTSINFORMATION, $headerFormat);
         $workSheet -> mergeCells(1, 1, 1, 2);
         $workSheet -> setColumn(1, 1, 30);
@@ -503,7 +447,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $row++;
         }
     }
-
     if (sizeof($lessonQuestions) > 0) {
         $workSheet -> setColumn(3, 3, 3);
         $workSheet -> write(1, 4, _QUESTIONSINFORMATION, $headerFormat);
@@ -511,13 +454,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> setColumn(4, 4, 30);
         $workSheet -> setColumn(5, 8, 20);
         $row = 3;
-
         $workSheet -> write($row, 4, _QUESTION, $titleLeftFormat);
         $workSheet -> write($row, 5, _QUESTIONTYPE, $titleCenterFormat);
         $workSheet -> write($row, 6, _DIFFICULTY, $titleCenterFormat);
         $workSheet -> write($row, 7, _TIMESDONE, $titleCenterFormat);
         $workSheet -> write($row++, 8, _AVERAGESCORE, $titleCenterFormat);
-
         $questionShortHands = array('multiple_one' => 'MC',
                                             'multiple_many' => 'MCMA',
                                             'match' => 'MA',
@@ -525,7 +466,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
                                             'raw_text' => 'OA',
                                             'true_false' => 'YN',
                        'drag_drop' => 'DD');
-
         foreach ($questionsInfo as $id => $questionInfo) {
             $workSheet -> write($row, 4, $questionInfo['text'], $fieldLeftFormat);
             $workSheet -> write($row, 5, $questionShortHands[$questionInfo['type']], $fieldCenterFormat);
@@ -534,7 +474,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $workSheet -> write($row, 8, formatScore($questionInfo['avg_score'])."%", $fieldCenterFormat);
             $row++;
         }
-
         $row++;
         $workSheet -> write($row++, 4, _MCEXPLANATION, $fieldLeftFormat);
         $workSheet -> write($row++, 4, _MCMAEXPLANATION, $fieldLeftFormat);
@@ -542,14 +481,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> write($row++, 4, _FBEXPLANATION, $fieldLeftFormat);
         $workSheet -> write($row++, 4, _OAEXPLANATION, $fieldLeftFormat);
         $workSheet -> write($row, 4, _YNEXPLANATION, $fieldLeftFormat);
-
     }
-
     //Sheet with tests matrix
     if (isset($testsInfo)) {
         $workSheet = & $workBook -> addWorksheet('Tests Matrix');
         $workSheet -> setInputEncoding('utf-8');
-
         $workSheet -> setColumn(0, 0, 40);
         $workSheet -> write(0, 0, _TESTSMATRIX, $headerFormat);
 

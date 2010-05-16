@@ -1871,6 +1871,65 @@ abstract class EfrontUser
   }
   return $userObjects;
  }
+ public static function convertUserConstraintsToSqlParameters($constraints) {
+  $where = EfrontUser::addWhereConditionToUserConstraints($constraints);
+  $limit = EfrontUser::addLimitConditionToConstraints($constraints);
+  $order = EfrontUser::addSortOrderConditionToConstraints($constraints);
+  return array($where, $limit, $order);
+ }
+ public static function addWhereConditionToUserConstraints($constraints) {
+  $where = array();
+  if (isset($constraints['archive'])) {
+   $constraints['archive'] ? $where[] = 'u.archive!=0' : $where[] = 'u.archive=0';
+  }
+  if (isset($constraints['active'])) {
+   $constraints['active'] ? $where[] = 'u.active=1' : $where[] = 'u.active=0';
+  }
+  if (isset($constraints['filter']) && $constraints['filter']) {
+   $result = eF_describeTable("users");
+   $tableFields = array();
+   foreach ($result as $value) {
+    $tableFields[] = "u.".$value['Field'].' like "%'.$constraints['filter'].'%"';
+   }
+   $where[] = "(".implode(" OR ", $tableFields).")";
+  }
+  if (isset($constraints['condition'])) {
+   $where[] = $constraints['condition'];
+  }
+  if (isset($constraints['table_filters'])) {
+   foreach ($constraints['table_filters'] as $constraint) {
+    $where[] = $constraint['condition'];
+   }
+  }
+  return $where;
+ }
+ private static function addLimitConditionToConstraints($constraints) {
+  $limit = '';
+  if (isset($constraints['limit']) && eF_checkParameter($constraints['limit'], 'int') && $constraints['limit'] > 0) {
+   $limit = $constraints['limit'];
+  }
+  if ($limit && isset($constraints['offset']) && eF_checkParameter($constraints['offset'], 'int') && $constraints['offset'] >= 0) {
+   $limit = $constraints['offset'].','.$limit;
+  }
+  return $limit;
+ }
+ private static function addSortOrderConditionToConstraints($constraints) {
+  $order = '';
+  if (isset($constraints['sort']) && eF_checkParameter($constraints['sort'], 'alnum_with_spaces')) {
+   $order = $constraints['sort'];
+   if (isset($constraints['order']) && in_array($constraints['order'], array('asc', 'desc'))) {
+    $order .= ' '.$constraints['order'];
+   }
+  }
+  return $order;
+ }
+ public static function convertDatabaseResultToUserObjects($result) {
+  $userObjects = array();
+  foreach ($result as $value) {
+   $userObjects[$value['login']] = EfrontUserFactory::factory($value);
+  }
+  return $userObjects;
+ }
 }
 /**
 
@@ -2561,9 +2620,9 @@ abstract class EfrontLessonUser extends EfrontUser
   $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
+  $where[] = "u.archive=0 and u.login=uc.users_LOGIN and c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
   //$result  = eF_getTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
-  $sql = prepareGetTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
+  $sql = prepareGetTableData("users u, courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData("courses, ($sql) t", "courses.*, t.*", "courses.id=t.id");
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
@@ -2574,8 +2633,8 @@ abstract class EfrontLessonUser extends EfrontUser
  public function countUserCourses($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
-  $result = eF_countTableData("courses c, users_to_courses uc", "c.id", implode(" and ", $where));
+  $where[] = "u.archive=0 and u.login=uc.users_LOGIN and c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
+  $result = eF_countTableData("users u, courses c, users_to_courses uc", "c.id", implode(" and ", $where));
   return $result[0]['count'];
  }
  public function getUserCoursesIncludingUnassigned($constraints = array()) {

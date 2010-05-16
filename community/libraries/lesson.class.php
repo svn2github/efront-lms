@@ -1131,8 +1131,108 @@ class EfrontLesson
             return $this -> users;
         }
     }
+ /**
+
+	 * Get lesson users based on the specified constraints
+
+	 *
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontUser objects
+
+	 * @since 3.6.2
+
+	 * @access public
+
+	 */
+ public function getLessonUsers($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
+  $select = "u.*, ul.lessons_ID,ul.completed,ul.score,ul.user_type as role,ul.from_timestamp as active_in_lesson, ul.to_timestamp as timestamp_completed, ul.comments, ul.done_content, 1 as has_lesson";
+  $where[] = "u.login=ul.users_LOGIN and ul.lessons_ID='".$this -> lesson['id']."' and ul.archive=0";
+  $result = eF_getTableData("users u, users_to_lessons ul", $select, implode(" and ", $where), $orderby, false, $limit);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontUser :: convertDatabaseResultToUserObjects($result);
+  } else {
+   return $result;
+  }
+ }
+ /**
+
+	 * Count lesson users based on the specified constraints
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontUser objects
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
+ public function countLessonUsers($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
+  $where[] = "u.login=ul.users_LOGIN and ul.lessons_ID='".$this -> lesson['id']."' and ul.archive=0";
+  $result = eF_countTableData("users u, users_to_lessons ul", "u.login", implode(" and ", $where));
+  return $result[0]['count'];
+ }
+ /**
+
+	 * Get lesson users based on the specified constraints, but include unassigned users as well.
+
+	 * Assigned users have the flag 'has_lesson' set to 1
+
+	 *
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontUser objects
+
+	 * @since 3.6.2
+
+	 * @access public
+
+	 */
+ public function getLessonUsersIncludingUnassigned($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
+  $where[] = "user_type != 'administrator'";
+  $select = "u.*, r.lessons_ID is not null as has_lesson, r.completed,r.score, r.from_timestamp as active_in_lesson, r.role";
+  $from = "users u left outer join (select completed,score,lessons_ID,from_timestamp,users_LOGIN,user_type as role from users_to_lessons where lessons_ID='".$this -> lesson['id']."' and archive=0) r on u.login=r.users_LOGIN";
+  $result = eF_getTableData($from, $select,
+  implode(" and ", $where), $orderby, false, $limit);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontUser :: convertDatabaseResultToUserObjects($result);
+  } else {
+   return $result;
+  }
+ }
+ /**
+
+	 * Count lesson users based on the specified constraints, including unassigned
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontUser objects
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
+ public function countLessonUsersIncludingUnassigned($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
+  $where[] = "user_type != 'administrator'";
+  $select = "u.login";
+  $from = "users u left outer join (select completed,score,lessons_ID,from_timestamp,users_LOGIN from users_to_lessons where lessons_ID='".$this -> lesson['id']."' and archive=0) r on u.login=r.users_LOGIN";
+  $result = eF_countTableData($from, $select, implode(" and ", $where));
+  return $result[0]['count'];
+ }
     //TO REPLACE getUsers
- public function getLessonUsers($returnObjects = false) {
+ public function getLessonUsersOld($returnObjects = false) {
   if (sizeof($this -> users) == 0) {
    $this -> initializeUsers();
   }
@@ -1159,7 +1259,7 @@ class EfrontLesson
   }
  }
  public function getStudentUsers($returnObjects = false) {
-  $lessonUsers = $this -> getLessonUsers($returnObjects);
+  $lessonUsers = $this -> getLessonUsersOld($returnObjects);
   foreach ($lessonUsers as $key => $value) {
    if ($value instanceOf EfrontUser) {
     $value = $value -> user;
@@ -2007,67 +2107,108 @@ class EfrontLesson
         }
         return $questions;
     }
-/*
-
-    public function getLessonStatusForUsers($users = false, $onlyContent = false) {
-
-
-
-    	$lessonUsers = $this -> getUsers('student');
-
-		if ($users !== false) {
-
-			$userLogins = $this -> verifyUsersList($users);
-
-			foreach ($userLogins as $login) {
-
-				if (in_array($login, array_keys($lessonUsers))) {
-
-					$temp[$login] = $lessonUsers[$login];
-
-				}
-
-			}
-
-			$lessonUsers = $temp;
-
-		}
-
-		
-
-		
-
-		foreach ($lessonUsers as $key => $user) {
-
-			if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
-
-				$user['different_role'] = 1;
-
-			}
-
-			$lessonUsers[$key]['overall_progress'] = $this -> getUserOverallProgressInLesson($lesson);
-
-			if (!$onlyContent) {
-
-				$lessonUsers[$key]['project_status']   = $this -> getUserProjectsStatusInLesson($lesson);
-
-				$lessonUsers[$key]['test_status']	   = $this -> getUserTestsStatusInLesson($lesson);
-
-				$lessonUsers[$key]['time_in_lesson']   = $this -> getUserTimeInLesson($lesson);
-
-			}
-
-		}
-
-
-
-		return $userLessons;
-
-    	
-
+    public function getLessonStatusForUsers($constraints = array(), $onlyContent = false) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  $constraints['return_objects'] = false;
+     $lessonUsers = $this -> getLessonUsers($constraints);
+     $totalUnits = 0;
+  $contentTree = new EfrontContentTree($this -> lesson['id']);
+  foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($contentTree -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
+   $totalUnits++;
+  }
+  foreach ($lessonUsers as $key => $user) {
+   if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
+    $user['different_role'] = 1;
+   }
+   $lessonUsers[$key]['overall_progress'] = $this -> getLessonOverallProgressForUser($user, $totalUnits);
+   if (!$onlyContent) {
+    //$lessonUsers[$key]['project_status']   = $this -> getUserProjectsStatusInLesson($lesson);
+    //$lessonUsers[$key]['test_status']	     = $this -> getUserTestsStatusInLesson($lesson);
+    //$lessonUsers[$key]['time_in_lesson']   = $this -> getUserTimeInLesson($lesson);
+   }
+  }
+  return $lessonUsers;
     }
-
-*/
+ private function getLessonOverallProgressForUser($user, $totalUnits) {
+  $completedUnits = 0;
+  if ($doneContent = unserialize($user['done_content'])) {
+   $completedUnits = sizeof($doneContent);
+  }
+  if ($totalUnits) {
+   $completedUnitsPercentage = round(100 * $completedUnits/$totalUnits, 2);
+   return array('total' => $totalUnits,
+       'completed' => $completedUnits,
+       'percentage' => $completedUnitsPercentage);
+  } else {
+   return array('total' => 0,
+       'completed' => 0,
+       'percentage' => 0);
+  }
+ }
+ private function getUserTestsStatusInLesson($lesson) {
+  $completedTests = $meanTestScore = 0;
+  $tests = $lesson -> getTests(true, true);
+  $totalTests = sizeof($tests);
+  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score", "t.id=ct.tests_ID and ct.users_LOGIN='".$this -> user['login']."' and ct.archive=0 and t.lessons_ID=".$lesson -> lesson['id']);
+  foreach ($result as $value) {
+   if (in_array($value['tests_ID'], array_keys($tests))) {
+    $meanTestScore += $value['score'];
+    $completedTests++;
+   }
+  }
+  $scormTests = $this -> getUserScormTestsStatusInLesson($lesson);
+  $totalTests += sizeof($scormTests);
+  foreach ($scormTests as $value) {
+   $meanTestScore += $value;
+   $completedTests++;
+  }
+  if ($totalTests) {
+   $completedTestsPercentage = round(100 * $completedTests/$totalTests, 2);
+   $meanTestScore = round($meanTestScore/$completedTests, 2);
+   return array('total' => $totalTests,
+       'completed' => $completedTests,
+       'percentage' => $completedTestsPercentage,
+       'mean_score' => $meanTestScore);
+  } else {
+   return array();
+  }
+ }
+ private function getUserScormTestsStatusInLesson($lesson) {
+  $usersDoneScormTests = eF_getTableData("scorm_data sd left outer join content c on c.id=sd.content_ID",
+              "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
+              "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$this -> user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$lesson -> lesson['id']);
+  $tests = array();
+  foreach ($usersDoneScormTests as $doneScormTest) {
+   if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {
+    $doneScormTest['score'] = 100 * $doneScormTest['score'] / ($doneScormTest['minscore'] + $doneScormTest['maxscore']);
+   } else {
+    $doneScormTest['score'] = $doneScormTest['score'];
+   }
+   $tests[$doneScormTest['id']] = $doneScormTest['score'];
+  }
+  return $tests;
+ }
+ private function getUserProjectsStatusInLesson($lesson) {
+  $completedProjects = $meanProjectScore = 0;
+  $projects = $lesson -> getProjects(true, $this);
+  $totalProjects = sizeof($projects);
+  foreach ($projects as $project) {
+   if ($project -> project['grade'] || $project -> project['grade'] === 0) {
+    $completedProjects++;
+    $meanProjectScore += $project -> project['grade'];
+   }
+  }
+  if ($totalProjects) {
+   $completedProjectsPercentage = round(100 * $completedProjects/$totalProjects, 2);
+   $meanProjectScore = round($meanProjectScore/$completedProjects, 2);
+   return array('total' => $totalProjects,
+       'completed' => $completedProjects,
+       'percentage' => $completedProjectsPercentage,
+       'mean_score' => $meanProjectScore);
+  } else {
+   return array();
+  }
+ }
     /**
 
      * Get lesson information

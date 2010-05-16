@@ -38,10 +38,11 @@ if (isset($_GET['sel_course'])) {
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
       $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false) + array('table_filters' => $stats_filters);
+      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
       $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
-      $users = EfrontCourse :: convertUserObjectsToArrays($users);
+      $totalEntries = $infoCourse -> countCourseUsersAggregatingResults($constraints);
       $dataSource = $users;
+      $smarty -> assign("T_TABLE_SIZE", $totalEntries);
      }
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {
       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations'));
@@ -50,11 +51,13 @@ if (isset($_GET['sel_course'])) {
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
       $constraints['required_fields'] = array('num_lessons', 'location');
       $constraints['return_objects'] = false;
-      $constraints['table_filters'] = $stats_filters;
+      //$constraints['table_filters']   = $stats_filters;		//This is not needed here, since this list is for a specific user
       $infoUser = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);
       $courses = $infoUser -> getUserCourses($constraints);
-      $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
+      $totalEntries= $infoUser -> countUserCourses($constraints);
+
       $dataSource = $courses;
+      $smarty -> assign("T_TABLE_SIZE", $totalEntries);
      }
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsUsersTable' && eF_checkParameter($_GET['courseLessonsUsersTable_source'], 'id')) {
       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'time_in_lesson', 'overall_progress', 'test_status', 'project_status', 'completed', 'score'));

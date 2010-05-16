@@ -365,7 +365,7 @@
      {/capture}
      {eF_template_printBlock title = $smarty.const._ADDCOMMENT data = $smarty.capture.t_add_user_comment image = '32x32/billboard.png'}
 
-                {*************** PEOPLE PAGE ********************}
+                {* PEOPLE PAGE *}
     {elseif $T_OP == "people"}
      {capture name = 't_people'}
 

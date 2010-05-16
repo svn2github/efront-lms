@@ -9,7 +9,7 @@
                 </tr>
                 <tr><td></td>
                  <td class = "infoCell" colspan = "4">{$smarty.const._STARTTYPINGFORRELEVENTMATCHES}</td></tr>
-        {if !isset($T_LESSON_ID)}
+        {if !isset($T_CURRENT_LESSON)}
          </table>
         {else}
 
@@ -18,10 +18,10 @@
 
                     <td id = "right">
                         {$smarty.const._EXPORTSTATS}
-                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$T_LESSON_ID}&group_filter={$smarty.get.group_filter}&excel=lesson&branch_filter={$smarty.get.branch_filter}">
+                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_course}&group_filter={$smarty.get.group_filter}&excel=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/xls.png" title = "{$smarty.const._XLSFORMAT}" alt = "{$smarty.const._XLSFORMAT}"/>
                         </a>
-                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$T_LESSON_ID}&group_filter={$smarty.get.group_filter}&pdf=lesson&branch_filter={$smarty.get.branch_filter}">
+                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_course}&group_filter={$smarty.get.group_filter}&pdf=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/pdf.png" title = "{$smarty.const._PDFFORMAT}" alt = "{$smarty.const._PDFFORMAT}"/>
                         </a>
                     </td>
@@ -32,131 +32,94 @@
             <table class = "statisticsGeneralInfo">
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._NAME}:</td>
-                    <td class = "elementCell"><b>{$T_LESSON_NAME}</b></td>
+                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.name}</td>
                 </tr>
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
-                    <td class = "labelCell">{$smarty.const._DIRECTION}:</td>
-                    <td class = "elementCell"><b>{$T_LESSON_INFO.direction}</b></td>
+                    <td class = "labelCell">{$smarty.const._CATEGORY}:</td>
+                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.category_path}</td>
                 </tr>
-
-
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._STUDENTS}:</td>
-                    <td class = "elementCell"><b>{$T_LESSON_STUDENTS}</b></td>
+                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.num_students}</td>
                 </tr>
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._PROFESSORS}:</td>
-                    <td class = "elementCell"><b>{$T_LESSON_PROFESSORS}</b></td>
+                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.num_professors}</td>
                 </tr>
             </table>
 
             <div class = "tabber">
                 <div class = "statisticsDiv tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'users')} tabbertabdefault{/if}" title = "{$smarty.const._USERS}">
-                    <table class = "statisticsTools">
-                        <tr><td>{$smarty.const._STUDENTS}:</td></tr>
-                    </table>
-                    <table class = "sortedTable" sortBy = "0">
-                        <tr>
-                            <td class = "topTitle" style = "width:300px">{$smarty.const._USER}</td>
-                            <td class = "topTitle">{$smarty.const._LESSONROLE}</td>
-                            <td class = "topTitle centerAlign">{$smarty.const._COMPLETED}</td>
-                            <td class = "topTitle centerAlign">{$smarty.const._SCORE}</td>
-                            <td class = "topTitle centerAlign">{$smarty.const._TIMEINLESSON}</td>
-                            <td class = "topTitle centerAlign">{$smarty.const._CONTENT}</td>
-                            {if $T_CONFIGURATION.disable_tests != 1}
-        <td class = "topTitle centerAlign">{$smarty.const._TESTS}</td>
-       {/if}
-       {if $T_CONFIGURATION.disable_projects != 1}
-        <td class = "topTitle centerAlign">{$smarty.const._PROJECTS}</td>
-       {/if}
-       {if $T_CONFIGURATION.disable_forum != 1}
-        <td class = "topTitle centerAlign">{$smarty.const._FORUMPOSTS}</td>
-       {/if}
-                        </tr>
-                    {foreach name = 'student_list' key = 'login' item = "info" from = $T_STUDENTS_INFO}
-                        <tr class = "{cycle name = 'student_list' values = 'oddRowColor, evenRowColor'} {if !$info.active[$lesson_id]}deactivatedTableElement{/if}">
-                            <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$login}">#filter:login-{$login}#</a></td>
-                            <td>{$T_ROLES[$info.role]}</td>
-                            <td class = "centerAlign">
-                                {if $info.completed}
-                                    <img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}" border = "0" />
-                                {else}
-                                    <img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}" border = "0" />
-                                {/if}
-                            </td>
-                            <td class = "centerAlign">#filter:score-{$info.score}#%</td>
-                            <td class = "centerAlign">{strip}
-                                <span style = "display:none">{$info.seconds}&nbsp;</span>
-                                {if $info.seconds}
-                                 {if $info.time.hours}{$info.time.hours}{$smarty.const._HOURSSHORTHAND} {/if}
-                                 {if $info.time.minutes}{$info.time.minutes}{$smarty.const._MINUTESSHORTHAND} {/if}
-                                 {if $info.time.seconds}{$info.time.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}
-                                {else}-{/if}
-                            {/strip}</td>
-                            <td class = "progressCell">
-                                <span style = "display:none">{$info.content+1000}</span>
-                                <span class = "progressNumber" >#filter:score-{$info.content}#%</span>
-                                <span class = "progressBar" style = "width:{$info.content}px;">&nbsp;</span>&nbsp;
-                            </td>
-       {if $T_CONFIGURATION.disable_tests != 1}
-        <td class = "progressCell">
-        {if $info.total_tests && $info.tests_progress}
-         <span style = "display:none">{$info.tests+1000}</span>
-         <span class = "progressNumber">#filter:score-{$info.tests}#%</span>
-         <span class = "progressBar" style = "width:{$info.tests}px;">&nbsp;</span>&nbsp;
-        {else}<div class = "centerAlign">-</div>{/if}
-        </td>
-       {/if}
-       {if $T_CONFIGURATION.disable_projects != 1}
-        <td class = "progressCell">
-        {if $info.total_projects && $info.projects_progress}
-         <span style = "display:none">{$info.projects+1000}</span>
-         <span class = "progressNumber">#filter:score-{$info.projects}#%</span>
-         <span class = "progressBar" style = "width:{$info.projects}px;">&nbsp;</span>&nbsp;
-        {else}<div class = "centerAlign">-</div>{/if}
-        </td>
-       {/if}
-       {if $T_CONFIGURATION.disable_forum != 1}
-        <td class = "centerAlign">{$info.posts}</td>
-       {/if}
-                        </tr>
-                    {foreachelse}
-                     <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
-                    {/foreach}
-                    </table>
-                    <br/>
-                    <table class = "statisticsTools">
-                        <tr><td>{$smarty.const._PROFESSORS}:</td></tr>
-                    </table>
-                    <table class = "sortedTable" sortBy = "0">
-                        <tr>
-                            <td class = "topTitle" style = "width:300px">{$smarty.const._USER}</td>
-                            <td class = "topTitle">{$smarty.const._LESSONROLE}</td>
-                            <td class = "topTitle centerAlign">{$smarty.const._TIMEINLESSON}</td>
-       {if $T_CONFIGURATION.disable_forum != 1}
-        <td class = "topTitle centerAlign">{$smarty.const._FORUMPOSTS}</td>
-       {/if}
-                        </tr>
-                    {foreach name = 'professor_list' key = 'login' item = "info" from = $T_PROFESSORS_INFO}
-                        <tr class = "{cycle name = 'professor_list' values = 'oddRowColor, evenRowColor'} {if !$info.active[$lesson_id]}deactivatedTableElement{/if}">
-                            <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$login}">#filter:login-{$login}#</a></td>
-                            <td>{$T_ROLES[$info.role]}</td>
-                            <td class = "centerAlign">{strip}
-                                <span style = "display:none">{$info.seconds}&nbsp;</span>
-                                {if $info.seconds}
-                                 {if $info.time.hours}{$info.time.hours}{$smarty.const._HOURSSHORTHAND} {/if}
-                                 {if $info.time.minutes}{$info.time.minutes}{$smarty.const._MINUTESSHORTHAND} {/if}
-                                 {if $info.time.seconds}{$info.time.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}
-                                {else}-{/if}
-                            {/strip}</td>
-       {if $T_CONFIGURATION.disable_forum != 1}
-        <td class = "centerAlign">{$info.posts}</td>
-       {/if}
-                        </tr>
-                    {foreachelse}
-                     <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
-                    {/foreach}
-        </table>
+ {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'lessonUsersTable'}
+<style>
+{literal}
+table#lessonUsersTable {width:100%;}
+table#lessonUsersTable td.login{width:30%;}
+table#lessonUsersTable td.user_type{width:10%;}
+table#lessonUsersTable td.time_in_lesson{width:15%;}
+table#lessonUsersTable td.overall_progress{width:5%;text-align:center;}
+table#lessonUsersTable td.test_status{width:5%;text-align:center;}
+table#lessonUsersTable td.project_status{width:5%;text-align:center;}
+table#lessonUsersTable td.completed{width:5%;text-align:center;}
+table#lessonUsersTable td.score{width:5%;text-align:center;}
+{/literal}
+</style>
+<!--ajax:lessonUsersTable-->
+  <table id = "lessonUsersTable" sortBy=0 size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&">
+   <tr class = "topTitle">
+    <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>
+    <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>
+    <td class = "topTitle time_in_lesson noSort" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>
+    <td class = "topTitle overall_progress noSort" name = "overall_progress">{$smarty.const._OVERALLPROGRESS}</td>
+   {if !$T_CONFIGURATION.disable_tests}
+    <td class = "topTitle test_status noSort" name = "test_status">{$smarty.const._TESTSSCORE}</td>
+   {/if}
+   {if !$T_CONFIGURATION.disable_projects}
+    <td class = "topTitle project_status noSort" name = "project_status">{$smarty.const._PROJECTSSCORE}</td>
+   {/if}
+    <td class = "topTitle completed" name = "completed">{$smarty.const._COMPLETED}</td>
+    <td class = "topTitle score" name = "score">{$smarty.const._SCORE}</td>
+   </tr>
+   {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
+   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
+    <td class = "name">#filter:login-{$user.login}#{* ({$T_ROLES[$user.user_type]})*}</td>
+    <td class = "user_type">{$T_ROLES_ARRAY[$user.user_type]}</td>
+    <td class = "time_in_lesson"><span style = "display:none">{$user.time_in_lesson.total_seconds}&nbsp;</span>{$user.time_in_lesson.time_string}</td>
+    <td class = "progressCell overall_progress">
+     <span style = "display:none">{$user.overall_progress.completed+1000}</span>
+     <span class = "progressNumber">#filter:score-{$user.overall_progress.percentage}#%</span>
+     <span class = "progressBar" style = "width:{$user.overall_progress.percentage}px;">&nbsp;</span>&nbsp;&nbsp;
+    </td>
+    {if !$T_CONFIGURATION.disable_tests}
+     <td class = "progressCell test_status">
+     {if $user.test_status}
+      <span style = "display:none">{$user.test_status.mean_score+1000}</span>
+      <span class = "progressNumber">#filter:score-{$user.test_status.mean_score}#% ({$user.test_status.completed}/{$user.test_status.total})</span>
+      <span class = "progressBar" style = "width:{$user.test_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
+     {else}<div class = "centerAlign">-</div>{/if}
+     </td>
+    {/if}
+    {if !$T_CONFIGURATION.disable_projects}
+     <td class = "progressCell project_status">
+     {if $user.project_status}
+      <span style = "display:none">{$user.project_status.mean_score+1000}</span>
+      <span class = "progressNumber">#filter:score-{$user.project_status.mean_score}#% ({$user.project_status.completed}/{$user.project_status.total})</span>
+      <span class = "progressBar" style = "width:{$user.project_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
+     {else}<div class = "centerAlign">-</div>{/if}
+     </td>
+    {/if}
+    <td class = "completed">{if $user.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}</td>
+    <td class = "score">#filter:score-{$user.score}#%</td>
+   </tr>
+   {foreachelse}
+   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>
+   {/foreach}
+  </table>
+<!--/ajax:lessonUsersTable-->
+ {/if}
+
+
+
                 </div>
 
                 {if !empty($T_TESTS_INFO) && $T_CONFIGURATION.disable_tests != 1}
@@ -170,7 +133,7 @@
          {$smarty.const._TEST}: {$test_info.general.name}</a>
                             </td>
                             <td id = "right">
-                                <a href = "display_chart.php?id=2&lesson_id={$T_LESSON_ID}&test_id={$test_info.general.id}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONSKIND}', 2)" target = "POPUP_FRAME">
+                                <a href = "display_chart.php?id=2&lesson_id={$smarty.get.sel_course}&test_id={$test_info.general.id}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONSKIND}', 2)" target = "POPUP_FRAME">
                                  {$smarty.const._QUESTIONSKIND}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}"/></a>
                             </td>
                     </table>
@@ -333,15 +296,15 @@
                         <tr class = "defaultRowHeight">
                             <td class = "topTitle" colspan = "3">{$smarty.const._GENERALLESSONINFO}</td>
                         </tr>
-                        <tr class = "{cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._PRICE}:</td>
-                            <td class = "elementCell">{$T_LESSON_INFO.price_string}</td>
+                            <td class = "elementCell">{$T_CURRENT_LESSON->lesson.price_string}</td>
                         </tr>
-                        <tr class = "{cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._ACTIVENEUTRAL}:</td>
                             <td class = "elementCell">{$T_LESSON_INFO.active_string}</td>
                         </tr>
-                        <tr class = "{cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._LANGUAGE}:</td>
                             <td class = "elementCell">{$T_LESSON_INFO.language}</td>
                         </tr>
@@ -349,45 +312,45 @@
                             <td class = "topTitle leftAlign" colspan = "3">{$smarty.const._LESSONPARTICIPATIONINFO}</td>
                         </tr>
       {if $T_CONFIGURATION.disable_comments != 1}
-       <tr class = "{cycle name = 'participation_lesson_info' values = 'oddRowColor, evenRowColor'}">
+       <tr class = "defaultRowHeight {cycle name = 'participation_lesson_info' values = 'oddRowColor, evenRowColor'}">
         <td class = "labelCell">{$smarty.const._COMMENTS}:</td>
         <td class = "elementCell">{$T_LESSON_INFO.comments}</td>
        </tr>
       {/if}
       {if $T_CONFIGURATION.disable_forum != 1}
-       <tr class = "{cycle name = 'participation_lesson_info' values = 'oddRowColor, evenRowColor'}">
+       <tr class = "defaultRowHeight {cycle name = 'participation_lesson_info' values = 'oddRowColor, evenRowColor'}">
         <td class = "labelCell">{$smarty.const._FORUMPOSTS}:</td>
         <td class = "elementCell">{$T_LESSON_INFO.messages}</td>
        </tr>
       {/if}
-                        <tr class = "{cycle name = 'participation_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'participation_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._CHATMESSAGES}:</td>
                             <td class = "elementCell">{$T_LESSON_INFO.chatmessages}</td>
                         </tr>
                         <tr>
                             <td class = "topTitle leftAlign" colspan = "3">{$smarty.const._LESSONCONTENTINFO}</td>
                         </tr>
-                        <tr class = "{cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._THEORY}:</td>
                             <td class = "elementCell">{$T_LESSON_INFO.theory}</td>
                         </tr>
-                        <tr class = "{cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._EXAMPLES}:</td>
                             <td class = "elementCell">{$T_LESSON_INFO.examples}</td>
                         </tr>
       {if $T_CONFIGURATION.disable_projects != 1}
-                        <tr class = "{cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._PROJECTS}:</td>
                             <td class = "elementCell">{$T_LESSON_INFO.projects}</td>
                         </tr>
       {/if}
       {if $T_CONFIGURATION.disable_tests != 1}
-      <tr class = "{cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
+      <tr class = "defaultRowHeight {cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._TESTS}:</td>
                             <td class = "elementCell">{$T_LESSON_INFO.tests}</td>
                         </tr>
       {/if}
-                        <tr class = "{cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
+                        <tr class = "defaultRowHeight {cycle name = 'content_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._TOTAL}:</td>
 
        {assign var="x" value = $T_LESSON_INFO.theory}
@@ -420,7 +383,7 @@
                          <td class = "elementCell"><input class = "inputCheckbox" type = "checkbox" id = "showLog" {if ( isset($T_LESSON_LOG))} checked="true" {/if}></td></tr>
                         <tr><td colspan = "2">&nbsp;</td></tr>
                         <tr><td></td>
-                            <td class = "elementCell"><input type = "button" class = "flatButton" value = "{$smarty.const._SHOW}" onclick = "document.location='{$smarty.session.s_type}.php?ctg=statistics&option=lesson&sel_lesson={$T_LESSON_ID}&tab=traffic&from_year='+document.period.from_Year.value+'&from_month='+document.period.from_Month.value+'&from_day='+document.period.from_Day.value+'&from_hour='+document.period.from_Hour.value+'&from_min='+document.period.from_Minute.value+'&to_year='+document.period.to_Year.value+'&to_month='+document.period.to_Month.value+'&to_day='+document.period.to_Day.value+'&to_hour='+document.period.to_Hour.value+'&to_min='+document.period.to_Minute.value+'&showlog='+document.period.showLog.checked"></td>
+                            <td class = "elementCell"><input type = "button" class = "flatButton" value = "{$smarty.const._SHOW}" onclick = "document.location='{$smarty.session.s_type}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_course}&tab=traffic&from_year='+document.period.from_Year.value+'&from_month='+document.period.from_Month.value+'&from_day='+document.period.from_Day.value+'&from_hour='+document.period.from_Hour.value+'&from_min='+document.period.from_Minute.value+'&to_year='+document.period.to_Year.value+'&to_month='+document.period.to_Month.value+'&to_day='+document.period.to_Day.value+'&to_hour='+document.period.to_Hour.value+'&to_min='+document.period.to_Minute.value+'&showlog='+document.period.showLog.checked"></td>
                         </tr>
                  </table>
                  </form>
@@ -428,7 +391,7 @@
                     {if $T_LESSON_TRAFFIC.total_access > 0}
                     <table class = "statisticsTools">
                         <tr><td id = "right">
-                                <a href = "display_chart.php?id=8&lesson_id={$T_LESSON_ID}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
+                                <a href = "display_chart.php?id=8&lesson_id={$smarty.get.sel_course}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
                                  {$smarty.const._ACCESSSTATISTICS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" /></a>
                             </td>
                         </tr>
@@ -459,7 +422,7 @@
                         <tr><td>{$smarty.const._ACCESSNUMBER}</td>
                     {if $T_LESSON_TRAFFIC.total_seconds > 0 }
                             <td id = "right">
-                                <a href = "display_chart.php?id=5&lesson_id={$T_LESSON_ID}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME" style = "vertical-align:middle">
+                                <a href = "display_chart.php?id=5&lesson_id={$smarty.get.sel_course}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME" style = "vertical-align:middle">
                                  {$smarty.const._MOSTACTIVEUSERS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._MOSTACTIVEUSERS}" title = "{$smarty.const._MOSTACTIVEUSERS}"/></a>
                             </td>
                     {/if}
@@ -487,7 +450,7 @@
                                     {/if}
                                 {/strip}</td>
                                 <td class = "centerAlign">
-                                    <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$login}&lesson_id={$T_LESSON_ID}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
+                                    <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$login}&lesson_id={$smarty.get.sel_course}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
                                      <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
                                 </td>
                             </tr>
@@ -527,8 +490,8 @@
             </div>
         {/if}
     {/capture}
-    {if $T_LESSON_NAME != ""}
-     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON` <span class='innerTableName'>&quot;`$T_LESSON_NAME`&quot;</span>" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
+    {if $T_CURRENT_LESSON}
+     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON` <span class='innerTableName'>&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
     {else}
      {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON`" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
     {/if}

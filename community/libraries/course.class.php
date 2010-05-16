@@ -1124,7 +1124,7 @@ class EfrontCourse
 	 */
  public function getCourseUsersAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $from = "(users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
   $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
   $where[] = "u.login=r.users_LOGIN";
@@ -1145,10 +1145,36 @@ class EfrontCourse
 */
   $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, $groupby, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
-   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+   return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
    return $result;
   }
+ }
+ /**
+
+	 * Count course users based on the specified constraints, but display results for the mother course only, in case the course has instances
+
+	 *
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return int Total entries
+
+	 * @since 3.6.2
+
+	 * @access public
+
+	 */
+ public function countCourseUsersAggregatingResults($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
+  $from = "(users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
+  $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
+  $where[] = "u.login=r.users_LOGIN";
+  $select = "u.login";
+  $groupby = "r.users_LOGIN";
+  $result = eF_countTableData($from, $select, implode(" and ", $where), false, $groupby);
+  return $result[0]['count'];
  }
  /**
 
@@ -1167,13 +1193,13 @@ class EfrontCourse
 	 */
  public function getCourseUsers($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $select = "u.*, uc.courses_ID,uc.completed,uc.score,uc.user_type as role,uc.from_timestamp as active_in_course, uc.to_timestamp, uc.comments, uc.issued_certificate, 1 as has_course";
   $where[] = "u.login=uc.users_LOGIN and uc.courses_ID='".$this -> course['id']."' and uc.archive=0";
   $result = eF_getTableData("users u, users_to_courses uc", $select,
   implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
-   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+   return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
    return $result;
   }
@@ -1184,7 +1210,7 @@ class EfrontCourse
 
 	 * @param array $constraints The constraints for the query
 
-	 * @return array An array of EfrontUser objects
+	 * @return int Total entries
 
 	 * @since 3.6.3
 
@@ -1193,11 +1219,10 @@ class EfrontCourse
 	 */
  public function countCourseUsers($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   //$select  = "u.*, uc.courses_ID,uc.completed,uc.score,uc.user_type,uc.from_timestamp as active_in_course, 1 as has_course";
   $where[] = "u.login=uc.users_LOGIN and uc.courses_ID='".$this -> course['id']."' and uc.archive=0";
-  $result = eF_countTableData("users u, users_to_courses uc", "u.login",
-  implode(" and ", $where));
+  $result = eF_countTableData("users u, users_to_courses uc", "u.login", implode(" and ", $where));
   return $result[0]['count'];
  }
  /**
@@ -1219,14 +1244,14 @@ class EfrontCourse
 	 */
  public function getCourseUsersIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "user_type != 'administrator'";
   $select = "u.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course, r.role";
   $from = "users u left outer join (select completed,score,courses_ID,from_timestamp,users_LOGIN,user_type as role from users_to_courses where courses_ID='".$this -> course['id']."' and archive=0) r on u.login=r.users_LOGIN";
   $result = eF_getTableData($from, $select,
   implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
-   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+   return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
    return $result;
   }
@@ -1246,7 +1271,7 @@ class EfrontCourse
 	 */
  public function countCourseUsersIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "user_type != 'administrator'";
   $select = "u.login";
   $from = "users u left outer join (select completed,score,courses_ID,from_timestamp,users_LOGIN from users_to_courses where courses_ID='".$this -> course['id']."' and archive=0) r on u.login=r.users_LOGIN";
@@ -1272,7 +1297,7 @@ class EfrontCourse
 	 */
  public function getCourseUsersAggregatingResultsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $from = "users u left outer join
      (select users_LOGIN,max(score) as score, max(completed) as completed, 1 as has_course from
       (select uc.score,uc.completed,uc.users_LOGIN from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) foo
@@ -1280,7 +1305,7 @@ class EfrontCourse
   $result = eF_getTableData($from, "u.*, r.*",
   implode(" and ", $where), $orderby, $groupby, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
-   return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+   return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
    return $result;
   }
@@ -1308,7 +1333,7 @@ class EfrontCourse
  }
  public static function convertCourseUserConstraintsToSqlParameters($constraints) {
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
-  $where = self::addWhereConditionToUserConstraints($constraints);
+  $where = EfrontUser::addWhereConditionToUserConstraints($constraints);
   $limit = self::addLimitConditionToConstraints($constraints);
   $order = self::addSortOrderConditionToConstraints($constraints);
   return array($where, $limit, $order);
@@ -3701,13 +3726,6 @@ class EfrontCourse
   }
   return $lessonObjects;
  }
- public static function convertDatabaseResultToUserObjects($result) {
-  $userObjects = array();
-  foreach ($result as $value) {
-   $userObjects[$value['login']] = EfrontUserFactory::factory($value);
-  }
-  return $userObjects;
- }
  public static function convertDatabaseResultToCourseObjects($result) {
   $courseObjects = array();
   foreach ($result as $value) {
@@ -3765,12 +3783,6 @@ class EfrontCourse
   }
   return $where;
  }
- public static function convertUserConstraintsToSqlParameters($constraints) {
-  $where = self::addWhereConditionToUserConstraints($constraints);
-  $limit = self::addLimitConditionToConstraints($constraints);
-  $order = self::addSortOrderConditionToConstraints($constraints);
-  return array($where, $limit, $order);
- }
  /*
 
 	 * Append the tables that are used from the statistics filters to the FROM table list
@@ -3799,31 +3811,6 @@ class EfrontCourse
   $limit = self::addLimitConditionToConstraints($constraints);
   $order = self::addSortOrderConditionToConstraints($constraints);
   return array($where, $limit, $order);
- }
- private static function addWhereConditionToUserConstraints($constraints) {
-  if (isset($constraints['archive'])) {
-   $constraints['archive'] ? $where[] = 'u.archive!=0' : $where[] = 'u.archive=0';
-  }
-  if (isset($constraints['active'])) {
-   $constraints['active'] ? $where[] = 'u.active=1' : $where[] = 'u.active=0';
-  }
-  if (isset($constraints['filter']) && $constraints['filter']) {
-   $result = eF_describeTable("users");
-   $tableFields = array();
-   foreach ($result as $value) {
-    $tableFields[] = "u.".$value['Field'].' like "%'.$constraints['filter'].'%"';
-   }
-   $where[] = "(".implode(" OR ", $tableFields).")";
-  }
-  if (isset($constraints['condition'])) {
-   $where[] = $constraints['condition'];
-  }
-  if (isset($constraints['table_filters'])) {
-   foreach ($constraints['table_filters'] as $constraint) {
-    $where[] = $constraint['condition'];
-   }
-  }
-  return $where;
  }
  private static function addWhereConditionToCourseConstraints($constraints) {
   $where = array();

@@ -946,7 +946,7 @@ class EfrontContentTree extends EfrontTree
             foreach(array_keys((array)$value) as $member) {
                 !is_numeric($member) OR $this -> immediateDescendants[$key][] = $member;
             }
-            if ($this -> nodeParents[$value['parent_content_ID']]) {
+            if (isset($this -> nodeParents[$value['parent_content_ID']]) && $this -> nodeParents[$value['parent_content_ID']]) {
                 $this -> nodeParents[$key] = array_merge(array($value['parent_content_ID']), $this -> nodeParents[$value['parent_content_ID']]);
             } else {
                 $this -> nodeParents[$key] = array($value['parent_content_ID']);

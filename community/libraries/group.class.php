@@ -781,17 +781,17 @@ class EfrontGroup
     }
     public function getGroupUsers($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "ug.users_LOGIN=u.login";
   $result = eF_getTableData("users u, users_to_groups ug", "u.*, 1 as has_group", implode(" and ", $where), $orderby, "", $limit);
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  return EfrontUser :: convertDatabaseResultToUserObjects($result);
     }
     public function getGroupUsersIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertUserConstraintsToSqlParameters($constraints);
+  list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
      $result = eF_getTableData("users u left outer join users_to_groups ug on ug.users_LOGIN=u.login",
          implode(" and ", $where), $orderby, "", $limit);
-  return EfrontCourse :: convertDatabaseResultToUserObjects($result);
+  return EfrontUser :: convertDatabaseResultToUserObjects($result);
     }
     /*
 

@@ -2252,6 +2252,8 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   $tracking_info = array("done_content" => "",
           "issued_certificate" => "",
+          "from_timestamp" => time(),
+          "to_timestamp" => null,
           "comments" => "",
           "completed" => 0,
           "current_unit" => 0,
@@ -2281,6 +2283,7 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   $tracking_info = array("issued_certificate" => "",
           "comments" => "",
+          "from_timestamp" => time(),
           "to_timestamp" => 0,
           "completed" => 0,
           "score" => 0);

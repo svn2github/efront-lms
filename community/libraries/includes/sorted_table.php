@@ -36,8 +36,9 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == $tableName) {
  $smarty -> display($_SESSION['s_type'].'.tpl');
  $benchmark -> set('smarty');
  $benchmark -> stop();
+ $output = $benchmark -> display();
  if (G_DEBUG) {
-  echo $benchmark -> display();
+  echo $output;
  }
  exit;
 }

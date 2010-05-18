@@ -2906,10 +2906,13 @@ abstract class EfrontLessonUser extends EfrontUser
  private function getUserOverallProgressInLesson($lesson) {
   $totalUnits = $completedUnits = 0;
   $contentTree = new EfrontContentTree($lesson);
+  $validUnits = array();
   foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($contentTree -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
    $totalUnits++;
+   $validUnits[$key] = $key;
   }
   if ($doneContent = unserialize($lesson -> lesson['done_content'])) {
+   $doneContent = array_intersect($doneContent,$validUnits); // to avoid counting deleted content makriria fix
    $completedUnits = sizeof($doneContent);
   }
   if ($totalUnits) {
@@ -3729,7 +3732,7 @@ class EfrontStudent extends EfrontLessonUser
      $constraints = array('archive' => false, 'active' => true, 'return_objects' => false);
      $courseLessons = $course -> getCourseLessons($constraints);
      $completed = $score = array();
-     foreach ($courseLessons as $lessonId => $lesson) {
+     foreach ($courseLessons as $lessonId => $value) {
       $userLessons[$lessonId]['completed'] ? $completed[] = 1 : $completed[] = 0;
       $score[] = $userLessons[$lessonId]['score'];
      }
@@ -3789,7 +3792,7 @@ class EfrontStudent extends EfrontLessonUser
        'comments' => $comments);
    $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];
    EfrontCourse::persistCourseUsers($fields, $where, $course -> course['id'], $this -> user['login']);
-   if ($result && $course -> options['auto_certificate']) {
+   if ($course -> options['auto_certificate']) {
     $certificate = $course -> prepareCertificate($this -> user['login']);
     $course -> issueCertificate($this -> user['login'], $certificate);
    }
@@ -3875,8 +3878,8 @@ class EfrontStudent extends EfrontLessonUser
   }
   sizeof($doneContent) ? $doneContent = serialize($doneContent) : $doneContent = null;
   $result = eF_updateTableData("users_to_lessons", array('done_content' => $doneContent, 'current_unit' => $current_unit), "users_LOGIN='".$this -> user['login']."' and lessons_ID=".$lesson);
-  $cacheKey = "user_lesson_status:lesson:".$lesson."user:".$this -> user['login'];
-  Cache::resetCache($cacheKey);
+//		$cacheKey = "user_lesson_status:lesson:".$lesson."user:".$this -> user['login'];
+//		Cache::resetCache($cacheKey);
   if ($current_unit) {
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::CONTENT_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $lesson, "entity_ID" => $current_unit));
   }

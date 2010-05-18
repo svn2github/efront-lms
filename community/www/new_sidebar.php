@@ -18,6 +18,9 @@ $path = "../libraries/";
 
 /** Configuration file.*/
 require_once $path."configuration.php";
+$benchmark = new EfrontBenchmark($debug_TimeStart);
+$benchmark -> set('init');
+
 require_once $path."menu.class.php";
 
 
@@ -523,47 +526,15 @@ $smarty -> assign("T_SIDEBARWIDTH", $sideframe_width);
 //$smarty -> assign("T_REALNAME", $realname);
 $smarty -> assign("T_SB_CTG", isset($_GET['sbctg']) ? $_GET['sbctg'] : false);
 $smarty -> assign("T_TYPE", $efront_type);
+$benchmark -> set('script');
 if (!isset($horizontal_inframe_version) || !$horizontal_inframe_version) {
  $smarty -> assign("T_NO_HORIZONTAL_MENU", 1);
  $smarty -> display('new_sidebar.tpl');
 }
-/*
-
-$debug_timeAfterSmarty = microtime(true) - $debug_TimeStart;
-
-
-
-$debug_TotalTime = microtime(true) - $debug_TimeStart;
-
-
-
-    echo "
-
-    <div onclick = 'this.style.display=\"none\"' style = 'position:absolute;top:0px;right:0px;background-color:lightblue;border:1px solid black' >
-
-    <table>
-
-        <tr><th colspan = '100%'>Benchmarking info (click to remove)</th></tr>
-
-        <tr><td>Initialization time: </td><td>".round($debug_InitTime, 5)." sec</td></tr>
-
-        <tr><td>Time up to smarty: </td><td>".round($debug_timeBeforeSmarty, 5)." sec</td></tr>
-
-        <tr><td>Database time: </td><td>".round($databaseTime, 5)." sec</td></tr>
-
-        <tr><td>Smarty overhead: </td><td>".round($debug_timeAfterSmarty - $debug_timeBeforeSmarty, 5)." sec</td></tr>
-
-        <tr><td colspan = \"2\" class = \"horizontalSeparator\"></td></tr>
-
-        <tr><td>Total execution time: </td><td>".round($debug_TotalTime, 5)." sec</td></tr>
-
-        <tr><td>Execution time for this script is: </td><td>".round($debug_TotalTime - $debug_InitTime - ($debug_timeAfterSmarty - $debug_timeBeforeSmarty), 5)." sec</td></tr>
-
-    </table>
-
-    </div>";
-
-
-
-*/
+$benchmark -> set('smarty');
+$benchmark -> stop();
+$output = $benchmark -> display();
+if (G_DEBUG) {
+ //echo $output;	//Don't display, it's annoying 
+}
 ?>

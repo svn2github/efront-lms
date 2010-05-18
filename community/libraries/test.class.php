@@ -1764,7 +1764,7 @@ class EfrontTest
      * @access public
 
      */
-    public function toHTMLQuickForm(& $form = false, $questionId = false, $done = false, $editHandles = false, $nocache = false) {
+    public function toHTMLQuickForm(& $form = false, $questionId = false, $done = false, $editHandles = false, $nocache = false, $isFeedback = false) {
      $storeCache = false;
      if (!$questionId && !$done && !$this -> options['random_pool'] && !$this -> options['shuffle_questions'] && !$this -> options['shuffle_answers'] && !$nocache) {
       if ($testString = Cache::getCache('test:'.$this -> test['id'])) {
@@ -1845,12 +1845,12 @@ class EfrontTest
         <span style = "float:right">'.$timeSpentString.'</span>
                           <img src = "images/32x32/'.($done ? $image : 'unit.png').'" style = "vertical-align:middle" alt = "'.($done ? $alt : _QUESTION).'" title = "'.($done ? $title : _QUESTION).'"/>&nbsp;
                                 <span style = "vertical-align:middle;font-weight:bold">'._QUESTION.'&nbsp;'. ($count++).'</span>
-                                '.($this -> options['display_weights'] || $done ? '<span style = "vertical-align:middle;margin-left:10px">('._WEIGHT.'&nbsp;'.$weight.'%)</span>' : '').'
+                                '.($this -> options['display_weights'] || $done && !$isFeedback ? '<span style = "vertical-align:middle;margin-left:10px">('._WEIGHT.'&nbsp;'.$weight.'%)</span>' : '').'
                                 '.($units[$question -> question['content_ID']] && $done ? '<span style = "vertical-align:middle;margin-left:10px">'._UNIT.' "'.$units[$question -> question['content_ID']].'"</span>' : '').'
         '.(($_SESSION['s_type'] == "student" && $currentLesson -> options['content_report'] == 1)? '<a href = "content_report.php?ctg=tests&edit_question='.$question -> question['id'].'&question_type='.$question -> question['type'].'&lessons_Id='.$_SESSION['s_lessons_ID'].'" onclick = "eF_js_showDivPopup(\''._CONTENTREPORT.'\', 1)" target = "POPUP_FRAME"><img src = "images/16x16/warning.png" border=0 style = "vertical-align:middle" alt = "'._CONTENTREPORT.'" title = "'._CONTENTREPORT.'"/></a>' : '').'
        </td></tr>
                     </table>'.($done ? $question -> toHTMLSolved(new HTML_QuickForm(), $this -> options['answers'], $this -> options['given_answers']) : $question -> toHTML($form)).'<br/></div>';            
-            if ($done) {
+            if ($done && !$isFeedback) {
                     $testString .= '
                         <table style = "width:100%" >
                             <tr><td>
@@ -2627,7 +2627,7 @@ class EfrontCompletedTest extends EfrontTest
      * @see EfrontTest :: toHTMLQuickForm()
 
      */
-    public function toHTMLSolved($testString, $editHandles = false) {
+    public function toHTMLSolved($testString, $editHandles = false, $isFeedback = false) {
 //      if (!$url) {
             $url = htmlspecialchars_decode(basename($_SERVER['PHP_SELF']).'?'.http_build_query($_GET));//$_SERVER['QUERY_STRING'];
 //      }
@@ -2729,44 +2729,48 @@ class EfrontCompletedTest extends EfrontTest
                 <td>
                     <table class = "doneTestInfo">
                         <tr><td>'.$jumpString.'</td></tr>
-                        <tr><td>'._TESTSTARTEDAT.' '.formatTimestamp($this -> time['start'], 'time').' '._ANDCOMPLETEDAT.' '.formatTimestamp($this -> time['end'], 'time').'. '.$completedString.'.</td></tr>
-                        <tr><td>
+                        <tr><td>'. ($isFeedback ? _FEEDBACKSTARTEDAT :_TESTSTARTEDAT).' '.formatTimestamp($this -> time['start'], 'time').' '._ANDCOMPLETEDAT.' '.formatTimestamp($this -> time['end'], 'time').'. '.$completedString.'.</td></tr>';
+        if (!$isFeedback) {
+   $str .= '<tr><td>
                                 '._THETESTISDONE.' '.$status['timesDone'].' '._TIMES.'
                                 '.($this -> options['redoable'] ? _ANDCANBEDONE.' '.($status['timesLeft'] > 0 ? $status['timesLeft'] : 0).' '._TIMESMORE : '').'
                             </td></tr>';
+  }
         if ($currentStatus['status'] == 'incomplete') {
             $unsolvedTest = unserialize($currentStatus['completedTest']['test']);
             $str .= '
                         <tr><td style = "font-weight:bold">'._THEUSERUNDERGOINGTESTSTARTEDAT.':&nbsp;'.formatTimestamp($unsolvedTest -> time['start'], 'time').'</td></tr>';
         }
-        $str .= '
-                        <tr><td>
-                                <span style = "vertical-align:middle">'._TESTSCOREIS.':&nbsp;</span>';        
-        if ($editHandles) {
-            $str .= '
-                                <span style = "font-weight:bold" id = "test_score_span">
-                                    <span id = "test_score" style = "vertical-align:middle">'.$this -> completedTest['score'].'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle" id = "potential_score">- '.$potentialScore.'%</span>' : null).'
-                                    <a href = "javascript:void(0)" onclick = "$(\'test_score_span\').hide();$(\'edit_test_score_span\').show();">
-                                        <img src = "images/16x16/edit.png" alt = "'._CHANGESCORE.'" title = "'._CHANGESCORE.'" border = "0" style = "vertical-align:middle"/>
-                                    </a>
-                                </span>
-                                <span id = "edit_test_score_span" style = "display:none">
-                                    <input type = "text" name = "edit_test_score" id = "edit_test_score" value = "'.$this -> completedTest['score'].'" style = "vertical-align:middle"/>
-                                    <a href = "javascript:void(0)" onclick = "editScore(this)">
-                                        <img src = "images/16x16/success.png" alt = "'._SUBMIT.'" title = "'._SUBMIT.'" border = "0" style = "vertical-align:middle"/>
-                                    </a>
-                                    <a href = "javascript:void(0)" onclick = "$(\'test_score_span\').show();$(\'edit_test_score_span\').hide();">
-                                        <img src = "images/16x16/error_delete.png" alt = "'._CANCEL.'" title = "'._CANCEL.'" border = "0" style = "vertical-align:middle"/>
-                                    </a>
-                                </span>';
-        } else {
-            $str .= '
-                                <span id = "test_score" style = "vertical-align:middle">'.$this -> completedTest['score'].'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle">- '.$potentialScore.'%</span>' : null);
-        }
-        $str .= '
-                            &nbsp;'.$completeMessage.'</td></tr>
-                        <tr><td><div class = "headerTools">'.$editHandlesString.'</div></td></tr>
-                        <tr><td>';
+  if (!$isFeedback) {
+   $str .= '
+       <tr><td>
+         <span style = "vertical-align:middle">'._TESTSCOREIS.':&nbsp;</span>';        
+   if ($editHandles) {
+    $str .= '
+         <span style = "font-weight:bold" id = "test_score_span">
+          <span id = "test_score" style = "vertical-align:middle">'.$this -> completedTest['score'].'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle" id = "potential_score">- '.$potentialScore.'%</span>' : null).'
+          <a href = "javascript:void(0)" onclick = "$(\'test_score_span\').hide();$(\'edit_test_score_span\').show();">
+           <img src = "images/16x16/edit.png" alt = "'._CHANGESCORE.'" title = "'._CHANGESCORE.'" border = "0" style = "vertical-align:middle"/>
+          </a>
+         </span>
+         <span id = "edit_test_score_span" style = "display:none">
+          <input type = "text" name = "edit_test_score" id = "edit_test_score" value = "'.$this -> completedTest['score'].'" style = "vertical-align:middle"/>
+          <a href = "javascript:void(0)" onclick = "editScore(this)">
+           <img src = "images/16x16/success.png" alt = "'._SUBMIT.'" title = "'._SUBMIT.'" border = "0" style = "vertical-align:middle"/>
+          </a>
+          <a href = "javascript:void(0)" onclick = "$(\'test_score_span\').show();$(\'edit_test_score_span\').hide();">
+           <img src = "images/16x16/error_delete.png" alt = "'._CANCEL.'" title = "'._CANCEL.'" border = "0" style = "vertical-align:middle"/>
+          </a>
+         </span>';
+   } else {
+    $str .= '
+         <span id = "test_score" style = "vertical-align:middle">'.$this -> completedTest['score'].'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle">- '.$potentialScore.'%</span>' : null);
+   }
+   $str .= '
+        &nbsp;'.$completeMessage.'</td></tr>
+       <tr><td><div class = "headerTools">'.$editHandlesString.'</div></td></tr>
+       <tr><td>';
+  }
         $str .= '
                             <div id = "test_feedback_div" '.($this -> completedTest['feedback'] ? 'class = "feedback"' : '').' >
                                 <span id = "test_feedback">'.$this -> completedTest['feedback'].'</span>

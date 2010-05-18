@@ -1165,7 +1165,12 @@ class EfrontStats
         }
         foreach ($lessons as $lesson) {
             foreach ($users as $user) {
-                $lessonStatus[$lesson -> lesson['id']][$user] = self :: getUserLessonStatus($lesson, $user, $options);
+             if ($lesson instanceOf EfrontLesson) {
+              $lessonId = $lesson -> lesson['id'];
+             } else {
+              $lessonId = $lesson;
+             }
+             $lessonStatus[$lessonId][$user] = self :: getUserLessonStatus($lesson, $user, $options);
             }
         }
         return $lessonStatus;

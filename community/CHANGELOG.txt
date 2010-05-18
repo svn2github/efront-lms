@@ -1,6 +1,5 @@
 === Version 3.6.3 build ===
 - Added course instances functionality
-- Upgrade now asks whether to upgrade search table as well
 - Updated adodb libraries to 5.10
 - Added ".hiddenElement" class
 - Added "tr.rowColor:hover" class
@@ -24,6 +23,7 @@
 - Added debugging mode option
 - Fixed security issue ### (place details here)
 - Fixed problems with show correct answers and custom css files
+- Fixed issue with progress bar when user had seen a deleted unit
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

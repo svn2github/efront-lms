@@ -3692,4 +3692,5 @@ define("_YOUAREATTHELASTLESSONYOUMAYVISIT", "Βρίσκεστε στο τελε�
 define("_FEEDBACKISDONE", "Η ανάδραση έχει γίνει");
 define("_PROCEEDTOFEEDBACK","Εκκίνηση ανάδρασης");
 define("_SUCCESFULLYMODIFIEDFEEDBACK", "Η ανάδραση ενημερώθηκε επιτυχώς");
+define("_FEEDBACKSTARTEDAT","Η ανάδραση ξεκίνησε στις");
 ?>

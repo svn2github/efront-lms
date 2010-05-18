@@ -24,13 +24,18 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 $completedTest -> handleAjaxActions();
                 exit;
             }
-            $completedTest -> options['answers'] = true;
-            $completedTest -> options['given_answers'] = true;
+   if ($_GET['ctg'] != 'feedback') {
+    $completedTest -> options['answers'] = true;
+   }
+   $completedTest -> options['given_answers'] = true;
 
-            // We do not want all handles for test editing for skillgap tests - the students do not see the tests
+            // We do not want all handles for test editing for skillgap tests - the students do not see the tests			
             if ($skillgap_tests) {
                 $testString = $completedTest -> toHTMLQuickForm(new HTML_Quickform(), false, true, false);
-                $testString = $completedTest -> toHTMLSolved($testString, false);
+    $testString = $completedTest -> toHTMLSolved($testString, false);
+   } elseif ($_GET['ctg'] == 'feedback') {
+    $testString = $completedTest -> toHTMLQuickForm(new HTML_Quickform(), false, true, false, false, true);
+    $testString = $completedTest -> toHTMLSolved($testString, false, true);
             } else {
                 $testString = $completedTest -> toHTMLQuickForm(new HTML_Quickform(), false, true, true);
                 $testString = $completedTest -> toHTMLSolved($testString, true);

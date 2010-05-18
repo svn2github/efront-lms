@@ -793,8 +793,9 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
 }
 $benchmark -> set('smarty');
 $benchmark -> stop();
+$output = $benchmark -> display();
 if (G_DEBUG) {
- echo $benchmark -> display();
+ echo $output;
 }
 function LoginRedirect($user_type) {
  if ($GLOBALS['configuration']['login_redirect_page'] == "user_dashboard" && $user_type != "administrator") {

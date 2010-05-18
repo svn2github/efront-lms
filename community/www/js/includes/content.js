@@ -68,7 +68,13 @@ function onSetSeenUnit(el, response) {
              $('passed_conditions').update(parseInt(results[1]));
             }
             if ($('lesson_passed')) {
-             results[2] == true ? $('lesson_passed').down().removeClassName('failure').addClassName('success') : $('lesson_passed').down().removeClassName('success').addClassName('failure');
+             if (results[2] == true) {
+              $('lesson_passed').down().removeClassName('failure').addClassName('success');
+              $('completed_block').show();
+             } else {
+              $('lesson_passed').down().removeClassName('success').addClassName('failure');
+              //$('completed_block').hide();
+             }
             }
         }
  } catch (e) {alert(e);}

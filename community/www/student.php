@@ -123,8 +123,8 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
 
         if (in_array($_GET['lessons_ID'], array_keys($userLessons))) {
             $newLesson = new EfrontLesson($_GET['lessons_ID']);
-            if ($roles[$userLessons[$_GET['lessons_ID']]] == 'student' && ($newLesson -> lesson['from_timestamp'] && $newLesson -> lesson['from_timestamp'] > time()) || ($newLesson -> lesson['to_timestamp'] && $newLesson -> lesson['to_timestamp'] < time())) {
-             eF_redirect("student.php?ctg=lessons");
+            if (!isset($_GET['course']) && !isset($_GET['from_course']) && $roles[$userLessons[$_GET['lessons_ID']]] == 'student' && ($newLesson -> lesson['from_timestamp'] && $newLesson -> lesson['from_timestamp'] > time()) || ($newLesson -> lesson['to_timestamp'] && $newLesson -> lesson['to_timestamp'] < time())) {
+             eF_redirect("student.php?ctg=lessons&message=".urlencode(_YOUCANNOTACCESSTHISLESSONORITDOESNOTEXIST));
             }
          $_SESSION['s_lessons_ID'] = $_GET['lessons_ID'];
             $_SESSION['s_type'] = $roles[$userLessons[$_GET['lessons_ID']]];
@@ -586,12 +586,13 @@ if (isset($currentLesson)) {
 }
 $smarty -> load_filter('output', 'eF_template_formatTimestamp');
 $smarty -> load_filter('output', 'eF_template_formatLogins');
-$benchmark -> set('script');
 $smarty -> load_filter('output', 'eF_template_setInnerLinks');
+$benchmark -> set('script');
 $smarty -> display('student.tpl');
 $benchmark -> set('smarty');
 $benchmark -> stop();
+$output = $benchmark -> display();
 if (G_DEBUG) {
- echo $benchmark -> display();
+ echo $output;
 }
 ?>

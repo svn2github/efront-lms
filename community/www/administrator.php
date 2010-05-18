@@ -374,8 +374,9 @@ $benchmark -> set('script');
 $smarty -> display('administrator.tpl');
 $benchmark -> set('smarty');
 $benchmark -> stop();
+$output = $benchmark -> display();
 if (G_DEBUG) {
- echo $benchmark -> display();
+ echo $output;
 }
 
 

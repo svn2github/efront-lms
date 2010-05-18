@@ -180,7 +180,7 @@
       {/if}
       <span>
        <img src = "images/16x16/edit.png" title = "{$smarty.const._UPDATEUNIT}" alt = "{$smarty.const._UPDATEUNIT}"/>
-       <a href = "{$smarty.server.PHP_SELF}?ctg={if $T_UNIT.ctg_type == 'tests'}tests{else}content{/if}&edit={if $smarty.get.view_unit !=""}{$smarty.get.view_unit}{else}{$T_CURRENTUNITID}{/if}" title = "{$smarty.const._UPDATEUNIT}">{$smarty.const._UPDATEUNIT}</a>
+       <a href = "{$smarty.server.PHP_SELF}?ctg={if $T_UNIT.ctg_type == 'tests'}tests{elseif $T_UNIT.ctg_type == 'feedback'}feedback{else}content{/if}&edit={if $smarty.get.view_unit !=""}{$smarty.get.view_unit}{else}{$T_CURRENTUNITID}{/if}" title = "{$smarty.const._UPDATEUNIT}">{$smarty.const._UPDATEUNIT}</a>
       </span>
      {/if}
      </div>
@@ -188,7 +188,7 @@
      <table id = "unitContent">
    {if !$_student_ || !$T_RULE_CHECK_FAILED}
       <tr><td class = "unitContent">
-        {if $T_UNIT.ctg_type == 'tests'}
+        {if $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback'}
          {include file = "includes/tests/show_unsolved_test.tpl"}
         {else}
          {if $T_UNIT.data}
@@ -201,7 +201,7 @@
         {/if}
        </td></tr>
       <tr><td id = "completeUnit" >
-    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
+    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
         <div id = "navigationHandlesBottom">
          <div id = "nextUnitHandle">{eF_template_printPreviousNext next = $T_NEXT_UNIT}</div>
         </div>
@@ -209,7 +209,7 @@
          <div id = "previousUnitHandle">{eF_template_printPreviousNext previous = $T_PREVIOUS_UNIT }</div>
         </div>
     {/if}
-    {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests'}
+    {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}
      {if $T_QUESTION}
         <form id = "question_form" method = "post" action = "{$smarty.server.PHP_SELF}?view_unit={$smarty.get.view_unit}">{$T_QUESTION}</form>
         <span id = "contentQuestionAnswer">
@@ -311,7 +311,7 @@
    {if $T_UNIT.options.previous}{assign var = "T_PREVIOUS_UNIT" value = ""}{/if}
    {if $T_UNIT.options.continue}{assign var = "T_NEXT_UNIT" value = ""}{/if}
    {if $T_UNIT.name}{assign var = "unit_name" value = $T_UNIT.name}{else}{assign var = "unit_name" value = $smarty.const._NOCONTENT}{/if}
-   {if $T_UNIT.ctg_type == 'tests'}{assign var = "image" value = "32x32/tests.png"}{elseif $T_UNIT.ctg_type == 'examples'}{assign var = "image" value = "32x32/examples.png"}{else }{assign var = "image" value = "32x32/theory.png"}{/if}
+   {if $T_UNIT.ctg_type == 'tests'}{assign var = "image" value = "32x32/tests.png"}{elseif $T_UNIT.ctg_type == 'feedback'}{assign var = "image" value = "32x32/surveys.png"}{elseif $T_UNIT.ctg_type == 'examples'}{assign var = "image" value = "32x32/examples.png"}{else }{assign var = "image" value = "32x32/theory.png"}{/if}
    {if !$T_TEST_UNDERGOING}{assign var = "unit_options" value = $T_UNIT_OPTIONS}{else}{assign var = "unit_options" value = ""}{/if}
    <script>
     var nextUnit = '{$T_NEXT_UNIT.id}';var previousUnit = '{$T_PREVIOUS_UNIT.id}';{if $T_UNIT.options.no_before_unload}var noBeforeUnload = true;{else}var noBeforeUnload = false;{/if}

@@ -42,7 +42,7 @@ class EfrontBenchmark
    }
   }
 
-     $str = "
+  $str = "
   <div onclick = 'this.style.display=\"none\"' style = 'position:absolute;top:0px;right:0px;background-color:lightblue;border:1px solid black' >
      <table>
          <tr><th colspan = '100%'>Benchmarking info (click to remove)</th></tr>
@@ -79,6 +79,20 @@ class EfrontBenchmark
    </table>
       </div>";
 
+  $fields = array("url" => htmlentities($_SERVER['REQUEST_URI']),
+      "init_time" => round($this -> times['init'] - $this -> times['start'], 5),
+      "script_time" => round($this -> times['script'] - $this -> times['init'], 5),
+      "database_time" => $this -> dbtimes['time'] > 100 ? 0 : round($this -> dbtimes['time'], 5),
+      "smarty_time" => round($this -> times['smarty'] - $this -> times['script'], 5),
+      "total_time" => round($this -> times['end'] - $this -> times['start'], 5),
+      "memory_usage" => round(memory_get_peak_usage(true)/1024),
+      "total_queries" => $this -> dbtimes['queries'],
+      "max_query" => serialize(array_slice($GLOBALS['db'] -> queries, 0, 1)),
+      "timestamp" => time());
+  try {
+   eF_insertTableData("benchmark", $fields);
+   eF_deleteTableData("benchmark", "timestamp < ".(time() - 3600*24*7)); //Keep a week's data only
+  } catch (Exception $e) {}
 
   return $str;
  }

@@ -1439,7 +1439,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                  <td class = "centerAlign">{if $item.score}{$item.score}%{else}0.00%{/if}</td>
      {/if}
                   <td class = "centerAlign">
-       <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}">
+       <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&show_solved_test={$item.id}">
                    <img src = "images/16x16/search.png" alt = "{$smarty.const._VIEWTEST}" title = "{$smarty.const._VIEWTEST}"/></a>
               {if $T_CTG != "feedback"}
        <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}&test_analysis=1&user={$item.users_LOGIN}">

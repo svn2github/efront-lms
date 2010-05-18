@@ -407,6 +407,9 @@ try {
      /***/
      require_once("module_tests.php");
  }
+ elseif ($ctg == 'feedback') {
+     require_once("module_tests.php");
+ }
  elseif ($ctg == 'lessons') {
      /***/
      require_once("includes/lessons_list.php");

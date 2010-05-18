@@ -2914,18 +2914,12 @@ class EfrontCourse
      $courseString .= '<td style = "padding-bottom:2px"></td><td><a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$lesson -> lesson['name'].'</a></td>';
     } else if (!$lesson -> eligible) {
      if ($lesson -> lesson['completed']) {
-      if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
        <td class = "lessonProgress">
                                 <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
                                 <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
                                 &nbsp;&nbsp;
                             </td>'; 
-      } else {
-       $courseString .= '
-       <td class = "lessonProgress">
-                            </td>'; 
-      }
      } else {
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
@@ -2959,18 +2953,12 @@ class EfrontCourse
      }
     } else {
      if ($lesson -> lesson['user_type'] && $roles[$lesson -> lesson['user_type']] == 'student' && $lesson -> lesson['completed']) { //Show the progress bar
-      if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
        <td class = "lessonProgress">
                                 <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
                                 <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
                                 &nbsp;&nbsp;
                             </td>'; 
-      } else {
-       $courseString .= '
-       <td class = "lessonProgress">
-                            </td>'; 
-      }
      } elseif ($lesson -> lesson['user_type'] && $roles[$lesson -> lesson['user_type']] == 'student') {
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
@@ -4392,7 +4380,9 @@ class EfrontCourse
     $evalString .= $completedLessons[$lessonRules['lesson'][$i]].' '.($lessonRules['condition'][$i+1] == 'and' ? '&' : '|');
    }
    $evalString = $evalString.' '.$completedLessons[$lessonRules['lesson'][$i]];
-   eval("\$allowed[$lessonId] = $evalString;");
+   if (!empty($completedLessons)) {
+    eval("\$allowed[$lessonId] = $evalString;");
+   }
   }
   foreach ($allowed as $id => $allow) {
    if (isset($dates[$id]['from_timestamp']) && $dates[$id]['from_timestamp'] > time()) {

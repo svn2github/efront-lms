@@ -778,18 +778,12 @@ class EfrontDirectionsTree extends EfrontTree
   $treeString = '';
   if ($roleBasicType == 'student' && $treeLesson -> lesson['completed']) { //Show the "completed" mark
    $treeLesson -> lesson['completed'] ? $icon = 'success' : $icon = 'semi_success';
-   if ($treeLesson->options['show_percentage'] != 0) {
     $treeString .= '
      <td style = "width:50px;padding-bottom:2px;">
       <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
       <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/'.$icon.'.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
       &nbsp;&nbsp;
      </td>'; 
-   } else {
-    $treeString .= '
-     <td style = "width:50px;padding-bottom:2px;">
-     </td>'; 
-   }
   } elseif ($roleBasicType == 'student') { //Show the progress bar
    if ($treeLesson->options['show_percentage'] != 0) {
     $treeString .= '

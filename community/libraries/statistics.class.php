@@ -2270,10 +2270,15 @@ class EfrontStats
         }
         $lessonNames = eF_getTableDataFlat("lessons", "id,name");
         sizeof($lessonNames) > 0 ? $lessonNames = array_combine($lessonNames['id'], $lessonNames['name']) : $lessonNames = array();
-        $result = eF_getTableData("users", "name, surname, login");
-        $users = array();
-        foreach ($result as $user) {
-            $users[$user['login']] = $user;
+        if ($lesson) {
+         $lessonUsers = eF_getTableDataFlat("users_to_lessons", "users_LOGIN", "lessons_ID=$lesson and archive=0");
+         $users = array_combine($lessonUsers['users_LOGIN'], $lessonUsers['users_LOGIN']);
+        } else {
+         $result = eF_getTableData("users", "name, surname, login");
+         $users = array();
+         foreach ($result as $user) {
+          $users[$user['login']] = $user;
+         }
         }
         $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users), false, false, false, $lesson);
         foreach ($tests as $id) {
@@ -2503,7 +2508,7 @@ class EfrontStats
      * @static
 
      */
-    public static function getQuestionInfo($questions = false) {
+    public static function getQuestionInfo($questions = false, $lesson = false) {
         $questions_info = array();
         if ($questions == false) {
             $questions = eF_getTableData("questions", "id");
@@ -2526,7 +2531,10 @@ class EfrontStats
             $questions_info[$question_id] = $question_info;
             $questionIds[$question_id] = $question_id;
         }
-        $completedTests = eF_getTableData("completed_tests", "*", "status != 'deleted'");
+        if ($lesson) {
+         $sql = ' and lessons_ID='.$lesson;
+        }
+        $completedTests = eF_getTableData("tests, completed_tests", "*", "tests.id=completed_tests.tests_ID and status != 'deleted' $sql");
         foreach ($completedTests as $test) {
             $test['test'] = unserialize($test['test']);
             $testQuestions = $test['test'] -> questions;

@@ -3689,4 +3689,7 @@ define("_FINISHLESSONMESSAGE", "Συγχαρητήρια! Ολοκληρώσατ
 define("_NEXTLESSON", "Επόμενο μάθημα");
 define("_LESSONFINISHED", "Το μάθημα ολοκληρώθηκε");
 define("_YOUAREATTHELASTLESSONYOUMAYVISIT", "Βρίσκεστε στο τελευταίο μάθημα που μπορείτε να επισκεφθείτε");
+define("_FEEDBACKISDONE", "Η ανάδραση έχει γίνει");
+define("_PROCEEDTOFEEDBACK","Εκκίνηση ανάδρασης");
+define("_SUCCESFULLYMODIFIEDFEEDBACK", "Η ανάδραση ενημερώθηκε επιτυχώς");
 ?>

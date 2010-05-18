@@ -8,9 +8,15 @@
                     <tr><td id = "testDescription">{$T_TEST_DATA->test.description}</td></tr>
                     <tr><td>
                             <table class = "testInfo">
-                                <tr><td rowspan = "6" id = "testInfoImage"><img src = "images/32x32/tests.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
-                                    <td id = "testInfoLabels"></td>
+                                <tr>
+        {if $T_UNIT.ctg_type != 'feedback'}
+         <td rowspan = "6" id = "testInfoImage"><img src = "images/32x32/tests.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
+                                {else}
+         <td rowspan = "2" id = "testInfoImage"><img src = "images/32x32/surveys.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
+        {/if}
+         <td id = "testInfoLabels"></td>
                                     <td></td></tr>
+       {if $T_UNIT.ctg_type != 'feedback'}
                                 <tr><td>{$smarty.const._TESTDURATION}:&nbsp;</td>
                                     <td>
                                     {if $T_TEST_DATA->options.duration}
@@ -21,6 +27,7 @@
                                         {$smarty.const._UNLIMITED}
                                     {/if}
                                     </td></tr>
+       {/if}
                                 <tr><td>{$smarty.const._NUMOFQUESTIONS}:&nbsp;</td>
                                     <td>
        {if $T_TEST_DATA->options.user_configurable && !$resume_test}
@@ -29,17 +36,19 @@
         {$T_TEST_QUESTIONS_NUM}
        {/if}
          </td></tr>
-                                <tr><td>{$smarty.const._QUESTIONSARESHOWN}:&nbsp;</td>
-                                    <td>{if $T_TEST_DATA->options.onebyone}{$smarty.const._ONEBYONEQUESTIONS}{else}{$smarty.const._ALLTOGETHER}{/if}</td></tr>
-                            {if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
-                                <tr><td>{$smarty.const._YOUPAUSEDTHISTESTON}:&nbsp;</td>
-                                    <td>#filter:timestamp_time-{$T_TEST_DATA->time.pause}#</td></tr>
-                            {else}
-                                <tr><td>{$smarty.const._DONETIMESSOFAR}:&nbsp;</td>
-                                    <td>{if $T_TEST_STATUS.timesDone}{$T_TEST_STATUS.timesDone}{else}0{/if}&nbsp;{$smarty.const._TIMES}</td></tr>
-                                <tr><td>{if $T_TEST_STATUS.timesLeft !== false }{$smarty.const._YOUCANDOTHETEST}:&nbsp;</td>
-                                    <td>{$T_TEST_STATUS.timesLeft}&nbsp;{$smarty.const._TIMESMORE}{/if}</td></tr>
-                            {/if}
+       {if $T_UNIT.ctg_type != 'feedback'}
+         <tr><td>{$smarty.const._QUESTIONSARESHOWN}:&nbsp;</td>
+          <td>{if $T_TEST_DATA->options.onebyone}{$smarty.const._ONEBYONEQUESTIONS}{else}{$smarty.const._ALLTOGETHER}{/if}</td></tr>
+        {if $T_TEST_STATUS.status == 'incomplete' && $T_TEST_DATA->time.pause}
+         <tr><td>{$smarty.const._YOUPAUSEDTHISTESTON}:&nbsp;</td>
+          <td>#filter:timestamp_time-{$T_TEST_DATA->time.pause}#</td></tr>
+        {else}
+         <tr><td>{$smarty.const._DONETIMESSOFAR}:&nbsp;</td>
+          <td>{if $T_TEST_STATUS.timesDone}{$T_TEST_STATUS.timesDone}{else}0{/if}&nbsp;{$smarty.const._TIMES}</td></tr>
+         <tr><td>{if $T_TEST_STATUS.timesLeft !== false }{$smarty.const._YOUCANDOTHETEST}:&nbsp;</td>
+          <td>{$T_TEST_STATUS.timesLeft}&nbsp;{$smarty.const._TIMESMORE}{/if}</td></tr>
+        {/if}
+       {/if}
                             </table>
                         </td>
                     <tr><td id = "testProceed">
@@ -48,7 +57,12 @@
                     {elseif $T_TEST_DATA->options.user_configurable}
                      <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1&user_configurable='+parseInt($('user_configurable').value ? $('user_configurable').value : 0)" />
                     {else}
-                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'" />
+      {if $T_UNIT.ctg_type != 'feedback'}
+       {assign var = 'buttonValue' value = $smarty.const._PROCEEDTOTEST}
+      {else}
+       {assign var = 'buttonValue' value = $smarty.const._PROCEEDTOFEEDBACK}
+      {/if}
+                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$buttonValue}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'" />
                     {/if}
                     </td></tr>
                 </table>
@@ -87,7 +101,7 @@
             {/capture}
         {/if}
         {if !$T_NO_TEST}
-   {if !$T_TEST_DATA->options.redirect || $T_TEST_STATUS.status != 'completed'}
+   {if !$T_TEST_DATA->options.redirect || ($T_TEST_STATUS.status != 'completed' && $T_TEST_STATUS.status != 'passed')}
     {$T_TEST_FORM.javascript}
     <form {$T_TEST_FORM.attributes}>
      {$T_TEST_FORM.hidden}
@@ -97,13 +111,16 @@
    {else}
     <table class = "doneTestInfo">
                     <tr><td>
-                        {$smarty.const._THETESTISDONE} {$T_TEST_STATUS.timesDone} {$smarty.const._TIMES}
-                                {if $T_TEST_DATA->options.redoable}
-         {$smarty.const._ANDCANBEDONE}
-         {if $T_TEST_STATUS.timesLeft > 0} {$T_TEST_STATUS.timesLeft}{else}0{/if}
-         {$smarty.const._TIMESMORE}
-        {/if}
-
+      {if $T_UNIT.ctg_type != 'feedback'}
+       {$smarty.const._THETESTISDONE} {$T_TEST_STATUS.timesDone} {$smarty.const._TIMES}
+         {if $T_TEST_DATA->options.redoable}
+          {$smarty.const._ANDCANBEDONE}
+          {if $T_TEST_STATUS.timesLeft > 0} {$T_TEST_STATUS.timesLeft}{else}0{/if}
+          {$smarty.const._TIMESMORE}
+         {/if}
+      {else}
+       {$smarty.const._FEEDBACKISDONE}
+      {/if}
      </td></tr>
       <tr><td>
       <div class = "headerTools">

@@ -68,7 +68,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
   <table id = "lessonUsersTable" sortBy=0 size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&">
    <tr class = "topTitle">
     <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>
-    <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>
+    <td class = "topTitle user_type" name = "role">{$smarty.const._USERTYPE}</td>
     <td class = "topTitle time_in_lesson noSort" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>
     <td class = "topTitle overall_progress noSort" name = "overall_progress">{$smarty.const._OVERALLPROGRESS}</td>
    {if !$T_CONFIGURATION.disable_tests}
@@ -83,7 +83,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
    {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
    <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
     <td class = "name">#filter:login-{$user.login}#{* ({$T_ROLES[$user.user_type]})*}</td>
-    <td class = "user_type">{$T_ROLES_ARRAY[$user.user_type]}</td>
+    <td class = "user_type">{$T_ROLES_ARRAY[$user.role]}</td>
     <td class = "time_in_lesson"><span style = "display:none">{$user.time_in_lesson.total_seconds}&nbsp;</span>{$user.time_in_lesson.time_string}</td>
     <td class = "progressCell overall_progress">
      <span style = "display:none">{$user.overall_progress.completed+1000}</span>

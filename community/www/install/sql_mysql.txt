@@ -2,6 +2,35 @@
 -- eFront v3.6.0 database creation file
 --
 
+--
+-- Table 'benchmark'
+--
+-- This is a table used for creating a usage log. An entry is created on each call.
+-- id (primary key): A numerical identifier
+-- url: The url of the call
+-- init_time: The time used for script initialization
+-- script_time: The time used by the script, excluding initialization and smarty
+-- database_time: The script time used in database queries
+-- smarty_time: The script time used by smarty
+-- total_time: The total script time
+-- memory_usage: The peak memory usage of the script
+-- total_queries: The total queries in this page
+-- max_query: Details for the slower query
+-- timestamp: The time of the page execution
+CREATE TABLE benchmark (
+  id mediumint(8) unsigned NOT NULL auto_increment,
+  url text,
+  init_time float,
+  script_time float,
+  database_time float,
+  smarty_time float,
+  total_time float,
+  memory_usage float,
+  total_queries mediumint(8) unsigned,
+  max_query text,
+  timestamp int(10) unsigned NOT NULL,
+  PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;
 
 --
 -- Table 'bookmarks'

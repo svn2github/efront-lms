@@ -83,7 +83,7 @@ table.pageLayout td.layoutColumn{padding:3px;vertical-align:top;}
 table.pageLayout td.left{width:250px;vertical-align:top;}
 table.pageLayout td.right{width:250px;vertical-align:top;}
 table.pageLayout td.center{vertical-align:top;}
-table.pageLayout td.header{height:50px;border-bottom: 0px solid #999999;background:#FAFAFA url('../images/css_images/gradient_large.jpg') repeat-x top;}
+table.pageLayout td.header{height:50px;border-bottom: 0px solid #999999;background:#FAFAFA url('../images/css_images/gradient_large.gif') repeat-x top;}
 table.pageLayout td.header *{vertical-align:middle;}
 table.pageLayout td.header #logo{padding:5px;float:left;}
 table.pageLayout td.header #info{padding:5px;float:left;}
@@ -91,7 +91,7 @@ table.pageLayout td.header #site_name{font-size:26px;}
 table.pageLayout td.header #logout_link{padding-right:2px}
 table.pageLayout td.header #logout_link a img{border-width:0px}
 table.pageLayout td.header #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
-table.pageLayout td.header #path{clear:left;padding-top:2px;background:#FAFAFA url('../images/css_images/gradient_medium.jpg') repeat-x top;height:35px;border-top: 1px solid #999999;}
+table.pageLayout td.header #path{clear:left;padding-top:2px;background:#FAFAFA url('../images/css_images/gradient_medium.gif') repeat-x top;height:35px;border-top: 1px solid #999999;}
 table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right}
 table.pageLayout td.footer{height:20px;text-align:right;vertical-align:bottom;}
@@ -101,11 +101,11 @@ table.pageLayout td.headerHidden #info{display:none}
 table.pageLayout td.headerHidden #site_name{display:none}
 table.pageLayout td.headerHidden #logout_link{display:none}
 table.pageLayout td.headerHidden #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
-table.pageLayout td.headerHidden #path{color:#FFFFFF;clear:left;padding-top:5px;background:url('../images/css_images/gradient.jpg') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
+table.pageLayout td.headerHidden #path{color:#FFFFFF;clear:left;padding-top:5px;background:url('../images/css_images/gradient.gif') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
 table.pageLayout td.headerHidden #path #path_title{color:#FFFFFF; float:left;margin-left:10px}
 table.pageLayout td.headerHidden #path #path_language{color:#FFFFFF; float:right; padding-right:4px;}
 table.pageLayout td.headerHidden a.titleLink {color:#FFFFFF;}
-table.pageLayout td.outerfooter{font-size:14px;border-top: 1px solid #999;padding:5px;background:#FAFAFA url('../images/css_images/gradient_large.jpg') repeat-x top;}
+table.pageLayout td.outerfooter{font-size:14px;border-top: 1px solid #999;padding:5px;background:#FAFAFA url('../images/css_images/gradient_large.gif') repeat-x top;}
 /*table.inner td.footer * {color:#6D6D6D;}*/
 table.hideLeft td.left, 
 table.hideRight td.right{display:none}
@@ -392,7 +392,7 @@ table.subSection tr.oddRowColor:hover,table.subSection tr.evenRowColor:hover{bac
 .topTitle{
 color:#222222;
 font-weight:bold;
-background:#FAFAFA url('../images/css_images/gradient.jpg') repeat-x bottom;
+background:#FAFAFA url('../images/css_images/gradient.gif') repeat-x bottom;
 border-bottom: 1px solid #CCCCCC;
 }
 td#path{height:25px;}
@@ -664,7 +664,7 @@ color:#555555;
 font-size:16px;
 }
 
-table.horizontalBlock {vertical-align:middle;background:#FAFAFA url('../images/css_images/gradient_large.jpg') repeat-x top;padding:0px;margin:0px;font-size:20px;font-weight:bold;width:100%;}
+table.horizontalBlock {vertical-align:middle;background:#FAFAFA url('../images/css_images/gradient_large.gif') repeat-x top;padding:0px;margin:0px;font-size:20px;font-weight:bold;width:100%;}
 table.horizontalBlock td{vertical-align:middle;padding:10px 0px 10px 0px;white-space:nowrap;}
 table.horizontalBlock .rightOption{float:right;margin-left:5px;}
 table.horizontalBlock .leftOption{margin-left:5px;}
@@ -884,7 +884,7 @@ width:100%;
 .unsolvedQuestion{width:100%;}
 .unsolvedQuestion * {vertical-align:middle;}
 .draggable, .droppable{/*Draggable/droppable questions*/
-background:#FAFAFA url('../images/css_images/gradient.jpg') repeat-x bottom;
+background:#FAFAFA url('../images/css_images/gradient.gif') repeat-x bottom;
 z-index:10; 
 height:100%;
 }
@@ -936,7 +936,7 @@ position: absolute;
 background-color:#EEEEEE;
 }
 div.tabHeader {
-background:#FAFAFA url('../images/css_images/gradient.jpg') repeat-x bottom;
+background:#FAFAFA url('../images/css_images/gradient.gif') repeat-x bottom;
 min-height:25px;
 cursor: pointer;
 padding-left:2px;
@@ -954,7 +954,7 @@ div.selectedTopTitle {
 color:#222222;
 height:20px;
 font-weight:bold;/*border:1px double #5D91ED;*/
-background:#FAFAFA url('../images/css_images/gradient.jpg') repeat-x bottom;
+background:#FAFAFA url('../images/css_images/gradient.gif') repeat-x bottom;
 border-bottom: 1px solid #CCCCCC;
 }
 div.selectedTopTitle a:hover {color:#FFFFFF;text-decoration:none;}
@@ -1138,7 +1138,7 @@ margin-left:1px;
 div.blockContents{   
 border: 1px solid #CCCCCC;
 padding:5px;
-background:#FAFAFA url('../images/css_images/gradient_medium.jpg') repeat-x top;
+background:#FAFAFA url('../images/css_images/gradient_medium.gif') repeat-x top;
 }
 div.block table.iconTable{
 width:100%;
@@ -1294,7 +1294,7 @@ height:400px;
 .horizontalSelectedTopTitle {
 height:32px;
 color:#FFFFFF;
-background-image: url('../images/css_images/gradient.jpg');
+background-image: url('../images/css_images/gradient.gif');
 vertical-align:middle;
 text-decoration:none;
 }

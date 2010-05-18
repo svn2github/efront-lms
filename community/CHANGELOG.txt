@@ -22,6 +22,8 @@
 - Fixed issue with php.ini when it exists in www folder by copying it to install folder
 - Fixed issue about displaying all tests in reports for a multi-roled user
 - Added debugging mode option
+- Fixed security issue ### (place details here)
+- Fixed problems with show correct answers and custom css files
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

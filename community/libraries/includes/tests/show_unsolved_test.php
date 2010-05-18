@@ -18,7 +18,7 @@ if (!$_student_) {
     $test = new EfrontTest($currentUnit['id'], true);
     $status = $test -> getStatus($currentUser, $_GET['show_solved_test']);
     $form = new HTML_QuickForm("test_form", "post", basename($_SERVER['PHP_SELF']).'?view_unit='.$_GET['view_unit'], "", null, true);
-    switch ($status['status']) {
+ switch ($status['status']) {
         case 'incomplete':
             if (!$testInstance = unserialize($status['completedTest']['test'])) {
                 throw new EfrontTestException(_TESTCORRUPTEDASKRESETEXECUTION, EfrontTestException::CORRUPTED_TEST);
@@ -139,7 +139,7 @@ if (!$_student_) {
     $smarty -> assign("T_TEST_STATUS", $status);
 
     if (!$status['status'] || ($status['status'] == 'incomplete' && $testInstance -> time['pause'])) { //If the user hasn't confirmed he wants to do the test, display confirmation buttons
-        $smarty -> assign("T_SHOW_CONFIRMATION", true);
+  $smarty -> assign("T_SHOW_CONFIRMATION", true);
     } else { //The user confirmed he wants to do the test, so display it
 
         $form -> addElement('hidden', 'time_start', $timeStart); //This element holds the time the test started, so we know the remaining time even if the user left the system

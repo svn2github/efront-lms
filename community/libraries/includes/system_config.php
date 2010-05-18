@@ -98,7 +98,7 @@ define("USERNAME","'.$values['phplivedocx_username'].'");
 define("PASSWORD","'.$values['phplivedocx_password'].'");
 define("PHPLIVEDOCXAPI","'.$values['phplivedocx_server'].'");
 ?>';
-  if (is_writable($path."phplivedocx_config.php")) {
+  if (!file_exists($path."phplivedocx_config.php") || is_writable($path."phplivedocx_config.php")) {
    file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
   } else {
    $failed_updates[] = _PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE;

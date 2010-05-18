@@ -232,7 +232,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                           'automatic_assignment' => $values['automatic_assignment']); //skill-gap option
  } else {
   $testOptions = array('duration' => 0, //Duration is displayed in minutes, but is stored in seconds
-                                'redoable' => 0,
+                                'redoable' => 1,
                                 'onebyone' => 0,
                           'only_forward' => 0,
                                 'given_answers' => 0,
@@ -264,7 +264,12 @@ if ($form -> isSubmitted() && $form -> validate()) {
             $testUnit['parent_content_ID'] = $values['parent_content'];
             $testUnit -> persist();
         }
-        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=".$_GET['ctg']."&from_unit=".$_GET['from_unit']."&message=".urlencode(_SUCCESFULLYMODIFIEDTEST)."&message_type=success");
+  if ($_GET['ctg'] != 'feedback') {
+   $messageString = _SUCCESFULLYMODIFIEDTEST;
+  } else {
+   $messageString = _SUCCESFULLYMODIFIEDFEEDBACK;
+  }
+        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=".$_GET['ctg']."&from_unit=".$_GET['from_unit']."&message=".urlencode($messageString)."&message_type=success");
     } else {
         $contentFields = array('data' => '',
                                        'name' => $values['name'],

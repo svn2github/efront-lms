@@ -93,6 +93,9 @@
 
     {include file = "includes/tests.tpl"}
 {/if}
+{if (isset($T_CTG) && $T_CTG == 'feedback')}
+    {include file = "includes/tests.tpl"}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'glossary')}
  {assign var = "category" value = 'lessons'}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=glossary">'|cat:$smarty.const._GLOSSARY|cat:'</a>'}

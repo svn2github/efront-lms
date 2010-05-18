@@ -121,7 +121,7 @@ try {
         try {
             $lessonQuestions = array_keys($infoLesson -> getQuestions());
             if (sizeof($lessonQuestions) > 0) {
-                $info = EfrontStats :: getQuestionInfo($lessonQuestions);
+                $info = EfrontStats :: getQuestionInfo($lessonQuestions, $infoLesson -> lesson['id']);
                 $questionsInfo = array();
                 foreach ($info as $id => $questionInfo) {
                     $questionsInfo[$id] = array('text' => $questionInfo['general']['reduced_text'],

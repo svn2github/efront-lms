@@ -149,10 +149,16 @@ try {
                 $firstNodeIterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));
             } else {
                 $iterator = new EfrontTheoryFilterIterator(new EfrontVisitableAndEmptyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))));
-                $firstNodeIterator = new EfrontTheoryFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))));
+    $firstNodeIterator = new EfrontTheoryFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))));
             }
+   $hideFeedback = false;
+   foreach (new EfrontNoFeedbackFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)))) as $key => $value) {
+    if (!$value['seen']) {
+     $hideFeedback = true;
+    }
+   }
             if ($currentLesson -> options['content_tree']) {
-                $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator, false, array('truncateNames' => 60)));
+                $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator, false, array('truncateNames' => 60, 'hideFeedback' => $hideFeedback)));
             }
             //Progress, status and start/continue block
             if (!$currentLesson -> options['tracking'] || $currentUser -> coreAccess['content'] == 'hidden') {

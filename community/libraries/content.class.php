@@ -2177,6 +2177,7 @@ class EfrontContentTree extends EfrontTree
 
      */
     public function toHTML($iterator = false, $treeId = false, $options = array(), $scormState = array()) {
+  !isset($options['hideFeedback']) ? $options['hideFeedback'] = false : null;
         !isset($options['onclick']) ? $options['onclick'] = false : null;
         !isset($options['custom']) ? $options['custom'] = false : null;
         !isset($options['tree_root']) ? $options['tree_root'] = false : null;
@@ -2252,7 +2253,7 @@ class EfrontContentTree extends EfrontTree
             //Set the display style according to whether the unit has data
             if ($current['data'] == '' && $current['ctg_type'] == 'scorm' && $scorm2004) {
                 $linkClass[] = 'treeHeader';
-            } else if ($current['data'] == '' && $current['ctg_type'] != 'tests') {
+            } else if ($current['data'] == '' && $current['ctg_type'] != 'tests' && $current['ctg_type'] != 'feedback') {
                 $linkClass[] = 'treeNoContent';
                 $fullName.= ' ('._EMPTYUNIT.')';
                 $targetLink = 'javascript:void(0)';
@@ -2260,6 +2261,9 @@ class EfrontContentTree extends EfrontTree
    //Set the display style according to whether the unit is inactive
    if ($current['active'] == 0) {
        $linkClass[] = 'inactiveLink';
+   }
+   if ($current['ctg_type'] == "feedback" && $options['hideFeedback'] == true) {
+    $linkClass[] = 'inactiveLink';
    }
    if (isset($options['noclick']) && $options['noclick']) {
                 $targetLink = 'javascript:void(0)';
@@ -2325,7 +2329,7 @@ class EfrontContentTree extends EfrontTree
    }
             //$toolsString = '<span class = "toolsDiv" style = "position:absolute">'.$activateLink.$editLink.$deleteLink.'</span>';
             $toolsString = '<span>'.$activateLink.$startLink.$editLink.$deleteLink.$options['custom'][$current['id']].'</span>';
-            $treeString .= '
+   $treeString .= '
                 <li '.$display.' class = "'.implode(" ", $liClass).'" id = "node'.$current['id'].'" noDrag = "'.$nodrag.'" noRename = "true" noDelete = "true" style = "white-space:nowrap" >
                     <a onclick = "'.$onclick.'" class = "'.(!$current['active'] ? 'treeinactive' : '').' treeLink '.implode(" ", $linkClass).'" href = "'.$targetLink.'" title = "'.$fullName.' '.implode(" ", $tooltip).'">'.$unitName."</a>&nbsp;".$toolsString;
             $iterator -> getDepth() > $depth ? $treeString .= '<ul>' : $treeString .= '</li>';
@@ -2605,7 +2609,7 @@ class EfrontVisitableFilterIterator extends FilterIterator
     function accept() {
         $current = $this -> current();
         $scorm2004 = in_array($current['scorm_version'], EfrontContentTree::$scorm2004Versions);
-        return $current instanceof ArrayObject && ($current['active'] == 1 && $current['publish'] == 1 && ($current['data'] != '' || $current['ctg_type'] == 'tests' || $scorm2004));
+        return $current instanceof ArrayObject && ($current['active'] == 1 && $current['publish'] == 1 && ($current['data'] != '' || $current['ctg_type'] == 'tests' || $scorm2004 || $current['ctg_type'] == 'feedback'));
     }
 }
 /**
@@ -2732,6 +2736,70 @@ class EfrontNoTestsFilterIterator extends FilterIterator
      */
     function accept() {
         if ($this -> current() -> offsetGet('ctg_type') != 'tests') {
+            return true;
+        }
+    }
+}
+/**
+
+ * Iterator Filter for traversing only Feedback units
+
+ *
+
+ * @package eFront
+
+ * @version 3.6.3
+
+ */
+class EfrontFeedbackFilterIterator extends FilterIterator
+{
+    /**
+
+     * Accepts only feedback units
+
+     *
+
+     * @return boolean
+
+     * @since 3.6.3
+
+     * @access public
+
+     */
+    function accept() {
+        if ($this -> current() -> offsetGet('ctg_type') == 'feedback') {
+            return true;
+        }
+    }
+}
+/**
+
+ * Iterator Filter for traversing only non-Feedback units
+
+ *
+
+ * @package eFront
+
+ * @version 3.6.3
+
+ */
+class EfrontNoFeedbackFilterIterator extends FilterIterator
+{
+    /**
+
+     * Accepts only non-feedback units
+
+     *
+
+     * @return boolean
+
+     * @since 3.6.3
+
+     * @access public
+
+     */
+    function accept() {
+        if ($this -> current() -> offsetGet('ctg_type') != 'feedback') {
             return true;
         }
     }

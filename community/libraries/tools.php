@@ -2556,4 +2556,21 @@ function addTime(&$a, $b) {
 
 	*/
 }
+class AjaxResultObject
+{
+ public $message = '';
+ public $response = false;
+ public function __construct($response, $message) {
+  $this -> response = $response;
+  $this -> message = $message;
+ }
+ public function display($return = false) {
+  $output = json_encode(array('response' => $this -> response, 'message' => $this -> message));
+  if ($return) {
+   return $output;
+  } else {
+   echo $output;
+  }
+ }
+}
 ?>

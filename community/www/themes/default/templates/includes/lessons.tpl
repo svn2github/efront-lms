@@ -176,7 +176,7 @@
            <img class = "ajaxHandle" src = "images/16x16/lessons.png" alt = "{$smarty.const._DIRECTLY}" title = "{$smarty.const._DIRECTLY}" {if $change_lessons}onclick = "setLessonAccess(this, '{$lesson.id}')"{/if}>
          {/if}
           </td>
-          <td class = "centerAlign">{if !$lesson.course_only}{if $lesson.price == 0}{$smarty.const._FREELESSON}{else}{$lesson.price_string}{/if}{else}-{/if}</td>
+          <td class = "centerAlign">{if !$lesson.course_only}{if $lesson.price == 0}-{else}{$lesson.price_string}{/if}{else}-{/if}</td>
           <td>#filter:timestamp-{$lesson.created}#</td>
           <td class = "centerAlign">
          {if $lesson.active == 1}

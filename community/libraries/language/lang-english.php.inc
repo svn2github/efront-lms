@@ -3689,4 +3689,7 @@ define("_FINISHLESSONMESSAGE", "Congratulations! You have finished the lesson. P
 define("_NEXTLESSON", "Next lesson");
 define("_LESSONFINISHED", "Lesson finished");
 define("_YOUAREATTHELASTLESSONYOUMAYVISIT", "You are at the last lesson you may visit");
+define("_FEEDBACKISDONE", "Feedback is done");
+define("_PROCEEDTOFEEDBACK","Proceed to feedback");
+define("_SUCCESFULLYMODIFIEDFEEDBACK", "Successfully modified feedback");
 ?>

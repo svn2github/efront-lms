@@ -143,10 +143,14 @@ if ($_GET['op'] == 'course_info') {
      $currentCourse -> options['auto_complete'] = 1;
     }
     $currentCourse -> persist();
-    echo $currentCourse -> options['auto_complete'];
+    foreach ($currentCourse -> getCourseLessons() as $lesson) {
+     $lesson -> options['auto_complete'] = $currentCourse -> options['auto_complete'];
+     $lesson -> persist();
+    }
+    $ajaxResult = new AjaxResultObject($currentCourse -> options['auto_complete'], 'my message');
+    $ajaxResult -> display();
    } catch (Exception $e) {
-    header("HTTP/1.0 500");
-    echo $e -> getMessage().' ('.$e -> getCode().')';
+    handleAjaxExceptions($e);
    }
    exit;
   } else if (isset($_GET['auto_certificate'])) {

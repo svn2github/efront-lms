@@ -25,6 +25,7 @@
 - Fixed problems with show correct answers and custom css files
 - Fixed issue with progress bar when user had seen a deleted unit
 - Fixed issue with active field in personal settings
+- Disabled save button in copy content from another lesson, until ajax response
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

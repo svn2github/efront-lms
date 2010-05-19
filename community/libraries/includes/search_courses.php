@@ -167,7 +167,8 @@ if (isset($_GET['ajax'])) {
 $form = new HTML_QuickForm("search_courses_form", "post", $_SESSION['s_type'].".php?ctg=search_courses", "", null, true);
 
 // Courses list
-$courses = EFrontCourse :: getCourses();
+$constraints = array('active' => 1, 'archive' => 0, 'return_objects' => false);
+$courses = EFrontCourse :: getAllCourses($constraints);
 $course_list = array();
 $course_list['0'] = _COURSES;
 foreach ($courses as $course) {

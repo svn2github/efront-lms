@@ -57,9 +57,9 @@ table#lessonUsersTable {width:100%;}
 table#lessonUsersTable td.login{width:30%;}
 table#lessonUsersTable td.user_type{width:10%;}
 table#lessonUsersTable td.time_in_lesson{width:15%;}
-table#lessonUsersTable td.overall_progress{width:5%;text-align:center;}
-table#lessonUsersTable td.test_status{width:5%;text-align:center;}
-table#lessonUsersTable td.project_status{width:5%;text-align:center;}
+table#lessonUsersTable td.overall_progress{width:5%;}
+table#lessonUsersTable td.test_status{width:5%;}
+table#lessonUsersTable td.project_status{width:5%;}
 table#lessonUsersTable td.completed{width:5%;text-align:center;}
 table#lessonUsersTable td.score{width:5%;text-align:center;}
 {/literal}

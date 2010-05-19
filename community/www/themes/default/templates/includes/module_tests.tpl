@@ -370,6 +370,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
           <a href = "javascript:void(0)" onclick = "initSlider();eF_js_showDivPopup('{$smarty.const._ADJUSTQUESTIONS}', 2, 'random_wizard_div')">{$smarty.const._ADJUSTQUESTIONS}</a>
          </span>
          {/if}
+   {if $T_CTG != 'feedback'}
         <span>
           <img src = "images/16x16/add.png" title = "{$smarty.const._ADDQUESTION}" alt = "{$smarty.const._ADDQUESTION}"/>
     <select name = "question_type" onchange = "if (this.options[this.options.selectedIndex].value) window.location='{$smarty.server.PHP_SELF}?ctg=tests&add_question=1&question_type='+this.options[this.options.selectedIndex].value">
@@ -378,6 +379,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {foreach name = 'question_types' item = "item" key = "key" from = $T_QUESTIONTYPESTRANSLATIONS}<option value = "{$key}">{$item}</option>{/foreach}
     </select>
          </span>
+   {/if}
   </div>
   {$smarty.capture.t_random_test_wizard}
   <div id = "test_settings">
@@ -414,49 +416,51 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
                 <td class = "topTitle centerAlign" name = "partof">{$smarty.const._USEQUESTION}</td></tr>
    {foreach name = "questions_list" key = "key" item = "item" from = $T_UNIT_QUESTIONS}
-            <tr class = "{cycle name = "main_cycle" values="oddRowColor, evenRowColor"}">
-                <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}" title="{$item.text}"> {$item.text|eF_truncate:50}</a></td>
-            {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
-                <td>{if $item.parent_name}{$item.parent_name}{else}{$smarty.const._NONE}{/if}</td>
-            {elseif $T_SKILLGAP_TEST}
-                <td>{$item.name}</td>
-            {/if}
-                <td class = "centerAlign">
-                    {if $item.type == 'match'} <img src = "images/16x16/question_type_match.png" title = "{$smarty.const._MATCH}" alt = "{$smarty.const._MATCH}" />
-                    {elseif $item.type == 'raw_text'} <img src = "images/16x16/question_type_free_text.png" title = "{$smarty.const._RAWTEXT}" alt = "{$smarty.const._RAWTEXT}" />
-                    {elseif $item.type == 'multiple_one'} <img src = "images/16x16/question_type_one_correct.png" title = "{$smarty.const._MULTIPLEONE}" alt = "{$smarty.const._MULTIPLEONE}" />
-                    {elseif $item.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
-                    {elseif $item.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
-                    {elseif $item.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
-     {elseif $item.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
-                    {/if}
-                    <span style = "display:none">{$item.type}</span>{*We put this here in order to be able to sort by type*}
-                </td>
-   {if $T_CTG != 'feedback'}
-                <td class = "centerAlign">
-                    {if $item.difficulty == 'low'} <img src = "images/16x16/flag_green.png" title = "{$smarty.const._LOW}" alt = "{$smarty.const._LOW}" />
-                    {elseif $item.difficulty == 'medium'} <img src = "images/16x16/flag_blue.png" title = "{$smarty.const._MEDIUM}" alt = "{$smarty.const._MEDIUM}" />
-                    {elseif $item.difficulty == 'high'} <img src = "images/16x16/flag_yellow.png" title = "{$smarty.const._HIGH}" alt = "{$smarty.const._HIGH}" />
-                    {elseif $item.difficulty == 'very_high'}<img src = "images/16x16/flag_red.png" title = "{$smarty.const._VERYHIGH}" alt = "{$smarty.const._VERYHIGH}" />
-                    {/if}
-                    <span style = "display:none">{$item.difficulty}</span>{*We put this here in order to be able to sort by type*}
-                </td>
+            {if $T_CTG == 'tests' || ($T_CTG == 'feedback' && $item.type != 'true_false')}
+    <tr class = "{cycle name = "main_cycle" values="oddRowColor, evenRowColor"}">
+     <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}" title="{$item.text}"> {$item.text|eF_truncate:50}</a></td>
+    {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+     <td>{if $item.parent_name}{$item.parent_name}{else}{$smarty.const._NONE}{/if}</td>
+    {elseif $T_SKILLGAP_TEST}
+     <td>{$item.name}</td>
+    {/if}
+     <td class = "centerAlign">
+      {if $item.type == 'match'} <img src = "images/16x16/question_type_match.png" title = "{$smarty.const._MATCH}" alt = "{$smarty.const._MATCH}" />
+      {elseif $item.type == 'raw_text'} <img src = "images/16x16/question_type_free_text.png" title = "{$smarty.const._RAWTEXT}" alt = "{$smarty.const._RAWTEXT}" />
+      {elseif $item.type == 'multiple_one'} <img src = "images/16x16/question_type_one_correct.png" title = "{$smarty.const._MULTIPLEONE}" alt = "{$smarty.const._MULTIPLEONE}" />
+      {elseif $item.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
+      {elseif $item.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
+      {elseif $item.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
+      {elseif $item.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
+      {/if}
+      <span style = "display:none">{$item.type}</span>{*We put this here in order to be able to sort by type*}
+     </td>
+    {if $T_CTG != 'feedback'}
+     <td class = "centerAlign">
+      {if $item.difficulty == 'low'} <img src = "images/16x16/flag_green.png" title = "{$smarty.const._LOW}" alt = "{$smarty.const._LOW}" />
+      {elseif $item.difficulty == 'medium'} <img src = "images/16x16/flag_blue.png" title = "{$smarty.const._MEDIUM}" alt = "{$smarty.const._MEDIUM}" />
+      {elseif $item.difficulty == 'high'} <img src = "images/16x16/flag_yellow.png" title = "{$smarty.const._HIGH}" alt = "{$smarty.const._HIGH}" />
+      {elseif $item.difficulty == 'very_high'}<img src = "images/16x16/flag_red.png" title = "{$smarty.const._VERYHIGH}" alt = "{$smarty.const._VERYHIGH}" />
+      {/if}
+      <span style = "display:none">{$item.difficulty}</span>{*We put this here in order to be able to sort by type*}
+     </td>
+    {/if}
+    {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+     <td class = "centerAlign">{$T_TEST_FORM.question_weight[$key].html}</td>
+    {/if}
+    {if $T_CTG != 'feedback'}
+     <td class = "centerAlign">{if $item.estimate_interval.minutes}{$item.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $item.estimate_interval.seconds}{$item.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}</td>
+    {/if}
+     <td class = "centerAlign">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$item.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 2)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
+    {if $T_SKILLGAP_TEST}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&lessonId={$item.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
+    {/if}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
+     </td>
+     <td class = "centerAlign">{$T_TEST_FORM.questions[$key].html}<span style = "display:none">{$T_TEST_FORM.questions[$key].value}</span></td> {*span is used for sorting*}
+    </tr>
    {/if}
-            {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
-                <td class = "centerAlign">{$T_TEST_FORM.question_weight[$key].html}</td>
-            {/if}
-   {if $T_CTG != 'feedback'}
-             <td class = "centerAlign">{if $item.estimate_interval.minutes}{$item.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $item.estimate_interval.seconds}{$item.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}</td>
-            {/if}
-    <td class = "centerAlign">
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$item.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 2)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
-            {if $T_SKILLGAP_TEST}
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&lessonId={$item.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
-            {/if}
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
-                </td>
-                <td class = "centerAlign">{$T_TEST_FORM.questions[$key].html}<span style = "display:none">{$T_TEST_FORM.questions[$key].value}</span></td> {*span is used for sorting*}
-            </tr>
             {foreachelse}
             <tr class = "oddRowColor defaultRowHeight"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
             {/foreach}
@@ -1320,7 +1324,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      </table>
  {/capture}
  {capture name = 't_questions_code'}
-  {if $_change_}
+  {if $_change_ && $T_CTG != 'feedback'}
   <div class = "headerTools">
    <span>
     <img src = "images/16x16/add.png" title = "{$smarty.const._ADDQUESTION}" alt = "{$smarty.const._ADDQUESTION}"/>
@@ -1349,50 +1353,52 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
              <td class = "topTitle centerAlign noSort">{$smarty.const._FUNCTIONS}</td>
          </tr>
    {foreach name = 'questions_list' key = 'key' item = 'question' from = $T_QUESTIONS}
-         <tr class = "{cycle name = "main_cycle" values="oddRowColor,evenRowColor"} defaultRowHeight">
-             <td>
-         {if $_change_}
-                 <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}" title= "{$question.text}">{$question.text|eF_truncate:70}</a>
-         {else}{$question.text|eF_truncate:70}{/if}
-             </td>
-         {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
-    <td>{$question.parent_unit}</td>
-   {elseif $T_SKILLGAP_TEST}
-    <td>{$question.name}</td>
+   {if $T_CTG == 'tests' || ($T_CTG == 'feedback' && $question.type != 'true_false')}
+    <tr class = "{cycle name = "main_cycle" values="oddRowColor,evenRowColor"} defaultRowHeight">
+     <td>
+    {if $_change_}
+      <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}" title= "{$question.text}">{$question.text|eF_truncate:70}</a>
+    {else}{$question.text|eF_truncate:70}{/if}
+     </td>
+    {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+     <td>{$question.parent_unit}</td>
+    {elseif $T_SKILLGAP_TEST}
+     <td>{$question.name}</td>
+    {/if}
+     <td class = "centerAlign">
+      {if $question.type == 'match'} <img src = "images/16x16/question_type_match.png" title = "{$smarty.const._MATCH}" alt = "{$smarty.const._MATCH}" />
+      {elseif $question.type == 'raw_text'} <img src = "images/16x16/question_type_free_text.png" title = "{$smarty.const._RAWTEXT}" alt = "{$smarty.const._RAWTEXT}" />
+      {elseif $question.type == 'multiple_one'} <img src = "images/16x16/question_type_one_correct.png" title = "{$smarty.const._MULTIPLEONE}" alt = "{$smarty.const._MULTIPLEONE}" />
+      {elseif $question.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
+      {elseif $question.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
+      {elseif $question.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
+      {elseif $question.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
+      {/if}
+      <span style = "display:none">{$question.type}</span>
+     </td>
+    {if $T_CTG != 'feedback'}
+     <td class = "centerAlign">
+      {if $question.difficulty == 'low'} <img src = "images/16x16/flag_green.png" title = "{$smarty.const._LOW}" alt = "{$smarty.const._LOW}" />
+      {elseif $question.difficulty == 'medium'} <img src = "images/16x16/flag_blue.png" title = "{$smarty.const._MEDIUM}" alt = "{$smarty.const._MEDIUM}" />
+      {elseif $question.difficulty == 'high'} <img src = "images/16x16/flag_yellow.png" title = "{$smarty.const._HIGH}" alt = "{$smarty.const._HIGH}" />
+      {elseif $question.difficulty == 'very_high'} <img src = "images/16x16/flag_red.png" title = "{$smarty.const._VERYHIGH}" alt = "{$smarty.const._VERYHIGH}" />
+      {/if}
+      <span style = "display:none">{$question.difficulty}</span>
+     </td>
+     <td class = "centerAlign">{if $question.estimate_interval.minutes}{$question.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $question.estimate_interval.seconds}{$question.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}</td>
+    {/if}
+       <td class = "centerAlign noWrap">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$question.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 1)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
+     {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
+      {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.skillgaptests) || $T_CURRENT_USER->coreAccess.skillgaptests == 'change')}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&lessonId={$question.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
+      {/if}
+      <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._CORRECTION}" title = "{$smarty.const._CORRECTION}"/></a>
+      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteQuestion(this, '{$question.id}')"/>
+     {/if}
+     </td>
+    </tr>
    {/if}
-    <td class = "centerAlign">
-                 {if $question.type == 'match'} <img src = "images/16x16/question_type_match.png" title = "{$smarty.const._MATCH}" alt = "{$smarty.const._MATCH}" />
-                 {elseif $question.type == 'raw_text'} <img src = "images/16x16/question_type_free_text.png" title = "{$smarty.const._RAWTEXT}" alt = "{$smarty.const._RAWTEXT}" />
-                 {elseif $question.type == 'multiple_one'} <img src = "images/16x16/question_type_one_correct.png" title = "{$smarty.const._MULTIPLEONE}" alt = "{$smarty.const._MULTIPLEONE}" />
-                 {elseif $question.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
-                 {elseif $question.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
-                 {elseif $question.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
-     {elseif $question.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
-                 {/if}
-                 <span style = "display:none">{$question.type}</span>
-             </td>
-   {if $T_CTG != 'feedback'}
-             <td class = "centerAlign">
-                 {if $question.difficulty == 'low'} <img src = "images/16x16/flag_green.png" title = "{$smarty.const._LOW}" alt = "{$smarty.const._LOW}" />
-                 {elseif $question.difficulty == 'medium'} <img src = "images/16x16/flag_blue.png" title = "{$smarty.const._MEDIUM}" alt = "{$smarty.const._MEDIUM}" />
-                 {elseif $question.difficulty == 'high'} <img src = "images/16x16/flag_yellow.png" title = "{$smarty.const._HIGH}" alt = "{$smarty.const._HIGH}" />
-                 {elseif $question.difficulty == 'very_high'} <img src = "images/16x16/flag_red.png" title = "{$smarty.const._VERYHIGH}" alt = "{$smarty.const._VERYHIGH}" />
-                 {/if}
-                 <span style = "display:none">{$question.difficulty}</span>
-             </td>
-             <td class = "centerAlign">{if $question.estimate_interval.minutes}{$question.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $question.estimate_interval.seconds}{$question.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}</td>
-   {/if}
-      <td class = "centerAlign noWrap">
-              <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$question.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 1)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
-             {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
-                 {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.skillgaptests) || $T_CURRENT_USER->coreAccess.skillgaptests == 'change')}
-                 <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&lessonId={$question.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
-                 {/if}
-                 <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._CORRECTION}" title = "{$smarty.const._CORRECTION}"/></a>
-                 <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteQuestion(this, '{$question.id}')"/>
-             {/if}
-             </td>
-         </tr>
    {foreachelse}
          <tr class = "oddRowColor defaultRowHeight"><td class = "emptyCategory" colspan = "6">{$smarty.const._NOQUESTIONSSETFORTHISUNIT}</td></tr>
          {/foreach}

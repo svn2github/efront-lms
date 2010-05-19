@@ -1857,6 +1857,47 @@ class EfrontLesson
   $this -> users = false; //Reset users cache
   return $this -> getUsers();
  }
+ public static function countLessonsOccurencesInCoursesForAllUsers() {
+  $result = eF_getTableData("lessons_to_courses", "lessons_ID, courses_ID");
+  foreach ($result as $value) {
+   $lessonsCourses[$value['lessons_ID']][] = $value['courses_ID'];
+  }
+  $result = eF_getTableData("users u, users_to_courses uc", "users_LOGIN, courses_ID", "u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN");
+  foreach ($result as $value) {
+   $usersCourses[$value['users_LOGIN']][] = $value['courses_ID'];
+  }
+  foreach ($lessonsCourses as $lessonId => $lessonCourses) {
+   foreach ($usersCourses as $login => $userCourses) {
+    if (sizeof($commonCourses = array_intersect($lessonCourses, $userCourses)) > 0) {
+     $userLessonCourses[$login][$lessonId] = sizeof($commonCourses);
+    }
+   }
+  }
+  return $userLessonCourses;
+ }
+ public static function countLessonsOccurencesInCoursesForUser($user) {
+  if ($user instanceOf EfrontUser) {
+   $user = $user -> user['login'];
+  }
+  $result = eF_getTableData("lessons_to_courses", "lessons_ID, courses_ID");
+  foreach ($result as $value) {
+   $lessonsCourses[$value['lessons_ID']][] = $value['courses_ID'];
+  }
+  $result = eF_getTableData("users_to_courses uc", "users_LOGIN, courses_ID", "uc.archive=0 and users_LOGIN='".$user."'");
+  foreach ($result as $value) {
+   $usersCourses[$value['users_LOGIN']][] = $value['courses_ID'];
+  }
+  foreach ($lessonsCourses as $lessonId => $lessonCourses) {
+   foreach ($usersCourses as $login => $userCourses) {
+    if (sizeof($commonCourses = array_intersect($lessonCourses, $userCourses)) > 0) {
+     $userLessonCourses[$login][$lessonId] = sizeof($commonCourses);
+    }
+   }
+  }
+  return $userLessonCourses;
+  //pr($userCourses);
+  //pr($lessonCourses);
+ }
     /**
 
      * Confirm user registration

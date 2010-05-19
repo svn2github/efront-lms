@@ -714,7 +714,7 @@ class EfrontCourse
 
 	 */
  private function countLessonsOccurencesInCourses() {
-  $result = eF_getTableDataFlat("lessons l, lessons_to_courses lc", "lc.lessons_ID, count(lc.lessons_ID)", "l.course_only = 1 and l.id=lc.lessons_ID", "", "lc.lessons_ID");
+  $result = eF_getTableDataFlat("lessons_to_courses lc", "lc.lessons_ID, count(lc.lessons_ID)", "", "", "lc.lessons_ID");
   $lessonsToCourses = array_combine($result['lessons_ID'], $result['count(lc.lessons_ID)']);
   return $lessonsToCourses;
  }
@@ -1727,11 +1727,20 @@ class EfrontCourse
 
 	 */
  private function removeUsersFromCourseLessons($users) {
-  $lessonsToCourses = $this -> countLessonsOccurencesInCourses();
+  if (sizeof($users) == 1) {
+   $key = key($users);
+   $lessonsToCourses = EfrontLesson::countLessonsOccurencesInCoursesForUser($users[$key]);
+  } else {
+   $lessonsToCourses = EfrontLesson::countLessonsOccurencesInCoursesForAllUsers();
+  }
   foreach ($this -> getCourseLessons() as $lesson) {
-   if ($lessonsToCourses[$lesson -> lesson['id']] == 1) {
-    $lesson -> removeUsers($users);
+   $usersToRemove = array();
+   foreach ($users as $user) {
+    if ($lessonsToCourses[$user][$lesson -> lesson['id']] == 1) {
+     $usersToRemove[] = $user;
+    }
    }
+   $lesson -> removeUsers($usersToRemove);
   }
  }
  /**
@@ -1789,11 +1798,20 @@ class EfrontCourse
 
 	 */
  private function archiveUsersInCourseLessons($users) {
-  $lessonsToCourses = $this -> countLessonsOccurencesInCourses();
+  if (sizeof($users) == 1) {
+   $key = key($users);
+   $lessonsToCourses = EfrontLesson::countLessonsOccurencesInCoursesForUser($users[$key]);
+  } else {
+   $lessonsToCourses = EfrontLesson::countLessonsOccurencesInCoursesForAllUsers();
+  }
   foreach ($this -> getCourseLessons() as $lesson) {
-   if ($lessonsToCourses[$lesson -> lesson['id']] == 1) {
-    $lesson -> archiveLessonUsers($users);
+   $usersToArchive = array();
+   foreach ($users as $user) {
+    if ($lessonsToCourses[$user][$lesson -> lesson['id']] == 1) {
+     $usersToArchive[] = $user;
+    }
    }
+   $lesson -> archiveLessonUsers($usersToArchive);
   }
  }
  /**

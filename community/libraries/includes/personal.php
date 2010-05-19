@@ -703,7 +703,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
             }
             $form -> addElement('select', 'user_type', _USERTYPE, $roles_array);
         }
-        $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ');
+        $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ', array(0, 1));
         // Set default values for new users
         if (isset($_GET['add_user'])) {
             $form -> setDefaults(array('active' => '1'));

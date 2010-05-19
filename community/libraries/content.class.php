@@ -2264,6 +2264,7 @@ class EfrontContentTree extends EfrontTree
    }
    if ($current['ctg_type'] == "feedback" && $options['hideFeedback'] == true) {
     $linkClass[] = 'inactiveLink';
+    $targetLink = 'javascript:void(0)';
    }
    if (isset($options['noclick']) && $options['noclick']) {
                 $targetLink = 'javascript:void(0)';

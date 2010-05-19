@@ -81,16 +81,12 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $form -> accept($renderer);
 
     $smarty -> assign('T_COMPLETE_LESSON_FORM', $renderer -> toArray());
-    //$doneTests = EfrontStats :: getDoneTestsPerUser($editedUser -> user['login']);
+    $doneTests = EfrontStats :: getDoneTestsPerUser($_GET['edit_user'], false, $currentLesson -> lesson['id']);
 
-    $doneTests = array();
-
-    $result = EfrontStats :: getStudentsDoneTests($currentLesson -> lesson['id'], $editedUser -> user['login']);
-    foreach ($result[$editedUser -> user['login']] as $key => $value) {
+    $result = EfrontStats :: getStudentsDoneTests($currentLesson -> lesson['id'], $_GET['edit_user']);
+    foreach ($result[$_GET['edit_user']] as $key => $value) {
         if ($value['scorm']) {
             $scormDoneTests[$key] = $value;
-        } else {
-      $doneTests[$key] = $value;
         }
     }
 
@@ -98,9 +94,9 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $testNames = array_combine($testNames['id'], $testNames['name']);
 
 
-    foreach($doneTests as $key => $value) {
+    foreach($doneTests[$_GET['edit_user']] as $key => $value) {
         if (in_array($key, array_keys($testNames))) {
-            $lastTest = unserialize($doneTests[$value['last_test_id']]);
+            $lastTest = unserialize($doneTests[$_GET['edit_user']][$value['last_test_id']]);
             $userStats['done_tests'][$key] = array('name' => $testNames[$key], 'score' => $value['average_score'], 'last_test_id' => $value['last_test_id'], 'last_score' => $value['scores'][$value['last_test_id']], 'times_done' => $value['times_done'], 'content_ID' => $value[$value['last_test_id']]['content_ID']);
         }
     }
@@ -108,13 +104,15 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
         $userStats['scorm_done_tests'][$key] = array('name' => $value['name'], 'score' => $value['score'], 'content_ID' => $key);
     }
 
-    $notDoneTests = array_diff(array_keys($testNames), array_keys($doneTests));
+    $notDoneTests = array_diff(array_keys($testNames), array_keys($doneTests[$_GET['edit_user']]));
     $smarty -> assign("T_PENDING_TESTS", $notDoneTests);
 
-    //unset($userStats['done_tests']['average_score']);
+    unset($userStats['done_tests']['average_score']);
+
     //pr($userStats[$editedUser -> user['login']]);
     $userTime = EfrontStats :: getUsersTime($currentLesson -> lesson['id'], $editedUser -> user['login']);
     $smarty -> assign("T_USER_LESSONS_INFO", $userStats);
+
     $smarty -> assign("T_USER_TIME", $userTime[$editedUser -> user['login']]);
 
 

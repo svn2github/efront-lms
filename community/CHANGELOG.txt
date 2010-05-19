@@ -24,6 +24,7 @@
 - Fixed security issue ### (place details here)
 - Fixed problems with show correct answers and custom css files
 - Fixed issue with progress bar when user had seen a deleted unit
+- Fixed issue with active field in personal settings
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

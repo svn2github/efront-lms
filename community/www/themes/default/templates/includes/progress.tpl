@@ -65,9 +65,7 @@
                   </td>
               </tr>
               {foreachelse}
-              {if $T_USER_LESSONS_INFO.scorm_done_tests|@sizeof == 0}
               <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._TESTS}: {$smarty.const._NODATAFOUND}</td></tr>
-              {/if}
               {/foreach}
               {foreach name = 'scorm_done_tests_list' item = "test" key = "id" from = $T_USER_LESSONS_INFO.scorm_done_tests}
               <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span></td>
@@ -82,6 +80,7 @@
                       <td class = "emptyCategory" colspan = "2">{$smarty.const._USERHASNOTDONETEST}</td>
                   </tr>
               {/foreach}
+
 
 
               {if !empty($T_USER_LESSONS_INFO.assigned_projects)}

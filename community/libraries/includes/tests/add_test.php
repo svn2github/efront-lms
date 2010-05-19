@@ -311,7 +311,12 @@ if ($form -> isSubmitted() && $form -> validate()) {
                 }
             }
         }
-        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=".$_GET['ctg']."&edit_test=".$newTest -> test['id']."&from_unit=".$_GET['from_unit']."&tab=questions&&message=".urlencode(_SUCCESFULLYMODIFIEDTEST)."&message_type=success");
+  if ($_GET['ctg'] != 'feedback') {
+   $messageString = _SUCCESFULLYMODIFIEDTEST;
+  } else {
+   $messageString = _SUCCESFULLYMODIFIEDFEEDBACK;
+  }
+        eF_redirect("".ltrim(basename($_SERVER['PHP_SELF']), "/")."?ctg=".$_GET['ctg']."&edit_test=".$newTest -> test['id']."&from_unit=".$_GET['from_unit']."&tab=questions&&message=".urlencode($messageString)."&message_type=success");
     }
 }
 $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

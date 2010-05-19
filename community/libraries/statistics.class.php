@@ -534,7 +534,7 @@ class EfrontStats
 	 * @static
 
 	 */
- public static function getDoneTestsPerUser($users = false, $test = false) {
+ public static function getDoneTestsPerUser($users = false, $test = false, $lesson = false) {
      if ($users !== false) {
          if (is_array($users)) {
              foreach ($users as $key => $user) {
@@ -559,14 +559,17 @@ class EfrontStats
              throw new EfrontTestException(_INVALIDID.': '.$test, EfrontTestException :: INVALID_ID);
          }
      }
+     if ($lesson) {
+      $sql = ' and t.lessons_ID='.$lesson;
+     }
      if ($user && $test) {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.tests_ID=$test and ct.users_LOGIN in ('$user')");
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.tests_ID=$test and ct.users_LOGIN in ('$user') $sql");
      } else if ($user) {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.users_LOGIN in ('$user')");
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.users_LOGIN in ('$user') $sql");
      } else if ($test) {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.tests_ID=$test");
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id and ct.tests_ID=$test $sql");
      } else {
-         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id");
+         $result = eF_getTableData("completed_tests ct, tests t", "ct.*, t.content_ID", "ct.status != 'deleted' and ct.tests_ID=t.id $sql");
      }
      //Unserialize EfrontCompletedTest objects
      $testResults = array();

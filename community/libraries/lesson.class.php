@@ -2163,13 +2163,24 @@ class EfrontLesson
    }
    $lessonUsers[$key]['overall_progress'] = $this -> getLessonOverallProgressForUser($user, $totalUnits);
    if (!$onlyContent) {
-    //$lessonUsers[$key]['project_status']   = $this -> getUserProjectsStatusInLesson($lesson);
-    //$lessonUsers[$key]['test_status']	     = $this -> getUserTestsStatusInLesson($lesson);
-    //$lessonUsers[$key]['time_in_lesson']   = $this -> getUserTimeInLesson($lesson);
+    $lessonUsers[$key]['project_status'] = $this -> getLessonProjectsStatusForUser($user);
+    $lessonUsers[$key]['test_status'] = $this -> getLessonTestsStatusForUser($user);
+    $lessonUsers[$key]['time_in_lesson'] = $this -> getLessonTimeForUser($user);
    }
   }
   return $lessonUsers;
     }
+ private function getLessonTimeForUser($user) {
+  $userTimes = EfrontStats :: getUsersTimeAll(false, false, array($this -> lesson['id'] => $this -> lesson['id']), array($user['login'] => $user['login']));
+  $userTimes = $userTimes[$this -> lesson['id']][$user['login']];
+  $userTimes['time_string'] = '';
+  if ($userTimes['total_seconds']) {
+   !$userTimes['hours'] OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
+   !$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
+   !$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
+  }
+  return $userTimes;
+ }
  private function getLessonOverallProgressForUser($user, $totalUnits) {
   $completedUnits = 0;
   if ($doneContent = unserialize($user['done_content'])) {
@@ -2186,18 +2197,18 @@ class EfrontLesson
        'percentage' => 0);
   }
  }
- private function getUserTestsStatusInLesson($lesson) {
+ private function getLessonTestsStatusForUser($user) {
   $completedTests = $meanTestScore = 0;
-  $tests = $lesson -> getTests(true, true);
+  $tests = $this -> getTests(true, true);
   $totalTests = sizeof($tests);
-  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score", "t.id=ct.tests_ID and ct.users_LOGIN='".$this -> user['login']."' and ct.archive=0 and t.lessons_ID=".$lesson -> lesson['id']);
+  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score", "t.id=ct.tests_ID and ct.users_LOGIN='".$user['login']."' and ct.archive=0 and t.lessons_ID=".$this -> lesson['id']);
   foreach ($result as $value) {
    if (in_array($value['tests_ID'], array_keys($tests))) {
     $meanTestScore += $value['score'];
     $completedTests++;
    }
   }
-  $scormTests = $this -> getUserScormTestsStatusInLesson($lesson);
+  $scormTests = $this -> getLessonScormTestsStatusForUser($user);
   $totalTests += sizeof($scormTests);
   foreach ($scormTests as $value) {
    $meanTestScore += $value;
@@ -2214,10 +2225,10 @@ class EfrontLesson
    return array();
   }
  }
- private function getUserScormTestsStatusInLesson($lesson) {
+ private function getLessonScormTestsStatusForUser($user) {
   $usersDoneScormTests = eF_getTableData("scorm_data sd left outer join content c on c.id=sd.content_ID",
               "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
-              "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$this -> user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$lesson -> lesson['id']);
+              "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$this -> lesson['id']);
   $tests = array();
   foreach ($usersDoneScormTests as $doneScormTest) {
    if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {
@@ -2229,9 +2240,9 @@ class EfrontLesson
   }
   return $tests;
  }
- private function getUserProjectsStatusInLesson($lesson) {
+ private function getLessonProjectsStatusForUser($user) {
   $completedProjects = $meanProjectScore = 0;
-  $projects = $lesson -> getProjects(true, $this);
+  $projects = $this -> getProjects(true, $user['login']);
   $totalProjects = sizeof($projects);
   foreach ($projects as $project) {
    if ($project -> project['grade'] || $project -> project['grade'] === 0) {

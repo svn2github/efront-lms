@@ -2808,31 +2808,10 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  public function archiveUserCourses($courses) {
   $courses = $this -> verifyCoursesList($courses);
-//		$this -> sendNotificationsRemoveUserCourses($courses);
-debug();
   foreach ($courses as $course) {
    $course = new EfrontCourse($course);
    $course -> archiveCourseUsers($this);
   }
-/*		
-
-		$courses = $this -> verifyCoursesList($courses);
-
-		$this -> sendNotificationsRemoveUserCourses($courses);
-
-
-
-		foreach ($courses as $course) {
-
-			$fields = array("archive" => time());
-
-			$where  = "users_LOGIN='".$this -> user['login']."' and courses_ID=$course";
-
-			EfrontCourse::persistCourseUsers($fields, $where, $course, $this -> user['login']);			
-
-		}
-
-*/
   $this -> courses = false; //Reset users cache
   return $this -> getUserCourses();
  }

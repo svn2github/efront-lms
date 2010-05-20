@@ -1185,7 +1185,7 @@ function eF_getMenu()
                         $menu['lesson']['tests'] = array('title' => _TESTS, 'link' => 'professor.php?ctg=tests', 'image' => 'tests', 'id' => 'tests_a');
                     }
      if ($GLOBALS['currentLesson'] -> options['feedback'] && $GLOBALS['configuration']['disable_feedback'] != 1) {
-                        $menu['lesson']['feedback'] = array('title' => _FEEDBACK, 'link' => 'professor.php?ctg=feedback', 'image' => 'surveys', 'id' => 'feedback_a');
+                        $menu['lesson']['feedback'] = array('title' => _FEEDBACK, 'link' => 'professor.php?ctg=feedback', 'image' => 'feedback', 'id' => 'feedback_a');
                     }
                     if ($GLOBALS['currentLesson'] -> options['rules']) {
                         $menu['lesson']['rules'] = array('title' => _ACCESSRULES, 'link' => 'professor.php?ctg=rules', 'image' => 'rules', 'id' => 'rules_a');

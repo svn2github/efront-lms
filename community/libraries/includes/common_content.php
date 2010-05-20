@@ -321,8 +321,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
              $smarty -> assign("T_SCORM_VERSION", $scormVersion);
             }
             //If glossary is activated, transform content data accordingly
-            if ($currentLesson -> options['glossary'] && $GLOBALS['configuration']['disable_glossary'] != 1) {
-                $currentUnit['data'] = glossary :: applyGlossary($currentUnit['data'], $currentLesson -> lesson['id']);
+            if ($currentLesson -> options['glossary'] && $GLOBALS['configuration']['disable_glossary'] != 1 && !isset($_GET['print'])) {
+    $currentUnit['data'] = glossary :: applyGlossary($currentUnit['data'], $currentLesson -> lesson['id']);
             }
             //Replace inner links. Inner links are created when linking from one unit to another, so they must point either to professor.php or student.php, depending on the user viewing the content
             $currentUnit['data'] = str_replace("##EFRONTINNERLINK##", $_SESSION['s_lesson_user_type'], $currentUnit['data']);

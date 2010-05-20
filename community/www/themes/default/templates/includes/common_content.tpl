@@ -311,7 +311,7 @@
    {if $T_UNIT.options.previous}{assign var = "T_PREVIOUS_UNIT" value = ""}{/if}
    {if $T_UNIT.options.continue}{assign var = "T_NEXT_UNIT" value = ""}{/if}
    {if $T_UNIT.name}{assign var = "unit_name" value = $T_UNIT.name}{else}{assign var = "unit_name" value = $smarty.const._NOCONTENT}{/if}
-   {if $T_UNIT.ctg_type == 'tests'}{assign var = "image" value = "32x32/tests.png"}{elseif $T_UNIT.ctg_type == 'feedback'}{assign var = "image" value = "32x32/surveys.png"}{elseif $T_UNIT.ctg_type == 'examples'}{assign var = "image" value = "32x32/examples.png"}{else }{assign var = "image" value = "32x32/theory.png"}{/if}
+   {if $T_UNIT.ctg_type == 'tests'}{assign var = "image" value = "32x32/tests.png"}{elseif $T_UNIT.ctg_type == 'feedback'}{assign var = "image" value = "32x32/feedback.png"}{elseif $T_UNIT.ctg_type == 'examples'}{assign var = "image" value = "32x32/examples.png"}{else }{assign var = "image" value = "32x32/theory.png"}{/if}
    {if !$T_TEST_UNDERGOING}{assign var = "unit_options" value = $T_UNIT_OPTIONS}{else}{assign var = "unit_options" value = ""}{/if}
    <script>
     var nextUnit = '{$T_NEXT_UNIT.id}';var previousUnit = '{$T_PREVIOUS_UNIT.id}';{if $T_UNIT.options.no_before_unload}var noBeforeUnload = true;{else}var noBeforeUnload = false;{/if}

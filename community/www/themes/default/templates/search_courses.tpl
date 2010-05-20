@@ -52,7 +52,7 @@ var detailsConst = '{$smarty.const._DETAILS}';
 
         {if isset($T_EMPLOYEES_SIZE) && $T_EMPLOYEES_SIZE > 0}
             {foreach name = 'users_list' key = 'key' item = 'user' from = $T_EMPLOYEES}
-            <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+            <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
             <td>
                 <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
             </td>
@@ -86,11 +86,7 @@ var detailsConst = '{$smarty.const._DETAILS}';
             <td align = "center">
                 <table>
                 <tr><td width="45%">
-                {if $user.active == 1}
                     <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-                {else}
-                    <img border = "0" src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
-                {/if}
 
                 </td><td></td><td width="45%">
                     <a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETEUSER}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>

@@ -12,7 +12,7 @@
         {if $T_UNIT.ctg_type != 'feedback'}
          <td rowspan = "6" id = "testInfoImage"><img src = "images/32x32/tests.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
                                 {else}
-         <td rowspan = "2" id = "testInfoImage"><img src = "images/32x32/surveys.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
+         <td rowspan = "2" id = "testInfoImage"><img src = "images/32x32/feedback.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
         {/if}
          <td id = "testInfoLabels"></td>
                                     <td></td></tr>

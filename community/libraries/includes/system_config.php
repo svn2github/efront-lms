@@ -462,6 +462,8 @@ $disable_form -> accept($renderer);
 $smarty -> assign('T_DISABLE_VARIABLES_FORM', $renderer -> toArray());
 /********* Social module ************/
 // The social modules are using a bitmap variable - each bit corresponds to a social module functionality
+/********* Social module ************/
+// The enterprise modules are using a bitmap variable - each bit corresponds to a enterprise module functionality
 $php_form = new Html_QuickForm("php_variables", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&tab=php", "", null, true);
 $php_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $php_form -> addElement("text", "memory_limit", null, 'class = "inputText" style = "width:60px"');

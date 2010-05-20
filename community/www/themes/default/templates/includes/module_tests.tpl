@@ -527,7 +527,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {elseif $T_CTG != "feedback"}
          {eF_template_printBlock title = "`$smarty.const._OPTIONSFORTEST` <span class = 'innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span>" data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
      {else}
-    {eF_template_printBlock title = "`$smarty.const._OPTIONSFORFEEDBACK` <span class = 'innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span>" data = $smarty.capture.t_edit_test_code image = '32x32/surveys.png'}
+    {eF_template_printBlock title = "`$smarty.const._OPTIONSFORFEEDBACK` <span class = 'innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span>" data = $smarty.capture.t_edit_test_code image = '32x32/feedback.png'}
   {/if}
  {elseif $smarty.get.add_test}
      {if $T_SKILLGAP_TEST}
@@ -1465,7 +1465,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
           {elseif $T_CTG != "feedback"}
               {eF_template_printBlock title=$smarty.const._RECENTLYCOMPLETEDTESTS data=$smarty.capture.t_pending_tests image='32x32/tests.png'}
           {else}
-     {eF_template_printBlock title=$smarty.const._RECENTLYCOMPLETEDFEEDBACK data=$smarty.capture.t_pending_tests image='32x32/surveys.png'}
+     {eF_template_printBlock title=$smarty.const._RECENTLYCOMPLETEDFEEDBACK data=$smarty.capture.t_pending_tests image='32x32/feedback.png'}
     {/if}
   {/capture}
   {if $T_CTG != "feedback"}
@@ -1473,7 +1473,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
    {assign var = 'tempImage' value = 'tests'}
   {else}
    {assign var = 'tempTitle' value = $smarty.const._FEEDBACK}
-   {assign var = 'tempImage' value = 'surveys'}
+   {assign var = 'tempImage' value = 'feedback'}
   {/if}
   <div class = "tabber">
       <div class = "tabbertab" title = "{$tempTitle}" id = "tests">
@@ -1489,7 +1489,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   {if $T_CTG != "feedback"}
    {eF_template_printBlock title=$smarty.const._UNITANDSUBUNITSTESTS data=$smarty.capture.t_tests_and_questions_code image='32x32/tests.png' help = 'Tests'}
   {else}
-   {eF_template_printBlock title=$smarty.const._FEEDBACK data=$smarty.capture.t_tests_and_questions_code image='32x32/surveys.png'}
+   {eF_template_printBlock title=$smarty.const._FEEDBACK data=$smarty.capture.t_tests_and_questions_code image='32x32/feedback.png'}
   {/if}
  {else}
   {eF_template_printBlock title=$smarty.const._SKILLGAPTESTS data=$smarty.capture.t_tests_and_questions_code image='32x32/skill_gap.png' help = 'Skill_gap_tests'}

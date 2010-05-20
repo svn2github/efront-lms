@@ -3677,6 +3677,12 @@ define("_ONLYXCANBEAPPLIEDATATIME", "Μόνο %x οντότητες επεξερ
 define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "Δεν μπορείτε να αναθέσετε χρήστες σε αυτό το πρόγραμμα μαθημαων γιατί δεν περιλαμβάνει δέσμες");
 define("_CURRICULUMPROPERTIES", "Ιδιότητες προγράμματος μαθημάτων");
 define("_ENTRIES", "Εγγραφές");
+define("_ENTERPRISEOPTIONS","Ρυθμίσεις εταιρικού");
+define("_SHOWORGANIZATIONCHARTTOUSERS","Προβολή ιεραρχίας εταιρείας στους χρήστες");
+define("_SHOWUSERFORMTOUSERS","Προβολή προσωπικής φόρμας στους χρήστες");
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Προβολή χρηστών που δεν έχουν τοποθετηθεί σε τμήματα στους προϊσταμένους");
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Επιτρέπεται η διαγραφή κοινών αρχείων με προϊσταμένους από χρήστες");
+define("_MYEMPLOYEEFORM","Η φόρμα μου");
 define("_CLEARQUERYCACHE", "Διαγραφή query cache");
 define("_FEEDBACKOPTIONS","Επιλογές ανάδρασης");
 define("_OPTIONSFORFEEDBACK","Επιλογές για την ανάδραση");

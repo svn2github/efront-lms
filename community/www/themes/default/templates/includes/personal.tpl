@@ -120,7 +120,7 @@ var enableMyJobSelect = false;
     {/foreach}
     {foreach name = 'profile_fields' key = key item = item from = $T_USER_PROFILE_DATES }
      <tr><td class = "labelCell">{$item.name}:&nbsp;</td>
-      <td class = "elementCell">{eF_template_html_select_date prefix=$item.prefix emptyvalues="1" time=$item.value start_year="-10" end_year="+10" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+      <td class = "elementCell">{eF_template_html_select_date prefix=$item.prefix emptyvalues="1" time=$item.value start_year="-45" end_year="+10" field_order = $T_DATE_FORMATGENERAL}</td></tr>
     {/foreach}
     {if (!isset($smarty.get.add_user))}
     <tr><td class = "labelCell">{$smarty.const._REGISTRATIONDATE}:&nbsp;</td>
@@ -357,6 +357,10 @@ var enableMyJobSelect = false;
      {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
     </div>
     {/if}
+    {if ($T_SHOW_USER_FORM)}
+    <div class="tabbertab {if ($smarty.get.tab == "plaisio_form") || ($smarty.get.tabberajax == $T_TABBERAJAX.form) } tabbertabdefault {/if}" title="{$smarty.const._MYEMPLOYEEFORM}">
+     {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
+    </div>
    </div>
   {/if}
  {****** USER MANAGEMENT BY THIRD PARTIES ******}

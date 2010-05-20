@@ -70,14 +70,14 @@ abstract class EfrontImport
  }
 
 
- private $datatypes = false;
+ private static $datatypes = false;
  public static function getImportTypes() {
-  if (!$datatypes) {
-   $datatypes = array("anything" => _IMPORTANYTHING,
+  if (!self::$datatypes) {
+   self::$datatypes = array("anything" => _IMPORTANYTHING,
           "users" => _USERS,
           "users_to_courses" => _USERSTOCOURSES);
   }
-  return $datatypes;
+  return self::$datatypes;
  }
  public function getImportTypeName($import_type) {
   if (!$datatypes) {
@@ -92,33 +92,34 @@ abstract class EfrontImport
  /*
 	 * All following functions cache arrays of type "entity_name" => array("entity_ids of entities with name=entity_name")
 	 */
- private $courseNamesToIds = false;
+ protected $courseNamesToIds = false;
  protected function getCourseByName($courses_name) {
-  if (!$courseNamesToIds) {
-   $courses = EfrontCourse::getCourses();
+  if (!$this -> courseNamesToIds) {
+   $constraints = array ('return_objects' => false);
+   $courses = EfrontCourse::getAllCourses($constraints);
    foreach($courses as $course) {
-    if (!isset($courseNamesToIds[$course['name']])) {
-     $courseNamesToIds[$course['name']] = array($course['id']);
+    if (!isset($this -> courseNamesToIds[$course['name']])) {
+     $this -> courseNamesToIds[$course['name']] = array($course['id']);
     } else {
-     $courseNamesToIds[$course['name']][] = $course['id'];
+     $this -> courseNamesToIds[$course['name']][] = $course['id'];
     }
    }
   }
-  return $courseNamesToIds[$courses_name];
+  return $this -> courseNamesToIds[$courses_name];
  }
  private $groupNamesToIds = false;
  protected function getGroupByName($group_name) {
-  if (!$groupNamesToIds) {
+  if (!$this -> groupNamesToIds) {
    $groups = EfrontGroup::getGroups();
    foreach($groups as $group) {
-    if (!isset($groupNamesToIds[$group['name']])) {
-     $groupNamesToIds[$group['name']] = array($group['id']);
+    if (!isset($this -> groupNamesToIds[$group['name']])) {
+     $this -> groupNamesToIds[$group['name']] = array($group['id']);
     } else {
-     $groupNamesToIds[$group['name']][] = $group['id'];
+     $this -> groupNamesToIds[$group['name']][] = $group['id'];
     }
    }
   }
-  return $groupNamesToIds[$group_name];
+  return $this -> groupNamesToIds[$group_name];
  }
  /*
 	 * Convert dates of the form dd/mm/yy to timestamps
@@ -337,6 +338,9 @@ class EfrontImportCsv extends EfrontImport
   try {
    switch($type) {
     case "users":
+     if (isset($data['password'])) {
+      $data['password'] = EfrontUser::createPassword($data['password']);
+     }
      eF_updateTableData("users", $data, "login='".$data['login']."'"); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDUSER . " " . $data['login'];
      break;
     case "users_to_courses":
@@ -365,8 +369,8 @@ class EfrontImportCsv extends EfrontImport
      $newUser = EfrontUser::createUser($data); $this -> log["success"][] = _LINE . " $line: " . _IMPORTEDUSER . " " . $newUser -> login;
      break;
     case "users_to_courses":
-     $courses_ID = $this -> getCourseByName($data['course_name']);
-     $courses_name = $data['course_name'];
+     $courses_name = trim($data['course_name']);
+     $courses_ID = $this -> getCourseByName($courses_name);
      unset($data['course_name']);
      if ($courses_ID) {
       foreach($courses_ID as $course_ID) {
@@ -377,6 +381,15 @@ class EfrontImportCsv extends EfrontImport
        EfrontCourse::persistCourseUsers($data, $where, $data['courses_ID'], $data['users_login']);
        $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
       }
+     } else if ($courses_name != "") {
+      $course = EfrontCourse::createCourse(array("name" => $courses_name));
+      $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSE . " " . $courses_name;
+      $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
+      $courses_ID = $course -> course['id'];
+      $this -> courseNamesToIds[$courses_name] = array($courses_ID);
+      $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $courses_ID;
+      EfrontCourse::persistCourseUsers($data, $where, $courses_ID, $data['users_login']);
+      $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
      } else {
       $this -> log["failure"][] = _LINE . " $line: " . _COULDNOTFINDCOURSE . " " . $courses_name;
      }
@@ -467,8 +480,10 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Set the memory and time limits for an import according to the number of lines to be imported
 	 */
- private function setLimits() {
-  $factor = $this->lines / 500;
+ private function setLimits($factor = false) {
+  if (!$factor) {
+   $factor = $this->lines / 500;
+  }
   if ($factor < 1) {
    return;
   }

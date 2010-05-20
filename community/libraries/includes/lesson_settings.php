@@ -315,7 +315,7 @@ if ($_GET['op'] == 'reset_lesson') {
 
 
     if ($GLOBALS['configuration']['disable_feedback'] != 1) {
-        $lessonSettings['feedback'] = array('text' => _FEEDBACK, 'image' => "32x32/surveys.png", 'onClick' => 'activate(this, \'feedback\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['feedback']) && $currentLesson -> options['feedback'] ? null : 'inactiveImage');
+        $lessonSettings['feedback'] = array('text' => _FEEDBACK, 'image' => "32x32/feedback.png", 'onClick' => 'activate(this, \'feedback\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['feedback']) && $currentLesson -> options['feedback'] ? null : 'inactiveImage');
     }
 
  $lessonSettings['rules'] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'onClick' => 'activate(this, \'rules\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['rules']) && $currentLesson -> options['rules'] ? null : 'inactiveImage');

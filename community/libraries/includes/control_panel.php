@@ -361,7 +361,7 @@ try {
                 $controlPanelOptions[20] = array('text' => _LESSONSETTINGS, 'image' => "32x32/tools.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=settings");
             }
    if ($currentUser -> coreAccess['feedback'] != 'hidden' && $GLOBALS['configuration']['disable_feedback'] != 1) {
-                    $currentLesson -> options['feedback'] ? $controlPanelOptions[9] = array('text' => _FEEDBACK, 'image' => "32x32/surveys.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=feedback") : null;
+                    $currentLesson -> options['feedback'] ? $controlPanelOptions[9] = array('text' => _FEEDBACK, 'image' => "32x32/feedback.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=feedback") : null;
                 }
             if ($currentUser -> coreAccess['progress'] != 'hidden') {
                 $controlPanelOptions[12] = array('text' => _USERSPROGRESS, 'image' => "32x32/status.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=progress");

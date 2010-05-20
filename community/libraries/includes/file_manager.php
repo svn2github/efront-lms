@@ -122,6 +122,7 @@ try {
         if (!isset($filesystem)) {
             $filesystem = new FileSystemTree($basedir, true);
         }
+
         $filesystem -> handleAjaxActions($currentUser);
         !isset($filesystemIterator) ? $filesystemIterator = '' : null;
 

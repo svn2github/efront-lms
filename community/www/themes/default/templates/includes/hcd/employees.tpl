@@ -92,10 +92,13 @@
   {else}
 
    {capture name = "t_supervisor_employees"}
+   {if $T_CONFIGURATION.show_unassigned_users_to_supervisors == 1}
    <div class="tabber">
     <div class="tabbertab">
      <h3>{$smarty.const._SUPERVISEDEMPLOYEES}</h3>
+   {/if}
      {$smarty.capture.t_employees_code}
+   {if $T_CONFIGURATION.show_unassigned_users_to_supervisors == 1}
     </div>
 
     <div class="tabbertab {if ($smarty.get.tab == "assign_employees"  || isset($smarty.post.employees_to_branches)) } tabbertabdefault {/if}">
@@ -168,6 +171,7 @@
 
     </div>
    </div>
+   {/if}
    {/capture}
    {eF_template_printBlock title = $smarty.const._EMPLOYEES data = $smarty.capture.t_supervisor_employees image = '32x32/user.png'}
 

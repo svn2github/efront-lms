@@ -155,8 +155,12 @@
  function addTemplatizedText(el) {
   if (myActiveElement != "") {
    var textAreaElement = $(myActiveElement);
-   var cursor = getCursor(textAreaElement);
-   textAreaElement.value = textAreaElement.value.substr(0, cursor) + "###" + el.value + "###" + textAreaElement.value.substr(cursor);
+   if (document.selection) {
+    textAreaElement.value = textAreaElement.value + "###" + el.value + "###";
+   } else {
+    var cursor = getCursor(textAreaElement);
+    textAreaElement.value = textAreaElement.value.substr(0, cursor) + "###" + el.value + "###" + textAreaElement.value.substr(cursor);
+   }
   } else {
       if (editorCursorPosition) {
           tinyMCE.selectedInstance.selection.moveToBookmark(editorCursorPosition);

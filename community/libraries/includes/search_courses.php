@@ -167,13 +167,14 @@ if (isset($_GET['ajax'])) {
 $form = new HTML_QuickForm("search_courses_form", "post", $_SESSION['s_type'].".php?ctg=search_courses", "", null, true);
 
 // Courses list
-$constraints = array('active' => 1, 'archive' => 0, 'return_objects' => false);
+$constraints = array('active' => 1, 'archive' => 0, 'return_objects' => false, 'sort' => 'name');
 $courses = EFrontCourse :: getAllCourses($constraints);
+
 $course_list = array();
 $course_list['0'] = _COURSES;
 foreach ($courses as $course) {
     $id = $course['id'];
-    $course_list[$id] = $course['name'];
+    $course_list[$id] = str_replace("'", "\'", $course['name']);
 }
 
 // Dates
@@ -191,12 +192,13 @@ for ($i = 1; $i <= 12; $i++) {
 
 $years = array();
 $years['0'] = _YEAR;
-for ($i = 2008; $i < 2015; $i++) {
+$thisyear = date("Y");
+for ($i = ($thisyear-45); $i < ($thisyear+2); $i++) {
     $years[$i] = $i;
 }
 
 $date_conditions = array("1" => _FROM, "2" => _ON, "3"=> _TO);
-$form -> addElement('select', 'courses' , null, $course_list ,'id="courses_row" onchange="javascript:ajaxPostSearch(\\\'row\\\',this);');
+$form -> addElement('select', 'courses' , null, $course_list ,'id="courses_row" onchange="javascript:ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'condition' , null, array("1" => _COMPLETED, "2" => _NOTCOMPLETED, "3" => _NOTASSIGNED),'id="condition_row" onchange="javascript: show_hide_dates(\\\'row\\\', this);ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'from_date_cond' , null, $date_conditions ,'id="from_date_cond_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'from_date_day' , null, $days ,'id="from_date_day_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');

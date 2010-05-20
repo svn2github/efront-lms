@@ -1045,7 +1045,8 @@ CREATE TABLE users (
   need_mod_init tinyint(1) default '0',
   autologin char(32),
   PRIMARY KEY (login),
-  KEY (id)
+  KEY (id),
+  index(active)
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE users_to_chatrooms (

@@ -2581,7 +2581,7 @@ abstract class EfrontLessonUser extends EfrontUser
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
   //$result  = eF_getTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
-  $sql = prepareGetTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
+  $sql = prepareGetTableData("courses c, users_to_courses uc", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData("courses, ($sql) t", "courses.*, t.*", "courses.id=t.id");
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
@@ -2606,7 +2606,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   //$result  = eF_getTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp,archive from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select, implode(" and ", $where), $orderby, "", $limit);
-  $sql = prepareGetTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp,archive from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", $select, implode(" and ", $where), $orderby, "", $limit);
+  $sql = prepareGetTableData("courses c left outer join (select completed,score,courses_ID, from_timestamp,archive from users_to_courses where users_login='".$this -> user['login']."' and archive=0) r on c.id=r.courses_ID ", implode(",", $select), implode(" and ", $where), $orderby, "", $limit);
   $result = eF_getTableData("courses, ($sql) t", "courses.*, t.*", "courses.id=t.id");
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
@@ -2650,7 +2650,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   //WITH THIS NEW QUERY, WE GET THE SLOW 'has_instances' PROPERTY AFTER FILTERING
-  $sql = prepareGetTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select, implode(" and ", $where), $orderby, false, $limit);
+  $sql = prepareGetTableData("courses c left outer join (select id from courses) r on c.id=r.id", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData(
      "courses, ($sql) t",
      "courses.*, (select count(id) from courses c1 where c1.instance_source=courses.id ) as has_instances, t.*",
@@ -2696,7 +2696,7 @@ abstract class EfrontLessonUser extends EfrontUser
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
   //WITH THIS NEW QUERY, WE GET THE SLOW 'has_instances' PROPERTY AFTER FILTERING
-  $sql = prepareGetTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select, implode(" and ", $where), $orderby, false, $limit);
+  $sql = prepareGetTableData("courses c left outer join (select id from courses) r on c.id=r.id", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData(
      "courses, ($sql) t",
      "courses.*, (select count(id) from courses c1 where c1.instance_source=courses.id ) as has_instances, t.*",

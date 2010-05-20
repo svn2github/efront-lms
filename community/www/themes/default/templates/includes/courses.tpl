@@ -72,6 +72,8 @@
     <tr class = "topTitle">
      <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
      <td class = "topTitle" name = "role">{$smarty.const._USERROLE}</td>
+           <td class = "topTitle" name = "active_in_course" style = "width:10%">{$smarty.const._ENROLLEDON}</td>
+           <td class = "topTitle" name = "timestamp_completed" style = "width:10%">{$smarty.const._COMPLETEDON}</td>
            <td class = "topTitle centerAlign" name = "from_timestamp" style = "width:5%">{$smarty.const._STATUS}</td>
            <td class = "topTitle centerAlign" name = "completed" style = "width:5%">{$smarty.const._COMPLETED}</td>
            <td class = "topTitle centerAlign" name = "score" style = "width:5%">{$smarty.const._SCORE}</td>
@@ -92,6 +94,8 @@
       {$T_ROLES[$user.user_type]}
     {/if}
      </td>
+     <td style = "white-space:nowrap">#filter:timestamp-{$user.active_in_course}#</td>
+     <td style = "white-space:nowrap">#filter:timestamp-{$user.timestamp_completed}#</td>
            <td class = "centerAlign">
      {if $user.active_in_course}
                <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHECOURSE}" alt = "{$smarty.const._USERHASTHECOURSE}" onclick = "unConfirmUser(this, '{$user.login}')"/>

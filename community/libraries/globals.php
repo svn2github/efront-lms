@@ -67,7 +67,7 @@ if (isset($_GET['debug']) && $configuration['debug_mode']) {
 } elseif ($configuration['debug_mode']) {
  define("G_DEBUG", 1);
 } else {
- define("G_DEBUG", 1);
+ define("G_DEBUG", 0);
 }
 //Turn on compressed output buffering, unless NO_OUTPUT_BUFFERING is defined or it's turned off from the configuration
 !defined('NO_OUTPUT_BUFFERING') && $configuration['gz_handler'] ? ob_start ("ob_gzhandler") : null;
@@ -259,7 +259,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 6988;
+    $build = 6998;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/

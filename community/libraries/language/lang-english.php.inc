@@ -3700,4 +3700,5 @@ define("_PROCEEDTOFEEDBACK","Proceed to feedback");
 define("_SUCCESFULLYMODIFIEDFEEDBACK", "Successfully modified feedback");
 define("_FEEDBACKSTARTEDAT","Feedback started at");
 define("_EXPLICITLYSELECTEDINFO", "The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.");
+define("_ENROLLEDON", "Enrolled on");
 ?>

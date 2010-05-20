@@ -1083,22 +1083,45 @@ class EfrontDirectionsTree extends EfrontTree
    $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($this -> tree), RecursiveIteratorIterator :: SELF_FIRST));
   }
   if ($lessons === false) { //If a lessons list is not specified, get all active lessons
-   $result = eF_getTableData("lessons", "*", "archive = 0 && active=1"); //Get all lessons at once, thus avoiding looping queries
+   if ($showQuestions) {
+    $result = eF_getTableData("lessons l JOIN questions q ON q.lessons_ID = l.id", "l.id, l.name, count(q.id) as questions", "q.type <> 'raw_text' AND l.archive = 0 AND l.active=1", "" , "l.name");
+   } else {
+    $result = eF_getTableData("lessons", "*", "archive = 0 && active=1"); //Get all lessons at once, thus avoiding looping queries
+   }
    foreach ($result as $value) {
+    $value['name'] = str_replace("'","&#039;",$value['name']);
     $lessons[$value['id']] = new EfrontLesson($value); //Create an array of EfrontLesson objects
    }
   }
+  $directionsQuestions = array();
   $directionsLessons = array();
   foreach ($lessons as $id => $lesson) {
    if (!$lesson -> lesson['active']) { //Remove inactive lessons
     unset($lessons[$id]);
    } elseif (!$lesson -> lesson['course_only']) { //Lessons in courses will be handled by the course's display method, so remove them from the list
-    $directionsLessons[$lesson -> lesson['directions_ID']][] = $id; //Create an intermediate array that maps lessons to directions
+    $directions_ID = $lesson -> lesson['directions_ID'];
+    $directionsLessons[$directions_ID][] = $id; //Create an intermediate array that maps lessons to directions
+    if ($showQuestions) {
+     if (isset($directionsQuestions[$directions_ID])) {
+      $directionsQuestions[$directions_ID] += $lesson -> lesson['questions'];
+     } else {
+      $directionsQuestions[$directions_ID] = $lesson -> lesson['questions'];
+     }
+    }
    }
   }
   if ($courses === false) { //If a courses list is not specified, get all active courses
-   $result = eF_getTableData("courses", "*", "archive = 0 && active=1"); //Get all courses at once, thus avoiding looping queries
+   if ($showQuestions) {
+    $resultQuestions = eF_getTableData("courses c JOIN lessons_to_courses lc ON lc.courses_ID = c.id JOIN questions q ON q.lessons_ID = lc.lessons_ID", "c.id, count(q.id) as questions", "q.type <> 'raw_text' AND c.archive = 0 AND c.active=1", "" , "c.name");
+    $coursesQuestions = array();
+    foreach ($resultQuestions as $resultQs) {
+     $coursesQuestions[$resultQs['id']] = $resultQs['questions'];
+    }
+   }
+   $result = eF_getTableData("courses", "*", "archive = 0 AND active=1"); //Get all courses at once, thus avoiding looping queries
    foreach ($result as $value) {
+    $value['name'] = str_replace("'","&#039;",$value['name']);
+    $value['questions'] = ($coursesQuestions[$value['id']]!="")?$coursesQuestions[$value['id']]:0; // 0 + to cast empty values to 0
     $courses[$value['id']] = new EfrontCourse($value); //Create an array of EfrontCourse objects
    }
   }
@@ -1107,7 +1130,15 @@ class EfrontDirectionsTree extends EfrontTree
    if (!$course -> course['active']) { //Remove inactive courses
     unset($courses[$id]);
    } else {
-    $directionsCourses[$course -> course['directions_ID']][] = $id; //Create an intermediate array that maps courses to directions
+    $directions_ID = $course -> course['directions_ID'];
+    $directionsCourses[$directions_ID][] = $id; //Create an intermediate array that maps courses to directions
+    if ($showQuestions) {
+     if (isset($directionsQuestions[$directions_ID])) {
+      $directionsQuestions[$directions_ID] += $course -> course['questions'];
+     } else {
+      $directionsQuestions[$directions_ID] = $course -> course['questions'];
+     }
+    }
    }
   }
   //We need to calculate which directions will be displayed. We will keep only directions that have lessons or courses and their parents. In order to do so, we traverse the directions tree and set the 'hasNodes' attribute to the nodes that will be kept
@@ -1139,13 +1170,13 @@ class EfrontDirectionsTree extends EfrontTree
     $children[] = $key;
    }
    if ($offset != "") {
-    $treeArray['direction_' . $current['id']] = $offset . " " . $current['name'];
+    $treeArray['direction_' . $current['id']] = str_replace("'", "&#039;", $offset . " " . $current['name']);
    } else {
-    $treeArray['direction_' . $current['id']] = $current['name'];
+    $treeArray['direction_' . $current['id']] = str_replace("'", "&#039;", $current['name']);
    }
    if (sizeof($current['lessons']) > 0) {
     foreach ($current -> offsetGet('lessons') as $lessonId) {
-     $treeArray['lesson_' . $current['id']. '_' . $lessonId] = $offset . "- ". $lessons[$lessonId] -> lesson['name'];
+     $treeArray['lesson_' . $current['id']. '_' . $lessonId] = str_replace("'", "&#039;", $offset . "- ". $lessons[$lessonId] -> lesson['name']);
     }
    }
    if (sizeof($current['courses']) > 0) {
@@ -1156,10 +1187,10 @@ class EfrontDirectionsTree extends EfrontTree
       // The first result is the name of the course - the rest lesson names
       // We need this distinction to have different keys (starting with course_ or lesson_ correctly 
       if ($first) {
-       $treeArray['course_' . $current['id']. '_' . $courseId . "_" . $courseId] = $offset . "-". $courseName;
+       $treeArray['course_' . $current['id']. '_' . $courseId . "_" . $courseId] = str_replace("'", "&#039;", $offset . "-". $courseName);
        $first = 0;
       } else {
-       $treeArray['lesson_' . $current['id']. '_' . $courseId . "_" . $courseId] = $offset . "-". $courseName;
+       $treeArray['lesson_' . $current['id']. '_' . $courseId . "_" . $courseId] = str_replace("'", "&#039;", $offset . "-". $courseName);
       }
      }
     }
@@ -1173,7 +1204,7 @@ class EfrontDirectionsTree extends EfrontTree
    }
   }
   if ($returnClassedHTML) {
-   $htmlString = "<select id= 'educational_criteria_row' name ='educational_criteria_row' onchange='createQuestionsSelect(this)' mySelectedIndex = '0'>";
+   $htmlString = '<select id= "educational_criteria_row" name ="educational_criteria_row" onchange="createQuestionsSelect(this)" mySelectedIndex = "0">';
    if ($showQuestions) {
     $result = eF_getTableData("questions", "lessons_ID, count(lessons_ID) as quests", "type <> 'raw_text'", "", "lessons_ID");
     $lessonQuestions = array();
@@ -1185,53 +1216,33 @@ class EfrontDirectionsTree extends EfrontTree
    }
    foreach($treeArray as $key => $value) {
     $extras = " ";
-    $htmlString .= "<option";
+    $htmlString .= '<option';
     if (strpos($key, "direction_") === 0) {
-     $htmlString .= " value = 'direction". strrchr($key,"_") . "' style='background-color:maroon; color:white'";
+     $directions_ID = strrchr($key,"_");
+     $htmlString .= ' value = "direction'. $directions_ID . '" style="background-color:maroon; color:white"';
+     $course_ID = substr($directions_ID,1);
      if ($showQuestions) {
-      $startcounting = 0;
-      $questions_sum = 0;
-      foreach($treeArray as $keyInner => $valueInner) {
-       if ($keyInner == $key) {
-        $startcounting = 1;
-       }
-       if ($startcounting) {
-        if ($keyInner != $key && strpos($keyInner, "direction_") === 0) {
-         break; // you reached the next direction
-        } else if (strpos($keyInner, "lesson_") === 0) { //only lessons have questions
-         $lessonId = substr(strrchr($keyInner,"_"),1);
-         if ($lessonQuestions[$lessonId]) {
-          $questions_sum += $lessonQuestions[$lessonId];
-         }
-        }
-       }
+      $questions = $directionsQuestions[$directions_ID];
+      if ($questions) {
+       $extras = ' (' . $questions .')';
+      } else {
+       $extras = ' (0)';
       }
-      $extras = " (" . $questions_sum .")";
      }
     } else if (strpos($key, "course_") === 0) {
-     $htmlString .= " value = 'course". strrchr($key,"_") . "' style='background-color:green; color:white'";
+     $course_ID = strrchr($key,"_");
+     $htmlString .= ' value = "course'. $course_ID . '" style="background-color:green; color:white"';
+     $course_ID = substr($course_ID,1);
      if ($showQuestions) {
-      $startcounting = 0;
-      $questions_sum = 0;
-      foreach($treeArray as $keyInner => $valueInner) {
-       if ($keyInner == $key) {
-        $startcounting = 1;
-       }
-       if ($startcounting) {
-        if ($keyInner != $key && (strpos($keyInner, "course_") === 0 || strpos($keyInner, "direction_") === 0)) {
-         break; // you reached the next direction
-        } else if (strpos($keyInner, "lesson_") === 0) { //only lessons have questions
-         $lessonId = substr(strrchr($keyInner,"_"),1);
-         if ($lessonQuestions[$lessonId]) {
-          $questions_sum += $lessonQuestions[$lessonId];
-         }
-        }
-       }
+      $questions = $courses[$course_ID] -> course['questions'];
+      if ($questions) {
+       $extras = ' (' . $questions .')';
+      } else {
+       $extras = ' (0)';
       }
-      $extras = " (" . $questions_sum .")";
      }
     } else {
-     $htmlString .= " value = 'lesson". strrchr($key,"_") . "' ";
+     $htmlString .= ' value = "lesson'. strrchr($key,"_") . '" ';
      if ($showQuestions) {
       $lessonId = substr(strrchr($key,"_"),1);
       if ($showQuestions) {

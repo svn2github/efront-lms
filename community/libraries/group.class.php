@@ -808,7 +808,7 @@ class EfrontGroup
   $select['num_completed'] = "(select count( * ) from users_to_courses uc, users u, users_to_groups ug where uc.courses_ID=c.id and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and u.user_type='student' and uc.completed=1 and u.login=ug.users_LOGIN and ug.groups_ID = ". $this -> group['id'].") as num_completed";
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $result = eF_getTableData("courses c", $select, implode(" and ", $where), $orderby, false, $limit);
+  $result = eF_getTableData("courses c", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
   } else {

@@ -17,8 +17,8 @@ var deleteConst ='{$smarty.const._DELETE}';
 {if $smarty.get.add_test && $smarty.get.create_quick_test}
 
 <script>
-var quickformLessonCourses = "{$T_QUICKFORM_LESSON_COURSES_SELECT|replace:'\n':''}";
-var quickformSkills = "{$T_QUICKFORM_SKILLS_SELECT|replace:'\n':''}";
+var quickformLessonCourses = '{$T_QUICKFORM_LESSON_COURSES_SELECT|replace:"\n":""}';
+var quickformSkills = '{$T_QUICKFORM_SKILLS_SELECT|replace:"\n":""}';
 var quickformeducationalCount = '{$T_QUICKTEST_FORM.educational_questions_count_row.html|replace:"\n":""}';
 var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.html|replace:"\n":""}';
 </script>
@@ -1051,8 +1051,8 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                                 </tr>
                                 {foreach name = 'courses_list2' key = 'key' item = 'assigned_course' from = $T_ASSIGNED_COURSES_DATA}
                                                 <tr id="row_{$assigned_course.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$assigned_course.active}deactivatedTableElement{/if}">
-                                                    <td id = "column_{$assigned_course.id}" class = "editLink">{$assigned_course.link}</td>
-                                                    <td>{$assigned_course.direction_name}</td>
+                                                    <td id = "column_{$assigned_course.id}" class = "editLink">{$assigned_course.name}</td>
+                                                    <td>{$assigned_course.directions_name}</td>
                                                     <td>{$assigned_course.languages_NAME}</td>
                                                 {* MODULE HCD: Prices are replaced by the number of skills offered *}
                                                     <td align="center">{if $assigned_course.price == 0}{$smarty.const._FREE}{else}{$assigned_course.price} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}{/if}</td>
@@ -1072,7 +1072,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                     </div>
                 </div>
             {/capture}
-            {eF_template_printBlock title = $smarty.const._SKILLGAPANALYSISFORUSER|cat:'&nbsp;<i>'|cat:$T_USER_INFO.name|cat:'&nbsp;'|cat:$T_USER_INFO.surname|cat:'</i>&nbsp;'|cat:$smarty.const._ACCORDINGTOTEST|cat:'&nbsp;<i>'|cat:$T_TEST_DATA->test.name|cat:'</i>' data = $smarty.capture.t_user_code image = '32x32/profile.png'}
+            {eF_template_printBlock title = $smarty.const._SKILLGAPANALYSISFORUSER|cat:'&nbsp;<i>'|cat:$T_USER_INFO.name|cat:'&nbsp;'|cat:$T_USER_INFO.surname|cat:'</i>&nbsp;'|cat:$smarty.const._ACCORDINGTOTEST|cat:'&nbsp;<i>'|cat:$T_TEST_DATA->test.name|cat:'</i>' data = $smarty.capture.t_user_code image = '32x32/profile.png' options=$T_USER_LINK}
   {else}
    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=tests&show_solved_test=`$T_TEST_DATA->completedTest.id`&test_analysis=1'>`$smarty.const._TESTANALYSISFORTEST` &quot;`$T_TEST_DATA->test.name`&quot;</a>"}
    {capture name = "t_test_analysis_code"}

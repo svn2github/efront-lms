@@ -1246,8 +1246,8 @@ class EfrontCourse
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "user_type != 'administrator'";
-  $select = "u.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course, r.role";
-  $from = "users u left outer join (select completed,score,courses_ID,from_timestamp,users_LOGIN,user_type as role from users_to_courses where courses_ID='".$this -> course['id']."' and archive=0) r on u.login=r.users_LOGIN";
+  $select = "u.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course, r.to_timestamp as timestamp_completed, r.role";
+  $from = "users u left outer join (select completed,score,courses_ID,from_timestamp, to_timestamp,users_LOGIN,user_type as role from users_to_courses where courses_ID='".$this -> course['id']."' and archive=0) r on u.login=r.users_LOGIN";
   $result = eF_getTableData($from, $select,
   implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
@@ -3706,13 +3706,21 @@ class EfrontCourse
   }
  }
  public static function getAllCourses($constraints = array()) {
-  $select['main'] = 'c.*';
-  $select['has_instances'] = "(select count( * ) from courses l where instance_source=c.id) as has_instances";
+  $select['main'] = 'c.id';
+  $select['has_instances'] = ""; //Must be here, even if empty
   $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
   $select['num_students'] = EfrontCourse :: setCourseUserSelection($constraints);
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $result = eF_getTableData("courses c", $select, implode(" and ", $where), $orderby, false, $limit);
+  //$result = eF_getTableData("courses c", $select, implode(" and ", $where), $orderby, false, $limit);
+  //WITH THIS NEW QUERY, WE GET THE SLOW 'has_instances' PROPERTY AFTER FILTERING
+  $from = array("courses.*", "t.*");
+  if (in_array('has_instances', array_keys($select))) {
+   unset($select['has_instances']);
+   $from[] = "(select count(id) from courses c1 where c1.instance_source=courses.id ) as has_instances";
+  }
+  $sql = prepareGetTableData("courses c", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
+  $result = eF_getTableData("courses, ($sql) t", implode(",", $from), "courses.id=t.id");
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return self :: convertDatabaseResultToCourseObjects($result);
   } else {
@@ -3810,7 +3818,7 @@ class EfrontCourse
     unset($select[$key]);
    }
   }
-  return implode(",", $select);
+  return $select;
  }
  public static function convertCourseConstraintsToSqlParameters($constraints) {
   $where = self::addWhereConditionToCourseConstraints($constraints);

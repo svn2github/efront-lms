@@ -234,39 +234,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 if (isset($_GET['ajax']) && $_GET['ajax'] == 'assignedCoursesTable') {
                     $directionsTree = new EfrontDirectionsTree();
                     $directionPaths = $directionsTree -> toPathString();
-                    $courses = EfrontCourse :: getCourses();
-
                     $editedUser = EfrontUserFactory :: factory($_GET['user']);
                     $userCourses = $editedUser -> getUserCourses();
-                    foreach ($courses as $key => $course) {
-                        $courses[$key]['directions_name'] = $directionPaths[$course['directions_ID']];
-                        $courses[$key]['user_type'] = $editedUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $editedUser -> user['user_type'];
-                        $courses[$key]['partof'] = 0;
-                        if (in_array($course['id'], array_keys($userCourses))) {
-                            $courses[$key]['from_timestamp'] = $userCourses[$key] -> course['active_in_course'];
-                            $courses[$key]['partof'] = 1;
-                            $courses[$key]['user_type'] = $userCourses[$key] -> course['user_type'];
-                            $courses[$key]['completed'] = $userCourses[$key] -> course['completed'];
-                            $courses[$key]['score'] = $userCourses[$key] -> course['score'];
-                        } else if ($currentUser -> user['user_type'] != 'administrator' || !$course['active']) {
-                            unset($courses[$key]);
-                        } else if ($course['languages_NAME'] != $editedUser -> user['languages_NAME']) {
-                            unset($courses[$key]);
-                        }
-                        if ($course['course_only']) {
-                            unset($courses[$key]);
-                        }
+                    $courses = array();
+                    foreach ($userCourses as $userCourse) {
+                     $newCourse = $userCourse -> course;
+                     $newCourse['directions_name'] = $directionPaths[$newCourse['directions_ID']];
+                     $courses[] = $newCourse;
                     }
 
-                    foreach ($courses as $key => $course) {
-                        if (!$course['partof']) {
-                            unset($courses[$key]);
-                        } else {
-                            $obj = new EfrontCourse($course['id']);
-                            $courses[$key]['link'] = $obj -> toHTMLTooltipLink(basename($_SERVER['PHP_SELF']).'?ctg=courses&edit_course='.$course['id']);
-                            $courses[$key]['skills_offered'] = sizeof($obj -> getSkills(true));
-                        }
-                    }
                     isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
                     if (isset($_GET['sort'])) {
@@ -362,6 +338,8 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $smarty -> assign("T_SKILLSGAP",$analysisResults['testSkills']);
                 }
                 $smarty -> assign("T_MISSING_SKILLS_URL", $analysisResults['missingSkills']);
+                $smarty -> assign("T_USER_LINK", array(array('text' => _EDIT, 'image' => "16x16/user.png", 'href' => $_SESSION['s_type'].".php?ctg=users&edit_user=".$_GET['user'])));
+
                 $lessons_proposed = $analysisResults['lessons'];
                 $courses_proposed = $analysisResults['courses'];
             } else {

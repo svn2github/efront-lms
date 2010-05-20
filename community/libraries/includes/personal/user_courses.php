@@ -146,28 +146,26 @@ try {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => false);
+    $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+    $constraints['return_objects'] = false;
     if ($showUnassigned) {
      $courses = $courseUser -> getUserCoursesAggregatingResultsIncludingUnassigned($constraints);
      $totalEntries = $courseUser -> countUserCoursesAggregatingResultsIncludingUnassigned($constraints);
-     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     } else {
      $courses = $courseUser -> getUserCoursesAggregatingResults($constraints);
      $totalEntries = $courseUser -> countUserCoursesAggregatingResults($constraints);
-     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     }
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
+    $constraints['required_fields'] = array('num_lessons', 'location');
+    $constraints['return_objects'] = false;
     if ($showUnassigned) {
      $courses = $courseUser -> getUserCoursesIncludingUnassigned($constraints);
      $totalEntries = $courseUser -> countUserCoursesIncludingUnassigned($constraints);
-     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     } else {
-     $constraints['required_fields'] = array('num_lessons', 'location');
-     $constraints['return_objects'] = false;
      $courses = $courseUser -> getUserCourses($constraints);
      $totalEntries = $courseUser -> countUserCourses($constraints);
-     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     }
    }
 

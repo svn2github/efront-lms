@@ -2571,50 +2571,6 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   return $lessons;
  }
- /**
-
-	 * The same as self::getUserCoursesAggregatingResultsIncludingUnassigned, only it has an addition "where" condition
-
-	 * @param array $constraints
-
-	 * @return array
-
-	 * @since 3.6.2
-
-	 */
- public function getUserCoursesAggregatingResults($constraints = array()) {
-  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $select = "c.*,
-       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
-         as user_type,
-       (select max(score) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as score,
-       (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as completed,
-       (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as to_timestamp,
-       (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as has_course,
-       (select count( * ) from courses c1 where c1.instance_source=c.id )
-         as has_instances,
-       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
-         as num_students,
-       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
-         as num_lessons";
-  $where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
-  $result = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select,
-    implode(" and ", $where), $orderby, false, $limit);
-  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
- }
- public function countUserCoursesAggregatingResults($constraints = array()) {
-  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
-  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $where[] = "d.id=c.directions_ID and (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
-  $result = eF_countTableData("directions d,courses c left outer join (select id from courses) r on c.id=r.id", "c.id",
-  implode(" and ", $where));
-  return $result[0]['count'];
- }
  public function getUserCourses($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   $select['main'] = 'c.id, uc.users_LOGIN,uc.courses_ID,uc.completed,uc.score,uc.user_type,uc.issued_certificate,uc.from_timestamp as active_in_course, uc.to_timestamp, 1 as has_course';
@@ -2683,34 +2639,142 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  public function getUserCoursesAggregatingResultsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  $select['main'] = 'c.id';
+  $select['user_type'] = "(select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) as user_type";
+  $select['score'] = "(select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as score";
+  $select['completed'] = "(select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as completed";
+  $select['to_timestamp'] = "(select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as to_timestamp";
+  $select['has_course'] = "(select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as has_course";
+  $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
+  $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+  $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $select = "c.*,
-       (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
-         as user_type,
-       (select max(score) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as score,
-       (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as completed,
-       (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as to_timestamp,
-       (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-         as has_course,
-       (select count( * ) from courses c1 where c1.instance_source=c.id )
-         as has_instances,
-       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
-         as num_students,
-       (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
-         as num_lessons";
-  //$where[] = "d.id=c.directions_ID";
-  $result = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select,
-  implode(" and ", $where), $orderby, false, $limit);
-  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+  //WITH THIS NEW QUERY, WE GET THE SLOW 'has_instances' PROPERTY AFTER FILTERING
+  $sql = prepareGetTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select, implode(" and ", $where), $orderby, false, $limit);
+  $result = eF_getTableData(
+     "courses, ($sql) t",
+     "courses.*, (select count(id) from courses c1 where c1.instance_source=courses.id ) as has_instances, t.*",
+     "courses.id=t.id");
+  //THIS WAS THE OLD QUERY, MUCH SLOWER
+  //$result  = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select, implode(" and ", $where), $orderby, false, $limit);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+  } else {
+   return $result;
+  }
  }
  public function countUserCoursesAggregatingResultsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   //$where[] = "d.id=c.directions_ID";
   $result = eF_countTableData("courses c left outer join (select id from courses) r on c.id=r.id", "c.id",
+  implode(" and ", $where));
+  return $result[0]['count'];
+ }
+ /**
+
+	 * The same as self::getUserCoursesAggregatingResultsIncludingUnassigned, only it has an addition "where" condition
+
+	 * @param array $constraints
+
+	 * @return array
+
+	 * @since 3.6.2
+
+	 */
+ public function getUserCoursesAggregatingResults($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  $select['main'] = 'c.id';
+  $select['user_type'] = "(select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) as user_type";
+  $select['score'] = "(select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as score";
+  $select['completed'] = "(select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as completed";
+  $select['to_timestamp'] = "(select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as to_timestamp";
+  $select['has_course'] = "(select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as has_course";
+  $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
+  $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
+  $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
+  //WITH THIS NEW QUERY, WE GET THE SLOW 'has_instances' PROPERTY AFTER FILTERING
+  $sql = prepareGetTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select, implode(" and ", $where), $orderby, false, $limit);
+  $result = eF_getTableData(
+     "courses, ($sql) t",
+     "courses.*, (select count(id) from courses c1 where c1.instance_source=courses.id ) as has_instances, t.*",
+     "courses.id=t.id");
+  //THIS WAS THE OLD QUERY, MUCH SLOWER
+  //$result  = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select, implode(" and ", $where), $orderby, false, $limit);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+  } else {
+   return $result;
+  }
+/*		
+
+		list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+
+		$select  = "c.*,
+
+					  (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) 
+
+					  		as user_type, 
+
+					  (select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+
+					  		as score,
+
+					  (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+
+					  		as completed,
+
+					  (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+
+					  		as to_timestamp,
+
+					  (select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+
+					  		as has_course,
+
+					  (select count( * ) 	 from courses c1 where c1.instance_source=c.id ) 
+
+					  		as has_instances, 
+
+					  (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') 
+
+					  		as num_students,
+
+					  (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) 
+
+					  		as num_lessons";
+
+#ifdef ENTERPRISE
+
+			$select .= ",(select count( * ) from module_hcd_course_offers_skill s where courses_ID=c.id)
+
+					  		as num_skills,
+
+					  	(select b.name from module_hcd_branch b, module_hcd_course_to_branch cb where cb.branches_ID=b.branch_ID and cb.courses_ID=c.id limit 1) 
+
+					  		as location";			
+
+#endif
+
+
+
+		$where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
+
+		$result  = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select,
+
+				implode(" and ", $where), $orderby, false, $limit);
+
+		return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+
+*/
+ }
+ public function countUserCoursesAggregatingResults($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $where[] = "d.id=c.directions_ID and (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
+  $result = eF_countTableData("directions d,courses c left outer join (select id from courses) r on c.id=r.id", "c.id",
   implode(" and ", $where));
   return $result[0]['count'];
  }

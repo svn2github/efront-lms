@@ -26,6 +26,8 @@
 - Fixed issue with progress bar when user had seen a deleted unit
 - Fixed issue with active field in personal settings
 - Disabled save button in copy content from another lesson, until ajax response
+- Updated phplivedocx_server value to https://api.livedocx.com/1.2/mailmerge.asmx?WSDL
+- Fixed bug in storing unit visited into logs
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

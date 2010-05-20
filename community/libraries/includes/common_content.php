@@ -264,6 +264,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
   $loadScripts[] = 'ASCIIMathML';
  }
     try {
+  $log_comments = $currentUnit['id']; //in order to store unit into logs
         //This is the basic content iterator, including even inactive, unpublished or empty units
         $visitableIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
         $treeOptions = array('truncateNames' => 25, 'selectedNode' => $currentUnit['id']);

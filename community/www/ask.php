@@ -436,7 +436,7 @@ function askCourses() {
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
  if ($_SESSION['s_type'] == "administrator") {
   //$result = eF_getTableData("courses", "id, name, directions_ID","active=1 AND name like '%$preffix%'");
-  $constraints = array("return_objects" => false, 'instance' => false, 'archive' => false, 'active' => true, 'filter' => $preffix);
+  $constraints = array("return_objects" => false, 'instance' => ($_GET['instances'] == 1), 'archive' => false, 'active' => true, 'filter' => $preffix);
   $result = EfrontCourse :: getAllCourses($constraints);
   //$result 	 = EfrontCourse :: convertCourseObjectsToArrays($courses);
  } else {

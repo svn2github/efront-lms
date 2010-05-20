@@ -405,7 +405,7 @@ if ($('lesson_choices_enrolled')) {
 if ($('course_choices_enrolled')) {
  new Ajax.Autocompleter("autocomplete_course_enrolled",
          "course_choices_enrolled",
-         "ask.php?ask_type=courses", {paramName: "preffix",
+         "ask.php?ask_type=courses&instances=1", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('course_id_enrolled').value=li.id;},
               indicator : "busy_course_enrolled"});
 }
@@ -419,7 +419,7 @@ if ($('lesson_choices_completed')) {
 if ($('course_choices_completed')) {
  new Ajax.Autocompleter("autocomplete_course_completed",
          "course_choices_completed",
-         "ask.php?ask_type=courses", {paramName: "preffix",
+         "ask.php?ask_type=courses&instances=1", {paramName: "preffix",
               afterUpdateElement : function (t, li) {$('course_id_completed').value=li.id;},
               indicator : "busy_course_completed"});
 }

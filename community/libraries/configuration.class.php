@@ -71,7 +71,7 @@ class EfrontConfiguration
   'math_content' => '0',
   'math_server' => 'http://www.imathas.com/cgi-bin/mimetex.cgi',
   'math_images' => '0',
-  'phplivedocx_server' => 'https://api.livedocx.com/1.1/mailmerge.asmx?WSDL',
+  'phplivedocx_server' => 'https://api.livedocx.com/1.2/mailmerge.asmx?WSDL',
   'phplivedocx_username' => '',
   'phplivedocx_password' => '',
         //Appearance

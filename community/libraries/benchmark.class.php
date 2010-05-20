@@ -65,18 +65,20 @@ class EfrontBenchmark
   }
   $str .= "
    </table>
-   <table style = 'display:none;background-color:white;width:100%' id = 'queries_table'>";
+   <div style = 'display:none;' id = 'queries_table'>
+   <table style = 'background-color:white;width:1000px' >";
   if (isset($heavyQueries)) {
    $str .= "
     <tr><td>&nbsp;</td></tr>
     <tr><td class = 'topTitle'>Heavy queries</td></tr>
-    <tr><td><pre>".print_r($heavyQueries, true)."</pre></td></tr>";
+    <tr><td><re>".str_replace(array("\n", " ", "\t"), array("<br>", "&nbsp;", "&nbsp;&nbsp;&nbsp;&nbsp;"), print_r($heavyQueries, true))."</pre></td></tr>";
   }
   $str .= "
     <tr><td>&nbsp;</td></tr>
     <tr><td class = 'topTitle'>All queries</td></tr>
-    <tr><td><pre>".print_r($GLOBALS['db'] -> queries, true)."</pre></td></tr>
+    <tr><td><re>".str_replace(array("\n", " ", "\t"), array("<br>", "&nbsp;", "&nbsp;&nbsp;&nbsp;&nbsp;"), print_r($GLOBALS['db'] -> queries, true))."</pre></td></tr>
    </table>
+   </div>
       </div>";
 
   $fields = array("url" => htmlentities($_SERVER['REQUEST_URI']),

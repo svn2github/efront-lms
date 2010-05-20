@@ -471,7 +471,20 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      }
     } catch (Exception $e) {}
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
-                Installation :: addModules(true);
+                EfrontConfiguration :: setValue('phplivedocx_server', 'https://api.livedocx.com/1.2/mailmerge.asmx?WSDL'); //code for updating phplivedocx_server
+    $defaultConfig = EfrontConfiguration :: getValues();
+    $phplivedocxConfig = '<?php
+define("PATH_ZF","'.G_ROOTPATH.'Zend/library/'.'");
+define("USERNAME","'.$defaultConfig['phplivedocx_username'].'");
+define("PASSWORD","'.$defaultConfig['phplivedocx_password'].'");
+define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
+?>';
+    try {
+     if (!file_exists($path."phplivedocx_config.php") || is_writable($path."phplivedocx_config.php")) {
+      file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
+     }
+    } catch (Exception $e) {}
+    Installation :: addModules(true);
                 header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");
                 exit;
             } else {

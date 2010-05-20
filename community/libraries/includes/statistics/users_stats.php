@@ -106,8 +106,9 @@ if (isset($_GET['sel_user'])) {
    if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => false);
+     $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+     $constraints['return_objects'] = false;
      $courses = $infoUser -> getUserCoursesAggregatingResults($constraints);
-     $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
     }
 
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
@@ -335,6 +336,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $row = 1;
  //course users info
  $constraints = array('instance' => false, 'archive' => false, 'active' => true);
+ $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+ $constraints['return_objects'] = false;
  $userCourses = $infoUser -> getUserCoursesAggregatingResults($constraints);
  if (sizeof($userCourses) > 0) {
   $workSheet -> write($row, 4, _COURSESINFO, $headerFormat);
@@ -346,7 +349,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $workSheet -> write($row, 6, _SCORE, $titleCenterFormat);
   $workSheet -> write($row, 7, _COMPLETED, $titleCenterFormat);
   foreach ($userCourses as $id => $course) {
-   $course = $course -> course;
+   //$course = $course -> course;
    $row++;
    $workSheet -> write($row, 4, $course['name'], $fieldLeftFormat);
    //$workSheet -> write($row, 5, $course['lessons'], $fieldCenterFormat);
@@ -466,9 +469,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $count = 1;
  foreach ($userCourses as $id => $course) {
   $constraints = array('instance' => $id, 'archive' => false, 'active' => true);
+  $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+  //$constraints['return_objects']  = false;
   $instances = $infoUser -> getUserCourses($constraints);
   //unset($instances[$course -> course['id']]); //Remove self from instances
-  $course = $course -> course;
+  //$course = $course -> course;
   $workSheet = & $workBook -> addWorksheet("Course ".$count++);
   $workSheet -> setInputEncoding('utf-8');
   $workSheet -> write(0, 0, $course['name'], $headerBigFormat);
@@ -493,24 +498,24 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $workSheet -> write($row, 0, _INSTANCE, $titleLeftFormat);
    $workSheet -> write($row, 1, _COMPLETED, $titleCenterFormat);
    $workSheet -> write($row, 2, _SCORE, $titleCenterFormat);
-   foreach ($instances as $course) {
+   foreach ($instances as $instance) {
     $row++;
-    $workSheet -> write($row, 0, $course -> course['name'], $fieldLeftFormat);
-    $workSheet -> write($row, 1, $course -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($course -> course['to_timestamp']) : _NO, $fieldCenterFormat);
-    $workSheet -> write($row, 2, formatScore($course -> course['score'])."%", $fieldCenterFormat);
+    $workSheet -> write($row, 0, $instance -> course['name'], $fieldLeftFormat);
+    $workSheet -> write($row, 1, $instanc -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($instance -> course['to_timestamp']) : _NO, $fieldCenterFormat);
+    $workSheet -> write($row, 2, formatScore($instance -> course['score'])."%", $fieldCenterFormat);
    }
   }
   $row+=2;
-  foreach ($instances as $course) {
+  foreach ($instances as $instance) {
    $row+=2;
-   $workSheet -> write($row, 0, '"'.$course -> course['name'].'" '._LESSONS, $headerFormat);
+   $workSheet -> write($row, 0, '"'.$instance -> course['name'].'" '._LESSONS, $headerFormat);
    $workSheet -> mergeCells($row, 0, $row, 2);
    $workSheet -> setColumn(0, 2, 25);
    $row++;
    $workSheet -> write($row, 0, _NAME, $titleLeftFormat);
    $workSheet -> write($row, 1, _COMPLETED, $titleCenterFormat);
    $workSheet -> write($row, 2, _SCORE, $titleCenterFormat);
-   $lessons = $infoUser -> getUserStatusInCourseLessons($course);
+   $lessons = $infoUser -> getUserStatusInCourseLessons($instance);
    foreach ($lessons as $lesson) {
     $row++;
     $workSheet -> write($row, 0, $lesson -> lesson['name'], $fieldLeftFormat);
@@ -635,6 +640,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $pdf -> Cell(90, 5, _MONTHMEANDURATION, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $userInfo['usage']['month_mean_duration']."'", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
  $pdf -> Cell(90, 5, _WEEKMEANDURATION, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $userInfo['usage']['week_mean_duration']."'", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
  $constraints = array('instance' => false, 'archive' => false, 'active' => true);
+ $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+ $constraints['return_objects'] = false;
  $userCourses = $infoUser -> getUserCoursesAggregatingResults($constraints);
  if (sizeof($userCourses) > 0) {
   $pdf -> SetTextColor(0, 0, 0);
@@ -648,9 +655,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $pdf -> SetFont("FreeSerif", "", 10);
   $pdf -> SetTextColor(0, 0, 255);
   foreach ($userCourses as $id => $course) {
-   $pdf -> Cell(100, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $course -> course['name']), 0, 0, L, 0);
-   $pdf -> Cell(50, 5, $course -> course['completed'] ? _YES : _NO, 0, 0, L, 0);
-   $pdf -> Cell(50, 5, formatScore($course -> course['score'])."%", 0, 1, L, 0);
+   $pdf -> Cell(100, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $course['name']), 0, 0, L, 0);
+   $pdf -> Cell(50, 5, $course['completed'] ? _YES : _NO, 0, 0, L, 0);
+   $pdf -> Cell(50, 5, formatScore($course['score'])."%", 0, 1, L, 0);
   }
  }
  //lessons page
@@ -776,18 +783,20 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  //add a separate sheet for each distinct course of that user
  foreach ($userCourses as $id => $course) {
   $constraints = array('instance' => $id, 'archive' => false, 'active' => true);
+  $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+  //$constraints['return_objects']  = false;
   $instances = $infoUser -> getUserCourses($constraints);
   $pdf -> SetTextColor(0, 0, 0);
   $pdf -> AddPage('L');
   $pdf -> SetFont("FreeSerif", "B", 12);
-  $pdf -> Cell(60, 12, $course -> course['name'], 0, 1, L, 0);
+  $pdf -> Cell(60, 12, $course['name'], 0, 1, L, 0);
   $pdf -> SetFont("FreeSerif", "B", 10);
   $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
   $pdf -> Cell(40, 7, _GRADE, 0, 1, C, 0);
   $pdf -> SetFont("FreeSerif", "", 10);
   $pdf -> SetTextColor(0, 0, 255);
-  $pdf -> Cell(40, 7, $course -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($course -> course['to_timestamp']) : _NO, 0, 0, L, 0);
-  $pdf -> Cell(40, 7, formatScore($course -> course['score'])."%", 0, 1, C, 0);
+  $pdf -> Cell(40, 7, $course['completed'] ? _YES.', '._ON.' '.formatTimestamp($course['to_timestamp']) : _NO, 0, 0, L, 0);
+  $pdf -> Cell(40, 7, formatScore($course['score'])."%", 0, 1, C, 0);
   if (sizeof($instances) > 1) {
    $pdf -> SetTextColor(0, 0, 0);
    $pdf -> SetFont("FreeSerif", "B", 10);
@@ -798,13 +807,13 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
    $pdf -> Cell(40, 7, _GRADE, 0, 1, C, 0);
    $pdf -> SetTextColor(0, 0, 255);
-   foreach ($instances as $course) {
-    $pdf -> Cell(80, 7, $course -> course['name'], 0, 0, L, 0);
-    $pdf -> Cell(40, 7, $course -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($course -> course['to_timestamp']) : _NO, 0, 0, L, 0);
-    $pdf -> Cell(40, 7, formatScore($course -> course['score'])."%", 0, 1, C, 0);
+   foreach ($instances as $instance) {
+    $pdf -> Cell(80, 7, $instance -> course['name'], 0, 0, L, 0);
+    $pdf -> Cell(40, 7, $instance -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($instance -> course['to_timestamp']) : _NO, 0, 0, L, 0);
+    $pdf -> Cell(40, 7, formatScore($instance -> course['score'])."%", 0, 1, C, 0);
    }
   }
-  foreach ($instances as $course) {
+  foreach ($instances as $instance) {
    $pdf -> SetTextColor(0, 0, 0);
    $pdf -> SetFont("FreeSerif", "B", 10);
    $pdf -> Cell(60, 12, '', 0, 1, L, 0);
@@ -814,7 +823,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
    $pdf -> Cell(40, 7, _GRADE, 0, 1, C, 0);
    $pdf -> SetTextColor(0, 0, 255);
-   $lessons = $infoUser -> getUserStatusInCourseLessons($course);
+   $lessons = $infoUser -> getUserStatusInCourseLessons($instance);
    foreach ($lessons as $lesson) {
     $pdf -> Cell(80, 7, $lesson -> lesson['name'], 0, 0, L, 0);
     $pdf -> Cell(40, 7, $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['to_timestamp']) : _NO, 0, 0, L, 0);

@@ -233,14 +233,22 @@
    addValueToSelect("unit_content", unitContentConst, select_item);
   }
   if (mode == "survey") {
+   addValueToSelect (expicitlySelected, expicitlySelectedConst, recipients_select_item);
+   new Effect.Appear('explicitlySelectedHelp');
    addValueToSelect("survey_name", surveyNameConst, select_item);
    addValueToSelect("survey_id", surveyIdConst, select_item);
    addValueToSelect("survey_message", surveyMessageConst, select_item);
+  }
+  if (mode == "projects") {
+   addValueToSelect (expicitlySelected, expicitlySelectedConst, recipients_select_item);
+   new Effect.Appear('explicitlySelectedHelp');
   }
   if (mode == "branch" || mode == "job") {
    addValueToSelect("branch_name", branchNameConst, select_item);
   }
   if (mode == "job") {
+   addValueToSelect (expicitlySelected, expicitlySelectedConst, recipients_select_item);
+   new Effect.Appear('explicitlySelectedHelp');
    addValueToSelect("job_description_name", jobNameConst, select_item);
   }
  }
@@ -331,6 +339,7 @@
     $('av_lessons_div').setStyle({display:'none'});
    }
   }
+  $('explicitlySelectedHelp').setStyle({display:'none'});
   parts = el.value.split("_");
   _currentEventCategory = parts[1];
   changeTemplates(_currentEventCategory);

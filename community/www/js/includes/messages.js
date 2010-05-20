@@ -197,7 +197,7 @@ function updateField(item) {
 if ($('autocomplete_choices')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_choices",
-         "ask.php?ask_type=users", {paramName: "preffix",
+         "ask.php?ask_type=users&messaging=1", {paramName: "preffix",
             updateElement : updateField,
             indicator : "busy"});
 }

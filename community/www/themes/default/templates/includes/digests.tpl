@@ -23,6 +23,8 @@
  var lessonProfessorsConst = "{$smarty.const._LESSONPROFESSORS}";
  var lessonNotCompleted = "{$T_LESSON_EVENT_RECIPIENTS.lessonnotcompleted}";
  var lessonNotCompletedConst = "{$smarty.const._LESSONUSERSNOTCOMPLETED}";
+ var expicitlySelected = "{$T_LESSON_EVENT_RECIPIENTS.explicitlyselected}";
+ var expicitlySelectedConst = "{$smarty.const._EXPLICITLYSELECTED}";
 
  var courseProf = "{$T_COURSE_EVENT_RECIPIENTS.courseprof}";
  var courseProfessorsConst = "{$smarty.const._COURSEPROFESSORS}";

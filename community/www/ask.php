@@ -43,6 +43,7 @@ function highlightSearch($search_results, $search_criteria, $bgcolor='Yellow'){
 }
 
 function askUsers() {
+//	$_POST['preffix'] = "%";	// Useful for debugging
  if (isset($_POST['preffix'])) {
   if (mb_strpos($_POST['preffix'], ";") === false) {
    $user = $_POST['preffix'];
@@ -54,10 +55,16 @@ function askUsers() {
  $users = array();
  if (isset($user) && $user) {
   $preffix = $user;
-  if ($_GET['type'] == 1) {
+
+  // Return active users for statistics:
+  // - admins: all
+  // - supervisors: all supervised (in Enterprise)
+  // - professors: students 
+  if (!isset($_GET['messaging'])) {
    if ($_SESSION['s_type'] == "administrator") {
     $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "active = 1 and (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
    } else {
+    // Get students of professor
     $user = EfrontUserFactory :: factory($_SESSION['s_login']);
     if (!$_SESSION['s_lessons_ID']) {
      $students = $user -> getProfessorStudents();
@@ -78,6 +85,10 @@ function askUsers() {
     $students_list = "'".implode("','", $logins)."'";
     $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "login IN ($students_list) AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
    }
+  // Return active users for messaging:
+  // - admins: all
+  // - supervisors: all
+  // - users: other users with common group, lesson, course (or branch in Enterprise)			
   } else {
    if ($_SESSION['s_type'] == "administrator") {
     $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%'", "login");
@@ -85,19 +96,19 @@ function askUsers() {
    } else {
     $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
     $grant_full_access = false;
-    if (!$grant_full_access) {
+    if (!$grant_full_access) { // Used for correct handling in Enterprise and non-Enterprise editions
      $logins = array();
      $myGroupsIds = array_keys($currentUser -> getGroups());
-     //echo "Groups<BR><BR><BR>";pr($myGroupsIds);
+//					echo "Groups<BR><BR><BR>";pr($myGroupsIds);
      if (!empty($myGroupsIds)) {
       $result = eF_getTableDataFlat("users JOIN users_to_groups", "distinct users_LOGIN", "users.login = users_to_groups.users_LOGIN AND groups_ID IN ('" . implode("','", $myGroupsIds) ."')");
       $logins = $result['users_LOGIN'];
      }
      $myLessonsIds = array_keys($currentUser -> getLessons());
-     //pr($result);echo "Lessons<BR><BR><BR>";pr($myLessonsIds);
+//					pr($result);echo "Lessons<BR><BR><BR>";pr($myLessonsIds);
      if (!empty($myLessonsIds)) {
       $result = eF_getTableDataFlat("users JOIN users_to_lessons", "distinct users_LOGIN", "users.archive=0 and users_to_lessons.archive=0 and users.login = users_to_lessons.users_LOGIN AND lessons_ID IN ('" . implode("','", $myLessonsIds) ."')");
-      //pr($result);
+//						pr($result);
       foreach($result['users_LOGIN'] as $login) {
        if (!in_array($login, $logins)){
         $logins[] = $login;
@@ -106,20 +117,22 @@ function askUsers() {
      }
      $myCoursesIds = eF_getTableDataFlat("users_to_courses", "courses_ID", "users_LOGIN = '". $currentUser -> user['login']."'");
      $myCoursesIds = $myCoursesIds['courses_ID'];
+//					echo "Courses<BR><BR><BR>";pr($myCoursesIds);
      if (!empty($myCoursesIds)) {
       $result = eF_getTableDataFlat("users JOIN users_to_courses", "distinct users_LOGIN", "users.login = users_to_courses.users_LOGIN AND courses_ID IN ('" . implode("','", $myCoursesIds) ."')");
-      //pr($result);
+//						pr($result);
       foreach($result['users_LOGIN'] as $login) {
        if (!in_array($login, $logins)){
         $logins[] = $login;
        }
       }
      }
-     //echo "HCD<BR><BR><BR>";
+//					pr($logins);
+     $related_users_list = "'".implode("','", $logins)."'";
+     $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "(login IN (". $related_users_list . ") OR user_type <> 'student') AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%')", "login");
+    } else {
+     $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%'", "login");
     }
-    //echo "TELIKA<BR><BR><BR>";pr($logins);
-    $related_users_list = "'".implode("','", $logins)."'";
-    $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "(login IN (". $related_users_list . ") OR user_type <> 'student') AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%')", "login");
    }
    if($_SESSION['s_type'] == "professor"){
     $users[] = array('login' => "[*]",'name' => _MYSTUDENTS, 'surname' => _MYSTUDENTS, 'user_type' => '[*]');

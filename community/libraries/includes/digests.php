@@ -317,8 +317,7 @@ $loadScripts[] = "administrator/digests";
 
         $basic_event_recipients = array(EfrontNotification::TRIGGERINGUSER => _USERTRIGGERINGTHEEVENT,
                                         EfrontNotification::ALLSYSTEMUSERS => _ALLSYSTEMUSERS,
-                                        EfrontNotification::SYSTEMADMINISTRATOR => _SYSTEMADMINISTRATOR,
-                                        EfrontNotification::EXPLICITLYSEL => _EXPLICITLYSELECTED);
+                                        EfrontNotification::SYSTEMADMINISTRATOR => _SYSTEMADMINISTRATOR);
 
 
 
@@ -332,13 +331,17 @@ $loadScripts[] = "administrator/digests";
             if ($mode == "courses") {
              $basic_event_recipients[EfrontNotification::COURSEPROFESSORS] = _COURSEPROFESSORS;
             } else if ($mode != "system") {
+             if ($mode == "survey" || $mode == "projects" || $mode == "job") {
+              $basic_event_recipients[EfrontNotification::EXPLICITLYSEL] = _EXPLICITLYSELECTED;
+              $smarty -> assign("T_SHOW_EXPLICITLY_HELP", 1);
+             }
                 $basic_event_recipients[EfrontNotification::ALLLESSONUSERS] = _ALLLESSONUSERS;
                 $basic_event_recipients[EfrontNotification::LESSONUSERSNOTCOMPLETED] = _LESSONUSERSNOTCOMPLETED;
                 $basic_event_recipients[EfrontNotification::LESSONPROFESSORS] = _LESSONPROFESSORS;
             }
         }
 
-        $smarty -> assign("T_LESSON_EVENT_RECIPIENTS",array( "alllesson" => EfrontNotification::ALLLESSONUSERS, "lessonprof" => EfrontNotification::LESSONPROFESSORS, "lessonnotcompleted" => EfrontNotification::LESSONUSERSNOTCOMPLETED));
+        $smarty -> assign("T_LESSON_EVENT_RECIPIENTS",array( "alllesson" => EfrontNotification::ALLLESSONUSERS, "lessonprof" => EfrontNotification::LESSONPROFESSORS, "lessonnotcompleted" => EfrontNotification::LESSONUSERSNOTCOMPLETED, "explicitlyselected" => EfrontNotification::EXPLICITLYSEL));
         $smarty -> assign("T_COURSE_EVENT_RECIPIENTS",array( "courseprof" => EfrontNotification::COURSEPROFESSORS));
 
         $form -> addElement('select', 'event_recipients', _RECIPIENTS, $basic_event_recipients, 'class="inputSelectMed" id = "event_recipients"');

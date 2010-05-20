@@ -361,6 +361,7 @@ var enableMyJobSelect = false;
     <div class="tabbertab {if ($smarty.get.tab == "plaisio_form") || ($smarty.get.tabberajax == $T_TABBERAJAX.form) } tabbertabdefault {/if}" title="{$smarty.const._MYEMPLOYEEFORM}">
      {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
     </div>
+    {/if}
    </div>
   {/if}
  {****** USER MANAGEMENT BY THIRD PARTIES ******}

@@ -104,7 +104,7 @@
     </tr>
     {foreach name = 'users_list' key = 'key' item = 'curriculum' from = $T_DATA_SOURCE}
     <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-     <td<a href = "{$smarty.server.PHP_SELF}?ctg=curriculums&edit={$curriculum.id}" class = "editLink">{$curriculum.name}</a></td>
+     <td><a href = "{$smarty.server.PHP_SELF}?ctg=curriculums&edit={$curriculum.id}" class = "editLink">{$curriculum.name}</a></td>
      <td>{$curriculum.description|eF_truncate:300}</td>
      <td class = "centerAlign">
       <img {if $curriculum.active == 0}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" onclick = "deactivateEntity(this, '{$curriculum.id}', {ldelim}curriculums:1{rdelim});">

@@ -347,10 +347,10 @@ var enableMyJobSelect = false;
   {elseif $T_OP == "status"}
    <div class="tabber">
    {if !$_admin_}
+    {eF_template_printBlock tabber="courses" title = $T_TITLES.status.courses data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
     {if $T_CONFIGURATION.lesson_enroll}
      {eF_template_printBlock tabber="lessons" title = $T_TITLES.status.lessons data = $smarty.capture.t_lessons_code image = '32x32/lessons.png'}
     {/if}
-    {eF_template_printBlock tabber="courses" title = $T_TITLES.status.courses data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
    {/if}
     {if isset($T_USER_TO_GROUP_FORM)}
     <div class="tabbertab" title="{$T_TITLES.status.groups}">
@@ -375,10 +375,10 @@ var enableMyJobSelect = false;
   {*** Status ***}
   {elseif $T_OP == "status"}
    <div class="tabber">
+     {eF_template_printBlock tabber="courses" title = $T_TITLES.status.courses data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
    {if $T_CONFIGURATION.lesson_enroll}
      {eF_template_printBlock tabber="lessons" title = $T_TITLES.status.lessons data = $smarty.capture.t_lessons_code image = '32x32/lessons.png'}
    {/if}
-     {eF_template_printBlock tabber="courses" title = $T_TITLES.status.courses data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
     {if isset($T_USER_TO_GROUP_FORM)}
     <div class="tabbertab" title="{$T_TITLES.status.groups}">
      {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}

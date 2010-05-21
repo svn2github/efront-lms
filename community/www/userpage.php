@@ -33,5 +33,9 @@ if (isset($_GET['dashboard']) && $_SESSION['s_type'] == "administrator") {
   $smarty -> assign("T_MAIN_URL", $_SESSION['previousMainUrl']);
  }
 }
-$smarty -> display($_SESSION['s_type']."page.tpl");
+if (isset($_SESSION['s_type'])) {
+ $smarty -> display($_SESSION['s_type']."page.tpl");
+} else {
+ eF_redirect("index.php");
+}
 ?>

@@ -116,8 +116,8 @@
   </tr>
  </table>
 {/capture}
-{capture name = t_traffic_code}
  {if $T_BASIC_TYPE == 'administrator' || isset($T_USER_INFO.general.supervised_by_user)}
+{capture name = t_traffic_code}
   <form name = "period">
   <table class = "statisticsSelectDate">
   <!-- <tr><td class = "labelCell">{$smarty.const._SETPERIOD}:&nbsp;</td>
@@ -225,8 +225,8 @@
    {/foreach}
   </table>
   {/if}
- {/if}
 {/capture}
+ {/if}
 
 
 {capture name = 'user_statistics'}
@@ -298,7 +298,9 @@
    {eF_template_printBlock tabber = "lessons" title =$smarty.const._LESSONS data = $smarty.capture.t_lessons_list_code image = '32x32/lessons.png'}
   {/if}
    {eF_template_printBlock tabber = "moreinfo" title =$smarty.const._MOREINFO data = $smarty.capture.t_moreinfo_code image = '32x32/information.png'}
+  {if $smarty.capture.t_traffic_code}
    {eF_template_printBlock tabber = "usertraffic" title =$smarty.const._TRAFFIC data = $smarty.capture.t_traffic_code image = '32x32/generic.png'}
+  {/if}
   </div>
  {/if}
 {/capture}

@@ -3230,7 +3230,7 @@ class EfrontCourse
  }
  private function createCourseTempDirectory() {
   $userTempDir = $this -> createUserTempDirectory();
-  $courseTempDir = $userTempDir.'/course_export_'.$this -> course['id']; //The compressed file will be moved to the user's temp directory
+  $courseTempDir = $userTempDir['path'].'/course_export_'.$this -> course['id']; //The compressed file will be moved to the user's temp directory
   if (is_dir($courseTempDir)) { //If the user's temp directory does not exist, create it
    $foo = new EfrontDirectory($courseTempDir);
    $foo -> delete();
@@ -3264,6 +3264,7 @@ class EfrontCourse
   file_put_contents($courseTempDir['path'].'/data.dat', serialize($data));
  }
  private function createCourseExportFile($courseTempDir) {
+  $userTempDir = new EfrontDirectory($GLOBALS['currentUser'] -> user['directory'].'/temp');
   $file = $courseTempDir -> compress($this -> course['id'].'_exported.zip', false); //Compress the lesson files
   $newList = FileSystemTree :: importFiles($file['path']); //Import the file to the database, so we can download it
   $file = new EfrontFile(current($newList));

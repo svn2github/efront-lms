@@ -890,13 +890,13 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
       }
       $newAccount = EfrontUserFactory::factory($_GET['login'], EfrontUser::createPassword($_GET['pwd']));
       $additionalAccounts[] = $newAccount -> user['login'];
+      unserialize($newAccount -> user['additional_accounts']) ? $additionalAccounts2 = unserialize($newAccount -> user['additional_accounts']) : $additionalAccounts2 = array();
+      $additionalAccounts2[] = $editedUser -> user['login'];
+      $newAccount -> user['additional_accounts'] = serialize(array_unique($additionalAccounts2));
+      $newAccount -> persist();
      }
      $editedUser -> user['additional_accounts'] = serialize(array_unique($additionalAccounts));
      $editedUser -> persist();
-     unserialize($newAccount -> user['additional_accounts']) ? $additionalAccounts2 = unserialize($newAccount -> user['additional_accounts']) : $additionalAccounts2 = array();;
-     $additionalAccounts2[] = $editedUser -> user['login'];
-     $newAccount -> user['additional_accounts'] = serialize(array_unique($additionalAccounts2));
-     $newAccount -> persist();
     }
    } catch (Exception $e) {
     header("HTTP/1.0 500");

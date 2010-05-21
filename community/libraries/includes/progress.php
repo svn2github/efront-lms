@@ -128,6 +128,10 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
    //$smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
    //$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
    $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false);
+   foreach (EfrontLessonUser :: getLessonsRoles() as $key => $value) {
+    $value != 'student' OR $studentRoles[] = $key;
+   }
+   $constraints['condition'] = "ul.user_type in ('".implode("','", $studentRoles)."')";
    $users = $currentLesson -> getLessonStatusForUsers($constraints);
    $totalEntries = $currentLesson -> countLessonUsers($constraints);
    $dataSource = $users;

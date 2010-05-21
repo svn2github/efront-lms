@@ -61,6 +61,13 @@
          {$T_DIGESTS_FORM.javascript}
          <form {$T_DIGESTS_FORM.attributes}>
              {$T_DIGESTS_FORM.hidden}
+                        <div id="event_recipients_div" {if !isset($T_EVENT_FORM)}style="display:none"{/if}>
+       <table class="formElements">
+                       <tr><td class = "fixedLabelCell" >{$T_DIGESTS_FORM.event_recipients.label}:&nbsp;</td>
+                           <td style="white-space:nowrap;">{$T_DIGESTS_FORM.event_recipients.html}</td><td id="explicitlySelectedHelp" {if $T_SHOW_EXPLICITLY_HELP != 1}style="display:none"{/if}><img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, 'explicitly_selected_info', event)"><div id = 'explicitly_selected_info' onclick = "eF_js_showHideDiv(this, 'explicitly_selected_info', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:450px;height:100px;position:absolute;display:none">{$smarty.const._EXPLICITLYSELECTEDINFO}</div></td></tr>
+                   </table>
+      </div>
+      </fieldset>
             <fieldset class = "fieldsetSeparator">
             <legend>{$smarty.const._MESSAGE}</legend>
       <table class="formElements">

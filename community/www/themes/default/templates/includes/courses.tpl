@@ -35,16 +35,18 @@
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'lessonsTable'}
 <!--ajax:lessonsTable-->
    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "3" order = "desc" useAjax = "1" id = "lessonsTable" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$smarty.get.edit_course}&">
-    <tr class = "topTitle">
+    <tr class = "topTitle defaultRowHeight">
      <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
      <td class = "topTitle noSort">{$smarty.const._DIRECTION}</td>
-     <td class = "topTitle" name = "mode">{$smarty.const._MODE}</td>
+     <td class = "topTitle" name = "created">{$smarty.const._CREATED}</td>
+     <td class = "topTitle noSort">{$smarty.const._MODE}</td>
      <td class = "topTitle centerAlign" name = "has_lesson" >{$smarty.const._SELECT}</td>
     </tr>
    {foreach name = 'lessons_list2' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
      <td>{$lesson.name}</td>
      <td>{$lesson.directionsPath}</td>
+     <td>#filter:timestamp-{$lesson.created}#</td>
      <td><select id = "lesson_mode_{$lesson.id}" name = "lesson_mode" onchange = "setLessonMode(this, '{$lesson.id}', this.options[this.options.selectedIndex].value)" {if !$lesson.has_lesson}style = "display:none"{/if}>
        <option value = "shared" {if $lesson.mode == "shared"}selected{/if}>{$smarty.const._SHARED}</option>
        <option value = "unique" {if $lesson.mode == "unique"}selected{/if}>{$smarty.const._UNIQUE}</option>

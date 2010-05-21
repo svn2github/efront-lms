@@ -2848,7 +2848,7 @@ class EfrontCourse
      $courseString .= '
           <a href = "'.($options['courses_link'] ? str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'] : 'javascript:void(0)').'" class = "info" onmouseover = "updateInformation(this, '.$this -> course['id'].', \'course\')" >
            <span class = "listName">'.$this -> course['name'].'</span>
-           <img class = "tooltip" src = "images/others/tooltip_arrow.gif"/>
+           <img class = "tooltip" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
            <span class = "tooltipSpan"></span>
           </a>';             
     } else {
@@ -2957,7 +2957,7 @@ class EfrontCourse
        <td>&nbsp;
                              <a href = "javascript:void(0)" title = "" class = "inactiveLink info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\', \''.$this -> course['id'].'\')">
                               '.$lesson -> lesson['name'].'
-                              <img class = "tooltip" src = "images/others/tooltip_arrow.gif"/>
+                              <img class = "tooltip" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
                               <span class = "tooltipSpan"></span>
                              </a>
                             <td>';
@@ -2997,7 +2997,7 @@ class EfrontCourse
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
       $courseString .= '
                       <td>&nbsp;
-                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\', \''.$this -> course['id'].'\')" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'<img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan"></span></a>' : $lesson -> lesson['name']).'
+                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\', \''.$this -> course['id'].'\')" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'<img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/><span class = "tooltipSpan"></span></a>' : $lesson -> lesson['name']).'
                                 </td>';
      } else {
       $courseString .= '
@@ -3489,7 +3489,7 @@ class EfrontCourse
     $tooltipString = '
      <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
       '.$this -> course['name'].'
-      <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/>
+      <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif" height = "15" width = "15"/>
       <span class = "tooltipSpan">'.implode("", $tooltipInfo).'</span></a>';
    } else {
     $tooltipString = '

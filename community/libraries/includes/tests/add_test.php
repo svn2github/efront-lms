@@ -105,10 +105,10 @@ if (!$skillgap_tests) {
     $select_units -> addOption(_ROOTUNIT, 0);
     $select_units -> loadArray($optionsArray);
     $form -> addElement($select_units);
- if ($_GET['ctg'] != 'feedback') {
+//	if ($_GET['ctg'] != 'feedback') {
   $form -> addRule('parent_content', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required', null, 'client');
   $form -> addRule('parent_content', _INVALIDID, 'numeric');
- }
+//	}
 
     isset($_GET['from_unit']) && eF_checkParameter($_GET['from_unit'], 'id') ? $selectedUnit = $_GET['from_unit'] : $selectedUnit = 0;
     $selectedUnit ? $units = $currentContent -> getNodeChildren($selectedUnit) : $units = $currentContent -> tree;
@@ -277,7 +277,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                        'ctg_type' => $_GET['ctg'],
                                        'active' => 1,
                                        'timestamp' => time(),
-                                       'parent_content_ID' => $_GET['ctg'] != 'feedback' ? $values['parent_content'] : 0);
+                                      // 'parent_content_ID' => $_GET['ctg'] != 'feedback' ? $values['parent_content'] : 0);  
+            'parent_content_ID' => $values['parent_content']);
         $testFields = array('active' => 1,
                               'lessons_ID' => (isset($currentLesson -> lesson['id']))?$currentLesson -> lesson['id']:0,
                               'content_ID' => $test_content_ID,

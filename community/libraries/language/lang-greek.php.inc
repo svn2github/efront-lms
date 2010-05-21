@@ -3701,4 +3701,6 @@ define("_SUCCESFULLYMODIFIEDFEEDBACK", "Η ανάδραση ενημερώθηκ
 define("_FEEDBACKSTARTEDAT","Η ανάδραση ξεκίνησε στις");
 define("_EXPLICITLYSELECTEDINFO", "Οι παραλήπτες επιλέγονται από το σύστημα ανάλογα με το συμβάν.<BR>- "._NEWSURVEY.": Οι παραλήπτες είναι οι συμμετέχοντες στο ερωτηματολόγιο.<BR>- "._ONJOBASSIGNMENT.": Ο παραλήπτης είναι ο προϊστάμενος που επιλέχθηκε από το χρήστη.<BR>- "._PROJECTEXPIRY.": Οι παραλήπτες είναι οι χρήστες στους οποίους ανατέθηκε η εργασία.");
 define("_ENROLLEDON", "Εγγράφηκε στις");
+define("_SUBMITFEEDBACK","Αποστολή ανάδρασης");
+define("_FEEDBACKRESULTS","Αποτελέσματα ανάδρασης");
 ?>

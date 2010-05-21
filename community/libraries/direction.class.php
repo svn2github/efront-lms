@@ -847,7 +847,7 @@ class EfrontDirectionsTree extends EfrontTree
    $classNames = array();
    if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
     $treeString .= '<a href = "'.($courseLink ? $href : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$treeCourse -> course['id'].', \'course\')">'.$treeCourse -> course['name'].'
-          <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/>
+          <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
           <span class = "tooltipSpan"></span>
          </a>';
    } else {
@@ -869,7 +869,7 @@ class EfrontDirectionsTree extends EfrontTree
    }
    if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
     $treeString .= '<a href = "'.($lessonLink ? str_replace("#user_type#", $roleBasicType, $lessonLink).$treeLesson -> lesson['id'] : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$treeLesson -> lesson['id'].', \'lesson\')">'.$treeLesson -> lesson['name'].'
-             <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/>
+             <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
              <span class = "tooltipSpan"></span>
             </a>';
    } else {

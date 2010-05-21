@@ -351,8 +351,8 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
   {$smarty.capture.courses_list}
  </table>
 <!--/ajax:coursesTable-->
- {/if}
- {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'instancesTable'}
+{/if}
+{if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'instancesTable'}
 <div id = "filemanager_div" style = "display:none;">
 <!--ajax:instancesTable-->
  <table size = "{$T_TABLE_SIZE}" sortBy = "{$T_DATASOURCE_SORT_BY}" order = "{$T_DATASOURCE_SORT_ORDER}" id = "instancesTable" class = "sortedTable subSection" no_auto = "1" useAjax = "1" url = "{$courses_url}">
@@ -360,8 +360,8 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
  </table>
 <!--/ajax:instancesTable-->
 </div>
- {/if}
- {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'courseLessonsTable'}
+{/if}
+{if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'courseLessonsTable'}
 <div id = "filemanager_div" style = "display:none;">
 <!--ajax:courseLessonsTable-->
   <table id = "courseLessonsTable" no_auto = "1" size = "{$T_TABLE_SIZE}" class = "sortedTable subSection" useAjax = "1" url = "{$courses_url}">
@@ -369,4 +369,4 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
   </table>
 <!--/ajax:courseLessonsTable-->
 </div>
- {/if}
+{/if}

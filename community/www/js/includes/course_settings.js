@@ -16,9 +16,9 @@ function setAutoComplete(el) {
  ajaxRequest(el, url, parameters, onSetAutoComplete);
 }
 function onSetAutoComplete(el, response) {
- alert(response.evalJSON(true));
+ status = response.evalJSON(true).response;
 
- if (response == 0) {
+ if (status == 0) {
   el.update(autocompleteno);
   $('auto_certificates').down().next().update(autocertificateno);
   $('auto_certificates').hide();

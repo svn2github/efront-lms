@@ -147,7 +147,7 @@ if ($_GET['op'] == 'course_info') {
      $lesson -> options['auto_complete'] = $currentCourse -> options['auto_complete'];
      $lesson -> persist();
     }
-    $ajaxResult = new AjaxResultObject($currentCourse -> options['auto_complete'], 'my message');
+    $ajaxResult = new AjaxResultObject($currentCourse -> options['auto_complete'], _OPERATIONCOMPLETEDSUCCESFULLY);
     $ajaxResult -> display();
    } catch (Exception $e) {
     handleAjaxExceptions($e);
@@ -188,7 +188,7 @@ if ($_GET['op'] == 'course_info') {
    foreach ($rolesBasic as $key => $role) {
     $role != 'student' OR $studentRoles[] = $key;
    }
-   pr($studentRoles);
+   //pr($studentRoles);
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
       $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);

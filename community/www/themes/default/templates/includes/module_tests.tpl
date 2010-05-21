@@ -182,6 +182,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
  {/if}
     {/if}
    {else}
+    {if $T_TEST_FORM.parent_content}
+     <tr><td class = "labelCell">{$T_TEST_FORM.parent_content.label}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.parent_content.html}</td></tr>
+     {if $T_TEST_FORM.parent_content.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.parent_content.error}</td></tr>{/if}
+    {/if}
     <tr><td class = "labelCell">{$smarty.const._NAME}:&nbsp;</td>
      <td class = "elementCell">{$T_TEST_FORM.name.html}</td></tr>
      {if $T_TEST_FORM.name.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.name.error}</td></tr>{/if}
@@ -898,8 +903,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
        {/literal}
       {/if}
      {/capture}
-     {eF_template_printBlock title = "`$smarty.const._SOLVEDTEST` `$smarty.const._FORTEST` <span class = \"innerTableName\">&quot;`$T_TEST_DATA->test.name`&quot;</span> `$smarty.const._ANDUSER` <span class = \"innerTableName\">&quot;#filter:login-`$T_TEST_DATA->completedTest.login`#&quot;</span>" data = $smarty.capture.t_solved_test_code image='32x32/tests.png'}
- {else}
+   {if $T_CTG != "feedback"}
+    {eF_template_printBlock title = "`$smarty.const._SOLVEDTEST` `$smarty.const._FORTEST` <span class = \"innerTableName\">&quot;`$T_TEST_DATA->test.name`&quot;</span> `$smarty.const._ANDUSER` <span class = \"innerTableName\">&quot;#filter:login-`$T_TEST_DATA->completedTest.login`#&quot;</span>" data = $smarty.capture.t_solved_test_code image='32x32/tests.png'}
+   {else}
+    {eF_template_printBlock title = "`$smarty.const._FEEDBACK` <span class = \"innerTableName\">&quot;`$T_TEST_DATA->test.name`&quot;</span> `$smarty.const._ANDUSER` <span class = \"innerTableName\">&quot;#filter:login-`$T_TEST_DATA->completedTest.login`#&quot;</span>" data = $smarty.capture.t_solved_test_code image='32x32/feedback.png'}
+   {/if}
+  {else}
      {if $T_SKILLGAP_TEST}
             {capture name = 't_user_code'}
                 <div class="tabber" >
@@ -1156,34 +1165,44 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                 <br/><br/>
                             {* Show results for all users of each specific*}
 {elseif $smarty.get.test_results}
-                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=tests&test_results=`$smarty.get.test_results`'>`$T_TEST->test.name` `$smarty.const._RESULTS`</a>"}
+                                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=`$T_CTG`&test_results=`$smarty.get.test_results`'>`$T_TEST->test.name` `$smarty.const._RESULTS`</a>"}
                                 {capture name = 't_test_results_code'}
                                     <table class = "sortedTable" style = "width:100%">
                                         <tr class="defaultRowHeight"><td class = "topTitle">{$smarty.const._USER}</td>
                                             {if !$T_SKILLGAP_TEST}
                                             <td class = "topTitle centerAlign">{$smarty.const._PENDING}</td>
-                                            <td class = "topTitle centerAlign">{$smarty.const._TIMESDONE}</td>
+            {if $T_CTG != 'feedback'}
+             <td class = "topTitle centerAlign">{$smarty.const._TIMESDONE}</td>
+            {/if}
                                             {/if}
-                                            <td class = "topTitle centerAlign">{$smarty.const._AVERAGESCORE}</td>
-                                            <td class = "topTitle centerAlign">{$smarty.const._MAXSCORE}</td>
-                                            <td class = "topTitle centerAlign">{$smarty.const._MINSCORE}</td>
-                                            <td class = "topTitle centerAlign">{$smarty.const._FUNCTIONS}</td></tr>
+           {if $T_CTG != 'feedback'}
+            <td class = "topTitle centerAlign">{$smarty.const._AVERAGESCORE}</td>
+            <td class = "topTitle centerAlign">{$smarty.const._MAXSCORE}</td>
+            <td class = "topTitle centerAlign">{$smarty.const._MINSCORE}</td>
+           {/if}
+           <td class = "topTitle centerAlign">{$smarty.const._FUNCTIONS}</td></tr>
                                     {foreach name = "questions_list" key = "key" item = "item" from = $T_DONE_TESTS}
                                         <tr class = "{cycle name = "main_cycle" values = "oddRowColor, evenRowColor"} defaultRowHeight">
                                             <td>{$key} ({$item.surname} {$item.name})</td>
                                             {if !$T_SKILLGAP_TEST}
                                             <td class = "centerAlign">{if $item[$item.last_test_id].pending}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</td>
-                                            <td class = "centerAlign">{$item.times_done}</td>
+            {if $T_CTG != 'feedback'}
+             <td class = "centerAlign">{$item.times_done}</td>
+            {/if}
                                             {/if}
-                                            <td class = "centerAlign">#filter:score-{$item.average_score}#%</td>
-                                            <td class = "centerAlign">#filter:score-{$item.max_score}#%</td>
-                                            <td class = "centerAlign">#filter:score-{$item.min_score}#%</td>
+           {if $T_CTG != 'feedback'}
+            <td class = "centerAlign">#filter:score-{$item.average_score}#%</td>
+            <td class = "centerAlign">#filter:score-{$item.max_score}#%</td>
+            <td class = "centerAlign">#filter:score-{$item.min_score}#%</td>
+           {/if}
                                             <td class = "centerAlign">
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.last_test_id}">
+                    <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&show_solved_test={$item.last_test_id}">
                         <img src = "images/16x16/search.png" alt = "{$smarty.const._VIEWTEST}" title = "{$smarty.const._VIEWTEST}" border = "0"/></a>
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.last_test_id}&test_analysis=1&user={$key}">
-                        <img src = "images/16x16/analysis.png" alt = "{$smarty.const._TESTANALYSIS}" title = "{$smarty.const._TESTANALYSIS}" border = "0"/></a>
-                    {if !$T_SKILLGAP_TEST}
+                    {if $T_CTG != 'feedback'}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.last_test_id}&test_analysis=1&user={$key}">
+       <img src = "images/16x16/analysis.png" alt = "{$smarty.const._TESTANALYSIS}" title = "{$smarty.const._TESTANALYSIS}" border = "0"/></a>
+                    {/if}
+     {if !$T_SKILLGAP_TEST}
                     <a href = "javascript:void(0)" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteAllTests(this, '{$key}')">
                         <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._RESETALLTESTSSTATUS}" title = "{$smarty.const._RESETALLTESTSSTATUS}" border = "0"/></a>
                     {else}
@@ -1221,8 +1240,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                         }
                                     </script>
                                 {/literal}
-                                {eF_template_printBlock title = $smarty.const._TESTRESULTS data = $smarty.capture.t_test_results_code image='32x32/tests.png'}
-                            {* Show list of all solved tests *}
+        {if $T_CTG != 'feedback'}
+         {eF_template_printBlock title = $smarty.const._TESTRESULTS data = $smarty.capture.t_test_results_code image='32x32/tests.png'}
+        {else}
+         {eF_template_printBlock title = $smarty.const._FEEDBACKRESULTS data = $smarty.capture.t_test_results_code image='32x32/feedback.png'}
+        {/if}
+       {* Show list of all solved tests *}
 {elseif $smarty.get.solved_tests}
                                 {capture name = 't_recently_completed'}
                                                 <table width = "100%" class = "sortedTable">
@@ -1264,10 +1287,10 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
            <img src = "images/16x16/add.png" title = "{if $T_SKILLGAP_TEST}{$smarty.const._ADDSKILLGAPTEST}{else}{$smarty.const._ADDTEST}{/if}" alt = "{if $T_SKILLGAP_TEST}{$smarty.const._ADDSKILLGAPTEST}{else}{$smarty.const._ADDTEST}{/if}"/>
            <a href = "{$smarty.server.PHP_SELF}?ctg=tests&add_test=1{if $smarty.get.from_unit}&from_unit={$smarty.get.from_unit}{/if}">{if $T_SKILLGAP_TEST}{$smarty.const._ADDSKILLGAPTEST}{else}{$smarty.const._ADDTEST}{/if}</a>
           {else}
-     {if $T_TESTS|@sizeof < 1}
+  {* {if $T_TESTS|@sizeof < 1} *}
       <img src = "images/16x16/add.png" title = "{$smarty.const._ADDFEEDBACK}" alt = "{$smarty.const._ADDFEEDBACK}"/>
       <a href = "{$smarty.server.PHP_SELF}?ctg=feedback&add_test=1{if $smarty.get.from_unit}&from_unit={$smarty.get.from_unit}{/if}">{$smarty.const._ADDFEEDBACK}</a>
-     {/if}
+   {* {/if} *}
     {/if}
     </span>
       {if $T_SKILLGAP_TEST}

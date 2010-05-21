@@ -1010,7 +1010,7 @@ function deleteFacebookAccount(el, login) {
 }
 function onBeforeSortedTable(table) {
  if (table.id == 'coursesTable') {
-  $('coursesTable').insert({after:$('instancesTable').hide().remove()});
+  //$('coursesTable').insert({after:$('instancesTable').hide().remove()});
  }
 }
 jobsAvailable = jobsRows.length;

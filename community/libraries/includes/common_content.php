@@ -295,12 +295,17 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                 $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
                 $currentContent -> markSeenNodes($currentUser);
             }
-   $hideFeedback = false;
-   foreach (new EfrontNoFeedbackFilterIterator(new EfrontVisitableAndEmptyFilterIterator($visitableIterator)) as $key => $value) {
-    if (!$value['seen']) {
-     $treeOptions['hideFeedback'] = true;
-    }
-   }
+   /*$hideFeedback = false;
+
+			foreach (new EfrontNoFeedbackFilterIterator(new EfrontVisitableAndEmptyFilterIterator($visitableIterator)) as $key => $value) {
+
+				if (!$value['seen']) {
+
+					$treeOptions['hideFeedback'] = true;
+
+				}
+
+			}		*/
             //This is an iterator with only valid units plus empty units, and is used for the navigation tree
             $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML(new EfrontVisitableAndEmptyFilterIterator($visitableIterator), 'dhtmlContentTree', $treeOptions, $scormState));
             //This is an iterator with only valid units, and is used for students to navigate back and forth

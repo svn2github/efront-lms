@@ -284,7 +284,7 @@
    {eF_template_printBlock title = $smarty.const._SETTINGS data = $smarty.capture.t_payment_settings_code image='32x32/settings.png'}
   </div>
   <div class = "tabbertab {if $smarty.get.tab == 'coupons'}tabbertabdefault{/if}" title = "{$smarty.const._COUPONS}">
-   {eF_template_printBlock title = $smarty.const._COUPONS data = $smarty.capture.t_payment_coupons_code image='32x32/cart.png'}
+   {eF_template_printBlock title = $smarty.const._COUPONS data = $smarty.capture.t_payment_coupons_code image='32x32/shopping_basket.png'}
   </div>
  </div>
  {/capture}

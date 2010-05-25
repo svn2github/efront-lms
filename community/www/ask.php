@@ -40,7 +40,7 @@ switch ($_GET['ask_type']) {
 function highlightSearch($search_results, $search_criteria, $bgcolor='Yellow'){
  $start_tag = '<span style="background-color: '.$bgcolor.'">';
  $end_tag = '</span>';
- $search_results = str_replace($search_criteria, $start_tag . $search_criteria . $end_tag, $search_results);
+ $search_results = str_ireplace($search_criteria, $start_tag . $search_criteria . $end_tag, $search_results);
  return $search_results;
 }
 
@@ -708,28 +708,49 @@ function askChat() {
 function askBranches() {
  include_once $path."module_hcd_tools.php";
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
- if($_SESSION['s_type'] == "administrator"){
-  $result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%'","father_branch_ID ASC,branch_ID ASC");
- } else {
-  if (isset($_SESSION['supervises_branches'])) {
-   $result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%' AND branch_ID IN (".$_SESSION['supervises_branches'].")","father_branch_ID ASC,branch_ID ASC");
+/*
+
+	if($_SESSION['s_type'] == "administrator"){
+
+		$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%'","father_branch_ID ASC,branch_ID ASC");
+
+	} else {
+
+		if (isset($_SESSION['supervises_branches'])) {
+
+			$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%' AND branch_ID IN (".$_SESSION['supervises_branches'].")","father_branch_ID ASC,branch_ID ASC");
+
+		}
+
+	}
+
+
+
+	$ordered_branches = eF_createBranchesTreeSelect($result, 1);
+
+	foreach ($result as $key => $branch) {
+
+		$ordered_branches[$branch['branch_ID']] = array("branch_ID" => $branch['branch_ID'],
+
+													"name"		=> $ordered_branches[$branch['branch_ID']]);
+
+	}
+
+	$result = $ordered_branches;
+
+*/
+ $tree = new EfrontBranchesTree();
+ foreach ($tree -> toPathString() as $key => $branch) {
+  if ($preffix == '%' || stripos($branch, $preffix) !== false) {
+   $hiname = highlightSearch($branch, $preffix);
+   $branches[$key] = array('branch_ID' => $key,
+           'name' => $branch,
+           'path_string' => $hiname);
   }
  }
- $ordered_branches = eF_createBranchesTreeSelect($result, 1);
- foreach ($result as $key => $branch) {
-  $ordered_branches[$branch['branch_ID']] = array("branch_ID" => $branch['branch_ID'],
-             "name" => $ordered_branches[$branch['branch_ID']]);
- }
- $result = $ordered_branches;
- foreach ($result as $key => $branch) {
-  $hiname = highlightSearch($branch['name'] , $preffix);
-  $branches[$key] = array('branch_ID' => $branch['branch_ID'],
-          'name' => $branch['name'],
-          'path_string' => $hiname);
- }
  $str = '<ul>';
- foreach ($branches as $branch) {
-  $str = $str.'<li id='.$branch['branch_ID'].'>'.$branch['path_string'].'</li>';
+ foreach ($branches as $key => $branch) {
+  $str = $str.'<li id='.$key.'>'.$branch['path_string'].'</li>';
  }
  $str .= '</ul>';
  echo $str;

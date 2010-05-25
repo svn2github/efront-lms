@@ -24,6 +24,8 @@
          <tr><td></td><td class = "infoCell">{$smarty.const._COMMASEPARATEDLISTASTERISKEXTENSIONEXAMPLE}.{$smarty.const._DENIALTAKESPRECEDENCE}</td></tr>
          <tr><td class = "labelCell">{$smarty.const._MINIMUMPASSWORDLENGTH}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.password_length.html}</td></tr>
+         <tr><td class = "labelCell">{$smarty.const._PASSWORDREMINDER}:&nbsp;</td>
+             <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.password_reminder.html}</td></tr>
          <tr><td class = "labelCell">{$T_SYSTEM_VARIABLES_FORM.autologout_time.label}:&nbsp;</td>
              <td class = "elementCell">{$T_SYSTEM_VARIABLES_FORM.autologout_time.html} {$smarty.const._MINUTESOFINACTIVITY}</td></tr>
    <tr><td class = "labelCell">{$smarty.const._ADDITIONALACCOUNTS}:&nbsp;</td>

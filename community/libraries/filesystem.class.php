@@ -1113,6 +1113,39 @@ class EfrontFile extends ArrayObject
         }
         return $newName;
     }
+    /**
+
+     * Send file to browser
+
+     * 
+
+     * This function reads a file from disk and outputs it to the client, sending appropriate headers 
+
+     * @param boolena $attachment Whether to send as an attachment or inline
+
+     * @since 3.6.3
+
+     * @access public
+
+     */
+    public function sendFile($attachment = false) {
+     header("content-type:".$this['mime_type']);
+     if ($attachment) {
+      if (stripos($_SERVER['HTTP_USER_AGENT'], 'firefox') === false) {
+       header('content-disposition: attachment; filename= "'.urlencode($this['name']).'"');
+      } else {
+       header('content-disposition: attachment; filename= "'.($this['name']).'"');
+      }
+      header("Content-Transfer-Encoding: binary");
+      if (!$GLOBALS['configuration']['gz_handler']) {
+       //This does not cooperate well with gzhandler
+       header("Content-Length: ".filesize($this['path']));
+      }
+     } else {
+      header('content-disposition: inline; filename= "'.$this['name'].'"');
+     }
+     readfile($this['path']);
+    }
 }
 /**
 

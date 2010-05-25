@@ -3268,7 +3268,12 @@ class EfrontCourse
   $file = $courseTempDir -> compress($this -> course['id'].'_exported.zip', false); //Compress the lesson files
   $newList = FileSystemTree :: importFiles($file['path']); //Import the file to the database, so we can download it
   $file = new EfrontFile(current($newList));
-  $file -> rename($userTempDir['path'].'/'.EfrontFile :: encode($this -> course['name']).'.zip', true);
+  $newFileName = EfrontFile :: encode($this -> course['name']).'.zip';
+  if (!eF_checkParameter($newFileName, 'file')) {
+   $newFileName = $file['name'];
+  }
+  $file -> rename($userTempDir['path'].'/'.$newFileName, true);
+  //$file   -> rename($userTempDir['path'].'/'.EfrontFile :: encode($this -> course['name']).'.zip', true);
   $courseTempDir -> delete();
   return $file;
  }

@@ -34,6 +34,7 @@ $systemForm -> addElement("advcheckbox", "reset_license_note", _RESETLICENSENOTE
 $systemForm -> addElement("advcheckbox", "lesson_enroll", _ALLOWINDEPENDENTLESSONS, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "debug_mode", _DEBUGMODE, null, 'class = "inputCheckBox"', array(0, 1));
+$systemForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));
 $systemForm -> addElement("advcheckbox", "math_images", _LOADMATHTYPESASIMAGES, null, 'class = "inputCheckBox"', array(0, 1));
 //$systemForm -> addElement("advcheckbox", "smarty_caching", 	_SMARTYCACHING,       	 null, 'class = "inputCheckBox"', array(0, 1));
 //$systemForm -> addElement("advcheckbox", "smarty_caching_timeout", _SMARTYCACHETIMEOUT, null, 'class = "inputCheckBox"', array(0, 1));

@@ -642,8 +642,6 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   } catch (Exception $e) {
    $smarty -> assign ("T_AVATAR", G_SYSTEMAVATARSPATH."unknown_small.png");
   }
-  $smarty -> assign("T_USER_TRANSACTIONS", $trans);
-  $smarty -> assign("T_USER_TRANSACTIONS_NUM", sizeof($trans));
  }
  $form -> addElement('text', 'name', _NAME, 'class = "inputText"');
  $form -> addRule('name', _THEFIELD.' '._NAME.' '._ISMANDATORY, 'required', null, 'client');

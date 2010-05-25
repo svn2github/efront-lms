@@ -2065,8 +2065,12 @@ class EfrontStats
                 case 'all_tests':
                     $passed = 1;
                     foreach ($visitableTestIds as $id) {
-                        $score = $seenUnits[$id];
-                        $score < $condition['options'][0] ? $passed = 0 : null;
+                     if (isset($seenUnits[$id])) {
+                         $score = $seenUnits[$id];
+                         $score < $condition['options'][0] ? $passed = 0 : null;
+                     } else {
+                      $passed = 0;
+                     }
                     }
                     break;
                 case 'mean_all_tests':

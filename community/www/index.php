@@ -353,7 +353,7 @@ if (isset($_GET['account']) && isset($_GET['key']) && eF_checkParameter($_GET['a
  }
 }
 /* ---------------------------------------------------------Reset Password part--------------------------------------------------------- */
-if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd') { //The user asked to display the contact form
+if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuration']['password_reminder'] && !$GLOBALS['configuration']['only_ldap']) { //The user asked to display the contact form
  $smarty -> assign('T_CTG', 'reset_pwd');
  $form = new HTML_QuickForm("reset_password_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=reset_pwd", "", "class = 'indexForm'", true);
  $form -> removeAttribute('name');

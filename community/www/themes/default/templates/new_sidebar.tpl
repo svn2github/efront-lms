@@ -102,11 +102,12 @@
                             <span class = 'tooltipSpan' id='userInfo'>{$T_TYPE}</span>
                         </a>
                     </td></tr>
-                <tr>
+                <tr><td>
                     {if !$T_NO_PERSONAL_MESSAGES}
                     <div id="unread_img" style="display:inline">{if $T_UNREAD_MESSAGES != 0}<img src = "images/16x16/mail.{$globalImageExtension}" style="vertical-align:middle; border:0; 'float': left;" title="{$smarty.const._MESSAGES}" alt="{$smarty.const._MESSAGES}" />{/if}</div>
                     <div id="recent_unread_left" style="display:inline">{if $T_UNREAD_MESSAGES != 0}(<a href = "{$smarty.session.s_type}.php?ctg=messages" target="mainframe">{$T_UNREAD_MESSAGES}</a>){/if}</div>
                     {/if}
+                    </td>
                  </tr>
             </table>
         </div>

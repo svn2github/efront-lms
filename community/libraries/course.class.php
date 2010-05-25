@@ -914,7 +914,7 @@ class EfrontCourse
          "skills_ID" => $courseSkill['courses_ID'],
          "relevance" => 2);
   }
-  eF_insertTableDataMulitple("questions_to_skills", $fields);
+  eF_insertTableDataMultiple("questions_to_skills", $fields);
  }
  /**
 

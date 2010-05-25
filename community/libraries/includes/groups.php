@@ -225,10 +225,10 @@ $loadScripts[] = 'includes/groups';
             $courses = array();
             foreach ($result as $value) {
                 $course = $value -> course;
-                $course['in_group'] = false;
+                $course['has_course'] = false;
                 $course['user_type'] = 'student';
                 if (in_array($course['id'], array_keys($groupCourses))) {
-                    $course['in_group'] = true;
+                    $course['has_course'] = true;
                     $courses[$course['id']] = $course;
                     $courses[$course['id']]['user_type'] = $groupCourses[$course['id']]['user_type'];
                 } else if ($course['active']) {

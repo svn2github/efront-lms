@@ -341,24 +341,6 @@
  </table>
 </form>
 {/capture}
-{capture name = "enterprise_options"}
-{$T_ENTERPRISE_VARIABLES_FORM.javascript}
-<form {$T_ENTERPRISE_VARIABLES_FORM.attributes}>
- {$T_ENTERPRISE_VARIABLES_FORM.hidden}
-    <table class = "formElements">
-        <tr><td class = "labelCell">{$smarty.const._SHOWORGANIZATIONCHARTTOUSERS}:&nbsp;</td>
-            <td class = "elementCell">{$T_ENTERPRISE_VARIABLES_FORM.show_organization_chart.html}</td></tr>
-  <tr><td class = "labelCell">{$smarty.const._SHOWUSERFORMTOUSERS}:&nbsp;</td>
-            <td class = "elementCell">{$T_ENTERPRISE_VARIABLES_FORM.show_user_form.html}</td></tr>
-  <tr><td class = "labelCell">{$smarty.const._SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS}:&nbsp;</td>
-            <td class = "elementCell">{$T_ENTERPRISE_VARIABLES_FORM.show_unassigned_users_to_supervisors.html}</td></tr>
-  <tr><td class = "labelCell">{$smarty.const._ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS}:&nbsp;</td>
-            <td class = "elementCell">{$T_ENTERPRISE_VARIABLES_FORM.allow_users_to_delete_supervisor_files.html}</td></tr>
-  <tr><td></td>
-        <tr><td></td><td class = "submitCell">{$T_ENTERPRISE_VARIABLES_FORM.submit_enterprise.html}</td></tr>
- </table>
-</form>
-{/capture}
 {capture name="view_config"}
 <div class="tabber">
     <div class="tabbertab {if ($smarty.get.tab == 'vars')}tabbertabdefault{/if}">

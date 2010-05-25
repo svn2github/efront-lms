@@ -221,7 +221,7 @@ $loadScripts[] = 'includes/groups';
 
             // Group courses
             $groupCourses = $currentGroup -> getCourses();
-            $result = EfrontCourse::getCourses(true);
+            $result = EfrontCourse::getAllCourses();
             $courses = array();
             foreach ($result as $value) {
                 $course = $value -> course;

@@ -64,13 +64,13 @@
    </span>
   </div>
 <!--ajax:lessonsTable-->
-  <table style = "width:100%" class = "sortedTable" size = "{$T_LESSONS_SIZE}" sortBy = "0" id = "lessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=user_groups&edit_user_group={$smarty.get.edit_user_group}&">
+  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "lessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=user_groups&edit_user_group={$smarty.get.edit_user_group}&">
    <tr class = "topTitle">
     <td name = "name" class = "topTitle">{$smarty.const._NAME}</td>
     <td name = "directions_ID">{$smarty.const._PARENTDIRECTIONS}</td>
     <td name = "price" class = "topTitle centerAlign">{$smarty.const._PRICE}</td>
   {if $_change_}
-    <td name = "partof" class = "topTitle centerAlign">{$smarty.const._CHECK}</td>
+    <td name = "in_group" class = "topTitle centerAlign">{$smarty.const._CHECK}</td>
   {/if}
    </tr>
   {foreach name = 'users_to_lessons_list' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
@@ -80,7 +80,7 @@
     <td class = "centerAlign">{if $course.price == 0}{$smarty.const._FREECOURSE}{else}{$course.price_string}{/if}</td>
   {if ($_change_)}
     <td class = "centerAlign">
-     <input class = "inputCheckBox" type = "checkbox" id = "lesson_{$lesson.id}" name = "lesson_{$lesson.id}" onclick ="ajaxPost('{$lesson.id}', this, 'lessonsTable');" {if $lesson.has_course}checked{/if}>
+     <input class = "inputCheckBox" type = "checkbox" id = "lesson_{$lesson.id}" name = "lesson_{$lesson.id}" onclick ="ajaxPost('{$lesson.id}', this, 'lessonsTable');" {if $lesson.in_group}checked{/if}>
     </td>
   {/if}
    </tr>

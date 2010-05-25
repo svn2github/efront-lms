@@ -24,6 +24,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)} <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>{/if}
 {if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_course" name = "active_in_course">{$smarty.const._STATUS}</td>{/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)} <td class = "topTitle completed" name = "completed">{$smarty.const._COMPLETED}</td>{/if}
+{if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_course" name = "active_in_course">{$smarty.const._ENROLLEDON}</td>{/if}
 {if in_array('to_timestamp', $T_DATASOURCE_COLUMNS)} <td class = "topTitle to_timestamp" name = "to_timestamp">{$smarty.const._COMPLETEDON}</td>{/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)} <td class = "topTitle score" name = "score">{$smarty.const._SCORE}</td>{/if}
 
@@ -93,6 +94,9 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
     {/if}
    {/if}
    </td>
+{/if}
+{if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}
+   <td class = "active_in_course">{if $user.has_course}#filter:timestamp_time-{$user.active_in_course}#{/if}</td>
 {/if}
 {if in_array('to_timestamp', $T_DATASOURCE_COLUMNS)}
    <td class = "to_timestamp">{if $user.has_course}#filter:timestamp_time-{$user.to_timestamp}#{/if}</td>

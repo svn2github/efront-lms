@@ -36,7 +36,7 @@ if (isset($_GET['sel_course'])) {
 
      $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
+      $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations', 'to_timestamp', 'active_in_course'));
       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
       $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
@@ -45,7 +45,7 @@ if (isset($_GET['sel_course'])) {
       $smarty -> assign("T_TABLE_SIZE", $totalEntries);
      }
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations'));
+      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations', 'to_timestamp', 'active_in_course'));
       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
       $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);

@@ -17,7 +17,7 @@ table#coursesTable,table#instancesTable {width:100%;}
 table#coursesTable td.name,table#instancesTable td.name{width:30%;}
 table#coursesTable td.location,table#instancesTable td.location{width:15%;}
 table#coursesTable td.directions_name,table#instancesTable td.directions_name{width:15%;}
-table#coursesTable td.user_type, table#instancesTable td.user_type{width:25%;}
+table#coursesTable td.user_type, table#instancesTable td.user_type{width:15%;}
 table#coursesTable td.num_students,table#instancesTable td.num_students{width:5%;text-align:center;}
 table#coursesTable td.num_lessons,table#instancesTable td.num_lessons{width:5%;text-align:center;}
 table#coursesTable td.num_skills,table#instancesTable td.num_skills{width:5%;text-align:center;}
@@ -26,9 +26,9 @@ table#coursesTable td.start_date,table#instancesTable td.start_date{width:10%;te
 table#coursesTable td.end_date,table#instancesTable td.end_date{width:10%;text-align:center;}
 table#coursesTable td.created,table#instancesTable td.created{width:10%;text-align:center;}
 table#coursesTable td.active,table#instancesTable td.active{width:5%;text-align:center;}
-table#coursesTable td.active_in_course,table#instancesTable td.active_in_course{width:5%;text-align:center;}
+table#coursesTable td.active_in_course,table#instancesTable td.active_in_course{width:10%;text-align:center;}
 table#coursesTable td.completed,table#instancesTable td.completed{width:5%;text-align:center;}
-table#coursesTable td.to_timestamp,table#instancesTable td.to_timestamp{width:5%;text-align:center;}
+table#coursesTable td.to_timestamp,table#instancesTable td.to_timestamp{width:10%;text-align:center;}
 table#coursesTable td.score,table#instancesTable td.score{width:5%;text-align:center;}
 table#coursesTable td.operations,table#instancesTable td.operations{width:5%;text-align:center;white-space:nowrap}
 table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;text-align:center;}

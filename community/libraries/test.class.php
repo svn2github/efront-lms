@@ -1888,7 +1888,7 @@ class EfrontTest
                            </span>
                        </td></tr>
                        <tr><td>
-                                    <div id = "question_'.$id.'_feedback_div" '.($question -> feedback ? 'class = "feedback"' : '').' >
+                                    <div id = "question_'.$id.'_feedback_div" '.($question -> feedback ? 'class = "feedback_test"' : '').' >
                                         <span id = "question_'.$id.'_feedback">'.$question -> feedback.'</span>
                                     </div>
                                     <div id = "edit_question_'.$id.'_feedback_div" style = "display:none;">
@@ -1903,7 +1903,7 @@ class EfrontTest
                             </td></tr>';
                     } else {
                         $testString .= '
-                                    <div id = "question_'.$id.'_feedback_div" '.($question -> feedback ? 'class = "feedback"' : '').' >
+                                    <div id = "question_'.$id.'_feedback_div" '.($question -> feedback ? 'class = "feedback_test"' : '').' >
                                         <span id = "question_'.$id.'_feedback">'.$question -> feedback.'</span>
                                     </div>';
                     }
@@ -2774,7 +2774,7 @@ class EfrontCompletedTest extends EfrontTest
        <tr><td>';
   }
         $str .= '
-                            <div id = "test_feedback_div" '.($this -> completedTest['feedback'] ? 'class = "feedback"' : '').' >
+                            <div id = "test_feedback_div" '.($this -> completedTest['feedback'] ? 'class = "feedback_test"' : '').' >
                                 <span id = "test_feedback">'.$this -> completedTest['feedback'].'</span>
                             </div>
                             <div id = "edit_test_feedback_div" style = "display:none;">
@@ -2924,7 +2924,7 @@ class EfrontCompletedTest extends EfrontTest
                     },
                     onSuccess: function (transport) {
                         $("test_feedback").update(transport.responseText);
-                        transport.responseText ? $("test_feedback_div").toggle().className = "feedback" : $("test_feedback_div").toggle().className = "";
+                        transport.responseText ? $("test_feedback_div").toggle().className = "feedback_test" : $("test_feedback_div").toggle().className = "";
                         $("edit_test_feedback_div").toggle();
                         $("progress_img").hide().setAttribute("src", "images/16x16/success.png");
                         new Effect.Appear($("progress_img"));
@@ -2986,7 +2986,7 @@ class EfrontCompletedTest extends EfrontTest
                     },
                     onSuccess: function (transport) {
                         $("question_" + id + "_feedback").update(transport.responseText);
-                        transport.responseText ? $("question_" + id + "_feedback_div").toggle().className = "feedback" : $("question_" + id + "_feedback_div").toggle().className = "";
+                        transport.responseText ? $("question_" + id + "_feedback_div").toggle().className = "feedback_test" : $("question_" + id + "_feedback_div").toggle().className = "";
                         $("edit_question_" + id + "_feedback_div").toggle();
                         $("progress_img_"+id).hide().setAttribute("src", "images/16x16/success.png");
                         new Effect.Appear($("progress_img_"+id));

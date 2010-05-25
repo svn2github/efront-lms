@@ -3708,4 +3708,5 @@ define("_MUSTCOMPLETEALLTESTS", "Must complete all tests");
 define("_FEEDBACKSTATISTICS","Feedback reports");
 define("_CHOOSEFEEDBACK","Choose feedback");
 define("_REPORTSFORFEEDBACK","Report for feedback");
+define("_CURRENTLYBROWSINGFOLDER", "Currently browsing folder");
 ?>

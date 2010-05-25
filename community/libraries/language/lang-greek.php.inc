@@ -3708,4 +3708,5 @@ define("_MUSTCOMPLETEALLTESTS", "Πρέπει να ολοκληρώσει όλε
 define("_FEEDBACKSTATISTICS","Στατιστικά αναδράσεων");
 define("_CHOOSEFEEDBACK","Επιλογή ανάδρασης");
 define("_REPORTSFORFEEDBACK","Στατιστικά για την ανάδραση");
+define("_CURRENTLYBROWSINGFOLDER", "Βλέπετε το φάκελο");
 ?>

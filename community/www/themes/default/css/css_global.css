@@ -852,7 +852,7 @@ vertical-align:middle;
 white-space:nowrap;
 }
 table.doneTestHeader td#timer *{vertical-align:middle;white-space:nowrap;}
-.feedback{
+.feedback_test{
 background:rgb(245,220,133);
 border:1px dotted gray;
 width:100%;

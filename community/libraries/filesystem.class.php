@@ -2583,6 +2583,7 @@ class FileSystemTree extends EfrontTree
                 $parentDir['path'] = '';
             }
             $filesCode .= '
+               <tr class = "defaultRowHeight eventRowColor"><td class = "centerAlign" colspan = "100%">'._CURRENTLYBROWSINGFOLDER.': '.str_replace($this -> dir['path'], '', $currentDir['path']).'</td></tr>
                      <tr class = "defaultRowHeight oddRowColor">
                       <td class = "centerAlign"><span style = "display:none"></span><img src = "images/16x16/folder_up.png" alt = "'._UPONELEVEL.'" title = "'._UPONELEVEL.'"/></td>
                       <td><a href = "javascript:void(0)" onclick = "eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($parentDir['path']).'\');">.. ('._UPONELEVEL.')</a></td>
@@ -2689,12 +2690,12 @@ class FileSystemTree extends EfrontTree
                     $massOperationsCode .= '
                    <form name = "copy_files_form" id = "copy_files_form" method = "post" style = "display:none;"><input type = "hidden" name = "copy_current_directory" id = "copy_current_directory"><input type = "hidden" name = "copy_files" id = "copy_files" value = "" /></form>
        <img class = "ajaxHandle" src = "images/16x16/copy.png" title = "'._COPYSELECTED.'" alt = "'._COPYSELECTED.'" onclick = "copyFiles(this);">
-                            <img style = "display:none" class = "ajaxHandle" src = "images/16x16/paste.png" title = "'._PASTESELECTED.'" alt = "'._PASTESELECTED.'" onclick = "$(\'copy_current_directory\').value = $(\''.$tableId.'\').getAttribute(\'currentDir\');pasteFiles(this);eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', $(\'copy_current_directory\').value);">&nbsp;';
+                            <img style = "display:none" class = "ajaxHandle" src = "images/16x16/paste.png" title = "'._PASTESELECTED.'" alt = "'._PASTESELECTED.'" onclick = "pasteFiles(this, \''.$tableId.'\');">&nbsp;';
                 }
                 $massOperationsCode .= ($options['delete'] ? '<a href = "javascript:void(0)"><img src = "images/16x16/error_delete.png" title = "'._DELETESELECTED.'" alt = "'._DELETESELECTED.'" border = "0" style = "vertical-align:middle" onclick = "if (confirm(\''._IRREVERSIBLEACTIONAREYOUSURE.'\')) deleteSelected()"></a>' : '').'
                </div>';
             }
-        } else {
+        } elseif (!isset($parentDir)) { //Don't display 'no data found' if in subdirectory, because it doesn't show up well with the .. (up one level)
             $filesCode .= '
                 <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">'._NODATAFOUND.'</td></tr>
             </table>';            

@@ -14,12 +14,19 @@ function copyFiles(el) {
  el.next().show();
  el.hide();
 }
-function pasteFiles(el) {
+function pasteFiles(el, tableId) {
+ $('copy_current_directory').value = $(tableId).getAttribute('currentDir');
+ el.removeClassName('sprite16').setAttribute('src', 'themes/default/images/others/progress1.gif');
  Element.extend(el);
- $('copy_files_form').request();
- $('copy_files').value = '';
- el.previous().show();
- el.hide();
+ $('copy_files_form').request({
+  onComplete: function() {
+   $('copy_files').value = '';
+   el.previous().show();
+   el.hide();
+   el.addClassName('sprite16').setAttribute('src', 'themes/default/images/others/transparent.gif');
+   eF_js_rebuildTable($('filename_'+tableId).down().getAttribute('tableIndex'), 0, '', 'desc', $('copy_current_directory').value);
+  }
+ });
 }
 function getSelected() {
  $("copy_files").value = "";

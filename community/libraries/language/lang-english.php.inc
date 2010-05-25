@@ -3703,4 +3703,7 @@ define("_EXPLICITLYSELECTEDINFO", "The recipients are selected by the system int
 define("_ENROLLEDON", "Enrolled on");
 define("_SUBMITFEEDBACK","Submit feedback");
 define("_FEEDBACKRESULTS","Feedback results");
+define("_FEEDBACKSTATISTICS","Feedback reports");
+define("_CHOOSEFEEDBACK","Choose feedback");
+define("_REPORTSFORFEEDBACK","Report for feedback");
 ?>

@@ -14,7 +14,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  * - Remove unserializations of completed tests where unnecessary
 
  */
-if ($GLOBALS['configuration']['disable_tests'] == 1 || (isset($currentUser -> coreAccess['tests']) && $currentUser -> coreAccess['tests'] == 'hidden')) {
+if (($GLOBALS['configuration']['disable_tests'] == 1 && $_GET['ctg'] == 'tests') || ($GLOBALS['configuration']['disable_feedback'] == 1 && $_GET['ctg'] == 'feedback')|| (isset($currentUser -> coreAccess['tests']) && $currentUser -> coreAccess['tests'] == 'hidden')) {
     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 }
 //Create shorthands for user access rights, to avoid long variable names
@@ -29,6 +29,7 @@ if ($configuration['math_content'] && $configuration['math_images']) {
 }
 try {
  $_admin_ ? $skillgap_tests = 1 : $skillgap_tests = 0;
+
  //An array of legal ids for editing entries
  if (!$_admin_) {
      if (!isset($currentContent)) {

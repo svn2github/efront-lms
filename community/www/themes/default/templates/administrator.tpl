@@ -376,6 +376,14 @@
         {if isset($smarty.get.sel_test)}
             {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=test&sel_test='|cat:$smarty.get.sel_test|cat:'">'|cat:$T_TEST_INFO.general.name|cat:'</a>'}
         {/if}
+ {elseif $smarty.get.option == 'feedback'}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=feedback">'|cat:$smarty.const._FEEDBACKSTATISTICS|cat:'</a>'}
+        {if isset($smarty.get.sel_test)}
+            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=feedback&sel_test='|cat:$smarty.get.sel_test|cat:'">'|cat:$T_TEST_INFO.general.name|cat:'</a>'}
+        {/if}
+  {if isset($smarty.get.question_ID)}
+            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=feedback&sel_test='|cat:$smarty.get.sel_test|cat:'&question_ID='|cat:$smarty.get.question_ID|cat:'">'|cat:$T_TEST_QUESTIONS[$smarty.get.question_ID]->question.text|cat:'</a>'}
+        {/if}
     {elseif $smarty.get.option == 'course'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course">'|cat:$smarty.const._COURSESTATISTICS|cat:'</a>'}
         {if isset($smarty.get.sel_course)}

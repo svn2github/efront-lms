@@ -395,6 +395,13 @@ if ($('autocomplete_tests')) {
             afterUpdateElement : function (t, li) {document.location=document.location+'&sel_test='+li.id;},
             indicator : "busy"});
 }
+if ($('autocomplete_feedback')) {
+ new Ajax.Autocompleter("autocomplete",
+         "autocomplete_feedback",
+         "ask.php?ask_type=feedback", {paramName: "preffix",
+            afterUpdateElement : function (t, li) {document.location=document.location+'&sel_test='+li.id;},
+            indicator : "busy"});
+}
 if ($('lesson_choices_enrolled')) {
  new Ajax.Autocompleter("autocomplete_lesson_enrolled",
          "lesson_choices_enrolled",

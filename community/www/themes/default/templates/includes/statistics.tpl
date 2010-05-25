@@ -20,6 +20,9 @@
 {elseif $T_OPTION == 'test'}
  {include file = "includes/statistics/tests_stats.tpl"}
 
+{elseif $T_OPTION == 'feedback'}
+ {include file = "includes/statistics/feedback_stats.tpl"}
+
 {elseif $T_OPTION == 'system'}
  {include file = "includes/statistics/system_stats.tpl"}
 

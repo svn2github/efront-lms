@@ -3703,4 +3703,7 @@ define("_EXPLICITLYSELECTEDINFO", "Οι παραλήπτες επιλέγοντ�
 define("_ENROLLEDON", "Εγγράφηκε στις");
 define("_SUBMITFEEDBACK","Αποστολή ανάδρασης");
 define("_FEEDBACKRESULTS","Αποτελέσματα ανάδρασης");
+define("_FEEDBACKSTATISTICS","Στατιστικά αναδράσεων");
+define("_CHOOSEFEEDBACK","Επιλογή ανάδρασης");
+define("_REPORTSFORFEEDBACK","Στατιστικά για την ανάδραση");
 ?>

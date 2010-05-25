@@ -1842,9 +1842,11 @@ class EfrontTest
                     <span id = "question_content_'.$question -> question['id'].'" style = "display:none">'.$question -> question['id'].'</span>
                     <table width = "100%">
                         <tr><td class = "questionWeight" style = "vertical-align:middle;">
-        <span style = "float:right">'.$timeSpentString.'</span>
-                          <img src = "images/32x32/'.($done ? $image : 'unit.png').'" style = "vertical-align:middle" alt = "'.($done ? $alt : _QUESTION).'" title = "'.($done ? $title : _QUESTION).'"/>&nbsp;
-                                <span style = "vertical-align:middle;font-weight:bold">'._QUESTION.'&nbsp;'. ($count++).'</span>
+        <span style = "float:right">'.$timeSpentString.'</span>';
+   if(!$isFeedback) {
+    $testString .= '<img src = "images/32x32/'.($done ? $image : 'unit.png').'" style = "vertical-align:middle" alt = "'.($done ? $alt : _QUESTION).'" title = "'.($done ? $title : _QUESTION).'"/>&nbsp;';
+            }
+   $testString .= '<span style = "vertical-align:middle;font-weight:bold">'._QUESTION.'&nbsp;'. ($count++).'</span>
                                 '.($this -> options['display_weights'] || $done && !$isFeedback ? '<span style = "vertical-align:middle;margin-left:10px">('._WEIGHT.'&nbsp;'.$weight.'%)</span>' : '').'
                                 '.($units[$question -> question['content_ID']] && $done ? '<span style = "vertical-align:middle;margin-left:10px">'._UNIT.' "'.$units[$question -> question['content_ID']].'"</span>' : '').'
         '.(($_SESSION['s_type'] == "student" && $currentLesson -> options['content_report'] == 1)? '<a href = "content_report.php?ctg=tests&edit_question='.$question -> question['id'].'&question_type='.$question -> question['type'].'&lessons_Id='.$_SESSION['s_lessons_ID'].'" onclick = "eF_js_showDivPopup(\''._CONTENTREPORT.'\', 1)" target = "POPUP_FRAME"><img src = "images/16x16/warning.png" border=0 style = "vertical-align:middle" alt = "'._CONTENTREPORT.'" title = "'._CONTENTREPORT.'"/></a>' : '').'
@@ -3637,7 +3639,7 @@ class MultipleOneQuestion extends Question implements iQuestion
      * @access public
 
      */
-    public function preview(&$form, $questionStats = false) {
+    public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $form -> setDefaults(array("question[".$this -> question['id']."]" => null));
         $form -> freeze(); //Freeze the form elements
@@ -3648,14 +3650,22 @@ class MultipleOneQuestion extends Question implements iQuestion
         for ($k = 0; $k < sizeof($this -> options); $k++) { //Display properly each option. The group can't be used, since we will display each option differently, depending on whether it is correct or not
             $index = $this -> order[$k]; //$index is used to recreate the answers order, for a done test, or to apply the answers shuffle, for an unsolved test
             if ($this -> answer[0] == $index) {
-                $innerQuestionString .= '<span class = "correctAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    if (!$hideAnswerStatus) {
+     $innerQuestionString .= '<span class = "correctAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    } else {
+     $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][$index]['label'];
+    }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
                 } else {
                  $innerQuestionString .= "   (0%)";
                 }
             } else {
-                $innerQuestionString .= '<span class = "wrongAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    if (!$hideAnswerStatus) {
+     $innerQuestionString .= '<span class = "wrongAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    } else {
+     $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][$index]['label'];
+    }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
                 } else {
@@ -4239,7 +4249,7 @@ class MultipleManyQuestion extends Question implements iQuestion
      * @access public
 
      */
-    public function preview(&$form, $questionStats = false) {
+    public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form              
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> options); $k++) {
@@ -4253,14 +4263,22 @@ class MultipleManyQuestion extends Question implements iQuestion
         for ($k = 0; $k < sizeof($this -> options); $k++) { //Display properly each option. The group can't be used, since we will display each option differently, depending on whether it is correct or not
             $index = $this -> order[$k]; //$index is used to recreate the answers order, for a done test, or to apply the answers shuffle, for an unsolved test
             if ($this -> answer[$index]) {
-                $innerQuestionString .= '<span class = "correctAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    if (!$hideAnswerStatus) {
+     $innerQuestionString .= '<span class = "correctAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    } else {
+     $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][$index]['label'];
+    }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
                 } else {
                  $innerQuestionString .= "   (0%)";
                 }
             } else {
-                $innerQuestionString .= '<span class = "wrongAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    if (!$hideAnswerStatus) {
+     $innerQuestionString .= '<span class = "wrongAnswer">'.$formArray['question'][$this -> question['id']][$index]['label'];
+    } else {
+     $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][$index]['label'];
+    }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
                 } else {
@@ -4437,7 +4455,7 @@ class TrueFalseQuestion extends Question implements iQuestion
      * @access public
 
      */
-    public function preview(&$form, $questionStats = false) {
+    public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $form -> setDefaults(array("question[".$this -> question['id']."]" => null));
         $form -> freeze(); //Freeze the form elements
@@ -4803,7 +4821,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
      * @access public
 
      */
-    public function preview(&$form, $questionStats = false) {
+    public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
         $inputLabels = explode('###', $this -> question['text']);
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
@@ -5203,7 +5221,7 @@ class MatchQuestion extends Question implements iQuestion
      * @access public
 
      */
-    public function preview(&$form, $questionStats = false) {
+    public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> options); $k++) { //Display properly each option. The group can't be used, since we will display each option differently, depending on whether it is correct or not
@@ -5620,7 +5638,7 @@ class RawTextQuestion extends Question implements iQuestion
      * @access public
 
      */
-    public function preview(&$form, $questionStats = false) {
+    public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $filesString = '';
         foreach ($this -> files as $file) {
@@ -5996,7 +6014,7 @@ class DragDropQuestion extends Question implements iQuestion
      * @access public
 
      */
-    public function preview(&$form, $questionStats = false) {
+    public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> options); $k++) { //Display properly each option. The group can't be used, since we will display each option differently, depending on whether it is correct or not

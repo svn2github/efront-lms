@@ -529,7 +529,15 @@ if (isset($_GET['postAjaxRequest'])) {
                         }
                     }
                 }
-
+    if ($_GET['ctg'] == 'feedback') {
+     $nonTestQuestionsTemp = array();
+     foreach ($nonTestQuestions as $key => $value) {
+      if ($value['type'] != 'true_false') {
+       $nonTestQuestionsTemp[$key] = $value;
+      }
+     }
+     $nonTestQuestions = $nonTestQuestionsTemp;
+    }
                 isset($_GET['filter']) ? $nonTestQuestions = eF_filterData($nonTestQuestions,$_GET['filter']) : null;
                 $currentTest -> addQuestions(array_combine(array_keys($nonTestQuestions), array_fill(0, sizeof($nonTestQuestions), 1)));
             } else if (isset($_GET['removeAll'])) {

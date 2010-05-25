@@ -474,7 +474,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
         $lessonUsers = array_combine($result['id'], $result['count(*)']);
     }
     foreach ($lessons as $key => $lesson) {
-        if (isset($lessonUsers[$key])) {
+        if (isset($lessonUsers[$key]) && !$lesson['course_only']) {
             $lessons[$key]['students'] = $lessonUsers[$key];
         } else {
             $lessons[$key]['students'] = 0;
@@ -509,7 +509,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
             $lessons[$key]['direction_name'] = $directionPaths[$lesson['directions_ID']];
             $lessons[$key]['languages_NAME'] = $languages[$lesson['languages_NAME']];
             $lessons[$key]['price_string'] = $obj -> lesson['price_string'];
-            //$lessons[$key]['students']       = sizeof($obj -> getUsers('student'));            
+            //$lessons[$key]['students']       = sizeof($obj -> getUsers('student'));
         }
         $smarty -> assign("T_LESSONS_DATA", $lessons);
         $smarty -> display('administrator.tpl');

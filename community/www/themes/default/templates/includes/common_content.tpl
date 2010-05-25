@@ -211,6 +211,7 @@
     {/if}
     {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}
      {if $T_QUESTION}
+     <br/><br/>
         <form id = "question_form" method = "post" action = "{$smarty.server.PHP_SELF}?view_unit={$smarty.get.view_unit}">{$T_QUESTION}</form>
         <span id = "contentQuestionAnswer">
          <input class = "flatButton" type = "button" value = "{$smarty.const._SUBMIT}" onclick = "answerQuestion(this)">

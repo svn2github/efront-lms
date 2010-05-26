@@ -24,7 +24,9 @@ define("G_VERSION_NUM", $matches[1]);
 //Read current build from globals.php file
 //preg_match('/\$LastChangedRevision$matches);
 preg_match('/\$build = (\d+);/', file_get_contents($path."globals.php"), $matches);
+
 define("G_BUILD", $matches[1]);
+
 $versionTypes = array('educational' => 'Educational',
                       'enterprise' => 'Enterprise',
                       'standard' => 'Community++',
@@ -471,6 +473,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      }
     } catch (Exception $e) {}
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
+                if (!defined("PREPROCESSED")) {echo "A";
+     EfrontConfiguration :: setValue('version_type', G_VERSIONTYPE);
+                } echo "B";exit;
                 EfrontConfiguration :: setValue('phplivedocx_server', 'https://api.livedocx.com/1.2/mailmerge.asmx?WSDL'); //code for updating phplivedocx_server
     $defaultConfig = EfrontConfiguration :: getValues();
     $phplivedocxConfig = '<?php

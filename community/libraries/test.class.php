@@ -4271,9 +4271,17 @@ class MultipleManyQuestion extends Question implements iQuestion
      $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][$index]['label'];
     }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
-                 $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
+     if (!$hideAnswerStatus) {
+      $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
+     } else { //means it is feeback temporary fix
+      $innerQuestionString .= "   (". (100 - $questionStats[$this -> question['id']]['percent_per_option'][$index]) . "%)";
+     }
                 } elseif ($questionStats !== false) {
-                 $innerQuestionString .= "   (0%)";
+     if (!$hideAnswerStatus) {
+      $innerQuestionString .= "   (0%)";
+     } else { //means it is feeback temporary fix
+      $innerQuestionString .= "   (100%)";
+     }
                 }
             } else {
     if (!$hideAnswerStatus) {
@@ -4282,9 +4290,17 @@ class MultipleManyQuestion extends Question implements iQuestion
      $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][$index]['label'];
     }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
-                 $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
+                 if (!$hideAnswerStatus) {
+      $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
+     } else {
+      $innerQuestionString .= "   (". (100 - $questionStats[$this -> question['id']]['percent_per_option'][$index]) . "%)";
+     }
                 } elseif ($questionStats !== false) {
-                 $innerQuestionString .= "   (0%)";
+     if (!$hideAnswerStatus) {
+      $innerQuestionString .= "   (0%)";
+     } else {
+      $innerQuestionString .= "   (100%)";
+     }
                 }
             }
             $innerQuestionString .= '</span><br>';

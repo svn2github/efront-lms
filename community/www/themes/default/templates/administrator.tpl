@@ -439,11 +439,10 @@
 {if $T_CTG == 'search_courses'}
 
     {assign var = "title" value = '<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
-    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.session.s_type|cat:'.php?ctg=statistics">'|cat:$smarty.const._STATISTICS|cat:'</a>'}
 
 
 
-    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=search_courses">'|cat:$smarty.const._SEARCHUSER|cat:'</a>'}
+    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=search_courses">'|cat:$smarty.const._SEARCHCOURSEUSERS|cat:'</a>'}
 
 
     {*moduleSearchCoursesPage: Display the search courses page*}
@@ -455,14 +454,13 @@
 
 
 
-                                    {eF_template_printBlock title=$smarty.const._SEARCHUSER data=$smarty.capture.t_search_course_code image='32x32/scorm.png' main_options=$T_TABLE_OPTIONS}
+                                    {eF_template_printBlock title=$smarty.const._FINDEMPLOYEES data=$smarty.capture.t_search_course_code image='32x32/scorm.png' main_options=$T_TABLE_OPTIONS}
                                     <br />
                                     {eF_template_printBlock title=$smarty.const._USERSFULFILLINGCRITERIA data=$smarty.capture.t_found_employees_code image='32x32/user.png' options = $T_SENDALLMAIL_LINK}
 
                             </td></tr>
     {/capture}
 {/if}
-
 {*///MODULES2*}
 {if $T_CTG == 'module'}
     {assign var = "title" value = $T_MODULE_NAVIGATIONAL_LINKS}
@@ -477,7 +475,6 @@
         </td></tr>
     {/capture}
 {/if}
-
 {if $T_CTG_MODULE}
     {assign var = "title" value = '<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg='|cat:$T_CTG|cat:'">'|cat:$T_CTG_MODULE|cat:'</a>'}
     {capture name = "importedModule"}
@@ -486,7 +483,6 @@
                             </td></tr>
     {/capture}
 {/if}
-
 {*moduleSearchResults: The Search results page*}
 {if (isset($smarty.post.search_text))}
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="javascript:void(0)">'|cat:$smarty.const._SEARCHRESULTS|cat:'</a>'}
@@ -496,7 +492,6 @@
                             </td></tr>
     {/capture}
 {/if}
-
 {*moduleThemes: The themes page*}
 {if (isset($T_CTG) && $T_CTG == 'themes')}
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=themes">'|cat:$smarty.const._THEMES|cat:'</a>'}
@@ -511,16 +506,13 @@
                             </td></tr>
     {/capture}
 {/if}
-
 {* MODULE HCD: *}
 {if (isset($T_CTG) && $T_CTG == 'module_hcd')}
 {*moduleHCD: The resuls of control panel*}
     {assign var = "title" value = '<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
-
     {if $smarty.get.op != 'reports' && $smarty.get.op != 'skill_cat'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd">'|cat:$smarty.const._ORGANIZATION|cat:'</a>'}
     {/if}
-
     {if $smarty.get.op == "branches"}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=branches">'|cat:$smarty.const._BRANCHES|cat:'</a>'}
         {if $smarty.get.add_branch || $smarty.get.edit_branch}
@@ -541,7 +533,6 @@
                 {/if}
          {/if}
     {/if}
-
     {if $smarty.get.op == "job_descriptions"}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=job_descriptions">'|cat:$smarty.const._JOBDESCRIPTIONS|cat:'</a>'}
         {if $smarty.get.add_job_description || $smarty.get.edit_job_description}
@@ -552,20 +543,16 @@
             {/if}
         {/if}
     {/if}
-
     {if $smarty.get.op == 'reports'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.session.s_type|cat:'.php?ctg=statistics">'|cat:$smarty.const._STATISTICS|cat:'</a>'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=reports">'|cat:$smarty.const._SEARCHFOREMPLOYEE|cat:'</a>'}
     {/if}
-
     {if $smarty.get.op == 'imp_exp'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=imp_exp">'|cat:$smarty.const._IMPORTEXPORTORGANIZATIONALDATA|cat:'</a>'}
     {/if}
-
     {if $smarty.get.op == 'chart'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd&op=chart">'|cat:$smarty.const._ORGANIZATIONCHARTTREE|cat:'</a>'}
     {/if}
-
     {capture name = "moduleHCD"}
                             <tr><td class = "moduleCell">
                                 {include file = 'module_hcd.tpl'}
@@ -573,13 +560,8 @@
     {/capture}
 {/if}
 {*----------------------------End of Part 2: Modules List------------------------------------------------*}
-
 {*-----------------------------Part 3: Display table-------------------------------------------------*}
-
-
-
 {if !$T_LAYOUT_CLASS}{assign var = "layoutClass" value = "centerFull"}{else}{assign var = "layoutClass" value = $T_LAYOUT}{/if}
-
 {capture name = "center_code"}
  {if $smarty.get.message}{eF_template_printMessageBlock content = $smarty.get.message type = $smarty.get.message_type}{/if}
  {if $T_MESSAGE}{eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}{/if}
@@ -636,25 +618,18 @@
 {capture name = "left_code"}
  {if !$layoutClass || $layoutClass == 'hideRight'}
  <table class = "centerTable">
-
  </table>
  {/if}
 {/capture}
 {capture name = "right_code"}
  {if !$layoutClass || $layoutClass == 'hideLeft'}
  <table class = "centerTable">
-
  </table>
  {/if}
 {/capture}
-
 {include file = "includes/common_layout.tpl"}
-
-
 {*-----------------------------End of Part 3: Display table-------------------------------------------------*}
-
 {*-----------------------------Part 4: Finalization data etc-------------------------------------------------*}
-
 {include file = "includes/closing.tpl"}
 </body>
 </html>

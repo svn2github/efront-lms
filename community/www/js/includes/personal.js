@@ -306,6 +306,12 @@ function ajaxPostJob(id, el) {
             return;
         }
     }
+    if (!isInfoToolDisabled) {
+     var infoToolTipEl = $('job_analytical_description_'+id);
+     if (infoToolTipEl) {
+      infoToolTipEl.innerHTML = "";
+     }
+    }
     var baseUrl = sessionType + '.php?ctg=users&edit_user=' + editUserLogin + '&postAjaxRequest=1';
     // Post the existing branch, description and position values to delete the previous job placement if one such exists
     var default_branch = branch.getAttribute("defaultVal");
@@ -531,7 +537,11 @@ function add_new_job_row(row) {
         newCellHTML = newCellHTML.replace('row', row);
         newCell.innerHTML= "<table><tr><td>"+newCellHTML+"</td><td align='right'><a id='branches_details_link_"+row+"' name='branches_details_link' style='visibility:hidden'><img class='sprite16 sprite16-search handle' src='themes/default/images/others/transparent.png' title='"+detailsConst+"' alt='"+detailsConst+"' /></a></td></tr></table>";
         newCell = x.insertCell(1);
-        newCellHTML = '<span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span>';
+        if (isInfoToolDisabled) {
+         newCellHTML = '<span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span>';
+        } else {
+         newCellHTML = '<table><tr><td><span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span></td><td><a class = "info" onmouseover = "updateInformation(this, \''+row+'\', \'job_description\')" ><img class="sprite16 sprite16-help" src = "themes/default/images/others/transparent.png" style="display:block" /><img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan" id="job_analytical_description_'+row+'"></span></a></td></tr></table>';
+        }
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);
@@ -541,6 +551,7 @@ function add_new_job_row(row) {
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);
         newCell.innerHTML= newCellHTML;
+        //isInfoToolDisabled
         newCell = x.insertCell(3);
         newCell.setAttribute("align", "center");
         newCell.innerHTML = "<a id='job_"+row+"' href='javascript:void(0);' onclick='ajaxPostDelJob(\""+row+"\", this);' class = 'deleteLink'><img id='del_img"+row+"' class='sprite16 sprite16-error_delete handle' src = 'themes/default/images/others/transparent.png' title = '"+row+"' alt = '" + deleteConst + "' /></a></td>";
@@ -1043,4 +1054,21 @@ if (enableMyJobSelect) {
  if (msieBrowser) {
   emulateDisabledOptions(document.getElementById('jobs_main'));
  }
+}
+function updateInformation(el, id, type) {
+ if (Element.extend(el).select('span.tooltipSpan')[0].empty()) {
+  url = 'ask_information.php';
+  if (type == "job_description") {
+   branch_ID = $("branches_"+id).value;
+   job_name = $("job_descriptions_"+id).value;
+   parameters = {branch_ID:branch_ID, job_description:job_name, method:'get'};
+   s = el.select('span.tooltipSpan')[0];
+   s.setStyle({height:'50px', width:'250px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url("themes/default/images/others/progress1.gif")'}));
+   ajaxRequest(s, url, parameters, onUpdateInformation);
+  }
+ }
+}
+function onUpdateInformation(el, response) {
+ //alert(el);alert(response);
+ el.setStyle({height:'auto'}).update(response);
 }

@@ -338,7 +338,7 @@ class EfrontImportCsv extends EfrontImport
   try {
    switch($type) {
     case "users":
-     if (isset($data['password'])) {
+     if (isset($data['password']) && $data['password'] != "") {
       $data['password'] = EfrontUser::createPassword($data['password']);
      }
      eF_updateTableData("users", $data, "login='".$data['login']."'"); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDUSER . " " . $data['login'];

@@ -66,7 +66,10 @@ try {
         } else {
             echo _NODATAFOUND;
         }
-    } if (isset($_GET['courses_ID']) && eF_checkParameter($_GET['courses_ID'], 'id')) {
+    }
+
+
+    if (isset($_GET['courses_ID']) && eF_checkParameter($_GET['courses_ID'], 'id')) {
         $course = new EfrontCourse($_GET['courses_ID']);
         $courseInformation = $course -> getInformation();
         $languages = EfrontSystem::getLanguages(true);
@@ -107,6 +110,7 @@ try {
         }
 
     }
+
     // For eFront social
     if (isset($_GET['common_lessons']) && isset($_GET['user1']) && isset($_GET['user2'])) {
         $user1 = EfrontUserFactory::factory($_GET['user1']);
@@ -132,6 +136,5 @@ try {
 } catch (Exception $e) {
     header("HTTP/1.0 500");
     echo $e -> getMessage().' ('.$e -> getCode().')';
-
 }
 ?>

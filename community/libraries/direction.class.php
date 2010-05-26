@@ -779,8 +779,8 @@ class EfrontDirectionsTree extends EfrontTree
      |
      <span>'._CURRENTLYSHOWING.':</span>
      <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
-      <option value = "0">'._COURSESINPROGRESS.'</option>
-      <option value = "1" '.($_COOKIE['display_all_courses'] == '1' ? 'selected' : '').'>'._ALLCOURSES.'</option>
+      <option value = "0">'._MATERIALINPROGRESS.'</option>
+      <option value = "1" '.($_COOKIE['display_all_courses'] == '1' ? 'selected' : '').'>'._ALLMATERIAL.'</option>
      </select>
     </div>';
   }
@@ -951,9 +951,9 @@ class EfrontDirectionsTree extends EfrontTree
        <tr id = "subtree'.$current['id'].'" name = "default_visible" '.($iterator -> getDepth() >= 1 ? '' : $display_lessons).'>';
    }
    $treeString .= ' <td></td>
-        <td class = "lessonsList_nocolor">&nbsp;</td>
-        <td colspan = "2">
-         <table width = "100%">';
+       <td class = "lessonsList_nocolor">&nbsp;</td>
+       <td colspan = "2">
+        <table width = "100%">';
    foreach ($current -> offsetGet('lessons') as $lessonId) {
     $treeLesson = $lessons[$lessonId];
     if (isset($treeLesson -> lesson['user_type']) && $treeLesson -> lesson['user_type']) {
@@ -962,17 +962,19 @@ class EfrontDirectionsTree extends EfrontTree
     } else {
      $roleBasicType = null;
     }
-    if ($roleBasicType) {
-     $treeString .= $this -> printProgressBar($treeLesson, $roleBasicType);
-    }
-    $treeString .= '<td>';
-    $treeString .= $this -> printLessonBuyLink($treeLesson, $options);
-    //$treeString .= '&nbsp;';
-    $treeString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
-    $treeString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
+    if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeLesson -> lesson['completed'] && (is_null($treeLesson -> lesson['remaining']) || $treeLesson -> lesson['remaining'] > 0))) {
+     $treeString .= '<tr>';
+     if ($roleBasicType) {
+      $treeString .= $this -> printProgressBar($treeLesson, $roleBasicType);
+     }
+     $treeString .= '<td>';
+     $treeString .= $this -> printLessonBuyLink($treeLesson, $options);
+     $treeString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
+     $treeString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
            '.(isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
           </td>
          </tr>';									
+    }
    }
    $treeString .= '
          </table>

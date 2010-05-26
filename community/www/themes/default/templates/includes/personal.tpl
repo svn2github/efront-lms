@@ -7,6 +7,7 @@
  var editUserLogin ='{$smarty.get.edit_user}';
  var operationCategory ='{$smarty.get.op}';
  var jobAlreadyAssignedConst ='{$smarty.const._JOBALREADYASSIGNED}';
+ var jobDoesNotExistConst ='{$smarty.const._JOBDOESNOTEXIST}';
  var noPlacementsAssigned ='{$smarty.const._NOPLACEMENTSASSIGNEDYET}';
  var onlyImageFilesAreValid ='{$smarty.const._ONLYIMAGEFILESAREVALID}';
  var areYouSureYouWantToDeleteHist ='{$smarty.const._AREYOUSUREYOUWANTTODELETETHEHISOTYRECORD}';
@@ -19,7 +20,7 @@
  var youHaventSetAdditionalAccounts ='{$smarty.const._MAPPEDACCOUNTSUCCESSFULLYDELETED}';
  var openFacebookSession ='{$T_OPEN_FACEBOOK_SESSION}';
  var currentOperation ='{$T_OP}';
-
+var isInfoToolDisabled = {$T_CONFIGURATION.disable_tooltip != 1};
 
 var jobsRows = new Array();
 var branchesValues = new Array();

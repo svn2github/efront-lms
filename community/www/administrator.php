@@ -272,6 +272,9 @@ try {
   /**Search courses is used to find the course users that fulfill an arbitrary number of criteria */
      require_once "search_courses.php";
  }
+
+
+
  elseif ($ctg == 'digests') {
      /** Email digests feature */
      require_once "digests.php";

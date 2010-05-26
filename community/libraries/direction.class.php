@@ -767,10 +767,19 @@ class EfrontDirectionsTree extends EfrontTree
   return $iterator;
  }
  private function printTreeTools($options) {
+  if (!isset($_COOKIE['display_all_courses'])) {
+   setcookie('display_all_courses', 0);
+  }
   $treeString = '
     <div style = "padding-top:8px;padding-bottom:8px">
      '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '').'
-     <a href = "javascript:void(0)" onclick = "showAll()" >'._SHOWALL.'</a> / <a href = "javascript:void(0)" onclick = "hideAll()">'._HIDEALL.'</a>
+     <a href = "javascript:void(0)" onclick = "showAll()" >'._EXPANDALL.'</a> / <a href = "javascript:void(0)" onclick = "hideAll()">'._COLLAPSEALL.'</a>
+     <br>
+     <span>'._CURRENTLYSHOWING.':</span>
+     <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
+      <option value = "0">'._COURSESINPROGRESS.'</option>
+      <option value = "1" '.($_COOKIE['display_all_courses'] == '1' ? 'selected' : '').'>'._ALLCOURSES.'</option>
+     </select>
     </div>';
   return $treeString;
  }
@@ -974,11 +983,7 @@ class EfrontDirectionsTree extends EfrontTree
   $treeString = '';
   $current = $iterator -> current();
   if (isset($current['courses']) && sizeof($current['courses']) > 0) {
-   $treeString .= '
-       <tr id = "subtree'.$current['id'].'" name = "default_visible" '.$display.'>
-        <td></td>
-        <td class = "lessonsList_nocolor">&nbsp;</td>
-        <td colspan = "2">';
+   $coursesTreeString = '';
    foreach ($current -> offsetGet('courses') as $courseId) {
     $treeCourse = $courses[$courseId];
     if (isset($treeCourse -> course['user_type']) && $treeCourse -> course['user_type']) {
@@ -987,23 +992,33 @@ class EfrontDirectionsTree extends EfrontTree
     } else {
      $roleBasicType = null;
     }
-    if ($options['course_lessons']) {
-     $treeString .= $treeCourse -> toHTML($lessons, $options);
-    } else {
-     $treeString .= '
+    //if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || !$treeCourse -> course['completed'] || is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0) {
+    if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeCourse -> course['completed'] && (is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0))) {
+     if ($options['course_lessons']) {
+      $coursesTreeString .= $treeCourse -> toHTML($lessons, $options);
+     } else {
+      $coursesTreeString .= '
       <table width = "100%">
        <tr class = "directionEntry">
         <td>';
-     $treeString .= $this -> printCourseLinks($treeCourse, $options, $roleBasicType);
-     $treeString .= '
+      $coursesTreeString .= $this -> printCourseLinks($treeCourse, $options, $roleBasicType);
+      $coursesTreeString .= '
         </td>
        </tr>
       </table>';
+     }
     }
    }
-   $treeString .= '
+   if ($coursesTreeString) {
+    $treeString .= '
+       <tr id = "subtree'.$current['id'].'" name = "default_visible" '.$display.'>
+        <td></td>
+        <td class = "lessonsList_nocolor">&nbsp;</td>
+        <td colspan = "2">
+        '.$coursesTreeString.'
         </td>
        </tr>';
+   }
   }
   return $treeString;
  }

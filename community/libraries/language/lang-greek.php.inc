@@ -3709,4 +3709,10 @@ define("_FEEDBACKSTATISTICS","Στατιστικά αναδράσεων");
 define("_CHOOSEFEEDBACK","Επιλογή ανάδρασης");
 define("_REPORTSFORFEEDBACK","Στατιστικά για την ανάδραση");
 define("_CURRENTLYBROWSINGFOLDER", "Βλέπετε το φάκελο");
+define("_CURRENTLYSHOWING", "Τρέχουσα προβολή");
+define("_COURSESINPROGRESS", "Δέσμες σε εξέλιξη");
+define("_ALLCOURSES", "Όλες οι δέσμες");
+define("_CACHEENTRYNOTFOUND", "Η εγγραφή στην Cache δε βρέθηκε");
+define("_CACHEENTRYEXPIRED", "Η εγγραφή στην Cache έχει λήξει");
+define("_CACHEENTRYINVALID", "Η εγγραφή στην Cache είναι άκυρη");
 ?>

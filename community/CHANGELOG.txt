@@ -29,6 +29,7 @@
 - Updated phplivedocx_server value to https://api.livedocx.com/1.2/mailmerge.asmx?WSDL
 - Fixed bug in storing unit visited into logs
 - Fixed layout issue in IE6/7
+- Added option to show only courses in progress in user's courses list
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

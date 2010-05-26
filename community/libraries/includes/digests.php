@@ -141,6 +141,7 @@ $loadScripts[] = "administrator/digests";
 
         // Create the inteval select: 1 day, 3 days, 1 week, 1 month
         $day_seconds = 86400;
+  $month_seconds = 30*86400;
         $durations = array( $day_seconds/4 => "6 " . _HOURS,
                             $day_seconds/2 => "12 " . _HOURS,
                             $day_seconds => "1 "._DAYLOWER);
@@ -148,7 +149,9 @@ $loadScripts[] = "administrator/digests";
             $day_seconds += 86400;
             $durations[$day_seconds] = $i ." ". _DAYS;
         }
-
+  for ($k = 3; $k <= 12; $k++) {
+   $durations[$k*$month_seconds] = $k." "._MONTHS;
+  }
         $form -> addElement('select', 'send_interval' , _EVERY, $durations, "id = 'message_interval' class = 'inputSelectMed' ");
 
         // Create the templates values - the exact same fields should be used during substitution in the eF_formulateTemplateMessage function

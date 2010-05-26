@@ -3709,4 +3709,10 @@ define("_FEEDBACKSTATISTICS","Feedback reports");
 define("_CHOOSEFEEDBACK","Choose feedback");
 define("_REPORTSFORFEEDBACK","Report for feedback");
 define("_CURRENTLYBROWSINGFOLDER", "Currently browsing folder");
+define("_CURRENTLYSHOWING", "Currently showing");
+define("_COURSESINPROGRESS", "Courses in progress");
+define("_ALLCOURSES", "All courses");
+define("_CACHEENTRYNOTFOUND", "Cache entry not found");
+define("_CACHEENTRYEXPIRED", "Cache entry expired");
+define("_CACHEENTRYINVALID", "Cache entry is invalid");
 ?>

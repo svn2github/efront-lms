@@ -5,10 +5,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-define("_CACHEENTRYNOTFOUND", "Cache entry not found");
-define("_CACHEENTRYEXPIRED", "Cache entry expired");
-define("_CACHEENTRYINVALID", "Cache entry is invalid");
-
 class Cache
 {
  public static $cacheTimeout = 604800; //3600*24*7, 1 week	

@@ -64,7 +64,7 @@ CREATE TABLE cache (
   cache_key char(64) NOT NULL,
   value longtext,
   timestamp int(10) unsigned NOT NULL,
-  timeout int(10) unsigned NOT NULL,
+  timeout int(10) unsigned default null,
   PRIMARY KEY (cache_key)
 ) DEFAULT CHARSET=utf8;
 

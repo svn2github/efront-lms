@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Καθηγητές δέσμης");
 define("_PROFESSORSOFCOURSE","Καθηγητές της δέσμης");
 define("_USERSUPERVISORS","Προϊστάμενοι χρήστη");
 define("_USEROPTIONSFOR","Επιλογές για χρήστη");
-define("_MYSTATUS","Εκπαιδευτική Κατάσταση");
+define("_MYSTATUS","Εκπαιδευτική κατάσταση");
 define("_MYCOURSES", "Οι δέσμες μου");
 define("_CERTIFICATIONS", "Πιστοποιήσεις");
 define("_MYCERTIFICATIONS", "Οι πιστοποιήσεις μου");

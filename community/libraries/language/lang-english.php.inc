@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Course professors");
 define("_PROFESSORSOFCOURSE","Professors of course");
 define("_USERSUPERVISORS","User supervisors");
 define("_USEROPTIONSFOR","Options for user");
-define("_MYSTATUS","my Learning Status");
+define("_MYSTATUS","my Learning status");
 define("_MYCOURSES", "my Courses");
 define("_CERTIFICATIONS", "Certificates");
 define("_MYCERTIFICATIONS", "my Certificates");

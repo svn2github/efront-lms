@@ -55,7 +55,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {if in_array('to_timestamp', $T_DATASOURCE_COLUMNS)} <td class = "topTitle to_timestamp" name = "to_timestamp">{$smarty.const._COMPLETEDON}</td>{/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)} <td class = "topTitle score" name = "score">{$smarty.const._SCORE}</td>{/if}
 {if in_array('operations', $T_DATASOURCE_COLUMNS)} <td class = "topTitle operations noSort">{$smarty.const._OPERATIONS}</td>{/if}
-{if in_array('has_course', $T_DATASOURCE_COLUMNS)} <td class = "topTitle has_course" name = "has_course">{$smarty.const._CHECK}</td>{/if}
+{if in_array('has_course', $T_DATASOURCE_COLUMNS)} <td class = "topTitle has_course" name = "has_course">{$smarty.const._STATUS}</td>{/if}
      </tr>
   {foreach name = 'users_to_courses_list' key = 'key' item = 'course' from = $T_DATA_SOURCE}
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$course.active}deactivatedTableElement{/if}">

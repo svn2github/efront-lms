@@ -158,7 +158,7 @@ try {
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
-    $constraints['required_fields'] = array('num_lessons', 'location');
+    $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($showUnassigned) {
      $courses = $courseUser -> getUserCoursesIncludingUnassigned($constraints);
@@ -168,6 +168,7 @@ try {
      $totalEntries = $courseUser -> countUserCourses($constraints);
     }
    }
+    pr($courses);
 
    $alreadySorted = true;
    $dataSource = $courses;

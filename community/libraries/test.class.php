@@ -2694,11 +2694,13 @@ class EfrontCompletedTest extends EfrontTest
         }
         $editHandlesString = '';
         if ($status['lastTest'] && ($status['timesLeft'] > 0 || $status['timesLeft'] === false)) {
-            $editHandlesString .= '
+            if (!$editHandles) {
+    $editHandlesString .= '
                         <span id = "redoLink">
                             <img src = "images/16x16/undo.png" alt = "'._USERREDOTEST.'" title = "'._USERREDOTEST.'" border = "0" style = "vertical-align:middle">
                             <a href = "javascript:void(0)" id="redoLinkHref" onclick = "redoTest(this)" style = "vertical-align:middle">'._USERREDOTEST.'</a></span>';
-        }
+   }
+  }
         $editHandlesString .= '
                         <span>
                             <img src = "images/16x16/arrow_right.png" alt = "'._TESTANALYSIS.'" title = "'._TESTANALYSIS.'" border = "0" style = "vertical-align:middle">
@@ -3657,7 +3659,7 @@ class MultipleOneQuestion extends Question implements iQuestion
     }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
-                } else {
+                } elseif ($questionStats !== false) {
                  $innerQuestionString .= "   (0%)";
                 }
             } else {
@@ -3668,7 +3670,7 @@ class MultipleOneQuestion extends Question implements iQuestion
     }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
-                } else {
+                } elseif ($questionStats !== false) {
                  $innerQuestionString .= "   (0%)";
                 }
             }
@@ -4270,7 +4272,7 @@ class MultipleManyQuestion extends Question implements iQuestion
     }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
-                } else {
+                } elseif ($questionStats !== false) {
                  $innerQuestionString .= "   (0%)";
                 }
             } else {
@@ -4281,7 +4283,7 @@ class MultipleManyQuestion extends Question implements iQuestion
     }
                 if ($questionStats[$this -> question['id']]['percent_per_option'][$index]) {
                  $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
-                } else {
+                } elseif ($questionStats !== false) {
                  $innerQuestionString .= "   (0%)";
                 }
             }
@@ -4466,13 +4468,13 @@ class TrueFalseQuestion extends Question implements iQuestion
         $innerQuestionString .= '<span class = "'.($this -> answer[0] == 0 ? 'correctAnswer' : 'wrongAnswer').'" >'.$formArray['question'][$this -> question['id']][0]['label'];
         if ($questionStats[$this -> question['id']]['percent_per_option'][0]) {
          $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][0] . "%)";
-        } else {
+        } elseif ($questionStats !== false) {
          $innerQuestionString .= "   (0%)";
         }
         $innerQuestionString .= '<br><span class = "'.($this -> answer[0] == 1 ? 'correctAnswer':'wrongAnswer').'" >'.$formArray['question'][$this -> question['id']][1]['label'];
         if ($questionStats[$this -> question['id']]['percent_per_option'][1]) {
           $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][1] . "%)";
-        } else {
+        } elseif ($questionStats !== false) {
          $innerQuestionString .= "   (0%)";
         }
         $innerQuestionString .= '</span> <br/>';
@@ -4841,7 +4843,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
             $innerQuestionString .= '[<span class = "correctAnswer">'. $this -> answer [$k] ;
             if ($questionStats[$this -> question['id']]['percent_per_option'][$k]) {
           $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$k] . "%)";
-         } else {
+         } elseif ($questionStats !== false) {
           $innerQuestionString .= "   (0%)";
          }
          $innerQuestionString .= '</span>]' . $inputLabels[$k+1];
@@ -5238,7 +5240,7 @@ class MatchQuestion extends Question implements iQuestion
             $innerQuestionString .= '<tr><td class = "correctAnswer" >'.$this -> options[$index].'</td><td>&nbsp;&rarr;&nbsp;</td><td class = "correctAnswer" >'.$this -> answer[$index] . '</td><td>';
             if ($questionStats[$this -> question['id']]['percent_per_option'][$k]) {
           $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$k] . "%)";
-         } else {
+         } elseif ($questionStats !== false) {
           $innerQuestionString .= "   (0%)";
          }
             $innerQuestionString .= '</td><td>'.($this -> answers_explanation[$index] ? '<span class = "questionExplanation">'.$this -> answers_explanation[$index].'</span>': '').'</td><td width="*">&nbsp;</td></tr>';
@@ -6031,7 +6033,7 @@ class DragDropQuestion extends Question implements iQuestion
             $innerQuestionString .= '<tr><td class = "correctAnswer" >'.$this -> options[$index].'</td><td>&nbsp;&rarr;&nbsp;</td><td class = "correctAnswer" >'.$this -> answer[$index] . '</td><td>';
             if ($questionStats[$this -> question['id']]['percent_per_option'][$k]) {
           $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$k] . "%)";
-         } else {
+         } elseif ($questionStats !== false) {
           $innerQuestionString .= "   (0%)";
          }
             $innerQuestionString .= '</td><td>'.($this -> answers_explanation[$index] ? '<span class = "questionExplanation">'.$this -> answers_explanation[$index].'</span>': '').'</td></tr>';

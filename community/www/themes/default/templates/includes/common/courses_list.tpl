@@ -86,12 +86,16 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)}
          <td class = "user_type">
        {if $_change_handles_}
-        <span style = "display:none">{$T_ROLES_ARRAY[$course.user_type]}</span>
-              <select name = "course_type_{$course.id}" id = "course_type_{$course.id}" onchange = "$('course_{$course.id}').checked = true;ajaxUserPost('course', '{$course.id}', this);">
-            {foreach name = 'roles_list' key = 'role_key' item = 'role_item' from = $T_ROLES_ARRAY}
-                  <option value = "{$role_key}" {if !$course.user_type}{if ($T_EDITED_USER_TYPE == $role_key)}selected{/if}{else}{if ($course.user_type == $role_key)}selected{/if}{/if}>{$role_item}</option>
-            {/foreach}
-              </select>
+        {if (($course.has_course && $course.has_instances)) && $T_SORTED_TABLE != 'instancesTable'}
+         {$T_ROLES_ARRAY[$course.user_type]}
+        {elseif $T_SORTED_TABLE == 'instancesTable' || !$course.has_instances}
+         <span style = "display:none">{$T_ROLES_ARRAY[$course.user_type]}</span>
+               <select name = "course_type_{$course.id}" id = "course_type_{$course.id}" onchange = "$('course_{$course.id}').checked = true;ajaxUserPost('course', '{$course.id}', this);">
+             {foreach name = 'roles_list' key = 'role_key' item = 'role_item' from = $T_ROLES_ARRAY}
+                   <option value = "{$role_key}" {if !$course.user_type}{if ($T_EDITED_USER_TYPE == $role_key)}selected{/if}{else}{if ($course.user_type == $role_key)}selected{/if}{/if}>{$role_item}</option>
+             {/foreach}
+               </select>
+           {/if}
        {else}
            {$T_ROLES_ARRAY[$course.user_type]}
        {/if}

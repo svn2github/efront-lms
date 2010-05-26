@@ -364,7 +364,7 @@ abstract class EfrontUser
   !isset($userProperties['timestamp']) || $userProperties['timestamp'] == "" ? $userProperties['timestamp'] = time() : null;
   !isset($userProperties['user_types_ID']) ? $userProperties['user_types_ID'] = 0 : null;
   if (eF_insertTableData("users", $userProperties)) {
-   $user_dir = G_UPLOADPATH.$userProperties['login'].'/';
+   $user_dir = G_UPLOADPATH.$userProperties['login'];
    if (is_dir($user_dir)) { //If the directory already exists, delete it first
     try {
      $directory = new EfrontDirectory($user_dir);

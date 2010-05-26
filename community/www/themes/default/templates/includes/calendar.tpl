@@ -63,8 +63,9 @@
                 <td class = "topTitle" width="25%">{$smarty.const._LESSON}</td>
         {/if}
         {if $smarty.const.G_VERSIONTYPE == 'enterprise' && ($T_TYPE == "0" || $T_TYPE == "4") || $smarty.session.s_type != "student"}
-                <td class = "topTitle centerAlign noSort">{$smarty.const._FUNCTIONS}</td></tr>
+                <td class = "topTitle centerAlign noSort">{$smarty.const._FUNCTIONS}</td>
   {/if}
+   </tr>
         {foreach name = 'timestamps_list' key = timestamp item = events from = $T_INTERVAL_CALENDAR_EVENTS}
             {section name='events_list' loop=$events.id}
              <tr class = "{cycle values = "oddRowColor,evenRowColor"} defaultRowHeight">

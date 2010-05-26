@@ -106,7 +106,8 @@ try {
 		 */
   $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
                               'courses_link' => false,
-                  'catalog' => false);
+                  'catalog' => false,
+         'only_progress_link' => true);
   if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {
    $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $userLessons, $userCourses, $userProgress, $options));
   }

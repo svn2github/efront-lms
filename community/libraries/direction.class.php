@@ -773,14 +773,17 @@ class EfrontDirectionsTree extends EfrontTree
   $treeString = '
     <div style = "padding-top:8px;padding-bottom:8px">
      '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '').'
-     <a href = "javascript:void(0)" onclick = "showAll()" >'._EXPANDALL.'</a> / <a href = "javascript:void(0)" onclick = "hideAll()">'._COLLAPSEALL.'</a>
-     <br>
+     <a href = "javascript:void(0)" onclick = "showAll()" >'._EXPANDALL.'</a> / <a href = "javascript:void(0)" onclick = "hideAll()">'._COLLAPSEALL.'</a>';
+  if ($options['only_progress_link']) {
+   $treeString .= '
+     |
      <span>'._CURRENTLYSHOWING.':</span>
      <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
       <option value = "0">'._COURSESINPROGRESS.'</option>
       <option value = "1" '.($_COOKIE['display_all_courses'] == '1' ? 'selected' : '').'>'._ALLCOURSES.'</option>
      </select>
     </div>';
+  }
   return $treeString;
  }
  private function printProgressBar($treeLesson, $roleBasicType) {
@@ -992,7 +995,6 @@ class EfrontDirectionsTree extends EfrontTree
     } else {
      $roleBasicType = null;
     }
-    //if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || !$treeCourse -> course['completed'] || is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0) {
     if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeCourse -> course['completed'] && (is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0))) {
      if ($options['course_lessons']) {
       $coursesTreeString .= $treeCourse -> toHTML($lessons, $options);

@@ -2022,7 +2022,7 @@ class EfrontCourse
   $courseFields = self :: setDefaultCourseValues($courseFields);
   $fields = array('name' => self :: validateAndSanitize($courseFields['name'], 'name'),
                         'active' => self :: validateAndSanitize($courseFields['active'], 'boolean'),
-            'archive' => self :: validateAndSanitize($courseFields['archive'], 'boolean'),
+            'archive' => self :: validateAndSanitize($courseFields['archive'], 'timestamp'),
             'created' => self :: validateAndSanitize($courseFields['created'], 'timestamp'),
             'start_date' => self :: validateAndSanitize($courseFields['start_date'], 'timestamp'),
             'end_date' => self :: validateAndSanitize($courseFields['end_date'], 'timestamp'),

@@ -121,6 +121,10 @@ if (isset($_GET['search'])) {
    $employees = $result;
   //pr($result);
  }
+  $recipients_array = array();
+  foreach ($employees as $key => $employee) {
+   $recipients_array[] = $employee['login'];
+  }
  // Management of the 'send email to all found' link icon on the top right of the table
  // During ajax refresh
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'foundEmployees') {

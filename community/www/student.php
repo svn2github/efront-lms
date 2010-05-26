@@ -582,6 +582,7 @@ if (isset($currentLesson)) {
  if ($currentLesson -> lesson['course_only'] == 1) {
   $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);
   $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse[0]['name']);
+  $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse[0]['id']);
  }
 }
 $smarty -> load_filter('output', 'eF_template_formatTimestamp');

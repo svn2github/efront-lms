@@ -113,6 +113,12 @@
   {*moduleShowemployees: Show employees*}
   {capture name = 't_employees_code'}
 {*222222222222*}
+  <div class = "headerTools" id = "groupUsersMsgId">
+            <span>
+                <img src = "images/16x16/add.png" title = "{$smarty.const._SETFOUNDEMPLOYEESINTOGROUP}" alt = "{$smarty.const._SETFOUNDEMPLOYEESINTOGROUP}">
+                <a href = "javascript:void(0)" onClick = "eF_js_showDivPopup('{$smarty.const._SETFOUNDEMPLOYEESINTOGROUP}', 0, 'insert_into_group')" target = 'POPUP_FRAME'>{$smarty.const._SETFOUNDEMPLOYEESINTOGROUP}</a>
+            </span>
+        </div>
 {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'foundEmployees'}
 <!--ajax:foundEmployees-->
   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "foundEmployees" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=search_users&">
@@ -158,6 +164,7 @@
      {else}
       <script>
       new Effect.Appear('groupUsersId');
+      new Effect.Appear('groupUsersMsgId');
       new Effect.Appear('sendToAllId');
       </script>
      {/if}
@@ -169,6 +176,7 @@
      {else}
       <script>
       document.getElementById('groupUsersId').style.display = 'none';
+      document.getElementById('groupUsersMsgId').style.display = 'none';
       document.getElementById('sendToAllId').style.display = 'none';
       </script>
      {/if}

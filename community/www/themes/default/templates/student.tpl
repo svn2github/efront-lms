@@ -8,6 +8,7 @@
   {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYCOURSES`</a><span>&nbsp;&raquo;&nbsp;</span>"}
   {if isset($T_CURRENT_COURSE_NAME)}
    {assign var = "titleCourse" value = "`$T_CURRENT_COURSE_NAME`&nbsp;&raquo;&nbsp;"}
+   {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_COURSE_NAME`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$T_CURRENT_COURSE_NAME`</a><span>&nbsp;&raquo;&nbsp;</span>"}
   {/if}
   {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&raquo;&nbsp;`$titleCourse``$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
  {else}

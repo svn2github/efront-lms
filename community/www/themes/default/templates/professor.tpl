@@ -5,6 +5,7 @@
   {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYCOURSES`</a><span>&nbsp;&raquo;&nbsp;</span>"}
   {if isset($T_CURRENT_COURSE_NAME)}
    {assign var = "titleCourse" value = "`$T_CURRENT_COURSE_NAME`&nbsp;&rarr;&nbsp;"}
+   {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_COURSE_NAME`' href ='`$smarty.server.PHP_SELF`?ctg=lessons&course=`$T_CURRENT_COURSE_ID`&op=course_info'>`$T_CURRENT_COURSE_NAME`</a><span>&nbsp;&raquo;&nbsp;</span>"}
   {/if}
   {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&rarr;&nbsp;`$titleCourse``$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
  {else}
@@ -310,8 +311,10 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
     {include file = "includes/glossary.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'lessons')}
- {assign var = "title" value = '<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons">'|cat:$smarty.const._MYCOURSES|cat:'</a>'}
-    {if $T_OP == 'tests'}
+ {if $title == ""}
+  {assign var = "title" value = '<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons">'|cat:$smarty.const._MYCOURSES|cat:'</a>'}
+ {/if}
+ {if $T_OP == 'tests'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons&op=tests">'|cat:$smarty.const._SKILLGAPTESTS|cat:'</a>'}
         {if isset($smarty.get.solve_test)}
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons&op=tests&solve_test='|cat:$smarty.get.solve_test|cat:'">'|cat:$T_TEST_DATA->test.name|cat:'</a>'}

@@ -254,7 +254,11 @@ if ((!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest'])) && ($GLOBALS['cu
  // Used inside new_sidebar_frame to opt out code
  $horizontal_inframe_version = true;
  if ($_GET['ctg'] == "lessons") {
-  $_SESSION['s_lessons_ID'] = "";
+  if (!isset($_GET['course'])) {
+   $_SESSION['s_lessons_ID'] = "";
+  } else {
+    $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
+  }
  } else if ($_SESSION['s_lessons_ID']) {
      $_GET['new_lesson_id'] = $_SESSION['s_lessons_ID'];
  }
@@ -548,8 +552,9 @@ if (isset($currentLesson)) {
  //$categoryPath = str_replace("&rarr", "&raquo", $categoryPath);
  $smarty -> assign("T_CURRENT_CATEGORY_PATH", $categoryPath);
  if ($currentLesson -> lesson['course_only'] == 1) {
-  $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);
+  $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name,c.id","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);
   $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse[0]['name']);
+  $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse[0]['id']);
  }
 }
 if (!isset($_GET['edit_unit']) && !isset($_GET['edit_project']) && !isset($_GET['edit_question']) && !isset($_GET['edit_test'])) { // when updating a unit we must preserve the innerlink

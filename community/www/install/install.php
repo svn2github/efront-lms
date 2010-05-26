@@ -473,9 +473,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      }
     } catch (Exception $e) {}
                 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
-                if (!defined("PREPROCESSED")) {echo "A";
+                if (!defined("PREPROCESSED")) {
      EfrontConfiguration :: setValue('version_type', G_VERSIONTYPE);
-                } echo "B";exit;
+                }
                 EfrontConfiguration :: setValue('phplivedocx_server', 'https://api.livedocx.com/1.2/mailmerge.asmx?WSDL'); //code for updating phplivedocx_server
     $defaultConfig = EfrontConfiguration :: getValues();
     $phplivedocxConfig = '<?php

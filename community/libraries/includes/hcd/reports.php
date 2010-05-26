@@ -231,3 +231,80 @@ $form = new HTML_QuickForm("reports_form", "post", $_SESSION['s_type'].".php?ctg
 $form -> addElement('radio', 'criteria', null, null, 'all_criteria', 'checked = "checked" id="all_criteria" onclick="javascript:refreshResults()"');
 $form -> addElement('radio', 'criteria', null, null, 'any_criteria', 'id="any_criteria" onclick="javascript:refreshResults()"');
 /* Get data for creating the selects */
+/* For advanced search form: All information that regard employees (taken from the main form) */
+$form -> addElement('text', 'new_login', _LOGIN, 'class = "inputText" id="new_login" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('text', 'name', _FIRSTNAME, 'class = "inputText" id="name" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('text', 'surname', _SURNAME, 'class = "inputText" id="surname" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText" id="email" onChange="javascript:setAdvancedCriterion(this);"');
+$roles = eF_getTableDataFlat("user_types", "*");
+$roles_array[''] = "";
+$roles_array['student'] = _STUDENT;
+$roles_array['professor'] = _PROFESSOR;
+// Only the administrator may assign administrator rights
+if ($currentUser -> getType() == "administrator") {
+ $roles_array['administrator'] = _ADMINISTRATOR;
+}
+for ($k = 0; $k < sizeof($roles['id']); $k++) {
+ if ($roles['active'][$k] == 1 || (isset($editedUser) && $editedUser -> user['user_types_ID'] == $roles['id'][$k])) { //Make sure that the user's current role will be listed, even if it's deactivated
+  $roles_array[$roles['id'][$k]] = $roles['name'][$k];
+ }
+}
+$form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_type" onChange="javascript:setAdvancedCriterion(this);"');
+/*
+
+ $roles = eF_getTableDataFlat("user_types", "user_type", "active=1");
+
+
+
+ $roles_array['']              = "";
+
+ $roles_array['student']       = _STUDENT;
+
+ $roles_array['professor']     = _PROFESSOR;
+
+ $roles_array['administrator'] = _ADMINISTRATOR;
+
+
+
+ for ($k = 0; $k < sizeof($roles['user_type']); $k++){
+
+ $roles_array[$roles['user_type'][$k]] = $roles['user_type'][$k];
+
+ }
+
+ $form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_type" onChange="javascript:setAdvancedCriterion(this);"');
+
+ */
+$form -> addElement('advcheckbox', 'active', _ACTIVE, null, ' id ="active" class = "inputCheckbox" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('text', 'registration', _REGISTRATIONDATE, 'class = "inputText" id="timestamp" onChange="javascript:setAdvancedCriterion(this);"');
+ $datesFields = array("timestamp");
+// Custom fields management
+$smarty -> assign("T_DATES_SEARCH_CRITERIA", implode(",", $datesFields));
+$renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+$renderer -> setRequiredTemplate(
+            '{$html}{if $required}
+                &nbsp;<span class = "formRequired">*</span>
+            {/if}');
+// Management of the 'send email to all found' link icon on the top right of the table
+// During page load create the item
+$mass_operations = array(array('id' => 'groupUsersId', 'text' => _SETFOUNDEMPLOYEESINTOGROUP, 'image' => "16x16/users.png", 'href' => "javascript:void(0);", "onClick" => "eF_js_showDivPopup('"._SETFOUNDEMPLOYEESINTOGROUP."', 0, 'insert_into_group')", 'target' => 'POPUP_FRAME'),
+        array('id' => 'sendToAllId', 'text' => _SENDMESSAGETOALLFOUNDEMPLOYEES, 'image' => "16x16/mail.png", 'href' => "javascript:void(0);", "onClick" => "this.href='".$currentUser->getType().".php?ctg=messages&add=1&recipient='+document.getElementById('usersFound').value;eF_js_showDivPopup('"._SENDMESSAGE."', 2)", 'target' => 'POPUP_FRAME'));
+$smarty -> assign("T_SENDALLMAIL_LINK", $mass_operations);
+$form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+$form -> setRequiredNote(_REQUIREDNOTE);
+$form -> accept($renderer);
+$smarty -> assign('T_REPORT_FORM', $renderer -> toArray());
+// Popup to set to custom group form
+$group_form = new HTML_QuickForm("insert_into_groups_form", "post", $_SESSION['s_type'].".php?ctg=module_hcd&op=reports&search=1&branch_ID=".$_GET['branch_ID']."&job_description_ID=".$_GET['job_description_ID'], "", null, true);
+$groups = array("0" => _INSERTINTONEWGROUP);
+$groupsResult = EfrontGroup::getGroups();
+foreach ($groupsResult as $group) {
+ $groups[$group['id']] = $group['name'];
+}
+$group_form -> addElement('select', 'existing_group', _INSERTINTOEXISTINGGROUP, $groups, 'id = "existing_group_id" class = "inputSelectMed" onchange="javascript:updateNewGroup(this, \'new_group_id\')"');
+$group_form -> addElement('text', 'new_group', _NEWGROUPNAME, 'class = "inputText" id="new_group_id" onChange="javascript:$(\'existing_group_id\').value = 0;"');
+$group_form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+$group_form -> setRequiredNote(_REQUIREDNOTE);
+$group_form -> accept($renderer);
+$smarty -> assign('T_INSERT_INTO_GROUP_POPUP_FORM', $renderer -> toArray());
+?>

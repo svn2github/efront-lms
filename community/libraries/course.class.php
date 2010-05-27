@@ -2815,7 +2815,8 @@ class EfrontCourse
   $courseLessons = $this -> getCourseLessons();
   if ($lessons) {
    foreach ($courseLessons as $key => $value) {
-    $courseLessons[$key] = $lessons[$key];
+    //pr($lessons[$key]);
+    $courseLessons[$key] -> lesson = array_merge($lessons[$key] -> lesson, $courseLessons[$key] -> lesson);
    }
   }
   if ($roleBasicType == 'student') { // fixed to apply checkRules to sub-student user types
@@ -4379,15 +4380,6 @@ class EfrontCourse
 	 */
  public function checkRules($user, $courseLessons = false) {
   $user = EfrontUser::convertArgumentToUserLogin($user);
-/*
-
-		if (!in_array($user, array_keys($this -> getUsers()))) {                                        //If this is an invalid user or does not have this course, issue an exception
-
-			throw new EfrontCourseException(_UNKNOWNUSER.': '.$user, EfrontCourseException :: INVALID_LOGIN);
-
-		}
-
-*/
   $roles = EfrontLessonUser :: getLessonsRoles();
   if ($courseLessons == false) {
    $courseLessons = $this -> getCourseLessons();

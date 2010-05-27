@@ -113,6 +113,7 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
              $course = new EfrontCourse($_GET['from_course']);
             }
             $eligibility = $course -> checkRules($_SESSION['s_login']);
+
             if ($eligibility[$_GET['lessons_ID']] == 0){
                 unset($_GET['lessons_ID']);
                 $message = _YOUCANNOTACCESSTHISLESSONBECAUSEOFCOURSERULES;

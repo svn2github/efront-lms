@@ -75,7 +75,7 @@
      </div>
 
   {$T_CLEANUP_FORM.javascript}
-   <form {$T_CLEANUP_FORM.attributes}>
+  <form {$T_CLEANUP_FORM.attributes}>
    {$T_CLEANUP_FORM.hidden}
    <fieldset class = "fieldsetSeparator">
     <legend>{$smarty.const._PURGELOGS}</legend>
@@ -88,6 +88,24 @@
               <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_LOG_ENTRY start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL}</td></tr>
     <tr><td></td>
      <td class = "submitCell">{$T_CLEANUP_FORM.submit.html}</td></tr>
+   </table>
+   </fieldset>
+  </form>
+
+  {$T_CLEANUP_NOTIFICATIONS_FORM.javascript}
+  <form {$T_CLEANUP_NOTIFICATIONS_FORM.attributes}>
+   {$T_CLEANUP_NOTIFICATIONS_FORM.hidden}
+   <fieldset class = "fieldsetSeparator">
+    <legend>{$smarty.const._PURGENOTIFICATIONS}</legend>
+   <table>
+    <tr><td class="labelCell">{$smarty.const._NOTIFICATIONSSIZE}:&nbsp;</td>
+     <td class="elementCell">{$T_NOTIFICATIONS_SIZE} {$smarty.const._ENTRIES}</td></tr>
+    <tr><td class="labelCell">{$smarty.const._OLDESTNOTIFICATION}:&nbsp;</td>
+     <td class="elementCell">#filter:timestamp-{$T_LAST_NOTIFICATIONS_ENTRY}#</td></tr>
+          <tr><td class = "labelCell">{$smarty.const._PURGENOTIFICATIONSOLDERTHAN}:&nbsp;</td>
+              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_NOTIFICATIONS_ENTRY start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+    <tr><td></td>
+     <td class = "submitCell">{$T_CLEANUP_NOTIFICATIONS_FORM.submit.html}</td></tr>
    </table>
    </fieldset>
   </form>

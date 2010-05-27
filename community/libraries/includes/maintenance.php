@@ -206,6 +206,25 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     $renderer = prepareFormRenderer($cleanupForm);
     $smarty -> assign("T_CLEANUP_FORM", $renderer -> toArray());
 
+    $notificationsSize = eF_countTableData("notifications");
+    $smarty -> assign("T_NOTIFICATIONS_SIZE", $notificationsSize[0]['count']);
+    $lastNotificationEntry = eF_getTableData("notifications", "timestamp", "", "timestamp", false, 1);
+    $smarty -> assign("T_LAST_NOTIFICATIONS_ENTRY", $lastNotificationEntry[0]['timestamp']);
+    $form = new HTML_QuickForm("cleanup_notifications_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup", "", null, true);
+ $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
+ $form -> addElement("text", "notifications_size", null, 'class = "inputText" style = "width:60px"');
+    $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+    if ($form -> isSubmitted() && $form -> validate()) {
+     $timestamp = mktime(0, 0, 0, $_POST['purge_Month'], $_POST['purge_Day'], $_POST['purge_Year']);
+     if (eF_checkParameter($timestamp, 'int')) {
+      eF_deleteTableData("notifications", "timestamp < $timestamp");
+     }
+     eF_redirect(basename($_SERVER['PHP_SELF']."?ctg=maintenance&tab=cleanup&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success"));
+    }
+    $renderer = prepareFormRenderer($form);
+    $smarty -> assign("T_CLEANUP_NOTIFICATIONS_FORM", $renderer -> toArray());
+
+
     //Recreate search table
     if (isset($_GET['reindex']) && $_GET['ajax'] == 1) {
         try {

@@ -3718,4 +3718,8 @@ define("_ALLMATERIAL", "Όλο το υλικό");
 define("_CACHEENTRYNOTFOUND", "Η εγγραφή στην Cache δε βρέθηκε");
 define("_CACHEENTRYEXPIRED", "Η εγγραφή στην Cache έχει λήξει");
 define("_CACHEENTRYINVALID", "Η εγγραφή στην Cache είναι άκυρη");
+define("_PURGENOTIFICATIONS", "Εκκαθάριση ειδοποιήσεων");
+define("_NOTIFICATIONSSIZE", "Μέγεθος ειδοποιήσεων");
+define("_OLDESTNOTIFICATION", "Παλιότερη ειδοποίηση");
+define("_PURGENOTIFICATIONSOLDERTHAN", "Εκκαθάριση ειδοποιήσεων παλιότερων από");
 ?>

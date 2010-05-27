@@ -1590,7 +1590,7 @@ define("_CHOOSETEST", "Choose test");
 define("_USERPROFILE", "Public profile");
 define("_VIEWBRANCHES","View branches");
 define("_NOEMPLOYEESFOUND","No users were found");
-define("_SEARCHEMPLOYEE","Search user");
+define("_SEARCHEMPLOYEE","Find users");
 define("_ALLBRANCHES","All branches");
 define("_ANSWERS", "Answers");
 define("_GROUPDOESNOTEXIST", "The group doesn&#039;t exist");
@@ -3718,4 +3718,8 @@ define("_ALLMATERIAL", "All material");
 define("_CACHEENTRYNOTFOUND", "Cache entry not found");
 define("_CACHEENTRYEXPIRED", "Cache entry expired");
 define("_CACHEENTRYINVALID", "Cache entry is invalid");
+define("_PURGENOTIFICATIONS", "Purge notifications");
+define("_NOTIFICATIONSSIZE", "Notifications size");
+define("_OLDESTNOTIFICATION", "Oldest notification");
+define("_PURGENOTIFICATIONSOLDERTHAN", "Purge notifications older than");
 ?>

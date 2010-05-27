@@ -53,7 +53,7 @@
                 anchor.setAttribute('href', 'javascript:void(0)'); //Inactive link
                 anchor.setAttribute('id', tableIndex + '_' + table.rows[0].cells[i].getAttribute('name')); //The id corresponds to <current table>_<current link>, so that we know which table is sorted, if there are multiple paged tables, and which link was pressed
                 anchor.setAttribute('tableIndex', tableIndex);
-                anchor.setAttribute('order', 'asc');
+                anchor.setAttribute('order', 'desc');
                 //anchor.style.paddingRight = '15px';
                 if (Element.hasClassName(table.rows[0].cells[i], 'centerAlign')) { //For proper alignment, otherwise center-aligned elements display a little to the right. For some strange reason, obj.hasClassName() does not work in IE, and we must use Element.hasclassName() notation
                  //anchor.style.paddingLeft = '15px';

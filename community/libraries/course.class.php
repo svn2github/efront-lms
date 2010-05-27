@@ -1662,7 +1662,6 @@ class EfrontCourse
     $usersToSetRoleToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
    }
   }
-//pr($usersToSetRoleToCourse);throw new Exception();
   $this -> addUsersToCourse($usersToAddToCourse);
   $this -> setUserRolesInCourse($usersToSetRoleToCourse);
   $this -> users = false; //Reset users cache
@@ -2936,7 +2935,7 @@ class EfrontCourse
        $courseString .= '
        <td class = "lessonProgress">
                                 <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
-                                <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
+                                <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
                                 &nbsp;&nbsp;
                             </td>'; 
      } else {
@@ -2949,7 +2948,7 @@ class EfrontCourse
                             </td>';
       } else {
        $courseString .= '
-       <td class = "lessonProgress">
+       <td class = "lessonProgress">&mbsp;
                             </td>'; 
       }
      }

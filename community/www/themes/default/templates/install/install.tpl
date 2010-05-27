@@ -61,6 +61,7 @@
             {$T_DATABASE_FORM.javascript}
             <form {$T_DATABASE_FORM.attributes}>
                 {$T_DATABASE_FORM.hidden}
+{*
                 <div class = "formRow" tyle = "display:none">
                  <div class = "formLabel">
                   <div class = "header">Database type:&nbsp;</div>
@@ -70,6 +71,7 @@
                   {if $T_DATABASE_FORM.db_type.error}<div class = "error">{$T_DATABASE_FORM.db_type.error}</div>{/if}
                  </div>
                 </div>
+*}
                 <div class = "formRow">
                  <div class = "formLabel">
                   <div class = "header">Database host:&nbsp;</div>

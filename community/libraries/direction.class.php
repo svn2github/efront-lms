@@ -671,11 +671,7 @@ class EfrontDirectionsTree extends EfrontTree
   $courses = $this -> parseTreeCourses($courses);
   $iterator = $this -> initializeIterator($iterator, $lessons, $courses, $options);
   $current = $iterator -> current();
-  $treeString = '';
-  if ($options['tree_tools']) {
-   $treeString .= $this -> printTreeTools($options);
-  }
-  $treeString .= '						
+  $treeString = '						
       <div id = "directions_tree">';
   list($display, $display_lessons, $imageString, $classString) = $this -> getTreeDisplaySettings($options);
   while ($iterator -> valid()) {
@@ -685,6 +681,9 @@ class EfrontDirectionsTree extends EfrontTree
    $treeString .= '
       </table>';
    $iterator -> next();
+  }
+  if ($options['tree_tools']) {
+   $treeString = $this -> printTreeTools($options).$treeString; //This is put at the end, so that $this -> hasLessonsAsStudent is populated
   }
   return $treeString;
  }
@@ -774,7 +773,7 @@ class EfrontDirectionsTree extends EfrontTree
     <div style = "padding-top:8px;padding-bottom:8px">
      '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '').'
      <a href = "javascript:void(0)" onclick = "showAll()" >'._EXPANDALL.'</a> / <a href = "javascript:void(0)" onclick = "hideAll()">'._COLLAPSEALL.'</a>';
-  if ($options['only_progress_link']) {
+  if ($options['only_progress_link'] && $this -> hasLessonsAsStudent) {
    $treeString .= '
      |
      <span>'._CURRENTLYSHOWING.':</span>
@@ -791,26 +790,29 @@ class EfrontDirectionsTree extends EfrontTree
   if ($roleBasicType == 'student' && $treeLesson -> lesson['completed']) { //Show the "completed" mark
    $treeLesson -> lesson['completed'] ? $icon = 'success' : $icon = 'semi_success';
     $treeString .= '
-     <td style = "width:50px;padding-bottom:2px;">
+     <td class = "lessonProgress">
       <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
-      <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/'.$icon.'.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
+      <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/'.$icon.'.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
       &nbsp;&nbsp;
      </td>'; 
   } elseif ($roleBasicType == 'student') { //Show the progress bar
    if ($treeLesson->options['show_percentage'] != 0) {
     $treeString .= '
-    <td style = "width:50px;padding-bottom:2px;">
+    <td class = "lessonProgress">
      <span class = "progressNumber" style = "width:50px;">'.$treeLesson -> lesson['overall_progress']['percentage'].'%</span>
      <span class = "progressBar" style = "width:'.($treeLesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
      &nbsp;&nbsp;
     </td>';		
    } else {
     $treeString .= '
-     <td style = "width:50px;padding-bottom:2px;">
+     <td class = "lessonProgress">&nbsp;
      </td>'; 
    }
   } else {
    $treeString .= '<td style = "width:1px;padding-bottom:2px;"></td>';
+  }
+  if ($roleBasicType == 'student') {
+   $this -> hasLessonsAsStudent = true;
   }
   return $treeString;
  }
@@ -963,11 +965,11 @@ class EfrontDirectionsTree extends EfrontTree
      $roleBasicType = null;
     }
     if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeLesson -> lesson['completed'] && (is_null($treeLesson -> lesson['remaining']) || $treeLesson -> lesson['remaining'] > 0))) {
-     $treeString .= '<tr>';
+     $treeString .= '<tr class = "directionEntry">';
      if ($roleBasicType) {
       $treeString .= $this -> printProgressBar($treeLesson, $roleBasicType);
      }
-     $treeString .= '<td>';
+     $treeString .= '<td>&nbsp;';
      $treeString .= $this -> printLessonBuyLink($treeLesson, $options);
      $treeString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
      $treeString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
@@ -994,6 +996,9 @@ class EfrontDirectionsTree extends EfrontTree
     if (isset($treeCourse -> course['user_type']) && $treeCourse -> course['user_type']) {
      $roleInCourse = $treeCourse -> course['user_type'];
      $roleBasicType = $roles[$roleInCourse]; //Indicates that this is a catalog with user data
+     if ($roleBasicType == 'student') {
+      $this -> hasLessonsAsStudent = true;
+     }
     } else {
      $roleBasicType = null;
     }

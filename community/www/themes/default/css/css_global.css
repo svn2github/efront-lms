@@ -266,7 +266,7 @@ tr.lessonsList span.courseActions{margin-left:20px;}
 .buyLesson{float:right;cursor:pointer;font-weight:bold;white-space:nowrap;}
 
 tr.directionEntry td{padding-bottom:2px;}
-tr.directionEntry td.lessonProgress{width:50px;}
+tr.directionEntry td.lessonProgress{width:50px;padding:2px 0px 2px 0px;}
 
 td.lessonsList_nocolor{
 height:25px;
@@ -741,12 +741,13 @@ text-align:center;
 width:100px;
 border:1px solid #d3d3d3;
 vertical-align:middle;
-z-index:2
+z-index:2;
 }
 span.progressBar{
 background-color:#A0BDEF;
 border:1px dotted #d3d3d3;
-position:absolute   
+position:absolute;
+vertical-align:middle;
 }
 
 /*The main content area classes*/

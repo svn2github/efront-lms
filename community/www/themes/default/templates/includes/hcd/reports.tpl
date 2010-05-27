@@ -28,7 +28,7 @@
      <script>
      var branch_select = document.getElementById('search_branch');
      for (i = 0; i < branch_select.options.length; i++) {
-      if (branch_select.options[i].value == {/literal}{$smarty.get.branch_ID}{literal}) {
+      if (branch_select.options[i].value == '{/literal}{$smarty.get.branch_ID}{literal}') {
         branch_select.options[i].selected = true;
         break;
       }
@@ -61,7 +61,7 @@
      <script>
      var skill_select = document.getElementById('search_skill');
      for (i = 0; i < skill_select.options.length; i++) {
-      if (skill_select.options[i].value == {/literal}{$smarty.get.skill_ID}{literal}) {
+      if (skill_select.options[i].value == '{/literal}{$smarty.get.skill_ID}{literal}') {
         skill_select.options[i].selected = true;
         break;
       }
@@ -172,7 +172,7 @@
      <tr><td colspan ="8" class = "emptyCategory">{$smarty.const._NOEMPLOYEESFULFILLTHESPECIFIEDCRITERIA}</td></tr>
      <tr style="display:none"><td><input type="hidden" id="usersFound" value="{$T_SENDALLMAIL_URL}" /></td></tr>
      {if $smarty.const.MSIE_BROWSER == 1}
-     <img style="display:none" src="images/16x16/question_type_free_text.png" onLoad="javascript:$('sendToAllId').style.display='none';" />
+     <img style="display:none" src="images/16x16/question_type_free_text.png" onload="if (document.getElementById('sendToAllId')) {ldelim}document.getElementById('sendToAllId').style.display='none';{rdelim}" />
      {else}
       <script>
       document.getElementById('groupUsersId').style.display = 'none';

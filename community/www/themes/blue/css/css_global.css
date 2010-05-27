@@ -1,12 +1,12 @@
 /*Basic classes*/
 html{
 height:100%;
-background:#1F3349 /*url('../images/css_images/gradient_large.gif') repeat-x top*/; 
 margin:0px;
 /*padding:2px;*/ /*commented out because it causes scrollbar to popups and sideeffects to editor*/
 }
 body{
 font-size:12px;
+background:#1F3349 /*url('../images/css_images/gradient_large.gif') repeat-x top*/;  /* moved here to avoid scrolling issue in editor*/
 font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 height:99%;
 margin:2px auto 2px auto;
@@ -280,7 +280,7 @@ tr.lessonsList span.courseRole{color:green; font-size: 11px;}
 .buyLesson{float:right;cursor:pointer;font-weight:bold;white-space:nowrap;}
 
 tr.directionEntry td{padding:2px;}
-tr.directionEntry td.lessonProgress{width:50px;}
+tr.directionEntry td.lessonProgress{width:50px;padding:2px 0px 2px 0px;}
 
 td.lessonsList_nocolor{
 height:25px;

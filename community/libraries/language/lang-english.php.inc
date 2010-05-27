@@ -3722,4 +3722,5 @@ define("_PURGENOTIFICATIONS", "Purge notifications");
 define("_NOTIFICATIONSSIZE", "Notifications size");
 define("_OLDESTNOTIFICATION", "Oldest notification");
 define("_PURGENOTIFICATIONSOLDERTHAN", "Purge notifications older than");
+define("_CURRENTUSERS", "Current");
 ?>

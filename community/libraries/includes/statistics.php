@@ -58,9 +58,6 @@ try {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
             $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=lesson");
             $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
-   if ($GLOBALS['configuration']['disable_feedback'] != 1) {
-     $options[] = array('text' => _FEEDBACKSTATISTICS, 'image' => "32x32/feedback.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=feedback");
-   }
             $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         } else if ($isSupervisor) {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");

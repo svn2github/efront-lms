@@ -204,7 +204,7 @@ function setAdvancedCriterion(el) {
  img.style.left = Element.positionedOffset(Element.extend(el)).left + 6 + Element.getDimensions(Element.extend(el)).width + 'px';
  img.setAttribute("id", img_id);
  img.setAttribute('src', 'themes/default/images/others/transparent.png');
- img.addClassName('sprite16 sprite16-success');
+ Element.extend(img).addClassName('sprite16 sprite16-success');
  el.parentNode.appendChild(img);
  img.style.display = 'none';
  new Effect.Appear(img_id);

@@ -3722,4 +3722,5 @@ define("_PURGENOTIFICATIONS", "Εκκαθάριση ειδοποιήσεων");
 define("_NOTIFICATIONSSIZE", "Μέγεθος ειδοποιήσεων");
 define("_OLDESTNOTIFICATION", "Παλιότερη ειδοποίηση");
 define("_PURGENOTIFICATIONSOLDERTHAN", "Εκκαθάριση ειδοποιήσεων παλιότερων από");
+define("_CURRENTUSERS", "Τρέχοντες");
 ?>

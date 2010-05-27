@@ -419,7 +419,7 @@ function eF_multiSort($array, $sort_by, $sort_order = 'asc') {
         $sort_values[] = $value[$sort_by];
     }
     if (is_numeric($sort_values[0])) { //If the column consists of numeric data, we want the default sorting to be descending, so we reverse the parameter
-            $sort_order == 'asc' ? $sort_order = SORT_DESC : $sort_order = SORT_ASC;
+            $sort_order == 'asc' ? $sort_order = SORT_ASC : $sort_order = SORT_DESC;
     } else {
             $sort_order == 'asc' ? $sort_order = SORT_ASC : $sort_order = SORT_DESC;
     }

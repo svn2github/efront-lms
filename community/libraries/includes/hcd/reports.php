@@ -275,7 +275,7 @@ $form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_ty
  $form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_type" onChange="javascript:setAdvancedCriterion(this);"');
 
  */
-$form -> addElement('advcheckbox', 'active', _ACTIVE, null, ' id ="active" class = "inputCheckbox" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('advcheckbox', 'active', _ACTIVE, null, ' id ="active2" class = "inputCheckbox" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('text', 'registration', _REGISTRATIONDATE, 'class = "inputText" id="timestamp" onChange="javascript:setAdvancedCriterion(this);"');
  $datesFields = array("timestamp");
 // Custom fields management

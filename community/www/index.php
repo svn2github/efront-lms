@@ -426,8 +426,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuratio
 /* -------------------------------------------------------End of Reset Password part--------------------------------------------------------- */
 /* -----------------------------------------------------Sign up part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup']) {
- $users = eF_getTableDataFlat("users", "*");
- //$versionDetails = eF_checkVersionKey($configuration['version_key']);
+ $users = eF_countTableData("users", "login", "active=1 and archive=0");
  $smarty -> assign("T_CTG", "signup");
  $form = new HTML_QuickForm("signup_register_personal_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=signup".(isset($_GET['ldap']) ? '&ldap=1' : ''), "", "class = 'indexForm'", true);
  $form -> removeAttribute('name');

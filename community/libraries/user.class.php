@@ -684,12 +684,10 @@ abstract class EfrontUser
 
 	 */
  public function activate() {
-  if (eF_updateTableData("users", array("active" => 1, "pending" => 0), "login = '".$this -> user['login']."'")) {
-   $this -> user['active'] = 1;
-   return true;
-  } else {
-   return false;
-  }
+  $this -> user['active'] = 1;
+  $this -> user['pending'] = 0;
+  $this -> persist();
+  return true;
  }
  /**
 
@@ -719,12 +717,9 @@ abstract class EfrontUser
 
 	 */
  public function deactivate() {
-  if (eF_updateTableData("users", array("active" => 0), "login = '".$this -> user['login']."'")) {
-   $this -> user['active'] = 0;
-   return true;
-  } else {
-   return false;
-  }
+  $this -> user['active'] = 0;
+  $this -> persist();
+  return true;
  }
  /**
 
@@ -1662,8 +1657,8 @@ abstract class EfrontUser
 	 */
  public function archive() {
   $this -> user['archive'] = time();
-  $this -> user['active'] = 0;
   $this -> persist();
+  $this -> activate();
  }
  /**
 

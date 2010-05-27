@@ -23,7 +23,10 @@ margin:0px;
 height:100%;
 background-color:#1E3247;/*change this to match inner block or backgroundcolor*/
 }
-html.whitebg{height:auto;}
+html.whitebg{
+height:auto;
+background-color:#FFFFFF;
+}
 .whitebg body{
 width:auto;
 padding:0px;

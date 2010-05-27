@@ -31,6 +31,7 @@
 - Fixed layout issue in IE6/7
 - Added option to show only courses in progress in user's courses list
 - Added "completed lesson" block
+- Fixed issue with background in editor popups and colored themes
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

@@ -2277,6 +2277,32 @@ function decryptString($string, $method = 'base64') {
 }
 /**
 
+ * This function decrypts only the part of a url that may be encrypted
+
+ * 
+
+ * @param $url The url to decrypt
+
+ * @param string $method The method to use
+
+ * @return string The decoded string
+
+ * @since 3.6.3 
+
+ */
+function decryptUrl($url, $method = 'base64') {
+ $parts = parse_url($url);
+ parse_str($parts['query'], $query);
+ $urlString = array(decryptString($query['cru']));
+ unset($query['cru']);
+ foreach ($query as $key => $value) {
+  $urlString[] = "$key=$value";
+ }
+ $urlString = $parts['path'].'?'.implode('&', $urlString);
+ return $urlString;
+}
+/**
+
 * Prints a warning or error message
 
 *

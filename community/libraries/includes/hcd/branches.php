@@ -202,7 +202,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
      }
      $courses = $currentBranch -> getBranchCoursesIncludingUnassigned($constraints);
      $totalEntries = $currentBranch -> countBranchCoursesIncludingUnassigned($constraints);
-pr($totalEntries);
+
      $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);
      $tableName = $_GET['ajax'];
      $alreadySorted = 1;
@@ -496,12 +496,12 @@ pr($totalEntries);
   // Instead of going back to the branches go the previous link
   if (isset($_GET['add_branch'])) {
    if (isset($_GET['returntab']) && $_GET['returntab'] == "basic") {
-    eF_redirect(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=basic&newId=" . $newBranch ->branch['branch_ID']);
+    eF_redirect(decryptUrl(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=basic&newId=" . $newBranch ->branch['branch_ID']));
    } else {
-    eF_redirect(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=" . (isset($_GET['returntab'])?$_GET['returntab']:"subbranches"));
+    eF_redirect(decryptUrl(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=" . (isset($_GET['returntab'])?$_GET['returntab']:"subbranches")));
    }
   } else {
-   eF_redirect($_SESSION['s_type'].".php?ctg=module_hcd&op=branches&edit_branch=".$_GET['edit_branch']."&message=". urlencode($message) . "&message_type=" . $message_type);
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&edit_branch=".$_GET['edit_branch']."&message=". urlencode($message) . "&message_type=" . $message_type);
   }
   exit;
  }

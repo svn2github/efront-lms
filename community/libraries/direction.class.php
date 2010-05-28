@@ -851,10 +851,17 @@ class EfrontDirectionsTree extends EfrontTree
          <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
         </span>';
    } else {
-    $treeString .= '
-       <span class = "buyLesson">
-        &nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
-       </span>';							
+/*				
+
+				$treeString .= '
+
+							<span class = "buyLesson">																	
+
+								&nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
+
+							</span>';							
+
+*/
    }
   }
   if (!isset($treeCourse -> course['from_timestamp']) || $treeCourse -> course['from_timestamp']) { //from_timestamp in user status means that the user's status in the course is not 'pending'
@@ -870,6 +877,10 @@ class EfrontDirectionsTree extends EfrontTree
   } else {
    $treeString .= '<a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$treeCourse -> course['name'].'</a>';
   }
+    $treeString .= '
+       <span>
+        &nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
+       </span>';							
   return $treeString;
  }
  private function printLessonLink($treeLesson, $options, $roleBasicType) {

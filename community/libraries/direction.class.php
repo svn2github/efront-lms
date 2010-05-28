@@ -844,7 +844,7 @@ class EfrontDirectionsTree extends EfrontTree
   $courseLink = $options['courses_link'];
   $href = str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> shouldDisplayInCatalog();
   if (isset($options['buy_link'])) {
-   if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || $treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
+   if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || !$treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
     $treeString .= '
         <span class = "buyLesson">
          <span>'.$this -> showCoursePrice($treeCourse).'</span>

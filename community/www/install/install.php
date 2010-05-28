@@ -127,7 +127,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     $form = new HTML_QuickForm("info_form", "post", $_SERVER['PHP_SELF']."?step=2".($_GET['upgrade'] ? '&upgrade=1': ''), "", "class = 'indexForm'", true);
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
     $form -> addElement('select', 'db_type', null, array('mysql' => 'MySQL', 'mssql' => 'MSSQL'));
-    $form -> addRule('db_type', 'The field "database type" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
+    //$form -> addRule('db_type', 'The field "database type" is mandatory', 'required', null, 'client');                //The database type can only be string and is mandatory
     $form -> addRule('db_type', 'Invalid database type', 'checkParameter', 'string'); //The database type can only be string and is mandatory
     $form -> setDefaults(array('db_type' => 'mysql'));
     $form -> freeze(array('db_type')); //Freeze this element, since it can't change for now

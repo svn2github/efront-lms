@@ -969,7 +969,7 @@ class EfrontDirectionsTree extends EfrontTree
      if ($roleBasicType) {
       $treeString .= $this -> printProgressBar($treeLesson, $roleBasicType);
      }
-     $treeString .= '<td>&nbsp;';
+     $treeString .= '<td>';
      $treeString .= $this -> printLessonBuyLink($treeLesson, $options);
      $treeString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
      $treeString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
@@ -1009,7 +1009,7 @@ class EfrontDirectionsTree extends EfrontTree
       $coursesTreeString .= '
       <table width = "100%">
        <tr class = "directionEntry">
-        <td>';
+        <td style = "font-weight:bold">';
       $coursesTreeString .= $this -> printCourseLinks($treeCourse, $options, $roleBasicType);
       $coursesTreeString .= '
         </td>

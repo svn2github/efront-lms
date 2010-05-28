@@ -1125,10 +1125,10 @@ class EfrontCourse
  public function getCourseUsersAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
-  $from = "(users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
+  $from = "(users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course, uc.from_timestamp as enrolled_on from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
   $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
   $where[] = "u.login=r.users_LOGIN";
-  $select = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, 1 as has_course";
+  $select = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, 1 as has_course, max(active_in_course) as active_in_course, max(enrolled_on) as enrolled_on";
   $groupby = "r.users_LOGIN";
 /*		
 
@@ -2948,13 +2948,13 @@ class EfrontCourse
                             </td>';
       } else {
        $courseString .= '
-       <td class = "lessonProgress">&mbsp;
+       <td class = "lessonProgress">
                             </td>'; 
       }
      }
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
       $courseString .= '
-       <td>&nbsp;
+       <td>
                              <a href = "javascript:void(0)" title = "" class = "inactiveLink info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\', \''.$this -> course['id'].'\')">
                               '.$lesson -> lesson['name'].'
                               <img class = "tooltip" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
@@ -2963,7 +2963,7 @@ class EfrontCourse
                             <td>';
      } else {
       $courseString .= '
-       <td>&nbsp;
+       <td>
                              <a href = "javascript:void(0)" title = "" class = "inactiveLink">
                               '.$lesson -> lesson['name'].'
                              </a>
@@ -2996,12 +2996,12 @@ class EfrontCourse
      }
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
       $courseString .= '
-                      <td>&nbsp;
+                      <td>
                        '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\', \''.$this -> course['id'].'\')" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'<img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/><span class = "tooltipSpan"></span></a>' : $lesson -> lesson['name']).'
                                 </td>';
      } else {
       $courseString .= '
-                      <td>&nbsp;
+                      <td>
                        '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'</a>' : $lesson -> lesson['name']).'
                                 </td>';
      }

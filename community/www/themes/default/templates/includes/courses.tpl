@@ -116,6 +116,9 @@
      {/if}
      </td>
      <td class = "centerAlign">
+     {if $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student' && !$user.active_in_course|@is_null}
+       <img class = "ajaxHandle" src="images/16x16/refresh.png" title="{$smarty.const._RESETPROGRESSDATA}" alt="{$smarty.const._RESETPROGRESSDATA}" onclick = "resetProgress(this, '{$user.login}');">
+     {/if}
      </td>
      <td class = "centerAlign">
     {if $_change_}

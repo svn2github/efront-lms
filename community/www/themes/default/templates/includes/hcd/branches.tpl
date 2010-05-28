@@ -121,7 +121,6 @@
               <td class = "topTitle" name="branch_ID" align="center">{$smarty.const._CHECK}</td>
           </tr>
           {foreach name = 'users_list' key = 'key' item = 'user' from = $T_EMPLOYEES}
-          {if $user.active}
               <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
                   <td>
      {if ($user.pending == 1)}
@@ -139,7 +138,6 @@
              <input class = "inputCheckBox" type = "checkbox" {if $user.login == $smarty.session.s_login}disabled = "true"{/if} onclick="javascript:show_hide_job_selects('{$user.login}'); ajaxPost('row{$user.login}', this);" name = "check_{$user.login}" id = "check_row{$user.login}"{if $user.branch_ID == $smarty.get.edit_branch}checked{/if}>
                   </td>
               </tr>
-          {/if}
           {foreachelse}
               <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{if isset($T_NOBRANCHJOBSERROR)}{$smarty.const._NOBRANCHJOBSERROR}{else}{$smarty.const._NODATAFOUND}{/if}</td></tr>
           {/foreach}

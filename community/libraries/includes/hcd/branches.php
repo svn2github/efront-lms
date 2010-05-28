@@ -305,6 +305,12 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 //					}
      $employees = eF_filterData($temp_array, $_GET['filter']);
     }
+    foreach ($employees as $key => $value) {
+     if (!$value['active']) {
+      unset($employees[$key]);
+     }
+    }
+
     $smarty -> assign("T_EMPLOYEES_SIZE", sizeof($employees));
 
     if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {

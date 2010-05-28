@@ -1,3 +1,12 @@
+function removeUserFromBranch() {
+ parameters = {edit_user:user, delete_job_employee:user, delete_job:job, delete_job_at_branch:job_at_branch, supervises_branch:supervises_branch, father_ID:father_ID};
+ url = 'administrator.php?ctg=users';
+ ajaxRequest(el, url, parameters, onRemoveUserFromBranch);
+}
+function onRemoveUserFromBranch(el, response) {
+ new Effect.Fade(el.up().up());
+}
+
 function deleteJob(el, job) {
  parameters = {delete_job_description:job, method: 'get'};
  var url = location.toString();

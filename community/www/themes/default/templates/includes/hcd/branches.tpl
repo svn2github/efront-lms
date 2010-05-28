@@ -139,7 +139,7 @@
                   </td>
               </tr>
           {foreachelse}
-              <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{if isset($T_NOBRANCHJOBSERROR)}{$smarty.const._NOBRANCHJOBSERROR}{else}{$smarty.const._NODATAFOUND}{/if}</td></tr>
+              <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
           {/foreach}
           {if $smarty.const.MSIE_BROWSER == 1}
            <img style = "display:none" src="images/16x16/question_type_free_text.png" onLoad = "javascript:simulateJobSelects();" />

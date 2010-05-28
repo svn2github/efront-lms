@@ -309,7 +309,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 //							unset($employees[$key]);
 //						}
 //					}
-     $employees = eF_filterData($temp_array, $_GET['filter']);
+     $employees = eF_filterData($employees, $_GET['filter']);
     }
 
     $smarty -> assign("T_EMPLOYEES_SIZE", sizeof($employees));

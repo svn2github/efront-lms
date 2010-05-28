@@ -285,6 +285,12 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     }
 
     $employees = $currentBranch -> getEmployeesWithJobs();//employees;
+    foreach ($employees as $key => $value) {
+     if (!$value['active']) {
+      unset($employees[$key]);
+     }
+    }
+
     $employees = eF_multiSort($employees, $_GET['sort'], $order);
 
     if (isset($_GET['filter'])) {
@@ -305,11 +311,6 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 //					}
      $employees = eF_filterData($temp_array, $_GET['filter']);
     }
-    foreach ($employees as $key => $value) {
-     if (!$value['active']) {
-      unset($employees[$key]);
-     }
-    }
 
     $smarty -> assign("T_EMPLOYEES_SIZE", sizeof($employees));
 
@@ -318,7 +319,9 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
      $employees = array_slice($employees, $offset, $limit);
     }
 
-    $employees = $currentBranch -> createEmployeeJobsHtml($employees);
+    if (!empty($employees)) {
+     $employees = $currentBranch -> createEmployeeJobsHtml($employees);
+    }
 
     if ($employees) { // if false, then there are no job descriptions
      $smarty -> assign("T_EMPLOYEES", $employees);

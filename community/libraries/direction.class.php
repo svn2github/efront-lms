@@ -271,14 +271,14 @@ class EfrontDirection extends ArrayObject
 	 */
  function getCourses($returnObjects = false, $subDirections = false) {
   if (!$subDirections) {
-   $result = eF_getTableData("courses", "id, name", "archive = 0 && directions_ID=".$this['id']);
+   $result = eF_getTableData("courses", "id, name", "archive = 0 && instance_source = 0 && directions_ID=".$this['id']);
   } else {
    $directionsTree = new EfrontDirectionsTree();
    $children = $directionsTree -> getNodeChildren($this['id']);
    foreach (new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($children)), array('id')) as $value) {
     $siblings[] = $value;
    }
-   $result = eF_getTableData("courses", "id, name", "archive = 0 && directions_ID in (".implode(",", $siblings).")");
+   $result = eF_getTableData("courses", "id, name", "archive = 0 && instance_source = 0 && directions_ID in (".implode(",", $siblings).")");
   }
   $courses = array();
   foreach ($result as $value) {

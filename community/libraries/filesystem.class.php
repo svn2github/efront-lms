@@ -2618,7 +2618,7 @@ class FileSystemTree extends EfrontTree
                 if ($options['edit']) {
                     $toolsString .= '<img class = "ajaxHandle edit" src = "images/16x16/edit.png" alt = "'._EDIT.'" title = "'._EDIT.'" onclick = "toggleEditBox(this, \''.urlencode($identifier).'\')"/>&nbsp;';
                 }
-                if ($options['delete'] && !($value['users_LOGIN'] == $_SESSION['s_login'] && isset($value['users_LOGIN']) && $GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 0)) {
+                if ($options['delete'] && (($value['users_LOGIN'] == $_SESSION['s_login'] && isset($value['users_LOGIN'])) || ($GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 1))) {
                     $toolsString .= '<img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "'._DELETE.'" title = "'._DELETE.'" onclick = "if (confirm(\''._IRREVERSIBLEACTIONAREYOUSURE.'\')) {deleteFile(this, $(\'span_'.urlencode($identifier).'\').innerHTML)}"/></a>&nbsp;';
                 }
             } else if (is_dir($value['path'])) {

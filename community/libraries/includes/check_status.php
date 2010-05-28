@@ -288,6 +288,7 @@ foreach ($languagesArray as $key => $value) {
        'locale' => (setlocale(LC_ALL, $value)),
        'help' => (setlocale(LC_ALL, $value) === false) ? _YOUSHOULDCHANGEHEADERLANGUAGETAG.'&nbsp;'. $key.'&nbsp;'._LANGUAGEFILE : _YOURSYSTEMSUPPORTS .'&nbsp;'.$key);
 }
+setlocale(LC_ALL, _HEADERLANGUAGETAG);
 $correctLocale = $incorrectLocale = array();
 foreach ($locale as $key => $value) {
     $value['locale'] ? $correctLocale[$key] = $locale[$key] : $incorrectLocale[$key] = $locale[$key];

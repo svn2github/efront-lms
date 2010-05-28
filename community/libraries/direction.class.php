@@ -851,6 +851,9 @@ class EfrontDirectionsTree extends EfrontTree
          <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
         </span>';
    } else {
+    $instanceString .= '
+        <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'" onclick = "location=\''.$href.'\'">';							
+    $hasInstancesClass = 'boldFont';
 /*				
 
 				$treeString .= '
@@ -867,20 +870,17 @@ class EfrontDirectionsTree extends EfrontTree
   if (!isset($treeCourse -> course['from_timestamp']) || $treeCourse -> course['from_timestamp']) { //from_timestamp in user status means that the user's status in the course is not 'pending'
    $classNames = array();
    if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
-    $treeString .= '<a href = "'.($courseLink ? $href : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$treeCourse -> course['id'].', \'course\')">'.$treeCourse -> course['name'].'
+    $treeString .= '<a href = "'.($courseLink ? $href : 'javascript:void(0)').'" class = "'.$hasInstancesClass.' info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$treeCourse -> course['id'].', \'course\')">'.$treeCourse -> course['name'].'
           <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
           <span class = "tooltipSpan"></span>
          </a>';
    } else {
-    $courseLink ? $treeString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> course['id'].'">'.$treeCourse -> course['name'].'</a>' : $treeString .= $treeCourse -> course['name'];
+    $courseLink ? $treeString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> course['id'].'" class = "'.$hasInstancesClass.'">'.$treeCourse -> course['name'].'</a>' : $treeString .= $treeCourse -> course['name'];
    }
   } else {
-   $treeString .= '<a href = "javascript:void(0)" class = "inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$treeCourse -> course['name'].'</a>';
+   $treeString .= '<a href = "javascript:void(0)" class = "'.$hasInstancesClass.' inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$treeCourse -> course['name'].'</a>';
   }
-    $treeString .= '
-       <span>
-        &nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
-       </span>';							
+  $treeString .= $instanceString;
   return $treeString;
  }
  private function printLessonLink($treeLesson, $options, $roleBasicType) {
@@ -1020,7 +1020,7 @@ class EfrontDirectionsTree extends EfrontTree
       $coursesTreeString .= '
       <table width = "100%">
        <tr class = "directionEntry">
-        <td style = "font-weight:bold">';
+        <td>';
       $coursesTreeString .= $this -> printCourseLinks($treeCourse, $options, $roleBasicType);
       $coursesTreeString .= '
         </td>

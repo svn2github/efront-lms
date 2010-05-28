@@ -135,8 +135,8 @@ if (isset($_GET['logout']) && !isset($_POST['submit_login'])) {
 if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
  $blocks = array('login' => array('title' => _LOGINENTRANCE, 'image' => '32x32/keys.png'),
         'online' => array('title' => _USERSONLINE, 'image' => '32x32/users.png'),
-        'lessons' => array('title' => _LESSONS, 'image' => '32x32/theory.png'),
-                 'selectedLessons' => array('title' => _SELECTEDLESSONS, 'image' => '32x32/shopping_basket.png'),
+        'lessons' => array('title' => _COURSES, 'image' => '32x32/theory.png'),
+                 'selectedLessons' => array('title' => _SELECTEDCOURSES, 'image' => '32x32/shopping_basket.png'),
         'news' => array('title' => _SYSTEMNEWS, 'image' => '32x32/announcements.png'));
  if (!empty($GLOBALS['currentTheme'] -> layout['positions']['enabled'])) {
   $blocks['links'] = array('title' => _LINKS, 'image' => '32x32/generic.png');
@@ -680,12 +680,13 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to 
                 $smarty -> assign("T_CONTENT_TREE", $contentTree);
                 $smarty -> assign("T_LANGUAGES", EfrontSystem :: getLanguages(true));
     $smarty -> assign("T_COURSE_LESSONS", $lessons);
+    $constraints = array('archive' => false, 'active' => true, 'sort' => 'name');
     if ($course -> course['instance_source']) {
      $parentCourse = new EfrontCourse($course -> course['instance_source']);
-     $instances = $parentCourse -> getInstances();
+     $instances = $parentCourse -> getInstances($constraints);
      $instances[$parentCourse -> course['id']] = $parentCourse;
     } else {
-     $instances = $course -> getInstances();
+     $instances = $course -> getInstances($constraints);
      $instances[$course -> course['id']] = $course;
     }
     $smarty -> assign("T_COURSE_INSTANCES", $instances);

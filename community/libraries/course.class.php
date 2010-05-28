@@ -3180,7 +3180,7 @@ class EfrontCourse
     $information['professors'][$key] = $user;
    }
   }
-  if ($instances = $this -> getInstances()) {
+  if (sizeof($instances = $this -> getInstances()) > 1) {
    $information['instances'] = sizeof($instances);
   } else {
    $information['lessons_number'] = $this -> countCourseLessons();

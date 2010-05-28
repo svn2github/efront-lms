@@ -11,7 +11,7 @@ try {
     }
     if (!isset($courses) || !$courses) {
      //$courses = EfrontCourse :: getCourses(true);
-     $constraints = array('active' => true, 'archive' => false, 'instance' => false);
+     $constraints = array('active' => true, 'archive' => false, 'instance' => false, 'sort' => 'name');
      $constraints['required_fields'] = array('has_instances');
      $courses = EfrontCourse :: getAllCourses($constraints);
     }

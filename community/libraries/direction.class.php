@@ -850,10 +850,10 @@ class EfrontDirectionsTree extends EfrontTree
          <span>'.$this -> showCoursePrice($treeCourse).'</span>
          <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
         </span>';
+    $hasInstancesClass = 'boldFont';
    } else {
     $instanceString .= '
         <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'" onclick = "location=\''.$href.'\'">';							
-    $hasInstancesClass = 'boldFont';
 /*				
 
 				$treeString .= '

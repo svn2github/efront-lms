@@ -839,6 +839,9 @@ class Installation
                              }
                          } else {
                              if ($module -> onInstall()) {
+                              if ($className == 'module_rss') {
+                               $fields['active'] = 1; //Since 3.6.3, RSS module starts as activated
+                              }
                                  eF_insertTableData("modules", $fields);
                              } else {
                                  throw new Exception(_MODULEDBERRORONINSTALL);

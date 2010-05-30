@@ -13,4 +13,6 @@ define("_RSS_SUCCESSFULLYEDITEDFEED", "Feed successfully updated");
 define("_RSS_PROBLEMEDITINGFEED", "Problem updating feed");
 define("_RSS_REFRESH", "Refresh feeds");
 define("_RSS_GOTORSS", "Go to RSS page");
+define("_RSS_NEWSFROM", "News from");
+define("_RSS_ONLYSUMMARY", "Display only summary");
 ?>

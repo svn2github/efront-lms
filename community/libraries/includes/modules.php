@@ -50,35 +50,26 @@ try {
 
         $message = _SUCCESFULLYDELETEDMODULE;
         $message_type = 'success';
-
+        exit;
     } elseif(isset($_GET['activate_module']) && eF_checkParameter($_GET['activate_module'], 'filename')) {
         if (isset($currentUser -> coreAccess['modules']) && $currentUser -> coreAccess['modules'] != 'change') {
             throw new EfrontSystemException(_UNAUTHORIZEDACCESS, EfrontSystemException::UNAUTHORIZED_ACCESS);
         }
-        if (eF_updateTableData("modules", array("active" => 1), "className = '".$_GET['activate_module']."'")) {
-            echo "1";
-        } else {
-            header("HTTP/1.0 500 ");
-            echo rawurlencode(_SOMEPROBLEMOCCURED.' ('.$e -> getCode().')');
-        }
+        eF_updateTableData("modules", array("active" => 1), "className = '".$_GET['activate_module']."'");
+        echo "1";
         exit;
     } elseif(isset($_GET['deactivate_module']) && eF_checkParameter($_GET['deactivate_module'], 'filename')) {
         if (isset($currentUser -> coreAccess['modules']) && $currentUser -> coreAccess['modules'] != 'change') {
             throw new EfrontSystemException(_UNAUTHORIZEDACCESS, EfrontSystemException::UNAUTHORIZED_ACCESS);
         }
-        if (eF_updateTableData("modules", array("active" => 0), "className = '".$_GET['deactivate_module']."'")) {
-            echo "0";
-        } else {
-            header("HTTP/1.0 500 ");
-            echo rawurlencode(_SOMEPROBLEMOCCURED.' ('.$e -> getCode().')');
-        }
+        eF_updateTableData("modules", array("active" => 0), "className = '".$_GET['deactivate_module']."'");
+        echo "0";
         exit;
+    } elseif(isset($_GET['install_module']) && eF_checkParameter($_GET['install_module'], 'filename')) {
+
     }
 } catch (Exception $e) {
-    $message = _THEUSERCOULDNOTBEDELETED.': '.$e -> getMessage().' ('.$e->getCode().')';
-    header("HTTP/1.0 500 ");
-    echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
-    exit;
+ handleAjaxExceptions($e);
 }
 
 $modulesList = eF_getTableData("modules", "*");
@@ -120,8 +111,20 @@ foreach ($modulesList as $key => $module) {
     }
 }
 
-$smarty -> assign("T_MODULES", $modulesList);
+/*
 
+//THESE LINES ARE HERE FOR FUTURE SUPPORT OF AUTOMATICALLY INSTALLING MODULES WHICH FOLDERS EXIST
+
+$modulesFolder = new FilesystemTree(G_MODULESPATH, true);
+
+foreach ($modulesFolder->tree as $value) {
+
+	$modulesList[] = array('className' => $value['name'], 'not_installed' => 1, 'errors' => _MODULEFILESPRESENTNOTINSTALLED);
+
+}
+
+*/
+$smarty -> assign("T_MODULES", $modulesList);
 $upload_form = new HTML_QuickForm("upload_file_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=modules', "", null, true);
 $upload_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 $upload_form -> addElement('file', 'file_upload[0]', null, 'class = "inputText"');
@@ -137,16 +140,13 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
     if(isset($_GET['upgrade'])) {
         $prev_module_version = eF_getTableData("modules", "position", "className = '".$_GET['upgrade']."'");
         $prev_module_folder = $prev_module_version[0]['position'];
-
         // The name of the temp folder to extract the new version of the module
         $module_folder = $prev_module_folder; //basename($filename[0], '.zip') . time();
         $module_position = $prev_module_folder;//basename($filename[0], '.zip');
-
     } else {
         $module_folder = basename($uploadedFile['path'], '.zip');
         $module_position = $module_folder;
     }
-
     if (!$ok) {
         $message = $upload_messages[0];
         $message_type = $upload_messages_type[0];
@@ -158,7 +158,6 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
         if ($zip -> open($uploadedFile['path']) === TRUE) {
             $zip -> extractTo(G_MODULESPATH.$module_folder);
             $zip -> close();
-
             if (is_file(G_MODULESPATH.$module_folder.'/module.xml')) {
 
                 $xml = simplexml_load_file(G_MODULESPATH.$module_folder.'/module.xml');
@@ -312,8 +311,6 @@ $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
 $upload_form -> accept($renderer);
 
 $smarty -> assign('T_UPLOAD_FILE_FORM', $renderer -> toArray());
-//$db -> debug = true;
-//eF_insertTableData("modules", array("name" => "test", "active" => 1));
-//pr($modules);
+
 
 ?>

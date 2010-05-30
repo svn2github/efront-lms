@@ -12,19 +12,22 @@ class Cache
  public static function getCache($parameters) {
   $key = self :: encode($parameters);
 
-  $result = eF_getTableData("cache", "value, timestamp", "cache_key='".$key."'");
-  if (sizeof($result) > 0 || time() - $result['timestamp'] <= self :: $cacheTimeout) {
+  $result = eF_getTableData("cache", "value, timestamp, timeout", "cache_key='".$key."'");
+  if (sizeof($result) > 0 && time() - $result[0]['timestamp'] <= self :: $cacheTimeout && ($result[0]['timeout'] && time() - $result[0]['timestamp'] <= $result[0]['timeout'])) {
    return $result[0]['value'];
   } else {
    return false;
   }
  }
 
- public static function setCache($parameters, $data) {
+ public static function setCache($parameters, $data, $timeout = false) {
   $key = self :: encode($parameters);
   $values = array("cache_key" => $key, "value" => $data, "timestamp" => time());
+  if ($timeout && eF_checkParameter($timeout, 'int')) {
+   $values['timeout'] = $timeout;
+  }
 
-  if (self :: getCache($parameters)) {
+  if (sizeof(eF_getTableData("cache", "value", "cache_key='".$key."'")) > 0) {
    $result = eF_updateTableData("cache", $values, "cache_key='$key'");
   } else {
    $result = eF_insertTableData("cache", $values);

@@ -50,8 +50,8 @@
    {if $_change_}
              <div class = "horizontalSeparatorAbove">
               <span style = "vertical-align:middle">{$smarty.const._WITHSELECTED}:</span>
-              <img class = "ajaxHandle" src = "images/16x16/undo.png" title = "{$smarty.const._RESTORESELECTED}" alt = "{$smarty.const._RESTORESELECTED}" onclick = "restoreSelected('archiveTable');">
-              <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETESELECTED}" alt = "{$smarty.const._DELETESELECTED}" onclick = "deleteSelected('archiveTable');">
+              <img class = "ajaxHandle" src = "images/16x16/undo.png" title = "{$smarty.const._RESTORESELECTED}" alt = "{$smarty.const._RESTORESELECTED}" onclick = "restoreSelected(this, 'archiveTable');">
+              <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETESELECTED}" alt = "{$smarty.const._DELETESELECTED}" onclick = "deleteSelected(this, 'archiveTable');">
              </div>
          {/if}
   {/capture}

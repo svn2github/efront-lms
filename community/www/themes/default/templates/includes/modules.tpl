@@ -29,6 +29,7 @@
                                     <td>{$T_MODULES[modules_list].author}</td>
                                     <td>{$T_MODULES[modules_list].version}</td>
                                     <td class = "centerAlign">
+
                                 {if !$T_MODULES[modules_list].errors}
                                     {if $T_MODULES[modules_list].active}
                                         <img class = "ajaxHandle" id="module_status_img" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $change_modules}onclick = "activateModule(this, '{$T_MODULES[modules_list].className}')"{/if}>
@@ -40,11 +41,12 @@
                                 {/if}
                                     </td>
                                     <td class = "centerAlign">
+                                {if !$T_MODULES[modules_list].not_installed}
                                         <img class = "ajaxHandle" src = "images/16x16/information.png" alt = "{$smarty.const._DESCRIPTION}" title = "{$smarty.const._DESCRIPTION}" onclick = "eF_js_showDivPopup('{$smarty.const._MODULEINFORMATION}', 1, 'module_info_table_{$smarty.section.modules_list.iteration}')"/>
                                     {if $change_modules}
                                         <img class = "ajaxHandle" src = "images/16x16/generic.png" title="{$smarty.const._UPGRADEMODULE}" alt="{$smarty.const._UPGRADEMODULE}" onclick = "document.getElementById('upload_file_form').action = '{$smarty.server.PHP_SELF}?ctg=modules&upgrade={$T_MODULES[modules_list].className}'; eF_js_showDivPopup('{$smarty.const._UPGRADEMODULE} {$T_MODULES[modules_list].className}', 0, 'upload_file_table')"/>
                                         <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteModule(this, '{$T_MODULES[modules_list].className}')"/>
-                                        {/if}
+                                    {/if}
                                         <div id = "module_info_table_{$smarty.section.modules_list.iteration}" style = "display:none">
           {capture name = 't_module_info_code'}
                                             <table style = "text-align:left">
@@ -57,6 +59,11 @@
           {/capture}
           {eF_template_printBlock title=$smarty.const._MODULEINFORMATION data=$smarty.capture.t_module_info_code image='32x32/addons.png'}
                                         </div>
+                                {else}
+                                    {if $change_modules}
+                                     <img class = "ajaxHandle" src = "images/16x16/add.png" title="{$smarty.const._INSTALLMODULE}" alt="{$smarty.const._INSTALLMODULE}" onclick = "installModule()"/>
+                                    {/if}
+                                {/if}
                                     </td>
                                 </tr>
                             {sectionelse}

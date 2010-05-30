@@ -2,12 +2,12 @@
 {if $T_RSS_RSS_MESSAGE}
     <script>
         re = /\?/;
-        !re.test(parent.location) ? parent.location = parent.location+'?message={$T_RSS_RSS_MESSAGE}&message_type=success' : parent.location = parent.location+'&message={$T_RSS_RSS_MESSAGE}&message_type=success';            
+        !re.test(parent.location) ? parent.location = parent.location+'?message={$T_RSS_RSS_MESSAGE}&message_type=success' : parent.location = parent.location+'&message={$T_RSS_RSS_MESSAGE}&message_type=success';
     </script>
 {/if}
 
 {if ($smarty.get.add_feed) || $smarty.get.edit_feed}
-	{capture name = "t_add_feed_code"}
+ {capture name = "t_add_feed_code"}
         {$T_RSS_ADD_RSS_FORM.javascript}
         <form {$T_RSS_ADD_RSS_FORM.attributes}>
         {$T_RSS_ADD_RSS_FORM.hidden}
@@ -23,55 +23,57 @@
             {if $T_RSS_ADD_RSS_FORM.lessons_ID.error}<tr><td></td><td class = "formError">{$T_RSS_ADD_RSS_FORM.lessons_ID.error}</td></tr>{/if}
             <tr><td class = "labelCell">{$T_RSS_ADD_RSS_FORM.active.label}:&nbsp;</td>
                 <td class = "elementCell">{$T_RSS_ADD_RSS_FORM.active.html}</td></tr>
+            <tr><td class = "labelCell">{$T_RSS_ADD_RSS_FORM.only_summary.label}:&nbsp;</td>
+                <td class = "elementCell">{$T_RSS_ADD_RSS_FORM.only_summary.html}</td></tr>
             <tr><td colspan = "2">&nbsp;</td></tr>
             <tr><td></td><td class = "elementCell">{$T_RSS_ADD_RSS_FORM.submit.html}</td></tr>
         </table>
         </form>
-	{/capture}
-	{eF_template_printBlock title=$smarty.const._RSS_ADDRSS data=$smarty.capture.t_add_feed_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
+ {/capture}
+ {eF_template_printBlock title=$smarty.const._RSS_ADDRSS data=$smarty.capture.t_add_feed_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
 
-{else} 
+{else}
 
     {capture name = 't_rss_code'}
-    	<table>
-    		<tr><td>
-    				<img src = {$T_RSS_MODULE_BASELINK|cat:'images/add.png'} alt = "{$smarty.const._RSS_ADDFEED}" title = "{$smarty.const._RSS_ADDFEED}" style = "vertical-align:middle">
-    				<a href = "{$T_RSS_MODULE_BASEURL}&add_feed=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._RSS_ADDFEED}', 0)">{$smarty.const._RSS_ADDFEED}</a>
-    			</td></tr>
-    	</table>
+     <table>
+      <tr><td>
+        <img src = {$T_RSS_MODULE_BASELINK|cat:'images/add.png'} alt = "{$smarty.const._RSS_ADDFEED}" title = "{$smarty.const._RSS_ADDFEED}" style = "vertical-align:middle">
+        <a href = "{$T_RSS_MODULE_BASEURL}&add_feed=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._RSS_ADDFEED}', 0)">{$smarty.const._RSS_ADDFEED}</a>
+       </td></tr>
+     </table>
         <table class = "sortedTable" style = "width:100%">
-        	<tr>
-        		<td class = "topTitle">{$smarty.const._RSS_FEEDTITLE}</td>
-        		<td class = "topTitle">{$smarty.const._RSS_FEEDURL}</td>
-        		<td class = "topTitle">{$smarty.const._LESSON}</td>
-        		<td class = "topTitle centerAlign">{$smarty.const._RSS_ACTIVE}</td>
-        		<td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
-        	</tr>
-    	{foreach name = 'feed_loop' key = "id" item = "feed" from = $T_RSS_FEEDS}
-    		<tr id="row_{$feed.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$feed.active}deactivatedTableElement{/if}">
-    			<td>{$feed.title}</td>
-    			<td>{$feed.url}</td>
-    			<td>{$feed.lesson}</td>
-    			<td class = "centerAlign">
-    				<a href = "javascript:void(0)" onclick = "activateFeed(this, {$feed.id})">
-    		{if $feed.active}
-    					<img src = "{$T_RSS_MODULE_BASELINK}images/trafficlight_green.png" alt = "{$smarty.const._RSS_ACTIVE}" title = "{$smarty.const._RSS_ACTIVE}" border = "0"/>
-    		{else}
-    					<img src = "{$T_RSS_MODULE_BASELINK}images/trafficlight_red.png" alt = "{$smarty.const._RSS_INACTIVE}" title = "{$smarty.const._RSS_INACTIVE}" border = "0"/>
-    		{/if}
-    				</a>
-    			</td class = "centerAlign">
-    			<td class = "centerAlign">
-    				<a href = "{$T_RSS_MODULE_BASEURL}&edit_feed={$feed.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._RSS_EDITFEED}', 0)"><img src = "{$T_RSS_MODULE_BASELINK}images/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" border = "0"></a>
-    				<a href = "javascript:void(0)" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteFeed(this, {$feed.id});"><img src = "{$T_RSS_MODULE_BASELINK}images/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" border = "0"></a>
-    			</td>
-    		</tr>
-    	{foreachelse}
-    		<tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>    		
-    	{/foreach}
-    	</table>	
+         <tr>
+          <td class = "topTitle">{$smarty.const._RSS_FEEDTITLE}</td>
+          <td class = "topTitle">{$smarty.const._RSS_FEEDURL}</td>
+          <td class = "topTitle">{$smarty.const._LESSON}</td>
+          <td class = "topTitle centerAlign">{$smarty.const._RSS_ACTIVE}</td>
+          <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
+         </tr>
+     {foreach name = 'feed_loop' key = "id" item = "feed" from = $T_RSS_FEEDS}
+      <tr id="row_{$feed.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$feed.active}deactivatedTableElement{/if}">
+       <td>{$feed.title}</td>
+       <td>{$feed.url}</td>
+       <td>{$T_LESSON_NAMES[$feed.lessons_ID]}</td>
+       <td class = "centerAlign">
+        <a href = "javascript:void(0)" onclick = "activateFeed(this, {$feed.id})">
+      {if $feed.active}
+         <img src = "{$T_RSS_MODULE_BASELINK}images/trafficlight_green.png" alt = "{$smarty.const._RSS_ACTIVE}" title = "{$smarty.const._RSS_ACTIVE}" border = "0"/>
+      {else}
+         <img src = "{$T_RSS_MODULE_BASELINK}images/trafficlight_red.png" alt = "{$smarty.const._RSS_INACTIVE}" title = "{$smarty.const._RSS_INACTIVE}" border = "0"/>
+      {/if}
+        </a>
+       </td class = "centerAlign">
+       <td class = "centerAlign">
+        <a href = "{$T_RSS_MODULE_BASEURL}&edit_feed={$feed.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._RSS_EDITFEED}', 0)"><img src = "{$T_RSS_MODULE_BASELINK}images/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" border = "0"></a>
+        <a href = "javascript:void(0)" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteFeed(this, {$feed.id});"><img src = "{$T_RSS_MODULE_BASELINK}images/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" border = "0"></a>
+       </td>
+      </tr>
+     {foreachelse}
+      <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
+     {/foreach}
+     </table>
     {/capture}
-    
+
     {eF_template_printBlock title=$smarty.const._RSS_RSS data=$smarty.capture.t_rss_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
 
     <script>
@@ -98,7 +100,7 @@
                 }
             });
     }
- 
+
     function activateFeed(el, id) {
         Element.extend(el);
         if (el.down().src.match('red')) {

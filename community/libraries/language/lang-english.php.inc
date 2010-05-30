@@ -3724,4 +3724,5 @@ define("_OLDESTNOTIFICATION", "Oldest notification");
 define("_PURGENOTIFICATIONSOLDERTHAN", "Purge notifications older than");
 define("_CURRENTUSERS", "Current");
 define("_SELECTEDCOURSES", "Selected courses");
+define("_MODULEFILESPRESENTNOTINSTALLED", "Module files are present, but it is not installed");
 ?>

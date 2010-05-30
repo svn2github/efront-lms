@@ -257,7 +257,7 @@ if ((!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest'])) && ($GLOBALS['cu
   if (!isset($_GET['course'])) {
    $_SESSION['s_lessons_ID'] = "";
   } else {
-    $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
+    //$currentLesson  = new EfrontLesson($_SESSION['s_lessons_ID']); 
   }
  } else if ($_SESSION['s_lessons_ID']) {
      $_GET['new_lesson_id'] = $_SESSION['s_lessons_ID'];

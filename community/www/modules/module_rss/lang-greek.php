@@ -13,4 +13,6 @@ define("_RSS_SUCCESSFULLYEDITEDFEED", "Η ροή ενημερώθηκε επιτ
 define("_RSS_PROBLEMEDITINGFEED", "Η ροή δεν ήταν δυνατόν να ενημερωθεί");
 define("_RSS_REFRESH", "Ανανέωση ροών");
 define("_RSS_GOTORSS", "Μετάβαση στη σελίδα RSS");
+define("_RSS_NEWSFROM", "Νέα από");
+define("_RSS_ONLYSUMMARY", "Εμφάνιση μόνο τίτλου");
 ?>

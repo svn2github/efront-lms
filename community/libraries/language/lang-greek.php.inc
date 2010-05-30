@@ -3724,4 +3724,5 @@ define("_OLDESTNOTIFICATION", "Παλιότερη ειδοποίηση");
 define("_PURGENOTIFICATIONSOLDERTHAN", "Εκκαθάριση ειδοποιήσεων παλιότερων από");
 define("_CURRENTUSERS", "Τρέχοντες");
 define("_SELECTEDCOURSES", "Επιλεγμένες δέσμες");
+define("_MODULEFILESPRESENTNOTINSTALLED", "Τα αρχεία του αρθρώματος υπάρχουν, αλλά δεν είναι εγκατεστημένο");
 ?>

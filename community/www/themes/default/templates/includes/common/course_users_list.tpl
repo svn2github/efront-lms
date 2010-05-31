@@ -1,3 +1,7 @@
+# 1 "<stdin>"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "<stdin>"
 {capture name = 'course_users_list'}
 <style>
 {literal}
@@ -17,7 +21,7 @@ table#courseUsersTable td.operations,table#instanceUsersTable td.operations{widt
 table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{width:10%;text-align:center;}
 {/literal}
 </style>
-
+<script>var currentUserLogin ='';</script>
   <tr class = "topTitle">
 {if in_array('login', $T_DATASOURCE_COLUMNS)} <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>{/if}
 {if in_array('name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle name" name = "name">{$smarty.const._NAME}</td>{/if}
@@ -119,6 +123,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
   {/if}
  {/if}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('certificate', $T_DATASOURCE_OPERATIONS)}
+# 140 "<stdin>"
  {/if}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('progress', $T_DATASOURCE_OPERATIONS)}
     <a href = "{$smarty.server.PHP_SELF}?{$T_BASE_URL}&op=course_certificates&edit_user={$user.login}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PROGRESS}', 2)" title = "{$smarty.const._VIEWUSERLESSONPROGRESS}">
@@ -142,6 +147,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
      <img src = "images/16x16/success.png" alt = "{$smarty.const._COURSEUSER}" title = "{$smarty.const._COURSEUSER}">
      {/if}
     {/if}
+
    </td>
 {/if}
   </tr>
@@ -223,6 +229,7 @@ table#lessonsTable td.score,table#courseLessons td.score{width:5%;text-align:cen
   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>
   {/foreach}
 {/capture}
+
  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'courseUsersTable'}
 <!--ajax:courseUsersTable-->
  <table size = "{$T_TABLE_SIZE}" sortBy = "{$T_DATASOURCE_SORT_BY}" id = "courseUsersTable" class = "sortedTable" useAjax = "1" url = "{$courseUsers_url}">

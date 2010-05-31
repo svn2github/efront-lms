@@ -1,3 +1,7 @@
+# 1 "<stdin>"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "<stdin>"
  {*moduleReports: Show employees satisfying some criteria *}
   <script>
   var searchSkillTemplate = '{$T_REPORT_FORM.search_skill_template.html|replace:"\n":""}';
@@ -79,13 +83,18 @@
     {capture name = 't_reports_advanced_search'}
    <table class = "formElements">
     <tr><td width = "33%">
+# 96 "<stdin>"
      <table>
+
       <tr><td class = "labelCell">{$T_REPORT_FORM.new_login.label}:&nbsp;</td><td>{$T_REPORT_FORM.new_login.html}</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.name.label}:&nbsp;</td><td>{$T_REPORT_FORM.name.html}</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.surname.label}:&nbsp;</td><td>{$T_REPORT_FORM.surname.html}</td></tr>
+# 116 "<stdin>"
       <tr><td class = "labelCell">{$T_REPORT_FORM.email.label}:&nbsp;</td><td>{$T_REPORT_FORM.email.html}</td></tr>
+
       <tr><td class = "labelCell">{$T_REPORT_FORM.user_type.label}:&nbsp;</td><td>{$T_REPORT_FORM.user_type.html}</td></tr>
       <tr><td class = "labelCell">{$T_REPORT_FORM.active.label}:&nbsp;</td><td>{$T_REPORT_FORM.active.html}</td></tr>
+
       <script>
       // Comma separated fields that required special handling by Javascript search
       var customProfileSearchCriteria = "{$T_USER_PROFILE_FIELDS_CRITERIA}";
@@ -95,21 +104,27 @@
        <tr><td class = "labelCell">{$T_REPORT_FORM.$item.label}:&nbsp;</td>
         <td class = "elementCell">{$T_REPORT_FORM.$item.html}</td></tr>
        {if $T_REPORT_FORM.$item.error}<tr><td></td><td class = "formError">{$T_REPORT_FORM.$item.error}</td></tr>{/if}
+
       {/foreach}
       {foreach name = 'profile_fields' key = key item = item from = $T_USER_PROFILE_DATES }
        <tr><td class = "labelCell">{$item.name}:&nbsp;</td>
         <td class = "elementCell" NOWRAP>{eF_template_html_select_date searchtype=1 prefix=$item.prefix emptyvalues="1" time=0 start_year="-45" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
       {/foreach}
+
       <tr><td class = "labelCell">{$T_REPORT_FORM.registration.label}:&nbsp;</td><td NOWRAP>{eF_template_html_select_date searchtype=1 prefix="timestamp" emptyvalues="1" time=0 start_year="-10" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
+# 172 "<stdin>"
      </td>
     </tr>
    </table> {* And of main table of class = formelements *}
+
    {* Print the new centrally aligned submit button - This table is closed </table> by the closing tab of the main table of the eFront normal interface *}
    <table width ="66%">
     <tr><td>&nbsp;</td></tr>
     <tr><td class = "submitCell" style = "text-align:center" align="center">{$T_REPORT_FORM.submit_personal_details.html}</td></tr>
      </table>
     {/capture}
+
+
   {*moduleShowemployees: Show employees*}
   {capture name = 't_employees_code'}
 {*222222222222*}
@@ -119,16 +134,26 @@
                 <a href = "javascript:void(0)" onClick = "eF_js_showDivPopup('{$smarty.const._SETFOUNDEMPLOYEESINTOGROUP}', 0, 'insert_into_group')" target = 'POPUP_FRAME'>{$smarty.const._SETFOUNDEMPLOYEESINTOGROUP}</a>
             </span>
         </div>
+
 {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'foundEmployees'}
 <!--ajax:foundEmployees-->
+
+
+
   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "foundEmployees" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=search_users&">
+
+
    <tr class = "topTitle">
     <td class = "topTitle" name="login">{$smarty.const._USER}</td>
     <td class = "topTitle" name="languages_NAME">{$smarty.const._LANGUAGE}</td>
+
+
+
     <td class = "topTitle noSort" align="center">{$smarty.const._SENDMESSAGE}</td>
     <td class = "topTitle noSort" align="center">{$smarty.const._STATISTICS}</td>
     <td class = "topTitle noSort" align="center">{$smarty.const._OPERATIONS}</td>
    </tr>
+
     {if $T_TABLE_SIZE > 0}
    {foreach name = 'users_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
    <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
@@ -142,6 +167,7 @@
     {/if}
    </td>
    <td>{$user.languages_NAME}</td>
+# 248 "<stdin>"
    <td align="center"><a style="" href="{$smarty.server.PHP_SELF}?ctg=messages&add=1&recipient={$user.login}&popup=1" onclick='eF_js_showDivPopup("{$smarty.const._SENDMESSAGE}", 2)' target="POPUP_FRAME"><img src="images/16x16/mail.png" border="0"></a></td>
    <td align="center"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>
    <td class="centerAlign">
@@ -156,8 +182,11 @@
      <a href = "javascript:void(0);" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" class = "inactiveImage" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
     {/if}
    </td>
+
+
    </tr>
    {/foreach}
+
      <tr style="display:none"><td><input type="hidden" id="usersFound" value="{$T_SENDALLMAIL_URL}" /></td></tr>
      {if $smarty.const.MSIE_BROWSER == 1}
       <img style="display:none" src="images/16x16/question_type_free_text.png" onLoad="javascript:new Effect.Appear('sendToAllId');" />
@@ -170,6 +199,7 @@
      {/if}
   {else}
      <tr><td colspan ="8" class = "emptyCategory">{$smarty.const._NOEMPLOYEESFULFILLTHESPECIFIEDCRITERIA}</td></tr>
+
      <tr style="display:none"><td><input type="hidden" id="usersFound" value="{$T_SENDALLMAIL_URL}" /></td></tr>
      {if $smarty.const.MSIE_BROWSER == 1}
      <img style="display:none" src="images/16x16/question_type_free_text.png" onload="if (document.getElementById('sendToAllId')) {ldelim}document.getElementById('sendToAllId').style.display='none';{rdelim}" />
@@ -181,15 +211,25 @@
       </script>
      {/if}
   {/if}
+
   </table>
 <!--/ajax:foundEmployees-->
+
 {/if}
   {/capture}
+
+
+
  {*moduleShowemployees: Show courses to be assigned*}
  {capture name = 't_courses_to_be_assigned_code'}
  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'coursesTable'}
 <!--ajax:coursesTable-->
+
+
+
  <table style = "width:100%" size = "{$T_TABLE_SIZE}" id = "coursesTable" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=search_users&op={$smarty.get.op}&courses=1&">
+
+
   <tr class = "topTitle">
    <td class = "topTitle" name = "name" style = "width:{if $smarty.get.ctg == "users"}35%{else}60%{/if}">{$smarty.const._NAME}</td>
    <td class = "topTitle" name = "directions_ID" style = "width:30%">{$smarty.const._PARENTDIRECTIONS}</td>
@@ -206,11 +246,13 @@
     {$course.name}
    {/strip}</td>
    <td>{$T_DIRECTION_PATHS[$course.directions_ID]}</td>
+
    <td class = "centerAlign">
     {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
      <img class = "ajaxHandle" src = "images/16x16/goto_student.png" alt = "{$smarty.const._SELECTION}" title = "{$smarty.const._SELECTION}" onclick = "assignCourseToUsers(this, '{$course.id}')">
     {/if}
    </td>
+
   </tr>
   {foreachelse}
   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "10">{$smarty.const._NODATAFOUND}</td></tr>
@@ -218,10 +260,15 @@
  </table>
 <!--/ajax:coursesTable-->
  {/if}
+
  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'instancesTable'}
 <div id = "filemanager_div" style = "display:none;">
 <!--ajax:instancesTable-->
+
+
+
  <table style = "width:100%" no_auto = "1" size = "{$T_TABLE_SIZE}" id = "instancesTable" class = "sortedTable subSection" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=search_users&op={$smarty.get.op}&courses=1&">
+
   <tr class = "topTitle">
    <td class = "topTitle" name = "name" style = "width:{if $smarty.get.ctg == "users"}35%{else}60%{/if}">{$smarty.const._NAME}</td>
    <td class = "topTitle" name = "directions_ID" style = "width:30%">{$smarty.const._PARENTDIRECTIONS}</td>
@@ -233,11 +280,13 @@
    <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$course.active}deactivatedTableElement{/if}">
    <td>{$course.name}</td>
    <td>{$T_DIRECTION_PATHS[$course.directions_ID]}</td>
+
    <td class = "centerAlign">
     {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
      <img class = "ajaxHandle" src = "images/16x16/goto_student.png" alt = "{$smarty.const._SELECTION}" title = "{$smarty.const._SELECTION}" onclick = "assignCourseToUsers(this, '{$course.id}')">
     {/if}
    </td>
+
   </tr>
   {foreachelse}
   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "10">{$smarty.const._NODATAFOUND}</td></tr>
@@ -247,10 +296,16 @@
 </div>
  {/if}
  {/capture}
+
+
  {*moduleShowemployees: Show courses to be assigned*}
  {capture name = 't_custom_group_stats_code'}
  <div class = "statisticsDiv" id = "statsDivCustomGroup">
+
+
 <!--ajax:customGroupStats-->
+
+
   <span>
 {if isset($T_USER_TRAFFIC)}
                 <table class = "statisticsGeneralInfo">
@@ -262,6 +317,7 @@
                      <td class = "labelCell">{$smarty.const._LESSONACCESS}: </td>
                      <td class = "elementCell">{$T_USER_TRAFFIC.total_access}</td></tr>
                 </table>
+
     <br/>
                 <table class = "statisticsTools">
                     <tr><td>{$smarty.const._ACCESSPERLESSON}</td></tr>
@@ -295,17 +351,25 @@
   {else}
   <span class = "emptyCategory">{$smarty.const._NOUSERSFOUND}</span>
 {/if}
+
+
 <!--/ajax:customGroupStats-->
+
+
 </div>
 {/capture}
+
    {* **************************************************************
     DISPLAYING THE CAPTURED TABLES
     ************************************************************** *}
 {capture name = 't_search_all'}
+
  {$T_REPORT_FORM.javascript}
   <form {$T_REPORT_FORM.attributes}>
    {$T_REPORT_FORM.hidden}
+# 459 "<stdin>"
      {eF_template_printBlock title = $smarty.const._SEARCHCRITERIA data = $smarty.capture.t_reports_advanced_search image = '32x32/search.png'}
+
     <br>
     <div class="tabber">
      <div class="tabbertab" title="{$smarty.const._SEARCHRESULTS}">
@@ -322,6 +386,8 @@
   </form>
 {/capture}
     {eF_template_printBlock title = $smarty.const._FINDEMPLOYEES data = $smarty.capture.t_search_all image = '32x32/scorm.png' main_options = $T_TABLE_OPTIONS}
+
+
 <div id='insert_into_group' style="display:none">
 {capture name = 't_insert_into_group_code'}
  {$T_INSERT_INTO_GROUP_POPUP_FORM.javascript}

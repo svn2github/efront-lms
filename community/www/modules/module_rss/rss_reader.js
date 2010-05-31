@@ -1,7 +1,10 @@
-function getFeeds() {
+function getFeeds(refresh) {
  el = $('loading_rss');
  url = rssmodulebaseurl+'&ajax=1';
  parameters = {method: 'get'};
+ if (refresh) {
+  Object.extend(parameters, {refresh:1})
+ }
  ajaxRequest(el, url, parameters, onLoadRss);
 }
 function onLoadRss(el, response) {
@@ -14,6 +17,7 @@ function onLoadRss(el, response) {
    elements[i].show();
   }
  }
+
  if (elements.length > 10) {
   pe = new PeriodicalExecuter(scrollFeeds, 3);
  }

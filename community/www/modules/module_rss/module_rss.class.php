@@ -145,7 +145,7 @@ class module_rss extends EfrontModule
             $smarty -> assign('T_RSS_ADD_RSS_FORM', $renderer -> toArray()); //Assign the form to the template
         } else {
             if (isset($_GET['ajax'])) {
-    echo $this -> getRssFeeds();
+    echo $this -> getRssFeeds($_GET['refresh']);
     exit;
             } else {
        $lessons = array(0 => _ALLLESSONS);
@@ -166,7 +166,7 @@ class module_rss extends EfrontModule
     }
 
 
-    private function getRssFeeds() {
+    private function getRssFeeds($refresh = false) {
      $feedTitle = '';
      $feeds = $this -> getFeeds(true);
      foreach ($feeds as $key => $feed) {
@@ -174,7 +174,7 @@ class module_rss extends EfrontModule
       if ($feed['lessons_ID'] && $_SESSION['s_lessons_ID'] && $feed['lessons_ID'] != $_SESSION['s_lessons_ID']) {
        unset ($feeds[$key]);
       } else {
-       if ($str = Cache::getCache('rss_cache:'.$key)) {
+       if (!$refresh && $str = Cache::getCache('rss_cache:'.$key)) {
         $rssStrings[] = $str;
        } else {
         if ($feed['title'] != $feedTitle) {
@@ -280,7 +280,7 @@ class module_rss extends EfrontModule
   //pr($this -> moduleBaseLink);
         $smarty -> assign("T_RSS_MODULE_BASELINK", $this -> moduleBaseLink);
         $options[] = array('text' => _SHOWALL, 'image' => $this -> moduleBaseLink."images/arrow_down_blue.png", 'href' => "javascript:void(0)", onClick => "showHideAll(this)");
-        $options[] = array('text' => _RSS_REFRESH, 'image' => $this -> moduleBaseLink."images/refresh.png", 'href' => "javascript:void(0)", onClick => "getFeeds()");
+        $options[] = array('text' => _RSS_REFRESH, 'image' => $this -> moduleBaseLink."images/refresh.png", 'href' => "javascript:void(0)", onClick => "getFeeds(true)");
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getType() != 'student') {
             $options[] = array('text' => _RSS_GOTORSS, 'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl);
@@ -313,6 +313,7 @@ class module_rss extends EfrontModule
         } catch (Exception $e) {
             $rss[] = array('title' => '<span class = "emptyCategory">'._CONNECTIONERROR.'</span>', 'link' => 'javascript:void(0)');
         }
+        $rss = array_slice($rss, 0, 5);
         return $rss;
     }
     public function getFeeds($onlyActive = false) {

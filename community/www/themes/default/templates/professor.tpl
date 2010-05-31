@@ -8,9 +8,9 @@
    {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_COURSE_NAME`' href ='`$smarty.server.PHP_SELF`?ctg=lessons&course=`$T_CURRENT_COURSE_ID`&op=course_info'>`$T_CURRENT_COURSE_NAME`</a><span>&nbsp;&raquo;&nbsp;</span>"}
   {/if}
   {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&rarr;&nbsp;`$titleCourse``$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
- {else}
-  {assign var = "title" value = '<a class = "titleLink" title = "'|cat:$smarty.const._HOME|cat:'" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
- {/if}
+{else}
+ {assign var = "title" value = '<a class = "titleLink" title = "'|cat:$smarty.const._HOME|cat:'" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
+{/if}
 {* Making the previously loaded current lesson options appear again *}
 <script>
 {* Code for changing the sideframe - reloading it if necessary and selecting the right link *}
@@ -621,6 +621,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
   {if isset($smarty.get.question_ID)}
             {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=feedback&sel_test='|cat:$smarty.get.sel_test|cat:'&question_ID='|cat:$smarty.get.question_ID|cat:'">'|cat:$T_TEST_QUESTIONS[$smarty.get.question_ID]->question.text|cat:'</a>'}
         {/if}
+ {elseif $smarty.get.option == 'branches'}
     {elseif $smarty.get.option == 'course'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course">'|cat:$smarty.const._COURSESTATISTICS|cat:'</a>'}
         {if isset($smarty.get.sel_course)}

@@ -252,7 +252,7 @@
  <div class = "statisticsDiv" id = "statsDivCustomGroup">
 <!--ajax:customGroupStats-->
   <span>
-  {if isset($T_USER_TRAFFIC)}
+{if isset($T_USER_TRAFFIC)}
                 <table class = "statisticsGeneralInfo">
                     <tr><td class = "topTitle" colspan = "2">{$smarty.const._GROUPUSERTRAFFIC}</td></tr>
                     <tr class = "oddRowColor">
@@ -294,7 +294,7 @@
         </span>
   {else}
   <span class = "emptyCategory">{$smarty.const._NOUSERSFOUND}</span>
-  {/if}
+{/if}
 <!--/ajax:customGroupStats-->
  </div>
  {/capture}

@@ -185,38 +185,56 @@ table#lessonsTable td.score,table#courseLessons td.score{width:5%;text-align:cen
 {/if}
 {if in_array('overall_progress', $T_DATASOURCE_COLUMNS)}
    <td class = "progressCell overall_progress">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
     <span style = "display:none">{$lesson.overall_progress.completed+1000}</span>
     <span class = "progressNumber">#filter:score-{$lesson.overall_progress.percentage}#%</span>
     <span class = "progressBar" style = "width:{$lesson.overall_progress.percentage}px;">&nbsp;</span>&nbsp;&nbsp;
+   {/if}
    </td>
 {/if}
    {if !$T_CONFIGURATION.disable_tests}
 {if in_array('test_status', $T_DATASOURCE_COLUMNS)}
-    <td class = "progressCell test_status">
+   <td class = "progressCell test_status">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
     {if $lesson.test_status}
      <span style = "display:none">{$lesson.test_status.mean_score+1000}</span>
      <span class = "progressNumber">#filter:score-{$lesson.test_status.mean_score}#% ({$lesson.test_status.completed}/{$lesson.test_status.total})</span>
      <span class = "progressBar" style = "width:{$lesson.test_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
-    {else}<div class = "centerAlign">-</div>{/if}
-    </td>
+    {else}
+     <div class = "centerAlign">-</div>
+    {/if}
+   {/if}
+   </td>
 {/if}
    {/if}
    {if !$T_CONFIGURATION.disable_projects}
 {if in_array('project_status', $T_DATASOURCE_COLUMNS)}
-    <td class = "progressCell project_status">
+   <td class = "progressCell project_status">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
     {if $lesson.project_status}
      <span style = "display:none">{$lesson.project_status.mean_score+1000}</span>
      <span class = "progressNumber">#filter:score-{$lesson.project_status.mean_score}#% ({$lesson.project_status.completed}/{$lesson.project_status.total})</span>
      <span class = "progressBar" style = "width:{$lesson.project_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
-    {else}<div class = "centerAlign">-</div>{/if}
-    </td>
+    {else}
+     <div class = "centerAlign">-</div>
+    {/if}
+   {/if}
+   </td>
 {/if}
    {/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)}
-   <td class = "completed">{if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}</td>
+   <td class = "completed">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    {if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}
+   {/if}
+   </td>
 {/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
-   <td class = "score">#filter:score-{$lesson.score}#%</td>
+   <td class = "score">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    #filter:score-{$lesson.score}#%
+   {/if}
+   </td>
 {/if}
   </tr>
   {foreachelse}

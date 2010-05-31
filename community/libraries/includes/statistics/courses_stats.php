@@ -60,7 +60,7 @@ if (isset($_GET['sel_course'])) {
       $smarty -> assign("T_TABLE_SIZE", $totalEntries);
      }
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsUsersTable' && eF_checkParameter($_GET['courseLessonsUsersTable_source'], 'id')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'time_in_lesson', 'overall_progress', 'test_status', 'project_status', 'completed', 'score'));
+      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'time_in_lesson', 'overall_progress', 'test_status', 'project_status', 'completed', 'score', 'user_type'));
       $infoUser = EfrontUserFactory :: factory($_GET['courseLessonsUsersTable_login']);
       $lessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsUsersTable_source']));
       $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);

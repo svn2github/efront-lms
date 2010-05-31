@@ -61,8 +61,11 @@ function onLessonsAjaxPost(el, response) {
   }
 
  });
+
  response.evalJSON(true).lessons.each(function (s) {
-  $('lesson_mode_'+s).show();
+  if ($('lesson_mode_'+s)) {
+   $('lesson_mode_'+s).show();
+  }
  });
 }
 function setLessonMode(el, id, mode) {

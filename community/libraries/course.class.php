@@ -4514,7 +4514,8 @@ class EfrontCourse
    isset($_GET['filter']) ? $courseLessons = eF_filterData($courseLessons, $_GET['filter']) : null;
    $this -> removeLessons(array_keys($courseLessons));
   }
-  echo json_encode(array('lessons' => array_keys($this -> getCourseLessons())));
+  $constraints = array('archive' => false, 'active' => true, 'return_objects' => false);
+  echo json_encode(array('lessons' => array_keys($this -> getCourseLessons($constraints))));
  }
  public function handlePostAjaxRequestForSkills() {
   if ($_GET['insert'] == "true") {

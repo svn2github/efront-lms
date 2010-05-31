@@ -19,10 +19,12 @@
       {/if}
       <tr><td class = "labelCell">{$T_LESSON_FORM.directions_ID.label}:&nbsp;</td>
        <td>{$T_LESSON_FORM.directions_ID.html}</td></tr>
-      <tr><td class = "labelCell">{$T_LESSON_FORM.course_only.0.label}:&nbsp;</td>
-       <td>{$T_LESSON_FORM.course_only.0.html}</td></tr>
-      <tr><td class = "labelCell"></td>
+      <tr><td class = "labelCell">{$T_LESSON_FORM.course_only.1.label}:&nbsp;</td>
        <td>{$T_LESSON_FORM.course_only.1.html}</td></tr>
+    {if $T_CONFIGURATION.lesson_enroll || (isset($smarty.get.edit_lesson) && !$T_EDIT_LESSON->lesson.course_only)}
+      <tr><td class = "labelCell"></td>
+       <td>{$T_LESSON_FORM.course_only.0.html}</td></tr>
+    {/if}
       <tr><td class = "labelCell">{$T_LESSON_FORM.active.label}:&nbsp;</td>
        <td class = "elementCell">{$T_LESSON_FORM.active.html}</td></tr>
       <tr class = "only_lesson" {if !$T_EDIT_LESSON || $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.show_catalog.label}:&nbsp;</td>

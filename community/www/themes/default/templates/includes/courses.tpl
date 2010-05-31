@@ -34,7 +34,7 @@
   {capture name = 't_lessons_to_courses_code'}
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'lessonsTable'}
 <!--ajax:lessonsTable-->
-   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "3" order = "desc" useAjax = "1" id = "lessonsTable" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$smarty.get.edit_course}&">
+   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "4" order = "desc" useAjax = "1" id = "lessonsTable" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$smarty.get.edit_course}&">
     <tr class = "topTitle defaultRowHeight">
      <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
      <td class = "topTitle noSort">{$smarty.const._DIRECTION}</td>

@@ -401,19 +401,19 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $roles = EfrontLessonUser :: getLessonsRoles(true);
 
     $row = 3;
-    foreach ($students as $login => $user) {
-        $workSheet -> write($row, 4, $login, $fieldLeftFormat);
-        $workSheet -> write($row, 5, $roles[$studentsInfo[$login]['role']], $fieldLeftFormat);
-        $workSheet -> write($row, 6, $studentsInfo[$login]['time']['hours']."h ".$studentsInfo[$login]['time']['minutes']."' ".$studentsInfo[$login]['time']['seconds']."''", $fieldCenterFormat);
-        $workSheet -> write($row, 7, formatScore($studentsInfo[$login]['content'])."%", $fieldCenterFormat);
+    foreach ($students as $user) {
+        $workSheet -> write($row, 4, formatLogin($user['login']), $fieldLeftFormat);
+        $workSheet -> write($row, 5, $roles[$user['role']], $fieldLeftFormat);
+        $workSheet -> write($row, 6, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
+        $workSheet -> write($row, 7, formatScore($user['overall_progress']['percentage'])."%", $fieldCenterFormat);
         if ($GLOBALS['configuration']['disable_tests'] != 1) {
-            $workSheet -> write($row, 8, formatScore($studentsInfo[$login]['tests'])."%", $fieldCenterFormat);
+            $workSheet -> write($row, 8, formatScore($user['test_status']['percentage'])."%", $fieldCenterFormat);
         }
         if ($GLOBALS['configuration']['disable_projects'] != 1) {
-            $workSheet -> write($row, 9, formatScore($studentsInfo[$login]['projects'])."%", $fieldCenterFormat);
+            $workSheet -> write($row, 9, formatScore($user['project_status']['percentage'])."%", $fieldCenterFormat);
         }
-        $workSheet -> write($row, 10, $studentsInfo[$login]['completed'] ? _YES : _NO, $fieldCenterFormat);
-        $workSheet -> write($row, 11, formatScore($studentsInfo[$login]['score'])."%", $fieldCenterFormat);
+        $workSheet -> write($row, 10, $user['completed'] ? _YES : _NO, $fieldCenterFormat);
+        $workSheet -> write($row, 11, formatScore($user['score'])."%", $fieldCenterFormat);
         $row++;
     }
     $row += 2;
@@ -424,10 +424,10 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $workSheet -> write($row, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write($row, 5, _LESSONROLE, $titleLeftFormat);
     $workSheet -> write($row++, 6, _TIME, $titleCenterFormat);
-    foreach ($professors as $login => $user) {
-        $workSheet -> write($row, 4, $login, $fieldLeftFormat);
-        $workSheet -> write($row, 5, $roles[$professorsInfo[$login]['role']], $fieldLeftFormat);
-        $workSheet -> write($row, 6, $professorsInfo[$login]['time']['hours']."h ".$professorsInfo[$login]['time']['minutes']."' ".$professorsInfo[$login]['time']['seconds']."''", $fieldCenterFormat);
+    foreach ($professors as $user) {
+        $workSheet -> write($row, 4, formatLogin($user['login']), $fieldLeftFormat);
+        $workSheet -> write($row, 5, $roles[$user['role']], $fieldLeftFormat);
+        $workSheet -> write($row, 6, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
         $row++;
     }
 
@@ -594,74 +594,101 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     //add a separate sheet for each distinct student of that lesson
     //$doneTests        = EfrontStats :: getStudentsDoneTests($infoLesson -> lesson['id']);
     $assignedProjects = EfrontStats :: getStudentsAssignedProjects($infoLesson -> lesson['id']);
-    foreach ($students as $login => $user) {
-        $workSheet = & $workBook -> addWorksheet($login);
+    foreach ($students as $user) {
+        $workSheet = & $workBook -> addWorksheet($user['login']);
         $workSheet -> setInputEncoding('utf-8');
 
         $row = 0;
         $workSheet -> write($row, 0, $infoLesson -> lesson['name'], $headerBigFormat);
         $workSheet -> mergeCells($row, 0, $row++, 9);
-        $workSheet -> write($row, 0, $studentsInfo[$login]['name']." ".$studentsInfo[$login]['surname'].' ('.$login.')', $fieldCenterFormat);
+        $workSheet -> write($row, 0, formatLogin($user['login']), $fieldCenterFormat);
         $workSheet -> mergeCells($row, 0, $row++, 9);
 
         $workSheet -> setColumn(0, 0, 40);
 
         $workSheet -> write(++$row, 0, _LESSONROLE, $headerFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
-        $workSheet -> write(++$row, 0, $roles[$studentsInfo[$login]['role']], $fieldCenterFormat);
+        $workSheet -> write(++$row, 0, $roles[$user['role']], $fieldCenterFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
         $workSheet -> write(++$row, 0, _TIMEINLESSON, $headerFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
-        $workSheet -> write(++$row, 0, $studentsInfo[$login]['time']['hours']."h ".$studentsInfo[$login]['time']['minutes']."' ".$studentsInfo[$login]['time']['seconds']."''", $fieldCenterFormat);
+        $workSheet -> write(++$row, 0, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
         $workSheet -> write(++$row, 0, _STATUS, $headerFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
         $workSheet -> write(++$row, 0, _COMPLETED, $fieldCenterFormat);
-        $workSheet -> write($row, 1, $studentsInfo[$login]['completed'] ? _YES : _NO, $fieldCenterFormat);
+        $workSheet -> write($row, 1, $user['completed'] ? _YES : _NO, $fieldCenterFormat);
         $workSheet -> write(++$row, 0, _GRADE, $fieldCenterFormat);
-        $workSheet -> write($row, 1, formatScore($studentsInfo[$login]['score'])."%", $fieldCenterFormat);
+        $workSheet -> write($row, 1, formatScore($user['score'])."%", $fieldCenterFormat);
 
         $workSheet -> write(++$row, 0, _CONTENT, $headerFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
-        $workSheet -> write(++$row, 0, formatScore($studentsInfo[$login]['content'])."%", $fieldCenterFormat);
+        $workSheet -> write(++$row, 0, formatScore($user['overall_progress']['percentage'])."%", $fieldCenterFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
+/*
 
         $row++;
-        if (sizeof($doneTests[$login]) > 0 && $GLOBALS['configuration']['disable_tests'] != 1) {
+
+        if (sizeof($doneTests[$user['login']]) > 0 && $GLOBALS['configuration']['disable_tests'] != 1) {
+
             $avgScore = array();
+
             $workSheet -> write($row, 0, _TESTS, $headerFormat);
+
             $workSheet -> mergeCells($row, 0, $row++, 1);
-            foreach ($doneTests[$login] as $test) {
+
+            foreach ($doneTests[$user['login']] as $test) {
+
                 $workSheet -> write($row, 0, $test['name'], $fieldLeftFormat);
+
                 $workSheet -> write($row, 1, formatScore($test['score'])."%", $fieldCenterFormat);
+
                 $avgScore[] = $test['score'];
+
                 $row++;
+
             }
+
             $row +=2;
+
             $workSheet -> write($row, 0, _AVERAGESCORE, $titleLeftFormat);
+
             $workSheet -> write($row++, 1, formatScore(array_sum($avgScore) / sizeof($avgScore))."%", $fieldCenterFormat);
+
         }
 
-        if (sizeof($assignedProjects[$login]) > 0 && $GLOBALS['configuration']['disable_projects'] != 1) {
+
+
+        if (sizeof($assignedProjects[$user['login']]) > 0 && $GLOBALS['configuration']['disable_projects'] != 1) {
+
             $workSheet -> write($row, 0, _PROJECTS, $headerFormat);
-            $workSheet -> mergeCells($row, 0, $row, 1);
-            $row++;
-            foreach ($assignedProjects[$login] as $project) {
-                $workSheet -> write($row, 0, $project['title'], $fieldCenterFormat);
-                $workSheet -> write($row, 1, formatScore($project['grade'])."%", $fieldCenterFormat);
-                $workSheet -> write($row, 2, $project['comments'], $fieldCenterFormat);
-                $row++;
-            }
-        }
-    }
 
+            $workSheet -> mergeCells($row, 0, $row, 1);
+
+            $row++;
+
+            foreach ($assignedProjects[$user['login']] as $project) {
+
+                $workSheet -> write($row, 0, $project['title'], $fieldCenterFormat);
+
+                $workSheet -> write($row, 1, formatScore($project['grade'])."%", $fieldCenterFormat);
+
+                $workSheet -> write($row, 2, $project['comments'], $fieldCenterFormat);
+
+                $row++;
+
+            }
+
+        }
+
+*/
+    }
     $workBook -> close();
     exit(0);
 } else if (isset($_GET['pdf']) && $_GET['pdf'] == 'lesson') {
     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true);
     $pdf -> SetCreator(PDF_CREATOR);
     $pdf -> SetAuthor(PDF_AUTHOR);
-
     //set margins
     $pdf -> SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
     //set auto page breaks
@@ -669,25 +696,20 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $pdf -> SetHeaderMargin(PDF_MARGIN_HEADER);
     $pdf -> SetFooterMargin(PDF_MARGIN_FOOTER);
     $pdf -> setImageScale(PDF_IMAGE_SCALE_RATIO); //set image scale factor
-
     $pdf -> setHeaderFont(Array('FreeSerif', 'I', 11));
     $pdf -> setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
     $pdf -> setHeaderData('','','', _STATISTICSFORLESSON.": ".$infoLesson -> lesson['name']);
-
     //initialize document
     $pdf -> AliasNbPages();
     $pdf -> AddPage();
-
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0, 0, 0);
-
     if (isset($_GET['group_filter']) && $_GET['group_filter']) {
         try {
             $group = new EfrontGroup($_GET['group_filter']);
             $groupname = str_replace(" ", "_" , $group -> group['name']);
         } catch (Exception $e) {
             $groupname = false;
-
         }
     }
     if (G_VERSIONTYPE == 'enterprise' && isset($_GET['branch_filter']) && $_GET['branch_filter']) {
@@ -698,7 +720,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $branchName = false;
         }
     }
-
     if ($groupname || $branchName) {
         $celltitle = "";
         if ($groupname) {
@@ -715,40 +736,43 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     } else {
         $pdf -> Cell(100, 10, _BASICINFO, 0, 1, L, 0);
     }
-
     $directionName = eF_getTableData("directions", "name", "id=".$infoLesson -> lesson['directions_ID']);
     $languages = EfrontSystem :: getLanguages(true);
-
+    // Get only filtered users
+    $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
+    $filteredUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+    $students = array();
+    $professors = array();
+    foreach ($filteredUsers as $user) {
+     if ($user['user_type'] == "student") {
+      $students[$user['login']] = $user;
+     } else if ($user['user_type'] == "professor") {
+      $professors[$user['login']] = $user;
+     }
+    }
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> Cell(70, 5, _LESSON, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoLesson -> lesson['name'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _CATEGORY, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $directionName[0]['name'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-
     if ($groupname || $branchName) {
         $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($students).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
         $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($professors).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-
     } else {
         $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($infoLesson -> getUsers('student')).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
         $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($infoLesson -> getUsers('professor')).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     }
-
     $pdf -> Cell(70, 5, _PRICE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoLesson -> lesson['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _LANGUAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $languages[$infoLesson -> lesson['languages_NAME']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _ACTIVENEUTRAL, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoLesson -> lesson['active'] ? _YES : _NO, 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0,0,0);
     $pdf -> Cell(100, 10, _LESSONPARTICIPATIONINFO, 0, 1, L, 0);
-
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> Cell(70, 5, _COMMENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $lessonInfo['comments'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _MESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $lessonInfo['messages'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _CHATMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $lessonInfo['chatmessages'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0,0,0);
     $pdf -> Cell(100, 10, _LESSONCONTENTINFO, 0, 1, L, 0);
-
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> Cell(90, 5, _THEORY, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $lessonInfo['theory'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     if ($GLOBALS['configuration']['disable_projects'] != 1) {
@@ -763,7 +787,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $pdf -> AddPage('L');
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> Cell(60, 12, _USERSINFO, 0, 1, L, 0);
-
     $pdf -> SetFont("FreeSerif", "B", 10);
     $pdf -> Cell(70, 7, _HUMANNAME, 0, 0, L, 0);
     //$pdf -> Cell(50, 7, _LESSONROLE,0, 0, L, 0);
@@ -775,44 +798,36 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     if ($GLOBALS['configuration']['disable_projects'] != 1) {
         $pdf -> Cell(30, 7, _PROJECTS, 0, 0, C, 0);
     }
-
     $pdf -> Cell(30, 7, _COMPLETED, 0, 0, C, 0);
     $pdf -> Cell(30, 7, _GRADE, 0, 1, C, 0);
-
     $roles = EfrontLessonUser :: getLessonsRoles(true);
-
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> SetTextColor(0, 0, 255);
-    foreach ($students as $login => $user) {
-        $pdf -> Cell(70, 7, $studentsInfo[$login]['name'].' '.$studentsInfo[$login]['surname'].' ('.$login.')', 0, 0, L, 0);
-        //$pdf -> Cell(50, 7, $roles[$studentsInfo[$login]['role']],   0, 0, L, 0);
-        $pdf -> Cell(30, 7, $studentsInfo[$login]['time']['hours']."h ".$studentsInfo[$login]['time']['minutes']."' ".$studentsInfo[$login]['time']['seconds']."''", 0, 0, L, 0);
-        $pdf -> Cell(30, 7, formatScore($studentsInfo[$login]['content'])."%", 0, 0, C, 0);
+    foreach ($students as $user) {
+        $pdf -> Cell(70, 7, formatLogin($user['login']), 0, 0, L, 0);
+        //$pdf -> Cell(50, 7, $roles[$user['role']],   0, 0, L, 0);
+        $pdf -> Cell(30, 7, $user['time_in_lesson']['time_string'], 0, 0, L, 0);
+        $pdf -> Cell(30, 7, formatScore($user['overall_progress']['percentage'])."%", 0, 0, C, 0);
         if ($GLOBALS['configuration']['disable_tests'] != 1) {
-            $pdf -> Cell(30, 7, formatScore($studentsInfo[$login]['tests'])."%", 0, 0, C, 0);
+            $pdf -> Cell(30, 7, formatScore($user['test_status']['percentage'])."%", 0, 0, C, 0);
         }
         if ($GLOBALS['configuration']['disable_projects'] != 1) {
-            $pdf -> Cell(30, 7, formatScore($studentsInfo[$login]['projects'])."%", 0, 0, C, 0);
+            $pdf -> Cell(30, 7, formatScore($user['project_status']['percentage'])."%", 0, 0, C, 0);
         }
-        $pdf -> Cell(30, 7, formatScore($studentsInfo[$login]['completed'])."%", 0, 0, C, 0);
-        $pdf -> Cell(30, 7, formatScore($studentsInfo[$login]['score'])."%", 0, 1, C, 0);
+        $pdf -> Cell(30, 7, formatScore($user['completed'])."%", 0, 0, C, 0);
+        $pdf -> Cell(30, 7, formatScore($user['score'])."%", 0, 1, C, 0);
     }
-
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(60, 12, _PROFESSORSINFO, 0, 1, L, 0);
-
     $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(100, 7, _HUMANNAME, 0, 0, L, 0);
-    $pdf -> Cell(60, 7, _LESSONROLE,0, 0, L, 0);
-    $pdf -> Cell(60, 7, _TIME, 0, 1, L, 0);
-
+    $pdf -> Cell(70, 7, _HUMANNAME, 0, 0, L, 0);
+    $pdf -> Cell(30, 7, _TIME, 0, 1, L, 0);
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> SetTextColor(0, 0, 255);
-    foreach ($professors as $login => $user) {
-        $pdf -> Cell(100, 7, $professorsInfo[$login]['name'].' '.$professorsInfo[$login]['surname'].' ('.$login.')', 0, 0, L, 0);
-        $pdf -> Cell(60, 7, $roles[$professorsInfo[$login]['role']], 0, 0, L, 0);
-        $pdf -> Cell(60, 5, $professorsInfo[$login]['time']['hours']."h ".$professorsInfo[$login]['time']['minutes']."' ".$professorsInfo[$login]['time']['seconds']."''", 0, 1, L, 0);
+    foreach ($professors as $user) {
+        $pdf -> Cell(70, 7, formatLogin($user['login']), 0, 0, L, 0);
+        $pdf -> Cell(30, 7, $user['time_in_lesson']['time_string'], 0, 1, L, 0);
     }
     if ($GLOBALS['configuration']['disable_tests'] != 1) {
         //Page with lesson's tests and questions
@@ -821,7 +836,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $pdf -> AddPage('L');
             $pdf -> SetFont("FreeSerif", "B", 12);
             $pdf -> Cell(60, 12, _TESTSINFORMATION, 0, 1, L, 0);
-
             foreach ($testsInfo as $id => $info) {
                 $pdf -> SetFont("FreeSerif", "B", 10);
                 $pdf -> Cell(60, 12, $info['general']['name'], 0, 1, L, 0);
@@ -917,19 +931,19 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     //add a separate page for each distinct student of that lesson
     $doneTests = EfrontStats :: getStudentsDoneTests($infoLesson -> lesson['id']);
     $assignedProjects = EfrontStats :: getStudentsAssignedProjects($infoLesson -> lesson['id']);
-    foreach ($students as $login => $user) {
+    foreach ($students as $user) {
         $pdf -> SetTextColor(0, 0, 0);
         $pdf -> AddPage();
         $pdf -> SetFont("FreeSerif", "B", 12);
         $pdf -> Cell(60, 12, $infoLesson -> lesson['name'], 0, 1, L, 0);
         $pdf -> SetFont("FreeSerif", "B", 10);
-        $pdf -> Cell(60, 12, $studentsInfo[$login]['name']." ".$studentsInfo[$login]['surname'].' ('.$login.')', 0, 1, L, 0);
+        $pdf -> Cell(60, 12, formatLogin($user['login']), 0, 1, L, 0);
 
         $pdf -> SetFont("FreeSerif", "", 10);
-        $pdf -> Cell(60, 5, _LESSONROLE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, $roles[$studentsInfo[$login]['role']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-        $pdf -> Cell(60, 5, _TIMEINLESSON, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, $studentsInfo[$login]['time']['hours']."h ".$studentsInfo[$login]['time']['minutes']."' ".$studentsInfo[$login]['time']['seconds']."''", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-        $pdf -> Cell(60, 5, _COMPLETED, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, $studentsInfo[$login]['completed'] ? _YES : _NO, 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-        $pdf -> Cell(60, 5, _GRADE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, formatScore($studentsInfo[$login]['score'])."%", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(60, 5, _LESSONROLE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, $roles[$user['role']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(60, 5, _TIMEINLESSON, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, $user['time_in_lesson']['time_string'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(60, 5, _COMPLETED, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, $user['completed'] ? _YES : _NO, 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+        $pdf -> Cell(60, 5, _GRADE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(60, 5, formatScore($user['score'])."%", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
 
         $pdf -> Cell(60, 15, '', 0, 1, L, 0);
 
@@ -941,47 +955,74 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $pdf -> SetFont("FreeSerif", "", 10);
         $pdf -> SetTextColor(0, 0, 255);
         if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['content'])."%", 0, 0, L, 0);
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['tests'])."%", 0, 0, L, 0);
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['projects'])."%", 0, 1, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['overall_progress']['percentage'])."%", 0, 0, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['test_status']['percentage'])."%", 0, 0, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['project_status']['percentage'])."%", 0, 1, L, 0);
         } elseif ($GLOBALS['configuration']['disable_tests'] != 1) {
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['content'])."%", 0, 0, L, 0);
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['tests'])."%", 0, 1, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['overall_progress']['percentage'])."%", 0, 0, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['test_status']['percentage'])."%", 0, 1, L, 0);
         } elseif ($GLOBALS['configuration']['disable_projects'] != 1) {
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['content'])."%", 0, 0, L, 0);
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['projects'])."%", 0, 1, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['overall_progress']['percentage'])."%", 0, 0, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['project_status']['percentage'])."%", 0, 1, L, 0);
         } else {
-            $pdf -> Cell(40, 5, formatScore($studentsInfo[$login]['content'])."%", 0, 1, L, 0);
+            $pdf -> Cell(40, 5, formatScore($user['overall_progress']['percentage'])."%", 0, 1, L, 0);
         }
+/*
 
         if (sizeof($doneTests[$login]) > 0 && $GLOBALS['configuration']['disable_tests'] != 1) {
-            $pdf -> Cell(60, 15, '', 0, 1, L, 0); //Empty line
+
+            $pdf -> Cell(60, 15, '', 0, 1, L, 0);    //Empty line
+
             $pdf -> SetFont("FreeSerif", "B", 10);
+
             $pdf -> SetTextColor(0, 0, 0);
+
             $pdf -> Cell(60, 7, _TESTS, 0, 1, L, 0);
+
             $pdf -> SetFont("FreeSerif", "", 10);
+
             $pdf -> SetTextColor(0, 0, 255);
+
             foreach ($doneTests[$login] as $test) {
+
                 $pdf -> Cell(60, 5, $test['name'], 0, 0, L, 0);
+
                 $pdf -> Cell(10, 5, formatScore(round($test['score'], 2))."%", 0, 1, L, 0);
+
             }
+
         }
+
+
 
         if (sizeof($assignedProjects[$login]) > 0 && $GLOBALS['configuration']['disable_projects'] != 1) {
-            $pdf -> Cell(60, 15, '', 0, 1, L, 0); //Empty line
-            $pdf -> SetFont("FreeSerif", "B", 10);
-            $pdf -> SetTextColor(0, 0, 0);
-            $pdf -> Cell(60, 7, _PROJECTS, 0, 1, L, 0);
-            $pdf -> SetFont("FreeSerif", "", 10);
-            $pdf -> SetTextColor(0, 0, 255);
-            foreach ($assignedProjects[$login] as $project) {
-                $pdf -> Cell(60, 5, $project['title'], 0, 0, L, 0);
-                $pdf -> Cell(20, 5, formatScore($project['grade'])."%", 0, 0, L, 0);
-                $pdf -> Cell(150, 5, $project['comments'], 0, 1, L, 0);
-            }
-        }
-    }
 
+            $pdf -> Cell(60, 15, '', 0, 1, L, 0);    //Empty line
+
+            $pdf -> SetFont("FreeSerif", "B", 10);
+
+            $pdf -> SetTextColor(0, 0, 0);
+
+            $pdf -> Cell(60, 7, _PROJECTS, 0, 1, L, 0);
+
+            $pdf -> SetFont("FreeSerif", "", 10);
+
+            $pdf -> SetTextColor(0, 0, 255);
+
+            foreach ($assignedProjects[$login] as $project) {
+
+                $pdf -> Cell(60, 5, $project['title'], 0, 0, L, 0);
+
+                $pdf -> Cell(20, 5, formatScore($project['grade'])."%", 0, 0, L, 0);
+
+                $pdf -> Cell(150, 5, $project['comments'], 0, 1, L, 0);
+
+            }
+
+        }
+
+*/
+    }
     $pdf -> Output();
     exit(0);
 }

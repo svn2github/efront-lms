@@ -14,7 +14,7 @@ if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['
 
 if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], 'id')) { //The administrator asked to delete a lesson
     if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['lessons'] != 'change') {
-        eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
+        eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
         exit;
     }
     try {

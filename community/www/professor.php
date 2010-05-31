@@ -79,9 +79,24 @@ if (isset($_GET['new_lessons_ID']) && eF_checkParameter($_GET['new_lessons_ID'],
 
 /*This is the first time the professor enters this lesson, so register the lesson id to the session*/
 if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
-
     if (!isset($_SESSION['s_lessons_ID']) || $_GET['lessons_ID'] != $_SESSION['s_lessons_ID']) {
+     unset($_SESSION['s_courses_ID']);
         $userLessons = $currentUser -> getLessons();
+     if (isset($_GET['course']) || isset($_GET['from_course'])) {
+            if ($_GET['course']) {
+          $course = new EfrontCourse($_GET['course']);
+            } else {
+             $course = new EfrontCourse($_GET['from_course']);
+            }
+            $eligibility = $course -> checkRules($_SESSION['s_login']);
+
+            if ($eligibility[$_GET['lessons_ID']] == 0){
+                unset($_GET['lessons_ID']);
+                $message = _YOUCANNOTACCESSTHISLESSONBECAUSEOFCOURSERULES;
+                eF_redirect("student.php?ctg=lessons&message=".urlencode($message)."&message_type=failure");
+            }
+            $_SESSION['s_courses_ID'] = $course -> course['id'];
+        }
         if (in_array($_GET['lessons_ID'], array_keys($userLessons))) {
             $_SESSION['s_lessons_ID'] = $_GET['lessons_ID'];
             $_SESSION['s_type'] = $roles[$userLessons[$_GET['lessons_ID']]];
@@ -100,7 +115,7 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
     }
 }
 
-if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID']) { //Check validity of current lesson
+if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] && $_GET['ctg'] != 'lessons') { //Check validity of current lesson
     $userLessons = $currentUser -> getLessons();
     if ($_GET['ctg'] != 'personal' && (!isset($userLessons[$_SESSION['s_lessons_ID']]) || $roles[$userLessons[$_SESSION['s_lessons_ID']]] != 'professor')) {
         eF_redirect("student.php?ctg=lessons"); //redirect to student's lessons page
@@ -549,10 +564,10 @@ if (isset($currentLesson)) {
  $categoryPath = $paths[$currentLesson->lesson["directions_ID"]];
  //$categoryPath = str_replace("&rarr", "&raquo", $categoryPath);
  $smarty -> assign("T_CURRENT_CATEGORY_PATH", $categoryPath);
- if ($currentLesson -> lesson['course_only'] == 1) {
-  $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name,c.id","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);
-  $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse[0]['name']);
-  $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse[0]['id']);
+ if ($currentLesson -> lesson['course_only'] == 1 && $_SESSION['s_courses_ID']) {
+  $currentCourse = new EfrontCourse($_SESSION['s_courses_ID']);
+  $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse->course['name']);
+  $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse->course['id']);
  }
 }
 if (!isset($_GET['edit_unit']) && !isset($_GET['edit_project']) && !isset($_GET['edit_question']) && !isset($_GET['edit_test'])) { // when updating a unit we must preserve the innerlink

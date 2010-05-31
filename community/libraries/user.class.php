@@ -2467,6 +2467,7 @@ abstract class EfrontLessonUser extends EfrontUser
  public function getEligibleLessons() {
   $userCourses = $this -> getUserCourses();
   $userLessons = $this -> getUserStatusInLessons(false, true);
+//pr($userLessons);
   $roles = self :: getLessonsRoles();
   $roleNames = self :: getLessonsRoles(true);
   foreach ($userCourses as $course) {
@@ -2479,7 +2480,7 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   $eligibleLessons = array();
   foreach ($userLessons as $lesson) {
-   if ($lesson -> userStatus['from_timestamp'] && (!isset($lesson -> lesson['eligible']) || (isset($lesson -> lesson['eligible']) && $lesson -> lesson['eligible']))) {
+   if ($lesson -> lesson['active_in_lesson'] && (!isset($lesson -> lesson['eligible']) || (isset($lesson -> lesson['eligible']) && $lesson -> lesson['eligible']))) {
     $eligibleLessons[$lesson -> lesson['id']] = $lesson;
    }
   }

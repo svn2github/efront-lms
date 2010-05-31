@@ -580,10 +580,10 @@ if (isset($currentLesson)) {
  $categoryPath = $paths[$currentLesson->lesson["directions_ID"]];
  //$categoryPath = str_replace("&rarr", "&raquo", $categoryPath);
  $smarty -> assign("T_CURRENT_CATEGORY_PATH", $categoryPath);
- if ($currentLesson -> lesson['course_only'] == 1) {
-  $currentCourse = eF_getTableData("courses as c,lessons_to_courses as lc","c.name","c.id=lc.courses_ID and lc.lessons_ID=".$currentLesson -> lesson['id']);
-  $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse[0]['name']);
-  $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse[0]['id']);
+ if ($currentLesson -> lesson['course_only'] == 1 && $_SESSION['s_courses_ID']) {
+  $currentCourse = new EfrontCourse($_SESSION['s_courses_ID']);
+  $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse->course['name']);
+  $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse->course['id']);
  }
 }
 $smarty -> load_filter('output', 'eF_template_formatTimestamp');

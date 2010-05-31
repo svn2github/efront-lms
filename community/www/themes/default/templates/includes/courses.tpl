@@ -39,7 +39,6 @@
      <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
      <td class = "topTitle noSort">{$smarty.const._DIRECTION}</td>
      <td class = "topTitle" name = "created">{$smarty.const._CREATED}</td>
-     <td class = "topTitle noSort">{$smarty.const._MODE}</td>
      <td class = "topTitle centerAlign" name = "has_lesson" >{$smarty.const._SELECT}</td>
     </tr>
    {foreach name = 'lessons_list2' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
@@ -47,10 +46,6 @@
      <td>{$lesson.name}</td>
      <td>{$lesson.directionsPath}</td>
      <td>#filter:timestamp-{$lesson.created}#</td>
-     <td><select id = "lesson_mode_{$lesson.id}" name = "lesson_mode" onchange = "setLessonMode(this, '{$lesson.id}', this.options[this.options.selectedIndex].value)" {if !$lesson.has_lesson}style = "display:none"{/if}>
-       <option value = "shared" {if $lesson.mode == "shared"}selected{/if}>{$smarty.const._SHARED}</option>
-       <option value = "unique" {if $lesson.mode == "unique"}selected{/if}>{$smarty.const._UNIQUE}</option>
-      </select></td>
      <td class = "centerAlign">
     {if $_change_}
       <input type = "checkbox" id = "{$lesson.id}" onclick = "lessonsAjaxPost('{$lesson.id}', this);" {if $lesson.has_lesson}checked{/if}>{if $lesson.has_lesson}<span style = "display:none">checked</span>{/if} {*Span is for sorting here*}

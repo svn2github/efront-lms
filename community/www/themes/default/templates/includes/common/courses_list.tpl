@@ -37,7 +37,9 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 
      <tr class = "topTitle">
 {if in_array('name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle name" name = "name">{$smarty.const._NAME}</td>{/if}
-{if in_array('location', $T_DATASOURCE_COLUMNS)} <td class = "topTitle location" name = "location">{$smarty.const._LOCATION}</td>{/if}
+
+
+
 {if in_array('directions_name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle directions_name" name = "directions_name">{$smarty.const._PARENTDIRECTIONS}</td>{/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)} <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>{/if}
 {if in_array('num_students', $T_DATASOURCE_COLUMNS)} <td class = "topTitle num_students" name = "num_students">{$smarty.const._PARTICIPATION}</td>{/if}
@@ -73,11 +75,13 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
     {/if}
    </td>
 {/if}
-{if in_array('location', $T_DATASOURCE_COLUMNS)}
-   <td class = "location" name = "location">
-    {$course.location}
-   </td>
-{/if}
+
+
+
+
+
+
+
 {if in_array('directions_name', $T_DATASOURCE_COLUMNS)}
          <td class = "directions_name">
           {$course.directions_name}

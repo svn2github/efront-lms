@@ -3421,12 +3421,10 @@ abstract class EfrontLessonUser extends EfrontUser
    $lesson_students = array();
    $lesson_students = $lesson -> getUsers('student');
    foreach ($lesson_students as $student){
-    if (!in_array($students, $student)){
-     $students[] = $student['login'];
-    }
+    $students[] = $student['login'];
    }
   }
-  return $students;
+  return array_unique($students);
  }
  /**
 

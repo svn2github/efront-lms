@@ -258,7 +258,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 7359;
+    $build = 7395;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/

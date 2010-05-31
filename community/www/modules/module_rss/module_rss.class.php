@@ -29,8 +29,8 @@ class module_rss extends EfrontModule
     }
     public function onInstall() {
         eF_executeNew("drop table if exists module_rss_feeds");
-        eF_executeNew("CREATE TABLE module_rss_feeds(id int(11) not null auto_increment primary key, title varchar(255), url text not null, active int(11) not null default 1, only_summary int(11) default 1, lessons_ID int(11) default 0)");
-  eF_insertTableData("module_rss_feeds", array('title' => 'eFront news', 'url' => 'http://www.efrontlearning.net/product/efront-news?format=feed&type=rss&install=1', 'active' => 1, 'lessons_ID' => 0));
+        eF_executeNew("CREATE TABLE module_rss_feeds(id int(11) not null auto_increment primary key, title varchar(255), url text not null, active int(11) not null default 1, only_summary int(11) default 0, lessons_ID int(11) default -1)");
+  eF_insertTableData("module_rss_feeds", array('title' => 'eFront news', 'url' => 'http://www.efrontlearning.net/product/efront-news?format=feed&type=rss&install=1', 'active' => 1, 'lessons_ID' => -1));
         return true;
     }
 
@@ -89,7 +89,7 @@ class module_rss extends EfrontModule
             exit;
         } else if (isset($_GET['add_feed']) || (isset($_GET['edit_feed']) && eF_checkParameter($_GET['edit_feed'], 'id') && in_array($_GET['edit_feed'], array_keys($feeds)))) {
 
-            $lessons = array(0 => _ALLLESSONS);
+            $lessons = array(-1 => _NONE, 0 => _ALLLESSONS);
             $result = EfrontLesson :: getLessons();
             foreach ($result as $key => $lesson) {
                 $lessons[$key] = $lesson['name'];

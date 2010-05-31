@@ -1,37 +1,45 @@
-=== Version 3.6.3 build ===
-- Added course instances functionality
+=== Version 3.6.3 build 7400 ===
+- Added course instances functionality (educational/enterprise)
+- Added feedback functionality
+- Added curriculum functionality (educational/enterprise)
+- Added enterprise options to system settings (educational/enterprise)
+- Added find user functionality and paired them closely to groups (educational/enterprise)
+- Added quick upgrade functionality
+- Added purge logs functionality in admin -> maintenance
+- Added option in custom user types for dashboard
+- Added option about where to redirect after user login (user dashboard or user courses)
+- Added debugging mode option
+- Added option to show only courses in progress in user's courses list
+- Added "completed lesson" block
+- Added "reset course progress" functionality
+- Radical performance and memory consumption improvements
+- Unassigning and reassigning a user to a course/lesson now retains his/her progress
+- By default only courses/lessons in progress show up in users' catalog
+- Made RSS module installed by default and connect to eFront's RSS
 - Updated adodb libraries to 5.10
-- Added ".hiddenElement" class
-- Added "tr.rowColor:hover" class
-- Fixed bug in certificate reports
+- Updated phplivedocx_server value to https://api.livedocx.com/1.2/mailmerge.asmx?WSDL
+- Updated layout to better support IE6/7 (eliminates annoying white empty space)
+- Fixed security vulnerabilities discovered by VUPEN Security http://www.vupen.com. The issue regarded XSS attacks via POST and was addressed by adding an optional parameter to sanitize POST parameters in admin's system settings 
 - Fixed issue about counting deactivated uses in license users count
-- Fixed bug in notifications about returning also archived courses
+- Fixed bug in notifications about returning archived courses as well
 - Fixed display issue in lesson information about lesson completion rules
 - Fixed issue about inserting (in caret) file to editor from file manager
 - Fixed issue with update unit/create subunit links when redirected to first unit
-- Added option about where to redirect after user login (user dashboard or user courses)
 - Fixed issue about not sending mass e-mails when a user has not e-mail address defined
-- Added option in user type for dashboard
 - Fixed issue with new line in lesson information
 - Fixed bug about taking into account archived lessons in users page
 - Fixed bug about string compare instead of numeric in ini_set
-- Added quick upgrade functionality (automatic)
-- Added purge logs functionality in maintenance
 - Fixed bug about importing lesson with glossary terms
 - Fixed issue with php.ini when it exists in www folder by copying it to install folder
 - Fixed issue about displaying all tests in reports for a multi-roled user
-- Added debugging mode option
-- Fixed security issue ### (place details here)
 - Fixed problems with show correct answers and custom css files
 - Fixed issue with progress bar when user had seen a deleted unit
 - Fixed issue with active field in personal settings
-- Disabled save button in copy content from another lesson, until ajax response
-- Updated phplivedocx_server value to https://api.livedocx.com/1.2/mailmerge.asmx?WSDL
 - Fixed bug in storing unit visited into logs
-- Fixed layout issue in IE6/7
-- Added option to show only courses in progress in user's courses list
-- Added "completed lesson" block
 - Fixed issue with background in editor popups and colored themes
+- Fixed layout issue with simulatenously showing sidebar and header enabled
+- Disabled save button in copy content from another lesson, until ajax response
+- Hundreds of smaller fixes and updates
 
 === Version 3.6.2 build 6550 ===
 - Added new automatic importing functionality

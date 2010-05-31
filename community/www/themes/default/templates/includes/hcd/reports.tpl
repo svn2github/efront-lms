@@ -271,7 +271,6 @@
                         <td class = "topTitle">{$smarty.const._LESSON}</td>
                         <td class = "topTitle centerAlign">{$smarty.const._ACCESSNUMBER}</td>
                         <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
-                        {*<td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>*}
                     </tr>
                     {foreach name = 'lesson_traffic_list' key = "id" item = "lesson" from = $T_USER_TRAFFIC.lessons}
                         <tr class = "{cycle name = 'lessontraffic' values = 'oddRowColor, evenRowColor'} {if !$lesson.active}deactivatedTableElement{/if}">
@@ -287,12 +286,6 @@
                                  {$smarty.const._NOACCESSDATA}
                                 {/if}
                             </td>
-                            {*
-                            <td class = "centerAlign">
-                                <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$T_USER_LOGIN}&lesson_id={$id}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
-                                 <img src = "images/16x16/reports.png" title = "{$smarty.const._ACCESSSTATISTICS}" alt = "{$smarty.const._ACCESSSTATISTICS}"/></a>
-                            </td>
-                            *}
                         </tr>
                     {foreachelse}
                      <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>

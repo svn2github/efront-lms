@@ -296,8 +296,8 @@
   <span class = "emptyCategory">{$smarty.const._NOUSERSFOUND}</span>
 {/if}
 <!--/ajax:customGroupStats-->
- </div>
- {/capture}
+</div>
+{/capture}
    {* **************************************************************
     DISPLAYING THE CAPTURED TABLES
     ************************************************************** *}

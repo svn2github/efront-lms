@@ -232,6 +232,8 @@ function askFeedback() {
  $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
  if ($_SESSION['s_type'] == "administrator"){
   $tests_info = eF_getTableDataFlat("tests t,   lessons l", "t.id, t.name as test_name, l.name as lesson_name, l.originating_course ","t.active=1 and t.lessons_ID = l.id AND t.name like '%$preffix%'", "t.name");
+  $legalTests = eF_getTableDataFlat("tests t, content c","t.id","t.content_ID=c.id AND c.ctg_type='feedback'");
+  $legalTestsId = $legalTests['id'];
  } else {
   $tests_info = eF_getTableDataFlat("tests t,   users_to_lessons ul, lessons l", "t.id, t.name as test_name, l.name as lesson_name, l.originating_course ", "ul.archive=0 and (ul.user_type = 'professor' OR ul.user_type =".$currentUser->user['user_types_ID'].") AND t.active=1 and t.lessons_ID = l.id AND ul.users_LOGIN='".$_SESSION['s_login']."' and ul.lessons_ID=l.id AND t.name like '%$preffix%'", "t.name");
   $lessons = $currentUser -> getLessons(false,'professor'); //must return tests for lessons that he has a professor role

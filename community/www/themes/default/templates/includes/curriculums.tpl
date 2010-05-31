@@ -85,7 +85,7 @@
   {/if}
   </div>
  {/capture}
- {eF_template_printBlock title = $smarty.const._CURRICULUMPROPERTIES data = $smarty.capture.t_edit_curriculum_code image = '32x32/theory.png'}
+ {eF_template_printBlock title = $smarty.const._CURRICULUMPROPERTIES data = $smarty.capture.t_edit_curriculum_code image = '32x32/theory.png' help = 'Curriculums'}
 {else}
  {capture name = "t_curriculums_code"}
    <div class = "headerTools">
@@ -122,5 +122,5 @@
 <!--/ajax:curriculumsTable-->
  {/capture}
 
- {eF_template_printBlock title = $smarty.const._CURRICULUMS data = $smarty.capture.t_curriculums_code image='32x32/theory.png'}
+ {eF_template_printBlock title = $smarty.const._CURRICULUMS data = $smarty.capture.t_curriculums_code image='32x32/theory.png' help = 'Curriculums'}
 {/if}

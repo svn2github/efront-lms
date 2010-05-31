@@ -1516,7 +1516,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   {if $T_CTG != "feedback"}
    {eF_template_printBlock title=$smarty.const._UNITANDSUBUNITSTESTS data=$smarty.capture.t_tests_and_questions_code image='32x32/tests.png' help = 'Tests'}
   {else}
-   {eF_template_printBlock title=$smarty.const._FEEDBACK data=$smarty.capture.t_tests_and_questions_code image='32x32/feedback.png'}
+   {eF_template_printBlock title=$smarty.const._FEEDBACK data=$smarty.capture.t_tests_and_questions_code image='32x32/feedback.png' help = 'Feedback'}
   {/if}
  {else}
   {eF_template_printBlock title=$smarty.const._SKILLGAPTESTS data=$smarty.capture.t_tests_and_questions_code image='32x32/skill_gap.png' help = 'Skill_gap_tests'}

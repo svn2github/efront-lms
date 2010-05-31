@@ -4,13 +4,11 @@
  {if $smarty.session.s_login}
  <div id = "logout_link" style = "float:right;margin-top:5px" align="right">
   {* Merged header with mobile horizontal interface *}
-  {if $T_THEME_SETTINGS->options.sidebar_interface == 2}
+  {if $T_THEME_SETTINGS->options.sidebar_interface != 0}
    {* First row *}
 
    {if isset($T_ONLINE_USERS_LIST)} <script> var startUpdater = true; </script>{else}<script> var startUpdater = false; </script>{/if}
    {if $T_CONFIGURATION.updater_period}<script> var updaterPeriod = '{$T_CONFIGURATION.updater_period}';</script>{else}<script>var updaterPeriod = 100000;</script>{/if}
-
-
 
    {if isset($T_ONLINE_USERS_LIST)}
     {*<span id = "online_users_display" class = "headerText" onMouseOver="$('users_online').show()" onMouseOut='setTimeout("$(\"users_online\").hide()", 2500);'>{$smarty.const._ONLINEUSERS}&nbsp;({$T_ONLINE_USERS_COUNT})</span><span class = "headerText">&nbsp;|</span>*}
@@ -40,7 +38,7 @@
    {* Logout *}
      <a class = "headerText" href = "index.php?logout=true"> &nbsp;| {$smarty.const._LOGOUT}</a>
 
-  {else}
+  {elseif $smarty.server.PHP_SELF|basename == 'index.php'}
    <span class = "headerText">{$smarty.const._YOUARECURRENTLYLOGGEDINAS}: </span><a href = "{$smarty.session.s_type}page.php?dashboard={$smarty.session.s_login}" class = "headerText">#filter:login-{$smarty.session.s_login}#</a>
    <a href = "index.php?logout=true" class = "headerText">({$smarty.const._LOGOUT})</a>
   {/if}
@@ -56,26 +54,27 @@
  {if !$hide_path}
  <div id = "path">
   <div id = "path_title">{$title|eF_formatTitlePath}</div>
-  <div id = "path_language">
-
-  {*Search div*}
-     {if $smarty.session.s_login}
-         {if $smarty.session.s_type == 'administrator'}
-             <form style="margin:0;padding:0;" action = "{$smarty.const.G_SERVERNAME}{$smarty.session.s_type}.php?ctg=control_panel&op=search" method = "post">
-         {else}
-             <form style="margin:0;padding:0;" action = "{$smarty.const.G_SERVERNAME}{$smarty.session.s_type}.php?ctg=lessons&op=search" method = "post">
-         {/if}
-    <input type="text" name="search_text"
-     value = "{if isset($smarty.post.search_text)}{$smarty.post.search_text}{else}{$smarty.const._SEARCH}...{/if}"
-     onclick="if(this.value=='{$smarty.const._SEARCH}...')this.value='';" onblur="if(this.value=='')this.value='{$smarty.const._SEARCH}...';"
-     style="background-image:url('images/16x16/search.png'); background-repeat:no-repeat; padding-left:18px;}" />
-    <input type = "hidden" name = "current_location" id = "current_location" value = ""/>
-    </form>
-  {else}
-  {*language div*}
-   {$smarty.capture.header_language_code}
+   <div id = "path_language">
+  {if $smarty.server.PHP_SELF|basename == 'index.php' || $T_THEME_SETTINGS->options.sidebar_interface != 0}
+   {*Search div*}
+      {if $smarty.session.s_login}
+          {if $smarty.session.s_type == 'administrator'}
+              <form style="margin:0;padding:0;" action = "{$smarty.const.G_SERVERNAME}{$smarty.session.s_type}.php?ctg=control_panel&op=search" method = "post">
+          {else}
+              <form style="margin:0;padding:0;" action = "{$smarty.const.G_SERVERNAME}{$smarty.session.s_type}.php?ctg=lessons&op=search" method = "post">
+          {/if}
+     <input type="text" name="search_text"
+      value = "{if isset($smarty.post.search_text)}{$smarty.post.search_text}{else}{$smarty.const._SEARCH}...{/if}"
+      onclick="if(this.value=='{$smarty.const._SEARCH}...')this.value='';" onblur="if(this.value=='')this.value='{$smarty.const._SEARCH}...';"
+      style="background-image:url('images/16x16/search.png'); background-repeat:no-repeat; padding-left:18px;}" />
+     <input type = "hidden" name = "current_location" id = "current_location" value = ""/>
+     </form>
+   {else}
+   {*language div*}
+    {$smarty.capture.header_language_code}
+   {/if}
   {/if}
-  </div>
-  <div id = "path_extra">{$smarty.capture.t_path_additional_code}</div>
+   </div>
+   <div id = "path_extra">{$smarty.capture.t_path_additional_code}</div>
  </div>
  {/if}

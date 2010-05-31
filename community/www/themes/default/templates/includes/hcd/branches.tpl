@@ -337,7 +337,8 @@
                     <td class = "topTitle" name = "name">{$smarty.const._BRANCHNAME}</td>
                     <td class = "topTitle" name = "city">{$smarty.const._CITY}</td>
                     <td class = "topTitle" name = "address">{$smarty.const._ADDRESS}</td>
-                    <td class = "topTitle" name = "employees" align="center">{$smarty.const._EMPLOYEES}</td>
+                    <td class = "topTitle" name = "employees" align="center">{$smarty.const._ACTIVEUSERS}</td>
+                    <td class = "topTitle" name = "inactive_employees" align="center">{$smarty.const._INACTIVEUSERS}</td>
                     <td class = "topTitle" name = "father">{$smarty.const._FATHERBRANCHNAME}</td>
                     <td class = "topTitle noSort" name="operations" align="center">{$smarty.const._OPERATIONS}</td>
                 </tr>
@@ -353,6 +354,7 @@
                     <td>{$branch.city}</td>
                     <td>{$branch.address}</td>
                     <td class = "centerAlign">{$branch.employees}</td>
+                    <td class = "centerAlign">{$branch.inactive_employees}</td>
                     <td> {if $smarty.session.s_type == "administrator" || $branch.father_supervisor == 1}<a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$branch.father_ID}" class = "editLink">{$branch.father}{else}{$branch.father}{/if}</a></td>
                     <td class = "centerAlign">
                     {if $smarty.session.s_type == "administrator" || $branch.supervisor == 1}

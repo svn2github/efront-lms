@@ -93,10 +93,7 @@
                            <img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
                       {/if}
                       {if $user.login != $smarty.session.s_login}
-                          {*<img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTOCANCELJOB}')) deleteJob(this, '')"/>*}
-                          <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&delete_job_employee={$user.login}&delete_job={$user.job_description_ID}&delete_job_at_branch={$smarty.get.edit_branch}&supervises_branch={$user.supervisor}&father_ID={$T_FATHER_BRANCH_ID}&tab=placements" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOCANCELJOB}')" class = "deleteLink">
-                           <img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" />
-                          </a>
+                          <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "removeUserFromBranch(this, '{$user.login}', '{$user.job_description_ID}', '{$smarty.get.edit_branch}', '{$user.supervisor}', '{$T_FATHER_BRANCH_ID}');"/>
                       {/if}
                       </td>
 
@@ -112,7 +109,9 @@
    {/capture}
 
    {capture name = 't_employees_to_branch'}
+
 <!--ajax:branchJobsTable-->
+
    <table style = "width:100%" class = "sortedTable" size = "{$T_EMPLOYEES_SIZE}" sortBy = "0" id = "branchJobsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$smarty.get.edit_branch}&">
           <tr class = "topTitle">
               <td class = "topTitle" name="login">{$smarty.const._USER}</td>
@@ -145,7 +144,9 @@
            <img style = "display:none" src="images/16x16/question_type_free_text.png" onLoad = "javascript:simulateJobSelects();" />
        {/if}
           </table>
+
 <!--/ajax:branchJobsTable-->
+
    {/capture}
 
       {*Sub-Branches: moduleAllBranches: Show subbranches *}

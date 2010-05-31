@@ -23,6 +23,7 @@ try {
     } else if (isset($_SESSION['s_lessons_ID']) && in_array($_SESSION['s_lessons_ID'], array_keys($lessons))) {
         $infoLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
     }
+
     $smarty -> assign("T_INFO_LESSON", $infoLesson -> lesson);
 
     //get the lesson information
@@ -193,9 +194,16 @@ try {
                 $smarty -> assign("T_LESSON_LOG", $result);
             }
 
-            $users = eF_getTableDataFlat("users", "login, active");
-            $users = array_combine($users['login'], $users['active']);
-            $traffic['users'] = EfrontStats :: getUsersTime($infoLesson -> lesson['id'], false, $from, $to);
+            $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
+            $filteredUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+            $users = array();
+            foreach ($filteredUsers as $user) {
+             $users[$user['login']] = $user['active'];
+            }
+//            $users = eF_getTableDataFlat("users", "login, active");
+//            $users = array_combine($users['login'], $users['active']);
+            $traffic['users'] = EfrontStats :: getUsersTime($infoLesson -> lesson['id'], array_keys($users), $from, $to);
+
             foreach ($traffic['users'] as $key => $user) {
                 if (isset($groupUsers) && !in_array($key, $groupUsers['professor']) && !in_array($key, $groupUsers['student'])) {
                     unset($traffic['users'][$key]);
@@ -225,12 +233,10 @@ try {
 }
 
 if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
-    //http://localhost/trunc/www/administrator.php?ctg=statistics&option=lesson&sel_lesson=111&group_filter=1&excel=lesson
     // Get the associated group name
     if (isset($_GET['group_filter']) && $_GET['group_filter']) {
         try {
             $group = new EfrontGroup($_GET['group_filter']);
-
             $groupname = str_replace(" ", "_" , $group -> group['name']);
         } catch (Exception $e) {
             $groupname = false;
@@ -299,8 +305,25 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $workSheet -> mergeCells(1, 1, 1, 2);
     $workSheet -> setColumn(1, 2, 30);
 
+
     $directionName = eF_getTableData("directions", "name", "id=".$infoLesson -> lesson['directions_ID']);
     $languages = EfrontSystem :: getLanguages(true);
+
+    // Get only filtered users
+    $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
+    $filteredUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+
+    $students = array();
+    $professors = array();
+    foreach ($filteredUsers as $user) {
+     if ($user['user_type'] == "student") {
+      $students[$user['login']] = $user;
+
+     } else if ($user['user_type'] == "professor") {
+      $professors[$user['login']] = $user;
+     }
+    }
+
 
     $workSheet -> write(2, 1, _LESSON, $fieldLeftFormat);
     $workSheet -> write(2, 2, $infoLesson -> lesson['name'], $fieldRightFormat);

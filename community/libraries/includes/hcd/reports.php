@@ -64,10 +64,12 @@ if (isset($_GET['search'])) {
    /* Get all employees fulfilling the "advanced criteria" */
    // Need to create the criteria - we could check the field names of the current user object
    $criteria = array_keys($currentUser -> user);
+//		pr($_GET);
+//		pr($criteria);
   foreach ($criteria as $field) {
    if (isset($_GET[$field]) && $_GET[$field] != "") {
     $value = $_GET[$field];
-    if (($value || $field == "sex" || $field =="marital_status" || $field == "way_of_working") && $field != "search_branch" && $field != "search_job_description" && $field != "search_skill" && $field != "criteria" && $field != "submit_personal_details" && $field != "include_subbranches") {
+    if (($value !== "" || $field == "sex" || $field =="marital_status" || $field == "way_of_working") && $field != "search_branch" && $field != "search_job_description" && $field != "search_skill" && $field != "criteria" && $field != "submit_personal_details" && $field != "include_subbranches") {
      if ($field == "new_login") {
       $field = "login";
      }
@@ -275,7 +277,7 @@ $form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_ty
  $form -> addElement('select', 'user_type', _USERTYPE, $roles_array, 'id="user_type" onChange="javascript:setAdvancedCriterion(this);"');
 
  */
-$form -> addElement('advcheckbox', 'active', _ACTIVE, null, ' id ="active2" class = "inputCheckbox" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('select', 'active', _ACTIVE, array("" => "", "1" => _YES, "0" => _NO), ' id ="active2" class = "inputCheckbox" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('text', 'registration', _REGISTRATIONDATE, 'class = "inputText" id="timestamp" onChange="javascript:setAdvancedCriterion(this);"');
  $datesFields = array("timestamp");
 // Custom fields management

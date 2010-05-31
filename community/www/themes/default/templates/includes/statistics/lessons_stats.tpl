@@ -18,10 +18,10 @@
 
                     <td id = "right">
                         {$smarty.const._EXPORTSTATS}
-                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_course}&group_filter={$smarty.get.group_filter}&excel=lesson&branch_filter={$smarty.get.branch_filter}">
+                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&group_filter={$smarty.get.group_filter}&excel=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/xls.png" title = "{$smarty.const._XLSFORMAT}" alt = "{$smarty.const._XLSFORMAT}"/>
                         </a>
-                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_course}&group_filter={$smarty.get.group_filter}&pdf=lesson&branch_filter={$smarty.get.branch_filter}">
+                        <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&group_filter={$smarty.get.group_filter}&pdf=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/pdf.png" title = "{$smarty.const._PDFFORMAT}" alt = "{$smarty.const._PDFFORMAT}"/>
                         </a>
                     </td>
@@ -65,7 +65,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
 {/literal}
 </style>
 <!--ajax:lessonUsersTable-->
-  <table id = "lessonUsersTable" sortBy=0 size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&">
+  <table id = "lessonUsersTable" sortBy=0 size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}{$T_STATS_FILTERS_URL}&">
    <tr class = "topTitle">
     <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>
     <td class = "topTitle user_type" name = "role">{$smarty.const._USERTYPE}</td>
@@ -133,7 +133,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
          {$smarty.const._TEST}: {$test_info.general.name}</a>
                             </td>
                             <td id = "right">
-                                <a href = "display_chart.php?id=2&lesson_id={$smarty.get.sel_course}&test_id={$test_info.general.id}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONSKIND}', 2)" target = "POPUP_FRAME">
+                                <a href = "display_chart.php?id=2&lesson_id={$smarty.get.sel_lesson}&test_id={$test_info.general.id}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONSKIND}', 2)" target = "POPUP_FRAME">
                                  {$smarty.const._QUESTIONSKIND}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}"/></a>
                             </td>
                     </table>
@@ -383,7 +383,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                          <td class = "elementCell"><input class = "inputCheckbox" type = "checkbox" id = "showLog" {if ( isset($T_LESSON_LOG))} checked="true" {/if}></td></tr>
                         <tr><td colspan = "2">&nbsp;</td></tr>
                         <tr><td></td>
-                            <td class = "elementCell"><input type = "button" class = "flatButton" value = "{$smarty.const._SHOW}" onclick = "document.location='{$smarty.session.s_type}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_course}&tab=traffic&from_year='+document.period.from_Year.value+'&from_month='+document.period.from_Month.value+'&from_day='+document.period.from_Day.value+'&from_hour='+document.period.from_Hour.value+'&from_min='+document.period.from_Minute.value+'&to_year='+document.period.to_Year.value+'&to_month='+document.period.to_Month.value+'&to_day='+document.period.to_Day.value+'&to_hour='+document.period.to_Hour.value+'&to_min='+document.period.to_Minute.value+'&showlog='+document.period.showLog.checked"></td>
+                            <td class = "elementCell"><input type = "button" class = "flatButton" value = "{$smarty.const._SHOW}" onclick = "document.location='{$smarty.session.s_type}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&tab=traffic&from_year='+document.period.from_Year.value+'&from_month='+document.period.from_Month.value+'&from_day='+document.period.from_Day.value+'&from_hour='+document.period.from_Hour.value+'&from_min='+document.period.from_Minute.value+'&to_year='+document.period.to_Year.value+'&to_month='+document.period.to_Month.value+'&to_day='+document.period.to_Day.value+'&to_hour='+document.period.to_Hour.value+'&to_min='+document.period.to_Minute.value+'&showlog='+document.period.showLog.checked"></td>
                         </tr>
                  </table>
                  </form>
@@ -391,7 +391,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                     {if $T_LESSON_TRAFFIC.total_access > 0}
                     <table class = "statisticsTools">
                         <tr><td id = "right">
-                                <a href = "display_chart.php?id=8&lesson_id={$smarty.get.sel_course}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
+                                <a href = "display_chart.php?id=8&lesson_id={$smarty.get.sel_lesson}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
                                  {$smarty.const._ACCESSSTATISTICS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" /></a>
                             </td>
                         </tr>
@@ -422,7 +422,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                         <tr><td>{$smarty.const._ACCESSNUMBER}</td>
                     {if $T_LESSON_TRAFFIC.total_seconds > 0 }
                             <td id = "right">
-                                <a href = "display_chart.php?id=5&lesson_id={$smarty.get.sel_course}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME" style = "vertical-align:middle">
+                                <a href = "display_chart.php?id=5&lesson_id={$smarty.get.sel_lesson}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME" style = "vertical-align:middle">
                                  {$smarty.const._MOSTACTIVEUSERS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._MOSTACTIVEUSERS}" title = "{$smarty.const._MOSTACTIVEUSERS}"/></a>
                             </td>
                     {/if}
@@ -450,7 +450,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                                     {/if}
                                 {/strip}</td>
                                 <td class = "centerAlign">
-                                    <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$login}&lesson_id={$smarty.get.sel_course}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
+                                    <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$login}&lesson_id={$smarty.get.sel_lesson}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
                                      <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
                                 </td>
                             </tr>

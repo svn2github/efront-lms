@@ -369,13 +369,24 @@ try {
             $form -> setDefaults(array( 'job_description_name' => $currentJob -> job['description'],
                                         'placements' => $currentJob -> job['employees_needed'],
                                         'job_role_description' => $currentJob -> job['job_role_description']));
+        } else {
+         $details_link = "";
         }
         $smarty -> assign("T_BRANCH_ID", $currentJob -> job['branch_ID']);
         /* If add_branch request coming from another branch subbranches menu, pre-enter the fatherBranch form */
-        if (isset($_GET['add_job_description']) && isset($_GET['add_to_branch'])) {
-            $form -> setDefaults(array( 'branch' => $_GET['add_to_branch']));
-            $details_link = "href=\"" . $_SESSION['s_type']. ".php?ctg=module_hcd&op=branches&edit_branch=" . $_GET['add_to_branch'] . "\"";
-            $smarty -> assign("T_BRANCH_INFO", $details_link);
+        if (isset($_GET['add_job_description'])) {
+         if (isset($_GET['add_to_branch'])) {
+             $form -> setDefaults(array( 'branch' => $_GET['add_to_branch']));
+             $details_link = "href=\"" . $_SESSION['s_type']. ".php?ctg=module_hcd&op=branches&edit_branch=" . $_GET['add_to_branch'] . "\"";
+             $smarty -> assign("T_BRANCH_INFO", $details_link);
+         } else {
+          if (!empty($branches)) {
+           $defaultBranch = $branches[0]['branch_ID'];
+           $details_link = "href=\"" . $_SESSION['s_type']. ".php?ctg=module_hcd&op=branches&edit_branch=" . $defaultBranch . "\"";
+           $form -> setDefaults(array('branch' => $defaultBranch));
+           $smarty -> assign("T_BRANCH_INFO", $details_link);
+          }
+         }
         }
         /* Hidden for maintaining the previous_url value, so that you can immediately return after the insertion of a new job description */
         $form -> addElement('hidden', 'previous_url', null, 'id="previous_url"');
@@ -407,7 +418,6 @@ try {
                     EfrontJob :: createJob($job_description_content);
                     $message = _SUCCESSFULLYCREATEDJOBDESCRIPTION;
                     $message_type = 'success';
-                    eF_redirect("".$_SESSION['s_type'].".php?ctg=module_hcd&op=job_descriptions&message=". $message . "&message_type=success");
                 } elseif (isset($_GET['edit_job_description'])) {
                     $currentJob -> updateJobData($job_description_content);
                     $message = _JOBDESCRIPTIONDATAUPDATED;
@@ -416,6 +426,7 @@ try {
                 /* Instead of going back to the branches go the previous link */
                 eF_redirect("".basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=jobs");
                 exit;
+
             }
         }
 

@@ -1,10 +1,17 @@
-function removeUserFromBranch() {
- parameters = {edit_user:user, delete_job_employee:user, delete_job:job, delete_job_at_branch:job_at_branch, supervises_branch:supervises_branch, father_ID:father_ID};
+function removeUserFromBranch(el, user, job, job_at_branch, supervises_branch, father_ID) {
+ parameters = {method: "get", edit_user:user, delete_job_employee:user, delete_job:job, delete_job_at_branch:job_at_branch, supervises_branch:supervises_branch, father_ID:father_ID};
  url = 'administrator.php?ctg=users';
  ajaxRequest(el, url, parameters, onRemoveUserFromBranch);
 }
 function onRemoveUserFromBranch(el, response) {
  new Effect.Fade(el.up().up());
+
+ var tables = sortedTables.size();
+ for (i = 0; i < tables; i++) {
+  if (sortedTables[i].id == 'branchUsersTable' || sortedTables[i].id == 'branchJobsTable') {
+   eF_js_rebuildTable(i, 0, 'null', 'desc');
+  }
+ }
 }
 
 function deleteJob(el, job) {
@@ -151,8 +158,8 @@ function createEmployeeSearchUrl() {
    }
   }
  }
-  if (document.getElementById('new_login').value ||document.getElementById('name').value ||document.getElementById('surname').value ||document.getElementById('email').value ||document.getElementById('user_type').value|| customCriteriaFound || datesCriteriaFound) {
-   newUrl = cut[0] +"?ctg=search_users&search=1&all=" + document.getElementById('all_criteria').checked + "&login=" + document.getElementById('new_login').value+ "&name=" + document.getElementById('name').value + "&surname=" + document.getElementById('surname').value+ "&email=" + document.getElementById('email').value + "&user_type=" + document.getElementById('user_type').value;
+  if (document.getElementById('new_login').value ||document.getElementById('name').value ||document.getElementById('surname').value ||document.getElementById('email').value ||document.getElementById('user_type').value|| customCriteriaFound || datesCriteriaFound || document.getElementById('active2').value != "") {
+   newUrl = cut[0] +"?ctg=search_users&search=1&all=" + document.getElementById('all_criteria').checked + "&login=" + document.getElementById('new_login').value+ "&name=" + document.getElementById('name').value + "&surname=" + document.getElementById('surname').value+ "&email=" + document.getElementById('email').value + "&user_type=" + document.getElementById('user_type').value + "&active=" + document.getElementById('active2').value;
   } else {
    newUrl = cut[0] +"?ctg=search_users";
   }

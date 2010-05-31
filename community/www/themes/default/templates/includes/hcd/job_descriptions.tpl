@@ -23,7 +23,7 @@
             <td>
              <table>
                <tr><td>{$T_JOB_DESCRIPTIONS_FORM.branch.html}</td>
-                <td align="right"><a id="details_link" name="details_link" {$T_BRANCH_INFO} {if $T_BRANCH_INFO == "" || (isset($smarty.get.add_job_description) && !isset($smarty.get.add_to_branch))}style="visibility:hidden"{/if}><img src="images/16x16/search.png" title="{$smarty.const._DETAILS}" alt="{$smarty.const.DETAILS}" border="0"></a></td>
+                <td align="right"><a id="details_link" name="details_link" {$T_BRANCH_INFO} {if $T_BRANCH_INFO == ""}style="visibility:hidden"{/if}><img src="images/16x16/search.png" title="{$smarty.const._DETAILS}" alt="{$smarty.const.DETAILS}" border="0"></a></td>
                </tr>
              </table>
             </td>

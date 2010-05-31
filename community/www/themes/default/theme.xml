@@ -36,7 +36,7 @@ All elements are optional, except for the <name> -->
         <!--Whether to hide the index page header. 
         0 means hide header, 1 means show header on index page, 2 means show header all pages. 
         The header shows up in inside pages when there is no left sidebar. Defaults to 1-->     
-        <show_header>2</show_header>
+        <show_header>1</show_header>
         <!--Whether to hide the footer throughout the system. 
         0 means 'hide everywhere'. 1 means 'display everywhere'. 2 means 'display only in inside pages'. Defaults to 1-->       
         <show_footer>1</show_footer>

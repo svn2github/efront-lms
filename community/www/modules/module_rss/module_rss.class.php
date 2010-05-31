@@ -188,7 +188,7 @@ class module_rss extends EfrontModule
           if (mb_strlen($description) > 100) {
            $description = mb_substr($description, 0, 100).'...';
           }
-          $description = '<div style = "font-style:italic;margin-left:10px">'.$description.'</span>';
+          $description = '<div style = "font-style:italic;margin-left:10px">'.$description.'</div>';
          }
          $str .= '<li style = "display:none" onmouseover = "pauseList()" onmouseout = "continueList()"> '.formatTimestamp($value['timestamp']).' <a href = "'.$value['link'].'" target = "_NEW">'.$value['title'].'</a>'.$description.'</li>';
         }

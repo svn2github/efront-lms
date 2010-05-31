@@ -47,7 +47,7 @@ function continueList() {
 function showHideAll(el) {
  pauseList();
  if (showStatus) {
-  $('rss_list').up().setStyle({height:''});
+  $('rss_list').setStyle({height:''});
   $('rss_list').select('li').each(function (s) {s.show()});
   showStatus = 0;
   Element.extend(el);

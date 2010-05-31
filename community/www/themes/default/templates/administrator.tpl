@@ -404,7 +404,7 @@
   {if isset($smarty.get.sel_group)}
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=groups&sel_group='|cat:$smarty.get.sel_group|cat:'">'|cat:$T_GROUP_NAME|cat:'</a>'}
   {/if}
-
+ {elseif $smarty.get.option == 'branches'}
 
 
 

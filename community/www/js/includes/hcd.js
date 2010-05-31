@@ -348,6 +348,9 @@ function branchJobsAjaxPost(id, el, table_id) {
    var job = "";
   }
   var url = baseUrl + '&add_employee=' + document.getElementById('job_selection_'+id).name + '&add_job=' + encodeURI(document.getElementById('job_selection_'+id).value) + '&add_position=' + document.getElementById('position_select_' +id).value + '&default_job=' + encodeURI(job) + '&default_position=' + position + '&insert='+document.getElementById('check_'+id).checked;
+  if ((document.getElementById('job_selection_'+id).value).indexOf("__emptybranch_name") !== -1) {
+      return;
+     }
   if (document.getElementById('check_'+id).checked) {
    job = document.getElementById('job_selection_'+id).value ;
    position = document.getElementById('position_select_'+id).value ;

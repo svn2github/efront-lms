@@ -1694,7 +1694,7 @@ class EfrontLesson
   $newUsers = array();
   foreach ($usersData as $value) {
    if (in_array($value['login'], $archivedLessonUsers)) {
-    eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0), "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
+    eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0, "user_type" => $value['role']), "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
    } else {
     $newUsers[] = $value['login'];
     $fields[] = array('users_LOGIN' => $value['login'],

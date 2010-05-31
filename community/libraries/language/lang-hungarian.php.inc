@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Branch rekord");//Branch record
 define("_BRANCHDATAUPDATED","Branch adatok naprakész");//Branch data updated
 define("_FATHERBRANCH","Ág apa");//Father branch
 define("_HCD","Emberi erőforrás fejlesztése");//Human Capital Development
-define("_ORGANISATIONCHART","Szervezeti felépítés");//Organisation chart
+define("_ORGANISATIONCHART","Szervezeti felépítés");//Organization chart
 define("_CANDIDATES","Jelentkezők");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Branch sikeresen elkészült");//Branch was successfully created
 define("_ATBRANCH","az ágazati");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Készség hozzárendelése");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Felhasználók hozzárendelése a skill");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nincs ágak nyilvántartásba vették");//No branches have been registered
 define("_ORGANIZATION","Szervezéséről");//Organization
-define("_SEARCHFOREMPLOYEE","Search for user [Szervezet feltételek]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Search for user [Szervezet feltételek]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Nincsenek subforums meg ezen a fórumon");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Nem tud új üzeneteket, mert ez a téma vagy a fórum le van zárva");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Válassza ki a teszt");//Choose test
 define("_USERPROFILE","Nyilvános profil");//Public profile
 define("_VIEWBRANCHES","View ágak");//View branches
 define("_NOEMPLOYEESFOUND","Egyetlen felhasználó találtak");//No users were found
-define("_SEARCHEMPLOYEE","Felhasználó keresése");//Search user
+define("_SEARCHEMPLOYEE","Felhasználó keresése");//Find users
 define("_ALLBRANCHES","Minden ágára");//All branches
 define("_ANSWERS","Válaszolnak");//Answers
 define("_GROUPDOESNOTEXIST","A csoport nem létezik");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Professzorai lecke");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Csak a fióktelep a felügyeleti");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Beosztásban dolgoznak a más ágai");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Üzeneteket küldeni az összes felhasználó található");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Search for user [Tanfolyam feltételek]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Search for user [Tanfolyam feltételek]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Teljesítési határidő");//Completion date
 define("_YEAR","Év");//Year
 define("_NOTASSIGNED","Még nem átruházott");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Jogosítványait");//Permissions
 define("_UNSHARE","Mégsem megosztása");//Cancel sharing
 define("_UNSHARESELECTED","Mégsem megosztása a kiválasztott fájlok");//Cancel sharing of selected files
 define("_SHARESELECTED","Share kijelölt fájlok");//Share selected files
-define("_YOUDONTHAVEPERMISSION","You jogosultsága végrehajtani a kijelölt művelet");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","You jogosultsága végrehajtani a kijelölt művelet");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Kiviteli");//Export
 define("_NOMODULECLASSFOUND","Nincs modul osztály található névvel");//No module class found with name
 define("_ERRORLOADINGMODULE","Hiba történt a modul betöltése");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","A nyelv sikeresen létrejött");//The langu
 define("_SUCCESSFULLYUPDATEDLANGUAGE","A nyelv sikeresen frissítésre került");//The language was successfully updated
 define("_LANGUAGES","Nyelvén");//Languages
 define("_SERIALRULE","Használók must see tartalmak a soros sorrendben");//Users must see content in a serial order
-define("_TREERULE","Felhasználók ki kell töltenie egy ág csomópont, mielőtt a következőre");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Felhasználók ki kell töltenie egy ág csomópont, mielőtt a következőre");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Hozzá egyéni szabály");//Add custom rule
 define("_ADDREADYRULE","Add kész szabály");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","A következő felhasználók nem lehetett importálni");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","millió");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Nincs egység");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Nincsenek rendszer közleményei");//There are no system announcements
-define("_NOONELOGGEDIN","Jelenleg senki nem csatlakozik");//Noone is currently connected
+define("_NOONELOGGEDIN","Jelenleg senki nem csatlakozik");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Írd be az e-mail cím");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Írjuk be az üzenet tárgyát");//Enter the message subject
 define("_ENTERMESSAGE","Írja be az üzenetet");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Archíválás a");//Archived on
 define("_RESTORESELECTED","Restore kiválasztott");//Restore selected
 define("_ARCHIVEENTITY","Archívumban");//Archive
 define("_LOADMATHTYPESASIMAGES","Display matek típusok, képek");//Display math types as images
-define("_MATHIMAGESINFO","Ajánlott az Internet Explorer 8. Ön is törölni a böngésző cache");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Ajánlott az Internet Explorer 8. Ön is törölni a böngésző cache");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategóriában tanfolyamokat");//Category courses
 define("_GROUPROLE","Meghatározatlan csoport szerepe");//Group common role
 define("_GROUPONLY","Csoporton");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Természetesen professzorok");//Course professors
 define("_PROFESSORSOFCOURSE","Professzorok persze");//Professors of course
 define("_USERSUPERVISORS","Felhasználói felügyelők");//User supervisors
 define("_USEROPTIONSFOR","Options for user");//Options for user
-define("_MYSTATUS","tanulási Status");//my Learning Status
+define("_MYSTATUS","tanulási Status");//my Learning status
 define("_MYCOURSES","My courses");//my Courses
 define("_CERTIFICATIONS","Bizonyítványokat");//Certificates
 define("_MYCERTIFICATIONS","Certificates my");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nincs bizonyítványt adtak ki, hogy 
 define("_SUPERVISORTOACTIVATE","Aktiválni kell a felügyelő");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Nincs fióktelep felügyelők találtak");//No branch supervisors found
 define("_PRINTCONTENT","Nyomtatás tartalom");//Print content
-define("_USERHASNOTDONETEST","A felhasználó még nem tette ezt a vizsgálatot");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Kérjük, ellenőrizze, hogy az alábbi információk helyesek");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nincsenek meghatározott kategóriákba");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Felügyelő email aktiválás");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Munkavállalói aktiváló e-mail fiók");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ez az e-mail segítségével aktiválni az új rendszer felhasználói");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","rendelt ág");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","A munka helyzetéről");//with the job description
 define("_BYCLICKINGONTHELINK","kattintson a következő linkre");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Számlájára a munkavállalói sikeresen aktiválva");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Vízszintes rúd");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktiválása felügyelő mezőnév");//Activati
 define("_LEAVEEMPTYTONOTUSE","Hagyja üresen ommit hogy");//Leave empty to ommit
 define("_PLEASESELECT","Kérjük, válasszon");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Felettesével aktiválja a hozzáférésed");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Érvénytelen paraméter");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Import IMS-tartalom");//Import IMS Content
 define("_IMSEXPORT","Export IMS-tartalom");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Buboréksúgó");//Tooltip
 define("_HIDDEN","Rejtve a felhasználók");//Hidden from users
 define("_RESETSCORMDATA","Reset felhasználói adatok");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Advanced beállítások");//Advanced settings
+define("_ADDINSTANCE","Add hozzá például");//Add instance (New)
+define("_INSTANCE","Például");//Instance (New)
+define("_COURSECODE","A tantárgy kódja");//Course code (New)
+define("_TRAININGHOURS","Képzési órák");//Training hours (New)
+define("_COURSEINSTANCES","Természetesen esetben");//Course instances (New)
+define("_CAPACITY","Kapacitás");//Capacity (New)
+define("_SEATSREMAINING","Ülések fennmaradó");//Seats remaining (New)
+define("_STARTDATE","Kezdési időpont");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Biztos benne, hogy törölni kívánja a jelen esetben?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Edit például");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Például tanulságok");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Például a felhasználók");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Például a készségek");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Lehetőségek, például");//Options for instance (New)
+define("_JUMPTO","Ugrás");//Jump to (New)
+define("_PARENTCOURSE","Anyavállalat pálya");//Parent Course (New)
+define("_LOCATIONBRANCH","Helyszín (fióktelep)");//Location (branch) (New)
+define("_SELECTBRANCH","Válasszuk a fióktelep");//Select branch (New)
+define("_SHARED","Közös");//Shared (New)
+define("_UNIQUE","Egyedülálló");//Unique (New)
+define("_MODE","Mód");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Csak tanfolyamok katalógusban");//Use only courses in catalog (New)
+define("_ALLJOBS","Minden munka");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Térkép neve és jelmondata is fejléc");//Show name and motto also on header
+define("_ASSIGNCOURSES","Adhatja tanfolyamok");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","Válassza ki kurzusok hozzárendelése minden felhasználó talált");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Nem a felhasználók találtak");//No users have been found (New)
+define("_ASSIGNMENT","Átruházás");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Minden a legalacsonyabb szinten");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Minden éppen a legalacsonyabb szinten");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Nem tanfolyamok regisztráltak");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Nem szükséges képzéseket is meg még");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Szükséges képzés");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Új képzési feltétel");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Kötelező tanfolyamok");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Add hozzá alternatív képzési");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","Igényelt képzési");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Keresési eredmények szószedet");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Nincs találat a glossary");//No results found in glossary
+define("_PROJECTSSCORE","Projektek pontszám");//Projects score (New)
+define("_TESTSSCORE","Tesztek pontszám");//Tests score (New)
 define("_AUTOLOGIN","Automatikus bejelentkezés");//Auto login
 define("_ACCESSLINK","Hozzáférési vonal");//Access link
 define("_AUTOLOGINITHLINK","A felhasználó bejelentkezési automatikusan link");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Alapértelmezett felhasználói típus");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force hallgató minden kérdésre");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Meg kell válaszolni minden kérdésre");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Lehetővé teszik a független tanulságok");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","Nincs előre kiválasztott időpont");//No preselected date (New)
+define("_CURRENTDATE","Az aktuális dátum");//Current date (New)
 define("_SHOWHELP","A súgó megjelenítése linkek");//Display help links
 define("_ALLOWUSERANSERALLRONG","Hogy a diákok a redo csak a rossz válaszolt");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Csak ha a vizsgálati ismétlés engedélyezett");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Újra csak rossz válasz");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Alapértelmezett téma nem inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Hozzáférés lejárt");//Access expired (New)
+define("_LESSONSCHEDULE","Tanulságok menetrend");//Lessons schedule (New)
+define("_COURSESTARTSAT","A tanfolyam kezdődik");//The course starts on (New)
+define("_COURSEENDSAT","A kurzus végén a");//The course ends on (New)
+define("_ENDDATE","Befejezési időpont");//End date (New)
+define("_SELECTSKILLCATEGORY","Válassza ki skill kategóriában");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nem fejléc volt, meg vagy a fejléc nem kompatibilis behozatali típus");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Importált felhasználó");//Imported user
 define("_USERSTOCOURSES","Felhasználók tanfolyamok");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Bármi elismert");//Anything recognized
 define("_DATATOIMPORT","Adatokat importálni");//Data to import
 define("_SUCCESSFULLIMPORTS","sikeres import");//successfull imports
 define("_FAILEDIMPORTS","nem import");//failed imports
-define("_REPLACEDUSER","Helyébe felhasználó");//Replaced user
+define("_REPLACEDUSER","Helyébe felhasználó");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","A fájl nem tartalmazza a szükséges oszlopokat");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Helyébe a meglévő megbízás");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Természetesen az új feladat");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Szelvény");//Coupon
 define("_INVALIDCOUPON","Érvénytelen kupon");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Kattintson a be kedvezményes kamatozású");//Click to enter discount coupon
 define("_TESTREDONE","Helyesbített");//Corrected
+define("_CURRICULUMS","Tantervek");//Curricula (New)
+define("_CURRICULUM","Tanterv");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Rendelheti tananyag a csoport a felhasználók");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Adhatja tanterv a felhasználó");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Add hozzá tanterv");//Add curriculum (New)
+define("_EDITCURRICULUM","Edit tanterv");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Nem található a kurzus");//Could not find course
 define("_IMPORTRESULTSFOR","Import eredményei");//Import results for
+define("_COUPONUSAGE","Kupon használat");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","Új paypal fizetés");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","Új fizetési mérleg");//New balance payment (New)
+define("_USEDCOUPON","Használt kupon");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Kifizetett az egyensúly");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Kifizetett és paypal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Önnek ki kell töltenie az összes vizsgálatot");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","Eltávolítani &lt;script&gt; címkéket POST");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Átirányítás felhasználó a bejelentkezés után a");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Felhasználói lecke katalógus");//User's lesson catalog (New)
+define("_USERDASHBOARD","Felhasználói műszerfal");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","No title meghatározott munkaköri leírás");//No title provided for job description (New)
+define("_EDITORTYPE","Szerkesztő típusa");//Editor type (New)
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Csak egy üzenet benyújtása után vizsgálat");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Ez a teszt sikeresen be");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Tanulási állapot");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","nem az e-mail címét");//has not an e-mail address (New)
+define("_FEEDBACK","Visszacsatolás");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Helyezze be a felhasználói csoport");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Helyezze be az új csoport");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Helyezze be a már létező csoportba");//Insert into existing group (New)
+define("_NEWGROUPNAME","Új csoport neve");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Akkor akár ki egy már létező csoporthoz, vagy adja meg az új csoport nevét");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Benyújtására és szerkesztése csoportban");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Search segítségével a felhasználók elérhetik a csoport");//Search users to add to group (New)
+define("_AFTER","Után");//After (New)
+define("_BEFORE","Előtt");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Részvétele minden felhasználó a kurzusok a csoport");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Részvétel csoportos felhasználók a kurzusok a rendszer");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Purge naplók");//Purge logs (New)
+define("_LOGSSIZE","Naplók mérete");//Logs size (New)
+define("_OLDESTLOG","Legrégebbi log bejegyzés");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Purge naplók régebbi");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Sikeresen megtisztítani naplók");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Csak a% x szervezetek, ahol a feldolgozott, amely a határ ezt a műveletet");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Nem tud rendelni a felhasználók számára ez a tananyag, mert nincs tanfolyamok");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Tanterv tulajdonságok");//Curriculum properties (New)
+define("_ENTRIES","Bejegyzések");//Entries (New)
+define("_ENTERPRISEOPTIONS","Vállalkozási lehetőségek");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Megjelenítés szervezeti diagram a felhasználók");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Mutassa a személyes formában a felhasználók számára");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Megjelenítés kiosztatlan felhasználók felügyelők");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","A felhasználók törlése felügyelőnek megosztott fájlok");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","én forma");//my Form (New)
+define("_CLEARQUERYCACHE","Egyértelmű lekérdezés cache");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Visszajelzés lehetőségek");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Lehetőségek visszajelzés");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Nemrég befejezett visszajelzés");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfigurációs fájl (könyvtár / phplivedocx_config.php) nem írható. Minden változtatás, arról, hogy a livedocx konfiguráció nem volt elmentve");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Reset elért adatok");//Reset progress data (New)
+define("_DEBUGMODE","Debug módban");//Debug mode (New)
+define("_GENERALSETTINGS","Általános beállítások");//General settings (New)
+define("_FINISHLESSONMESSAGE","Gratulálunk! Befejeztük a leckét. Kérjük, válasszon ki egy helyet, hogy menjünk most:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Következő lecke");//Next lesson (New)
+define("_LESSONFINISHED","Lecke kész");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Ön az utolsó leckét akkor látogasson el");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Visszajelzés történik");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Folytassuk a visszajelzés");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Sikeresen módosított visszajelzés");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Visszajelzés kezdődött");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","A címzettek által kiválasztott rendszer interfész szerint az esemény. <BR> - "._NEWSURVEY .": kedvezményezettjei a felhasználók vesznek részt a felmérésben. <BR> - "._ONJOBASSIGNMENT .": A címzettek a felügyelő által kiválasztott munkavállaló. <BR> - "._PROJECTEXPIRY .": kedvezményezettjei azok a felhasználók, hogy a jelölt a projektet.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Beiratkozott");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Munkahely nem létezik");//Job does not exist (New)
+define("_SEARCHFORUSER","Keresse meg a felhasználók [Profil kritériumok]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Keresési kritériumok");//Search criteria (New)
+define("_SUBMITFEEDBACK","Nyújtson be visszajelzés");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Visszajelzés eredmények");//Feedback results (New)
+define("_PASSWORDREMINDER","Jelszó emlékeztető");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","Ki kell töltenie az összes vizsgálatot");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Visszajelzés jelentések");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Válassza ki a visszajelzés");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Jelentés visszajelzés");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","Jelenleg szemöldök mappa");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Bemutatás");//Showing (New)
+define("_MATERIALINPROGRESS","Anyagok folyamatban");//Material in progress (New)
+define("_ALLMATERIAL","Minden lényegi");//All material (New)
+define("_CACHEENTRYNOTFOUND","Cache-bejegyzés nem található");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","Gyorsítótár bejegyzés lejárt");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","Cache-bejegyzés érvénytelen");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","Purge értesítések");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","Értesítések méret");//Notifications size (New)
+define("_OLDESTNOTIFICATION","Legrégebbi bejelentés");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","Purge bejelentések régebbi");//Purge notifications older than (New)
+define("_CURRENTUSERS","Jelenlegi");//Current (New)
+define("_SELECTEDCOURSES","Kiválasztott kurzusok");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","Modul fájlok jelen vannak, de nincs telepítve");//Module files are present, but it is not installed (New)
 ?>

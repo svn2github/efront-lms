@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Branch rekord");//Branch record
 define("_BRANCHDATAUPDATED","Branch data opdateret");//Branch data updated
 define("_FATHERBRANCH","Fader filial");//Father branch
 define("_HCD","Udvikling af menneskelig kapital");//Human Capital Development
-define("_ORGANISATIONCHART","Organisation chart");//Organisation chart
+define("_ORGANISATIONCHART","Organisation chart");//Organization chart
 define("_CANDIDATES","Kandidater");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Branch er blevet oprettet");//Branch was successfully created
 define("_ATBRANCH","på grenen");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Tildel dygtighed");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Tildel ansattes kvalifikationer");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nr. filialer er blevet registreret");//No branches have been registered
 define("_ORGANIZATION","Organisationen");//Organization
-define("_SEARCHFOREMPLOYEE","Søg efter medarbejder [Organization kriterier]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Søg efter medarbejder [Organization kriterier]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Der er ingen subforums defineret i dette forum");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Du kan ikke skrive nye indlæg, da dette emne eller forum er låst");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Vælg test");//Choose test
 define("_USERPROFILE","Bruger profil");//Public profile
 define("_VIEWBRANCHES","Vis filialer");//View branches
 define("_NOEMPLOYEESFOUND","Nr. ansatte blev ikke fundet");//No users were found
-define("_SEARCHEMPLOYEE","Søg medarbejder");//Search user
+define("_SEARCHEMPLOYEE","Søg medarbejder");//Find users
 define("_ALLBRANCHES","Alle filialer");//All branches
 define("_ANSWERS","Answers");//Answers
 define("_GROUPDOESNOTEXIST","Den gruppe eksisterer ikke");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Professors af lektion");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Kun din afdeling tilsynsmyndighederne");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Job beskrivelser fra andre brancher");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Send meddelelser til alle medarbejdere fundet");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Søg efter medarbejder [Kursus kriterier]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Søg efter medarbejder [Kursus kriterier]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Færdiggørelsesdato");//Completion date
 define("_YEAR","År");//Year
 define("_NOTASSIGNED","Ikke tildelt endnu");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Tilladelser");//Permissions
 define("_UNSHARE","Annuller deling");//Cancel sharing
 define("_UNSHARESELECTED","Annuller deling af udvalgte filer");//Cancel sharing of selected files
 define("_SHARESELECTED","Andel udvalgte filer");//Share selected files
-define("_YOUDONTHAVEPERMISSION","Du don \"t har tilladelse til at udføre den valgte handling");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","Du don \"t har tilladelse til at udføre den valgte handling");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Eksport");//Export
 define("_NOMODULECLASSFOUND","Nr. modul klasse fundet med navnet");//No module class found with name
 define("_ERRORLOADINGMODULE","Fejl ved indlæsning af modul");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Sproget er blevet oprettet");//The language
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Det sprog er blevet opdateret");//The language was successfully updated
 define("_LANGUAGES","Sprog");//Languages
 define("_SERIALRULE","Brugerne skal kunne se indholdet i en seriel rækkefølge");//Users must see content in a serial order
-define("_TREERULE","Brugerne skal udfylde en filial \"s noder før du går videre til den næste");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Brugerne skal udfylde en filial \"s noder før du går videre til den næste");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Tilføj brugerdefinerede regel");//Add custom rule
 define("_ADDREADYRULE","Tilføj klar regel");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Følgende brugere kunne ikke importeres");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Ingen enhed");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Der er ingen system annonceringer");//There are no system announcements
-define("_NOONELOGGEDIN","Ingen er i øjeblikket logget ind");//Noone is currently connected
+define("_NOONELOGGEDIN","Ingen er i øjeblikket logget ind");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Indtast du e-mail-adresse");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Indtast emnet for beskeden");//Enter the message subject
 define("_ENTERMESSAGE","Indtast besked");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Arkiveret på");//Archived on
 define("_RESTORESELECTED","Gendan udvalgte");//Restore selected
 define("_ARCHIVEENTITY","Arkiv");//Archive
 define("_LOADMATHTYPESASIMAGES","Display math typer som billeder");//Display math types as images
-define("_MATHIMAGESINFO","Anbefales til Internet Explorer 8. Du har også slette browserens cache");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Anbefales til Internet Explorer 8. Du har også slette browserens cache");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategori kurser");//Category courses
 define("_GROUPROLE","Gruppe fælles rolle");//Group common role
 define("_GROUPONLY","Gruppen");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Kursus professorer");//Course professors
 define("_PROFESSORSOFCOURSE","Professorer naturligvis");//Professors of course
 define("_USERSUPERVISORS","Bruger vejledere");//User supervisors
 define("_USEROPTIONSFOR","Muligheder for brugeren");//Options for user
-define("_MYSTATUS","min Indlæsningsstatus");//my Learning Status
+define("_MYSTATUS","min Indlæsningsstatus");//my Learning status
 define("_MYCOURSES","Mine kurser");//my Courses
 define("_CERTIFICATIONS","Certifikater");//Certificates
 define("_MYCERTIFICATIONS","min Certifikater");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Ingen beviser er blevet udstedt til b
 define("_SUPERVISORTOACTIVATE","At blive aktiveret af vejleder");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Ingen filial tilsynsførende fundet");//No branch supervisors found
 define("_PRINTCONTENT","Print indhold");//Print content
-define("_USERHASNOTDONETEST","Brugeren har ikke gjort denne test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Du kontrollere, at følgende oplysninger er korrekte");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Der er ikke defineret kategorier");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Tilsynsførende e-mail aktivering");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Medarbejder kontoaktivering e-mail");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Denne e-mail giver dig mulighed for at aktivere det nye system bruger");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","henføres til filial");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","med jobbeskrivelse");//with the job description
 define("_BYCLICKINGONTHELINK","ved at klikke på følgende link");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Konto hos din medarbejder blev aktiveret");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Reck");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktivering vejleder feltnavn");//Activating sup
 define("_LEAVEEMPTYTONOTUSE","Efterlad tom for at ommit");//Leave empty to ommit
 define("_PLEASESELECT","Vælg venligst");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din vejleder vil aktivere din konto");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Ugyldig parameter");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Import IMS Content");//Import IMS Content
 define("_IMSEXPORT","Eksport IMS Indhold");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Skjult fra brugere");//Hidden from users
 define("_RESETSCORMDATA","Nulstil brugerdata");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Avancerede indstillinger");//Advanced settings
+define("_ADDINSTANCE","Tilføj eksempel");//Add instance (New)
+define("_INSTANCE","Instans");//Instance (New)
+define("_COURSECODE","Kursus-kode");//Course code (New)
+define("_TRAININGHOURS","Træningstimer");//Training hours (New)
+define("_COURSEINSTANCES","Kursus tilfælde");//Course instances (New)
+define("_CAPACITY","Kapacitet");//Capacity (New)
+define("_SEATSREMAINING","Sæder resterende");//Seats remaining (New)
+define("_STARTDATE","Startdato");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Er du sikker på du vil slette denne sag?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Rediger eksempel");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Instans lektioner");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Instans brugere");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Instans færdigheder");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Indstillinger for eksempel");//Options for instance (New)
+define("_JUMPTO","Gå til");//Jump to (New)
+define("_PARENTCOURSE","Forældre Course");//Parent Course (New)
+define("_LOCATIONBRANCH","Beliggenhed (filial)");//Location (branch) (New)
+define("_SELECTBRANCH","Vælg filial");//Select branch (New)
+define("_SHARED","Delt");//Shared (New)
+define("_UNIQUE","Unikke");//Unique (New)
+define("_MODE","Mode");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Brug kun kurser i kataloget");//Use only courses in catalog (New)
+define("_ALLJOBS","Alle jobs");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Vis navn og motto også på header");//Show name and motto also on header
+define("_ASSIGNCOURSES","Tildel kurser");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","Vælg kurser for at tildele alle brugere fundet");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Ingen brugere er blevet fundet");//No users have been found (New)
+define("_ASSIGNMENT","Opgave");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Enhver på det laveste niveau");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Enhver lige over det laveste niveau");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Ingen kurser er blevet registreret");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Der kræves ingen uddannelse er blevet defineret endnu");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Nødvendig uddannelse");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Ny uddannelse tilstand");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Nødvendig kurser");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Tilføj alternative uddannelse");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","Har krævet uddannelse");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Søgeresultater i ordliste");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Ingen resultater fundet i ordliste");//No results found in glossary
+define("_PROJECTSSCORE","Projekter score");//Projects score (New)
+define("_TESTSSCORE","Tests score");//Tests score (New)
 define("_AUTOLOGIN","Auto login");//Auto login
 define("_ACCESSLINK","Adgang link");//Access link
 define("_AUTOLOGINITHLINK","Brugeren kan logge ind automatisk via linket");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Default brugertype");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force studerende besvare alle spørgsmål");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Du skal besvare alle spørgsmål");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Tillad uafhængige lektioner");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","Ingen forvalgte dato");//No preselected date (New)
+define("_CURRENTDATE","Aktuel dato");//Current date (New)
 define("_SHOWHELP","Vis hjælp links");//Display help links
 define("_ALLOWUSERANSERALLRONG","Tillad studerende til redo kun den forkerte besvarede spørgsmål");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Kun hvis test gentagelser er tilladt");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Redo kun forkert besvaret");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Default tema kan ikke inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Adgang udløbet");//Access expired (New)
+define("_LESSONSCHEDULE","Erfaringer tidsplan");//Lessons schedule (New)
+define("_COURSESTARTSAT","Kurset starter på");//The course starts on (New)
+define("_COURSEENDSAT","Kurset slutter den");//The course ends on (New)
+define("_ENDDATE","Slutdato");//End date (New)
+define("_SELECTSKILLCATEGORY","Vælg dygtighed kategori");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ingen kolonneoverskrift blev defineret eller header ikke er forenelige med import type");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Importerede bruger");//Imported user
 define("_USERSTOCOURSES","Brugere til kurser");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Alt anerkendt");//Anything recognized
 define("_DATATOIMPORT","Data til at importere");//Data to import
 define("_SUCCESSFULLIMPORTS","vellykket import");//successfull imports
 define("_FAILEDIMPORTS","mislykkedes import");//failed imports
-define("_REPLACEDUSER","Erstattet bruger");//Replaced user
+define("_REPLACEDUSER","Erstattet bruger");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Filen indeholder ikke de nødvendige kolonner");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Erstattet nuværende tildeling");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Nyt kursus opgave");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Kupon");//Coupon
 define("_INVALIDCOUPON","Ugyldig kupon");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Klik for at angive rabat kupon");//Click to enter discount coupon
 define("_TESTREDONE","Berigtiget");//Corrected
+define("_CURRICULUMS","Læseplanerne");//Curricula (New)
+define("_CURRICULUM","Curriculum");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Tildel pensum til gruppe brugere");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Tildel pensum til bruger");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Tilføj curriculum");//Add curriculum (New)
+define("_EDITCURRICULUM","Rediger curriculum");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Kunne ikke finde kursus");//Could not find course
 define("_IMPORTRESULTSFOR","Import resultater for");//Import results for
+define("_COUPONUSAGE","Kupon skik");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","Ny paypal betaling");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","Ny saldobetaling");//New balance payment (New)
+define("_USEDCOUPON","Brugt kupon");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Betales med balance");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Betales med paypal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Du skal udfylde alle tests");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","Fjern &lt;script&gt; tags fra POST");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Omdirigere brugeren efter login til");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Brugerens lektion katalog");//User's lesson catalog (New)
+define("_USERDASHBOARD","Bruger instrumentbræt");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","Ingen titel fastsat jobbeskrivelse");//No title provided for job description (New)
+define("_EDITORTYPE","Editor type");//Editor type (New)
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Vis kun en besked efter at have fremlagt test");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Denne test var korrekt indsendt");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Indlæsningsstatus");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","har ikke en e-mail adresse");//has not an e-mail address (New)
+define("_FEEDBACK","Feedback");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Indsæt brugere til gruppe");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Indsætte i ny gruppe");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Indsætte i eksisterende gruppe");//Insert into existing group (New)
+define("_NEWGROUPNAME","Ny gruppe navn");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Du skal enten vælge en eksisterende gruppe eller fremlægge en ny gruppe navn");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Indsend og redigere gruppe");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Søg brugerne kan tilføje til gruppen");//Search users to add to group (New)
+define("_AFTER","Efter");//After (New)
+define("_BEFORE","Før");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Deltagelse af alle brugere i de kurser i gruppen");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Deltagelse i gruppe brugere i de kurser i systemet");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Purge logs");//Purge logs (New)
+define("_LOGSSIZE","Logs størrelse");//Logs size (New)
+define("_OLDESTLOG","Ældste log ind");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Purge logs ældre end");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Succesfuld renses logs");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Kun% x enheder, hvor forarbejdet, som er grænsen for denne operation");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Du kan ikke tildele brugere til denne studieordning, da det ikke har nogen kurser");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Curriculum egenskaber");//Curriculum properties (New)
+define("_ENTRIES","Angivelser");//Entries (New)
+define("_ENTERPRISEOPTIONS","Enterprise valgmuligheder");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Vis organisationsdiagram for brugerne");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Vis personlige form for brugerne");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Vis ikke tildelt brugerne tilsynsførende");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Tillad brugere at slette supervisor delte filer");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","min Form");//my Form (New)
+define("_CLEARQUERYCACHE","Ryd query cache");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Feedback muligheder");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Valg til feedback");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Nyligt afsluttede feedback");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfigurationsfilen (biblioteker / phplivedocx_config.php) er ikke skrivbar. Alle ændringer du har foretaget til livedocx konfiguration blev ikke gemt");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Reset fremskridt data");//Reset progress data (New)
+define("_DEBUGMODE","Debug mode");//Debug mode (New)
+define("_GENERALSETTINGS","Generelle indstillinger");//General settings (New)
+define("_FINISHLESSONMESSAGE","Tillykke! Du er færdig med lektionen. Vælg et sted at gå nu:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Næste lektion");//Next lesson (New)
+define("_LESSONFINISHED","Lektion færdig");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Du er på den sidste lektion, du kan besøge");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Feedback er gjort");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Fortsæt til feedback");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Succesfuld ændret feedback");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Feedback startede på");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","Modtagerne udvælges af systemet interface efter det pågældende arrangement. <BR> - "._NEWSURVEY .": Modtagere er de brugere, der deltager i undersøgelsen. <BR> - "._ONJOBASSIGNMENT .": Modtagerne er projektlederen udvalgt af medarbejderen. <BR> - "._PROJECTEXPIRY .": Modtagere er de brugere, der har fået tildelt projektet.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Indskrevet på");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Job eksisterer ikke");//Job does not exist (New)
+define("_SEARCHFORUSER","Find brugere [Profil kriterier]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Søgekriterier");//Search criteria (New)
+define("_SUBMITFEEDBACK","Indsend feedback");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Feedback resultater");//Feedback results (New)
+define("_PASSWORDREMINDER","Password påmindelse");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","Skal udfylde alle tests");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Feedback rapporter");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Vælg feedback");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Rapport for feedback");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","I øjeblikket browsing mappe");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Viser");//Showing (New)
+define("_MATERIALINPROGRESS","Materiale i gang");//Material in progress (New)
+define("_ALLMATERIAL","Al materiale");//All material (New)
+define("_CACHEENTRYNOTFOUND","Cachepost ikke fundet");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","Cachepost udløbet");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","Cache post er ugyldig");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","Purge anmeldelser");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","Underretninger størrelse");//Notifications size (New)
+define("_OLDESTNOTIFICATION","Ældste anmeldelse");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","Purge anmeldelser ældre end");//Purge notifications older than (New)
+define("_CURRENTUSERS","Nuværende");//Current (New)
+define("_SELECTEDCOURSES","Udvalgte kurser");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","Modul-filer er til stede, men det er ikke installeret");//Module files are present, but it is not installed (New)
 ?>

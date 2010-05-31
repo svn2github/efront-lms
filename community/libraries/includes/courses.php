@@ -110,9 +110,9 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
          $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
          $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+
    $users = $editCourse -> getCourseUsersIncludingUnassigned($constraints);
    $totalEntries = $editCourse -> countCourseUsersIncludingUnassigned($constraints);
-
    $dataSource = EfrontUser :: convertUserObjectsToArrays($users);
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;

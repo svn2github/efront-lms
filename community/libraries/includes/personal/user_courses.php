@@ -168,7 +168,6 @@ try {
      $totalEntries = $courseUser -> countUserCourses($constraints);
     }
    }
-    pr($courses);
 
    $alreadySorted = true;
    $dataSource = $courses;

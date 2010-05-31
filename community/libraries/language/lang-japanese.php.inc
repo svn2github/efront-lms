@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","枝の記録");//Branch record
 define("_BRANCHDATAUPDATED","支店のデータ更新済み");//Branch data updated
 define("_FATHERBRANCH","父親支店");//Father branch
 define("_HCD","人的資本の開発");//Human Capital Development
-define("_ORGANISATIONCHART","機関チャート");//Organisation chart
+define("_ORGANISATIONCHART","機関チャート");//Organization chart
 define("_CANDIDATES","候補者");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","枝が正常に作成さ");//Branch was successfully created
 define("_ATBRANCH","先支店");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","スキルを割り当てる");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","従業員のスキルを割り当てる");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","いいえ枝が登録されて");//No branches have been registered
 define("_ORGANIZATION","組織");//Organization
-define("_SEARCHFOREMPLOYEE","検索の従業員[組織基準]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","検索の従業員[組織基準]");//Find users [Organization criteria]
 define("_SUBFORUMS","サブフォーラム");//Subforums
 define("_NOSUBFORUMSFOUND","サブフォーラムがないこのフォーラムで定義されて");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","すべての新しいメッセージを投稿することはできませんこのトピックまたはフォーラムがロックされているため");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","選択テスト");//Choose test
 define("_USERPROFILE","ユーザープロファイル");//Public profile
 define("_VIEWBRANCHES","対象の枝");//View branches
 define("_NOEMPLOYEESFOUND","の従業員は見つかりませんでした");//No users were found
-define("_SEARCHEMPLOYEE","検索の従業員");//Search user
+define("_SEARCHEMPLOYEE","検索の従業員");//Find users
 define("_ALLBRANCHES","すべての枝");//All branches
 define("_ANSWERS","回答");//Answers
 define("_GROUPDOESNOTEXIST","同グループは存在しません");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","教授のレッスン");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","あなたの上司にのみ支店");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","他の支店から仕事の説明");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","メッセージを送信するすべての従業員が見つかりました");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","検索の従業員[コース基準]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","検索の従業員[コース基準]");//Find users [Course criteria]
 define("_COMPLETIONDATE","完成予定日");//Completion date
 define("_YEAR","年");//Year
 define("_NOTASSIGNED","割り当てはまだありません");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","アクセス許可");//Permissions
 define("_UNSHARE","キャンセルの共有");//Cancel sharing
 define("_UNSHARESELECTED","選択したファイルの共有を中止");//Cancel sharing of selected files
 define("_SHARESELECTED","選択したファイルの共有");//Share selected files
-define("_YOUDONTHAVEPERMISSION","あなたドン\"トンが許可を行うには、選択したアクション");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","あなたドン\"トンが許可を行うには、選択したアクション");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","輸出");//Export
 define("_NOMODULECLASSFOUND","モジュールのクラス名が見つかりましたがない");//No module class found with name
 define("_ERRORLOADINGMODULE","エラーが発生モジュールを読み込んでいます");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","その言語が正常に作成さ");//The l
 define("_SUCCESSFULLYUPDATEDLANGUAGE","その言語が正常に更新済み");//The language was successfully updated
 define("_LANGUAGES","言語");//Languages
 define("_SERIALRULE","ユーザーのコンテンツを参照する必要がありますシリアル注文");//Users must see content in a serial order
-define("_TREERULE","ユーザーを完了する必要があります。支店\"のノードに移動する前に、次の1つ");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","ユーザーを完了する必要があります。支店\"のノードに移動する前に、次の1つ");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","カスタムルールを追加");//Add custom rule
 define("_ADDREADYRULE","準備のルールを追加");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","は、次のユーザをインポートできませんでした");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","メートル");//m
 define("_SECONDSSHORTHAND","秒");//s
 define("_NONEUNIT","単位なし");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","システムのアナウンスがないです");//There are no system announcements
-define("_NOONELOGGEDIN","誰も現在に記録されます。");//Noone is currently connected
+define("_NOONELOGGEDIN","誰も現在に記録されます。");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","あなたのメールアドレスを入力してください");//Enter you email address
 define("_ENTERMESSAGESUBJECT","メッセージの件名を入力してください");//Enter the message subject
 define("_ENTERMESSAGE","メッセージを入力してください");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","書庫");//Archived on
 define("_RESTORESELECTED","復元を選択");//Restore selected
 define("_ARCHIVEENTITY","アーカイブ");//Archive
 define("_LOADMATHTYPESASIMAGES","画像として表示する演算の種類");//Display math types as images
-define("_MATHIMAGESINFO","Internet Explorer 8のための推奨される。また、ブラウザのキャッシュを削除する必要が");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Internet Explorer 8のための推奨される。また、ブラウザのキャッシュを削除する必要が");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","種類コース");//Category courses
 define("_GROUPROLE","");//Group common role
 define("_GROUPONLY","グループ");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","コース教授");//Course professors
 define("_PROFESSORSOFCOURSE","教授コース");//Professors of course
 define("_USERSUPERVISORS","ユーザーの上司");//User supervisors
 define("_USEROPTIONSFOR","ユーザ用のオプション");//Options for user
-define("_MYSTATUS","私の学習状況");//my Learning Status
+define("_MYSTATUS","私の学習状況");//my Learning status
 define("_MYCOURSES","私のコース");//my Courses
 define("_CERTIFICATIONS","証明書");//Certificates
 define("_MYCERTIFICATIONS","自分の証明書");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","いいえ証明書は、ユーザー�
 define("_SUPERVISORTOACTIVATE","スーパーバイザによって活性化されるために");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Noの枝監督が見つかりました");//No branch supervisors found
 define("_PRINTCONTENT","印刷内容");//Print content
-define("_USERHASNOTDONETEST","このテストは、ユーザーがいない");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","してくださいには、次の情報が正しいことを確認する");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","ない種類が定義され");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","上司のメールの活性化");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","従業員のアカウント開設のメール");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","このメールは、あなたには、新しいシステムのユーザーを有効にできます");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","ブランチへの割り当て");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","その仕事の説明を");//with the job description
 define("_BYCLICKINGONTHELINK","次のリンクをクリックして");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","あなたの従業員のアカウントが正常にアクティブ化された");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","水平バー");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","スーパーバイザー、フィールド名�
 define("_LEAVEEMPTYTONOTUSE","省略するには空を残す");//Leave empty to ommit
 define("_PLEASESELECT","選択してください");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","上司のアカウントをアクティブにします");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","無効なパラメータ");//Invalid parameter (New)
 define("_IMS","IMSの");//IMS
 define("_IMSIMPORT","インポートIMSコンテンツ");//Import IMS Content
 define("_IMSEXPORT","エクスポートIMSコンテンツ");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","ツールチップ");//Tooltip
 define("_HIDDEN","隠されたユーザーからの");//Hidden from users
 define("_RESETSCORMDATA","をリセットするユーザデータ");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","[詳細設定]");//Advanced settings
+define("_ADDINSTANCE","インスタンスを追加します");//Add instance (New)
+define("_INSTANCE","インスタンス");//Instance (New)
+define("_COURSECODE","コースコード");//Course code (New)
+define("_TRAININGHOURS","時間をトレーニング");//Training hours (New)
+define("_COURSEINSTANCES","コースのインスタンス");//Course instances (New)
+define("_CAPACITY","容量");//Capacity (New)
+define("_SEATSREMAINING","席の残り");//Seats remaining (New)
+define("_STARTDATE","開始日");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","あなたは、このインスタンスを削除しますか？");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","[編集]インスタンス");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","インスタンスのレッスン");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","インスタンスユーザー");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","インスタンスのスキル");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","インスタンスのオプション");//Options for instance (New)
+define("_JUMPTO","ジャンプする");//Jump to (New)
+define("_PARENTCOURSE","親コース");//Parent Course (New)
+define("_LOCATIONBRANCH","場所（分岐）");//Location (branch) (New)
+define("_SELECTBRANCH","選択分岐");//Select branch (New)
+define("_SHARED","共有");//Shared (New)
+define("_UNIQUE","ユニークな");//Unique (New)
+define("_MODE","モード");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","カタログのみを使用コース");//Use only courses in catalog (New)
+define("_ALLJOBS","すべてのジョブ");//All jobs (New)
 define("_SHOWMOTTOONHEADER","ショーの名前とのモットーは、ヘッダに");//Show name and motto also on header
+define("_ASSIGNCOURSES","割り当てますコース");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","選択コースはすべてのユーザーに見に割り当てる");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","ユーザーが見つかりませんされている");//No users have been found (New)
+define("_ASSIGNMENT","割り当て");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","すべての最下位レベル");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","最低レベル任意のすぐ上に");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","いいえコースが登録されている");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","いいえ、必要なトレーニングはまだ定義されている");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","必要な訓練");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","新しいトレーニング条件");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","必要なトレーニングコース");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","代替訓練を追加");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","訓練が必要あり");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","用語集の検索結果");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","結果はありません用語集で発見");//No results found in glossary
+define("_PROJECTSSCORE","プロジェクトは、スコア");//Projects score (New)
+define("_TESTSSCORE","テストは得点");//Tests score (New)
 define("_AUTOLOGIN","オートログイン");//Auto login
 define("_ACCESSLINK","Accessのリンク");//Access link
 define("_AUTOLOGINITHLINK","ユーザーは自動的にリンクによってログインすることができます");//User can login automatically by link
 define("_DEFAULTUSERTYPE","デフォルトのユーザーのタイプ");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","強制的に学生の質問に答える");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","すべての質問に回答する必要があります");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","独立レッスンを許可する");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","いいえあらかじめ日");//No preselected date (New)
+define("_CURRENTDATE","現在の日付");//Current date (New)
 define("_SHOWHELP","ヘルプを表示リンク");//Display help links
 define("_ALLOWUSERANSERALLRONG","許可の学生は間違って質問に答えをやり直す");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","のみのテストの繰り返しが許可されている場合");//Only if test repetitions are allowed
 define("_USERREDOWRONG","やり直しは間違って答えて");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","デフォルトのテーマはinportedすることはできません");//Default theme can not be inported
+define("_ACCESSEXPIRED","アクセスは有効期限が切れ");//Access expired (New)
+define("_LESSONSCHEDULE","レッスンスケジュール");//Lessons schedule (New)
+define("_COURSESTARTSAT","コースの開始日");//The course starts on (New)
+define("_COURSEENDSAT","コースが終わる");//The course ends on (New)
+define("_ENDDATE","終了日");//End date (New)
+define("_SELECTSKILLCATEGORY","選択スキルカテゴリ");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","いいえヘッダー行が定義され、またはヘッダーのインポートのタイプと互換性がない");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","インポートのユーザ");//Imported user
 define("_USERSTOCOURSES","コースへのユーザー");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","何が認識さ");//Anything recognized
 define("_DATATOIMPORT","データをインポートする");//Data to import
 define("_SUCCESSFULLIMPORTS","成功の輸入");//successfull imports
 define("_FAILEDIMPORTS","失敗したインポート");//failed imports
-define("_REPLACEDUSER","置き換えユーザー");//Replaced user
+define("_REPLACEDUSER","置き換えユーザー");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","ファイルには、必要な列を含んでいない");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","置き換え既存の割り当て");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","新コースの割り当て");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","クーポン");//Coupon
 define("_INVALIDCOUPON","無効なクーポン");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","をクリックしてクーポン割引を入力する");//Click to enter discount coupon
 define("_TESTREDONE","修正");//Corrected
+define("_CURRICULUMS","カリキュラム");//Curricula (New)
+define("_CURRICULUM","カリキュラム");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","グループに割り当てますカリキュラムは、ユーザ");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","ユーザーに割り当てますカリキュラム");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","カリキュラムを追加する");//Add curriculum (New)
+define("_EDITCURRICULUM","[編集]カリキュラム");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","コースを見つけることができませんでした");//Could not find course
 define("_IMPORTRESULTSFOR","インポート結果");//Import results for
+define("_COUPONUSAGE","クーポンの使用");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","新しいPayPalの支払い");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","ニューバランスのお支払い");//New balance payment (New)
+define("_USEDCOUPON","中古クーポン");//Used coupon (New)
+define("_PAYEDWITHBALANCE","バランスpayedする");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","PayPalでpayedする");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","あなたはすべてのテストを完了する必要があります");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","POSTから削除&lt;script&gt;タグ");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","ログイン後にリダイレクトユーザー");//Redirect user after login to (New)
+define("_LESSONSCATALOG","ユーザーのレッスンカタログ");//User's lesson catalog (New)
+define("_USERDASHBOARD","ユーザーのダッシュボード");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","タイトルなしは、ジョブの説明のために提供");//No title provided for job description (New)
+define("_EDITORTYPE","エディタの種類");//Editor type (New)
+define("_TINYMCE","TinyMCEは3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCEは3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","テストを提出した後だけを表示するメッセージ");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","このテストは正常に送信さ");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","学習状況");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","ていない電子メールアドレスを持って");//has not an e-mail address (New)
+define("_FEEDBACK","フィードバック");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","グループ挿入のユーザー");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","挿入新しいグループに");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","挿入、既存のグループに");//Insert into existing group (New)
+define("_NEWGROUPNAME","新しいグループ名");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","のいずれか、既存のグループを選択するか、新しいグループの名前を提供");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","送信および編集グループ");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","検索ユーザーがグループに追加する");//Search users to add to group (New)
+define("_AFTER","後に");//After (New)
+define("_BEFORE","前");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","参加グループのコースですべてのユーザーの");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","参加グループのユーザーのシステムのコース");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","パージのログ");//Purge logs (New)
+define("_LOGSSIZE","ログのサイズ");//Logs size (New)
+define("_OLDESTLOG","古いログエントリ");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","パージは、古いログより");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","正常にパージログ");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","のみ％のx、、この操作の制限が処理エンティティ");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","それはコースがあるため、このカリキュラムにユーザーを割り当てることはできません");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","カリキュラムのプロパティ");//Curriculum properties (New)
+define("_ENTRIES","エントリー");//Entries (New)
+define("_ENTERPRISEOPTIONS","エンタープライズオプション");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","ユーザーに表示する組織図");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","ユーザーに表示する個人的なフォーム");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","地図を表示する上司にユーザーを割り当てられていない");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","許可ユーザーは、共有ファイルを管理者を削除する");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","私のフォーム");//my Form (New)
+define("_CLEARQUERYCACHE","クリアクエリキャッシュ");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","フィードバックオプション");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","フィードバックのオプション");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","最近のフィードバックを完了");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHPのLiveDocxの設定ファイルは（/ phplivedocx_config.phpライブラリ）書き込みされていません。すべての変更はlivedocx構成に保存されませんでしたなさ");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","リセットの進行状況データ");//Reset progress data (New)
+define("_DEBUGMODE","デバッグモード");//Debug mode (New)
+define("_GENERALSETTINGS","全般設定");//General settings (New)
+define("_FINISHLESSONMESSAGE","おめでとう！あなたは授業を終えた。してください場所をすぐに行く選択：");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","次のレッスン");//Next lesson (New)
+define("_LESSONFINISHED","レッスンが終了");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","あなたが最後のレッスンでは、参照してください場合があります");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","フィードバックが行われる");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","フィードバックに進みます");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","正常にフィードバックを変更");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","フィードバックの開始時刻");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","受信者は、システムのインターフェイスでイベントに応じて選択されます。 <BR> - "._NEWSURVEY .":受信者は、ユーザが調査に参加している。 <BR> - "._ONJOBASSIGNMENT受信者を.":上司の従業員によって選択されます。 <BR> - "._PROJECTEXPIRY .":受信者は、プロジェクトを割り当てられているユーザーがいる。");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","に登録さ");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","ジョブが存在しない");//Job does not exist (New)
+define("_SEARCHFORUSER","検索ユーザーは[表示の基準は]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","検索条件");//Search criteria (New)
+define("_SUBMITFEEDBACK","送信フィードバック");//Submit feedback (New)
+define("_FEEDBACKRESULTS","フィードバックの結果");//Feedback results (New)
+define("_PASSWORDREMINDER","パスワードリマインダ");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","必要なすべてのテストを完了");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","フィードバックレポート");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","を選択してからのフィードバック");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","レポートのフィードバック");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","現在のフォルダを参照して");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","表示");//Showing (New)
+define("_MATERIALINPROGRESS","材料中の");//Material in progress (New)
+define("_ALLMATERIAL","すべての素材");//All material (New)
+define("_CACHEENTRYNOTFOUND","キャッシュエントリが見つかりません");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","キャッシュエントリは有効期限が切れ");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","キャッシュエントリは無効です");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","パージ通知");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","通知の大きさ");//Notifications size (New)
+define("_OLDESTNOTIFICATION","");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","");//Purge notifications older than (New)
+define("_CURRENTUSERS","");//Current (New)
+define("_SELECTEDCOURSES","");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it is not installed (New)
 ?>

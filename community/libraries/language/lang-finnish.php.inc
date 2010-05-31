@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Branch levy");//Branch record
 define("_BRANCHDATAUPDATED","Branch tiedot päivitetty");//Branch data updated
 define("_FATHERBRANCH","Isä sivuliike");//Father branch
 define("_HCD","Inhimillisen pääoman kehittäminen");//Human Capital Development
-define("_ORGANISATIONCHART","Organisaatiokaavio");//Organisation chart
+define("_ORGANISATIONCHART","Organisaatiokaavio");//Organization chart
 define("_CANDIDATES","Ehdokkaat");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Branch oli onnistuneesti luotu");//Branch was successfully created
 define("_ATBRANCH","klo sivuliike");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Määrää taitoa");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Määrää työntekijöiden ammattitaidon");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","N: o sivuliikkeet on rekisteröity");//No branches have been registered
 define("_ORGANIZATION","Organisaatio");//Organization
-define("_SEARCHFOREMPLOYEE","Etsi työntekijä [Järjestö perusteet]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Etsi työntekijä [Järjestö perusteet]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Ei ole subforums määritelty tässä foorumissa");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Et voi lähettää uusia viestejä, koska tämä aihe tai foorumi on lukittu");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Valitse testi");//Choose test
 define("_USERPROFILE","Käyttäjän profiili");//Public profile
 define("_VIEWBRANCHES","Katso sivukonttorit");//View branches
 define("_NOEMPLOYEESFOUND","N: o työntekijää havaittiin");//No users were found
-define("_SEARCHEMPLOYEE","Etsi työntekijä");//Search user
+define("_SEARCHEMPLOYEE","Etsi työntekijä");//Find users
 define("_ALLBRANCHES","Kaikki sivukonttorit");//All branches
 define("_ANSWERS","Vastaukset");//Answers
 define("_GROUPDOESNOTEXIST","Ryhmä ei ole olemassa");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Professorit, oppitunti");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Vain haaraklubisi valvojien");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Tehtävän kuvaukset muista sivukonttorit");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Lähetä viestejä kaikille työntekijöille löydy");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Etsi työntekijä [kurssi perusteet]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Etsi työntekijä [kurssi perusteet]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Toimitusten päättymispäivä");//Completion date
 define("_YEAR","Vuosi");//Year
 define("_NOTASSIGNED","Ei ole osoitettu vielä");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Luvat");//Permissions
 define("_UNSHARE","Peruuta jakaminen");//Cancel sharing
 define("_UNSHARESELECTED","Peruuta jakaminen valitut tiedostot");//Cancel sharing of selected files
 define("_SHARESELECTED","Jaa valitut tiedostot");//Share selected files
-define("_YOUDONTHAVEPERMISSION","You don \"t on lupa suorittaa valitut toimet");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","You don \"t on lupa suorittaa valitut toimet");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Vie");//Export
 define("_NOMODULECLASSFOUND","N: o moduuli luokan löytyi nimi");//No module class found with name
 define("_ERRORLOADINGMODULE","Virhe lastaus-moduuli");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Kieli oli onnistuneesti luotu");//The langu
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Kieli on päivitetty onnistuneesti");//The language was successfully updated
 define("_LANGUAGES","Kielet");//Languages
 define("_SERIALRULE","Käyttäjien tulee voida nähdä sisällöstä on järjestysnumero, jotta");//Users must see content in a serial order
-define("_TREERULE","Käyttäjille on täydellinen sivukonttori \"s solmut, ennen kuin siirrytään seuraavaan");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Käyttäjille on täydellinen sivukonttori \"s solmut, ennen kuin siirrytään seuraavaan");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Lisää oma sääntö");//Add custom rule
 define("_ADDREADYRULE","Lisää valmis sääntö");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Seuraavat käyttäjät ei voitu tuoda");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Ei yksikkö");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Ei ole olemassa järjestelmää ilmoitukset");//There are no system announcements
-define("_NOONELOGGEDIN","Kukaan ei ole tällä hetkellä kirjautuneena");//Noone is currently connected
+define("_NOONELOGGEDIN","Kukaan ei ole tällä hetkellä kirjautuneena");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Anna sinulle sähköpostia osoitteeseen");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Kirjoita viestin aihe");//Enter the message subject
 define("_ENTERMESSAGE","Kirjoita viesti");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Archived");//Archived on
 define("_RESTORESELECTED","Palauta valitut");//Restore selected
 define("_ARCHIVEENTITY","Arkiston");//Archive
 define("_LOADMATHTYPESASIMAGES","Näytä matematiikka tyyppejä kuvina");//Display math types as images
-define("_MATHIMAGESINFO","Suositellaan Internet Explorer 8. Sinulla on myös poistaa selaimen välimuisti");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Suositellaan Internet Explorer 8. Sinulla on myös poistaa selaimen välimuisti");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Luokka kurssit");//Category courses
 define("_GROUPROLE","Ryhmän yhteinen tehtävä");//Group common role
 define("_GROUPONLY","Tuoteryhmään");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Course professorit");//Course professors
 define("_PROFESSORSOFCOURSE","Professorit tietenkin");//Professors of course
 define("_USERSUPERVISORS","Käyttäjän valvojat");//User supervisors
 define("_USEROPTIONSFOR","Valinnat käyttäjän");//Options for user
-define("_MYSTATUS","Minun Learning Status");//my Learning Status
+define("_MYSTATUS","Minun Learning Status");//my Learning status
 define("_MYCOURSES","Omat kurssit");//my Courses
 define("_CERTIFICATIONS","Varmenteita");//Certificates
 define("_MYCERTIFICATIONS","Minun Sertifikaatit");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","O todistukset on annettu käyttäjäl
 define("_SUPERVISORTOACTIVATE","Käynnistämien valvoja");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","O sivuliike valvojien löytynyt");//No branch supervisors found
 define("_PRINTCONTENT","Tulosta sisältö");//Print content
-define("_USERHASNOTDONETEST","Käyttäjällä ei ole tehnyt tätä testiä");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Tarkista, että seuraavat tiedot ovat oikeita");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Ole määriteltyihin ryhmiin");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Valvoja email aktivointi");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Työntekijän tilin aktivointi sähköposti");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tämä sähköpostiosoite voit ottaa käyttöön uuden järjestelmän käyttäjä");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","osoitettu sivuliikkeen");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","kanssa työn kuvaus");//with the job description
 define("_BYCLICKINGONTHELINK","klikkaamalla alla olevaa linkkiä");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Huomioon oman työntekijän on aktivoitu");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Rekki");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktivointi valvoja kentän nimi");//Activating 
 define("_LEAVEEMPTYTONOTUSE","Jätä tyhjänä ommit");//Leave empty to ommit
 define("_PLEASESELECT","Valitkaa");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Esimiehesi aktivoi tilisi");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Virheellinen parametri");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Tuo IMS Content");//Import IMS Content
 define("_IMSEXPORT","Vienti IMS Content");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Vihjeteksti");//Tooltip
 define("_HIDDEN","Näy käyttäjille");//Hidden from users
 define("_RESETSCORMDATA","Nollaa käyttäjätiedot");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Lisäasetuksissa");//Advanced settings
+define("_ADDINSTANCE","Lisää esimerkiksi");//Add instance (New)
+define("_INSTANCE","Esimerkiksi");//Instance (New)
+define("_COURSECODE","Kurssin koodi");//Course code (New)
+define("_TRAININGHOURS","Koulutus tuntia");//Training hours (New)
+define("_COURSEINSTANCES","Kurssin tapauksissa");//Course instances (New)
+define("_CAPACITY","Kapasiteetti");//Capacity (New)
+define("_SEATSREMAINING","Istuimet muut");//Seats remaining (New)
+define("_STARTDATE","Aloituspäivä");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Oletko varma että haluat poistaa tässä tapauksessa?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Muokkaa esimerkiksi");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Esimerkiksi oppituntia");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Esimerkiksi käyttäjät");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Esimerkiksi taitojen");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Valinnat esimerkiksi");//Options for instance (New)
+define("_JUMPTO","Siirry");//Jump to (New)
+define("_PARENTCOURSE","Emoyhtiön kurssi");//Parent Course (New)
+define("_LOCATIONBRANCH","Sijainti (sivuliike)");//Location (branch) (New)
+define("_SELECTBRANCH","Valitse ala");//Select branch (New)
+define("_SHARED","Yhteinen");//Shared (New)
+define("_UNIQUE","Ainutlaatuinen");//Unique (New)
+define("_MODE","Tila");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Käytä vain kurssit luettelo");//Use only courses in catalog (New)
+define("_ALLJOBS","Kaikki työpaikat");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Näytä nimi ja tunnuslause myös header");//Show name and motto also on header
+define("_ASSIGNCOURSES","Anna kurssit");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","Valitse kurssit antaa kaikille käyttäjille löytyy");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Ei käyttäjien on todettu");//No users have been found (New)
+define("_ASSIGNMENT","Toimeksianto");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Kaikki alimmalla tasolla");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Kaikki vain alimman tason");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Ei kursseja on rekisteröity");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Ei tarvitse koulutusta ei ole vielä määritelty");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Vaadittava koulutus");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Uusi koulutus kunto");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Vaadittava koulutus");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Lisää vaihtoehtoinen koulutus");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","On tarvittavan koulutuksen");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Hakutulokset Sanasto");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Ei tuloksia ja sanasto");//No results found in glossary
+define("_PROJECTSSCORE","Hankkeet pisteet");//Projects score (New)
+define("_TESTSSCORE","Testit pisteet");//Tests score (New)
 define("_AUTOLOGIN","Autologin");//Auto login
 define("_ACCESSLINK","-Linkkiä");//Access link
 define("_AUTOLOGINITHLINK","Käyttäjä voi kirjautua automaattisesti yhteyden");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Oletuskäyttäjäprofiililla tyyppi");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force opiskelija vastaa kaikkiin kysymyksiin");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Sinun vastata kaikkiin kysymyksiin");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Salli itsenäinen oppituntia");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","Ei esivalittuja päivämäärä");//No preselected date (New)
+define("_CURRENTDATE","Nykyinen päivämäärä");//Current date (New)
 define("_SHOWHELP","Näytön avulla linkit");//Display help links
 define("_ALLOWUSERANSERALLRONG","Opiskelijat voivat redo vain väärä vastasi");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Vain jos testi toistoja sallitaan");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Uudelleen vain väärä vastaus");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Default teema ei inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Access päättyi");//Access expired (New)
+define("_LESSONSCHEDULE","Lessons aikataulu");//Lessons schedule (New)
+define("_COURSESTARTSAT","Kurssi alkaa");//The course starts on (New)
+define("_COURSEENDSAT","Kurssi päättyy");//The course ends on (New)
+define("_ENDDATE","Päättymispäivä");//End date (New)
+define("_SELECTSKILLCATEGORY","Valitse taito kategoria");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Ei otsikkorivi on määritelty tai otsikkoa ei sovi tuoda tyyppi");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Tuodut käyttäjä");//Imported user
 define("_USERSTOCOURSES","Käyttäjät kursseille");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Kaikki tunnustettu");//Anything recognized
 define("_DATATOIMPORT","Tietojen tuonti");//Data to import
 define("_SUCCESSFULLIMPORTS","onnistunut tuonti");//successfull imports
 define("_FAILEDIMPORTS","ei tuonti");//failed imports
-define("_REPLACEDUSER","Korvattu käyttäjä");//Replaced user
+define("_REPLACEDUSER","Korvattu käyttäjä");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Tiedostossa ei ole tarvittavia sarakkeita");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Korvataan nykyinen toimeksianto");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Uusi Harjoitustyön");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Kuponki");//Coupon
 define("_INVALIDCOUPON","Invalidi kaappaus");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Napsauta ja anna alennus kuponki");//Click to enter discount coupon
 define("_TESTREDONE","Oikaisu");//Corrected
+define("_CURRICULUMS","Opetussuunnitelmat");//Curricula (New)
+define("_CURRICULUM","Opetussuunnitelma");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Anna opetussuunnitelman ryhmään käyttäjille");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Anna opetussuunnitelman käyttäjän");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Lisää opetussuunnitelma");//Add curriculum (New)
+define("_EDITCURRICULUM","Edit opetussuunnitelma");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Ei löytynyt tietenkään");//Could not find course
 define("_IMPORTRESULTSFOR","Tuo tulokset");//Import results for
+define("_COUPONUSAGE","Kupongin käyttö");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","Uusi PayPal");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","Uusi loppuerä");//New balance payment (New)
+define("_USEDCOUPON","Käytetyt kuponki");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Maksetaan kanssa tasapainossa");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Maksetaan PayPal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Sinun täytyy täyttää kaikki kokeet");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","Poista &lt;script&gt; koodit POST");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Redirect käyttäjä jälkeen kirjaudu");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Käyttäjän opetus luettelo");//User's lesson catalog (New)
+define("_USERDASHBOARD","Käyttäjän kojelauta");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","Ei aihetta säädetään työnkuva");//No title provided for job description (New)
+define("_EDITORTYPE","Julkaisija tyyppi");//Editor type (New)
+define("_TINYMCE","Hento 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","Hento 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Näytä vain viestin lähettämisen jälkeen testi");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Tämä testi on onnistuneesti toimitettu");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Learning Status");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","ei sähköpostiosoitetta");//has not an e-mail address (New)
+define("_FEEDBACK","Palaute");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Lisää käyttäjiä ryhmä");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Lisää uusia ryhmä");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Lisää nykyisiin ryhmä");//Insert into existing group (New)
+define("_NEWGROUPNAME","Uuden ryhmän nimi");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Sinun tulee valita joko olemassa olevan ryhmän tai antaa uuden ryhmän nimi");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Lähetä ja muokata ryhmän");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Etsi käyttäjien lisätä ryhmään");//Search users to add to group (New)
+define("_AFTER","Jälkeen");//After (New)
+define("_BEFORE","Ennen");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Osallistuminen kaikkien käyttäjien kursseja ryhmä");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Osallistuminen ryhmän käyttäjien kurssien järjestelmän");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Tuhoa lokit");//Purge logs (New)
+define("_LOGSSIZE","Lokit koko");//Logs size (New)
+define("_OLDESTLOG","Vanhin lokitapahtuman");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Tuhoa lokit yli");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Onnistuneesti siivotaan lokit");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Vain% x yksiköt, joissa käsitellään, mikä on rajoittaa operaation");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Et voi määrittää käyttäjien tähän opetussuunnitelma, koska se ei ole kursseja");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Opetussuunnitelma ominaisuudet");//Curriculum properties (New)
+define("_ENTRIES","Viestit");//Entries (New)
+define("_ENTERPRISEOPTIONS","Enterprise vaihtoehtoja");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Näytä organisaatiokaavio käyttäjille");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Näytä oma lomake käyttäjille");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Näytä Määrittämätön käyttäjät valvojille");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Salli käyttäjien poistaa ohjaaja jaettuja tiedostoja");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","minun muoto");//my Form (New)
+define("_CLEARQUERYCACHE","Tyhjennä kysely välimuisti");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Palaute vaihtoehtoja");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Vaihtoehdot palaute");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Äskettäin valmistunut palaute");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx asetustiedostoa (kirjastot / phplivedocx_config.php) ei voi kirjoittaa. Kaikki tekemäsi muutokset livedocx kokoonpano ei ole tallennettu");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Nollaa edistyminen tiedot");//Reset progress data (New)
+define("_DEBUGMODE","Debug mode");//Debug mode (New)
+define("_GENERALSETTINGS","Yleiset asetukset");//General settings (New)
+define("_FINISHLESSONMESSAGE","Onnittelut! Olet oppitunti. Valitse paikka mennä nyt:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Seuraava oppitunti");//Next lesson (New)
+define("_LESSONFINISHED","Oppitunti päättynyt");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Olet viimeinen opetus voi käydä");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Palaute on tehty");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Jatka palaute");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Onnistuneesti muutettu palaute");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Palaute alkoi");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","Vastaanottajat valitaan järjestelmän käyttöliittymän mukaan tapahtumaan. <BR> - "._NEWSURVEY .": vastaanottajat ovat käyttäjiä tutkimukseen osallistuneista. <BR> - "._ONJOBASSIGNMENT .": vastaanottajien ohjaaja valitsee työntekijän. <BR> - "._PROJECTEXPIRY .": vastaanottajat ovat käyttäjiä, joille on määritetty hanke.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Kirjoittautuneet");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Job ei löydy");//Job does not exist (New)
+define("_SEARCHFORUSER","Etsi käyttäjien [Profiili perusteet]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Hakuehdot");//Search criteria (New)
+define("_SUBMITFEEDBACK","Lähetä palautetta");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Palaute tulokset");//Feedback results (New)
+define("_PASSWORDREMINDER","Salasanan muistutus");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","On täytettävä kaikki kokeet");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Palaute raportit");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Valitse palaute");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Raportti palaute");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","Selaat kansioon");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Näytetään");//Showing (New)
+define("_MATERIALINPROGRESS","Materiaali käynnissä");//Material in progress (New)
+define("_ALLMATERIAL","Kaikki materiaali");//All material (New)
+define("_CACHEENTRYNOTFOUND","Välimuistissa ei löytynyt");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","Välimuistissa päättyi");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","Välimuistissa ei kelpaa");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","Tuhoa ilmoitukset");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","Ilmoitukset koko");//Notifications size (New)
+define("_OLDESTNOTIFICATION","Vanhin ilmoitus");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","Tuhoa ilmoitukset vanhempi kuin");//Purge notifications older than (New)
+define("_CURRENTUSERS","Nykyinen");//Current (New)
+define("_SELECTEDCOURSES","Valitut kurssit");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","Moduuli tiedostot ovat läsnä, mutta sitä ei ole asennettu");//Module files are present, but it is not installed (New)
 ?>

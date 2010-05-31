@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Branch record");//Branch record
 define("_BRANCHDATAUPDATED","Branch data updated");//Branch data updated
 define("_FATHERBRANCH","Father branch");//Father branch
 define("_HCD","Human Capital Development");//Human Capital Development
-define("_ORGANISATIONCHART","Organisation chart");//Organisation chart
+define("_ORGANISATIONCHART","Organisation chart");//Organization chart
 define("_CANDIDATES","Candidates");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Branch was successfully created");//Branch was successfully created
 define("_ATBRANCH"," at branch ");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Assign skill");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Assign employees the skill ");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","No branches have been registered");//No branches have been registered
 define("_ORGANIZATION","Organización");//Organization
-define("_SEARCHFOREMPLOYEE","Search for employee [Organization criteria]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Search for employee [Organization criteria]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforo");//Subforums
 define("_NOSUBFORUMSFOUND","No hay subforos definidos en este foro");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","No puedes poner mensajes porque este tema o foro está cerrado");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Elegir test");//Choose test
 define("_USERPROFILE","Perfil del usuario");//Public profile
 define("_VIEWBRANCHES","Ver ramas");//View branches
 define("_NOEMPLOYEESFOUND","No employees were found");//No users were found
-define("_SEARCHEMPLOYEE","Search employee");//Search user
+define("_SEARCHEMPLOYEE","Search employee");//Find users
 define("_ALLBRANCHES","Todas las ramas");//All branches
 define("_ANSWERS","Respuestas");//Answers
 define("_GROUPDOESNOTEXIST","El grupo no existe");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Profesores de lección");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Sólo tus supervisores de la rama");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Descripción de los trabajos para otras ramas");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Enviar mensajes para todos los empleados encontrados");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Buscar empleado [Criterio del curso]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Buscar empleado [Criterio del curso]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Fecha de finalización");//Completion date
 define("_YEAR","Año");//Year
 define("_NOTASSIGNED","Sin asignar todavía ");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Permisos");//Permissions
 define("_UNSHARE","Cancelar compartir");//Cancel sharing
 define("_UNSHARESELECTED","Cancelar compartir en los archivos seleccionados");//Cancel sharing of selected files
 define("_SHARESELECTED","Compartir archivos seleccionados");//Share selected files
-define("_YOUDONTHAVEPERMISSION","No tienes permisos para realziar la acción seleccionada");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","No tienes permisos para realziar la acción seleccionada");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Exportar");//Export
 define("_NOMODULECLASSFOUND","No se encontró la clase del módulo");//No module class found with name
 define("_ERRORLOADINGMODULE","Error cargando el módulo");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","El idioma se creó con éxito");//The langu
 define("_SUCCESSFULLYUPDATEDLANGUAGE","El idioma se actualizó con éxito");//The language was successfully updated
 define("_LANGUAGES","Idiomas");//Languages
 define("_SERIALRULE","Los usuarios deben ver el contenido en orden secuencial");//Users must see content in a serial order
-define("_TREERULE","Los usuarios tiene que completar una rama de nodos antes de pasar a la siguiente");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Los usuarios tiene que completar una rama de nodos antes de pasar a la siguiente");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Añadir regla personalizada");//Add custom rule
 define("_ADDREADYRULE","Añadir regla de preparado");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Los siguientes usuarios no pudieron ser importados");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Ninguna unidad");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","No hay anuncios");//There are no system announcements
-define("_NOONELOGGEDIN","Nadie está conectado en");//Noone is currently connected
+define("_NOONELOGGEDIN","Nadie está conectado en");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Introduzca su dirección de correo electrónico");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Introduzca el asunto del mensaje");//Enter the message subject
 define("_ENTERMESSAGE","Introduzca el mensaje");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Archivado en");//Archived on
 define("_RESTORESELECTED","Restaurar seleccionados");//Restore selected
 define("_ARCHIVEENTITY","Archivo");//Archive
 define("_LOADMATHTYPESASIMAGES","Tipos de matemáticas de pantalla como imágenes de");//Display math types as images
-define("_MATHIMAGESINFO","Recomendado para Internet Explorer 8. Usted tiene también borrar la caché del navegador");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Recomendado para Internet Explorer 8. Usted tiene también borrar la caché del navegador");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Cursos de Categoría");//Category courses
 define("_GROUPROLE","Grupo de papel común");//Group common role
 define("_GROUPONLY","Grupo");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Los profesores del curso");//Course professors
 define("_PROFESSORSOFCOURSE","Profesores de curso");//Professors of course
 define("_USERSUPERVISORS","Supervisores de usuario");//User supervisors
 define("_USEROPTIONSFOR","Opciones para el usuario");//Options for user
-define("_MYSTATUS","Estado de mi aprendizaje");//my Learning Status
+define("_MYSTATUS","Estado de mi aprendizaje");//my Learning status
 define("_MYCOURSES","Mis Cursos");//my Courses
 define("_CERTIFICATIONS","Certificados");//Certificates
 define("_MYCERTIFICATIONS","mis certificados");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","No se han emitido certificados para e
 define("_SUPERVISORTOACTIVATE","Para ser activado por el supervisor");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","N supervisores rama encontrado");//No branch supervisors found
 define("_PRINTCONTENT","Imprimir contenido");//Print content
-define("_USERHASNOTDONETEST","El usuario no ha hecho este test todavía");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Por favor, verifique que la siguiente información es correcta");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","No hay categorías definidas");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Supervisor de activación de correo electrónico");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","La activación de cuenta de correo electrónico de empleados");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Este correo electrónico le permite activar el nuevo sistema de usuario");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","asignado a la rama");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","con la descripción del puesto");//with the job description
 define("_BYCLICKINGONTHELINK","haciendo clic en el siguiente enlace");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","El relato de su empleado se activó con éxito");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Barra horizontal");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Activación de nombre Supervisor de Campo");//A
 define("_LEAVEEMPTYTONOTUSE","Dejar vacío para omitir");//Leave empty to ommit
 define("_PLEASESELECT","Por favor seleccione");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Su supervisor le activar su cuenta");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Importación de contenido IMS");//Import IMS Content
 define("_IMSEXPORT","Exportación de contenido IMS");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Oculto de los usuarios de");//Hidden from users
 define("_RESETSCORMDATA","Restablecer los datos del usuario");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Configuración avanzada");//Advanced settings
+define("_ADDINSTANCE","");//Add instance (New)
+define("_INSTANCE","");//Instance (New)
+define("_COURSECODE","");//Course code (New)
+define("_TRAININGHOURS","");//Training hours (New)
+define("_COURSEINSTANCES","");//Course instances (New)
+define("_CAPACITY","");//Capacity (New)
+define("_SEATSREMAINING","");//Seats remaining (New)
+define("_STARTDATE","");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Instancia lecciones");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Instancia usuarios");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Instancia habilidades");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Opciones, por ejemplo,");//Options for instance (New)
+define("_JUMPTO","Saltar a");//Jump to (New)
+define("_PARENTCOURSE","Curso para Padres");//Parent Course (New)
+define("_LOCATIONBRANCH","Ubicación (sucursal)");//Location (branch) (New)
+define("_SELECTBRANCH","Seleccionar la rama");//Select branch (New)
+define("_SHARED","Compartido");//Shared (New)
+define("_UNIQUE","Único");//Unique (New)
+define("_MODE","Modo");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Utilice sólo los cursos en el catálogo");//Use only courses in catalog (New)
+define("_ALLJOBS","Todos los puestos de trabajo");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Nombre de la obra y el lema también sobre el encabezado de");//Show name and motto also on header
+define("_ASSIGNCOURSES","Asignar cursos");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","cursos de selección para asignar a todos los usuarios encontrados");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","No hay usuarios han encontrado");//No users have been found (New)
+define("_ASSIGNMENT","Asignación");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Resultados de la búsqueda en el glosario");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","No hay resultados en el glosario");//No results found in glossary
+define("_PROJECTSSCORE","");//Projects score (New)
+define("_TESTSSCORE","");//Tests score (New)
 define("_AUTOLOGIN","Acceso automático");//Auto login
 define("_ACCESSLINK","Enlace de acceso");//Access link
 define("_AUTOLOGINITHLINK","El usuario puede iniciar sesión de forma automática mediante un enlace");//User can login automatically by link
 define("_DEFAULTUSERTYPE","De tipo de usuario por defecto");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Estudiante de la Fuerza contestar todas las preguntas");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Debes contestar todas las preguntas");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","");//No preselected date (New)
+define("_CURRENTDATE","");//Current date (New)
 define("_SHOWHELP","Mostrar los enlaces de ayuda");//Display help links
 define("_ALLOWUSERANSERALLRONG","Permitir a los estudiantes hacer de nuevo sólo responde a las preguntas equivocadas");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Sólo si la prueba se permiten repeticiones");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Rehacer único malo respondió");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","tema por defecto no puede ser inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","");//Access expired (New)
+define("_LESSONSCHEDULE","");//Lessons schedule (New)
+define("_COURSESTARTSAT","");//The course starts on (New)
+define("_COURSEENDSAT","");//The course ends on (New)
+define("_ENDDATE","");//End date (New)
+define("_SELECTSKILLCATEGORY","");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No se definió línea de encabezamiento o cabecera no es compatible con el tipo de importación");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Importado de usuario");//Imported user
 define("_USERSTOCOURSES","Los usuarios a los cursos");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Todo lo reconoce");//Anything recognized
 define("_DATATOIMPORT","Los datos a importar");//Data to import
 define("_SUCCESSFULLIMPORTS","importaciones éxito");//successfull imports
 define("_FAILEDIMPORTS","las importaciones no");//failed imports
-define("_REPLACEDUSER","Sustituido usuario");//Replaced user
+define("_REPLACEDUSER","Sustituido usuario");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","El archivo no contiene las columnas necesarias");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Sustituido actuales de cesión");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Nuevo curso asignado");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Cupón");//Coupon
 define("_INVALIDCOUPON","Cupón válido");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Pulse para entrar al cupón de descuento");//Click to enter discount coupon
 define("_TESTREDONE","Corregido");//Corrected
+define("_CURRICULUMS","");//Curricula (New)
+define("_CURRICULUM","");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","");//Add curriculum (New)
+define("_EDITCURRICULUM","");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","No se pudo encontrar el curso");//Could not find course
 define("_IMPORTRESULTSFOR","resultados de importación de");//Import results for
+define("_COUPONUSAGE","");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","");//New balance payment (New)
+define("_USEDCOUPON","");//Used coupon (New)
+define("_PAYEDWITHBALANCE","");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","");//Redirect user after login to (New)
+define("_LESSONSCATALOG","");//User's lesson catalog (New)
+define("_USERDASHBOARD","");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","");//No title provided for job description (New)
+define("_EDITORTYPE","");//Editor type (New)
+define("_TINYMCE","");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","");//has not an e-mail address (New)
+define("_FEEDBACK","");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","");//Insert into existing group (New)
+define("_NEWGROUPNAME","");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","");//Search users to add to group (New)
+define("_AFTER","");//After (New)
+define("_BEFORE","");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","");//Purge logs (New)
+define("_LOGSSIZE","");//Logs size (New)
+define("_OLDESTLOG","");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","");//Curriculum properties (New)
+define("_ENTRIES","");//Entries (New)
+define("_ENTERPRISEOPTIONS","");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","");//my Form (New)
+define("_CLEARQUERYCACHE","");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","");//Reset progress data (New)
+define("_DEBUGMODE","");//Debug mode (New)
+define("_GENERALSETTINGS","");//General settings (New)
+define("_FINISHLESSONMESSAGE","");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","");//Next lesson (New)
+define("_LESSONFINISHED","");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Inscrita en");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Empleo no existe");//Job does not exist (New)
+define("_SEARCHFORUSER","Buscar usuarios [criterios Perfil]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Criterios de búsqueda");//Search criteria (New)
+define("_SUBMITFEEDBACK","Envíe comentarios");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Resultados de votos");//Feedback results (New)
+define("_PASSWORDREMINDER","Recuperación de contraseña");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","Debe completar todas las pruebas");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Informes de votos");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Elija comentarios");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Informe para la retroalimentación");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","Actualmente la navegación de carpetas");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Listado");//Showing (New)
+define("_MATERIALINPROGRESS","Material en curso");//Material in progress (New)
+define("_ALLMATERIAL","Todo el material");//All material (New)
+define("_CACHEENTRYNOTFOUND","entrada de caché no se encuentra");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","");//Notifications size (New)
+define("_OLDESTNOTIFICATION","");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","");//Purge notifications older than (New)
+define("_CURRENTUSERS","");//Current (New)
+define("_SELECTEDCOURSES","");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it is not installed (New)
 ?>

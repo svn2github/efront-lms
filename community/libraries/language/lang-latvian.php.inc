@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Branch ieraksts");//Branch record
 define("_BRANCHDATAUPDATED","Branch datu atjaunošana");//Branch data updated
 define("_FATHERBRANCH","Tēvs filiāle");//Father branch
 define("_HCD","Cilvēkkapitāla attīstību");//Human Capital Development
-define("_ORGANISATIONCHART","Struktūrshēma");//Organisation chart
+define("_ORGANISATIONCHART","Struktūrshēma");//Organization chart
 define("_CANDIDATES","Kandidāti");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Branch tika veiksmīgi izveidots");//Branch was successfully created
 define("_ATBRANCH","nozaru");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Piešķirt prasme");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Piešķirt lietotājiem prasme");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nr filiāles nav reģistrētas");//No branches have been registered
 define("_ORGANIZATION","Organization");//Organization
-define("_SEARCHFOREMPLOYEE","Meklēt lietotājs [organizācijas kritērijiem]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Meklēt lietotājs [organizācijas kritērijiem]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Nav subforums noteikts šajā forumā");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Jūs nevarat ievietot jebkurā jaunas ziņas, jo šis temats vai forums ir slēgts");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Izvēlieties tests");//Choose test
 define("_USERPROFILE","Lietotāja profils");//Public profile
 define("_VIEWBRANCHES","Apskatīt filiāles");//View branches
 define("_NOEMPLOYEESFOUND","Neviens no lietotājiem, tika konstatēts,");//No users were found
-define("_SEARCHEMPLOYEE","Meklēt lietotāju");//Search user
+define("_SEARCHEMPLOYEE","Meklēt lietotāju");//Find users
 define("_ALLBRANCHES","Visas nozares");//All branches
 define("_ANSWERS","Atbildes");//Answers
 define("_GROUPDOESNOTEXIST","Grupa, neeksistē");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Profesori stunda");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Tikai jūsu filiāles uzraugiem");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Darbs pozīcijām no citām nozarēm");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Sūtīt ziņojumu visiem lietotājiem atrasts");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Meklēt lietotājs [Course kritērijus]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Meklēt lietotājs [Course kritērijus]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Beigu datums");//Completion date
 define("_YEAR","Gads");//Year
 define("_NOTASSIGNED","Nav piešķirts vēl");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Atļaujas");//Permissions
 define("_UNSHARE","Atcelt koplietošana");//Cancel sharing
 define("_UNSHARESELECTED","Atcelt dalīšanas izvēlēto failu");//Cancel sharing of selected files
 define("_SHARESELECTED","Share izvēlētos failus");//Share selected files
-define("_YOUDONTHAVEPERMISSION","Jūs dont ir atļauja veikt izvēlēto darbības");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","Jūs dont ir atļauja veikt izvēlēto darbības");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Eksports");//Export
 define("_NOMODULECLASSFOUND","Nr modulis klases konstatēts ar nosaukumu");//No module class found with name
 define("_ERRORLOADINGMODULE","Kļūda iekraušana modulis");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Valoda tika veiksmīgi izveidots");//The la
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Ar valodu ir veiksmīgi atjaunināts");//The language was successfully updated
 define("_LANGUAGES","Languages");//Languages
 define("_SERIALRULE","Lietotāji izprot saturu sērijas lai");//Users must see content in a serial order
-define("_TREERULE","Lietotāji ir jāaizpilda filiāle  mezglu pirms pāriet uz nākamo");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Lietotāji ir jāaizpilda filiāle  mezglu pirms pāriet uz nākamo");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Pievienot izveidotās noteikums");//Add custom rule
 define("_ADDREADYRULE","Pievienot gatavs noteikums");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Šādi lietotāji var neieved");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Nav vienību");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Nav sistēmas paziņojumi");//There are no system announcements
-define("_NOONELOGGEDIN","Neviens pašlaik ir savienots");//Noone is currently connected
+define("_NOONELOGGEDIN","Neviens pašlaik ir savienots");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Ievadiet jūsu e-pasta adrese");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Ievadiet ziņas tēmu");//Enter the message subject
 define("_ENTERMESSAGE","Ievadiet ziņu");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Archived par");//Archived on
 define("_RESTORESELECTED","Atjaunot cikls");//Restore selected
 define("_ARCHIVEENTITY","Arhīvs");//Archive
 define("_LOADMATHTYPESASIMAGES","Display math veidi kā attēli");//Display math types as images
-define("_MATHIMAGESINFO","Ieteicams 8 Internet Explorer. Jums ir arī izdzēst pārlūka kešatmiņa");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Ieteicams 8 Internet Explorer. Jums ir arī izdzēst pārlūka kešatmiņa");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategorija kursi");//Category courses
 define("_GROUPROLE","Grupa kopējā loma");//Group common role
 define("_GROUPONLY","Grupa");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Protams, profesori");//Course professors
 define("_PROFESSORSOFCOURSE","Profesori protams");//Professors of course
 define("_USERSUPERVISORS","Lietotājs uzraudzības");//User supervisors
 define("_USEROPTIONSFOR","Iespējām lietotāju");//Options for user
-define("_MYSTATUS","mans Learning Status");//my Learning Status
+define("_MYSTATUS","mans Learning Status");//my Learning status
 define("_MYCOURSES","mans Kursi");//my Courses
 define("_CERTIFICATIONS","Sertifikāti");//Certificates
 define("_MYCERTIFICATIONS","mans Sertifikāti");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nē sertifikāti izsniegti, lai lieto
 define("_SUPERVISORTOACTIVATE","Lai varētu aktivizēt vadītājs");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Nē filiāle uzraudzības atrasts");//No branch supervisors found
 define("_PRINTCONTENT","Drukāt saturs");//Print content
-define("_USERHASNOTDONETEST","Lietotājam nav izdarījusi šo testu");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Lūdzu, pārbaudiet, ka šāda informācija ir pareiza");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nav definētajām kategorijām");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivizācija");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbinieks konta aktivizācijas e-pastu");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šo e-pastu ļauj aktivizēt jaunā sistēmas lietotāja");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","piešķirts filiāle");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","ar amatu");//with the job description
 define("_BYCLICKINGONTHELINK",", noklikšķinot uz šīs saites");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Vērā Jūsu darbinieks ir veiksmīgi aktivizēts");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktivēšana vadītājs lauka nosaukums");//Act
 define("_LEAVEEMPTYTONOTUSE","Atstāj tukšu, lai ommit");//Leave empty to ommit
 define("_PLEASESELECT","Lūdzu, izvēlieties");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsu uzraudzītājs aktivizētu savu kontu");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Nederīgs parametrs");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Import IMS Content");//Import IMS Content
 define("_IMSEXPORT","Eksporta IMS Content");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Hidden lietotāju");//Hidden from users
 define("_RESETSCORMDATA","Reset lietotāja dati");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Papildu uzstādījumi");//Advanced settings
+define("_ADDINSTANCE","Pievienot piemēram,");//Add instance (New)
+define("_INSTANCE","Piemēram");//Instance (New)
+define("_COURSECODE","Protams kods");//Course code (New)
+define("_TRAININGHOURS","Mācību stundās");//Training hours (New)
+define("_COURSEINSTANCES","Protams gadījumos");//Course instances (New)
+define("_CAPACITY","Jauda");//Capacity (New)
+define("_SEATSREMAINING","Sēdekļi atlikušo");//Seats remaining (New)
+define("_STARTDATE","Sākuma datums");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Vai tiešām vēlaties izdzēst šo piemēram?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Rediģēt instancē");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Piemēram nodarbības");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Piemēram lietotāji");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Piemēram prasmes");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Iespējas, piemēram,");//Options for instance (New)
+define("_JUMPTO","Pāriet uz");//Jump to (New)
+define("_PARENTCOURSE","Mātes Course");//Parent Course (New)
+define("_LOCATIONBRANCH","Atrašanās vieta (filiāle)");//Location (branch) (New)
+define("_SELECTBRANCH","Izvēlēties filiāle");//Select branch (New)
+define("_SHARED","Dalīta");//Shared (New)
+define("_UNIQUE","Unikāls");//Unique (New)
+define("_MODE","Veids");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Izmantojiet tikai kursi katalogā");//Use only courses in catalog (New)
+define("_ALLJOBS","Visi darba vietu");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Rādīt vārds un moto arī header");//Show name and motto also on header
+define("_ASSIGNCOURSES","Piešķirt kursi");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","Izvēlēties kursu piešķirt visiem lietotājiem atrasts");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Neviens no lietotājiem nav atrasts");//No users have been found (New)
+define("_ASSIGNMENT","Uzdevums");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Jebkura zemākajā līmenī");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Jebkura nedaudz virs zemākā līmeņa");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Nē kursi ir reģistrēti");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Nav nepieciešama apmācība ir noteikts vēl");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Nepieciešama apmācība");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Jaunu apmācības nosacījumu");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Nepieciešamo apmācību kursi");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Pievienot alternatīvu apmācību");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","Ir nepieciešama apmācība");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Meklēšanas rezultāti glossary");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary
+define("_PROJECTSSCORE","Projektu rezultātu");//Projects score (New)
+define("_TESTSSCORE","Testi score");//Tests score (New)
 define("_AUTOLOGIN","Auto login");//Auto login
 define("_ACCESSLINK","Access saite");//Access link
 define("_AUTOLOGINITHLINK","Lietotājs var login automātiski saite");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Noklusējuma lietotāja tipu");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Spēkā students atbildēt uz visiem jautājumiem");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Jums ir atbildēt uz visiem jautājumiem");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Ļautu neatkarīgajiem nodarbības");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","Nē izvēlētā datuma");//No preselected date (New)
+define("_CURRENTDATE","Pašreizējais datums");//Current date (New)
 define("_SHOWHELP","Displejs palīdzēs saites");//Display help links
 define("_ALLOWUSERANSERALLRONG","Ļaut skolēniem pārtaisīt tikai nepareizi atbildēja");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Tikai tad, ja testa atkārtojumos ir atļauts");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Pārtaisīt tikai nepareizi atbildēja");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Noklusētā tēma nevar inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Piekļuves beidzies");//Access expired (New)
+define("_LESSONSCHEDULE","Nodarbības grafiks");//Lessons schedule (New)
+define("_COURSESTARTSAT","Kurss sākas");//The course starts on (New)
+define("_COURSEENDSAT","Kurss beidzas");//The course ends on (New)
+define("_ENDDATE","Beigu datums");//End date (New)
+define("_SELECTSKILLCATEGORY","Izvēlēties prasmes kategoriju");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Neviena galvenes rindā tika noteikts, vai header nav saderīga ar ievešanas veidam");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Importētie lietotāju");//Imported user
 define("_USERSTOCOURSES","Lietotāju kursi");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Jebkas atzītas");//Anything recognized
 define("_DATATOIMPORT","Datu imports");//Data to import
 define("_SUCCESSFULLIMPORTS","veiksmīga imports");//successfull imports
 define("_FAILEDIMPORTS","nav imports");//failed imports
-define("_REPLACEDUSER","Aizstāts lietotāju");//Replaced user
+define("_REPLACEDUSER","Aizstāts lietotāju");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Fails nesatur nepieciešamo kolonnu");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Punktu aizstāj esošo piešķiršana");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Jaunu kursu uzdevums");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Kupons");//Coupon
 define("_INVALIDCOUPON","Nederīgs kupons");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Noklikšķiniet, lai ievadītu atlaides kuponu");//Click to enter discount coupon
 define("_TESTREDONE","Labots");//Corrected
+define("_CURRICULUMS","Mācību programmas");//Curricula (New)
+define("_CURRICULUM","Programma");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Piešķirt mācību grupai lietotājiem");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Piešķirt mācību lietotāju");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Pievienot mācību");//Add curriculum (New)
+define("_EDITCURRICULUM","Rediģēt mācību");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Neizdevās atrast kursu");//Could not find course
 define("_IMPORTRESULTSFOR","Importa rezultāti");//Import results for
+define("_COUPONUSAGE","Kupona lietošanas");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","Jauno paypal maksājumu");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","Jauns atlikuma maksājums");//New balance payment (New)
+define("_USEDCOUPON","Izmanto kuponu");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Payed ar bilanci");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Payed ar paypal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Jums ir jāaizpilda visi testi");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","Noņemt &lt;script&gt; tagus no POST");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Novirzīt lietotājam pēc pieteikšanās uz");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Lietotāja stunda katalogs");//User's lesson catalog (New)
+define("_USERDASHBOARD","Lietotāja paneļa");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","Nav nosaukuma paredzēts darba apraksts");//No title provided for job description (New)
+define("_EDITORTYPE","Redaktors tips");//Editor type (New)
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Rādīt tikai ziņu pēc iesniegšanas testa");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Šis tests ir iesniegta veiksmīgi");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Mācības statuss");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","nav e-pasta adresi");//has not an e-mail address (New)
+define("_FEEDBACK","Atsauksmes");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Ievietojiet lietotājus grupā");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Ievietot jaunu grupu");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Ievietot esošai grupai");//Insert into existing group (New)
+define("_NEWGROUPNAME","Jauns grupas nosaukums");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Jums vajadzētu vai nu atlasiet esošo grupu, vai arī sniedz jaunas grupas nosaukums");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Iesniegt un rediģēt grupas");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Meklēt lietotājus pievienot grupai");//Search users to add to group (New)
+define("_AFTER","Pēc");//After (New)
+define("_BEFORE","Pirms");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Piedalīšanās visu grupas kursi lietotāji");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Līdzdalība grupas lietotājiem sistēmas kursi");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Purge žurnāli");//Purge logs (New)
+define("_LOGSSIZE","Baļķi izmērs");//Logs size (New)
+define("_OLDESTLOG","Vecākie žurnāla ierakstu");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Purge žurnāli vecāki par");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Veiksmīgi iztīra žurnāli");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Tikai% x struktūras, kur apstrādā, kas ir robeža, lai šīs operācijas");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Jūs nevarat piešķirt lietotājiem šo mācību programmu, jo tā nav kursi");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Curriculum īpašības");//Curriculum properties (New)
+define("_ENTRIES","Ieraksti");//Entries (New)
+define("_ENTERPRISEOPTIONS","Uzņēmējdarbības iespējas");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Rādīt organizācijas diagrammu lietotājiem");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Rādīt personas forma lietotājiem");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Parādīt nav piešķirts lietotājiem uzraugiem");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Atļaut lietotājiem dzēst vadītājam koplietojamo failus");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","mana forma");//my Form (New)
+define("_CLEARQUERYCACHE","Skaidrs query cache");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Atsauksmes iespējas");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Iespējas atsauksmes");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Nesen pabeigta atsauksmes");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfigurācijas failu (bibliotēkas / phplivedocx_config.php) nav rakstāms. Jebkuras izmaiņas jūs izdarīt livedocx konfigurācija netika saglabāti");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Reset progress datu");//Reset progress data (New)
+define("_DEBUGMODE","Atkļūdošanas režīmā");//Debug mode (New)
+define("_GENERALSETTINGS","Vispārīgos uzstādījumus");//General settings (New)
+define("_FINISHLESSONMESSAGE","Apsveicam! Esat beidzis stunda. Lūdzu, izvēlieties vietu, kur doties tagad:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Nākamā stunda");//Next lesson (New)
+define("_LESSONFINISHED","Nodarbība pabeigts");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Jums ir pēdējā stunda jūs varat apmeklēt");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Atgriezeniskā saite ir darīts");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Rīkoties, lai atsauksmes");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Veiksmīgi izmaiņas atsauksmes");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Atsauksmes sākās");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","Saņēmēji ir izvēlēti pēc sistēmas saskarni, saskaņā ar notikumu. <BR> - "._NEWSURVEY .": Saņēmēji ir lietotāji, kas piedalās apsekojumā. <BR> - "._ONJOBASSIGNMENT .": saņēmējiem ir vadītājs izvēlas darbinieks. <BR> - "._PROJECTEXPIRY .": Saņēmēji ir lietotāji, kas piešķirti projektu.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Uzņemti");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Darba neeksistē");//Job does not exist (New)
+define("_SEARCHFORUSER","");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","");//Search criteria (New)
+define("_SUBMITFEEDBACK","");//Submit feedback (New)
+define("_FEEDBACKRESULTS","");//Feedback results (New)
+define("_PASSWORDREMINDER","");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","");//Showing (New)
+define("_MATERIALINPROGRESS","");//Material in progress (New)
+define("_ALLMATERIAL","");//All material (New)
+define("_CACHEENTRYNOTFOUND","");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","");//Notifications size (New)
+define("_OLDESTNOTIFICATION","");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","");//Purge notifications older than (New)
+define("_CURRENTUSERS","");//Current (New)
+define("_SELECTEDCOURSES","");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it is not installed (New)
 ?>

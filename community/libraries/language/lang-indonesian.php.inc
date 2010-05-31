@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Cabang merekam");//Branch record
 define("_BRANCHDATAUPDATED","Cabang data Diperbaharui");//Branch data updated
 define("_FATHERBRANCH","Bapa cabang");//Father branch
 define("_HCD","Human Capital Development");//Human Capital Development
-define("_ORGANISATIONCHART","Bagan organisasi");//Organisation chart
+define("_ORGANISATIONCHART","Bagan organisasi");//Organization chart
 define("_CANDIDATES","Kandidat");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Cabang berhasil dibuat");//Branch was successfully created
 define("_ATBRANCH","di cabang");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Memberikan keterampilan");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Arahkan pengguna keahlian");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Tidak ada kantor cabang telah terdaftar");//No branches have been registered
 define("_ORGANIZATION","Organisasi");//Organization
-define("_SEARCHFOREMPLOYEE","Mencari pengguna [Organisasi kriteria]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Mencari pengguna [Organisasi kriteria]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Tidak ada subforums ditetapkan dalam forum ini");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Anda tidak dapat memposting pesan baru karena topik ini atau forum terkunci");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Pilih uji");//Choose test
 define("_USERPROFILE","Profil pengguna");//Public profile
 define("_VIEWBRANCHES","Lihat cabang");//View branches
 define("_NOEMPLOYEESFOUND","Tidak ada pengguna yang ditemukan");//No users were found
-define("_SEARCHEMPLOYEE","Cari pengguna");//Search user
+define("_SEARCHEMPLOYEE","Cari pengguna");//Find users
 define("_ALLBRANCHES","Semua cabang");//All branches
 define("_ANSWERS","Jawaban");//Answers
 define("_GROUPDOESNOTEXIST","Grup yang tidak ada");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Profesor dari pelajaran");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Anda hanya cabang supervisor");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Posisi pekerjaan lainnya dari cabang");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Mengirim pesan ke semua pengguna ditemukan");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Mencari pengguna [Course kriteria]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Mencari pengguna [Course kriteria]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Selesai tanggal");//Completion date
 define("_YEAR","Tahun");//Year
 define("_NOTASSIGNED","Namun tidak ditugaskan");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Perizinan");//Permissions
 define("_UNSHARE","Membatalkan berbagi");//Cancel sharing
 define("_UNSHARESELECTED","Membatalkan berbagi file");//Cancel sharing of selected files
 define("_SHARESELECTED","Share file");//Share selected files
-define("_YOUDONTHAVEPERMISSION","You don t memiliki izin untuk melakukan tindakan yang dipilih");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","You don t memiliki izin untuk melakukan tindakan yang dipilih");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Ekspor");//Export
 define("_NOMODULECLASSFOUND","Modul kelas tidak ditemukan dengan nama");//No module class found with name
 define("_ERRORLOADINGMODULE","Kesalahan saat mengambil modul");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Bahasa berhasil dibuat");//The language was
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Bahasa berhasil diubah");//The language was successfully updated
 define("_LANGUAGES","Bahasa");//Languages
 define("_SERIALRULE","User harus melihat konten dalam serial agar");//Users must see content in a serial order
-define("_TREERULE","User harus mengisi cabang s node sebelum pindah ke yang berikutnya");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","User harus mengisi cabang s node sebelum pindah ke yang berikutnya");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Menambahkan aturan adat");//Add custom rule
 define("_ADDREADYRULE","Siap menambahkan aturan");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Berikut pengguna tidak dapat diimpor");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Tidak ada unit");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Tidak ada sistem pengumuman");//There are no system announcements
-define("_NOONELOGGEDIN","Tidak ada satu-saat ini terhubung");//Noone is currently connected
+define("_NOONELOGGEDIN","Tidak ada satu-saat ini terhubung");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Masukkan alamat email anda");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Masukkan subjek pesan");//Enter the message subject
 define("_ENTERMESSAGE","Masukkan pesan");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Archived on");//Archived on
 define("_RESTORESELECTED","Restore selected");//Restore selected
 define("_ARCHIVEENTITY","Arsip");//Archive
 define("_LOADMATHTYPESASIMAGES","Tampilan jenis matematika sebagai gambar");//Display math types as images
-define("_MATHIMAGESINFO","Direkomendasikan untuk Internet Explorer 8. Anda juga telah menghapus cache browser");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Direkomendasikan untuk Internet Explorer 8. Anda juga telah menghapus cache browser");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategori kursus");//Category courses
 define("_GROUPROLE","Common kelompok peran");//Group common role
 define("_GROUPONLY","Group");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Course profesor");//Course professors
 define("_PROFESSORSOFCOURSE","Profesor tentu");//Professors of course
 define("_USERSUPERVISORS","Pengguna supervisor");//User supervisors
 define("_USEROPTIONSFOR","Pilihan untuk pengguna");//Options for user
-define("_MYSTATUS","Belajar saya Status");//my Learning Status
+define("_MYSTATUS","Belajar saya Status");//my Learning status
 define("_MYCOURSES","Kursus saya");//my Courses
 define("_CERTIFICATIONS","Sertifikat");//Certificates
 define("_MYCERTIFICATIONS","Sertifikat saya");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Tidak ada sertifikat telah dikeluarka
 define("_SUPERVISORTOACTIVATE","Untuk dapat diaktifkan oleh pembimbing");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Tidak ada cabang supervisor ditemukan");//No branch supervisors found
 define("_PRINTCONTENT","Konten Cetak");//Print content
-define("_USERHASNOTDONETEST","Pengguna ini belum dilakukan uji");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Harap verifikasi bahwa informasi berikut benar");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Tidak ada kategori yang didefinisikan");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Supervisor email aktivasi");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Karyawan email aktivasi account");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Email ini memungkinkan Anda untuk mengaktifkan sistem baru pengguna");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","ditugaskan cabang");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","pekerjaan dengan posisi");//with the job description
 define("_BYCLICKINGONTHELINK","dengan mengklik link berikut");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Rekening karyawan Anda telah berhasil diaktifkan");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Mengaktifkan nama field supervisor");//Activati
 define("_LEAVEEMPTYTONOTUSE","Biarkan kosong untuk ommit");//Leave empty to ommit
 define("_PLEASESELECT","Silahkan pilih");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Pembimbing anda akan mengaktifkan account Anda");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Parameter tidak valid");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Impor IMS Konten");//Import IMS Content
 define("_IMSEXPORT","Ekspor IMS Konten");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Disembunyikan dari pengguna");//Hidden from users
 define("_RESETSCORMDATA","Reset data pengguna");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Pengaturan lanjutan");//Advanced settings
+define("_ADDINSTANCE","Tambahkan contoh");//Add instance (New)
+define("_INSTANCE","Contoh");//Instance (New)
+define("_COURSECODE","Kode program");//Course code (New)
+define("_TRAININGHOURS","Pelatihan jam");//Training hours (New)
+define("_COURSEINSTANCES","Kursus contoh");//Course instances (New)
+define("_CAPACITY","Kapasitas");//Capacity (New)
+define("_SEATSREMAINING","Kursi sisa");//Seats remaining (New)
+define("_STARTDATE","Tanggal Mulai");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Apakah Anda yakin ingin menghapus hal ini?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Edit contoh");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Misalnya pelajaran");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Instance pengguna");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Misalnya keterampilan");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Pilihan misalnya");//Options for instance (New)
+define("_JUMPTO","Langsung ke");//Jump to (New)
+define("_PARENTCOURSE","Kursus Induk");//Parent Course (New)
+define("_LOCATIONBRANCH","Lokasi (cabang)");//Location (branch) (New)
+define("_SELECTBRANCH","Pilih cabang");//Select branch (New)
+define("_SHARED","Bersama");//Shared (New)
+define("_UNIQUE","Unik");//Unique (New)
+define("_MODE","Mode");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Gunakan hanya program di katalog");//Use only courses in catalog (New)
+define("_ALLJOBS","Semua pekerjaan");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Tampilkan nama dan moto juga pada header");//Show name and motto also on header
+define("_ASSIGNCOURSES","Menetapkan program");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","program Pilih untuk menetapkan ke semua pengguna yang ditemukan");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Tidak ada pengguna telah ditemukan");//No users have been found (New)
+define("_ASSIGNMENT","Tugas");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Setiap di tingkat terendah");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Setiap tepat di atas tingkat terendah");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Tidak ada kursus telah terdaftar");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Tidak ada pelatihan yang dibutuhkan telah ditetapkan belum");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Diperlukan pelatihan");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Kondisi baru pelatihan");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Diperlukan program pelatihan");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Tambahkan pelatihan alternatif");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","Apakah diperlukan pelatihan");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Hasil pencarian di glossary");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Tidak ada hasil yang ditemukan di glossary");//No results found in glossary
+define("_PROJECTSSCORE","Proyek skor");//Projects score (New)
+define("_TESTSSCORE","Tes skor");//Tests score (New)
 define("_AUTOLOGIN","Auto login");//Auto login
 define("_ACCESSLINK","Link akses");//Access link
 define("_AUTOLOGINITHLINK","Pengguna dapat login secara otomatis oleh link");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Default tipe user");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Angkatan menjawab semua pertanyaan mahasiswa");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Anda harus menjawab semua pertanyaan");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Izinkan pelajaran independen");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","No Tanggal terpilih");//No preselected date (New)
+define("_CURRENTDATE","Tanggal Berlaku");//Current date (New)
 define("_SHOWHELP","Tampilan membantu link");//Display help links
 define("_ALLOWUSERANSERALLRONG","Biarkan siswa hanya mengulang menjawab pertanyaan salah");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Hanya jika pengulangan tes diijinkan");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Kembalikan hanya salah menjawab");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Default tema tidak dapat inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Akses kadaluarsa");//Access expired (New)
+define("_LESSONSCHEDULE","Jadwal Pelajaran");//Lessons schedule (New)
+define("_COURSESTARTSAT","Kursus ini dimulai pada");//The course starts on (New)
+define("_COURSEENDSAT","Kursus berakhir pada");//The course ends on (New)
+define("_ENDDATE","Tanggal Akhir");//End date (New)
+define("_SELECTSKILLCATEGORY","Pilih kategori keterampilan");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Tidak ada baris header header didefinisikan atau tidak kompatibel dengan jenis impor");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Impor pengguna");//Imported user
 define("_USERSTOCOURSES","Pengguna program");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Apa pun yang diakui");//Anything recognized
 define("_DATATOIMPORT","Impor data ke");//Data to import
 define("_SUCCESSFULLIMPORTS","sukses impor");//successfull imports
 define("_FAILEDIMPORTS","impor gagal");//failed imports
-define("_REPLACEDUSER","Ganti pengguna");//Replaced user
+define("_REPLACEDUSER","Ganti pengguna");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","File ini tidak berisi kolom yang diperlukan");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Ganti ada tugas");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Baru saja tugas");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Kupon");//Coupon
 define("_INVALIDCOUPON","Kupon tidak valid");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Klik untuk memasukkan kupon diskon");//Click to enter discount coupon
 define("_TESTREDONE","Dikoreksi");//Corrected
+define("_CURRICULUMS","Kurikulum");//Curricula (New)
+define("_CURRICULUM","Kurikulum");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Menetapkan kurikulum ke grup pengguna");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Menetapkan kurikulum untuk pengguna");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Tambahkan kurikulum");//Add curriculum (New)
+define("_EDITCURRICULUM","Edit kurikulum");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Tidak dapat menemukan program");//Could not find course
 define("_IMPORTRESULTSFOR","Impor hasil untuk");//Import results for
+define("_COUPONUSAGE","Kupon penggunaan");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","Baru paypal pembayaran");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","Baru neraca pembayaran");//New balance payment (New)
+define("_USEDCOUPON","Digunakan kupon");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Payed dengan saldo");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Dibayar dengan paypal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Anda harus mengisi semua tes");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","&lt;script&gt; Menghapus tag dari POST");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Redirect pengguna setelah login ke");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Pengguna pelajaran katalog");//User's lesson catalog (New)
+define("_USERDASHBOARD","Pengguna dashboard");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","Tidak ada judul diberikan untuk deskripsi pekerjaan");//No title provided for job description (New)
+define("_EDITORTYPE","Editor jenis");//Editor type (New)
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Tampilkan hanya setelah mengirim pesan uji");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Tes ini telah berhasil diajukan");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Belajar Status");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","tidak mempunyai alamat e-mail");//has not an e-mail address (New)
+define("_FEEDBACK","Saran atau masukan");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Masukkan user ke dalam grup");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Masukkan ke dalam grup baru");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Masukkan ke grup yang sudah ada");//Insert into existing group (New)
+define("_NEWGROUPNAME","Nama grup baru");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Anda juga harus memilih grup yang sudah ada atau memberikan nama grup baru");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Kirim dan mengedit grup");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Pencarian untuk menambahkan pengguna ke grup");//Search users to add to group (New)
+define("_AFTER","Setelah");//After (New)
+define("_BEFORE","Sebelum");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Partisipasi dari semua pengguna dalam program kelompok");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Partisipasi pengguna kelompok dalam mata kuliah sistem");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Purge log");//Purge logs (New)
+define("_LOGSSIZE","Log ukuran");//Logs size (New)
+define("_OLDESTLOG","Terlama log masuk");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Purge log lebih tua dari");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Berhasil dibersihkan log");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Hanya% x entitas mana diproses, yang merupakan batas untuk operasi ini");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Anda tidak dapat menetapkan pengguna untuk kurikulum ini karena tidak memiliki program");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Kurikulum sifat");//Curriculum properties (New)
+define("_ENTRIES","Entries");//Entries (New)
+define("_ENTERPRISEOPTIONS","Pilihan Enterprise");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Tampilkan bagan organisasi kepada pengguna");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Tampilkan pribadi formulir pengguna");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Tampilkan ditugaskan pengguna untuk supervisor");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Bolehkan pengguna untuk menghapus supervisor berbagi file");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","Formulir saya");//my Form (New)
+define("_CLEARQUERYCACHE","Hapus cache query");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Tanggapan pilihan");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Pilihan untuk umpan balik");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Baru saja selesai umpan balik");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","LiveDocx file konfigurasi PHP (perpustakaan / phplivedocx_config.php) tidak dapat ditulis. Perubahan apapun yang Anda lakukan pada konfigurasi livedocx tidak disimpan");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Reset data kemajuan");//Reset progress data (New)
+define("_DEBUGMODE","Mode debug");//Debug mode (New)
+define("_GENERALSETTINGS","Pengaturan umum");//General settings (New)
+define("_FINISHLESSONMESSAGE","Selamat! Anda telah menyelesaikan pelajaran. Silakan pilih tempat untuk pergi sekarang:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Next pelajaran");//Next lesson (New)
+define("_LESSONFINISHED","Pelajaran selesai");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Anda berada di pelajaran terakhir Anda dapat mengunjungi");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Umpan balik dilakukan");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Lanjutkan ke umpan balik");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Berhasil diubah umpan balik");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Saran atau masukan dimulai pada");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","Para penerima dipilih oleh sistem antarmuka sesuai dengan acara tersebut. <BR> - "._NEWSURVEY .": Penerima adalah pengguna yang berpartisipasi dalam survei. <BR> - "._ONJOBASSIGNMENT .": Penerima adalah pengawas dipilih oleh karyawan. <BR> - "._PROJECTEXPIRY .": Penerima adalah pengguna yang telah ditetapkan proyek.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Terdaftar pada");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Ayub tidak ada");//Job does not exist (New)
+define("_SEARCHFORUSER","Cari pengguna [Profil kriteria]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Kriteria Pencarian");//Search criteria (New)
+define("_SUBMITFEEDBACK","Kirim umpan balik");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Saran atau masukan hasil");//Feedback results (New)
+define("_PASSWORDREMINDER","Pengingat katasandi");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","Harus menyelesaikan semua tes");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Saran atau masukan laporan");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Pilih umpan balik");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Laporan umpan balik");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","Saat ini browsing folder");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Menampilkan");//Showing (New)
+define("_MATERIALINPROGRESS","Bahan dalam proses");//Material in progress (New)
+define("_ALLMATERIAL","material");//All material (New)
+define("_CACHEENTRYNOTFOUND","Catatan Cache tidak ditemukan");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","Catatan Cache kadaluarsa");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","Catatan Cache tidak valid");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","Purge pemberitahuan");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","Notifikasi ukuran");//Notifications size (New)
+define("_OLDESTNOTIFICATION","Terlama pemberitahuan");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","Purge lebih tua dari pemberitahuan");//Purge notifications older than (New)
+define("_CURRENTUSERS","Arus");//Current (New)
+define("_SELECTEDCOURSES","Dipilih program");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","file Modul hadir, tetapi tidak diinstal");//Module files are present, but it is not installed (New)
 ?>

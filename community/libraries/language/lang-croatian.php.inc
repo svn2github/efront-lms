@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Ispostava rekord");//Branch record
 define("_BRANCHDATAUPDATED","Ispostava podataka ažuriran");//Branch data updated
 define("_FATHERBRANCH","Otac grana");//Father branch
 define("_HCD","Human Capital Development");//Human Capital Development
-define("_ORGANISATIONCHART","Organisation chart");//Organisation chart
+define("_ORGANISATIONCHART","Organisation chart");//Organization chart
 define("_CANDIDATES","Kandidati");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Smjer je uspješno kreirana");//Branch was successfully created
 define("_ATBRANCH","na grani");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Dodijeli vještina");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Raspoređivati uposlene vještine");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nema grane su registrirani");//No branches have been registered
 define("_ORGANIZATION","Organizacija");//Organization
-define("_SEARCHFOREMPLOYEE","Search for zaposlenika [Organizacija kriterije]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Search for zaposlenika [Organizacija kriterije]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Nema subforums definiran u ovom forumu");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Ne možete postavljati nove poruke, jer ovu temu ili forum je zaključana");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Odaberite test");//Choose test
 define("_USERPROFILE","Korisnički profil");//Public profile
 define("_VIEWBRANCHES","Pogledaj grane");//View branches
 define("_NOEMPLOYEESFOUND","Br. zaposlenih su pronađeni");//No users were found
-define("_SEARCHEMPLOYEE","Search zaposlenika");//Search user
+define("_SEARCHEMPLOYEE","Search zaposlenika");//Find users
 define("_ALLBRANCHES","Sve grane");//All branches
 define("_ANSWERS","Answers");//Answers
 define("_GROUPDOESNOTEXIST","Grupa ne postoji");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Profesori lekciju");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Samo Vaše poslovnice nadzorinici");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Posao opisima iz drugih grana");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Pošaljite poruke na sve zaposlenike found");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Search for zaposlenika [Tečaj kriterije]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Search for zaposlenika [Tečaj kriterije]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Completion date");//Completion date
 define("_YEAR","Godina");//Year
 define("_NOTASSIGNED","Not yet dodijeljen");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Dozvole");//Permissions
 define("_UNSHARE","Poništi dijeljenje");//Cancel sharing
 define("_UNSHARESELECTED","Poništi dijeljenje odabrane datoteke");//Cancel sharing of selected files
 define("_SHARESELECTED","Podijelite odabrane datoteke");//Share selected files
-define("_YOUDONTHAVEPERMISSION","You don \"t imati dozvolu za obavljanje odabrane akcije");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","You don \"t imati dozvolu za obavljanje odabrane akcije");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Export");//Export
 define("_NOMODULECLASSFOUND","Nije pronađen modul klase s imenom");//No module class found with name
 define("_ERRORLOADINGMODULE","Error loading module");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Jezik je uspješno kreirana");//The languag
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Jezik je uspješno ažuriran");//The language was successfully updated
 define("_LANGUAGES","Jezici");//Languages
 define("_SERIALRULE","Korisnici moraju vidjeti sadržaj u serijske narudžbe");//Users must see content in a serial order
-define("_TREERULE","Korisnici moraju popuniti grani \"s čvorovi prije premještanja na sljedeći jedan");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Korisnici moraju popuniti grani \"s čvorovi prije premještanja na sljedeći jedan");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Dodaj prilagođeni vladavine");//Add custom rule
 define("_ADDREADYRULE","Dodaj spremni vladavine");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Sljedeći korisnik se ne može uvesti");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Ništa jedinica");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Nema sustava najave");//There are no system announcements
-define("_NOONELOGGEDIN","Nitko nije trenutno prijavljeni");//Noone is currently connected
+define("_NOONELOGGEDIN","Nitko nije trenutno prijavljeni");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Unesite adresu e-pošte koju");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Unesite predmet poruke");//Enter the message subject
 define("_ENTERMESSAGE","Unesite poruku");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Arhivirano na");//Archived on
 define("_RESTORESELECTED","Vrati odabrane");//Restore selected
 define("_ARCHIVEENTITY","Arhiva");//Archive
 define("_LOADMATHTYPESASIMAGES","Prikaz matematičkih vrste kao slike");//Display math types as images
-define("_MATHIMAGESINFO","Preporučeno za Internet Explorer 8. Također morate izbrisati predmemoriju preglednika");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Preporučeno za Internet Explorer 8. Također morate izbrisati predmemoriju preglednika");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategorija tečajevi");//Category courses
 define("_GROUPROLE","Grupa zajedničkih uloga");//Group common role
 define("_GROUPONLY","Grupa");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Tečaj profesori");//Course professors
 define("_PROFESSORSOFCOURSE","Profesori naravno");//Professors of course
 define("_USERSUPERVISORS","Korisnik supervizori");//User supervisors
 define("_USEROPTIONSFOR","Opcije za korisnika");//Options for user
-define("_MYSTATUS","moje učenje Status");//my Learning Status
+define("_MYSTATUS","moje učenje Status");//my Learning status
 define("_MYCOURSES","moj Tečajevi");//my Courses
 define("_CERTIFICATIONS","Certifikati");//Certificates
 define("_MYCERTIFICATIONS","moj Certifikati");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Nema certifikati su izdani za još ko
 define("_SUPERVISORTOACTIVATE","Da bi se aktivira nadzornik");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Nema branch supervizori pronađena");//No branch supervisors found
 define("_PRINTCONTENT","Ispiši sadržaj");//Print content
-define("_USERHASNOTDONETEST","Korisnik nije to učinio test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Molimo provjerite da se sljedeće informacije točne");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nema kategorije definirane");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Supervisor e-mail aktivaciju");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Zaposlenik računa aktivacijsku email");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Ova e-mail omogućava vam da biste aktivirali novi sustav korisnika");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","dodijeljena na granu");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","uz opis radnog mjesta");//with the job description
 define("_BYCLICKINGONTHELINK","klikom na sljedeći link");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Račun vaših zaposlenika uspješno je aktiviran");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Horizontal bar");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktiviranje ime nadzornika polje");//Activating
 define("_LEAVEEMPTYTONOTUSE","Ostavite prazno za ommit");//Leave empty to ommit
 define("_PLEASESELECT","Molimo odaberite");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Vaša supervizor će aktivirati Vaš račun");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Nevažeći parametar");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Uvoz IMS Content");//Import IMS Content
 define("_IMSEXPORT","Izvoz IMS Content");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Skriven od korisnika");//Hidden from users
 define("_RESETSCORMDATA","Reset korisnički podaci");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Napredne postavke");//Advanced settings
+define("_ADDINSTANCE","Dodaj primjer");//Add instance (New)
+define("_INSTANCE","Primjer");//Instance (New)
+define("_COURSECODE","Šifra predmeta");//Course code (New)
+define("_TRAININGHOURS","Trening sata");//Training hours (New)
+define("_COURSEINSTANCES","Tečaj instanci");//Course instances (New)
+define("_CAPACITY","Kapacitet");//Capacity (New)
+define("_SEATSREMAINING","Sjedala preostalih");//Seats remaining (New)
+define("_STARTDATE","Početni datum");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Jeste li sigurni da želite izbrisati ovaj primjer?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Uredi primjer");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Instance sati");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Instance korisnika");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Instance vještine");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Opcije za primjer");//Options for instance (New)
+define("_JUMPTO","Skoči na");//Jump to (New)
+define("_PARENTCOURSE","Roditelj tečaj");//Parent Course (New)
+define("_LOCATIONBRANCH","Mjesto (ogranak)");//Location (branch) (New)
+define("_SELECTBRANCH","Odaberite grana");//Select branch (New)
+define("_SHARED","Zajednička");//Shared (New)
+define("_UNIQUE","Jedinstven");//Unique (New)
+define("_MODE","Način");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Koristite samo tečajeve u katalogu");//Use only courses in catalog (New)
+define("_ALLJOBS","Svi poslovi");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Pokaži ime i geslo i na zaglavlje");//Show name and motto also on header
+define("_ASSIGNCOURSES","Dodijeli tečajevi");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","Odaberite tečajevi dodijeliti svim korisnicima pronađena");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Nema korisnika koji su pronađeni");//No users have been found (New)
+define("_ASSIGNMENT","Dodjela");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Bilo na najnižoj razini");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Bilo odmah iznad najniže razine");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Nema tečajevi su registrirani");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Ne zahtijeva obuke je definirana još");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Potrebna obuka");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Novi trening uvjet");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Potrebna tečajeva");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Dodaj alternativni trening");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","Je li potrebna obuka");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Rezultati pretrage pojmovnik");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Nema rezultata u glosar");//No results found in glossary
+define("_PROJECTSSCORE","Projekti bodova");//Projects score (New)
+define("_TESTSSCORE","Testovi bodova");//Tests score (New)
 define("_AUTOLOGIN","Automatska prijava");//Auto login
 define("_ACCESSLINK","Pristup link");//Access link
 define("_AUTOLOGINITHLINK","User login može automatski povezati");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Pretpostavljeno korisničko tip");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force učenik odgovoriti na sva pitanja");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Morate odgovoriti na sva pitanja");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Dopustiti neovisan sati");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","Bez prethodno odabranih dana");//No preselected date (New)
+define("_CURRENTDATE","Trenutni datum");//Current date (New)
 define("_SHOWHELP","Prikaz pomoć linkovi");//Display help links
 define("_ALLOWUSERANSERALLRONG","Omogućiti učenicima da Ponovi samo krivo odgovorena pitanja");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Samo ako se test ponavljanja dozvoljeni");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Ponovi samo krivo odgovorio");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Defaultni predložak ne može biti inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Pristup je istekao");//Access expired (New)
+define("_LESSONSCHEDULE","Lekcije raspored");//Lessons schedule (New)
+define("_COURSESTARTSAT","Tečaj počinje u");//The course starts on (New)
+define("_COURSEENDSAT","Tečaj završava u");//The course ends on (New)
+define("_ENDDATE","Krajnji datum");//End date (New)
+define("_SELECTSKILLCATEGORY","Izaberite kategoriju skill");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nema zaglavlju je definirana ili nije kompatibilan sa zaglavlja uvoz tipa");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Uvezena korisnik");//Imported user
 define("_USERSTOCOURSES","Korisnici na tečajeve");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Sve priznate");//Anything recognized
 define("_DATATOIMPORT","Podaci za uvoz");//Data to import
 define("_SUCCESSFULLIMPORTS","uspješno uvoza");//successfull imports
 define("_FAILEDIMPORTS","nije uvoz");//failed imports
-define("_REPLACEDUSER","Zamijenjeni korisnika");//Replaced user
+define("_REPLACEDUSER","Zamijenjeni korisnika");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Datoteka ne sadrži potrebne stupce");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Zamijenjeni postojeće dodjele");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Novi tečaj dodjela");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Kupon");//Coupon
 define("_INVALIDCOUPON","Neispravan kupon");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Kliknite za unos kupon");//Click to enter discount coupon
 define("_TESTREDONE","Ispravljena");//Corrected
+define("_CURRICULUMS","Nastavni planovi i programi");//Curricula (New)
+define("_CURRICULUM","Nastavni plan");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Dodjeljivanje kurikuluma u grupu korisnika");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Dodjeljivanje nastavnog plana i programa korisnika");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Dodaj kurikulum");//Add curriculum (New)
+define("_EDITCURRICULUM","Uredi kurikulum");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Ne mogu pronaći tečaj");//Could not find course
 define("_IMPORTRESULTSFOR","Uvoz rezultate za");//Import results for
+define("_COUPONUSAGE","Kupon korištenja");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","Novi Paypal uplate");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","Nova bilanca plaćanja");//New balance payment (New)
+define("_USEDCOUPON","Koristi kupon");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Plaća se sa stanjem");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Plaća se s PayPal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Morate ispuniti sve testove");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","Uklonite oznaku iz &lt;script&gt; POST");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Preusmjeravanje nakon što korisnik Pristup za");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Korisnikov sat katalog");//User's lesson catalog (New)
+define("_USERDASHBOARD","Korisnik nadzornu ploču");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","Bez naslova predviđena opis radnog mjesta");//No title provided for job description (New)
+define("_EDITORTYPE","Editor Tip");//Editor type (New)
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Prikaži samo poruke nakon slanja testa");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Ovaj test je uspješno poslan");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Učenje Status");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","nije e-mail adresu");//has not an e-mail address (New)
+define("_FEEDBACK","Ocjena");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Umetnite korisnik u skupini");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Umetnuti u novu grupu");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Umetanje u postojeću grupu");//Insert into existing group (New)
+define("_NEWGROUPNAME","Novi naziv grupe");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Te oba trebaju odabrati postojeću grupu ili dati novi naziv grupe");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Pošaljite i uredi grupe");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Traži korisnik dodati u grupu");//Search users to add to group (New)
+define("_AFTER","Nakon");//After (New)
+define("_BEFORE","Prije");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Sudjelovanje svih korisnika u tečajevima grupe");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Sudjelovanje korisnika u skupini kolegija sustava");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Purge logove");//Purge logs (New)
+define("_LOGSSIZE","Evidencije veličini");//Logs size (New)
+define("_OLDESTLOG","Najstarije zapisnika");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Purge logove stariji od");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Uspješno očišćen logove");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Samo% x osobe kojoj obrađuju, što je granica za ovu operaciju");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Ne možete dodijeliti korisnicima na ovaj program jer nema kolegija");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Curriculum nekretnine");//Curriculum properties (New)
+define("_ENTRIES","Ulaz");//Entries (New)
+define("_ENTERPRISEOPTIONS","Enterprise opcije");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Pokaži organizacijskog grafikona za korisnike");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Pokaži osobni obrasca za korisnike");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Pokaži nepripadna korisnika za nadzornike");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Dopustiti korisnik to udio kartoteka izbrisati nadzornika");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","moj Obrazac");//my Form (New)
+define("_CLEARQUERYCACHE","Clear cache upit");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Povratna opcija");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Opcije za povratne informacije");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Nedavno završeno komentar");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfiguracijsku datoteku (libraries / phplivedocx_config.php) se ne može pisati. Promjene koje je napravio to livedocx konfiguracije nisu bili spremljeni");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Reset napredak podataka");//Reset progress data (New)
+define("_DEBUGMODE","Debug način rada");//Debug mode (New)
+define("_GENERALSETTINGS","Opće postavke");//General settings (New)
+define("_FINISHLESSONMESSAGE","Čestitamo! Imate završio sat. Molimo odaberite mjesto za ići sada:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Sljedeći sat");//Next lesson (New)
+define("_LESSONFINISHED","Obrazovni završio");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Vi ste na posljednjoj lekciji možete posjetiti");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Ukupno je učinjeno");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Nastavite na komentar");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Uspješno promjene komentar");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Povratna počela u");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","Primatelji su odabrani od strane sustava sučelje prema događaj. <BR> - "._NEWSURVEY .": Primatelji su korisnika koji sudjeluju u anketi. <BR> - "._ONJOBASSIGNMENT .": primatelja je supervizor odabrao zaposlenika. <BR> - "._PROJECTEXPIRY .": Primatelji su korisnici koji su dodijeljeni projekt.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Upisani na");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Posao ne postoji");//Job does not exist (New)
+define("_SEARCHFORUSER","Nađi korisnika [Profil kriterije]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Kriterije pretrage");//Search criteria (New)
+define("_SUBMITFEEDBACK","Pošaljite komentar");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Ukupno rezultata");//Feedback results (New)
+define("_PASSWORDREMINDER","Podsjetnik za zaporku");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","Potrebno je dovršiti testove");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Ocjena izvješća");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Odaberite komentar");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Izvješće za povratne informacije");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","Trenutno pregledavate mapu");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Pokazivanje");//Showing (New)
+define("_MATERIALINPROGRESS","Materijal u tijeku");//Material in progress (New)
+define("_ALLMATERIAL","Svi materijali");//All material (New)
+define("_CACHEENTRYNOTFOUND","Cache ulaz nije pronađena");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","Cache ulaz je istekao");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","Cache ulaz je neispravno");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","Purge obavijesti");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","Obavijesti veličini");//Notifications size (New)
+define("_OLDESTNOTIFICATION","Najstarije obavijesti");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","Purge obavijesti stariji od");//Purge notifications older than (New)
+define("_CURRENTUSERS","Struja");//Current (New)
+define("_SELECTEDCOURSES","Odabrana tečajevi");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","Modul datoteke su prisutni, ali to nije instaliran");//Module files are present, but it is not installed (New)
 ?>

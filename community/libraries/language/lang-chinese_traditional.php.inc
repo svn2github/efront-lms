@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","科創紀錄");//Branch record
 define("_BRANCHDATAUPDATED","分行的資料更新");//Branch data updated
 define("_FATHERBRANCH","父親科");//Father branch
 define("_HCD","人力資本開發");//Human Capital Development
-define("_ORGANISATIONCHART","組織架構圖");//Organisation chart
+define("_ORGANISATIONCHART","組織架構圖");//Organization chart
 define("_CANDIDATES","候選人");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","科已成功建立");//Branch was successfully created
 define("_ATBRANCH","在科");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","轉讓的技術");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","指派使用者技能");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","沒有分行已登記");//No branches have been registered
 define("_ORGANIZATION","組織");//Organization
-define("_SEARCHFOREMPLOYEE","搜尋為使用者[組織準則]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","搜尋為使用者[組織準則]");//Find users [Organization criteria]
 define("_SUBFORUMS","subforums");//Subforums
 define("_NOSUBFORUMSFOUND","有沒有subforums界定在這個討論版");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","您無法張貼任何新的訊息，因為這個題目或討論版被鎖定");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","選擇測驗");//Choose test
 define("_USERPROFILE","個人資訊");//Public profile
 define("_VIEWBRANCHES","鑑於黨支部");//View branches
 define("_NOEMPLOYEESFOUND","沒有使用者被發現");//No users were found
-define("_SEARCHEMPLOYEE","搜尋使用者");//Search user
+define("_SEARCHEMPLOYEE","搜尋使用者");//Find users
 define("_ALLBRANCHES","所有分行");//All branches
 define("_ANSWERS","答案");//Answers
 define("_GROUPDOESNOTEXIST","該集團不存在");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","教師的課程");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","只有您的分行監事");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","職務說明，從其他科");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","發送資訊給所有使用者發現");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","搜尋為使用者[科目標準]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","搜尋為使用者[科目標準]");//Find users [Course criteria]
 define("_COMPLETIONDATE","竣工日期");//Completion date
 define("_YEAR","年");//Year
 define("_NOTASSIGNED","未分配，但");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","權限");//Permissions
 define("_UNSHARE","取消共享");//Cancel sharing
 define("_UNSHARESELECTED","不共享的文件");//Cancel sharing of selected files
 define("_SHARESELECTED","分享的文件");//Share selected files
-define("_YOUDONTHAVEPERMISSION","您不“噸的權限，執行選定的行動");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","您不“噸的權限，執行選定的行動");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","匯出");//Export
 define("_NOMODULECLASSFOUND","沒有模塊級的發現與名稱");//No module class found with name
 define("_ERRORLOADINGMODULE","錯誤加載模塊");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","語系已成功建立");//The language was 
 define("_SUCCESSFULLYUPDATEDLANGUAGE","語系已成功更新");//The language was successfully updated
 define("_LANGUAGES","語系");//Languages
 define("_SERIALRULE","使用者必須按照課程規則的規定才能看到課程內容");//Users must see content in a serial order
-define("_TREERULE","使用者必須完成的一個分支的“ S節點，然後再轉到下一個");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","使用者必須完成的一個分支的“ S節點，然後再轉到下一個");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","新增自訂規則");//Add custom rule
 define("_ADDREADYRULE","Add ready rule");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","以下使用者無法導入");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","米");//m
 define("_SECONDSSHORTHAND","語");//s
 define("_NONEUNIT","無單位");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","沒有系統公告");//There are no system announcements
-define("_NOONELOGGEDIN","沒有任何使用者登入");//Noone is currently connected
+define("_NOONELOGGEDIN","沒有任何使用者登入");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","請輸入您的電子郵箱地址");//Enter you email address
 define("_ENTERMESSAGESUBJECT","輸入郵件主題");//Enter the message subject
 define("_ENTERMESSAGE","輸入的資訊");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","存檔");//Archived on
 define("_RESTORESELECTED","還原選定");//Restore selected
 define("_ARCHIVEENTITY","檔案");//Archive
 define("_LOADMATHTYPESASIMAGES","數學類型的顯示圖像");//Display math types as images
-define("_MATHIMAGESINFO","推薦的Internet Explorer 8。你還刪除瀏覽器的緩存");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","推薦的Internet Explorer 8。你還刪除瀏覽器的緩存");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","分類課程");//Category courses
 define("_GROUPROLE","集團的共同作用");//Group common role
 define("_GROUPONLY","集團");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","課程教授");//Course professors
 define("_PROFESSORSOFCOURSE","當然，教授");//Professors of course
 define("_USERSUPERVISORS","用戶監督員");//User supervisors
 define("_USEROPTIONSFOR","用戶選項");//Options for user
-define("_MYSTATUS","我的學習狀態");//my Learning Status
+define("_MYSTATUS","我的學習狀態");//my Learning status
 define("_MYCOURSES","我的課程");//my Courses
 define("_CERTIFICATIONS","證書");//Certificates
 define("_MYCERTIFICATIONS","我的證書");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","沒有證書已發給用戶還");//No
 define("_SUPERVISORTOACTIVATE","被激活的監");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","沒有小監督員發現");//No branch supervisors found
 define("_PRINTCONTENT","打印內容");//Print content
-define("_USERHASNOTDONETEST","該使用者已沒有這樣做的測試");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","請確認以下信息是正確的");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","沒有類別定義");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","監電子郵件激活");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","員工帳戶激活電子郵件");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","此電子郵件，您可以啟用新的系統用戶");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","分配到分支");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","與職務說明");//with the job description
 define("_BYCLICKINGONTHELINK","通過點擊下面的鏈接");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","在考慮你的員工已成功啟動");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","單槓");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","激活主管字段名稱");//Activating supervi
 define("_LEAVEEMPTYTONOTUSE","給空的ommit");//Leave empty to ommit
 define("_PLEASESELECT","請選擇");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","你的上級會激活您的帳戶");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","無效的參數");//Invalid parameter (New)
 define("_IMS","IMS的");//IMS
 define("_IMSIMPORT","進口 IMS的內容");//Import IMS Content
 define("_IMSEXPORT","出口IMS的內容");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","工具提示");//Tooltip
 define("_HIDDEN","隱藏用戶");//Hidden from users
 define("_RESETSCORMDATA","重置用戶數據");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","高級設置");//Advanced settings
+define("_ADDINSTANCE","添加實例");//Add instance (New)
+define("_INSTANCE","實例");//Instance (New)
+define("_COURSECODE","課程代碼");//Course code (New)
+define("_TRAININGHOURS","訓練時數");//Training hours (New)
+define("_COURSEINSTANCES","當然實例");//Course instances (New)
+define("_CAPACITY","容量");//Capacity (New)
+define("_SEATSREMAINING","餘下的議席");//Seats remaining (New)
+define("_STARTDATE","開始日期");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","你確定要刪除這個實例？");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","編輯實例");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","實例教訓");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","用戶實例");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","實例技巧");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","例如選項");//Options for instance (New)
+define("_JUMPTO","跳轉到");//Jump to (New)
+define("_PARENTCOURSE","家長課程");//Parent Course (New)
+define("_LOCATIONBRANCH","位置（分支）");//Location (branch) (New)
+define("_SELECTBRANCH","選擇分支");//Select branch (New)
+define("_SHARED","共享");//Shared (New)
+define("_UNIQUE","獨特");//Unique (New)
+define("_MODE","模式");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","僅使用課程目錄");//Use only courses in catalog (New)
+define("_ALLJOBS","所有工作");//All jobs (New)
 define("_SHOWMOTTOONHEADER","顯示名稱和口號也頭");//Show name and motto also on header
+define("_ASSIGNCOURSES","分配課程");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","選擇課程，分配給所有的用戶找到");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","沒有用戶已找到");//No users have been found (New)
+define("_ASSIGNMENT","分配");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","任何在最低水平");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","任何公正高於最低水平");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","沒有已註冊的課程");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","不需培訓已確定尚未");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","所需培訓");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","新的培訓條件");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","所需培訓課程");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","添加替代訓練");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","已要求培訓");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","在詞彙的搜索結果");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","沒有結果發現詞彙");//No results found in glossary
+define("_PROJECTSSCORE","項目評分");//Projects score (New)
+define("_TESTSSCORE","測試評分");//Tests score (New)
 define("_AUTOLOGIN","自動登錄");//Auto login
 define("_ACCESSLINK","訪問鏈接");//Access link
 define("_AUTOLOGINITHLINK","用戶可以登錄自動鏈接");//User can login automatically by link
 define("_DEFAULTUSERTYPE","默認的用戶類型");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","部隊學生回答所有問題");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","你必須回答所有問題");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","允許獨立的教訓");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","沒有預選日期");//No preselected date (New)
+define("_CURRENTDATE","當前日期");//Current date (New)
 define("_SHOWHELP","顯示幫助聯繫");//Display help links
 define("_ALLOWUSERANSERALLRONG","只有讓學生重做錯誤回答的問題");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","只有允許重複測試");//Only if test repetitions are allowed
 define("_USERREDOWRONG","重做唯一錯誤的回答");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","默認主題不能inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","訪問過期");//Access expired (New)
+define("_LESSONSCHEDULE","課時間表");//Lessons schedule (New)
+define("_COURSESTARTSAT","課程開始於");//The course starts on (New)
+define("_COURSEENDSAT","課程結束於");//The course ends on (New)
+define("_ENDDATE","結束日期");//End date (New)
+define("_SELECTSKILLCATEGORY","選擇技能類");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","沒有標題或標題行的定義不兼容導入類型");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","進口用戶");//Imported user
 define("_USERSTOCOURSES","用戶的課程");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","任何認可");//Anything recognized
 define("_DATATOIMPORT","數據導入");//Data to import
 define("_SUCCESSFULLIMPORTS","成功的進口");//successfull imports
 define("_FAILEDIMPORTS","進口失敗");//failed imports
-define("_REPLACEDUSER","代替用戶");//Replaced user
+define("_REPLACEDUSER","代替用戶");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","該文件不包含必要的列");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","取代現有的轉讓");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","新課程轉讓");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","優惠券");//Coupon
 define("_INVALIDCOUPON","無效的優惠券");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","點擊進入優惠券");//Click to enter discount coupon
 define("_TESTREDONE","更正");//Corrected
+define("_CURRICULUMS","課程");//Curricula (New)
+define("_CURRICULUM","課程");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","用戶指定的課程，以小組");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","用戶指定的課程，以");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","新增課程");//Add curriculum (New)
+define("_EDITCURRICULUM","編輯課程");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","當然找不到");//Could not find course
 define("_IMPORTRESULTSFOR","導入結果");//Import results for
+define("_COUPONUSAGE","優惠券的使用");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","新貝寶付款");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","新的平衡付款");//New balance payment (New)
+define("_USEDCOUPON","使用優惠券");//Used coupon (New)
+define("_PAYEDWITHBALANCE","租房者的平衡");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","租房者，貝寶");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","你必須完成所有測試");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","從 POST刪除 &lt;script&gt;標記");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","用戶重定向到登錄後");//Redirect user after login to (New)
+define("_LESSONSCATALOG","用戶的教訓目錄");//User's lesson catalog (New)
+define("_USERDASHBOARD","用戶的儀表板");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","無標題為工作說明");//No title provided for job description (New)
+define("_EDITORTYPE","編輯器類型");//Editor type (New)
+define("_TINYMCE","TinyMCE的3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE的3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","只顯示一個消息後，提交測試");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","這次試驗是成功提交");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","學習現狀");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","沒有電子郵件地址");//has not an e-mail address (New)
+define("_FEEDBACK","反饋");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","插入到用戶組");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","插入新的組");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","插入到現有的組");//Insert into existing group (New)
+define("_NEWGROUPNAME","新組的名稱");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","你應該選擇一個現有組或提供一個新的組名");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","提交和編輯組");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","搜索用戶添加到組");//Search users to add to group (New)
+define("_AFTER","後");//After (New)
+define("_BEFORE","前");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","所有用戶在參與該小組的課程");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","集團用戶參與了課程的系統");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","清除日誌");//Purge logs (New)
+define("_LOGSSIZE","日誌大小");//Logs size (New)
+define("_OLDESTLOG","最古老的日誌項");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","清除日誌以上");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","成功清除日誌");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","只有在％×實體處理，這是限制此作業");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","您不能將用戶分配到這個課程，因為它沒有任何課程");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","課程性質");//Curriculum properties (New)
+define("_ENTRIES","參賽作品");//Entries (New)
+define("_ENTERPRISEOPTIONS","企業選擇");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","組織結構圖顯示給用戶");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","個人的形式顯示給用戶");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","顯示未分配的用戶監督員");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","允許用戶共享文件刪除監");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","我的表");//my Form (New)
+define("_CLEARQUERYCACHE","清除查詢緩存");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","反饋選項");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","選項反饋");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","最近完成的反饋");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP的LiveDocx配置文件（庫 / phplivedocx_config.php）不寫。任何更改向livedocx未保存的配置");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","復位進展情況的數據");//Reset progress data (New)
+define("_DEBUGMODE","調試模式");//Debug mode (New)
+define("_GENERALSETTINGS","常規設置");//General settings (New)
+define("_FINISHLESSONMESSAGE","恭喜！您已經完成了教訓。請選擇一個地方去：");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","下一課");//Next lesson (New)
+define("_LESSONFINISHED","課程結束");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","你是在最後一課，你可以訪問");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","反饋完成");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","著手反饋");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","成功修改意見");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","反饋開始");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","受助人選擇由系統界面，根據該事件。 <BR> - "._NEWSURVEY .":收件人是用戶參與了調查。 <BR> - "._ONJOBASSIGNMENT .":的收件人主管挑選僱員。 <BR> - "._PROJECTEXPIRY .":收件人是用戶已分配該項目。");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","修讀");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","作業不存在");//Job does not exist (New)
+define("_SEARCHFORUSER","查找用戶 [簡介標準]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","搜索標準");//Search criteria (New)
+define("_SUBMITFEEDBACK","提交反饋");//Submit feedback (New)
+define("_FEEDBACKRESULTS","反饋結果");//Feedback results (New)
+define("_PASSWORDREMINDER","忘記密碼");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","必須完成所有測試");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","反饋報告");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","選擇反饋");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","報告反饋");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","當前瀏覽文件夾");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","顯示");//Showing (New)
+define("_MATERIALINPROGRESS","材料的進展");//Material in progress (New)
+define("_ALLMATERIAL","所有材料");//All material (New)
+define("_CACHEENTRYNOTFOUND","緩存條目未找到");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","緩存項過期");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","緩存項無效");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","清除通知");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","通知大小");//Notifications size (New)
+define("_OLDESTNOTIFICATION","最古老的通知");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","清除以上通知");//Purge notifications older than (New)
+define("_CURRENTUSERS","當前");//Current (New)
+define("_SELECTEDCOURSES","選擇課程");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","模塊文件存在，但它沒有安裝");//Module files are present, but it is not installed (New)
 ?>

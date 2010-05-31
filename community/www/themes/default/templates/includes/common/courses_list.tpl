@@ -267,16 +267,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 {/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)}
          <td class = "user_type">
-       {if $_change_handles_}
-        <span style = "display:none">{$T_ROLES_ARRAY[$lesson.user_type]}</span>
-              <select name = "lesson_type_{$lesson.id}" id = "lesson_type_{$lesson.id}" onchange = "$('lesson_{$lesson.id}').checked = true;ajaxUserPost('lesson', '{$lesson.id}', this);">
-            {foreach name = 'roles_list' key = 'role_key' item = 'role_item' from = $T_ROLES_ARRAY}
-                  <option value = "{$role_key}" {if !$lesson.user_type}{if ($T_EDITED_USER_TYPE == $role_key)}selected{/if}{else}{if ($lesson.user_type == $role_key)}selected{/if}{/if}>{$role_item}</option>
-            {/foreach}
-              </select>
-       {else}
            {$T_ROLES_ARRAY[$lesson.user_type]}
-       {/if}
          </td>
 {/if}
 {if in_array('time_in_lesson', $T_DATASOURCE_COLUMNS)}

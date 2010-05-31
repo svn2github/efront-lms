@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Záznam pobočky");//Branch record
 define("_BRANCHDATAUPDATED","Údaje pobočky aktualizovány");//Branch data updated
 define("_FATHERBRANCH","Otec pobočky");//Father branch
 define("_HCD","Rozvoj lidského kapitálu");//Human Capital Development
-define("_ORGANISATIONCHART","Organizační struktura");//Organisation chart
+define("_ORGANISATIONCHART","Organizační struktura");//Organization chart
 define("_CANDIDATES","Uchazeči");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Pobočka byla úspěšně vytvořena");//Branch was successfully created
 define("_ATBRANCH","na pobočce");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Přiřadit dovednost");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Přiřadit uživatelům dovednosti");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Žádné pobočky nebyly evidovány");//No branches have been registered
 define("_ORGANIZATION","Organizace");//Organization
-define("_SEARCHFOREMPLOYEE","Vyhledávání pro uživatele [Organizace kritérií]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Vyhledávání pro uživatele [Organizace kritérií]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Neexistují žádné subfóra definované v tomto fóru");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Nemůžete napsat žádné nové zprávy, protože toto téma nebo fórum je uzamčeno");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Vyberte si test");//Choose test
 define("_USERPROFILE","Uživatelský profil");//Public profile
 define("_VIEWBRANCHES","Zobrazit pobočky");//View branches
 define("_NOEMPLOYEESFOUND","Nebyly nalezeny žádní uživatelé");//No users were found
-define("_SEARCHEMPLOYEE","Hledat uživatele");//Search user
+define("_SEARCHEMPLOYEE","Hledat uživatele");//Find users
 define("_ALLBRANCHES","Všechny pobočky");//All branches
 define("_ANSWERS","Odpovědi");//Answers
 define("_GROUPDOESNOTEXIST","Skupina neexistuje");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Profesoři lekce");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Pouze vaši vedoucí pobočky");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Popisy práce z jiných oborů");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","zjištěno poslání zprávy všem uživatelům ");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Vyhledávání pro uživatele [Kurz kritérií]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Vyhledávání pro uživatele [Kurz kritérií]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Datum dokončení");//Completion date
 define("_YEAR","Rok");//Year
 define("_NOTASSIGNED","Nebylo dosud určeno");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Oprávnění");//Permissions
 define("_UNSHARE","Zrušit sdílení");//Cancel sharing
 define("_UNSHARESELECTED","Zrušit sdílení vybraných souborů");//Cancel sharing of selected files
 define("_SHARESELECTED","Sdílet vybrané soubory");//Share selected files
-define("_YOUDONTHAVEPERMISSION","Nemáte oprávnění provádět vybrané akce");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","Nemáte oprávnění provádět vybrané akce");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Export");//Export
 define("_NOMODULECLASSFOUND","Žádná třída modulu nebyla nalezena s názvem");//No module class found with name
 define("_ERRORLOADINGMODULE","Chyba při načítání modulu");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Jazyk byl úspěšně vytvořen");//The lan
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Jazyk, byl úspěšně aktualizován");//The language was successfully updated
 define("_LANGUAGES","Jazyky");//Languages
 define("_SERIALRULE","Uživatelé musí vidět obsah v pořadí");//Users must see content in a serial order
-define("_TREERULE","Uživatelé musí vyplnit uzel pobočky, než bude pokračovat na další");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Uživatelé musí vyplnit uzel pobočky, než bude pokračovat na další");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Přidat vlastní pravidlo");//Add custom rule
 define("_ADDREADYRULE","Přidat připravené pravidlo(ready rule)");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Následující uživatelé nemohli být importováni");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Žádné jednotky");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Nejsou k dispozici žádná systémové oznámení");//There are no system announcements
-define("_NOONELOGGEDIN","Nikdo není momentálně přihlášen");//Noone is currently connected
+define("_NOONELOGGEDIN","Nikdo není momentálně přihlášen");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Zadejte Vaši e-mailovou adresu");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Zadejte předmět zprávy");//Enter the message subject
 define("_ENTERMESSAGE","Zadejte zprávu");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Archivovány na");//Archived on
 define("_RESTORESELECTED","Restore");//Restore selected
 define("_ARCHIVEENTITY","Archiv");//Archive
 define("_LOADMATHTYPESASIMAGES","Display math typů obrazů");//Display math types as images
-define("_MATHIMAGESINFO","Doporučeno pro Internet Explorer 8. Máte také vymazat vyrovnávací paměť prohlížeče");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Doporučeno pro Internet Explorer 8. Máte také vymazat vyrovnávací paměť prohlížeče");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategorie kurzů");//Category courses
 define("_GROUPROLE","Skupina společná role");//Group common role
 define("_GROUPONLY","Skupina");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Samozřejmě profesoři");//Course professors
 define("_PROFESSORSOFCOURSE","Profesoři samozřejmě");//Professors of course
 define("_USERSUPERVISORS","Uživatel dohledu");//User supervisors
 define("_USEROPTIONSFOR","Možnosti pro uživatele");//Options for user
-define("_MYSTATUS","Stav mé učení");//my Learning Status
+define("_MYSTATUS","Stav mé učení");//my Learning status
 define("_MYCOURSES","my Kurzy");//my Courses
 define("_CERTIFICATIONS","Certifikáty");//Certificates
 define("_MYCERTIFICATIONS","my Certifikáty");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Žádné certifikáty byly vydány pr
 define("_SUPERVISORTOACTIVATE","Chcete-li být aktivována Garant");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","No pobočka dohledu nalezeny");//No branch supervisors found
 define("_PRINTCONTENT","Tisk obsahu");//Print content
-define("_USERHASNOTDONETEST","Uživatel ješte neudělal tento test");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Ověřte prosím, že tyto informace jsou správné");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Neexistují žádné definované kategorie");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Vedoucí aktivační e-mail");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Pracovník aktivace účtu e-mailem");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Tento e-mail umožňuje aktivaci nového systému uživatel");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","přidělené pobočky");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","v popisu práce");//with the job description
 define("_BYCLICKINGONTHELINK","po kliknutí na následující odkaz");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Váš účet byl úspěšně aktivován zaměstnanců");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Hrazda");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktivace vedoucí název pole");//Activating su
 define("_LEAVEEMPTYTONOTUSE","Ponechte prázdné, aby ommit");//Leave empty to ommit
 define("_PLEASESELECT","Vyberte prosím");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Váš nadřízený bude aktivovat účet");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Neplatný parametr");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Import IMS Content");//Import IMS Content
 define("_IMSEXPORT","Export IMS Content");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Skryté od uživatelů");//Hidden from users
 define("_RESETSCORMDATA","Reset uživatelských dat");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Rozšířené nastavení");//Advanced settings
+define("_ADDINSTANCE","Přidat instance");//Add instance (New)
+define("_INSTANCE","Instance");//Instance (New)
+define("_COURSECODE","Kód kurzu");//Course code (New)
+define("_TRAININGHOURS","Hodin školení");//Training hours (New)
+define("_COURSEINSTANCES","Předmět instance");//Course instances (New)
+define("_CAPACITY","Kapacita");//Capacity (New)
+define("_SEATSREMAINING","Zbývajících míst");//Seats remaining (New)
+define("_STARTDATE","Datum zahájení");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Jste si jisti, že chcete smazat tuto instance?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Úpravy instance");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Stupně lekce");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Stupně uživatelů");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Stupně dovednosti");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Možnosti například");//Options for instance (New)
+define("_JUMPTO","Skočit na");//Jump to (New)
+define("_PARENTCOURSE","Parent předmětu");//Parent Course (New)
+define("_LOCATIONBRANCH","Umístění (pobočka)");//Location (branch) (New)
+define("_SELECTBRANCH","Zvolte pobočku");//Select branch (New)
+define("_SHARED","Sdílené");//Shared (New)
+define("_UNIQUE","Unikátní");//Unique (New)
+define("_MODE","Způsob");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Používejte pouze kurzy v katalogu");//Use only courses in catalog (New)
+define("_ALLJOBS","Všechny práce");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Zobrazit jméno a motto také v hlavičce");//Show name and motto also on header
+define("_ASSIGNCOURSES","Přiřadit kurzy");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","Zvolte kurzy přiřadit všem uživatelům nalézt");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Žádní uživatelé nebyly nalezeny");//No users have been found (New)
+define("_ASSIGNMENT","Úkol");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Jakékoli na nejnižší úrovni");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Jakékoliv těsně nad nejnižší úroveň");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Žádný kurz byly registrovány");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Není nutné žádné školení byla definována ještě");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Povinné školení");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Nové vzdělávací podmínky");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Povinné školení");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Přidejte alternativní vzdělávání");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","Má potřebné odborné přípravy");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Výsledky hledání ve slovníku");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Ve slovníku nebyly nalazeney žádné výsledky");//No results found in glossary
+define("_PROJECTSSCORE","Projekty skóre");//Projects score (New)
+define("_TESTSSCORE","Testy skóre");//Tests score (New)
 define("_AUTOLOGIN","Automatické přihlášení");//Auto login
 define("_ACCESSLINK","Přístupový odkaz");//Access link
 define("_AUTOLOGINITHLINK","Uživatel se může automaticky přihlásit pomocí odkazu");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Výchozí typ uživatele");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Vyžadovat po studentovi odpověď na všechny otázky");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Musíte odpovědět na všechny otázky");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Povolit nezávislé lekce");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","Č. předvolené datum");//No preselected date (New)
+define("_CURRENTDATE","Aktuální datum");//Current date (New)
 define("_SHOWHELP","Zobrazit nápovědu odkazy");//Display help links
 define("_ALLOWUSERANSERALLRONG","Umožňují studentům předělat jen špatné odpovědi na otázky");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Pouze v případě opakování zkoušky jsou povoleny");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Znovu jen špatné odpovědi");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Výchozí vzhled nemůže být inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Přístup skončila");//Access expired (New)
+define("_LESSONSCHEDULE","Poučení harmonogram");//Lessons schedule (New)
+define("_COURSESTARTSAT","Kurz začíná");//The course starts on (New)
+define("_COURSEENDSAT","Kurz je ukončen na");//The course ends on (New)
+define("_ENDDATE","Datum ukončení");//End date (New)
+define("_SELECTSKILLCATEGORY","Vyberte kategorii dovednost");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Č. řádek záhlaví byla definována nebo záhlaví není kompatibilní s typem import");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Dovážené uživatel");//Imported user
 define("_USERSTOCOURSES","Uživatelům kurzy");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Cokoliv uznané");//Anything recognized
 define("_DATATOIMPORT","Data pro import");//Data to import
 define("_SUCCESSFULLIMPORTS","úspěšného dovozu");//successfull imports
 define("_FAILEDIMPORTS","nepodařilo dovozu");//failed imports
-define("_REPLACEDUSER","Vyměněné uživatel");//Replaced user
+define("_REPLACEDUSER","Vyměněné uživatel");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Tento soubor neobsahuje potřebné sloupce");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Nahrazuje stávající přidělení");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Nový kurz přiřazení");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Kupón");//Coupon
 define("_INVALIDCOUPON","Neplatný kupón");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Klikněte pro vstup slevový kupón");//Click to enter discount coupon
 define("_TESTREDONE","Opraveno");//Corrected
+define("_CURRICULUMS","Vzdělávací programy");//Curricula (New)
+define("_CURRICULUM","Osnovy");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Přiřazení osnov pro skupiny uživatelů");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Přiřadit osnov pro uživatele");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Přidat osnov");//Add curriculum (New)
+define("_EDITCURRICULUM","Úpravy učebních osnov");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Nepodařilo se najít kurz");//Could not find course
 define("_IMPORTRESULTSFOR","Import výsledky");//Import results for
+define("_COUPONUSAGE","Kupon použití");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","New PayPal");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","New Balance platební");//New balance payment (New)
+define("_USEDCOUPON","Použité kupón");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Nocleh s rovnováhou");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Nocleh s paypal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Musíte vyplnit všechny testy");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","Odstranit &lt;script&gt; tagy z funkce");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Přesměrovat uživatele po přihlášení do");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Uživatelská lekce katalogu");//User's lesson catalog (New)
+define("_USERDASHBOARD","Uživatel přístrojové desce");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","Bez názvu podle popisu práce");//No title provided for job description (New)
+define("_EDITORTYPE","Editor typu");//Editor type (New)
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Zobrazit pouze zprávy po předložení test");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Tento test byl úspěšně odeslán");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Učení Status");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","nemá e-mailovou adresu");//has not an e-mail address (New)
+define("_FEEDBACK","Zpětná vazba");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Vložit uživatele do skupiny");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Vložit do nové skupiny");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Vložit do existující skupině");//Insert into existing group (New)
+define("_NEWGROUPNAME","Nový název skupiny");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Měli byste buď vybrat existující skupinu nebo poskytnout nový název skupiny");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Odeslat a upravit skupině");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Hledat uživatele přidat do skupiny,");//Search users to add to group (New)
+define("_AFTER","Po");//After (New)
+define("_BEFORE","Před");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Účast všech uživatelů v kurzech skupiny");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Účast skupiny uživatelů v kurzech systému");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Vyčistit Záznamy");//Purge logs (New)
+define("_LOGSSIZE","Záznamy velikosti");//Logs size (New)
+define("_OLDESTLOG","Nejstarší záznam protokolu");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Vyčistit Záznamy starší než");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Úspěšně očištěný Záznamy");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Pouze% x subjektů, v nichž zpracování, což je limit pro tuto operaci");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Nemůžete přiřadit uživatelům tohoto vzdělávacího programu, protože nemá kurzy");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Curriculum vlastnosti");//Curriculum properties (New)
+define("_ENTRIES","Příspěvky");//Entries (New)
+define("_ENTERPRISEOPTIONS","Enterprise volby");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Zobrazit organizační schéma pro uživatele");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Ukázat osobní formulář, který uživatelům");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Zobrazit nepřiřazeno uživatelům dohledu");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Povolit uživatelům mazat vedoucím sdílené soubory");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","Moje Form");//my Form (New)
+define("_CLEARQUERYCACHE","Vymazat dotaz cache");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Zpětná vazba volby");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Možnosti pro zpětnou vazbu");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Nedávno dokončené zpětnou vazbu");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfiguračního souboru (knihovny / phplivedocx_config.php) nelze zapisovat. Veškeré změny provedené v konfiguraci livedocx nebylo uloženo");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Reset pokrok data");//Reset progress data (New)
+define("_DEBUGMODE","Debug módu");//Debug mode (New)
+define("_GENERALSETTINGS","Obecné nastavení");//General settings (New)
+define("_FINISHLESSONMESSAGE","Gratulujeme! Máte hotové lekce. Prosím, vyberte místo, kam jít teď:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Další lekce");//Next lesson (New)
+define("_LESSONFINISHED","Lekce skončil");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Nacházíte se v poslední lekci můžete navštívit");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Zpětná vazba se děje");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Pokračovat na zpětnou vazbu");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Úspěšně modifikované zpětnou vazbu");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Zpětná vazba začal v");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","Příjemci jsou vybráni na rozhraní systému v závislosti na události. <BR> - "._NEWSURVEY .": Příjemci jsou uživatelé které se průzkumu zúčastnily. <BR> - "._ONJOBASSIGNMENT .": příjemce je vedoucím vybrané zaměstnance. <BR> - "._PROJECTEXPIRY .": Příjemci jsou uživatelé, které byly přiděleny projektu.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Zapsaných na");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Pracovní neexistuje");//Job does not exist (New)
+define("_SEARCHFORUSER","Najít uživatelů [Profil kritéria]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Kritéria vyhledávání");//Search criteria (New)
+define("_SUBMITFEEDBACK","Odeslat zpětnou vazbu");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Zpětná vazba výsledky");//Feedback results (New)
+define("_PASSWORDREMINDER","Připomenutí hesla");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","Musí dokončit všechny zkoušky");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Zpětná vazba zprávy");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Vyberte si zpětnou vazbu");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Zpráva pro zpětnou vazbu");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","V současné době procházení složek");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Zobrazení");//Showing (New)
+define("_MATERIALINPROGRESS","Materiál v průběhu");//Material in progress (New)
+define("_ALLMATERIAL","Všechny materiály");//All material (New)
+define("_CACHEENTRYNOTFOUND","Cache záznam nenalezen");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","Cache vstup skončila");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","Cache záznam je neplatný");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","Vyčistit oznámení");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","Upozornění velikosti");//Notifications size (New)
+define("_OLDESTNOTIFICATION","Nejstarší oznámení");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","Vyčistit oznámení starší než");//Purge notifications older than (New)
+define("_CURRENTUSERS","Proud");//Current (New)
+define("_SELECTEDCOURSES","Vybrané kurzy");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","Modul soubory jsou přítomny, ale není nainstalován");//Module files are present, but it is not installed (New)
 ?>

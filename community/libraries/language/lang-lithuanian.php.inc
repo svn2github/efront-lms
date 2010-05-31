@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Skyrius įrašas");//Branch record
 define("_BRANCHDATAUPDATED","Filialo duomenimis atnaujinta");//Branch data updated
 define("_FATHERBRANCH","Tėvas filialas");//Father branch
 define("_HCD","Žmogaus raidos");//Human Capital Development
-define("_ORGANISATIONCHART","Organizacinė schema");//Organisation chart
+define("_ORGANISATIONCHART","Organizacinė schema");//Organization chart
 define("_CANDIDATES","Kandidatai");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Skyrius sėkmingai sukurta");//Branch was successfully created
 define("_ATBRANCH","sektoriuose");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Susieti įgūdžių");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Priskirti vartotojams įgūdžių");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nr filialuose buvo užregistruota");//No branches have been registered
 define("_ORGANIZATION","Organizacija");//Organization
-define("_SEARCHFOREMPLOYEE","Ieškoti vartotojo [Organizacija kriterijai]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Ieškoti vartotojo [Organizacija kriterijai]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforums");//Subforums
 define("_NOSUBFORUMSFOUND","Nėra subforums apibrėžta šiame forume");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Jūs negalite rašyti jokių naujų pranešimų, nes ši tema ar forumas uždarytas");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Pasirinkite testą");//Choose test
 define("_USERPROFILE","Vartotojo profilis");//Public profile
 define("_VIEWBRANCHES","Žiūrėti filialų");//View branches
 define("_NOEMPLOYEESFOUND","Nėra vartotojų, buvo nustatyta,");//No users were found
-define("_SEARCHEMPLOYEE","Ieškoti vartotojo");//Search user
+define("_SEARCHEMPLOYEE","Ieškoti vartotojo");//Find users
 define("_ALLBRANCHES","Visi filialai");//All branches
 define("_ANSWERS","Atsakymai");//Answers
 define("_GROUPDOESNOTEXIST","Grupė nėra");//The group doesn&#039;t exist
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Profesorių pamoka");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Tik jūsų filialas priežiūros");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Darbo vietų iš kitų filialų");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Siųsti žinutes visiems vartotojams rasti");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Ieškoti vartotojo [objekto kriterijus]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Ieškoti vartotojo [objekto kriterijus]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Užbaigimo data");//Completion date
 define("_YEAR","Metai");//Year
 define("_NOTASSIGNED","Ne priskiriama dar");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Leidimai");//Permissions
 define("_UNSHARE","Atšaukti pasidalijimo");//Cancel sharing
 define("_UNSHARESELECTED","Atšaukti dalintis pasirinktus failus");//Cancel sharing of selected files
 define("_SHARESELECTED","Dalintis pasirinktus failus");//Share selected files
-define("_YOUDONTHAVEPERMISSION","You dont turite leidimą atlikti pasirinktų veiksmų");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","You dont turite leidimą atlikti pasirinktų veiksmų");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Eksportas");//Export
 define("_NOMODULECLASSFOUND","Nr modulis klasės rasta pavadinimas");//No module class found with name
 define("_ERRORLOADINGMODULE","Klaida krovimo modulis");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Kalba buvo sėkmingai sukurta");//The langu
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Kalba buvo sėkmingai atnaujintas");//The language was successfully updated
 define("_LANGUAGES","Kalbos");//Languages
 define("_SERIALRULE","Vartotojai turi pamatyti turinio eilės tvarka");//Users must see content in a serial order
-define("_TREERULE","Vartotojai turi užpildyti filialas mazgų prieš pereinant į kitą");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Vartotojai turi užpildyti filialas mazgų prieš pereinant į kitą");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Pridėti pasirinktinius taisyklės");//Add custom rule
 define("_ADDREADYRULE","Pridėti pasirengęs taisyklės");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Šie vartotojai negalėjo būti importuoti");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","m");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Nėra vienetas");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Nėra sistema skelbimai");//There are no system announcements
-define("_NOONELOGGEDIN","Nė vienas yra prijungtas");//Noone is currently connected
+define("_NOONELOGGEDIN","Nė vienas yra prijungtas");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Įveskite elektroninio pašto adresą");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Įveskite žinutės temą");//Enter the message subject
 define("_ENTERMESSAGE","Įveskite žinutę");//Enter the message
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Suarchyvuota");//Archived on
 define("_RESTORESELECTED","Vėl eiga");//Restore selected
 define("_ARCHIVEENTITY","Archyvas");//Archive
 define("_LOADMATHTYPESASIMAGES","Rodyti math tipų vaizdai");//Display math types as images
-define("_MATHIMAGESINFO","Rekomenduojami 8 Internet Explorer. Jūs taip pat ištrinti naršyklės talpyklą");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Rekomenduojami 8 Internet Explorer. Jūs taip pat ištrinti naršyklės talpyklą");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategorija kursai");//Category courses
 define("_GROUPROLE","Grupės bendrą vaidmuo");//Group common role
 define("_GROUPONLY","Grupė");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Kurso dėstytojai");//Course professors
 define("_PROFESSORSOFCOURSE","Profesoriai žinoma");//Professors of course
 define("_USERSUPERVISORS","Naudotojo vadovai");//User supervisors
 define("_USEROPTIONSFOR","Options vartotojas");//Options for user
-define("_MYSTATUS","Mano gyvenimą Statusas");//my Learning Status
+define("_MYSTATUS","Mano gyvenimą Statusas");//my Learning status
 define("_MYCOURSES","Mano kursai");//my Courses
 define("_CERTIFICATIONS","Sertifikatai");//Certificates
 define("_MYCERTIFICATIONS","Mano sertifikatai");//my Certificates
@@ -3484,14 +3484,12 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Sertifikatai buvo išduoti iki vartot
 define("_SUPERVISORTOACTIVATE","Būti aktyvuota vadovas");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Nr filialas priežiūros rasti");//No branch supervisors found
 define("_PRINTCONTENT","Print");//Print content
-define("_USERHASNOTDONETEST","Šis vartotojas neturi padaryti šio bandymo");//The user has not done this test
 define("_VERIFYFOLLOWINGINFOISCORRECT","Prašome įsitikinti, kad ši informacija yra teisinga");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Nėra apibrėžtų kategorijų");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","Priežiūros aktyvacijos laišką");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Darbuotojo sąskaitą Activation Email");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Šis el.pašto leidžia aktyvuoti naujos sistemos vartotojo");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","paskirtas filialas");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","su darbo vieta");//with the job description
 define("_BYCLICKINGONTHELINK","paspaudę šią nuorodą");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Jūsų darbuotojo sąskaitą buvo sėkmingai aktyvuota");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Skersiniais");//Horizontal bar
@@ -3502,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Įjungus vadovas lauko pavadinimas");//Activati
 define("_LEAVEEMPTYTONOTUSE","Palikite tuščią ommit");//Leave empty to ommit
 define("_PLEASESELECT","Pasirinkite");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Jūsų vadovas bus aktyvuoti savo sąskaitą");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Neteisingi parametrai");//Invalid parameter (New)
 define("_IMS","IGS");//IMS
 define("_IMSIMPORT","Importo IMS Content");//Import IMS Content
 define("_IMSEXPORT","Eksporto IMS Content");//Export IMS Content
@@ -3512,20 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Paslėpti nuo vartotojų");//Hidden from users
 define("_RESETSCORMDATA","Atstatyti naudotojo duomenis");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Papildomi nustatymai");//Advanced settings
+define("_ADDINSTANCE","Pridėti instancijos");//Add instance (New)
+define("_INSTANCE","Instancija");//Instance (New)
+define("_COURSECODE","Modulio kodas");//Course code (New)
+define("_TRAININGHOURS","Mokymo valandų");//Training hours (New)
+define("_COURSEINSTANCES","Modulio atvejais");//Course instances (New)
+define("_CAPACITY","Pajėgumas");//Capacity (New)
+define("_SEATSREMAINING","Vietos likusių");//Seats remaining (New)
+define("_STARTDATE","Pradžios data");//Start date (New)
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Ar tikrai norite ištrinti šią instancijos?");//Are you sure you want to delete this instance? (New)
+define("_EDITCOURSEINSTANCE","Redaguoti instancijos");//Edit instance (New)
+define("_EDITLESSONSCOURSEINSTANCE","Instancijos pamokos");//Instance lessons (New)
+define("_EDITUSERSCOURSEINSTANCE","Instancijos vartotojai");//Instance users (New)
+define("_SKILLSOFFEREDINSTANCE","Instancijos įgūdžių");//Instance skills (New)
+define("_COURSEOPTIONSFORINSTANCE","Funkcijos, pavyzdžiui,");//Options for instance (New)
+define("_JUMPTO","Peršokti į");//Jump to (New)
+define("_PARENTCOURSE","Tėvų objektą");//Parent Course (New)
+define("_LOCATIONBRANCH","Vieta (filialas)");//Location (branch) (New)
+define("_SELECTBRANCH","Pasirinkite filialą");//Select branch (New)
+define("_SHARED","Bendri");//Shared (New)
+define("_UNIQUE","Unikalus");//Unique (New)
+define("_MODE","Būdas");//Mode (New)
+define("_USEONLYCOURSESINCATALOG","Naudokite tik kursų katalogas");//Use only courses in catalog (New)
+define("_ALLJOBS","Visi darbo vietų");//All jobs (New)
 define("_SHOWMOTTOONHEADER","Rodyti pavadinimas ir šūkis taip pat antraštė");//Show name and motto also on header
+define("_ASSIGNCOURSES","Priskirti kursai");//Assign courses (New)
+define("_MASSCOURSESASSIGNMENTINFO","Pasirinkite kursai skirti visiems vartotojams rasti");//Select courses to assign to all the users found (New)
+define("_NOUSERSHAVEBEENFOUND","Nėra vartotojų, kurie buvo rasti");//No users have been found (New)
+define("_ASSIGNMENT","Paskyrimas");//Assignment (New)
+define("_ANYLOWESTLEVELBRANCH","Bet žemiausiu lygiu,");//Any at the lowest level (New)
+define("_ANYABOVETHELOWESTLEVELBRANCH","Bet virš žemiausio lygio,");//Any just above the lowest level (New)
+define("_NOCOURSESHAVEBEENREGISTERED","Nr kursai buvo įregistruoti");//No courses have been registered (New)
+define("_NOREQUIREDTRAININGSETYET","Nr privalomo mokymo buvo nustatytas dar");//No required training has been defined yet (New)
+define("_REQUIREDTRAINING","Reikalinga mokymo");//Required training (New)
+define("_NEWREQUIREDTRAININGCOURSE","Nauji mokymo sąlygos");//New training condition (New)
+define("_REQUIREDTRAININGCOURSES","Reikalinga mokymo kursai");//Required training courses (New)
+define("_ADDALTERNATIVETRAINING","Pridėti alternatyvaus mokymo");//Add alternative training (New)
+define("_HASREQUIREDTRAINING","Ar reikalingas mokymas");//Has required training (New)
 define("_SEARCHRESULTSINGLOSSARY","Paieškos rezultatai žodynėlis");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","No results found in glossary");//No results found in glossary
+define("_PROJECTSSCORE","Projektai rezultatas");//Projects score (New)
+define("_TESTSSCORE","Testai rezultatas");//Tests score (New)
 define("_AUTOLOGIN","Automatinis prisijungimas");//Auto login
 define("_ACCESSLINK","Prieiga nuorodą");//Access link
 define("_AUTOLOGINITHLINK","Vartotojas galėtų prisijungti automatiškai nuorodą");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Numatytasis vartotojo tipą");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force studentų atsakyti į visus klausimus");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Jūs turite atsakyti į visus klausimus");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","Kad nepriklausomi pamokos");//Allow independent lessons (New)
+define("_NOPRESELECTEDDATE","Nr anksto nustatytą datą");//No preselected date (New)
+define("_CURRENTDATE","Dabartinė data");//Current date (New)
 define("_SHOWHELP","Parodyti pagalbą Nuorodos");//Display help links
 define("_ALLOWUSERANSERALLRONG","Leisti studentams perdaryti tik neteisingai atsakė į klausimus");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Tik tuomet, kai bandymo pakartojimų leidžiama");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Pakartoti tik neteisingai atsakė");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Įprasta tema negali būti inported");//Default theme can not be inported
+define("_ACCESSEXPIRED","Prieiga pasibaigęs");//Access expired (New)
+define("_LESSONSCHEDULE","Pamokos planas");//Lessons schedule (New)
+define("_COURSESTARTSAT","Žinoma prasideda");//The course starts on (New)
+define("_COURSEENDSAT","Žinoma baigiasi");//The course ends on (New)
+define("_ENDDATE","Pabaigos data");//End date (New)
+define("_SELECTSKILLCATEGORY","Pasirinkite įgūdžių kategorijos");//Select skill category (New)
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nr antraštės eilutėje buvo apibrėžtas arba antraštė neatitinka importo rūšis");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Importuotas vartotojas");//Imported user
 define("_USERSTOCOURSES","Vartotojai kursai");//Users to courses
@@ -3534,7 +3580,7 @@ define("_IMPORTANYTHING","Viskas pripažintas");//Anything recognized
 define("_DATATOIMPORT","Duomenys importo");//Data to import
 define("_SUCCESSFULLIMPORTS","sėkmingai importo");//successfull imports
 define("_FAILEDIMPORTS","Nepavyko importuoti");//failed imports
-define("_REPLACEDUSER","Pakeistas vartotojas");//Replaced user
+define("_REPLACEDUSER","Pakeistas vartotojas");//Updated user
 define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Faile nėra būtina stulpelius");//The file does not contain the necessary columns
 define("_REPLACEDEXISTINGASSIGNMENT","Pakeitė galiojančias priskyrimo");//Replaced existing assignment
 define("_NEWCOURSEASSIGNMENT","Naujas kursų priskyrimo");//New course assignment
@@ -3583,6 +3629,100 @@ define("_COUPON","Kuponas");//Coupon
 define("_INVALIDCOUPON","Neteisingas kuponas");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Spustelėkite norėdami įvesti diskonto kuponą");//Click to enter discount coupon
 define("_TESTREDONE","Ištaisė");//Corrected
+define("_CURRICULUMS","Mokymo programos");//Curricula (New)
+define("_CURRICULUM","Gyvenimo");//Curriculum (New)
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Priskirti ugdymo grupės vartotojams");//Assign curriculum to group users (New)
+define("_ASSIGNCURRICULUMTOUSER","Priskirti ugdymo vartotojas");//Assign curriculum to user (New)
+define("_ADDCURRICULUM","Pridėti turinio");//Add curriculum (New)
+define("_EDITCURRICULUM","Redaguoti turinio");//Edit curriculum (New)
 define("_COULDNOTFINDCOURSE","Negaliu rasti kursai");//Could not find course
 define("_IMPORTRESULTSFOR","Importo rezultatai");//Import results for
+define("_COUPONUSAGE","Kupono naudojimo");//Coupon usage (New)
+define("_NEWPAYPALPAYMENT","Nauji mokėjimo PayPal");//New paypal payment (New)
+define("_NEWBALANCEPAYMENT","Naujas likutį");//New balance payment (New)
+define("_USEDCOUPON","Naudoti kuponą");//Used coupon (New)
+define("_PAYEDWITHBALANCE","Kreipiamas su pusiausvyra");//Payed with balance (New)
+define("_PAYEDWITHPAYPAL","Kreipiamas su paypal");//Payed with paypal (New)
+define("_YOUMUSTCOMPLETEALLTESTS","Jūs turite užpildyti visus bandymus");//You must complete all tests (New)
+define("_ELIMINATEPOSTXSS","Pašalinti &lt;script&gt; žodžius iš pareigų");//Remove &lt;script&gt; tags from POST (New)
+define("_LOGINREDIRECTPAGE","Nukreipimo naudotojo prisijungimo prie");//Redirect user after login to (New)
+define("_LESSONSCATALOG","Vartotojo pamoka katalogas");//User's lesson catalog (New)
+define("_USERDASHBOARD","Vartotojo valdymo skydelis");//User's dashboard (New)
+define("_NOTITLEPROVIDEDFORNEWJOB","No title numatytos pareigybės aprašyme");//No title provided for job description (New)
+define("_EDITORTYPE","Redaktorius tipas");//Editor type (New)
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
+define("_DONOTSHOWTESTAFTERSUBMITTING","Rodyti tik po pateikimo bandymas pranešimas");//Show only a message after submitting test (New)
+define("_TESTSUCCESSFULLYSUBMITTED","Šis bandymas buvo sėkmingai pateiktas");//This test was successfully submitted (New)
+define("_LEARNINGSTATUS","Mokymai statusas");//Learning Status (New)
+define("_HASNOTANEMAILADDRESS","nėra elektroninio pašto adresas");//has not an e-mail address (New)
+define("_FEEDBACK","Grįžtamasis ryšys");//Feedback (New)
+define("_SETFOUNDEMPLOYEESINTOGROUP","Įtraukti vartotojus į grupę");//Insert users into group (New)
+define("_INSERTINTONEWGROUP","Įtraukti į naują grupę");//Insert into new group (New)
+define("_INSERTINTOEXISTINGGROUP","Įtraukti į esamą grupę");//Insert into existing group (New)
+define("_NEWGROUPNAME","Naujos grupės pavadinimas");//New group name (New)
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Jūs turite arba pasirinkite esamą grupę arba išduoda naują grupės pavadinimą");//You should either select an existing group or provide a new group name (New)
+define("_SUBMITANDEDITGROUP","Pridėti ir redaguoti grupė");//Submit and edit group (New)
+define("_SEARCHGROUPUSERS","Paieška vartotojai galėtų įtraukti į grupę");//Search users to add to group (New)
+define("_AFTER","Po");//After (New)
+define("_BEFORE","Prieš");//Before (New)
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Dalyvavimas visų grupės kursų vartotojai");//Participation of all users in the courses of the group (New)
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Dalyvavimas grupėje vartotojai sistemą kursai");//Participation of group users in the courses of the system (New)
+define("_PURGELOGS","Išvalyti Įrašai");//Purge logs (New)
+define("_LOGSSIZE","Įrašai dydis");//Logs size (New)
+define("_OLDESTLOG","Nuo seniausio įrašo žurnale");//Oldest log entry (New)
+define("_PURGELOGSOLDERTHAN","Išvalyti Įrašai vyresni nei");//Purge logs older than (New)
+define("_SUCCESSFULLYPURGEDLOGS","Sėkmingai išvalytas Įrašai");//Successfully purged logs (New)
+define("_ONLYXCANBEAPPLIEDATATIME","Tik% x subjektus, tvarkomi, kuris yra šios operacijos limitas");//Only %x entities where processed, which is the limit for this operation (New)
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Jūs negalite priskirti vartotojams šią mokymo programą, nes ji neturi kursai");//You cannot assign users to this curriculum because it has no courses (New)
+define("_CURRICULUMPROPERTIES","Gyvenimo savybės");//Curriculum properties (New)
+define("_ENTRIES","Įrašai");//Entries (New)
+define("_ENTERPRISEOPTIONS","Įmonių puslapį");//Enterprise options (New)
+define("_SHOWORGANIZATIONCHARTTOUSERS","Rodyti organizacinė schema vartotojams");//Show organization chart to users (New)
+define("_SHOWUSERFORMTOUSERS","Rodyti asmens forma vartotojams");//Show personal form to users (New)
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Rodyti nepaskirstytasis vartotojams vadovai");//Show unassigned users to supervisors (New)
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Leisti vartotojams ištrinti vadovas failai");//Allow users to delete supervisor shared files (New)
+define("_MYEMPLOYEEFORM","mano forma");//my Form (New)
+define("_CLEARQUERYCACHE","Atviras užklausos talpyklos");//Clear query cache (New)
+define("_FEEDBACKOPTIONS","Atsiliepimai puslapį");//Feedback options (New)
+define("_OPTIONSFORFEEDBACK","Funkcijos ir atsiliepimai");//Options for feedback (New)
+define("_RECENTLYCOMPLETEDFEEDBACK","Neseniai baigtas Atsiliepimai");//Recently completed feedback (New)
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfigūracijos failą (bibliotekų / phplivedocx_config.php) nėra įrašomas. Bet kokie pakeitimai, padaryti livedocx konfigūracija nebuvo išsaugotas");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
+define("_RESETPROGRESSDATA","Atstatyti pažanga duomenys");//Reset progress data (New)
+define("_DEBUGMODE","Debug režimas");//Debug mode (New)
+define("_GENERALSETTINGS","Bendrieji parametrai");//General settings (New)
+define("_FINISHLESSONMESSAGE","Sveikiname! Baigėte pamoką. Prašome pasirinkti vietą, kur nueiti dabar:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
+define("_NEXTLESSON","Kitas pamoka");//Next lesson (New)
+define("_LESSONFINISHED","Pamoka baigtas");//Lesson finished (New)
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Jūs esate paskutinė pamoka galite apsilankyti");//You are at the last lesson you may visit (New)
+define("_FEEDBACKISDONE","Atsiliepimai daroma");//Feedback is done (New)
+define("_PROCEEDTOFEEDBACK","Pereikite prie atsiliepimai");//Proceed to feedback (New)
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Sėkmingai kartą atsiliepimai");//Successfully modified feedback (New)
+define("_FEEDBACKSTARTEDAT","Atsiliepimai prasidėjo");//Feedback started at (New)
+define("_EXPLICITLYSELECTEDINFO","Gavėjai yra parenkami pagal sistemos sąsajos pagal įvykį. <BR> - "._NEWSURVEY .": gavėjai yra vartotojai dalyvaujančių tyrime. <BR> - "._ONJOBASSIGNMENT .": gavėjams vadovas pasirenka darbuotojas. <BR> - "._PROJECTEXPIRY .": gavėjai yra vartotojai, kurie buvo priskirti projekto.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
+define("_ENROLLEDON","Dalyvaujantys");//Enrolled on (New)
+define("_JOBDOESNOTEXIST","Darbo neegzistuoja");//Job does not exist (New)
+define("_SEARCHFORUSER","Rasti vartotojams [profilis kriterijus]");//Find users [Profile criteria] (New)
+define("_SEARCHCRITERIA","Paieškos kriterijus");//Search criteria (New)
+define("_SUBMITFEEDBACK","Siųsti atsiliepimą");//Submit feedback (New)
+define("_FEEDBACKRESULTS","Atsiliepimai rezultatai");//Feedback results (New)
+define("_PASSWORDREMINDER","Slaptažodžio priminimas");//Password reminder (New)
+define("_MUSTCOMPLETEALLTESTS","Turi užpildyti visus bandymus");//Must complete all tests (New)
+define("_FEEDBACKSTATISTICS","Atsiliepimai pranešimų");//Feedback reports (New)
+define("_CHOOSEFEEDBACK","Pasirinkite Atsiliepimai");//Choose feedback (New)
+define("_REPORTSFORFEEDBACK","Pranešimas dėl atsiliepimai");//Report for feedback (New)
+define("_CURRENTLYBROWSINGFOLDER","Šiuo metu naršo kataloge");//Currently browsing folder (New)
+define("_CURRENTLYSHOWING","Rodomi");//Showing (New)
+define("_MATERIALINPROGRESS","Medžiaga pažanga");//Material in progress (New)
+define("_ALLMATERIAL","Visos medžiagos");//All material (New)
+define("_CACHEENTRYNOTFOUND","Krepšio nerastas");//Cache entry not found (New)
+define("_CACHEENTRYEXPIRED","Krepšio baigėsi");//Cache entry expired (New)
+define("_CACHEENTRYINVALID","Cache įrašas yra neteisingas");//Cache entry is invalid (New)
+define("_PURGENOTIFICATIONS","Išvalyti pranešimai");//Purge notifications (New)
+define("_NOTIFICATIONSSIZE","Pranešimai dydis");//Notifications size (New)
+define("_OLDESTNOTIFICATION","Nuo seniausio pranešimo");//Oldest notification (New)
+define("_PURGENOTIFICATIONSOLDERTHAN","Išvalyti pranešimai vyresniems kaip");//Purge notifications older than (New)
+define("_CURRENTUSERS","Dabartinis");//Current (New)
+define("_SELECTEDCOURSES","Pasirinkta kursai");//Selected courses (New)
+define("_MODULEFILESPRESENTNOTINSTALLED","Modulio failai yra, bet jis nėra įdiegtas");//Module files are present, but it is not installed (New)
 ?>

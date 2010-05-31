@@ -1,7 +1,3 @@
-# 1 "<stdin>"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "<stdin>"
 {capture name = "moduleCourses"}
  <tr><td class = "moduleCell">
 
@@ -30,13 +26,11 @@
       <td class = "elementCell">{$T_COURSE_FORM.show_catalog.html}</td></tr>
      <tr><td class = "labelCell">{$T_COURSE_FORM.price.label}:&nbsp;</td>
       <td class = "elementCell">{$T_COURSE_FORM.price.html} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}</td></tr>
-# 57 "<stdin>"
      <tr><td></td>
       <td class = "submitCell">{$T_COURSE_FORM.submit_course.html}</td></tr>
     </table>
    </form>
   {/capture}
-
   {capture name = 't_lessons_to_courses_code'}
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'lessonsTable'}
 <!--ajax:lessonsTable-->
@@ -72,7 +66,6 @@
 <!--/ajax:lessonsTable-->
   {/if}
   {/capture}
-
   {capture name = 't_users_to_courses_code'}
   <script>translationsToJS['_USERHASTHECOURSE'] = '{$smarty.const._USERHASTHECOURSE}'; translationsToJS['_APPLICATIONPENDING'] = '{$smarty.const._APPLICATIONPENDING}';</script>
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'usersTable'}
@@ -123,7 +116,6 @@
      {/if}
      </td>
      <td class = "centerAlign">
-# 157 "<stdin>"
      {if $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student' && !$user.active_in_course|@is_null}
        <img class = "ajaxHandle" src="images/16x16/refresh.png" title="{$smarty.const._RESETPROGRESSDATA}" alt="{$smarty.const._RESETPROGRESSDATA}" onclick = "resetProgress(this, '{$user.login}');">
      {/if}
@@ -140,11 +132,9 @@
     <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
    {/foreach}
    </table>
-
 <!--/ajax:usersTable-->
   {/if}
   {/capture}
-# 261 "<stdin>"
   {capture name = 't_course_code'}
    {if $T_EDIT_COURSE->course.instance_source}
     {assign var = "edit_block_title" value = $smarty.const._EDITCOURSEINSTANCE}
@@ -177,21 +167,15 @@
     <script>var editCourse = '{$smarty.get.edit_course}';</script>
     {eF_template_printBlock tabber = "lessons" title ="`$lessons_block_title`" data = $smarty.capture.t_lessons_to_courses_code image = '32x32/lessons.png'}
     {eF_template_printBlock tabber = "users" title ="`$users_block_title`" data = $smarty.capture.t_users_to_courses_code image = '32x32/users.png'}
-# 302 "<stdin>"
    {/if}
    </div>
   {/capture}
-
   {if $smarty.get.add_course}
    {eF_template_printBlock title = $smarty.const._NEWCOURSEOPTIONS data = $smarty.capture.t_course_code image = '32x32/courses.png'}
   {else}
    {eF_template_printBlock title ="`$course_options_title` <span class = 'innerTableName'>&quot;`$T_EDIT_COURSE->course.name`&quot;</span>" data = $smarty.capture.t_course_code image = '32x32/courses.png' options = $T_COURSE_OPTIONS}
   {/if}
-
-
  {else} {*Main Courses List*}
-
-
   {capture name = 't_courses_code'}
    <script>translationsToJS['_ACTIVATE'] = '{$smarty.const._ACTIVATE}'; translationsToJS['_DEACTIVATE'] = '{$smarty.const._DEACTIVATE}';</script>
    {if $_change_}
@@ -220,18 +204,12 @@
      {/capture}
      {eF_template_printBlock title = $smarty.const._IMPORTCOURSE data = $smarty.capture.t_import_course_code image = '32x32/import.png'}
     </div>
-
    {/if}
-
   {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=courses&"}
   {assign var = "_change_handles_" value = $_change_}
   {include file = "includes/common/courses_list.tpl"}
-
   {/capture}
   {eF_template_printBlock title = $smarty.const._UPDATECOURSES data = $smarty.capture.t_courses_code image = '32x32/courses.png' help = 'Courses'}
-
  {/if}
-
-
  </td></tr>
 {/capture}

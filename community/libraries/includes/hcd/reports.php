@@ -119,7 +119,8 @@ if (isset($_GET['search'])) {
   }
 //		echo $sql_query."<BR>";
   /*************** THE SEARCH QUERY ****************/
-   $result = eF_getTableData("users","*", $sql_query . " LIMIT 100");
+   //$result = eF_getTableData("users","*", $sql_query . " LIMIT 100");
+   $result = eF_getTableData("users","*", $sql_query);
    $employees = $result;
   //pr($result);
  }

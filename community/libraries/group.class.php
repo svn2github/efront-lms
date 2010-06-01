@@ -380,6 +380,7 @@ class EfrontGroup
 
 			*/
         }
+        $duplicate_found = false;
         foreach ($users as $user) {
             if ($user instanceof EfrontUser) {
                 $user = $user -> user['login'];
@@ -390,7 +391,8 @@ class EfrontGroup
                 try {
                  $ok = eF_insertTableData("users_to_groups", $fields);
                 } catch (Exception $e) {
-                 throw new EfrontGroupException(_USERALREADYEXISTSINGROUP, EfrontGroupException :: USER_ALREADY_MEMBER);
+                 // Don't throw here, so that mass assignments can continue to the next user
+                 $duplicate_found = true;
                 }
                 if ($ok && $this -> group['assign_profile_to_new']) {
                     try {
@@ -438,6 +440,10 @@ class EfrontGroup
                 }
             } else {
              throw new EfrontGroupException(_USERDOESNOTEXIST, EfrontGroupException :: USER_NOT_EXISTS);
+            }
+            // Used for user to groups import
+            if ($duplicate_found) {
+             throw new EfrontGroupException(_USERALREADYEXISTSINGROUP, EfrontGroupException :: USER_ALREADY_MEMBER);
             }
         }
     }

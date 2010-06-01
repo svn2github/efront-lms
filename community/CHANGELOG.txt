@@ -1,4 +1,5 @@
-=== Version 3.6.3 build 7435 ===
+=== Version 3.6.3 build 7445 ===
+- Fixed error in course completion page
 - Fixed lesson assignment to users issue
 
 === Version 3.6.3 build 7417 ===

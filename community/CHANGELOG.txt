@@ -1,3 +1,6 @@
+=== Version 3.6.3 build 7435 ===
+- Fixed lesson assignment to users issue
+
 === Version 3.6.3 build 7417 ===
 - Added course instances functionality (educational/enterprise)
 - Added feedback functionality

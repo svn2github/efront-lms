@@ -885,3 +885,11 @@ function onDateUpdated(el) {
   }
  }
 }
+function archiveUser(el, user) {
+ parameters = {archive_user:user, method: 'get'};
+ var url = 'administrator.php?ctg=users';
+ ajaxRequest(el, url, parameters, onArchiveUser);
+}
+function onArchiveUser(el, response) {
+ new Effect.Fade(el.up().up());
+}

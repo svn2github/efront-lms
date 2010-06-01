@@ -1,3 +1,7 @@
+{if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
+ {assign var = "_change_" value = 1}
+{/if}
+
  {*moduleReports: Show employees satisfying some criteria *}
   <script>
   var searchSkillTemplate = '{$T_REPORT_FORM.search_skill_template.html|replace:"\n":""}';
@@ -125,7 +129,9 @@
    <tr class = "topTitle">
     <td class = "topTitle" name="login">{$smarty.const._USER}</td>
     <td class = "topTitle" name="languages_NAME">{$smarty.const._LANGUAGE}</td>
+    {if !$T_CONFIGURATION.disable_messages}
     <td class = "topTitle noSort" align="center">{$smarty.const._SENDMESSAGE}</td>
+    {/if}
     <td class = "topTitle noSort" align="center">{$smarty.const._STATISTICS}</td>
     <td class = "topTitle noSort" align="center">{$smarty.const._OPERATIONS}</td>
    </tr>
@@ -142,23 +148,24 @@
     {/if}
    </td>
    <td>{$user.languages_NAME}</td>
+   {if !$T_CONFIGURATION.disable_messages}
    <td align="center"><a style="" href="{$smarty.server.PHP_SELF}?ctg=messages&add=1&recipient={$user.login}&popup=1" onclick='eF_js_showDivPopup("{$smarty.const._SENDMESSAGE}", 2)' target="POPUP_FRAME"><img src="images/16x16/mail.png" border="0"></a></td>
+   {/if}
    <td align="center"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>
    <td class="centerAlign">
-    {if 1}
+    {if $_change_}
      <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-    {else}
-     <img border = "0" src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
-    {/if}
-    {if $smarty.session.s_login != $user.login}
-     <a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOFIREEMPLOYEE}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
-    {else}
-     <a href = "javascript:void(0);" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" class = "inactiveImage" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
+                                                {if $smarty.session.s_login != $user.login}
+                                                     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETEUSER}')) deleteUser(this, '{$user.login}')"/>
+                                                {else}
+                                                    <img class = "ajaxHandle inactiveImage" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" />
+                                                {/if}
     {/if}
    </td>
    </tr>
    {/foreach}
      <tr style="display:none"><td><input type="hidden" id="usersFound" value="{$T_SENDALLMAIL_URL}" /></td></tr>
+{*
      {if $smarty.const.MSIE_BROWSER == 1}
       <img style="display:none" src="images/16x16/question_type_free_text.png" onLoad="javascript:new Effect.Appear('sendToAllId');" />
      {else}
@@ -168,9 +175,11 @@
       new Effect.Appear('sendToAllId');
       </script>
      {/if}
+*}
   {else}
      <tr><td colspan ="8" class = "emptyCategory">{$smarty.const._NOEMPLOYEESFULFILLTHESPECIFIEDCRITERIA}</td></tr>
      <tr style="display:none"><td><input type="hidden" id="usersFound" value="{$T_SENDALLMAIL_URL}" /></td></tr>
+{*
      {if $smarty.const.MSIE_BROWSER == 1}
      <img style="display:none" src="images/16x16/question_type_free_text.png" onload="if (document.getElementById('sendToAllId')) {ldelim}document.getElementById('sendToAllId').style.display='none';{rdelim}" />
      {else}
@@ -180,6 +189,7 @@
       document.getElementById('sendToAllId').style.display = 'none';
       </script>
      {/if}
+*}
   {/if}
   </table>
 <!--/ajax:foundEmployees-->
@@ -251,8 +261,8 @@
  {capture name = 't_custom_group_stats_code'}
  <div class = "statisticsDiv" id = "statsDivCustomGroup">
 <!--ajax:customGroupStats-->
-  <span>
 {if isset($T_USER_TRAFFIC)}
+<span>
                 <table class = "statisticsGeneralInfo">
                     <tr><td class = "topTitle" colspan = "2">{$smarty.const._GROUPUSERTRAFFIC}</td></tr>
                     <tr class = "oddRowColor">
@@ -291,9 +301,9 @@
                      <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
                     {/foreach}
                 </table>
-        </span>
-  {else}
-  <span class = "emptyCategory">{$smarty.const._NOUSERSFOUND}</span>
+</span>
+{else}
+<span class = "emptyCategory">{$smarty.const._NOUSERSFOUND}</span>
 {/if}
 <!--/ajax:customGroupStats-->
 </div>

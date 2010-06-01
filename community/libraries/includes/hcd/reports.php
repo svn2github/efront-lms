@@ -120,7 +120,7 @@ if (isset($_GET['search'])) {
 //		echo $sql_query."<BR>";
   /*************** THE SEARCH QUERY ****************/
    //$result = eF_getTableData("users","*", $sql_query . " LIMIT 100");
-   $result = eF_getTableData("users","*", $sql_query);
+   $result = eF_getTableData("users","*", "users.archive=0 and ".$sql_query);
    $employees = $result;
   //pr($result);
  }
@@ -230,7 +230,7 @@ if ($currentUser -> getType() == "administrator") {
 }
 /* Create the selection criteria form */
 //$form = new HTML_QuickForm("reports_form", "post", $_SESSION['s_type'].".php?ctg=module_hcd&op=reports&search=1&branch_ID=".$_GET['branch_ID']."&job_description_ID=".$_GET['job_description_ID']."&skill_ID=".$_GET['skill_ID'], "", null, true);
-$form = new HTML_QuickForm("reports_form", "post", $_SESSION['s_type'].".php?ctg=module_hcd&op=reports&search=1", "", null, true);
+$form = new HTML_QuickForm("reports_form", "post", $_SESSION['s_type'].".php?ctg=module_hcd&op=reports&search=1", "", "onsubmit = 'return(false)'", true);
 $form -> addElement('radio', 'criteria', null, null, 'all_criteria', 'checked = "checked" id="all_criteria" onclick="javascript:refreshResults()"');
 $form -> addElement('radio', 'criteria', null, null, 'any_criteria', 'id="any_criteria" onclick="javascript:refreshResults()"');
 /* Get data for creating the selects */
@@ -290,8 +290,8 @@ $renderer -> setRequiredTemplate(
             {/if}');
 // Management of the 'send email to all found' link icon on the top right of the table
 // During page load create the item
-$mass_operations = array(array('id' => 'groupUsersId', 'text' => _SETFOUNDEMPLOYEESINTOGROUP, 'image' => "16x16/users.png", 'href' => "javascript:void(0);", "onClick" => "eF_js_showDivPopup('"._SETFOUNDEMPLOYEESINTOGROUP."', 0, 'insert_into_group')", 'target' => 'POPUP_FRAME'),
-        array('id' => 'sendToAllId', 'text' => _SENDMESSAGETOALLFOUNDEMPLOYEES, 'image' => "16x16/mail.png", 'href' => "javascript:void(0);", "onClick" => "this.href='".$currentUser->getType().".php?ctg=messages&add=1&recipient='+document.getElementById('usersFound').value;eF_js_showDivPopup('"._SENDMESSAGE."', 2)", 'target' => 'POPUP_FRAME'));
+$mass_operations = array(array('id' => 'groupUsersId', 'text' => _SETFOUNDEMPLOYEESINTOGROUP, 'image' => "16x16/users.png", 'href' => "javascript:void(0);", "onclick" => "eF_js_showDivPopup('"._SETFOUNDEMPLOYEESINTOGROUP."', 0, 'insert_into_group')", 'target' => 'POPUP_FRAME'),
+        array('id' => 'sendToAllId', 'text' => _SENDMESSAGETOALLFOUNDEMPLOYEES, 'image' => "16x16/mail.png", 'href' => "javascript:void(0);", "onclick" => "this.href='".$currentUser->getType().".php?ctg=messages&add=1&recipient='+document.getElementById('usersFound').value;eF_js_showDivPopup('"._SENDMESSAGE."', 2)", 'target' => 'POPUP_FRAME'));
 $smarty -> assign("T_SENDALLMAIL_LINK", $mass_operations);
 $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
 $form -> setRequiredNote(_REQUIREDNOTE);

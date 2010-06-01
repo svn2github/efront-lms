@@ -441,10 +441,10 @@ class EfrontGroup
             } else {
              throw new EfrontGroupException(_USERDOESNOTEXIST, EfrontGroupException :: USER_NOT_EXISTS);
             }
-            // Used for user to groups import
-            if ($duplicate_found) {
-             throw new EfrontGroupException(_USERALREADYEXISTSINGROUP, EfrontGroupException :: USER_ALREADY_MEMBER);
-            }
+        }
+        // Used for user to groups import
+        if ($duplicate_found) {
+         throw new EfrontGroupException(_USERALREADYEXISTSINGROUP, EfrontGroupException :: USER_ALREADY_MEMBER);
         }
     }
     /**

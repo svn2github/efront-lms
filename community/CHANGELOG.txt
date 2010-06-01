@@ -1,4 +1,4 @@
-=== Version 3.6.3 build 7400 ===
+=== Version 3.6.3 build 7412 ===
 - Added course instances functionality (educational/enterprise)
 - Added feedback functionality
 - Added curriculum functionality (educational/enterprise)

@@ -52,7 +52,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {if in_array('end_date', $T_DATASOURCE_COLUMNS)} <td class = "topTitle end_date" name = "end_date">{$smarty.const._ENDDATE}</td>{/if}
 {if in_array('created', $T_DATASOURCE_COLUMNS)} <td class = "topTitle created" name = "created">{$smarty.const._CREATED}</td>{/if}
 {if in_array('active', $T_DATASOURCE_COLUMNS)} <td class = "topTitle active" name = "active" >{$smarty.const._ACTIVE2}</td>{/if}
-{if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_course" name = "active_in_course">{$smarty.const._STATUS}</td>{/if}
+{if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_course" name = "active_in_course">{$smarty.const._ENABLED}</td>{/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)} <td class = "topTitle completed" name = "completed">{$smarty.const._COMPLETED}</td>{/if}
 {if in_array('to_timestamp', $T_DATASOURCE_COLUMNS)} <td class = "topTitle to_timestamp" name = "to_timestamp">{$smarty.const._COMPLETEDON}</td>{/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)} <td class = "topTitle score" name = "score">{$smarty.const._SCORE}</td>{/if}
@@ -252,7 +252,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
      <tr class = "topTitle">
 {if in_array('name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle name" name = "name">{$smarty.const._LESSON}</td>{/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)} <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>{/if}
-{if in_array('active_in_lesson', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_lesson" name = "active_in_lesson">{$smarty.const._STATUS}</td>{/if}
+{if in_array('active_in_lesson', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_lesson" name = "active_in_lesson">{$smarty.const._ENABLED}</td>{/if}
 {if in_array('time_in_lesson', $T_DATASOURCE_COLUMNS)} <td class = "topTitle time_in_lesson" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>{/if}
 {if in_array('overall_progress', $T_DATASOURCE_COLUMNS)}<td class = "topTitle overall_progress" name = "overall_progress">{$smarty.const._OVERALLPROGRESS}</td>{/if}
   {if !$T_CONFIGURATION.disable_tests}

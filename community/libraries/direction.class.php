@@ -821,7 +821,7 @@ class EfrontDirectionsTree extends EfrontTree
   if (isset($options['buy_link']) && $options['buy_link'] && (!isset($treeLesson -> lesson['has_lesson']) || !$treeLesson -> lesson['has_lesson']) && (!isset($treeLesson -> lesson['reached_max_users']) || !$treeLesson -> lesson['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
    $treeString .= '
     <span class = "buyLesson">
-     <span>'.$this -> showLessonPrice($treeLesson).'</span>
+     <span onclick = "addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\')">'.$this -> showLessonPrice($treeLesson).'</span>
      <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\')">
     </span>';
   }
@@ -847,7 +847,7 @@ class EfrontDirectionsTree extends EfrontTree
    if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || !$treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
     $treeString .= '
         <span class = "buyLesson">
-         <span>'.$this -> showCoursePrice($treeCourse).'</span>
+         <span onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">'.$this -> showCoursePrice($treeCourse).'</span>
          <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
         </span>';
     $hasInstancesClass = 'boldFont';

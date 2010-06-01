@@ -237,6 +237,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {literal}
 table#lessonsTable,table#courseLessonsTable {width:100%;}
 table#lessonsTable td.name, table#courseLessons td.name{width:50%;}
+table#lessonsTable td.active_in_lesson,table#courseLessonsTable td.active_in_lesson{width:5%;text-align:center;}
 table#lessonsTable td.user_type, table#courseLessonsTable td.user_type{width:25%;}
 table#lessonsTable td.time_in_lesson, table#courseLessons td.time_in_lesson{width:25%;}
 table#lessonsTable td.overall_progress,table#courseLessons td.overall_progress{width:5%;text-align:center;}
@@ -251,6 +252,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
      <tr class = "topTitle">
 {if in_array('name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle name" name = "name">{$smarty.const._LESSON}</td>{/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)} <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>{/if}
+{if in_array('active_in_lesson', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_lesson" name = "active_in_lesson">{$smarty.const._STATUS}</td>{/if}
 {if in_array('time_in_lesson', $T_DATASOURCE_COLUMNS)} <td class = "topTitle time_in_lesson" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>{/if}
 {if in_array('overall_progress', $T_DATASOURCE_COLUMNS)}<td class = "topTitle overall_progress" name = "overall_progress">{$smarty.const._OVERALLPROGRESS}</td>{/if}
   {if !$T_CONFIGURATION.disable_tests}
@@ -271,15 +273,33 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 {/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)}
          <td class = "user_type">
+       {if $_change_handles_}
+        <span style = "display:none">{$T_ROLES_ARRAY[$lesson.user_type]}</span>
+              <select name = "lesson_type_{$lesson.id}" id = "lesson_type_{$lesson.id}" onchange = "$('lesson_{$lesson.id}').checked = true;ajaxUserPost('lesson', '{$lesson.id}', this);">
+            {foreach name = 'roles_list' key = 'role_key' item = 'role_item' from = $T_ROLES_ARRAY}
+                  <option value = "{$role_key}" {if !$lesson.user_type}{if ($T_EDITED_USER_TYPE == $role_key)}selected{/if}{else}{if ($lesson.user_type == $role_key)}selected{/if}{/if}>{$role_item}</option>
+            {/foreach}
+              </select>
+       {else}
            {$T_ROLES_ARRAY[$lesson.user_type]}
+       {/if}
          </td>
+{/if}
+{if in_array('active_in_lesson', $T_DATASOURCE_COLUMNS)}
+   <td class = "active_in_lesson">
+    {if !$lesson.active_in_lesson && $lesson.has_lesson}
+              <img src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" {if $_change_handles_}class = "ajaxHandle" onclick = "confirmUser(this, '{$lesson.id}', 'lesson')"{/if}/>
+             {elseif $lesson.has_lesson}
+              <img src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHElesson}" alt = "{$smarty.const._USERHASTHElesson}" {if $_change_handles_}class = "ajaxHandle" onclick = "unConfirmUser(this, '{$lesson.id}', 'lesson')"{/if}/>
+             {/if}
+   </td>
 {/if}
 {if in_array('time_in_lesson', $T_DATASOURCE_COLUMNS)}
    <td class = "time_in_lesson"><span style = "display:none">{$lesson.time_in_lesson.total_seconds}&nbsp;</span>{$lesson.time_in_lesson.time_string}</td>
 {/if}
 {if in_array('overall_progress', $T_DATASOURCE_COLUMNS)}
    <td class = "progressCell overall_progress">
-   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$lesson.user_type] == 'student')}
     <span style = "display:none">{$lesson.overall_progress.completed+1000}</span>
     <span class = "progressNumber">#filter:score-{$lesson.overall_progress.percentage}#%</span>
     <span class = "progressBar" style = "width:{$lesson.overall_progress.percentage}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -289,7 +309,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
    {if !$T_CONFIGURATION.disable_tests}
 {if in_array('test_status', $T_DATASOURCE_COLUMNS)}
     <td class = "progressCell test_status">
-    {if $lesson.test_status && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}
+    {if $lesson.test_status && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$lesson.user_type] == 'student')}
      <span style = "display:none">{$lesson.test_status.mean_score+1000}</span>
      <span class = "progressNumber">#filter:score-{$lesson.test_status.mean_score}#% ({$lesson.test_status.completed}/{$lesson.test_status.total})</span>
      <span class = "progressBar" style = "width:{$lesson.test_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -300,7 +320,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
    {if !$T_CONFIGURATION.disable_projects}
 {if in_array('project_status', $T_DATASOURCE_COLUMNS)}
     <td class = "progressCell project_status">
-    {if $lesson.project_status && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}
+    {if $lesson.project_status && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$lesson.user_type] == 'student')}
      <span style = "display:none">{$lesson.project_status.mean_score+1000}</span>
      <span class = "progressNumber">#filter:score-{$lesson.project_status.mean_score}#% ({$lesson.project_status.completed}/{$lesson.project_status.total})</span>
      <span class = "progressBar" style = "width:{$lesson.project_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -310,14 +330,14 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
    {/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)}
    <td class = "completed">
-   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$lesson.user_type] == 'student')}
     {if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}
    {/if}
    </td>
 {/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
    <td class = "score">
-   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$lesson.user_type] == 'student')}
     #filter:score-{$lesson.score}#%
    {/if}
    </td>

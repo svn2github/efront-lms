@@ -1658,7 +1658,7 @@ abstract class EfrontUser
  public function archive() {
   $this -> user['archive'] = time();
   $this -> persist();
-  $this -> activate();
+  $this -> deactivate();
  }
  /**
 
@@ -2522,7 +2522,7 @@ abstract class EfrontLessonUser extends EfrontUser
  public function getNonLessons($returnObjects = false) {
   $userLessons = eF_getTableDataFlat("users_to_lessons", "lessons_ID", "archive=0 and users_LOGIN = '".$this -> user['login']."'");
   //sizeof($userLessons) > 0 ? $sql = "and id not in (".implode(",", $userLessons['lessons_ID']).")" : $sql = '';
-  sizeof($userLessons) > 0 ? $sql = "id not in (".implode(",", $userLessons['lessons_ID']).")" : $sql = '';
+  sizeof($userLessons) > 0 ? $sql = "active = 1 and id not in (".implode(",", $userLessons['lessons_ID']).")" : $sql = 'active = 1';
   if ($returnObjects) {
    $nonUserLessons = array();
    //$lessons		= eF_getTableData("lessons", "*", "languages_NAME='".$this -> user['languages_NAME']."'".$sql);
@@ -2640,6 +2640,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $select['score'] = "(select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as score";
   $select['completed'] = "(select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as completed";
   $select['to_timestamp'] = "(select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as to_timestamp";
+  $select['active_in_course'] = "(select max(from_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as active_in_course";
   $select['has_course'] = "(select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as has_course";
   $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
   $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";

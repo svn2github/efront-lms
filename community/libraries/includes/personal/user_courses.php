@@ -118,7 +118,7 @@ try {
   $smarty -> assign("T_EDITED_USER_TYPE", $courseUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $courseUser -> user['user_type']);
 
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonsTable') {
-   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'completed', 'user_type', 'score', 'has_lesson'));
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'completed','active_in_lesson', 'user_type', 'score', 'has_lesson'));
    if ($showUnassigned) {
     $lessons = $courseUser -> getUserStatusInIndependentLessons() + $courseUser -> getNonLessons(true);
    } else {
@@ -134,7 +134,7 @@ try {
 
   }
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
-   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'completed', 'score'));
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'completed', 'score'));
 
    $lessons = $courseUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsTable_source']));
    $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
@@ -143,10 +143,10 @@ try {
 
 
   if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
-   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'active_in_course', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => false);
-    $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+    $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($showUnassigned) {
      $courses = $courseUser -> getUserCoursesAggregatingResultsIncludingUnassigned($constraints);
@@ -158,7 +158,7 @@ try {
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
-    $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+    $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($showUnassigned) {
      $courses = $courseUser -> getUserCoursesIncludingUnassigned($constraints);

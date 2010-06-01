@@ -893,6 +893,15 @@ function onConfirmUser(el, response) {
  setImageSrc(el, 16, 'success');
     el.writeAttribute({title:userHasLesson, alt:userHasLesson});
 }
+function unConfirmUser(el, id, type) {
+ parameters = {ajax:'unconfirm_user', type: type, id: id, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onUnConfirmUser);
+}
+function onUnConfirmUser(el, response) {
+ setImageSrc(el, 16, 'warning');
+    el.writeAttribute({title:translationsToJS['_APPLICATIONPENDING'], alt:translationsToJS['_APPLICATIONPENDING']});
+}
 // social
 var __initStatus;
 var __noChangeEscape = 0;

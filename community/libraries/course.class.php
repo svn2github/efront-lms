@@ -811,7 +811,7 @@ class EfrontCourse
 	 * @access private
 
 	 */
- private function addCourseUsersToLesson($lesson, $usersToAdd = false) {
+ private function addCourseUsersToLesson($lesson, $usersToAdd = false, $confirmed = true) {
   if (!$usersToAdd) {
    $usersToAdd = $this -> getUsers();
   }
@@ -820,7 +820,7 @@ class EfrontCourse
    $users[] = $login;
    $roles[] = $user['role'];
   }
-  $lesson -> addUsers($users, $roles);
+  $lesson -> addUsers($users, $roles, $confirmed);
  }
  /**
 
@@ -1539,9 +1539,14 @@ class EfrontCourse
   $newUsers = array();
   foreach ($usersData as $value) {
    if (in_array($value['login'], $archivedCourseUsers)) {
-    $fields = array("active" => 1, "archive" => 0);
+    //Update only fields not related to progress
+    $updateFields = array('active' => 1,
+          'archive' => 0,
+          'from_timestamp' => $value['confirmed'] ? time() : 0,
+          'user_type' => $value['role'],
+          'to_timestamp' => 0);
     $where = "users_LOGIN='".$value['login']."' and courses_ID=".$this -> course['id'];
-    self::persistCourseUsers($fields, $where, $this -> course['id'], $value['login']);
+    self::persistCourseUsers($updateFields, $where, $this -> course['id'], $value['login']);
     //eF_updateTableData("users_to_lessons", array("active" => 1, "archive" => 0), "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
    } else {
     $newUsers[] = $value['login'];
@@ -1667,7 +1672,7 @@ class EfrontCourse
   $this -> users = false; //Reset users cache
   $courseLessons = $this -> getCourseLessons();
   foreach ($courseLessons as $lesson) {
-   $this -> addCourseUsersToLesson($lesson, $usersToAddToCourse);
+   $this -> addCourseUsersToLesson($lesson, $usersToAddToCourse, $confirmed);
   }
   return $this -> getUsers();
  }

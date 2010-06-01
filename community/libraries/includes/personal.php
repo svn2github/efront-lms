@@ -593,6 +593,21 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
    echo $e -> getMessage().' ('.$e -> getCode().')';
   }
   exit;
+ } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'unconfirm_user') {
+  try {
+   if ($_GET['type'] == 'course') {
+    $course = new EfrontCourse($_GET['id']);
+    $course -> unConfirm($editedUser);
+   } else {
+    $lesson = new EfrontLesson($_GET['id']);
+    $lesson -> unConfirm($editedUser);
+    //eF_updateTableData("users_to_lessons", array("from_timestamp" => time()), "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_GET['id']." and from_timestamp=0");
+   }
+  } catch (Exception $e) {
+   header("HTTP/1.0 500");
+   echo $e -> getMessage().' ('.$e -> getCode().')';
+  }
+  exit;
  }
  /****************************************************************************************************************************************************/
  /*********************************************************** Create the add/edit user form ******************************************************************/

@@ -105,3 +105,166 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
    <td class = "score">{if $user.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}#filter:score-{$user.score}#%{/if}</td>
 {/if}
+
+
+
+
+ {if in_array('expire_certificate', $T_DATASOURCE_COLUMNS)}
+   <td class = "expire_certificate">{if $user.has_course}<span style="display:none">{$user.expire_certificateTimestamp}</span>#filter:timestamp-{$user.expire_certificate}#{/if}</td>
+ {/if}
+{/if}
+{if in_array('operations', $T_DATASOURCE_COLUMNS)}
+   <td class = "operations">{strip}
+ {if !isset($T_DATASOURCE_OPERATIONS) || in_array('statistics', $T_DATASOURCE_OPERATIONS)}
+  {if !isset($T_CURRENT_USER->coreAccess.statistics) || $T_CURRENT_USER->coreAccess.statistics != 'hidden'}
+    <a href="{$smarty.server.PHP_SELF}?ctg=statistics&option=user&sel_user={$user.login}"><img class = "handle" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a>&nbsp;
+  {/if}
+ {/if}
+ {if !isset($T_DATASOURCE_OPERATIONS) || in_array('certificate', $T_DATASOURCE_OPERATIONS)}
+ {/if}
+ {if !isset($T_DATASOURCE_OPERATIONS) || in_array('progress', $T_DATASOURCE_OPERATIONS)}
+    <a href = "{$smarty.server.PHP_SELF}?{$T_BASE_URL}&op=course_certificates&edit_user={$user.login}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PROGRESS}', 2)" title = "{$smarty.const._VIEWUSERLESSONPROGRESS}">
+     <img src = "images/16x16/users.png" title = "{$smarty.const._VIEWUSERCOURSEPROGRESS}" alt = "{$smarty.const._VIEWUSERCOURSEPROGRESS}"/>
+    </a>
+ {/if}
+   {/strip}</td>
+{/if}
+{if in_array('has_course', $T_DATASOURCE_COLUMNS)}
+   <td class = "has_course">
+    {if $_change_handles_}
+     {if (($user.has_course && $T_COURSE_HAS_INSTANCES)) && $T_SORTED_TABLE != 'instanceUsersTable'}
+     <input class = "inputCheckBox" type="checkbox" name="{$user.login}" checked disabled">
+     {elseif $T_SORTED_TABLE == 'instanceUsersTable' || !$T_COURSE_HAS_INSTANCES}
+     <input class = "inputCheckBox" type="checkbox" id="user_{$user.login}" name="{$user.login}" {if $user.has_course == 1}checked{/if} onclick ="ajaxPost('{$user.login}', this, 'userUsersTable');">
+     {/if}
+    {elseif $user.has_course == 1}
+     {if (($user.has_course && $T_COURSE_HAS_INSTANCES)) && $T_SORTED_TABLE != 'instanceUsersTable'}
+     <img src = "images/16x16/success.png" class = "inactiveImage" alt = "{$smarty.const._COURSEUSER}" title = "{$smarty.const._COURSEUSER}">
+     {elseif $T_SORTED_TABLE == 'instanceUsersTable' || !$T_COURSE_HAS_INSTANCES}
+     <img src = "images/16x16/success.png" alt = "{$smarty.const._COURSEUSER}" title = "{$smarty.const._COURSEUSER}">
+     {/if}
+    {/if}
+   </td>
+{/if}
+  </tr>
+  {foreachelse}
+  <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>
+  {/foreach}
+{/capture}
+{capture name = 'lessons_list'}
+<style>
+{literal}
+table#lessonsTable,table#courseLessonsUsersTable {width:100%;}
+table#lessonsTable td.name, table#courseLessons td.name{width:50%;}
+table#lessonsTable td.time_in_lesson, table#courseLessons td.time_in_lesson{width:25%;}
+table#lessonsTable td.overall_progress,table#courseLessons td.overall_progress{width:5%;text-align:center;}
+table#lessonsTable td.test_status, table#courseLessons td.test_status{width:5%;text-align:center;}
+table#lessonsTable td.project_status,table#courseLessons td.project_status{width:5%;text-align:center;}
+table#lessonsTable td.completed,table#courseLessons td.completed{width:5%;text-align:center;}
+table#lessonsTable td.score,table#courseLessons td.score{width:5%;text-align:center;}
+{/literal}
+</style>
+  <tr class = "topTitle">
+{if in_array('name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle name" name = "name">{$smarty.const._LESSON}</td>{/if}
+{if in_array('time_in_lesson', $T_DATASOURCE_COLUMNS)} <td class = "topTitle time_in_lesson" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>{/if}
+{if in_array('overall_progress', $T_DATASOURCE_COLUMNS)}<td class = "topTitle overall_progress" name = "overall_progress">{$smarty.const._OVERALLPROGRESS}</td>{/if}
+  {if !$T_CONFIGURATION.disable_tests}
+{if in_array('test_status', $T_DATASOURCE_COLUMNS)} <td class = "topTitle test_status" name = "test_status">{$smarty.const._TESTSSCORE}</td>{/if}
+  {/if}
+  {if !$T_CONFIGURATION.disable_projects}
+{if in_array('project_status', $T_DATASOURCE_COLUMNS)} <td class = "topTitle project_status" name = "project_status">{$smarty.const._PROJECTSSCORE}</td>{/if}
+  {/if}
+{if in_array('completed', $T_DATASOURCE_COLUMNS)} <td class = "topTitle completed" name = "completed">{$smarty.const._COMPLETED}</td>{/if}
+{if in_array('score', $T_DATASOURCE_COLUMNS)} <td class = "topTitle score" name = "score">{$smarty.const._SCORE}</td>{/if}
+  </tr>
+  {foreach name = 'users_to_lessons_list' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
+  <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
+{if in_array('name', $T_DATASOURCE_COLUMNS)}
+   <td class = "name">{$lesson.name}{* ({$T_ROLES[$lesson.user_type]})*}</td>
+{/if}
+{if in_array('time_in_lesson', $T_DATASOURCE_COLUMNS)}
+   <td class = "time_in_lesson"><span style = "display:none">{$lesson.time_in_lesson.total_seconds}&nbsp;</span>{$lesson.time_in_lesson.time_string}</td>
+{/if}
+{if in_array('overall_progress', $T_DATASOURCE_COLUMNS)}
+   <td class = "progressCell overall_progress">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    <span style = "display:none">{$lesson.overall_progress.completed+1000}</span>
+    <span class = "progressNumber">#filter:score-{$lesson.overall_progress.percentage}#%</span>
+    <span class = "progressBar" style = "width:{$lesson.overall_progress.percentage}px;">&nbsp;</span>&nbsp;&nbsp;
+   {/if}
+   </td>
+{/if}
+   {if !$T_CONFIGURATION.disable_tests}
+{if in_array('test_status', $T_DATASOURCE_COLUMNS)}
+   <td class = "progressCell test_status">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    {if $lesson.test_status}
+     <span style = "display:none">{$lesson.test_status.mean_score+1000}</span>
+     <span class = "progressNumber">#filter:score-{$lesson.test_status.mean_score}#% ({$lesson.test_status.completed}/{$lesson.test_status.total})</span>
+     <span class = "progressBar" style = "width:{$lesson.test_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
+    {else}
+     <div class = "centerAlign">-</div>
+    {/if}
+   {/if}
+   </td>
+{/if}
+   {/if}
+   {if !$T_CONFIGURATION.disable_projects}
+{if in_array('project_status', $T_DATASOURCE_COLUMNS)}
+   <td class = "progressCell project_status">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    {if $lesson.project_status}
+     <span style = "display:none">{$lesson.project_status.mean_score+1000}</span>
+     <span class = "progressNumber">#filter:score-{$lesson.project_status.mean_score}#% ({$lesson.project_status.completed}/{$lesson.project_status.total})</span>
+     <span class = "progressBar" style = "width:{$lesson.project_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
+    {else}
+     <div class = "centerAlign">-</div>
+    {/if}
+   {/if}
+   </td>
+{/if}
+   {/if}
+{if in_array('completed', $T_DATASOURCE_COLUMNS)}
+   <td class = "completed">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    {if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}
+   {/if}
+   </td>
+{/if}
+{if in_array('score', $T_DATASOURCE_COLUMNS)}
+   <td class = "score">
+   {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
+    #filter:score-{$lesson.score}#%
+   {/if}
+   </td>
+{/if}
+  </tr>
+  {foreachelse}
+  <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>
+  {/foreach}
+{/capture}
+ {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'courseUsersTable'}
+<!--ajax:courseUsersTable-->
+ <table size = "{$T_TABLE_SIZE}" sortBy = "{$T_DATASOURCE_SORT_BY}" id = "courseUsersTable" class = "sortedTable" useAjax = "1" url = "{$courseUsers_url}">
+  {$smarty.capture.course_users_list}
+ </table>
+<!--/ajax:courseUsersTable-->
+ {/if}
+ {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'instanceUsersTable'}
+<div id = "filemanager_div" style = "display:none;">
+<!--ajax:instanceUsersTable-->
+ <table size = "{$T_TABLE_SIZE}" sortBy = "{$T_DATASOURCE_SORT_BY}" id = "instanceUsersTable" class = "sortedTable subSection" no_auto = "1" useAjax = "1" url = "{$courseUsers_url}">
+  {$smarty.capture.course_users_list}
+ </table>
+<!--/ajax:instanceUsersTable-->
+</div>
+ {/if}
+ {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'courseLessonsUsersTable'}
+<div id = "filemanager_div" style = "display:none;">
+<!--ajax:courseLessonsUsersTable-->
+  <table id = "courseLessonsUsersTable" no_auto = "1" size = "{$T_TABLE_SIZE}" class = "sortedTable subSection" useAjax = "1" url = "{$courseUsers_url}">
+  {$smarty.capture.lessons_list}
+  </table>
+<!--/ajax:courseLessonsUsersTable-->
+</div>
+ {/if}

@@ -16,9 +16,10 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
  */
 function runPostInstallationFunctions() {
- //addRestrictedAdministrator();
- //customizeSite();
- //ReplaceProfessorUser();
+ addRestrictedAdministrator();
+ customizeSite();
+ ReplaceProfessorUser();
+ removeRssEntry();
 }
 function addRestrictedAdministrator() {
  $values['core_access'] = array("configuration" => 'hidden',
@@ -38,17 +39,22 @@ function customizeSite() {
  EfrontConfiguration :: setValue('disable_help', '1');
 }
 function ReplaceProfessorUser() {
- $professorData = array('login' => 'professor',
-                           'password' => 'professor',
+ $professorData = array('login' => 'coursemanager',
+                           'password' => 'coursemanager',
                            'email' => $GLOBALS['configuration']['system_email'],
                            'name' => 'Default',
-                           'surname' => 'Professor',
+                           'surname' => 'Course manager',
                            'languages_NAME' => 'english',
                            'active' => '1',
                            'user_type'=> 'professor',
-                           'additional_accounts' => serialize('admin', 'student'));
+                           'additional_accounts' => serialize(array('admin', 'student')));
  $professor = EfrontUser :: createUser($professorData);
- $oldUser =FEfrontUserFactory::factory('professor');
+ $oldUser = EfrontUserFactory::factory('professor');
  $oldUser -> delete();
+}
+function removeRssEntry() {
+ eF_executeNew("drop table if exists module_rss_feeds");
+ eF_executeNew("CREATE TABLE module_rss_feeds(id int(11) not null auto_increment primary key, title varchar(255), url text not null, active int(11) not null default 1, only_summary int(11) default 0, lessons_ID int(11) default -1)");
+ eF_updateTableData("modules", array("active" => 0), "className='module_rss'");
 }
 ?>

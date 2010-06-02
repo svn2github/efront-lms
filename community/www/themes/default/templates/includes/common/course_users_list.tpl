@@ -105,14 +105,6 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
    <td class = "score">{if $user.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}#filter:score-{$user.score}#%{/if}</td>
 {/if}
-
-
-
-
- {if in_array('expire_certificate', $T_DATASOURCE_COLUMNS)}
-   <td class = "expire_certificate">{if $user.has_course}<span style="display:none">{$user.expire_certificateTimestamp}</span>#filter:timestamp-{$user.expire_certificate}#{/if}</td>
- {/if}
-{/if}
 {if in_array('operations', $T_DATASOURCE_COLUMNS)}
    <td class = "operations">{strip}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('statistics', $T_DATASOURCE_OPERATIONS)}

@@ -16,10 +16,10 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
  */
 function runPostInstallationFunctions() {
- addRestrictedAdministrator();
- customizeSite();
- ReplaceProfessorUser();
- removeRssEntry();
+//	addRestrictedAdministrator();
+//	customizeSite();
+//	ReplaceProfessorUser();
+//	removeRssEntry();
 }
 function addRestrictedAdministrator() {
  $values['core_access'] = array("configuration" => 'hidden',

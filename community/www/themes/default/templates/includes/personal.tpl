@@ -146,6 +146,11 @@ var enableMyJobSelect = false;
       {if ($smarty.get.personal) || ($smarty.get.edit_user == $smarty.session.s_login)}
        {*@TODO: FILE UPLOAD MISSING HERE*}
       {/if}
+      <tr><td></td>
+       <td><span>
+        <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+        <a href = "javascript:toggleEditor('short_description','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+       </span></td></tr>
       <tr><td class = "labelCell">{$T_AVATAR_FORM.short_description.label}:&nbsp;</td>
        <td class = "elementCell">{$T_AVATAR_FORM.short_description.html}</td></tr>
       <tr><td colspan = "2">&nbsp;</td></tr>
@@ -306,6 +311,11 @@ var enableMyJobSelect = false;
        <form {$T_EVALUATIONS_FORM.attributes}>
        {$T_EVALUATIONS_FORM.hidden}
         <table class = "formElements">
+        <tr><td></td>
+        <td><span>
+         <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+         <a href = "javascript:toggleEditor('specification','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+        </span></td></tr>
          <tr>
           <td class = "labelCell">{$T_EVALUATIONS_FORM.specification.label}:&nbsp;</td>
           <td style="white-space:nowrap;">{$T_EVALUATIONS_FORM.specification.html}</td>

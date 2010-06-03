@@ -9,7 +9,10 @@
            <tr><td class = "labelCell">{$T_ENTITY_FORM.title.label}:&nbsp;</td>
                <td class = "elementCell">{$T_ENTITY_FORM.title.html}</td></tr>
            {if $T_ENTITY_FORM.title.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.title.error}</td></tr>{/if}
-
+     <tr><td></td>
+      <td><span>
+       <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+       <a href = "javascript:toggleEditor('data','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a></span></td></tr>
            <tr><td class = "labelCell">{$T_ENTITY_FORM.data.label}:&nbsp;</td>
                <td class = "elementCell">{$T_ENTITY_FORM.data.html}</td></tr>
            {if $T_ENTITY_FORM.data.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.data.error}</td></tr>{/if}

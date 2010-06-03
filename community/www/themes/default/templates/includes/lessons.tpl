@@ -29,8 +29,10 @@
        <td class = "elementCell">{$T_LESSON_FORM.active.html}</td></tr>
       <tr class = "only_lesson" {if !$T_EDIT_LESSON || $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.show_catalog.label}:&nbsp;</td>
        <td class = "elementCell">{$T_LESSON_FORM.show_catalog.html}</td></tr>
+    {if $T_CONFIGURATION.disable_payments != 1}
       <tr id = "price_row" class = "only_lesson" {if !$T_EDIT_LESSON || $T_EDIT_LESSON->lesson.course_only}style = "display:none"{/if}><td class = "labelCell">{$T_LESSON_FORM.price.label}:&nbsp;</td>
        <td>{$T_LESSON_FORM.price.html} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}</td></tr>
+    {/if}
       <tr><td></td>
        <td class = "submitCell">{$T_LESSON_FORM.submit_lesson.html}</td></tr>
      </table>
@@ -151,7 +153,9 @@
           <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
           <td class = "topTitle centerAlign" name = "students">{$smarty.const._PARTICIPATION}</td>
           <td class = "topTitle centerAlign" name = "course_only">{$smarty.const._AVAILABLE}</td>
+         {if $T_CONFIGURATION.disable_payments != 1}
           <td class = "topTitle centerAlign" name = "price">{$smarty.const._PRICE}</td>
+         {/if}
           <td class = "topTitle" name = "created">{$smarty.const._CREATED}</td>
           <td class = "topTitle centerAlign" name = "active">{$smarty.const._ACTIVE2}</td>
           <td class = "topTitle noSort centerAlign">{$smarty.const._OPERATIONS}</td>
@@ -178,7 +182,9 @@
            <img class = "ajaxHandle" src = "images/16x16/lessons.png" alt = "{$smarty.const._DIRECTLY}" title = "{$smarty.const._DIRECTLY}" {if $change_lessons}onclick = "setLessonAccess(this, '{$lesson.id}')"{/if}>
          {/if}
           </td>
+         {if $T_CONFIGURATION.disable_payments != 1}
           <td class = "centerAlign">{if !$lesson.course_only}{if $lesson.price == 0}-{else}{$lesson.price_string}{/if}{else}-{/if}</td>
+         {/if}
           <td>#filter:timestamp-{$lesson.created}#</td>
           <td class = "centerAlign">
          {if $lesson.active == 1}

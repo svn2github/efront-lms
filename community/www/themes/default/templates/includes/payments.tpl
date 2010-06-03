@@ -96,6 +96,11 @@
      </tr>
      <tr><td class = "labelCell">{$T_ENTITY_FORM.amount.label} ({$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}):&nbsp;</td>
       <td class = "elementCell">{$T_ENTITY_FORM.amount.html}</td></tr>
+     <tr><td></td>
+      <td><span>
+        <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+        <a href = "javascript:toggleEditor('comments','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+       </span></td></tr>
      <tr><td class = "labelCell">{$T_ENTITY_FORM.comments.label}:&nbsp;</td>
       <td class = "elementCell">{$T_ENTITY_FORM.comments.html}</td></tr>
      <tr><td></td>

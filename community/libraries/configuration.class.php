@@ -137,7 +137,8 @@ class EfrontConfiguration
   'disable_tests' => '0',
   'disable_tooltip' => '0',
   'disable_help' => '0',
-  'disable_feedback' => '1',
+  'disable_feedback' => '0',
+  'disable_payments' => '0',
 
         //Social - Facebook settings
         'facebook_api_key' => '',

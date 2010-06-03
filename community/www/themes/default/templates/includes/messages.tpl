@@ -159,7 +159,12 @@
                 <tr><td class = "labelCell">{$smarty.const._SENDASEMAILALSO}:&nbsp;</td>
                     <td class = "elementCell">{$T_ADD_MESSAGE_FORM.email.html}</td></tr>
                     {if $T_ADD_MESSAGE_FORM.email.error}<tr><td></td><td class = "formError">{$T_ADD_MESSAGE_FORM.email.error}</td></tr>{/if}
-                <tr><td class = "labelCell">{$smarty.const._BODY}:&nbsp;</td>
+                <tr><td></td><td>
+      <span>
+       <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+       <a href = "javascript:toggleEditor('body','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+      </span></td></tr>
+    <tr><td class = "labelCell">{$smarty.const._BODY}:&nbsp;</td>
                     <td class = "elementCell">{$T_ADD_MESSAGE_FORM.body.html}</td></tr>
                     {if $T_ADD_MESSAGE_FORM.body.error}<tr><td></td><td class = "formError">{$T_ADD_MESSAGE_FORM.body.error}</td></tr>{/if}
                 <tr><td class = "labelCell">{$smarty.const._ATTACHMENTS}:&nbsp;</td>

@@ -342,6 +342,11 @@
       <form {$T_COMMENTS_FORM.attributes}>
           {$T_COMMENTS_FORM.hidden}
           <table class = "formElements">
+        <tr><td></td>
+         <td><span>
+          <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+          <a href = "javascript:toggleEditor('data','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+         </span></td></tr>
               <tr><td class = "labelCell">{$T_COMMENTS_FORM.data.label}:&nbsp;</td>
                <td class = "elementCell">{$T_COMMENTS_FORM.data.html}</td></tr>
               {if $T_COMMENTS_FORM.data.error}<tr><td></td><td class = "formError">{$T_COMMENTS_FORM.data.error}</td></tr>{/if}

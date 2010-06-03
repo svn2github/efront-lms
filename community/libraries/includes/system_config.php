@@ -4,7 +4,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-$loadScripts[] = 'administrator/system_config';
+$loadScripts[] = 'includes/system_config';
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] == 'hidden') {
     eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 }
@@ -418,6 +418,7 @@ $disable_form -> addElement("advcheckbox", "chat_enabled", null, null, 'class = 
 $disable_form -> addElement("advcheckbox", "disable_tooltip", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> addElement("advcheckbox", "disable_help", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> addElement("advcheckbox", "disable_feedback", null, null, 'class = "inputCheckBox"', array(0, 1));
+$disable_form -> addElement("advcheckbox", "disable_payments", null, null, 'class = "inputCheckBox"', array(0, 1));
 $disable_form -> setDefaults($configuration);
 isset($configuration['disable_projects']) ? $disable_form -> setDefaults(array('disable_projects' => $configuration['disable_projects'])) : $disable_form -> setDefaults(array('disable_projects' => 0));
 isset($configuration['disable_bookmarks']) ? $disable_form -> setDefaults(array('disable_bookmarks' => $configuration['disable_bookmarks'])) : $disable_form -> setDefaults(array('disable_bookmarks' => 0));
@@ -444,6 +445,10 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
                 $failed_updates[] = _COULDNOTUPDATE." $key "._WITHVALUE." ".$value;
             }
         }
+  if($values['disable_payments'] == 1) {
+   eF_updateTableData("lessons", array('price' => 0), "id=id");
+   eF_updateTableData("courses", array('price' => 0), "id=id");
+  }
         if (!isset($failed_updates)) {
             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=system_config&tab=disable&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success&refresh_side=1");
         } else {

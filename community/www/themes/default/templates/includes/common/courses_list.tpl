@@ -47,7 +47,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 
 
 
-{if in_array('price', $T_DATASOURCE_COLUMNS)} <td class = "topTitle price" name = "price">{$smarty.const._PRICE}</td>{/if}
+{if in_array('price', $T_DATASOURCE_COLUMNS) && $T_CONFIGURATION.disable_payments != 1} <td class = "topTitle price" name = "price">{$smarty.const._PRICE}</td>{/if}
 {if in_array('start_date', $T_DATASOURCE_COLUMNS)} <td class = "topTitle start_date" name = "start_date">{$smarty.const._STARTDATE}</td>{/if}
 {if in_array('end_date', $T_DATASOURCE_COLUMNS)} <td class = "topTitle end_date" name = "end_date">{$smarty.const._ENDDATE}</td>{/if}
 {if in_array('created', $T_DATASOURCE_COLUMNS)} <td class = "topTitle created" name = "created">{$smarty.const._CREATED}</td>{/if}
@@ -122,7 +122,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 
 
 
-{if in_array('price', $T_DATASOURCE_COLUMNS)}
+{if in_array('price', $T_DATASOURCE_COLUMNS) && $T_CONFIGURATION.disable_payments != 1}
    <td class = "price">
     {if $course.price == 0}-{else}{$course.price_string}{/if}
    </td>

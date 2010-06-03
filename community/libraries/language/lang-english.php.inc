@@ -3725,4 +3725,5 @@ define("_PURGENOTIFICATIONSOLDERTHAN", "Purge notifications older than");
 define("_CURRENTUSERS", "Current");
 define("_SELECTEDCOURSES", "Selected courses");
 define("_MODULEFILESPRESENTNOTINSTALLED", "Module files are present, but it is not installed");
+define("_DISABLEPAYMENTSNOTICE","This will set all lessons and courses price to 0");
 ?>

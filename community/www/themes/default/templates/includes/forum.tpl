@@ -122,15 +122,12 @@
                  <td class = "elementCell">{$T_ENTITY_FORM.title.html}</td></tr>
                  {if $T_ENTITY_FORM.title.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.title.error}</td></tr>{/if}
 
-     <tr><td></td><td id = "toggleeditor_cell1">
-     <div>
+     <tr><td></td><td>
       <span>
-       <img src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+       <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
        <a href = "javascript:toggleEditor('editor_message_data','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
       </span>
-     </div>
      </td></tr>
-
 
              <tr><td class = "labelCell">{$smarty.const._BODY}:&nbsp;</td>
                  <td class = "elementCell">{$T_ENTITY_FORM.body.html}</td></tr>

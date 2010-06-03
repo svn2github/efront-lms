@@ -55,6 +55,7 @@ if ($_GET['op'] == 'course_info') {
     }
 
 } else if ($_GET['op'] == 'course_certificates') {
+  $load_editor = 1;
   $defaultConstraints = array('active' => true, 'instance' => false);
   //$users = $currentCourse -> getCourseUsers($constraints);
 

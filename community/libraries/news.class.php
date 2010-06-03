@@ -185,7 +185,7 @@ class news extends EfrontEntity
     public function getForm($form) {
      $form -> addElement('text', 'title', _ANNOUNCEMENTTITLE, 'class = "inputText"');
      $form -> addRule('title', _THEFIELD.' '._ISMANDATORY, 'required', null, 'client');
-     $form -> addElement('textarea', 'data', _ANNOUNCEMENTBODY, 'class = "simpleEditor inputTextarea" style = "width:98%;height:12em;"');
+     $form -> addElement('textarea', 'data', _ANNOUNCEMENTBODY, 'class = "simpleEditor inputTextarea" style = "width:98%;height:10em;"');
      $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
      $form -> addElement('submit', 'submit', _ANNOUNCEMENTADD, 'class = "flatButton"');
      $form -> setDefaults(array('title' => $this -> news['title'], 'data' => $this -> news['data']));

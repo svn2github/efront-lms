@@ -8,6 +8,11 @@
                 <table class = "formElements" style = "margin-left:0px;width:100%">
                     <tr><td class = "labelCell">{$T_ADD_EVENT_FORM.event_date.label}:&nbsp;</td>
                         <td style = "width:100%">{$T_ADD_EVENT_FORM.event_date.html}</td></tr>
+     <tr><td></td>
+      <td><span>
+       <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+       <a href = "javascript:toggleEditor('event','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+      </span></td></tr>
                     <tr><td class = "labelCell">{$T_ADD_EVENT_FORM.event.label}:&nbsp;</td>
                         <td style = "width:100%">{$T_ADD_EVENT_FORM.event.html}</td></tr>
 

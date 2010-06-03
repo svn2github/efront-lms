@@ -24,8 +24,10 @@
       <td class = "elementCell">{$T_COURSE_FORM.active.html}</td></tr>
      <tr><td class = "labelCell">{$T_COURSE_FORM.show_catalog.label}:&nbsp;</td>
       <td class = "elementCell">{$T_COURSE_FORM.show_catalog.html}</td></tr>
+   {if $T_CONFIGURATION.disable_payments != 1}
      <tr><td class = "labelCell">{$T_COURSE_FORM.price.label}:&nbsp;</td>
       <td class = "elementCell">{$T_COURSE_FORM.price.html} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}</td></tr>
+   {/if}
      <tr><td></td>
       <td class = "submitCell">{$T_COURSE_FORM.submit_course.html}</td></tr>
     </table>

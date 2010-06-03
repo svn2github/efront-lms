@@ -1,3 +1,6 @@
+=== Version 3.6.3 build ===
+- Added disable payments option
+
 === Version 3.6.3 build 7455 ===
 - Fixed error in course completion page
 - Fixed lesson assignment to users issue

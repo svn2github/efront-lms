@@ -3726,4 +3726,6 @@ define("_CURRENTUSERS", "Τρέχοντες");
 define("_SELECTEDCOURSES", "Επιλεγμένες δέσμες");
 define("_MODULEFILESPRESENTNOTINSTALLED", "Τα αρχεία του αρθρώματος υπάρχουν, αλλά δεν είναι εγκατεστημένο");
 define("_DISABLEPAYMENTSNOTICE","Οι τιμές μαθημάτων και δεσμών θα γίνουν όλες 0");
+define("_SPECIFYIDFORSREENMATCHING","Ορίστε id αντικειμένου για διαστάσεις που καλύπτουν την οθόνη");
+define("_COMMASEPARATEDLIST", "Λίστα διαχωριζόμενη με κόμμα");
 ?>

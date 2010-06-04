@@ -148,6 +148,7 @@ function togglePdf() {
 function toggleAdvancedParameters() {
 
  $('maximize_viewport').toggle();
+ $('object_ids').toggle();
  $('no_before_unload').toggle();
  $('indexed').toggle();
  $('accessible_explanation').toggle();
@@ -411,4 +412,17 @@ if (typeof(editPdfContent) != 'undefined' && editPdfContent) {
 
 if (typeof(setIframeSize) != 'undefined' && setIframeSize) {
  eF_js_setCorrectIframeSize();
+}
+
+if (typeof(matchscreenobjectid) != 'undefined' && matchscreenobjectid) {
+ var ids = matchscreenobjectid.split(','); //for more than one ids specified
+ var viewport = document.viewport.getDimensions();
+ var height = viewport.height;
+
+ for(i = 0; i < ids.length; i++){
+ var idString = ids[i].toString();
+  if ($(idString)) {
+   $(idString).setStyle({height:height+'px'});
+  }
+ }
 }

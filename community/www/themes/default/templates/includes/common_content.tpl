@@ -90,6 +90,8 @@
 
        <tr style="display:none;" id = "maximize_viewport"><td class = "labelCell">{$T_ENTITY_FORM.maximize_viewport.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.maximize_viewport.html}</td></tr>
+       <tr style="display:none;" id = "object_ids"><td class = "labelCell">{$T_ENTITY_FORM.object_ids.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.object_ids.html}&nbsp;<span class = "infoCell">{$smarty.const._COMMASEPARATEDLIST}</span></td></tr>
        <tr style="display:none;" id = "no_before_unload"><td class = "labelCell">{$T_ENTITY_FORM.no_before_unload.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.no_before_unload.html}</td></tr>
        <tr style="display:none;" id = "indexed"><td class = "labelCell">{$T_ENTITY_FORM.indexed.label}:&nbsp;</td>
@@ -164,6 +166,9 @@
     {*Variables needed in js functions*}
     <script>var sawunit = '{$smarty.const._SAWUNIT}';var notsawunit = '{$smarty.const._NOTSAWUNIT}';var unitId = '{$T_UNIT.id}';
       var unitType = '{$T_UNIT.ctg_type}';var hasSeen = '{$T_SEEN_UNIT}';var nextId = '{$T_NEXT_UNIT.id}';var previousId = '{$T_PREVIOUS_UNIT.id}';</script>
+    {if $T_UNIT.options.object_ids}
+      <script>var matchscreenobjectid= '{$T_UNIT.options.object_ids}';</script>
+    {/if}
 
     {if $_change_ && !$_student_}
      <div class = "headerTools">

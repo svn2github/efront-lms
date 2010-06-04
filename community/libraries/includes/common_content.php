@@ -81,6 +81,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addElement('advcheckbox', 'auto_complete', _AUTOCOMPLETE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'indexed', _DIRECTLYACCESSIBLE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'maximize_viewport', _MAXIMIZEVIEWABLEAREA, null, 'class = "inputCheckbox"', array(0, 1));
+  $form -> addElement('text', 'object_ids', _SPECIFYIDFORSREENMATCHING, 'class = "inputText"');
      $form -> addElement('advcheckbox', 'no_before_unload', _NOBEFOREUPLOAD, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'pdf_check', _UPLOADPDFFORCONTENT, null, 'class = "inputCheckbox" onclick="togglePdf()"', array(0, 1));
      $form -> addElement('select', 'hide_navigation', _HIDENAVIGATION, array(0 => _NO, 1 => _ALLHANDLES, 2 => _UPPERHANDLES, 3 => _LOWERHANDLES));
@@ -175,11 +176,13 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                   'hide_navigation' => $values['hide_navigation'],
                                     'indexed' => $values['indexed'],
             'maximize_viewport' => $values['maximize_viewport'],
+            'object_ids' => $values['object_ids'],
                                     'no_before_unload' => $values['no_before_unload'],
                               'reentry_action' => isset($values['reentry_action']) ? $values['reentry_action'] : false,
                      'complete_question' => $values['complete_question'] ? $values['questions'] : 0));
 
-         if (isset($_GET['edit'])) {
+
+   if (isset($_GET['edit'])) {
              //You can't edit data in scorm units
              if (strpos($currentUnit['ctg_type'], 'scorm') === false) {
                  $currentUnit['data'] = $values['data'];
@@ -491,6 +494,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         }
         if (isset($currentUnit['options']['maximize_viewport']) && $currentUnit['options']['maximize_viewport'] && $currentUser -> getType($currentLesson) == "student") {
             $smarty -> assign("T_MAXIMIZE_VIEWPORT", 1);
+        }
+  if (isset($currentUnit['options']['object_ids']) && $currentUnit['options']['object_ids']) {
+            $smarty -> assign("T_OBJECT_IDS", $currentUnit['options']['object_ids']);
         }
     } catch (Exception $e) {
         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());

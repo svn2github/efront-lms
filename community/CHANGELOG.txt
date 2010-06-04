@@ -1,5 +1,7 @@
 === Version 3.6.3 build ===
 - Added disable payments option
+- Added toggle editor in html mode in all editor instances
+- Added unit option for extending object at screen dimensions
 
 === Version 3.6.3 build 7455 ===
 - Fixed error in course completion page

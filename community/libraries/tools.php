@@ -1516,7 +1516,7 @@ function vd($ar) {
 
 */
 function eF_filterData($data, $filter) {
- $filter = mb_strtolower($filter);
+ $filter = trim(mb_strtolower($filter), '||');
  if ($filter) {
      foreach ($data as $key => $value) {
          $imploded_string = implode(",", $value); //Instead of checking each row value one-by-one, check it all at once

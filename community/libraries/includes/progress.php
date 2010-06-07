@@ -66,8 +66,8 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
                 $lessonUser -> completeLesson($currentLesson -> lesson['id'], $form -> exportValue('score'), $form -> exportValue('comments'));
             } else {
                 eF_updateTableData("users_to_lessons", array('completed' => 0, 'score' => 0, 'to_timestamp' => null), "users_LOGIN = '".$editedUser -> user['login']."' and lessons_ID=".$currentLesson -> lesson['id']);
-          $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$editedUser -> user['login'];
-          Cache::resetCache($cacheKey);
+//		        $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$editedUser -> user['login'];
+//		        Cache::resetCache($cacheKey);            
             }
 
             eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=progress&message='.urlencode(_STUDENTSTATUSCHANGED).'&message_type=success');
@@ -114,6 +114,9 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $smarty -> assign("T_USER_LESSONS_INFO", $userStats);
 
     $smarty -> assign("T_USER_TIME", $userTime[$editedUser -> user['login']]);
+
+    $userProjects = EfrontStats :: getStudentsAssignedProjects($currentLesson -> lesson['id'], $editedUser -> user['login']);
+    $smarty -> assign("T_USER_PROJECTS", $userProjects[$editedUser -> user['login']]);
 
 
 

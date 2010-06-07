@@ -114,7 +114,7 @@ tinymceConfigs["templateEditor"] = {
  accessibility_warnings : false,
  verify_html : false,
  convert_urls : false,
-    plugins : "table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,fullscreen,index_link,lessons_info,asciimath,asciisvg",
+    plugins : "table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,fullscreen,index_link,asciimath,asciisvg",
     theme_advanced_buttons1_add_before : "save,separator",
     theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
     theme_advanced_buttons2 : "zoom,separator,forecolor,backcolor",

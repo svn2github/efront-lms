@@ -83,7 +83,7 @@
 
 
 
-              {if !empty($T_USER_LESSONS_INFO.assigned_projects)}
+              {if $T_USER_PROJECTS}
               <tr><td>{$smarty.const._AVERAGEPROJECTSCORE}:&nbsp;</td>
                   <td class = "progressCell">
                       <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.project_status.mean_score}#%</span>
@@ -92,7 +92,7 @@
               </tr>
               {/if}
 
-              {foreach name = 'done_projects_list' item = "project" key = "id" from = $T_USER_LESSONS_INFO.assigned_projects}
+              {foreach name = 'done_projects_list' item = "project" key = "id" from = $T_USER_PROJECTS}
                   <tr><td>{$smarty.const._PROJECT} <span class = "innerTableName">&quot;{$project.title}&quot;</span>:</td>
                   {if $project.grade}
                       <td class = "progressCell">

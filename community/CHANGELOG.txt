@@ -3,6 +3,9 @@
 - Added toggle editor in html mode in all editor instances
 - Added unit option for extending object at screen dimensions
 - Replacing textbox with textarea in comment field of project score
+- Fixed progress not displaying projects issue
+- Fixed error while sending messages to "My students" from professor account
+- Fixed path error when creating new user
 
 === Version 3.6.3 build 7455 ===
 - Fixed error in course completion page

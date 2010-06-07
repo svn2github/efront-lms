@@ -177,7 +177,9 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
      // Insert blank option
      $newMenu -> insertMenuOptionAsRawHtml("<table height='8px'></table>", $lessonMenuId);
      $userType = eF_getTableData("users", "user_type", "login='".$_SESSION['s_login']."'");
-     $_SESSION['s_type'] = $userType[0]['user_type'];
+     if (!isset($_SESSION['s_type'])) {
+      $_SESSION['s_type'] = $userType[0]['user_type'];
+     }
      if (!(isset($GLOBALS['configuration']['hide_sidebar_images']) && $GLOBALS['configuration']['hide_sidebar_images'] == 1)) {
          $newMenu -> insertMenuOptionAsRawHtml("<a href=\"javascript:void(0);\" onclick=\"top.mainframe.location='".$userType[0]['user_type'].".php?ctg=lessons';hideAllLessonSpecific();\"><img style=\"border:0; float: left;\" src=\"images/16x16/go_back.png\" />"._CHANGELESSON."</a>", $lessonMenuId);
      } else {

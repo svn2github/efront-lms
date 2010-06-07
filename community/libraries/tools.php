@@ -149,11 +149,11 @@ function profile($start = true, &$path) {
  * @since 3.5.0
 
  */
-function debug($mode = true) {
+function debug($mode = true, $level = E_ALL) {
     ini_set("display_errors", true);
     if ($mode) {
      $_SESSION['debug_start'] = microtime(true);
-        error_reporting(E_ALL);
+        error_reporting($level);
         $GLOBALS['db']->debug=true;
     } else {
         error_reporting(E_ERROR);

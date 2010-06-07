@@ -296,7 +296,6 @@ try {
                         $rec_users = eF_getTableDataFlat("users", "login", "active=1"); // entry [*] means message for all system users
                         $recipients = array_merge($recipients, array_values($users));
                     } elseif($_professor_){
-                        //$temp   = eF_getProfessorStudents($currentUser -> user['login']);        // entry [*] means message for all professor's students
                         $rec_users = $currentUser -> getProfessorStudents();
                         $recipients = array_merge($recipients, $rec_users);
                     }

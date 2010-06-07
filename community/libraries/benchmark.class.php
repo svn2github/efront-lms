@@ -52,7 +52,7 @@ class EfrontBenchmark
          <tr><td>Smarty time: </td><td>".round($this -> times['smarty'] - $this -> times['script'], 5)." sec</td></tr>
          <tr><td colspan = \"2\" class = \"horizontalSeparator\"></td></tr>
          <tr><td>Total execution time: </td><td>".round($this -> times['end'] - $this -> times['start'], 5)." sec</td></tr>
-         <tr><td>Peak memory usage: </td><td>".round(memory_get_peak_usage(true)/1024)." KB</td></tr>";
+         <tr><td>Peak memory usage: </td><td>".round(memory_get_usage(true)/1024)." KB</td></tr>";
   if (sizeof($this -> defaultValues) != sizeof($this -> times)) {
    $current = 'start';
    foreach ($this -> times as $key => $value) {

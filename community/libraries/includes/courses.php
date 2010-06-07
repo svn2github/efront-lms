@@ -88,14 +88,21 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
       $directionsPaths = $directionsTree -> toPathString();
    foreach ($dataSource as $key => $value) {
        $dataSource[$key]['directionsPath'] = $directionsPaths[$value['directions_ID']];
+       $dataSource[$key]['mode'] = 'shared';
        if ($value['instance_source']) {
-        if ($value['originating_course'] == $editCourse -> course['id']) {
+        if ($value['originating_course'] == $editCourse -> course['id'] && $value['has_lesson']) {
             $dataSource[$key]['mode'] = 'unique';
+            $lessonsToRemove[] = $value['instance_source'];
         } else {
-            $dataSource[$key]['mode'] = 'shared';
+         $lessonsToRemove[] = $key;
         }
        }
    }
+   foreach ($lessonsToRemove as $value) { //Lesson instances that should not display in courses list
+    unset($dataSource[$value]);
+    $totalEntries--;
+   }
+
 
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;

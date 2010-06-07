@@ -71,6 +71,7 @@ function onSetSeenUnit(el, response) {
              if (results[2] == true) {
               $('lesson_passed').down().removeClassName('failure').addClassName('success');
               $('completed_block').show();
+     Effect.ScrollTo('completed_block');
              } else {
               $('lesson_passed').down().removeClassName('success').addClassName('failure');
               //$('completed_block').hide();

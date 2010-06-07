@@ -338,7 +338,9 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
    }
   }
   $form -> addElement('textarea', 'short_description', _SHORTDESCRIPTIONCV, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:14em;"'); //The unit content itself
-  $load_editor = true;
+  if ($_GET['op'] == 'account') { //normally editor is not needed with op='dashboard' makriria 7/6/2010
+   $load_editor = true;
+  }
   $form -> setDefaults(array( 'short_description' => $editedUser -> user['short_description']));
  }
  //Get the dashboard innertables

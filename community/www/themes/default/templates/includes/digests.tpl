@@ -139,7 +139,7 @@
   {capture name = 't_notifications_code'}
             <table border = "0" width = "100%" class = "sortedTable">
                 <tr class = "topTitle">
-                    <td class = "topTitle">{$smarty.const._WHEN}?</td>
+                    <td class = "topTitle">{$smarty.const._WHEN}</td>
                     <td class = "topTitle">{$smarty.const._EVENT}</td>
                     <td class = "topTitle">{$smarty.const._EVENTAPPLIESTO}</td>
                     <td class = "topTitle">{$smarty.const._RECIPIENTS}</td>

@@ -198,7 +198,6 @@ function updateProgress(obj) {
  if (!(w = findFrame(top, 'mainframe'))) {
   w = window;
  }
-
  try {
   var progress = obj[0];
   var conditions = obj[1];

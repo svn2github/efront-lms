@@ -52,7 +52,8 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
 
              <div class = "tabbertab {if $smarty.get.tab|@mb_strtolower == $key|@mb_strtolower}tabbertabdefault{/if} useAjax" id = "tabbertab{$count}" title="{$key}">
 <!--tabberajax:tabbertab{$count}-->
- {if $count == $smarty.get.tabberajax}
+
+{if $count == $smarty.get.tabberajax}
  {capture name = "t_term_code"}
   <table class = "glossary" id = "tabbertab_table{$count}">
     {if $key == '0-9' || $key == 'Symbols'}
@@ -60,7 +61,7 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
                         <tr class = "defaultRowHeight">
                          <td colspan = "3" class = "boldFont">{$inner_key|@htmlentities} :</td></tr>
                         <tr class = "defaultRowHeight">
-                         <td class = "topTitle">{$smarty.const._TERM}</td>
+                         <td class = "topTitle" style="width:15%">{$smarty.const._TERM}</td>
                          <td class = "topTitle">{$smarty.const._EXPLANATION}</td>
                         {if !$_student_ && $_change_}
        <td class = "centerAlign topTitle">{$smarty.const._OPERATIONS}</td></tr>
@@ -80,7 +81,7 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
      {/foreach}
     {else}
                         <tr class = "defaultRowHeight">
-                         <td class = "topTitle">{$smarty.const._TERM}</td>
+                         <td class = "topTitle" style="width:15%">{$smarty.const._TERM}</td>
                          <td class = "topTitle">{$smarty.const._EXPLANATION}</td>
                         {if !$_student_ && $_change_}
        <td class = "centerAlign topTitle">{$smarty.const._OPERATIONS}</td></tr>
@@ -102,7 +103,8 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
  {/capture}
  {eF_template_printBlock title=$key data=$smarty.capture.t_term_code image='32x32/glossary.png'}
 
- {/if}
+{/if}
+
 <!--/tabberajax:tabbertab{$count}-->
              </div>
              {counter}

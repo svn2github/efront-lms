@@ -63,7 +63,7 @@
                          </tr>
                         {foreach name='active_users' key = "login" item = "info" from=$T_ACTIVE_USERS}
                             <tr class = "{cycle name = 'active_users' values = 'oddRowColor, evenRowColor'} {if !$info.active}deactivatedTableElement{/if}">
-                                <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$login}">#filter:login-{$login}#</a></td>
+                                <td><a class="editLink" href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$login}">#filter:login-{$login}#</a></td>
                                 <td class = "centerAlign">{$info.accesses}</td>
                                 <td class = "centerAlign">{strip}
                                  <span style = "display:none">{$info.seconds}&nbsp;</span>

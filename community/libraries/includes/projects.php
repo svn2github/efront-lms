@@ -283,8 +283,30 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
     }
 } else if (isset($_GET['project_results']) && in_array($_GET['project_results'], array_keys($projects)) && $_professor_) {
     $currentProject = $projects[$_GET['project_results']];
-
     $smarty -> assign("T_CURRENT_PROJECT", $currentProject);
+ if (isset($_GET['login'])) {
+  $load_editor = true;
+  $users = $currentProject -> getUsers();
+
+  $form = new HTML_QuickForm("comment_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&login=".$_GET['login'], "", null, true);
+  $form -> addElement('textarea', 'comments', _COMMENT, 'class = "simpleEditor inputTextarea"');
+  $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+  $form -> setDefaults(array('comments' => $users[$_GET['login']]['comments']));
+  if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
+   $values = $form -> exportValues();
+   $result = eF_updateTableData("users_to_projects",array('comments' => $values['comments']), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$_GET['login']."'");
+   if ($result) {
+    //eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&message=".urlencode(_OPERATIONCOMPLETEDSUCCESFULLY)."&message_type=success");
+    $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
+             $message_type = 'success';
+   }
+  }
+  $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+  $form -> accept($renderer);
+  $smarty -> assign('T_PROJECT_COMMENT_FORM', $renderer -> toArray());
+  //pr($users);
+ }
+
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'resultsTable') {
         $users = $currentProject -> getUsers();
         //$files          = eF_getTableDataFlat("files", "id,original_name");

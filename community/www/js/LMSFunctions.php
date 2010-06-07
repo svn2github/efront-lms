@@ -320,7 +320,7 @@ function myFinish(parameter)
         /*3, Set cmi.core.total_time*/
         if (SCOState['session_time'] && SCOState['session_time'] != '' )
         {
-            SCOState['total_time'] = SCOState['session_time']; //ΠΡΟΣΟΧΗ: Αυτή η τιμή δεν αντιστοιχεί πλέον στο total_time. Απλώς βολεύει να την πάρουμε εδώ. μόλις λοιπόν κληθεί η LMSFinish() (και ανεξάρτητα από το αν έχει κληθεί προηγουμένως η LMSCommit()), παίρνουμε το τρέχον session time Και το βάζουμε σε αυτήν τη μεταβλητή. Στη συνέχεια, αυτή στέλνετε στο LMSCommitpage.php, το οποίο τη χειρίζεται ανάλογα
+            SCOState['total_time'] = SCOState['session_time'];
         }
         myCommit('finish');
         myCurrentState = 1;
@@ -1050,7 +1050,7 @@ function myCmi()
         {
             /**
 
-            * cmi.core.score._children is a string that lists all the elements supported by το cmi.core.score
+            * cmi.core.score._children is a string that lists all the elements supported by cmi.core.score
 
             *
 
@@ -1118,7 +1118,7 @@ function myCmi()
 
             * Supported API calls: LMSGetValue(), LMSSetValue()
 
-            * LMS Mandatory: ΝΟ
+            * LMS Mandatory: 
 
             * Data Type: CMIDecimal or CMIBlank
 
@@ -1170,7 +1170,7 @@ Uncomment this and comment below to make it non-implemented
 
             * Supported API calls: LMSGetValue(), LMSSetValue()
 
-            * LMS Mandatory: ΝΟ
+            * LMS Mandatory:
 
             * Data Type: CMIDecimal or CMIBlank
 
@@ -2001,7 +2001,7 @@ Uncomment this and comment below to make it non-implemented
     var objectives = new Array();
     /**
 
-    * Το cmi.objectives._children is a string containing a list of all the elements supported by cmi.objectives
+    * cmi.objectives._children is a string containing a list of all the elements supported by cmi.objectives
 
     *
 

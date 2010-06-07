@@ -1,8 +1,8 @@
 <?php
-if (is_file($GLOBALS['path']."language/custom-greek.php")) {
-    include($GLOBALS['path']."language/custom-greek.php");
+if (is_file($GLOBALS['path']."language/custom-greek.php")){ 
+    include($GLOBALS['path']."language/custom-greek.php.inc");
 }
-define("_EFRONTURL", "http://www.efrontlearning.net");
+
 define("_EFRONTNAME", "eFront");
 define("_EFRONTLOGIN", "Είσοδος στο eFront");
 define("_HEADERLANGUAGEHTMLTAG","el-GR");
@@ -1135,7 +1135,7 @@ define("_OK", "OK");
 define("_PEMANENTLYDELETEFOLLOWINGFOLDERS", "Αυτή η ενέργεια θα διαγράψει μόνιμα τους παρακάτω φακέλους");
 define("_PEMANENTLYDELETEFOLLOWINGLESSONS", "Αυτή η ενέργεια θα διαγράψει μόνιμα τα παρακάτω μαθήματα");
 define("_CREATEFOLLOWINGLESSONFOLDERS", "Αυτή η ενέργεια θα δημιουργήσει φακέλους για τα παρακάτω μαθήματα");
-define("_AREYOUSURE", "Είστε σίγουρος/η?");
+define("_AREYOUSURE", "Είστε σίγουρος/η;");
 define("_CHECKAGAIN", "Επανέλεγχος");
 define("_GENERICQUERIES","Γενικά ερωτήματα");
 define("_SENDINFOVIAEMAIL","Να σταλούν οι πληροφορίες του λογαριασμού και με email");
@@ -1212,7 +1212,7 @@ define("_PROBLEMSETTINGORDER", "Η σειρά μαθημάτων στη δέσμ
 define("_ENABLEDAPI", "Ενεργοποίηση XML API");
 define("_OLDUPGRADEBACKUPS", "Παλιά αντίγραφα ασφάλειας από αναβάθμιση");
 define("_CLEANUPALL", "Εκκαθάριση όλων");
-define("_THISOPERATIONALTERSYSTEM", "Αυτή η λειτουργία θα διαγράψει μόνιμα δεδομένα και αρχεία από το σύστημα. Είστε απολύτως σίγουρος/η?");
+define("_THISOPERATIONALTERSYSTEM", "Αυτή η λειτουργία θα διαγράψει μόνιμα δεδομένα και αρχεία από το σύστημα. Είστε απολύτως σίγουρος/η;");
 define("_SMTPAUTH", "Ταυτοποίηση SMTP");
 define("_FLAG", "Σημαία");
 define("_SETNORMALPRIORITY", "Θέσε κανονική προτεραιότητα");
@@ -1312,7 +1312,7 @@ define("_ACTIVEUSER","Ενεργός χρήστης");
 define("_USERDELETED","Ο χρήστης διεγράφη.");
 define("_THEUSER","Ο χρήστης");
 define("_CHOOSEUSERTODISCONNECT","Επιλέξτε τον χρήστη που θα αποσυνδεθεί");
-define("_LOGOUTUSER","Αποσύνδεση χρήστη από το σύστημα");
+define("_LOGOUTUSER","Αποσύνδεση χρήστη");
 define("_THEREARENOOTHERUSERSRIGHTNOWINTHISROOM", "Δεν υπάρχουν άλλοι χρήστες συνδεδεμένοι σε αυτό το δωμάτιο αυτήν τη στιγμή");
 define("_USERSONLINE", "Χρήστες on-line");
 define("_ANDTHEMESSAGESOFUSER", "Και τα μηνύματα του χρήστη");
@@ -1669,7 +1669,7 @@ define("_CREATERANODOMTEST", "Δημιουργία τυχαίου διαγωνί
 define("_USING", "Χρησιμοποιώντας");
 define("_EASY", "Εύκολο");
 define("_HARD", "Δύσκολο");
-define("_LOCALESETTINGS", "Τοπικές ρυθμίσεις");
+define("_LOCALESETTINGS", "Τοπικές ρυθμ.");
 define("_CURRENCY", "Νόμισμα");
 define("_DECIMALPOINT", "Υποδιαστολή");
 define("_THOUSANDSSEPARATOR", "Διαχωρισμός χιλιάδων");
@@ -2607,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT", "Σημείωση: Επι�
 define("_ACTIONONRENTRYCOMPLETED", "Ενέργεια κατά την επανείσοδο");
 define("_LETCONTENTDECIDE", "Άσε το περιεχόμενο να αποφασίσει");
 define("_DONTCHANGE", "Να μην επιτρέπονται αλλαγές");
-define("_DASHBOARD", "Ο πίνακας ανακοινώσεών μου");
+define("_DASHBOARD", "Συγκεντρωτική σελίδα");
 define("_MYWALL","Ο τοίχος μου");
 define("_RELATEDPEOPLE","Συσχετιζόμενοι χρήστες");
 define("_LEARNINGACTIVITY","Εκπαιδευτική διαδικασία");
@@ -2744,7 +2744,7 @@ define("_UNITCONTENT", "Περιεχόμενο ενότητας");
 define("_ANYUNIT", "Οποιαδήποτε ενότητα");
 define("_REGISTEREDNOTIFICATIONS", "Καταχωρημένες ειδοποιήσεις");
 define("_ADDNOTIFICATION", "Νέα ειδοποίηση");
-define("_WHEN", "Πότε");
+define("_WHEN", "Πότε;");
 define("_NOTIFICATIONSETUPSUCCESSFULLY", "Η ειδοποίηση προστέθηκε επιτυχώς");
 define("_DAYSAFTEREVENT", "ημέρες μετά το συμβάν");
 define("_NOTIFICATIONDELETEDSUCCESSFULLY", "Η ειδοποίηση διαγράφηκε επιτυχώς");
@@ -2830,7 +2830,7 @@ define("_STARTEDTEST","ξεκίνησε τη λύση της αξιολόγησ�
 define("_PROJECT_SUBMISSION", "Υποβολή εργασίας");
 define("_SUBMITTEDPROJECT","υπέβαλε την εργασία");
 define("_COMMENTSWALL", "Σχόλια/Τοίχος");
-define("_AREYOUSUREYOUWANTTODELETETHISCOMMENT", "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το σχόλιο?");
+define("_AREYOUSUREYOUWANTTODELETETHISCOMMENT", "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το σχόλιο;");
 define("_COULDNOTRETRIEVEEMPLOYEESJOBS", "Δεν ήταν δυνατή η ανάκτηση των εργασιών του χρήστη");
 define("_ADDTEXTTEMPLATE", "Προσθήκη προτύπου κειμένου");
 define("_NONOTIFICATIONRECIPIENTSDEFINED","Δεν ορίστηκαν παραλήπτες για την ειδοποίηση");
@@ -2958,7 +2958,7 @@ define("_ORCAPITAL", "Ή");
 define("_CHARACTERS", "Χαρακτήρες");
 define("_UNDISCLOSEDRECIPIENTS","Κρυφοί παραλήπτες");
 define("_RANDOMPOOLQUESTIONSCANNOTBELESSTHANQUESTIONS", "Οι ερωτήσεις τυχαίας δεξαμενής δεν μπορεί να είναι λιγότερες από τις ερωτησεις της αξιολόγησης");
-define("_DISABLEOPTIONS","Απενεργοποίηση λειτουργιών");
+define("_DISABLEOPTIONS","Απενεργοποιήσεις");
 define("_SELECTOPTIONSDISABLED","Επιλέξτε τις λειτουργίες που θέλετε καθολικά απενεργοποιημένες");
 define("_THEMES", "Θέματα");
 define("_HASJOINEDTHESYSTEM","γράφτηκε στο σύστημα");
@@ -3217,9 +3217,9 @@ define("_USERNAMEFORMATINFO", "Διαμόρφωση του τρόπου που �
 define("_USERNAMEFORMAT", "Διαμόρφωση ονόματος χρήστη");
 define("_LDAP", "LDAP");
 define("_SMTP", "SMTP");
-define("_LOCALE", "Τοπικές ρυθμίσεις");
+define("_LOCALE", "Τοπικές ρυθμ.");
 define("_PHP", "PHP");
-define("_SOCIALOPTIONS", "Ρυθμίσεις κοινωνικού");
+define("_SOCIALOPTIONS", "Ρυθμ. κοινωνικού");
 define("_PHPINFO", "Πληροφορίες PHP");
 define("_APPEARANCE", "Εμφάνιση");
 define("_SITELOGO", "Site logo");
@@ -3423,7 +3423,7 @@ define("_COMPLETIONPERCENTAGEBLOCK", "Πλαίσιο ποσοστού ολοκλ
 define("_UNITOPTIONSBLOCK", "Πλαίσιο επιλογών ενότητας");
 define("_RIGHTBAR", "Δεξιά στήλη");
 define("_LEFTBAR", "Αριστερή στήλη");
-define("_STUDENTCPANEL", "Πίνακας ελέγχου μαθητή");
+define("_STUDENTCPANEL", "Πίνακας ελέγχου μαθητή (μορφή block)");
 define("_SMARTCONTENT", "Έξυπνο περιεχόμενο");
 define("_ZIPHANDLING", "Διαχείριση αρχείων Zip");
 define("_COMPLETION", "Ολοκλήρωση");
@@ -3492,7 +3492,7 @@ define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Με το email αυτό μπορε
 define("_ASSIGNEDTOBRANCH","που ανατέθηκε στο τμήμα");
 define("_BYCLICKINGONTHELINK", "κάνοντας κλικ στο παρακάτω");
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Ο λογαριασμός του συνεργάτη σας ενεργοποιήθηκε επιτυχώς");
-define("_SHOWHORIZONTALBAR","Οριζόντιο μενού");
+define("_SHOWHORIZONTALBAR","Εμφάνιση επικεφαλίδας");
 define("_INVALIDPARAMETER", "Μη έγκυρη παράμετρος");
 define("_BRANCHINFORMATION","Πληροφορίες τμήματος");
 define("_BRANCHNAMEDESCRIPTION","Περιγραφή πεδίου τμήματος");
@@ -3663,7 +3663,7 @@ define("_INSERTINTOEXISTINGGROUP","Εισαγωγή σε υπάρχουσα ομ
 define("_NEWGROUPNAME","Όνομα νέας ομάδας");
 define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Πρέπει είτε να επιλέξετε μία ομάδα ή να δώσετε το όνομα για μια νέα ομάδα");
 define("_SUBMITANDEDITGROUP","Αποστολή και προβολή ομάδας");
-define("_SEARCHGROUPUSERS","Εύρεση χρηστών για το προσθήκη σε ομάδα");
+define("_SEARCHGROUPUSERS","Εύρεση χρηστών για προσθήκη σε ομάδα");
 define("_AFTER","Μετά από");
 define("_BEFORE","Πριν από");
 define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Συμμετοχή όλων των χρηστών στις δέσμες της ομάδας");
@@ -3677,7 +3677,7 @@ define("_ONLYXCANBEAPPLIEDATATIME", "Μόνο %x οντότητες επεξερ
 define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY", "Δεν μπορείτε να αναθέσετε χρήστες σε αυτό το πρόγραμμα μαθημαων γιατί δεν περιλαμβάνει δέσμες");
 define("_CURRICULUMPROPERTIES", "Ιδιότητες προγράμματος μαθημάτων");
 define("_ENTRIES", "Εγγραφές");
-define("_ENTERPRISEOPTIONS","Ρυθμίσεις εταιρικού");
+define("_ENTERPRISEOPTIONS","Ρυθμ. εταιρικού");
 define("_SHOWORGANIZATIONCHARTTOUSERS","Προβολή ιεραρχίας εταιρείας στους χρήστες");
 define("_SHOWUSERFORMTOUSERS","Προβολή προσωπικής φόρμας στους χρήστες");
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Προβολή χρηστών που δεν έχουν τοποθετηθεί σε τμήματα στους προϊσταμένους");

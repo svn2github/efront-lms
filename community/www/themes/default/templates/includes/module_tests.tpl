@@ -1465,7 +1465,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   {foreach name = 'pending_tests_loop' item = "item" key = "key" from = $T_PENDING_TESTS}
               <tr class = "{cycle name = "main_cycle" values="oddRowColor,evenRowColor"} defaultRowHeight">
                   <td>#filter:timestamp_time-{if isset($item.time_end)}{$item.time_end}{else}{$item.timestamp}{/if}#</td>
-                 <td><a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}">{$item.name}</a></td>
+                 <td><a class="editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}">{$item.name}</a></td>
                  <td>#filter:login-{$item.users_LOGIN}#</td>
      {if $T_CTG != "feedback"}
                  <td>{if $item.pending}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</td>

@@ -1,7 +1,7 @@
 {include file = "includes/header.tpl"}
 {strip}
 
-{assign var = "title" value = "<a href = '`$smarty.server.PHP_SELF`'>`$smarty.const._STARTPAGE`</a>"}
+{assign var = "title" value = "<a class='titleLink' href = '`$smarty.server.PHP_SELF`'>`$smarty.const._STARTPAGE`</a>"}
 
 {if $smarty.get.ctg == 'contact'}
     {capture name = 't_contact_code'}
@@ -26,7 +26,7 @@
 {elseif $smarty.get.ctg == 'lessons'}
 
 {elseif $smarty.get.ctg == 'login'}
- {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=login'>`$smarty.const._LOGINENTRANCE`</a>"}
+ {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=login'>`$smarty.const._LOGINENTRANCE`</a>"}
 
 {/if}
 
@@ -94,23 +94,23 @@
       {eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}
     {/if}
     {if $smarty.get.ctg == 'contact'}
-     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=contact'>`$smarty.const._CONTACTUS`</a>"}
+     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=contact'>`$smarty.const._CONTACTUS`</a>"}
         {eF_template_printBlock title = $smarty.const._CONTACTUS content = $smarty.capture.t_contact_code image = "32x32/mail.png"}
     {elseif $smarty.get.ctg == 'signup' && $T_CONFIGURATION.signup}
-        {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=signup'>`$smarty.const._SIGNUP`</a>"}
+        {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=signup'>`$smarty.const._SIGNUP`</a>"}
   {eF_template_printBlock title = $smarty.const._REGISTERANEWACCOUNT content = $smarty.capture.t_signup_code image = "32x32/user.png"}
     {elseif $smarty.get.ctg == 'reset_pwd'}
-     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=reset_pwd'>`$smarty.const._RESETPASSWORD`</a>"}
+     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=reset_pwd'>`$smarty.const._RESETPASSWORD`</a>"}
         {eF_template_printBlock title = $smarty.const._RESETPASSWORD content = $smarty.capture.t_reset_pwd_code image = "32x32/exclamation.png"}
     {elseif $smarty.get.ctg == 'lessons' && $T_CONFIGURATION.lessons_directory == 1}
-     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a>"}
+     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a>"}
      {eF_template_printBlock title = $smarty.const._COURSES content = $smarty.capture.t_lessons_code image = $T_BLOCKS.lessons.image}
     {elseif $smarty.get.ctg == 'lesson_info' && $T_CONFIGURATION.lessons_directory == 1}
      {if $T_LESSON_INFO}
-   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&lessons_ID=`$smarty.get.lessons_ID`&course=`$smarty.get.course`'>`$smarty.const._INFOFORLESSON`: &quot;`$T_LESSON->lesson.name`&quot;</a>"}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&lessons_ID=`$smarty.get.lessons_ID`&course=`$smarty.get.course`'>`$smarty.const._INFOFORLESSON`: &quot;`$T_LESSON->lesson.name`&quot;</a>"}
    {assign var = "lesson_title" value = "`$smarty.const._INFORMATIONFORLESSON` <span class = 'innerTableName'>&quot;`$T_LESSON->lesson.name`&quot;</span>"}
   {elseif $T_COURSE_INFO}
-   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&courses_ID=`$smarty.get.courses_ID`'>`$smarty.const._INFOFORCOURSE`: &quot;`$T_COURSE->course.name`&quot;</a>"}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&courses_ID=`$smarty.get.courses_ID`'>`$smarty.const._INFOFORCOURSE`: &quot;`$T_COURSE->course.name`&quot;</a>"}
    {assign var = "lesson_title" value = "`$smarty.const._INFORMATIONFORCOURSE` <span class = 'innerTableName'>&quot;`$T_COURSE->course.name`&quot;</span>"}
   {/if}
         {eF_template_printBlock title = $lesson_title content = $smarty.capture.t_lesson_info_code image = "32x32/information.png"}
@@ -119,7 +119,7 @@
         {assign var = "layoutClass" value = "hideBoth"}
     {elseif isset($smarty.get.ctg) && in_array($smarty.get.ctg, array_keys($T_POSITIONS.enabled))}
      {include file = "`$smarty.const.G_EXTERNALPATH`/`$T_CUSTOM_BLOCKS[$smarty.get.ctg].name`.tpl" assign = "content"}
-     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=`$smarty.get.ctg`'>`$T_CUSTOM_BLOCKS[$smarty.get.ctg].title`</a>"}
+     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=`$smarty.get.ctg`'>`$T_CUSTOM_BLOCKS[$smarty.get.ctg].title`</a>"}
      {eF_template_printBlock title = $T_CUSTOM_BLOCKS[$smarty.get.ctg].title content = $content image = "32x32/generic.png"}
  {else}
      {if isset($T_POSITIONS.centerList)}
@@ -210,7 +210,7 @@
 {/if}
 
 {if $smarty.get.checkout}
- {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a href = '`$smarty.server.PHP_SELF`?ctg=checkout&checkout=1'>`$smarty.const._REVIEWANDCHECKOUT`</a>"}
+ {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=checkout&checkout=1'>`$smarty.const._REVIEWANDCHECKOUT`</a>"}
     {capture name = "center_code"}
         {if $T_MESSAGE && !$T_FACEBOOK_ACCOUNT_MERGE_POPUP}
           {eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}

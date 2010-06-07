@@ -91,6 +91,21 @@
             {elseif $_professor_ && $smarty.get.project_results}
              <script>var editProject = '{$smarty.get.project_results}';</script>
                 {capture name = "t_project_results_code"}
+    {if isset($smarty.get.login)}
+
+     {$T_PROJECT_COMMENT_FORM.javascript}
+     <form {$T_PROJECT_COMMENT_FORM.attributes}>
+     {$T_PROJECT_COMMENT_FORM.hidden}
+     <table class = "formElements">
+      <tr><td class = "labelCell">{$smarty.const._COMMENT}:&nbsp;</td>
+       <td class = "elementCell">{$T_PROJECT_COMMENT_FORM.comments.html}</td></tr>
+      <tr><td></td><td class = "submitCell">{$T_PROJECT_COMMENT_FORM.submit.html}</td></tr>
+     </table>
+     {if $T_MESSAGE_TYPE == 'success'}
+      <script>parent.location = parent.location;</script>
+     {/if}
+    {else}
+
 <!--ajax:resultsTable-->
                                 <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "2" id = "resultsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "professor.php?ctg=projects&project_results={$smarty.get.project_results}&">
                                     <tr>
@@ -113,7 +128,9 @@
                                         </td>
                                         <td>{if $user.upload_timestamp != 'empty'}#filter:timestamp_time-{$user.upload_timestamp}#{/if}</td> {*'empty' is set inside the php file, so that the sorting can be done correctly*}
                                     {if $_change_}
-                                        <td><input type = "text" id = "comments_{$user.users_LOGIN}" value = "{$user.comments}" size = "50" /></td>
+
+          <td><span id = "comments_{$user.users_LOGIN}">{$user.comments|@strip_tags|eF_truncate:30}</span>&nbsp;<a href = "{$smarty.server.PHP_SELF}?ctg=projects&project_results={$smarty.get.project_results}&login={$user.users_LOGIN}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITCOMMENT}', 1)" target = "POPUP_FRAME" ><img style="vertical-align:middle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a></td>
+
                                         <td><input type = "text" id = "grade_{$user.users_LOGIN}" value = "{$user.grade}" size = "5" maxlength = "5" /></td>
                                         <td class = "centerAlign">
                                             <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._SAVE}" alt = "{$smarty.const._SAVE}" onclick = "resultsAjaxPost('{$user.users_LOGIN}', this)"/>
@@ -128,7 +145,7 @@
                                 {/foreach}
                                 </table>
 <!--/ajax:resultsTable-->
-
+    {/if}
                 {/capture}
                 {eF_template_printBlock title=$smarty.const._RESULTSFORPROJECT|cat:' &quot;'|cat:$T_CURRENT_PROJECT->project.title|cat:'&quot;' data=$smarty.capture.t_project_results_code image='32x32/projects.png'}
 

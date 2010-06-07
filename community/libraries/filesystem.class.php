@@ -2586,7 +2586,7 @@ class FileSystemTree extends EfrontTree
                <tr class = "defaultRowHeight eventRowColor"><td class = "centerAlign" colspan = "100%">'._CURRENTLYBROWSINGFOLDER.': '.str_replace($this -> dir['path'], '', $currentDir['path']).'</td></tr>
                      <tr class = "defaultRowHeight oddRowColor">
                       <td class = "centerAlign"><span style = "display:none"></span><img src = "images/16x16/folder_up.png" alt = "'._UPONELEVEL.'" title = "'._UPONELEVEL.'"/></td>
-                      <td><a href = "javascript:void(0)" onclick = "eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($parentDir['path']).'\');">.. ('._UPONELEVEL.')</a></td>
+                      <td><a class="editLink" href = "javascript:void(0)" onclick = "eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($parentDir['path']).'\');">.. ('._UPONELEVEL.')</a></td>
                       <td colspan = "5"></td></tr>';
         }
         $i = 0;
@@ -2660,13 +2660,13 @@ class FileSystemTree extends EfrontTree
                         $filesCode .= $value -> toHTMLTooltipLink($link);
                     } else {
                         if (strpos($value['mime_type'], "image") !== false || strpos($value['mime_type'], "text") !== false || strpos($value['mime_type'], "pdf") !== false || strpos($value['mime_type'], "flash") !== false) {
-                            $filesCode .= '<a href = "'.$link.'" target = "PREVIEW_FRAME" onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\');">'.$value['name'].'</a>';
+                            $filesCode .= '<a class="editLink" href = "'.$link.'" target = "PREVIEW_FRAME" onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\');">'.$value['name'].'</a>';
                         } else {
-                            $filesCode .= '<a target = "PREVIEW_FRAME" href = "'.$url.'&download='.urlencode($identifier).'">'.$value['name'].'</a>';
+                            $filesCode .= '<a class="editLink" target = "PREVIEW_FRAME" href = "'.$url.'&download='.urlencode($identifier).'">'.$value['name'].'</a>';
                         }
                     }
                 } else {
-                    $filesCode .= '<a href = "javascript:void(0)" onclick = "eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($identifier).'\');">'.$value['name'].'</a>';
+                    $filesCode .= '<a class="editLink" href = "javascript:void(0)" onclick = "eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($identifier).'\');">'.$value['name'].'</a>';
                 }
                 $filesCode .= '<span id = "edit_'.urlencode($identifier).'" style = "display:none"><input type = "text" value = "'.$value['name'].'" onkeypress = "if (event.which == 13 || event.keyCode == 13) {Element.extend(this).next().down().onclick(); return false;}"/>&nbsp;<a href = "javascript:void(0)"><img id = "editImage_'.urlencode($identifier).'"src = "images/16x16/success.png" style = "vertical-align:middle" onclick = "editFile(this, $(\'span_'.urlencode($identifier).'\').innerHTML, Element.extend(this).up().previous().value, \''.$value['type'].'\',\''.$value['name'].'\')" border = "0"></a></span></td>';
             }

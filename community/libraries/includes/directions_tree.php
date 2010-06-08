@@ -8,6 +8,11 @@ try {
 
     if (!isset($lessons) || !$lessons) {
      $lessons = EfrontLesson :: getLessons(true);
+     foreach ($lessons as $key => $lesson) {
+      if ($lesson -> lesson['archive'] || !$lesson -> lesson['active']) {
+       unset($lessons[$key]);
+      }
+     }
     }
     if (!isset($courses) || !$courses) {
      //$courses = EfrontCourse :: getCourses(true);

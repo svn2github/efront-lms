@@ -164,7 +164,7 @@ try {
             if (isset($_GET['edit_job_description'])) {
                 $only_existing = 3;
             }
-            $form -> addElement('select', 'branch' , _BRANCHNAME, eF_createBranchesTreeSelect($branches, 3) , 'class = "inputText"  id="branch" onchange="javascript:change_branch(\'branch\',\'details_link\')"');
+            $form -> addElement('select', 'branch' , _BRANCHNAME, eF_createBranchesTreeSelect($branches, 3) , 'lass = "inputText"  id="branch" onchange="javascript:change_branch(\'branch\',\'details_link\')"');
         } else {
             $message = _NOBRANCHESHAVEBEENREGISTERED;
             $message_type = 'failure';

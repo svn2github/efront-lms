@@ -410,7 +410,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 
    $smarty -> assign("T_SHOWFATHER", 1);
 
-   $form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches,$only_existing),'class = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
+   $form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches,$only_existing),'lass = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
 
    // If add_branch request coming from another branch subbranches menu, pre-enter the fatherBranch form
    if (isset($_GET['add_branch'])) {

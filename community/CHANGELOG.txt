@@ -6,6 +6,9 @@
 - Fixed progress not displaying projects issue
 - Fixed error while sending messages to "My students" from professor account
 - Fixed path error when creating new user
+- Fixed user type assignments when registering automatically to courses/lessons through a default group
+- Fixed memory overconsumption during calculation of users' traffic statistics
+- Fixed memory_get_peak_usage() call for php 5.1.x when debug_mode is on
 
 === Version 3.6.3 build 7455 ===
 - Fixed error in course completion page

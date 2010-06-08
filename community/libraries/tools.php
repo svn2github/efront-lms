@@ -1649,6 +1649,16 @@ function eF_loadAllModules($onlyActive = false) {
 }
 /**
 
+ * For php 5.1.x that lacks memory_get_peak_usage(), fall back to memory_get_usage()
+
+ */
+if (!function_exists('memory_get_peak_usage')) {
+ function memory_get_peak_usage() {
+  return memory_get_usage();
+ }
+}
+/**
+
  * Supplementary json_encode in case php version is < 5.2 (taken from http://gr.php.net/json_encode)
 
  */

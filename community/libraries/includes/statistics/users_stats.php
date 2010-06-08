@@ -163,7 +163,7 @@ if (isset($_GET['sel_user'])) {
    } else {
     $userLessons = array();
    }
-   $allUserTimes = EfrontStats :: getUsersTimeAll(false, false, array_keys($userLessons));
+   //$allUserTimes = EfrontStats :: getUsersTimeAll(false, false, array_keys($userLessons));
    $actions = array('login' => _LOGIN,
         'logout' => _LOGOUT,
         'lesson' => _ACCESSEDLESSON,

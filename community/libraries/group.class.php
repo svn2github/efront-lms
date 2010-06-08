@@ -430,11 +430,18 @@ class EfrontGroup
            }
            // Add lessons - info acquired before entering the new user assignment loop
                     if ($userObject -> getType() != 'administrator') {
+                     if ($fields["user_types_ID"]) {
+                      $userTypeInCourses = $fields["user_types_ID"];
+                     } elseif ($fields["user_types_ID"]) {
+                      $userTypeInCourses = $fields["user_type"];
+                     } else {
+                      $userTypeInCourses = $userObject -> getType();
+                     }
                         if (!empty($lessonIds)) {
-       $userObject -> addLessons($lessonIds, $userObject -> getType(), 1); //active lessons
+       $userObject -> addLessons($lessonIds, $userTypeInCourses, 1); //active lessons
                         }
       if (!empty($courseIds)) {
-       $userObject -> addCourses($courseIds, $userObject -> getType(), 1); // active courses
+       $userObject -> addCourses($courseIds, $userTypeInCourses, 1); // active courses
       }
                     }
                 }
@@ -1055,59 +1062,100 @@ class EfrontGroup
      */
    private static $default_group = false;
    public static function addToDefaultGroup($user) {
-       if (!($user instanceof EfrontUser)) {
-         $login = $user['login'];
-       } else {
-         $login = $user -> user['login'];
-       }
-       // Get the default eFront group
-       if (!$default_group) {
-         $default_group = eF_getTableData("groups", "*", "is_default = 1 AND active = 1");
-         if (sizeof($default_group)) {
-          $default_group = $default_group[0];
-         } else {
-          $default_group = true;
-          return;
-         }
-       }
-      // pr($default_group);
-       try {
-           $group = new EfrontGroup($default_group);
-           $group -> addUsers($login);
-           $group -> updateUsers($login);
-           // Get updated version of user
-           try {
-            $updatedUser = EfrontUserFactory::factory($login);
-           } catch (Exception $e) {
-            throw $e;
-           }
-           // Assign default group type
-           $groupLessons = $group -> getLessons();
-           $lessonIds = array_keys($groupLessons);
-   if(!empty($lessonIds)) {
-    if ($updatedUser -> user['user_types_ID'] != 0) {
-    $user_type = $updatedUser -> user['user_types_ID'];
+    if (!($user instanceof EfrontUser)) {
+     $login = $user['login'];
     } else {
-     $user_type = $updatedUser -> user['user_type'];
+     $login = $user -> user['login'];
     }
-    $user_types = array();
-    foreach($lessonIds as $lesson) {
-     $user_types[] = $user_type;
+    // Get the default eFront group
+    if (!$default_group) {
+     $default_group = eF_getTableData("groups", "*", "is_default = 1 AND active = 1");
+     if (sizeof($default_group)) {
+      $default_group = $default_group[0];
+     } else {
+      $default_group = true;
+      return;
+     }
     }
-    $user -> addLessons($lessonIds, $user_types, 1);
-   }
-           $groupCourses = $group -> getCourses();
-           $courseIds = array_keys($groupCourses);
-   if(!empty($courseIds)) {
-    $user_types = array();
-    foreach($courseIds as $course) {
-     $user_types[] = $user_type;
+    // pr($default_group);
+    try {
+     $group = new EfrontGroup($default_group);
+     $group -> addUsers($login);
+/*
+
+   		$group -> updateUsers($login);
+
+      
+
+   		// Get updated version of user
+
+   		try {
+
+   			$updatedUser = EfrontUserFactory::factory($login);
+
+   		} catch (Exception $e) {
+
+   			throw $e;
+
+   		}
+
+
+
+   		// Assign default group type
+
+   		$groupLessons = $group -> getLessons();
+
+   		$lessonIds = array_keys($groupLessons);
+
+   		if(!empty($lessonIds)) {
+
+   			if ($updatedUser -> user['user_types_ID'] != 0) {
+
+   				$user_type = $updatedUser -> user['user_types_ID'];
+
+   			} else {
+
+   				$user_type = $updatedUser -> user['user_type'];
+
+   			}
+
+
+
+   			$user_types = array();
+
+   			foreach($lessonIds as $lesson) {
+
+   				$user_types[] = $user_type;
+
+   			}
+
+   			$user -> addLessons($lessonIds, $user_types, 1);
+
+   		}
+
+   		$groupCourses = $group -> getCourses();
+
+   		$courseIds = array_keys($groupCourses);
+
+   		if(!empty($courseIds)) {
+
+   			$user_types = array();
+
+   			foreach($courseIds as $course) {
+
+   				$user_types[] = $user_type;
+
+   			}
+
+   			$user -> addCourses($courseIds, $user_types, 1);
+
+   		}
+
+*/
+    } catch (Exception $e) {
+     // otherwise no default group has been defined
     }
-    $user -> addCourses($courseIds, $user_types, 1);
-   }
-       } catch (Exception $e) {// otherwise no default group has been defined
-       }
-       return true;
+    return true;
    }
    /**
 

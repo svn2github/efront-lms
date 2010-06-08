@@ -162,6 +162,51 @@ function debug($mode = true, $level = E_ALL) {
         unset($_SESSION['debug_start']);
     }
 }
+function eF_truncatePath($string, $length = 40, $pathLimit = 6, $etc = '...', $delimiter = "&nbsp;&rarr;&nbsp;")
+{
+ $stripped = strip_tags($string); //remove tags to count characters
+ $piecesStripped = explode($delimiter, $stripped);
+ if (mb_strlen($stripped) <= $length) {
+  return $string;
+ }
+ //Remove the last element and keep it separately, as we don't want it to be truncated
+ $lastElement = end($piecesStripped);
+ $piecesStripped = array_slice($piecesStripped, 0, -1);
+ $piecesLength = $piecesStripped;
+ array_walk($piecesLength, 'trim');
+ array_walk($piecesLength, create_function('&$v, $k', '$v = mb_strlen($v);'));
+ $piecesLengthStart = $piecesLength;
+ $piecesNum = sizeof($piecesLength);
+ $step = 0;
+ while (array_sum($piecesLength) > $length && $step < 5) {
+ $step++;
+  for ($k = 1; $k < $piecesNum; $k++) {
+   if ($piecesLength[$k] > $pathLimit) {
+    $piecesLength[$k] = $piecesLength[$k] - round($piecesLength[$k]*($piecesNum -$k)/10);
+    if(array_sum($piecesLength) <= $length) {
+     break;
+    }
+   }
+  }
+ }
+ $piecesFinal = array();
+ foreach ($piecesStripped as $key => $value) {
+  if ($piecesLengthStart[$key] - $piecesLength[$key] > 3) {
+   $replacement = mb_substr($piecesStripped[$key], 0, $piecesLength[$key]).$etc;
+  } else {
+   $replacement = $piecesStripped[$key];
+  }
+  $temp = $value;
+  // added because preg_replace returns null when value contains /
+  $piecesFinal[$key] = preg_replace('/'.preg_quote($piecesStripped[$key], '/').'/', $replacement, $value);
+  if (is_null($piecesFinal[$key])) {
+   $piecesFinal[$key] = $temp;
+  }
+ }
+ $piecesFinal[] = $lastElement;
+ $finalString = implode($delimiter, $piecesFinal); // with tags 
+ return $finalString;
+}
 /**
 
  * Format a user login

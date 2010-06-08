@@ -430,6 +430,7 @@
     {* **************************************************************
     DISPLAYING THE CAPTURED TABLES
     ************************************************************** *}
+    {capture name = 't_add_job_description_code'}
     <table border = "0" width = "100%" cellspacing = "5">
      <tr><td valign = "top">
 
@@ -475,6 +476,8 @@
       </td>
        </tr>
     </table>
+    {/capture}
+    {eF_template_printBlock title = $smarty.const._JOBDESCRIPTIONDATA data = $smarty.capture.t_add_job_description_code image = '32x32/courses.png'}
  {else}
   {*moduleAllSkills: Show job_descriptions *}
   {capture name = 't_job_descriptions_code'}

@@ -538,6 +538,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
             }
             try {
           $newUser = EfrontUser :: createUser($user_data);
+          $encrypted = true; //needed for autologin
           EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_REGISTER, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
           // send not-visited notifications for the newly registered user
           EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
@@ -557,10 +558,10 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
      $message_type = 'success';
      //Automatic registration trigers login as well, unless login_mode is enabled
      if ($_GET['ldap']) {
-      $newUser -> login($_SESSION['ldap_user_pwd'], true);
+      $newUser -> login($_SESSION['ldap_user_pwd'], $encrypted);
       unset($_SESSION['ldap_user_pwd']);
      } else {
-      $newUser -> login($user_data['password'], true);
+      $newUser -> login($user_data['password'], $encrypted);
      }
      if ($GLOBALS['configuration']['show_license_note'] && $newUser -> user['viewed_license'] == 0) {
       eF_redirect("index.php?ctg=agreement&message=".urlencode($message)."&message_type=".$message_type);

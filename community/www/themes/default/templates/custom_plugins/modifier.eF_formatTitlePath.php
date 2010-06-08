@@ -25,13 +25,10 @@ function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 
  $piecesStart = explode("&raquo;&nbsp;", $string); // with tags 
  $stripped = strip_tags($string); //remove tags to count characters
  $piecesStripped = explode("&raquo;&nbsp;", $stripped);
-//pr($piecesStart);	
-//pr($piecesStripped);
- array_walk($piecesStripped, create_function('&$v, $k', '$v = str_replace("&nbsp;", "", $v);'));
- //pr($piecesStripped);
- //pr($piecesStart);
 
- if(mb_strlen($stripped) <= $length) {
+ array_walk($piecesStripped, create_function('&$v, $k', '$v = str_replace("&nbsp;", "", $v);'));
+
+ if (mb_strlen($stripped) <= $length) {
   return $string;
  }
 

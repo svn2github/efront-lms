@@ -710,41 +710,10 @@ function askChat() {
 function askBranches() {
  include_once $path."module_hcd_tools.php";
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
-/*
-
-	if($_SESSION['s_type'] == "administrator"){
-
-		$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%'","father_branch_ID ASC,branch_ID ASC");
-
-	} else {
-
-		if (isset($_SESSION['supervises_branches'])) {
-
-			$result = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","name like '%$preffix%' AND branch_ID IN (".$_SESSION['supervises_branches'].")","father_branch_ID ASC,branch_ID ASC");
-
-		}
-
-	}
-
-
-
-	$ordered_branches = eF_createBranchesTreeSelect($result, 1);
-
-	foreach ($result as $key => $branch) {
-
-		$ordered_branches[$branch['branch_ID']] = array("branch_ID" => $branch['branch_ID'],
-
-													"name"		=> $ordered_branches[$branch['branch_ID']]);
-
-	}
-
-	$result = $ordered_branches;
-
-*/
  $tree = new EfrontBranchesTree();
  foreach ($tree -> toPathString() as $key => $branch) {
   if ($preffix == '%' || stripos($branch, $preffix) !== false) {
-   $hiname = highlightSearch($branch, $preffix);
+   $hiname = highlightSearch(eF_truncatePath($branch, 80, 6, "...", "&nbsp;&rarr;&nbsp;"), $preffix);
    $branches[$key] = array('branch_ID' => $key,
            'name' => $branch,
            'path_string' => $hiname);

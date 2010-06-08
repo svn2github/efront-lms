@@ -357,6 +357,8 @@ class EfrontFile extends ArrayObject
             throw new EfrontFileException(_FILEDOESNOTEXIST.': '.$this['path'], EfrontFileException :: FILE_DELETED);
         } elseif ( strpos($this['path'], G_ROOTPATH) === false ) {
             throw new EfrontFileException(_ILLEGALPATH.': '.$this['path'], EfrontFileException :: ILLEGAL_PATH); //The file must be inside root path, otherwise it is illegal
+        } elseif (strpos($this['path'], G_ROOTPATH.'libraries') !== false ) {
+         throw new EfrontFileException(_ILLEGALPATH.': '.$this['path'], EfrontFileException :: ILLEGAL_PATH); //The file must be inside root path, otherwise it is illegal        	
         }
     }
     /**

@@ -12,7 +12,7 @@
 - Fixed deactivated lessons showing up in catalog
 - Fixed certain branches not showing up on branches select lists
 - Fixed submitting notification settings when "Maximum minutes ..." was not set
--
+- Fixed bookmark addition error
 
 === Version 3.6.3 build 7455 ===
 - Fixed error in course completion page

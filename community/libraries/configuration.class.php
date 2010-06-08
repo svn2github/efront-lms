@@ -173,6 +173,7 @@ class EfrontConfiguration
 
         //Notifications
         'notifications_pageloads' => '10',
+     'notifications_maximum_inter_time' => 0,
         'notifications_messages_per_time' => '5',
         'notifications_max_sent_messages' => '100',
 

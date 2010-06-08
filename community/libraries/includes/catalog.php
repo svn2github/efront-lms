@@ -81,7 +81,9 @@ if (isset($_GET['fct'])) {
      $lessons = $currentUser -> getEligibleNonLessons();
      //$courses = $currentUser -> getEligibleNonCourses();
      $constraints = array('active' => 1, 'archive' => 0, 'condition' => 'c.show_catalog=1 and c.publish=1 and r.courses_ID is null or r.archive != 0');
+     $constraints['return_objects'] = false;
      $courses = $currentUser -> getUserCoursesIncludingUnassigned($constraints);
+
     } else {
         $lessons = $courses = array();
     }

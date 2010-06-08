@@ -38,21 +38,6 @@ function makeAjaxRequest(url,poststr,type) {
 //        if(handleSortRequest != null)
 //                    http_request.onreadystatechange = function() { handleSortRequest(http_request); };
     }
-    else if(type == 'bookmarks')
-    {
-        if(handleBookmarkRequest != null)
-                    http_request.onreadystatechange = function() { handleBookmarkRequest(http_request); };
-    }
-    else if(type == 'add_bookmark')
-    {
-        if(handleAddBookmarkRequest != null)
-                    http_request.onreadystatechange = function() { handleAddBookmarkRequest(http_request); };
-    }
-    else if(type == 'delete_bookmark')
-    {
-        if(handleBookmarkRequest != null)
-                    http_request.onreadystatechange = function() { handleBookmarkRequest(http_request); };
-    }
     else if(type == 'chat')
     {
         if(handleChatRequest != null)
@@ -183,55 +168,6 @@ function handleRequest(http_request) {
 
 
 
-function handleBookmarkRequest(http_request) {
-        if (http_request.readyState == 4) {
-            if (http_request.status == 200) {
-                        var xmldoc = http_request.responseXML;
-                        var bookmarks_num_node = xmldoc.getElementsByTagName('num_bookmarks').item(0);
-                        var bookmarks_num = bookmarks_num_node.firstChild.data;
-
-                top.mainframe.document.getElementById('empty_bookmarks_box').style.display = 'none';
-                bookmark_str = '<table style = "width:100%;vertical-align:top">';
-                var ie_str;
-                var detect = navigator.userAgent.toLowerCase();
-                detect.indexOf("msie") > 0 ? ie_str = "&ie=1" :ie_str = "";
-
-                for (i = 0; i < bookmarks_num; i++)
-                {
-                    var bookmark_node = xmldoc.getElementsByTagName('bookmark').item(i);//alert(bookmark_node.childNodes[0].firstChild);alert(bookmark_node.childNodes[1].firstChild);alert(bookmark_node.childNodes[2].firstChild);
-                    var bookmark_name = bookmark_node.childNodes[0].firstChild.data;
-                    var bookmark_url = bookmark_node.childNodes[1].firstChild.data;
-                    var bookmark_id = bookmark_node.childNodes[2].firstChild.data;
-                    //bookmark_str += "<tr><td>"+ bookmark_name + "</td><td style='padding-left:10px;'>" + bookmark_url + "</td></tr>";
-                    bookmark_str += "<tr><td><a href = '"+bookmark_url+"'>"+bookmark_name+"</a></td>";
-                    bookmark_str += "<td align = 'right'><a href='javascript:void(0)' ";
-                    bookmark_str += "onclick = \"makeAjaxRequest('/delete_bookmark.php?id="+bookmark_id+ie_str+"','special_get_request','delete_bookmark')\">";
-                    bookmark_str += "<img src='../themes/default/images/16x16/delete."+globalImageExtension+"' border = '0'/></a></td></tr>";
-                }
-                bookmark_str += "</table>";
-                //alert(bookmark_str);
-                if(top.mainframe.document.getElementById('bookmarks_box'))
-                    top.mainframe.document.getElementById('bookmarks_box').innerHTML = bookmark_str;
-
-                if(top.mainframe.document.getElementById('bookmarks_table'))
-                {
-                    top.mainframe.document.getElementById('bookmarks_table').style.display = '';
-                }
-                if (bookmarks_num == 0) {
-                    top.mainframe.document.getElementById('empty_bookmarks_box').style.display = '';
-                }
-            }
-        }
-}
-
-
-function handleAddBookmarkRequest(http_request) {
-        if (http_request.readyState == 4) {
-                if (http_request.status == 200) {
-
-                }
-        }
-}
 
 function handleSetSeenContentRequest(http_request) {
         if (http_request.readyState == 4) {
@@ -241,15 +177,7 @@ function handleSetSeenContentRequest(http_request) {
         }
 }
 
-function handleDeleteBookmarkRequest(http_request) {
-        if (http_request.readyState == 4) {
-                if (http_request.status == 200) {
-                    if(http_request.responseText == "ok") {
-                        hide_bookmarks_box();
-                    }
-                }
-        }
-}
+
 
 
 function splitLargeWords(text, chars_per_word) {
@@ -445,8 +373,6 @@ function handleSuggestionsRequest(http_request) {
                 if (http_request.status == 200) {
             //alert(http_request.responseText);
                   //var xmldoc = http_request.responseXML;
-                  //var bookmarks_num_node = xmldoc.getElementsByTagName('num_bookmarks').item(0);
-                  //var bookmarks_num = bookmarks_num_node.firstChild.data;
 
                 //var ie_str;
                 //var detect = navigator.userAgent.toLowerCase();
@@ -465,8 +391,6 @@ function handleSetPositions(http_request) {
                 //alert("OK");
                 //alert(http_request.responseText);
                   //var xmldoc = http_request.responseXML;
-                  //var bookmarks_num_node = xmldoc.getElementsByTagName('num_bookmarks').item(0);
-                  //var bookmarks_num = bookmarks_num_node.firstChild.data;
 
                 //var ie_str;
                 //var detect = navigator.userAgent.toLowerCase();
@@ -476,15 +400,6 @@ function handleSetPositions(http_request) {
            }
     }
     catch(e) {}
-}
-
-function call_bookmarks()
-{
-    var ie_str;
-    var detect = navigator.userAgent.toLowerCase();
-    detect.indexOf("msie") > 0 ? ie_str = "?ie=1" :ie_str = "";
-
-    makeAjaxRequest('ask_bookmarks.php'+ie_str,'special_get_request','bookmarks');
 }
 
 function sendMessage(chat_message,chatrooms_ID)
@@ -561,40 +476,6 @@ var glob_mousex;
 var glob_mousey;
 
 
-
-//function hide_user_box()
-//{
-//    if(top.mainframe.document.getElementById('user_table'))
-//        top.mainframe.document.getElementById('user_table').style.display='none';
-//
-//    cur_user = "";
-//}
-
-function addBookmark(addstr)
-{
-    var url = top.mainframe.location.pathname+top.mainframe.location.search;
-    var name = top.mainframe.document.getElementById('title').innerHTML;
-    //url.substring(1);
-    url.replace("&","&amp;");
-//  do {
-//  var pos = name.indexOf("\">");
-//  var pos2 = name.indexOf("</A>");
-//  name = name.substring(pos+2,pos2)+name.substring(pos2+4);
-//  alert(name);
-//  } while ( (pos = name.indexOf("\">"))>=0)
-    name = name.replace(/<[^>]*>/g,'');
-    name = name.replace(/&nbsp;/g,'');
-    //name = name.substring(0,name.length-1);
-    //alert(name);
-    //name.replace("&","&amp;");
-    url_encoded = encodeURIComponent(url);
-    name_encoded = encodeURIComponent(name);
-    if(confirm(addstr))
-    {
-    makeAjaxRequest('/add_bookmark.php','url='+url_encoded+'&name='+name_encoded,'add_bookmark');
-    }
-
-}
 
 function setXY(e)
 {

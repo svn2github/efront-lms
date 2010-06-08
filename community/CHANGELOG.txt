@@ -11,6 +11,8 @@
 - Fixed memory_get_peak_usage() call for php 5.1.x when debug_mode is on
 - Fixed deactivated lessons showing up in catalog
 - Fixed certain branches not showing up on branches select lists
+- Fixed submitting notification settings when "Maximum minutes ..." was not set
+-
 
 === Version 3.6.3 build 7455 ===
 - Fixed error in course completion page

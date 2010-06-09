@@ -33,5 +33,6 @@
                 {/capture}
 
                 {eF_template_printBlock title = $smarty.const._BACKUP|cat:' - '|cat:$smarty.const._RESTORE data = $smarty.capture.t_backup_code image = '32x32/backup_restore.png' help = 'Backup-restore'}
+                <script>var _disable_updater = true;</script>
             </td></tr>
         {/capture}

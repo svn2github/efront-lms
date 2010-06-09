@@ -83,7 +83,11 @@ if (isset($_GET['fct'])) {
      $constraints = array('active' => 1, 'archive' => 0, 'condition' => 'c.show_catalog=1 and c.publish=1 and r.courses_ID is null or r.archive != 0');
      $constraints['return_objects'] = false;
      $courses = $currentUser -> getUserCoursesIncludingUnassigned($constraints);
-
+     $temp = array();
+     foreach ($courses as $value) {
+      $temp[$value['id']] = $value;
+     }
+     $courses = $temp;
     } else {
         $lessons = $courses = array();
     }

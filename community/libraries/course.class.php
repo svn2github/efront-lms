@@ -2427,7 +2427,8 @@ class EfrontCourse
 	 */
  public function delete() {
   $this -> removeLessons(array_keys($this -> getCourseLessons()));
-  $this -> removeUsers(array_keys($this -> getUsers()));
+  $courseUsers = eF_getTableDataFlat("users_to_courses", "users_LOGIN", "courses_ID=".$this -> course['id']);
+  $this -> removeUsers($courseUsers["users_LOGIN"]);
   $this -> deleteCourseInstances();
   $this -> removeCourseSkills();
   $this -> deleteUniqueLessons();

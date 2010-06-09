@@ -288,8 +288,12 @@ CREATE TABLE users_to_courses (
   to_timestamp int(10) unsigned default NULL,
 -- FOREIGN KEY (users_ID) REFERENCES users (id),
 -- FOREIGN KEY (courses_ID) REFERENCES courses (id),
-  primary key (users_LOGIN, courses_ID)
+  primary key (users_LOGIN, courses_ID),
+  index(archive),
+  index(users_LOGIN),
+  index(courses_ID)
 ) DEFAULT CHARSET=utf8;
+
 
 --
 -- Table 'lessons_to_courses'

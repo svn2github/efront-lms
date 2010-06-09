@@ -181,6 +181,9 @@ function show_user_box(user_str,user,send_msg,view_page,user_type,user_time, use
 }
 
 function getPeriodicData() {
+ if (typeof(_disable_updater) != 'undefined' && _disable_updater) {
+  return 0;
+ }
  try {
   new Ajax.Request('periodic_updater.php', {
    method:'get',

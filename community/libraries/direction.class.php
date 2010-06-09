@@ -606,7 +606,7 @@ class EfrontDirectionsTree extends EfrontTree
   $lessonsList = array();
   $iterator = $this -> initializeIterator(false, $lessons, $courses);
   foreach ($iterator as $key => $value) {
-   foreach($value['lessons'] as $id) {
+   foreach($value -> offsetGet('lessons') as $id) {
     $lessonsList[] = $id;
    }
   }

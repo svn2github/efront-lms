@@ -56,6 +56,11 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
    // Supervisors are allowed to see only the data of the employees that work in the braches they supervise
    if ($currentEmployee -> getType() == _SUPERVISOR) {
     $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*, count(job_description_ID) as jobs_num"," users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." ) AND module_hcd_employee_works_at_branch.assigned='1') OR EXISTS (SELECT module_hcd_employees.users_login FROM module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login WHERE users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) GROUP BY login", "login");
+    foreach ($employees as $key => $value) {
+     if (!$value['active'] || $value['archive'] || !$value['jobs_num']) {
+      unset($employees[$key]);
+     }
+    }
     //$employees = eF_getTableData("users $branchFilterExtraTable LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN $jobFilterExtraTable LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*, count(module_hcd_employee_has_job_description.job_description_ID) as jobs_num"," users.user_type <> 'administrator' AND users.archive = 0 AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." ) $branchFilterCondition $jobFilterCondition AND module_hcd_employee_works_at_branch.assigned='1')) GROUP BY login", "login");
 
    } else if ($_SESSION['s_type'] == 'administrator') {

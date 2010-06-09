@@ -36,6 +36,9 @@ if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
 }
 try {
     $file = new EfrontFile($_GET['file']);
+ if (strpos($file['path'], G_ROOTPATH.'libraries') !== false ) {
+  throw new EfrontFileException(_ILLEGALPATH.': '.$file['path'], EfrontFileException :: ILLEGAL_PATH);
+ }
     if (isset($_GET['action']) && $_GET['action'] == 'download') {
      $file -> sendFile(true);
     } else {

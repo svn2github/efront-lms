@@ -138,13 +138,15 @@ function profile($start = true, &$path) {
 
  * eF_getTableData("users", "*", "");
 
- * debug(false);
+ * debug(false); 
 
  * </code>
 
  *
 
  * @param boolean $mode Set the debugging to on/off
+
+ * @param int $level the reporting level. Setting it to E_ALL & ~E_NOTICE shows all errors but notices 
 
  * @since 3.5.0
 

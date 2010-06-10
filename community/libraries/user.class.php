@@ -1925,6 +1925,13 @@ abstract class EfrontUser
   }
   return $userObjects;
  }
+ public static function convertDatabaseResultToUserArray($result) {
+  $userArray = array();
+  foreach ($result as $value) {
+   $userArray[$value['login']] = $value;
+  }
+  return $userArray;
+ }
 }
 /**
 
@@ -2582,7 +2589,7 @@ abstract class EfrontLessonUser extends EfrontUser
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
   } else {
-   return $result;
+   return EfrontCourse :: convertDatabaseResultToCourseArray($result);
   }
  }
  public function countUserCourses($constraints = array()) {
@@ -2607,7 +2614,7 @@ abstract class EfrontLessonUser extends EfrontUser
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
   } else {
-   return $result;
+   return EfrontCourse :: convertDatabaseResultToCourseArray($result);
   }
  }
  public function countUserCoursesIncludingUnassigned($constraints = array()) {
@@ -2657,7 +2664,7 @@ abstract class EfrontLessonUser extends EfrontUser
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
   } else {
-   return $result;
+   return EfrontCourse :: convertDatabaseResultToCourseArray($result);
   }
  }
  public function countUserCoursesAggregatingResultsIncludingUnassigned($constraints = array()) {
@@ -2704,7 +2711,7 @@ abstract class EfrontLessonUser extends EfrontUser
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
   } else {
-   return $result;
+   return EfrontCourse :: convertDatabaseResultToCourseArray($result);
   }
 /*		
 

@@ -355,7 +355,7 @@ class EfrontCourse
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
   } else {
-   return $result;
+   return EfrontCourse :: convertDatabaseResultToLessonArray($result);
   }
  }
  /**
@@ -1147,7 +1147,7 @@ class EfrontCourse
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
-   return $result;
+   return EfrontUser :: convertDatabaseResultToUserArray($result);
   }
  }
  /**
@@ -1201,7 +1201,7 @@ class EfrontCourse
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
-   return $result;
+   return EfrontUser :: convertDatabaseResultToUserArray($result);
   }
  }
  /**
@@ -1253,7 +1253,7 @@ class EfrontCourse
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
-   return $result;
+   return EfrontUser :: convertDatabaseResultToUserArray($result);
   }
  }
  /**
@@ -1307,7 +1307,7 @@ class EfrontCourse
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
-   return $result;
+   return EfrontUser :: convertDatabaseResultToUserArray($result);
   }
  }
  /**
@@ -3734,9 +3734,9 @@ class EfrontCourse
   $sql = prepareGetTableData("courses c", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData("courses, ($sql) t", implode(",", $from), "courses.id=t.id");
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
-   return self :: convertDatabaseResultToCourseObjects($result);
+   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
   } else {
-   return $result;
+   return EfrontCourse :: convertDatabaseResultToCourseArray($result);
   }
  }
  public static function countAllCourses($constraints = array()) {
@@ -3752,12 +3752,26 @@ class EfrontCourse
   }
   return $lessonObjects;
  }
+ public static function convertDatabaseResultToLessonArray($result) {
+  $lessonArray = array();
+  foreach ($result as $value) {
+   $lessonArray[$value['id']] = $value;
+  }
+  return $lessonArray;
+ }
  public static function convertDatabaseResultToCourseObjects($result) {
   $courseObjects = array();
   foreach ($result as $value) {
    $courseObjects[$value['id']] = new EfrontCourse($value);
   }
   return $courseObjects;
+ }
+ public static function convertDatabaseResultToCourseArray($result) {
+  $courseArray = array();
+  foreach ($result as $value) {
+   $courseArray[$value['id']] = $value;
+  }
+  return $courseArray;
  }
  public static function convertLessonObjectsToArrays($lessonObjects) {
   foreach ($lessonObjects as $key => $value) {

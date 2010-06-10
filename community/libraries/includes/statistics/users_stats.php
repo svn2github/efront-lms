@@ -336,18 +336,19 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $row = 1;
  //course users info
  $constraints = array('instance' => false, 'archive' => false, 'active' => true);
- $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+ $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
  $constraints['return_objects'] = false;
  $userCourses = $infoUser -> getUserCoursesAggregatingResults($constraints);
  if (sizeof($userCourses) > 0) {
   $workSheet -> write($row, 4, _COURSESINFO, $headerFormat);
-  $workSheet -> mergeCells($row, 4, $row, 10);
+  $workSheet -> mergeCells($row, 4, $row, 11);
   $workSheet -> setColumn($row, 10, 15);
   $row++;
   $workSheet -> write($row, 4, _COURSE, $titleLeftFormat);
   //$workSheet -> write($row, 5, _LESSONS, $titleCenterFormat);
   $workSheet -> write($row, 6, _SCORE, $titleCenterFormat);
   $workSheet -> write($row, 7, _COMPLETED, $titleCenterFormat);
+  $workSheet -> write($row, 8, _COMPLETEDON, $titleCenterFormat);
   foreach ($userCourses as $id => $course) {
    //$course = $course -> course;
    $row++;
@@ -355,6 +356,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    //$workSheet -> write($row, 5, $course['lessons'], $fieldCenterFormat);
    $workSheet -> write($row, 6, formatScore($course['score'])."%", $fieldCenterFormat);
    $workSheet -> write($row, 7, $course['completed'] ? _YES : _NO, $fieldCenterFormat);
+   $workSheet -> write($row, 8, formatTimestamp($course['to_timestamp']), $fieldCenterFormat);
   }
  }
  $row++;
@@ -362,7 +364,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $userLessons = $infoUser -> getUserStatusInLessons();
  if (sizeof($userLessons) > 0 && $GLOBALS['configuration']['lesson_enroll']) {
   $workSheet -> write($row, 4, _LESSONSINFO, $headerFormat);
-  $workSheet -> mergeCells($row, 4, $row, 10);
+  $workSheet -> mergeCells($row, 4, $row, 11);
   $workSheet -> setColumn(4, 10, 15);
   $row++;
   $workSheet -> write($row, 4, _LESSON, $titleLeftFormat);
@@ -375,7 +377,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $workSheet -> write($row, 8, _PROJECTS, $titleCenterFormat);
   }
   $workSheet -> write($row, 9, _COMPLETED, $titleCenterFormat);
-  $workSheet -> write($row++, 10, _GRADE, $titleCenterFormat);
+  $workSheet -> write($row, 10, _COMPLETEDON, $titleCenterFormat);
+  $workSheet -> write($row++, 11, _GRADE, $titleCenterFormat);
   foreach ($userLessons as $id => $lesson) {
    $lesson = $lesson -> lesson;
    if ($lesson['active'] && !$lesson['course_only']) {
@@ -389,7 +392,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
      $workSheet -> write($row, 8, formatScore($lesson['project_status']['mean_score'])."%", $fieldCenterFormat);
     }
     $workSheet -> write($row, 9, $lesson['completed'] ? _YES : _NO, $fieldCenterFormat);
-    $workSheet -> write($row, 10, formatScore($lesson['score'])."%", $fieldCenterFormat);
+    $workSheet -> write($row, 10, formatTimestamp($lesson['timestamp_completed']), $fieldCenterFormat);
+    $workSheet -> write($row, 11, $lesson['completed'] ? formatScore($lesson['score'])."%" : '', $fieldCenterFormat);
     $row++;
    }
   }
@@ -405,17 +409,19 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $workSheet -> setColumn(0, 0, 5);
   $row = 1;
   $workSheet -> write($row, 1, _TESTSINFORMATION, $headerFormat);
-  $workSheet -> mergeCells($row, 1, $row, 3);
-  $workSheet -> setColumn(1, 3, 25);
+  $workSheet -> mergeCells($row, 1, $row, 4);
+  $workSheet -> setColumn(1, 4, 25);
   $row++;
   $workSheet -> write($row, 1, _LESSON, $titleLeftFormat);
   $workSheet -> write($row, 2, _TESTNAME, $titleCenterFormat);
-  $workSheet -> write($row++, 3, _SCORE, $titleCenterFormat);
+  $workSheet -> write($row, 3, _SCORE, $titleCenterFormat);
+  $workSheet -> write($row++, 4, _DATE, $titleCenterFormat);
   $avgScore = 0;
   foreach ($doneTests[$infoUser -> user['login']] as $contentId => $test) {
    $workSheet -> write($row, 1, $lessonNames[$test['lessons_ID']], $fieldLeftFormat);
    $workSheet -> write($row, 2, $test['name'], $fieldCenterFormat);
-   $workSheet -> write($row++, 3, formatScore($test['score'])."%", $fieldCenterFormat);
+   $workSheet -> write($row, 3, formatScore($test['score'])."%", $fieldCenterFormat);
+   $workSheet -> write($row++, 4, formatTimestamp($test['timestamp'], 'time_nosec'), $fieldCenterFormat);
    $avgScore += $test['score'];
   }
   $row +=2;
@@ -469,7 +475,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $count = 1;
  foreach ($userCourses as $id => $course) {
   $constraints = array('instance' => $id, 'archive' => false, 'active' => true);
-  $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+  $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
   //$constraints['return_objects']  = false;
   $instances = $infoUser -> getUserCourses($constraints);
   //unset($instances[$course -> course['id']]); //Remove self from instances
@@ -487,6 +493,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $workSheet -> mergeCells($row, 0, $row++, 1);
   $workSheet -> write($row, 0, _COMPLETED, $fieldCenterFormat);
   $workSheet -> write($row++, 1, $course['completed'] ? _YES : _NO, $fieldCenterFormat);
+  $workSheet -> write($row, 0, _COMPLETEDON, $fieldCenterFormat);
+  $workSheet -> write($row++, 1, formatTimestamp($course['to_timestamp']), $fieldCenterFormat);
   $workSheet -> write($row, 0, _GRADE, $fieldCenterFormat);
   $workSheet -> write($row++, 1, formatScore($course['score'])."%", $fieldCenterFormat);
   if (sizeof($instances) > 1) {
@@ -497,12 +505,12 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $row++;
    $workSheet -> write($row, 0, _INSTANCE, $titleLeftFormat);
    $workSheet -> write($row, 1, _COMPLETED, $titleCenterFormat);
-   $workSheet -> write($row, 2, _SCORE, $titleCenterFormat);
+   $workSheet -> write($row, 3, _SCORE, $titleCenterFormat);
    foreach ($instances as $instance) {
     $row++;
     $workSheet -> write($row, 0, $instance -> course['name'], $fieldLeftFormat);
-    $workSheet -> write($row, 1, $instanc -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($instance -> course['to_timestamp']) : _NO, $fieldCenterFormat);
-    $workSheet -> write($row, 2, formatScore($instance -> course['score'])."%", $fieldCenterFormat);
+    $workSheet -> write($row, 1, $instance -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($instance -> course['to_timestamp']) : _NO, $fieldCenterFormat);
+    $workSheet -> write($row, 3, formatScore($instance -> course['score'])."%", $fieldCenterFormat);
    }
   }
   $row+=2;
@@ -519,7 +527,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    foreach ($lessons as $lesson) {
     $row++;
     $workSheet -> write($row, 0, $lesson -> lesson['name'], $fieldLeftFormat);
-    $workSheet -> write($row, 1, $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['to_timestamp']) : _NO, $fieldCenterFormat);
+    $workSheet -> write($row, 1, $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['timestamp_completed']) : _NO, $fieldCenterFormat);
     $workSheet -> write($row, 2, formatScore($lesson -> lesson['score'])."%", $fieldCenterFormat);
    }
   }
@@ -545,6 +553,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $workSheet -> mergeCells($row, 0, $row++, 1);
   $workSheet -> write($row, 0, _COMPLETED, $fieldCenterFormat);
   $workSheet -> write($row++, 1, $lesson['completed'] ? _YES : _NO, $fieldCenterFormat);
+  $workSheet -> write($row, 0, _COMPLETEDON, $fieldCenterFormat);
+  $workSheet -> write($row++, 1, formatTimestamp($lesson['timestamp_completed']), $fieldCenterFormat);
   $workSheet -> write($row, 0, _GRADE, $fieldCenterFormat);
   $workSheet -> write($row++, 1, formatScore($lesson['score'])."%", $fieldCenterFormat);
   $workSheet -> write($row, 0, _OVERALL, $headerFormat);
@@ -640,7 +650,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $pdf -> Cell(90, 5, _MONTHMEANDURATION, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $userInfo['usage']['month_mean_duration']."'", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
  $pdf -> Cell(90, 5, _WEEKMEANDURATION, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $userInfo['usage']['week_mean_duration']."'", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
  $constraints = array('instance' => false, 'archive' => false, 'active' => true);
- $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+ $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
  $constraints['return_objects'] = false;
  $userCourses = $infoUser -> getUserCoursesAggregatingResults($constraints);
  if (sizeof($userCourses) > 0) {
@@ -651,13 +661,15 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $pdf -> SetFont("FreeSerif", "B", 10);
   $pdf -> Cell(100, 7, _COURSE, 0, 0, L, 0);
   $pdf -> Cell(50, 7, _COMPLETED, 0, 0, L, 0);
-  $pdf -> Cell(50, 7, _SCORE, 0, 1, L, 0);
+  $pdf -> Cell(50, 7, _SCORE, 0, 0, L, 0);
+  $pdf -> Cell(50, 7, _COMPLETEDON, 0, 1, L, 0);
   $pdf -> SetFont("FreeSerif", "", 10);
   $pdf -> SetTextColor(0, 0, 255);
   foreach ($userCourses as $id => $course) {
    $pdf -> Cell(100, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $course['name']), 0, 0, L, 0);
    $pdf -> Cell(50, 5, $course['completed'] ? _YES : _NO, 0, 0, L, 0);
-   $pdf -> Cell(50, 5, formatScore($course['score'])."%", 0, 1, L, 0);
+   $pdf -> Cell(50, 5, formatScore($course['score'])."%", 0, 0, L, 0);
+   $pdf -> Cell(50, 5, formatTimestamp($course['to_timestamp']), 0, 1, L, 0);
   }
  }
  //lessons page
@@ -668,8 +680,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $pdf -> SetFont("FreeSerif", "B", 12);
   $pdf -> Cell(60, 12, _LESSONS, 0, 1, L, 0);
   $pdf -> SetFont("FreeSerif", "B", 10);
-  $pdf -> Cell(100, 7, _LESSON, 0, 0, L, 0);
-  $pdf -> Cell(50, 7, _TIMEINLESSON, 0, 0, L, 0);
+  $pdf -> Cell(70, 7, _LESSON, 0, 0, L, 0);
+  $pdf -> Cell(30, 7, _TIMEINLESSON, 0, 0, L, 0);
+  $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
   if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
    $pdf -> Cell(40, 7, _OVERALL, 0, 0, C, 0);
    $pdf -> Cell(40, 7, _TESTS, 0, 0, C, 0);
@@ -688,8 +701,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   foreach ($userLessons as $id => $lesson) {
    $lesson = $lesson -> lesson;
    if ($lesson['active']) {
-    $pdf -> Cell(100, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $lesson['name']), 0, 0, L, 0);
-    $pdf -> Cell(50, 5, $lesson['time_in_lesson']['time_string'], 0, 0, L, 0);
+    $pdf -> Cell(70, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $lesson['name']), 0, 0, L, 0);
+    $pdf -> Cell(30, 5, $lesson['time_in_lesson']['time_string'], 0, 0, L, 0);
+    $pdf -> Cell(40, 5, $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO, 0, 0, L, 0);
     if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
      $pdf -> Cell(40, 5, formatScore($lesson['overall_progress']['percentage'])."%", 0, 0, C, 0);
      $pdf -> Cell(40, 5, formatScore($lesson['test_status']['mean_score'])."%", 0, 0, C, 0);
@@ -719,14 +733,16 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $pdf -> SetFont("FreeSerif", "B", 10);
    $pdf -> Cell(100, 7, _LESSON, 0, 0, L, 0);
    $pdf -> Cell(100, 7, _TESTNAME, 0, 0, L, 0);
-   $pdf -> Cell(40, 7, _SCORE, 0, 1, C, 0);
+   $pdf -> Cell(40, 7, _SCORE, 0, 0, C, 0);
+   $pdf -> Cell(40, 7, _DATE, 0, 1, C, 0);
    $pdf -> SetFont("FreeSerif", "", 10);
    $pdf -> SetTextColor(0, 0, 255);
    $avgScore = 0;
    foreach ($doneTests[$infoUser -> user['login']] as $test) {
     $pdf -> Cell(100, 5, $lessonNames[$test['lessons_ID']], 0, 0, L, 0);
     $pdf -> Cell(100, 5, $test['name'], 0, 0, L, 0);
-    $pdf -> Cell(40, 5, formatScore($test['score'])."%", 0, 1, C, 0);
+    $pdf -> Cell(40, 5, formatScore($test['score'])."%", 0, 0, C, 0);
+    $pdf -> Cell(40, 5, formatTimestamp($test['timestamp'], 'time_nosec'), 0, 1, C, 0);
     $avgScore += $test['score'];
    }
    $pdf -> Cell(100, 5, '', 0, 1, L, 0);
@@ -783,7 +799,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  //add a separate sheet for each distinct course of that user
  foreach ($userCourses as $id => $course) {
   $constraints = array('instance' => $id, 'archive' => false, 'active' => true);
-  $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
+  $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
   //$constraints['return_objects']  = false;
   $instances = $infoUser -> getUserCourses($constraints);
   $pdf -> SetTextColor(0, 0, 0);
@@ -826,7 +842,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $lessons = $infoUser -> getUserStatusInCourseLessons($instance);
    foreach ($lessons as $lesson) {
     $pdf -> Cell(80, 7, $lesson -> lesson['name'], 0, 0, L, 0);
-    $pdf -> Cell(40, 7, $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['to_timestamp']) : _NO, 0, 0, L, 0);
+    $pdf -> Cell(40, 7, $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['timestamp_completed']) : _NO, 0, 0, L, 0);
     $pdf -> Cell(40, 7, formatScore($lesson -> lesson['score'])."%", 0, 1, C, 0);
    }
   }
@@ -846,7 +862,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $pdf -> SetFont("FreeSerif", "", 10);
   $pdf -> SetTextColor(0, 0, 255);
   $pdf -> Cell(40, 7, $lesson['time_in_lesson']['time_string'], 0, 0, L, 0);
-  $pdf -> Cell(40, 7, $lesson['completed'] ? _YES : _NO, 0, 0, L, 0);
+  $pdf -> Cell(40, 7, $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lessons['timestamp_completed']) : _NO, 0, 0, L, 0);
   $pdf -> Cell(40, 7, formatScore($lesson['score'])."%", 0, 0, C, 0);
   $pdf -> Cell(40, 7, formatScore($lesson['overall_progress']['percentage'])."%", 0, 1, C, 0);
   if (sizeof($doneTests[$id][$infoUser -> user['login']]) > 0 && $GLOBALS['configuration']['disable_tests'] != 1) {
@@ -858,7 +874,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $avgScore = 0;
    foreach ($doneTests[$id][$infoUser -> user['login']] as $test) {
     $pdf -> Cell(60, 7, $test['name'], 0, 0, L, 0);
-    $pdf -> Cell(60, 7, formatScore($test['score'])."%", 0, 1, C, 0);
+    $pdf -> Cell(60, 7, formatScore($test['score'])."%", 0, 0, C, 0);
+    $pdf -> Cell(60, 7, formatTimestamp($test['timestamp']), 0, 1, C, 0);
     $avgScore += $test['score'];
    }
    $pdf -> SetTextColor(0, 0, 0);

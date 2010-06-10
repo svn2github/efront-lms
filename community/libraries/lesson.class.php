@@ -1171,7 +1171,7 @@ class EfrontLesson
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
-   return $result;
+   return EfrontUser :: convertDatabaseResultToUserArray($result);
   }
  }
  /**
@@ -1223,7 +1223,7 @@ class EfrontLesson
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
-   return $result;
+   return EfrontUser :: convertDatabaseResultToUserArray($result);
   }
  }
  /**

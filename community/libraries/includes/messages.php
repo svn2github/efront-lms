@@ -313,7 +313,7 @@ try {
                     $values['body'] = _THISPMISSENTALLUSERS.'<br />'.$values['body'];
                     break;
                 case 'specific_lesson':
-                    $result = eF_getTableDataFlat("users, users_to_lessons", "login", "users_to_lessons.archive=0 and lessons.archive=0 and users.active=1 AND users_to_lessons.active=1 AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=".($form -> exportValue('lesson')));
+                    $result = eF_getTableDataFlat("users, users_to_lessons,lessons", "login", "users_to_lessons.archive=0 and lessons.archive=0 and users.active=1 AND users_to_lessons.active=1 AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=lessons.id AND users_to_lessons.lessons_ID=".($form -> exportValue('lesson')));
                     $lesson = new EfrontLesson($form -> exportValue('lesson'));
                     $values['body'] = _THISPMISSENTLESSONUSERS.' <a href='.G_SERVERNAME.'##EFRONTINNERLINK##.php?lessons_ID='.$form -> exportValue('lesson').'>'.$lesson->lesson['name'].'</a><br />'.$values['body'];
                     break;
@@ -329,8 +329,8 @@ try {
                     $result = eF_getTableDataFlat("users, users_to_courses", "login", "users.active=1 AND users_to_courses.active=1 AND users.login=users_to_courses.users_LOGIN " . $and_completed_criterium . " AND users_to_courses.courses_ID=".($form -> exportValue('specific_course')));
                     break;
                 case 'specific_lesson_professor':
-                    $result = eF_getTableDataFlat("users, users_to_lessons", "login", "users_to_lessons.archive=0 and lessons.archive=0 and users.active=1 AND users_to_lessons.active=1 AND users_to_lessons.user_type = 'professor' AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=".($form -> exportValue('professor')));
-                    $lesson = new EfrontLesson($form -> exportValue('professor'));
+                     $result = eF_getTableDataFlat("users, users_to_lessons,lessons", "login", "users_to_lessons.archive=0 and lessons.archive=0 and users.active=1 AND users_to_lessons.active=1 AND users_to_lessons.user_type = 'professor' AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=lessons.id  AND users_to_lessons.lessons_ID=".($form -> exportValue('professor')));
+                     $lesson = new EfrontLesson($form -> exportValue('professor'));
                     $values['body'] = _THISPMISSENTLESSONPROFESSORS.' <a href='.G_SERVERNAME.'##EFRONTINNERLINK##.php?lessons_ID='.$form -> exportValue('professor').'>'.$lesson->lesson['name'].'</a><br />'.$values['body'];
                     break;
                 case 'specific_type':

@@ -202,7 +202,12 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
    $index++;
   }
-  $tabberajaxes_array['form'] = 3;
+  if ($GLOBALS['configuration']['lesson_enroll']) {
+   $tabberajaxes_array['form'] = 3;//$index++; //hard-coded
+  } else {
+   $tabberajaxes_array['form'] = 2;//$index++; //hard-coded
+  }
+  //$tabberajaxes_array['form'] = 3;
  //pr($tabberajaxes_array);
  $smarty -> assign ("T_TABBERAJAX", $tabberajaxes_array);
  if (isset($_GET['tabberajax'])) {

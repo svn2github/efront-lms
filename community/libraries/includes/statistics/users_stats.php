@@ -862,7 +862,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $pdf -> SetFont("FreeSerif", "", 10);
   $pdf -> SetTextColor(0, 0, 255);
   $pdf -> Cell(40, 7, $lesson['time_in_lesson']['time_string'], 0, 0, L, 0);
-  $pdf -> Cell(40, 7, $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lessons['timestamp_completed']) : _NO, 0, 0, L, 0);
+  $pdf -> Cell(40, 7, $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO, 0, 0, L, 0);
   $pdf -> Cell(40, 7, formatScore($lesson['score'])."%", 0, 0, C, 0);
   $pdf -> Cell(40, 7, formatScore($lesson['overall_progress']['percentage'])."%", 0, 1, C, 0);
   if (sizeof($doneTests[$id][$infoUser -> user['login']]) > 0 && $GLOBALS['configuration']['disable_tests'] != 1) {

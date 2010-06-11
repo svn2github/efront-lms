@@ -1724,7 +1724,7 @@ class EfrontLesson
     $project -> addUsers($newUsers);
    }
   }
-  if (!_DISABLE_EVENTS) {
+  if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
    foreach ($usersData as $value) {
     $event = array("type" => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
          "users_LOGIN" => $value['login'],

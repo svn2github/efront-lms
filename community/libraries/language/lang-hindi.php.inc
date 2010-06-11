@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","पर्यवेक्षक क्षेत�
 define("_LEAVEEMPTYTONOTUSE","छोड़ने के लिए ommit खाली");//Leave empty to ommit
 define("_PLEASESELECT","कृपया चुनें");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","अपने पर्यवेक्षक अपने खाते को सक्रिय कर देंगे");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","अमान्य पैरामीटर");//Invalid parameter (New)
+define("_INVALIDPARAMETER","अमान्य पैरामीटर");//Invalid parameter
 define("_IMS","आईएमएस");//IMS
 define("_IMSIMPORT","आयात आईएमएस सामग्री");//Import IMS Content
 define("_IMSEXPORT","निर्यात आईएमएस सामग्री");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","उपयोगकर्ताओं को छुपाया");//Hidden from users
 define("_RESETSCORMDATA","रीसेट उपयोगकर्ता डेटा");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","उन्नत सेटिंग्स");//Advanced settings
-define("_ADDINSTANCE","उदाहरण जोड़ें");//Add instance (New)
-define("_INSTANCE","उदाहरण");//Instance (New)
-define("_COURSECODE","पाठ्यक्रम कोड");//Course code (New)
-define("_TRAININGHOURS","घंटे प्रशिक्षण");//Training hours (New)
-define("_COURSEINSTANCES","बेशक उदाहरणों");//Course instances (New)
-define("_CAPACITY","क्षमता");//Capacity (New)
-define("_SEATSREMAINING","शेष सीटें");//Seats remaining (New)
-define("_STARTDATE","प्रारंभ दिनांक");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","आप सुनिश्चित हैं कि आप इस उदाहरण को नष्ट करना चाहते हैं?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","संपादित करें उदाहरण");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","उदाहरण के सबक");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","उदाहरण के उपयोगकर्ताओं");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","उदाहरण के कौशल");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","उदाहरण के लिए विकल्प");//Options for instance (New)
-define("_JUMPTO","करने के लिए कूदो");//Jump to (New)
-define("_PARENTCOURSE","जनक कोर्स");//Parent Course (New)
-define("_LOCATIONBRANCH","स्थान (शाखा)");//Location (branch) (New)
-define("_SELECTBRANCH","चयन शाखा");//Select branch (New)
-define("_SHARED","साझा");//Shared (New)
-define("_UNIQUE","अद्वितीय");//Unique (New)
-define("_MODE","मोड");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","सूची में केवल पाठ्यक्रम का प्रयोग करें");//Use only courses in catalog (New)
-define("_ALLJOBS","सभी नौकरियों");//All jobs (New)
+define("_ADDINSTANCE","उदाहरण जोड़ें");//Add instance
+define("_INSTANCE","उदाहरण");//Instance
+define("_COURSECODE","पाठ्यक्रम कोड");//Course code
+define("_TRAININGHOURS","घंटे प्रशिक्षण");//Training hours
+define("_COURSEINSTANCES","बेशक उदाहरणों");//Course instances
+define("_CAPACITY","क्षमता");//Capacity
+define("_SEATSREMAINING","शेष सीटें");//Seats remaining
+define("_STARTDATE","प्रारंभ दिनांक");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","आप सुनिश्चित हैं कि आप इस उदाहरण को नष्ट करना चाहते हैं?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","संपादित करें उदाहरण");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","उदाहरण के सबक");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","उदाहरण के उपयोगकर्ताओं");//Instance users
+define("_SKILLSOFFEREDINSTANCE","उदाहरण के कौशल");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","उदाहरण के लिए विकल्प");//Options for instance
+define("_JUMPTO","करने के लिए कूदो");//Jump to
+define("_PARENTCOURSE","जनक कोर्स");//Parent Course
+define("_LOCATIONBRANCH","स्थान (शाखा)");//Location (branch)
+define("_SELECTBRANCH","चयन शाखा");//Select branch
+define("_SHARED","साझा");//Shared
+define("_UNIQUE","अद्वितीय");//Unique
+define("_MODE","मोड");//Mode
+define("_USEONLYCOURSESINCATALOG","सूची में केवल पाठ्यक्रम का प्रयोग करें");//Use only courses in catalog
+define("_ALLJOBS","सभी नौकरियों");//All jobs
 define("_SHOWMOTTOONHEADER","दिखाएँ नाम और आदर्श वाक्य हैडर पर भी");//Show name and motto also on header
-define("_ASSIGNCOURSES","असाइन पाठ्यक्रम");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","पाठ्यक्रम का चयन सभी उपयोगकर्ताओं को असाइन करने के लिए मिला");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","कोई उपयोगकर्ता नहीं पाया गया है");//No users have been found (New)
-define("_ASSIGNMENT","नियत कार्य");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","निम्नतम स्तर पर कोई");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","किसी भी बस के निम्नतम स्तर से ऊपर");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","कोई पाठ्यक्रम पंजीकृत किया गया है");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","कोई आवश्यक प्रशिक्षण अभी तक परिभाषित किया गया है");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","आवश्यक प्रशिक्षण");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","नए प्रशिक्षण हालत");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","आवश्यक प्रशिक्षण पाठ्यक्रम");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","वैकल्पिक प्रशिक्षण जोड़ें");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","प्रशिक्षण की आवश्यकता है");//Has required training (New)
+define("_ASSIGNCOURSES","असाइन पाठ्यक्रम");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","पाठ्यक्रम का चयन सभी उपयोगकर्ताओं को असाइन करने के लिए मिला");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","कोई उपयोगकर्ता नहीं पाया गया है");//No users have been found
+define("_ASSIGNMENT","नियत कार्य");//Assignment
+define("_ANYLOWESTLEVELBRANCH","निम्नतम स्तर पर कोई");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","किसी भी बस के निम्नतम स्तर से ऊपर");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","कोई पाठ्यक्रम पंजीकृत किया गया है");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","कोई आवश्यक प्रशिक्षण अभी तक परिभाषित किया गया है");//No required training has been defined yet
+define("_REQUIREDTRAINING","आवश्यक प्रशिक्षण");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","नए प्रशिक्षण हालत");//New training condition
+define("_REQUIREDTRAININGCOURSES","आवश्यक प्रशिक्षण पाठ्यक्रम");//Required training courses
+define("_ADDALTERNATIVETRAINING","वैकल्पिक प्रशिक्षण जोड़ें");//Add alternative training
+define("_HASREQUIREDTRAINING","प्रशिक्षण की आवश्यकता है");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","शब्दकोष में खोज परिणाम");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","कोई परिणाम नहीं शब्दकोष में पाया");//No results found in glossary
-define("_PROJECTSSCORE","परियोजनाओं स्कोर");//Projects score (New)
-define("_TESTSSCORE","टेस्ट स्कोर");//Tests score (New)
+define("_PROJECTSSCORE","परियोजनाओं स्कोर");//Projects score
+define("_TESTSSCORE","टेस्ट स्कोर");//Tests score
 define("_AUTOLOGIN","ऑटो लॉगिन");//Auto login
 define("_ACCESSLINK","प्रवेश लिंक");//Access link
 define("_AUTOLOGINITHLINK","उपयोगकर्ता स्वत: लिंक द्वारा लॉगिन कर सकते हैं");//User can login automatically by link
 define("_DEFAULTUSERTYPE","डिफ़ॉल्ट प्रयोक्ता प्रकार");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","सेना छात्र सभी सवालों के जवाब");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","आप सब सवालों का जवाब देना");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","स्वतंत्र सबक अनुमति दें");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","कोई चुने हुए तारीख");//No preselected date (New)
-define("_CURRENTDATE","वर्तमान दिनांक");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","स्वतंत्र सबक अनुमति दें");//Allow independent lessons
+define("_NOPRESELECTEDDATE","कोई चुने हुए तारीख");//No preselected date
+define("_CURRENTDATE","वर्तमान दिनांक");//Current date
 define("_SHOWHELP","प्रदर्शन में मदद लिंक");//Display help links
 define("_ALLOWUSERANSERALLRONG","अनुमति देने के छात्रों को केवल गलत प्रश्नों का उत्तर दिया करने के लिए फिर से करना");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","तभी परीक्षण repetitions की अनुमति है");//Only if test repetitions are allowed
 define("_USERREDOWRONG","फिर से करना ही गलत जवाब");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","डिफ़ॉल्ट विषयवस्तु inported नहीं जा सकता");//Default theme can not be inported
-define("_ACCESSEXPIRED","पहुँच समाप्त हो गई है");//Access expired (New)
-define("_LESSONSCHEDULE","सबक अनुसूची");//Lessons schedule (New)
-define("_COURSESTARTSAT","कोर्स पर शुरू होता है");//The course starts on (New)
-define("_COURSEENDSAT","कोर्स पर समाप्त होता है");//The course ends on (New)
-define("_ENDDATE","समाप्ति दिनांक");//End date (New)
-define("_SELECTSKILLCATEGORY","कौशल श्रेणी का चयन करें");//Select skill category (New)
+define("_ACCESSEXPIRED","पहुँच समाप्त हो गई है");//Access expired
+define("_LESSONSCHEDULE","सबक अनुसूची");//Lessons schedule
+define("_COURSESTARTSAT","कोर्स पर शुरू होता है");//The course starts on
+define("_COURSEENDSAT","कोर्स पर समाप्त होता है");//The course ends on
+define("_ENDDATE","समाप्ति दिनांक");//End date
+define("_SELECTSKILLCATEGORY","कौशल श्रेणी का चयन करें");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","कोई शीर्ष लेख पंक्ति में परिभाषित किया गया था या आयात प्रकार के साथ संगत नहीं शीर्षक");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","आयातित उपयोगकर्ता");//Imported user
 define("_USERSTOCOURSES","पाठ्यक्रमों के लिए उपयोगकर्ता");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","कूपन");//Coupon
 define("_INVALIDCOUPON","अवैध कूपन");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","क्लिक करें दर्ज करने के लिए डिस्काउंट कूपन");//Click to enter discount coupon
 define("_TESTREDONE","सही");//Corrected
-define("_CURRICULUMS","पाठ्यक्रम");//Curricula (New)
-define("_CURRICULUM","पाठ्यक्रम");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","निरुपित समूह के उपयोगकर्ताओं के पाठ्यक्रम");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","असाइन उपयोगकर्ता पाठ्यक्रम");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","पाठ्यक्रम में जोड़ें");//Add curriculum (New)
-define("_EDITCURRICULUM","संपादित पाठ्यक्रम");//Edit curriculum (New)
+define("_CURRICULUMS","पाठ्यक्रम");//Curricula
+define("_CURRICULUM","पाठ्यक्रम");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","निरुपित समूह के उपयोगकर्ताओं के पाठ्यक्रम");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","असाइन उपयोगकर्ता पाठ्यक्रम");//Assign curriculum to user
+define("_ADDCURRICULUM","पाठ्यक्रम में जोड़ें");//Add curriculum
+define("_EDITCURRICULUM","संपादित पाठ्यक्रम");//Edit curriculum
 define("_COULDNOTFINDCOURSE","बिल्कुल नहीं मिल सकता है");//Could not find course
 define("_IMPORTRESULTSFOR","आयात के लिए परिणाम");//Import results for
-define("_COUPONUSAGE","कूपन उपयोग");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","नए Paypal भुगतान");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","नई शेष भुगतान");//New balance payment (New)
-define("_USEDCOUPON","प्रयुक्त कूपन");//Used coupon (New)
-define("_PAYEDWITHBALANCE","शेष राशि के साथ payed");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Paypal के साथ payed");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","आप सभी परीक्षणों को पूरा करना होगा");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","निकालें पोस्ट से &lt;script&gt; टैग");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","लॉगइन करने के बाद पुनर्निर्देशन उपयोगकर्ता");//Redirect user after login to (New)
-define("_LESSONSCATALOG","उपयोगकर्ता का सबक सूची");//User's lesson catalog (New)
-define("_USERDASHBOARD","उपयोगकर्ता के डैशबोर्ड");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","शीर्षक कोई नौकरी विवरण के लिए प्रदान की");//No title provided for job description (New)
-define("_EDITORTYPE","संपादक प्रकार");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","दिखाएँ केवल परीक्षण प्रस्तुत करने के बाद एक संदेश");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","इस परीक्षण सफलतापूर्वक प्रस्तुत की गई थी");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","सीखने का स्तर");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","ई - मेल पता नहीं है एक");//has not an e-mail address (New)
-define("_FEEDBACK","प्रतिक्रिया");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","सम्मिलित करें समूह में उपयोगकर्ताओं");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","नए समूह में डालें");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","मौजूदा समूह में डालें");//Insert into existing group (New)
-define("_NEWGROUPNAME","नए समूह का नाम");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","आप या तो किसी मौजूदा समूह का चयन करें या प्रदान करना चाहिए एक नए समूह का नाम");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","जमा करें और संपादित करें समूह");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","खोज उपयोगकर्ताओं को समूह में जोड़ने के लिए");//Search users to add to group (New)
-define("_AFTER","के बाद");//After (New)
-define("_BEFORE","से पहले");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","समूह के पाठ्यक्रमों में सभी उपयोगकर्ताओं की भागीदारी");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","प्रणाली के पाठ्यक्रमों में समूह उपयोगकर्ताओं की भागीदारी");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","शुद्ध लॉग");//Purge logs (New)
-define("_LOGSSIZE","लॉग आकार");//Logs size (New)
-define("_OLDESTLOG","पुराना लॉग प्रविष्टि");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","शुद्ध पुराने लॉग की तुलना");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","सफलतापूर्वक लॉग purged");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","केवल% x संस्थाओं जहां कार्रवाई है, जो इस ऑपरेशन के लिए सीमा नहीं है");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","आप उपयोगकर्ताओं को इस पाठ्यक्रम के लिए आवंटित नहीं है क्योंकि यह नहीं है सकते हैं पाठ्यक्रम");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","पाठ्यक्रम गुण");//Curriculum properties (New)
-define("_ENTRIES","प्रविष्टियां");//Entries (New)
-define("_ENTERPRISEOPTIONS","उद्यम विकल्प");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","दिखाएँ संगठन के उपयोगकर्ताओं के लिए चार्ट");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","दिखाने के उपयोगकर्ताओं के लिए व्यक्तिगत फार्म");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","दिखाएँ पर्यवेक्षकों के लिए उपयोगकर्ताओं को असाइन नहीं की गई");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","पर्यवेक्षक की अनुमति देने के उपयोगकर्ताओं को नष्ट करने के लिए फ़ाइलें साझा");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","मेरे पर्चा");//my Form (New)
-define("_CLEARQUERYCACHE","स्पष्ट क्वेरी कैश");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","प्रतिक्रिया विकल्प");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","प्रतिक्रिया के लिए विकल्प");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","हाल ही में पूरी की राय");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx विन्यास फाइल (phplivedocx_config.php / पुस्तकालयों) लिखने योग्य नहीं है. कोई भी परिवर्तन आप livedocx विन्यास करने के लिए बनाया बचाया नहीं थे");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","रीसेट प्रगति डेटा");//Reset progress data (New)
-define("_DEBUGMODE","डीबग मोड");//Debug mode (New)
-define("_GENERALSETTINGS","सामान्य सेटिंग्स");//General settings (New)
-define("_FINISHLESSONMESSAGE","बधाई हो! आप सबक समाप्त कर दिया है. कृपया एक करने के लिए अब जाने के लिए जगह का चयन करें:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","अगले पाठ");//Next lesson (New)
-define("_LESSONFINISHED","सबक समाप्त");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","आप पिछले सबक पर हैं आप यात्रा कर सकते हैं");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","आपके विचार किया जाता है");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","प्रतिक्रिया के लिए आगे बढ़ें");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","सफलतापूर्वक प्रतिक्रिया परिवर्तन");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","प्रतिक्रिया में शुरू");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","प्राप्तकर्ताओं सिस्टम इंटरफ़ेस द्वारा घटना के अनुसार चयनित हैं. <BR> - "._NEWSURVEY .": प्राप्तकर्ता सर्वेक्षण में भाग लेने के उपयोगकर्ताओं रहे हैं. <BR> - "._ONJOBASSIGNMENT." प्राप्तकर्ताओं : कर्मचारी द्वारा चयनित पर्यवेक्षक है. <BR> - "._PROJECTEXPIRY .": प्राप्तकर्ता उपयोगकर्ताओं है कि परियोजना आवंटित किया गया है.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","पर नामांकित");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","नौकरी मौजूद नहीं है");//Job does not exist (New)
-define("_SEARCHFORUSER","खोजने के लिए उपयोगकर्ताओं [रूपरेखा मापदंड]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","खोज मापदंड");//Search criteria (New)
-define("_SUBMITFEEDBACK","प्रतिक्रिया भेजें");//Submit feedback (New)
-define("_FEEDBACKRESULTS","राय के परिणाम");//Feedback results (New)
-define("_PASSWORDREMINDER","कूटशब्द की यादाश्ति");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","सभी परीक्षणों को पूरा करना होगा");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","फीडबैक रिपोर्ट");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","चुनें प्रतिक्रिया");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","प्रतिक्रिया के लिए रिपोर्ट");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","वर्तमान फ़ोल्डर ब्राउज़िंग");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","दिखा रहा है");//Showing (New)
-define("_MATERIALINPROGRESS","प्रगति में सामग्री");//Material in progress (New)
-define("_ALLMATERIAL","सभी सामग्री");//All material (New)
-define("_CACHEENTRYNOTFOUND","नहीं मिला कैश प्रविष्टि");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","कैश प्रविष्टि की अवधि समाप्त हो");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","कैश प्रविष्टि अमान्य है");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","शुद्ध सूचनाएँ");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","सूचनाओं का आकार");//Notifications size (New)
-define("_OLDESTNOTIFICATION","पुराना अधिसूचना");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","शुद्ध से अधिक पुराने सूचनाएँ");//Purge notifications older than (New)
-define("_CURRENTUSERS","वर्तमान");//Current (New)
-define("_SELECTEDCOURSES","चयनित पाठ्यक्रम");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","मॉड्यूल फ़ाइलें मौजूद हैं, लेकिन यह स्थापित नहीं है");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","कूपन उपयोग");//Coupon usage
+define("_NEWPAYPALPAYMENT","नए Paypal भुगतान");//New paypal payment
+define("_NEWBALANCEPAYMENT","नई शेष भुगतान");//New balance payment
+define("_USEDCOUPON","प्रयुक्त कूपन");//Used coupon
+define("_PAYEDWITHBALANCE","शेष राशि के साथ payed");//Payed with balance
+define("_PAYEDWITHPAYPAL","Paypal के साथ payed");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","आप सभी परीक्षणों को पूरा करना होगा");//You must complete all tests
+define("_ELIMINATEPOSTXSS","निकालें पोस्ट से &lt;script&gt; टैग");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","लॉगइन करने के बाद पुनर्निर्देशन उपयोगकर्ता");//Redirect user after login to
+define("_LESSONSCATALOG","उपयोगकर्ता का सबक सूची");//User's lesson catalog
+define("_USERDASHBOARD","उपयोगकर्ता के डैशबोर्ड");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","शीर्षक कोई नौकरी विवरण के लिए प्रदान की");//No title provided for job description
+define("_EDITORTYPE","संपादक प्रकार");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","दिखाएँ केवल परीक्षण प्रस्तुत करने के बाद एक संदेश");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","इस परीक्षण सफलतापूर्वक प्रस्तुत की गई थी");//This test was successfully submitted
+define("_LEARNINGSTATUS","सीखने का स्तर");//Learning Status
+define("_HASNOTANEMAILADDRESS","ई - मेल पता नहीं है एक");//has not an e-mail address
+define("_FEEDBACK","प्रतिक्रिया");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","सम्मिलित करें समूह में उपयोगकर्ताओं");//Insert users into group
+define("_INSERTINTONEWGROUP","नए समूह में डालें");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","मौजूदा समूह में डालें");//Insert into existing group
+define("_NEWGROUPNAME","नए समूह का नाम");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","आप या तो किसी मौजूदा समूह का चयन करें या प्रदान करना चाहिए एक नए समूह का नाम");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","जमा करें और संपादित करें समूह");//Submit and edit group
+define("_SEARCHGROUPUSERS","खोज उपयोगकर्ताओं को समूह में जोड़ने के लिए");//Search users to add to group
+define("_AFTER","के बाद");//After
+define("_BEFORE","से पहले");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","समूह के पाठ्यक्रमों में सभी उपयोगकर्ताओं की भागीदारी");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","प्रणाली के पाठ्यक्रमों में समूह उपयोगकर्ताओं की भागीदारी");//Participation of group users in the courses of the system
+define("_PURGELOGS","शुद्ध लॉग");//Purge logs
+define("_LOGSSIZE","लॉग आकार");//Logs size
+define("_OLDESTLOG","पुराना लॉग प्रविष्टि");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","शुद्ध पुराने लॉग की तुलना");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","सफलतापूर्वक लॉग purged");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","केवल% x संस्थाओं जहां कार्रवाई है, जो इस ऑपरेशन के लिए सीमा नहीं है");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","आप उपयोगकर्ताओं को इस पाठ्यक्रम के लिए आवंटित नहीं है क्योंकि यह नहीं है सकते हैं पाठ्यक्रम");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","पाठ्यक्रम गुण");//Curriculum properties
+define("_ENTRIES","प्रविष्टियां");//Entries
+define("_ENTERPRISEOPTIONS","उद्यम विकल्प");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","दिखाएँ संगठन के उपयोगकर्ताओं के लिए चार्ट");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","दिखाने के उपयोगकर्ताओं के लिए व्यक्तिगत फार्म");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","दिखाएँ पर्यवेक्षकों के लिए उपयोगकर्ताओं को असाइन नहीं की गई");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","पर्यवेक्षक की अनुमति देने के उपयोगकर्ताओं को नष्ट करने के लिए फ़ाइलें साझा");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","मेरे पर्चा");//my Form
+define("_CLEARQUERYCACHE","स्पष्ट क्वेरी कैश");//Clear query cache
+define("_FEEDBACKOPTIONS","प्रतिक्रिया विकल्प");//Feedback options
+define("_OPTIONSFORFEEDBACK","प्रतिक्रिया के लिए विकल्प");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","हाल ही में पूरी की राय");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx विन्यास फाइल (phplivedocx_config.php / पुस्तकालयों) लिखने योग्य नहीं है. कोई भी परिवर्तन आप livedocx विन्यास करने के लिए बनाया बचाया नहीं थे");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","रीसेट प्रगति डेटा");//Reset progress data
+define("_DEBUGMODE","डीबग मोड");//Debug mode
+define("_GENERALSETTINGS","सामान्य सेटिंग्स");//General settings
+define("_FINISHLESSONMESSAGE","बधाई हो! आप सबक समाप्त कर दिया है. कृपया एक करने के लिए अब जाने के लिए जगह का चयन करें:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","अगले पाठ");//Next lesson
+define("_LESSONFINISHED","सबक समाप्त");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","आप पिछले सबक पर हैं आप यात्रा कर सकते हैं");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","आपके विचार किया जाता है");//Feedback is done
+define("_PROCEEDTOFEEDBACK","प्रतिक्रिया के लिए आगे बढ़ें");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","सफलतापूर्वक प्रतिक्रिया परिवर्तन");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","प्रतिक्रिया में शुरू");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","प्राप्तकर्ताओं सिस्टम इंटरफ़ेस द्वारा घटना के अनुसार चयनित हैं. <BR> - "._NEWSURVEY .": प्राप्तकर्ता सर्वेक्षण में भाग लेने के उपयोगकर्ताओं रहे हैं. <BR> - "._ONJOBASSIGNMENT." प्राप्तकर्ताओं : कर्मचारी द्वारा चयनित पर्यवेक्षक है. <BR> - "._PROJECTEXPIRY .": प्राप्तकर्ता उपयोगकर्ताओं है कि परियोजना आवंटित किया गया है.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","पर नामांकित");//Enrolled on
+define("_JOBDOESNOTEXIST","नौकरी मौजूद नहीं है");//Job does not exist
+define("_SEARCHFORUSER","खोजने के लिए उपयोगकर्ताओं [रूपरेखा मापदंड]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","खोज मापदंड");//Search criteria
+define("_SUBMITFEEDBACK","प्रतिक्रिया भेजें");//Submit feedback
+define("_FEEDBACKRESULTS","राय के परिणाम");//Feedback results
+define("_PASSWORDREMINDER","कूटशब्द की यादाश्ति");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","सभी परीक्षणों को पूरा करना होगा");//Must complete all tests
+define("_FEEDBACKSTATISTICS","फीडबैक रिपोर्ट");//Feedback reports
+define("_CHOOSEFEEDBACK","चुनें प्रतिक्रिया");//Choose feedback
+define("_REPORTSFORFEEDBACK","प्रतिक्रिया के लिए रिपोर्ट");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","वर्तमान फ़ोल्डर ब्राउज़िंग");//Currently browsing folder
+define("_CURRENTLYSHOWING","दिखा रहा है");//Showing
+define("_MATERIALINPROGRESS","प्रगति में सामग्री");//Material in progress
+define("_ALLMATERIAL","सभी सामग्री");//All material
+define("_CACHEENTRYNOTFOUND","नहीं मिला कैश प्रविष्टि");//Cache entry not found
+define("_CACHEENTRYEXPIRED","कैश प्रविष्टि की अवधि समाप्त हो");//Cache entry expired
+define("_CACHEENTRYINVALID","कैश प्रविष्टि अमान्य है");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","शुद्ध सूचनाएँ");//Purge notifications
+define("_NOTIFICATIONSSIZE","सूचनाओं का आकार");//Notifications size
+define("_OLDESTNOTIFICATION","पुराना अधिसूचना");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","शुद्ध से अधिक पुराने सूचनाएँ");//Purge notifications older than
+define("_CURRENTUSERS","वर्तमान");//Current
+define("_SELECTEDCOURSES","चयनित पाठ्यक्रम");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","मॉड्यूल फ़ाइलें मौजूद हैं, लेकिन यह स्थापित नहीं है");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","यह सब सबक और पाठ्यक्रमों 0 करने के लिए मूल्य निर्धारित करेंगे");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","निर्दिष्ट आयामों से मेल खाते स्क्रीन के लिए आईडी वस्तु");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","अल्पविराम से पृथक सूची");//Comma separated list (New)
 ?>

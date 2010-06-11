@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","הפעלת שדה שם המפקח");//Activatin
 define("_LEAVEEMPTYTONOTUSE","להשאיר ריק כדי ommit");//Leave empty to ommit
 define("_PLEASESELECT","אנא בחר");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","הממונה עליך יהיה להפעיל את החשבון שלך");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","פרמטר לא חוקי");//Invalid parameter (New)
+define("_INVALIDPARAMETER","פרמטר לא חוקי");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","ייבוא תוכן IMS");//Import IMS Content
 define("_IMSEXPORT","ייצוא תוכן IMS");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","מוסתר ממשתמשים");//Hidden from users
 define("_RESETSCORMDATA","נתונים איפוס המשתמש");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","הגדרות מתקדמות");//Advanced settings
-define("_ADDINSTANCE","הוסף למשל");//Add instance (New)
-define("_INSTANCE","במופע");//Instance (New)
-define("_COURSECODE","הקורס קוד");//Course code (New)
-define("_TRAININGHOURS","הדרכה שעות");//Training hours (New)
-define("_COURSEINSTANCES","קורס מקרים");//Course instances (New)
-define("_CAPACITY","יכולת");//Capacity (New)
-define("_SEATSREMAINING","המושבים הנותרים");//Seats remaining (New)
-define("_STARTDATE","תאריך התחלה");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","האם אתה בטוח שאתה רוצה למחוק את זה למשל?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","עריכת למשל");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","מופע שיעורים");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","במופע משתמשים");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","במופע כישורי");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","אפשרויות למשל");//Options for instance (New)
-define("_JUMPTO","קפיצה אל");//Jump to (New)
-define("_PARENTCOURSE","Parent הקורס");//Parent Course (New)
-define("_LOCATIONBRANCH","מיקום (ענף)");//Location (branch) (New)
-define("_SELECTBRANCH","בחר ענף");//Select branch (New)
-define("_SHARED","משותף");//Shared (New)
-define("_UNIQUE","ייחודיות");//Unique (New)
-define("_MODE","מצב");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","השתמש קורסים רק בקטלוג");//Use only courses in catalog (New)
-define("_ALLJOBS","כל המשרות");//All jobs (New)
+define("_ADDINSTANCE","הוסף למשל");//Add instance
+define("_INSTANCE","במופע");//Instance
+define("_COURSECODE","הקורס קוד");//Course code
+define("_TRAININGHOURS","הדרכה שעות");//Training hours
+define("_COURSEINSTANCES","קורס מקרים");//Course instances
+define("_CAPACITY","יכולת");//Capacity
+define("_SEATSREMAINING","המושבים הנותרים");//Seats remaining
+define("_STARTDATE","תאריך התחלה");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","האם אתה בטוח שאתה רוצה למחוק את זה למשל?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","עריכת למשל");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","מופע שיעורים");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","במופע משתמשים");//Instance users
+define("_SKILLSOFFEREDINSTANCE","במופע כישורי");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","אפשרויות למשל");//Options for instance
+define("_JUMPTO","קפיצה אל");//Jump to
+define("_PARENTCOURSE","Parent הקורס");//Parent Course
+define("_LOCATIONBRANCH","מיקום (ענף)");//Location (branch)
+define("_SELECTBRANCH","בחר ענף");//Select branch
+define("_SHARED","משותף");//Shared
+define("_UNIQUE","ייחודיות");//Unique
+define("_MODE","מצב");//Mode
+define("_USEONLYCOURSESINCATALOG","השתמש קורסים רק בקטלוג");//Use only courses in catalog
+define("_ALLJOBS","כל המשרות");//All jobs
 define("_SHOWMOTTOONHEADER","הצג שם המוטו גם על הכותרת");//Show name and motto also on header
-define("_ASSIGNCOURSES","הקצאת קורסים");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","קורסים בחר להקצות לכל המשתמשים מצאו");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","משתמשים לא נמצאו");//No users have been found (New)
-define("_ASSIGNMENT","משימה");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","כל ברמה הנמוכה ביותר");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","כל ממש מעל לרמה הנמוכה ביותר");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","הקורסים לא היה רשום");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","אימון לא נדרש הוגדר עדיין");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","דרוש אימון");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","חדש במצב אימון");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","קורסי הכשרה חובה");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","הוסף אימונים חלופיים");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","האם נדרשת הכשרה");//Has required training (New)
+define("_ASSIGNCOURSES","הקצאת קורסים");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","קורסים בחר להקצות לכל המשתמשים מצאו");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","משתמשים לא נמצאו");//No users have been found
+define("_ASSIGNMENT","משימה");//Assignment
+define("_ANYLOWESTLEVELBRANCH","כל ברמה הנמוכה ביותר");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","כל ממש מעל לרמה הנמוכה ביותר");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","הקורסים לא היה רשום");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","אימון לא נדרש הוגדר עדיין");//No required training has been defined yet
+define("_REQUIREDTRAINING","דרוש אימון");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","חדש במצב אימון");//New training condition
+define("_REQUIREDTRAININGCOURSES","קורסי הכשרה חובה");//Required training courses
+define("_ADDALTERNATIVETRAINING","הוסף אימונים חלופיים");//Add alternative training
+define("_HASREQUIREDTRAINING","האם נדרשת הכשרה");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","תוצאות חיפוש מונחים");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","לא נמצאו תוצאות ב מילון מונחים");//No results found in glossary
-define("_PROJECTSSCORE","פרוייקטים ציון");//Projects score (New)
-define("_TESTSSCORE","בדיקות ציון");//Tests score (New)
+define("_PROJECTSSCORE","פרוייקטים ציון");//Projects score
+define("_TESTSSCORE","בדיקות ציון");//Tests score
 define("_AUTOLOGIN","כניסה אוטומטית");//Auto login
 define("_ACCESSLINK","הקישור גישה");//Access link
 define("_AUTOLOGINITHLINK","משתמש יכול להתחבר באופן אוטומטי על ידי קישור");//User can login automatically by link
 define("_DEFAULTUSERTYPE","סוג ברירת המחדל של המשתמש");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","סטודנט כוח לענות על כל השאלות");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","אתה צריך לענות על כל השאלות");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","אפשר שיעורים עצמאית");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","תאריך לא שנבחרו מראש");//No preselected date (New)
-define("_CURRENTDATE","תאריך נוכחי");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","אפשר שיעורים עצמאית");//Allow independent lessons
+define("_NOPRESELECTEDDATE","תאריך לא שנבחרו מראש");//No preselected date
+define("_CURRENTDATE","תאריך נוכחי");//Current date
 define("_SHOWHELP","הצגת קישורים לעזרה");//Display help links
 define("_ALLOWUSERANSERALLRONG","סטודנטים אפשר לבצע מחדש רק את השאלות ענה בסדר");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","רק אם חזרות הבדיקה מותר");//Only if test repetitions are allowed
 define("_USERREDOWRONG","בצע שוב ענה רק רע");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","נושא ברירת מחדל לא ניתן inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","גישה פג");//Access expired (New)
-define("_LESSONSCHEDULE","שיעורי הזמנים");//Lessons schedule (New)
-define("_COURSESTARTSAT","הקורס מתחיל ב");//The course starts on (New)
-define("_COURSEENDSAT","הקורס מסתיים ב");//The course ends on (New)
-define("_ENDDATE","תאריך סיום");//End date (New)
-define("_SELECTSKILLCATEGORY","בחר קטגוריה מיומנות");//Select skill category (New)
+define("_ACCESSEXPIRED","גישה פג");//Access expired
+define("_LESSONSCHEDULE","שיעורי הזמנים");//Lessons schedule
+define("_COURSESTARTSAT","הקורס מתחיל ב");//The course starts on
+define("_COURSEENDSAT","הקורס מסתיים ב");//The course ends on
+define("_ENDDATE","תאריך סיום");//End date
+define("_SELECTSKILLCATEGORY","בחר קטגוריה מיומנות");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","שורת הכותרת לא היה מוגדר או כותרת לא תואמת לסוג לייבא");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","מיובאים המשתמש");//Imported user
 define("_USERSTOCOURSES","משתמשים לקורסים");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","קופון");//Coupon
 define("_INVALIDCOUPON","חוקי קופון");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","לחץ כדי להיכנס קופון הנחה");//Click to enter discount coupon
 define("_TESTREDONE","מתוקן");//Corrected
-define("_CURRICULUMS","תכניות לימודים");//Curricula (New)
-define("_CURRICULUM","הלימודים");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","תוכנית הלימודים הקצאת לקבוצה משתמשים");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","הקצאת הלימודים למשתמש");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","הוסף הלימודים");//Add curriculum (New)
-define("_EDITCURRICULUM","עריכת תכנית הלימודים");//Edit curriculum (New)
+define("_CURRICULUMS","תכניות לימודים");//Curricula
+define("_CURRICULUM","הלימודים");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","תוכנית הלימודים הקצאת לקבוצה משתמשים");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","הקצאת הלימודים למשתמש");//Assign curriculum to user
+define("_ADDCURRICULUM","הוסף הלימודים");//Add curriculum
+define("_EDITCURRICULUM","עריכת תכנית הלימודים");//Edit curriculum
 define("_COULDNOTFINDCOURSE","לא ניתן למצוא כמובן");//Could not find course
 define("_IMPORTRESULTSFOR","ייבוא תוצאות עבור");//Import results for
-define("_COUPONUSAGE","קופון השימוש");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","חדש PayPal תשלום");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","ניו תשלום יתרת");//New balance payment (New)
-define("_USEDCOUPON","משמש קופון");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Payed עם איזון");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","בתשלום באמצעות PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","עליך להשלים את כל הבדיקות");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","הסר &lt;script&gt; תגיות ממוצב");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","המשתמש Redirect לאחר ההתחברות");//Redirect user after login to (New)
-define("_LESSONSCATALOG","שיעור קטלוג למשתמש");//User's lesson catalog (New)
-define("_USERDASHBOARD","משתמש של לוח המחוונים");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","הכותרת לא סיפק תיאור העבודה");//No title provided for job description (New)
-define("_EDITORTYPE","עורך סוג");//Editor type (New)
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","הצג רק הודעה לאחר הגשת המבחן");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","בדיקה זו הוגשה בהצלחה");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","הלמידה סטטוס");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","אין כתובת דואר אלקטרוני");//has not an e-mail address (New)
-define("_FEEDBACK","משוב");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","הוספת משתמשים אל הקבוצה");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","הכנס לתוך קבוצה חדשה");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","הכנס לתוך קבוצה קיימת");//Insert into existing group (New)
-define("_NEWGROUPNAME","שם חדש לקבוצה");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","אתה צריך גם לבחור קבוצה קיימת, או לספק קבוצה חדשה בשם");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","שלח ולערוך הקבוצה");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","משתמשים חיפוש להוסיף לקבוצה");//Search users to add to group (New)
-define("_AFTER","לאחר");//After (New)
-define("_BEFORE","לפני");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","ההשתתפות של כל המשתמשים בקורסים של הקבוצה");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","השתתפות של משתמשים לקבוצה בקורסים של המערכת");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","טהר את יומני");//Purge logs (New)
-define("_LOGSSIZE","יומני גודל");//Logs size (New)
-define("_OLDESTLOG","הכי רשומה ביומן");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","טהר יומני מבוגר");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","טוהרו בהצלחה יומני");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","רק% x הישויות שבו מעובדים, אשר הם הגבול עבור פעולה זו");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","אתה לא יכול להקצות למשתמשים הלימודים הזו משום שאין לו קורסים");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","קורות נכסים");//Curriculum properties (New)
-define("_ENTRIES","ערכים");//Entries (New)
-define("_ENTERPRISEOPTIONS","Enterprise אפשרויות");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","הצג תרשים ארגוני המשתמשים");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","הצג בצורה אישית למשתמשים");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","הצג מוקצים למשתמשים המפקחים");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","אפשר למשתמשים למחוק את המפקח קבצים משותפים");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","טופס שלי");//my Form (New)
-define("_CLEARQUERYCACHE","נקה את המטמון שאילתה");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","משוב אפשרויות");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","אפשרויות עבור המשוב");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","הושלמה לאחרונה משוב");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP הקובץ LiveDocx תצורה (ספריות / phplivedocx_config.php) אינו ניתן לכתיבה. כל שינוי שביצעת בתצורת livedocx לא ניצלו");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","איפוס נתוני התקדמות");//Reset progress data (New)
-define("_DEBUGMODE","Debug מצב");//Debug mode (New)
-define("_GENERALSETTINGS","הגדרות כלליות");//General settings (New)
-define("_FINISHLESSONMESSAGE","מזל טוב! סיימת את הלקח. נא לבחור לאן ללכת עכשיו:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","השיעור הבא");//Next lesson (New)
-define("_LESSONFINISHED","שיעור גמר");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","אתה בשיעור האחרון ניתן לבקר");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","משוב נעשה");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","המשך משוב");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","שונה בהצלחה משוב");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","משוב התחיל ב");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","הנמענים הם נבחרים על ידי ממשק המערכת על פי האירוע. <BR> - "._NEWSURVEY .": מקבלי הם משתמשים המשתתפים בסקר. <BR> - "._ONJOBASSIGNMENT .": הנמענים הוא מפקח שנבחר על ידי העובד. <BR> - "._PROJECTEXPIRY .": מקבלי הם משתמשים אשר הוקצו לפרויקט.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","נרשם ב");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","איוב אינו קיים");//Job does not exist (New)
-define("_SEARCHFORUSER","מצא את המשתמשים [קריטריונים פרופיל]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","חיפוש קריטריונים");//Search criteria (New)
-define("_SUBMITFEEDBACK","שלח משוב");//Submit feedback (New)
-define("_FEEDBACKRESULTS","משוב תוצאות");//Feedback results (New)
-define("_PASSWORDREMINDER","תזכורת סיסמה");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","להשלים את כל הבדיקות");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","עונת הדוח ות");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","בחר משוב");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","דווח על המשוב");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","בשלב זה הגלישה התיקייה");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","מראה");//Showing (New)
-define("_MATERIALINPROGRESS","חומר בתהליך");//Material in progress (New)
-define("_ALLMATERIAL","כל חומר");//All material (New)
-define("_CACHEENTRYNOTFOUND","רשומה מטמון לא נמצאו");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","רשומה מטמון פג");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","רשומה מטמון אינה חוקית");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","טהר הודעות");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","והודעות גודל");//Notifications size (New)
-define("_OLDESTNOTIFICATION","הכי בהודעה");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","טהר הודעות ישנות יותר");//Purge notifications older than (New)
-define("_CURRENTUSERS","זרם");//Current (New)
-define("_SELECTEDCOURSES","קורסים נבחרים");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","קבצים מודול נוכחים, אבל זה לא מותקן");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","קופון השימוש");//Coupon usage
+define("_NEWPAYPALPAYMENT","חדש PayPal תשלום");//New paypal payment
+define("_NEWBALANCEPAYMENT","ניו תשלום יתרת");//New balance payment
+define("_USEDCOUPON","משמש קופון");//Used coupon
+define("_PAYEDWITHBALANCE","Payed עם איזון");//Payed with balance
+define("_PAYEDWITHPAYPAL","בתשלום באמצעות PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","עליך להשלים את כל הבדיקות");//You must complete all tests
+define("_ELIMINATEPOSTXSS","הסר &lt;script&gt; תגיות ממוצב");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","המשתמש Redirect לאחר ההתחברות");//Redirect user after login to
+define("_LESSONSCATALOG","שיעור קטלוג למשתמש");//User's lesson catalog
+define("_USERDASHBOARD","משתמש של לוח המחוונים");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","הכותרת לא סיפק תיאור העבודה");//No title provided for job description
+define("_EDITORTYPE","עורך סוג");//Editor type
+define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","הצג רק הודעה לאחר הגשת המבחן");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","בדיקה זו הוגשה בהצלחה");//This test was successfully submitted
+define("_LEARNINGSTATUS","הלמידה סטטוס");//Learning Status
+define("_HASNOTANEMAILADDRESS","אין כתובת דואר אלקטרוני");//has not an e-mail address
+define("_FEEDBACK","משוב");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","הוספת משתמשים אל הקבוצה");//Insert users into group
+define("_INSERTINTONEWGROUP","הכנס לתוך קבוצה חדשה");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","הכנס לתוך קבוצה קיימת");//Insert into existing group
+define("_NEWGROUPNAME","שם חדש לקבוצה");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","אתה צריך גם לבחור קבוצה קיימת, או לספק קבוצה חדשה בשם");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","שלח ולערוך הקבוצה");//Submit and edit group
+define("_SEARCHGROUPUSERS","משתמשים חיפוש להוסיף לקבוצה");//Search users to add to group
+define("_AFTER","לאחר");//After
+define("_BEFORE","לפני");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","ההשתתפות של כל המשתמשים בקורסים של הקבוצה");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","השתתפות של משתמשים לקבוצה בקורסים של המערכת");//Participation of group users in the courses of the system
+define("_PURGELOGS","טהר את יומני");//Purge logs
+define("_LOGSSIZE","יומני גודל");//Logs size
+define("_OLDESTLOG","הכי רשומה ביומן");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","טהר יומני מבוגר");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","טוהרו בהצלחה יומני");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","רק% x הישויות שבו מעובדים, אשר הם הגבול עבור פעולה זו");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","אתה לא יכול להקצות למשתמשים הלימודים הזו משום שאין לו קורסים");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","קורות נכסים");//Curriculum properties
+define("_ENTRIES","ערכים");//Entries
+define("_ENTERPRISEOPTIONS","Enterprise אפשרויות");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","הצג תרשים ארגוני המשתמשים");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","הצג בצורה אישית למשתמשים");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","הצג מוקצים למשתמשים המפקחים");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","אפשר למשתמשים למחוק את המפקח קבצים משותפים");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","טופס שלי");//my Form
+define("_CLEARQUERYCACHE","נקה את המטמון שאילתה");//Clear query cache
+define("_FEEDBACKOPTIONS","משוב אפשרויות");//Feedback options
+define("_OPTIONSFORFEEDBACK","אפשרויות עבור המשוב");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","הושלמה לאחרונה משוב");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP הקובץ LiveDocx תצורה (ספריות / phplivedocx_config.php) אינו ניתן לכתיבה. כל שינוי שביצעת בתצורת livedocx לא ניצלו");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","איפוס נתוני התקדמות");//Reset progress data
+define("_DEBUGMODE","Debug מצב");//Debug mode
+define("_GENERALSETTINGS","הגדרות כלליות");//General settings
+define("_FINISHLESSONMESSAGE","מזל טוב! סיימת את הלקח. נא לבחור לאן ללכת עכשיו:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","השיעור הבא");//Next lesson
+define("_LESSONFINISHED","שיעור גמר");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","אתה בשיעור האחרון ניתן לבקר");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","משוב נעשה");//Feedback is done
+define("_PROCEEDTOFEEDBACK","המשך משוב");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","שונה בהצלחה משוב");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","משוב התחיל ב");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","הנמענים הם נבחרים על ידי ממשק המערכת על פי האירוע. <BR> - "._NEWSURVEY .": מקבלי הם משתמשים המשתתפים בסקר. <BR> - "._ONJOBASSIGNMENT .": הנמענים הוא מפקח שנבחר על ידי העובד. <BR> - "._PROJECTEXPIRY .": מקבלי הם משתמשים אשר הוקצו לפרויקט.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","נרשם ב");//Enrolled on
+define("_JOBDOESNOTEXIST","איוב אינו קיים");//Job does not exist
+define("_SEARCHFORUSER","מצא את המשתמשים [קריטריונים פרופיל]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","חיפוש קריטריונים");//Search criteria
+define("_SUBMITFEEDBACK","שלח משוב");//Submit feedback
+define("_FEEDBACKRESULTS","משוב תוצאות");//Feedback results
+define("_PASSWORDREMINDER","תזכורת סיסמה");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","להשלים את כל הבדיקות");//Must complete all tests
+define("_FEEDBACKSTATISTICS","עונת הדוח ות");//Feedback reports
+define("_CHOOSEFEEDBACK","בחר משוב");//Choose feedback
+define("_REPORTSFORFEEDBACK","דווח על המשוב");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","בשלב זה הגלישה התיקייה");//Currently browsing folder
+define("_CURRENTLYSHOWING","מראה");//Showing
+define("_MATERIALINPROGRESS","חומר בתהליך");//Material in progress
+define("_ALLMATERIAL","כל חומר");//All material
+define("_CACHEENTRYNOTFOUND","רשומה מטמון לא נמצאו");//Cache entry not found
+define("_CACHEENTRYEXPIRED","רשומה מטמון פג");//Cache entry expired
+define("_CACHEENTRYINVALID","רשומה מטמון אינה חוקית");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","טהר הודעות");//Purge notifications
+define("_NOTIFICATIONSSIZE","והודעות גודל");//Notifications size
+define("_OLDESTNOTIFICATION","הכי בהודעה");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","טהר הודעות ישנות יותר");//Purge notifications older than
+define("_CURRENTUSERS","זרם");//Current
+define("_SELECTEDCOURSES","קורסים נבחרים");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","קבצים מודול נוכחים, אבל זה לא מותקן");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","זה יהיה להגדיר את כל הלקחים וקורסים מחיר 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","ציין אובייקט מזהה על המסך התאמת מידות");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","מופרדים בפסיקים רשימה");//Comma separated list (New)
 ?>

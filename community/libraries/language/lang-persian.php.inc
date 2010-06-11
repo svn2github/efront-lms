@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","نام استاد راهنما به فعال ش
 define("_LEAVEEMPTYTONOTUSE","مرخصی خالی برای ommit");//Leave empty to ommit
 define("_PLEASESELECT","لطفا انتخاب کنید");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","سرپرست شما حساب کاربری خود را فعال");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","پارامتر نامعتبر");//Invalid parameter (New)
+define("_INVALIDPARAMETER","پارامتر نامعتبر");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","واردات IMS مطالب و محتوا");//Import IMS Content
 define("_IMSEXPORT","صادرات IMS مطالب و محتوا");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","پنهان از کاربران");//Hidden from users
 define("_RESETSCORMDATA","تنظیم مجدد اطلاعات کاربر");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","تنظیمات پیشرفته");//Advanced settings
-define("_ADDINSTANCE","افزودنیهای به عنوان مثال");//Add instance (New)
-define("_INSTANCE","مثال");//Instance (New)
-define("_COURSECODE","کد درس");//Course code (New)
-define("_TRAININGHOURS","آموزش ساعت");//Training hours (New)
-define("_COURSEINSTANCES","نمونه درس");//Course instances (New)
-define("_CAPACITY","ظرفیت");//Capacity (New)
-define("_SEATSREMAINING","صندلی های باقی مانده");//Seats remaining (New)
-define("_STARTDATE","تاریخ شروع");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","آیا مطمئن هستید که می خواهید پاک کنید این به عنوان مثال؟");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","به عنوان مثال ویرایش");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","درس نمونه");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","کاربران نمونه");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","مهارت های نمونه");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","گزینه ها به عنوان مثال");//Options for instance (New)
-define("_JUMPTO","پرش به");//Jump to (New)
-define("_PARENTCOURSE","مرجع درس");//Parent Course (New)
-define("_LOCATIONBRANCH","محل (واحد)");//Location (branch) (New)
-define("_SELECTBRANCH","شاخه را انتخاب کنید");//Select branch (New)
-define("_SHARED","به اشتراک گذاشته شده");//Shared (New)
-define("_UNIQUE","منحصر به فرد");//Unique (New)
-define("_MODE","نحوه");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","دوره استفاده فقط در فروشگاه");//Use only courses in catalog (New)
-define("_ALLJOBS","همه مشاغل");//All jobs (New)
+define("_ADDINSTANCE","افزودنیهای به عنوان مثال");//Add instance
+define("_INSTANCE","مثال");//Instance
+define("_COURSECODE","کد درس");//Course code
+define("_TRAININGHOURS","آموزش ساعت");//Training hours
+define("_COURSEINSTANCES","نمونه درس");//Course instances
+define("_CAPACITY","ظرفیت");//Capacity
+define("_SEATSREMAINING","صندلی های باقی مانده");//Seats remaining
+define("_STARTDATE","تاریخ شروع");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","آیا مطمئن هستید که می خواهید پاک کنید این به عنوان مثال؟");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","به عنوان مثال ویرایش");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","درس نمونه");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","کاربران نمونه");//Instance users
+define("_SKILLSOFFEREDINSTANCE","مهارت های نمونه");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","گزینه ها به عنوان مثال");//Options for instance
+define("_JUMPTO","پرش به");//Jump to
+define("_PARENTCOURSE","مرجع درس");//Parent Course
+define("_LOCATIONBRANCH","محل (واحد)");//Location (branch)
+define("_SELECTBRANCH","شاخه را انتخاب کنید");//Select branch
+define("_SHARED","به اشتراک گذاشته شده");//Shared
+define("_UNIQUE","منحصر به فرد");//Unique
+define("_MODE","نحوه");//Mode
+define("_USEONLYCOURSESINCATALOG","دوره استفاده فقط در فروشگاه");//Use only courses in catalog
+define("_ALLJOBS","همه مشاغل");//All jobs
 define("_SHOWMOTTOONHEADER","نمایش نام و شعار نیز بر روی قسمت بالای");//Show name and motto also on header
-define("_ASSIGNCOURSES","دوره انتساب");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","دوره های انتخاب به تمام کاربران اختصاص یافت");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","بدون کاربران عضو شده اند در بر داشت");//No users have been found (New)
-define("_ASSIGNMENT","ماموریت");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","هر در پایین ترین سطح");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","هر درست بالای پایین ترین سطح");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","نه از دوره ها ثبت نام شده");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","بدون آموزش لازم است تعریف شده است رتبهدهی نشده است");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","ضروری آموزش");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","شرایط جدید آموزش");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","دوره های آموزشی مورد نیاز");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","افزودنیهای آموزش های جایگزین");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","لازم است آموزش");//Has required training (New)
+define("_ASSIGNCOURSES","دوره انتساب");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","دوره های انتخاب به تمام کاربران اختصاص یافت");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","بدون کاربران عضو شده اند در بر داشت");//No users have been found
+define("_ASSIGNMENT","ماموریت");//Assignment
+define("_ANYLOWESTLEVELBRANCH","هر در پایین ترین سطح");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","هر درست بالای پایین ترین سطح");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","نه از دوره ها ثبت نام شده");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","بدون آموزش لازم است تعریف شده است رتبهدهی نشده است");//No required training has been defined yet
+define("_REQUIREDTRAINING","ضروری آموزش");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","شرایط جدید آموزش");//New training condition
+define("_REQUIREDTRAININGCOURSES","دوره های آموزشی مورد نیاز");//Required training courses
+define("_ADDALTERNATIVETRAINING","افزودنیهای آموزش های جایگزین");//Add alternative training
+define("_HASREQUIREDTRAINING","لازم است آموزش");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","نتایج جستجو در واژه نامه");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","هیچ نتیجه در بر داشت در واژه نامه");//No results found in glossary
-define("_PROJECTSSCORE","نمره پروژه ها");//Projects score (New)
-define("_TESTSSCORE","آزمون نمره");//Tests score (New)
+define("_PROJECTSSCORE","نمره پروژه ها");//Projects score
+define("_TESTSSCORE","آزمون نمره");//Tests score
 define("_AUTOLOGIN","ورود خودکار");//Auto login
 define("_ACCESSLINK","لینک های دسترسی");//Access link
 define("_AUTOLOGINITHLINK","ورود کاربر به طور خودکار می تواند توسط پیوند");//User can login automatically by link
 define("_DEFAULTUSERTYPE","پیش فرض نوع کاربر");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","نیروی دانشجویی به همه سئوالاتی که");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","شما باید برای پاسخ به همه سوالات مطرح شده");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","اجازه درس مستقل");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","بدون تاریخ از پیش");//No preselected date (New)
-define("_CURRENTDATE","تاریخ جاری");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","اجازه درس مستقل");//Allow independent lessons
+define("_NOPRESELECTEDDATE","بدون تاریخ از پیش");//No preselected date
+define("_CURRENTDATE","تاریخ جاری");//Current date
 define("_SHOWHELP","لینک های نمایش کمک");//Display help links
 define("_ALLOWUSERANSERALLRONG","اجازه به دانشجویان برای ازنو فقط سوالات اشتباه پاسخ داده شده");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","فقط در صورت تکرار آزمون مجاز");//Only if test repetitions are allowed
 define("_USERREDOWRONG","ازنو نه تنها غلط جواب داد :");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","پیش فرض نمی توان inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","دسترسی به فوت");//Access expired (New)
-define("_LESSONSCHEDULE","برنامه دروس");//Lessons schedule (New)
-define("_COURSESTARTSAT","دوره شروع می شود در تاریخ");//The course starts on (New)
-define("_COURSEENDSAT","البته در تاریخ به پایان می رسد");//The course ends on (New)
-define("_ENDDATE","تاریخ پایان");//End date (New)
-define("_SELECTSKILLCATEGORY","انتخاب گروه : مهارت");//Select skill category (New)
+define("_ACCESSEXPIRED","دسترسی به فوت");//Access expired
+define("_LESSONSCHEDULE","برنامه دروس");//Lessons schedule
+define("_COURSESTARTSAT","دوره شروع می شود در تاریخ");//The course starts on
+define("_COURSEENDSAT","البته در تاریخ به پایان می رسد");//The course ends on
+define("_ENDDATE","تاریخ پایان");//End date
+define("_SELECTSKILLCATEGORY","انتخاب گروه : مهارت");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","بدون ردیف هدر یا سرآیند تعریف شده بود با نوع واردات سازگار نیست");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","کاربر وارداتی");//Imported user
 define("_USERSTOCOURSES","اعضا به دوره");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","کوپن");//Coupon
 define("_INVALIDCOUPON","کوپن نامعتبر");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","کلیک کنید برای ورود به کوپن تخفیف");//Click to enter discount coupon
 define("_TESTREDONE","تصحیح شده");//Corrected
-define("_CURRICULUMS","برنامه های درسی");//Curricula (New)
-define("_CURRICULUM","درسی");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","برنامه جامع درسی اختصاص به اعضای گروه");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","برنامه جامع درسی انتساب به کاربر");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","افزودنیهای برنامه درسی");//Add curriculum (New)
-define("_EDITCURRICULUM","برنامه جامع درسی ویرایش");//Edit curriculum (New)
+define("_CURRICULUMS","برنامه های درسی");//Curricula
+define("_CURRICULUM","درسی");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","برنامه جامع درسی اختصاص به اعضای گروه");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","برنامه جامع درسی انتساب به کاربر");//Assign curriculum to user
+define("_ADDCURRICULUM","افزودنیهای برنامه درسی");//Add curriculum
+define("_EDITCURRICULUM","برنامه جامع درسی ویرایش");//Edit curriculum
 define("_COULDNOTFINDCOURSE","البته ممکن است پیدا نشد");//Could not find course
 define("_IMPORTRESULTSFOR","نتایج برای واردات");//Import results for
-define("_COUPONUSAGE","استفاده از کارت");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","جدید پی پال پرداخت");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","جدید پرداخت تعادل");//New balance payment (New)
-define("_USEDCOUPON","کوپن استفاده");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Payed با تعادل");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Payed با پی پال");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","شما باید همه ی آزمایشات کامل");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","حذف تگ های &lt;script&gt;از پست");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","کاربر پس از ورود به مسیر");//Redirect user after login to (New)
-define("_LESSONSCATALOG","کاتالوگ درس های کاربر");//User's lesson catalog (New)
-define("_USERDASHBOARD","آمار کاربر");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","عنوان هیچ مقالهای برای توصیف کار ارائه شده");//No title provided for job description (New)
-define("_EDITORTYPE","نوع ویرایشگر");//Editor type (New)
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","نمایش پیام تنها پس از ارسال تست");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","این آزمایش با موفقیت ارسال شده");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","وضعیت آموزش");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","تا نیست ، نشانی پست الکترونیکی");//has not an e-mail address (New)
-define("_FEEDBACK","انتقادات و پیشنهادات");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","کاربران در داخل گروه");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","در داخل گروه جدید");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","اضافه کردن به گروه های موجود");//Insert into existing group (New)
-define("_NEWGROUPNAME","نام گروه جدید");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","شما یا باید به گروه های موجود را انتخاب کنید و یا ارائه یک گروه جدید به نام");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","ارسال و ویرایش گروه");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","جستجو در کاربران به اضافه کردن به گروه");//Search users to add to group (New)
-define("_AFTER","پس از");//After (New)
-define("_BEFORE","قبل از");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","مشارکت همه کاربران در دوره های این گروه");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","مشارکت اعضای گروه در دوره سیستم");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","پاکسازی لاگ");//Purge logs (New)
-define("_LOGSSIZE","اندازه سیاههها");//Logs size (New)
-define("_OLDESTLOG","قدیمی ها ورود ورود");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","پاکسازی سیاهههای مربوط مسن تر از");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","موفقیت پاکسازی لاگ");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","فقط ٪ اکس نهاد که در آن پردازش شده است که محدودیتی برای این عملیات");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","شما می توانید به کاربران این برنامه درسی را مشخص نمی کند ، زیرا هیچ دوره");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","خواص درسی");//Curriculum properties (New)
-define("_ENTRIES","نوشته ها");//Entries (New)
-define("_ENTERPRISEOPTIONS","گزینه های تصدی");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","نمایش چارت سازمانی به کاربران");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","نمایش فرم به کاربران شخصی");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","نمایش unassigned کاربران ناظران");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","به کاربران اجازه حذف فایل های به اشتراک گذاشته سرپرست");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","فرم من");//my Form (New)
-define("_CLEARQUERYCACHE","پاک کردن حافظه جستجو");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","گزینه ها پیشنهادات و انتقادات");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","گزینه های بازخورد");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","به تازگی به پایان بازخورد");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","پی اچ پی LiveDocx فایل پیکربندی (کتابخانه / phplivedocx_config.php) قابل نوشتن نیست. هر گونه تغییرات به شما پیکربندی livedocx ساخته شده بودند را نجات داد نه");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","اطلاعات تنظیم مجدد پیشرفت");//Reset progress data (New)
-define("_DEBUGMODE","حالت دیباگ");//Debug mode (New)
-define("_GENERALSETTINGS","تنظیمات عمومی");//General settings (New)
-define("_FINISHLESSONMESSAGE","خوش آمدید! شما باید تمام درس است. لطفا انتخاب کنید که به آن بروید حال حاضر : :");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","درس بعدی");//Next lesson (New)
-define("_LESSONFINISHED","درس به پایان رسید");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","شما در درس گذشته شما ممکن است ببینید");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","فرم نظرخواهی که انجام شده است");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","اقدام به بازخورد");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","با موفقیت تغییر یافتهاست بازخورد");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","پیشنهادات و انتقادات شده در");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","دریافت کنندگان توسط رابط نظام با توجه به رویداد انتخاب شده است. <BR> -- "._NEWSURVEY." گیرندگان :هستند کاربران شرکت کننده در نظرسنجی. <BR> -- "._ONJOBASSIGNMENT .":دریافت کنندگان سرپرست انتخاب شده توسط کارمند است. <BR> -- "._PROJECTEXPIRY." گیرندگان :هستند کاربرانی که اختصاص داده شده است پروژه می باشد.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","ثبت نام در تاریخ");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","فرصت های شغلی وجود ندارد");//Job does not exist (New)
-define("_SEARCHFORUSER","جستجوی کاربران [معیارهای مشخصات]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","ضوابط جستجو");//Search criteria (New)
-define("_SUBMITFEEDBACK","بازخورد ارسال");//Submit feedback (New)
-define("_FEEDBACKRESULTS","نتایج انتقادات و پیشنهادات");//Feedback results (New)
-define("_PASSWORDREMINDER","یادآوری رمز عبور");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","باید کامل تمام آزمون");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","گزارشات انتقادات و پیشنهادات");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","بازخورد را انتخاب کنید");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","برای گزارش پست ها");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","در حال حاضر در حال دیدن سایت پوشه");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","نمایش");//Showing (New)
-define("_MATERIALINPROGRESS","مواد در حال انجام");//Material in progress (New)
-define("_ALLMATERIAL","همه مواد");//All material (New)
-define("_CACHEENTRYNOTFOUND","ورود کش یافت نشد");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","ورود کش منقضی شده");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","ورود به نهانگاه نامعتبر است");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","اطلاعیه پاکسازی");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","اندازه آگاه سازی");//Notifications size (New)
-define("_OLDESTNOTIFICATION","اطلاع قبلی");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","اطلاعیه پاکسازی مسن تر از");//Purge notifications older than (New)
-define("_CURRENTUSERS","جاری");//Current (New)
-define("_SELECTEDCOURSES","دوره های برگزیده");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","فایل های ماژول ها حضور دارند ، اما آن نصب نشده است");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","استفاده از کارت");//Coupon usage
+define("_NEWPAYPALPAYMENT","جدید پی پال پرداخت");//New paypal payment
+define("_NEWBALANCEPAYMENT","جدید پرداخت تعادل");//New balance payment
+define("_USEDCOUPON","کوپن استفاده");//Used coupon
+define("_PAYEDWITHBALANCE","Payed با تعادل");//Payed with balance
+define("_PAYEDWITHPAYPAL","Payed با پی پال");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","شما باید همه ی آزمایشات کامل");//You must complete all tests
+define("_ELIMINATEPOSTXSS","حذف تگ های &lt;script&gt;از پست");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","کاربر پس از ورود به مسیر");//Redirect user after login to
+define("_LESSONSCATALOG","کاتالوگ درس های کاربر");//User's lesson catalog
+define("_USERDASHBOARD","آمار کاربر");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","عنوان هیچ مقالهای برای توصیف کار ارائه شده");//No title provided for job description
+define("_EDITORTYPE","نوع ویرایشگر");//Editor type
+define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","نمایش پیام تنها پس از ارسال تست");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","این آزمایش با موفقیت ارسال شده");//This test was successfully submitted
+define("_LEARNINGSTATUS","وضعیت آموزش");//Learning Status
+define("_HASNOTANEMAILADDRESS","تا نیست ، نشانی پست الکترونیکی");//has not an e-mail address
+define("_FEEDBACK","انتقادات و پیشنهادات");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","کاربران در داخل گروه");//Insert users into group
+define("_INSERTINTONEWGROUP","در داخل گروه جدید");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","اضافه کردن به گروه های موجود");//Insert into existing group
+define("_NEWGROUPNAME","نام گروه جدید");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","شما یا باید به گروه های موجود را انتخاب کنید و یا ارائه یک گروه جدید به نام");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","ارسال و ویرایش گروه");//Submit and edit group
+define("_SEARCHGROUPUSERS","جستجو در کاربران به اضافه کردن به گروه");//Search users to add to group
+define("_AFTER","پس از");//After
+define("_BEFORE","قبل از");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","مشارکت همه کاربران در دوره های این گروه");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","مشارکت اعضای گروه در دوره سیستم");//Participation of group users in the courses of the system
+define("_PURGELOGS","پاکسازی لاگ");//Purge logs
+define("_LOGSSIZE","اندازه سیاههها");//Logs size
+define("_OLDESTLOG","قدیمی ها ورود ورود");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","پاکسازی سیاهههای مربوط مسن تر از");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","موفقیت پاکسازی لاگ");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","فقط ٪ اکس نهاد که در آن پردازش شده است که محدودیتی برای این عملیات");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","شما می توانید به کاربران این برنامه درسی را مشخص نمی کند ، زیرا هیچ دوره");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","خواص درسی");//Curriculum properties
+define("_ENTRIES","نوشته ها");//Entries
+define("_ENTERPRISEOPTIONS","گزینه های تصدی");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","نمایش چارت سازمانی به کاربران");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","نمایش فرم به کاربران شخصی");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","نمایش unassigned کاربران ناظران");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","به کاربران اجازه حذف فایل های به اشتراک گذاشته سرپرست");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","فرم من");//my Form
+define("_CLEARQUERYCACHE","پاک کردن حافظه جستجو");//Clear query cache
+define("_FEEDBACKOPTIONS","گزینه ها پیشنهادات و انتقادات");//Feedback options
+define("_OPTIONSFORFEEDBACK","گزینه های بازخورد");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","به تازگی به پایان بازخورد");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","پی اچ پی LiveDocx فایل پیکربندی (کتابخانه / phplivedocx_config.php) قابل نوشتن نیست. هر گونه تغییرات به شما پیکربندی livedocx ساخته شده بودند را نجات داد نه");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","اطلاعات تنظیم مجدد پیشرفت");//Reset progress data
+define("_DEBUGMODE","حالت دیباگ");//Debug mode
+define("_GENERALSETTINGS","تنظیمات عمومی");//General settings
+define("_FINISHLESSONMESSAGE","خوش آمدید! شما باید تمام درس است. لطفا انتخاب کنید که به آن بروید حال حاضر : :");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","درس بعدی");//Next lesson
+define("_LESSONFINISHED","درس به پایان رسید");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","شما در درس گذشته شما ممکن است ببینید");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","فرم نظرخواهی که انجام شده است");//Feedback is done
+define("_PROCEEDTOFEEDBACK","اقدام به بازخورد");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","با موفقیت تغییر یافتهاست بازخورد");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","پیشنهادات و انتقادات شده در");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","دریافت کنندگان توسط رابط نظام با توجه به رویداد انتخاب شده است. <BR> -- "._NEWSURVEY." گیرندگان :هستند کاربران شرکت کننده در نظرسنجی. <BR> -- "._ONJOBASSIGNMENT .":دریافت کنندگان سرپرست انتخاب شده توسط کارمند است. <BR> -- "._PROJECTEXPIRY." گیرندگان :هستند کاربرانی که اختصاص داده شده است پروژه می باشد.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","ثبت نام در تاریخ");//Enrolled on
+define("_JOBDOESNOTEXIST","فرصت های شغلی وجود ندارد");//Job does not exist
+define("_SEARCHFORUSER","جستجوی کاربران [معیارهای مشخصات]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","ضوابط جستجو");//Search criteria
+define("_SUBMITFEEDBACK","بازخورد ارسال");//Submit feedback
+define("_FEEDBACKRESULTS","نتایج انتقادات و پیشنهادات");//Feedback results
+define("_PASSWORDREMINDER","یادآوری رمز عبور");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","باید کامل تمام آزمون");//Must complete all tests
+define("_FEEDBACKSTATISTICS","گزارشات انتقادات و پیشنهادات");//Feedback reports
+define("_CHOOSEFEEDBACK","بازخورد را انتخاب کنید");//Choose feedback
+define("_REPORTSFORFEEDBACK","برای گزارش پست ها");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","در حال حاضر در حال دیدن سایت پوشه");//Currently browsing folder
+define("_CURRENTLYSHOWING","نمایش");//Showing
+define("_MATERIALINPROGRESS","مواد در حال انجام");//Material in progress
+define("_ALLMATERIAL","همه مواد");//All material
+define("_CACHEENTRYNOTFOUND","ورود کش یافت نشد");//Cache entry not found
+define("_CACHEENTRYEXPIRED","ورود کش منقضی شده");//Cache entry expired
+define("_CACHEENTRYINVALID","ورود به نهانگاه نامعتبر است");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","اطلاعیه پاکسازی");//Purge notifications
+define("_NOTIFICATIONSSIZE","اندازه آگاه سازی");//Notifications size
+define("_OLDESTNOTIFICATION","اطلاع قبلی");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","اطلاعیه پاکسازی مسن تر از");//Purge notifications older than
+define("_CURRENTUSERS","جاری");//Current
+define("_SELECTEDCOURSES","دوره های برگزیده");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","فایل های ماژول ها حضور دارند ، اما آن نصب نشده است");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","این همه درس و رشته های قیمت تا 0 ، مجموعه");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","برای مشخص کردن شیء روی صفحه نمایش مطابق ابعاد شناسه");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","فهرست کاما از هم جدا");//Comma separated list (New)
 ?>

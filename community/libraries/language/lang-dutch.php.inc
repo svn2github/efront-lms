@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Activeren promotor veldnaam");//Activating supe
 define("_LEAVEEMPTYTONOTUSE","Laat leeg te ommit");//Leave empty to ommit
 define("_PLEASESELECT","Selecteer");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Uw begeleider zal je account activeren");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Ongeldige parameter");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Ongeldige parameter");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Import IMS Content");//Import IMS Content
 define("_IMSEXPORT","Export IMS Content");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Verborgen gebruikers");//Hidden from users
 define("_RESETSCORMDATA","Reset gebruikersgegevens");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Geavanceerde instellingen");//Advanced settings
-define("_ADDINSTANCE","Voeg bijvoorbeeld");//Add instance (New)
-define("_INSTANCE","Aanleg");//Instance (New)
-define("_COURSECODE","Vakcode");//Course code (New)
-define("_TRAININGHOURS","Training uur");//Training hours (New)
-define("_COURSEINSTANCES","Cursus gevallen");//Course instances (New)
-define("_CAPACITY","Hoedanigheid");//Capacity (New)
-define("_SEATSREMAINING","Zitplaatsen resterende");//Seats remaining (New)
-define("_STARTDATE","Start datum");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Weet u zeker dat u dit wilt bijvoorbeeld verwijderen?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","Edit bijvoorbeeld");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","Aanleg lessen");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","Aanleg gebruikers");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","Aanleg vaardigheden");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Opties voor bijvoorbeeld");//Options for instance (New)
-define("_JUMPTO","Ga naar");//Jump to (New)
-define("_PARENTCOURSE","Parent Course");//Parent Course (New)
-define("_LOCATIONBRANCH","Locatie (tak)");//Location (branch) (New)
-define("_SELECTBRANCH","Selecteer bijkantoor");//Select branch (New)
-define("_SHARED","Gedeelde");//Shared (New)
-define("_UNIQUE","Uniek");//Unique (New)
-define("_MODE","Mode");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","Gebruik alleen cursussen in de catalogus");//Use only courses in catalog (New)
-define("_ALLJOBS","Alle jobs");//All jobs (New)
+define("_ADDINSTANCE","Voeg bijvoorbeeld");//Add instance
+define("_INSTANCE","Aanleg");//Instance
+define("_COURSECODE","Vakcode");//Course code
+define("_TRAININGHOURS","Training uur");//Training hours
+define("_COURSEINSTANCES","Cursus gevallen");//Course instances
+define("_CAPACITY","Hoedanigheid");//Capacity
+define("_SEATSREMAINING","Zitplaatsen resterende");//Seats remaining
+define("_STARTDATE","Start datum");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Weet u zeker dat u dit wilt bijvoorbeeld verwijderen?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","Edit bijvoorbeeld");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","Aanleg lessen");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","Aanleg gebruikers");//Instance users
+define("_SKILLSOFFEREDINSTANCE","Aanleg vaardigheden");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Opties voor bijvoorbeeld");//Options for instance
+define("_JUMPTO","Ga naar");//Jump to
+define("_PARENTCOURSE","Parent Course");//Parent Course
+define("_LOCATIONBRANCH","Locatie (tak)");//Location (branch)
+define("_SELECTBRANCH","Selecteer bijkantoor");//Select branch
+define("_SHARED","Gedeelde");//Shared
+define("_UNIQUE","Uniek");//Unique
+define("_MODE","Mode");//Mode
+define("_USEONLYCOURSESINCATALOG","Gebruik alleen cursussen in de catalogus");//Use only courses in catalog
+define("_ALLJOBS","Alle jobs");//All jobs
 define("_SHOWMOTTOONHEADER","Toon naam en motto ook op kop");//Show name and motto also on header
-define("_ASSIGNCOURSES","Wijs cursussen");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","Selecteer cursussen toe te kennen aan alle gebruikers gevonden");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","Geen gebruikers gevonden");//No users have been found (New)
-define("_ASSIGNMENT","Overdracht");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Elke op het laagste niveau");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Elk net boven het laagste niveau");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","Er zijn geen cursussen zijn geregistreerd");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","Geen vereiste opleiding is nog niet vastgesteld");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","Vereiste opleiding");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","Nieuwe opleiding voorwaarde");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","Vereiste opleidingen");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Voeg alternatieve training");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","Heeft vereiste opleiding");//Has required training (New)
+define("_ASSIGNCOURSES","Wijs cursussen");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","Selecteer cursussen toe te kennen aan alle gebruikers gevonden");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","Geen gebruikers gevonden");//No users have been found
+define("_ASSIGNMENT","Overdracht");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Elke op het laagste niveau");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Elk net boven het laagste niveau");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","Er zijn geen cursussen zijn geregistreerd");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","Geen vereiste opleiding is nog niet vastgesteld");//No required training has been defined yet
+define("_REQUIREDTRAINING","Vereiste opleiding");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","Nieuwe opleiding voorwaarde");//New training condition
+define("_REQUIREDTRAININGCOURSES","Vereiste opleidingen");//Required training courses
+define("_ADDALTERNATIVETRAINING","Voeg alternatieve training");//Add alternative training
+define("_HASREQUIREDTRAINING","Heeft vereiste opleiding");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Zoekresultaten in woordenlijst");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Geen resultaten gevonden in woordenlijst");//No results found in glossary
-define("_PROJECTSSCORE","Projecten score");//Projects score (New)
-define("_TESTSSCORE","Tests score");//Tests score (New)
+define("_PROJECTSSCORE","Projecten score");//Projects score
+define("_TESTSSCORE","Tests score");//Tests score
 define("_AUTOLOGIN","Auto login");//Auto login
 define("_ACCESSLINK","Toegang link");//Access link
 define("_AUTOLOGINITHLINK","De gebruiker kan automatisch inloggen door link");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Standaard type gebruiker");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force student het antwoord op alle vragen");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Je moet alle vragen beantwoorden");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Laat onafhankelijke lessen");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Geen voorgeselecteerde datum");//No preselected date (New)
-define("_CURRENTDATE","Huidige datum");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Laat onafhankelijke lessen");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Geen voorgeselecteerde datum");//No preselected date
+define("_CURRENTDATE","Huidige datum");//Current date
 define("_SHOWHELP","Display Help Links");//Display help links
 define("_ALLOWUSERANSERALLRONG","Laat studenten alleen de verkeerde antwoorden op de vragen opnieuw");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Alleen als test herhalingen zijn toegestaan");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Opnieuw alleen verkeerd beantwoord");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Standaard thema kan niet worden inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Toegang verstreken");//Access expired (New)
-define("_LESSONSCHEDULE","Lessen schema");//Lessons schedule (New)
-define("_COURSESTARTSAT","De cursus start op");//The course starts on (New)
-define("_COURSEENDSAT","De cursus eindigt op");//The course ends on (New)
-define("_ENDDATE","Einddatum");//End date (New)
-define("_SELECTSKILLCATEGORY","Selecteer categorie skill");//Select skill category (New)
+define("_ACCESSEXPIRED","Toegang verstreken");//Access expired
+define("_LESSONSCHEDULE","Lessen schema");//Lessons schedule
+define("_COURSESTARTSAT","De cursus start op");//The course starts on
+define("_COURSEENDSAT","De cursus eindigt op");//The course ends on
+define("_ENDDATE","Einddatum");//End date
+define("_SELECTSKILLCATEGORY","Selecteer categorie skill");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Geen kopregel is gedefinieerd of header niet verenigbaar is met de invoer type");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Ingevoerde gebruiker");//Imported user
 define("_USERSTOCOURSES","Gebruikers cursussen");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Coupon");//Coupon
 define("_INVALIDCOUPON","Ongeldige coupon");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Klik hier voor meer voer coupon korting");//Click to enter discount coupon
 define("_TESTREDONE","Gerectificeerd");//Corrected
-define("_CURRICULUMS","Leerplannen");//Curricula (New)
-define("_CURRICULUM","Leerplan");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","Wijs curriculum om gebruikers te groeperen");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Wijs curriculum van de gebruiker");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Voeg curriculum");//Add curriculum (New)
-define("_EDITCURRICULUM","Edit curriculum");//Edit curriculum (New)
+define("_CURRICULUMS","Leerplannen");//Curricula
+define("_CURRICULUM","Leerplan");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Wijs curriculum om gebruikers te groeperen");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Wijs curriculum van de gebruiker");//Assign curriculum to user
+define("_ADDCURRICULUM","Voeg curriculum");//Add curriculum
+define("_EDITCURRICULUM","Edit curriculum");//Edit curriculum
 define("_COULDNOTFINDCOURSE","Natuurlijk kon het niet vinden");//Could not find course
 define("_IMPORTRESULTSFOR","Import resultaten voor");//Import results for
-define("_COUPONUSAGE","Coupon gebruik");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","Nieuwe PayPal-betaling");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","Nieuw saldo");//New balance payment (New)
-define("_USEDCOUPON","Gebruikt coupon");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Betaald met balans");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Betaald met PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","U moet alle tests");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","Verwijder &lt;script&gt; tags uit POST");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","Redirect gebruiker na het inloggen naar");//Redirect user after login to (New)
-define("_LESSONSCATALOG","Gebruiker les catalogus");//User's lesson catalog (New)
-define("_USERDASHBOARD","Gebruiker het dashboard");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Geen titel op voorwaarde voor het scheppen van de beschrijving");//No title provided for job description (New)
-define("_EDITORTYPE","Editor type");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Toon alleen een boodschap achter na de indiening van proef");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","Deze test is succesvol verzonden");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Leren Status");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","heeft geen e-mail adres");//has not an e-mail address (New)
-define("_FEEDBACK","Terugkoppeling");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","Plaats gebruikers in de groep");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Plaats in de nieuwe groep");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Plaats in de bestaande groep");//Insert into existing group (New)
-define("_NEWGROUPNAME","Nieuwe naam van de groep");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","U moet ofwel een bestaande groepsnaam selecteren of een nieuwe groepsnaam");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Verzenden en bewerken groep");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","Zoeken naar gebruikers toe te voegen aan de groep");//Search users to add to group (New)
-define("_AFTER","Na");//After (New)
-define("_BEFORE","Voor");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Deelname van alle gebruikers in de cursussen van de groep");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Deelname van de groep gebruikers in de cursussen van het systeem");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Purge logs");//Purge logs (New)
-define("_LOGSSIZE","Logs grootte");//Logs size (New)
-define("_OLDESTLOG","Oudste log entry");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Purge logs ouder dan");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","Succesvol verwijderd logs");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Slechts% x entiteiten waarin verwerkt, wat is de limiet voor deze operatie");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","U kunt geen gebruikers toewijzen aan dit leerplan, omdat zij geen cursussen");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","Curriculum eigenschappen");//Curriculum properties (New)
-define("_ENTRIES","Inzendingen");//Entries (New)
-define("_ENTERPRISEOPTIONS","Enterprise opties");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Toon organigram van de gebruikers");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Toon de vorm van persoonlijke gebruikers");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Toon unassigned gebruikers aan toezichthouders");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Laat gebruikers aan de leidinggevende van gedeelde bestanden verwijderen");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","mijn formulier");//my Form (New)
-define("_CLEARQUERYCACHE","Clear query cache");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","Feedback opties");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Opties voor feedback");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Onlangs voltooide feedback");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","LiveDocx PHP configuratiebestand (bibliotheken / phplivedocx_config.php) is niet beschrijfbaar. Alle wijzigingen die u in de configuratie livedocx werden niet opgeslagen");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","Reset vooruitgang data");//Reset progress data (New)
-define("_DEBUGMODE","Debug mode");//Debug mode (New)
-define("_GENERALSETTINGS","Algemene instellingen");//General settings (New)
-define("_FINISHLESSONMESSAGE","Gefeliciteerd! U hebt de les. Selecteer een plaats om nu te gaan:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","Volgende les");//Next lesson (New)
-define("_LESSONFINISHED","Les klaar");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","U bevindt zich op de laatste les heeft, kunt u");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","Feedback wordt gedaan");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Ga naar feedback");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Succesvol bewerkt feedback");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","Feedback gestart op");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","De ontvangers worden geselecteerd door het systeem interface op basis van het evenement. <BR> - "._NEWSURVEY .": Ontvangers zijn de gebruikers die deelnemen aan de enquête. <BR> - "._ONJOBASSIGNMENT .": De ontvangers is de toezichthouder geselecteerd door de werknemer. <BR> - "._PROJECTEXPIRY .": Ontvangers zijn de gebruikers die zijn toegewezen aan het project.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","Ingeschreven op");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Job bestaat niet");//Job does not exist (New)
-define("_SEARCHFORUSER","Vind gebruikers [Profiel criteria]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","Zoekcriteria");//Search criteria (New)
-define("_SUBMITFEEDBACK","Stuur feedback");//Submit feedback (New)
-define("_FEEDBACKRESULTS","Feedback resultaten");//Feedback results (New)
-define("_PASSWORDREMINDER","Wachtwoordherinnering");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Moet alle tests");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","Feedback verslagen");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Kies feedback");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Verslag voor feedback");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","Bezig met surfen in de map");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Resultaat");//Showing (New)
-define("_MATERIALINPROGRESS","Materiaal in de vooruitgang");//Material in progress (New)
-define("_ALLMATERIAL","Al het materiaal");//All material (New)
-define("_CACHEENTRYNOTFOUND","Cache toegang niet gevonden");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","Cachevermelding verstreken");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","Cache is niet geldig");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","Purge kennisgevingen");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","Bekendmakingen grootte");//Notifications size (New)
-define("_OLDESTNOTIFICATION","Oudste aanmelding");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","Purge kennisgevingen ouder dan");//Purge notifications older than (New)
-define("_CURRENTUSERS","Stroom");//Current (New)
-define("_SELECTEDCOURSES","Geselecteerde cursussen");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","Module bestanden zijn aanwezig, maar het is niet geïnstalleerd");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","Coupon gebruik");//Coupon usage
+define("_NEWPAYPALPAYMENT","Nieuwe PayPal-betaling");//New paypal payment
+define("_NEWBALANCEPAYMENT","Nieuw saldo");//New balance payment
+define("_USEDCOUPON","Gebruikt coupon");//Used coupon
+define("_PAYEDWITHBALANCE","Betaald met balans");//Payed with balance
+define("_PAYEDWITHPAYPAL","Betaald met PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","U moet alle tests");//You must complete all tests
+define("_ELIMINATEPOSTXSS","Verwijder &lt;script&gt; tags uit POST");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","Redirect gebruiker na het inloggen naar");//Redirect user after login to
+define("_LESSONSCATALOG","Gebruiker les catalogus");//User's lesson catalog
+define("_USERDASHBOARD","Gebruiker het dashboard");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Geen titel op voorwaarde voor het scheppen van de beschrijving");//No title provided for job description
+define("_EDITORTYPE","Editor type");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Toon alleen een boodschap achter na de indiening van proef");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Deze test is succesvol verzonden");//This test was successfully submitted
+define("_LEARNINGSTATUS","Leren Status");//Learning Status
+define("_HASNOTANEMAILADDRESS","heeft geen e-mail adres");//has not an e-mail address
+define("_FEEDBACK","Terugkoppeling");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","Plaats gebruikers in de groep");//Insert users into group
+define("_INSERTINTONEWGROUP","Plaats in de nieuwe groep");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Plaats in de bestaande groep");//Insert into existing group
+define("_NEWGROUPNAME","Nieuwe naam van de groep");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","U moet ofwel een bestaande groepsnaam selecteren of een nieuwe groepsnaam");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Verzenden en bewerken groep");//Submit and edit group
+define("_SEARCHGROUPUSERS","Zoeken naar gebruikers toe te voegen aan de groep");//Search users to add to group
+define("_AFTER","Na");//After
+define("_BEFORE","Voor");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Deelname van alle gebruikers in de cursussen van de groep");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Deelname van de groep gebruikers in de cursussen van het systeem");//Participation of group users in the courses of the system
+define("_PURGELOGS","Purge logs");//Purge logs
+define("_LOGSSIZE","Logs grootte");//Logs size
+define("_OLDESTLOG","Oudste log entry");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Purge logs ouder dan");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","Succesvol verwijderd logs");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Slechts% x entiteiten waarin verwerkt, wat is de limiet voor deze operatie");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","U kunt geen gebruikers toewijzen aan dit leerplan, omdat zij geen cursussen");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","Curriculum eigenschappen");//Curriculum properties
+define("_ENTRIES","Inzendingen");//Entries
+define("_ENTERPRISEOPTIONS","Enterprise opties");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Toon organigram van de gebruikers");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Toon de vorm van persoonlijke gebruikers");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Toon unassigned gebruikers aan toezichthouders");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Laat gebruikers aan de leidinggevende van gedeelde bestanden verwijderen");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","mijn formulier");//my Form
+define("_CLEARQUERYCACHE","Clear query cache");//Clear query cache
+define("_FEEDBACKOPTIONS","Feedback opties");//Feedback options
+define("_OPTIONSFORFEEDBACK","Opties voor feedback");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Onlangs voltooide feedback");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","LiveDocx PHP configuratiebestand (bibliotheken / phplivedocx_config.php) is niet beschrijfbaar. Alle wijzigingen die u in de configuratie livedocx werden niet opgeslagen");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","Reset vooruitgang data");//Reset progress data
+define("_DEBUGMODE","Debug mode");//Debug mode
+define("_GENERALSETTINGS","Algemene instellingen");//General settings
+define("_FINISHLESSONMESSAGE","Gefeliciteerd! U hebt de les. Selecteer een plaats om nu te gaan:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","Volgende les");//Next lesson
+define("_LESSONFINISHED","Les klaar");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","U bevindt zich op de laatste les heeft, kunt u");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Feedback wordt gedaan");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Ga naar feedback");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Succesvol bewerkt feedback");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Feedback gestart op");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","De ontvangers worden geselecteerd door het systeem interface op basis van het evenement. <BR> - "._NEWSURVEY .": Ontvangers zijn de gebruikers die deelnemen aan de enquête. <BR> - "._ONJOBASSIGNMENT .": De ontvangers is de toezichthouder geselecteerd door de werknemer. <BR> - "._PROJECTEXPIRY .": Ontvangers zijn de gebruikers die zijn toegewezen aan het project.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","Ingeschreven op");//Enrolled on
+define("_JOBDOESNOTEXIST","Job bestaat niet");//Job does not exist
+define("_SEARCHFORUSER","Vind gebruikers [Profiel criteria]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Zoekcriteria");//Search criteria
+define("_SUBMITFEEDBACK","Stuur feedback");//Submit feedback
+define("_FEEDBACKRESULTS","Feedback resultaten");//Feedback results
+define("_PASSWORDREMINDER","Wachtwoordherinnering");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Moet alle tests");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Feedback verslagen");//Feedback reports
+define("_CHOOSEFEEDBACK","Kies feedback");//Choose feedback
+define("_REPORTSFORFEEDBACK","Verslag voor feedback");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","Bezig met surfen in de map");//Currently browsing folder
+define("_CURRENTLYSHOWING","Resultaat");//Showing
+define("_MATERIALINPROGRESS","Materiaal in de vooruitgang");//Material in progress
+define("_ALLMATERIAL","Al het materiaal");//All material
+define("_CACHEENTRYNOTFOUND","Cache toegang niet gevonden");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Cachevermelding verstreken");//Cache entry expired
+define("_CACHEENTRYINVALID","Cache is niet geldig");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","Purge kennisgevingen");//Purge notifications
+define("_NOTIFICATIONSSIZE","Bekendmakingen grootte");//Notifications size
+define("_OLDESTNOTIFICATION","Oudste aanmelding");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Purge kennisgevingen ouder dan");//Purge notifications older than
+define("_CURRENTUSERS","Stroom");//Current
+define("_SELECTEDCOURSES","Geselecteerde cursussen");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","Module bestanden zijn aanwezig, maar het is niet geïnstalleerd");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Dit zal alle lessen en cursussen prijs op 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Geef object id voor scherm bijpassende afmetingen");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Komma&#39;s gescheiden lijst");//Comma separated list (New)
 ?>

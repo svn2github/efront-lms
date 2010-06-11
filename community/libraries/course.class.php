@@ -1566,13 +1566,14 @@ class EfrontCourse
   if (!empty($newUsers)) {
    eF_insertTableDataMultiple("users_to_courses", $fields);
   }
-  foreach ($usersData as $value) {
-   $event = array("type" => $this -> isStudentRole($value['role']) ? EfrontEvent::COURSE_ACQUISITION_AS_STUDENT : EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR,
-         "users_LOGIN" => $value['login'],
-         "lessons_ID" => $this -> course['id'],
-         "lessons_name" => $this -> course['name']);
-   //@TODO: temporarily disabled event!
-   EfrontEvent::triggerEvent($event);
+  if (!_DISABLE_EVENTS) {
+   foreach ($usersData as $value) {
+    $event = array("type" => $this -> isStudentRole($value['role']) ? EfrontEvent::COURSE_ACQUISITION_AS_STUDENT : EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR,
+          "users_LOGIN" => $value['login'],
+          "lessons_ID" => $this -> course['id'],
+          "lessons_name" => $this -> course['name']);
+    EfrontEvent::triggerEvent($event);
+   }
   }
   $this -> users = false;
  }
@@ -2005,8 +2006,10 @@ class EfrontCourse
   $this -> course['price'] = str_replace(array($GLOBALS['configuration']['decimal_point'], $GLOBALS['configuration']['thousands_sep']), array('.', ''), $this -> course['price']); //This way, you handle the case where the price is in the form 1,000.00
   $fields = $this -> validateAndSanitizeCourseFields($this -> course);
   eF_updateTableData("courses", $fields, "id=".$this -> course['id']);
-  //EfrontSearch :: removeText('courses', $this -> course['id'], '');
-  //EfrontSearch :: insertText($fields['name'], $this -> course['id'], "courses", "title");
+  if (!_DISABLE_SEARCH) {
+   EfrontSearch :: removeText('courses', $this -> course['id'], '');
+   EfrontSearch :: insertText($fields['name'], $this -> course['id'], "courses", "title");
+  }
   return true;
  }
  /**

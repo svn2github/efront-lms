@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Активиране на име за надз�
 define("_LEAVEEMPTYTONOTUSE","Оставете празни до ommit");//Leave empty to ommit
 define("_PLEASESELECT","Моля изберете");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Вашият ръководител ще активирате сметката си");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Невалиден параметър");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Невалиден параметър");//Invalid parameter
 define("_IMS","ИСП");//IMS
 define("_IMSIMPORT","Внос ИСП Съдържание");//Import IMS Content
 define("_IMSEXPORT","Износ ИСП Съдържание");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Скрити от потребителя");//Hidden from users
 define("_RESETSCORMDATA","Проучване на потребителски данни");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Допълнителни настройки");//Advanced settings
-define("_ADDINSTANCE","Добави съд");//Add instance (New)
-define("_INSTANCE","Инстанция");//Instance (New)
-define("_COURSECODE","Учебната код");//Course code (New)
-define("_TRAININGHOURS","Учебни часа");//Training hours (New)
-define("_COURSEINSTANCES","Учебната случаи");//Course instances (New)
-define("_CAPACITY","Капацитет");//Capacity (New)
-define("_SEATSREMAINING","Места останалите");//Seats remaining (New)
-define("_STARTDATE","Начална дата");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Наистина ли искате да изтриете този случай?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","Редактиране на съд");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","Съд уроци");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","Съд потребители");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","Съд умения");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Опции за съд");//Options for instance (New)
-define("_JUMPTO","Направо към");//Jump to (New)
-define("_PARENTCOURSE","Родителите учебната");//Parent Course (New)
-define("_LOCATIONBRANCH","Местоположение (клон)");//Location (branch) (New)
-define("_SELECTBRANCH","");//Select branch (New)
-define("_SHARED","Стаи с общо");//Shared (New)
-define("_UNIQUE","Уникален");//Unique (New)
-define("_MODE","Начин");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","Използвайте само курсове по каталог");//Use only courses in catalog (New)
-define("_ALLJOBS","Всички работни места");//All jobs (New)
+define("_ADDINSTANCE","Добави съд");//Add instance
+define("_INSTANCE","Инстанция");//Instance
+define("_COURSECODE","Учебната код");//Course code
+define("_TRAININGHOURS","Учебни часа");//Training hours
+define("_COURSEINSTANCES","Учебната случаи");//Course instances
+define("_CAPACITY","Капацитет");//Capacity
+define("_SEATSREMAINING","Места останалите");//Seats remaining
+define("_STARTDATE","Начална дата");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Наистина ли искате да изтриете този случай?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","Редактиране на съд");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","Съд уроци");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","Съд потребители");//Instance users
+define("_SKILLSOFFEREDINSTANCE","Съд умения");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Опции за съд");//Options for instance
+define("_JUMPTO","Направо към");//Jump to
+define("_PARENTCOURSE","Родителите учебната");//Parent Course
+define("_LOCATIONBRANCH","Местоположение (клон)");//Location (branch)
+define("_SELECTBRANCH","");//Select branch
+define("_SHARED","Стаи с общо");//Shared
+define("_UNIQUE","Уникален");//Unique
+define("_MODE","Начин");//Mode
+define("_USEONLYCOURSESINCATALOG","Използвайте само курсове по каталог");//Use only courses in catalog
+define("_ALLJOBS","Всички работни места");//All jobs
 define("_SHOWMOTTOONHEADER","Показване на името и мотото и на заглавието");//Show name and motto also on header
-define("_ASSIGNCOURSES","Присвояване курсове");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","Изберете курсове да възложи на всички намерени потребители");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","Няма потребители, които са били открити");//No users have been found (New)
-define("_ASSIGNMENT","Назначение");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Всички най-ниското ниво");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Всяко малко над най-ниското ниво");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","Не курсове са регистрирани");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","Не се изисква обучение е определена още");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","Задължително обучение");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","Ново обучение състояние");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","Задължително обучение");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Добави алтернативно обучение");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","Има необходимото обучение");//Has required training (New)
+define("_ASSIGNCOURSES","Присвояване курсове");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","Изберете курсове да възложи на всички намерени потребители");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","Няма потребители, които са били открити");//No users have been found
+define("_ASSIGNMENT","Назначение");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Всички най-ниското ниво");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Всяко малко над най-ниското ниво");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","Не курсове са регистрирани");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","Не се изисква обучение е определена още");//No required training has been defined yet
+define("_REQUIREDTRAINING","Задължително обучение");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","Ново обучение състояние");//New training condition
+define("_REQUIREDTRAININGCOURSES","Задължително обучение");//Required training courses
+define("_ADDALTERNATIVETRAINING","Добави алтернативно обучение");//Add alternative training
+define("_HASREQUIREDTRAINING","Има необходимото обучение");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Резултат от търсенето в речник");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Не са намерени в речник");//No results found in glossary
-define("_PROJECTSSCORE","Проекти резултат");//Projects score (New)
-define("_TESTSSCORE","Тестове резултат");//Tests score (New)
+define("_PROJECTSSCORE","Проекти резултат");//Projects score
+define("_TESTSSCORE","Тестове резултат");//Tests score
 define("_AUTOLOGIN","Auto Login");//Auto login
 define("_ACCESSLINK","Достъпът връзка");//Access link
 define("_AUTOLOGINITHLINK","Потребител може да влезете автоматично от връзката");//User can login automatically by link
 define("_DEFAULTUSERTYPE","По подразбиране тип потребител");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Сили студент отговори на всички въпроси");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Трябва да се отговори на всички въпроси");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Да позволи на независими уроци");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Не предварително избрани дати");//No preselected date (New)
-define("_CURRENTDATE","Текущата дата");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Да позволи на независими уроци");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Не предварително избрани дати");//No preselected date
+define("_CURRENTDATE","Текущата дата");//Current date
 define("_SHOWHELP","Покажи Помощ за Връзки");//Display help links
 define("_ALLOWUSERANSERALLRONG","Позволяват на учениците да ремонтирам само погрешно отговори на въпроси");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Само ако изпитването повторения са позволени");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Възстановяване само погрешно отговори");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","По подразбиране не може да бъде inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Достъпът е изтекъл");//Access expired (New)
-define("_LESSONSCHEDULE","Уроци график");//Lessons schedule (New)
-define("_COURSESTARTSAT","Курсът започва на");//The course starts on (New)
-define("_COURSEENDSAT","Курсът завършва на");//The course ends on (New)
-define("_ENDDATE","Крайна дата");//End date (New)
-define("_SELECTSKILLCATEGORY","Изберете умения категория");//Select skill category (New)
+define("_ACCESSEXPIRED","Достъпът е изтекъл");//Access expired
+define("_LESSONSCHEDULE","Уроци график");//Lessons schedule
+define("_COURSESTARTSAT","Курсът започва на");//The course starts on
+define("_COURSEENDSAT","Курсът завършва на");//The course ends on
+define("_ENDDATE","Крайна дата");//End date
+define("_SELECTSKILLCATEGORY","Изберете умения категория");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Не заглавния ред се определя или заглавна не са съвместими с вносни тип");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Внесените потребител");//Imported user
 define("_USERSTOCOURSES","Потребителите на курсове");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Купон");//Coupon
 define("_INVALIDCOUPON","Невалидна купон");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Кликнете, за да въведе отстъпка купон");//Click to enter discount coupon
 define("_TESTREDONE","Коригирана");//Corrected
-define("_CURRICULUMS","Учебните програми");//Curricula (New)
-define("_CURRICULUM","Учебен план");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","Присвояване план за обединяване на потребител");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Присвояване план на потребителя");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Добави план");//Add curriculum (New)
-define("_EDITCURRICULUM","Редактиране на учебна програма");//Edit curriculum (New)
+define("_CURRICULUMS","Учебните програми");//Curricula
+define("_CURRICULUM","Учебен план");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Присвояване план за обединяване на потребител");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Присвояване план на потребителя");//Assign curriculum to user
+define("_ADDCURRICULUM","Добави план");//Add curriculum
+define("_EDITCURRICULUM","Редактиране на учебна програма");//Edit curriculum
 define("_COULDNOTFINDCOURSE","Не мога да намеря курс");//Could not find course
 define("_IMPORTRESULTSFOR","Внос резултатите за");//Import results for
-define("_COUPONUSAGE","Купон ползване");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","Нова PayPal плащане");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","Нова балансово плащане");//New balance payment (New)
-define("_USEDCOUPON","Използвани купон");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Платена с баланс");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Платена с PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","Трябва да завършите всички тестове");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","Премахване &lt;script&gt; етикети от поста");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","Пренасочване на потребителя след влизане на");//Redirect user after login to (New)
-define("_LESSONSCATALOG","Потребителите урок каталог");//User's lesson catalog (New)
-define("_USERDASHBOARD","Потребителите таблото");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Без заглавие, предвидени за длъжностна характеристика");//No title provided for job description (New)
-define("_EDITORTYPE","Редактор тип");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Покажи само съобщение след подаване на тест");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","Този тест е успешно, представени");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Учене Статус");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","не е един е-мейл адрес");//has not an e-mail address (New)
-define("_FEEDBACK","Обратна връзка");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","Вмъкване на потребителите в групата");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Поставете в нова група");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Поставете в съществуваща група");//Insert into existing group (New)
-define("_NEWGROUPNAME","Нова група име");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Трябва или да изберете съществуваща група или да предоставят нова група име");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Изпращане и редактиране група");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","Търсене на потребителите да добавят към група");//Search users to add to group (New)
-define("_AFTER","След");//After (New)
-define("_BEFORE","Преди");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Участието на всички потребители в курсовете на групата");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Участие на група потребители в курсовете на системата");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Чистка трупи");//Purge logs (New)
-define("_LOGSSIZE","Логове размер");//Logs size (New)
-define("_OLDESTLOG","Стар запис в регистъра");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Чистка трупа на повече от");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","Успешно продухва трупи");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Само% х лица, в които обработват, което е границата за тази операция");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Вие не можете да присвоите на потребителите към този план, защото тя не курсове");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","Учебен план за имоти");//Curriculum properties (New)
-define("_ENTRIES","Влизания");//Entries (New)
-define("_ENTERPRISEOPTIONS","Enterprise опции");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Покажи организационна структура на потребителите");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Покажи лични формата на потребителите");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Покажи некласираните потребителите да надзорни органи");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Разрешаване на потребителите да изтрият надзора споделените файлове");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","моята форма");//my Form (New)
-define("_CLEARQUERYCACHE","Изчистване на заявката кеш");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","Обратна връзка варианти");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Опции за обратна връзка");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Наскоро приключи обратна връзка");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx конфигурационен файл (библиотека / phplivedocx_config.php) не е разрешена за писане. Всички промени, направени в livedocx конфигурация не са запаметени");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","Проучване напредък данни");//Reset progress data (New)
-define("_DEBUGMODE","Debug режим");//Debug mode (New)
-define("_GENERALSETTINGS","Общи настройки");//General settings (New)
-define("_FINISHLESSONMESSAGE","Поздравления! Приключи на урока. Моля, изберете къде да отиде в момента:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","Следващ урок");//Next lesson (New)
-define("_LESSONFINISHED","Урок завършен");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Вие сте в последния урок можете да посетите");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","Обратната връзка е направено");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Преминете към Обратна връзка");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Успешно промяна Обратна връзка");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","Обратна връзка започна в");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","Получателите са избрани от системен интерфейс според събитието. <BR> - "._NEWSURVEY .": получатели са потребители, участвали в изследването. <BR> - "._ONJOBASSIGNMENT .": Получателите е надзорен орган, избран от служителите. <BR> - "._PROJECTEXPIRY .": получатели са потребители, които са били възложени на проекта.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","Вписан в");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Работата не съществува");//Job does not exist (New)
-define("_SEARCHFORUSER","Намери потребители [Профил критериите]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","Критерии за търсене");//Search criteria (New)
-define("_SUBMITFEEDBACK","Подаване на обратна връзка");//Submit feedback (New)
-define("_FEEDBACKRESULTS","Обратна връзка резултатите");//Feedback results (New)
-define("_PASSWORDREMINDER","Напомняне за парола");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Трябва да попълни всички тестове");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","Обратна връзка доклади");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Избор на обратна връзка");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Доклад за обратна връзка");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","В момента търся папка");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Показване");//Showing (New)
-define("_MATERIALINPROGRESS","Материали в процес на изпълнение");//Material in progress (New)
-define("_ALLMATERIAL","Всички материали");//All material (New)
-define("_CACHEENTRYNOTFOUND","Кеш елементът не е открит");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","Кеш влизане изтекъл");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","Кеш влизане е невалиден");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","Чистка уведомления");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","Известия размер");//Notifications size (New)
-define("_OLDESTNOTIFICATION","Старите уведомяване");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","Чистка уведомления на повече от");//Purge notifications older than (New)
-define("_CURRENTUSERS","Ток");//Current (New)
-define("_SELECTEDCOURSES","Избрани курсове");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","Модул файлове са налице, но не е инсталиран");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","Купон ползване");//Coupon usage
+define("_NEWPAYPALPAYMENT","Нова PayPal плащане");//New paypal payment
+define("_NEWBALANCEPAYMENT","Нова балансово плащане");//New balance payment
+define("_USEDCOUPON","Използвани купон");//Used coupon
+define("_PAYEDWITHBALANCE","Платена с баланс");//Payed with balance
+define("_PAYEDWITHPAYPAL","Платена с PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","Трябва да завършите всички тестове");//You must complete all tests
+define("_ELIMINATEPOSTXSS","Премахване &lt;script&gt; етикети от поста");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","Пренасочване на потребителя след влизане на");//Redirect user after login to
+define("_LESSONSCATALOG","Потребителите урок каталог");//User's lesson catalog
+define("_USERDASHBOARD","Потребителите таблото");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Без заглавие, предвидени за длъжностна характеристика");//No title provided for job description
+define("_EDITORTYPE","Редактор тип");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Покажи само съобщение след подаване на тест");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Този тест е успешно, представени");//This test was successfully submitted
+define("_LEARNINGSTATUS","Учене Статус");//Learning Status
+define("_HASNOTANEMAILADDRESS","не е един е-мейл адрес");//has not an e-mail address
+define("_FEEDBACK","Обратна връзка");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","Вмъкване на потребителите в групата");//Insert users into group
+define("_INSERTINTONEWGROUP","Поставете в нова група");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Поставете в съществуваща група");//Insert into existing group
+define("_NEWGROUPNAME","Нова група име");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Трябва или да изберете съществуваща група или да предоставят нова група име");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Изпращане и редактиране група");//Submit and edit group
+define("_SEARCHGROUPUSERS","Търсене на потребителите да добавят към група");//Search users to add to group
+define("_AFTER","След");//After
+define("_BEFORE","Преди");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Участието на всички потребители в курсовете на групата");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Участие на група потребители в курсовете на системата");//Participation of group users in the courses of the system
+define("_PURGELOGS","Чистка трупи");//Purge logs
+define("_LOGSSIZE","Логове размер");//Logs size
+define("_OLDESTLOG","Стар запис в регистъра");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Чистка трупа на повече от");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","Успешно продухва трупи");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Само% х лица, в които обработват, което е границата за тази операция");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Вие не можете да присвоите на потребителите към този план, защото тя не курсове");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","Учебен план за имоти");//Curriculum properties
+define("_ENTRIES","Влизания");//Entries
+define("_ENTERPRISEOPTIONS","Enterprise опции");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Покажи организационна структура на потребителите");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Покажи лични формата на потребителите");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Покажи некласираните потребителите да надзорни органи");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Разрешаване на потребителите да изтрият надзора споделените файлове");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","моята форма");//my Form
+define("_CLEARQUERYCACHE","Изчистване на заявката кеш");//Clear query cache
+define("_FEEDBACKOPTIONS","Обратна връзка варианти");//Feedback options
+define("_OPTIONSFORFEEDBACK","Опции за обратна връзка");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Наскоро приключи обратна връзка");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx конфигурационен файл (библиотека / phplivedocx_config.php) не е разрешена за писане. Всички промени, направени в livedocx конфигурация не са запаметени");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","Проучване напредък данни");//Reset progress data
+define("_DEBUGMODE","Debug режим");//Debug mode
+define("_GENERALSETTINGS","Общи настройки");//General settings
+define("_FINISHLESSONMESSAGE","Поздравления! Приключи на урока. Моля, изберете къде да отиде в момента:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","Следващ урок");//Next lesson
+define("_LESSONFINISHED","Урок завършен");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Вие сте в последния урок можете да посетите");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Обратната връзка е направено");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Преминете към Обратна връзка");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Успешно промяна Обратна връзка");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Обратна връзка започна в");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","Получателите са избрани от системен интерфейс според събитието. <BR> - "._NEWSURVEY .": получатели са потребители, участвали в изследването. <BR> - "._ONJOBASSIGNMENT .": Получателите е надзорен орган, избран от служителите. <BR> - "._PROJECTEXPIRY .": получатели са потребители, които са били възложени на проекта.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","Вписан в");//Enrolled on
+define("_JOBDOESNOTEXIST","Работата не съществува");//Job does not exist
+define("_SEARCHFORUSER","Намери потребители [Профил критериите]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Критерии за търсене");//Search criteria
+define("_SUBMITFEEDBACK","Подаване на обратна връзка");//Submit feedback
+define("_FEEDBACKRESULTS","Обратна връзка резултатите");//Feedback results
+define("_PASSWORDREMINDER","Напомняне за парола");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Трябва да попълни всички тестове");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Обратна връзка доклади");//Feedback reports
+define("_CHOOSEFEEDBACK","Избор на обратна връзка");//Choose feedback
+define("_REPORTSFORFEEDBACK","Доклад за обратна връзка");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","В момента търся папка");//Currently browsing folder
+define("_CURRENTLYSHOWING","Показване");//Showing
+define("_MATERIALINPROGRESS","Материали в процес на изпълнение");//Material in progress
+define("_ALLMATERIAL","Всички материали");//All material
+define("_CACHEENTRYNOTFOUND","Кеш елементът не е открит");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Кеш влизане изтекъл");//Cache entry expired
+define("_CACHEENTRYINVALID","Кеш влизане е невалиден");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","Чистка уведомления");//Purge notifications
+define("_NOTIFICATIONSSIZE","Известия размер");//Notifications size
+define("_OLDESTNOTIFICATION","Старите уведомяване");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Чистка уведомления на повече от");//Purge notifications older than
+define("_CURRENTUSERS","Ток");//Current
+define("_SELECTEDCOURSES","Избрани курсове");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","Модул файлове са налице, но не е инсталиран");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Това ще установи всички уроци и курсове цена до 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Посочете обект номер за съвпадение на екрана размери");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Разделени със запетая");//Comma separated list (New)
 ?>

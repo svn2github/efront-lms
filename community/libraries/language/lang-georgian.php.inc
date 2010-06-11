@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","");//Activating supervisor field name
 define("_LEAVEEMPTYTONOTUSE","");//Leave empty to ommit
 define("_PLEASESELECT","");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","არასწორი პარამეტრი");//Invalid parameter (New)
+define("_INVALIDPARAMETER","არასწორი პარამეტრი");//Invalid parameter
 define("_IMS","");//IMS
 define("_IMSIMPORT","");//Import IMS Content
 define("_IMSEXPORT","");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","");//Tooltip
 define("_HIDDEN","");//Hidden from users
 define("_RESETSCORMDATA","");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","");//Advanced settings
-define("_ADDINSTANCE","დაამატეთ მაგალითად");//Add instance (New)
-define("_INSTANCE","მაგალითად");//Instance (New)
-define("_COURSECODE","კურსის კოდი");//Course code (New)
-define("_TRAININGHOURS","სასწავლო საათი");//Training hours (New)
-define("_COURSEINSTANCES","რა თქმა უნდა შემთხვევები");//Course instances (New)
-define("_CAPACITY","ტევადობა");//Capacity (New)
-define("_SEATSREMAINING","ადგილები დარჩენილია");//Seats remaining (New)
-define("_STARTDATE","დაწყების თარიღი");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","დარწმუნებული ხართ, რომ გსურთ წაშალოთ ეს მაგალითად?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","მართებული: მაგალითად");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","მაგალითად გაკვეთილები");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","მაგალითად users");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","მაგალითად უნარები");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","პარამეტრები მაგალითად");//Options for instance (New)
-define("_JUMPTO","გადასვლა");//Jump to (New)
-define("_PARENTCOURSE","მშობელი კურსი");//Parent Course (New)
-define("_LOCATIONBRANCH","ადგილმდებარეობა (ფილიალი)");//Location (branch) (New)
-define("_SELECTBRANCH","აირჩიეთ ფილიალი");//Select branch (New)
-define("_SHARED","საერთო");//Shared (New)
-define("_UNIQUE","უნიკალური");//Unique (New)
-define("_MODE","რეჟიმი");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","გამოყენება მხოლოდ კურსების კატალოგი");//Use only courses in catalog (New)
-define("_ALLJOBS","ყველა სამუშაოები");//All jobs (New)
+define("_ADDINSTANCE","დაამატეთ მაგალითად");//Add instance
+define("_INSTANCE","მაგალითად");//Instance
+define("_COURSECODE","კურსის კოდი");//Course code
+define("_TRAININGHOURS","სასწავლო საათი");//Training hours
+define("_COURSEINSTANCES","რა თქმა უნდა შემთხვევები");//Course instances
+define("_CAPACITY","ტევადობა");//Capacity
+define("_SEATSREMAINING","ადგილები დარჩენილია");//Seats remaining
+define("_STARTDATE","დაწყების თარიღი");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","დარწმუნებული ხართ, რომ გსურთ წაშალოთ ეს მაგალითად?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","მართებული: მაგალითად");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","მაგალითად გაკვეთილები");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","მაგალითად users");//Instance users
+define("_SKILLSOFFEREDINSTANCE","მაგალითად უნარები");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","პარამეტრები მაგალითად");//Options for instance
+define("_JUMPTO","გადასვლა");//Jump to
+define("_PARENTCOURSE","მშობელი კურსი");//Parent Course
+define("_LOCATIONBRANCH","ადგილმდებარეობა (ფილიალი)");//Location (branch)
+define("_SELECTBRANCH","აირჩიეთ ფილიალი");//Select branch
+define("_SHARED","საერთო");//Shared
+define("_UNIQUE","უნიკალური");//Unique
+define("_MODE","რეჟიმი");//Mode
+define("_USEONLYCOURSESINCATALOG","გამოყენება მხოლოდ კურსების კატალოგი");//Use only courses in catalog
+define("_ALLJOBS","ყველა სამუშაოები");//All jobs
 define("_SHOWMOTTOONHEADER","");//Show name and motto also on header
-define("_ASSIGNCOURSES","Assign კურსები");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","აირჩიეთ კურსები დავავალო ყველა მომხმარებლებს ი");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","არ მომხმარებლებს არ მოიძებნა");//No users have been found (New)
-define("_ASSIGNMENT","დავალება");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","ნებისმიერი ყველაზე დაბალი დონის");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","ნებისმიერი უბრალოდ ზემოთ ყველაზე დაბალი დონის");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","კურსები არ არის რეგისტრირებული");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","არა აუცილებელი სასწავლო უკვე განსაზღვრული არ არის");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","მოთხოვნილი სწავლება");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","ახალი სასწავლო მდგომარეობა");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","საჭირო სასწავლო კურსები");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","დაამატეთ ალტერნატიული სწავლება");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","საჭირო გახდა სასწავლო");//Has required training (New)
+define("_ASSIGNCOURSES","Assign კურსები");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","აირჩიეთ კურსები დავავალო ყველა მომხმარებლებს ი");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","არ მომხმარებლებს არ მოიძებნა");//No users have been found
+define("_ASSIGNMENT","დავალება");//Assignment
+define("_ANYLOWESTLEVELBRANCH","ნებისმიერი ყველაზე დაბალი დონის");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","ნებისმიერი უბრალოდ ზემოთ ყველაზე დაბალი დონის");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","კურსები არ არის რეგისტრირებული");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","არა აუცილებელი სასწავლო უკვე განსაზღვრული არ არის");//No required training has been defined yet
+define("_REQUIREDTRAINING","მოთხოვნილი სწავლება");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","ახალი სასწავლო მდგომარეობა");//New training condition
+define("_REQUIREDTRAININGCOURSES","საჭირო სასწავლო კურსები");//Required training courses
+define("_ADDALTERNATIVETRAINING","დაამატეთ ალტერნატიული სწავლება");//Add alternative training
+define("_HASREQUIREDTRAINING","საჭირო გახდა სასწავლო");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","");//No results found in glossary
-define("_PROJECTSSCORE","პროექტები ქულა");//Projects score (New)
-define("_TESTSSCORE","ტესტების ქულა");//Tests score (New)
+define("_PROJECTSSCORE","პროექტები ქულა");//Projects score
+define("_TESTSSCORE","ტესტების ქულა");//Tests score
 define("_AUTOLOGIN","");//Auto login
 define("_ACCESSLINK","");//Access link
 define("_AUTOLOGINITHLINK","");//User can login automatically by link
 define("_DEFAULTUSERTYPE","");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","ნება დამოუკიდებელი გაკვეთილები");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","არ preselected თარიღი");//No preselected date (New)
-define("_CURRENTDATE","მიმდინარე თარიღი");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","ნება დამოუკიდებელი გაკვეთილები");//Allow independent lessons
+define("_NOPRESELECTEDDATE","არ preselected თარიღი");//No preselected date
+define("_CURRENTDATE","მიმდინარე თარიღი");//Current date
 define("_SHOWHELP","");//Display help links
 define("_ALLOWUSERANSERALLRONG","");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","");//Only if test repetitions are allowed
 define("_USERREDOWRONG","");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","");//Default theme can not be inported
-define("_ACCESSEXPIRED","წვდომის გაუვიდა");//Access expired (New)
-define("_LESSONSCHEDULE","გაკვეთილების განრიგი");//Lessons schedule (New)
-define("_COURSESTARTSAT","კურსი იწყება");//The course starts on (New)
-define("_COURSEENDSAT","კურსი სრულდება");//The course ends on (New)
-define("_ENDDATE","ბოლო თარიღი");//End date (New)
-define("_SELECTSKILLCATEGORY","აირჩიეთ უნარი კატეგორიაში");//Select skill category (New)
+define("_ACCESSEXPIRED","წვდომის გაუვიდა");//Access expired
+define("_LESSONSCHEDULE","გაკვეთილების განრიგი");//Lessons schedule
+define("_COURSESTARTSAT","კურსი იწყება");//The course starts on
+define("_COURSEENDSAT","კურსი სრულდება");//The course ends on
+define("_ENDDATE","ბოლო თარიღი");//End date
+define("_SELECTSKILLCATEGORY","აირჩიეთ უნარი კატეგორიაში");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","");//Imported user
 define("_USERSTOCOURSES","");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","");//Coupon
 define("_INVALIDCOUPON","");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","");//Click to enter discount coupon
 define("_TESTREDONE","");//Corrected
-define("_CURRICULUMS","კურიკულუმი");//Curricula (New)
-define("_CURRICULUM","კურიკულუმი");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","Assign სასწავლო ჯგუფის წევრებს");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Assign სასწავლო მომხმარებელი");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","დაამატეთ კურიკულუმი");//Add curriculum (New)
-define("_EDITCURRICULUM","Edit კურიკულუმი");//Edit curriculum (New)
+define("_CURRICULUMS","კურიკულუმი");//Curricula
+define("_CURRICULUM","კურიკულუმი");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Assign სასწავლო ჯგუფის წევრებს");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Assign სასწავლო მომხმარებელი");//Assign curriculum to user
+define("_ADDCURRICULUM","დაამატეთ კურიკულუმი");//Add curriculum
+define("_EDITCURRICULUM","Edit კურიკულუმი");//Edit curriculum
 define("_COULDNOTFINDCOURSE","");//Could not find course
 define("_IMPORTRESULTSFOR","");//Import results for
-define("_COUPONUSAGE","კუპონი გამოყენება");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","ახალი PayPal გადახდა");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","ახალი ბალანსი გადახდის");//New balance payment (New)
-define("_USEDCOUPON","მეორადი ტალონური");//Used coupon (New)
-define("_PAYEDWITHBALANCE","პროფეს ერთად ბალანსი");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","პროფეს ერთად PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","თქვენ უნდა შეავსოთ ყველა ტესტი");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","ამოღება &lt;script&gt; tags საწყისი POST");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","გადამისამართება მომხმარებლის შემდგომ ავტორიზაცია");//Redirect user after login to (New)
-define("_LESSONSCATALOG","მომხმარებლის გაკვეთილი კატალოგი");//User's lesson catalog (New)
-define("_USERDASHBOARD","მომხმარებლის პარამეტრების პანელი");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","No title გათვალისწინებული ვაკანსიის აღწერილობა");//No title provided for job description (New)
-define("_EDITORTYPE","რედაქტორის ტიპი");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","აჩვენეთ მხოლოდ გაგზავნა შემდეგ წარდგენის ტესტი");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","ამ ტესტირების წარმატებით წარმოადგინა");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","სწავლის სტატუსი");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","არ აქვს e-mail მისამართი");//has not an e-mail address (New)
-define("_FEEDBACK","დაგვიკავშირდით");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","ჩადეთ მომხმარებლებს შევიდა ჯგუფის");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","ჩადეთ შევიდა ახალი ჯგუფი");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","ჩადეთ ენაზე არსებული ჯგუფი");//Insert into existing group (New)
-define("_NEWGROUPNAME","ახალი ჯგუფის სახელი");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","თქვენ უნდა აირჩიოთ ან უკვე არსებული ჯგუფი, ან უზრუნველყოფს ახალი ჯგუფის სახელი");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","ითამაშე და რედაქტირება ჯგუფი");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","მომხმარებლების ძებნა დაამატოთ ჯგუფი");//Search users to add to group (New)
-define("_AFTER","შემდეგ");//After (New)
-define("_BEFORE","ადრე");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","მონაწილეობის ყველა მომხმარებელი კურსები ჯგუფი");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","მონაწილეობა ჯგუფის წევრებს ამ კურსის სისტემა");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","რედ ჟურნალი");//Purge logs (New)
-define("_LOGSSIZE","ლოგები ზომა");//Logs size (New)
-define("_OLDESTLOG","უძველესი log entry");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","რედ ჟურნალი ძველი ვიდრე");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","წარმატებით ხალხის მტრებად შერაცხეს ჟურნალი");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","მხოლოდ% x პირებისათვის, სადაც დამუშავებული, რომელიც ლიმიტი ამ ოპერაციის");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","თქვენ არ შეგიძლიათ მინიჭებას წევრებს ამ პროგრამით, რადგან მას არა აქვს კურსები");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","კურიკულუმი თვისებები");//Curriculum properties (New)
-define("_ENTRIES","ჩანაწერი");//Entries (New)
-define("_ENTERPRISEOPTIONS","საწარმოს პარამეტრები");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","აჩვენეთ ორგანიზაციის ჰიტ users");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","აჩვენეთ პირადი ფორმა users");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","აჩვენეთ unassigned მომხმარებლებს სუპერვაიზერების");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","ნება მომხმარებლების წაშლა ხელმძღვანელი გაუზიარა ფაილი:");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","ჩემი ფორმა");//my Form (New)
-define("_CLEARQUERYCACHE","ნათელი შეკითხვაზე ქეში");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","გამოხმაურება პარამეტრები");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","პარამეტრები გამოხმაურება");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","ახლახანს დაასრულა გამოხმაურება");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx კონფიგურაციის ფაილი (ბიბლიოთეკების / phplivedocx_config.php) არ არის ჩაწერადი. ნებისმიერი ცვლილების თქვენ გაკეთდა livedocx კონფიგურაცია ვერ შეინახება");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","გადატვირთვის მიმდინარეობს მონაცემების");//Reset progress data (New)
-define("_DEBUGMODE","გამართვის რეჟიმი");//Debug mode (New)
-define("_GENERALSETTINGS","ზოგადი პარამეტრები");//General settings (New)
-define("_FINISHLESSONMESSAGE","გილოცავთ! თქვენ არ დასრულებულა გაკვეთილი. გთხოვთ აირჩიოთ ადგილი, წავიდეთ ახლა:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","შემდეგი გაკვეთილი");//Next lesson (New)
-define("_LESSONFINISHED","გაკვეთილი დასრულდა");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","თქვენ ხართ at ბოლო გაკვეთილი შეგიძლიათ ესტუმროთ");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","გამოხმაურება კეთდება");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","შეკვეთის გამოხმაურება");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","წარმატებით განახლდა გამოხმაურება");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","დაგვიკავშირდით დაიწყო");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","მიმღებთა შერჩეული სისტემა ინტერფეისი მიხედვით მოვლენაა. <BR> - "._NEWSURVEY .": მიმღები არიან მომხმარებლებს მონაწილეობას გამოკითხვაში. <BR> - "._ONJOBASSIGNMENT .": მიმღებთა არის ზედამხედველის მიერ შერჩეული თანამშრომელი. <BR> - "._PROJECTEXPIRY .": მიმღები არის users, რომ უკვე დაავალა პროექტი.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","ჩაირიცხა შესახებ");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","სამუშაო არ არსებობს");//Job does not exist (New)
-define("_SEARCHFORUSER","მოძებნე მომხმარებლებს [ნახვა კრიტერიუმი]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","ძებნის კრიტერიუმები");//Search criteria (New)
-define("_SUBMITFEEDBACK","ითამაშე გამოხმაურება");//Submit feedback (New)
-define("_FEEDBACKRESULTS","გამოხმაურება შედეგები");//Feedback results (New)
-define("_PASSWORDREMINDER","პაროლის შეხსენება");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","უნდა შეავსოთ ყველა ტესტი");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","გამოხმაურება ანგარიშები");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","აირჩიეთ გამოხმაურება");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","ანგარიშის გამოხმაურება");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","ინფორმაცია ათვალიერებს საქაღალდე");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","ჩვენება");//Showing (New)
-define("_MATERIALINPROGRESS","მასალების წარმოება");//Material in progress (New)
-define("_ALLMATERIAL","ყველა მასალა");//All material (New)
-define("_CACHEENTRYNOTFOUND","Cache ჩანაწერი არ მოიძებნა");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","Cache ჩანაწერი გაუვიდა");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","Cache ჩანაწერი არასწორია");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","რედ შეტყობინებები");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","შეტყობინებები ზომა");//Notifications size (New)
-define("_OLDESTNOTIFICATION","უძველესი შეტყობინება");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","რედ შეტყობინების ძველი ვიდრე");//Purge notifications older than (New)
-define("_CURRENTUSERS","მიმდინარე");//Current (New)
-define("_SELECTEDCOURSES","არჩეული კურსები");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","მოდულის ფაილი იმყოფება, მაგრამ ეს არ არის დაინსტალირებული");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","კუპონი გამოყენება");//Coupon usage
+define("_NEWPAYPALPAYMENT","ახალი PayPal გადახდა");//New paypal payment
+define("_NEWBALANCEPAYMENT","ახალი ბალანსი გადახდის");//New balance payment
+define("_USEDCOUPON","მეორადი ტალონური");//Used coupon
+define("_PAYEDWITHBALANCE","პროფეს ერთად ბალანსი");//Payed with balance
+define("_PAYEDWITHPAYPAL","პროფეს ერთად PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","თქვენ უნდა შეავსოთ ყველა ტესტი");//You must complete all tests
+define("_ELIMINATEPOSTXSS","ამოღება &lt;script&gt; tags საწყისი POST");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","გადამისამართება მომხმარებლის შემდგომ ავტორიზაცია");//Redirect user after login to
+define("_LESSONSCATALOG","მომხმარებლის გაკვეთილი კატალოგი");//User's lesson catalog
+define("_USERDASHBOARD","მომხმარებლის პარამეტრების პანელი");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","No title გათვალისწინებული ვაკანსიის აღწერილობა");//No title provided for job description
+define("_EDITORTYPE","რედაქტორის ტიპი");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","აჩვენეთ მხოლოდ გაგზავნა შემდეგ წარდგენის ტესტი");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","ამ ტესტირების წარმატებით წარმოადგინა");//This test was successfully submitted
+define("_LEARNINGSTATUS","სწავლის სტატუსი");//Learning Status
+define("_HASNOTANEMAILADDRESS","არ აქვს e-mail მისამართი");//has not an e-mail address
+define("_FEEDBACK","დაგვიკავშირდით");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","ჩადეთ მომხმარებლებს შევიდა ჯგუფის");//Insert users into group
+define("_INSERTINTONEWGROUP","ჩადეთ შევიდა ახალი ჯგუფი");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","ჩადეთ ენაზე არსებული ჯგუფი");//Insert into existing group
+define("_NEWGROUPNAME","ახალი ჯგუფის სახელი");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","თქვენ უნდა აირჩიოთ ან უკვე არსებული ჯგუფი, ან უზრუნველყოფს ახალი ჯგუფის სახელი");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","ითამაშე და რედაქტირება ჯგუფი");//Submit and edit group
+define("_SEARCHGROUPUSERS","მომხმარებლების ძებნა დაამატოთ ჯგუფი");//Search users to add to group
+define("_AFTER","შემდეგ");//After
+define("_BEFORE","ადრე");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","მონაწილეობის ყველა მომხმარებელი კურსები ჯგუფი");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","მონაწილეობა ჯგუფის წევრებს ამ კურსის სისტემა");//Participation of group users in the courses of the system
+define("_PURGELOGS","რედ ჟურნალი");//Purge logs
+define("_LOGSSIZE","ლოგები ზომა");//Logs size
+define("_OLDESTLOG","უძველესი log entry");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","რედ ჟურნალი ძველი ვიდრე");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","წარმატებით ხალხის მტრებად შერაცხეს ჟურნალი");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","მხოლოდ% x პირებისათვის, სადაც დამუშავებული, რომელიც ლიმიტი ამ ოპერაციის");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","თქვენ არ შეგიძლიათ მინიჭებას წევრებს ამ პროგრამით, რადგან მას არა აქვს კურსები");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","კურიკულუმი თვისებები");//Curriculum properties
+define("_ENTRIES","ჩანაწერი");//Entries
+define("_ENTERPRISEOPTIONS","საწარმოს პარამეტრები");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","აჩვენეთ ორგანიზაციის ჰიტ users");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","აჩვენეთ პირადი ფორმა users");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","აჩვენეთ unassigned მომხმარებლებს სუპერვაიზერების");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","ნება მომხმარებლების წაშლა ხელმძღვანელი გაუზიარა ფაილი:");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","ჩემი ფორმა");//my Form
+define("_CLEARQUERYCACHE","ნათელი შეკითხვაზე ქეში");//Clear query cache
+define("_FEEDBACKOPTIONS","გამოხმაურება პარამეტრები");//Feedback options
+define("_OPTIONSFORFEEDBACK","პარამეტრები გამოხმაურება");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","ახლახანს დაასრულა გამოხმაურება");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx კონფიგურაციის ფაილი (ბიბლიოთეკების / phplivedocx_config.php) არ არის ჩაწერადი. ნებისმიერი ცვლილების თქვენ გაკეთდა livedocx კონფიგურაცია ვერ შეინახება");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","გადატვირთვის მიმდინარეობს მონაცემების");//Reset progress data
+define("_DEBUGMODE","გამართვის რეჟიმი");//Debug mode
+define("_GENERALSETTINGS","ზოგადი პარამეტრები");//General settings
+define("_FINISHLESSONMESSAGE","გილოცავთ! თქვენ არ დასრულებულა გაკვეთილი. გთხოვთ აირჩიოთ ადგილი, წავიდეთ ახლა:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","შემდეგი გაკვეთილი");//Next lesson
+define("_LESSONFINISHED","გაკვეთილი დასრულდა");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","თქვენ ხართ at ბოლო გაკვეთილი შეგიძლიათ ესტუმროთ");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","გამოხმაურება კეთდება");//Feedback is done
+define("_PROCEEDTOFEEDBACK","შეკვეთის გამოხმაურება");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","წარმატებით განახლდა გამოხმაურება");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","დაგვიკავშირდით დაიწყო");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","მიმღებთა შერჩეული სისტემა ინტერფეისი მიხედვით მოვლენაა. <BR> - "._NEWSURVEY .": მიმღები არიან მომხმარებლებს მონაწილეობას გამოკითხვაში. <BR> - "._ONJOBASSIGNMENT .": მიმღებთა არის ზედამხედველის მიერ შერჩეული თანამშრომელი. <BR> - "._PROJECTEXPIRY .": მიმღები არის users, რომ უკვე დაავალა პროექტი.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","ჩაირიცხა შესახებ");//Enrolled on
+define("_JOBDOESNOTEXIST","სამუშაო არ არსებობს");//Job does not exist
+define("_SEARCHFORUSER","მოძებნე მომხმარებლებს [ნახვა კრიტერიუმი]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","ძებნის კრიტერიუმები");//Search criteria
+define("_SUBMITFEEDBACK","ითამაშე გამოხმაურება");//Submit feedback
+define("_FEEDBACKRESULTS","გამოხმაურება შედეგები");//Feedback results
+define("_PASSWORDREMINDER","პაროლის შეხსენება");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","უნდა შეავსოთ ყველა ტესტი");//Must complete all tests
+define("_FEEDBACKSTATISTICS","გამოხმაურება ანგარიშები");//Feedback reports
+define("_CHOOSEFEEDBACK","აირჩიეთ გამოხმაურება");//Choose feedback
+define("_REPORTSFORFEEDBACK","ანგარიშის გამოხმაურება");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","ინფორმაცია ათვალიერებს საქაღალდე");//Currently browsing folder
+define("_CURRENTLYSHOWING","ჩვენება");//Showing
+define("_MATERIALINPROGRESS","მასალების წარმოება");//Material in progress
+define("_ALLMATERIAL","ყველა მასალა");//All material
+define("_CACHEENTRYNOTFOUND","Cache ჩანაწერი არ მოიძებნა");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Cache ჩანაწერი გაუვიდა");//Cache entry expired
+define("_CACHEENTRYINVALID","Cache ჩანაწერი არასწორია");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","რედ შეტყობინებები");//Purge notifications
+define("_NOTIFICATIONSSIZE","შეტყობინებები ზომა");//Notifications size
+define("_OLDESTNOTIFICATION","უძველესი შეტყობინება");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","რედ შეტყობინების ძველი ვიდრე");//Purge notifications older than
+define("_CURRENTUSERS","მიმდინარე");//Current
+define("_SELECTEDCOURSES","არჩეული კურსები");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","მოდულის ფაილი იმყოფება, მაგრამ ეს არ არის დაინსტალირებული");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","ეს დააყენებს ყველა გაკვეთილი და კურსები ღირებულების 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","მიუთითეთ ობიექტის პირადობის for ეკრანზე შესატყვისი ზომები");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","მძიმეებით");//Comma separated list (New)
 ?>

@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Активация имя руководите�
 define("_LEAVEEMPTYTONOTUSE","Оставьте поле пустым, чтобы ommit");//Leave empty to ommit
 define("_PLEASESELECT","Пожалуйста, выберите");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ваш руководитель будет активировать аккаунт");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Недопустимый параметр");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Недопустимый параметр");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Импорт IMS Content");//Import IMS Content
 define("_IMSEXPORT","Экспорт IMS Content");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Скрыты от пользователей");//Hidden from users
 define("_RESETSCORMDATA","Сброс данных пользователей");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Расширенные настройки");//Advanced settings
-define("_ADDINSTANCE","Добавить инстанции");//Add instance (New)
-define("_INSTANCE","Пример");//Instance (New)
-define("_COURSECODE","Код курса");//Course code (New)
-define("_TRAININGHOURS","Обучение часов");//Training hours (New)
-define("_COURSEINSTANCES","Курс случаях");//Course instances (New)
-define("_CAPACITY","Мощность");//Capacity (New)
-define("_SEATSREMAINING","Остальные места");//Seats remaining (New)
-define("_STARTDATE","Дата начала");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Вы уверены, что хотите удалить этот экземпляр?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","Изменить инстанции");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","Инстанции уроки");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","Инстанции пользователей");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","Инстанции навыки");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Функции, например");//Options for instance (New)
-define("_JUMPTO","Перейти к");//Jump to (New)
-define("_PARENTCOURSE","Родитель курс");//Parent Course (New)
-define("_LOCATIONBRANCH","Расположение (филиал)");//Location (branch) (New)
-define("_SELECTBRANCH","Выберите отрасль");//Select branch (New)
-define("_SHARED","Общие");//Shared (New)
-define("_UNIQUE","Уникальный");//Unique (New)
-define("_MODE","Режим");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","Используйте только курсы в каталоге");//Use only courses in catalog (New)
-define("_ALLJOBS","Все вакансии");//All jobs (New)
+define("_ADDINSTANCE","Добавить инстанции");//Add instance
+define("_INSTANCE","Пример");//Instance
+define("_COURSECODE","Код курса");//Course code
+define("_TRAININGHOURS","Обучение часов");//Training hours
+define("_COURSEINSTANCES","Курс случаях");//Course instances
+define("_CAPACITY","Мощность");//Capacity
+define("_SEATSREMAINING","Остальные места");//Seats remaining
+define("_STARTDATE","Дата начала");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Вы уверены, что хотите удалить этот экземпляр?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","Изменить инстанции");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","Инстанции уроки");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","Инстанции пользователей");//Instance users
+define("_SKILLSOFFEREDINSTANCE","Инстанции навыки");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Функции, например");//Options for instance
+define("_JUMPTO","Перейти к");//Jump to
+define("_PARENTCOURSE","Родитель курс");//Parent Course
+define("_LOCATIONBRANCH","Расположение (филиал)");//Location (branch)
+define("_SELECTBRANCH","Выберите отрасль");//Select branch
+define("_SHARED","Общие");//Shared
+define("_UNIQUE","Уникальный");//Unique
+define("_MODE","Режим");//Mode
+define("_USEONLYCOURSESINCATALOG","Используйте только курсы в каталоге");//Use only courses in catalog
+define("_ALLJOBS","Все вакансии");//All jobs
 define("_SHOWMOTTOONHEADER","Показать название и девиз также на заголовке");//Show name and motto also on header
-define("_ASSIGNCOURSES","Назначение курсов");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","Выбор курсов присвоить всем пользователям найти");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","Нет пользователей, которые были найдены");//No users have been found (New)
-define("_ASSIGNMENT","Назначение");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Любой на самом низком уровне");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Любое чуть выше самого низкого уровня");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","Нет курсы были зарегистрированы");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","Нет необходимой профессиональной подготовки была определена еще");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","Обязательное обучение");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","Новый учебный условие");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","Обязательные курсы");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Добавить переподготовки");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","С необходимой профессиональной подготовки");//Has required training (New)
+define("_ASSIGNCOURSES","Назначение курсов");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","Выбор курсов присвоить всем пользователям найти");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","Нет пользователей, которые были найдены");//No users have been found
+define("_ASSIGNMENT","Назначение");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Любой на самом низком уровне");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Любое чуть выше самого низкого уровня");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","Нет курсы были зарегистрированы");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","Нет необходимой профессиональной подготовки была определена еще");//No required training has been defined yet
+define("_REQUIREDTRAINING","Обязательное обучение");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","Новый учебный условие");//New training condition
+define("_REQUIREDTRAININGCOURSES","Обязательные курсы");//Required training courses
+define("_ADDALTERNATIVETRAINING","Добавить переподготовки");//Add alternative training
+define("_HASREQUIREDTRAINING","С необходимой профессиональной подготовки");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Результаты поиска в глоссарии");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Не найдено в глоссарии");//No results found in glossary
-define("_PROJECTSSCORE","Проекты оценка");//Projects score (New)
-define("_TESTSSCORE","Тесты оценка");//Tests score (New)
+define("_PROJECTSSCORE","Проекты оценка");//Projects score
+define("_TESTSSCORE","Тесты оценка");//Tests score
 define("_AUTOLOGIN","Авто Логин");//Auto login
 define("_ACCESSLINK","Доступ ссылке");//Access link
 define("_AUTOLOGINITHLINK","Пользователь может Логин автоматически ссылке");//User can login automatically by link
 define("_DEFAULTUSERTYPE","По умолчанию тип пользователя");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Силами студенческого ответить на все вопросы");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Вы должны ответить на все вопросы");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Разрешить независимых уроков");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Нет предварительно даты");//No preselected date (New)
-define("_CURRENTDATE","Текущий день");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Разрешить независимых уроков");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Нет предварительно даты");//No preselected date
+define("_CURRENTDATE","Текущий день");//Current date
 define("_SHOWHELP","Показать ссылки помощь");//Display help links
 define("_ALLOWUSERANSERALLRONG","Разрешить студентам повторить только неправильно ответил на вопросы");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Только в случае повторения испытаний позволили");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Повторить только неправильно ответил");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Тема по умолчанию не может быть inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Доступ истек");//Access expired (New)
-define("_LESSONSCHEDULE","Уроки расписание");//Lessons schedule (New)
-define("_COURSESTARTSAT","Конечно начинается");//The course starts on (New)
-define("_COURSEENDSAT","Конечно заканчивается");//The course ends on (New)
-define("_ENDDATE","Дата окончания срока");//End date (New)
-define("_SELECTSKILLCATEGORY","Выберите мастерство категории");//Select skill category (New)
+define("_ACCESSEXPIRED","Доступ истек");//Access expired
+define("_LESSONSCHEDULE","Уроки расписание");//Lessons schedule
+define("_COURSESTARTSAT","Конечно начинается");//The course starts on
+define("_COURSEENDSAT","Конечно заканчивается");//The course ends on
+define("_ENDDATE","Дата окончания срока");//End date
+define("_SELECTSKILLCATEGORY","Выберите мастерство категории");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Нет строке заголовка была определена или заголовок не совместимы с импортом типа");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Импорт пользователей");//Imported user
 define("_USERSTOCOURSES","Медали на курсы");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Купон");//Coupon
 define("_INVALIDCOUPON","Неверный купон");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Нажмите, чтобы ввести купон на скидку");//Click to enter discount coupon
 define("_TESTREDONE","Исправленный");//Corrected
-define("_CURRICULUMS","Учебные программы");//Curricula (New)
-define("_CURRICULUM","Учебный план");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","Назначение программы для группы пользователей");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Назначение программы для пользователей");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Добавить программу");//Add curriculum (New)
-define("_EDITCURRICULUM","Изменить программу");//Edit curriculum (New)
+define("_CURRICULUMS","Учебные программы");//Curricula
+define("_CURRICULUM","Учебный план");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Назначение программы для группы пользователей");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Назначение программы для пользователей");//Assign curriculum to user
+define("_ADDCURRICULUM","Добавить программу");//Add curriculum
+define("_EDITCURRICULUM","Изменить программу");//Edit curriculum
 define("_COULDNOTFINDCOURSE","не нашел курс");//Could not find course
 define("_IMPORTRESULTSFOR","Импорт результатов");//Import results for
-define("_COUPONUSAGE","Купон использования");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","Новый платеж PayPal");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","Новый платежный баланс");//New balance payment (New)
-define("_USEDCOUPON","Б / у купон");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Платные с балансом");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Платные с PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","Вы должны заполнить все тесты");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","Удалить &lt;script&gt; теги POST");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","Перенаправление пользователя после Войти в");//Redirect user after login to (New)
-define("_LESSONSCATALOG","урок пользователей каталога");//User's lesson catalog (New)
-define("_USERDASHBOARD","Пользователь в приборной панели");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Без названия предусмотренных должностной инструкцией");//No title provided for job description (New)
-define("_EDITORTYPE","Редактор типа");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Показать только после отправки сообщения испытания");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","Этот тест был успешно представили");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Статус обучения");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","не адрес электронной почты");//has not an e-mail address (New)
-define("_FEEDBACK","Обратная связь");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","Включить в группу пользователей");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Включить в новую группу");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Включить в существующую группу");//Insert into existing group (New)
-define("_NEWGROUPNAME","Новое имя группы");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Вы должны либо выбрать существующую группу или обеспечить новые названия группы");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Добавить и редактировать группы");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","Поиск пользователей, чтобы добавить в группу");//Search users to add to group (New)
-define("_AFTER","После");//After (New)
-define("_BEFORE","До");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Участие всех пользователей в курсах группы");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Участие группы пользователей в курсах системы");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Чистки журналы");//Purge logs (New)
-define("_LOGSSIZE","Логи размера");//Logs size (New)
-define("_OLDESTLOG","Старые записи в журнале");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Чистки журналов старше");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","Успешно очищены журналы");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Только% х образований, в которых обрабатываются, что является пределом для этой операции");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Вы не можете назначить пользователей в эту программу, поскольку она не имеет курсы");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","Учебный свойства");//Curriculum properties (New)
-define("_ENTRIES","Записи");//Entries (New)
-define("_ENTERPRISEOPTIONS","Предприятие параметры");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Показать организационной структуры для пользователей");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Показать личные формы для пользователей");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Показать неназначенный пользователей для руководителей");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Разрешить пользователям удалять руководитель общих файлов");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","Моя форма");//my Form (New)
-define("_CLEARQUERYCACHE","Очистить кэш запросов");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","Обратная связь параметры");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Функции для обратной связи");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Недавно завершила обратной связи");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx конфигурационного файла (библиотеки / phplivedocx_config.php) не доступен для записи. Любые изменения, внесенные в конфигурацию livedocx не были сохранены");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","Сброс данных прогресса");//Reset progress data (New)
-define("_DEBUGMODE","Debug режиме");//Debug mode (New)
-define("_GENERALSETTINGS","Общие настройки");//General settings (New)
-define("_FINISHLESSONMESSAGE","Поздравляем! Вы закончили урок. Пожалуйста, выберите место для дальше:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","Следующий урок");//Next lesson (New)
-define("_LESSONFINISHED","Урок готовой");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Вы находитесь на прошлом уроке, Вы можете посетить");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","Обратная связь осуществляется");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Приступить к обратной связи");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Успешное изменение обратной связи");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","Обратная связь началась");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","Получатели выбираются интерфейса системы в зависимости от события. <BR> - "._NEWSURVEY .": Получателей пользователей, участвующих в опросе. <BR> - "._ONJOBASSIGNMENT .": получателей руководитель выбранного работника. <BR> - "._PROJECTEXPIRY .": получатели являются пользователи, которые были назначены проекта.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON",", Обучающихся по");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Работа не существует");//Job does not exist (New)
-define("_SEARCHFORUSER","Найти пользователей [профиль критериев]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","Критерии поиска");//Search criteria (New)
-define("_SUBMITFEEDBACK","Отправить отзыв");//Submit feedback (New)
-define("_FEEDBACKRESULTS","Обратная связь результатов");//Feedback results (New)
-define("_PASSWORDREMINDER","Напомнить пароль");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Должны завершить все тесты");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","Обратная связь доклады");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Выбрать отзыв");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Доклад для обратной связи");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","В настоящее время просмотра папку");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Показ");//Showing (New)
-define("_MATERIALINPROGRESS","Материал в процессе");//Material in progress (New)
-define("_ALLMATERIAL","Все материалы");//All material (New)
-define("_CACHEENTRYNOTFOUND","Кэш запись не найдена");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","Запись кэша истек");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","Кэш запись недействительными");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","Чистки уведомления");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","Уведомления размера");//Notifications size (New)
-define("_OLDESTNOTIFICATION","Старые уведомления");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","Чистки уведомления старше");//Purge notifications older than (New)
-define("_CURRENTUSERS","Ток");//Current (New)
-define("_SELECTEDCOURSES","Избранные курсы");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","Модуль файлы присутствуют, но он не установлен");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","Купон использования");//Coupon usage
+define("_NEWPAYPALPAYMENT","Новый платеж PayPal");//New paypal payment
+define("_NEWBALANCEPAYMENT","Новый платежный баланс");//New balance payment
+define("_USEDCOUPON","Б / у купон");//Used coupon
+define("_PAYEDWITHBALANCE","Платные с балансом");//Payed with balance
+define("_PAYEDWITHPAYPAL","Платные с PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","Вы должны заполнить все тесты");//You must complete all tests
+define("_ELIMINATEPOSTXSS","Удалить &lt;script&gt; теги POST");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","Перенаправление пользователя после Войти в");//Redirect user after login to
+define("_LESSONSCATALOG","урок пользователей каталога");//User's lesson catalog
+define("_USERDASHBOARD","Пользователь в приборной панели");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Без названия предусмотренных должностной инструкцией");//No title provided for job description
+define("_EDITORTYPE","Редактор типа");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Показать только после отправки сообщения испытания");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Этот тест был успешно представили");//This test was successfully submitted
+define("_LEARNINGSTATUS","Статус обучения");//Learning Status
+define("_HASNOTANEMAILADDRESS","не адрес электронной почты");//has not an e-mail address
+define("_FEEDBACK","Обратная связь");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","Включить в группу пользователей");//Insert users into group
+define("_INSERTINTONEWGROUP","Включить в новую группу");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Включить в существующую группу");//Insert into existing group
+define("_NEWGROUPNAME","Новое имя группы");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Вы должны либо выбрать существующую группу или обеспечить новые названия группы");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Добавить и редактировать группы");//Submit and edit group
+define("_SEARCHGROUPUSERS","Поиск пользователей, чтобы добавить в группу");//Search users to add to group
+define("_AFTER","После");//After
+define("_BEFORE","До");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Участие всех пользователей в курсах группы");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Участие группы пользователей в курсах системы");//Participation of group users in the courses of the system
+define("_PURGELOGS","Чистки журналы");//Purge logs
+define("_LOGSSIZE","Логи размера");//Logs size
+define("_OLDESTLOG","Старые записи в журнале");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Чистки журналов старше");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","Успешно очищены журналы");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Только% х образований, в которых обрабатываются, что является пределом для этой операции");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Вы не можете назначить пользователей в эту программу, поскольку она не имеет курсы");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","Учебный свойства");//Curriculum properties
+define("_ENTRIES","Записи");//Entries
+define("_ENTERPRISEOPTIONS","Предприятие параметры");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Показать организационной структуры для пользователей");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Показать личные формы для пользователей");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Показать неназначенный пользователей для руководителей");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Разрешить пользователям удалять руководитель общих файлов");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","Моя форма");//my Form
+define("_CLEARQUERYCACHE","Очистить кэш запросов");//Clear query cache
+define("_FEEDBACKOPTIONS","Обратная связь параметры");//Feedback options
+define("_OPTIONSFORFEEDBACK","Функции для обратной связи");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Недавно завершила обратной связи");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx конфигурационного файла (библиотеки / phplivedocx_config.php) не доступен для записи. Любые изменения, внесенные в конфигурацию livedocx не были сохранены");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","Сброс данных прогресса");//Reset progress data
+define("_DEBUGMODE","Debug режиме");//Debug mode
+define("_GENERALSETTINGS","Общие настройки");//General settings
+define("_FINISHLESSONMESSAGE","Поздравляем! Вы закончили урок. Пожалуйста, выберите место для дальше:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","Следующий урок");//Next lesson
+define("_LESSONFINISHED","Урок готовой");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Вы находитесь на прошлом уроке, Вы можете посетить");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Обратная связь осуществляется");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Приступить к обратной связи");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Успешное изменение обратной связи");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Обратная связь началась");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","Получатели выбираются интерфейса системы в зависимости от события. <BR> - "._NEWSURVEY .": Получателей пользователей, участвующих в опросе. <BR> - "._ONJOBASSIGNMENT .": получателей руководитель выбранного работника. <BR> - "._PROJECTEXPIRY .": получатели являются пользователи, которые были назначены проекта.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON",", Обучающихся по");//Enrolled on
+define("_JOBDOESNOTEXIST","Работа не существует");//Job does not exist
+define("_SEARCHFORUSER","Найти пользователей [профиль критериев]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Критерии поиска");//Search criteria
+define("_SUBMITFEEDBACK","Отправить отзыв");//Submit feedback
+define("_FEEDBACKRESULTS","Обратная связь результатов");//Feedback results
+define("_PASSWORDREMINDER","Напомнить пароль");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Должны завершить все тесты");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Обратная связь доклады");//Feedback reports
+define("_CHOOSEFEEDBACK","Выбрать отзыв");//Choose feedback
+define("_REPORTSFORFEEDBACK","Доклад для обратной связи");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","В настоящее время просмотра папку");//Currently browsing folder
+define("_CURRENTLYSHOWING","Показ");//Showing
+define("_MATERIALINPROGRESS","Материал в процессе");//Material in progress
+define("_ALLMATERIAL","Все материалы");//All material
+define("_CACHEENTRYNOTFOUND","Кэш запись не найдена");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Запись кэша истек");//Cache entry expired
+define("_CACHEENTRYINVALID","Кэш запись недействительными");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","Чистки уведомления");//Purge notifications
+define("_NOTIFICATIONSSIZE","Уведомления размера");//Notifications size
+define("_OLDESTNOTIFICATION","Старые уведомления");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Чистки уведомления старше");//Purge notifications older than
+define("_CURRENTUSERS","Ток");//Current
+define("_SELECTEDCOURSES","Избранные курсы");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","Модуль файлы присутствуют, но он не установлен");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Это позволит установить все уроки и курсы, цены 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Укажите идентификатор объекта для экрана соответствия размеров");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Запятую");//Comma separated list (New)
 ?>

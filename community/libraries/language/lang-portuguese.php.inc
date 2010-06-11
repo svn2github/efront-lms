@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Ativando o nome do campo supervisor");//Activat
 define("_LEAVEEMPTYTONOTUSE","Deixe em branco para ommit");//Leave empty to ommit
 define("_PLEASESELECT","Por favor selecione");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Seu supervisor vai ativar sua conta");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Parâmetro inválido");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Parâmetro inválido");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Importação de conteúdo IMS");//Import IMS Content
 define("_IMSEXPORT","Exportação de conteúdo IMS");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Ocultos dos usuários");//Hidden from users
 define("_RESETSCORMDATA","Dados do usuário Reset");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Configurações avançadas");//Advanced settings
-define("_ADDINSTANCE","Adicionar exemplo");//Add instance (New)
-define("_INSTANCE","Instância");//Instance (New)
-define("_COURSECODE","Código Curso");//Course code (New)
-define("_TRAININGHOURS","Horas de Formação");//Training hours (New)
-define("_COURSEINSTANCES","Curso de instâncias");//Course instances (New)
-define("_CAPACITY","Capacidade");//Capacity (New)
-define("_SEATSREMAINING","Restantes lugares");//Seats remaining (New)
-define("_STARTDATE","Data de início");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Você tem certeza que quer apagar este exemplo?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","exemplo Edit");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","lições Instância");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","usuários Instância");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","habilidades Instância");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Opções por exemplo");//Options for instance (New)
-define("_JUMPTO","Ir para");//Jump to (New)
-define("_PARENTCOURSE","Parent Curso");//Parent Course (New)
-define("_LOCATIONBRANCH","Localização (filial)");//Location (branch) (New)
-define("_SELECTBRANCH","Selecione ramo");//Select branch (New)
-define("_SHARED","Compartilhado");//Shared (New)
-define("_UNIQUE","Único");//Unique (New)
-define("_MODE","Modo");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","Use apenas em cursos de catálogo");//Use only courses in catalog (New)
-define("_ALLJOBS","Todos os trabalhos");//All jobs (New)
+define("_ADDINSTANCE","Adicionar exemplo");//Add instance
+define("_INSTANCE","Instância");//Instance
+define("_COURSECODE","Código Curso");//Course code
+define("_TRAININGHOURS","Horas de Formação");//Training hours
+define("_COURSEINSTANCES","Curso de instâncias");//Course instances
+define("_CAPACITY","Capacidade");//Capacity
+define("_SEATSREMAINING","Restantes lugares");//Seats remaining
+define("_STARTDATE","Data de início");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Você tem certeza que quer apagar este exemplo?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","exemplo Edit");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","lições Instância");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","usuários Instância");//Instance users
+define("_SKILLSOFFEREDINSTANCE","habilidades Instância");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Opções por exemplo");//Options for instance
+define("_JUMPTO","Ir para");//Jump to
+define("_PARENTCOURSE","Parent Curso");//Parent Course
+define("_LOCATIONBRANCH","Localização (filial)");//Location (branch)
+define("_SELECTBRANCH","Selecione ramo");//Select branch
+define("_SHARED","Compartilhado");//Shared
+define("_UNIQUE","Único");//Unique
+define("_MODE","Modo");//Mode
+define("_USEONLYCOURSESINCATALOG","Use apenas em cursos de catálogo");//Use only courses in catalog
+define("_ALLJOBS","Todos os trabalhos");//All jobs
 define("_SHOWMOTTOONHEADER","Mostrar o nome e lema também no cabeçalho");//Show name and motto also on header
-define("_ASSIGNCOURSES","Atribuir cursos");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","Selecione os cursos para atribuir a todos os usuários encontrados");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","Nenhum usuário foi encontrado");//No users have been found (New)
-define("_ASSIGNMENT","Atribuição");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Qualquer nível mais baixo");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Qualquer um pouco acima do nível mais baixo");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","Nenhum curso foram registados");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","Não é necessária formação foi definido ainda");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","Formação exigida");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","Nova condição de formação");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","Necessário cursos de formação");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Adicionar alternativos de formação");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","Exigiu treinamento");//Has required training (New)
+define("_ASSIGNCOURSES","Atribuir cursos");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","Selecione os cursos para atribuir a todos os usuários encontrados");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","Nenhum usuário foi encontrado");//No users have been found
+define("_ASSIGNMENT","Atribuição");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Qualquer nível mais baixo");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Qualquer um pouco acima do nível mais baixo");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","Nenhum curso foram registados");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","Não é necessária formação foi definido ainda");//No required training has been defined yet
+define("_REQUIREDTRAINING","Formação exigida");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","Nova condição de formação");//New training condition
+define("_REQUIREDTRAININGCOURSES","Necessário cursos de formação");//Required training courses
+define("_ADDALTERNATIVETRAINING","Adicionar alternativos de formação");//Add alternative training
+define("_HASREQUIREDTRAINING","Exigiu treinamento");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Resultados da pesquisa no glossário");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Nenhum resultado encontrado no glossário");//No results found in glossary
-define("_PROJECTSSCORE","Projetos de pontuação");//Projects score (New)
-define("_TESTSSCORE","Testes de pontuação");//Tests score (New)
+define("_PROJECTSSCORE","Projetos de pontuação");//Projects score
+define("_TESTSSCORE","Testes de pontuação");//Tests score
 define("_AUTOLOGIN","Auto login");//Auto login
 define("_ACCESSLINK","Link de acesso");//Access link
 define("_AUTOLOGINITHLINK","Usuário pode fazer login automaticamente pelo link");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Padrão tipo de usuário");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Força aluno responder todas as perguntas");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Você tem que responder todas as perguntas");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Permitir lições independente");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Sem data pré-selecionados");//No preselected date (New)
-define("_CURRENTDATE","Data atual");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Permitir lições independente");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Sem data pré-selecionados");//No preselected date
+define("_CURRENTDATE","Data atual");//Current date
 define("_SHOWHELP","ajuda links Display");//Display help links
 define("_ALLOWUSERANSERALLRONG","Permita que os estudantes só refazer as questões erradas respondidas");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Só no caso de repetições de ensaio são permitidos");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Refazer só respondeu errado");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","tema padrão não pode ser inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Acesso expirado");//Access expired (New)
-define("_LESSONSCHEDULE","calendário Lições");//Lessons schedule (New)
-define("_COURSESTARTSAT","O curso começa no");//The course starts on (New)
-define("_COURSEENDSAT","O curso termina no");//The course ends on (New)
-define("_ENDDATE","End date");//End date (New)
-define("_SELECTSKILLCATEGORY","Escolha a categoria habilidade");//Select skill category (New)
+define("_ACCESSEXPIRED","Acesso expirado");//Access expired
+define("_LESSONSCHEDULE","calendário Lições");//Lessons schedule
+define("_COURSESTARTSAT","O curso começa no");//The course starts on
+define("_COURSEENDSAT","O curso termina no");//The course ends on
+define("_ENDDATE","End date");//End date
+define("_SELECTSKILLCATEGORY","Escolha a categoria habilidade");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nenhuma linha de cabeçalho foi definida ou cabeçalho não é compatível com o tipo de importação");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Importado do usuário");//Imported user
 define("_USERSTOCOURSES","Usuários de cursos");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Cupom");//Coupon
 define("_INVALIDCOUPON","cupão inválido");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Clique para entrar cupom de desconto");//Click to enter discount coupon
 define("_TESTREDONE","Rectificado");//Corrected
-define("_CURRICULUMS","Currículos");//Curricula (New)
-define("_CURRICULUM","Currículo");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","Atribuir currículo para grupo de usuários");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Atribuir currículo para o usuário");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Adicionar curriculum");//Add curriculum (New)
-define("_EDITCURRICULUM","curriculum Editar");//Edit curriculum (New)
+define("_CURRICULUMS","Currículos");//Curricula
+define("_CURRICULUM","Currículo");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Atribuir currículo para grupo de usuários");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Atribuir currículo para o usuário");//Assign curriculum to user
+define("_ADDCURRICULUM","Adicionar curriculum");//Add curriculum
+define("_EDITCURRICULUM","curriculum Editar");//Edit curriculum
 define("_COULDNOTFINDCOURSE","Não foi possível encontrar o curso");//Could not find course
 define("_IMPORTRESULTSFOR","resultados de importação de");//Import results for
-define("_COUPONUSAGE","uso de Cupom");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","New pagamento paypal");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","New pagamento do saldo");//New balance payment (New)
-define("_USEDCOUPON","cupom Usado");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Pago com o equilíbrio");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Paga com paypal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","Você deve completar todos os testes");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","tags Remover &lt;script&gt; de POST");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","redirecionamento após o login do usuário para");//Redirect user after login to (New)
-define("_LESSONSCATALOG","Catálogo do Usuário lição");//User's lesson catalog (New)
-define("_USERDASHBOARD","dashboard do Usuário");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Sem título previsto descrição do trabalho");//No title provided for job description (New)
-define("_EDITORTYPE","Tipo de Editor");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Mostrar apenas uma mensagem de teste após a apresentação");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","Este teste foi submetido com êxito");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Learning Status");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","não tenha um endereço de e-mail");//has not an e-mail address (New)
-define("_FEEDBACK","Feedback");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","usuários Inserção em grupo");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Inserir novo grupo");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Inserir grupo existente");//Insert into existing group (New)
-define("_NEWGROUPNAME","Novo nome do grupo");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Você deve selecionar um grupo existente ou fornecer um novo grupo de nome");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Enviar e editar grupo");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","usuários de pesquisa para adicionar ao grupo");//Search users to add to group (New)
-define("_AFTER","Depois");//After (New)
-define("_BEFORE","Antes");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Participação de todos os usuários nos cursos do grupo");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Participação dos usuários no grupo dos cursos do sistema");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Purge logs");//Purge logs (New)
-define("_LOGSSIZE","tamanho Históricos");//Logs size (New)
-define("_OLDESTLOG","Velho entrada de log");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Purge logs com mais de");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","Purgado com êxito logs");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Apenas% x entidades onde processados, que é o limite para esta operação");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Você não pode atribuir usuários a este currículo, porque não tem cursos");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","propriedades Curriculum");//Curriculum properties (New)
-define("_ENTRIES","Entradas");//Entries (New)
-define("_ENTERPRISEOPTIONS","opções Enterprise");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Show organograma para usuários");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Show forma pessoal aos usuários");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Show atribuído aos usuários supervisores");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Permitir que os usuários apagar arquivos compartilhados supervisor");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","meu Form");//my Form (New)
-define("_CLEARQUERYCACHE","Limpe o cache de consulta");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","opções Feedback");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Opções para feedback");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Recentemente completou feedback");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP arquivo de configuração LiveDocx (bibliotecas / phplivedocx_config.php) não é gravável. Quaisquer alterações feitas na configuração livedocx não foram salvas");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","progressos dados Reset");//Reset progress data (New)
-define("_DEBUGMODE","Modo de depuração");//Debug mode (New)
-define("_GENERALSETTINGS","Definições gerais");//General settings (New)
-define("_FINISHLESSONMESSAGE","Parabéns! Você terminou a lição. Por favor selecione um lugar para ir agora:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","Próxima lição");//Next lesson (New)
-define("_LESSONFINISHED","Lição concluída");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Está na última lição, você pode visitar");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","Feedback é feito");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Continuar a feedback");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Modificado com sucesso feedback");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","Feedback começou em");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","Os beneficiários são selecionados pela interface do sistema de acordo com o evento. <BR> - "._NEWSURVEY .": destinatários são os usuários que participaram da pesquisa. <BR> - "._ONJOBASSIGNMENT .": Os beneficiários é o supervisor escolhido pelo empregado. <BR> - "._PROJECTEXPIRY .": destinatários são os usuários que foram atribuídos ao projeto.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","Matriculados no");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Emprego não existe");//Job does not exist (New)
-define("_SEARCHFORUSER","Encontrar usuários critérios [perfil]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","Os critérios de pesquisa");//Search criteria (New)
-define("_SUBMITFEEDBACK","Enviar comentários");//Submit feedback (New)
-define("_FEEDBACKRESULTS","resultados Feedback");//Feedback results (New)
-define("_PASSWORDREMINDER","lembrete de senha");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Deve completar todos os testes");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","relatórios Feedback");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Escolha feedback");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Relatório de feedback");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","Atualmente navegando pasta");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Mostrando");//Showing (New)
-define("_MATERIALINPROGRESS","Material em andamento");//Material in progress (New)
-define("_ALLMATERIAL","Todo o material");//All material (New)
-define("_CACHEENTRYNOTFOUND","Cache de entrada não encontrado");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","Cache entrada expirou");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","entrada de cache é inválido");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","notificações Purge");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","tamanho Notificações");//Notifications size (New)
-define("_OLDESTNOTIFICATION","notificação velho");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","notificações Purge mais de");//Purge notifications older than (New)
-define("_CURRENTUSERS","Atual");//Current (New)
-define("_SELECTEDCOURSES","cursos selecionados");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","Módulo arquivos estão presentes, mas não é instalado");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","uso de Cupom");//Coupon usage
+define("_NEWPAYPALPAYMENT","New pagamento paypal");//New paypal payment
+define("_NEWBALANCEPAYMENT","New pagamento do saldo");//New balance payment
+define("_USEDCOUPON","cupom Usado");//Used coupon
+define("_PAYEDWITHBALANCE","Pago com o equilíbrio");//Payed with balance
+define("_PAYEDWITHPAYPAL","Paga com paypal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","Você deve completar todos os testes");//You must complete all tests
+define("_ELIMINATEPOSTXSS","tags Remover &lt;script&gt; de POST");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","redirecionamento após o login do usuário para");//Redirect user after login to
+define("_LESSONSCATALOG","Catálogo do Usuário lição");//User's lesson catalog
+define("_USERDASHBOARD","dashboard do Usuário");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Sem título previsto descrição do trabalho");//No title provided for job description
+define("_EDITORTYPE","Tipo de Editor");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Mostrar apenas uma mensagem de teste após a apresentação");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Este teste foi submetido com êxito");//This test was successfully submitted
+define("_LEARNINGSTATUS","Learning Status");//Learning Status
+define("_HASNOTANEMAILADDRESS","não tenha um endereço de e-mail");//has not an e-mail address
+define("_FEEDBACK","Feedback");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","usuários Inserção em grupo");//Insert users into group
+define("_INSERTINTONEWGROUP","Inserir novo grupo");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Inserir grupo existente");//Insert into existing group
+define("_NEWGROUPNAME","Novo nome do grupo");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Você deve selecionar um grupo existente ou fornecer um novo grupo de nome");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Enviar e editar grupo");//Submit and edit group
+define("_SEARCHGROUPUSERS","usuários de pesquisa para adicionar ao grupo");//Search users to add to group
+define("_AFTER","Depois");//After
+define("_BEFORE","Antes");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Participação de todos os usuários nos cursos do grupo");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Participação dos usuários no grupo dos cursos do sistema");//Participation of group users in the courses of the system
+define("_PURGELOGS","Purge logs");//Purge logs
+define("_LOGSSIZE","tamanho Históricos");//Logs size
+define("_OLDESTLOG","Velho entrada de log");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Purge logs com mais de");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","Purgado com êxito logs");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Apenas% x entidades onde processados, que é o limite para esta operação");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Você não pode atribuir usuários a este currículo, porque não tem cursos");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","propriedades Curriculum");//Curriculum properties
+define("_ENTRIES","Entradas");//Entries
+define("_ENTERPRISEOPTIONS","opções Enterprise");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Show organograma para usuários");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Show forma pessoal aos usuários");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Show atribuído aos usuários supervisores");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Permitir que os usuários apagar arquivos compartilhados supervisor");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","meu Form");//my Form
+define("_CLEARQUERYCACHE","Limpe o cache de consulta");//Clear query cache
+define("_FEEDBACKOPTIONS","opções Feedback");//Feedback options
+define("_OPTIONSFORFEEDBACK","Opções para feedback");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Recentemente completou feedback");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP arquivo de configuração LiveDocx (bibliotecas / phplivedocx_config.php) não é gravável. Quaisquer alterações feitas na configuração livedocx não foram salvas");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","progressos dados Reset");//Reset progress data
+define("_DEBUGMODE","Modo de depuração");//Debug mode
+define("_GENERALSETTINGS","Definições gerais");//General settings
+define("_FINISHLESSONMESSAGE","Parabéns! Você terminou a lição. Por favor selecione um lugar para ir agora:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","Próxima lição");//Next lesson
+define("_LESSONFINISHED","Lição concluída");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Está na última lição, você pode visitar");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Feedback é feito");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Continuar a feedback");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Modificado com sucesso feedback");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Feedback começou em");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","Os beneficiários são selecionados pela interface do sistema de acordo com o evento. <BR> - "._NEWSURVEY .": destinatários são os usuários que participaram da pesquisa. <BR> - "._ONJOBASSIGNMENT .": Os beneficiários é o supervisor escolhido pelo empregado. <BR> - "._PROJECTEXPIRY .": destinatários são os usuários que foram atribuídos ao projeto.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","Matriculados no");//Enrolled on
+define("_JOBDOESNOTEXIST","Emprego não existe");//Job does not exist
+define("_SEARCHFORUSER","Encontrar usuários critérios [perfil]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Os critérios de pesquisa");//Search criteria
+define("_SUBMITFEEDBACK","Enviar comentários");//Submit feedback
+define("_FEEDBACKRESULTS","resultados Feedback");//Feedback results
+define("_PASSWORDREMINDER","lembrete de senha");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Deve completar todos os testes");//Must complete all tests
+define("_FEEDBACKSTATISTICS","relatórios Feedback");//Feedback reports
+define("_CHOOSEFEEDBACK","Escolha feedback");//Choose feedback
+define("_REPORTSFORFEEDBACK","Relatório de feedback");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","Atualmente navegando pasta");//Currently browsing folder
+define("_CURRENTLYSHOWING","Mostrando");//Showing
+define("_MATERIALINPROGRESS","Material em andamento");//Material in progress
+define("_ALLMATERIAL","Todo o material");//All material
+define("_CACHEENTRYNOTFOUND","Cache de entrada não encontrado");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Cache entrada expirou");//Cache entry expired
+define("_CACHEENTRYINVALID","entrada de cache é inválido");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","notificações Purge");//Purge notifications
+define("_NOTIFICATIONSSIZE","tamanho Notificações");//Notifications size
+define("_OLDESTNOTIFICATION","notificação velho");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","notificações Purge mais de");//Purge notifications older than
+define("_CURRENTUSERS","Atual");//Current
+define("_SELECTEDCOURSES","cursos selecionados");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","Módulo arquivos estão presentes, mas não é instalado");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Isto irá definir todas as aulas e cursos de preço a 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Especifique o ID de objeto para a tela correspondente dimensões");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Lista separada por vírgula");//Comma separated list (New)
 ?>

@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Activació de nom Supervisor de Camp");//Activa
 define("_LEAVEEMPTYTONOTUSE","Deixar buit per ometre");//Leave empty to ommit
 define("_PLEASESELECT","Si us plau,");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","El seu supervisor li activar el vostre compte");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Paràmetre no vàlid");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Paràmetre no vàlid");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Importació de contingut IMS");//Import IMS Content
 define("_IMSEXPORT","Exportació de contingut IMS");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Ocult dels usuaris de");//Hidden from users
 define("_RESETSCORMDATA","Restablir les dades de l&#39;usuari");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Configuració avançada");//Advanced settings
-define("_ADDINSTANCE","Afegir exemple");//Add instance (New)
-define("_INSTANCE","Exemple");//Instance (New)
-define("_COURSECODE","Codi del curs");//Course code (New)
-define("_TRAININGHOURS","Hores de formació");//Training hours (New)
-define("_COURSEINSTANCES","Curs de casos");//Course instances (New)
-define("_CAPACITY","Capacitat");//Capacity (New)
-define("_SEATSREMAINING","Els seients restants");//Seats remaining (New)
-define("_STARTDATE","Data d&#39;inici");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Estàs segur que vols eliminar aquest exemple?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","Edita exemple");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","Instància lliçons");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","Instància usuaris");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","Instància habilitats");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Opcions, per exemple,");//Options for instance (New)
-define("_JUMPTO","Dreceres ràpides:");//Jump to (New)
-define("_PARENTCOURSE","");//Parent Course (New)
-define("_LOCATIONBRANCH","Ubicació (sucursal)");//Location (branch) (New)
-define("_SELECTBRANCH","Selecciona la branca");//Select branch (New)
-define("_SHARED","Compartit");//Shared (New)
-define("_UNIQUE","Únic");//Unique (New)
-define("_MODE","Mode");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","Utilitzeu només els cursos en el catàleg");//Use only courses in catalog (New)
-define("_ALLJOBS","Tots els llocs de treball");//All jobs (New)
+define("_ADDINSTANCE","Afegir exemple");//Add instance
+define("_INSTANCE","Exemple");//Instance
+define("_COURSECODE","Codi del curs");//Course code
+define("_TRAININGHOURS","Hores de formació");//Training hours
+define("_COURSEINSTANCES","Curs de casos");//Course instances
+define("_CAPACITY","Capacitat");//Capacity
+define("_SEATSREMAINING","Els seients restants");//Seats remaining
+define("_STARTDATE","Data d&#39;inici");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Estàs segur que vols eliminar aquest exemple?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","Edita exemple");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","Instància lliçons");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","Instància usuaris");//Instance users
+define("_SKILLSOFFEREDINSTANCE","Instància habilitats");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Opcions, per exemple,");//Options for instance
+define("_JUMPTO","Dreceres ràpides:");//Jump to
+define("_PARENTCOURSE","");//Parent Course
+define("_LOCATIONBRANCH","Ubicació (sucursal)");//Location (branch)
+define("_SELECTBRANCH","Selecciona la branca");//Select branch
+define("_SHARED","Compartit");//Shared
+define("_UNIQUE","Únic");//Unique
+define("_MODE","Mode");//Mode
+define("_USEONLYCOURSESINCATALOG","Utilitzeu només els cursos en el catàleg");//Use only courses in catalog
+define("_ALLJOBS","Tots els llocs de treball");//All jobs
 define("_SHOWMOTTOONHEADER","Nom de l&#39;obra i el lema també sobre la capçalera de");//Show name and motto also on header
-define("_ASSIGNCOURSES","Assignar cursos");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","cursos de selecció per a assignar a tots els usuaris trobats");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","No hi ha usuaris han trobat");//No users have been found (New)
-define("_ASSIGNMENT","Assignació");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Tot en el nivell més baix");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Qualsevol just per sobre del nivell més baix");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","No hi ha cursos s&#39;han registrat");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","No requereix entrenament s&#39;ha definit encara");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","la formació necessària");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","Nova condició de formació");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","Cursos d&#39;entrenament obligatoris");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Afegir entrenament alternatiu");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","Ha requerit la formació");//Has required training (New)
+define("_ASSIGNCOURSES","Assignar cursos");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","cursos de selecció per a assignar a tots els usuaris trobats");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","No hi ha usuaris han trobat");//No users have been found
+define("_ASSIGNMENT","Assignació");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Tot en el nivell més baix");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Qualsevol just per sobre del nivell més baix");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","No hi ha cursos s&#39;han registrat");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","No requereix entrenament s&#39;ha definit encara");//No required training has been defined yet
+define("_REQUIREDTRAINING","la formació necessària");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","Nova condició de formació");//New training condition
+define("_REQUIREDTRAININGCOURSES","Cursos d&#39;entrenament obligatoris");//Required training courses
+define("_ADDALTERNATIVETRAINING","Afegir entrenament alternatiu");//Add alternative training
+define("_HASREQUIREDTRAINING","Ha requerit la formació");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Resultats de la cerca al glossari");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","No hi ha resultats en el glossari");//No results found in glossary
-define("_PROJECTSSCORE","La puntuació de Projectes");//Projects score (New)
-define("_TESTSSCORE","Proves de puntuació");//Tests score (New)
+define("_PROJECTSSCORE","La puntuació de Projectes");//Projects score
+define("_TESTSSCORE","Proves de puntuació");//Tests score
 define("_AUTOLOGIN","Accés automàtic");//Auto login
 define("_ACCESSLINK","Enllaç d&#39;accés");//Access link
 define("_AUTOLOGINITHLINK","L&#39;usuari pot iniciar sessió de forma automàtica mitjançant un enllaç");//User can login automatically by link
 define("_DEFAULTUSERTYPE","De tipus d&#39;usuari per defecte");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Estudiant de la Força contestar totes les preguntes");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Has de contestar totes les preguntes");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Permetre lliçons independents");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Sense data de preseleccionats");//No preselected date (New)
-define("_CURRENTDATE","Data actual");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Permetre lliçons independents");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Sense data de preseleccionats");//No preselected date
+define("_CURRENTDATE","Data actual");//Current date
 define("_SHOWHELP","Mostra els enllaços d&#39;ajuda");//Display help links
 define("_ALLOWUSERANSERALLRONG","Permetre als estudiants fer de nou només respon a les preguntes equivocades");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Només si la prova es permeten repeticions");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Refer únic dolent respondre");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","tema per defecte no pot ser InPort");//Default theme can not be inported
-define("_ACCESSEXPIRED","L&#39;accés de venciment");//Access expired (New)
-define("_LESSONSCHEDULE","Lliçons calendari");//Lessons schedule (New)
-define("_COURSESTARTSAT","El curs comença el");//The course starts on (New)
-define("_COURSEENDSAT","El curs finalitza el");//The course ends on (New)
-define("_ENDDATE","Data de finalització");//End date (New)
-define("_SELECTSKILLCATEGORY","Seleccioneu la categoria d&#39;habilitat");//Select skill category (New)
+define("_ACCESSEXPIRED","L&#39;accés de venciment");//Access expired
+define("_LESSONSCHEDULE","Lliçons calendari");//Lessons schedule
+define("_COURSESTARTSAT","El curs comença el");//The course starts on
+define("_COURSEENDSAT","El curs finalitza el");//The course ends on
+define("_ENDDATE","Data de finalització");//End date
+define("_SELECTSKILLCATEGORY","Seleccioneu la categoria d&#39;habilitat");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No es va definir línia d&#39;encapçalament o capçalera no és compatible amb el tipus d&#39;importació");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Importat d&#39;usuari");//Imported user
 define("_USERSTOCOURSES","Els usuaris als cursos");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Cupó");//Coupon
 define("_INVALIDCOUPON","Cupó vàlid");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Premeu per entrar al cupó de descompte");//Click to enter discount coupon
 define("_TESTREDONE","Corregit");//Corrected
-define("_CURRICULUMS","Els plans d&#39;estudis");//Curricula (New)
-define("_CURRICULUM","Pla d&#39;estudis");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","currículum Assignar a grup d&#39;usuaris");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Assignar pla d&#39;estudis per a l&#39;usuari");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Afegir currículum");//Add curriculum (New)
-define("_EDITCURRICULUM","Edita pla d&#39;estudis");//Edit curriculum (New)
+define("_CURRICULUMS","Els plans d&#39;estudis");//Curricula
+define("_CURRICULUM","Pla d&#39;estudis");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","currículum Assignar a grup d&#39;usuaris");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Assignar pla d&#39;estudis per a l&#39;usuari");//Assign curriculum to user
+define("_ADDCURRICULUM","Afegir currículum");//Add curriculum
+define("_EDITCURRICULUM","Edita pla d&#39;estudis");//Edit curriculum
 define("_COULDNOTFINDCOURSE","No s&#39;ha pogut trobar el curs");//Could not find course
 define("_IMPORTRESULTSFOR","resultats d&#39;importació de");//Import results for
-define("_COUPONUSAGE","Cupó d&#39;ús");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","Nou pagament paypal");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","Nou pagament del saldo");//New balance payment (New)
-define("_USEDCOUPON","cupó Usat");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Pagat amb l&#39;equilibri");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Pagat amb PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","Vostè ha de completar totes les proves");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","Tregui les etiquetes de &lt;script&gt; POST");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","Redireccionar usuari després d&#39;ingressar a");//Redirect user after login to (New)
-define("_LESSONSCATALOG","Catàleg d&#39;usuari lliçó");//User's lesson catalog (New)
-define("_USERDASHBOARD","tauler de l&#39;usuari");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Sense títol previst descripció del treball");//No title provided for job description (New)
-define("_EDITORTYPE","Editor Tipus");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Mostra només després d&#39;enviar un missatge de prova");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","Aquesta prova s&#39;ha enviat correctament");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Estat d&#39;aprenentatge");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","té no una adreça de correu electrònic");//has not an e-mail address (New)
-define("_FEEDBACK","Realimentació");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","Introduïu els usuaris en el grup");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Inserir en el nou grup");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Inserir en el grup ja existent");//Insert into existing group (New)
-define("_NEWGROUPNAME","Nou nom de grup");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Heu de seleccionar un grup existent o proporcionar un nou grup de nom");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Presentar i editar grup");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","usuaris de la Cerca per afegir al grup de");//Search users to add to group (New)
-define("_AFTER","Després de");//After (New)
-define("_BEFORE","Abans");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","La participació de tots els usuaris en els cursos del grup");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","La participació dels usuaris del grup en els cursos del sistema");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Purgar els registres");//Purge logs (New)
-define("_LOGSSIZE","Registres de mida");//Logs size (New)
-define("_OLDESTLOG","El més antic registre d&#39;entrada");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Purgar els registres de més de");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","Correctament purgat registres");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Només% x entitats on processats, que és el límit per a aquesta operació");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","No es pot assignar als usuaris aquest programa perquè no té cursos");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","Currículum propietats");//Curriculum properties (New)
-define("_ENTRIES","Les entrades");//Entries (New)
-define("_ENTERPRISEOPTIONS","opcions d&#39;Empresa");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Mostra organigrama als usuaris");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Mostra personal per part dels usuaris");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Mostra sense assignar usuaris als supervisors");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Permetre als usuaris eliminar supervisor dels arxius compartits");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","el meu formulari");//my Form (New)
-define("_CLEARQUERYCACHE","Esborrar la memòria cau de consultes");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","Opcions de vots");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Opcions per a la retroalimentació");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Recentment va completar comentaris");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP fitxer de configuració LiveDocx (biblioteques / phplivedocx_config.php) no es pot escriure. Tots els canvis en la configuració livedocx sense desar");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","Restablir les dades del progrés");//Reset progress data (New)
-define("_DEBUGMODE","Mode de depuració");//Debug mode (New)
-define("_GENERALSETTINGS","Configuració general");//General settings (New)
-define("_FINISHLESSONMESSAGE","¡Felicitacions! Ha finalitzat la lliçó. Si us plau, seleccioneu un lloc per anar ara:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","Següent lliçó");//Next lesson (New)
-define("_LESSONFINISHED","Lliçó acabat");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Us trobeu a l&#39;última lliçó es pot visitar");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","De vots es fa");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Procedir a la retroalimentació");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Amb èxit modificació comentaris");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","De vots va començar a les");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","Els beneficiaris són seleccionats per la interfície del sistema d&#39;acord a l&#39;esdeveniment. <BR> - Els beneficiaris "._NEWSURVEY .": són els usuaris que participen en l&#39;enquesta. <BR> - "._ONJOBASSIGNMENT .": Els beneficiaris és el supervisor seleccionat per l&#39;empleat. <BR> - Els beneficiaris "._PROJECTEXPIRY .": són els usuaris que s&#39;han assignat al projecte.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","Inscrita");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Ocupació no existeix");//Job does not exist (New)
-define("_SEARCHFORUSER","Cerca usuaris [criteris Perfil]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","Criteris de cerca");//Search criteria (New)
-define("_SUBMITFEEDBACK","Envieu comentaris");//Submit feedback (New)
-define("_FEEDBACKRESULTS","Resultats de vots");//Feedback results (New)
-define("_PASSWORDREMINDER","Recuperació de contrasenya");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Ha de completar totes les proves");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","Informes de vots");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Trieu comentaris");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Informe per a la retroalimentació");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","Actualment la navegació de carpetes");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Llistat");//Showing (New)
-define("_MATERIALINPROGRESS","Material en curs");//Material in progress (New)
-define("_ALLMATERIAL","Tot el material");//All material (New)
-define("_CACHEENTRYNOTFOUND","entrada de memòria cau no es troba");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","entrada de memòria cau de venciment");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","entrada de memòria cau no és vàlid");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","Purga notificacions");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","Notificacions mida");//Notifications size (New)
-define("_OLDESTNOTIFICATION","El més antic de notificació");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","Purga majors de notificacions");//Purge notifications older than (New)
-define("_CURRENTUSERS","Corrent");//Current (New)
-define("_SELECTEDCOURSES","cursos seleccionats");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","Mòdul arxius estan presents, però no està instal lat");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","Cupó d&#39;ús");//Coupon usage
+define("_NEWPAYPALPAYMENT","Nou pagament paypal");//New paypal payment
+define("_NEWBALANCEPAYMENT","Nou pagament del saldo");//New balance payment
+define("_USEDCOUPON","cupó Usat");//Used coupon
+define("_PAYEDWITHBALANCE","Pagat amb l&#39;equilibri");//Payed with balance
+define("_PAYEDWITHPAYPAL","Pagat amb PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","Vostè ha de completar totes les proves");//You must complete all tests
+define("_ELIMINATEPOSTXSS","Tregui les etiquetes de &lt;script&gt; POST");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","Redireccionar usuari després d&#39;ingressar a");//Redirect user after login to
+define("_LESSONSCATALOG","Catàleg d&#39;usuari lliçó");//User's lesson catalog
+define("_USERDASHBOARD","tauler de l&#39;usuari");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Sense títol previst descripció del treball");//No title provided for job description
+define("_EDITORTYPE","Editor Tipus");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Mostra només després d&#39;enviar un missatge de prova");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Aquesta prova s&#39;ha enviat correctament");//This test was successfully submitted
+define("_LEARNINGSTATUS","Estat d&#39;aprenentatge");//Learning Status
+define("_HASNOTANEMAILADDRESS","té no una adreça de correu electrònic");//has not an e-mail address
+define("_FEEDBACK","Realimentació");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","Introduïu els usuaris en el grup");//Insert users into group
+define("_INSERTINTONEWGROUP","Inserir en el nou grup");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Inserir en el grup ja existent");//Insert into existing group
+define("_NEWGROUPNAME","Nou nom de grup");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Heu de seleccionar un grup existent o proporcionar un nou grup de nom");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Presentar i editar grup");//Submit and edit group
+define("_SEARCHGROUPUSERS","usuaris de la Cerca per afegir al grup de");//Search users to add to group
+define("_AFTER","Després de");//After
+define("_BEFORE","Abans");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","La participació de tots els usuaris en els cursos del grup");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","La participació dels usuaris del grup en els cursos del sistema");//Participation of group users in the courses of the system
+define("_PURGELOGS","Purgar els registres");//Purge logs
+define("_LOGSSIZE","Registres de mida");//Logs size
+define("_OLDESTLOG","El més antic registre d&#39;entrada");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Purgar els registres de més de");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","Correctament purgat registres");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Només% x entitats on processats, que és el límit per a aquesta operació");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","No es pot assignar als usuaris aquest programa perquè no té cursos");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","Currículum propietats");//Curriculum properties
+define("_ENTRIES","Les entrades");//Entries
+define("_ENTERPRISEOPTIONS","opcions d&#39;Empresa");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Mostra organigrama als usuaris");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Mostra personal per part dels usuaris");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Mostra sense assignar usuaris als supervisors");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Permetre als usuaris eliminar supervisor dels arxius compartits");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","el meu formulari");//my Form
+define("_CLEARQUERYCACHE","Esborrar la memòria cau de consultes");//Clear query cache
+define("_FEEDBACKOPTIONS","Opcions de vots");//Feedback options
+define("_OPTIONSFORFEEDBACK","Opcions per a la retroalimentació");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Recentment va completar comentaris");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP fitxer de configuració LiveDocx (biblioteques / phplivedocx_config.php) no es pot escriure. Tots els canvis en la configuració livedocx sense desar");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","Restablir les dades del progrés");//Reset progress data
+define("_DEBUGMODE","Mode de depuració");//Debug mode
+define("_GENERALSETTINGS","Configuració general");//General settings
+define("_FINISHLESSONMESSAGE","¡Felicitacions! Ha finalitzat la lliçó. Si us plau, seleccioneu un lloc per anar ara:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","Següent lliçó");//Next lesson
+define("_LESSONFINISHED","Lliçó acabat");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Us trobeu a l&#39;última lliçó es pot visitar");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","De vots es fa");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Procedir a la retroalimentació");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Amb èxit modificació comentaris");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","De vots va començar a les");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","Els beneficiaris són seleccionats per la interfície del sistema d&#39;acord a l&#39;esdeveniment. <BR> - Els beneficiaris "._NEWSURVEY .": són els usuaris que participen en l&#39;enquesta. <BR> - "._ONJOBASSIGNMENT .": Els beneficiaris és el supervisor seleccionat per l&#39;empleat. <BR> - Els beneficiaris "._PROJECTEXPIRY .": són els usuaris que s&#39;han assignat al projecte.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","Inscrita");//Enrolled on
+define("_JOBDOESNOTEXIST","Ocupació no existeix");//Job does not exist
+define("_SEARCHFORUSER","Cerca usuaris [criteris Perfil]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Criteris de cerca");//Search criteria
+define("_SUBMITFEEDBACK","Envieu comentaris");//Submit feedback
+define("_FEEDBACKRESULTS","Resultats de vots");//Feedback results
+define("_PASSWORDREMINDER","Recuperació de contrasenya");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Ha de completar totes les proves");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Informes de vots");//Feedback reports
+define("_CHOOSEFEEDBACK","Trieu comentaris");//Choose feedback
+define("_REPORTSFORFEEDBACK","Informe per a la retroalimentació");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","Actualment la navegació de carpetes");//Currently browsing folder
+define("_CURRENTLYSHOWING","Llistat");//Showing
+define("_MATERIALINPROGRESS","Material en curs");//Material in progress
+define("_ALLMATERIAL","Tot el material");//All material
+define("_CACHEENTRYNOTFOUND","entrada de memòria cau no es troba");//Cache entry not found
+define("_CACHEENTRYEXPIRED","entrada de memòria cau de venciment");//Cache entry expired
+define("_CACHEENTRYINVALID","entrada de memòria cau no és vàlid");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","Purga notificacions");//Purge notifications
+define("_NOTIFICATIONSSIZE","Notificacions mida");//Notifications size
+define("_OLDESTNOTIFICATION","El més antic de notificació");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Purga majors de notificacions");//Purge notifications older than
+define("_CURRENTUSERS","Corrent");//Current
+define("_SELECTEDCOURSES","cursos seleccionats");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","Mòdul arxius estan presents, però no està instal lat");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Això establirà totes les lliçons i cursos de preus en 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Especificar ID de l&#39;objecte de la pantalla es posin en venda les dimensions");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Llista separada per comes");//Comma separated list (New)
 ?>

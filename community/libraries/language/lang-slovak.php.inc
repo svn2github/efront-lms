@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktivácia vedúci názov poľa");//Activating 
 define("_LEAVEEMPTYTONOTUSE","Ponechajte prázdne, aby ommit");//Leave empty to ommit
 define("_PLEASESELECT","Vyberte prosím");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Váš nadriadený bude aktivovať účet");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Neplatný parameter");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Neplatný parameter");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Import IMS Content");//Import IMS Content
 define("_IMSEXPORT","Export IMS Content");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Skryté od užívateľov");//Hidden from users
 define("_RESETSCORMDATA","Reset užívateľských dát");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Rozšírené nastavenia");//Advanced settings
-define("_ADDINSTANCE","Pridať inštancie");//Add instance (New)
-define("_INSTANCE","Stupňa");//Instance (New)
-define("_COURSECODE","Kód kurzu");//Course code (New)
-define("_TRAININGHOURS","Hodín školenia");//Training hours (New)
-define("_COURSEINSTANCES","Predmet inštancie");//Course instances (New)
-define("_CAPACITY","Kapacita");//Capacity (New)
-define("_SEATSREMAINING","Zostávajúcich miest");//Seats remaining (New)
-define("_STARTDATE","Dátum začatia");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Ste si istí, že chcete zmazať túto inštancie?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","Úpravy inštancie");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","Stupne lekcie");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","Stupne užívateľov");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","Stupne zručnosti");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Možnosti napríklad");//Options for instance (New)
-define("_JUMPTO","Skočiť na");//Jump to (New)
-define("_PARENTCOURSE","Parent predmetu");//Parent Course (New)
-define("_LOCATIONBRANCH","Umiestnenie (pobočka)");//Location (branch) (New)
-define("_SELECTBRANCH","Vyberte pobočku");//Select branch (New)
-define("_SHARED","Zdieľanej");//Shared (New)
-define("_UNIQUE","Unikátny");//Unique (New)
-define("_MODE","Spôsob");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","Používajte iba kurzy v katalógu");//Use only courses in catalog (New)
-define("_ALLJOBS","Všetky práce");//All jobs (New)
+define("_ADDINSTANCE","Pridať inštancie");//Add instance
+define("_INSTANCE","Stupňa");//Instance
+define("_COURSECODE","Kód kurzu");//Course code
+define("_TRAININGHOURS","Hodín školenia");//Training hours
+define("_COURSEINSTANCES","Predmet inštancie");//Course instances
+define("_CAPACITY","Kapacita");//Capacity
+define("_SEATSREMAINING","Zostávajúcich miest");//Seats remaining
+define("_STARTDATE","Dátum začatia");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Ste si istí, že chcete zmazať túto inštancie?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","Úpravy inštancie");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","Stupne lekcie");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","Stupne užívateľov");//Instance users
+define("_SKILLSOFFEREDINSTANCE","Stupne zručnosti");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Možnosti napríklad");//Options for instance
+define("_JUMPTO","Skočiť na");//Jump to
+define("_PARENTCOURSE","Parent predmetu");//Parent Course
+define("_LOCATIONBRANCH","Umiestnenie (pobočka)");//Location (branch)
+define("_SELECTBRANCH","Vyberte pobočku");//Select branch
+define("_SHARED","Zdieľanej");//Shared
+define("_UNIQUE","Unikátny");//Unique
+define("_MODE","Spôsob");//Mode
+define("_USEONLYCOURSESINCATALOG","Používajte iba kurzy v katalógu");//Use only courses in catalog
+define("_ALLJOBS","Všetky práce");//All jobs
 define("_SHOWMOTTOONHEADER","Zobraziť meno a heslo aj na hlavičku");//Show name and motto also on header
-define("_ASSIGNCOURSES","Priradiť kurzy");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","Zvoľte kurzy priradiť všetkým užívateľom nájsť");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","Žiadni užívatelia nenašli");//No users have been found (New)
-define("_ASSIGNMENT","Úloha");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Akékoľvek na najnižšej úrovni");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Akékoľvek tesne nad najnižšiu úroveň");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","Žiadny kurz boli registrované");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","Nie je potrebné žiadne školenie bola definovaná ešte");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","Povinné školenie");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","Nové vzdelávacie podmienky");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","Povinné školenie");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Pridajte alternatívne vzdelávanie");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","Má potrebné odborné prípravy");//Has required training (New)
+define("_ASSIGNCOURSES","Priradiť kurzy");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","Zvoľte kurzy priradiť všetkým užívateľom nájsť");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","Žiadni užívatelia nenašli");//No users have been found
+define("_ASSIGNMENT","Úloha");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Akékoľvek na najnižšej úrovni");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Akékoľvek tesne nad najnižšiu úroveň");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","Žiadny kurz boli registrované");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","Nie je potrebné žiadne školenie bola definovaná ešte");//No required training has been defined yet
+define("_REQUIREDTRAINING","Povinné školenie");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","Nové vzdelávacie podmienky");//New training condition
+define("_REQUIREDTRAININGCOURSES","Povinné školenie");//Required training courses
+define("_ADDALTERNATIVETRAINING","Pridajte alternatívne vzdelávanie");//Add alternative training
+define("_HASREQUIREDTRAINING","Má potrebné odborné prípravy");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Výsledky vyhľadávania v slovníček");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Neboli nájdené žiadne výsledky vo slovníku");//No results found in glossary
-define("_PROJECTSSCORE","Projekty skóre");//Projects score (New)
-define("_TESTSSCORE","Testy skóre");//Tests score (New)
+define("_PROJECTSSCORE","Projekty skóre");//Projects score
+define("_TESTSSCORE","Testy skóre");//Tests score
 define("_AUTOLOGIN","Automatické prihlásenie");//Auto login
 define("_ACCESSLINK","Prípojku");//Access link
 define("_AUTOLOGINITHLINK","Užívateľ môže prihlásiť automaticky odkaz");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Predvolený typ užívateľa");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force študent odpovedať na všetky otázky");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Musíte odpovedať na všetky otázky");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Povoliť nezávislé lekcie");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Č predvolené dátum");//No preselected date (New)
-define("_CURRENTDATE","Aktuálny dátum");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Povoliť nezávislé lekcie");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Č predvolené dátum");//No preselected date
+define("_CURRENTDATE","Aktuálny dátum");//Current date
 define("_SHOWHELP","Zobraziť nápovedu odkazy");//Display help links
 define("_ALLOWUSERANSERALLRONG","Umožňujú študentom prerobiť len zlé odpovede na otázky");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Iba v prípade opakovania skúšky sú povolené");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Znovu len zlé odpovede");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Východiskové vzhľad nemôže byť inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Prístup skončila");//Access expired (New)
-define("_LESSONSCHEDULE","Poučenie harmonogram");//Lessons schedule (New)
-define("_COURSESTARTSAT","Kurz začína");//The course starts on (New)
-define("_COURSEENDSAT","Kurz je ukončený na");//The course ends on (New)
-define("_ENDDATE","Dátum ukončenia");//End date (New)
-define("_SELECTSKILLCATEGORY","Vyberte kategóriu zručnosť");//Select skill category (New)
+define("_ACCESSEXPIRED","Prístup skončila");//Access expired
+define("_LESSONSCHEDULE","Poučenie harmonogram");//Lessons schedule
+define("_COURSESTARTSAT","Kurz začína");//The course starts on
+define("_COURSEENDSAT","Kurz je ukončený na");//The course ends on
+define("_ENDDATE","Dátum ukončenia");//End date
+define("_SELECTSKILLCATEGORY","Vyberte kategóriu zručnosť");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Č riadok hlavičky bola definovaná alebo hlavičky nie je kompatibilný s typom import");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Dovážané užívateľ");//Imported user
 define("_USERSTOCOURSES","Používateľom kurzy");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Kupón");//Coupon
 define("_INVALIDCOUPON","Neplatný kupón");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Kliknite pre vstup zľavový kupón");//Click to enter discount coupon
 define("_TESTREDONE","Opravené");//Corrected
-define("_CURRICULUMS","Vzdelávacie programy");//Curricula (New)
-define("_CURRICULUM","Osnovy");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","Priradenie osnov pre skupiny užívateľov");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Priradiť osnov pre užívateľov");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Pridať osnov");//Add curriculum (New)
-define("_EDITCURRICULUM","Úpravy učebných osnov");//Edit curriculum (New)
+define("_CURRICULUMS","Vzdelávacie programy");//Curricula
+define("_CURRICULUM","Osnovy");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Priradenie osnov pre skupiny užívateľov");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Priradiť osnov pre užívateľov");//Assign curriculum to user
+define("_ADDCURRICULUM","Pridať osnov");//Add curriculum
+define("_EDITCURRICULUM","Úpravy učebných osnov");//Edit curriculum
 define("_COULDNOTFINDCOURSE","Nepodarilo sa nájsť kurz");//Could not find course
 define("_IMPORTRESULTSFOR","Import výsledky");//Import results for
-define("_COUPONUSAGE","Kupon použitie");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","New PayPal");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","New Balance platobnej");//New balance payment (New)
-define("_USEDCOUPON","Použité kupón");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Nocľah s rovnováhou");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Nocľah s paypal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","Musíte vyplniť všetky testy");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","Odstrániť &lt;script&gt; tagy z funkcie");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","Presmerovať užívateľa po prihlásení do");//Redirect user after login to (New)
-define("_LESSONSCATALOG","Užívateľská lekcie katalógu");//User's lesson catalog (New)
-define("_USERDASHBOARD","Užívateľ prístrojovej doske");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Bez názvu podľa popisu práce");//No title provided for job description (New)
-define("_EDITORTYPE","Editor typu");//Editor type (New)
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Zobraziť iba správy po predložení test");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","Tento test bol úspešne odoslaný");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Učenie Status");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","nemá e-mailovú adresu");//has not an e-mail address (New)
-define("_FEEDBACK","Spätná väzba");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","Vložiť užívateľa do skupiny");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Vložiť do novej skupiny");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Vložiť do existujúcej skupine");//Insert into existing group (New)
-define("_NEWGROUPNAME","Nový názov skupiny");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Mali by ste buď vybrať existujúcu skupinu alebo poskytnúť nový názov skupiny");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Odoslať a upraviť skupine");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","Hľadať užívateľa pridať do skupiny,");//Search users to add to group (New)
-define("_AFTER","Po");//After (New)
-define("_BEFORE","Pred");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Účasť všetkých užívateľov v kurzoch skupiny");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Účasť skupiny užívateľov v kurzoch systéme");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Vyčistiť Záznamy");//Purge logs (New)
-define("_LOGSSIZE","Záznamy veľkosti");//Logs size (New)
-define("_OLDESTLOG","Najstarší záznam protokolu");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Vyčistiť Záznamy staršie ako");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","Úspešne očistený Záznamy");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Iba% x subjektov, v ktorých spracovanie, čo je limit pre túto operáciu");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Nemôžete priradiť používateľom tohto vzdelávacieho programu, pretože nemá kurzy");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","Curriculum vlastnosti");//Curriculum properties (New)
-define("_ENTRIES","Príspevky");//Entries (New)
-define("_ENTERPRISEOPTIONS","Enterprise voľby");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Zobraziť organizačnú schému pre užívateľov");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Ukázať osobné formulár, ktorý používateľom");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Zobraziť nepriradené užívateľom dohľadu");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Povoliť používateľom mazať vedúcim zdieľané súbory");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","Moje Form");//my Form (New)
-define("_CLEARQUERYCACHE","Vymazať dotaz cache");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","Spätná väzba voľby");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Možnosti pre spätnú väzbu");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Nedávno dokončenej spätnú väzbu");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfiguračného súboru (knižnice / phplivedocx_config.php) nedá zapisovať. Všetky zmeny vykonané v konfigurácii livedocx nebolo uložené");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","Reset pokrok dáta");//Reset progress data (New)
-define("_DEBUGMODE","Debug móde");//Debug mode (New)
-define("_GENERALSETTINGS","Všeobecné nastavenia");//General settings (New)
-define("_FINISHLESSONMESSAGE","Gratulujeme! Máte hotové lekcie. Prosím, vyberte miesto, kam ísť teraz:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","Ďalšie lekcie");//Next lesson (New)
-define("_LESSONFINISHED","Lekcia skončil");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Nachádzate sa v poslednej lekcii môžete navštíviť");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","Spätná väzba sa deje");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Pokračovať na spätnú väzbu");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Úspešne modifikované spätnú väzbu");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","Spätná väzba začal v");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","Prijímatelia sa vyberajú na rozhranie systému v závislosti na udalosti. <BR> - "._NEWSURVEY .": Príjemcovia sú užívatelia ktoré sa prieskumu zúčastnili. <BR> - "._ONJOBASSIGNMENT .": príjemcu je vedúcim vybrané zamestnanca. <BR> - "._PROJECTEXPIRY .": Príjemcovia sú používatelia, ktoré boli pridelené projektu.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","Zapísaných na");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Pracovné neexistuje");//Job does not exist (New)
-define("_SEARCHFORUSER","Nájsť užívateľov [Profil kritériá]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","Kritériá vyhľadávania");//Search criteria (New)
-define("_SUBMITFEEDBACK","Odoslať spätnú väzbu");//Submit feedback (New)
-define("_FEEDBACKRESULTS","Spätná väzba výsledky");//Feedback results (New)
-define("_PASSWORDREMINDER","Pripomenutie hesla");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Musí dokončiť všetky skúšky");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","Spätná väzba správy");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Vyberte si spätnú väzbu");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Správa pre spätnú väzbu");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","V súčasnej dobe prehliadania zložiek");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Zobrazenie");//Showing (New)
-define("_MATERIALINPROGRESS","Materiál v priebehu");//Material in progress (New)
-define("_ALLMATERIAL","Všetky materiály");//All material (New)
-define("_CACHEENTRYNOTFOUND","Cache záznam nenalezen");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","Cache vstup skončila");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","Cache záznam je neplatný");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","Vyčistiť oznámenia");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","Upozornenie veľkosti");//Notifications size (New)
-define("_OLDESTNOTIFICATION","Najstarší oznámenia");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","Vyčistiť oznámenia staršie ako");//Purge notifications older than (New)
-define("_CURRENTUSERS","Prúd");//Current (New)
-define("_SELECTEDCOURSES","Vybrané kurzy");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","Modul súbory sú prítomné, ale nie je nainštalovaný");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","Kupon použitie");//Coupon usage
+define("_NEWPAYPALPAYMENT","New PayPal");//New paypal payment
+define("_NEWBALANCEPAYMENT","New Balance platobnej");//New balance payment
+define("_USEDCOUPON","Použité kupón");//Used coupon
+define("_PAYEDWITHBALANCE","Nocľah s rovnováhou");//Payed with balance
+define("_PAYEDWITHPAYPAL","Nocľah s paypal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","Musíte vyplniť všetky testy");//You must complete all tests
+define("_ELIMINATEPOSTXSS","Odstrániť &lt;script&gt; tagy z funkcie");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","Presmerovať užívateľa po prihlásení do");//Redirect user after login to
+define("_LESSONSCATALOG","Užívateľská lekcie katalógu");//User's lesson catalog
+define("_USERDASHBOARD","Užívateľ prístrojovej doske");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Bez názvu podľa popisu práce");//No title provided for job description
+define("_EDITORTYPE","Editor typu");//Editor type
+define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Zobraziť iba správy po predložení test");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Tento test bol úspešne odoslaný");//This test was successfully submitted
+define("_LEARNINGSTATUS","Učenie Status");//Learning Status
+define("_HASNOTANEMAILADDRESS","nemá e-mailovú adresu");//has not an e-mail address
+define("_FEEDBACK","Spätná väzba");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","Vložiť užívateľa do skupiny");//Insert users into group
+define("_INSERTINTONEWGROUP","Vložiť do novej skupiny");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Vložiť do existujúcej skupine");//Insert into existing group
+define("_NEWGROUPNAME","Nový názov skupiny");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Mali by ste buď vybrať existujúcu skupinu alebo poskytnúť nový názov skupiny");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Odoslať a upraviť skupine");//Submit and edit group
+define("_SEARCHGROUPUSERS","Hľadať užívateľa pridať do skupiny,");//Search users to add to group
+define("_AFTER","Po");//After
+define("_BEFORE","Pred");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Účasť všetkých užívateľov v kurzoch skupiny");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Účasť skupiny užívateľov v kurzoch systéme");//Participation of group users in the courses of the system
+define("_PURGELOGS","Vyčistiť Záznamy");//Purge logs
+define("_LOGSSIZE","Záznamy veľkosti");//Logs size
+define("_OLDESTLOG","Najstarší záznam protokolu");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Vyčistiť Záznamy staršie ako");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","Úspešne očistený Záznamy");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Iba% x subjektov, v ktorých spracovanie, čo je limit pre túto operáciu");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Nemôžete priradiť používateľom tohto vzdelávacieho programu, pretože nemá kurzy");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","Curriculum vlastnosti");//Curriculum properties
+define("_ENTRIES","Príspevky");//Entries
+define("_ENTERPRISEOPTIONS","Enterprise voľby");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Zobraziť organizačnú schému pre užívateľov");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Ukázať osobné formulár, ktorý používateľom");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Zobraziť nepriradené užívateľom dohľadu");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Povoliť používateľom mazať vedúcim zdieľané súbory");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","Moje Form");//my Form
+define("_CLEARQUERYCACHE","Vymazať dotaz cache");//Clear query cache
+define("_FEEDBACKOPTIONS","Spätná väzba voľby");//Feedback options
+define("_OPTIONSFORFEEDBACK","Možnosti pre spätnú väzbu");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Nedávno dokončenej spätnú väzbu");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx konfiguračného súboru (knižnice / phplivedocx_config.php) nedá zapisovať. Všetky zmeny vykonané v konfigurácii livedocx nebolo uložené");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","Reset pokrok dáta");//Reset progress data
+define("_DEBUGMODE","Debug móde");//Debug mode
+define("_GENERALSETTINGS","Všeobecné nastavenia");//General settings
+define("_FINISHLESSONMESSAGE","Gratulujeme! Máte hotové lekcie. Prosím, vyberte miesto, kam ísť teraz:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","Ďalšie lekcie");//Next lesson
+define("_LESSONFINISHED","Lekcia skončil");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Nachádzate sa v poslednej lekcii môžete navštíviť");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Spätná väzba sa deje");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Pokračovať na spätnú väzbu");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Úspešne modifikované spätnú väzbu");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Spätná väzba začal v");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","Prijímatelia sa vyberajú na rozhranie systému v závislosti na udalosti. <BR> - "._NEWSURVEY .": Príjemcovia sú užívatelia ktoré sa prieskumu zúčastnili. <BR> - "._ONJOBASSIGNMENT .": príjemcu je vedúcim vybrané zamestnanca. <BR> - "._PROJECTEXPIRY .": Príjemcovia sú používatelia, ktoré boli pridelené projektu.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","Zapísaných na");//Enrolled on
+define("_JOBDOESNOTEXIST","Pracovné neexistuje");//Job does not exist
+define("_SEARCHFORUSER","Nájsť užívateľov [Profil kritériá]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Kritériá vyhľadávania");//Search criteria
+define("_SUBMITFEEDBACK","Odoslať spätnú väzbu");//Submit feedback
+define("_FEEDBACKRESULTS","Spätná väzba výsledky");//Feedback results
+define("_PASSWORDREMINDER","Pripomenutie hesla");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Musí dokončiť všetky skúšky");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Spätná väzba správy");//Feedback reports
+define("_CHOOSEFEEDBACK","Vyberte si spätnú väzbu");//Choose feedback
+define("_REPORTSFORFEEDBACK","Správa pre spätnú väzbu");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","V súčasnej dobe prehliadania zložiek");//Currently browsing folder
+define("_CURRENTLYSHOWING","Zobrazenie");//Showing
+define("_MATERIALINPROGRESS","Materiál v priebehu");//Material in progress
+define("_ALLMATERIAL","Všetky materiály");//All material
+define("_CACHEENTRYNOTFOUND","Cache záznam nenalezen");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Cache vstup skončila");//Cache entry expired
+define("_CACHEENTRYINVALID","Cache záznam je neplatný");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","Vyčistiť oznámenia");//Purge notifications
+define("_NOTIFICATIONSSIZE","Upozornenie veľkosti");//Notifications size
+define("_OLDESTNOTIFICATION","Najstarší oznámenia");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Vyčistiť oznámenia staršie ako");//Purge notifications older than
+define("_CURRENTUSERS","Prúd");//Current
+define("_SELECTEDCOURSES","Vybrané kurzy");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","Modul súbory sú prítomné, ale nie je nainštalovaný");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","To nastaví všetky lekcie a kurzy cenu na 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Určite objekt id pre obrazovku príslušné rozmery");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Čiarkou oddelený zoznam");//Comma separated list (New)
 ?>

@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","تفعيل حقل اسم المشرف");//Activ
 define("_LEAVEEMPTYTONOTUSE","ترك فارغا لommit");//Leave empty to ommit
 define("_PLEASESELECT","الرجاء اختيار");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","المشرف سيتم تنشيط حسابك");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","معلمة غير صالحة");//Invalid parameter (New)
+define("_INVALIDPARAMETER","معلمة غير صالحة");//Invalid parameter
 define("_IMS","نظام الرصد الدولي");//IMS
 define("_IMSIMPORT","استيراد نظام الرصد الدولي المحتوى");//Import IMS Content
 define("_IMSEXPORT","تصدير نظام الرصد الدولي المحتوى");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","توولتيب");//Tooltip
 define("_HIDDEN","خفية من المستخدمين");//Hidden from users
 define("_RESETSCORMDATA","إعادة تعيين بيانات المستخدم");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","الإعدادات المتقدمة");//Advanced settings
-define("_ADDINSTANCE","إضافة مثيل");//Add instance (New)
-define("_INSTANCE","مثل");//Instance (New)
-define("_COURSECODE","بالطبع رمز");//Course code (New)
-define("_TRAININGHOURS","ساعات التدريب");//Training hours (New)
-define("_COURSEINSTANCES","حالات الدورة");//Course instances (New)
-define("_CAPACITY","قدرة");//Capacity (New)
-define("_SEATSREMAINING","المقاعد المتبقية");//Seats remaining (New)
-define("_STARTDATE","تاريخ البدء");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","هل أنت متأكد أنك تريد حذف هذه الحالة؟");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","تحرير مثيل");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","الدروس الابتدائية");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","شاهد مثيل");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","مهارات مثيل");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","خيارات على سبيل المثال");//Options for instance (New)
-define("_JUMPTO","اذهب إلى");//Jump to (New)
-define("_PARENTCOURSE","الأصل الدورة");//Parent Course (New)
-define("_LOCATIONBRANCH","موقع (فرع)");//Location (branch) (New)
-define("_SELECTBRANCH","حدد فرع");//Select branch (New)
-define("_SHARED","مشترك");//Shared (New)
-define("_UNIQUE","فريد");//Unique (New)
-define("_MODE","طريقة");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","الموضوع : استخدم فقط في الكتالوج");//Use only courses in catalog (New)
-define("_ALLJOBS","جميع الوظائف");//All jobs (New)
+define("_ADDINSTANCE","إضافة مثيل");//Add instance
+define("_INSTANCE","مثل");//Instance
+define("_COURSECODE","بالطبع رمز");//Course code
+define("_TRAININGHOURS","ساعات التدريب");//Training hours
+define("_COURSEINSTANCES","حالات الدورة");//Course instances
+define("_CAPACITY","قدرة");//Capacity
+define("_SEATSREMAINING","المقاعد المتبقية");//Seats remaining
+define("_STARTDATE","تاريخ البدء");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","هل أنت متأكد أنك تريد حذف هذه الحالة؟");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","تحرير مثيل");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","الدروس الابتدائية");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","شاهد مثيل");//Instance users
+define("_SKILLSOFFEREDINSTANCE","مهارات مثيل");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","خيارات على سبيل المثال");//Options for instance
+define("_JUMPTO","اذهب إلى");//Jump to
+define("_PARENTCOURSE","الأصل الدورة");//Parent Course
+define("_LOCATIONBRANCH","موقع (فرع)");//Location (branch)
+define("_SELECTBRANCH","حدد فرع");//Select branch
+define("_SHARED","مشترك");//Shared
+define("_UNIQUE","فريد");//Unique
+define("_MODE","طريقة");//Mode
+define("_USEONLYCOURSESINCATALOG","الموضوع : استخدم فقط في الكتالوج");//Use only courses in catalog
+define("_ALLJOBS","جميع الوظائف");//All jobs
 define("_SHOWMOTTOONHEADER","اسم وشعار المعرض أيضا على رأس");//Show name and motto also on header
-define("_ASSIGNCOURSES","الموضوع : تعيين");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","الموضوع : اختر لتعيين كافة المستخدمين وجدت");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","ولم ترد أي المستخدمين العثور على");//No users have been found (New)
-define("_ASSIGNMENT","مهمة");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","أي في أدنى مستوى");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","أي أعلى بقليل من أدنى مستوى");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","ولم ترد أي المقررات المسجلة");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","لم يعرف بعد التدريب المطلوب");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","التدريب اللازم");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","شرط جديد للتدريب");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","الدورات التدريبية المطلوبة");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","أضف التدريب البديل");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","وقد تطلب تدريب");//Has required training (New)
+define("_ASSIGNCOURSES","الموضوع : تعيين");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","الموضوع : اختر لتعيين كافة المستخدمين وجدت");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","ولم ترد أي المستخدمين العثور على");//No users have been found
+define("_ASSIGNMENT","مهمة");//Assignment
+define("_ANYLOWESTLEVELBRANCH","أي في أدنى مستوى");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","أي أعلى بقليل من أدنى مستوى");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","ولم ترد أي المقررات المسجلة");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","لم يعرف بعد التدريب المطلوب");//No required training has been defined yet
+define("_REQUIREDTRAINING","التدريب اللازم");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","شرط جديد للتدريب");//New training condition
+define("_REQUIREDTRAININGCOURSES","الدورات التدريبية المطلوبة");//Required training courses
+define("_ADDALTERNATIVETRAINING","أضف التدريب البديل");//Add alternative training
+define("_HASREQUIREDTRAINING","وقد تطلب تدريب");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","نتائج البحث في مسرد");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","أية نتائج وجدت في مسرد");//No results found in glossary
-define("_PROJECTSSCORE","مشاريع النتيجة");//Projects score (New)
-define("_TESTSSCORE","اختبارات درجة");//Tests score (New)
+define("_PROJECTSSCORE","مشاريع النتيجة");//Projects score
+define("_TESTSSCORE","اختبارات درجة");//Tests score
 define("_AUTOLOGIN","دخول السيارات");//Auto login
 define("_ACCESSLINK","وصول الارتباط");//Access link
 define("_AUTOLOGINITHLINK","يمكن للمستخدم تسجيل الدخول تلقائيا عن طريق وصلة");//User can login automatically by link
 define("_DEFAULTUSERTYPE","النوع الافتراضي للمستخدم");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","قوة الطلاب الإجابة على جميع الأسئلة");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","لديك للرد على جميع الأسئلة");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","تسمح الدروس مستقلة");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","موعد مختار مسبقا");//No preselected date (New)
-define("_CURRENTDATE","تاريخ الحالية");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","تسمح الدروس مستقلة");//Allow independent lessons
+define("_NOPRESELECTEDDATE","موعد مختار مسبقا");//No preselected date
+define("_CURRENTDATE","تاريخ الحالية");//Current date
 define("_SHOWHELP","عرض روابط مساعدة");//Display help links
 define("_ALLOWUSERANSERALLRONG","السماح للطلاب فقط إعادة الإجابة على الأسئلة الخطأ");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","فقط إذا سمح اختبار التكرار");//Only if test repetitions are allowed
 define("_USERREDOWRONG","إعادة الخطأ فقط الرد");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","يمكن أن لا يكون موضوع الافتراضي inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","صلاحية الوصول");//Access expired (New)
-define("_LESSONSCHEDULE","جدول الدروس");//Lessons schedule (New)
-define("_COURSESTARTSAT","الدورة تبدأ في");//The course starts on (New)
-define("_COURSEENDSAT","وتنتهي الدورة في يوم");//The course ends on (New)
-define("_ENDDATE","نهاية التاريخ");//End date (New)
-define("_SELECTSKILLCATEGORY","حدد فئة المهارات");//Select skill category (New)
+define("_ACCESSEXPIRED","صلاحية الوصول");//Access expired
+define("_LESSONSCHEDULE","جدول الدروس");//Lessons schedule
+define("_COURSESTARTSAT","الدورة تبدأ في");//The course starts on
+define("_COURSEENDSAT","وتنتهي الدورة في يوم");//The course ends on
+define("_ENDDATE","نهاية التاريخ");//End date
+define("_SELECTSKILLCATEGORY","حدد فئة المهارات");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","تم تعريف لا صف رأس أو رأس غير متوافق مع نوع استيراد");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","المستوردة المستخدم");//Imported user
 define("_USERSTOCOURSES","للمستخدمين المقررات");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","قسيمة");//Coupon
 define("_INVALIDCOUPON","القسيمة غير صالحة");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","اضغط للدخول خصم القسيمة");//Click to enter discount coupon
 define("_TESTREDONE","تصحيح");//Corrected
-define("_CURRICULUMS","المناهج");//Curricula (New)
-define("_CURRICULUM","المناهج الدراسية");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","تعيين المناهج الدراسية لمجموعة من المستخدمين");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","تعيين المناهج الدراسية للمستخدم");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","أضف المناهج");//Add curriculum (New)
-define("_EDITCURRICULUM","تعديل المناهج");//Edit curriculum (New)
+define("_CURRICULUMS","المناهج");//Curricula
+define("_CURRICULUM","المناهج الدراسية");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","تعيين المناهج الدراسية لمجموعة من المستخدمين");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","تعيين المناهج الدراسية للمستخدم");//Assign curriculum to user
+define("_ADDCURRICULUM","أضف المناهج");//Add curriculum
+define("_EDITCURRICULUM","تعديل المناهج");//Edit curriculum
 define("_COULDNOTFINDCOURSE","بالطبع لا يمكن أن تجد");//Could not find course
 define("_IMPORTRESULTSFOR","نتائج لاستيراد");//Import results for
-define("_COUPONUSAGE","استخدام القسيمة");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","جديد الدفع باي بال");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","الجديد ميزان المدفوعات");//New balance payment (New)
-define("_USEDCOUPON","استخدام القسيمة");//Used coupon (New)
-define("_PAYEDWITHBALANCE","سيولي مع التوازن");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","سيولي مع باي بال");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","يجب إكمال جميع الاختبارات");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","إزالة &lt;script&gt;به من منصبه");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","إعادة توجيه المستخدم بعد تسجيل الدخول إلى");//Redirect user after login to (New)
-define("_LESSONSCATALOG","فهرس الدرس المستخدم");//User's lesson catalog (New)
-define("_USERDASHBOARD","مستخدم لوحة القيادة");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","اي عنوان المنصوص عليها الوصف الوظيفي");//No title provided for job description (New)
-define("_EDITORTYPE","محرر نوع");//Editor type (New)
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","تظهر إلا بعد تقديم رسالة اختبار");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","وقدم هذا الاختبار بنجاح");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","مركز التعلم");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","وليس عنوان البريد الإلكتروني");//has not an e-mail address (New)
-define("_FEEDBACK","ردود الفعل");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","إدراج المستخدمين في المجموعة");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","إدراج مجموعة جديدة");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","تضاف الى مجموعة موجودة");//Insert into existing group (New)
-define("_NEWGROUPNAME","اسم المجموعة الجديدة");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","وينبغي أن تختار إما مجموعة موجودة أو تقديم مجموعة جديدة اسم");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","تقديم وتحرير مجموعة");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","البحث المستخدمين إضافة إلى مجموعة");//Search users to add to group (New)
-define("_AFTER","بعد");//After (New)
-define("_BEFORE","قبل");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","مشاركة جميع المستخدمين في دورات للفريق");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","مشاركة مجموعة من المستخدمين في الدورات التدريبية التابعة لمنظومة");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","تطهير سجلات");//Purge logs (New)
-define("_LOGSSIZE","يسجل حجم");//Logs size (New)
-define("_OLDESTLOG","أقدم سجل دخول");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","تطهير سجلات مضى عليها أكثر من");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","إزالة سجلات بنجاح");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","س ٪ فقط الكيانات حيث تجهيزها ، والذي هو الحد لهذه العملية");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","لا يمكنك تعيين مستخدمين لهذا المنهج لأنه لا يوجد لديه المقررات");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","خصائص المنهج");//Curriculum properties (New)
-define("_ENTRIES","إدخالات");//Entries (New)
-define("_ENTERPRISEOPTIONS","المشاريع خيارات");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","وتظهر الخريطة التنظيمية للمستخدمين");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","وتظهر صورة الشخصية للمستخدمين");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","غير مخصصة للمستخدمين عرض المشرفين");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","السماح للمستخدمين حذف الملفات المشتركة المشرف");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","بلدي نموذج");//my Form (New)
-define("_CLEARQUERYCACHE","واضح الاستعلام ذاكرة التخزين المؤقت");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","خيارات تعليقات");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","خيارات للوقوف على آرائهم");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","أكملت مؤخرا ردود فعل");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","فب ملف التكوين LiveDocx (مكتبات / phplivedocx_config.php) غير قابل للكتابة. أية تغييرات أجريتها إلى تكوين livedocx لم يتم حفظ");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","بيانات إعادة التقدم");//Reset progress data (New)
-define("_DEBUGMODE","وضع التصحيح");//Debug mode (New)
-define("_GENERALSETTINGS","الإعدادات العامة");//General settings (New)
-define("_FINISHLESSONMESSAGE","مبروك! الانتهاء من الدرس. الرجاء تحديد مكان تذهب اليه الآن :");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","الدرس القادم");//Next lesson (New)
-define("_LESSONFINISHED","انتهى الدرس");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","كنت في الماضي قد درس زيارة");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","ويتم تعليقات");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","الشروع في ردود الفعل");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","تعديل بنجاح ردود الفعل");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","بدأت في تعليقات");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","ويتم اختيار المكرمين من قبل واجهة النظام وفقا لهذا الحدث. <BR> -- "._NEWSURVEY .":المستلمون هي للمستخدمين المشاركة في المسح. <BR> -- "._ONJOBASSIGNMENT .":والمتلقين هو المشرف مختارة من قبل الموظف. <BR> -- "._PROJECTEXPIRY .":المستلمون والمستخدمين التي تم تعيينها للمشروع.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","المسجلين في");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","وظيفة لا وجود له");//Job does not exist (New)
-define("_SEARCHFORUSER","] البحث عن المستخدمين [معايير الشخصي");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","معايير البحث");//Search criteria (New)
-define("_SUBMITFEEDBACK","إرسال الملاحظات");//Submit feedback (New)
-define("_FEEDBACKRESULTS","نتائج ملاحظات");//Feedback results (New)
-define("_PASSWORDREMINDER","كلمة السر تذكير");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","يجب إكمال جميع الاختبارات");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","تقارير تعليقات");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","اختيار ردود الفعل");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","تقرير عن ردود الفعل");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","حاليا تصفح المجلد");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","عرض");//Showing (New)
-define("_MATERIALINPROGRESS","المواد في التقدم");//Material in progress (New)
-define("_ALLMATERIAL","جميع المواد");//All material (New)
-define("_CACHEENTRYNOTFOUND","لم يتم العثور على مخبأ للدخول");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","انتهت الكاش دخول");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","مخبأ دخول غير صالحة");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","إشعارات إزالة");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","الإخطارات حجم");//Notifications size (New)
-define("_OLDESTNOTIFICATION","أقدم إعلام");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","إشعارات إزالة مضى عليها أكثر من");//Purge notifications older than (New)
-define("_CURRENTUSERS","الحالية");//Current (New)
-define("_SELECTEDCOURSES","اختيار الموضوع :");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","ملفات الوحدة موجودة ولكن لم يتم تثبيته");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","استخدام القسيمة");//Coupon usage
+define("_NEWPAYPALPAYMENT","جديد الدفع باي بال");//New paypal payment
+define("_NEWBALANCEPAYMENT","الجديد ميزان المدفوعات");//New balance payment
+define("_USEDCOUPON","استخدام القسيمة");//Used coupon
+define("_PAYEDWITHBALANCE","سيولي مع التوازن");//Payed with balance
+define("_PAYEDWITHPAYPAL","سيولي مع باي بال");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","يجب إكمال جميع الاختبارات");//You must complete all tests
+define("_ELIMINATEPOSTXSS","إزالة &lt;script&gt;به من منصبه");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","إعادة توجيه المستخدم بعد تسجيل الدخول إلى");//Redirect user after login to
+define("_LESSONSCATALOG","فهرس الدرس المستخدم");//User's lesson catalog
+define("_USERDASHBOARD","مستخدم لوحة القيادة");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","اي عنوان المنصوص عليها الوصف الوظيفي");//No title provided for job description
+define("_EDITORTYPE","محرر نوع");//Editor type
+define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","تظهر إلا بعد تقديم رسالة اختبار");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","وقدم هذا الاختبار بنجاح");//This test was successfully submitted
+define("_LEARNINGSTATUS","مركز التعلم");//Learning Status
+define("_HASNOTANEMAILADDRESS","وليس عنوان البريد الإلكتروني");//has not an e-mail address
+define("_FEEDBACK","ردود الفعل");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","إدراج المستخدمين في المجموعة");//Insert users into group
+define("_INSERTINTONEWGROUP","إدراج مجموعة جديدة");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","تضاف الى مجموعة موجودة");//Insert into existing group
+define("_NEWGROUPNAME","اسم المجموعة الجديدة");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","وينبغي أن تختار إما مجموعة موجودة أو تقديم مجموعة جديدة اسم");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","تقديم وتحرير مجموعة");//Submit and edit group
+define("_SEARCHGROUPUSERS","البحث المستخدمين إضافة إلى مجموعة");//Search users to add to group
+define("_AFTER","بعد");//After
+define("_BEFORE","قبل");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","مشاركة جميع المستخدمين في دورات للفريق");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","مشاركة مجموعة من المستخدمين في الدورات التدريبية التابعة لمنظومة");//Participation of group users in the courses of the system
+define("_PURGELOGS","تطهير سجلات");//Purge logs
+define("_LOGSSIZE","يسجل حجم");//Logs size
+define("_OLDESTLOG","أقدم سجل دخول");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","تطهير سجلات مضى عليها أكثر من");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","إزالة سجلات بنجاح");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","س ٪ فقط الكيانات حيث تجهيزها ، والذي هو الحد لهذه العملية");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","لا يمكنك تعيين مستخدمين لهذا المنهج لأنه لا يوجد لديه المقررات");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","خصائص المنهج");//Curriculum properties
+define("_ENTRIES","إدخالات");//Entries
+define("_ENTERPRISEOPTIONS","المشاريع خيارات");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","وتظهر الخريطة التنظيمية للمستخدمين");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","وتظهر صورة الشخصية للمستخدمين");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","غير مخصصة للمستخدمين عرض المشرفين");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","السماح للمستخدمين حذف الملفات المشتركة المشرف");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","بلدي نموذج");//my Form
+define("_CLEARQUERYCACHE","واضح الاستعلام ذاكرة التخزين المؤقت");//Clear query cache
+define("_FEEDBACKOPTIONS","خيارات تعليقات");//Feedback options
+define("_OPTIONSFORFEEDBACK","خيارات للوقوف على آرائهم");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","أكملت مؤخرا ردود فعل");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","فب ملف التكوين LiveDocx (مكتبات / phplivedocx_config.php) غير قابل للكتابة. أية تغييرات أجريتها إلى تكوين livedocx لم يتم حفظ");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","بيانات إعادة التقدم");//Reset progress data
+define("_DEBUGMODE","وضع التصحيح");//Debug mode
+define("_GENERALSETTINGS","الإعدادات العامة");//General settings
+define("_FINISHLESSONMESSAGE","مبروك! الانتهاء من الدرس. الرجاء تحديد مكان تذهب اليه الآن :");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","الدرس القادم");//Next lesson
+define("_LESSONFINISHED","انتهى الدرس");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","كنت في الماضي قد درس زيارة");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","ويتم تعليقات");//Feedback is done
+define("_PROCEEDTOFEEDBACK","الشروع في ردود الفعل");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","تعديل بنجاح ردود الفعل");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","بدأت في تعليقات");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","ويتم اختيار المكرمين من قبل واجهة النظام وفقا لهذا الحدث. <BR> -- "._NEWSURVEY .":المستلمون هي للمستخدمين المشاركة في المسح. <BR> -- "._ONJOBASSIGNMENT .":والمتلقين هو المشرف مختارة من قبل الموظف. <BR> -- "._PROJECTEXPIRY .":المستلمون والمستخدمين التي تم تعيينها للمشروع.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","المسجلين في");//Enrolled on
+define("_JOBDOESNOTEXIST","وظيفة لا وجود له");//Job does not exist
+define("_SEARCHFORUSER","] البحث عن المستخدمين [معايير الشخصي");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","معايير البحث");//Search criteria
+define("_SUBMITFEEDBACK","إرسال الملاحظات");//Submit feedback
+define("_FEEDBACKRESULTS","نتائج ملاحظات");//Feedback results
+define("_PASSWORDREMINDER","كلمة السر تذكير");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","يجب إكمال جميع الاختبارات");//Must complete all tests
+define("_FEEDBACKSTATISTICS","تقارير تعليقات");//Feedback reports
+define("_CHOOSEFEEDBACK","اختيار ردود الفعل");//Choose feedback
+define("_REPORTSFORFEEDBACK","تقرير عن ردود الفعل");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","حاليا تصفح المجلد");//Currently browsing folder
+define("_CURRENTLYSHOWING","عرض");//Showing
+define("_MATERIALINPROGRESS","المواد في التقدم");//Material in progress
+define("_ALLMATERIAL","جميع المواد");//All material
+define("_CACHEENTRYNOTFOUND","لم يتم العثور على مخبأ للدخول");//Cache entry not found
+define("_CACHEENTRYEXPIRED","انتهت الكاش دخول");//Cache entry expired
+define("_CACHEENTRYINVALID","مخبأ دخول غير صالحة");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","إشعارات إزالة");//Purge notifications
+define("_NOTIFICATIONSSIZE","الإخطارات حجم");//Notifications size
+define("_OLDESTNOTIFICATION","أقدم إعلام");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","إشعارات إزالة مضى عليها أكثر من");//Purge notifications older than
+define("_CURRENTUSERS","الحالية");//Current
+define("_SELECTEDCOURSES","اختيار الموضوع :");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","ملفات الوحدة موجودة ولكن لم يتم تثبيته");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","وهذا وضع جميع الدروس والدورات السعر إلى 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","تحديد هوية الكائن لأبعاد الشاشة مطابقة");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","قائمة مفصولة بفواصل");//Comma separated list (New)
 ?>

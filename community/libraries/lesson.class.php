@@ -1724,13 +1724,14 @@ class EfrontLesson
     $project -> addUsers($newUsers);
    }
   }
-  foreach ($usersData as $value) {
-   $event = array("type" => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
+  if (!_DISABLE_EVENTS) {
+   foreach ($usersData as $value) {
+    $event = array("type" => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
          "users_LOGIN" => $value['login'],
          "lessons_ID" => $this -> lesson['id'],
          "lessons_name" => $this -> lesson['name']);
-//@TODO: temporarily disabled event!			
-   EfrontEvent::triggerEvent($event);
+    EfrontEvent::triggerEvent($event);
+   }
   }
  }
  /**

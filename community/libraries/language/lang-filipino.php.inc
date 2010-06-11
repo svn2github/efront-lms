@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Pagpapabuhay superbisor patlang na pangalan");/
 define("_LEAVEEMPTYTONOTUSE","Iwanang walang laman sa ommit");//Leave empty to ommit
 define("_PLEASESELECT","Mangyaring piliin ang");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Ang iyong superbisor ay ma-activate ang iyong account");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Hindi balidong parameter");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Hindi balidong parameter");//Invalid parameter
 define("_IMS","IMs");//IMS
 define("_IMSIMPORT","Angkat IMs Nilalaman");//Import IMS Content
 define("_IMSEXPORT","I-export IMs Nilalaman");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Nakatagong mula sa mga gumagamit");//Hidden from users
 define("_RESETSCORMDATA","I-reset ang user data");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Mga Advanced na setting");//Advanced settings
-define("_ADDINSTANCE","Magdagdag ng pagkakataon");//Add instance (New)
-define("_INSTANCE","Pagkakataon");//Instance (New)
-define("_COURSECODE","Course code");//Course code (New)
-define("_TRAININGHOURS","Pagsasanay oras");//Training hours (New)
-define("_COURSEINSTANCES","Course pangyayari");//Course instances (New)
-define("_CAPACITY","Kapasidad");//Capacity (New)
-define("_SEATSREMAINING","Upuan natitirang");//Seats remaining (New)
-define("_STARTDATE","Simulang petsa");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Sigurado ka bang gusto mong burahin ang pangyayaring ito?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","I-edit ang pagkakataon");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","Halimbawa lessons");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","Halimbawa user");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","Halimbawa kasanayan");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Opsyon para sa mga halimbawa");//Options for instance (New)
-define("_JUMPTO","Jump to");//Jump to (New)
-define("_PARENTCOURSE","Magulang Course");//Parent Course (New)
-define("_LOCATIONBRANCH","Lokasyon (sangay)");//Location (branch) (New)
-define("_SELECTBRANCH","Pumili ng sangay");//Select branch (New)
-define("_SHARED","Naibahaging");//Shared (New)
-define("_UNIQUE","Kakaiba");//Unique (New)
-define("_MODE","Paraan");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","Gamitin lamang ang mga kurso sa katalogo");//Use only courses in catalog (New)
-define("_ALLJOBS","Lahat ng mga trabaho");//All jobs (New)
+define("_ADDINSTANCE","Magdagdag ng pagkakataon");//Add instance
+define("_INSTANCE","Pagkakataon");//Instance
+define("_COURSECODE","Course code");//Course code
+define("_TRAININGHOURS","Pagsasanay oras");//Training hours
+define("_COURSEINSTANCES","Course pangyayari");//Course instances
+define("_CAPACITY","Kapasidad");//Capacity
+define("_SEATSREMAINING","Upuan natitirang");//Seats remaining
+define("_STARTDATE","Simulang petsa");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Sigurado ka bang gusto mong burahin ang pangyayaring ito?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","I-edit ang pagkakataon");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","Halimbawa lessons");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","Halimbawa user");//Instance users
+define("_SKILLSOFFEREDINSTANCE","Halimbawa kasanayan");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Opsyon para sa mga halimbawa");//Options for instance
+define("_JUMPTO","Jump to");//Jump to
+define("_PARENTCOURSE","Magulang Course");//Parent Course
+define("_LOCATIONBRANCH","Lokasyon (sangay)");//Location (branch)
+define("_SELECTBRANCH","Pumili ng sangay");//Select branch
+define("_SHARED","Naibahaging");//Shared
+define("_UNIQUE","Kakaiba");//Unique
+define("_MODE","Paraan");//Mode
+define("_USEONLYCOURSESINCATALOG","Gamitin lamang ang mga kurso sa katalogo");//Use only courses in catalog
+define("_ALLJOBS","Lahat ng mga trabaho");//All jobs
 define("_SHOWMOTTOONHEADER","Ipakita ang mga pangalan at motto din sa header");//Show name and motto also on header
-define("_ASSIGNCOURSES","Magtalaga ng mga kurso");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","Piliin ang mga kurso sa italaga sa lahat ng mga gumagamit na natagpuan");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","Walang mga gumagamit ay natagpuan");//No users have been found (New)
-define("_ASSIGNMENT","Destino");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Anumang sa pinakamababang antas ng");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Anumang lamang sa itaas ang pinakamababang antas ng");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","Walang mga kurso ay nakarehistro");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","Walang kinakailangang pagsasanay ay tinukoy pa");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","Kinakailangan pagsasanay");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","Bagong pagsasanay kondisyon");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","Kinakailangan pagsasanay kurso");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Magdagdag ng alternatibong pagsasanay");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","Ay kinakailangan pagsasanay");//Has required training (New)
+define("_ASSIGNCOURSES","Magtalaga ng mga kurso");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","Piliin ang mga kurso sa italaga sa lahat ng mga gumagamit na natagpuan");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","Walang mga gumagamit ay natagpuan");//No users have been found
+define("_ASSIGNMENT","Destino");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Anumang sa pinakamababang antas ng");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Anumang lamang sa itaas ang pinakamababang antas ng");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","Walang mga kurso ay nakarehistro");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","Walang kinakailangang pagsasanay ay tinukoy pa");//No required training has been defined yet
+define("_REQUIREDTRAINING","Kinakailangan pagsasanay");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","Bagong pagsasanay kondisyon");//New training condition
+define("_REQUIREDTRAININGCOURSES","Kinakailangan pagsasanay kurso");//Required training courses
+define("_ADDALTERNATIVETRAINING","Magdagdag ng alternatibong pagsasanay");//Add alternative training
+define("_HASREQUIREDTRAINING","Ay kinakailangan pagsasanay");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Mga resulta ng Paghahanap sa glossary");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Walang mga resulta na natagpuan sa glossary");//No results found in glossary
-define("_PROJECTSSCORE","Proyekto iskor");//Projects score (New)
-define("_TESTSSCORE","Pagsusulit iskor");//Tests score (New)
+define("_PROJECTSSCORE","Proyekto iskor");//Projects score
+define("_TESTSSCORE","Pagsusulit iskor");//Tests score
 define("_AUTOLOGIN","Auto-login");//Auto login
 define("_ACCESSLINK","Puntahan ang link na");//Access link
 define("_AUTOLOGINITHLINK","User ay maaaring awtomatikong mag-login sa pamamagitan ng link");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Default na uri ng user");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Force mag-aaral ang sagot sa lahat ng mga katanungan");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Ikaw ang sagot sa lahat ng mga katanungan");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Payagan ang mga independiyenteng mga aralin");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Walang preselected petsa");//No preselected date (New)
-define("_CURRENTDATE","Kasalukuyang petsa");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Payagan ang mga independiyenteng mga aralin");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Walang preselected petsa");//No preselected date
+define("_CURRENTDATE","Kasalukuyang petsa");//Current date
 define("_SHOWHELP","Ipakita ang mga link ng tulong");//Display help links
 define("_ALLOWUSERANSERALLRONG","Payagan ang mga mag-aaral upang gawing muli lamang sa maling sinagot tanong");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Tanging kung pagsubok repetitions ay pinahihintulutan");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Gawin muli lamang maling sumagot");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Default na tema ay hindi maaaring inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Access wala nang bisa");//Access expired (New)
-define("_LESSONSCHEDULE","Lessons iskedyul");//Lessons schedule (New)
-define("_COURSESTARTSAT","Ang mga kurso ay nagsisimula sa");//The course starts on (New)
-define("_COURSEENDSAT","Ang mga kurso ay nagtatapos sa");//The course ends on (New)
-define("_ENDDATE","End petsa");//End date (New)
-define("_SELECTSKILLCATEGORY","Pumili ng kasanayan kategorya");//Select skill category (New)
+define("_ACCESSEXPIRED","Access wala nang bisa");//Access expired
+define("_LESSONSCHEDULE","Lessons iskedyul");//Lessons schedule
+define("_COURSESTARTSAT","Ang mga kurso ay nagsisimula sa");//The course starts on
+define("_COURSEENDSAT","Ang mga kurso ay nagtatapos sa");//The course ends on
+define("_ENDDATE","End petsa");//End date
+define("_SELECTSKILLCATEGORY","Pumili ng kasanayan kategorya");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Walang header hilera ay tinukoy header o hindi katugma sa import ng uri");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","Imported ang user");//Imported user
 define("_USERSTOCOURSES","Ang mga gumagamit sa mga kurso");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Kupon");//Coupon
 define("_INVALIDCOUPON","Hindi balidong kupon");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","I-click upang ipasok ang discount kupon");//Click to enter discount coupon
 define("_TESTREDONE","Nawastong");//Corrected
-define("_CURRICULUMS","Curricula");//Curricula (New)
-define("_CURRICULUM","Kurikulum");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","Magtalaga ng kurikulum sa grupo ng mga gumagamit");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","Magtalaga ng kurikulum sa gumagamit");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Magdagdag ng kurikulum");//Add curriculum (New)
-define("_EDITCURRICULUM","I-edit ang kurikulum");//Edit curriculum (New)
+define("_CURRICULUMS","Curricula");//Curricula
+define("_CURRICULUM","Kurikulum");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","Magtalaga ng kurikulum sa grupo ng mga gumagamit");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","Magtalaga ng kurikulum sa gumagamit");//Assign curriculum to user
+define("_ADDCURRICULUM","Magdagdag ng kurikulum");//Add curriculum
+define("_EDITCURRICULUM","I-edit ang kurikulum");//Edit curriculum
 define("_COULDNOTFINDCOURSE","Hindi makahanap ng kurso");//Could not find course
 define("_IMPORTRESULTSFOR","I-import ng mga resulta para sa");//Import results for
-define("_COUPONUSAGE","Kupon paggamit");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","Bagong PayPal bayad");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","Bagong balanse ng pagbabayad");//New balance payment (New)
-define("_USEDCOUPON","Ginamit kupon");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Payed sa balanse");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Payed sa PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","Kailangan mong kumpletuhin ang lahat ng mga pagsusulit");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","Tanggalin &lt;script&gt; tag mula sa POST");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","Redirect manggagamit pagkatapos mag-login sa");//Redirect user after login to (New)
-define("_LESSONSCATALOG","aral ng catalog User&#39;s");//User's lesson catalog (New)
-define("_USERDASHBOARD","User&#39;s dashboard");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Walang pamagat na ibinigay para sa mga description ng trabaho");//No title provided for job description (New)
-define("_EDITORTYPE","Editor uri");//Editor type (New)
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Ipakita lamang ng isang mensahe ay matapos na isumite sa pagsubok");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","pagsubok na ito ay matagumpay na naisumite");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Katayuan sa Pag-aaral");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","ay hindi isang e-mail address");//has not an e-mail address (New)
-define("_FEEDBACK","Feedback");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","Magsingit ng mga gumagamit sa grupo");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Isingit sa bagong grupo");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Isingit sa umiiral na grupo");//Insert into existing group (New)
-define("_NEWGROUPNAME","Bagong pangalan ng grupo");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Dapat mong piliin ang alinman sa isang umiiral na grupo o magbigay ng isang bagong pangalan ng grupo");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Isumite at i-edit ang grupo");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","Hanapin ang mga gumagamit upang idagdag sa grupo");//Search users to add to group (New)
-define("_AFTER","Pagkatapos");//After (New)
-define("_BEFORE","Bago");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Paglahok ng lahat ng mga gumagamit sa mga kurso ng grupo");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Paglahok ng mga gumagamit ng grupo sa mga kurso ng sistema ng");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Purgahin logs");//Purge logs (New)
-define("_LOGSSIZE","Logs laki");//Logs size (New)
-define("_OLDESTLOG","Pinakaluma mag-log entry");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Purgahin logs mas matanda kaysa sa");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","Matagumpay na purged logs");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Tanging% x entidad kung saan na-proseso, na kung saan ay ang limitasyon para sa operasyon");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Hindi mo maaaring magtalaga ng mga gumagamit sa kurikulum na ito sapagkat ito ay walang mga kurso");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","Curriculum-aari");//Curriculum properties (New)
-define("_ENTRIES","Entries");//Entries (New)
-define("_ENTERPRISEOPTIONS","Enterprise mga opsyon");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Ipakita ang mga organisasyon tsart sa mga gumagamit");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Ipakita ang mga personal na form sa mga gumagamit");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Ipakita ang mga naka-assign sa mga gumagamit supervisors");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Payagan ang mga gumagamit upang tanggalin ang superbisor shared file");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","aking Form");//my Form (New)
-define("_CLEARQUERYCACHE","I-clear ang cache ng query");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","Feedback opsyon");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Opsyon para sa mga puna");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Kamakailan lamang natapos feedback");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","LiveDocx PHP configuration file (mga aklatan / phplivedocx_config.php) ay hindi writable. Anumang mga pagbabago na iyong ginawa sa pagsasaayos livedocx ay hindi na-save");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","I-reset ang progreso ng data");//Reset progress data (New)
-define("_DEBUGMODE","Debug mode");//Debug mode (New)
-define("_GENERALSETTINGS","Pangkalahatang mga setting ng");//General settings (New)
-define("_FINISHLESSONMESSAGE","Congratulations! Natapos mo na ang aral. Mangyaring pumili ng isang lugar upang pumunta ngayon:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","Susunod na aral");//Next lesson (New)
-define("_LESSONFINISHED","Lesson tapos na");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Ikaw ay sa huling aral maaari mong bisitahin ang");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","Feedback ay tapos na");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Magpatuloy sa feedback");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Matagumpay na nabago feedback");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","Feedback nagsimula at");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","Ang mga tatanggap ay pinili sa pamamagitan ng interface ng sistema ng ayon sa mga kaganapan. <BR> - "._NEWSURVEY .": Padadalhan ay ang mga gumagamit ng mga kalahok sa sarbey. <BR> - "._ONJOBASSIGNMENT .": Ang mga tatanggap ay ang superbisor pinili ng empleyado. <BR> - "._PROJECTEXPIRY .": Padadalhan ay ang mga gumagamit na itinalaga ang proyekto.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","Nakatala sa");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Job ay hindi umiiral");//Job does not exist (New)
-define("_SEARCHFORUSER","Hanapin ang user [pamantayan Profile]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","Search criteria");//Search criteria (New)
-define("_SUBMITFEEDBACK","Ipadala ang feedback");//Submit feedback (New)
-define("_FEEDBACKRESULTS","Feedback resulta");//Feedback results (New)
-define("_PASSWORDREMINDER","Password paalala");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Kailangang kumpleto ang lahat ng mga pagsusulit");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","Feedback ulat");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Pumili ng puna");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Ulat para sa feedback");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","Kasalukuyang nagba-browse ang folder");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Showing");//Showing (New)
-define("_MATERIALINPROGRESS","Material sa pag-unlad");//Material in progress (New)
-define("_ALLMATERIAL","Lahat ng mga materyal na");//All material (New)
-define("_CACHEENTRYNOTFOUND","Cache entry ay hindi natagpuan");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","Cache entry lumipas");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","Cache entry ay hindi wasto");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","Purgahin abiso");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","Abiso sa laki");//Notifications size (New)
-define("_OLDESTNOTIFICATION","Pinakaluma notification");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","Purgahin abiso mas luma pa");//Purge notifications older than (New)
-define("_CURRENTUSERS","Kasalukuyan");//Current (New)
-define("_SELECTEDCOURSES","Napiling mga kurso");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","Module na mga files ay kasalukuyan, ngunit hindi na ito ay nai-install");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","Kupon paggamit");//Coupon usage
+define("_NEWPAYPALPAYMENT","Bagong PayPal bayad");//New paypal payment
+define("_NEWBALANCEPAYMENT","Bagong balanse ng pagbabayad");//New balance payment
+define("_USEDCOUPON","Ginamit kupon");//Used coupon
+define("_PAYEDWITHBALANCE","Payed sa balanse");//Payed with balance
+define("_PAYEDWITHPAYPAL","Payed sa PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","Kailangan mong kumpletuhin ang lahat ng mga pagsusulit");//You must complete all tests
+define("_ELIMINATEPOSTXSS","Tanggalin &lt;script&gt; tag mula sa POST");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","Redirect manggagamit pagkatapos mag-login sa");//Redirect user after login to
+define("_LESSONSCATALOG","aral ng catalog User&#39;s");//User's lesson catalog
+define("_USERDASHBOARD","User&#39;s dashboard");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Walang pamagat na ibinigay para sa mga description ng trabaho");//No title provided for job description
+define("_EDITORTYPE","Editor uri");//Editor type
+define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Ipakita lamang ng isang mensahe ay matapos na isumite sa pagsubok");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","pagsubok na ito ay matagumpay na naisumite");//This test was successfully submitted
+define("_LEARNINGSTATUS","Katayuan sa Pag-aaral");//Learning Status
+define("_HASNOTANEMAILADDRESS","ay hindi isang e-mail address");//has not an e-mail address
+define("_FEEDBACK","Feedback");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","Magsingit ng mga gumagamit sa grupo");//Insert users into group
+define("_INSERTINTONEWGROUP","Isingit sa bagong grupo");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Isingit sa umiiral na grupo");//Insert into existing group
+define("_NEWGROUPNAME","Bagong pangalan ng grupo");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Dapat mong piliin ang alinman sa isang umiiral na grupo o magbigay ng isang bagong pangalan ng grupo");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Isumite at i-edit ang grupo");//Submit and edit group
+define("_SEARCHGROUPUSERS","Hanapin ang mga gumagamit upang idagdag sa grupo");//Search users to add to group
+define("_AFTER","Pagkatapos");//After
+define("_BEFORE","Bago");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Paglahok ng lahat ng mga gumagamit sa mga kurso ng grupo");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Paglahok ng mga gumagamit ng grupo sa mga kurso ng sistema ng");//Participation of group users in the courses of the system
+define("_PURGELOGS","Purgahin logs");//Purge logs
+define("_LOGSSIZE","Logs laki");//Logs size
+define("_OLDESTLOG","Pinakaluma mag-log entry");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Purgahin logs mas matanda kaysa sa");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","Matagumpay na purged logs");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Tanging% x entidad kung saan na-proseso, na kung saan ay ang limitasyon para sa operasyon");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Hindi mo maaaring magtalaga ng mga gumagamit sa kurikulum na ito sapagkat ito ay walang mga kurso");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","Curriculum-aari");//Curriculum properties
+define("_ENTRIES","Entries");//Entries
+define("_ENTERPRISEOPTIONS","Enterprise mga opsyon");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Ipakita ang mga organisasyon tsart sa mga gumagamit");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Ipakita ang mga personal na form sa mga gumagamit");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Ipakita ang mga naka-assign sa mga gumagamit supervisors");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Payagan ang mga gumagamit upang tanggalin ang superbisor shared file");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","aking Form");//my Form
+define("_CLEARQUERYCACHE","I-clear ang cache ng query");//Clear query cache
+define("_FEEDBACKOPTIONS","Feedback opsyon");//Feedback options
+define("_OPTIONSFORFEEDBACK","Opsyon para sa mga puna");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Kamakailan lamang natapos feedback");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","LiveDocx PHP configuration file (mga aklatan / phplivedocx_config.php) ay hindi writable. Anumang mga pagbabago na iyong ginawa sa pagsasaayos livedocx ay hindi na-save");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","I-reset ang progreso ng data");//Reset progress data
+define("_DEBUGMODE","Debug mode");//Debug mode
+define("_GENERALSETTINGS","Pangkalahatang mga setting ng");//General settings
+define("_FINISHLESSONMESSAGE","Congratulations! Natapos mo na ang aral. Mangyaring pumili ng isang lugar upang pumunta ngayon:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","Susunod na aral");//Next lesson
+define("_LESSONFINISHED","Lesson tapos na");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Ikaw ay sa huling aral maaari mong bisitahin ang");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Feedback ay tapos na");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Magpatuloy sa feedback");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Matagumpay na nabago feedback");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Feedback nagsimula at");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","Ang mga tatanggap ay pinili sa pamamagitan ng interface ng sistema ng ayon sa mga kaganapan. <BR> - "._NEWSURVEY .": Padadalhan ay ang mga gumagamit ng mga kalahok sa sarbey. <BR> - "._ONJOBASSIGNMENT .": Ang mga tatanggap ay ang superbisor pinili ng empleyado. <BR> - "._PROJECTEXPIRY .": Padadalhan ay ang mga gumagamit na itinalaga ang proyekto.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","Nakatala sa");//Enrolled on
+define("_JOBDOESNOTEXIST","Job ay hindi umiiral");//Job does not exist
+define("_SEARCHFORUSER","Hanapin ang user [pamantayan Profile]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Search criteria");//Search criteria
+define("_SUBMITFEEDBACK","Ipadala ang feedback");//Submit feedback
+define("_FEEDBACKRESULTS","Feedback resulta");//Feedback results
+define("_PASSWORDREMINDER","Password paalala");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Kailangang kumpleto ang lahat ng mga pagsusulit");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Feedback ulat");//Feedback reports
+define("_CHOOSEFEEDBACK","Pumili ng puna");//Choose feedback
+define("_REPORTSFORFEEDBACK","Ulat para sa feedback");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","Kasalukuyang nagba-browse ang folder");//Currently browsing folder
+define("_CURRENTLYSHOWING","Showing");//Showing
+define("_MATERIALINPROGRESS","Material sa pag-unlad");//Material in progress
+define("_ALLMATERIAL","Lahat ng mga materyal na");//All material
+define("_CACHEENTRYNOTFOUND","Cache entry ay hindi natagpuan");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Cache entry lumipas");//Cache entry expired
+define("_CACHEENTRYINVALID","Cache entry ay hindi wasto");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","Purgahin abiso");//Purge notifications
+define("_NOTIFICATIONSSIZE","Abiso sa laki");//Notifications size
+define("_OLDESTNOTIFICATION","Pinakaluma notification");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Purgahin abiso mas luma pa");//Purge notifications older than
+define("_CURRENTUSERS","Kasalukuyan");//Current
+define("_SELECTEDCOURSES","Napiling mga kurso");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","Module na mga files ay kasalukuyan, ngunit hindi na ito ay nai-install");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Ito ay magse-set ang lahat ng mga aralin at mga kurso sa presyo 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Tukuyin ang object id para sa screen na sukat ng pagtutugma");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Na comma-separated list");//Comma separated list (New)
 ?>

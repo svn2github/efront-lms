@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktivizimi fushë emrin mbikëqyrës");//Activa
 define("_LEAVEEMPTYTONOTUSE","Lini bosh të ommit");//Leave empty to ommit
 define("_PLEASESELECT","Ju lutem zgjidhni");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Mbikqyrësi juaj do të aktivizoni llogarinë tuaj");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","parametër i pavlefshëm");//Invalid parameter (New)
+define("_INVALIDPARAMETER","parametër i pavlefshëm");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Import IMS Content");//Import IMS Content
 define("_IMSEXPORT","Export IMS Content");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","Tooltip");//Tooltip
 define("_HIDDEN","Fshehur nga shfrytëzuesit");//Hidden from users
 define("_RESETSCORMDATA","Përdorues të dhënave Reset");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Advanced settings");//Advanced settings
-define("_ADDINSTANCE","Shto shembull");//Add instance (New)
-define("_INSTANCE","Shembull");//Instance (New)
-define("_COURSECODE","Kodi i kursit");//Course code (New)
-define("_TRAININGHOURS","Trajnim orë");//Training hours (New)
-define("_COURSEINSTANCES","raste i kursit");//Course instances (New)
-define("_CAPACITY","Kapacitet");//Capacity (New)
-define("_SEATSREMAINING","Vendeve të mbetura");//Seats remaining (New)
-define("_STARTDATE","Data Fillim");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","A jeni i sigurt se doni te fshini kete shembull?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","shembull Edit");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","mësimet e Shkallës");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","përdoruesit e Shkallës");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","aftësitë e Shkallës");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","Mundësitë e zgjedhjes për shembull");//Options for instance (New)
-define("_JUMPTO","Shko te");//Jump to (New)
-define("_PARENTCOURSE","Prindit i kursit");//Parent Course (New)
-define("_LOCATIONBRANCH","Lokacioni (degë)");//Location (branch) (New)
-define("_SELECTBRANCH","Zgjidhni degë");//Select branch (New)
-define("_SHARED","Përbashkët");//Shared (New)
-define("_UNIQUE","Unik");//Unique (New)
-define("_MODE","Mënyrë");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","kurse Përdorni vetëm në katalogun");//Use only courses in catalog (New)
-define("_ALLJOBS","Të gjitha punët");//All jobs (New)
+define("_ADDINSTANCE","Shto shembull");//Add instance
+define("_INSTANCE","Shembull");//Instance
+define("_COURSECODE","Kodi i kursit");//Course code
+define("_TRAININGHOURS","Trajnim orë");//Training hours
+define("_COURSEINSTANCES","raste i kursit");//Course instances
+define("_CAPACITY","Kapacitet");//Capacity
+define("_SEATSREMAINING","Vendeve të mbetura");//Seats remaining
+define("_STARTDATE","Data Fillim");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","A jeni i sigurt se doni te fshini kete shembull?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","shembull Edit");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","mësimet e Shkallës");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","përdoruesit e Shkallës");//Instance users
+define("_SKILLSOFFEREDINSTANCE","aftësitë e Shkallës");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","Mundësitë e zgjedhjes për shembull");//Options for instance
+define("_JUMPTO","Shko te");//Jump to
+define("_PARENTCOURSE","Prindit i kursit");//Parent Course
+define("_LOCATIONBRANCH","Lokacioni (degë)");//Location (branch)
+define("_SELECTBRANCH","Zgjidhni degë");//Select branch
+define("_SHARED","Përbashkët");//Shared
+define("_UNIQUE","Unik");//Unique
+define("_MODE","Mënyrë");//Mode
+define("_USEONLYCOURSESINCATALOG","kurse Përdorni vetëm në katalogun");//Use only courses in catalog
+define("_ALLJOBS","Të gjitha punët");//All jobs
 define("_SHOWMOTTOONHEADER","Show emrin dhe moto edhe më kokë");//Show name and motto also on header
-define("_ASSIGNCOURSES","kurse Cakto");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","Zgjidhni kurse të caktojë për të gjithë përdoruesit e gjetur");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","Asnjë përdorues janë gjetur");//No users have been found (New)
-define("_ASSIGNMENT","Detyrë");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","Çdo në nivelin më të ulët");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","Çdo vetëm mbi nivelin më të ulët");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","Nuk kurse janë regjistruar");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","Nuk e trajnimit e nevojshme është përcaktuar ende");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","trajnimin e kërkuar");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","kusht të reja të trajnimit");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","kurse e kërkuar të trajnimit");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","Shto trajnimit alternativë");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","Ka kërkuar trajnim");//Has required training (New)
+define("_ASSIGNCOURSES","kurse Cakto");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","Zgjidhni kurse të caktojë për të gjithë përdoruesit e gjetur");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","Asnjë përdorues janë gjetur");//No users have been found
+define("_ASSIGNMENT","Detyrë");//Assignment
+define("_ANYLOWESTLEVELBRANCH","Çdo në nivelin më të ulët");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","Çdo vetëm mbi nivelin më të ulët");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","Nuk kurse janë regjistruar");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","Nuk e trajnimit e nevojshme është përcaktuar ende");//No required training has been defined yet
+define("_REQUIREDTRAINING","trajnimin e kërkuar");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","kusht të reja të trajnimit");//New training condition
+define("_REQUIREDTRAININGCOURSES","kurse e kërkuar të trajnimit");//Required training courses
+define("_ADDALTERNATIVETRAINING","Shto trajnimit alternativë");//Add alternative training
+define("_HASREQUIREDTRAINING","Ka kërkuar trajnim");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Search results glossary");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","No results found glossary");//No results found in glossary
-define("_PROJECTSSCORE","Projekte rezultat");//Projects score (New)
-define("_TESTSSCORE","Testet rezultat");//Tests score (New)
+define("_PROJECTSSCORE","Projekte rezultat");//Projects score
+define("_TESTSSCORE","Testet rezultat");//Tests score
 define("_AUTOLOGIN","Login Auto");//Auto login
 define("_ACCESSLINK","Lidhje Hyrje");//Access link
 define("_AUTOLOGINITHLINK","Përdoruesi mund të identifikohem automatikisht nga Lidhje");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Type Default përdorues");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Studenti Forca përgjigje të gjitha pyetjeve");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Ju duhet t&#39;u përgjigjeni të gjitha pyetjeve");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","Lejo mësimet e pavarur");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","Asnjë datë preselected");//No preselected date (New)
-define("_CURRENTDATE","Data e tanishme");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","Lejo mësimet e pavarur");//Allow independent lessons
+define("_NOPRESELECTEDDATE","Asnjë datë preselected");//No preselected date
+define("_CURRENTDATE","Data e tanishme");//Current date
 define("_SHOWHELP","Shfaq lidhjet ndihmë");//Display help links
 define("_ALLOWUSERANSERALLRONG","Lejo nxënësit të bëj sërish vetëm pyetje e gabuar përgjigje");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Vetëm në qoftë se repetitions test lejohen");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Bëj sërish vetëm gabuar përgjigje");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema e albumit nuk mund të inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Qasja e skaduar");//Access expired (New)
-define("_LESSONSCHEDULE","Orari Mësime");//Lessons schedule (New)
-define("_COURSESTARTSAT","Kursi fillon më");//The course starts on (New)
-define("_COURSEENDSAT","Kursi përfundon më");//The course ends on (New)
-define("_ENDDATE","Data Fundi");//End date (New)
-define("_SELECTSKILLCATEGORY","Zgjidhni kategori aftësi");//Select skill category (New)
+define("_ACCESSEXPIRED","Qasja e skaduar");//Access expired
+define("_LESSONSCHEDULE","Orari Mësime");//Lessons schedule
+define("_COURSESTARTSAT","Kursi fillon më");//The course starts on
+define("_COURSEENDSAT","Kursi përfundon më");//The course ends on
+define("_ENDDATE","Data Fundi");//End date
+define("_SELECTSKILLCATEGORY","Zgjidhni kategori aftësi");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","Nuk rreshtit ishte përcaktuar ose kokë të papajtueshme me llojin e importit");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","përdorues importuara");//Imported user
 define("_USERSTOCOURSES","Përdorues të kurseve");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","Kupon");//Coupon
 define("_INVALIDCOUPON","kupon pavlefshme");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Kliko për të hyrë në zbritje kupon");//Click to enter discount coupon
 define("_TESTREDONE","Korrigjohen");//Corrected
-define("_CURRICULUMS","Kurrikulave");//Curricula (New)
-define("_CURRICULUM","Programi Mësimor");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","mësimor Cakto për përdoruesit e grupit");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","mësimor Cakto për përdorues");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","Shto mësimor");//Add curriculum (New)
-define("_EDITCURRICULUM","mësimor Edit");//Edit curriculum (New)
+define("_CURRICULUMS","Kurrikulave");//Curricula
+define("_CURRICULUM","Programi Mësimor");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","mësimor Cakto për përdoruesit e grupit");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","mësimor Cakto për përdorues");//Assign curriculum to user
+define("_ADDCURRICULUM","Shto mësimor");//Add curriculum
+define("_EDITCURRICULUM","mësimor Edit");//Edit curriculum
 define("_COULDNOTFINDCOURSE","Nuk mund të gjeni kursin");//Could not find course
 define("_IMPORTRESULTSFOR","Rezultatet e importit për");//Import results for
-define("_COUPONUSAGE","përdorimit kupon");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","pagesën e re PayPal");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","Bilanci i pagesave të reja");//New balance payment (New)
-define("_USEDCOUPON","kupon përdorura");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Payed me bilancin e");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Payed me PayPal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","Ju duhet të plotësoni të gjitha testet");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","Hiq tags &lt;script&gt; nga PAS");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","përdorues Redirect pas hyni brënda për të");//Redirect user after login to (New)
-define("_LESSONSCATALOG","Katalogu i përdorimit mësim");//User's lesson catalog (New)
-define("_USERDASHBOARD","pult i përdorimit");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","Asnjë titull dhënë për përshkrimit të punës");//No title provided for job description (New)
-define("_EDITORTYPE","Lloji i Editor");//Editor type (New)
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","Shfaq vetëm një mesazh pasi të fusni test");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","Ky test është i paraqitur me sukses");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","Mësoni Statusi");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","nuk ka adresë e-mail");//has not an e-mail address (New)
-define("_FEEDBACK","Reagim");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","Përdoruesit Fut në grup");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","Fut në grup të ri");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","Fut në grupin ekzistues");//Insert into existing group (New)
-define("_NEWGROUPNAME","Emri i grupit");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Ju duhet ose të zgjidhni një grup ekzistues ose të sigurojë një grup të ri emër");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","Submit dhe të redaktoni grup");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","Përdoruesit e kërkimit për të shtuar të grupit");//Search users to add to group (New)
-define("_AFTER","Pas");//After (New)
-define("_BEFORE","Para");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Pjesëmarrja e të gjithë përdoruesve në kurset e grupit");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Pjesëmarrja e përdoruesve të grupit në kurset e sistemit");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","Spastrim logs");//Purge logs (New)
-define("_LOGSSIZE","Madhësia Shkrime");//Logs size (New)
-define("_OLDESTLOG","hyrje të vjetër log");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","Purge shkrimet e vjetra se");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","purged sukses logs");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","Vetëm% x subjekteve ku të përpunuara, i cili është afati për këtë operacion");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Ju nuk mund të caktoni përdoruesit me këtë program, sepse ajo nuk ka kurse");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","pronat e Kurrikulit");//Curriculum properties (New)
-define("_ENTRIES","Hyrje");//Entries (New)
-define("_ENTERPRISEOPTIONS","opsionet e Ndërmarrjeve");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","Shfaq tabelë organizatë për përdoruesit e");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","Show formë personale për përdoruesit e");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Show unassigned përdoruesve të mbikëqyrësve");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Lejo përdoruesit të fshini mbikëqyrësit të përbashkët fotografi");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","Forma e mia");//my Form (New)
-define("_CLEARQUERYCACHE","Pastro cache query");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","opsionet Feedback");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","Mundësitë e zgjedhjes për reagime");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","Kohët e fundit përfundoi feedback");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx file e konfigurimit (biblioteka / phplivedocx_config.php) nuk mund të shkruhet. Ndonjë ndryshim ju bërë të konfigurimit livedocx nuk ishin ruajtur");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","përparimin e të dhënave Reset");//Reset progress data (New)
-define("_DEBUGMODE","Debug mode");//Debug mode (New)
-define("_GENERALSETTINGS","Paneli i Përgjithshëm");//General settings (New)
-define("_FINISHLESSONMESSAGE","Urime! Ju keni mbaruar mësimin. Ju lutem zgjidhni një vend për të shkuar tani:");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","mësim Next");//Next lesson (New)
-define("_LESSONFINISHED","Mësim përfunduar");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Ju jeni në mësim e fundit ju mund të vizitoni");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","Feedback është bërë");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","Të vazhdojë të feedback");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","modifikuar me sukses feedback");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","Feedback filluar në");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","Përfituesit zgjidhen nga interface sistemit sipas rastit. <BR> - "._NEWSURVEY .": Marrësit janë përdoruesit marrin pjesë në anketë. <BR> - "._ONJOBASSIGNMENT .": marrësit është mbikëqyrës zgjidhet nga të punësuarit. <BR> - "._PROJECTEXPIRY .": Marrësit janë përdoruesit që kanë qenë të caktuar të projektit.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","Regjistruar në");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","Job nuk ekziston");//Job does not exist (New)
-define("_SEARCHFORUSER","Gjej përdoruesit [kriteret Profilin]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","kriteret e kërkimit");//Search criteria (New)
-define("_SUBMITFEEDBACK","Submit feedback");//Submit feedback (New)
-define("_FEEDBACKRESULTS","Rezultatet Feedback");//Feedback results (New)
-define("_PASSWORDREMINDER","Kujtesë fjalë-kalimi");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","Duhet të plotësoni të gjitha testet");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","Raportet Feedback");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","Zgjidhni feedback");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","Raporti për reagime");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","Duke shfletuar dosjen");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","Duke treguar");//Showing (New)
-define("_MATERIALINPROGRESS","Materiali në vazhdim");//Material in progress (New)
-define("_ALLMATERIAL","Të gjitha materialet");//All material (New)
-define("_CACHEENTRYNOTFOUND","hyrje Cache nuk u gjet");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","hyrje Cache skaduar");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","hyrje Cache është i pavlefshëm");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","njoftime Purge");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","Njoftimet Madhësia");//Notifications size (New)
-define("_OLDESTNOTIFICATION","njoftimit të vjetër");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","Njoftimet më të vjetër se Purge");//Purge notifications older than (New)
-define("_CURRENTUSERS","Aktual");//Current (New)
-define("_SELECTEDCOURSES","kurse e zgjedhur");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","fotografi Moduli janë të pranishëm, por nuk është i instaluar");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","përdorimit kupon");//Coupon usage
+define("_NEWPAYPALPAYMENT","pagesën e re PayPal");//New paypal payment
+define("_NEWBALANCEPAYMENT","Bilanci i pagesave të reja");//New balance payment
+define("_USEDCOUPON","kupon përdorura");//Used coupon
+define("_PAYEDWITHBALANCE","Payed me bilancin e");//Payed with balance
+define("_PAYEDWITHPAYPAL","Payed me PayPal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","Ju duhet të plotësoni të gjitha testet");//You must complete all tests
+define("_ELIMINATEPOSTXSS","Hiq tags &lt;script&gt; nga PAS");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","përdorues Redirect pas hyni brënda për të");//Redirect user after login to
+define("_LESSONSCATALOG","Katalogu i përdorimit mësim");//User's lesson catalog
+define("_USERDASHBOARD","pult i përdorimit");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","Asnjë titull dhënë për përshkrimit të punës");//No title provided for job description
+define("_EDITORTYPE","Lloji i Editor");//Editor type
+define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","Shfaq vetëm një mesazh pasi të fusni test");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Ky test është i paraqitur me sukses");//This test was successfully submitted
+define("_LEARNINGSTATUS","Mësoni Statusi");//Learning Status
+define("_HASNOTANEMAILADDRESS","nuk ka adresë e-mail");//has not an e-mail address
+define("_FEEDBACK","Reagim");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","Përdoruesit Fut në grup");//Insert users into group
+define("_INSERTINTONEWGROUP","Fut në grup të ri");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","Fut në grupin ekzistues");//Insert into existing group
+define("_NEWGROUPNAME","Emri i grupit");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Ju duhet ose të zgjidhni një grup ekzistues ose të sigurojë një grup të ri emër");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","Submit dhe të redaktoni grup");//Submit and edit group
+define("_SEARCHGROUPUSERS","Përdoruesit e kërkimit për të shtuar të grupit");//Search users to add to group
+define("_AFTER","Pas");//After
+define("_BEFORE","Para");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Pjesëmarrja e të gjithë përdoruesve në kurset e grupit");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Pjesëmarrja e përdoruesve të grupit në kurset e sistemit");//Participation of group users in the courses of the system
+define("_PURGELOGS","Spastrim logs");//Purge logs
+define("_LOGSSIZE","Madhësia Shkrime");//Logs size
+define("_OLDESTLOG","hyrje të vjetër log");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","Purge shkrimet e vjetra se");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","purged sukses logs");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","Vetëm% x subjekteve ku të përpunuara, i cili është afati për këtë operacion");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Ju nuk mund të caktoni përdoruesit me këtë program, sepse ajo nuk ka kurse");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","pronat e Kurrikulit");//Curriculum properties
+define("_ENTRIES","Hyrje");//Entries
+define("_ENTERPRISEOPTIONS","opsionet e Ndërmarrjeve");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Shfaq tabelë organizatë për përdoruesit e");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","Show formë personale për përdoruesit e");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Show unassigned përdoruesve të mbikëqyrësve");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Lejo përdoruesit të fshini mbikëqyrësit të përbashkët fotografi");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","Forma e mia");//my Form
+define("_CLEARQUERYCACHE","Pastro cache query");//Clear query cache
+define("_FEEDBACKOPTIONS","opsionet Feedback");//Feedback options
+define("_OPTIONSFORFEEDBACK","Mundësitë e zgjedhjes për reagime");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Kohët e fundit përfundoi feedback");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP LiveDocx file e konfigurimit (biblioteka / phplivedocx_config.php) nuk mund të shkruhet. Ndonjë ndryshim ju bërë të konfigurimit livedocx nuk ishin ruajtur");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","përparimin e të dhënave Reset");//Reset progress data
+define("_DEBUGMODE","Debug mode");//Debug mode
+define("_GENERALSETTINGS","Paneli i Përgjithshëm");//General settings
+define("_FINISHLESSONMESSAGE","Urime! Ju keni mbaruar mësimin. Ju lutem zgjidhni një vend për të shkuar tani:");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","mësim Next");//Next lesson
+define("_LESSONFINISHED","Mësim përfunduar");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Ju jeni në mësim e fundit ju mund të vizitoni");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Feedback është bërë");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Të vazhdojë të feedback");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","modifikuar me sukses feedback");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Feedback filluar në");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","Përfituesit zgjidhen nga interface sistemit sipas rastit. <BR> - "._NEWSURVEY .": Marrësit janë përdoruesit marrin pjesë në anketë. <BR> - "._ONJOBASSIGNMENT .": marrësit është mbikëqyrës zgjidhet nga të punësuarit. <BR> - "._PROJECTEXPIRY .": Marrësit janë përdoruesit që kanë qenë të caktuar të projektit.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","Regjistruar në");//Enrolled on
+define("_JOBDOESNOTEXIST","Job nuk ekziston");//Job does not exist
+define("_SEARCHFORUSER","Gjej përdoruesit [kriteret Profilin]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","kriteret e kërkimit");//Search criteria
+define("_SUBMITFEEDBACK","Submit feedback");//Submit feedback
+define("_FEEDBACKRESULTS","Rezultatet Feedback");//Feedback results
+define("_PASSWORDREMINDER","Kujtesë fjalë-kalimi");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","Duhet të plotësoni të gjitha testet");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Raportet Feedback");//Feedback reports
+define("_CHOOSEFEEDBACK","Zgjidhni feedback");//Choose feedback
+define("_REPORTSFORFEEDBACK","Raporti për reagime");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","Duke shfletuar dosjen");//Currently browsing folder
+define("_CURRENTLYSHOWING","Duke treguar");//Showing
+define("_MATERIALINPROGRESS","Materiali në vazhdim");//Material in progress
+define("_ALLMATERIAL","Të gjitha materialet");//All material
+define("_CACHEENTRYNOTFOUND","hyrje Cache nuk u gjet");//Cache entry not found
+define("_CACHEENTRYEXPIRED","hyrje Cache skaduar");//Cache entry expired
+define("_CACHEENTRYINVALID","hyrje Cache është i pavlefshëm");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","njoftime Purge");//Purge notifications
+define("_NOTIFICATIONSSIZE","Njoftimet Madhësia");//Notifications size
+define("_OLDESTNOTIFICATION","njoftimit të vjetër");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Njoftimet më të vjetër se Purge");//Purge notifications older than
+define("_CURRENTUSERS","Aktual");//Current
+define("_SELECTEDCOURSES","kurse e zgjedhur");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","fotografi Moduli janë të pranishëm, por nuk është i instaluar");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Kjo do të përcaktojë të gjitha mësimet dhe kurse çmimi për 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","Specifikoni objektit id për ekran përputhen dimensione");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Lista e ndarë me presje");//Comma separated list (New)
 ?>

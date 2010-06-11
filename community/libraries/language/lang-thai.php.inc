@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","เปิด ใช้ งาน ชื่อ �
 define("_LEAVEEMPTYTONOTUSE","ปล่อย ว่าง ไป ommit");//Leave empty to ommit
 define("_PLEASESELECT","โปรด เลือก");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","ดำเนิน งาน ของ คุณ จะ เปิด ใช้ งาน บัญชี");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","พารามิเตอร์ไม่ถูกต้อง");//Invalid parameter (New)
+define("_INVALIDPARAMETER","พารามิเตอร์ไม่ถูกต้อง");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","นำ เนื้อหา IMS");//Import IMS Content
 define("_IMSEXPORT","เนื้อหา ส่ง ออก IMS");//Export IMS Content
@@ -3511,67 +3511,67 @@ define("_TOOLTIP","คำ แนะนำ เครื่องมือ");//Too
 define("_HIDDEN","ซ่อน จาก ผู้ ใช้");//Hidden from users
 define("_RESETSCORMDATA","ตั้ง ค่า ข้อมูล ผู้ ใช้");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","การ ตั้ง ค่า ขั้น สูง");//Advanced settings
-define("_ADDINSTANCE","เพิ่มเช่น");//Add instance (New)
-define("_INSTANCE","ตัวอย่าง");//Instance (New)
-define("_COURSECODE","รหัสหลักสูตร");//Course code (New)
-define("_TRAININGHOURS","ชั่วโมงการฝึกอบรม");//Training hours (New)
-define("_COURSEINSTANCES","กรณีหลักสูตร");//Course instances (New)
-define("_CAPACITY","ความจุ");//Capacity (New)
-define("_SEATSREMAINING","ที่นั่งเหลือ");//Seats remaining (New)
-define("_STARTDATE","วันที่เริ่ม");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","คุณแน่ใจหรือว่าต้องการลบเช่นนี้");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","เช่นแก้ไข");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","บทเรียน Instance");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","ผู้ใช้อินสแตนซ์");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","ทักษะ Instance");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","ตัวเลือกเช่น");//Options for instance (New)
-define("_JUMPTO","ข้ามไปยัง");//Jump to (New)
-define("_PARENTCOURSE","หลักสูตรผู้ปกครอง");//Parent Course (New)
-define("_LOCATIONBRANCH","ตำแหน่ง (สาขา)");//Location (branch) (New)
-define("_SELECTBRANCH","เลือกสาขา");//Select branch (New)
-define("_SHARED","สาธารณะ");//Shared (New)
-define("_UNIQUE","เป็นเอกลักษณ์");//Unique (New)
-define("_MODE","โหมด");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","ใช้หลักสูตรเฉพาะในรายการ");//Use only courses in catalog (New)
-define("_ALLJOBS","งานทั้งหมด");//All jobs (New)
+define("_ADDINSTANCE","เพิ่มเช่น");//Add instance
+define("_INSTANCE","ตัวอย่าง");//Instance
+define("_COURSECODE","รหัสหลักสูตร");//Course code
+define("_TRAININGHOURS","ชั่วโมงการฝึกอบรม");//Training hours
+define("_COURSEINSTANCES","กรณีหลักสูตร");//Course instances
+define("_CAPACITY","ความจุ");//Capacity
+define("_SEATSREMAINING","ที่นั่งเหลือ");//Seats remaining
+define("_STARTDATE","วันที่เริ่ม");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","คุณแน่ใจหรือว่าต้องการลบเช่นนี้");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","เช่นแก้ไข");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","บทเรียน Instance");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","ผู้ใช้อินสแตนซ์");//Instance users
+define("_SKILLSOFFEREDINSTANCE","ทักษะ Instance");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","ตัวเลือกเช่น");//Options for instance
+define("_JUMPTO","ข้ามไปยัง");//Jump to
+define("_PARENTCOURSE","หลักสูตรผู้ปกครอง");//Parent Course
+define("_LOCATIONBRANCH","ตำแหน่ง (สาขา)");//Location (branch)
+define("_SELECTBRANCH","เลือกสาขา");//Select branch
+define("_SHARED","สาธารณะ");//Shared
+define("_UNIQUE","เป็นเอกลักษณ์");//Unique
+define("_MODE","โหมด");//Mode
+define("_USEONLYCOURSESINCATALOG","ใช้หลักสูตรเฉพาะในรายการ");//Use only courses in catalog
+define("_ALLJOBS","งานทั้งหมด");//All jobs
 define("_SHOWMOTTOONHEADER","แสดง ชื่อ และ คำขวัญ ยัง ส่วน หัว");//Show name and motto also on header
-define("_ASSIGNCOURSES","หลักสูตรกำหนด");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","วิชาเลือกเพื่อกำหนดให้ผู้ใช้ทั้งหมดที่พบ");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","ไม่มีผู้ใช้ที่ค้นพบ");//No users have been found (New)
-define("_ASSIGNMENT","การมอบหมาย");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","ใด ๆ ที่ระดับต่ำสุด");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","ใด ๆ ที่เหนือระดับต่ำสุด");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","หลักสูตรไม่ได้จดทะเบียน");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","ไม่มีการฝึกอบรมต้องมีกำหนดยัง");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","การฝึกอบรมที่จำเป็น");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","เงื่อนไขการฝึกอบรมใหม่");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","ต้องฝึกอบรม");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","เพิ่มทางเลือกการฝึกอบรม");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","ต้องมีการฝึกอบรม");//Has required training (New)
+define("_ASSIGNCOURSES","หลักสูตรกำหนด");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","วิชาเลือกเพื่อกำหนดให้ผู้ใช้ทั้งหมดที่พบ");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","ไม่มีผู้ใช้ที่ค้นพบ");//No users have been found
+define("_ASSIGNMENT","การมอบหมาย");//Assignment
+define("_ANYLOWESTLEVELBRANCH","ใด ๆ ที่ระดับต่ำสุด");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","ใด ๆ ที่เหนือระดับต่ำสุด");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","หลักสูตรไม่ได้จดทะเบียน");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","ไม่มีการฝึกอบรมต้องมีกำหนดยัง");//No required training has been defined yet
+define("_REQUIREDTRAINING","การฝึกอบรมที่จำเป็น");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","เงื่อนไขการฝึกอบรมใหม่");//New training condition
+define("_REQUIREDTRAININGCOURSES","ต้องฝึกอบรม");//Required training courses
+define("_ADDALTERNATIVETRAINING","เพิ่มทางเลือกการฝึกอบรม");//Add alternative training
+define("_HASREQUIREDTRAINING","ต้องมีการฝึกอบรม");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","ผล การ ค้นหา ใน อภิธาน ศัพท์");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","ไม่ พบ ผลลัพธ์ ใน อภิธาน ศัพท์");//No results found in glossary
-define("_PROJECTSSCORE","โครงการคะแนน");//Projects score (New)
-define("_TESTSSCORE","การทดสอบคะแนน");//Tests score (New)
+define("_PROJECTSSCORE","โครงการคะแนน");//Projects score
+define("_TESTSSCORE","การทดสอบคะแนน");//Tests score
 define("_AUTOLOGIN","เข้า สู่ ระบบ อัตโนมัติ");//Auto login
 define("_ACCESSLINK","ลิงค์ เข้า");//Access link
 define("_AUTOLOGINITHLINK","ผู้ ใช้ สามารถ เข้า สู่ ระบบ โดย อัตโนมัติ จาก ลิงค์");//User can login automatically by link
 define("_DEFAULTUSERTYPE","ประเภท ผู้ ใช้ Default");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","นักเรียน Force ตอบ คำถาม ทุก ข้อ");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","คุณ ต้อง ตอบ คำถาม ทุก ข้อ");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS","ให้บทเรียนอิสระ");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","ไม่มีวันที่ไว้ล่วงหน้า");//No preselected date (New)
-define("_CURRENTDATE","วันที่ปัจจุบัน");//Current date (New)
+define("_ALLOWINDEPENDENTLESSONS","ให้บทเรียนอิสระ");//Allow independent lessons
+define("_NOPRESELECTEDDATE","ไม่มีวันที่ไว้ล่วงหน้า");//No preselected date
+define("_CURRENTDATE","วันที่ปัจจุบัน");//Current date
 define("_SHOWHELP","แสดงลิงค์ช่วย");//Display help links
 define("_ALLOWUSERANSERALLRONG","นักเรียนอนุญาตให้ทำซ้ำเฉพาะคำถามที่ตอบผิด");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","เท่านั้นหาก repetitions ทดสอบได้รับอนุญาต");//Only if test repetitions are allowed
 define("_USERREDOWRONG","ทำซ้ำตอบเพียงผิด");//Redo only wrong answered
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Default theme ไม่สามารถ inported");//Default theme can not be inported
-define("_ACCESSEXPIRED","Access หมดอายุ");//Access expired (New)
-define("_LESSONSCHEDULE","ตารางเรียน");//Lessons schedule (New)
-define("_COURSESTARTSAT","หลักสูตรเริ่มต้นที่");//The course starts on (New)
-define("_COURSEENDSAT","หลักสูตรนี้จะสิ้นสุดในวันที่");//The course ends on (New)
-define("_ENDDATE","วันสิ้นสุด");//End date (New)
-define("_SELECTSKILLCATEGORY","ประเภททักษะการเลือก");//Select skill category (New)
+define("_ACCESSEXPIRED","Access หมดอายุ");//Access expired
+define("_LESSONSCHEDULE","ตารางเรียน");//Lessons schedule
+define("_COURSESTARTSAT","หลักสูตรเริ่มต้นที่");//The course starts on
+define("_COURSEENDSAT","หลักสูตรนี้จะสิ้นสุดในวันที่");//The course ends on
+define("_ENDDATE","วันสิ้นสุด");//End date
+define("_SELECTSKILLCATEGORY","ประเภททักษะการเลือก");//Select skill category
 define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","แถวส่วนหัวไม่ถูกกำหนดหรือส่วนหัวไม่สามารถใช้ร่วมกับชนิดนำเข้า");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","ผู้ใช้นำเข้า");//Imported user
 define("_USERSTOCOURSES","ผู้ใช้หลักสูตร");//Users to courses
@@ -3629,100 +3629,103 @@ define("_COUPON","คูปอง");//Coupon
 define("_INVALIDCOUPON","คูปองไม่ถูกต้อง");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","คลิกเพื่อเข้าสู่คูปองส่วนลด");//Click to enter discount coupon
 define("_TESTREDONE","แก้ไข");//Corrected
-define("_CURRICULUMS","หลักสูตร");//Curricula (New)
-define("_CURRICULUM","หลักสูตร");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","หลักสูตรกำหนดกลุ่มผู้ใช้");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","หลักสูตรกำหนดให้กับผู้ใช้");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","เพิ่มหลักสูตร");//Add curriculum (New)
-define("_EDITCURRICULUM","หลักสูตรการแก้ไข");//Edit curriculum (New)
+define("_CURRICULUMS","หลักสูตร");//Curricula
+define("_CURRICULUM","หลักสูตร");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","หลักสูตรกำหนดกลุ่มผู้ใช้");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","หลักสูตรกำหนดให้กับผู้ใช้");//Assign curriculum to user
+define("_ADDCURRICULUM","เพิ่มหลักสูตร");//Add curriculum
+define("_EDITCURRICULUM","หลักสูตรการแก้ไข");//Edit curriculum
 define("_COULDNOTFINDCOURSE","ไม่พบหลักสูตร");//Could not find course
 define("_IMPORTRESULTSFOR","ผลการนำเข้าสำหรับ");//Import results for
-define("_COUPONUSAGE","การใช้คูปอง");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","การชำระเงินใหม่ paypal");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","ยอดการชำระเงินใหม่");//New balance payment (New)
-define("_USEDCOUPON","คูปองที่ใช้");//Used coupon (New)
-define("_PAYEDWITHBALANCE","Payed กับยอด");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","Payed กับ paypal");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","คุณจะต้องสำเร็จการทดสอบทั้งหมด");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","แท็กลบ &lt;script&gt; จาก POST");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","ผู้ใช้ Redirect หลังจากเข้าสู่ระบบ");//Redirect user after login to (New)
-define("_LESSONSCATALOG","รายการบทเรียนของผู้ใช้");//User's lesson catalog (New)
-define("_USERDASHBOARD","แผงควบคุมของผู้ใช้");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","ไม่มีชื่อเรื่องให้สำหรับรายละเอียดงาน");//No title provided for job description (New)
-define("_EDITORTYPE","ประเภท Editor");//Editor type (New)
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","แสดงเฉพาะข้อความหลังจากที่ส่งทดสอบ");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","การทดสอบนี้ถูกส่งเรียบร้อยแล้ว");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","สถานะการเรียนรู้");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","ไม่ได้อยู่อีเมล");//has not an e-mail address (New)
-define("_FEEDBACK","ความคิดเห็น");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","ผู้ใช้แทรกในกลุ่ม");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","แทรกลงในกลุ่มใหม่");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","แทรกลงในกลุ่มที่มีอยู่");//Insert into existing group (New)
-define("_NEWGROUPNAME","ชื่อกลุ่มใหม่");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","คุณก็ควรจะเลือกกลุ่มที่มีอยู่หรือให้ชื่อกลุ่มใหม่");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","กลุ่มส่งและแก้ไข");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","ค้นหาผู้ใช้เพิ่มในกลุ่ม");//Search users to add to group (New)
-define("_AFTER","หลังจากที่");//After (New)
-define("_BEFORE","ก่อนที่");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","การมีส่วนร่วมของผู้ใช้ทั้งหมดในหลักสูตรของกลุ่ม");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","การมีส่วนร่วมของผู้ใช้กลุ่มในหลักสูตรของระบบ");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","ล้างบันทึก");//Purge logs (New)
-define("_LOGSSIZE","ขนาดท่อน");//Logs size (New)
-define("_OLDESTLOG","รายการบันทึกเก่า");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","ล้างบันทึกเก่ากว่า");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","กำจัดเรียบร้อยแล้วบันทึก");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","% เท่านั้น x องค์กรที่ดำเนินการซึ่งเป็นขีด จำกัด สำหรับการดำเนินการนี้");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","คุณไม่สามารถกำหนดให้ผู้ใช้หลักสูตรนี้เพราะมีหลักสูตรไม่");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","คุณสมบัติหลักสูตร");//Curriculum properties (New)
-define("_ENTRIES","Entries");//Entries (New)
-define("_ENTERPRISEOPTIONS","ตัว Enterprise");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","แผนผังองค์กรแสดงให้กับผู้ใช้");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","แสดงแบบส่วนตัวให้กับผู้ใช้");//Show personal form to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","แสดง unassigned ผู้ใช้ผู้บังคับบัญชา");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","อนุญาตให้ผู้ใช้ลบไฟล์ supervisor สาธารณะ");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","รูปของฉัน");//my Form (New)
-define("_CLEARQUERYCACHE","Clear cache แบบสอบถาม");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","ตัวเลือกความคิดเห็น");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","ตัวเลือกสำหรับความคิดเห็น");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","เสร็จสมบูรณ์เมื่อเร็ว ๆ นี้ความคิดเห็น");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP ไฟล์กำหนดค่า LiveDocx (ห้องสมุด phplivedocx_config.php) ไม่สามารถเขียน การเปลี่ยนแปลงที่คุณทำกับการตั้งค่า livedocx ไม่ได้บันทึก");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","Reset ข้อมูลความคืบหน้า");//Reset progress data (New)
-define("_DEBUGMODE","โหมด Debug");//Debug mode (New)
-define("_GENERALSETTINGS","การตั้งค่าทั่วไป");//General settings (New)
-define("_FINISHLESSONMESSAGE","ขอแสดงความยินดี คุณจบบทเรียน กรุณาเลือกที่จะไปนี้ :");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","บทเรียนถัดไป");//Next lesson (New)
-define("_LESSONFINISHED","บทเรียนสำเร็จรูป");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","คุณอยู่ที่บทสุดท้ายที่คุณสามารถเข้าไป");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","ความคิดเห็นทำ");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","ดำเนินการต่อความคิดเห็น");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","แก้ไขสำเร็จความคิดเห็น");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","ความคิดเห็นเริ่มต้นที่");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","ผู้รับจะถูกเลือกโดย interface ระบบตามเหตุการณ์ <BR> -- "._NEWSURVEY .": ผู้รับผู้ที่เข้าร่วมการสำรวจมี <BR> -- "._ONJOBASSIGNMENT .": ผู้รับเป็นผู้ควบคุมการคัดเลือกจากพนักงาน <BR> -- "._PROJECTEXPIRY .": ผู้รับผู้ใช้ที่ได้รับมอบหมายโครงการเป็น");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","ลงทะเบียนที่");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","งานไม่มี");//Job does not exist (New)
-define("_SEARCHFORUSER","ค้นหาผู้ใช้หลักเกณฑ์ [Profile]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","เกณฑ์การค้นหา");//Search criteria (New)
-define("_SUBMITFEEDBACK","ส่งความคิดเห็น");//Submit feedback (New)
-define("_FEEDBACKRESULTS","ผลตอบ");//Feedback results (New)
-define("_PASSWORDREMINDER","เตือนความจำรหัสผ่าน");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","จะต้องสำเร็จการทดสอบทั้งหมด");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","รายงานความคิดเห็น");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","ความคิดเห็นเลือก");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","รายงานสำหรับความคิดเห็น");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","กำลังเรียกดูโฟลเดอร์");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","การแสดง");//Showing (New)
-define("_MATERIALINPROGRESS","วัสดุในการดำเนินการ");//Material in progress (New)
-define("_ALLMATERIAL","เนื้อหาทั้งหมด");//All material (New)
-define("_CACHEENTRYNOTFOUND","รายการ Cache ไม่พบ");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","รายการ Cache หมดอายุ");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","รายการ Cache ไม่ถูกต้อง");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","แจ้งล้าง");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","ขนาดแจ้ง");//Notifications size (New)
-define("_OLDESTNOTIFICATION","ประกาศเก่า");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","แจ้งล้างข้อมูลเก่ากว่า");//Purge notifications older than (New)
-define("_CURRENTUSERS","ในปัจจุบัน");//Current (New)
-define("_SELECTEDCOURSES","วิชาเลือก");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","ไฟล์ Module เป็นปัจจุบัน แต่ไม่ได้ติดตั้ง");//Module files are present, but it is not installed (New)
+define("_COUPONUSAGE","การใช้คูปอง");//Coupon usage
+define("_NEWPAYPALPAYMENT","การชำระเงินใหม่ paypal");//New paypal payment
+define("_NEWBALANCEPAYMENT","ยอดการชำระเงินใหม่");//New balance payment
+define("_USEDCOUPON","คูปองที่ใช้");//Used coupon
+define("_PAYEDWITHBALANCE","Payed กับยอด");//Payed with balance
+define("_PAYEDWITHPAYPAL","Payed กับ paypal");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","คุณจะต้องสำเร็จการทดสอบทั้งหมด");//You must complete all tests
+define("_ELIMINATEPOSTXSS","แท็กลบ &lt;script&gt; จาก POST");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","ผู้ใช้ Redirect หลังจากเข้าสู่ระบบ");//Redirect user after login to
+define("_LESSONSCATALOG","รายการบทเรียนของผู้ใช้");//User's lesson catalog
+define("_USERDASHBOARD","แผงควบคุมของผู้ใช้");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","ไม่มีชื่อเรื่องให้สำหรับรายละเอียดงาน");//No title provided for job description
+define("_EDITORTYPE","ประเภท Editor");//Editor type
+define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","แสดงเฉพาะข้อความหลังจากที่ส่งทดสอบ");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","การทดสอบนี้ถูกส่งเรียบร้อยแล้ว");//This test was successfully submitted
+define("_LEARNINGSTATUS","สถานะการเรียนรู้");//Learning Status
+define("_HASNOTANEMAILADDRESS","ไม่ได้อยู่อีเมล");//has not an e-mail address
+define("_FEEDBACK","ความคิดเห็น");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","ผู้ใช้แทรกในกลุ่ม");//Insert users into group
+define("_INSERTINTONEWGROUP","แทรกลงในกลุ่มใหม่");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","แทรกลงในกลุ่มที่มีอยู่");//Insert into existing group
+define("_NEWGROUPNAME","ชื่อกลุ่มใหม่");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","คุณก็ควรจะเลือกกลุ่มที่มีอยู่หรือให้ชื่อกลุ่มใหม่");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","กลุ่มส่งและแก้ไข");//Submit and edit group
+define("_SEARCHGROUPUSERS","ค้นหาผู้ใช้เพิ่มในกลุ่ม");//Search users to add to group
+define("_AFTER","หลังจากที่");//After
+define("_BEFORE","ก่อนที่");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","การมีส่วนร่วมของผู้ใช้ทั้งหมดในหลักสูตรของกลุ่ม");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","การมีส่วนร่วมของผู้ใช้กลุ่มในหลักสูตรของระบบ");//Participation of group users in the courses of the system
+define("_PURGELOGS","ล้างบันทึก");//Purge logs
+define("_LOGSSIZE","ขนาดท่อน");//Logs size
+define("_OLDESTLOG","รายการบันทึกเก่า");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","ล้างบันทึกเก่ากว่า");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","กำจัดเรียบร้อยแล้วบันทึก");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","% เท่านั้น x องค์กรที่ดำเนินการซึ่งเป็นขีด จำกัด สำหรับการดำเนินการนี้");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","คุณไม่สามารถกำหนดให้ผู้ใช้หลักสูตรนี้เพราะมีหลักสูตรไม่");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","คุณสมบัติหลักสูตร");//Curriculum properties
+define("_ENTRIES","Entries");//Entries
+define("_ENTERPRISEOPTIONS","ตัว Enterprise");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","แผนผังองค์กรแสดงให้กับผู้ใช้");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","แสดงแบบส่วนตัวให้กับผู้ใช้");//Show personal form to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","แสดง unassigned ผู้ใช้ผู้บังคับบัญชา");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","อนุญาตให้ผู้ใช้ลบไฟล์ supervisor สาธารณะ");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","รูปของฉัน");//my Form
+define("_CLEARQUERYCACHE","Clear cache แบบสอบถาม");//Clear query cache
+define("_FEEDBACKOPTIONS","ตัวเลือกความคิดเห็น");//Feedback options
+define("_OPTIONSFORFEEDBACK","ตัวเลือกสำหรับความคิดเห็น");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","เสร็จสมบูรณ์เมื่อเร็ว ๆ นี้ความคิดเห็น");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP ไฟล์กำหนดค่า LiveDocx (ห้องสมุด phplivedocx_config.php) ไม่สามารถเขียน การเปลี่ยนแปลงที่คุณทำกับการตั้งค่า livedocx ไม่ได้บันทึก");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","Reset ข้อมูลความคืบหน้า");//Reset progress data
+define("_DEBUGMODE","โหมด Debug");//Debug mode
+define("_GENERALSETTINGS","การตั้งค่าทั่วไป");//General settings
+define("_FINISHLESSONMESSAGE","ขอแสดงความยินดี คุณจบบทเรียน กรุณาเลือกที่จะไปนี้ :");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","บทเรียนถัดไป");//Next lesson
+define("_LESSONFINISHED","บทเรียนสำเร็จรูป");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","คุณอยู่ที่บทสุดท้ายที่คุณสามารถเข้าไป");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","ความคิดเห็นทำ");//Feedback is done
+define("_PROCEEDTOFEEDBACK","ดำเนินการต่อความคิดเห็น");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","แก้ไขสำเร็จความคิดเห็น");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","ความคิดเห็นเริ่มต้นที่");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","ผู้รับจะถูกเลือกโดย interface ระบบตามเหตุการณ์ <BR> -- "._NEWSURVEY .": ผู้รับผู้ที่เข้าร่วมการสำรวจมี <BR> -- "._ONJOBASSIGNMENT .": ผู้รับเป็นผู้ควบคุมการคัดเลือกจากพนักงาน <BR> -- "._PROJECTEXPIRY .": ผู้รับผู้ใช้ที่ได้รับมอบหมายโครงการเป็น");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","ลงทะเบียนที่");//Enrolled on
+define("_JOBDOESNOTEXIST","งานไม่มี");//Job does not exist
+define("_SEARCHFORUSER","ค้นหาผู้ใช้หลักเกณฑ์ [Profile]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","เกณฑ์การค้นหา");//Search criteria
+define("_SUBMITFEEDBACK","ส่งความคิดเห็น");//Submit feedback
+define("_FEEDBACKRESULTS","ผลตอบ");//Feedback results
+define("_PASSWORDREMINDER","เตือนความจำรหัสผ่าน");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","จะต้องสำเร็จการทดสอบทั้งหมด");//Must complete all tests
+define("_FEEDBACKSTATISTICS","รายงานความคิดเห็น");//Feedback reports
+define("_CHOOSEFEEDBACK","ความคิดเห็นเลือก");//Choose feedback
+define("_REPORTSFORFEEDBACK","รายงานสำหรับความคิดเห็น");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","กำลังเรียกดูโฟลเดอร์");//Currently browsing folder
+define("_CURRENTLYSHOWING","การแสดง");//Showing
+define("_MATERIALINPROGRESS","วัสดุในการดำเนินการ");//Material in progress
+define("_ALLMATERIAL","เนื้อหาทั้งหมด");//All material
+define("_CACHEENTRYNOTFOUND","รายการ Cache ไม่พบ");//Cache entry not found
+define("_CACHEENTRYEXPIRED","รายการ Cache หมดอายุ");//Cache entry expired
+define("_CACHEENTRYINVALID","รายการ Cache ไม่ถูกต้อง");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","แจ้งล้าง");//Purge notifications
+define("_NOTIFICATIONSSIZE","ขนาดแจ้ง");//Notifications size
+define("_OLDESTNOTIFICATION","ประกาศเก่า");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","แจ้งล้างข้อมูลเก่ากว่า");//Purge notifications older than
+define("_CURRENTUSERS","ในปัจจุบัน");//Current
+define("_SELECTEDCOURSES","วิชาเลือก");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","ไฟล์ Module เป็นปัจจุบัน แต่ไม่ได้ติดตั้ง");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","นี้จะตั้งเรียนและหลักสูตรราคาเป็น 0");//This will set all lessons and courses price to 0 (New)
+define("_SPECIFYIDFORSREENMATCHING","ระบุวัตถุ id ให้ตรงกับขนาดหน้าจอ");//Specify object id for screen matching dimensions (New)
+define("_COMMASEPARATEDLIST","Comma คั่นรายการ");//Comma separated list (New)
 ?>

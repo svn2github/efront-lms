@@ -1,4 +1,4 @@
-=== Version 3.6.3 build ===
+=== Version 3.6.3 build 7602 ===
 - Added disable payments option
 - Added toggle editor in html mode in all editor instances
 - Added unit option for extending object at screen dimensions
@@ -15,6 +15,7 @@
 - Fixed bookmark addition error
 - Disabled periodic updater during restore
 - Fixed issue about sending messages with recipients of specific lesson
+- Added dates to user reports, where applicable
 
 === Version 3.6.3 build 7455 ===
 - Fixed error in course completion page

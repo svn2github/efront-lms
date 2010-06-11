@@ -320,6 +320,8 @@ abstract class EfrontUser
 
 	 * @param array $userProperties The new user properties
 
+	 * @param array $users The list of existing users, with logins and active properties, in the form array($login => $active). It is handy to specify when creating massively users
+
 	 * @return array with new user settings if the new user was successfully created
 
 	 * @since 3.5.0
@@ -327,14 +329,12 @@ abstract class EfrontUser
 	 * @access public
 
 	 */
- public static function createUser($userProperties) {
-  $users = eF_getTableDataFlat("users", "*");
-  $activatedUsers = array(); //not taking into account deactivated users in license users count
-  foreach ($users['active'] as $key => $value) {
-   if($value == 1) {
-    $activatedUsers[] = $users['login'][$key];
-   }
+ public static function createUser($userProperties, $users = array()) {
+  if (empty($users)) {
+   $users = eF_getTableDataFlat("users", "login, active");
+   $users = array_combine($users['login'], $users['active']);
   }
+  $activatedUsers = array_sum($users); //not taking into account deactivated users in license users count
   //$versionDetails = eF_checkVersionKey($GLOBALS['configuration']['version_key']);
   if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {
    throw new EfrontUserException(_INVALIDLOGIN.': '.$userProperties['login'], EfrontUserException :: INVALID_LOGIN);

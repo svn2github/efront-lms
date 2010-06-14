@@ -410,7 +410,7 @@ abstract class EfrontUser
   }
  }
  public static function checkUserAccess($type = false) {
-  if ($GLOBALS['configuration']['apache_authentication']) {
+  if (0&&$GLOBALS['configuration']['apache_authentication']) {
    if (!$_SERVER['REMOTE_USER']) {
     header("HTTP/1.0 401");
     exit;

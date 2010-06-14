@@ -544,8 +544,13 @@ class EfrontEvent
         // If a users login is defined, but without any name/surname fields, then get them from the DB
         if (!isset($fields['users_name']) || !isset($fields['users_surname'])) {
             $users_id = eF_getTableData("users", "name, surname", "login = '".$fields['users_LOGIN']."'");
-            $fields['users_name'] = $users_id[0]['name'];
-            $fields['users_surname'] = $users_id[0]['surname'];
+            if ($users_id) {
+             $fields['users_name'] = $users_id[0]['name'];
+             $fields['users_surname'] = $users_id[0]['surname'];
+            } else {
+             $fields['users_name'] = '';
+             $fields['users_surname'] = '';
+            }
         }
         // Events that canBePreceded might be triggered from now for the future - these events have their timestamp field already set
         if (!isset($fields['timestamp'])) {

@@ -42,17 +42,17 @@ class EfrontConfiguration
      //System settings - general
         'system_email' => 'admin@example.com',
      'logout_redirect' => '',
-     'debug_mode' => 0,
+     'debug_mode' => '0',
         //System settings - security
      'file_black_list' => 'php,php3,jsp,asp,cgi,pl,exe,com,bat',
         'file_white_list' => '',
         'ip_black_list' => '',
         'ip_white_list' => '*.*.*.*',
         'password_length' => '6',
-     'password_reminder' => 1,
+     'password_reminder' => '1',
   'autologout_time' => '30',
         'encrypt_url' => '0', //0: don't encrypt. 1: encrypt
-        'eliminate_post_xss' => 1,
+        'eliminate_post_xss' => '1',
         //System settings - language
         'onelanguage' => '0',
         'default_language' => 'english',
@@ -66,6 +66,7 @@ class EfrontConfiguration
      'insert_group_key' => '1', // 0 means 'no', 1 means 'yes'
         'lesson_enroll' => '1',
   'default_type' => 'student',
+     'apache_authentication' => '1',
         //System settings - 3rd party tools
         'license_server' => 'http://keys.efrontlearning.net/list.php',
         'api' => '1',
@@ -156,9 +157,9 @@ class EfrontConfiguration
   'currency_order' => '1',
      'paypalbusiness' => '',
         'paypalmode' => 'normal',
-        'paypaldebug' => 0,
-        'enable_balance' => 1,
-     'total_discount' => 0,
+        'paypaldebug' => '0',
+        'enable_balance' => '1',
+     'total_discount' => '0',
         'discount_period' => '',
         'discount_start' => '',
 
@@ -173,7 +174,7 @@ class EfrontConfiguration
 
         //Notifications
         'notifications_pageloads' => '10',
-     'notifications_maximum_inter_time' => 0,
+     'notifications_maximum_inter_time' => '0',
         'notifications_messages_per_time' => '5',
         'notifications_max_sent_messages' => '100',
 

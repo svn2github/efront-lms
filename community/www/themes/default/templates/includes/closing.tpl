@@ -133,14 +133,15 @@ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElement
 </script>
 
 <script>
+
 {literal}
 if (!usingHorizontalInterface) {
  if (top.sideframe && top.sideframe.document.getElementById('current_location')) {
-  top.sideframe.document.getElementById('current_location').value = top.mainframe.location;
+  top.sideframe.document.getElementById('current_location').value = top.mainframe.location.toString();
  }
 } else {
  if ($('current_location')) {
-  $('current_location').value = document.location;
+  $('current_location').value = document.location.toString();
  }
 }
 {/literal}

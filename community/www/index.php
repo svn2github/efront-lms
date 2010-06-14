@@ -27,6 +27,12 @@ if (!is_file($path."configuration.php")) { //If the configuration file does not 
  /** Configuration file */
  require_once $path."configuration.php";
 }
+if ($GLOBALS['configuration']['apache_authentication'] && $_SERVER['REMOTE_USER']) {
+ $currentUser = EfrontUserFactory :: factory($_SERVER['REMOTE_USER']);
+ $currentUser -> login($currentUser -> user['password'], true);
+ //pr($_SERVER);exit;
+ //$_SESSION['s_login'] = $_SERVER['REMOTE_USER'];
+}
 //@todo:temporary here, should leave 
 $cacheId = null;
 $message = $message_type = '';
@@ -35,6 +41,7 @@ $benchmark -> set('init');
 //Set headers in order to eliminate browser cache (especially IE's)
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
 //Delete installation directory after install/upgrade
 if (is_dir("install") && isset($_GET['delete_install'])) {
  try {

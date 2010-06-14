@@ -123,8 +123,7 @@
                     <input class = "searchBox" type="text" name="search_text"
                         value = "{if isset($smarty.post.search_text)}{$smarty.post.search_text}{else}{$smarty.const._SEARCH}...{/if}"
                         onclick="if(this.value=='{$smarty.const._SEARCH}...')this.value='';" onblur="if(this.value=='')this.value='{$smarty.const._SEARCH}...';"
-                        style = "background-image:url('images/16x16/search.png'); "
-                        " /> <!-- width:134px;-->
+                        style = "background-image:url('images/16x16/search.png');"/> <!-- width:134px;-->
                     <input type = "hidden" name = "current_location" id = "current_location" value = ""/>
             </div>
                 </form>

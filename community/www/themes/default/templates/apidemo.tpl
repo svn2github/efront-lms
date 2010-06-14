@@ -1,4 +1,6 @@
 {include file = "includes/header.tpl"}
+<div class="block">
+<div class="content">
 {if !isset($T_OPTION)}
    {capture name='demo'}
         <tr><td class = "moduleCell" colspan="100%">
@@ -13,7 +15,7 @@
                     {if $T_ACTION_FORM.action.error}
                         <tr><td></td><td class = "formError">{$T_ACTION_FORM.action.error}</td></tr>
                     {/if}
-                    
+
                     {if $T_ACTION == 'login'}
                         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
@@ -32,21 +34,21 @@
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
                         </tr>
-						  <tr>
+        <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.login.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.login.html}</td>
                         </tr>
-					{elseif $T_ACTION == 'efrontlogout'}
+     {elseif $T_ACTION == 'efrontlogout'}
                         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
                         </tr>
-						  <tr>
+        <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.login.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.login.html}</td>
                         </tr>
-						
-					{elseif $T_ACTION == 'create_lesson'}
+
+     {elseif $T_ACTION == 'create_lesson'}
                         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
@@ -70,7 +72,7 @@
                         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.price.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.price.html}</td>
-                        </tr>						
+                        </tr>
                     {elseif $T_ACTION == 'create_user'}
                         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
@@ -297,7 +299,7 @@
                             <td class = "labelCell">{$T_ACTION_FORM.course.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.course.html}</td>
                         </tr>
-					    <tr>
+         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.type.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.type.html}</td>
                         </tr>
@@ -363,7 +365,7 @@
                             <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
                         </tr>
                     {/if}
-                    
+
                     <tr><td></td><td class = "submitCell centerAlign">
                         {$T_ACTION_FORM.submit_action.html}
                     </td></tr>
@@ -374,10 +376,10 @@
                     </tr>
                 </table>
             </form>
-        </td></tr>        
+        </td></tr>
     {/capture}
     <table class = "leftAlign" width="100%">
-        <tr> 
+        <tr>
            <td class = "singleColumn" id = "singleColumn" colspan="100%">
                 <table class = "singleColumnData">
                     {$smarty.capture.demo}
@@ -386,4 +388,6 @@
         </tr>
     </table>
 {/if}
+</div>
+</div>
 {include file = "includes/closing.tpl"}

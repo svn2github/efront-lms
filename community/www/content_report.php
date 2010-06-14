@@ -16,14 +16,14 @@ session_cache_limiter('none');
 session_start();
 $path = "../libraries/";
 include_once $path."configuration.php";
-if (eF_checkUser($_SESSION['s_login'], $_SESSION['s_password']) == "administrator" || eF_checkUser($_SESSION['s_login'], $_SESSION['s_password']) == "professor") { //Only a professor may perform operations (insert, change, delete)
-    eF_printMessage(_UNPRIVILEGEDATTEMPT);
-    exit;
-} elseif (!eF_checkUser($_SESSION['s_login'], $_SESSION['s_password'])) { //Any logged-in user may view an announcement
-    eF_printMessage("You must login to access this page");
-    exit;
+try {
+ $currentUser = EfrontUser :: checkUserAccess();
+} catch (Exception $e) {
+ echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ exit;
 }
 //echo $_SERVER['QUERY_STRING'];
+
     $load_editor = true;
 
 

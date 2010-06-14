@@ -88,13 +88,13 @@ In case of error it returns also a message entity with description of the error 
  require_once $path."configuration.php";
     $data = eF_getTableData("configuration", "value", "name='api'"); //Read current values
     $api = $data[0]['value'];
-    if ($api == 1){
-        if (isset($_GET['action'])){
+    if ($api == 1) {
+        if (isset($_GET['action'])) {
             $action = $_GET['action'];
-            switch($_GET['action']){
+            switch($_GET['action']) {
                 case 'token':
                     $token = createToken(30);
-                    if (strlen($token) == 30){
+                    if (strlen($token) == 30) {
                         $insert['token'] = $token;
                         $insert['status'] = "unlogged";
                         $insert['expired'] = 0;
@@ -106,10 +106,10 @@ In case of error it returns also a message entity with description of the error 
                     }
                     break;
                  case 'efrontlogin':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
                         $token = $_GET['token'];
                         $creds = eF_getTableData("tokens t, users u", "u.login, u.password, u.user_type", "t.users_LOGIN = u.LOGIN and t.token='$token'");
-                        if (sizeof($creds) == 0){
+                        if (sizeof($creds) == 0) {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Invalid username</message>";
@@ -191,28 +191,47 @@ In case of error it returns also a message entity with description of the error 
      }
     }
                  case 'login':{
-     if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['token']) ){
-      $user = EfrontUserFactory :: factory($_GET['username']);
+     if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['token'])) {
+      try {
+       $user = EfrontUserFactory :: factory($_GET['username']);
+      } catch (EfrontUserException $e) {
+       if ($e -> getCode() == EfrontUserException :: INVALID_PARAMETER) {
+                                echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+                        }
       if ($user -> user['user_type'] == "administrator") {
        $login = $_GET['username'];
        $password = EfrontUser::createPassword($_GET['password']);
        $token = $_GET['token'];
        $tmp = eF_getTableData("tokens","token","status='unlogged'");
-       if (sizeof($tmp) > 0){
+       $result = eF_getTableData("tokens","token","status='logged' and users_LOGIN='".$login."'");
+       $tmp2 = eF_getTableData("users", "password","login='$login'");
+       $pwd = $tmp2[0]['password'];
+       if ($pwd != $password) {
+        echo "<xml>";
+        echo "<status>error</status>";
+        echo "<message>Invalid password</message>";
+        echo "</xml>";
+        exit;
+       }
+       if (sizeof($tmp) == 0 && sizeof($result) > 0) {
+        echo "<xml>";
+        echo "<status>error</status>";
+        echo "<message>You have already logged in</message>";
+        echo "</xml>";
+        exit;
+       } elseif (sizeof($tmp2) > 0 ) {
         if (eF_checkParameter($login, 'login')) {
-         $tmp = eF_getTableData("users", "password","login='$login'");
-         $pwd = $tmp[0]['password'];
-         if ($pwd == $password){
+         if ($pwd == $password) {
           $update['status'] = "logged";
           $update['users_LOGIN'] = $login;
           eF_updateTableData("tokens",$update,"token='$token'");
           echo "<xml>";
           echo "<status>ok</status>";
-          echo "</xml>";
-         } else{
-          echo "<xml>";
-          echo "<status>error</status>";
-          echo "<message>Invalid password</message>";
           echo "</xml>";
          }
         } else {
@@ -221,7 +240,7 @@ In case of error it returns also a message entity with description of the error 
          echo "<message>Invalid username</message>";
          echo "</xml>";
         }
-       } else{
+       } else {
         echo "<xml>";
         echo "<status>error</status>";
         echo "<message>Invalid token</message>";
@@ -241,7 +260,7 @@ In case of error it returns also a message entity with description of the error 
      }
                     break;
                 } case 'create_lesson':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
                         if (isset($_GET['name']) && isset($_GET['category']) && isset($_GET['course_only']) && isset($_GET['language'])){
        if (!eF_checkParameter($_GET['category'], 'uint')) {
         echo "<xml>";
@@ -257,29 +276,30 @@ In case of error it returns also a message entity with description of the error 
        if (isset($_GET['price']) && eF_checkParameter($_GET['price'], 'uint')) {
         $insert['price'] = $_GET['price'];
        }
-                            if (eF_insertTableData("lessons", $insert))
-                            {
+       $fields = array( 'name' => $insert['name'],
+            'directions_ID' => $insert['directions_ID'],
+            'languages_NAME' => $insert['languages_NAME'],
+            'course_only' => $insert['course_only'],
+            'created' => $insert['created'],
+            'price' => isset($insert['price']) ? $insert['price'] : 0);
+       try {
+        $newLesson = EfrontLesson :: createLesson($fields); //$newLesson is now a new lesson object
         echo "<xml>";
-                                echo "<status>ok</status>";
+        echo "<status>ok</status>";
         echo "</xml>";
-                            }
-                            else
-                            {
+       } catch (Exception $e) {
         echo "<xml>";
                                 echo "<status>error</status>";
                                 echo "<message>Some problem occured</message>";
         echo "</xml>";
-                            }
-                        }
-                        else
-                        {
+       }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -289,28 +309,52 @@ In case of error it returns also a message entity with description of the error 
                 } case 'create_user':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])){
                         if (isset($_GET['login']) && isset($_GET['password']) && isset($_GET['email']) && isset($_GET['languages']) && isset($_GET['name']) && isset($_GET['surname'])){
-                            $insert['login'] = $_GET['login'];
+       $insert['login'] = $_GET['login'];
                             $insert['password'] = EfrontUser :: createPassword($_GET['password']);
                             $insert['email'] = $_GET['email'];
                             $insert['languages_NAME'] = $_GET['languages'];
                             $insert['name'] = $_GET['name'];
                             $insert['surname'] = $_GET['surname'];
-                            if (eF_insertTableData("users", $insert))
-                            {
+       $insert['active'] = 1; // Added makriria
+       try {
+        $user = EfrontUser :: createUser($insert);
         echo "<xml>";
                                 echo "<status>ok</status>";
         echo "</xml>";
-                            }
-                            else
-                            {
-        echo "<xml>";
-                                echo "<status>error</status>";
-                                echo "<message>User exists</message>";
-        echo "</xml>";
-                            }
-                        }
-                        else
-                        {
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: INVALID_LOGIN) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid login format</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontUserException :: MAXIMUM_REACHED) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Maximum number of users reached</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontUserException :: USER_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User already exists</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontUserException :: INVALID_PARAMETER) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid parameter</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+      } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
@@ -326,67 +370,93 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'update_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login']) && isset($_GET['password']) && isset($_GET['email']) && isset($_GET['name']) && isset($_GET['surname'])){
-                            $fields['password'] = EfrontUser::createPassword($_GET['password']);
-                            $fields['email'] = $_GET['email'];
-                            $fields['name'] = $_GET['name'];
-                            $fields['surname'] = $_GET['surname'];
-                            if (eF_updateTableData("users", $fields, "login='".$_GET['login']."'"))
-                            {
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login']) && isset($_GET['password']) && isset($_GET['email']) && isset($_GET['name']) && isset($_GET['surname'])) {
+                            try {
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        $user -> user['password'] = EfrontUser::createPassword($_GET['password']);
+        $user -> user['email'] = $_GET['email'];
+        $user -> user['name'] = $_GET['name'];
+        $user -> user['surname'] = $_GET['surname'];
+        $user -> user['languages_NAME'] = $_GET['language'];
+        $user -> persist();
         echo "<xml>";
                                 echo "<status>ok</status>";
         echo "</xml>";
-                            }
-                            else
-                            {
-        echo "<xml>";
-                                echo "<status>error</status>";
-                                echo "<message>User exists</message>";
-        echo "</xml>";
-                            }
-                        }
-                        else
-                        {
+       } catch (EfrontUserException $e) {
+        if ($e -> getCode() == EfrontUserException :: INVALID_PARAMETER) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid login format</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
       echo "</xml>";
+      exit;
                     }
                     break;
                 }
                 case 'deactivate_user':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login'])){
-       $login = $_GET['login'];
-                            $update['active'] = 0;
-                            if (eF_updateTableData("users",$update, "login='$login'")){
+                        if (isset($_GET['login'])) {
+       try {
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        $user -> deactivate();
         echo "<xml>";
                                 echo "<status>ok</status>";
         echo "</xml>";
-                            }
-                            else{
-        echo "<xml>";
-                                echo "<status>error</status>";
-                                echo "<message>User doesn't exist</message>";
-        echo "</xml>";
-                            }
-                        }
-                        else{
+        exit;
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: INVALID_PARAMETER) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid login format</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -395,30 +465,43 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'activate_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
                         if (isset($_GET['login'])){
-       $login = $_GET['login'];
-                            $update['active'] = 1;
-                            if (eF_updateTableData("users",$update, "login='$login'")){
+       try {
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        $user -> activate();
         echo "<xml>";
                                 echo "<status>ok</status>";
         echo "</xml>";
-                            }
-                            else{
-        echo "<xml>";
-                                echo "<status>error</status>";
-                                echo "<message>User doesn't exist</message>";
-        echo "</xml>";
-                            }
-                        }
-                        else{
+        exit;
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: INVALID_PARAMETER) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid login format</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -427,22 +510,42 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'remove_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login'])){
-                            $user = EfrontUserFactory :: factory($_GET['login']);
-                            $user -> delete();
-       echo "<xml>";
-                            echo "<status>ok</status>";
-       echo "</xml>";
-                        }
-                        else{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login'])) {
+       try {
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        $user -> delete();
+        echo "<xml>";
+        echo "<status>ok</status>";
+        echo "</xml>";
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: INVALID_PARAMETER) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid login format</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -451,20 +554,19 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'groups':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        $groups = eF_getTableData("groups","id, name");
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+      $groups = EfrontGroup::getGroups(false, true);
                         echo "<xml>";
                         echo "<groups>";
-                        for ($i=0; $i < sizeof($groups);$i++){
+                        foreach ($groups as $key => $group){
                             echo "<group>";
-                            echo "<id>".$groups[$i]['id']."</id>";
-                            echo "<name>".$groups[$i]['name']."</name>";
+                            echo "<id>".$key."</id>";
+                            echo "<name>".$group['name']."</name>";
                             echo "</group>";
                         }
                         echo "</groups>";
                         echo "</xml>";
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -473,34 +575,46 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'group_info':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['group'])){
-                            try{
-                               $group = eF_getTableData("groups","name, description, languages_NAME,unique_key");
-                                echo "<xml>";
-                                echo "<general_info>";
-                                echo "<name>".$group[0]['name']."</name>";
-                                echo "<description>".$group[0]['description']."</description>";
-                                echo "<language>".$group[0]['languages_NAME']."</language>";
-                                echo "<unique_key>".$group[0]['unique_key']."</unique_key>";
-                                echo "</general_info>";
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['group'])) {
+       if (eF_checkParameter($_GET['group'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid group id</message>";
                                 echo "</xml>";
-                            }
-                            catch (Exception $e){
+        exit;
+       }
+                            try {
+          $groups = EfrontGroup::getGroups(true, true);
+          $group = $groups[$_GET['group']];
+          if (!empty($group)) {
+         echo "<xml>";
+         echo "<general_info>";
+         echo "<name>".$group -> group['name']."</name>";
+         echo "<description>".$group -> group['description']."</description>";
+         echo "<language>".$group -> group['languages_NAME']."</language>";
+         echo "<unique_key>".$group -> group['unique_key']."</unique_key>";
+         echo "</general_info>";
+         echo "</xml>";
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Group doesn't exist</message>";
+         echo "</xml>";
+        }
+                            } catch (Exception $e) {
                                 echo "<xml>";
                                 echo "<status>error</status>";
-                                echo "<message>Group doesn't exist</message>";
+                                echo "<message>Some problem occured</message>";
                                 echo "</xml>";
                             }
-                        }
-                        else{
+                        } else {
                             echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -509,32 +623,56 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'group_to_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login']) && isset($_GET['group'])){
-                            $insert['users_LOGIN'] = $_GET['login'];
-                            $insert['groups_ID'] = $_GET['group'];
-                            $res = eF_getTableData("users_to_groups", "*", "users_LOGIN='".$_GET['login']."' and groups_ID=".$_GET['group']);
-                            if (sizeof($res) == 0){
-                                eF_insertTableData("users_to_groups",$insert);
-                                echo "<xml>";
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login']) && isset($_GET['group'])) {
+       if (eF_checkParameter($_GET['group'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid group id</message>";
+                                echo "</xml>";
+        exit;
+       }
+       if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+       try {
+        $group = new EfrontGroup($_GET['group']);
+        $group -> addUsers(array($_GET['login']));
+        echo "<xml>";
                                 echo "<status>ok</status>";
                                 echo "</xml>";
-                            }
-                            else{
-                                echo "<xml>";
-                                echo "<status>error</status>";
-                                echo "<message>Assignment already exists</message>";
-                                echo "</xml>";
-                            }
-                        }
-                        else{
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontGroupException :: USER_ALREADY_MEMBER) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Assignment already exists</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontGroupException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
                             echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -543,21 +681,50 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'group_from_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login']) && isset($_GET['group'])){
-                            $res = eF_deleteTableData("users_to_groups", "users_LOGIN='".$_GET['login']."' and groups_ID=".$_GET['group']);
-                            echo "<xml>";
-                            echo "<status>ok</status>";
-                            echo "</xml>";
-                        }
-                        else{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login']) && isset($_GET['group'])) {
+       if (eF_checkParameter($_GET['group'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid group id</message>";
+                                echo "</xml>";
+        exit;
+       }
+       if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+       try {
+        $group = new EfrontGroup($_GET['group']);
+        $group -> removeUsers(array($_GET['login']));
+        echo "<xml>";
+                                echo "<status>ok</status>";
+                                echo "</xml>";
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontGroupException :: USER_NOT_EXISTS) { //todo makriria
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else{
                             echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -566,34 +733,74 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'lesson_to_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login']) && isset($_GET['lesson'])){
-                            $insert['users_LOGIN'] = $_GET['login'];
-                            $insert['lessons_ID'] = $_GET['lesson'];
-                            $insert['active'] = '1';
-                            $insert['from_timestamp'] = time();
-                            $res = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$_GET['login']."' and lessons_ID=".$_GET['lesson']);
-                            if (sizeof($res) == 0){
-                                eF_insertTableData("users_to_lessons",$insert);
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login']) && isset($_GET['lesson'])) {
+       if (eF_checkParameter($_GET['lesson'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid lesson id</message>";
+                                echo "</xml>";
+        exit;
+       }
+       if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+                           /* $insert['users_LOGIN'] 		= $_GET['login'];
+
+                            $insert['lessons_ID'] 		= $_GET['lesson'];             
+
+                            $insert['active'] 			= '1';
+
+                            $insert['from_timestamp'] 	= time();
+
+							*/
+                            //$res = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$_GET['login']."' and lessons_ID=".$_GET['lesson']);
+       try {
+        $lesson = new EfrontLesson($_GET['lesson']);
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        if ($lesson -> isStudentInLesson($_GET['login']) === true) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Assignment already exists</message>";
+         echo "</xml>";
+         exit;
+        }
+        $lesson -> addUsers($_GET['login']);
         echo "<xml>";
                                 echo "<status>ok</status>";
         echo "</xml>";
-                            }
-                            else{
-        echo "<xml>";
-                                echo "<status>error</status>";
-                                echo "<message>Assignment already exists</message>";
-        echo "</xml>";
-                            }
-                        }
-                        else{
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontCourseException :: MAX_USERS_LIMIT) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Maximum number of users reached</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -602,8 +809,8 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'deactivate_user_lesson':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login']) && isset($_GET['lesson'])){
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login']) && isset($_GET['lesson'])) {
                             $update['from_timestamp'] = 0;
                             if (eF_updateTableData("users_to_lessons",$update, "users_LOGIN='".$_GET['login']."' and lessons_ID=".$_GET['lesson'])){
                                 $cacheKey = "user_lesson_status:lesson:".$_GET['lesson']."user:".$_GET['login'];
@@ -618,15 +825,13 @@ In case of error it returns also a message entity with description of the error 
                                 echo "<message>User doesn't exist</message>";
                                 echo "</xml>";
                             }
-                        }
-                        else{
+                        } else {
                             echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else{
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -691,23 +896,39 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'user_lessons':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login'])){
-                            $lessons = eF_getTableData("users_to_lessons ul, lessons l", "l.name", "ul.lessons_ID = l.ID and ul.users_LOGIN='".$_GET['login']."'");
-                            echo "<xml>";
-                            for ($i=0; $i<sizeof($lessons); $i++){
-                                echo "<lesson>".$lessons[$i]['name']."</lesson>";
-                            }
-                            echo "</xml>";
-                        }
-                        else{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login'])) {
+       if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+       try {
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        $lessonsList = $user -> getLessons(true);
+        echo "<xml>";
+        foreach ($lessonsList as $key => $lesson){
+         echo "<lesson>".$lesson -> lesson['name']."</lesson>";
+        }
+        echo "</xml>";
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -716,9 +937,16 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'lesson_info':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['lesson'])){
-                            try{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['lesson'])) {
+       if (eF_checkParameter($_GET['lesson'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid lesson id</message>";
+                                echo "</xml>";
+        exit;
+       }
+                            try {
                                 $lesson = new EfrontLesson($_GET['lesson']);
                                 $info = $lesson -> getStatisticInformation();
                                 echo "<xml>";
@@ -729,22 +957,19 @@ In case of error it returns also a message entity with description of the error 
                                 echo "<language>".$info['language']."</language>";
                                 echo "</general_info>";
                                 echo "</xml>";
-                            }
-                            catch (Exception $e){
+                            } catch (Exception $e) {
         echo "<xml>";
                                 echo "<status>error</status>";
                                 echo "<message>Lesson doesn't exist</message>";
         echo "</xml>";
                             }
-                        }
-                        else{
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -753,23 +978,45 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'user_courses':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login'])){
-                            $courses = eF_getTableData("users_to_courses ul, courses l", "l.name", "ul.courses_ID = l.ID and ul.users_LOGIN='".$_GET['login']."'");
-                            echo "<xml>";
-                            for ($i=0; $i<sizeof($courses); $i++){
-                                echo "<course>".$courses[$i]['name']."</course>";
-                            }
-                            echo "</xml>";
-                        }
-                        else{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login'])) {
+       if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+                            try {
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        $coursesList = $user -> getUserCourses();
+        echo "<xml>";
+        foreach ($coursesList as $key => $course) {
+         echo "<course>".$course -> course['name']."</course>";
+        }
+        echo "</xml>";
+       } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Some problem occured</message>";
+         echo "</xml>";
+         exit;
+        }
+       }
+                        } else {
                             echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -778,9 +1025,9 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'user_info':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login'])){
-                            try{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login'])) {
+                            try {
                                 $user = EfrontUserFactory :: factory($_GET['login']);
                                 echo "<xml>";
                                 echo "<general_info>";
@@ -789,22 +1036,28 @@ In case of error it returns also a message entity with description of the error 
                                 echo "<user_type>".$user -> user['user_type']."</user_type>";
                                 echo "</general_info>";
                                 echo "</xml>";
+                            } catch (Exception $e) {
+        if ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid login format</message>";
+         echo "</xml>";
+         exit;
+        }
                             }
-                            catch (Exception $e){
-        echo "<xml>";
-                                echo "<status>error</status>";
-                                echo "<message>User doesn't exist</message>";
-        echo "</xml>";
-                            }
-                        }
-                        else{
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -813,31 +1066,31 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'catalog':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        $courses = eF_getTableData("courses","id, name");
-                        $lessons = eF_getTableData("lessons","id, name");
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+      $lessons = EFrontLesson :: getLessons();
+      $lessons = eF_multiSort($lessons, 'id', 'desc');
+      $courses = EfrontCourse :: getAllCourses();
                         echo "<xml>";
                         echo "<catalog>";
                         echo "<courses>";
-                        for ($i=0; $i < sizeof($courses);$i++){
+                        foreach ($courses as $key => $course) {
                             echo "<course>";
-                            echo "<id>".$courses[$i]['id']."</id>";
-                            echo "<name>".$courses[$i]['name']."</name>";
+                            echo "<id>".$course -> course['id']."</id>";
+                            echo "<name>".$course -> course['name']."</name>";
                             echo "</course>";
                         }
                         echo "</courses>";
                         echo "<lessons>";
-                        for ($i=0; $i < sizeof($lessons);$i++){
+      foreach ($lessons as $key => $lesson) {
                             echo "<lesson>";
-                            echo "<id>".$lessons[$i]['id']."</id>";
-                            echo "<name>".$lessons[$i]['name']."</name>";
+                            echo "<id>".$lesson['id']."</id>";
+                            echo "<name>".$lesson['name']."</name>";
                             echo "</lesson>";
                         }
                         echo "</lessons>";
                         echo "</catalog>";
                         echo "</xml>";
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -846,20 +1099,20 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'lessons':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        $lessons = eF_getTableData("lessons","id, name");
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+      $lessons = EFrontLesson :: getLessons();
+      $lessons = eF_multiSort($lessons, 'id', 'desc');
                         echo "<xml>";
                         echo "<lessons>";
-                        for ($i=0; $i < sizeof($lessons);$i++){
+      foreach ($lessons as $key => $lesson) {
                             echo "<lesson>";
-                            echo "<id>".$lessons[$i]['id']."</id>";
-                            echo "<name>".$lessons[$i]['name']."</name>";
+                            echo "<id>".$lesson['id']."</id>";
+                            echo "<name>".$lesson['name']."</name>";
                             echo "</lesson>";
                         }
                         echo "</lessons>";
                         echo "</xml>";
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -868,20 +1121,19 @@ In case of error it returns also a message entity with description of the error 
                     break;
     }
                 case 'courses':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        $courses = eF_getTableData("courses","id, name");
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+      $courses = EfrontCourse :: getAllCourses();
                         echo "<xml>";
                         echo "<courses>";
-                        for ($i=0; $i < sizeof($courses);$i++){
+                        foreach ($courses as $key => $course) {
                             echo "<course>";
-                            echo "<id>".$courses[$i]['id']."</id>";
-                            echo "<name>".$courses[$i]['name']."</name>";
+                            echo "<id>".$course -> course['id']."</id>";
+                            echo "<name>".$course -> course['name']."</name>";
                             echo "</course>";
                         }
                         echo "</courses>";
                         echo "</xml>";
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -890,28 +1142,40 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'course_info':{
-                 if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['course'])){
-       $course = eF_getTableData("courses", "id, name, info, price, active, languages_NAME", "id ='".$_GET['course']."'");
-       echo "<xml>";
+                 if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['course'])) {
+       if (eF_checkParameter($_GET['course'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid course id</message>";
+                                echo "</xml>";
+        exit;
+       }
+       try {
+                                $course = new EfrontCourse($_GET['course']);
+        echo "<xml>";
         echo "<general_info>";
-         echo "<id>".$course[0]['id']."</id>";
-         echo "<name>".$course[0]['name']."</name>";
-         echo "<info>".$course[0]['info']."</info>";
-         echo "<price>".$course[0]['price']."</price>";
-         echo "<active>".$course[0]['active']."</active>";
-         echo "<languages_NAME>".$course[0]['languages_NAME']."</languages_NAME>";
+        echo "<id>".$course -> course['id']."</id>";
+        echo "<name>".$course -> course['name']."</name>";
+        echo "<info>".$course -> course['info']."</info>";
+        echo "<price>".$course -> course['price']."</price>";
+        echo "<active>".$course -> course['active']."</active>";
+        echo "<languages_NAME>".$course -> course['languages_NAME']."</languages_NAME>";
         echo "<general_info>";
-                            echo "</xml>";
-                        }
-                        else{
+        echo "</xml>";
+                            } catch (Exception $e) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Course doesn't exist</message>";
+        echo "</xml>";
+                            }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -921,14 +1185,14 @@ In case of error it returns also a message entity with description of the error 
     }
     case 'course_lessons':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])){
-      if (isset($_GET['course'])){
+      if (isset($_GET['course'])) {
        $course = new EfrontCourse($_GET['course']);
        $lessons = EfrontCourse::convertLessonObjectsToArrays($course->getCourseLessons());
        echo "<xml>";
         echo "\n\t";
         echo "<lessons>";
         echo "\n\t\t";
-        foreach ($lessons as $key=>$values ){
+        foreach ($lessons as $key=>$values ) {
          echo "<lesson>";
           echo "\n\t\t\t";
           echo "<id>".$lessons[$key]['id']."</id>";
@@ -938,7 +1202,7 @@ In case of error it returns also a message entity with description of the error 
           echo "<previous_lessons_ID>".$lessons[$key]['previous_lessons_ID']."</previous_lessons_ID>";
           echo "\n\t\t";
          echo "</lesson>";
-      }
+        }
         echo "\n\t";
         echo "<lessons>";
        echo "\n";
@@ -1003,10 +1267,32 @@ In case of error it returns also a message entity with description of the error 
                     break;
     }
     case 'course_to_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-       if (isset($_GET['login']) && isset($_GET['course'])){
-        try{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+      if (isset($_GET['login']) && isset($_GET['course'])) {
+       if (eF_checkParameter($_GET['course'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid course id</message>";
+                                echo "</xml>";
+        exit;
+       }
+       if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+       //type check
+        try {
          $course = new EfrontCourse($_GET['course']);
+         if ($course -> isStudentInCourse($_GET['login']) === true || $course -> isProfessorInCourse($_GET['login']) === true) {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>Assignment already exists</message>";
+          echo "</xml>";
+          exit;
+         }
          if (isset($_GET['type'])) {
           $course ->addUsers($_GET['login'], $_GET['type']);
          } else {
@@ -1015,22 +1301,26 @@ In case of error it returns also a message entity with description of the error 
          echo "<xml>";
          echo "<status>ok</status>";
          echo "</xml>";
+        } catch (Exception $e) {
+         if ($e -> getCode() == EfrontCourseException :: COURSE_NOT_EXISTS) {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>Course doesn't exist</message>";
+          echo "</xml>";
+         } elseif ($e -> getCode() == EfrontCourseException :: MAX_USERS_LIMIT) {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>Maximum number of users reached</message>";
+          echo "</xml>";
+         }
         }
-         catch (Exception $e){
-         echo "<xml>";
-         echo "<status>error</status>";
-         echo "<message>Invalid course/username or user already enrolled into course</message>";
-         echo "</xml>";
-                            }
-                        }
-                        else{
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -1039,8 +1329,8 @@ In case of error it returns also a message entity with description of the error 
                     break;
     }
                 case 'activate_user_course':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-                        if (isset($_GET['login']) && isset($_GET['course'])){
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                        if (isset($_GET['login']) && isset($_GET['course'])) {
                             $update['from_timestamp'] = time();
                             $courses = eF_getTableData("lessons_to_courses","lessons_id", "courses_ID=".$_GET['course']);
                             for ($i=0; $i < sizeof($courses);$i++){
@@ -1052,15 +1342,13 @@ In case of error it returns also a message entity with description of the error 
                             echo "<xml>";
                             echo "<status>ok</status>";
                             echo "</xml>";
-                        }
-                        else{
+                        } else {
                             echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
                             echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
                         echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -1099,30 +1387,51 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
     case 'course_from_user':{
-                    if (isset($_GET['token']) && checkToken($_GET['token'])){
-       if (isset($_GET['login']) && isset($_GET['course'])){
-        try{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+       if (isset($_GET['login']) && isset($_GET['course'])) {
+        if (eF_checkParameter($_GET['course'], 'id') == false) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid course id</message>";
+         echo "</xml>";
+         exit;
+        }
+        if (eF_checkParameter($_GET['login'], 'login') == false) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid login format</message>";
+         echo "</xml>";
+         exit;
+        }
+        try {
          $course = new EfrontCourse($_GET['course']);
-         $course ->removeUsers($_GET['login']);
+         if ($course -> isStudentInCourse($_GET['login']) === false && $course -> isProfessorInCourse($_GET['login']) === false) {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>User not enrolled into course</message>";
+          echo "</xml>";
+          exit;
+         }
+         $course -> removeUsers($_GET['login']);
          echo "<xml>";
          echo "<status>ok</status>";
          echo "</xml>";
         }
-         catch (Exception $e){
-         echo "<xml>";
-         echo "<status>error</status>";
-         echo "<message>Invalid course/username or user not enrolled into course</message>";
-         echo "</xml>";
-                            }
-                        }
-                        else{
+         catch (Exception $e) {
+         if ($e -> getCode() == EfrontCourseException :: COURSE_NOT_EXISTS) {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>Course doesn't exist</message>";
+          echo "</xml>";
+         }
+        }
+                        } else {
        echo "<xml>";
                             echo "<status>error</status>";
                             echo "<message>Incomplete arguments</message>";
        echo "</xml>";
                         }
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
                         echo "<message>Invalid token</message>";
@@ -1131,17 +1440,16 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
                 case 'logout':{
-                    if (isset($_GET['token'])){
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
                         $token = $_GET['token'];
                         eF_deleteTableData("tokens","token='$token'");
       echo "<xml>";
                         echo "<status>ok</status>";
       echo "</xml>";
-                    }
-                    else{
+                    } else {
       echo "<xml>";
                         echo "<status>error</status>";
-                        echo "<message>No token provided</message>";
+                        echo "<message>Invalid token</message>";
       echo "</xml>";
                     }
                     break;
@@ -1170,18 +1478,19 @@ In case of error it returns also a message entity with description of the error 
     function createToken($length){
         $salt = "abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ123456789"; // salt to select chars from
         srand((double)microtime()*1000000); // start the random generator
-        $token=""; // set the inital variable
-        for ($i=0;$i<$length;$i++) // loop and create password
-        $token = $token . substr ($salt, rand() % strlen($salt), 1);
+        $token = ""; // set the inital variable
+        for ($i = 0; $i < $length; $i++) { // loop and create password
+   $token = $token . substr ($salt, rand() % strlen($salt), 1);
+  }
         return $token;
     }
-    function checkToken($token){
-        $tmp = ef_getTableData("tokens","status","token='$token'");
+    function checkToken($token) {
+        $tmp = eF_getTableData("tokens","status","token='$token'");
         $token = $tmp[0]['status'];
         if ($token == 'logged'){
             return true;
-        }
-        else
-        return false;
+        } else {
+   return false;
+  }
     }
 ?>

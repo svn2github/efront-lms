@@ -40,6 +40,7 @@ class EfrontUserException extends Exception
  const MAXIMUM_REACHED = 415;
  const RESTRICTED_USER_TYPE = 416;
  const USER_INACTIVE = 417;
+ const USER_NOT_LOGGED_IN = 418;
  const GENERAL_ERROR = 499;
 }
 /**
@@ -407,6 +408,28 @@ abstract class EfrontUser
   } else {
    throw new EfrontUserException(_COULDNOTINSERTUSER.': '.$userProperties['login'], EfrontUserException :: DATABASE_ERROR);
   }
+ }
+ public static function checkUserAccess($type = false) {
+  if ($GLOBALS['configuration']['apache_authentication']) {
+   if (!$_SERVER['REMOTE_USER']) {
+    header("HTTP/1.0 401");
+    exit;
+   } else {
+    $user = EfrontUserFactory :: factory($_SERVER['REMOTE_USER']);
+   }
+  } else if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
+   $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+  } else {
+   throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
+  }
+  if ($user -> user['timezone'] != "") {
+   date_default_timezone_set($user -> user['timezone']);
+  }
+  $user -> applyRoleOptions($user -> user['user_types_ID']); //Initialize user's role options for this lesson
+  if ($type && $user -> user['user_type'] != $type) {
+   throw new Exception(_YOUCANNOTACCESSTHISPAGE, EfrontUserException::INVALID_TYPE);
+  }
+  return $user;
  }
  /**
 

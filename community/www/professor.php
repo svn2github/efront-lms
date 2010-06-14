@@ -29,26 +29,17 @@ if (!isset($_GET['reset_popup']) && (isset($_GET['popup']) || isset($_POST['popu
     $popup = 1;
 }
 $message = '';$message_type = ''; //Initialize messages, because if register_globals is turned on, some messages will be displayed twice
-/*Check the user type. If the user is not valid or not a professor, he cannot access this page, so exit*/
-if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
-    try {
-        $currentUser = EfrontUserFactory :: factory($_SESSION['s_login'], false, 'professor');
-        $currentUser -> applyRoleOptions();
-        if ($currentUser -> user['timezone'] != "") {
-         date_default_timezone_set($currentUser -> user['timezone']);
-        }
-        $smarty -> assign("T_CURRENT_USER", $currentUser);
-    } catch (EfrontException $e) {
-        $message = $e -> getMessage().' ('.$e -> getCode().')';
-        echo "<script>parent.location = 'index.php?message=".urlencode($message)."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
-        //eF_redirect("index.php?message=".urlencode($message)."&message_type=failure");
-        exit;
-    }
-} else {
-    setcookie('c_request', http_build_query($_GET), time() + 300);
-    echo "<script>parent.location = 'index.php?message=".urlencode(_RESOURCEREQUESTEDREQUIRESLOGIN)."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
-    exit;
+try {
+ $currentUser = EfrontUser :: checkUserAccess();
+ $smarty -> assign("T_CURRENT_USER", $currentUser);
+} catch (Exception $e) {
+ if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
+  setcookie('c_request', http_build_query($_GET), time() + 300);
+ }
+ echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ exit;
 }
+
 if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) && !isset($_GET['tabberajax'])) {
  $_SESSION['previousMainUrl'] = $_SERVER['REQUEST_URI'];
 }

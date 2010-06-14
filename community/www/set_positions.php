@@ -1,30 +1,31 @@
 <?php
 /**
- * Set positions of control panel elements
- *
- * This page is used to store the positions of the users' control panel elements
- *
- * @package eFront
- * @version 1.0
- */
 
+ * Set positions of control panel elements
+
+ *
+
+ * This page is used to store the positions of the users' control panel elements
+
+ *
+
+ * @package eFront
+
+ * @version 1.0
+
+ */
 session_cache_limiter('none');
 session_start();
-
 $path = "../libraries/";
 /** Configuration file.*/
 include_once $path."configuration.php";
-
-
-if (isset($_GET['op']) && (eF_checkUser($_SESSION['s_login'], $_SESSION['s_password']) == "student")) {         //Only a professor/administrator may perform operations (insert, change, delete)
-    eF_redirect("index.php?message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
-    exit;
-} elseif (!eF_checkUser($_SESSION['s_login'], $_SESSION['s_password'])) {                                       //Any logged-in user may view an announcement
-    eF_redirect("index.php?message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
-    exit;
+try {
+ $currentUser = EfrontUser :: checkUserAccess();
+} catch (Exception $e) {
+ echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ exit;
 }
 try {
-    $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
     if ($_SESSION['s_lessons_ID']) {
         $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
     } elseif ($_POST['lessons_ID']) {
@@ -37,10 +38,8 @@ try {
     eF_redirect("index.php?message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
     exit;
 }
-
 try {
     if (isset($_POST['firstlist']) && isset($_POST['secondlist'])) {
-
         parse_str($_POST['firstlist']);
         parse_str($_POST['secondlist']);
         parse_str($_POST['visibility']);

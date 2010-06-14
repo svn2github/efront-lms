@@ -3728,4 +3728,5 @@ define("_MODULEFILESPRESENTNOTINSTALLED", "Module files are present, but it is n
 define("_DISABLEPAYMENTSNOTICE","This will set all lessons and courses price to 0");
 define("_SPECIFYIDFORSREENMATCHING","Specify object id for screen matching dimensions");
 define("_COMMASEPARATEDLIST", "Comma separated list");
+define("_APACHEAUTHENTICATION", "Authenticate through apache");
 ?>

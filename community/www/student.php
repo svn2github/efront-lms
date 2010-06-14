@@ -32,28 +32,15 @@ $search_message = $message = $message_type = ''; //Initialize messages, because 
 $load_editor = false;
 $loadScripts = array();
 
-//eF_redirect("student.php?view_unit=29");
-/*Check the user type. If the user is not valid or not an administrator, he cannot access this page, so exit*/
-if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
-    try {
-        $currentUser = EfrontUserFactory :: factory($_SESSION['s_login'], false, 'student');
-        $currentUser -> applyRoleOptions();
-        if ($currentUser -> user['timezone'] != "") {
-         date_default_timezone_set($currentUser -> user['timezone']);
-        }
-        $smarty -> assign("T_CURRENT_USER", $currentUser);
-    } catch (EfrontException $e) {
-        $message = $e -> getMessage().' ('.$e -> getCode().')';
-        echo "<script>parent.location = 'index.php?message=".urlencode($message)."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
-        //eF_redirect("index.php?message=".urlencode($message)."&message_type=failure");
-        exit;
-    }
-} else {
-    //setcookie('c_request', $_SERVER['REQUEST_URI'], time() + 300);
-    setcookie('c_request', http_build_query($_GET), time() + 300);
-    echo "<script>parent.location = 'index.php?message=".urlencode(_RESOURCEREQUESTEDREQUIRESLOGIN)."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
-    //eF_redirect("index.php?message=".urlencode(_RESOURCEREQUESTEDREQUIRESLOGIN)."&message_type=failure");
-    exit;
+try {
+ $currentUser = EfrontUser :: checkUserAccess();
+ $smarty -> assign("T_CURRENT_USER", $currentUser);
+} catch (Exception $e) {
+ if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
+  setcookie('c_request', http_build_query($_GET), time() + 300);
+ }
+ echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ exit;
 }
 
 

@@ -17,7 +17,10 @@ $path = "../libraries/";
 include_once $path."configuration.php";
 
 
-if (!eF_checkUser($_SESSION['s_login'], $_SESSION['s_password'])) { //Only a valid user may access this page
+try {
+ $currentUser = EfrontUser :: checkUserAccess();
+} catch (Exception $e) {
+ echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
  exit;
 }
 

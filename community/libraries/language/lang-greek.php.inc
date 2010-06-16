@@ -3744,4 +3744,5 @@ define("_VARIABLEFORUSERNAME", "Μεταβλητή που περιέχει το 
 define("_INCLUDEFILETHATHANDLESUSERCREATION", "Κάνε include το αρχείο για δημιουργία χρήστη");
 define("_WEBSERVERREGISTRATION", "Εγγραφή μέσω web server");
 define("_USEORLOGICTOCORRECTANSWERS","Χρήση λογικής OR για υπολογισμό σωστής απάντησης");
+define("_VARIABLEMUSTCONTAINLOGIN", "Η μεταβλητή %x πρέπει να περιέχει &quot;%y&quot; για να συνεχίσετε");
 ?>

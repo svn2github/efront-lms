@@ -79,6 +79,8 @@ $userWebserverAuthenticationForm -> addElement("text", "error_page", _ERRORPAGEF
 $userWebserverAuthenticationForm -> addElement("text", "unauthorized_page", _ERRORPAGEFORUNAUTHORIZED, 'class = "inputText"');
 $userWebserverAuthenticationForm -> addElement("text", "username_variable", _VARIABLEFORUSERNAME, 'class = "inputText"');
 $userWebserverAuthenticationForm -> addElement("text", "registration_file", _INCLUDEFILETHATHANDLESUSERCREATION, 'class = "inputText"');
+eval('$usernameVar='.$GLOBALS['configuration']['username_variable'].';');
+$userWebserverAuthenticationForm -> addRule('webserver_auth', str_replace(array("%x", "%y"), array($GLOBALS['configuration']['username_variable'], $_SESSION['s_login']), _VARIABLEMUSTCONTAINLOGIN) , 'callback', create_function('$checkbox', "if (\$GLOBALS['usernameVar'] == \$_SESSION['s_login']) {return true;}"));
 $userWebserverAuthenticationForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userWebserverAuthenticationForm -> freeze();

@@ -1,3 +1,7 @@
+=== Version 3.6.3 build ===
+- Rearranged system settings menu for speed and tidyness
+- Added web server authentication feature
+
 === Version 3.6.3 build 7602 ===
 - Added disable payments option
 - Added toggle editor in html mode in all editor instances

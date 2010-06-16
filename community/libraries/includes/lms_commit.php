@@ -8,6 +8,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 try {
  //debug();
  //pr($_POST);pr($_GET);
+ unset($_POST['_']);
 
  //id and credit are not stored in any table
  unset ($_POST['credit']);

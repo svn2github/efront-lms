@@ -3744,4 +3744,5 @@ define("_VARIABLEFORUSERNAME", "Variable that contains the username");
 define("_INCLUDEFILETHATHANDLESUSERCREATION", "Include file that handles user creation");
 define("_WEBSERVERREGISTRATION", "Web server registration");
 define("_USEORLOGICTOCORRECTANSWERS","Use OR logic to calculate correct answer");
+define("_VARIABLEMUSTCONTAINLOGIN", "The variable %x must contain &quot;%y&quot; in order to continue");
 ?>

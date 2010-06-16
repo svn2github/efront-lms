@@ -643,7 +643,7 @@ function eF_checkIP()
     if (!$allowedIPs || !$client_ip) { //If the database doesn't
         $ok1 = true;
     } else {
-        $client_ip_parts = explode('.', $client_ip);
+     $client_ip_parts = explode('.', $client_ip);
         $allowed_ips = explode(",", preg_replace("/\s+/", "", $allowedIPs)); //explode ips into an array, after stripping off any whitespace
         $ok1 = false;
         foreach($allowed_ips as $ip) {
@@ -651,7 +651,7 @@ function eF_checkIP()
             $count = 0;
             $temp = true;
             while ($temp && $count < 4) {
-                if ($client_ip_parts[$count] != $ip_parts[$count] && $ip_parts[$count] != '*') {
+                if ($client_ip_parts[$count] != $ip_parts[$count] && $ip_parts[$count] != '*' && $ip_parts[$count]) {
                     $temp = false;
                 }
                 $count++;
@@ -671,7 +671,7 @@ function eF_checkIP()
             $count = 0;
             $temp = true;
             while ($temp && $count < 4) {
-                if ($client_ip_parts[$count] != $ip_parts[$count] && $ip_parts[$count] != '*') {
+                if ($client_ip_parts[$count] != $ip_parts[$count] && $ip_parts[$count] != '*' ) {
                     $temp = false;
                 }
                 $count++;

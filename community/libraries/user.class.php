@@ -340,7 +340,7 @@ abstract class EfrontUser
   if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {
    throw new EfrontUserException(_INVALIDLOGIN.': '.$userProperties['login'], EfrontUserException :: INVALID_LOGIN);
   }
-  if (in_array($userProperties['login'], $users['login']) > 0) {
+  if (in_array($userProperties['login'], array_keys($users)) > 0) {
    throw new EfrontUserException(_USERALREADYEXISTS.': '.$userProperties['login'], EfrontUserException :: USER_EXISTS);
   }
   if ($userProperties['email'] && !eF_checkParameter($userProperties['email'], 'email')) {
@@ -410,24 +410,47 @@ abstract class EfrontUser
   }
  }
  public static function checkUserAccess($type = false) {
-  if (0&&$GLOBALS['configuration']['apache_authentication']) {
-   if (!$_SERVER['REMOTE_USER']) {
-    header("HTTP/1.0 401");
-    exit;
-   } else {
-    $user = EfrontUserFactory :: factory($_SERVER['REMOTE_USER']);
-   }
+  if ($GLOBALS['configuration']['webserver_auth']) {
+   $user = EfrontUser :: checkWebserverAuthentication();
   } else if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
    $user = EfrontUserFactory :: factory($_SESSION['s_login']);
   } else {
    throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
   }
-  if ($user -> user['timezone'] != "") {
+  if ($user -> user['timezone']) {
    date_default_timezone_set($user -> user['timezone']);
   }
   $user -> applyRoleOptions($user -> user['user_types_ID']); //Initialize user's role options for this lesson
   if ($type && $user -> user['user_type'] != $type) {
    throw new Exception(_YOUCANNOTACCESSTHISPAGE, EfrontUserException::INVALID_TYPE);
+  }
+  return $user;
+ }
+ public static function checkWebserverAuthentication() {
+  try {
+   eval('$usernameVar='.$GLOBALS['configuration']['username_variable'].';');
+   if (!$usernameVar) {
+    header("location:".G_SERVERNAME.$GLOBALS['configuration']['error_page']);
+    exit;
+   } else {
+    try {
+     $user = EfrontUserFactory :: factory($usernameVar);
+    } catch (EfrontUserException $e) {
+     if ($e -> getCode() == EfrontUserException::USER_NOT_EXISTS && $GLOBALS['configuration']['webserver_registration']) {
+      try {
+       include($GLOBALS['configuration']['registration_file']);
+      } catch (Exception $e) {
+       header("location:".G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page']);
+       exit;
+      }
+     } else {
+      header("location:".G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page']);
+      exit;
+     }
+    }
+   }
+  } catch (Exception $e) {
+   header("location:".G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page']);
   }
   return $user;
  }

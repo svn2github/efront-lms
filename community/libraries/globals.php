@@ -259,7 +259,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 7609;
+    $build = 7631;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
@@ -581,6 +581,8 @@ function __autoload($className) {
         require_once "smarty/libs/Smarty.class.php";
     } else if (strpos($className, "efrontbenchmark") !== false) {
         require_once "benchmark.class.php";
+    } else if (strpos($className, "efrontform") !== false) {
+        require_once "form.class.php";
     } else if (strpos($className, "event") !== false) {
         /** Events class */
         require_once "events.class.php";

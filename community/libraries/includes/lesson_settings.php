@@ -69,7 +69,7 @@ if ($_GET['op'] == 'reset_lesson') {
     $form -> addElement('checkbox', 'options[modules]', _MODULES, null, 'class = "inputCheckBox"');
  $form -> addElement('checkbox', 'options[events]', _EVENTS, null, 'class = "inputCheckBox"');
 
-    $form -> addElement('submit', 'submit_reset_lesson', _SUBMIT, 'class = "flatButton"');
+    $form -> addElement('submit', 'submit_reset_lesson', _SUBMIT, 'onclick = "return confirm(\''._AREYOUSUREYOUWANTTOINITIALIZELESSON.'\')" class = "flatButton"');
 
     if ($form -> isSubmitted() && $form -> validate()) {
         $values = $form -> exportValues();

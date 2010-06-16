@@ -88,32 +88,39 @@
  {eF_template_printBlock title = $smarty.const._CURRICULUMPROPERTIES data = $smarty.capture.t_edit_curriculum_code image = '32x32/theory.png' help = 'Curriculums'}
 {else}
  {capture name = "t_curriculums_code"}
+  {if !isset($T_CURRENT_USER->coreAccess.lessons) || $T_CURRENT_USER->coreAccess.lessons== 'change'}
    <div class = "headerTools">
     <span>
      <img src = "images/16x16/add.png" title = "{$smarty.const._ADDCURRICULUM}" alt = "{$smarty.const._ADDCURRICULUM}">
      <a href = "{$smarty.server.PHP_SELF}?ctg=curriculums&add=1" title = "{$smarty.const._ADDCURRICULUM}">{$smarty.const._ADDCURRICULUM}</a>
     </span>
    </div>
+  {assign var = "change_lessons" value = 1}
+  {/if}
 <!--ajax:curriculumsTable-->
    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "curriculumsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=curriculums&">
     <tr class = "topTitle defaultRowHeight">
      <td class = "topTitle" name = "name">{$smarty.const._NAME}</td>
      <td class = "topTitle" name = "description">{$smarty.const._DESCRIPTION}</td>
      <td class = "topTitle centerAlign" name = "active">{$smarty.const._ACTIVE}</td>
+    {if $change_lessons}
      <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
+    {/if}
     </tr>
     {foreach name = 'users_list' key = 'key' item = 'curriculum' from = $T_DATA_SOURCE}
     <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
      <td><a href = "{$smarty.server.PHP_SELF}?ctg=curriculums&edit={$curriculum.id}" class = "editLink">{$curriculum.name}</a></td>
      <td>{$curriculum.description|eF_truncate:300}</td>
      <td class = "centerAlign">
-      <img {if $curriculum.active == 0}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" onclick = "deactivateEntity(this, '{$curriculum.id}', {ldelim}curriculums:1{rdelim});">
-      <img {if $curriculum.active == 1}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" onclick = "activateEntity(this, '{$curriculum.id}', {ldelim}curriculums:1{rdelim})">
+      <img {if $curriculum.active == 0}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $change_lessons}onclick = "deactivateEntity(this, '{$curriculum.id}', {ldelim}curriculums:1{rdelim});"{/if}>
+      <img {if $curriculum.active == 1}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $change_lessons} onclick = "activateEntity(this, '{$curriculum.id}', {ldelim}curriculums:1{rdelim})" {/if}>
      </td>
+    {if $change_lessons}
      <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=curriculums&edit={$curriculum.id}"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}"/></a>
       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteEntity(this, '{$curriculum.id}', {ldelim}curriculums:1{rdelim})"/>
      </td>
+    {/if}
     </tr>
     {foreachelse}
     <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "6">{$smarty.const._NODATAFOUND}</td></tr>

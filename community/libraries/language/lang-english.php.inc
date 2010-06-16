@@ -3728,5 +3728,20 @@ define("_MODULEFILESPRESENTNOTINSTALLED", "Module files are present, but it is n
 define("_DISABLEPAYMENTSNOTICE","This will set all lessons and courses price to 0");
 define("_SPECIFYIDFORSREENMATCHING","Specify object id for screen matching dimensions");
 define("_COMMASEPARATEDLIST", "Comma separated list");
-define("_APACHEAUTHENTICATION", "Authenticate through apache");
+define("_WEBSERVERAUTHENTICATION", "Web server authentication");
+define("_USERSETTINGS", "User settings");
+define("_THIRDPARTYTOOLS", "3rd party tools");
+define("_DONOTTAKEACCOUNTINCORRECTING","Do not take it into account in correction");
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Are you sure you want to initialize lesson? This will permanently delete data");
+define("_EXTERNALTOOLS", "External tools");
+define("_MATHSETTINGS", "Math settings");
+define("_PHPLIVEDOCX", "PHP livedocx");
+define("_CANNOTACCESSIPBAN", "You cannot access this page due to the following IP being banned");
+define("_EMAILSETTINGS", "Email settings");
+define("_ERRORPAGEFORINVALIDLOGIN", "Error page displayed when the username is missing or empty");
+define("_ERRORPAGEFORUNAUTHORIZED", "Error page displayed when the user could not be created");
+define("_VARIABLEFORUSERNAME", "Variable that contains the username");
+define("_INCLUDEFILETHATHANDLESUSERCREATION", "Include file that handles user creation");
+define("_WEBSERVERREGISTRATION", "Web server registration");
+define("_USEORLOGICTOCORRECTANSWERS","Use OR logic to calculate correct answer");
 ?>

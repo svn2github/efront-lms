@@ -817,6 +817,7 @@ CREATE TABLE projects (
 -- explanation: A default explanation added by the professor that displays when the question is completed
 -- answers_explanation: Explanations per answer
 -- estimate: A number depicting the estimated time (in seconds) a user will need to complete the question
+-- settings: A serialized array with the other question options
 CREATE TABLE questions (
   id mediumint(8) unsigned NOT NULL auto_increment,
   text text NOT NULL,
@@ -829,6 +830,7 @@ CREATE TABLE questions (
   explanation text,
   answers_explanation text default NULL,
   estimate int(10) unsigned default NULL,
+  settings text,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 

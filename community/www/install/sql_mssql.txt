@@ -773,6 +773,7 @@ CREATE TABLE projects (
 -- explanation: A default explanation added by the professor that displays when the question is completed
 -- answers_explanation: Explanations per answer
 -- estimate: A number depicting the estimated time (in seconds) a user will need to complete the question
+-- settings: A serialized array with the other question options
 CREATE TABLE questions (
   id int NOT NULL identity,
   text text NOT NULL,
@@ -785,6 +786,7 @@ CREATE TABLE questions (
   explanation text NULL,
   answers_explanation text NULL,
   estimate int NULL,
+  settings text NULL,
   PRIMARY KEY (id)
 );
 

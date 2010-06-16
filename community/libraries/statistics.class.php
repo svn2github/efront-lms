@@ -549,6 +549,8 @@ class EfrontStats
              $users = array($users -> user['login']);
          } else if (!eF_checkParameter($users, 'login')) {
              throw new EfrontUserException(_INVALIDLOGIN.': '.$users, EfrontUserException :: INVALID_LOGIN);
+         } else {
+          $users = array($users);
          }
          $user = implode("','", $users);
      }

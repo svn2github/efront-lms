@@ -2446,14 +2446,18 @@ class EfrontCompletedTest extends EfrontTest
         //Correct each question and handle uploaded files, if any (@todo)
         foreach ($this -> questions as $id => $question) {
    $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
+   if ($question -> question['type'] == 'raw_text') {
+    if ($question -> settings['force_correct'] != 1) {
+     $this -> completedTest['pending'] = 1;
+     $question -> pending = 1;
+     $question -> handleQuestionFiles($this -> getDirectory());
+    } else {
+     $results['score'] = 1;
+    }
+            }
    $question -> score = round($results['score'] * 100, 2);
             $question -> results = $results['correct'];
             $this -> completedTest['score'] += $results['score'] * $this -> getQuestionWeight($id); //the total test score
-            if ($question -> question['type'] == 'raw_text') {
-             $this -> completedTest['pending'] = 1;
-                $question -> pending = 1;
-                $question -> handleQuestionFiles($this -> getDirectory());
-            }
             $question -> scoreInTest = round($question -> score * $this -> getQuestionWeight($id), 3); //Score in test is the question score, weighted with the question's weight in the test
         }
         $this -> completedTest['score'] > 1 ? $this -> completedTest['score'] = 100 : $this -> completedTest['score'] = round($this -> completedTest['score'] * 100, 2); //Due to roundings, overall score may go slightly above 100. so, truncate it to 100
@@ -4175,7 +4179,11 @@ class MultipleManyQuestion extends Question implements iQuestion
         $c = sizeof($this -> answer);
         $f = sizeof($this -> userAnswer) - sizeof($this -> answer);
         //$results['score'] = max(0, $nc / ($c+$f) - $nf / max($c, $f));			//Used for taking into account false questions as well
-        $results['score'] = max(0, $nc / $c - $nf / max($c, $f));
+        if ($this -> settings['answers_or'] != 1) {
+   $results['score'] = max(0, $nc / $c - $nf / max($c, $f));
+  } else {
+   $nc == 0 ? $results['score'] = 0 : $results['score'] = 1;
+  }
         return $results;
     }
     /**
@@ -6406,6 +6414,8 @@ abstract class Question
 
      */
     public $options = array();
+ public $settings = array('force_correct' => 0,
+        'answers_or' => 0);
     /**
 
      * Question's answer(s)
@@ -6554,6 +6564,7 @@ abstract class Question
         }
         @unserialize($this -> question['options']) !== false ? $this -> options = unserialize($this -> question['options']) : $this -> options = $this -> question['options'];
         @unserialize($this -> question['answer']) !== false ? $this -> answer = unserialize($this -> question['answer']) : $this -> answer = $this -> question['answer'];
+  @unserialize($this -> question['settings'])!== false ? $this -> settings = unserialize($this -> question['settings']): $this -> settings = $this -> question['settings'];
         is_array($this -> options) ? $this -> order = array_keys($this -> options) : null;
         $this -> question['type_icon'] = Question :: $questionTypesIcons[$this -> question['type']];
         $plainText = trim(strip_tags($this -> question['text']));
@@ -6636,7 +6647,8 @@ abstract class Question
                         "answer" => $this -> question['answer'],
             "estimate" => $this -> question['estimate'],
             "explanation" => $this -> question['explanation'],
-            "answers_explanation" => $this -> question['answers_explanation']);
+            "answers_explanation" => $this -> question['answers_explanation'],
+      "settings" => $this -> question['settings']);
         foreach ($this -> getTests() as $id => $test) {
          Cache::resetCache('test:'.$id);
         }

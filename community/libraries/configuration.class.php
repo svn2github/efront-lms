@@ -66,7 +66,6 @@ class EfrontConfiguration
      'insert_group_key' => '1', // 0 means 'no', 1 means 'yes'
         'lesson_enroll' => '1',
   'default_type' => 'student',
-     'apache_authentication' => '1',
         //System settings - 3rd party tools
         'license_server' => 'http://keys.efrontlearning.net/list.php',
         'api' => '1',
@@ -151,6 +150,14 @@ class EfrontConfiguration
      'show_user_form' => '0',
      'show_unassigned_users_to_supervisors' => '1',
      'allow_users_to_delete_supervisor_files'=> '1',
+
+     //Webserver authentication settings
+     'webserver_auth' => '0',
+     'webserver_registration' => '0',
+     'error_page' => 'themes/default/external/default_error_page.html',
+     'unauthorized_page' => 'themes/default/external/default_unauthorized_page.html',
+     'username_variable' => '$_SERVER["REMOTE_USER"]',
+     'registration_file' => 'includes/webserver_registration.php',
 
         //Payments settings    
         'currency' => 'EUR',

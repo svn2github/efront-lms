@@ -86,6 +86,7 @@ $form -> addElement('text', 'estimate_min', _ESTIMATETIMETOCOMPLETE, 'size = "3"
 $form -> addElement('text', 'estimate_sec', null, 'size = "3"');
 $form -> addElement('textarea', 'question_text', _QUESTIONTEXT, 'class = "mceEditor inputTextarea_QuestionText" style = "width:100%;height:250px;" id = "editor_content_data"');
 $form -> addElement('textarea', 'explanation', _EXPLANATION, 'class = "mceEditor" style = "width:99%;height:100px;" id = "question_explanation_data"'); //The style needs to be here, since when a textarea is in "display:none" mode, the tinymce does not render the class correctly
+
 $form -> addElement('submit', 'submit_question', _SAVEQUESTION, 'class = "flatButton"');
 $form -> addElement('submit', 'submit_new_question', _SAVEASNEWQUESTION, 'class = "flatButton"');
 
@@ -107,8 +108,9 @@ if (strpos($postTarget, '&from_test') === false) {
 }
 
 if (isset($currentQuestion)) { //If we are changing an existing question
+//pr($currentQuestion);
     $form -> setDefaults(array('content_ID' => $currentQuestion -> question['content_ID'], //Set form values to the stored ones.
-                               //'code'		   => $currentQuestion -> question['code'], 
+                               //'code'		   => $currentQuestion -> question['code'],
                                'question_type' => $currentQuestion -> question['type'],
                                'difficulty' => $currentQuestion -> question['difficulty'],
                                'question_text' => $currentQuestion -> question['text'],
@@ -175,6 +177,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
         break;
 
     case 'multiple_many':
+  $form -> addElement('advcheckbox', 'answers_or', _USEORLOGICTOCORRECTANSWERS, null, 'class = "inputCheckBox"', array(0, 1));
         if ($form -> isSubmitted() || isset($currentQuestion)) {
             if (isset($currentQuestion) && !$form -> isSubmitted()) {
                 $values['multiple_many'] = unserialize($currentQuestion -> question['options']);
@@ -202,12 +205,14 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
                 $form -> setDefaults(array('multiple_many['.$key.']' => $value));
                 $form -> setDefaults(array('correct_multiple_many['.$key.']' => $values['correct_multiple_many'][$key]));
                 $form -> setDefaults(array('answers_explanation['.$key.']' => $values['answers_explanation'][$key]));
+    $form -> setDefaults(array('answers_or' => $currentQuestion -> settings['answers_or']));
             }
 
             if ($form -> validate()) {
                 $question_values = array('type' => 'multiple_many',
                                          'options' => serialize($values['multiple_many']),
-                                         'answer' => serialize($values['correct_multiple_many']));
+                                         'answer' => serialize($values['correct_multiple_many']),
+           'settings' => serialize(array('answers_or' => $form -> exportValue('answers_or'))));
             }
         } else {
             //By default, only 2 options are displayed
@@ -224,11 +229,12 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
         break;
 
     case 'raw_text':
+  $form -> addElement('advcheckbox', 'force_correct', _DONOTTAKEACCOUNTINCORRECTING, null, 'class = "inputCheckBox"', array(0, 1));
         $form -> addElement('textarea', 'example_answer', _EXAMPLEANSWER, 'class = "inputTextarea_QuestionExample" style = "width:100%" ');
 
         if ($form -> isSubmitted() || isset($currentQuestion)) {
             if (isset($currentQuestion) && !$form -> isSubmitted()) {
-                $form -> setDefaults(array('example_answer' => $currentQuestion -> question['answer']));
+                $form -> setDefaults(array('example_answer' => $currentQuestion -> question['answer'], 'force_correct' => $currentQuestion -> settings['force_correct']));
                 //if (strpos($currentQuestion -> question['answer'],"<a href") !== false) {
                 //    $smarty -> assign("T_QUESTION_TYPE_CODE", "M");
                 //} else {
@@ -239,7 +245,8 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
             if ($form -> validate()) {
                 $question_values = array('type' => 'raw_text',
                                          'options' => '',
-                                         'answer' => $form -> exportValue('example_answer'));
+                                         'answer' => $form -> exportValue('example_answer'),
+           'settings' => serialize(array('force_correct' => $form -> exportValue('force_correct'))));
             }
         }
 

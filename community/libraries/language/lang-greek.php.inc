@@ -3728,5 +3728,20 @@ define("_MODULEFILESPRESENTNOTINSTALLED", "Τα αρχεία του αρθρώμ
 define("_DISABLEPAYMENTSNOTICE","Οι τιμές μαθημάτων και δεσμών θα γίνουν όλες 0");
 define("_SPECIFYIDFORSREENMATCHING","Ορίστε id αντικειμένου για διαστάσεις που καλύπτουν την οθόνη");
 define("_COMMASEPARATEDLIST", "Λίστα διαχωριζόμενη με κόμμα");
-define("_APACHEAUTHENTICATION", "Ταυτοποίηση από τον apache");
+define("_WEBSERVERAUTHENTICATION", "Ταυτοποίηση από το web server");
+define("_USERSETTINGS", "Ρυθμίσεις χρηστών");
+define("_THIRDPARTYTOOLS", "Εργαλεία τρίτων");
+define("_DONOTTAKEACCOUNTINCORRECTING","Να μην ληφθεί υπόψην κατά την διόρθωση");
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Είστε σίγουρος ότι θέλετε να αρχικοποιείστε το μάθημα. Θα διαγραφούν μόνιμα κάποια δεδομένα");
+define("_EXTERNALTOOLS", "Εξωτερικά εργαλεία");
+define("_MATHSETTINGS", "Ρυθμίσεις Math");
+define("_PHPLIVEDOCX", "PHP livedocx");
+define("_CANNOTACCESSIPBAN", "Δεν μπορείτε να προσπελάσετε αυτήν τη σελίδα γιατί η IP σας είναι απαγορευμένη");
+define("_EMAILSETTINGS", "Ρυθμίσεις email");
+define("_ERRORPAGEFORINVALIDLOGIN", "Σελίδα σφάλματος που εμφανίζεται όταν το όνομα χρήστη είναι κενό");
+define("_ERRORPAGEFORUNAUTHORIZED", "Σελίδα σφάλματος που εμφανίζεται όταν ο χρήστης δεν ήταν δυνατόν να δημιουργηθεί");
+define("_VARIABLEFORUSERNAME", "Μεταβλητή που περιέχει το όνομα χρήστη");
+define("_INCLUDEFILETHATHANDLESUSERCREATION", "Κάνε include το αρχείο για δημιουργία χρήστη");
+define("_WEBSERVERREGISTRATION", "Εγγραφή μέσω web server");
+define("_USEORLOGICTOCORRECTANSWERS","Χρήση λογικής OR για υπολογισμό σωστής απάντησης");
 ?>

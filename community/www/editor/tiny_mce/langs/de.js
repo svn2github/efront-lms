@@ -820,5 +820,5 @@ insert_java: 'Java-Datei einfugen'
 },
 java:{
 title : 'Einfugen / bearbeiten Java',
-image_desc : 'Einfugen / bearbeiten Java',
+image_desc : 'Einfugen / bearbeiten Java'
 }}});

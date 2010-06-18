@@ -823,5 +823,5 @@ insert_java: '插入的Java文件'
 },
 java:{
 title : '插入的Java文件',
-image_desc : '插入的Java文件',
+image_desc : '插入的Java文件'
 }}});

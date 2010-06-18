@@ -326,7 +326,7 @@ align_textbottom:"Onderkant tekst",
 align_left:"Links",
 align_right:"Rechts",
 image_list:"Lijst",
-insert_image:"Afbeelding invoegen"	
+insert_image:"Afbeelding invoegen"
 },
 advlink_dlg:{
 title:"Link invoegen/bewerken",
@@ -380,7 +380,7 @@ ltr:"Van links naar rechts",
 rtl:"Van rechts naar links",
 link_list:"Lijst",
 insert_hyperlink: "Invoegen hyperlink",
-selectonewantaslink: "Selecteer de gewenste ingevoegd als hyperlink"	
+selectonewantaslink: "Selecteer de gewenste ingevoegd als hyperlink"
 },
 emotions_dlg:{
 title:"Emotie invoegen",
@@ -589,7 +589,7 @@ flv_loop:"Herhalen",
 flv_showscalemodes:"Schaalmodus weergeven",
 flv_smoothvideo:"Soepele video",
 flv_jscallback:"JS Callback",
-insert_media:"Plaats de media bestand"	
+insert_media:"Plaats de media bestand"
 },
 paste_dlg:{
 text_title:"Gebruik Ctrl+V om tekst in het venster te plakken.",
@@ -813,5 +813,5 @@ insert_java: 'Plaats Java'
 },
 java:{
 title : 'Plaats Java',
-image_desc : 'Plaats Java',
+image_desc : 'Plaats Java'
 }}});

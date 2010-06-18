@@ -326,7 +326,7 @@ align_textbottom:"Base do texto",
 align_left:"Esquerda",
 align_right:"Direita",
 image_list:"Lista de imagens",
-insert_image:"Inserir imagem"	
+insert_image:"Inserir imagem"
 },
 advlink_dlg:{
 title:"Inserir/editar hyperlink",
@@ -380,7 +380,7 @@ ltr:"Da esquerda para a direita",
 rtl:"Da direita para a esquerda",
 link_list:"Lista de hyperlinks",
 insert_hyperlink: "Inserir hyperlink",
-selectonewantaslink: "Selecione o que voce quer inserido como um hiperlink"	
+selectonewantaslink: "Selecione o que voce quer inserido como um hiperlink"
 },
 emotions_dlg:{
 title:"Inserir emoticon",
@@ -813,5 +813,5 @@ insert_java: 'Inserir ficheiro Java'
 },
 java:{
 title : 'Inserir / editar Java',
-image_desc : 'Inserir / editar Java',
+image_desc : 'Inserir / editar Java'
 }}});

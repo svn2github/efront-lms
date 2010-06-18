@@ -428,7 +428,8 @@ CREATE TABLE f_folders (
   name varchar(150) NOT NULL,
   users_LOGIN varchar(100) NOT NULL,
   parent_id mediumint(8) unsigned NOT NULL default '0',
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE(name, users_LOGIN)
 ) DEFAULT CHARSET=utf8;
 
 --

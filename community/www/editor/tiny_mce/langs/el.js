@@ -330,7 +330,7 @@ align_textbottom:"Κείμενο κάτω",
 align_left:"Αριστερά",
 align_right:"Δεξιά",
 image_list:"Λίστα εικόνων",
-insert_image:"Εισαγωγή εικόνας"	
+insert_image:"Εισαγωγή εικόνας"
 },
 advlink_dlg:{
 title:"Εισαγωγή/επεξεργασία συνδέσμου",
@@ -384,7 +384,7 @@ ltr:"Αριστερά προς δεξιά",
 rtl:"Δεξιά προς αριστερά",
 link_list:"Λίστα συνδέσμων",
 insert_hyperlink: "Εισαγωγή υπερσυνδέσμου",
-selectonewantaslink: "Επιλέξτε αυτό που θέλετε να μπει ως υπερσύνδεσμος"	
+selectonewantaslink: "Επιλέξτε αυτό που θέλετε να μπει ως υπερσύνδεσμος"
 },
 emotions_dlg:{
 title:"Εισαγωγή συναισθήματος",
@@ -799,7 +799,7 @@ insert_date:"Εισαγωγή τρέχουσας ημέρας/ώρας",
 option_ltr:"Αριστερά προς δεξιά",
 option_rtl:"Δεξιά προς αριστερά",
 attribs_title:"Εισαγωγή/επεξεργασία ιδιοτήτων"
-},	
+},
 index_link:{
 linkdescription : 'Συνδεθείτε',
 link_desc : 'Σύνδεσμος για σύνδεση'
@@ -817,5 +817,5 @@ insert_java: 'Εισαγωγή Java'
 },
 java:{
 title : 'Εισαγωγή Java',
-image_desc : 'Εισαγωγή Java',
+image_desc : 'Εισαγωγή Java'
 }}});

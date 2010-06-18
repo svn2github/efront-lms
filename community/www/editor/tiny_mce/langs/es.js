@@ -813,5 +813,5 @@ insert_java: 'Insertar archivo java'
 },
 java:{
 title : 'Insertar / editar Java',
-image_desc : 'Insertar / editar Java',
+image_desc : 'Insertar / editar Java'
 }}});

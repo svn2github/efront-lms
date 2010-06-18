@@ -79,19 +79,28 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
             } else {
              $course = new EfrontCourse($_GET['from_course']);
             }
+/*            
+
             $eligibility = $course -> checkRules($_SESSION['s_login']);
 
+            
+
             if ($eligibility[$_GET['lessons_ID']] == 0){
+
                 unset($_GET['lessons_ID']);
-                $message = _YOUCANNOTACCESSTHISLESSONBECAUSEOFCOURSERULES;
+
+                $message      = _YOUCANNOTACCESSTHISLESSONBECAUSEOFCOURSERULES;
+
                 eF_redirect("student.php?ctg=lessons&message=".urlencode($message)."&message_type=failure");
+
             }
+
+*/
             $_SESSION['s_courses_ID'] = $course -> course['id'];
         }
         if (in_array($_GET['lessons_ID'], array_keys($userLessons))) {
             $_SESSION['s_lessons_ID'] = $_GET['lessons_ID'];
             $_SESSION['s_type'] = $roles[$userLessons[$_GET['lessons_ID']]];
-
             $smarty -> assign("T_CHANGE_LESSON", "true");
             $smarty -> assign("T_REFRESH_SIDE", "true");
         } else {
@@ -101,11 +110,9 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
             $_GET['ctg'] = 'personal';
         }
     } else if ($_GET['lessons_ID'] == $_SESSION['s_lessons_ID']) {
-
         $smarty -> assign("T_SHOW_LOADED_LESSON_OPTIONS", 1);
     }
 }
-
 if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] && $_GET['ctg'] != 'lessons') { //Check validity of current lesson
     $userLessons = $currentUser -> getLessons();
     if ($_GET['ctg'] != 'personal' && (!isset($userLessons[$_SESSION['s_lessons_ID']]) || $roles[$userLessons[$_SESSION['s_lessons_ID']]] != 'professor')) {
@@ -122,18 +129,14 @@ if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] && $_GET['ctg'
         $message = $e -> getMessage().' ('.$e -> getCode().')';
         eF_redirect("".basename($_SERVER['PHP_SELF'])."?message=".urlencode($message)."&message_type=failure");
     }
-
 }
-
 //@todo: remove package_ID from $_SESSION, beware package_ID is needed in lms_commit
 if (isset($_SESSION['package_ID']) && !$_GET['commit_lms']) {
     unset($_SESSION['package_ID']);
 }
-
 try {
     if (isset($_GET['view_unit']) && eF_checkParameter($_GET['view_unit'], 'id')) {
         $currentContent = new EfrontContentTree($currentLesson); //Initialize content
-
         if ($currentUser -> coreAccess['content'] == 'hidden') {
             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
         }

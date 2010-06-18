@@ -327,7 +327,7 @@ align_textbottom:"Tekstbund",
 align_left:"Venstre",
 align_right:"H\u00F8jre",
 image_list:"Billedliste",
-insert_image:"Indsæt billede"	
+insert_image:"Indsæt billede"
 },
 advlink_dlg:{
 title:"Inds\u00E6t/rediger link",
@@ -381,7 +381,7 @@ ltr:"Venstre mod h\u00F8jre",
 rtl:"H\u00F8jre mod venstre",
 link_list:"Liste over links",
 insert_hyperlink: "Indsæt hyperlink",
-selectonewantaslink: "Vælg den, du ønsker indsættes som hyperlink"	
+selectonewantaslink: "Vælg den, du ønsker indsættes som hyperlink"
 },
 emotions_dlg:{
 title:"Inds\u00E6t hum\u00F8rikon",
@@ -814,5 +814,5 @@ insert_java: 'Indsæt Java'
 },
 java:{
 title : 'Indsæt Java',
-image_desc : 'Indsæt Java',
+image_desc : 'Indsæt Java'
 }}});

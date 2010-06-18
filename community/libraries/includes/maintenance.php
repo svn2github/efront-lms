@@ -61,14 +61,13 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     //$users_dir = eF_getDirContents(G_ROOTPATH.'upload/', '', false, false);
     $users_dir = scandir(G_ROOTPATH.'upload/');
     foreach ($users_dir as $key => $value) {
-        if (!is_dir(G_ROOTPATH.'upload/'.$value) || in_array($value, array('.', '..', '.svn'))) {
+        if (!is_dir(G_ROOTPATH.'upload/'.$value) || !is_dir(G_ROOTPATH.'upload/'.$value.'/message_attachments') || in_array($value, array('.', '..', '.svn'))) {
             unset($users_dir[$key]);
         }
     }
     $orphan_user_folders = array_diff($users_dir, $users['login']);
     $orphan_users = array_diff($users['login'], $users_dir);
-
-    $orphanUserStr = implode(", ", $orphan_user);
+    $orphanUserStr = implode(", ", $orphan_users);
     $smarty -> assign("T_ORPHAN_USERS", mb_strlen($orphanUserStr) > 200 ? mb_substr($orphanUserStr, 0, 200).'...' : $orphanUserStr);
     $orphanUserFoldersStr = implode(", ", $orphan_user_folders);
     $smarty -> assign("T_ORPHAN_USER_FOLDERS", mb_strlen($orphanUserFoldersStr) > 200 ? mb_substr($orphanUserFoldersStr, 0, 200).'...' : $orphanUserFoldersStr);
@@ -168,7 +167,17 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
             !mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Incoming', 0755)) {
                 $errors[] = $login;
             }
+   if (is_dir(G_ROOTPATH.'upload/'.$login) && !is_dir(G_ROOTPATH.'upload/'.$login.'/message_attachments')) { //in case message_attachments is missing
+    mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments', 0755);
+    mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Drafts', 0755);
+    mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Sent', 0755);
+    mkdir(G_ROOTPATH.'upload/'.$login.'/message_attachments/Incoming', 0755);
+    $errors = array_diff($errors, array($login));
+   }
+
         }
+  if (empty($errors)) {unset($errors);}
+
         if (!isset($errors)) {
             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup&message=".urlencode(_SUCCESFULLYCREATEDUSERFOLDERS).'&message_type=success');
         } else {

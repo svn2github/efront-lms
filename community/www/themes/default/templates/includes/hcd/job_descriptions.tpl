@@ -357,26 +357,16 @@
      var addAlternativeTrainingConst = '{$smarty.const._ADDALTERNATIVETRAINING}';
      var orConst = '{$smarty.const._OR}';
      </script>
-     <table width="100%">
-      <tr>
-       <td align ="left">
-       {if ($smarty.session.s_type == "administrator" || ($smarty.session.employee_type == $smarty.const._SUPERVISOR))}
-       <table>
-        <tr>
-         <td><a href="javascript:void(0);" onclick="add_job_prerequisite({$T_PREREQUISITES_SIZE});"><img id="add_training_img" src="images/16x16/add.png" title="{$smarty.const._NEWJOBPLACEMENT}" alt="{$smarty.const._NEWJOBPLACEMENT}"/ border="0"></a></td><td><a href="javascript:void(0);" onclick="add_job_prerequisite({$T_PREREQUISITES_SIZE});">{$smarty.const._NEWREQUIREDTRAININGCOURSE}</a></td>
-        </tr>
-       </table>
-       {/if}
-
-       </td>
-       <td align ="right">
-       <table><tr><td>{$smarty.const._APPLYTOALLDESCRIPTIONSWITHDESCRIPTION|cat:$T_JOB_DESCRIPTION_NAME}</td>
-            <td><input class = "inputCheckBox" type = "checkbox" id="training_changes_apply_to_all" name = "training_changes_apply_to" onclick= "ajaxPostRequiredTraining();" /></td>
-           </tr>
-       </table>
-       </td>
-      </tr>
-     </table>
+     <div class = "headerTools">
+      <span>
+       <img id="add_training_img" src = "images/16x16/add.png" title = "{$smarty.const._NEWREQUIREDTRAININGCOURSE}" alt = "{$smarty.const._NEWREQUIREDTRAININGCOURSE}" />
+          <a href="javascript:void(0);" onclick="add_job_prerequisite('{$T_PREREQUISITES_SIZE}');">{$smarty.const._NEWREQUIREDTRAININGCOURSE}</a>
+         </span>
+         <span>
+          {$smarty.const._APPLYTOALLDESCRIPTIONSWITHDESCRIPTION|cat:$T_JOB_DESCRIPTION_NAME}
+          <input class = "inputCheckBox" type = "checkbox" id="training_changes_apply_to_all" name = "training_changes_apply_to" onclick= "ajaxPostRequiredTraining();" />
+         </span>
+     </div>
 
      <table style = "width:100%" class = "sortedTable" id = "prerequisitesTable" noFooter="true">
       <tr class = "topTitle">
@@ -502,7 +492,7 @@
     {foreach name = 'job_description_list' key = 'key' item = 'job_description' from = $T_DATA_SOURCE}
     <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
      <td><a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink">{$job_description.description}</a></td>
-     <td><a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$job_description.branch_ID}" class = "editLink">{$job_description.name}</a></td>
+     <td><a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$job_description.branch_ID}" class = "editLink">{$job_description.branch_path}</a></td>
      <td class = "centerAlign"> {$job_description.Employees}</td>
      <td class = "centerAlign"> {$job_description.more_needed}</td>
      <td class = "centerAlign"> {$job_description.skill_req}</td>

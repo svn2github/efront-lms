@@ -326,7 +326,7 @@ align_textbottom:"\u30C6\u30AD\u30B9\u30C8\u306E\u4E0B\u7AEF",
 align_left:"\u5DE6\u5BC4\u305B",
 align_right:"\u53F3\u5BC4\u305B",
 image_list:"\u4E00\u89A7\u304B\u3089\u9078\u3076",
-insert_image:"画像を挿入"	
+insert_image:"画像を挿入"
 },
 advlink_dlg:{
 title:"\u30EA\u30F3\u30AF\u306E\u633F\u5165/\u7DE8\u96C6",
@@ -380,7 +380,7 @@ ltr:"\u5DE6\u304B\u3089\u53F3",
 rtl:"\u53F3\u304B\u3089\u5DE6",
 link_list:"\u4E00\u89A7\u304B\u3089\u9078\u3076",
 insert_hyperlink: "ハイパーリンクの挿入",
-selectonewantaslink: "として1つを選択してハイパーリンクを挿入したい"	
+selectonewantaslink: "として1つを選択してハイパーリンクを挿入したい"
 },
 emotions_dlg:{
 title:"\u30B9\u30DE\u30A4\u30EA\u30FC\u306E\u633F\u5165",
@@ -589,7 +589,7 @@ flv_loop:"\u7E70\u308A\u8FD4\u3057\u518D\u751F",
 flv_showscalemodes:"\u4F38\u7E2E\u5207\u66FF\u30DC\u30BF\u30F3\u8868\u793A",
 flv_smoothvideo:"\u30B9\u30E0\u30FC\u30B8\u30F3\u30B0",
 flv_jscallback:"JS\u30B3\u30FC\u30EB\u30D0\u30C3\u30AF",
-insert_media:"メディアファイルの挿入"	
+insert_media:"メディアファイルの挿入"
 },
 paste_dlg:{
 text_title:"\u30AD\u30FC\u30DC\u30FC\u30C9\u3067CTRL+V\u3068\u5165\u529B\u3057\u30C6\u30AD\u30B9\u30C8\u3092\u8CBC\u308A\u4ED8\u3051\u3066\u304F\u3060\u3055\u3044\u3002",
@@ -813,5 +813,5 @@ insert_java: 'javaファイルを挿入'
 },
 java:{
 title : 'javaファイルを挿入',
-image_desc : 'javaファイルを挿入',
+image_desc : 'javaファイルを挿入'
 }}});

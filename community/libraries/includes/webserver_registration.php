@@ -32,7 +32,6 @@ if ($GLOBALS['configuration']['webserver_registration']) {
 
  //Must set the user object finally!
  $user = EfrontUser :: createUser($user_data);
-
 }
 
 ?>

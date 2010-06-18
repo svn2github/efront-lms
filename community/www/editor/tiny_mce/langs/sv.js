@@ -810,5 +810,5 @@ insert_java: 'Satt java-fil'
 },
 java:{
 title : 'Infoga / redigera Java',
-image_desc : 'Infoga / redigera Java',
+image_desc : 'Infoga / redigera Java'
 }}});

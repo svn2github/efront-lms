@@ -326,7 +326,7 @@ align_textbottom:"Se spodkem \u0159\u00E1dku",
 align_left:"Vlevo",
 align_right:"Vpravo",
 image_list:"Seznam obr\u00E1zk\u016F",
-insert_image:"Vložit obrázek"	
+insert_image:"Vložit obrázek"
 },
 advlink_dlg:{
 title:"Vlo\u017Eit/upravit odkaz",
@@ -380,7 +380,7 @@ ltr:"Zleva doprava",
 rtl:"Zprava doleva",
 link_list:"Seznam odkaz\u016F",
 insert_hyperlink: "Vložte hypertextový odkaz",
-selectonewantaslink: "Vyberte ten, chcete zní jako hypertextový odkaz"	
+selectonewantaslink: "Vyberte ten, chcete zní jako hypertextový odkaz"
 },
 emotions_dlg:{
 title:"Vlo\u017Eit emotikon",
@@ -813,5 +813,5 @@ insert_java: 'Vložit Java'
 },
 java:{
 title : 'Vložit Java',
-image_desc : 'Vložit Java',
+image_desc : 'Vložit Java'
 }}});

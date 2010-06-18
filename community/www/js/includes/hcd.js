@@ -712,7 +712,7 @@ function assignCourseToUsers(el, id) {
 //The row argument denotes how many placements were initially present
 //so that only one extra job may be inserted each time
 var __eF_prerequisites_total_number = 0;
-function add_job_prerequisite(row) {
+function add_job_prerequisite() {
  if (!document.getElementById('noCourses')) {
   if ($('noFooterRow1')) {
    $('noFooterRow1').remove();
@@ -736,9 +736,9 @@ function add_job_prerequisite(row) {
   newCellHTML = newCellHTML.replace('row', row);
   newCellHTML = newCellHTML.replace('col', 0);
   //newCell.innerHTML= '<table><tr><td>'+newCellHTML+'</td></td<td align="right"><a id="courses_details_link_'+row+'" name="courses_details_link" style="visibility:hidden"><img src="images/16x16/search.png" title="'+detailsConst+'" alt="'+detailsConst+'" border="0" /></a></td></tr></table>';
-  newCell.update(newCellHTML);
+  Element.extend(newCell).update(newCellHTML);
   newCell = x.insertCell(1);
-  newCell.setAttribute("align", "center");
+  Element.extend(newCell).setAttribute("align", "center");
   newCell.update('<a id="training_add_'+row+'" href="javascript:void(0);" onclick="add_prerequisite_alternative(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_add handle" src = "themes/default/images/others/transparent.png" alt = "'+addAlternativeTrainingConst+'" title= "'+addAlternativeTrainingConst+'"/></a>' +'&nbsp;<a id="training_'+row+'" href="javascript:void(0);" onclick="delete_job_prerequisite(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.png" alt = "'+deleteConst+'" title= "'+deleteConst+'"/></a>');
   //document.getElementById('training_' + row).setAttribute('rowCount', row);
   ajaxPostRequiredTraining();

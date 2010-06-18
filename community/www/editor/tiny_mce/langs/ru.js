@@ -815,5 +815,5 @@ insert_java : 'Вставить java файл'
 },
 java:{
 title : 'Вставить / редактировать Java',
-image_desc : 'Вставить / редактировать Java',
+image_desc : 'Вставить / редактировать Java'
 }}});

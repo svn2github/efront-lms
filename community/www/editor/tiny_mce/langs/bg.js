@@ -326,7 +326,7 @@ align_textbottom:"\u0422\u0435\u043A\u0441\u0442 \u0434\u043E\u043B\u0443",
 align_left:"\u041B\u044F\u0432\u043E",
 align_right:"\u0414\u044F\u0441\u043D\u043E",
 image_list:"\u0421\u043F\u0438\u0441\u044A\u043A \u0441 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0438",
-insert_image:"Вмъкване на изображение"	
+insert_image:"Вмъкване на изображение"
 },
 advlink_dlg:{
 title:"\u0412\u043C\u044A\u043A\u043D\u0438/\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u0430\u0439 \u0445\u0438\u043F\u0435\u0440\u0432\u0440\u044A\u0437\u043A\u0430",
@@ -380,7 +380,7 @@ ltr:"\u041E\u0442\u043B\u044F\u0432\u043E \u043D\u0430 \u0434\u044F\u0441\u043D\
 rtl:"\u041E\u0442\u0434\u044F\u0441\u043D\u043E \u043D\u0430 \u043B\u044F\u0432\u043E",
 link_list:"\u0421\u043F\u0438\u0441\u044A\u043A \u0441 \u0445\u0438\u043F\u0435\u0440\u0432\u0440\u044A\u0437\u043A\u0438",
 insert_hyperlink: "Вмъкване на хипервръзка",
-selectonewantaslink: "Избери една, която искате добавя като хипервръзка"	
+selectonewantaslink: "Избери една, която искате добавя като хипервръзка"
 },
 emotions_dlg:{
 title:"\u0412\u043C\u044A\u043A\u043D\u0438 \u0435\u043C\u043E\u0442\u0438\u043A\u043E\u043D",
@@ -813,5 +813,5 @@ insert_java: 'Поставете на Java'
 },
 java:{
 title : 'Поставете на Java',
-image_desc : 'Поставете на Java',
+image_desc : 'Поставете на Java'
 }}});

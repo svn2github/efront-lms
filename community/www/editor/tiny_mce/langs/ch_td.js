@@ -336,7 +336,7 @@ align_textbottom:"\u6587\u5B57\u4E0B\u65B9",
 align_left:"\u9760\u5DE6",
 align_right:"\u9760\u53F3",
 image_list:"\u56FE\u7247\u6E05\u5355",
-insert_image:"插入图像"	
+insert_image:"插入图像"
 },
 advlink_dlg:{
 title:"\u63D2\u5165/\u7F16\u8F91\u94FE\u63A5",
@@ -390,7 +390,7 @@ ltr:"\u7531\u5DE6\u5230\u53F3",
 rtl:"\u7531\u53F3\u5230\u5DE6",
 link_list:"\u94FE\u63A5\u6E05\u5355",
 insert_hyperlink: "插入超链接",
-selectonewantaslink: "选择一个做为待插入的超链接"	
+selectonewantaslink: "选择一个做为待插入的超链接"
 },
 emotions_dlg:{
 title:"\u63D2\u5165\u56FE\u91CA",
@@ -823,5 +823,5 @@ insert_java: '插入的Java文件'
 },
 java:{
 title : '插入的Java文件',
-image_desc : '插入的Java文件',
+image_desc : '插入的Java文件'
 }}});

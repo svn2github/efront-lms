@@ -245,11 +245,35 @@ abstract class EfrontUser
   $this -> login = $user['login'];
   $this -> user['directory'] = G_UPLOADPATH.$this -> user['login'];
   if (!is_dir($this -> user['directory'])) {
-   mkdir($this -> user['directory'], 0755);
+   $this -> createUserFolders();
   }
   $this -> user['password'] == 'ldap' ? $this -> isLdapUser = true : $this -> isLdapUser = false;
   //Initialize core access
   $this -> coreAccess = array();
+ }
+ /**
+
+	 * Creates user folders
+
+	 * @since 3.6.4
+
+	 * @access private
+
+	 */
+ private function createUserFolders() {
+  $user_dir = G_UPLOADPATH.$this -> user['login'].'/';
+  mkdir($user_dir, 0755);
+  mkdir($user_dir.'message_attachments/', 0755);
+  mkdir($user_dir.'message_attachments/Incoming/', 0755);
+  mkdir($user_dir.'message_attachments/Sent/', 0755);
+  mkdir($user_dir.'message_attachments/Drafts/', 0755);
+  mkdir($user_dir.'avatars/', 0755);
+  try {
+   //Create database representations for personal messages folders (it has nothing to do with filsystem database representation)
+   eF_insertTableDataMultiple("f_folders", array(array('name' => 'Incoming', 'users_LOGIN' => $this -> user['login']),
+   array('name' => 'Sent', 'users_LOGIN' => $this -> user['login']),
+   array('name' => 'Drafts', 'users_LOGIN' => $this -> user['login'])));
+  } catch(Exception $e) {}
  }
  /**
 
@@ -364,50 +388,25 @@ abstract class EfrontUser
   !isset($userProperties['pending']) ? $userProperties['pending'] = 0 : null; // 0 means not pending, 1 means pending
   !isset($userProperties['timestamp']) || $userProperties['timestamp'] == "" ? $userProperties['timestamp'] = time() : null;
   !isset($userProperties['user_types_ID']) ? $userProperties['user_types_ID'] = 0 : null;
-  if (eF_insertTableData("users", $userProperties)) {
-   $user_dir = G_UPLOADPATH.$userProperties['login'].'/';
-   if (is_dir($user_dir)) { //If the directory already exists, delete it first
-    try {
-     $directory = new EfrontDirectory($user_dir);
-     $directory -> delete();
-    } catch (EfrontFileException $e) {} //Don't stop on filesystem errors
-   }
-   if (mkdir($user_dir, 0755) || is_dir($user_dir)) { //Now, the directory either gets created, or already exists (in case errors happened above). In both cases, we continue
-    //Create personal messages attachments folders
-    mkdir($user_dir.'message_attachments/', 0755);
-    mkdir($user_dir.'message_attachments/Incoming/', 0755);
-    mkdir($user_dir.'message_attachments/Sent/', 0755);
-    mkdir($user_dir.'message_attachments/Drafts/', 0755);
-    mkdir($user_dir.'avatars/', 0755);
-    //Create database representations for personal messages folders (it has nothing to do with filsystem database representation)
-    eF_insertTableDataMultiple("f_folders", array(array('name' => 'Incoming', 'users_LOGIN' => $userProperties['login']),
-    array('name' => 'Sent', 'users_LOGIN' => $userProperties['login']),
-    array('name' => 'Drafts', 'users_LOGIN' => $userProperties['login'])));
-    // Assign to the new user all skillgap tests that should be automatically assigned to every new student
-    $newUser = EfrontUserFactory :: factory($userProperties['login']);
-    $newUser -> user['password'] = $passwordNonTransformed;
-    global $currentUser; // this is for running eF_loadAllModules ..needs to go somewhere else
-    if (!$currentUser) {
-     $currentUser = $newUser;
-    }
-    EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_JOIN, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname']));
-    ///MODULES1 - Module user add events
-    // Get all modules (NOT only the ones that have to do with the user type)
-    if (!$cached_modules) {
-     $cached_modules = eF_loadAllModules();
-    }
-    // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
-    foreach ($cached_modules as $module) {
-     $module -> onNewUser($userProperties['login']);
-    }
-    return $newUser;
-   } else {
-    eF_deleteTableData("users", "login='".$userProperties['login']."'"); //Delete the created user, so that nothing happened
-    throw new EfrontUserException(_COULDNOTCREATEUSERDIRECTORY.': '.$userdir, EfrontUserException :: USER_FILESYSTEM_ERROR); //The directory could not be created after all...
-   }
-  } else {
-   throw new EfrontUserException(_COULDNOTINSERTUSER.': '.$userProperties['login'], EfrontUserException :: DATABASE_ERROR);
+  eF_insertTableData("users", $userProperties);
+  // Assign to the new user all skillgap tests that should be automatically assigned to every new student
+  $newUser = EfrontUserFactory :: factory($userProperties['login']);
+  $newUser -> user['password'] = $passwordNonTransformed;
+  global $currentUser; // this is for running eF_loadAllModules ..needs to go somewhere else
+  if (!$currentUser) {
+   $currentUser = $newUser;
   }
+  EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_JOIN, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname']));
+  ///MODULES1 - Module user add events
+  // Get all modules (NOT only the ones that have to do with the user type)
+  if (!$cached_modules) {
+   $cached_modules = eF_loadAllModules();
+  }
+  // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
+  foreach ($cached_modules as $module) {
+   $module -> onNewUser($userProperties['login']);
+  }
+  return $newUser;
  }
  public static function checkUserAccess($type = false) {
   if ($GLOBALS['configuration']['webserver_auth']) {

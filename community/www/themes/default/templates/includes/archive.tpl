@@ -11,8 +11,8 @@
 <!--ajax:archiveTable-->
              <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "archiveTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=archive&type={$smarty.get.type}&">
                  <tr class = "topTitle defaultRowHeight">
-                     <td class = "topTitle">{$smarty.const._NAME}</td>
-                     <td class = "topTitle">{$smarty.const._ARCHIVEDON}</td>
+                     <td class = "topTitle" name = "name">{$smarty.const._NAME}</td>
+                     <td class = "topTitle" name = "archive">{$smarty.const._ARCHIVEDON}</td>
     {if $_change_}
                      <td class = "topTitle centerAlign">{$smarty.const._OPERATIONS}</td>
                      <td class = "topTitle centerAlign">{$smarty.const._SELECT}</td>

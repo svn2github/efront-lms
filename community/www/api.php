@@ -155,12 +155,20 @@ In case of error it returns also a message entity with description of the error 
       if (isset($_GET['login'])) {
        try {
         $user = EfrontUserFactory :: factory($_GET['login']);
-        try{
-         $user -> logout();
-         echo "<xml>";
-         echo "<status>ok</status>";
-         echo "</xml>";
-         break;
+        try {
+         if ($user -> isLoggedIn()) {
+          $user -> logout();
+          echo "<xml>";
+          echo "<status>ok</status>";
+          echo "</xml>";
+          break;
+         } else {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>User is not logged in</message>";
+          echo "</xml>";
+          break;
+         }
         } catch (Exception $e) {
          echo "<xml>";
          echo "<status>error</status>";
@@ -281,7 +289,7 @@ In case of error it returns also a message entity with description of the error 
             'languages_NAME' => $insert['languages_NAME'],
             'course_only' => $insert['course_only'],
             'created' => $insert['created'],
-            'price' => isset($insert['price']) ? $insert['price'] : 0);
+            'price' => isset($insert['price']) && !$insert['course_only'] ? $insert['price'] : 0);
        try {
         $newLesson = EfrontLesson :: createLesson($fields); //$newLesson is now a new lesson object
         echo "<xml>";
@@ -316,6 +324,14 @@ In case of error it returns also a message entity with description of the error 
                             $insert['name'] = $_GET['name'];
                             $insert['surname'] = $_GET['surname'];
        $insert['active'] = 1; // Added makriria
+       $languages = EfrontSystem :: getLanguages(true, true);
+       if ($_GET['languages'] != "" && in_array($_GET['languages'], array_keys($languages)) === false) {
+        echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid language</message>";
+         echo "</xml>";
+         exit;
+       }
        try {
         $user = EfrontUser :: createUser($insert);
         echo "<xml>";
@@ -372,7 +388,15 @@ In case of error it returns also a message entity with description of the error 
                 case 'update_user':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])) {
                         if (isset($_GET['login']) && isset($_GET['password']) && isset($_GET['email']) && isset($_GET['name']) && isset($_GET['surname'])) {
-                            try {
+                            $languages = EfrontSystem :: getLanguages(true, true);
+       if ($_GET['language'] != "" && in_array($_GET['language'], array_keys($languages)) === false) {
+        echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>Invalid language</message>";
+         echo "</xml>";
+         exit;
+       }
+       try {
         $user = EfrontUserFactory :: factory($_GET['login']);
         $user -> user['password'] = EfrontUser::createPassword($_GET['password']);
         $user -> user['email'] = $_GET['email'];
@@ -555,13 +579,23 @@ In case of error it returns also a message entity with description of the error 
                 }
                 case 'groups':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])) {
-      $groups = EfrontGroup::getGroups(false, true);
+      $groups = EfrontGroup::getGroups(true, true);
                         echo "<xml>";
                         echo "<groups>";
                         foreach ($groups as $key => $group){
                             echo "<group>";
-                            echo "<id>".$key."</id>";
-                            echo "<name>".$group['name']."</name>";
+                            echo "<id>".$group -> group['id']."</id>";
+                            echo "<name>".$group -> group['name']."</name>";
+       echo "<description>".$group -> group['description']."</description>";
+       echo "<active>".$group -> group['active']."</active>";
+       echo "<user_types_ID>".$group -> group['user_types_ID']."</user_types_ID>";
+       echo "<languages_NAME>".$group -> group['languages_NAME']."</languages_NAME>";
+       echo "<users_active>".$group -> group['users_active']."</users_active>";
+       echo "<assign_profile_to_new>".$group -> group['assign_profile_to_new']."</assign_profile_to_new>";
+       echo "<unique_key>".$group -> group['unique_key']."</unique_key>";
+       echo "<is_default>".$group -> group['is_default']."</is_default>";
+       echo "<key_max_usage>".$group -> group['key_max_usage']."</key_max_usage>";
+       echo "<key_current_usage>".$group -> group['key_current_usage']."</key_current_usage>";
                             echo "</group>";
                         }
                         echo "</groups>";
@@ -652,7 +686,7 @@ In case of error it returns also a message entity with description of the error 
          echo "<message>Assignment already exists</message>";
          echo "</xml>";
          exit;
-        } elseif ($e -> getCode() == EfrontGroupException :: USER_NOT_EXISTS) {
+        } elseif ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
          echo "<xml>";
          echo "<status>error</status>";
          echo "<message>User does not exist</message>";
@@ -699,12 +733,22 @@ In case of error it returns also a message entity with description of the error 
        }
        try {
         $group = new EfrontGroup($_GET['group']);
-        $group -> removeUsers(array($_GET['login']));
-        echo "<xml>";
-                                echo "<status>ok</status>";
-                                echo "</xml>";
+        $user = EfrontUserFactory :: factory($_GET['login']);
+        $group_users = $group -> getUsers();
+        if (!in_array($_GET['login'], $group_users['student']) && !in_array($_GET['login'], $group_users['professor'])) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User is not assigned to group</message>";
+         echo "</xml>";
+         exit;
+        } else {
+         $group -> removeUsers(array($_GET['login']));
+         echo "<xml>";
+         echo "<status>ok</status>";
+         echo "</xml>";
+        }
        } catch (Exception $e) {
-        if ($e -> getCode() == EfrontGroupException :: USER_NOT_EXISTS) { //todo makriria
+        if ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
          echo "<xml>";
          echo "<status>error</status>";
          echo "<message>User does not exist</message>";
@@ -1286,6 +1330,7 @@ In case of error it returns also a message entity with description of the error 
        //type check
         try {
          $course = new EfrontCourse($_GET['course']);
+         $user = EfrontUserFactory :: factory($_GET['login']);
          if ($course -> isStudentInCourse($_GET['login']) === true || $course -> isProfessorInCourse($_GET['login']) === true) {
           echo "<xml>";
           echo "<status>error</status>";
@@ -1302,7 +1347,13 @@ In case of error it returns also a message entity with description of the error 
          echo "<status>ok</status>";
          echo "</xml>";
         } catch (Exception $e) {
-         if ($e -> getCode() == EfrontCourseException :: COURSE_NOT_EXISTS) {
+         if ($e -> getCode() == EfrontUserException :: USER_NOT_EXISTS) {
+         echo "<xml>";
+         echo "<status>error</status>";
+         echo "<message>User does not exist</message>";
+         echo "</xml>";
+         exit;
+        } elseif ($e -> getCode() == EfrontCourseException :: COURSE_NOT_EXISTS) {
           echo "<xml>";
           echo "<status>error</status>";
           echo "<message>Course doesn't exist</message>";

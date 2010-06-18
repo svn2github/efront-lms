@@ -327,7 +327,7 @@ align_textbottom:"Teksti alhaalla",
 align_left:"Vasemmalla",
 align_right:"Oikealla",
 image_list:"Kuvalista",
-insert_image:"Lisää kuva"	
+insert_image:"Lisää kuva"
 },
 advlink_dlg:{
 title:"Lis\u00E4\u00E4/muokkaa linkki\u00E4",
@@ -381,7 +381,7 @@ ltr:"Vasemmalta oikealle",
 rtl:"Oikealta vasemmalle",
 link_list:"Linkkilista",
 insert_hyperlink: "Lisää hyperlinkki",
-selectonewantaslink: "Valitse niistä haluamasi lisätään hyperlinkki"	
+selectonewantaslink: "Valitse niistä haluamasi lisätään hyperlinkki"
 },
 emotions_dlg:{
 title:"Lis\u00E4\u00E4 hymi\u00F6",
@@ -814,5 +814,5 @@ insert_java: 'Lisaa Java'
 },
 java:{
 title : 'Lisaa Java',
-image_desc : 'Lisaa Java',
+image_desc : 'Lisaa Java'
 }}});

@@ -435,7 +435,13 @@ try {
     } else {
         // Create ajax enabled table for job descriptions
         if (isset($_GET['ajax']) && $_GET['ajax'] == 'jobsTable') {
-         $job_descriptions = EfrontJob :: getAllJobs();
+      $branchesTree = new EfrontBranchesTree();
+      $branchPaths = $branchesTree -> toPathString();
+
+      $job_descriptions = EfrontJob :: getAllJobs();
+      foreach ($job_descriptions as $key => $value) {
+       $job_descriptions[$key]['branch_path'] = eF_truncatePath($branchPaths[$value['branch_ID']], 10);
+      }
          $dataSource = $job_descriptions;
    $tableName = $_GET['ajax'];
    include("sorted_table.php");

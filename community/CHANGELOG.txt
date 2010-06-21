@@ -1,6 +1,10 @@
 === Version 3.6.3 build ===
 - Rearranged system settings menu for speed and tidyness
 - Added web server authentication feature
+- Fixed job descriptions listing full branches path
+- Fixed required training handles not working in IE
+- Fixed professor account being affected by course rules
+- Fixed archive sorting not working
 
 === Version 3.6.3 build 7602 ===
 - Added disable payments option

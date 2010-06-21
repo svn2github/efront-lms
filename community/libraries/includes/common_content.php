@@ -341,7 +341,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                 include("tests/show_unsolved_test.php");
             }
    if (isset($_GET['print'])) {
-    $currentUnit['data'] = mb_ereg_replace("<script.*?>.*?</script>", "", $currentUnit['data']);
+    $currentUnit['data'] = preg_replace("#<script.*?>.*?</script>#", "", $currentUnit['data']);
     $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li>');
    }
    $smarty -> assign("T_UNIT", $currentUnit);

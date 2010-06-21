@@ -763,21 +763,21 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
     for ($i = 0; $i < sizeof($lesson_entries); $i++) {
         $content = $lesson_entries[$i]['data'];
         $count = 0;
+//pr($filelist);
 
-        /*Gia ka8e arxeio, an afto fainetai sto periexomeno, alla3e to path kai vale to onoma toy sth lista tou periexomenou*/
         foreach ($filelist as $value) {
             $file_count = 0;
             /*replace back-slash "\" with forward-slash "/"   */
             if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $value = strtr($value, "\\", "/");
 
-            $pattern = "#\"\s*((http:\/\/.*)|(\.\.\/))?content\/lessons\/$lessons_id\/$value\s*\"#";
+            $pattern = "#\"content/lessons/$lessons_id/$value\s*\"#";
             if (preg_match($pattern, $content, $matches)) {
                 $lesson_entries[$i]['files'][$count++] = basename($value);
                 $content = preg_replace($pattern, '"'.$third_dir_token.'/'.$value.'"', $content);
             }
         }
 
-        /*Syndyase to content ths selidas me ta katallhla html tags, wste na parax8ei sygkrothmenh selida*/
+
         $content = create_html_files($content);
         if ($fp = fopen($html_dirname . "/" . $lesson_entries[$i]['name'] . ".html", "wb")) {
           fwrite($fp, $content);
@@ -800,7 +800,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
             /*replace back-slash "\" with forward-slash "/"   */
             if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $value = strtr($value, "\\", "/");
 
-            $pattern = "#\"\s*((http:\/\/.*)|(\.\.\/))?content\/lessons\/$lessons_id\/$value\s*\"#";
+            $pattern = "#\"content/lessons/$lessons_id/$value\s*\"#";
             if (preg_match($pattern, $data, $matches)) {
                 $data = preg_replace($pattern, '"'.$third_dir_token.'/'.$value.'"', $data);
             }
@@ -821,7 +821,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
             /*replace back-slash "\" with forward-slash "/"   */
             if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $value = strtr($value, "\\", "/");
 
-            $pattern = "#\"\s*((http:\/\/.*)|(\.\.\/))?content\/lessons\/$lessons_id\/$value\s*\"#";
+            $pattern = "#\"\s*((http://.*)|(\.\./))?content/lessons/$lessons_id/$value\s*\"#";
             if (preg_match($pattern, $data, $matches)) {
                 $data = preg_replace($pattern, '"'.$third_dir_token.'/'.$value.'"', $data);
             }
@@ -833,30 +833,24 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
     }
 
     $file_count = 0;
-    foreach ($filelist as $value) {
+    foreach ($filelist as $key => $value) {
         if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $value = strtr($value, "\\", "/");
 
         /*Recursively create directories*/
-        $dir_parts = explode("/", dirname($value));
-        $cur_dir = getcwd();
-        if ($GLOBALS['configuration']['G_DELIMITER'] == '\\') $cur_dir = strtr($cur_dir, "\\", "/");
-
-        chdir($cur_dir."/".$files_dirname."/");
-        foreach($dir_parts as $dir_value) {
-            if ($dir_value != '.' & $dir_value != '..' & !is_dir($dir_value)) {
-                mkdir($dir_value, 0755);
-            }
-            chdir($dir_value);
+        if (!is_dir($files_dirname)) {
+         mkdir($files_dirname, 0755, true);
         }
-        chdir($cur_dir);
-
-        /*delimiter handling in win and *nix */
-
-        copy(G_LESSONSPATH.$lessons_id.$GLOBALS['configuration']['G_DELIMITER'].$filelist[$file_count++], $files_dirname . "/" . $value);
+        if (!is_dir($files_dirname.'/'.dirname($value))) {
+         mkdir($files_dirname.'/'.dirname($value), 0755, true);
+        }
+        if (is_file(G_LESSONSPATH.$lessons_id.$GLOBALS['configuration']['G_DELIMITER'].$value)) {
+         copy(G_LESSONSPATH.$lessons_id.$GLOBALS['configuration']['G_DELIMITER'].$value, $files_dirname . "/" . $value);
+        }
         $fp = fopen($files_dirname . "/" . $value . ".xml", "wb");
         fwrite($fp, $metadata);
         fclose($fp);
     }
+
 
     /*Create manifest*/
     $prerequisites = get_prerequisites();

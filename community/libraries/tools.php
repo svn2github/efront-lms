@@ -952,7 +952,7 @@ function eF_checkParameter($parameter, $type, $correct = false)
             break;
         case 'login':
             //if (!preg_match("/^[^0-9]_*\w+(\w*[._@-]*\w*)*$/", $parameter)) {              //This means: begins with 0 or more '_', never a number, followed by at least 1 word character, followed by any combination of .,_,-,@ and word characters.
-            if (!preg_match("/^_*\w+(\w*[._@-]*\w*)*$/", $parameter) || mb_strlen($parameter) > 30) { //This means: begins with 0 or more '_',                 followed by at least 1 word character, followed by any combination of .,_,-,@ and word characters.
+            if (!preg_match("/^_*\w+(\w*[._@-]*\w*)*$/", $parameter) || mb_strlen($parameter) > 100) { //This means: begins with 0 or more '_',                 followed by at least 1 word character, followed by any combination of .,_,-,@ and word characters.
                 return false;
             }
             break;

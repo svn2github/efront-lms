@@ -349,7 +349,7 @@ if (isset($_POST['search_text'])) {
                                 }
                         } else if ($results[$i]['table_name'] == "glossary") {
                             $basic_user_type = eF_getUserBasicType(false, $res1[0]['lessons_ID']);
-       $stripedContent = EfrontSearch :: resultsTextLimit(mb_ereg_replace("<script.*?>.*?</script>", "", $res1[0]['info']), $cr, 'resultsText');
+       $stripedContent = EfrontSearch :: resultsTextLimit(preg_replace("#<script.*?>.*?</script>#", "", $res1[0]['info']), $cr, 'resultsText');
        if (strcmp($stripedContent, "...") == 0) {
                              $stripedContent = _SEARCHTEXTWASINSCRIPT;
        }
@@ -379,7 +379,7 @@ if (isset($_POST['search_text'])) {
                                 }*/
                         } elseif ($results[$i]['table_name'] != "lessons" && $results[$i]['table_name'] != "questions" /*&& eF_isDoneContent($res1[0]['id'])*/) {
                             $basic_user_type = eF_getUserBasicType(false, $res1[0]['lessons_ID']);
-       $stripedContent = EfrontSearch :: resultsTextLimit(mb_ereg_replace("<script.*?>.*?</script>", "", $res1[0]['data']), $cr, 'resultsText');
+       $stripedContent = EfrontSearch :: resultsTextLimit(preg_replace("#<script.*?>.*?</script>#", "", $res1[0]['data']), $cr, 'resultsText');
        if (strcmp($stripedContent, "...") == 0) {
                              $stripedContent = _SEARCHTEXTWASINSCRIPT;
        }
@@ -406,7 +406,7 @@ if (isset($_POST['search_text'])) {
                                 }
                         } else if ($results[$i]['table_name'] == "questions" && $_SESSION['s_type'] == 'professor') {
                             $basic_user_type = eF_getUserBasicType(false, $res1[0]['lessons_ID']);
-       $stripedContent = EfrontSearch :: resultsTextLimit(mb_ereg_replace("<script.*?>.*?</script>", "", $res1[0]['name']), $cr, 'resultsText');
+       $stripedContent = EfrontSearch :: resultsTextLimit(preg_replace("#<script.*?>.*?</script>#", "", $res1[0]['name']), $cr, 'resultsText');
        if (strcmp($stripedContent, "...") == 0) {
                              $stripedContent = _SEARCHTEXTWASINSCRIPT;
        }

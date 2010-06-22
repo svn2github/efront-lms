@@ -7,6 +7,7 @@
 - Fixed archive sorting not working
 - Removed refereneces to deprecated mb_ereg_replace()
 - Fixed scorm export not taking into account media files
+- Added link in unit operations to open unit in popup window
 
 === Version 3.6.3 build 7602 ===
 - Added disable payments option

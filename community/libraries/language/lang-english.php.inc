@@ -3745,4 +3745,5 @@ define("_INCLUDEFILETHATHANDLESUSERCREATION", "Include file that handles user cr
 define("_WEBSERVERREGISTRATION", "Web server registration");
 define("_USEORLOGICTOCORRECTANSWERS","Use OR logic to calculate correct answer");
 define("_VARIABLEMUSTCONTAINLOGIN", "The variable %x must contain &quot;%y&quot; in order to continue");
+define("_OPENUNITINPOPUP","Open unit in popup window");
 ?>

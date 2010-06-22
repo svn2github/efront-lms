@@ -152,6 +152,7 @@ function profile($start = true, &$path) {
 
  */
 function debug($mode = true, $level = E_ALL) {
+ echo "Starting debug output";ob_end_flush();
     ini_set("display_errors", true);
     if ($mode) {
      $_SESSION['debug_start'] = microtime(true);
@@ -463,7 +464,7 @@ function eF_multiSort($array, $sort_by, $sort_order = 'asc') {
     $keys = array_keys($array);
     $sort_values = array();
     foreach ($array as $value) {
-        $sort_values[] = $value[$sort_by];
+        $sort_values[] = mb_strtolower($value[$sort_by]); //mb_strtolower is used because array_multisort() takes into account the case, so that strings are sorted as ABC...XYZabc...xyz instead of AaBbCc... 
     }
     if (is_numeric($sort_values[0])) { //If the column consists of numeric data, we want the default sorting to be descending, so we reverse the parameter
             $sort_order == 'asc' ? $sort_order = SORT_DESC : $sort_order = SORT_ASC;
@@ -471,6 +472,7 @@ function eF_multiSort($array, $sort_by, $sort_order = 'asc') {
             $sort_order == 'asc' ? $sort_order = SORT_ASC : $sort_order = SORT_DESC;
     }
     array_multisort($sort_values, $sort_order, $keys);
+    //pr($sort_values);pr($sort_order);pr($keys);
     foreach ($keys as $key) {
         //$temp[] = $array[$key];          //Use this in order to have keys reindexed
         $temp[$key] = $array[$key]; //Use this in order to have keys preserved

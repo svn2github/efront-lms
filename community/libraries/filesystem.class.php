@@ -1738,6 +1738,7 @@ class FileSystemTree extends EfrontTree
             throw new EfrontFileException(_DIRECTORYDOESNOTEXIST.': '.$dir['path'], EfrontFileException :: DIRECTORY_NOT_EXIST);
         }
         $this -> dir = $dir;
+        $this -> shallow = $shallow;
         if ($shallow) {
             $this -> iterator = new EfrontREFilterIterator(new RecursiveDirectoryIterator($this -> dir['path']), array('/.svn/', '/.htaccess/'), false);
         } else {
@@ -1828,7 +1829,11 @@ class FileSystemTree extends EfrontTree
      */
     public function reset() {
         //Get all files that are within the designated directory
-        $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."%'");
+        if ($this -> shallow) {
+         $result = eF_getTableData("files", "*", "path='".str_replace(G_ROOTPATH, "", $this -> dir['path'])."'");
+        } else {
+         $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."%'");
+        }
         foreach ($result as $key => $file) {
             $file['path'] = G_ROOTPATH.$file['path'];
             $files[$file['path']] = $file;

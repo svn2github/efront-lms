@@ -228,6 +228,17 @@ if (isset($_GET['sel_user'])) {
    }
    $result = eF_getTableData("logs", "count(*)", "action = 'login' and timestamp between $from and $to and users_LOGIN='".$infoUser -> user['login']."' order by timestamp");
    $traffic['total_logins'] = $result[0]['count(*)'];
+   $result = eF_getTableData("users_to_lessons", "lessons_ID, completed, to_timestamp", "archive=0 and users_LOGIN='".$infoUser -> user['login']."'");
+   $completionData = array();
+   foreach ($result as $value) {
+    $completionData[$value['lessons_ID']] = $value;
+   }
+   //$completionData = array_combine($result["lessons_ID"], $result['completed']);
+   foreach ($traffic['lessons'] as $lessonId => $value) {
+    $traffic['lessons'][$lessonId]['completed'] = $completionData[$lessonId]['completed'];
+    $traffic['lessons'][$lessonId]['to_timestamp'] = $completionData[$lessonId]['to_timestamp'];
+   }
+//pr($infoUser -> getUserLessons());pr($traffic);exit;
    $smarty -> assign("T_USER_TRAFFIC", $traffic);
    $smarty -> assign('T_FROM_TIMESTAMP', $from);
    $smarty -> assign('T_TO_TIMESTAMP', $to);

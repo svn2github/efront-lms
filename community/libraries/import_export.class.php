@@ -373,12 +373,16 @@ class EfrontImportCsv extends EfrontImport
      $courses_ID = $this -> getCourseByName($courses_name);
      unset($data['course_name']);
      if ($courses_ID) {
+//debug();
       foreach($courses_ID as $course_ID) {
        $data['courses_ID'] = $course_ID;
        $course = new EfrontCourse($course_ID);
        $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
        $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID'];
+       $data['completed'] ? $data['completed'] = 1 : $data['completed'] = 0;
+//pr($data);pr(date("Y/m/d", $data['from_timestamp']) ."-". date("Y/m/d", $data['to_timestamp']));
        EfrontCourse::persistCourseUsers($data, $where, $data['courses_ID'], $data['users_login']);
+//exit;
        $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
       }
      } else if ($courses_name != "") {
@@ -450,6 +454,7 @@ class EfrontImportCsv extends EfrontImport
     $data[$dbAttribute] = $this -> createTimestampFromDate(trim($lineContents[$fileInfo], "\r\n\""));
    }
   }
+  //pr($data);pr(date("Y/m/d", $data['to_timestamp']));exit;
   return $data;
  }
  /*

@@ -104,16 +104,14 @@
     <div class="tabbertab {if ($smarty.get.tab == "assign_employees"  || isset($smarty.post.employees_to_branches)) } tabbertabdefault {/if}">
      <h3>{$smarty.const._UNATTACHEDEMPLOYEES}</h3>
 
-     <table border = "0" >
-      {* Link to add employee only for administrator and supervisor *}
-      <tr>
-       <td>
       {if !$T_CURRENT_USER->coreAccess.users || $T_CURRENT_USER->coreAccess.users == 'change'}
-       <a href="{$smarty.session.s_type}.php?ctg=users&add_user=1"><img src="images/16x16/add.png" title="{$smarty.const._NEWEMPLOYEE}" alt="{$smarty.const._NEWUSER}"/ border="0"></a></td><td><a href="{$smarty.session.s_type}.php?ctg=users&add_user=1">{$smarty.const._NEWEMPLOYEE}</a>
+      <div class = "headerTools">
+       <span>
+        <img src = "images/16x16/add.png" title = "{$smarty.const._NEWUSER}" alt = "{$smarty.const._NEWUSER}">
+        <a href = "{$smarty.session.s_type}.php?ctg=users&add_user=1">{$smarty.const._NEWUSER}</a>
+       </span>
+      </div>
       {/if}
-       </td>
-      </tr>
-     </table>
 
 <!--ajax:unattachedUsersTable-->
      <table style = "width:100%" class = "sortedTable" size = "{$T_UNATTACHED_EMPLOYEES_SIZE}" sortBy = "0" id = "unattachedUsersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=users&">

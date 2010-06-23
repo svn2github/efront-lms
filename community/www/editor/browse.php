@@ -58,8 +58,9 @@ try {
     }
 
     $offset = str_replace($rootDir['path'], '', $directory['path'].'/');
- $t_offset = rtrim($filesBaseUrl.$offset, '/').'/'; //possibly the problem with doulbe slash will be fixed by removing / from the above line, but in order to be sure .... 
-    $smarty -> assign("T_OFFSET", $t_offset);
+ //$t_offset = rtrim($filesBaseUrl.$offset, '/').'/';  //possibly the problem with doulbe slash will be fixed by removing / from the above line, but in order to be sure .... 
+    $t_offset = str_replace('//','/', $filesBaseUrl.$offset.'/');
+ $smarty -> assign("T_OFFSET", $t_offset);
 
     //for_type defines which kind of files we need.
     switch ($_GET['for_type']) {

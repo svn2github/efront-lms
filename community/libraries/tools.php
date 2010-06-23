@@ -152,9 +152,9 @@ function profile($start = true, &$path) {
 
  */
 function debug($mode = true, $level = E_ALL) {
- echo "Starting debug output";ob_end_flush();
     ini_set("display_errors", true);
     if ($mode) {
+  echo "Starting debug output";ob_end_flush();
      $_SESSION['debug_start'] = microtime(true);
         error_reporting($level);
         $GLOBALS['db']->debug=true;

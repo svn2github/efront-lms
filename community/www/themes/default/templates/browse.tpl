@@ -1,7 +1,7 @@
 {include file = "includes/header.tpl"}
 
 {if $T_MESSAGE}
-	{eF_template_printMessage message = $T_MESSAGE type = $T_MESSAGE_TYPE}    
+ {eF_template_printMessage message = $T_MESSAGE type = $T_MESSAGE_TYPE}
 {/if}
 
 <table>
@@ -29,8 +29,7 @@
 </table>
 <script>
 {literal}
-function setValue(id, name) {		//with new version of editor top.document changed to parent.document
-	
+function setValue(id, name) { //with new version of editor top.document changed to parent.document
     if (parent.document.getElementById('src')) {
         parent.document.getElementById('src').value='{/literal}{$T_OFFSET}{literal}'+name;
     } else if (parent.document.getElementById('href')) {

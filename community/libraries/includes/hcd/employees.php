@@ -78,29 +78,6 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
    include ("sorted_table.php");
   }
   exit;
- } else {
-
-  // Supervisors are allowed to see only the data of the employees that work in the braches they supervise
-  if ($currentEmployee -> getType() == _SUPERVISOR) {
-   //$employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*, count(job_description_ID) as jobs_num"," users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." ) AND module_hcd_employee_works_at_branch.assigned='1') OR EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) GROUP BY login", "login");
-
-   $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*, count(job_description_ID) as jobs_num"," users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." ) AND module_hcd_employee_works_at_branch.assigned='1')) GROUP BY login", "login");
-   $unattached_employee = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*", " users.user_type <> 'administrator' AND (EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) GROUP BY login", "login");
-   $smarty -> assign("T_UNATTACHED_EMPLOYEES", $unattached_employee);
-   $smarty -> assign("T_UNATTACHED_EMPLOYEES_SIZE", sizeof($unattached_employee));
-  } else if ($_SESSION['s_type'] == 'administrator') {
-   $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN", "users.*, count(job_description_ID) as jobs_num","","","login limit ".G_DEFAULT_TABLE_SIZE);
-  }
-
-  $smarty -> assign("T_EMPLOYEES_SIZE", sizeof($employees));
-  // Always one employee - administrator
-  $smarty -> assign("T_EMPLOYEES", $employees);
-
-
-  $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect());
-  $smarty -> assign("T_JOBS_FILTER", eF_createJobFilterSelect());
-
-  //array_
  }
 } else {
  $message = _SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION;

@@ -8,6 +8,7 @@
 - Removed refereneces to deprecated mb_ereg_replace()
 - Fixed scorm export not taking into account media files
 - Added link in unit operations to open unit in popup window
+- Fixed default string sorting being affected by case
 
 === Version 3.6.3 build 7602 ===
 - Added disable payments option

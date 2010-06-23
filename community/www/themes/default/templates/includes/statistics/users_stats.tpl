@@ -172,6 +172,7 @@
     <td class = "topTitle">{$smarty.const._LESSON}</td>
     <td class = "topTitle centerAlign">{$smarty.const._ACCESSNUMBER}</td>
     <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
+    <td class = "topTitle centerAlign">{$smarty.const._COMPLETED}</td>
     <td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>
    </tr>
    {foreach name = 'lesson_traffic_list' key = "id" item = "lesson" from = $T_USER_TRAFFIC.lessons}
@@ -187,6 +188,9 @@
       {else}
        {$smarty.const._NOACCESSDATA}
       {/if}
+     </td>
+     <td class = "centerAlign">
+      {if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smart.const._YES}" title = "{$smarty.const._COMPLETEDON} #filter:timestamp_time-{$lesson.to_timestamp}#">{else}<img src = "images/16x16/error_delete.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}">{/if}
      </td>
      <td class = "centerAlign">
       <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$T_USER_LOGIN}&lesson_id={$id}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">

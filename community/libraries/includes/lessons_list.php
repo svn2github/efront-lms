@@ -37,6 +37,11 @@ try {
 
   $options = array('noprojects' => 1, 'notests' => 1);
   $userLessons = $currentUser -> getUserStatusInLessons(false, true);
+  foreach ($userLessons as $key => $lesson) {
+   if (!$lesson -> lesson['active']) {
+    unset($userLessons[$key]);
+   }
+  }
 
   /*
 

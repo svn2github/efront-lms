@@ -2466,7 +2466,7 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  private function initializeLessons() {
   $result = eF_getTableData("users_to_lessons ul, lessons l",
-          "ul.*, ul.to_timestamp as timestamp_completed, ul.from_timestamp as active_in_lesson, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, l.duration,l.options,l.to_timestamp,l.from_timestamp, 1 as has_lesson",
+          "ul.*, ul.to_timestamp as timestamp_completed, ul.from_timestamp as active_in_lesson, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, l.duration,l.options,l.to_timestamp,l.from_timestamp, l.active, 1 as has_lesson",
           "l.archive = 0 and ul.archive = 0 and l.id=ul.lessons_ID and ul.users_LOGIN='".$this -> user['login']."'");
   if (empty($result)) {
    $this -> lessons = array();

@@ -112,7 +112,7 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=general&tab=smtp&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success");
   } else {
    $user_mail = eF_getTableData("users", "email", "login='".$_SESSION['s_login']."'");
-   $header = array ('From' => $GLOBALS['configuration']['system_email'],
+   $header = array ('From' => $values['system_email'],
          'To' => $user_mail[0]['email'],
          'Subject' => 'Test email',
          'Content-type' => 'text/plain;charset="UTF-8"', // if content-type is text/html, the message cannot be received by mail clients for Registration content

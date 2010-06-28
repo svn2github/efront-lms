@@ -71,7 +71,7 @@ if (is_file($path."smarty/smarty_config.php") && is_file($path."language/lang-en
     exit;
 }
 //If we asked for unattended installation, there must be a 2nd parameter with the configuration details or performing an upgrade
-if (isset($_GET['unattended']) && !isset($_GET['config']) && !isset($_GET['upgrade'])) {
+if (isset($_GET['unattended']) && (!isset($_GET['config']) || !is_file(basename($_GET['config'])) || isset($_GET['upgrade']))) {
     unset($_GET['unattended']);
 }
 $smarty -> assign("T_INSTALLATION_OPTIONS", array(array('text' => 'Emergency restore', 'image' => "16x16/undo.png", 'href' => 'install/'.basename($_SERVER['PHP_SELF'])."?restore=1")));
@@ -183,7 +183,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                  $values = $currentVersion;
                  $values['old_db_name'] = $values['db_name'];
              } else {
-              $contents = file($_GET['config']);
+              $contents = file(basename($_GET['config']));
               $values = array();
         foreach ($contents as $value) {
             $value = explode("=", $value);
@@ -522,8 +522,10 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
                  include('post_install.php');
                  runPostInstallationFunctions();
                 }
-                header("location:".$_SERVER['PHP_SELF']."?finish=1");
-                exit;
+                if (!isset($_GET['unattended'])) {
+                 header("location:".$_SERVER['PHP_SELF']."?finish=1");
+                 exit;
+                }
             }
         } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
@@ -542,7 +544,7 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
     $form -> accept($renderer);
     $smarty -> assign('T_DATABASE_FORM', $renderer -> toArray());
 }
-if (isset($_GET['finish'])) {
+if (isset($_GET['finish']) || isset($_GET['unattended'])) {
     //delete theme cache
     try {
      $path = "../../libraries/";
@@ -555,6 +557,9 @@ if (isset($_GET['finish'])) {
         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
         $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
         $message_type = 'failure';
+    }
+    if (isset($_GET['unattended'])) {
+     header("location:".G_SERVERNAME."index.php?delete_install=1");
     }
 }
 if (isset($_GET['restore'])) {

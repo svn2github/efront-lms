@@ -42,7 +42,7 @@
         var idOfTree;
         var imageFolder;
         var folderImage;
-        //var transparentImg = 'themes/default/images/others/transparent.png';
+        //var transparentImg = 'themes/default/images/others/transparent.gif';
         //var theoryImage;
         //var scormImage;
         //var checkImage;
@@ -65,7 +65,7 @@
         var indicator_offsetY;
         this.imageFolder = 'themes/default/images/16x16/';
         this.folderImage = 'folder.png';
-        this.transparentImg = 'themes/default/images/others/transparent.png';
+        this.transparentImg = 'themes/default/images/others/transparent.gif';
 //        this.theoryImage = 'theory.png';
 //        this.scormImage  = 'theory.png';
 //        this.checkImage  = 'success.png';

@@ -421,7 +421,7 @@ function myCommit(parameter)
 }
 function handleCommit(transport) {
  if (!(w = findFrame(top, 'mainframe'))) {
-  if (window.opener) {
+  if (window.opener && window.opener.updateProgress) {
    w = window.opener;
   } else {
    w = window;

@@ -219,7 +219,7 @@ function setAdvancedCriterion(el) {
  img.style.top = Element.positionedOffset(Element.extend(el)).top + 'px';
  img.style.left = Element.positionedOffset(Element.extend(el)).left + 6 + Element.getDimensions(Element.extend(el)).width + 'px';
  img.setAttribute("id", img_id);
- img.setAttribute('src', 'themes/default/images/others/transparent.png');
+ img.setAttribute('src', 'themes/default/images/others/transparent.gif');
  Element.extend(img).addClassName('sprite16 sprite16-success');
  el.parentNode.appendChild(img);
  img.style.display = 'none';
@@ -620,7 +620,7 @@ function add_new_criterium_row(row) {
  newCell.innerHTML= newCellHTML;
  newCell = x.insertCell(1);
  newCell.setAttribute("align", "center");
- newCell.innerHTML = '<a id="job_'+row+'" href="javascript:void(0);" onclick="delete_criterium_row(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.png" alt = "'+deleteConst+'" title= "'+deleteConst+'"/></a></td>';
+ newCell.innerHTML = '<a id="job_'+row+'" href="javascript:void(0);" onclick="delete_criterium_row(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.gif" alt = "'+deleteConst+'" title= "'+deleteConst+'"/></a></td>';
  document.getElementById('job_' + row).setAttribute('rowCount', row);
 }
 //delete row
@@ -739,7 +739,7 @@ function add_job_prerequisite() {
   Element.extend(newCell).update(newCellHTML);
   newCell = x.insertCell(1);
   Element.extend(newCell).setAttribute("align", "center");
-  newCell.update('<a id="training_add_'+row+'" href="javascript:void(0);" onclick="add_prerequisite_alternative(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_add handle" src = "themes/default/images/others/transparent.png" alt = "'+addAlternativeTrainingConst+'" title= "'+addAlternativeTrainingConst+'"/></a>' +'&nbsp;<a id="training_'+row+'" href="javascript:void(0);" onclick="delete_job_prerequisite(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.png" alt = "'+deleteConst+'" title= "'+deleteConst+'"/></a>');
+  newCell.update('<a id="training_add_'+row+'" href="javascript:void(0);" onclick="add_prerequisite_alternative(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_add handle" src = "themes/default/images/others/transparent.gif" alt = "'+addAlternativeTrainingConst+'" title= "'+addAlternativeTrainingConst+'"/></a>' +'&nbsp;<a id="training_'+row+'" href="javascript:void(0);" onclick="delete_job_prerequisite(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.gif" alt = "'+deleteConst+'" title= "'+deleteConst+'"/></a>');
   //document.getElementById('training_' + row).setAttribute('rowCount', row);
   ajaxPostRequiredTraining();
  }

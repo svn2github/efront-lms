@@ -339,6 +339,8 @@ $loadScripts[] = 'includes/groups';
               $dataSource = $users;
               $tableName = $_GET['ajax'];
 
+     $basicTypes = EfrontUser :: $basicUserTypesTranslations;
+     $smarty -> assign("T_BASIC_USER_TYPES", EfrontUser :: $basicUserTypesTranslations);
               include("sorted_table.php");
              }
              if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {

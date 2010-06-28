@@ -97,6 +97,7 @@ if ($importForm -> isSubmitted()) {
           $excess_elements = sizeof($import_export_types); // minus the 'anything'
 
         } else {
+
          $log = $importer -> import($importType);
          $excess_elements = 0;
         //	pr($log);

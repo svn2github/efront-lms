@@ -17,7 +17,7 @@ function initSidebar(s_login)
     top.sideframe.document.body.style.paddingLeft = "20px";
 
     if (top.sideframe.document.getElementById('toggleSidebarImage').src) {
-     top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.png';
+     top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.gif';
      top.sideframe.document.getElementById('toggleSidebarImage').addClassName('sprite16').addClassName('sprite16-navigate_right');
     }
     if (is_ie == "true") {
@@ -35,7 +35,7 @@ function initSidebar(s_login)
     top.sideframe.document.body.style.paddingLeft = "0px";
 
     if(top.sideframe.document.getElementById('toggleSidebarImage').src) {
-     top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.png';
+     top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.gif';
      Element.extend(top.sideframe.document.getElementById('toggleSidebarImage')).addClassName('sprite16').addClassName('sprite16-navigate_left');
     }
 
@@ -76,7 +76,7 @@ function toggleSidebar(s_login)
 
     setArrowStatus('down');
     initArrows();
-    top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.png';
+    top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.gif';
     top.sideframe.document.getElementById('toggleSidebarImage').addClassName('sprite16').addClassName('sprite16-navigate_left');
     if(is_ie == "true")
     {
@@ -114,7 +114,7 @@ function toggleSidebar(s_login)
    if (top.sideframe) {
     top.sideframe.document.body.style.paddingLeft = "130px";
 
-    top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.png';
+    top.sideframe.document.getElementById('toggleSidebarImage').src = 'themes/default/images/others/transparent.gif';
     top.sideframe.document.getElementById('toggleSidebarImage').addClassName('sprite16').addClassName('sprite16-navigate_right');
 
     if(is_ie == "true")
@@ -192,7 +192,7 @@ function getPeriodicData() {
 
    if (transport.responseText.evalJSON().messages > 0) {
     if ($('unread_img')) {
-     $('unread_img').update('<img class = "sprite16 sprite16-mail" src = "themes/default/images/others/transparent.png" style = "vertical-align:middle" onLoad="javascript:if (document.getElementById(\'hasLoaded\') && !usingHorizontalInterface){fixUpperMenu();fixCurtains();}"/>');
+     $('unread_img').update('<img class = "sprite16 sprite16-mail" src = "themes/default/images/others/transparent.gif" style = "vertical-align:middle" onLoad="javascript:if (document.getElementById(\'hasLoaded\') && !usingHorizontalInterface){fixUpperMenu();fixCurtains();}"/>');
     }
     if ($('recent_unread_left')) {
      $('recent_unread_left').update('(<a href = "'+translations['s_type']+'.php?ctg=messages" target="mainframe" >'+transport.responseText.evalJSON().messages+'</a>)');
@@ -1056,11 +1056,11 @@ function ajaxDeleteRoom() {
    asynchronous:true,
    onSuccess: function (transport) {
 
-   $('delete_room_image').hide().setAttribute('src', 'themes/default/images/others/transparent.png').addClassName('sprite16').addClassName('sprite16-success');
+   $('delete_room_image').hide().setAttribute('src', 'themes/default/images/others/transparent.gif').addClassName('sprite16').addClassName('sprite16-success');
    new Effect.Appear($('delete_room_image'));
    window.setTimeout('Effect.Fade("delete_room_image")', 2000);
    window.setTimeout("$('delete_room').setStyle({display:'none'})", 3000);
-   window.setTimeout("$('delete_room_image').writeAttribute({src:'themes/default/images/others/transparent.png'}).addClassName('sprite16').addClassName('sprite16-error_delete')", 3200);
+   window.setTimeout("$('delete_room_image').writeAttribute({src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-error_delete')", 3200);
 
    //$('delete_room').setStyle({display:'none'});
    name = getChatRoomName();
@@ -1142,7 +1142,7 @@ function changeStatus() {
     asynchronous:true,
     onSuccess: function (transport) {
 
-    $('statusTextProgressImg').hide().src = 'themes/default/images/others/transparent.png';
+    $('statusTextProgressImg').hide().src = 'themes/default/images/others/transparent.gif';
     $('statusTextProgressImg').addClassName('sprite16').addClassName('sprite16-success');
 
     new Effect.Appear($('statusTextProgressImg'));

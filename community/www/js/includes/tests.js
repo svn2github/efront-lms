@@ -645,7 +645,7 @@ function add_new_criterium_row(row, category) {
 
     newCell = x.insertCell(2);
     newCell.setAttribute("align", "center");
-    newCell.innerHTML = '<a id="job_'+row+'" href="javascript:void(0);" onclick="delete_criterium_row(\''+row+'\', \''+category+'\');" class = "deleteLink"><img id="del_img'+row+'" class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.png" title = "'+row+'" alt = "' + deleteConst + '" /></a></td>';
+    newCell.innerHTML = '<a id="job_'+row+'" href="javascript:void(0);" onclick="delete_criterium_row(\''+row+'\', \''+category+'\');" class = "deleteLink"><img id="del_img'+row+'" class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.gif" title = "'+row+'" alt = "' + deleteConst + '" /></a></td>';
 
     document.getElementById('job_' + row).setAttribute('rowCount', row);
 

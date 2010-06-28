@@ -264,7 +264,7 @@ function onCheckSuggestedSkills(el, response) {
   }
  }
 
- $('suggestedSkillsImage').down().writeAttribute('src', 'themes/default/images/others/transparent.png').addClassName('sprite16').addClassName('sprite16-examples').show();
+ $('suggestedSkillsImage').down().writeAttribute('src', 'themes/default/images/others/transparent.gif').addClassName('sprite16').addClassName('sprite16-examples').show();
  if (!at_least_one) {
         alert(correlated_message);
  }

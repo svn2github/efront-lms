@@ -1318,7 +1318,7 @@ class EfrontLesson
   }
   $roles = $this -> getPossibleLessonRoles();
   $courseUsers = $this -> getUsers();
-  if (in_array($user, array_keys($courseUsers)) && $roles[$courseUsers[$user]['role']] = 'student') {
+  if (in_array($user, array_keys($courseUsers)) && $roles[$courseUsers[$user]['role']] == 'student') {
    return true;
   } else {
    return false;
@@ -1345,7 +1345,7 @@ class EfrontLesson
   }
   $roles = $this -> getPossibleLessonRoles();
   $courseUsers = $this -> getUsers();
-  if (in_array($user, array_keys($courseUsers)) && $roles[$courseUsers[$user]['role']] = 'professor') {
+  if (in_array($user, array_keys($courseUsers)) && $roles[$courseUsers[$user]['role']] == 'professor') {
    return true;
   } else {
    return false;

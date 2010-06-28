@@ -9,7 +9,7 @@ function activate(el, action) {
 
 }
 function onActivate(el, response) {
- el.down().setAttribute('src', 'themes/default/images/others/transparent.png');
+ el.down().setAttribute('src', 'themes/default/images/others/transparent.gif');
  el.down().addClassName('sprite32');
  if (el.down().className.match(/inactiveImage/)) {
   el.down().removeClassName('inactiveImage');

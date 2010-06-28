@@ -96,7 +96,7 @@ class EfrontSystem
      $tables = $GLOBALS['db'] -> GetCol("show tables"); //Get the database tables
         foreach ($tables as $table) {
             $data = eF_getTableData($table, "count(*)");
-            $unfold = 2000;
+            $unfold = 1000;
             $limit = ceil($data[0]['count(*)'] / $unfold);
             for ($i = 0; $i < $limit; $i++) {
                 $data = eF_getTableData($table, "*", "", "'' limit $unfold offset ".($i*$unfold));

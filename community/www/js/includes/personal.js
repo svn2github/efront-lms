@@ -535,12 +535,12 @@ function add_new_job_row(row) {
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);
-        newCell.innerHTML= "<table><tr><td>"+newCellHTML+"</td><td align='right'><a id='branches_details_link_"+row+"' name='branches_details_link' style='visibility:hidden'><img class='sprite16 sprite16-search handle' src='themes/default/images/others/transparent.png' title='"+detailsConst+"' alt='"+detailsConst+"' /></a></td></tr></table>";
+        newCell.innerHTML= "<table><tr><td>"+newCellHTML+"</td><td align='right'><a id='branches_details_link_"+row+"' name='branches_details_link' style='visibility:hidden'><img class='sprite16 sprite16-search handle' src='themes/default/images/others/transparent.gif' title='"+detailsConst+"' alt='"+detailsConst+"' /></a></td></tr></table>";
         newCell = x.insertCell(1);
         if (isInfoToolDisabled) {
          newCellHTML = '<span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span>';
         } else {
-         newCellHTML = '<table><tr><td><span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span></td><td><a class = "info" onmouseover = "updateInformation(this, \''+row+'\', \'job_description\')" ><img class="sprite16 sprite16-help" src = "themes/default/images/others/transparent.png" style="display:block" /><img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan" id="job_analytical_description_'+row+'"></span></a></td></tr></table>';
+         newCellHTML = '<table><tr><td><span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span></td><td><a class = "info" onmouseover = "updateInformation(this, \''+row+'\', \'job_description\')" ><img class="sprite16 sprite16-help" src = "themes/default/images/others/transparent.gif" style="display:block" /><img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan" id="job_analytical_description_'+row+'"></span></a></td></tr></table>';
         }
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);
@@ -554,7 +554,7 @@ function add_new_job_row(row) {
         //isInfoToolDisabled
         newCell = x.insertCell(3);
         newCell.setAttribute("align", "center");
-        newCell.innerHTML = "<a id='job_"+row+"' href='javascript:void(0);' onclick='ajaxPostDelJob(\""+row+"\", this);' class = 'deleteLink'><img id='del_img"+row+"' class='sprite16 sprite16-error_delete handle' src = 'themes/default/images/others/transparent.png' title = '"+row+"' alt = '" + deleteConst + "' /></a></td>";
+        newCell.innerHTML = "<a id='job_"+row+"' href='javascript:void(0);' onclick='ajaxPostDelJob(\""+row+"\", this);' class = 'deleteLink'><img id='del_img"+row+"' class='sprite16 sprite16-error_delete handle' src = 'themes/default/images/others/transparent.gif' title = '"+row+"' alt = '" + deleteConst + "' /></a></td>";
         document.getElementById('job_' + row).setAttribute('rowCount', row);
     }
 }
@@ -979,7 +979,7 @@ function onAddAccountSuccess(el, responseText) {
  $('account_password').value = '';
  el.removeClassName('sprite16-progress1').addClassName('sprite16-check2');
  //el.src = "images/16x16/check2.png";//el.removeClass('sprite16-edit').addClass('sprite16-delete')
- var img = new Element('img').writeAttribute({src: 'themes/default/images/others/transparent.png', alt:'', title:'', onclick:'deleteAccount(this, \''+login+'\')'}).addClassName('sprite16 sprite16-error_delete handle');
+ var img = new Element('img').writeAttribute({src: 'themes/default/images/others/transparent.gif', alt:'', title:'', onclick:'deleteAccount(this, \''+login+'\')'}).addClassName('sprite16 sprite16-error_delete handle');
  $('additional_accounts').insert(new Element('tr').insert(new Element('td').update(login)).insert(new Element('td').insert(img)));
  if ($('empty_accounts')) {
      $('empty_accounts').remove();

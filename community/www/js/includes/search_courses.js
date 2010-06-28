@@ -53,7 +53,7 @@ function delete_criterium_row(id, el)
     }
 
     // If no job descriptions remain then show the "No jobs assigned" message
-    
+
     if (criteriaTable.rows.length == 2) {
 
         var x = criteriaTable.insertRow(1);
@@ -77,7 +77,7 @@ function ajaxPostDelCriterium(id, el) {
 
     if (course.value != "0") {
         var query = document.getElementById('query');
-        var url =  sessionType + '.php?ctg=search_courses'+query.value+'&';
+        var url = sessionType + '.php?ctg=search_courses'+query.value+'&';
         // Update all form tables
         tables = sortedTables.size();
         var i;
@@ -209,7 +209,7 @@ function ajaxPostSearch(id, el) {
     if (!dontPost) {
 
         var query = document.getElementById('query');
-        var url =  sessionType + '.php?ctg=search_courses'+query.value+'&';
+        var url = sessionType + '.php?ctg=search_courses'+query.value+'&';
         // Update all form tables
         tables = sortedTables.size();
         var i;
@@ -257,7 +257,7 @@ function add_new_criterium_row(row) {
     newCellHTML = newCellHTML.replace('row', row);
     newCellHTML = newCellHTML.replace('row', row);
 
-    newCell.innerHTML= "<table><tr><td>"+newCellHTML+"</td><td align='right'><a id='courses_details_link_"+row+"' name='courses_details_link' style='visibility:hidden'><img src='themes/default/images/others/transparent.png' class = 'sprite16 sprite16-search handle' title='"+detailsConst+" alt='"+detailsConst+"' /></a></td></tr></table>";
+    newCell.innerHTML= "<table><tr><td>"+newCellHTML+"</td><td align='right'><a id='courses_details_link_"+row+"' name='courses_details_link' style='visibility:hidden'><img src='themes/default/images/others/transparent.gif' class = 'sprite16 sprite16-search handle' title='"+detailsConst+" alt='"+detailsConst+"' /></a></td></tr></table>";
 
     newCell = x.insertCell(1);
     newCellHTML = searchCourseUsersFormCondition;
@@ -293,7 +293,7 @@ function add_new_criterium_row(row) {
 
     newCell = x.insertCell(4);
     newCell.setAttribute("align", "center");
-    newCell.innerHTML = '<a id="job_'+row+'" href="javascript:void(0);" onclick="ajaxPostDelCriterium(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.png" title = "'+row+'" alt = "'+deleteConst+'" title="'+deleteConst+'" /></a></td>';
+    newCell.innerHTML = '<a id="job_'+row+'" href="javascript:void(0);" onclick="ajaxPostDelCriterium(\''+row+'\', this);" class = "deleteLink"><img class="sprite16 sprite16-error_delete handle" src = "themes/default/images/others/transparent.gif" title = "'+row+'" alt = "'+deleteConst+'" title="'+deleteConst+'" /></a></td>';
 
     document.getElementById('job_' + row).setAttribute('rowCount', row);
 

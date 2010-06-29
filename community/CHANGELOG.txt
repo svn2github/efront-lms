@@ -1,4 +1,4 @@
-=== Version 3.6.4 build ===
+=== Version 3.6.4 build 7720 ===
 - Rearranged system settings menu for speed and tidyness
 - Added web server authentication feature
 - Fixed job descriptions listing full branches path
@@ -14,8 +14,8 @@
 - Fixed issue about students/supervisors deleting personal files
 - Fixed toggling horizontal sidebar issue in IE7
 - Fixed SCORM completion issue when commit is called through onUnload and iframe layout is used
+- Supervisor's branches report list does not return branches to which he/she does not have access to
 - Fixed issue about email in notifications sent
-
 
 === Version 3.6.3 build 7602 ===
 - Added disable payments option

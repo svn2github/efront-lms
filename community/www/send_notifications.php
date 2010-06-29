@@ -86,9 +86,11 @@ if (isset($_GET['notification_id'])) {
  }
 
 } else {
+ //debug();
  $sent_messages = EfrontNotification::sendNextNotifications($GLOBALS['configuration']['notifications_messages_per_time']);
 }
-
+//pr($sent_messages);
+//debug(false);
 if ($GLOBALS['configuration']['notifications_maximum_inter_time'] > 0) {
     EfrontConfiguration::setValue('notifications_last_send_timestamp', time());
 }
@@ -97,7 +99,7 @@ if ($sent_messages) {
  EfrontNotification::clearSentMessages();
 }
 
-
+echo "A";exit;
 if (!$hide_messages && !isset($_GET['ajax'])) {
  if ($sent_messages) {
   $message = $sent_messages . " notification emails sent successfully";

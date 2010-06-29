@@ -96,6 +96,14 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
            top.sideframe.changeTDcolor('file_manager');
        {elseif $T_CTG == 'users' && $smarty.session.employee_type == $smarty.const._SUPERVISOR}
            top.sideframe.changeTDcolor('employees');
+       {elseif ($T_CTG == "module_hcd")}
+            {if ($T_OP == "reports")}
+                top.sideframe.changeTDcolor('search_employee');
+            {elseif isset($T_OP) && $T_OP != ''}
+                top.sideframe.changeTDcolor('{$T_OP}');
+            {else}
+                top.sideframe.changeTDcolor('hcd_control_panel');
+            {/if}
        {elseif $T_CTG == 'social'}
             {if $T_OP == 'people'}
                 top.sideframe.changeTDcolor('people');
@@ -133,6 +141,16 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
             top.sideframe.location = "new_sidebar.php?sbctg=file_manager&new_lesson_id={$smarty.session.s_lessons_ID}";
         {elseif $T_CTG == 'users' && $smarty.session.employee_type == $smarty.const._SUPERVISOR}
             top.sideframe.location = "new_sidebar.php?sbctg=employees&new_lesson_id={$smarty.session.s_lessons_ID}";
+
+        {elseif ($T_CTG == "module_hcd")}
+            {if ($T_OP == "reports")}
+                top.sideframe.location = "new_sidebar.php?sbctg=reports&new_lesson_id={$smarty.session.s_lessons_ID}";
+            {elseif isset($T_OP) && $T_OP != ''}
+                top.sideframe.location = "new_sidebar.php?sbctg=placements{$T_OP}&new_lesson_id={$smarty.session.s_lessons_ID}";
+            {else}
+                top.sideframe.location = "new_sidebar.php?sbctg=hcd_control_panel&new_lesson_id={$smarty.session.s_lessons_ID}";
+            {/if}
+
        {elseif $T_CTG == 'social'}
             {if $T_OP == 'people'}
                 top.sideframe.location = "new_sidebar.php?sbctg=people&new_lesson_id={$smarty.session.s_lessons_ID}";
@@ -152,7 +170,12 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 {literal}
 }
 {/literal}
+
+
 </script>
+
+
+
 {*-------------------------------End of Part 1: initialization etc-----------------------------------------------*}
 <script>var point2 = new Date().getTime();</script>
 {*-------------------------------Part 2: Modules List ---------------------------------------------*}
@@ -206,8 +229,10 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'news')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=news">'|cat:$smarty.const._ANNOUNCEMENTS|cat:'</a>'}
+
       {include file = "includes/news.tpl"}
 {/if}
+
 {if (isset($T_CTG) && $T_CTG == 'forum')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=forum">'|cat:$smarty.const._FORUMS|cat:'</a>'}
  {foreach name = 'title_loop' item = "item" key = "key" from = $T_FORUM_PARENTS}
@@ -258,6 +283,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
             {/if}
         {/section}
  {/if}
+
     {include file = "includes/common_content.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'metadata')}
@@ -304,6 +330,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
     {elseif $smarty.get.edit_condition}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=rules&tab=conditions&edit_condition='|cat:$smarty.get.edit_condition|cat:'">'|cat:$smarty.const._EDITCONDITION|cat:'</a>'}
     {/if}
+
     {include file = "includes/rules.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'glossary')}
@@ -323,6 +350,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
    {/if}
   {/if}
  {else}
+
   {if $smarty.get.course}
       {if $T_OP == course_info}
           {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_info'>`$smarty.const._INFORMATIONFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
@@ -355,6 +383,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  {include file = "includes/lessons_list.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'survey')}
+
   {if (!isset($smarty.get.screen_survey) && !isset($smarty.get.action) && $smarty.get.screen_survey != '2')}
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEYS|cat:'</a>'}
             {if (isset($smarty.get.t_enter_create) && $smarty.get.t_enter_create == '1')}
@@ -363,6 +392,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
    {elseif (isset($T_ENTER_CREATE) && $T_ENTER_CREATE == '-1')}
     {assign var = "T_MESSAGE" value = $smarty.const._FAILEDTOADDSURVEY}
    {/if}
+
             {if (isset($smarty.get.t_enter_delete) && $smarty.get.t_enter_delete == '1')}
                 {assign var = "T_MESSAGE" value = $smarty.const._SURVEYDELETEDSUCCESSFULLY}
                 {assign var = "T_MESSAGE_TYPE" value='success'}
@@ -396,6 +426,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
                 {assign var = "T_MESSAGE" value = $smarty.const._AUSERISALREADYATTHESURVEY}
             {/if}
   {/if}
+
  {if (isset($smarty.get.screen_survey) && !isset($smarty.get.action) && $smarty.get.screen_survey == '2')}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;'|cat:'<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=update&screen=1&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'">'|cat:$T_SURVEYNAME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'&screen_survey=2">'|cat:$smarty.const._QUESTIONS|cat:'</a>'}
         {if (isset($smarty.get.t_question_added) && $smarty.get.t_question_added == '1')}
@@ -436,6 +467,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
         {else}
         {/if}
  {/if}
+
   {if ($smarty.get.action == 'question_create')}
             {if (isset($smarty.get.question_type) && $smarty.get.question_type == '-')}
                 {assign var = "T_MESSAGE" value = $smarty.const._PLEASESELECTAVALIDTYPEOFQUESTION}
@@ -477,6 +509,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
       {/if}
    {/if}
   {/if}
+
   {if ($smarty.get.action == 'create_survey' && $smarty.get.screen == '1')}
             {if ( $smarty.get.survey_action == 'create' ) }
                 {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=create&screen=1&lessons_ID='|cat:$smarty.get.lessons_ID|cat:'">'|cat:$smarty.const._CREATESURVEY|cat:'</a>'}
@@ -485,15 +518,19 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
                 {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a  class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=update&screen=1&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'">'|cat:$smarty.const._EDITSURVEY|cat:'</a>'}
             {/if}
   {/if}
+
   {if ($smarty.get.action == 'preview') }
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;'|cat:'<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=update&screen=1&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'">'|cat:$T_SURVEYNAME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.REQUEST_URI|cat:'">'|cat:$smarty.const._PREVIEW|cat:'</a>'}
   {/if}
+
   {if (isset($smarty.get.action) && $smarty.get.action == 'view_users') }
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;'|cat:'<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=update&screen=1&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'">'|cat:$T_SURVEYNAME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.REQUEST_URI|cat:'">'|cat:$smarty.const._DONESURVEYUSERS|cat:'</a>'}
   {/if}
+
   {if ( isset($smarty.get.action) && $smarty.get.action == 'survey_preview' ) }
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;'|cat:'<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=update&screen=1&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'">'|cat:$T_SURVEYNAME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.REQUEST_URI|cat:'">'|cat:$smarty.const._SURVEYPREVIEWFORUSER|cat:$smarty.get.user|cat:'</a>'}
         {/if}
+
   {if (isset($smarty.get.action) && $smarty.get.action == 'statistics') }
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;'|cat:'<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=update&screen=1&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'">'|cat:$T_SURVEYNAME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.REQUEST_URI|cat:'">'|cat:$smarty.const._STATISTICS|cat:'</a>'}
   {/if}
@@ -501,6 +538,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo;&nbsp;'|cat:'<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&action=create_survey&survey_action=update&screen=1&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'">'|cat:$T_SURVEYNAME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=survey&surveys_ID='|cat:$smarty.get.surveys_ID|cat:'&action=publish">'|cat:$smarty.const._PUBLISH|cat:'</a>'}
         {/if}
     {include file = "professor/survey.tpl"} {/if}
+
 {if (isset($T_CTG) && $T_CTG == 'tests')} {*moduleTests: Print the Tests page*}
                         {capture name = "moduleTests"}
                             {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=tests">'|cat:$smarty.const._TESTS|cat:'</a>'}
@@ -525,6 +563,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
                                 {/if}
                             {/if}
                             <tr><td class = "moduleCell">
+
                                 {include file = "includes/module_tests.tpl"}
                             </td></tr>
                         {/capture}
@@ -580,6 +619,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
     {elseif isset($T_OP) && $T_OP == lesson_layout}
         {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=lesson_layout'>`$smarty.const._LAYOUT`</a>"}
     {/if}
+
     {capture name = "moduleLessonSettings"}
     <tr><td class = "moduleCell">
   {include file = "includes/lesson_settings.tpl"}
@@ -590,6 +630,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 {*modulePersonal: Print the Personal page*}
     {capture name = "modulePersonal"}
                             {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=personal">'|cat:$smarty.const._USERPROFILE|cat:'</a>'}
+
                             <tr><td class = "moduleCell">
                                     {include file = "includes/personal.tpl"}
                             </td></tr>
@@ -622,6 +663,12 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
             {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=feedback&sel_test='|cat:$smarty.get.sel_test|cat:'&question_ID='|cat:$smarty.get.question_ID|cat:'">'|cat:$T_TEST_QUESTIONS[$smarty.get.question_ID]->question.text|cat:'</a>'}
         {/if}
  {elseif $smarty.get.option == 'branches'}
+
+
+
+
+
+
     {elseif $smarty.get.option == 'course'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course">'|cat:$smarty.const._COURSESTATISTICS|cat:'</a>'}
         {if isset($smarty.get.sel_course)}
@@ -632,6 +679,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
     {elseif $smarty.get.option == 'queries'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=queries">'|cat:$smarty.const._GENERICQUERIES|cat:'</a>'}
     {/if}
+
     {capture name = "moduleStatistics"}
         <tr><td class = "moduleCell">
             {include file = "includes/statistics.tpl"}
@@ -647,14 +695,18 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
     {/capture}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'social')}
+
+
     {if $T_OP == 'dashboard'}
         {assign var = "title" value = '<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=social&op=dashboard">'|cat:$smarty.const._DASHBOARD|cat:'</a>'}
     {elseif $T_OP == 'people'}
+
      {if $smarty.session.s_lessons_ID != ""}
    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=social&op=people&display=2'>`$smarty.const._PEOPLE`</a>"}
         {else}
    {assign var = "title" value = '<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=social&op=people">'|cat:$smarty.const._PEOPLE|cat:'</a>'}
      {/if}
+
     {elseif $T_OP == 'timeline'}
      {if isset($smarty.get.lessons_ID)}
           {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=social&op=timeline&lessons_ID=`$smarty.session.s_lessons_ID`&all=1'>`$smarty.const._TIMELINE`</a>"}
@@ -669,6 +721,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
                 </td>
             </tr>
     {/capture}
+
 {/if}
 {*///MODULES1*}
 {if $T_CTG == 'module'}

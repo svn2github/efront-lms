@@ -377,6 +377,7 @@
    </table>
   {/capture}
   {capture name = "moduleSideOperations"}
+    <tr>
      <td id = "sideColumn">
      {if !$_student_}
       {eF_template_printBlock title = $smarty.const._CONTENTTOOLS data = $smarty.capture.t_content_tools image = "32x32/tools.png"}
@@ -397,6 +398,7 @@
       {/foreach}
      {/if}
      </td>
+    </tr>
   {/capture}
 
   <script>

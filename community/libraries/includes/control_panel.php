@@ -184,8 +184,10 @@ try {
                         $userProgress['score'] = $avgScore;
                         $userProgress['comments'] = $timestamp;
                     } else {
-                        $headerOptions[] = array('text' => _YOUHAVEMETCONDITIONS, 'image' => '32x32/semi_success.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_information&popup=1', 'onClick' => "eF_js_showDivPopup('"._LESSONINFORMATION."', 2)", 'target' => 'POPUP_FRAME');
-                    }
+      if($currentLesson -> options['show_percentage']) {
+       $headerOptions[] = array('text' => _YOUHAVEMETCONDITIONS, 'image' => '32x32/semi_success.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_information&popup=1', 'onClick' => "eF_js_showDivPopup('"._LESSONINFORMATION."', 2)", 'target' => 'POPUP_FRAME');
+      }
+     }
                 }
                 //Separate if because it might have just been set completed, from the previous if
                 if ($userProgress['completed']) {

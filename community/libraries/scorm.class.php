@@ -353,7 +353,7 @@ class EfrontScorm
                     }
                     //$total_fields[$key]['data'] = eF_postProcess(str_replace("'","&#039;",$data));
                     if ($parameters['embed_type'] == 'iframe') {
-                        $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "eF_js_setCorrectIframeSize()"></iframe>';
+                        $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
                     } else {
                         $total_fields[$key]['data'] = '
                             <div style = "text-align:center;height:300px">
@@ -642,7 +642,7 @@ class EfrontScorm
 
          * - type (xs:string, m): the type of the resource
 
-         * - href (xs:string, o): the “entry point” or “launching point” of this resource
+         * - href (xs:string, o): the ï¿½entry pointï¿½ or ï¿½launching pointï¿½ of this resource
 
          * - xml:base (xs:anyURI, o): a relative path offset for the files contained in the manifest
 

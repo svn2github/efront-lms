@@ -1830,7 +1830,7 @@ class FileSystemTree extends EfrontTree
     public function reset() {
         //Get all files that are within the designated directory
         if ($this -> shallow) {
-         $result = eF_getTableData("files", "*", "path='".str_replace(G_ROOTPATH, "", $this -> dir['path'])."'");
+         $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."/%' and path not like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."/%/%'"); //not files inside subfolders
         } else {
          $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."%'");
         }
@@ -2595,12 +2595,24 @@ class FileSystemTree extends EfrontTree
                       <td colspan = "5"></td></tr>';
         }
         $i = 0;
+  if ($_SESSION['supervises_branches'] != "" ) {
+   $currentEmployee = EfrontUserFactory :: factory($_SESSION['s_login']);
+   $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*, count(job_description_ID) as jobs_num"," users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." ) AND module_hcd_employee_works_at_branch.assigned='1') OR EXISTS (SELECT module_hcd_employees.users_login FROM module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login WHERE users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) GROUP BY login", "login");
+   $supervisedLogins = array();
+   foreach ($employees as $key2 => $value2) {
+    if (!$value2['active'] || $value2['archive'] || !$value2['jobs_num']) {
+     unset($employees[$key2]);
+    } else {
+     $supervisedLogins[] = $value2['login'];
+    }
+   }
+  }
         foreach ($fileArrays as $key => $value) {
             $toolsString = '';
             $sharedString = '';
             if (is_file($value['path'])) {
                 $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id']; //The file/directory identifier will be the id, if the entity has a database representation, or the file path otherwise
-                $value = new EfrontFile($value); //Restore file/directory representation, so we can use its methods
+    $value = new EfrontFile($value); //Restore file/directory representation, so we can use its methods
                 $link = $url.'&view='.urlencode($identifier);
                 foreach ($extraFileTools as $tool) {
                     //$toolsString .= '<a href = "javascript:void(0)"><img src = "'.$tool['image'].'" alt = "'.$tool['title'].'" title = "'.$tool['title'].'" border = "0" onclick = "'.$tool['action'].'(this, \''.urlencode($identifier).'\')"  /></a>&nbsp;';
@@ -2620,10 +2632,10 @@ class FileSystemTree extends EfrontTree
                 if ($options['metadata']) {
                     $toolsString .= '<a href = "'.$url.'&popup=1&display_metadata='.urlencode($identifier).'" target = "POPUP_FRAME"><img src = "images/16x16/information.png" alt = "'._METADATA.'" title = "'._METADATA.'" onclick = "eF_js_showDivPopup(\''._METADATA.'\', 2)" border = "0"/></a>&nbsp;';
                 }
-                if ($options['edit']) {
+                if ($options['edit'] && ($_SESSION['s_type'] == 'administrator' || (($value['users_LOGIN'] == $_SESSION['s_login'] || in_array($value['users_LOGIN'], $supervisedLogins)) && isset($value['users_LOGIN'])) || ($GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 1))) {
                     $toolsString .= '<img class = "ajaxHandle edit" src = "images/16x16/edit.png" alt = "'._EDIT.'" title = "'._EDIT.'" onclick = "toggleEditBox(this, \''.urlencode($identifier).'\')"/>&nbsp;';
                 }
-                if ($options['delete'] && (($value['users_LOGIN'] == $_SESSION['s_login'] && isset($value['users_LOGIN'])) || ($GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 1))) {
+                if ($options['delete'] && ($_SESSION['s_type'] == 'administrator' || (($value['users_LOGIN'] == $_SESSION['s_login'] ||in_array($value['users_LOGIN'], $supervisedLogins)) && isset($value['users_LOGIN'])) || ($GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 1))) {
                     $toolsString .= '<img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "'._DELETE.'" title = "'._DELETE.'" onclick = "if (confirm(\''._IRREVERSIBLEACTIONAREYOUSURE.'\')) {deleteFile(this, $(\'span_'.urlencode($identifier).'\').innerHTML)}"/></a>&nbsp;';
                 }
             } else if (is_dir($value['path'])) {

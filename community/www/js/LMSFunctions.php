@@ -459,6 +459,7 @@ function myGetErrorString(errorNumber)
         return errorStrings[errorNumber];
     }
 }
+
 /**
 
 * Returns a custom message that corresponds to errorNumber, or the message that corresponds to the current error, if the argument is "".

@@ -10,6 +10,11 @@
 - Added link in unit operations to open unit in popup window
 - Fixed default string sorting being affected by case
 - IE6 compatibility fixes
+- Fixed subscription payments not being properly handled by the system
+- Fixed issue about students/supervisors deleting personal files
+- Fixed toggling horizontal sidebar issue in IE7
+- Fixed SCORM completion issue when commit is called through onUnload and iframe layout is used
+
 
 === Version 3.6.3 build 7602 ===
 - Added disable payments option

@@ -364,6 +364,7 @@ if (top.sideframe && !usingHorizontalInterface) {
 */
 function eF_js_setCorrectIframeSize(setHeight)
 {
+ //Event.observe($('scormFrameID').contentWindow, 'beforeunload', function (s) {alert('b');});
     if (frame = window.document.getElementById('scormFrameID')) {
         innerDoc = (frame.contentDocument) ? frame.contentDocument : frame.contentWindow.document;
         //Some contents send the final commit after the page closes, thus causing the tree and progress to not be updated on time.
@@ -393,6 +394,7 @@ function eF_js_setCorrectIframeSize(setHeight)
           }
          }
         }
+
         objToResize = (frame.style) ? frame.style : frame;
         if (setHeight) {
          objToResize.height = setHeight + 'px';
@@ -404,6 +406,7 @@ function eF_js_setCorrectIframeSize(setHeight)
          }
         }
     }
+ Event.observe($('scormFrameID').contentWindow, 'beforeunload', function (s) {setTimeout('', 1000);});
 }
 
 if (typeof(editPdfContent) != 'undefined' && editPdfContent) {

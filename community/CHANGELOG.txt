@@ -1,4 +1,4 @@
-=== Version 3.6.4 build 7720 ===
+=== Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness
 - Added web server authentication feature
 - Fixed job descriptions listing full branches path

@@ -977,6 +977,30 @@ php_value register_globals Off
              $GLOBALS['db'] -> Execute("truncate table $newTable");
          } catch (Exception $e) {}
      }
+     if ($table == 'f_folders') { //because of  UNIQUE(name, users_LOGIN) added there, we have to remove possible duplicates
+      $dbVersion = $GLOBALS['db'] -> getCol("select value from configuration where name = 'database_version'");
+      if (!empty($dbVersion)) {
+       $dbVersion = $dbVersion[0];
+      } else {
+       $dbVersion = '3.5';
+      }
+      if (version_compare($dbVersion, '3.6.4') == -1) {
+       $upgrade_f_folders = eF_getTableData("f_folders","*");
+       foreach ($upgrade_f_folders as $key => $value) {
+        $usersToFolders[$value['users_LOGIN']][$value['name']][] = $value['id'];
+       }
+       foreach ($usersToFolders as $login => $folder) {
+        foreach ($folder as $name => $arrayId) {
+         if (sizeof($arrayId) > 1) {
+          $maxId = max(array_values($arrayId));
+          $arrayCut = array_diff($arrayId, array($maxId));
+          eF_deleteTableData("f_folders","id IN (".implode(",", $arrayCut).")");
+          eF_updateTableData("f_personal_messages",array('f_folders_ID' => $maxId), "f_folders_ID IN (".implode(",", $arrayCut).")");
+         }
+        }
+       }
+      }
+     }
      for ($i = 0; $i < $limit; $i++) {
          if ($oldDB && $newDB) {
              $GLOBALS['db'] -> NConnect($oldDB['db_host'], $oldDB['db_user'], $oldDB['db_password'], $oldDB['db_name']);

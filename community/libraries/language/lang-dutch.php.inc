@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Purge kennisgevingen ouder dan");//Purge 
 define("_CURRENTUSERS","Stroom");//Current
 define("_SELECTEDCOURSES","Geselecteerde cursussen");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Module bestanden zijn aanwezig, maar het is niet geïnstalleerd");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Dit zal alle lessen en cursussen prijs op 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Geef object id voor scherm bijpassende afmetingen");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Komma&#39;s gescheiden lijst");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Dit zal alle lessen en cursussen prijs op 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Geef object id voor scherm bijpassende afmetingen");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Komma&#39;s gescheiden lijst");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server authenticatie");//Web server authentication (New)
+define("_USERSETTINGS","Gebr.instellingen");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd party tools");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Neem het niet in aanmerking correctie");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Weet u zeker dat u wilt initialiseren les? Deze zal permanent verwijderen van gegevens");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Externe hulpmiddelen");//External tools (New)
+define("_MATHSETTINGS","Math-instellingen");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","U kunt geen toegang tot deze pagina te wijten aan de volgende IP worden verboden");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","E-mailinstellingen");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Fout pagina weergegeven wanneer de gebruikersnaam ontbreekt of leeg is");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Fout pagina weergegeven wanneer de gebruiker niet kunnen worden gecreëerd");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variabele die bevat de gebruikersnaam");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Include bestand dat de gebruiker handvatten creatie");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Webserver registratie");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Gebruik OR logica juiste antwoord te berekenen");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","De variabele x% moet bevatten &quot;%y&quot; om door te gaan");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Open eenheid in pop-up venster");//Open unit in popup window (New)
 ?>

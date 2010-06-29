@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Purge lebih tua dari pemberitahuan");//Pu
 define("_CURRENTUSERS","Arus");//Current
 define("_SELECTEDCOURSES","Dipilih program");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","file Modul hadir, tetapi tidak diinstal");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Ini akan mengatur semua pelajaran dan program harga ke 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Tentukan objek id untuk layar pencocokan dimensi");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Daftar dipisahkan koma");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Ini akan mengatur semua pelajaran dan program harga ke 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Tentukan objek id untuk layar pencocokan dimensi");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Daftar dipisahkan koma");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server otentikasi");//Web server authentication (New)
+define("_USERSETTINGS","Pengaturan pengguna");//User settings (New)
+define("_THIRDPARTYTOOLS","Pihak ke-3 alat");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Jangan memperhitungkannya di koreksi");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Apakah Anda yakin ingin untuk menginisialisasi pelajaran? Ini akan secara permanen menghapus data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Peralatan Eksternal");//External tools (New)
+define("_MATHSETTINGS","Matematika pengaturan");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Anda tidak dapat mengakses halaman ini karena IP berikut dilarang");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Pengaturan Email");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Halaman Kesalahan ditampilkan bila username hilang atau kosong");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Halaman Kesalahan ditampilkan ketika pengguna tidak dapat dibuat");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variabel yang berisi username");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Sertakan file yang menangani penciptaan pengguna");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web server registrasi");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Gunakan logika OR untuk menghitung jawaban yang benar");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","The% variabel x harus berisi &quot;%y&quot; untuk melanjutkan");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","unit Buka di jendela popup");//Open unit in popup window (New)
 ?>

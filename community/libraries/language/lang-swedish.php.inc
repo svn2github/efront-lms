@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","");//Purge notifications older than
 define("_CURRENTUSERS","");//Current
 define("_SELECTEDCOURSES","");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Detta kommer att ställa in alla lektioner och kurser pris till 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Ange Object ID för skärm matchande dimensioner");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Kommaseparerad lista");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Detta kommer att ställa in alla lektioner och kurser pris till 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Ange Object ID för skärm matchande dimensioner");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Kommaseparerad lista");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Webbserver autentisering");//Web server authentication (New)
+define("_USERSETTINGS","Användarinställningar");//User settings (New)
+define("_THIRDPARTYTOOLS","3: e parts verktyg");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Ta det inte hänsyn till korrigeringen");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Är du säker på att du vill starta lektionen? Detta kommer att permanent ta bort data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Externa verktyg");//External tools (New)
+define("_MATHSETTINGS","Math inställningar");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Du kan inte komma åt sidan på grund av följande IP har förbjudits");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","E-postinställningar");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Fel sida visas när användarnamn saknas eller är tom");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Fel sida som visas när användaren inte skulle kunna skapas");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variabel som innehåller användarnamn");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Inkludera fil som hanterar skapande av användare");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Webbserver registrering");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Använd eller logik för att beräkna rätt svar");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Den rörliga% x innehålla &quot;%y&quot; för att fortsätta");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Öppna enhet i popup-fönster");//Open unit in popup window (New)
 ?>

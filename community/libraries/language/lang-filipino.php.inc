@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Purgahin abiso mas luma pa");//Purge noti
 define("_CURRENTUSERS","Kasalukuyan");//Current
 define("_SELECTEDCOURSES","Napiling mga kurso");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Module na mga files ay kasalukuyan, ngunit hindi na ito ay nai-install");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Ito ay magse-set ang lahat ng mga aralin at mga kurso sa presyo 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Tukuyin ang object id para sa screen na sukat ng pagtutugma");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Na comma-separated list");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Ito ay magse-set ang lahat ng mga aralin at mga kurso sa presyo 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Tukuyin ang object id para sa screen na sukat ng pagtutugma");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Na comma-separated list");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server authentication");//Web server authentication (New)
+define("_USERSETTINGS","User setting");//User settings (New)
+define("_THIRDPARTYTOOLS","Ika-3 partido ng mga kasangkapan");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Huwag dalhin ito sa account sa pagtutuwid");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Sigurado ka bang gusto mong magpasimula aral? Ito ay permanenteng tanggalin ang data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Panlabas na mga kasangkapan");//External tools (New)
+define("_MATHSETTINGS","Math mga setting ng");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Hindi ka maaaring ma-access ang pahina na ito dahil sa mga sumusunod na IP pagiging pinagbawalan");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Email setting");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Error sa pahinang ipinapakita kapag ang username ay kulang o walang laman");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Error sa pahinang ipinapakita kapag ang gumagamit ay hindi mabuo");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variable na naglalaman ng mga username");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Isama ang file na humahawak sa paggawa ng user");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web server registration");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Gamitin O lohika upang makalkula ang tamang sagot");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Ang variable na x% ay dapat maglaman ng &quot;%y&quot; upang magpatuloy");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Buksan ang yunit sa popup window");//Open unit in popup window (New)
 ?>

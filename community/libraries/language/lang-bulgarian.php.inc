@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Чистка уведомления на 
 define("_CURRENTUSERS","Ток");//Current
 define("_SELECTEDCOURSES","Избрани курсове");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Модул файлове са налице, но не е инсталиран");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Това ще установи всички уроци и курсове цена до 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Посочете обект номер за съвпадение на екрана размери");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Разделени със запетая");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Това ще установи всички уроци и курсове цена до 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Посочете обект номер за съвпадение на екрана размери");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Разделени със запетая");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Удостоверяване на уеб сървър");//Web server authentication (New)
+define("_USERSETTINGS","Потребителски настройки");//User settings (New)
+define("_THIRDPARTYTOOLS","Трета страна инструменти");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Не се вземат под внимание при корекция");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Наистина ли искате да се инициализира урок? Това ще изтрие данни");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Външни инструменти");//External tools (New)
+define("_MATHSETTINGS","Математически настройки");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Нямате достъп до тази страница поради следните ПР като са били забранени");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","E-mail настройки");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Грешка страница показва, когато потребителско име липсва или е празен");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Грешка страница показва, когато потребител не може да бъде създадена");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Променлива, която съдържа име");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Включване на файл, който обработва потребител създаването");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Уеб сървър регистрация");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Използвайте или логика за изчисляване на верен отговор");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Променливата% х трябва да съдържа &quot;%y&quot;, за да продължи");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Отворено единица в изскачащи прозорци");//Open unit in popup window (New)
 ?>

@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Išvalyti pranešimai vyresniems kaip");/
 define("_CURRENTUSERS","Dabartinis");//Current
 define("_SELECTEDCOURSES","Pasirinkta kursai");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Modulio failai yra, bet jis nėra įdiegtas");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Tai bus nustatyti visas pamokas ir paskaitas kaina 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Nurodykite objektą ID ekrano atitikimo matmenys");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Atskirti kableliais sąrašas");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Tai bus nustatyti visas pamokas ir paskaitas kaina 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Nurodykite objektą ID ekrano atitikimo matmenys");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Atskirti kableliais sąrašas");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web serverio autentifikavimo");//Web server authentication (New)
+define("_USERSETTINGS","Vartotojo parametrai");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd party įrankiai");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Ar ne geriau į jį atsižvelgti koreguojant");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Ar tikrai norite inicijuoti pamoka? Tai bus ištrinti duomenis");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Kitos priemonės");//External tools (New)
+define("_MATHSETTINGS","Math Nustatymai");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Jūs negalite patekti į šį puslapį dėl šios IP yra uždraustas");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Pašto nustatymus");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Klaida puslapis rodomas vartotojo vardas yra dingęs ar prie tuščias");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Klaida puslapis rodomas vartotojui negali būti sukurtas");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Kintamasis, kurio sudėtyje Vartotojo vardas");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Pridėti failą kurie dirba su vartotojų kūrimas");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web serverio registracija");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Naudokite ar loginės apskaičiuoti teisingą atsakymą");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Kintamasis% x turi būti &quot;%y&quot;, kad ir toliau");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Atidaryti vienetas lango");//Open unit in popup window (New)
 ?>

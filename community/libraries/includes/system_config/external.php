@@ -39,7 +39,9 @@ $externalMathForm = new Html_QuickForm("external_math_form", "post", basename($_
 $externalMathForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $externalMathForm -> addElement("advcheckbox", "math_content", _ENABLEMATHCONTENT, null, 'class = "inputCheckBox"', array(0, 1));
 $externalMathForm -> addElement("advcheckbox", "math_images", _LOADMATHTYPESASIMAGES, null, 'class = "inputCheckBox"', array(0, 1));
+$externalMathForm -> addElement("static", "", _MATHIMAGESINFO);
 $externalMathForm -> addElement("text", "math_server", _MATHSERVER, 'class = "inputText"');
+$externalMathForm -> addElement("static", "", _MATHSERVERINFO);
 $externalMathForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $externalMathForm -> freeze();
@@ -61,6 +63,7 @@ $externalLiveDocxForm -> registerRule('checkParameter', 'callback', 'eF_checkPar
 $externalLiveDocxForm -> addElement("text", "phplivedocx_server", _PHPLIVEDOCXSERVER, 'class = "inputText"');
 $externalLiveDocxForm -> addElement("text", "phplivedocx_username",_USERNAME);
 $externalLiveDocxForm -> addElement("password", "phplivedocx_password",_PASSWORD);
+$externalLiveDocxForm -> addElement("static", "", _PHPLIVEDOCXINFO);
 $externalLiveDocxForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $externalLiveDocxForm -> freeze();

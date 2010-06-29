@@ -34,6 +34,7 @@ $smarty -> assign("T_APPEARANCE_MAIN_FORM", $appearanceMainForm -> toArray());
 $appearanceLogoForm = new Html_QuickForm("appearance_logo_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=logo", "", null, true);
 $appearanceLogoForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $appearanceLogoForm -> addElement('file', 'logo', _FILENAME);
+$appearanceLogoForm -> addElement("static", "", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
 //Don't show normalization if GD isn't set.
 if (extension_loaded('gd') || extension_loaded('gd2')) {
  $smarty -> assign("T_GD_LOADED", true);
@@ -89,6 +90,7 @@ $smarty -> assign("T_APPEARANCE_LOGO_FORM", $appearanceLogoForm -> toArray());
 $appearanceFaviconForm = new Html_QuickForm("appearance_favicon_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=favicon", "", null, true);
 $appearanceFaviconForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $appearanceFaviconForm -> addElement('file', 'favicon', _FILENAME);
+$appearanceFaviconForm -> addElement("static", "", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
 $appearanceFaviconForm -> addElement("advcheckbox", "default_favicon", _USEDEFAULTFAVICON, null, 'class = "inputCheckBox"  id = "set_default_favicon" onclick = "$(\'favicon_settings\').select(\'input\').each(function(s) {if (s.type != \'submit\' && s.id != \'set_default_favicon\') s.disabled ? s.disabled = \'\' : s.disabled = \'disabled\' })"', array(0, 1));
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $appearanceFaviconForm -> freeze();

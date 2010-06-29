@@ -79,6 +79,7 @@ if ($_GET['scorm_review']) {
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 
   $form -> addElement('file', 'scorm_file[0]', _UPLOADTHESCORMFILEINZIPFORMAT);
+        $form -> addRule('scorm_file[0]', _THEFIELD.' "'._UPLOADTHESCORMFILEINZIPFORMAT.'" '._ISMANDATORY, 'required', null, 'client');
   for ($i = 1; $i < $maxUploads; $i++) {
       $form -> addElement('file', "scorm_file[$i]", null);
   }
@@ -91,7 +92,7 @@ if ($_GET['scorm_review']) {
         $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
         $form -> addElement('submit', 'submit_upload_scorm', _SUBMIT, 'class = "flatButton"');
 
-        $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no'));
+        $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
 
         //@todo: url upload, if not exists, report a human-readable error!
         $timestamp = time();

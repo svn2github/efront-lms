@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","notifications de purge de plus de");//Pur
 define("_CURRENTUSERS","Courant");//Current
 define("_SELECTEDCOURSES","Sélection de cours");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Module fichiers sont présents, mais il n&#39;est pas installé");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Cela va régler tous les enseignements et les cours des prix à 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Précisez Object ID à l&#39;écran correspondant à des dimensions");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Virgule pour les séparer");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Cela va régler tous les enseignements et les cours des prix à 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Précisez Object ID à l&#39;écran correspondant à des dimensions");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Virgule pour les séparer");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","l&#39;authentification du serveur Web");//Web server authentication (New)
+define("_USERSETTINGS","Paramètres de l&#39;utilisateur");//User settings (New)
+define("_THIRDPARTYTOOLS","3ème partie des outils");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Ne pas en tenir compte dans la correction");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Etes-vous sûr que vous voulez initialiser leçon? Ce sera définitivement supprimer des données");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Outils externes");//External tools (New)
+define("_MATHSETTINGS","paramètres mathématiques");//Math settings (New)
+define("_PHPLIVEDOCX","livedocx PHP");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Vous ne pouvez pas accéder à cette page en raison de la période d&#39;enquête suivants sont interdits");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Paramètres de messagerie");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Page d&#39;erreur s&#39;affiche lorsque le nom d&#39;utilisateur est manquant ou vide");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Page d&#39;erreur s&#39;affiche lorsque l&#39;utilisateur n&#39;a pas pu être créé");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variable qui contient le nom d&#39;utilisateur");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Inclure fichier qui gère la création d&#39;utilisateur");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","enregistrement du serveur Web");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Utilisez OU logique pour calculer la bonne réponse");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","La variable% x &quot;%y&quot; doit contenir afin de poursuivre");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Open in unité de fenêtre popup");//Open unit in popup window (New)
 ?>

@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","რედ შეტყობინებ�
 define("_CURRENTUSERS","მიმდინარე");//Current
 define("_SELECTEDCOURSES","არჩეული კურსები");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","მოდულის ფაილი იმყოფება, მაგრამ ეს არ არის დაინსტალირებული");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","ეს დააყენებს ყველა გაკვეთილი და კურსები ღირებულების 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","მიუთითეთ ობიექტის პირადობის for ეკრანზე შესატყვისი ზომები");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","მძიმეებით");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","ეს დააყენებს ყველა გაკვეთილი და კურსები ღირებულების 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","მიუთითეთ ობიექტის პირადობის for ეკრანზე შესატყვისი ზომები");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","მძიმეებით");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","");//Web server authentication (New)
+define("_USERSETTINGS","");//User settings (New)
+define("_THIRDPARTYTOOLS","");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","");//External tools (New)
+define("_MATHSETTINGS","");//Math settings (New)
+define("_PHPLIVEDOCX","");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","");//Open unit in popup window (New)
 ?>

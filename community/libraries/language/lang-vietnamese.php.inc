@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Thanh trừng các thông báo cũ hơn")
 define("_CURRENTUSERS","Hiện tại");//Current
 define("_SELECTEDCOURSES","Lựa chọn các khóa học");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Module các tập tin, có mặt, nhưng nó không được cài đặt");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Điều này sẽ đặt tất cả các bài học và các khóa học giá 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Xác định đối tượng id cho phù hợp với kích thước màn hình");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Dấu phẩy tách ra danh sách");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Điều này sẽ đặt tất cả các bài học và các khóa học giá 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Xác định đối tượng id cho phù hợp với kích thước màn hình");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Dấu phẩy tách ra danh sách");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server xác thực");//Web server authentication (New)
+define("_USERSETTINGS","Người sử dụng cài đặt");//User settings (New)
+define("_THIRDPARTYTOOLS","Các công cụ bên thứ 3");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Đừng đưa nó vào tài khoản trong sửa chữa");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Bạn có chắc bạn muốn khởi tạo bài học? Điều này sẽ xoá vĩnh viễn dữ liệu");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Các công cụ bên ngoài");//External tools (New)
+define("_MATHSETTINGS","Toán cài đặt");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Bạn không thể truy cập trang này do IP sau đây bị cấm");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Email cài đặt");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Sửa lỗi hiển thị khi tên người dùng là mất tích hoặc có sản phẩm nào");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Sửa lỗi hiển thị khi người dùng không thể được tạo ra");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Biến có chứa tên người dùng");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Bao gồm các tập tin mà người sử dụng xử lý sáng tạo");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web server đăng ký");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Sử dụng OR để tính logic câu trả lời đúng");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Các biến% x phải có &quot;%y&quot; để tiếp tục");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Mở cửa sổ popup đơn vị");//Open unit in popup window (New)
 ?>

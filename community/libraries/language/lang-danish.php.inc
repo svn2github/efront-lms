@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Purge anmeldelser ældre end");//Purge no
 define("_CURRENTUSERS","Nuværende");//Current
 define("_SELECTEDCOURSES","Udvalgte kurser");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Modul-filer er til stede, men det er ikke installeret");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Dette vil sætte alle lektioner og kurser pris til 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Angiv objekt id til skærm matchende dimensioner");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Kommasepareret liste");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Dette vil sætte alle lektioner og kurser pris til 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Angiv objekt id til skærm matchende dimensioner");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Kommasepareret liste");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server authentication");//Web server authentication (New)
+define("_USERSETTINGS","Brugerindstillinger");//User settings (New)
+define("_THIRDPARTYTOOLS","3. parts værktøjer");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","De må ikke tage hensyn hertil korrektion");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Er du sikker på du vil initialisere lektion? Dette vil permanent slette data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Eksterne værktøjer");//External tools (New)
+define("_MATHSETTINGS","Math-indstillinger");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Du kan ikke få adgang til denne side på grund af følgende IP blive forbudt");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Email indstillinger");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Fejl side vises, når brugernavn mangler eller er tom");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Fejl side vises, når brugeren kunne ikke oprettes");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variabel, der indeholder brugernavnet");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Medtag fil, håndtag brugeroprettelse");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web server registrering");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Brug OR logik til at beregne korrekte svar");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Variablen% x skal indeholde &quot;%y&quot; for at fortsætte");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Åbn enhed i popup-vindue");//Open unit in popup window (New)
 ?>

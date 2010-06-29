@@ -6,29 +6,20 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $generalSecurityForm = new HTML_QuickForm("general_security_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=general&tab=security", "", null, true);
 $generalSecurityForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-
-
-
-
-
-
 $generalSecurityForm -> addElement("text", "file_white_list", _ALLOWEDEXTENSIONS, 'class = "inputText"');
+$generalSecurityForm -> addElement("static", "", _COMMASEPARATEDLISTASTERISKEXTENSIONEXAMPLE);
 $generalSecurityForm -> addElement("text", "file_black_list", _DISALLOWEDEXTENSIONS, 'class = "inputText"');
+$generalSecurityForm -> addElement("static", "", _COMMASEPARATEDLISTASTERISKEXTENSIONEXAMPLE.' '._DENIALTAKESPRECEDENCE);
 $generalSecurityForm -> addElement("text", "password_length", _MINIMUMPASSWORDLENGTH,'size = "5"');
 $generalSecurityForm -> addElement("text", "autologout_time", _LOGOUTUSERAFTER, 'size = "5"');
 $generalSecurityForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));
-
-
-
 $generalSecurityForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"');
 $generalSecurityForm -> setDefaults($GLOBALS['configuration']);
-
 $generalSecurityForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSecurityForm -> addRule('autologout_time', _THEFIELD.' '._LOGOUTUSERAFTER.' '._ISMANDATORY, 'required', null, 'client');
 $generalSecurityForm -> addRule('password_length', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSecurityForm -> addRule('password_length', _THEFIELD.' '._MINIMUMPASSWORDLENGTH.' '._ISMANDATORY, 'required', null, 'client');
-
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $generalSecurityForm -> freeze();
 } else {
@@ -43,7 +34,6 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  }
 }
 $smarty -> assign("T_GENERAL_SECURITY_FORM", $generalSecurityForm -> toArray());
-
 $generalLocaleForm = new HTML_QuickForm("general_locale", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=general&tab=locale", "", null, true);
 $generalLocaleForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $defaultEncodings = array_combine(mb_list_encodings(), mb_list_encodings());
@@ -64,7 +54,6 @@ $generalLocaleForm -> addElement("text", "decimal_point", _DECIMALPOINT, 'class 
 $generalLocaleForm -> addElement("text", "thousands_sep", _THOUSANDSSEPARATOR, 'class = "inputText" style = "width:50px"');
 $generalLocaleForm -> addElement("select", "file_encoding", _TRANSLATEFILESYSTEM, $encodings, 'class = "inputSelect"');
 $generalLocaleForm -> setDefaults($GLOBALS['configuration']);
-
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $generalLocaleForm -> freeze();
 } else {
@@ -79,29 +68,26 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  }
 }
 $smarty -> assign("T_GENERAL_LOCALE_FORM", $generalLocaleForm -> toArray());
-
 $generalSMTPForm = new HTML_QuickForm("general_smtp", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=general&tab=smtp", "", null, true);
 $generalSMTPForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $generalSMTPForm -> addElement("text", "system_email", _SYSTEMEMAIL, 'class = "inputText"');
 $generalSMTPForm -> addElement("text", "smtp_host", _SMTPSERVER, 'class = "inputText"');
+$generalSMTPForm -> addElement("static", "", _IFUSESSLTHENPHPOPENSSL);
 $generalSMTPForm -> addElement("text", "smtp_user", _SMTPUSER, 'class = "inputText"');
 $generalSMTPForm -> addElement("password", "smtp_pass", _SMTPPASSWORD, 'class = "inputText"');
 $generalSMTPForm -> addElement("text", "smtp_port", _SMTPPORT, 'class = "inputText"');
 $generalSMTPForm -> addElement("text", "smtp_timeout", _SMTPTIMEOUT, 'class = "inputText"');
 $generalSMTPForm -> addElement("advcheckbox", "smtp_auth", _SMTPAUTH, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSMTPForm -> setDefaults($GLOBALS['configuration']);
-
 $generalSMTPForm -> addRule('system_email', _INVALIDFIELDDATA, 'checkParameter', 'email');
 $generalSMTPForm -> addRule('system_email', _THEFIELD.' '._SYSTEMEMAIL.' '._ISMANDATORY, 'required', null, 'client');
 $generalSMTPForm -> addRule('smtp_port', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSMTPForm -> addRule('smtp_timeout', _INVALIDFIELDDATA, 'checkParameter', 'uint');
-
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $generalSMTPForm -> freeze();
 } else {
  $generalSMTPForm -> addElement("submit", "check_smtp", _CHECKSETTINGS, 'class = "flatButton"');
  $generalSMTPForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
-
  if ($generalSMTPForm -> isSubmitted() && $generalSMTPForm -> validate()) {
   $values = $generalSMTPForm -> exportValues();
   unset($values['submit']);
@@ -135,33 +121,30 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  }
 }
 $smarty -> assign("T_GENERAL_SMTP_FORM", $generalSMTPForm -> toArray());
-
 $generalPHPForm = new Html_QuickForm("general_php_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=general&tab=php", "", null, true);
 $generalPHPForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $generalPHPForm -> addElement("text", "memory_limit", _MEMORYLIMIT, 'class = "inputText" style = "width:60px"');
 $generalPHPForm -> addElement("text", "max_execution_time", _MAXEXECUTIONTIME, 'class = "inputText" style = "width:60px"');
+$generalPHPForm -> addElement("static", "", _LEAVEBLANKTOUSEPHPINI);
 $generalPHPForm -> addElement("advcheckbox", "gz_handler", _GZHANDLER, null, 'class = "inputCheckBox"', array(0, 1));
 $generalPHPForm -> addElement("text", "max_file_size", _MAXFILESIZE, 'class = "inputText"');
+$generalPHPForm -> addElement("static", "", _MAXFILEISAFFECTEDANDIS.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
 $generalPHPForm -> addElement("advcheckbox", "debug_mode", _DEBUGMODE, null, 'class = "inputCheckBox"', array(0, 1));
 $generalPHPForm -> addRule('memory_limit', _INVALIDFIELDDATA, 'checkParameter', 'id');
 $generalPHPForm -> addRule('max_execution_time', _INVALIDFIELDDATA, 'checkParameter', 'id');
 $generalPHPForm -> addRule('max_file_size', _INVALIDFIELDDATA, 'checkParameter', 'id');
 $generalPHPForm -> addRule('max_file_size', _INVALIDFIELDDATAFORFIELD.': "'._MAXFILESIZE.'"', 'numeric', null, 'client');
 $generalPHPForm -> setDefaults($GLOBALS['configuration']);
-
 isset($configuration['memory_limit']) ? $generalPHPForm -> setDefaults(array('memory_limit' => $configuration['memory_limit'])) : $generalPHPForm -> setDefaults(array('memory_limit' => (int)ini_get('memory_limit')));
 isset($configuration['max_execution_time']) ? $generalPHPForm -> setDefaults(array('max_execution_time' => $configuration['max_execution_time'])) : $generalPHPForm -> setDefaults(array('max_execution_time' => ini_get('max_execution_time')));
 isset($configuration['gz_handler']) ? $generalPHPForm -> setDefaults(array('gz_handler' => $configuration['gz_handler'])) : $generalPHPForm -> setDefaults(array('gz_handler' => ''));
 //		isset($configuration['display_errors'])   ? $generalPHPForm -> setDefaults(array('display_errors'	 => $configuration['display_errors']))	 : $generalPHPForm -> setDefaults(array('display_errors'	 => ini_get('display_errors')));
-
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $generalPHPForm -> freeze();
 } else {
  $generalPHPForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
-
  if ($generalPHPForm -> isSubmitted() && $generalPHPForm -> validate()) { //If the form is submitted and validated
   $values = $generalPHPForm -> exportValues();
-
   foreach ($values as $key => $value) {
    if ($value == '') {
     if ($key == 'memory_limit' || $key == 'max_execution_time') {
@@ -190,5 +173,4 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  }
 }
 $smarty -> assign("T_GENERAL_PHP_FORM", $generalPHPForm -> toArray());
-
 ?>

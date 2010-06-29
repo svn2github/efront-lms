@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Eliminare le notifiche di età superiore 
 define("_CURRENTUSERS","Corrente");//Current
 define("_SELECTEDCOURSES","corsi selezionati");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","file di modulo sono presenti, ma non è installato");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Questo imposterà tutte le lezioni e corsi di prezzo a 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Specificare ID oggetto per lo schermo di dimensioni corrispondenti");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Elenco separato da virgole");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Questo imposterà tutte le lezioni e corsi di prezzo a 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Specificare ID oggetto per lo schermo di dimensioni corrispondenti");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Elenco separato da virgole");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server di autenticazione");//Web server authentication (New)
+define("_USERSETTINGS","Impostazioni utente");//User settings (New)
+define("_THIRDPARTYTOOLS","3a parte gli strumenti");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Non tenerne conto nella correzione");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Sei sicuro di voler inizializzare lezione? Questo eliminerà definitivamente i dati");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Strumenti esterni");//External tools (New)
+define("_MATHSETTINGS","Math impostazioni");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Non è possibile accedere a questa pagina per il periodo successivo di essere bandito");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Impostazioni e-mail");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Pagina di errore visualizzato quando l&#39;utente è mancante o vuoto");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Pagina di errore visualizzato quando l&#39;utente non può essere creata");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variabile che contiene il nome utente");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Includere file che gestisce la creazione degli utenti");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web server di registrazione");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Usare la logica o per calcolare risposta corretta");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","La variabile% x deve contenere &quot;%y&quot; al fine di continuare");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","unità Apri in finestra pop-up");//Open unit in popup window (New)
 ?>

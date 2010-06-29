@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Čistka obvestila starejši od");//Purge 
 define("_CURRENTUSERS","Trenutni");//Current
 define("_SELECTEDCOURSES","Izbrane tečaji");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Modul datoteke so prisotne, vendar ni nameščen");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Ta bo določila vse lekcije in tečaje cena 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Navedite ID objekta za zaslon ujemanje dimenzij");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Z vejicami ločen seznam");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Ta bo določila vse lekcije in tečaje cena 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Navedite ID objekta za zaslon ujemanje dimenzij");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Z vejicami ločen seznam");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Spletni strežnik za preverjanje pristnosti");//Web server authentication (New)
+define("_USERSETTINGS","Uporabniške nastavitve");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd stranka orodja");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Ne upošteva pri popravka");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Ali ste prepričani, da želite inicializirati lekcijo? To bo trajno izbrisati podatke");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Zunanja orodja");//External tools (New)
+define("_MATHSETTINGS","Math Nastavitve");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Ne morete dostop do te strani zaradi naslednjih IP izločeni");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","E-pošta Nastavitve");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Napaka stran prikazana, ko ime ni ali prazno");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Napaka stran prikazana, ko uporabnik ni mogoče ustvariti");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Spremenljivka, ki vsebuje uporabniško ime");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Vključi datoteko, ki obravnava ustanovitev uporabnik");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Spletni strežnik registracijo");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Uporabite ALI logika za izračun pravilen odgovor");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Spremenljivka% x mora vsebovati &quot;%y&quot;, da bi še naprej");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Odpri enoto v pojavnem oknu");//Open unit in popup window (New)
 ?>

@@ -18,11 +18,13 @@ $userMainForm -> addElement('select', 'default_type', _DEFAULTUSERTYPE, EfrontUs
 
 $userMainForm -> addElement("advcheckbox", "show_license_note", _ENABLELICENSENOTE, null, 'class = "inputCheckBox" onclick = "this.checked ? $(\'license_note\').show() : $(\'license_note\').hide();"', array(0, 1));
 $userMainForm -> addElement("advcheckbox", "reset_license_note", _RESETLICENSENOTE, null, 'class = "inputCheckBox"', array(0, 1));
+$userMainForm -> addElement("static", "", _USETHISINCASEYOUWANTALLUSERSTORECOMPLYTOLICENSENOTE);
 $userMainForm -> addElement("textarea", "license_note", _LICENSENOTE, 'class = "inputText simpleEditor" style = "height:100px;width:500px;"');
 $userMainForm -> addElement("advcheckbox", "lesson_enroll", _ALLOWINDEPENDENTLESSONS, null, 'class = "inputCheckBox"', array(0, 1));
 $userMainForm -> addElement("select", "insert_group_key", _VIEWINSERTGROUPKEY, array(_NO, _YES), 'class = "inputSelect"');
 $userMainForm -> addElement("select", "mapped_accounts", _MAPPEDACCOUNTS, array(_ENABLED, _DISABLEDFORSTUDENTS, _DISABLEDFORPROFESSORSANDSTUDENTS, _DISABLEDFORALL), 'class = "inputSelect"');
 $userMainForm -> addElement("text", "username_format", _USERNAMEFORMAT, 'class = "inputText"');
+$userMainForm -> addElement("static", "", _USERNAMEFORMATINFO);
 $userMainForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userMainForm -> freeze();
@@ -54,6 +56,7 @@ $userMultipleLoginsForm -> addElement("select", "user_types", _EXCEPTFORTHEROLES
 if (sizeof($groups) > 0) {
  $userMultipleLoginsForm -> addElement("select", "groups", _EXCEPTFORTHEGROUPS, $groups, "multiple");
 }
+$userMultipleLoginsForm -> addElement("static", "", _HOLDDOWNCTRLFORMULTIPLESELECT);
 $userMultipleLoginsForm -> setDefaults(unserialize($GLOBALS['configuration']['multiple_logins']));
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userMultipleLoginsForm -> freeze();

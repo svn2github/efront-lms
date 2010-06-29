@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","إشعارات إزالة مضى عليه
 define("_CURRENTUSERS","الحالية");//Current
 define("_SELECTEDCOURSES","اختيار الموضوع :");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","ملفات الوحدة موجودة ولكن لم يتم تثبيته");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","وهذا وضع جميع الدروس والدورات السعر إلى 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","تحديد هوية الكائن لأبعاد الشاشة مطابقة");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","قائمة مفصولة بفواصل");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","وهذا وضع جميع الدروس والدورات السعر إلى 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","تحديد هوية الكائن لأبعاد الشاشة مطابقة");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","قائمة مفصولة بفواصل");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","خادم الويب مصادقة");//Web server authentication (New)
+define("_USERSETTINGS","ضبط المستخدم");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd الطرف أدوات");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","لا تأخذ في الاعتبار في التصحيح");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","هل أنت متأكد أنك تريد تهيئة الدرس؟ سيؤدي ذلك إلى حذف البيانات بشكل دائم");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","أدوات خارجية");//External tools (New)
+define("_MATHSETTINGS","إعدادات الرياضيات");//Math settings (New)
+define("_PHPLIVEDOCX","بي livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","لا يمكنك الوصول إلى هذه الصفحة بسبب الملكية الفكرية التالية حظرها");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","إعدادات البريد الإلكتروني");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","عرض صفحة خطأ عند اسم المستخدم مفقود أو فارغة");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","عرض صفحة خطأ عندما لا يمكن للمستخدم أن تنشأ");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","المتغير الذي يحتوي على اسم المستخدم");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","وتشمل الملف الذي يعالج مستخدم خلق");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","خادم الويب تسجيل");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","استخدام أو منطق لحساب الجواب الصحيح");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","ويجب أن تحتوي على ٪ متغير س &quot;%y&quot; من أجل مواصلة");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","فتح وحدة في نافذة منبثقة");//Open unit in popup window (New)
 ?>

@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","");//Purge notifications older than
 define("_CURRENTUSERS","");//Current
 define("_SELECTEDCOURSES","");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","これはすべてのレッスンを、コースの0に価格が設定されます");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","指定は、画面寸法に一致するオブジェクトID");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","カンマ区切りのリスト");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","これはすべてのレッスンを、コースの0に価格が設定されます");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","指定は、画面寸法に一致するオブジェクトID");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","カンマ区切りのリスト");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Webサーバーの認証");//Web server authentication (New)
+define("_USERSETTINGS","ユーザー設定");//User settings (New)
+define("_THIRDPARTYTOOLS","サードパーティのツール");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","アカウントに補正でそれを服用しないでください");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","あなたはあなたがレッスンを初期化しますか？これは、データを完全に削除されます");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","外部ツール");//External tools (New)
+define("_MATHSETTINGS","数学の設定");//Math settings (New)
+define("_PHPLIVEDOCX","PHPのlivedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","あなたは禁止されて、このページを次のIPのためにアクセスできない");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","電子メールの設定");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","エラーページはユーザー名が存在しないか、空の表示");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","エラーページは、ユーザーが作成できませんでした表示");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","変数は、ユーザ名が含まれて");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","作成、ユーザーを処理するインクルードファイル");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Webサーバーの登録");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","使用してのORロジックが正しい答えを計算する");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","変数％xは続行するには &quot;%y&quot;含める必要があります");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","ポップアップで開くユニットは、ウィンドウ");//Open unit in popup window (New)
 ?>

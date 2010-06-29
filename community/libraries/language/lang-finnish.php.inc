@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Tuhoa ilmoitukset vanhempi kuin");//Purge
 define("_CURRENTUSERS","Nykyinen");//Current
 define("_SELECTEDCOURSES","Valitut kurssit");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Moduuli tiedostot ovat läsnä, mutta sitä ei ole asennettu");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Tämä asettaa kaikki oppitunnit ja kurssit hinta 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Määritä objektin id näytön vastaavat mitat");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Pilkuilla erotettu lista");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Tämä asettaa kaikki oppitunnit ja kurssit hinta 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Määritä objektin id näytön vastaavat mitat");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Pilkuilla erotettu lista");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web-palvelimen todennus");//Web server authentication (New)
+define("_USERSETTINGS","Käyttäjän asetukset");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd party työkalut");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Älä ota sitä huomioon korjaus");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Oletko varma että haluat alustaa opetus? Tämä poistaa pysyvästi tietoja");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Ulkoiset työkalut");//External tools (New)
+define("_MATHSETTINGS","Math asetukset");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Et voi käyttää tätä sivua, koska seuraava IP on kielletty");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Sähköposti asetukset");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Virhe sivu näkyy, kun käyttäjätunnus puuttuu tai tyhjä");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Virhe sivu näytetään, kun käyttäjä ei voi luoda");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Muuttuja, joka sisältää käyttäjätunnuksen");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Sisällytä tiedoston hoitaa käyttäjän luominen");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web-palvelimen rekisteröinti");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Käytä tai logiikka laskea oikean vastauksen");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Muuttuja% x on oltava &quot;%y&quot;, jotta jatkossakin");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Avaa yksikkö ikkunaan");//Open unit in popup window (New)
 ?>

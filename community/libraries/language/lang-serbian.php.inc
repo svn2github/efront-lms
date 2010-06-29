@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Очисти обавештења ста�
 define("_CURRENTUSERS","Струја");//Current
 define("_SELECTEDCOURSES","Изабрана курсеви");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Модул датотеке су присутни, али није инсталиран");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Ово ће подесити све лекције и курсева цена 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Наведите Објецт ИД за екран димензије одговарају");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Зарезом одвојена листа");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Ово ће подесити све лекције и курсева цена 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Наведите Објецт ИД за екран димензије одговарају");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Зарезом одвојена листа");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Веб сервер аутентификацију");//Web server authentication (New)
+define("_USERSETTINGS","Корисничка подешавања");//User settings (New)
+define("_THIRDPARTYTOOLS","3рд парти алата");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Не узимају се у обзир корекције");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Да ли сте сигурни да желите да покрене лекцију? Ово ће трајно обрисати податке");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Спољним алатима");//External tools (New)
+define("_MATHSETTINGS","Математика подешавања");//Math settings (New)
+define("_PHPLIVEDOCX","ПХП ливедоцк");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Не можете да приступите овој страници због следећих ИП адреса буде забрањен");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Е-маил подешавања");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Еррор страница која се приказује када се корисничко име недостаје или је празна");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Еррор страница која се приказује када корисник не може бити креиран");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Променљива која садржи корисничко име");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Укључи датотеку која рукује корисник стварање");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Веб сервер за регистрацију");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Користите ИЛИ логике за израчунавање тачан одговор");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Променљиве% к мора садржати &quot;%y&quot; како би наставили");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Отвори јединица у искачућем прозору");//Open unit in popup window (New)
 ?>

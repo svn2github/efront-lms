@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Vyčistiť oznámenia staršie ako");//Pu
 define("_CURRENTUSERS","Prúd");//Current
 define("_SELECTEDCOURSES","Vybrané kurzy");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Modul súbory sú prítomné, ale nie je nainštalovaný");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","To nastaví všetky lekcie a kurzy cenu na 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Určite objekt id pre obrazovku príslušné rozmery");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Čiarkou oddelený zoznam");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","To nastaví všetky lekcie a kurzy cenu na 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Určite objekt id pre obrazovku príslušné rozmery");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Čiarkou oddelený zoznam");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server overovanie");//Web server authentication (New)
+define("_USERSETTINGS","Užívateľské nastavenia");//User settings (New)
+define("_THIRDPARTYTOOLS","3. strany nástroje");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Neber to do úvahy pri oprave");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Ste si istí, že chcete inicializovať lekciu? To bude natrvalo odstrániť dáta");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Externé nástroje");//External tools (New)
+define("_MATHSETTINGS","Matematický nastavenie");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Nemáte prístup na túto stránku z nasledovných IP boli zakázané");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Nastavenie e-mailu");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Chybová stránka zobrazí, keď užívateľské meno chýba alebo je prázdna");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Chybová stránka zobrazí, ak by používateľ nemôže byť vytvorený");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Premenná, ktorá obsahuje užívateľské meno");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Patrí súbor, ktorý spracováva užívateľské vytváranie");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web server o registráciu");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Použite alebo logika pre výpočet správnu odpoveď");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Premenná% x musí obsahovať &quot;%y&quot;, aby sa aj naďalej");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Open jednotky v pop-up okne");//Open unit in popup window (New)
 ?>

@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","แจ้งล้างข้อมู�
 define("_CURRENTUSERS","ในปัจจุบัน");//Current
 define("_SELECTEDCOURSES","วิชาเลือก");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","ไฟล์ Module เป็นปัจจุบัน แต่ไม่ได้ติดตั้ง");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","นี้จะตั้งเรียนและหลักสูตรราคาเป็น 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","ระบุวัตถุ id ให้ตรงกับขนาดหน้าจอ");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Comma คั่นรายการ");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","นี้จะตั้งเรียนและหลักสูตรราคาเป็น 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","ระบุวัตถุ id ให้ตรงกับขนาดหน้าจอ");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Comma คั่นรายการ");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","ตรวจสอบเว็บเซิร์ฟเวอร์");//Web server authentication (New)
+define("_USERSETTINGS","การตั้งค่าการใช้งาน");//User settings (New)
+define("_THIRDPARTYTOOLS","เครื่องมือ 3 บุคคล");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","ไม่ได้นำเข้าบัญชีในการแก้ไข");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","คุณแน่ใจหรือว่าต้องการเริ่มต้นเรียน? นี้จะลบข้อมูลอย่างถาวร");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","เครื่องมือภายนอก");//External tools (New)
+define("_MATHSETTINGS","การตั้งค่าคณิตศาสตร์");//Math settings (New)
+define("_PHPLIVEDOCX","livedocx PHP");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","คุณไม่สามารถเข้าถึงหน้าเนื่องจาก IP ต่อไปนี้ถูกห้าม");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","การตั้งค่าอีเมล");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","หน้าข้อผิดพลาดปรากฏขึ้นเมื่อผู้ใช้จะหายไปหรือเปล่า");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","หน้าข้อผิดพลาดปรากฏขึ้นเมื่อผู้ใช้ไม่สามารถสร้างได้");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","ตัวแปรที่มีชื่อผู้ใช้");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","ไฟล์รวมที่จับผู้สร้าง");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","การลงทะเบียนเว็บเซิร์ฟเวอร์");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","ใช้ตรรกะหรือการคำนวณคำตอบที่ถูกต้อง");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","% ตัวแปร x จะต้องมี &quot;%y&quot;เพื่อดำเนินการต่อ");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","หน่วยเปิดในหน้าต่างป๊อปอัพ");//Open unit in popup window (New)
 ?>

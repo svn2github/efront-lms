@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Purge bejelentések régebbi");//Purge no
 define("_CURRENTUSERS","Jelenlegi");//Current
 define("_SELECTEDCOURSES","Kiválasztott kurzusok");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Modul fájlok jelen vannak, de nincs telepítve");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Ez beállítja az összes órát és tanfolyamok ára 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Adja meg az objektum ID képernyő megfelelő méretek");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Vesszővel elválasztott listája");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Ez beállítja az összes órát és tanfolyamok ára 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Adja meg az objektum ID képernyő megfelelő méretek");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Vesszővel elválasztott listája");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web szerver hitelesítés");//Web server authentication (New)
+define("_USERSETTINGS","Felhasználói beállítások");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd party eszközöket");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Ne vegye figyelembe a korrekció");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Biztos benne, hogy szeretné elindítani leckét? Ez véglegesen törölni adatok");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Külső eszközök");//External tools (New)
+define("_MATHSETTINGS","Matematikai beállítások");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Nem tudja elérni ezt az oldalt miatt a következő IP-hogy kitiltották");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","E-mail beállítások");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Hiba lap jelenik meg, ha a felhasználói név hiányzik vagy üres");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Hiba lap jelenik meg, ha a felhasználó nem hozható létre");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Változót, amely tartalmazza a felhasználónevet");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Include file kezelő felhasználó létrehozása");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web szerver regisztráció");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Használja, vagy logikai kiszámításához helyes válasz");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","A változó% x tartalmaznia kell a &quot;%y&quot; annak érdekében, hogy továbbra is");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Nyitott egység felugró ablakban");//Open unit in popup window (New)
 ?>

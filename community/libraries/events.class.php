@@ -653,7 +653,7 @@ class EfrontEvent
      $subst_array["triggering_users_surname"] = $triggeringUser -> user['surname'];
      $subst_array["triggering_users_login"] = $triggeringUser -> user['login'];
      $subst_array["triggering_user_type"] = $triggeringUser -> user['user_type'];
-     $subst_array["triggering_users_email"] = $triggeringUser -> user['users_email'];
+     $subst_array["triggering_users_email"] = $triggeringUser -> user['email'];
      // Special case - new password
      if ($this -> event['type'] == EfrontEvent::SYSTEM_NEW_PASSWORD_REQUEST) {
       $subst_array['new_password'] = $this -> event['entity_name'];

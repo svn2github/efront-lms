@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","טהר הודעות ישנות יותר")
 define("_CURRENTUSERS","זרם");//Current
 define("_SELECTEDCOURSES","קורסים נבחרים");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","קבצים מודול נוכחים, אבל זה לא מותקן");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","זה יהיה להגדיר את כל הלקחים וקורסים מחיר 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","ציין אובייקט מזהה על המסך התאמת מידות");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","מופרדים בפסיקים רשימה");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","זה יהיה להגדיר את כל הלקחים וקורסים מחיר 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","ציין אובייקט מזהה על המסך התאמת מידות");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","מופרדים בפסיקים רשימה");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","אינטרנט אימות שרת");//Web server authentication (New)
+define("_USERSETTINGS","הגדרות משתמש");//User settings (New)
+define("_THIRDPARTYTOOLS","3 צד כלים");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","אל תיקח את זה בחשבון תיקון");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","האם אתה בטוח שאתה רוצה לאתחל את הלקח? זה יהיה למחוק את הנתונים");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","כלים חיצוניים");//External tools (New)
+define("_MATHSETTINGS","מתמטיקה הגדרות");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","אתה לא יכול לגשת לדף זה בגלל ה-IP הבאה להיות מגורש");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","הגדרות דוא"ל");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","דף שגיאה מוצגת כאשר שם המשתמש חסרה או ריקה");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","דף שגיאה מוצגת כאשר המשתמש לא יכול להיווצר");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","משתנה המכיל את שם המשתמש");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","כלול בקובץ כי ידיות המשתמש הבריאה");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","שרת אינטרנט אחת");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","ההיגיון שימוש או לחשב את התשובה הנכונה");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","% המשתנה x חייב להכיל &quot;%y&quot; על מנת להמשיך");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","יחידת פתח חלון קופץ");//Open unit in popup window (New)
 ?>

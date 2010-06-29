@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","清除以上通知");//Purge notification
 define("_CURRENTUSERS","当前");//Current
 define("_SELECTEDCOURSES","选择课程");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","模块文件存在，但它没有安装");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","这将设置所有的课程和课程价格为0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","指定对象的ID匹配的屏幕尺寸");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","逗号分隔的列表");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","这将设置所有的课程和课程价格为0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","指定对象的ID匹配的屏幕尺寸");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","逗号分隔的列表");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web服务器的身份验证");//Web server authentication (New)
+define("_USERSETTINGS","用户设置");//User settings (New)
+define("_THIRDPARTYTOOLS","第三方工具");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","不要考虑到它在校正");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","你确定要初始化的教训？这会永久删除数据");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","外部工具");//External tools (New)
+define("_MATHSETTINGS","数学设置");//Math settings (New)
+define("_PHPLIVEDOCX","PHP的livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","您不能访问此页面由于下面的IP被禁止");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","电子邮件设置");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","错误页时显示的用户名丢失或空");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","时显示错误页面，用户无法创建");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","变量，它包含用户名");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","包括文件处理用户创造");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web服务器注册");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","使用或逻辑来计算正确的答案");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","该变量％x必须包含 &quot;%y&quot;型，以继续");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","在弹出的打开窗口单位");//Open unit in popup window (New)
 ?>

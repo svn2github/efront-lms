@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Purga majors de notificacions");//Purge n
 define("_CURRENTUSERS","Corrent");//Current
 define("_SELECTEDCOURSES","cursos seleccionats");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Mòdul arxius estan presents, però no està instal lat");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Això establirà totes les lliçons i cursos de preus en 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Especificar ID de l&#39;objecte de la pantalla es posin en venda les dimensions");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Llista separada per comes");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Això establirà totes les lliçons i cursos de preus en 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Especificar ID de l&#39;objecte de la pantalla es posin en venda les dimensions");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Llista separada per comes");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web de l&#39;autenticació del servidor");//Web server authentication (New)
+define("_USERSETTINGS","Ajustaments de l&#39;usuari");//User settings (New)
+define("_THIRDPARTYTOOLS","eines de tercera part");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","No ho prengui en compte en la correcció");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Esteu segur que voleu iniciar la lliçó? Això esborrarà permanentment les dades");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Eines externes");//External tools (New)
+define("_MATHSETTINGS","Matemàtiques ajustaments");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","No es pot accedir a aquesta pàgina degut a la investigació arran d&#39;haver estat prohibits");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Configuració de correu electrònic");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Pàgina d&#39;error apareix quan l&#39;usuari es troba o està buit");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Pàgina d&#39;error apareix quan l&#39;usuari no pot ser creat");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variable que conté el nom d&#39;usuari");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Incloure arxiu que controla la creació d&#39;usuari");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Registre del servidor web");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Utilitza la lògica o per calcular resposta correcta");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","La variable% x ha de contenir &quot;%y&quot; per continuar");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Obriu la unitat en una finestra emergent");//Open unit in popup window (New)
 ?>

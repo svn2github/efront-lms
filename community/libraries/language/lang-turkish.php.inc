@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Temizle bildirimler daha yaşlı");//Purg
 define("_CURRENTUSERS","Geçerli");//Current
 define("_SELECTEDCOURSES","Seçilen dersler");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Modül dosyaları mevcut ama yüklü değil");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Bu, tüm dersler ve kurslar 0 için fiyat seçecektir");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Belirtmek ekran boyutları eşleşen id nesne");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Virgülle ayrılmış liste");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Bu, tüm dersler ve kurslar 0 için fiyat seçecektir");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Belirtmek ekran boyutları eşleşen id nesne");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Virgülle ayrılmış liste");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web sunucusu kimlik doğrulaması");//Web server authentication (New)
+define("_USERSETTINGS","Kullanıcı ayarları");//User settings (New)
+define("_THIRDPARTYTOOLS","3 parti araçları");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","dikkate düzeltme bunu almayın");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Are sen ders initialize istediğinizden emin misiniz? Bu kalıcı verilerini siler");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Harici araçları");//External tools (New)
+define("_MATHSETTINGS","Matematik ayarları");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Sen yasak olan bu sayfada aşağıdaki IP dolayı erişemiyor");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","E-posta ayarları");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Hata sayfası ne zaman kullanıcı adı eksik veya boş görüntülenen");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Hata sayfası ne zaman kullanıcı oluşturulamadı görüntülenen");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Değişken adı içeren");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","yaratma kullanıcı kolları dahil dosya");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web sunucusu kaydı");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Kullanım OR mantık doğru cevabı hesaplamak için");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Değişken% x devam etmek için &quot;%y&quot; içermelidir");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","halk aç birim penceresi");//Open unit in popup window (New)
 ?>

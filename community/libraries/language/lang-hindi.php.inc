@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","शुद्ध से अधिक प�
 define("_CURRENTUSERS","वर्तमान");//Current
 define("_SELECTEDCOURSES","चयनित पाठ्यक्रम");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","मॉड्यूल फ़ाइलें मौजूद हैं, लेकिन यह स्थापित नहीं है");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","यह सब सबक और पाठ्यक्रमों 0 करने के लिए मूल्य निर्धारित करेंगे");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","निर्दिष्ट आयामों से मेल खाते स्क्रीन के लिए आईडी वस्तु");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","अल्पविराम से पृथक सूची");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","यह सब सबक और पाठ्यक्रमों 0 करने के लिए मूल्य निर्धारित करेंगे");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","निर्दिष्ट आयामों से मेल खाते स्क्रीन के लिए आईडी वस्तु");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","अल्पविराम से पृथक सूची");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","वेब सर्वर प्रमाणीकरण");//Web server authentication (New)
+define("_USERSETTINGS","प्रयोक्ता सेटिंग्स");//User settings (New)
+define("_THIRDPARTYTOOLS","3 पार्टी उपकरण");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","खाते में यह सुधार में मत लो");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","आप सुनिश्चित हैं कि आप पाठ आरंभ करना चाहते हैं? यह स्थायी रूप से डेटा को नष्ट करेगा");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","बाह्य उपकरणों");//External tools (New)
+define("_MATHSETTINGS","गणित सेटिंग्स");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","आप इस निम्नलिखित IP के कारण पृष्ठ का उपयोग नहीं किया जा रहा है पर प्रतिबंध लगा सकते हैं");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","ईमेल सेटिंग्स");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","त्रुटि पृष्ठ प्रदर्शित जब उपयोगकर्ता नाम नहीं है या खाली");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","त्रुटि पृष्ठ प्रदर्शित जब उपयोगकर्ता बनाया नहीं जा सकता");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","चर कि उपयोगकर्ता नाम शामिल हैं");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","शामिल फ़ाइल है कि उपयोगकर्ता का सृजन हैंडल");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","वेब सर्वर पंजीकरण");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","का प्रयोग करें या तर्क सही जवाब गणना करने के लिए");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","चर% x  &quot;%y&quot; मिल करने के लिए जारी करना चाहिए");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","पॉपअप विंडो में खोलें इकाई");//Open unit in popup window (New)
 ?>

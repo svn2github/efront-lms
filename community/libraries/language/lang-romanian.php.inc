@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Epurări notificări mai în vârstă dec
 define("_CURRENTUSERS","Curent");//Current
 define("_SELECTEDCOURSES","Cursuri selectate");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Modulul fişierele sunt prezente, dar nu este instalat");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Acest lucru va seta toţi lecţii şi cursuri de preţ la 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Specificaţi obiect id-ul de dimensiuni de ecran de potrivire");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Separate prin virgulă listă");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Acest lucru va seta toţi lecţii şi cursuri de preţ la 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Specificaţi obiect id-ul de dimensiuni de ecran de potrivire");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Separate prin virgulă listă");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web server de autentificare");//Web server authentication (New)
+define("_USERSETTINGS","Setări utilizator");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd party unelte");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Nu o lua în considerare în corecţie");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Eşti sigur că vrei să iniţializa lecţie? Aceasta va şterge definitiv de date");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Instrumente externe");//External tools (New)
+define("_MATHSETTINGS","Math setările");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Nu puteţi accesa această pagină din cauza perioadei de anchetă urma să fie interzis");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Setările de e-mail");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","pagina de eroare afişate când lipseşte numele de utilizator sau gol");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","pagina de eroare afişat atunci când utilizatorul nu a putut fi creată");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Variabilă care conţine numele de utilizator");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Include fişierul care se ocupă de crearea de utilizator");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web serverului de înregistrare");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Utilizaţi logica sau pentru a calcula răspunsul corect");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","% Variabila x trebuie să conţină &quot;%y&quot; pentru a continua");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","unitate Open in fereastra pop-up");//Open unit in popup window (New)
 ?>

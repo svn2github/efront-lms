@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","");//Purge notifications older than
 define("_CURRENTUSERS","");//Current
 define("_SELECTEDCOURSES","");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Tas noteikti visus nodarbības un kursus, cena līdz 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Norādiet objekta ID ekrāna saskaņošanas izmēri");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Komatu atdalīts saraksts");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Tas noteikti visus nodarbības un kursus, cena līdz 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Norādiet objekta ID ekrāna saskaņošanas izmēri");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Komatu atdalīts saraksts");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","Web servera autentifikācija");//Web server authentication (New)
+define("_USERSETTINGS","Lietotāja uzstādījumi");//User settings (New)
+define("_THIRDPARTYTOOLS","3rd Party instrumenti");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Neņem to vērā, korekcija");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Vai tiešām vēlaties inicializēt mācība? Tas neatgriezeniski dzēst datus");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","Ārējie instrumenti");//External tools (New)
+define("_MATHSETTINGS","Math uzstādījumi");//Math settings (New)
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Jūs nevarat piekļūt šai lapai, jo šādas izmeklēšanas ir aizliegts");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","E-pasta iestatījumus");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","Kļūda lapa parādās, kad lietotājvārdu iztrūkst vai ir tukšs");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","Kļūda lapa parādās, kad lietotājs nevar izveidot");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Mainīgais, kas satur lietotājvārdu");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Iekļaut failu, rokturi lietotāja izveidošana");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","Web serveris reģistrācija");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Izmantošanu vai loģika, lai aprēķinātu pareizu atbildi");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","Mainīgo% x jābūt &quot;%y&quot;, lai turpinātu");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","Open vienība uznirstošo logu");//Open unit in popup window (New)
 ?>

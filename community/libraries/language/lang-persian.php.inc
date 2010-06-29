@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","اطلاعیه پاکسازی مسن تر
 define("_CURRENTUSERS","جاری");//Current
 define("_SELECTEDCOURSES","دوره های برگزیده");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","فایل های ماژول ها حضور دارند ، اما آن نصب نشده است");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","این همه درس و رشته های قیمت تا 0 ، مجموعه");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","برای مشخص کردن شیء روی صفحه نمایش مطابق ابعاد شناسه");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","فهرست کاما از هم جدا");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","این همه درس و رشته های قیمت تا 0 ، مجموعه");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","برای مشخص کردن شیء روی صفحه نمایش مطابق ابعاد شناسه");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","فهرست کاما از هم جدا");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","وب سایت اعتبار سرور");//Web server authentication (New)
+define("_USERSETTINGS","تنظیمات کاربری");//User settings (New)
+define("_THIRDPARTYTOOLS","3 حزب ابزار");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","آیا آن را به حساب در اصلاح نیست");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","آیا مطمئن هستید که می خواهید به مقداردهی اولیه درس؟ این داده ها برای همیشه حذف خواهد شد");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","ابزار های خارجی");//External tools (New)
+define("_MATHSETTINGS","تنظیمات ریاضی");//Math settings (New)
+define("_PHPLIVEDOCX","livedocx پی اچ پی");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","شما می توانید این صفحه را به دلیل زیر آی پی دسترسی نمی بودن ممنوع");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","تنظیمات ایمیل");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","صفحه خطا نمایش داده شده هنگامی که نام کاربری است که گم شده و یا خالی");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","صفحه خطا نمایش داده شده هنگامی که کاربر می تواند ایجاد نمی");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","متغیر است که حاوی نام کاربری");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","فایل که شامل دسته ایجاد کاربر");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","وب سایت ثبت نام سرور");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","استفاده از منطق یا برای محاسبه پاسخ صحیح");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","٪ متغیر ایکس باید &quot;%y&quot; به منظور ادامه شامل");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","واحد باز در پنجره پنجره");//Open unit in popup window (New)
 ?>

@@ -24,6 +24,7 @@ $customizationDisableForm -> addElement("advcheckbox", "disable_tooltip", _TOOLT
 $customizationDisableForm -> addElement("advcheckbox", "disable_help", _HELP, null, 'class = "inputCheckBox"', array(0, 1));
 $customizationDisableForm -> addElement("advcheckbox", "disable_feedback", _FEEDBACK, null, 'class = "inputCheckBox"', array(0, 1));
 $customizationDisableForm -> addElement("advcheckbox", "disable_payments", _PAYMENTS, null, 'class = "inputCheckBox"', array(0, 1));
+$customizationDisableForm -> addElement("static", "", _SELECTOPTIONSDISABLED);
 $customizationDisableForm -> setDefaults($GLOBALS['configuration']);
 
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {

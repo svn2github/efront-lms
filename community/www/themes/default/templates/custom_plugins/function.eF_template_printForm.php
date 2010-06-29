@@ -11,8 +11,11 @@ function smarty_function_eF_template_printForm($params, &$smarty) {
    $submitButtons[] = $value['html'];
   } else if ($value['type'] == 'hidden') {
    $hiddenString .= $value['html'];
+  } else if ($value['type'] == 'static') {
+   $elementString .= '
+   <tr><td class = "labelCell"></td>
+    <td class = "infoCell">'.$value['label'].'</td></tr>';
   } else {
-//pr($value);
    $elementString .= '
    <tr><td class = "labelCell">'.$value['label'].':&nbsp;</td>
     <td class = "elementCell">'.$value['html'].($value['required'] ? '&nbsp;<span class = "formRequired">*</span>' : '').($value['error'] ? '<br><span class = "formError">'.$value['error'].'</span>' : '').'</td></tr>';

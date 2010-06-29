@@ -3725,7 +3725,25 @@ define("_PURGENOTIFICATIONSOLDERTHAN","Njoftimet më të vjetër se Purge");//Pu
 define("_CURRENTUSERS","Aktual");//Current
 define("_SELECTEDCOURSES","kurse e zgjedhur");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","fotografi Moduli janë të pranishëm, por nuk është i instaluar");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Kjo do të përcaktojë të gjitha mësimet dhe kurse çmimi për 0");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","Specifikoni objektit id për ekran përputhen dimensione");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","Lista e ndarë me presje");//Comma separated list (New)
+define("_DISABLEPAYMENTSNOTICE","Kjo do të përcaktojë të gjitha mësimet dhe kurse çmimi për 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Specifikoni objektit id për ekran përputhen dimensione");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Lista e ndarë me presje");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","tek Web serveri");//Web server authentication (New)
+define("_USERSETTINGS","Paneli i përdoruesit");//User settings (New)
+define("_THIRDPARTYTOOLS","mjete 3 partisë");//3rd party tools (New)
+define("_DONOTTAKEACCOUNTINCORRECTING","Mos e merr atë në konsideratë në korrigjim");//Do not take it into account in correction (New)
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","A jeni i sigurt se doni të iniciojnë për mësim? Kjo do të fshijë të dhënat");//Are you sure you want to initialize lesson? This will permanently delete data (New)
+define("_EXTERNALTOOLS","mjete të jashtme");//External tools (New)
+define("_MATHSETTINGS","Paneli i Math");//Math settings (New)
+define("_PHPLIVEDOCX","livedocx PHP");//PHP livedocx (New)
+define("_CANNOTACCESSIPBAN","Ju nuk mund të hyni në këtë faqe për shkak të IP e mëposhtme duke u ndaluar");//You cannot access this page due to the following IP being banned (New)
+define("_EMAILSETTINGS","Cilësimet e Email");//Email settings (New)
+define("_ERRORPAGEFORINVALIDLOGIN","faqe Gabim shfaqet kur emrin mungon ose është bosh");//Error page displayed when the username is missing or empty (New)
+define("_ERRORPAGEFORUNAUTHORIZED","faqe Gabim shfaqet kur përdoruesi nuk mund të krijohet");//Error page displayed when the user could not be created (New)
+define("_VARIABLEFORUSERNAME","Ndryshore që përmban emrin");//Variable that contains the username (New)
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Përfshij skedarin që trajton krijimin përdorues");//Include file that handles user creation (New)
+define("_WEBSERVERREGISTRATION","regjistrimit Web server");//Web server registration (New)
+define("_USEORLOGICTOCORRECTANSWERS","Përdorni logjikën OSE për të llogaritur përgjigje të saktë");//Use OR logic to calculate correct answer (New)
+define("_VARIABLEMUSTCONTAINLOGIN","% Variabël duhet të përmbajë x &quot;%y&quot; në mënyrë që të vazhdojnë");//The variable %x must contain &quot;%y&quot; in order to continue (New)
+define("_OPENUNITINPOPUP","njësi të hapen në dritare popup");//Open unit in popup window (New)
 ?>

@@ -16,8 +16,8 @@ if (isset($_GET['sel_course'])) {
     $infoCourse = new EfrontCourse($_GET['sel_course']);
     $infoCourse -> course['num_lessons'] = $infoCourse -> countCourseLessons();
     $constraints = array('table_filters' => $stats_filters);
-    $infoCourse -> course['num_students'] = sizeof($infoCourse -> getStudentUsers(false, $constraints));
-    $infoCourse -> course['num_professors'] = sizeof($infoCourse -> getProfessorUsers(false, $constraints));
+    //$infoCourse -> course['num_students']   = sizeof($infoCourse -> getStudentUsers(false, $constraints));
+    //$infoCourse -> course['num_professors'] = sizeof($infoCourse -> getProfessorUsers(false, $constraints));
     $infoCourse -> course['category_path'] = $directionsPaths[$infoCourse -> course['directions_ID']];
 
     $smarty -> assign("T_CURRENT_COURSE", $infoCourse);
@@ -30,6 +30,18 @@ if (isset($_GET['sel_course'])) {
      $rolesBasic = EfrontLessonUser :: getLessonsRoles();
      $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
+     foreach ($rolesBasic as $key => $role) {
+      $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'uc.user_type = "'.$key.'"');
+      $numUsers = $infoCourse -> countCourseUsers($constraints);
+      if ($numUsers) {
+       $usersPerRole[$key] = $numUsers;
+      }
+      //$role == 'student' ? $studentRoles[] = $key : $professorRoles[] = $key;
+     }
+     $infoCourse -> course['users_per_role'] = $usersPerRole;
+     $infoCourse -> course['num_users'] = array_sum($usersPerRole);
+
+
      $courseInstances = $infoCourse -> getInstances();
      $smarty -> assign("T_COURSE_INSTANCES", $courseInstances);
      $smarty -> assign("T_COURSE_HAS_INSTANCES", sizeof($courseInstances) > 1);
@@ -41,7 +53,7 @@ if (isset($_GET['sel_course'])) {
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
       $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
       $totalEntries = $infoCourse -> countCourseUsersAggregatingResults($constraints);
-      $dataSource = $users;pr($users);
+      $dataSource = $users;
       $smarty -> assign("T_TABLE_SIZE", $totalEntries);
      }
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {

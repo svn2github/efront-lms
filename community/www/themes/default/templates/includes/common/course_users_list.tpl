@@ -67,7 +67,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
       {/foreach}
      </select>
     {else}
-     {$T_ROLES_ARRAY[$user.user_type]}
+     {$T_ROLES_ARRAY[$user.role]}
     {/if}
    {/if}
    </td>

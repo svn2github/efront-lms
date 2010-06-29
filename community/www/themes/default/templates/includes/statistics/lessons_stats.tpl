@@ -39,12 +39,8 @@
                     <td class = "elementCell">{$T_CURRENT_LESSON->lesson.category_path}</td>
                 </tr>
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
-                    <td class = "labelCell">{$smarty.const._STUDENTS}:</td>
-                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.num_students}</td>
-                </tr>
-                <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
-                    <td class = "labelCell">{$smarty.const._PROFESSORS}:</td>
-                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.num_professors}</td>
+                    <td class = "labelCell">{$smarty.const._USERS}:</td>
+                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.num_users} ({foreach name = "user_types_list" item ="item" key = "key" from = $T_CURRENT_LESSON->lesson.users_per_role}{$T_ROLES_ARRAY[$key]}: {$item}{if !$smarty.foreach.user_types_list.last}, {/if}{/foreach})</td>
                 </tr>
             </table>
 
@@ -86,13 +82,15 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
     <td class = "user_type">{$T_ROLES_ARRAY[$user.role]}</td>
     <td class = "time_in_lesson"><span style = "display:none">{$user.time_in_lesson.total_seconds}&nbsp;</span>{$user.time_in_lesson.time_string}</td>
     <td class = "progressCell overall_progress">
+     {if $user.basic_user_type != 'professor'}
      <span style = "display:none">{$user.overall_progress.completed+1000}</span>
      <span class = "progressNumber">#filter:score-{$user.overall_progress.percentage}#%</span>
      <span class = "progressBar" style = "width:{$user.overall_progress.percentage}px;">&nbsp;</span>&nbsp;&nbsp;
+     {else}<div class = "centerAlign">-</div>{/if}
     </td>
     {if !$T_CONFIGURATION.disable_tests}
      <td class = "progressCell test_status">
-     {if $user.test_status}
+     {if $user.test_status && $user.basic_user_type != 'professor'}
       <span style = "display:none">{$user.test_status.mean_score+1000}</span>
       <span class = "progressNumber">#filter:score-{$user.test_status.mean_score}#% ({$user.test_status.completed}/{$user.test_status.total})</span>
       <span class = "progressBar" style = "width:{$user.test_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -101,15 +99,18 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
     {/if}
     {if !$T_CONFIGURATION.disable_projects}
      <td class = "progressCell project_status">
-     {if $user.project_status}
+     {if $user.project_status && $user.basic_user_type != 'professor'}
       <span style = "display:none">{$user.project_status.mean_score+1000}</span>
       <span class = "progressNumber">#filter:score-{$user.project_status.mean_score}#% ({$user.project_status.completed}/{$user.project_status.total})</span>
       <span class = "progressBar" style = "width:{$user.project_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
      {else}<div class = "centerAlign">-</div>{/if}
      </td>
     {/if}
-    <td class = "completed">{if $user.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}</td>
-    <td class = "score">#filter:score-{$user.score}#%</td>
+    <td class = "completed">
+    {if $user.basic_user_type != 'professor'}
+     {if $user.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}</td>
+    {else}<div class = "centerAlign">-</div>{/if}
+    <td class = "score">{if $user.basic_user_type != 'professor'}#filter:score-{$user.score}#%{else}<div class = "centerAlign">-</div>{/if}</td>
    </tr>
    {foreachelse}
    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>

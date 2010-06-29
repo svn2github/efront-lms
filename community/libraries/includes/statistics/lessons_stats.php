@@ -39,32 +39,47 @@ try {
       $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
       foreach ($rolesBasic as $key => $role) {
-       $role == 'student' ? $studentRoles[] = $key : $professorRoles[] = $key;
+       $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type = "'.$key.'"');
+          $numUsers = ($infoLesson -> countLessonUsers($constraints));
+       if ($numUsers) {
+        $usersPerRole[$key] = $numUsers;
+       }
+          //$role == 'student' ? $studentRoles[] = $key : $professorRoles[] = $key;
       }
+      $infoLesson -> lesson['users_per_role'] = $usersPerRole;
+      $infoLesson -> lesson['num_users'] = array_sum($usersPerRole);
 
-      $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type in ("'.implode('","', $studentRoles).'")');
-         $infoLesson -> lesson['num_students'] = ($infoLesson -> countLessonUsers($constraints));
-      $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type in ("'.implode('","', $professorRoles).'")');
-         $infoLesson -> lesson['num_professors'] = ($infoLesson -> countLessonUsers($constraints));
+/*	    	
+
+	    	$constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type in ("'.implode('","', $studentRoles).'")');
+
+        	$infoLesson -> lesson['num_students']   = ($infoLesson -> countLessonUsers($constraints));
+
+	    	$constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type in ("'.implode('","', $professorRoles).'")');
+
+        	$infoLesson -> lesson['num_professors'] = ($infoLesson -> countLessonUsers($constraints));
+
+*/
          $infoLesson -> lesson['category_path'] = $directionsPaths[$infoLesson -> lesson['directions_ID']];
-
       $smarty -> assign("T_CURRENT_LESSON", $infoLesson);
             $smarty -> assign("T_STATS_ENTITY_ID", $infoLesson -> lesson['id']);
-
          $lessonInfo = $infoLesson -> getStatisticInformation();
             $smarty -> assign("T_LESSON_INFO", $lessonInfo);
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);
         }
-
         require_once $path."includes/statistics/stats_filters.php";
-
         try {
          if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonUsersTable') {
           //$smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
           //$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
           $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
           $users = $infoLesson -> getLessonStatusForUsers($constraints);
+          foreach ($users as $key => $value) {
+           if ($value['user_type'] == 'professor' || $rolesBasic[$value['user_types_ID']] == 'professor') {
+            $users[$key]['basic_user_type'] = 'professor';
+           }
+          }
           $totalEntries = $infoLesson -> countLessonUsers($constraints);
           $dataSource = $users;
           $smarty -> assign("T_TABLE_SIZE", $totalEntries);

@@ -72,12 +72,8 @@
                     <td class = "elementCell">{$T_CURRENT_COURSE->course.num_lessons}</td></tr>
                 </tr>
                 <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
-                    <td class = "labelCell">{$smarty.const._STUDENTS}:</td>
-                    <td class = "elementCell">{$T_CURRENT_COURSE->course.num_students}</td></tr>
-                </tr>
-                <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
-                    <td class = "labelCell">{$smarty.const._PROFESSORS}:</td>
-                    <td class = "elementCell">{$T_CURRENT_COURSE->course.num_professors}</td></tr>
+                    <td class = "labelCell">{$smarty.const._USERS}:</td>
+                    <td class = "elementCell">{$T_CURRENT_COURSE->course.num_users} ({foreach name = "user_types_list" item ="item" key = "key" from = $T_CURRENT_COURSE->course.users_per_role}{$T_ROLES_ARRAY[$key]}: {$item}{if !$smarty.foreach.user_types_list.last}, {/if}{/foreach})</td>
                 </tr>
                 <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._PRICE}:</td>

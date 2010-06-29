@@ -1125,10 +1125,10 @@ class EfrontCourse
  public function getCourseUsersAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
-  $from = "(users u, (select uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course, uc.from_timestamp as enrolled_on from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
+  $from = "(users u, (select uc.user_type as role,uc.score,uc.completed,uc.users_LOGIN,uc.to_timestamp, uc.from_timestamp as active_in_course, uc.from_timestamp as enrolled_on from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) r)";
   $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
   $where[] = "u.login=r.users_LOGIN";
-  $select = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, 1 as has_course, max(active_in_course) as active_in_course, max(enrolled_on) as enrolled_on";
+  $select = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, max(role) as role, 1 as has_course, max(active_in_course) as active_in_course, max(enrolled_on) as enrolled_on";
   $groupby = "r.users_LOGIN";
 /*		
 
@@ -1300,7 +1300,7 @@ class EfrontCourse
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $from = "users u left outer join
      (select users_LOGIN,max(score) as score, max(completed) as completed, 1 as has_course from
-      (select uc.score,uc.completed,uc.users_LOGIN from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) foo
+      (select uc.user_type as role, uc.score,uc.completed,uc.users_LOGIN from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) foo
      group by users_LOGIN) r on u.login=r.users_login";						 
   $result = eF_getTableData($from, "u.*, r.*",
   implode(" and ", $where), $orderby, $groupby, $limit);

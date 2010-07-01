@@ -182,13 +182,8 @@ class module_complete_test extends EfrontModule
     $renderer = prepareFormRenderer($form);
     $smarty -> assign('T_CORRELATE_FORM', $renderer -> toArray());
 
-    if (isset($errorDuringImport)) {
-     if (sizeof($errorDuringImport) > 0) {
-      $this -> setMessageVar("Successfully imported $numImported results, but ".sizeof($errorDuringImport)." users could not be imported:<br> ".implode("<br>", $errorDuringImport), "failure");
-     } else {
-      $this -> setMessageVar("Successfully imported $numImported results", "success");
-     }
-    }
+
+
     //$this -> importTestResults($selectedTest, $uploadedFile, $dateFormat, $userFormat);
     //pr($selectedTest);
 
@@ -336,7 +331,7 @@ class module_complete_test extends EfrontModule
  }
 
  private function handleCorrelateDataForm(&$form) {
-  $errorDuringImport = array();
+
   if ($form -> isSubmitted() && $form -> validate()) {
    $currentLesson = $this -> getCurrentLesson();
    $lessonUsers = $currentLesson -> getUsers('student');
@@ -409,8 +404,14 @@ class module_complete_test extends EfrontModule
 
    }
 
+   if (sizeof($errorDuringImport) > 0) {
+    $this -> setMessageVar("Successfully imported $numImported results, but ".sizeof($errorDuringImport)." users could not be imported:<br> ".implode("<br>", $errorDuringImport), "failure");
+   } else {
+    $this -> setMessageVar("Successfully imported $numImported results", "success");
+   }
+   return array($errorDuringImport, $numImported);
   }
-  return array($errorDuringImport, $numImported);
+
  }
 
  private function translateParsedAnswersToUserAnswers($parsedAnswer, $question) {

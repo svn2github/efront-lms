@@ -434,6 +434,9 @@ abstract class EfrontUser
    } else {
     try {
      $user = EfrontUserFactory :: factory($usernameVar);
+     if (!$_SESSION['s_login']) {
+      $user -> login($user -> user['password'], true);
+     }
     } catch (EfrontUserException $e) {
      if ($e -> getCode() == EfrontUserException::USER_NOT_EXISTS && $GLOBALS['configuration']['webserver_registration']) {
       try {

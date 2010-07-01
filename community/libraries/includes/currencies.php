@@ -61,6 +61,7 @@ $CURRENCYSYMBOLS = array('USD' => '$',
        'VND' => '&#8363;',
        'GEL' => '&#4314;&#4304;&#4320;&#4312;',
        'PHP' => '&#8369;',
+       'VEF' => '&#66;&#115;&#70;',
        '000' => '');
 
 
@@ -120,6 +121,7 @@ $CURRENCYNAMES = array('USD' => 'US Dollars',
        'VND' => 'Vietnamese Dong',
        'GEL' => 'Georgian Lari',
        'PHP' => 'Philippine Peso',
+       'VEF' => 'Bolivares Fuertes',
        '000' => 'No currency symbol');
 $smarty -> assign("T_CURRENCYSYMBOLS", $CURRENCYSYMBOLS);
 ?>

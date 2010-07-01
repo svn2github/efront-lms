@@ -2068,8 +2068,9 @@ function eF_getTimezones() {
         $timezones['America/New_York'] = "(GMT -05:00) Eastern Time (US & Canada)";
         $timezones['America/Indiana/Indianapolis'] = "(GMT -05:00) Indiana (East)";
         $timezones['America/Bogota'] = "(GMT -05:00) Bogota, Lima, Quito";
+  $timezones['America/Caracas'] = "(GMT -04:30) Caracas";
         $timezones['America/Santiago'] = "(GMT -04:00) Atlantic Time (Canada), Santiago";
-        $timezones['America/Caracas'] = "(GMT -04:00) Caracas, La Paz";
+  $timezones['America/La_Paz'] = "(GMT -04:00) La Paz";
         $timezones['Canada/Newfoundland'] = "(GMT -03:30) Newfoundland";
         $timezones['America/Buenos_Aires'] = "(GMT -03:00) Buenos Aires, Georgetown, Brasilia, Greenland";
         $timezones['Etc/GMT+2'] = "(GMT -02:00) Mid-Atlantic";

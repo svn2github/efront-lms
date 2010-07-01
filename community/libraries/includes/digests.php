@@ -224,6 +224,7 @@ $loadScripts[] = "administrator/digests";
         sizeof($lessons) > 0 ? $lessons = array_combine($lessons['id'], $lessons['name']) : $lessons = array();
         // Get available courses
         $courses = eF_getTableDataFlat("courses", "id,name", "archive=0", "name"); //return only unarchived courses
+  sizeof($courses) > 0 ? $av_courses = array_combine(array_merge(array("0"), $courses['id']), array_merge(array(_ANYCOURSE), $courses['name'])): $av_courses = array(0 => _ANYCOURSE);
         sizeof($courses) > 0 ? $courses = array_combine($courses['id'], $courses['name']) : $courses = array();
         $smarty -> assign("T_COURSES", $courses);
         // Get available tests
@@ -275,7 +276,7 @@ $loadScripts[] = "administrator/digests";
 
 
         $form -> addElement('select', 'available_lessons', _LESSON, $av_lessons, 'id = "available_lessons" class = "inputSelectMed"');
-        $form -> addElement('select', 'available_courses', _COURSE, array_merge(array(0=> _ANYCOURSE), $courses), 'id = "available_courses" class = "inputSelectMed"');
+        $form -> addElement('select', 'available_courses', _COURSE, $av_courses, 'id = "available_courses" class = "inputSelectMed"');
         $form -> addElement('select', 'available_tests', _TEST, $tests, 'id = "available_tests" class = "inputSelectMed"');
         //$form -> addElement('select', 'available_content',    _CONTENT, $units,       'id = "available_content" class = "inputSelectMed"');
 
@@ -523,6 +524,8 @@ $loadScripts[] = "administrator/digests";
                     $condition = $send_conditions["unit_ID"];
                 } else if ($event_category == "forum") {
                     $condition = $send_conditions["forums_ID"];
+                } else if ($event_category == "courses") {
+                    $condition = $send_conditions["courses_ID"];
                 } else {
                     $condition = false;
                 }
@@ -677,7 +680,7 @@ $loadScripts[] = "administrator/digests";
                     if ($event_category == "lessons") {
                         $condition = $form -> exportValue('available_' . $event_category);
                         $condition = array("lessons_ID" => $condition);
-                    } else if ($event_category == "courses") {
+                    } else if ($event_category == "courses") {//pr($form -> exportValues());exit;
                         $condition = $form -> exportValue('available_' . $event_category);
                         $condition = array("courses_ID" => $condition);
                     } else if ($event_category == "tests") {
@@ -689,16 +692,13 @@ $loadScripts[] = "administrator/digests";
                         $condition = array();
                     }
                     if (isset($_GET['add_notification'])) {
-
                         EfrontNotification::addEventNotification($events_type, $subject, $message, $condition, $_POST['event_recipients'], $html_message, $after_time, $send_immediately);
                     } else {
                         // if we changed from simple notification event -> on/after event notification
                         if (!isset($_GET['event'])) {
                             eF_deleteTableData("notifications", "id = '".$_GET['edit_notification']."'");
-
                             //$notification = array ("event_type"        => $events_type, "send_conditions" => serialize($condition),"send_recipients" => $_POST['event_recipients'], "message"          => $message,"subject"       => $subject);
                             EfrontNotification::addEventNotification($events_type, $subject, $message, $condition, $_POST['event_recipients'], $html_message, $after_time, $send_immediately);
-
                         } else {
                             EfrontNotification::editEventNotification($_GET['edit_notification'], $events_type, $subject, $message, $condition, $_POST['event_recipients'], $html_message, $after_time, $send_immediately);
                         }

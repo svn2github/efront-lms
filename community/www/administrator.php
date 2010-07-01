@@ -304,9 +304,10 @@ try {
                      'action' => 'lastmove',
                      'comments' => 0,
                      'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
-
+//debug();
     eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
     eF_insertTableData("logs", $fields_log);
+//debug(false);    
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

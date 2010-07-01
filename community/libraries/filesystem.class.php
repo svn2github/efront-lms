@@ -307,7 +307,7 @@ class EfrontFile extends ArrayObject
             if (eF_checkParameter($file, 'id')) { //Instantiate object based on id
                 $result = eF_getTableData("files", "*", "id=".$file);
             } elseif (eF_checkParameter($file, 'path')) { //id-based instantiation failed; Check if the full path is specified
-                $result = eF_getTableData("files", "*", "path='".str_replace(G_ROOTPATH, '', EfrontDirectory :: normalize($file))."'");
+                $result = eF_getTableData("files", "*", "path='".str_replace(G_ROOTPATH, '', eF_addSlashes(EfrontDirectory :: normalize($file)))."'"); //eF_addSlashes for files containing '
             } else {
                 throw new EfrontFileException(_ILLEGALPATH.': '.$file, EfrontFileException :: ILLEGAL_PATH);
             }
@@ -393,7 +393,7 @@ class EfrontFile extends ArrayObject
             throw new EfrontFileException(_CANNOTDELETEFILE, EfrontFileException :: GENERAL_ERROR);
         }
         if ($this['id'] != -1) {
-            eF_deleteTableData("files", "path = '".str_replace(G_ROOTPATH, '', $this['path'])."' or id=".$this['id']); //Delete database representation of the file
+             eF_deleteTableData("files", "path = '".str_replace(G_ROOTPATH, '', eF_addSlashes($this['path']))."' or id=".$this['id']); //Delete database representation of the file
             EfrontSearch :: removeText('files', $this['id'], 'data');
         }
         return true;

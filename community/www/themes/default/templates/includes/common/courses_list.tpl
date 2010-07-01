@@ -94,7 +94,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
          {$T_ROLES_ARRAY[$course.user_type]}
         {elseif $T_SORTED_TABLE == 'instancesTable' || !$course.has_instances}
          <span style = "display:none">{$T_ROLES_ARRAY[$course.user_type]}</span>
-               <select name = "course_type_{$course.id}" id = "course_type_{$course.id}" onchange = "$('course_{$course.id}').checked = true;ajaxUserPost('course', '{$course.id}', this);">
+               <select name = "course_type_{$course.id}" id = "course_type_{$course.id}" onchange = "$('course_{$course.id}').checked = true;ajaxUserPost('course', '{$course.id}', this, '{$T_SORTED_TABLE}');">
              {foreach name = 'roles_list' key = 'role_key' item = 'role_item' from = $T_ROLES_ARRAY}
                    <option value = "{$role_key}" {if !$course.user_type}{if ($T_EDITED_USER_TYPE == $role_key)}selected{/if}{else}{if ($course.user_type == $role_key)}selected{/if}{/if}>{$role_item}</option>
              {/foreach}
@@ -367,7 +367,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'coursesTable'}
 <!--ajax:coursesTable-->
  <table size = "{$T_TABLE_SIZE}" sortBy = "{$T_DATASOURCE_SORT_BY}" order = "{$T_DATASOURCE_SORT_ORDER}" id = "coursesTable" class = "sortedTable" useAjax = "1" url = "{$courses_url}">
-  {$smarty.capture.courses_list}
+ {$smarty.capture.courses_list}
  </table>
 <!--/ajax:coursesTable-->
 {/if}

@@ -257,11 +257,13 @@
 {/capture}
 
 
+{capture name = "t_complete_test_code"}
 <div class = "tabber">
  {eF_template_printBlock tabber = "main" title = "`$smarty.const._LESSONUSERS`" data = $smarty.capture.t_users_code image = $T_COMPLETETEST_BASELINK|cat:'images/theory.png' absoluteImagePath = 1 main_options = $T_TABLE_OPTIONS}
  {eF_template_printBlock tabber = "import" title = "`$smarty.const._COMPLETE_TEST_IMPORTFILE`" data = $smarty.capture.t_upload_form_code image = "32x32/import.png"}
 </div>
-
+{/capture}
+{eF_template_printBlock title = "`$smarty.const._COMPLETE_TEST`" data = $smarty.capture.t_complete_test_code image = "32x32/tests.png"}
 
 {/if}
 

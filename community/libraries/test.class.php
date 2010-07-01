@@ -18,7 +18,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
  * Test exceptions
 
- * 
+ *
 
  * @package eFront
 
@@ -42,7 +42,7 @@ class EfrontTestException extends Exception
 
  * Class for tests
 
- * 
+ *
 
  * @package eFront
 
@@ -382,7 +382,7 @@ class EfrontTest
      */
     public function getQuestions($returnObjects = false) {
         if ($this -> questions === false) {
-         //Get content unit names, to be assigned to questions for easy access 
+         //Get content unit names, to be assigned to questions for easy access
             $contentNames = eF_getTableDataFlat("content", "id, name", "lessons_ID=".$this -> test['lessons_ID']);
             if (sizeof($contentNames) > 0) {
              $contentNames = array_combine($contentNames['id'], $contentNames['name']);
@@ -702,7 +702,7 @@ class EfrontTest
              $lesson = array($this -> lesson => $result[0]['name']);
          }
      } else {
-         $lesson = array(); // used to denote skill gap tests	        
+         $lesson = array(); // used to denote skill gap tests
      }
         return $lesson;
     }
@@ -824,7 +824,7 @@ class EfrontTest
 
      * Return the subset that meets the requirements for time and number
 
-     * 
+     *
 
      * This function tries to compute a subset that meets the specified requirements
 
@@ -832,7 +832,7 @@ class EfrontTest
 
      * algorithm:
 
-     * 
+     *
 
      * 1. Normalize times and number
 
@@ -846,9 +846,9 @@ class EfrontTest
 
      * 3. Pick the subset that minimizes this distance
 
-     * 
+     *
 
-     * For example, let's say you have the following array, representing question ids and 
+     * For example, let's say you have the following array, representing question ids and
 
      * corresponding times (in seconds - empty times are allowed, they equal to zero):
 
@@ -858,7 +858,7 @@ class EfrontTest
 
 	 *			[6] => 90
 
-	 *			[9] => 
+	 *			[9] =>
 
 	 *			[4] => 30
 
@@ -870,9 +870,9 @@ class EfrontTest
 
 	 *		)
 
-	 *  We wish to get a subset that has 4 questions in total, with duration 300 seconds. 
+	 *  We wish to get a subset that has 4 questions in total, with duration 300 seconds.
 
-     *  The algorithm would then go as (pseudo-code): 
+     *  The algorithm would then go as (pseudo-code):
 
      *  1. Normalization: $size = 4/6, $time = 300/420  (wanted questions/total questions, wanted time/times sum)
 
@@ -882,11 +882,11 @@ class EfrontTest
 
      *     2.2 Pick a subarray of random size: $subset = array_slice($times, 0, $random)  ($random is a random number from 1 to total size)
 
-     *     2.3 Calculate the (euclidean) distance: $dist = sqrt(pow(sizeof($subset)/6 - 4/6, 2) + pow(array_sum($subset)/420 - 300/420, 2)) 
+     *     2.3 Calculate the (euclidean) distance: $dist = sqrt(pow(sizeof($subset)/6 - 4/6, 2) + pow(array_sum($subset)/420 - 300/420, 2))
 
      *  3. Pick the minimum subset: sort($dist), and take the first element
 
-     *  
+     *
 
      * @param $parameters
 
@@ -900,8 +900,8 @@ class EfrontTest
 
      */
     public function randomize($parameters, $reqs = false) {
-  //Get all questions and assign them to an array where keys are their ids. At the same time, 
-  //calculate the time estimates sum for questions, which will be used in normalization. 
+  //Get all questions and assign them to an array where keys are their ids. At the same time,
+  //calculate the time estimates sum for questions, which will be used in normalization.
      $result = eF_getTableData("questions", "*", "lessons_ID=".$this -> test['lessons_ID']);
      $sum = 0;
      foreach ($result as $value) {
@@ -919,7 +919,7 @@ class EfrontTest
      for ($i = 1; $i < 1000; $i++) {
       //Get a subset from the $times array, based on specific requirements
       $subsets[$i] = self :: getSubset($questions, $parameters, $reqs);
-      //If either number or time is not specified, eliminate corresponding parameter so that it is not taken into 
+      //If either number or time is not specified, eliminate corresponding parameter so that it is not taken into
       //account when calculating distance. If neither parameter is specified, make a completely random test
       if ((!isset($multitude) || !$multitude) && (!isset($duration) || !$duration)) {
        $point = array(0, 0); //Neither duration nor multitude specified, so this is a completely random test
@@ -928,7 +928,7 @@ class EfrontTest
       } else if (!isset($duration) || !$duration) {
        $point = array(sizeof($subsets[$i])/$size, 0); //This time duration is not specified, only multitude, so we minimize the distance to the preferred multitude, no matter how long will the test take
       } else {
-       $point = array(sizeof($subsets[$i])/$size, array_sum($subsets[$i])/$sum); //Both multitude and duration are specified, so we minimize the distance with this pair (multitude,distance)  
+       $point = array(sizeof($subsets[$i])/$size, array_sum($subsets[$i])/$sum); //Both multitude and duration are specified, so we minimize the distance with this pair (multitude,distance)
       }
       //Calculate euclidean distance
       $distance[$i] = sqrt($balance[0]*pow($point[0] - $multitude, 2) + $balance[1]*pow($point[1] - $duration, 2));
@@ -950,7 +950,7 @@ class EfrontTest
 
      * Get statistics for test's questions
 
-     * 
+     *
 
      * This function retrieves some general information on a test's question
 
@@ -976,7 +976,7 @@ class EfrontTest
 
      * - percentage(array) <br>
 
-     * 
+     *
 
      * @return array The information array
 
@@ -1012,15 +1012,15 @@ class EfrontTest
 
      * Get questions subset
 
-     * 
+     *
 
      * This function is used be randomize() in order to produce a random set of questions,
 
-     * which will be the base of a random test. The function is called multiple times, 
+     * which will be the base of a random test. The function is called multiple times,
 
      * and the results are based on the constraints specified in $parameters and $reqs
 
-     * 
+     *
 
      * @param $questions The questions set to select from
 
@@ -1119,7 +1119,7 @@ class EfrontTest
 
      * Shuffle an array preserving keys
 
-     * 
+     *
 
      * This function is used to shuffle an array, but preserving keys.
 
@@ -1133,7 +1133,7 @@ class EfrontTest
 
      * </code>
 
-     * 
+     *
 
      * @param array $array The original array to shuffle
 
@@ -1456,7 +1456,7 @@ class EfrontTest
                  $directory -> delete();
              } catch (EfrontFileException $e) {}
          }
-         //If the test is the last one (the 'active'), set it as not seen. 
+         //If the test is the last one (the 'active'), set it as not seen.
          //If it doesn't have a content id, it is a skill-gap test
          if ($completedTest -> completedTest['archive'] == 0 && $this -> test['content_ID']) {
           if (!($user instanceof EfrontUser)) {
@@ -1836,7 +1836,7 @@ class EfrontTest
              $timeSpent['seconds'] ? $timeSpentString .= $timeSpent['seconds']._SECONDSSHORTHAND.'&nbsp;' : null;
     $timeSpentString ? $timeSpentString = _TIMESPENT.': '.$timeSpentString : null;
    }
-   //The hidden span below the div is used in a js down() so as to know which question we are looking at 
+   //The hidden span below the div is used in a js down() so as to know which question we are looking at
             $testString .= '
               <div id = "question_'.$count.'" '.(!$done && $this -> options['onebyone'] ? 'style = "display:none"' : '').'>
                     <span id = "question_content_'.$question -> question['id'].'" style = "display:none">'.$question -> question['id'].'</span>
@@ -1851,7 +1851,7 @@ class EfrontTest
                                 '.($units[$question -> question['content_ID']] && $done ? '<span style = "vertical-align:middle;margin-left:10px">'._UNIT.' "'.$units[$question -> question['content_ID']].'"</span>' : '').'
         '.(($_SESSION['s_type'] == "student" && $currentLesson -> options['content_report'] == 1)? '<a href = "content_report.php?ctg=tests&edit_question='.$question -> question['id'].'&question_type='.$question -> question['type'].'&lessons_Id='.$_SESSION['s_lessons_ID'].'" onclick = "eF_js_showDivPopup(\''._CONTENTREPORT.'\', 1)" target = "POPUP_FRAME"><img src = "images/16x16/warning.png" border=0 style = "vertical-align:middle" alt = "'._CONTENTREPORT.'" title = "'._CONTENTREPORT.'"/></a>' : '').'
        </td></tr>
-                    </table>'.($done ? $question -> toHTMLSolved(new HTML_QuickForm(), $this -> options['answers'], $this -> options['given_answers']) : $question -> toHTML($form)).'<br/></div>';            
+                    </table>'.($done ? $question -> toHTMLSolved(new HTML_QuickForm(), $this -> options['answers'], $this -> options['given_answers']) : $question -> toHTML($form)).'<br/></div>';
             if ($done && !$isFeedback) {
                     $testString .= '
                         <table style = "width:100%" >
@@ -1911,13 +1911,13 @@ class EfrontTest
                             </table><br/>';
             }
         }
-//pr($testQuestions);        
+//pr($testQuestions);
         if (!$done && $this -> options['onebyone']) {
              $testString .= '
                          <table width = "100%">
                              <tr><td style = "text-align:center;vertical-align:middle;padding-top:50px">
                                  <img src = "images/32x32/arrow_left.png" alt = "'._PREVIOUSQUESTION.'" title = "'._PREVIOUSQUESTION.'" border = "0" id = "previous_question_button" onclick = "showTestQuestion(\'previous\')" style = "vertical-align:middle;margin-right:10px;'.($this -> options['only_forward'] ? 'visibility:hidden' : '').'" />
-                                 <select id = "goto_question" name = "goto_question" style = "vertical-align:middle;'.($this -> options['only_forward'] ? 'display:none' : '').'" onchange = "showTestQuestion(this.options[this.selectedIndex].value)">'; 
+                                 <select id = "goto_question" name = "goto_question" style = "vertical-align:middle;'.($this -> options['only_forward'] ? 'display:none' : '').'" onchange = "showTestQuestion(this.options[this.selectedIndex].value)">';
              for ($i = 1; $i <= sizeof($testQuestions); $i++) {
                  $testString .= '
                                      <option value = "'.$i.'">'.$i.'</option>';
@@ -2030,7 +2030,7 @@ class EfrontTest
             } else {
                 $remainingTime = eF_convertIntervalToTime($remainingTime);
             }
-/*            
+/*
 
             $duration        = eF_convertIntervalToTime($this -> options['duration']);
 
@@ -2055,7 +2055,7 @@ class EfrontTest
                            $str .= '<span id = "question_'.$question['id'].'_time_left" style = "display:none"></span>
                               <input type = "hidden" name = "question_time['.$question['id'].']" id = "question_'.$question['id'].'_time_left_input">';
             }
-   $str .= '                        			
+   $str .= '
                  </td></tr>
                 </table>
                 <script language = "JavaScript" type = "text/javascript">
@@ -2192,7 +2192,7 @@ class EfrontTest
       //$pdf -> SetTextColor(0, 255, 0);
       //$pdf -> Cell(20, 5, $rightAnswer[$key2],     0, 0, L, 0);
       $html .= '<font color="#00FF00">'.$rightAnswer[$key2].'</font>';
-      //$pdf -> SetTextColor(0, 0, 0);								
+      //$pdf -> SetTextColor(0, 0, 0);
      }
      $pdf -> writeHtml($html);
      $pdf -> Cell(0, 5, '', 0, 1, L, 0);
@@ -2222,7 +2222,7 @@ class EfrontTest
 
  * Class representing a completed test
 
- * 
+ *
 
  * @package eFront
 
@@ -2445,7 +2445,7 @@ class EfrontCompletedTest extends EfrontTest
   }
         //Correct each question and handle uploaded files, if any (@todo)
         foreach ($this -> questions as $id => $question) {
-   $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
+         $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
    if ($question -> question['type'] == 'raw_text') {
     if ($question -> settings['force_correct'] != 1) {
      $this -> completedTest['pending'] = 1;
@@ -2554,11 +2554,11 @@ class EfrontCompletedTest extends EfrontTest
 
      * Get potential score
 
-     * 
+     *
 
      * This function calculates the potential maximum score, when taking into account pending free text
 
-     * questions. If there are no pending free-text questions in the test, potential score equals test score. 
+     * questions. If there are no pending free-text questions in the test, potential score equals test score.
 
      * <br/>Example:
 
@@ -2638,9 +2638,9 @@ class EfrontCompletedTest extends EfrontTest
             $url = htmlspecialchars_decode(basename($_SERVER['PHP_SELF']).'?'.http_build_query($_GET));//$_SERVER['QUERY_STRING'];
 //      }
         $parentTest = new EfrontTest($this -> test['id']);
-        $currentStatus = $parentTest -> getStatus($this -> completedTest['login']); //Get the current test status, to check whether the student is undergoing the test right now        
+        $currentStatus = $parentTest -> getStatus($this -> completedTest['login']); //Get the current test status, to check whether the student is undergoing the test right now
   $status = $parentTest -> getStatus($this -> completedTest['login'], $this -> completedTest['id'], true); //Get the completed tests status
-        $potentialScore = $this -> getPotentialScore(); //Get the potential score for the test, taking into account pending questions	
+        $potentialScore = $this -> getPotentialScore(); //Get the potential score for the test, taking into account pending questions
         $str = '
         <table class = "doneTestHeader">
             <tr><td id = "doneTestImage">';
@@ -2752,7 +2752,7 @@ class EfrontCompletedTest extends EfrontTest
   if (!$isFeedback) {
    $str .= '
        <tr><td>
-         <span style = "vertical-align:middle">'._TESTSCOREIS.':&nbsp;</span>';        
+         <span style = "vertical-align:middle">'._TESTSCOREIS.':&nbsp;</span>';
    if ($editHandles) {
     $str .= '
          <span style = "font-weight:bold" id = "test_score_span">
@@ -3149,7 +3149,7 @@ class EfrontCompletedTest extends EfrontTest
 
 	 * Analyse completed test
 
-	 * 
+	 *
 
 	 * This function is used to analyse completed test. Scores are calculated for
 
@@ -3163,7 +3163,7 @@ class EfrontCompletedTest extends EfrontTest
 
 	 * </code>
 
-	 * The function returns an array with 2 separate elements: The first element is the array 
+	 * The function returns an array with 2 separate elements: The first element is the array
 
 	 * of scores per unit, which is needed in order to display the chart. The second element
 
@@ -3244,7 +3244,7 @@ class EfrontCompletedTest extends EfrontTest
 
      * Display chart
 
-     * 
+     *
 
      * This function is used to display the HTML code needed to show
 
@@ -3300,7 +3300,7 @@ class EfrontCompletedTest extends EfrontTest
 
      * Calculate cart data
 
-     * 
+     *
 
      * This function is used to calculate the data needed to build the test analysis chart
 
@@ -3532,7 +3532,7 @@ class MultipleOneQuestion extends Question implements iQuestion
             //$elements[$k]   = $form -> createElement("radio", "question[".$this -> question['id']."]", $this -> options[$index], $this -> options[$index], $index, "class = inputRadio");    //Add a radio for each option
             //$separators[] = "<br><span class = 'orderedList'>[".($k + 2)."]&nbsp;</span>";
         }
-        //$form -> addGroup($elements, "question[".$this -> question['id']."]", "<span class = 'orderedList'>[1]&nbsp;</span>", $separators, false);        //Create a group with the above radio buttons        
+        //$form -> addGroup($elements, "question[".$this -> question['id']."]", "<span class = 'orderedList'>[1]&nbsp;</span>", $separators, false);        //Create a group with the above radio buttons
         if ($this -> userAnswer !== false) {
             $form -> setDefaults(array("question[".$this -> question['id']."]" => $this -> userAnswer));
         }
@@ -3581,7 +3581,7 @@ class MultipleOneQuestion extends Question implements iQuestion
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($foo); //Get a smarty renderer, only because it reforms the form in a very convenient way for printing html
         $form -> accept($renderer); //Render the form
         $formArray = $renderer -> toArray(); //Get the rendered form fields
-/*        
+/*
 
         $questionString = '
 
@@ -3618,7 +3618,7 @@ class MultipleOneQuestion extends Question implements iQuestion
 
      * This function is used to display the question, together
 
-     * with its correct answer. 
+     * with its correct answer.
 
      * <br/>Example:
 
@@ -3636,7 +3636,7 @@ class MultipleOneQuestion extends Question implements iQuestion
 
      * @param HTML_QuickForm $form The form to add fields to and display
 
-     * @param boolean $questionStats	 
+     * @param boolean $questionStats
 
      * @return string The HTML code of the solved question
 
@@ -4232,7 +4232,7 @@ class MultipleManyQuestion extends Question implements iQuestion
 
      * This function is used to display the question, together
 
-     * with its correct answer. 
+     * with its correct answer.
 
      * <br/>Example:
 
@@ -4250,7 +4250,7 @@ class MultipleManyQuestion extends Question implements iQuestion
 
      * @param HTML_QuickForm $form The form to add fields to and display
 
-     * @param boolean $questionStats	 
+     * @param boolean $questionStats
 
      * @return string The HTML code of the solved question
 
@@ -4260,7 +4260,7 @@ class MultipleManyQuestion extends Question implements iQuestion
 
      */
     public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
-        $this -> toHTMLQuickForm($form); //Assign proper elements to the form              
+        $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> options); $k++) {
             $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => ''));
@@ -4454,7 +4454,7 @@ class TrueFalseQuestion extends Question implements iQuestion
 
      * This function is used to display the question, together
 
-     * with its correct answer. 
+     * with its correct answer.
 
      * <br/>Example:
 
@@ -4472,7 +4472,7 @@ class TrueFalseQuestion extends Question implements iQuestion
 
      * @param HTML_QuickForm $form The form to add fields to and display
 
-     * @param boolean $questionStats	 
+     * @param boolean $questionStats
 
      * @return string The HTML code of the solved question
 
@@ -4820,7 +4820,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
 
      * This function is used to display the question, together
 
-     * with its correct answer. 
+     * with its correct answer.
 
      * <br/>Example:
 
@@ -4838,7 +4838,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
 
      * @param HTML_QuickForm $form The form to add fields to and display
 
-     * @param boolean $questionStats	 
+     * @param boolean $questionStats
 
      * @return string The HTML code of the solved question
 
@@ -5220,7 +5220,7 @@ class MatchQuestion extends Question implements iQuestion
 
      * This function is used to display the question, together
 
-     * with its correct answer. 
+     * with its correct answer.
 
      * <br/>Example:
 
@@ -5238,7 +5238,7 @@ class MatchQuestion extends Question implements iQuestion
 
      * @param HTML_QuickForm $form The form to add fields to and display
 
-     * @param boolean $questionStats	 
+     * @param boolean $questionStats
 
      * @return string The HTML code of the solved question
 
@@ -5637,7 +5637,7 @@ class RawTextQuestion extends Question implements iQuestion
 
      * This function is used to display the question, together
 
-     * with its correct answer. 
+     * with its correct answer.
 
      * <br/>Example:
 
@@ -5655,7 +5655,7 @@ class RawTextQuestion extends Question implements iQuestion
 
      * @param HTML_QuickForm $form The form to add fields to and display
 
-     * @param boolean $questionStats	 
+     * @param boolean $questionStats
 
      * @return string The HTML code of the solved question
 
@@ -5869,7 +5869,7 @@ class DragDropQuestion extends Question implements iQuestion
 
 		parent :: __construct($question);
 
-		shuffle($this -> order);		
+		shuffle($this -> order);
 
 	}
 
@@ -6000,7 +6000,7 @@ class DragDropQuestion extends Question implements iQuestion
                  </script>
              </td>
             </tr>
-            <tr><td colspan = '3' style = 'height:25px'></td></tr>";        	
+            <tr><td colspan = '3' style = 'height:25px'></td></tr>";
         }
         $questionString .= '</table>';
         return $questionString;
@@ -6013,7 +6013,7 @@ class DragDropQuestion extends Question implements iQuestion
 
      * This function is used to display the question, together
 
-     * with its correct answer. 
+     * with its correct answer.
 
      * <br/>Example:
 
@@ -6031,7 +6031,7 @@ class DragDropQuestion extends Question implements iQuestion
 
      * @param HTML_QuickForm $form The form to add fields to and display
 
-     * @param boolean $questionStats	 
+     * @param boolean $questionStats
 
      * @return string The HTML code of the solved question
 
@@ -6287,7 +6287,7 @@ class DragDropQuestion extends Question implements iQuestion
 
  * Questions interface
 
- * 
+ *
 
  * @package eFront
 
@@ -6305,7 +6305,7 @@ interface iQuestion
 
  * Class for questions
 
- * 
+ *
 
  * @package eFront
 
@@ -6745,7 +6745,7 @@ abstract class Question
 
      * Create question counter
 
-     * 
+     *
 
      * This function is used to print a small count-down counter for the question's remaining time
 
@@ -6757,7 +6757,7 @@ abstract class Question
 
      * </code>
 
-     * 
+     *
 
      * @return string The count-down counter code
 
@@ -6774,7 +6774,7 @@ abstract class Question
        $timeInterval = eF_convertIntervalToTime($this -> time); //The time spent in this question
        $duration = $this -> time;
       }
-      $counterStr = '	    		
+      $counterStr = '
                 <script language = "JavaScript" type = "text/javascript">
                  questionHours['.$this -> question['id'].'] = "'.$timeInterval['hours'].'";
                     questionMinutes['.$this -> question['id'].'] = "'.$timeInterval['minutes'].'";
@@ -6833,7 +6833,7 @@ abstract class Question
 
      * Clear duplicate questions
 
-     * 
+     *
 
      * There are times that the system may end up with duplicate questions, like when
 
@@ -6847,7 +6847,7 @@ abstract class Question
 
      * </code>
 
-     * 
+     *
 
      * @param mixed $lesson a lesson id or an EfrontLesson object
 
@@ -6886,7 +6886,7 @@ abstract class Question
 
  * Factory class for instantiating question objects
 
- * 
+ *
 
  * @package eFront
 
@@ -6963,7 +6963,7 @@ class QuestionFactory
 
  * Analyse test filter
 
- * 
+ *
 
  * This filter is used for test analysis, to filter out units that have not questions
 
@@ -6982,7 +6982,7 @@ class analyseTestFilterIterator extends FilterIterator
 
      * Class constructor
 
-     * 
+     *
 
      * Initialise filter, using the parent units scores
 
@@ -7006,7 +7006,7 @@ class analyseTestFilterIterator extends FilterIterator
 
      * Filter out nodes
 
-     * 
+     *
 
      * This function filters out units that do not have completed questions associated
 

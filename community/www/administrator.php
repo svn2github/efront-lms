@@ -5,7 +5,7 @@
 
  *
 
- * This page performs all administrative functions. 
+ * This page performs all administrative functions.
 
  * @package eFront
 
@@ -93,7 +93,7 @@ foreach ($loadedModules as $module) {
         }
     }
 
-    // Run onNewPageLoad code of the module (if such is defined) 
+    // Run onNewPageLoad code of the module (if such is defined)
     $module -> onNewPageLoad();
 }
 
@@ -307,7 +307,7 @@ try {
 //debug();
     eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
     eF_insertTableData("logs", $fields_log);
-//debug(false);    
+//debug(false);
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

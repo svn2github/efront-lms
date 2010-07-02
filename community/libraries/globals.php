@@ -213,13 +213,13 @@ $MODULE_HCD_EVENTS['LEFT'] = 8;
 
  * Setup version
 
- * 
+ *
 
- * This function sets up the version, unlocking specific 
+ * This function sets up the version, unlocking specific
 
  * functionality
 
- * 
+ *
 
  * @since 3.6.0
 
@@ -259,7 +259,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 7734;
+    $build = 7750;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/

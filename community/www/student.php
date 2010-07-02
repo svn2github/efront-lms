@@ -226,7 +226,7 @@ foreach ($loadedModules as $module) {
             $module_js_array[] = $mod_js_file;
         }
     }
-    // Run onNewPageLoad code of the module (if such is defined) 
+    // Run onNewPageLoad code of the module (if such is defined)
     $module -> onNewPageLoad();
 }
 /*Ajax call to enter group and get group lessons */

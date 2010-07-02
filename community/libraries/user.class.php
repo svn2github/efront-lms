@@ -429,30 +429,35 @@ abstract class EfrontUser
   try {
    eval('$usernameVar='.$GLOBALS['configuration']['username_variable'].';');
    if (!$usernameVar) {
-    header("location:".G_SERVERNAME.$GLOBALS['configuration']['error_page']);
+    eF_redirect(G_SERVERNAME.$GLOBALS['configuration']['error_page'], true, 'top', true);
     exit;
    } else {
     try {
      $user = EfrontUserFactory :: factory($usernameVar);
-     if (!$_SESSION['s_login']) {
+     if (!$_SESSION['s_login'] || $usernameVar != $_SESSION['s_login']) {
       $user -> login($user -> user['password'], true);
      }
     } catch (EfrontUserException $e) {
      if ($e -> getCode() == EfrontUserException::USER_NOT_EXISTS && $GLOBALS['configuration']['webserver_registration']) {
       try {
        include($GLOBALS['configuration']['registration_file']);
+       $user = EfrontUserFactory :: factory($usernameVar);
+       if (!$_SESSION['s_login'] || $usernameVar != $_SESSION['s_login']) {
+        $user -> login($user -> user['password'], true);
+       }
       } catch (Exception $e) {
-       header("location:".G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page']);
+       eF_redirect(G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page'], true, 'top', true);
        exit;
       }
      } else {
-      header("location:".G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page']);
+      eF_redirect(G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page'], true, 'top', true);
       exit;
      }
     }
    }
   } catch (Exception $e) {
-   header("location:".G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page']);
+   eF_redirect(G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page'], true, 'top', true);
+   //header("location:".G_SERVERNAME.$GLOBALS['configuration']['unauthorized_page']);
   }
   return $user;
  }
@@ -2287,7 +2292,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * Reset the user's progress in the specified lesson
 
-	 * 
+	 *
 
 	 * @param mixed $lesson The lesson to reset
 
@@ -2316,7 +2321,7 @@ abstract class EfrontLessonUser extends EfrontUser
 
 	 * Reset the user's progress in the specified course
 
-	 * 
+	 *
 
 	 * @param mixed $course The course to reset
 
@@ -2761,41 +2766,41 @@ abstract class EfrontLessonUser extends EfrontUser
   } else {
    return EfrontCourse :: convertDatabaseResultToCourseArray($result);
   }
-/*		
+/*
 
 		list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
 
 		$select  = "c.*,
 
-					  (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) 
+					  (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
 
-					  		as user_type, 
+					  		as user_type,
 
-					  (select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+					  (select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
 
 					  		as score,
 
-					  (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+					  (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
 
 					  		as completed,
 
-					  (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+					  (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
 
 					  		as to_timestamp,
 
-					  (select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) 
+					  (select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
 
 					  		as has_course,
 
-					  (select count( * ) 	 from courses c1 where c1.instance_source=c.id ) 
+					  (select count( * ) 	 from courses c1 where c1.instance_source=c.id )
 
-					  		as has_instances, 
+					  		as has_instances,
 
-					  (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') 
+					  (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
 
 					  		as num_students,
 
-					  (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) 
+					  (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
 
 					  		as num_lessons";
 
@@ -2805,9 +2810,9 @@ abstract class EfrontLessonUser extends EfrontUser
 
 					  		as num_skills,
 
-					  	(select b.name from module_hcd_branch b, module_hcd_course_to_branch cb where cb.branches_ID=b.branch_ID and cb.courses_ID=c.id limit 1) 
+					  	(select b.name from module_hcd_branch b, module_hcd_course_to_branch cb where cb.branches_ID=b.branch_ID and cb.courses_ID=c.id limit 1)
 
-					  		as location";			
+					  		as location";
 
 #endif
 
@@ -4015,9 +4020,9 @@ class EfrontStudent extends EfrontLessonUser
 
 	 * Get the next lesson in row, or in the course, if specified
 
-	 * 
+	 *
 
-	 * @param EfrontLesson $lesson The lesson to account 
+	 * @param EfrontLesson $lesson The lesson to account
 
 	 * @param mixed $course The course to regard, or false
 

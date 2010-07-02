@@ -25,25 +25,20 @@ require_once $path."menu.class.php";
 
 
 /*Check the user type. If the user is not valid, he cannot access this page, so exit*/
-if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
-    try {
-        $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
-        $smarty -> assign("T_CURRENT_USER", $currentUser);
-        if ($_SESSION['s_lessons_ID'] && ($currentUser instanceof EfrontLessonUser)) {
-            $userLessons = $currentUser -> getLessons();
-            $currentUser -> applyRoleOptions($userLessons[$_SESSION['s_lessons_ID']]); //Initialize user's role options for this lesson
-            $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
-        } else {
-            $currentUser -> applyRoleOptions(); //Initialize user's role options for this lesson
-        }
-    } catch (EfrontException $e) {
-        $message = $e -> getMessage().' ('.$e -> getCode().')';
-        eF_redirect("index.php?message=".urlencode($message)."&message_type=failure");
-        exit;
-    }
-} else {
-    eF_redirect("index.php?message=".urlencode(_RESOURCEREQUESTEDREQUIRESLOGIN)."&message_type=failure");
-    exit;
+try {
+ $currentUser = EfrontUser :: checkUserAccess();
+ $smarty -> assign("T_CURRENT_USER", $currentUser);
+ if ($_SESSION['s_lessons_ID'] && ($currentUser instanceof EfrontLessonUser)) {
+  $userLessons = $currentUser -> getLessons();
+  $currentUser -> applyRoleOptions($userLessons[$_SESSION['s_lessons_ID']]); //Initialize user's role options for this lesson
+  $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
+ } else {
+  $currentUser -> applyRoleOptions(); //Initialize user's role options for this lesson
+ }
+} catch (EfrontException $e) {
+ $message = $e -> getMessage().' ('.$e -> getCode().')';
+ eF_redirect("index.php?message=".urlencode($message)."&message_type=failure", true);
+ exit;
 }
 if (!isset($horizontal_inframe_version) || !$horizontal_inframe_version) {
  if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest'])) {
@@ -209,7 +204,7 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
 	        }
 
 	          */
-      // baltas: why was this commented out? is needed to be hidden behind lesson specific options so that change lesson does not trigger sidebar reloading 
+      // baltas: why was this commented out? is needed to be hidden behind lesson specific options so that change lesson does not trigger sidebar reloading
          $newMenu -> insertMenuOption(array("id" => "lessons_a", "image" => "lessons", "link" => $_SESSION['s_type'].".php?ctg=lessons", "title" => _MYCOURSES), $lessonMenuId);
          // Get lessons menu modules
          $moduleMenus = eF_getModuleMenu($modules, "lessons");
@@ -396,9 +391,9 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
 
 	    } else {
 
-	
 
-	
+
+
 
 	    }
 
@@ -408,7 +403,7 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
  }
  $smarty -> assign ("T_ACTIVE_MENU", $active_menu);
  // CHAT MENU
- $_SESSION['last_id'] = 0; // Each time the sidebar reloads you need to get the five last minuites	
+ $_SESSION['last_id'] = 0; // Each time the sidebar reloads you need to get the five last minuites
  if ($GLOBALS['configuration']['chat_enabled'] && (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden')) {
      $rooms = eF_getTableData("chatrooms c LEFT OUTER JOIN users_to_chatrooms uc ON uc.chatrooms_ID = c.id", "c.id, c.name, count(uc.users_LOGIN) as users", "c.active=1 group by id");
      $smarty -> assign("T_CHATROOMS", $rooms);
@@ -537,6 +532,6 @@ $benchmark -> set('smarty');
 $benchmark -> stop();
 $output = $benchmark -> display();
 if (G_DEBUG) {
- //echo $output;	//Don't display, it's annoying 
+ //echo $output;	//Don't display, it's annoying
 }
 ?>

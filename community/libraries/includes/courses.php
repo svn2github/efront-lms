@@ -367,7 +367,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;
    include("sorted_table.php");
-  } catch (Exception $e) {pr($e);
+  } catch (Exception $e) {
    handleAjaxExceptions($e);
   }
  }

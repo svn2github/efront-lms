@@ -138,7 +138,7 @@ function profile($start = true, &$path) {
 
  * eF_getTableData("users", "*", "");
 
- * debug(false); 
+ * debug(false);
 
  * </code>
 
@@ -146,7 +146,7 @@ function profile($start = true, &$path) {
 
  * @param boolean $mode Set the debugging to on/off
 
- * @param int $level the reporting level. Setting it to E_ALL & ~E_NOTICE shows all errors but notices 
+ * @param int $level the reporting level. Setting it to E_ALL & ~E_NOTICE shows all errors but notices
 
  * @since 3.5.0
 
@@ -207,16 +207,16 @@ function eF_truncatePath($string, $length = 40, $pathLimit = 6, $etc = '...', $d
   }
  }
  $piecesFinal[] = $lastElement;
- $finalString = implode($delimiter, $piecesFinal); // with tags 
+ $finalString = implode($delimiter, $piecesFinal); // with tags
  return $finalString;
 }
 /**
 
  * Format a user login
 
- * 
+ *
 
- * This function formats a user's login based on 
+ * This function formats a user's login based on
 
  * configuration parameters. There are 4 possible format parameters:
 
@@ -230,7 +230,7 @@ function eF_truncatePath($string, $length = 40, $pathLimit = 6, $etc = '...', $d
 
  * Doe J. (jdoe)
 
- * 
+ *
 
  * @param $login The user login to replace with the formatted string
 
@@ -308,7 +308,7 @@ function formatScore($score) {
 
  * Return a price based on current settings
 
- * 
+ *
 
  * Ths function formats a number as a price, taking into account current settings
 
@@ -322,7 +322,7 @@ function formatScore($score) {
 
  * </code>
 
- * 
+ *
 
  * @param $price The price to format
 
@@ -426,7 +426,7 @@ function formatTimestamp($timestamp, $mode = false) {
 
  * <code>
 
- * $table = "<table><tr><td>a1</td><td>a2</td></tr><tr><td>b1</td><td>b2</td></tr></table>";                   
+ * $table = "<table><tr><td>a1</td><td>a2</td></tr><tr><td>b1</td><td>b2</td></tr></table>";
 
  * $plain_text= formatTimestamp($table);           //Returns something \na1\ta2\nb1\t\b2\n
 
@@ -464,7 +464,7 @@ function eF_multiSort($array, $sort_by, $sort_order = 'asc') {
     $keys = array_keys($array);
     $sort_values = array();
     foreach ($array as $value) {
-        $sort_values[] = mb_strtolower($value[$sort_by]); //mb_strtolower is used because array_multisort() takes into account the case, so that strings are sorted as ABC...XYZabc...xyz instead of AaBbCc... 
+        $sort_values[] = mb_strtolower($value[$sort_by]); //mb_strtolower is used because array_multisort() takes into account the case, so that strings are sorted as ABC...XYZabc...xyz instead of AaBbCc...
     }
     if (is_numeric($sort_values[0])) { //If the column consists of numeric data, we want the default sorting to be descending, so we reverse the parameter
             $sort_order == 'asc' ? $sort_order = SORT_DESC : $sort_order = SORT_ASC;
@@ -1755,7 +1755,7 @@ function eF_createImage($filename, $extension, $width, $height, $newwidth, $newh
 }
 /**
 
- * 
+ *
 
  * @param $str
 
@@ -2048,7 +2048,7 @@ function eF_checkSocialModuleExistance($value) {
 }
 /*
 
- * Returning an array with the world's timezones 
+ * Returning an array with the world's timezones
 
  */
 function eF_getTimezones() {
@@ -2131,7 +2131,7 @@ function eF_getTimezones() {
 
  * Detect agent browser
 
- * 
+ *
 
  * @since 3.6.0
 
@@ -2156,7 +2156,7 @@ function detectBrowser() {
 
  * Redirect to another page
 
- * 
+ *
 
  * This function implements either server-side (php) or client side (javascript) redirection
 
@@ -2166,28 +2166,32 @@ function detectBrowser() {
 
  * </code>
 
- * 
+ *
 
  * @param string $url The url to redirect to. If 'self' is used, it is equivalent to a reload (only it isn't)
 
- * @param boolean $js Whether to use js-based redirection 
+ * @param boolean $js Whether to use js-based redirection
 
  * @param string $target which frame to reload (only applicable when $js is true). Can be 'top', 'window' or any frame name
+
+ * @param boolean $retainUrl Whether to retain the url as it is
 
  * @since 3.6.0
 
  */
-function eF_redirect($url, $js = false, $target = 'top') {
-    $parts = parse_url($url);
-    if (isset($parts['query']) && $parts['query']) {
-        if ($GLOBALS['configuration']['encrypt_url']) {
-            $parts['query'] = 'cru='.encryptString($parts['query']);
-        }
-        $parts['query'] = '?'.$parts['query'];
-    } else {
-        $parts['query'] = '';
-    }
-    $url = G_SERVERNAME.basename($parts['path']).$parts['query'];
+function eF_redirect($url, $js = false, $target = 'top', $retainUrl = false) {
+ if (!$retainUrl) {
+     $parts = parse_url($url);
+     if (isset($parts['query']) && $parts['query']) {
+         if ($GLOBALS['configuration']['encrypt_url']) {
+             $parts['query'] = 'cru='.encryptString($parts['query']);
+         }
+         $parts['query'] = '?'.$parts['query'];
+     } else {
+         $parts['query'] = '';
+     }
+     $url = G_SERVERNAME.basename($parts['path']).$parts['query'];
+ }
     if ($js) {
         echo "<script language='JavaScript'>$target.location='$url'</script>";
     } else {
@@ -2199,7 +2203,7 @@ function eF_redirect($url, $js = false, $target = 'top') {
 
  * Encrypt a string based on the specified parameter
 
- * 
+ *
 
  * @param string $string The string to encode
 
@@ -2227,7 +2231,7 @@ function encryptString($string, $method = 'base64') {
 
  * If the string ends with #somechars, then this part will not be encrypted
 
- * 
+ *
 
  * @param string $string The string to encode
 
@@ -2253,7 +2257,7 @@ function decryptString($string, $method = 'base64') {
 
  * This function decrypts only the part of a url that may be encrypted
 
- * 
+ *
 
  * @param $url The url to decrypt
 
@@ -2261,7 +2265,7 @@ function decryptString($string, $method = 'base64') {
 
  * @return string The decoded string
 
- * @since 3.6.3 
+ * @since 3.6.3
 
  */
 function decryptUrl($url, $method = 'base64') {
@@ -2309,7 +2313,7 @@ function eF_printMessage($str, $print = true, $message_type = '')
                         </td><td width = "99%" class = "message_success" align = "center">
                             '.$str.'
                     </td></tr>
-                </table><br/>';            
+                </table><br/>';
         } else {
             $message = '
                 <table border = "1" width = "100%" align = "center" bgcolor = "gray" rules = "none" style = "border-color:black">
@@ -2471,7 +2475,7 @@ function eF_replaceMD5($message) {
 
 * @from now on, basic user_type is lesson specific.if value in users_to_lesson is NULL (because of an import), we take default basic user type from table users
 
-* @deprecated 
+* @deprecated
 
 */
 function eF_getUserBasicType($login = false, $lessons_ID = false){
@@ -2508,7 +2512,7 @@ function eF_getUserBasicType($login = false, $lessons_ID = false){
 
 * in the form seconds,minutes,hours
 
-* @param the two arrays conforming to these standards - 
+* @param the two arrays conforming to these standards -
 
 * the result will be stored on top of the first one
 
@@ -2530,17 +2534,17 @@ function addTime(&$a, $b) {
 
 	$a['minutes'] += $b['minutes'];
 
-	
 
-	
+
+
 
 	// Confoming stage
 
 	$extraminutes = floor($a['seconds'] / 60);
 
-	$a['seconds'] = $a['seconds'] % 60; 
+	$a['seconds'] = $a['seconds'] % 60;
 
-	
+
 
 	$a['minutes'] += $extraminutes;
 
@@ -2548,11 +2552,11 @@ function addTime(&$a, $b) {
 
 	$a['minutes'] = $a['minutes'] % 60;
 
-	
 
-	$a['hours'] = 
 
-	
+	$a['hours'] =
+
+
 
 	*/
 }

@@ -39,7 +39,7 @@ try {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
   setcookie('c_request', http_build_query($_GET), time() + 300);
  }
- echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ eF_redirect("index.php?message=".urlencode($message = $e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure", true);
  exit;
 }
 

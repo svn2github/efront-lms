@@ -1,34 +1,8 @@
     {if $smarty.get.add_branch || $smarty.get.edit_branch}
 
   {capture name = 't_branch_code'}
-   {$T_BRANCH_FORM.javascript}
-      <form {$T_BRANCH_FORM.attributes}>
-          {$T_BRANCH_FORM.hidden}
-          <table class = "formElements">
-              <tr><td class = "labelCell">{$T_BRANCH_FORM.branch_name.label}:&nbsp;</td>
-                  <td class = "elementCell">{$T_BRANCH_FORM.branch_name.html}</td>
-              </tr>
-              {if $T_BRANCH_FORM.branch_name.error}<tr><td></td><td class = "formError">{$T_BRANCH_FORM.branch_name.error}</td></tr>{/if}
-              <tr><td class = "labelCell">{$T_BRANCH_FORM.address.label}:&nbsp;</td>
-               <td class = "elementCell">{$T_BRANCH_FORM.address.html}</td></tr>
-              <tr><td class = "labelCell">{$T_BRANCH_FORM.city.label}:&nbsp;</td>
-               <td class = "elementCell">{$T_BRANCH_FORM.city.html}</td></tr>
-              <tr><td class = "labelCell">{$T_BRANCH_FORM.country.label}:&nbsp;</td>
-               <td class = "elementCell">{$T_BRANCH_FORM.country.html}</td></tr>
-              <tr><td class = "labelCell">{$T_BRANCH_FORM.telephone.label}:&nbsp;</td>
-               <td class = "elementCell">{$T_BRANCH_FORM.telephone.html}</td></tr>
-              <tr><td class = "labelCell">{$T_BRANCH_FORM.email.label}:&nbsp;</td>
-               <td class = "elementCell">{$T_BRANCH_FORM.email.html}</td></tr>
-              {if $T_SHOWFATHER}
-              <tr><td class = "labelCell">{$T_BRANCH_FORM.fatherBranch.label}:&nbsp;</td>
-                  <td class = "elementCell">{$T_BRANCH_FORM.fatherBranch.html} <a id = "details_link" name = "details_link" {$T_FATHER_BRANCH_INFO} {if ($T_FATHER_BRANCH_INFO == "") || ($T_FATHER_BRANCH_ID == 0) || ($smarty.get.add_branch == 1 && !isset($smarty.get.add_branch_to)) || isset($T_FORBID_LINK)}style="visibility:hidden"{/if}><img src="images/16x16/search.png" class = "handle" title="{$smarty.const._DETAILS}" alt="{$smarty.const.DETAILS}" ></a></td>
-              </tr>
-              {/if}
-              {* Only supervisors and administrators may change branch data - currently all - TODO: selected *}
-              <tr><td></td>
-               <td class = "submitCell">{$T_BRANCH_FORM.submit_branch_details.html}</td></tr>
-          </table>
-   </form>
+   {eF_template_printForm form=$T_BRANCH_FORM}
+
       {if $smarty.get.edit_branch}
           {literal}
           <script>
@@ -283,7 +257,7 @@
                         <div class="tabber">
                             <div class="tabbertab">
                                 <h3>{$smarty.const._EDITBRANCH}</h3>
-                                {eF_template_printBlock title = $smarty.const._BRANCHRECORD|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_code image = '32x32/branch.png' options = $T_DELETE_LINK}
+                                {eF_template_printBlock title = $smarty.const._BRANCHRECORD|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_code image = '32x32/branch.png'}
                                 {eF_template_printBlock title = $smarty.const._EMPLOYEES|cat:$smarty.const._ATBRANCH|cat:"<span class='innerTableName'>&quot;`$T_BRANCH_NAME`&quot;</span><span id='andSubbranchesTitle' style='visibility:hidden'>&nbsp;`$smarty.const._ANDSUBBRANCHES`</span>" data = $smarty.capture.t_employees_code image = '32x32/user.png' options = $T_SUBBRANCHES_LINK}
                             </div>
                             <div class="tabbertab {if ($smarty.get.tab == "assign_employees"  || isset($smarty.post.employees_to_branches)) } tabbertabdefault {/if}">

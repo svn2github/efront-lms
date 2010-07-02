@@ -35,9 +35,8 @@ try {
  } else {
   $currentUser -> applyRoleOptions(); //Initialize user's role options for this lesson
  }
-} catch (EfrontException $e) {
- $message = $e -> getMessage().' ('.$e -> getCode().')';
- eF_redirect("index.php?message=".urlencode($message)."&message_type=failure", true);
+} catch (Exception $e) {
+ eF_redirect("index.php?message=".urlencode($message = $e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure", true);
  exit;
 }
 if (!isset($horizontal_inframe_version) || !$horizontal_inframe_version) {

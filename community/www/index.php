@@ -34,7 +34,7 @@ if ($GLOBALS['configuration']['webserver_auth']) {
  //pr($_SERVER);exit;
  //$_SESSION['s_login'] = $_SERVER['REMOTE_USER'];
 }
-//@todo:temporary here, should leave 
+//@todo:temporary here, should leave
 $cacheId = null;
 $message = $message_type = '';
 $benchmark = new EfrontBenchmark($debug_TimeStart);
@@ -55,8 +55,8 @@ if (is_dir("install") && isset($_GET['delete_install'])) {
 }
 
 //			$loadScripts[] = 'index';
-//$smarty -> caching 	      = $GLOBALS['configuration']['smarty_cache'];					
-//$smarty -> cache_lifetime = $GLOBALS['configuration']['smarty_cache_timeout'];	
+//$smarty -> caching 	      = $GLOBALS['configuration']['smarty_cache'];
+//$smarty -> cache_lifetime = $GLOBALS['configuration']['smarty_cache_timeout'];
 //$cacheId = md5(serialize($_GET));
 if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
  //Get available languages
@@ -72,13 +72,13 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
     if ($configuration['cms_page'] != "" && sizeof($_GET) == 0 && file_exists(G_CURRENTTHEMEPATH."external/".$GLOBALS['configuration']['cms_page'].".php")){ //if there is cms page and no get parameter defined
         eF_redirect("".G_SERVERNAME.G_CURRENTTHEMEURL."external/".$configuration['cms_page'].".php");
     }
-    if (isset($_GET['logout']) && !isset($_POST['submit_login'])) { //If user wants to log out        
+    if (isset($_GET['logout']) && !isset($_POST['submit_login'])) { //If user wants to log out
         if (isset($_SESSION['s_login']) && $_SESSION['s_login']) {
             try {
                 $user = EfrontUserFactory :: factory($_SESSION['s_login']);
                 $user -> logout();
                 if ($GLOBALS['configuration']['logout_redirect']) {
-                    strpos($GLOBALS['configuration']['logout_redirect'], 'http://') === 0 ? header("location:".$GLOBALS['configuration']['logout_redirect']) : header("location:http://".$GLOBALS['configuration']['logout_redirect']);
+                    strpos($GLOBALS['configuration']['logout_redirect'], 'https://') === 0 || strpos($GLOBALS['configuration']['logout_redirect'], 'http://') === 0 ? header("location:".$GLOBALS['configuration']['logout_redirect']) : header("location:http://".$GLOBALS['configuration']['logout_redirect']);
                 }
             } catch (EfrontUserException $e) {
                 unset($_SESSION);
@@ -216,13 +216,13 @@ if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
 }
 /*
 
- * Make sure that if a user has registered lessons without being logged in, 
+ * Make sure that if a user has registered lessons without being logged in,
 
  * after he logs in he will be redirected to the "complete registration" page
 
- * In addition, set "login_mode" to 1, meaning that the user pressed the "continue" 
+ * In addition, set "login_mode" to 1, meaning that the user pressed the "continue"
 
- * button in his cart, so the next step should be loging in 
+ * button in his cart, so the next step should be loging in
 
  */
 if (isset($_GET['register_lessons'])) {
@@ -342,7 +342,7 @@ if (isset($_GET['account']) && isset($_GET['key']) && eF_checkParameter($_GET['a
   $result = eF_getTableData("users", "timestamp, active", "login='".$_GET['account']."'");
   if ($result[0]['active'] == 0 && $result[0]['timestamp'] == $_GET['key']) {
    try {
-    $user = EfrontUserFactory :: factory($_GET['account']);//new EfrontUser($_GET['login']);    
+    $user = EfrontUserFactory :: factory($_GET['account']);//new EfrontUser($_GET['login']);
     $user -> activate();
     if ($_GET['activatedBy']) {
      $message = _EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED;
@@ -638,7 +638,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
 }
 /* -------------------------------------------------------End of Contact part--------------------------------------------------------- */
 /* -------------------------------------------------------Lesson information part--------------------------------------------------------- */
-if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to display information on a lesson	
+if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to display information on a lesson
  //session_start();			//Isn't needed here if the head session_start() is in place
  if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
   try {

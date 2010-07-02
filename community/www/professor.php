@@ -36,7 +36,7 @@ try {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
   setcookie('c_request', http_build_query($_GET), time() + 300);
  }
- echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ eF_redirect("index.php?message=".urlencode($message = $e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure", true);
  exit;
 }
 
@@ -79,11 +79,11 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
             } else {
              $course = new EfrontCourse($_GET['from_course']);
             }
-/*            
+/*
 
             $eligibility = $course -> checkRules($_SESSION['s_login']);
 
-            
+
 
             if ($eligibility[$_GET['lessons_ID']] == 0){
 
@@ -143,7 +143,7 @@ try {
         if (!$currentLesson || !$currentContent) {
             eF_redirect("".basename($_SERVER['PHP_SELF']));
         }
-        $currentUnit = $currentContent -> seekNode($_GET['view_unit']); //Initialize current unit        
+        $currentUnit = $currentContent -> seekNode($_GET['view_unit']); //Initialize current unit
         //The content tree does not hold data, so assign this unit its data
         $unitData = new EfrontUnit($_GET['view_unit']);
         $currentUnit['data'] = $unitData['data'];
@@ -171,7 +171,7 @@ try {
            $groupLessons = $group -> getLessons();
            $groupCourses = $group -> getCourses();
            if (sizeof($groupLessons) || sizeof($groupCourses)) {
-               $currentLessonIds = array_keys($currentUser -> getLessons()); // get ids of current user lessons 		            
+               $currentLessonIds = array_keys($currentUser -> getLessons()); // get ids of current user lessons
                $lessonIds = array();
             $lessonTypes = array();
             foreach ($groupLessons as $lesson_ID => $lesson) {
@@ -180,7 +180,7 @@ try {
                  $lessonTypes[] = $lesson['user_type'];
                 }
             }
-            $currentCourseIds = array_keys($currentUser -> getUserCourses()); // get ids of current user courses 		            
+            $currentCourseIds = array_keys($currentUser -> getUserCourses()); // get ids of current user courses
             $courseIds = array();
             $courseTypes = array();
             foreach ($groupCourses as $course_ID => $course) {
@@ -200,7 +200,7 @@ try {
             // Only after the lessons have actually been assigned
             $group -> addUsers($currentUser -> user['login']);
             if ($sum == 0) {
-                echo "0"; //if no new assignments return zero 
+                echo "0"; //if no new assignments return zero
             } else {
           if ($group -> group['key_max_usage'] != 0) {
                        $group -> group['key_current_usage']++;
@@ -209,10 +209,10 @@ try {
                 echo sizeof($lessonIds) . "_" . sizeof($courseIds); // else divide new lessons from new courses with "_"
             }
            } else {
-               echo "NL"; // no lessons	        
+               echo "NL"; // no lessons
            }
              } else {
-                 echo "KE"; //key expired- no remaining uses        
+                 echo "KE"; //key expired- no remaining uses
              }
          } else {
              echo "NA";
@@ -253,7 +253,7 @@ foreach ($loadedModules as $module) {
             $module_js_array[] = $mod_js_file;
         }
     }
-    // Run onNewPageLoad code of the module (if such is defined) 
+    // Run onNewPageLoad code of the module (if such is defined)
     $module -> onNewPageLoad();
 }
 /*Added Session variable for search results*/

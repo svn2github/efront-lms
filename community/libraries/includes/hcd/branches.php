@@ -6,9 +6,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 
 if ($currentUser -> getType() != "administrator" && (($currentEmployee -> getType() != _SUPERVISOR) ||(isset($currentBranch) && !$currentEmployee -> supervisesBranch($currentBranch->branch['branch_ID']) ))) {
- $message = _SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION;
- $message_type = 'failure';
- eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=chart&message=".urlencode($message)."&message_type=".$message_type);
+ eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=chart&message=".urlencode(_SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION)."&message_type=failure");
  exit;
 }
 
@@ -19,8 +17,8 @@ try {
  } else if (isset($_GET['edit_branch'])) {
   $currentBranch = new EfrontBranch($_GET['edit_branch']);
  }
-} catch (EfrontBranchException $e) {
- $message = $e -> getMessage().' ('.$e -> getCode().')';
+} catch (Exception $e) {
+ handleAjaxExceptions($e);
 }
 
 
@@ -53,12 +51,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   handleAjaxExceptions($e);
  }
 } else if (isset($_GET['add_branch']) || isset($_GET['edit_branch'])) {
- try {
-  if (isset($_GET['add_branch'])) {
-   $form = new HTML_QuickForm("branch_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&add_branch=1" . (isset($_GET['returntab'])?"&returntab=" . $_GET['returntab']:""), "", null, true);
-  } else {
-   $form = new HTML_QuickForm("branch_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&edit_branch=" . $_GET['edit_branch'] , "", null, true);
-
+ if ($_GET['ajax']) {
    // First job is to assign the jobs Assign jobs
    if (isset($_GET['postAjaxRequest'])) {
     if (isset($_GET['add_lesson'])) {
@@ -70,7 +63,6 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
      } else if (isset($_GET['addAll'])) {
       $lessons = $currentBranch -> getAllLessons();
       isset($_GET['filter']) ? $lessons = eF_filterData($lessons, $_GET['filter']) : null;
-
       foreach ($lessons as $lesson) {
        if ($lesson['branches_ID'] == "") {
         $currentBranch -> assignLesson($lesson['id']);
@@ -191,7 +183,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 
    $smarty -> assign("T_DATASOURCE_SORT_BY", 5);
    $smarty -> assign("T_DATASOURCE_SORT_ORDER", 'desc');
-   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_lessons', 'num_skills', 'has_course'));
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_lessons', 'num_skills', 'has_course', 'has_instances'));
    if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {
     try {
      if ($_GET['ajax'] == 'coursesTable') {
@@ -294,21 +286,6 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     $employees = eF_multiSort($employees, $_GET['sort'], $order);
 
     if (isset($_GET['filter'])) {
-//					// temp array used to remove the two columns that are common in all rows
-//					// but appear only to the half of them... this leads to unintuitional filtering
-//					$temp_array_for_filtering = array();
-//					foreach ($employees as $key => $employee) {
-//						unset($employee['job_select']);
-//						unset($employee['position_select']);
-//						$temp_array[$key] = $employee;
-//					}
-//
-//					$temp_array = eF_filterData($temp_array, $_GET['filter']);
-//					foreach ($employees as $key => $employee) {
-//						if (!isset($temp_array[$key])) {
-//							unset($employees[$key]);
-//						}
-//					}
      $employees = eF_filterData($employees, $_GET['filter']);
     }
 
@@ -335,49 +312,50 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
    }
   }
 
-  // Hidden for maintaining the previous_url value
-  $form -> addElement('hidden', 'previous_url', null, 'id="previous_url"');
-  $previous_url = basename(getenv('HTTP_REFERER'));
+ try {
 
-  if ($position = strpos($previous_url, "&message")) {
-   $previous_url = substr($previous_url, 0, $position);
-  }
-  $form -> setDefaults(array('previous_url' => $previous_url));
-
+  $target = basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&".(isset($_GET['add_branch']) ? "add_branch=1" : "edit_branch=".$_GET['edit_branch']);
+  $form = new HTML_QuickForm("branch_form", "post", $target, "", null, true);
   $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
   $form -> addElement('text', 'branch_name', _BRANCHNAME, 'class = "inputText"');
-
-  // Dates
-  $days = array();
-  $days['0'] = _DAY;
-  for ($i = 1; $i < 32; $i++) {
-   $days[$i] = $i;
-  }
-
-  $months = array();
-  $months['0'] = _MONTH;
-  for ($i = 1; $i <= 12; $i++) {
-   $months[$i] = $i;
-  }
-
-  $years = array();
-  $years['0'] = _YEAR;
-  for ($i = 2008; $i < 2015; $i++) {
-   $years[$i] = $i;
-  }
-
-  $form -> addRule('branch_name', _THEFIELD.' '._BRANCHNAME.' '._ISMANDATORY, 'required', null, 'client');
+  $form -> addRule('branch_name', _THEFIELD.' "'._BRANCHNAME.'" '._ISMANDATORY, 'required', null, 'client');
   $form -> addElement('text', 'address', _ADDRESS, 'class = "inputText"');
   $form -> addElement('text', 'city', _CITY, 'class = "inputText"');
   $form -> addElement('text', 'country', _COUNTRY, 'class = "inputText"');
   $form -> addElement('text', 'telephone', _TELEPHONE, 'class = "inputText"');
   $form -> addElement('text', 'email', _EMAIL, 'class = "inputText"');
+  $form -> addElement('submit', 'submit_branch_details', _SUBMIT, 'class = "flatButton"');
 
-  /* Get data */
   if (isset($_GET['edit_branch'])) {
    /* Set the link to the details of the father branch */
-   $details_link = "href=\"" . $_SESSION['s_type']. ".php?ctg=module_hcd&op=branches&edit_branch=" . $currentBranch -> branch['father_branch_ID'] . "\"";
+   $details_link = 'href="'.basename($_SERVER['PHP_SELF']).'?ctg=module_hcd&op=branches&edit_branch='.$currentBranch -> branch['father_branch_ID'].'"';
    $smarty -> assign("T_BRANCH_NAME", $currentBranch -> branch['name']);
+   $form -> setDefaults(array( 'branch_name' => $currentBranch -> branch['name'],
+          'address' => $currentBranch -> branch['address'],
+          'city' => $currentBranch -> branch['city'],
+          'country' => $currentBranch -> branch['country'],
+          'telephone' => $currentBranch -> branch['telephone'],
+          'email' => $currentBranch -> branch['email']));
+
+   if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchesTable') {
+    $branches = $currentBranch -> getSubbranches();
+    if ($_SESSION['s_type'] != "administrator") {
+     foreach ($branches as $key => $branch) {
+      if (!in_array($branch['branch_ID'], $_SESSION['supervises_branches'])) {
+       unset($branches[$key]);
+      }
+     }
+    }
+    $dataSource = $branches;
+    $tableName = $_GET['ajax'];
+    include("sorted_table.php");
+   }
+
+   $smarty -> assign("T_JOB_DESCRIPTIONS", $currentBranch -> getJobDescriptions(true));
+   $show_subbranches_activate = array(
+    array('text' => _SHOWEMPLOYEESFROMSUBBRANCHES, 'image' => "16x16/question_type_one_correct.png", 'href' => 'javascript:void(0)', 'onClick' => "ajaxShowAllSubbranches();", 'target' => '_self')
+   );
+   $smarty -> assign ("T_SUBBRANCHES_LINK", $show_subbranches_activate);
   }
 
   // Variable used to forbid the appearance of the link appearing for the lense;
@@ -392,102 +370,47 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     if ($currentBranch -> branch['father_branch_ID'] == 0) {
      $only_existing = 0;
     }
-    $father_branches[] = array('branch_ID' => $currentBranch -> branch['father_branch_ID'], 'name' => $currentBranch -> branch['father_name'], 'father_branch_ID' => '');
+    $father_branches[] = array('branch_ID' => $currentBranch -> branch['father_branch_ID'],
+             'name' => $currentBranch -> branch['father_name'],
+             'father_branch_ID' => '');
     $forbidden_link = $currentBranch -> branch['father_branch_ID'];
-    $smarty -> assign ("T_FORBID_LINK", 1);
    }
   } else {
-   $father_branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","","father_branch_ID ASC,branch_ID ASC");
+   $father_branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID", "", "father_branch_ID ASC,branch_ID ASC");
    // Show all branches
    $only_existing = 0;
   }
 
   if (!empty($father_branches)) {
    if (isset($_GET['edit_branch'])) {
-    $smarty -> assign("T_FATHER_BRANCH_ID", $currentBranch -> branch['father_branch_ID']);
-    $smarty -> assign("T_FATHER_BRANCH_INFO", $details_link);
+    $fatherBranchId = $currentBranch -> branch['father_branch_ID'];
    }
-
-   $smarty -> assign("T_SHOWFATHER", 1);
-
-   $form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches,$only_existing),'class = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
 
    // If add_branch request coming from another branch subbranches menu, pre-enter the fatherBranch form
    if (isset($_GET['add_branch'])) {
-    if (isset($_GET['add_branch_to'])) {
-     $form -> setDefaults(array( 'fatherBranch' => $_GET['add_branch_to']));
-     $smarty -> assign("T_FATHER_BRANCH_ID", $_GET['add_branch_to']);
-     $details_link = "href=\"" . $_SESSION['s_type']. ".php?ctg=module_hcd&op=branches&edit_branch=" . $_GET['add_branch_to'] . "\"";
-     $smarty -> assign("T_FATHER_BRANCH_INFO", $details_link);
-    }
-    else if ($currentEmployee -> getType() == _SUPERVISOR) {
+    if ($currentEmployee -> getType() == _SUPERVISOR) {
      $_GET['add_branch_to'] = $father_branches[0]['branch_ID']; // keep the $_GET variable for checking at the smarty side
-     $form -> setDefaults(array( 'fatherBranch' => $_GET['add_branch_to']));
-     $smarty -> assign("T_FATHER_BRANCH_ID", $_GET['add_branch_to']);
-     $details_link = "href=\"" . $_SESSION['s_type']. ".php?ctg=module_hcd&op=branches&edit_branch=" . $_GET['add_branch_to'] . "\"";
-     $smarty -> assign("T_FATHER_BRANCH_INFO", $details_link);
     }
+    $form -> setDefaults(array( 'fatherBranch' => $_GET['add_branch_to']));
+    $fatherBranchId = $_GET['add_branch_to'];
+    $details_link = 'href="'.basename($_SERVER['PHP_SELF']).'?ctg=module_hcd&op=branches&edit_branch='.$_GET['add_branch_to'].'"';
    }
+   $form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches, $only_existing),'class = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
+   if (!$details_link || !$fatherBranchId || ($_GET['add_branch'] && !$_GET['add_branch_to']) || $forbidden_link) {
+    $handleVisibility = ' style="visibility:hidden"';
+   }
+   $handle = '<a id = "details_link" name = "details_link" '.$details_link.$handleVisibility.'><img src = "images/16x16/search.png" class = "handle" title="'._DETAILS.'" alt="'._DETAILS.'" ></a>';
+   $smarty -> assign("T_FORM_HANDLES", array('fatherBranch' => $handle));
   } else {
    $first_branch = 1;
   }
-
-  if (isset($_GET['edit_branch'])) {
-   $subbranches = $currentBranch -> getSubbranches();
-   if (!empty($subbranches)) {
-    $smarty -> assign("T_SUBBRANCHES", $subbranches);
-   }
-
-   // Get job descriptions with skills
-   $job_descriptions = $currentBranch -> getJobDescriptions(true);
-   if(!empty($job_descriptions)) {
-    $smarty -> assign("T_JOB_DESCRIPTIONS", $job_descriptions);
-   }
-/*
-
-			$delete_link = array(
-
-			array('text' => _DELETE, 'image' => "16x16/error_delete.png", 'href' => $_SESSION['s_type'].".php?ctg=module_hcd&op=branches&delete_branch=".$currentBranch -> branch['branch_ID']."&father_ID=".$currentBranch -> branch['father_branch_ID'], 'onClick' => "return confirm('"._AREYOUSUREYOUWANTTODISMISSTHEBRANCH."')", 'target' => '_self')
-
-			);
+  $smarty -> assign("T_FATHER_BRANCH_ID", $fatherBranchId);
 
 
-
-			$smarty -> assign ("T_DELETE_LINK", $delete_link);
-
-*/
-   $show_subbranches_activate = array(
-   array('text' => _SHOWEMPLOYEESFROMSUBBRANCHES, 'image' => "16x16/question_type_one_correct.png", 'href' => 'javascript:void(0)', 'onClick' => "ajaxShowAllSubbranches();", 'target' => '_self')
-   );
-   $smarty -> assign ("T_SUBBRANCHES_LINK", $show_subbranches_activate);
-  }
-  $form -> addElement('submit', 'submit_branch_details', _SUBMIT, 'class = "flatButton"');
-  if (isset($_GET['edit_branch'])) {
-   $form -> setDefaults(array( 'branch_name' => $currentBranch -> branch['name'],
-           'address' => $currentBranch -> branch['address'],
-           'city' => $currentBranch -> branch['city'],
-           'country' => $currentBranch -> branch['country'],
-           'telephone' => $currentBranch -> branch['telephone'],
-           'email' => $currentBranch -> branch['email']));
-  }
-/*
-
-		$renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-
-		$renderer -> setRequiredTemplate(
-
-			'{$html}{if $required}
-
-				&nbsp;<span class = "formRequired">*</span>
-
-			{/if}');
-
-*/
- } catch (EfrontBranchException $e) {
-  $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-  $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-  $message_type = 'failure';
+ } catch (Exception $e) {
+  handleNormalFlowExceptions($e);
  }
+
  if ($form -> isSubmitted() && $form -> validate()) {
   $branch_content = array('name' => $form -> exportValue('branch_name'),
         'address' => $form -> exportValue('address'),
@@ -498,54 +421,39 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   try {
    if (isset($_GET['add_branch'])) {
     if ($first_branch != 1) {
-     $branch_content['father_branch_ID'] = $form -> exportValue('fatherBranch');
+      $branch_content['father_branch_ID'] = $form -> exportValue('fatherBranch');
     }
-    $newBranch = EfrontBranch :: createBranch($branch_content);
+    $currentBranch = EfrontBranch :: createBranch($branch_content);
     $message = _SUCCSSFULLYCREATEDBRANCH;
-    $message_type = 'success';
    } elseif (isset($_GET['edit_branch'])) {
-    $branch_content['father_branch_ID'] = $form->exportValue('fatherBranch');
+    $branch_content['father_branch_ID'] = $form -> exportValue('fatherBranch');
     $currentBranch -> updateBranchData($branch_content);
     $message = _BRANCHDATAUPDATED;
-    $message_type = 'success';
    }
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&edit_branch=".$currentBranch -> branch['branch_ID']."&message=". urlencode($message) . "&message_type=success");
+   exit;
   } catch (EfrontBranchException $e) {
-   $message = $e -> getMessage().' ('.$e -> getCode().')';
+   handleNormalFlowExceptions($e);
   }
-  // Instead of going back to the branches go the previous link
-  if (isset($_GET['add_branch'])) {
-   if (isset($_GET['returntab']) && $_GET['returntab'] == "basic") {
-    eF_redirect(decryptUrl(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=basic&newId=" . $newBranch ->branch['branch_ID']));
-   } else {
-    eF_redirect(decryptUrl(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=" . (isset($_GET['returntab'])?$_GET['returntab']:"subbranches")));
-   }
-  } else {
-   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&edit_branch=".$_GET['edit_branch']."&message=". urlencode($message) . "&message_type=" . $message_type);
-  }
-  exit;
  }
-/*
-
-	$form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
-
-	$form -> setRequiredNote(_REQUIREDNOTE);
-
-	$form -> accept($renderer);
-
-	$smarty -> assign('T_BRANCH_FORM', $renderer -> toArray());
-
-*/
  $smarty -> assign('T_BRANCH_FORM', $form -> toArray());
+
+
+
 } else {
+
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchesTable') {
   if ($_SESSION['s_type'] == "administrator") {
    $branches = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.branch_ID, module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees, branch1.branch_ID as father_ID, branch1.name as father, supervisor","");
   } else {
    $branches = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID WHERE module_hcd_branch.branch_ID IN (".$_SESSION['supervises_branches'].") GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees,  module_hcd_branch.branch_ID, branch1.branch_ID as father_ID, branch1.name as father","");
   }
+
   $dataSource = $branches;
   $tableName = $_GET['ajax'];
   include("sorted_table.php");
  }
+
 }
+
 ?>

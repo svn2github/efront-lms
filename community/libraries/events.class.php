@@ -72,13 +72,13 @@ class EfrontEvent
 {
     /* The constant type for each event - DO NOT CHANGE AS THEY ARE LINKED WITH THE digests.php FILE AND module events
 
-     *  
+     *
 
      * Description:
 
      * Events belonging to different "entities", like lessons, units, tests, forums etc, belong to different code groups
 
-     * of 25 events. 
+     * of 25 events.
 
      * Note: The entity_ID and entity_name fields have different meanings according to each event type.
 
@@ -91,9 +91,9 @@ class EfrontEvent
  const SYSTEM_REMOVAL = 3;
     const SYSTEM_FORGOTTEN_PASSWORD = 4;
     const SYSTEM_REGISTER = 5;
-    const SYSTEM_ON_EMAIL_ACTIVATION = 6; // entity_name (=timestamp of activation email sending) 
+    const SYSTEM_ON_EMAIL_ACTIVATION = 6; // entity_name (=timestamp of activation email sending)
     const SYSTEM_NEW_PASSWORD_REQUEST = 7; // entity_name (=new password) ?extra-security-needed?
-    // Lesson codes: [25 - 49]                    
+    // Lesson codes: [25 - 49]
     const LESSON_ACQUISITION_AS_STUDENT = 25; // users_LOGIN, lessons_ID, lessons_name
     const LESSON_ACQUISITION_AS_PROFESSOR = 26; // users_LOGIN, lessons_ID, lessons_name
     const LESSON_VISITED = 27; // users_LOGIN, lessons_ID, lessons_name
@@ -112,11 +112,11 @@ class EfrontEvent
     const COURSE_REMOVAL = 53; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_COMPLETION = 54; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_CERTIFICATE_ISSUE = 55; // users_LOGIN, lessons_ID, lessons_name, entity_name (grade)
-    const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name	
+    const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name
     // Test codes: [75-99]
     const TEST_CREATION = 75;
     const TEST_START = 76;
-    const TEST_COMPLETION = 77; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=test_ID), entity_name (=test name)              
+    const TEST_COMPLETION = 77; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=test_ID), entity_name (=test name)
     // Content [100-124]
     const CONTENT_CREATION = 100;
     const CONTENT_MODIFICATION = 101;
@@ -134,10 +134,10 @@ class EfrontEvent
     const STATUS_CHANGE = 150; // users_LOGIN, entity_name (=new status)
     const AVATAR_CHANGE = 151; // users_LOGIN, entity_id (=new img file id)
     const PROFILE_CHANGE = 152; // users_LOGIN
-    const NEW_PROFILE_COMMENT_FOR_OTHER = 153; // users_LOGIN (=login of author), users_name/surname (=author name/surname), 
+    const NEW_PROFILE_COMMENT_FOR_OTHER = 153; // users_LOGIN (=login of author), users_name/surname (=author name/surname),
                 // entity_id (=login of target user profile), entity_name (=target user Name Surname)
     const NEW_PROFILE_COMMENT_FOR_SELF = 154; // users_LOGIN (=login of author), users_name/surname (=author name/surname)
-    const DELETE_PROFILE_COMMENT_FOR_SELF = 155; // users_LOGIN (=login of author), users_name/surname (=author name/surname) 
+    const DELETE_PROFILE_COMMENT_FOR_SELF = 155; // users_LOGIN (=login of author), users_name/surname (=author name/surname)
     // Announcements: [175-199]
     const NEW_SYSTEM_ANNOUNCEMENT = 175; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=news_ID), entity_name (=news title)
     const NEW_LESSON_ANNOUNCEMENT = 176; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=news_ID), entity_name (=news title)
@@ -164,7 +164,7 @@ class EfrontEvent
     const COUPON_USAGE = 352; // users_LOGIN, users_name/surname, entity_ID (=coupons_ID), entity_name (=coupon_code)
  const MODULE_BASE_TYPE_CODE = 1000; // all events with type > 1000 are considered module-related events
            // the type of each event inside each module class is [type_value] - 1000
-           // the class of the module involved is defined in the entity_ID field 
+           // the class of the module involved is defined in the entity_ID field
            // For these events: (entity_ID => className, entity_name => serialized(data from module - view addEvent module method)
  const SAME_USER_INTERVAL = 600; // time after which a new event of the same type from the same user will be reported
     /**
@@ -228,7 +228,7 @@ class EfrontEvent
 
      *
 
-     * This function returns an array with the event types and their descriptive strings. 
+     * This function returns an array with the event types and their descriptive strings.
 
      * <br/>Example:
 
@@ -242,7 +242,7 @@ class EfrontEvent
 
      * @param boolean $get_module_events, will also return events registered by modules
 
-     * @return array The current event types 
+     * @return array The current event types
 
      * @since 3.6.0
 
@@ -378,11 +378,11 @@ class EfrontEvent
     }
    /**
 
-     * Get events that are relevant for a particular user 
+     * Get events that are relevant for a particular user
 
-     * from the most recent to the least recent ones 
+     * from the most recent to the least recent ones
 
-     * 
+     *
 
      * Relevancy is dictated by common classes (or common branches in HCD)
 
@@ -765,7 +765,7 @@ class EfrontEvent
         } else {
          $event_notification['id_type_entity'] = $event_notification['id'] . "_" . $event_notification['event_type'] . "_";
         }
-        // Check whether this is of a NOT-event		
+        // Check whether this is of a NOT-event
         if ($event_notification['event_type'] < 0 || $replace_notification) {
          $event_notification['event_type'] = (-1) * $event_notification['event_type'];
          // in that case delete the corresponding record in the table (if such exists)
@@ -819,13 +819,13 @@ class EfrontEvent
 
 	    				$event_notification['send_conditions'] = serialize(array("surveys_ID" => $this -> event['entity_ID']));
 
-	    				$event_notification['recipient'] = "";    				
+	    				$event_notification['recipient'] = "";
 
 	    			}
 
 					*/
         //@TODO unite with upper
-        // Format the message on the first layer: replacing event specific information now 
+        // Format the message on the first layer: replacing event specific information now
         // Note: Recipient's specific information will be first replaced in layer 2 (before sending)
         $template_formulations = $this -> createSubstitutionsArray($event_types, $event_notification['send_recipients']);
         $subject = eF_formulateTemplateMessage($event_notification['subject'], $template_formulations);
@@ -945,11 +945,11 @@ class EfrontEvent
 
      *
 
-     * This function creates the message string for this event 
+     * This function creates the message string for this event
 
      * according to its type and its information
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -959,7 +959,7 @@ class EfrontEvent
 
      * $event -> createMessage();
 
-     * echo $event -> event['message']; 
+     * echo $event -> event['message'];
 
      * </code>
 
@@ -1037,7 +1037,7 @@ class EfrontEvent
     $this -> event['message'] .= _WASREGISTEREDINTOTHESYSTEM;
    } else if ($this -> event['type'] == EfrontEvent::SYSTEM_ON_EMAIL_ACTIVATION) {
     $this -> event['message'] .= _ACTIVATEDHISACCOUNTWITHEACTIVATIONMAIL;
-         // For courses we have lessons_name -> courses_name    
+         // For courses we have lessons_name -> courses_name
          } else if ($this -> event['type'] == EfrontEvent::COURSE_ACQUISITION_AS_STUDENT) {
              $this -> event['message'] .= _WASASSIGNEDTHECOURSE . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR) {

@@ -25,7 +25,7 @@ class EfrontPaymentsException extends Exception
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -54,7 +54,7 @@ class payments extends EfrontEntity
 
      */
     public function getForm($form) {
-     //$form -> addElement('select', 'user', _USER, 'class = "inputText"');    
+     //$form -> addElement('select', 'user', _USER, 'class = "inputText"');
      //$form -> addRule('user', _THEFIELD.' "'._USER.'" '._ISMANDATORY, 'required', null, 'client');
      $form -> addElement('text', 'amount', _AMOUNT, 'class = "inputTextScore"');
      $form -> addRule('amount', _THEFIELD.' "'._AMOUNT.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
@@ -87,13 +87,13 @@ class payments extends EfrontEntity
 
      * Create Payment
 
-     * 
+     *
 
      * This function is used to create a new payment entry
 
-     * 
+     *
 
-     * @param array $fields The payment properties 
+     * @param array $fields The payment properties
 
      * @return payment The created payment
 
@@ -116,21 +116,26 @@ class payments extends EfrontEntity
    $eventType = EfrontEvent::NEW_PAYPAL_PAYMENT;
         } else if ($fields['method'] == 'balance') {
    $eventType = EfrontEvent::NEW_BALANCE_PAYMENT;
+        } else {
+         $eventType = false;
         }
         $newId = eF_insertTableData("payments", $fields);
         $result = eF_getTableData("payments", "*", "id=".$newId); //We perform an extra step/query for retrieving data, sinve this way we make sure that the array fields will be in correct order (forst id, then name, etc)
         $payment = new payments($result[0]['id']);
-  EfrontEvent::triggerEvent(array("type" => $eventType,
-             "users_LOGIN" => $user -> user['login'],
-             "users_name" => $user -> user['name'],
-             "users_surname" => $user -> user['surname'],
-             "entity_ID" => $newId));
+        if ($eventType) {
+         $event = array("type" => $eventType,
+          "users_LOGIN" => $user -> user['login'],
+          "users_name" => $user -> user['name'],
+          "users_surname" => $user -> user['surname'],
+          "entity_ID" => $newId);
+   EfrontEvent::triggerEvent($event);
+        }
         return $payment;
     }
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -141,7 +146,7 @@ class cart
 {
     /**
 
-     * 
+     *
 
      * @return unknown_type
 
@@ -157,7 +162,7 @@ class cart
     }
     /**
 
-     * 
+     *
 
      * @param $cart
 
@@ -174,7 +179,7 @@ class cart
                 $lesson = new EfrontLesson($entry);
                 //Recurring items cannot coexist with anything else in the cart. For this reason, when a recurring item is added in the cart,
                 //everything else is removed. If we reached this point and there are recurring items alongside non-recurring, this means that we
-                //first added a recurring item and then a non-recurring. In this case, we must remove any recurring items from the cart. 
+                //first added a recurring item and then a non-recurring. In this case, we must remove any recurring items from the cart.
                 if ($lesson -> options['recurring'] && (sizeof($cart['lesson']) > 1 || !empty($cart['course']))) {
                     unset($cart['lesson'][$key]);
                 } else {
@@ -197,7 +202,7 @@ class cart
                 $course = new EfrontCourse($entry);
                 //Recurring items cannot coexist with anything else in the cart. For this reason, when a recurring item is added in the cart,
                 //everything else is removed. If we reached this point and there are recurring items alongside non-recurring, this means that we
-                //first added a recurring item and then a non-recurring. In this case, we must remove any recurring items from the cart. 
+                //first added a recurring item and then a non-recurring. In this case, we must remove any recurring items from the cart.
                 if ($course -> options['recurring'] && (sizeof($cart['course']) > 1 || !empty($cart['lesson']))) {
                     unset($cart['course'][$key]);
                 } else {
@@ -228,7 +233,7 @@ class cart
     }
     /**
 
-     * 
+     *
 
      * @param $cart
 
@@ -243,7 +248,7 @@ class cart
          if ($cart === false) {
              setcookie("cart", "", time() - 3600);
          } else {
-             //Check whether a cart for this session id exists and if yes update, otherwise create 
+             //Check whether a cart for this session id exists and if yes update, otherwise create
              $result = eF_getTableData("carts", "id", "session_id='".session_id()."'");
              if (sizeof($result) > 0) {
                  eF_updateTableData("carts", array("contents" => serialize($cart), "timestamp" => time()), "id=".$result[0]['id']);
@@ -260,7 +265,7 @@ class cart
     }
     /**
 
-     * 
+     *
 
      * @param $cart
 
@@ -288,7 +293,7 @@ class cart
     }
     /**
 
-     * 
+     *
 
      * @param $cart
 

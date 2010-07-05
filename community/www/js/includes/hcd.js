@@ -14,9 +14,11 @@ function onRemoveUserFromBranch(el, response) {
  }
 }
 
-function deleteJob(el, job) {
+function deleteJob(el, job, url) {
+ if (!url) {
+  var url = location.toString();
+ }
  parameters = {delete_job_description:job, method: 'get'};
- var url = location.toString();
  ajaxRequest(el, url, parameters, onDeleteJob);
 }
 function onDeleteJob(el, response) {
@@ -46,6 +48,7 @@ function removeSkillFromUser(el, user, skill) {
 function onRemoveSkillFromUser(el, response) {
  new Effect.Fade(el.up().up());
 }
+
 function deleteBranch(el, id, fatherId) {
  var url = location.toString();
  parameters = {delete_branch:id, father_ID:fatherId, ajax:'branch', method: 'get'};

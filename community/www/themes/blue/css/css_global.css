@@ -774,9 +774,13 @@ table.contentArea td#sideColumn{width:250px;}
 table.contentArea td#completeUnit{text-align:center;width:100%;border-top: 1px solid #DDDDDD;vertical-align:top;height:50px;}/*height 50px in order for the navigation handles to appear properly when the complete unit is hidden*/
 table.contentArea div#contentQuestionAnswer{text-align:left;margin-top:10px;}
 
-table.contentArea div#navigationHandlesBottom{position:relative;white-space:nowrap;text-align:right;}
-table.contentArea div#navigationHandlesBottom div#nextUnitHandle{float:right;position:absolute;right:0px;}
-table.contentArea div#navigationHandlesBottom div#previousUnitHandle{float:left;position:absolute;left:0px;}
+table.navigationTable {width:100%;margin-top:15px;border-top:1px solid #AAAAAA}
+table.navigationTable td.previousUnitHandleIcon{width:3%;text-align:left;ertical-align:top;padding-top:15px;}
+table.navigationTable td.previousUnitHandle{width:27%;text-align:left;ertical-align:top;padding-top:15px;}
+table.navigationTable td.completeUnitHandle{width:40%;text-align:center;padding-top:15px;vertical-align:top;}
+table.navigationTable td.completeUnitHandle div.unitQuestionArea{border:1px solid black;padding:10px;}
+table.navigationTable td.nextUnitHandleIcon{width:3%;text-align:right;ertical-align:top;padding-top:15px;}
+table.navigationTable td.nextUnitHandle{width:27%;text-align:right;ertical-align:top;padding-top:15px;}
 
 /*Statistics classes*/
 table.statisticsPanel,

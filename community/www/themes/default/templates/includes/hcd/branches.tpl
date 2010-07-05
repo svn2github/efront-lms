@@ -1,7 +1,61 @@
+{capture name = "t_branches_table_code"}
+{if $smarty.get.edit_branch}
+  {assign var = "branchesAjaxUrl" value = "`$smarty.server.PHP_SELF`?ctg=module_hcd&op=branches&edit_branch=`$smarty.get.edit_branch`&"}
+{else}
+  {assign var = "branchesAjaxUrl" value = "`$smarty.server.PHP_SELF`?ctg=module_hcd&op=branches&"}
+{/if}
+{if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'branchesTable'}
+<!--ajax:branchesTable-->
+            <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "4" id = "branchesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$branchesAjaxUrl}">
+                <tr class = "topTitle">
+                    <td class = "topTitle" name = "name">{$smarty.const._BRANCHNAME}</td>
+                    <td class = "topTitle" name = "city">{$smarty.const._CITY}</td>
+                    <td class = "topTitle" name = "address">{$smarty.const._ADDRESS}</td>
+                    <td class = "topTitle centerAlign" name = "employees">{$smarty.const._ACTIVEUSERS}</td>
+                    <td class = "topTitle centerAlign" name = "inactive_employees">{$smarty.const._INACTIVEUSERS}</td>
+                    <td class = "topTitle" name = "father">{$smarty.const._FATHERBRANCHNAME}</td>
+                    <td class = "topTitle centerAlign noSort" name="operations">{$smarty.const._OPERATIONS}</td>
+                </tr>
+
+            {foreach name = 'branch_list' key = 'key' item = 'branch' from = $T_DATA_SOURCE}
+                <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+                    <td>
+                    {if $smarty.session.s_type == "administrator" || $branch.supervisor == 1}
+                        <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$branch.branch_ID}" class = "editLink">{$branch.name}</a>
+                    {else}
+                        {$branch.name}
+                    {/if}
+                    </td>
+                    <td>{$branch.city}</td>
+                    <td>{$branch.address}</td>
+                    <td class = "centerAlign">{$branch.employees}</td>
+                    <td class = "centerAlign">{$branch.inactive_employees}</td>
+                    <td>
+     {if $smarty.session.s_type == "administrator" || $branch.father_supervisor == 1}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$branch.father_ID}" class = "editLink">{$branch.father}</a>
+     {else}{$branch.father}{/if}
+     </td>
+                    <td class = "centerAlign">
+                    {if $smarty.session.s_type == "administrator" || $branch.supervisor == 1}
+                        <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$branch.branch_ID}" class = "editLink">
+                         <img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}"/>
+                        </a>
+                        <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODISMISSTHEBRANCH}')) deleteBranch(this, '{$branch.branch_ID}', '{$branch.father_ID}')"/>
+                    {/if}
+                    </td>
+                </tr>
+            {foreachelse}
+             <tr class = "defaultRowHeight oddRowColor"><td colspan = "6" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
+            {/foreach}
+            </table>
+<!--/ajax:branchesTable-->
+{/if}
+{/capture}
+
     {if $smarty.get.add_branch || $smarty.get.edit_branch}
 
   {capture name = 't_branch_code'}
-   {eF_template_printForm form=$T_BRANCH_FORM}
+   {eF_template_printForm form=$T_BRANCH_FORM handles=$T_FORM_HANDLES}
 
       {if $smarty.get.edit_branch}
           {literal}
@@ -134,31 +188,7 @@
      </div>
           {/if}
 
-          <table width = "100%" class = "sortedTable">
-              <tr class = "topTitle">
-                  <td class = "topTitle">{$smarty.const._BRANCHNAME}</td>
-                  <td class = "topTitle">{$smarty.const._CITY}</td>
-                  <td class = "topTitle">{$smarty.const._ADDRESS}</td>
-                  <td class = "topTitle" align="center">{$smarty.const._EMPLOYEES}</td>
-                  <td class = "topTitle noSort" align="center">{$smarty.const._OPERATIONS}</td>
-              </tr>
-      {if isset($T_SUBBRANCHES)}
-          {foreach name = 'branch_list' key = 'key' item = 'branch' from = $T_SUBBRANCHES}
-              <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-                  <td><a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$branch.branch_ID}" class = "editLink">{$branch.name}</a></td>
-                  <td> {$branch.city}</td>
-                  <td> {$branch.address}</td>
-                  <td class = "centerAlign">{$branch.employees}</td>
-                  <td class = "centerAlign">
-                   <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$branch.branch_ID}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-                   <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&delete_branch={$branch.branch_ID}&father_ID={$branch.father_ID}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODISMISSTHEBRANCH}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
-                  </td>
-              </tr>
-          {/foreach}
-      {else}
-        <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
-      {/if}
-       </table>
+    {$smarty.capture.t_branches_table_code}
       {/capture}
 
       {*Show job_descriptions of this branch*}
@@ -178,26 +208,20 @@
                   <td class = "topTitle centerAlign" >{$smarty.const._SKILLSREQUIRED}</td>
                   <td class = "topTitle noSort centerAlign" >{$smarty.const._OPERATIONS}</td>
               </tr>
-
-    {if isset($T_JOB_DESCRIPTIONS)}
               {foreach name = 'job_description_list' key = 'key' item = 'job_description' from = $T_JOB_DESCRIPTIONS}
               <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
                   <td><a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink">{$job_description.description}</a></td>
-                  <td class = "centerAlign"> {$job_description.Employees}</td>
-                  <td class = "centerAlign"> {$job_description.more_needed} </td>
-                  <td class = "centerAlign"> {$job_description.skill_req}</td>
+                  <td class = "centerAlign">{$job_description.Employees}</td>
+                  <td class = "centerAlign">{$job_description.more_needed} </td>
+                  <td class = "centerAlign">{$job_description.skill_req}</td>
                   <td class = "centerAlign">
                    <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink"><img class="handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-               {*
-                   <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&export_vacancies_for_job_description={$job_description.job_description_ID}" class = "editLink"><img border = "0" src = "images/16x16/billboard.png" title = "{$smarty.const._EXPORTVACANCIES}" alt = "{$smarty.const._EXPORTVACANCIES}" /></a>
-               *}
-                   <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&delete_job_description={$job_description.job_description_ID}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION}')" class = "deleteLink"><img class="handle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
+                   <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION}')) deleteJob(this, '{$job_description.job_description_ID}', '{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions')" />
                   </td>
               </tr>
-              {/foreach}
-    {else}
+     {foreachelse}
         <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
-       {/if}
+              {/foreach}
           </table>
       {/capture}
 
@@ -257,7 +281,7 @@
                         <div class="tabber">
                             <div class="tabbertab">
                                 <h3>{$smarty.const._EDITBRANCH}</h3>
-                                {eF_template_printBlock title = $smarty.const._BRANCHRECORD|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_code image = '32x32/branch.png'}
+                                {eF_template_printBlock title = $smarty.const._BRANCHRECORD|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_code image = '32x32/branch.png' options = $T_DELETE_LINK}
                                 {eF_template_printBlock title = $smarty.const._EMPLOYEES|cat:$smarty.const._ATBRANCH|cat:"<span class='innerTableName'>&quot;`$T_BRANCH_NAME`&quot;</span><span id='andSubbranchesTitle' style='visibility:hidden'>&nbsp;`$smarty.const._ANDSUBBRANCHES`</span>" data = $smarty.capture.t_employees_code image = '32x32/user.png' options = $T_SUBBRANCHES_LINK}
                             </div>
                             <div class="tabbertab {if ($smarty.get.tab == "assign_employees"  || isset($smarty.post.employees_to_branches)) } tabbertabdefault {/if}">
@@ -304,49 +328,8 @@
               </span>
     </div>
             {/if}
-{if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'branchesTable'}
-<!--ajax:branchesTable-->
-            <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "4" id = "branchesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&">
-                <tr class = "topTitle">
-                    <td class = "topTitle" name = "name">{$smarty.const._BRANCHNAME}</td>
-                    <td class = "topTitle" name = "city">{$smarty.const._CITY}</td>
-                    <td class = "topTitle" name = "address">{$smarty.const._ADDRESS}</td>
-                    <td class = "topTitle" name = "employees" align="center">{$smarty.const._ACTIVEUSERS}</td>
-                    <td class = "topTitle" name = "inactive_employees" align="center">{$smarty.const._INACTIVEUSERS}</td>
-                    <td class = "topTitle" name = "father">{$smarty.const._FATHERBRANCHNAME}</td>
-                    <td class = "topTitle noSort" name="operations" align="center">{$smarty.const._OPERATIONS}</td>
-                </tr>
 
-            {foreach name = 'branch_list' key = 'key' item = 'branch' from = $T_DATA_SOURCE}
-                <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-                    <td>
-                    {if $smarty.session.s_type == "administrator" || $branch.supervisor == 1}
-                        <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$branch.branch_ID}" class = "editLink">{$branch.name}</a></td>
-                    {else}
-                        {$branch.name}
-                    {/if}
-                    <td>{$branch.city}</td>
-                    <td>{$branch.address}</td>
-                    <td class = "centerAlign">{$branch.employees}</td>
-                    <td class = "centerAlign">{$branch.inactive_employees}</td>
-                    <td> {if $smarty.session.s_type == "administrator" || $branch.father_supervisor == 1}<a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$branch.father_ID}" class = "editLink">{$branch.father}{else}{$branch.father}{/if}</a></td>
-                    <td class = "centerAlign">
-                    {if $smarty.session.s_type == "administrator" || $branch.supervisor == 1}
-                        <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$branch.branch_ID}" class = "editLink">
-                         <img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}"/>
-                        </a>
-                    {/if}
-                    {if $smarty.session.s_type == "administrator" || $branch.supervisor == 1}
-                        <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODISMISSTHEBRANCH}')) deleteBranch(this, '{$branch.branch_ID}', '{$branch.father_ID}')"/>
-                    {/if}
-                    </td>
-                </tr>
-            {foreachelse}
-             <tr class = "defaultRowHeight oddRowColor"><td colspan = "6" class = "emptyCategory">{$smarty.const._NOBRANCHESHAVEBEENREGISTERED}</td></tr>
-            {/foreach}
-            </table>
-<!--/ajax:branchesTable-->
-{/if}
+  {$smarty.capture.t_branches_table_code}
 
         {/capture}
         {if $smarty.session.employee_type != _EMPLOYEE}

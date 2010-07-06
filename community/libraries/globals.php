@@ -80,6 +80,7 @@ ini_set('magic_quotes_runtime', false); // check http://www.smarty.net/forums/vi
 //handleSEO();
 //Setup the current version
 setupVersion();
+
 //query decryption
 //Input sanitization
 foreach ($_GET as $key => $value) {
@@ -258,7 +259,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 7763;
+    $build = 7781;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/

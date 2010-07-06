@@ -211,6 +211,7 @@
        sortedTables[tableIndex].parentNode.replaceChild(spanElement, sortedTables[tableIndex]);
 
        loadingDiv.hide();
+       //loadingDiv.setStyle({width:'0px', height:'0px'});
        loadingDiv.writeAttribute({loaded:true});
 
        init(document.getElementById(tableId), false, tableIndex);
@@ -218,7 +219,7 @@
        document.getElementById(tableIndex+'_sortedTable_currentPage').selectedIndex = Math.ceil(currentOffset[tableIndex]/rowsPerPage[tableIndex]);
 
        sortedTables[tableIndex].style.visibility = 'visible';
-       loadingDiv.clonePosition(sortedTables[tableIndex]);
+       //loadingDiv.clonePosition(sortedTables[tableIndex]);
 
        if (el) {
         if (currentOrder[tableIndex] == 'desc') { //Set the icons through the class to reflect the order, ascending or descending

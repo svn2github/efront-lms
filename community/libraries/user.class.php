@@ -1557,7 +1557,7 @@ abstract class EfrontUser
  public function getModules() {
   $modulesDB = eF_getTableData("modules","*","active = 1");
   $modules = array();
-  $user_type = $this -> getType();
+  isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_lesson_user_type'] ? $user_type = $_SESSION['s_lesson_user_type'] : $user_type = $this -> getType();
   // Get all modules enabled for this user type
   foreach ($modulesDB as $module) {
    $folder = $module['position'];

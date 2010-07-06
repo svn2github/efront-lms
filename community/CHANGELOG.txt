@@ -3,6 +3,7 @@
 - Fixed issue in changing user role in courses assignment
 - Fixed bug in notification events related with specific courses
 - Fixed logout redirecting to https pages
+- Fixed modules not appearing in lesson settings for professors that their primary type is 'student'
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

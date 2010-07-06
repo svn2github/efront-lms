@@ -192,7 +192,7 @@ if ($_GET['op'] == 'reset_lesson') {
         $smarty -> assign("T_BASE_URL", 'ctg=settings');
     }
     try {
-        $lessonUsers = $currentLesson -> getUsers(); //Get all users that have this lesson        
+        $lessonUsers = $currentLesson -> getUsers(); //Get all users that have this lesson
         unset($lessonUsers[$currentUser -> login]); //Remove the current user from the list, he can't set parameters for his self!
         //COMMENTED OUT BECAUSE WE DON'T WANT TO SET USERS FROM THIS LIST
         //$nonLessonUsers = $currentLesson -> getNonUsers();                 //Get all the users that can, but don't, have this lesson

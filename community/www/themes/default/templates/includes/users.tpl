@@ -3,7 +3,7 @@
 {if $smarty.get.add_user || $smarty.get.edit_user}
     {*moduleNewUser: Create a new user*}
             {capture name = "moduleNewUser"}
-                                <tr><td class = "moduleCell">
+                                <tr><td class = "moduleCell" id = "singleColumn">
 
                                         <table width = "100%">
                                             <tr><td class = "topAlign" width = "50%">

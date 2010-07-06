@@ -31,7 +31,7 @@ class EfrontEntityException extends Exception
 
  * General Entity Class
 
- * 
+ *
 
  * @author eFront
 
@@ -52,7 +52,7 @@ abstract class EfrontEntity
 
      * Instantiate entity
 
-     * 
+     *
 
      * @param $param The parameters to instantiate entity with
 
@@ -82,7 +82,7 @@ abstract class EfrontEntity
 
      * Delete entity
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -96,7 +96,7 @@ abstract class EfrontEntity
 
      * Create entity
 
-     *  
+     *
 
      * @param $fields The fields to create the entity with
 
@@ -112,7 +112,7 @@ abstract class EfrontEntity
 
      * Persist entity
 
-     *  
+     *
 
      * @since 3.6.0
 
@@ -126,7 +126,7 @@ abstract class EfrontEntity
 
      * Activate entity
 
-     *  
+     *
 
      * @since 3.6.0
 
@@ -141,7 +141,7 @@ abstract class EfrontEntity
 
      * Deactivate entity
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -156,7 +156,7 @@ abstract class EfrontEntity
 
      * Archive entity (if applicable)
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -173,7 +173,7 @@ abstract class EfrontEntity
 
      * Export entity
 
-     * 
+     *
 
      * @param string $type The type of the exported data, for example 'xml' or 'csv'
 
@@ -210,7 +210,7 @@ abstract class EfrontEntity
 
      * Import entity
 
-     * 
+     *
 
      * @param string $type The type of the imported data, for example 'xml' or 'csv'
 
@@ -261,9 +261,9 @@ abstract class EfrontEntity
     }
     /**
 
-     * Produce the creation form for this entity 
+     * Produce the creation form for this entity
 
-     * 
+     *
 
      * @param $form The initial form object
 
@@ -279,7 +279,7 @@ abstract class EfrontEntity
 
      * Handle the posted form values
 
-     * 
+     *
 
      * @param $form The form object
 

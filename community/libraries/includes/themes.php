@@ -15,6 +15,10 @@ $loadScripts[] = 'scriptaculous/dragdrop';
 $loadScripts[] = 'includes/themes';
 $loadScripts[] = 'includes/entity';
 
+
+$themeSettingsTools = array(array('text' => _APPEARANCE, 'image' => "16x16/layout.png", 'href' => basename($_SERVER['PHP_SELF']).'?ctg=system_config&op=appearance'));
+$smarty -> assign ("T_APPEARANCE_LINK", $themeSettingsTools);
+
 try {
     try {
         $currentSetTheme = new themes($GLOBALS['configuration']['theme']);
@@ -103,9 +107,7 @@ try {
                 exit;
             }
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
-            exit;
+         handleAjaxExceptions($e);
         }
 
         if (isset($_GET['add_page']) || (isset($_GET['edit_page']) && in_array($_GET['edit_page'], $pages) && eF_checkParameter($_GET['edit_page'], 'filename'))) {
@@ -173,9 +175,7 @@ try {
 
                 include "file_manager.php";
             } catch (Exception $e) {
-                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-                $message_type = 'failure';
+             handleNormalFlowExceptions($e);
             }
         }
     }
@@ -218,9 +218,7 @@ try {
             include "file_manager.php";
 
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         handleNormalFlowExceptions($e);
         }
 
 
@@ -305,9 +303,7 @@ try {
                 //$message      = _SETTINGSIMPORTEDSUCCESFULLY;
                 //$message_type = 'success';
             } catch (Exception $e) {
-                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message = _PROBLEMIMPORTINGFILE.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-                $message_type = 'failure';
+             handleNormalFlowExceptions($e);
             }
         }
 
@@ -364,7 +360,7 @@ try {
                  $file -> delete();
                 }
 
-                //Remove the block from the custom blocks list 
+                //Remove the block from the custom blocks list
                 unset($customBlocks[$_GET['delete_block']]);
                 $layoutTheme -> layout['custom_blocks'] = $customBlocks;
 
@@ -405,9 +401,7 @@ try {
                 exit;
             }
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
-            exit;
+         handleAjaxExceptions($e);
         }
     }
 
@@ -438,8 +432,7 @@ try {
              }
             }
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     }
@@ -467,8 +460,7 @@ try {
             }
 
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     }
@@ -476,8 +468,7 @@ try {
         try {
             $currentSetTheme -> applySettings();
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     }
@@ -492,15 +483,12 @@ try {
             //$theme -> applySettings();
             //EfrontConfiguration::setValue('theme', $_GET['set_theme']);
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     }
 } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
+ handleNormalFlowExceptions($e);
 }
 
 

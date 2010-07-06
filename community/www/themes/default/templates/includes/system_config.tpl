@@ -83,6 +83,6 @@
 {*moduleConfig: The configuration settings page*}
 {capture name = "moduleConfig"}
  <tr><td class="moduleCell">
-  {eF_template_printBlock title = $smarty.const._CONFIGURATIONVARIABLES data = $smarty.capture.view_config image='32x32/tools.png' help = 'System_settings' main_options = $T_TABLE_OPTIONS}
+  {eF_template_printBlock title = $smarty.const._CONFIGURATIONVARIABLES data = $smarty.capture.view_config image='32x32/tools.png' help = 'System_settings' main_options = $T_TABLE_OPTIONS options = $T_THEMES_LINK}
     </td></tr>
 {/capture}

@@ -4,6 +4,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 
+$themeSettingsTools = array(array('text' => _THEMES, 'image' => "16x16/layout.png", 'href' => basename($_SERVER['PHP_SELF']).'?ctg=themes'));
+$smarty -> assign ("T_THEMES_LINK", $themeSettingsTools);
+
 $appearanceMainForm = new Html_QuickForm("appearance_main_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=main", "", null, true);
 $appearanceMainForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $appearanceMainForm -> addElement("advcheckbox", "show_footer", _SHOWFOOTER, null, 'class = "inputCheckBox"', array(0, 1));

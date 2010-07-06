@@ -208,5 +208,5 @@
         <div class="tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'set_theme')} tabbertabdefault{/if}" title = "{$smarty.const._CHANGETHEME}">{$smarty.capture.t_change_theme_tab}</div>
  </div>
  {/capture}
- {eF_template_printBlock title = $smarty.const._THEMES data = $smarty.capture.t_theme_divs_code image = '32x32/themes.png' help='Themes'}
+ {eF_template_printBlock title = $smarty.const._THEMES data = $smarty.capture.t_theme_divs_code image = '32x32/themes.png' help='Themes' options = $T_APPEARANCE_LINK}
 {/if}

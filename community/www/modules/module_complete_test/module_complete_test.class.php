@@ -245,8 +245,8 @@ class module_complete_test extends EfrontModule
  }
 
  public function getLessonCenterLinkInfo() {
-  $currentUser = $this -> getCurrentUser();
-  if ($currentUser -> getType() == 'professor') {
+
+  if ($_SESSION['s_lesson_user_type'] == 'professor') {
    return $this -> getCenterLinkInfo();
   }
  }

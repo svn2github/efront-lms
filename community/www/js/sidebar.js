@@ -1387,6 +1387,9 @@ function startUpdater() {
 }
 if (startUpdater) { startUpdater();}
 
+if ($('current_location') && top.mainframe) { // in order to evaluate current_location for search box when sidebar is refreshed
+ $('current_location').value = top.mainframe.location.toString();
+}
 
 /*
 

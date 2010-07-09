@@ -61,13 +61,13 @@ try {
 
 	//If we asked to edit a test with its corresponding unit id, then find the equivalent test
 
-	if (isset($_GET['edit_test']) && in_array($_GET['edit'], $legalUnits)) {    
+	if (isset($_GET['edit_test']) && in_array($_GET['edit'], $legalUnits)) {
 
 	    $currentTest = new EfrontTest($_GET['edit'], true);
 
 	    $_GET['edit_test'] = $currentTest -> test['id'];
 
-	}	
+	}
 
 */
  $smarty -> assign("T_SKILLGAP_TEST", $skillgap_tests);
@@ -232,7 +232,7 @@ try {
         /***/
         require_once("tests/add_question.php");
     } elseif (isset($_GET['solved_tests'])) {
-/*        
+/*
 
         // Get skillgap test related information
 

@@ -89,7 +89,7 @@ function API(){}
 
 
 
-These functions implement the SCORM protocol. However, they use corresponding oxiliary 
+These functions implement the SCORM protocol. However, they use corresponding oxiliary
 
 functions to the the real job. They all initially call myInitError(), which
 
@@ -490,7 +490,7 @@ function myGetDiagnostic(errorNumber)
 
 
 
-These functions implement supplementary operations needed by the LMS. They 
+These functions implement supplementary operations needed by the LMS. They
 
 are mainly associated to error handling.
 
@@ -770,13 +770,13 @@ function myInitError()
 
 
 
-The functions below implement the SCORM data model. Each function is 
+The functions below implement the SCORM data model. Each function is
 
-initialized to an object, so that data access is done accordingly to 
+initialized to an object, so that data access is done accordingly to
 
-SCORM notation. For example, if we need to set the cmi.core.student_name 
+SCORM notation. For example, if we need to set the cmi.core.student_name
 
-parameter's value, we will access it at exactly the same way, since all 
+parameter's value, we will access it at exactly the same way, since all
 
 parameter elements (cmi, core, student_name) are objects.
 
@@ -930,7 +930,7 @@ function myCmi()
         }
         /**
 
-        * cmi.core.credit siginifies whether the user is beeing tracked by the LMSduring this SCO. 
+        * cmi.core.credit siginifies whether the user is beeing tracked by the LMSduring this SCO.
 
         * That is, it sets whether the SCO will send data to the LMS, which will be stored
 
@@ -1037,7 +1037,7 @@ function myCmi()
         {
             this.get = function()
             {
-                if ((typeof SCOState['entry']) != 'undefined') //Since entry may be just '', we need to check if it is defined                
+                if ((typeof SCOState['entry']) != 'undefined') //Since entry may be just '', we need to check if it is defined
                 {
                     value = SCOState['entry'];
                 }
@@ -1119,7 +1119,7 @@ function myCmi()
 
             * Supported API calls: LMSGetValue(), LMSSetValue()
 
-            * LMS Mandatory: 
+            * LMS Mandatory:
 
             * Data Type: CMIDecimal or CMIBlank
 
@@ -2079,7 +2079,7 @@ Uncomment this and comment below to make it non-implemented
     this.objectives = objectives;
     /**
 
-    * cmi.interactions handles user-defined data 
+    * cmi.interactions handles user-defined data
 
     */
     var interactions = new Array();

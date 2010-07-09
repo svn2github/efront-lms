@@ -977,7 +977,8 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                             <td align="center">{if $proposed_lesson.price == 0}{$smarty.const._FREE}{else}{$proposed_lesson.price} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}{/if}</td>
                                         {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change')}
                                             <td class = "centerAlign">
-                                                <input class = "inputCheckBox" type = "checkbox" id = "lesson_{$proposed_lesson.id}" name = "lesson_{$proposed_lesson.id}" onclick ="ajaxPost('{$proposed_lesson.id}', this,'proposedLessonsTable');">
+                                                {*<input class = "inputCheckBox" type = "checkbox" id = "lesson_{$proposed_lesson.id}" name = "lesson_{$proposed_lesson.id}" onclick ="ajaxPost('{$proposed_lesson.id}', this,'proposedLessonsTable');">*}
+                                                <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" id = "lesson_{$proposed_lesson.id}" name = "lesson_{$proposed_lesson.id}" onclick ="ajaxPost('{$proposed_lesson.id}', this,'proposedLessonsTable');">
                                             </td>
                                         {/if}
                                         </tr>
@@ -1033,7 +1034,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                                     <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
                                                 {* MODULE HCD: Prices are replaced by the number of skills offered *}
                                                     <td class = "topTitle centerAlign" name = "price">{$smarty.const._PRICE}</td>
-                                                    <td class = "topTitle centerAlign">{$smarty.const._CHECK}</td>
                                                 </tr>
                                 {foreach name = 'lessons_list2' key = 'key' item = 'assigned_lesson' from = $T_ASSIGNED_LESSONS_DATA}
                                                 <tr id="row_{$assigned_lesson.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$assigned_lesson.active}deactivatedTableElement{/if}">
@@ -1042,11 +1042,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                                     <td>{$assigned_lesson.languages_NAME}</td>
                                                 {* MODULE HCD: Prices are replaced by the number of skills offered *}
                                                     <td align="center">{if $assigned_lesson.price == 0}{$smarty.const._FREE}{else}{$assigned_lesson.price} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}{/if}</td>
-                                                {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change')}
-                                                    <td class = "centerAlign">
-                                                        <input class = "inputCheckBox" type = "checkbox" id = "lesson_{$assigned_lesson.id}" name = "lesson_{$assigned_lesson.id}" onclick ="ajaxPost('{$assigned_lesson.id}', this,'assignedLessonsTable');" checked>
-                                                    </td>
-                                                {/if}
                                                 </tr>
                                 {foreachelse}
                                             <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NOLESSONSFOUND}</td></tr>
@@ -1064,7 +1059,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                                     <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
                                                 {* MODULE HCD: Prices are replaced by the number of skills offered *}
                                                     <td class = "topTitle centerAlign" name = "price">{$smarty.const._PRICE}</td>
-                                                    <td class = "topTitle centerAlign">{$smarty.const._CHECK}</td>
                                                 </tr>
                                 {foreach name = 'courses_list2' key = 'key' item = 'assigned_course' from = $T_ASSIGNED_COURSES_DATA}
                                                 <tr id="row_{$assigned_course.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$assigned_course.active}deactivatedTableElement{/if}">
@@ -1073,11 +1067,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                                     <td>{$assigned_course.languages_NAME}</td>
                                                 {* MODULE HCD: Prices are replaced by the number of skills offered *}
                                                     <td align="center">{if $assigned_course.price == 0}{$smarty.const._FREE}{else}{$assigned_course.price} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}{/if}</td>
-                                                {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change')}
-                                                    <td class = "centerAlign">
-                                                        <input class = "inputCheckBox" type = "checkbox" id = "course_{$assigned_course.id}" name = "course_{$assigned_course.id}" onclick ="ajaxPost('{$assigned_course.id}', this,'assignedCoursesTable');" checked>
-                                                    </td>
-                                                {/if}
                                                 </tr>
                                 {foreachelse}
                                             <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NOCOURSESFOUND}</td></tr>

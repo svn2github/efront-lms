@@ -1423,7 +1423,7 @@ function eF_getSurveyStatistics($survey_id){
 function eF_checkNotExist($needle, $type) {
     switch ($type) {
         case 'login':
-            $result = eF_getTableData("users", "login", "login='$needle'");
+            $result = eF_getTableData("users", "login", "login='$needle' and archive=0");
             break;
         case 'email':
             $result = eF_getTableData("users", "email", "email='$needle'");

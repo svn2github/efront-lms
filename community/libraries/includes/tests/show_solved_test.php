@@ -29,7 +29,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
    }
    $completedTest -> options['given_answers'] = true;
 
-            // We do not want all handles for test editing for skillgap tests - the students do not see the tests			
+            // We do not want all handles for test editing for skillgap tests - the students do not see the tests
             if ($skillgap_tests) {
                 $testString = $completedTest -> toHTMLQuickForm(new HTML_Quickform(), false, true, false);
     $testString = $completedTest -> toHTMLSolved($testString, false);
@@ -167,6 +167,21 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $smarty -> display('administrator.tpl');
                     exit;
                 }
+
+                try {
+                 if (isset($_GET['postAjaxRequest'])) {
+                  $user = EfrontUserFactory :: factory($_GET['user']);
+                  if (isset($_GET['add_lesson'])) {
+                   $user -> addLessons($_GET['add_lesson'], $_GET['user_type'], 1);
+                  } else if (isset($_GET['add_course'])) {
+                   $user -> addCourses($_GET['add_course'], $_GET['user_type'], 1);
+                  }
+      exit;
+                 }
+                } catch (Exception $e) {
+                 handleAjaxExceptions($e);
+                }
+
 
                 // AJAX CODE TO RELOAD ALREADY ASSIGNED LESSONS
                 if (isset($_GET['ajax']) && $_GET['ajax'] == 'assignedLessonsTable') {

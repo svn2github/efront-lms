@@ -356,13 +356,18 @@ abstract class EfrontUser
 	 */
  public static function createUser($userProperties, $users = array()) {
   if (empty($users)) {
-   $users = eF_getTableDataFlat("users", "login, active");
+   $users = eF_getTableDataFlat("users", "login, active, archive");
+   $archived = array_combine($users['login'], $users['archive']);
+   $archived = array_filter($archived, create_function('$v', 'return $v;'));
    $users = array_combine($users['login'], $users['active']);
   }
   $activatedUsers = array_sum($users); //not taking into account deactivated users in license users count
   //$versionDetails = eF_checkVersionKey($GLOBALS['configuration']['version_key']);
   if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {
    throw new EfrontUserException(_INVALIDLOGIN.': '.$userProperties['login'], EfrontUserException :: INVALID_LOGIN);
+  }
+  if (in_array($userProperties['login'], array_keys($archived))) {
+   throw new EfrontUserException(_USERALREADYEXISTSARCHIVED.': '.$userProperties['login'], EfrontUserException :: USER_EXISTS);
   }
   if (in_array($userProperties['login'], array_keys($users)) > 0) {
    throw new EfrontUserException(_USERALREADYEXISTS.': '.$userProperties['login'], EfrontUserException :: USER_EXISTS);

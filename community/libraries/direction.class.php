@@ -24,7 +24,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
  * @since 3.5.0
 
- * 
+ *
 
  */
 class EfrontDirectionException extends Exception
@@ -66,7 +66,7 @@ class EfrontDirectionException extends Exception
 
  * This class represents a direction in eFront
 
- * 
+ *
 
  * @package eFront
 
@@ -330,9 +330,9 @@ class EfrontDirection extends ArrayObject
 
 	 *
 
-	 * This function is used to delete an existing category. 
+	 * This function is used to delete an existing category.
 
-	 * This function is the same as EfrontDirection :: delete(), 
+	 * This function is the same as EfrontDirection :: delete(),
 
 	 * except that it is called statically
 
@@ -374,11 +374,11 @@ class EfrontDirection extends ArrayObject
 }
 /**
 
- * This class represents the directions tree and extends EfrontTree class 
+ * This class represents the directions tree and extends EfrontTree class
 
  * @package eFront
 
- * @since 3.5.0 
+ * @since 3.5.0
 
  */
 class EfrontDirectionsTree extends EfrontTree
@@ -591,7 +591,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * Return an array of lesson ids, corresponding to the lessons of this categories tree
 
-	 * 
+	 *
 
 	 * @param array $lessons The lessons list
 
@@ -634,7 +634,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * - courses_link			//a value of '#user_type#' inside the url will be replaced with the user typed
 
-	 * - tooltip		 
+	 * - tooltip
 
 	 * - search					//display the search box (true/false)
 
@@ -646,7 +646,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * - buy_link				//Whether to display "buy" (add to cart) links
 
-	 *  
+	 *
 
 	 * @param RecursiveIteratorIterator $iterator An optional custom iterator
 
@@ -671,15 +671,18 @@ class EfrontDirectionsTree extends EfrontTree
   $courses = $this -> parseTreeCourses($courses);
   $iterator = $this -> initializeIterator($iterator, $lessons, $courses, $options);
   $current = $iterator -> current();
-  $treeString = '						
+  $treeString = '
       <div id = "directions_tree">';
   list($display, $display_lessons, $imageString, $classString) = $this -> getTreeDisplaySettings($options);
+  $lessonsString = $coursesString = '';
   while ($iterator -> valid()) {
-   $treeString .= $this -> printCategoryTitle($iterator, $display, $imageString, $classString);
-   $treeString .= $this -> printCategoryLessons($iterator, $display_lessons, $options, $lessons);
-   $treeString .= $this -> printCategoryCourses($iterator, $display, $userInfo, $options, $courses, $lessons);
-   $treeString .= '
-      </table>';
+   $lessonsString = $this -> printCategoryLessons($iterator, $display_lessons, $options, $lessons);
+   $coursesString = $this -> printCategoryCourses($iterator, $display, $userInfo, $options, $courses, $lessons);
+   if ($lessonsString || $coursesString) {
+    $treeString .= $this -> printCategoryTitle($iterator, $display, $imageString, $classString);
+    $treeString .= $lessonsString.$coursesString.'
+       </table>';
+   }
    $iterator -> next();
   }
   if ($options['tree_tools']) {
@@ -794,7 +797,7 @@ class EfrontDirectionsTree extends EfrontTree
       <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
       <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/'.$icon.'.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
       &nbsp;&nbsp;
-     </td>'; 
+     </td>';
   } elseif ($roleBasicType == 'student') { //Show the progress bar
    if ($treeLesson->options['show_percentage'] != 0) {
     $treeString .= '
@@ -802,11 +805,11 @@ class EfrontDirectionsTree extends EfrontTree
      <span class = "progressNumber" style = "width:50px;">'.$treeLesson -> lesson['overall_progress']['percentage'].'%</span>
      <span class = "progressBar" style = "width:'.($treeLesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
      &nbsp;&nbsp;
-    </td>';		
+    </td>';
    } else {
     $treeString .= '
      <td class = "lessonProgress">&nbsp;
-     </td>'; 
+     </td>';
    }
   } else {
    $treeString .= '<td style = "width:1px;padding-bottom:2px;"></td>';
@@ -853,16 +856,16 @@ class EfrontDirectionsTree extends EfrontTree
     $hasInstancesClass = 'boldFont';
    } else {
     $instanceString .= '
-        <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'" onclick = "location=\''.$href.'\'">';							
-/*				
+        <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'" onclick = "location=\''.$href.'\'">';
+/*
 
 				$treeString .= '
 
-							<span class = "buyLesson">																	
+							<span class = "buyLesson">
 
 								&nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
 
-							</span>';							
+							</span>';
 
 */
    }
@@ -953,9 +956,31 @@ class EfrontDirectionsTree extends EfrontTree
  private function printCategoryLessons($iterator, $display_lessons, $options, $lessons) {
   $roles = EfrontLessonUser :: getLessonsRoles();
   $roleNames = EfrontLessonUser :: getLessonsRoles(true);
-  $treeString = '';
+  $treeString = $lessonsString = '';
   $current = $iterator -> current();
-  if (isset($current['lessons']) && sizeof($current['lessons']) > 0) {
+  foreach ($current -> offsetGet('lessons') as $lessonId) {
+   $treeLesson = $lessons[$lessonId];
+   if (isset($treeLesson -> lesson['user_type']) && $treeLesson -> lesson['user_type']) {
+    $roleInLesson = $treeLesson -> lesson['user_type'];
+    $roleBasicType = $roles[$roleInLesson]; //Indicates that this is a catalog with user data
+   } else {
+    $roleBasicType = null;
+   }
+   if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeLesson -> lesson['completed'] && (is_null($treeLesson -> lesson['remaining']) || $treeLesson -> lesson['remaining'] > 0))) {
+    $lessonsString .= '<tr class = "directionEntry">';
+    if ($roleBasicType) {
+     $lessonsString .= $this -> printProgressBar($treeLesson, $roleBasicType);
+    }
+    $lessonsString .= '<td>';
+    $lessonsString .= $this -> printLessonBuyLink($treeLesson, $options);
+    $lessonsString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
+    $lessonsString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
+           '.(isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
+          </td>
+         </tr>';
+   }
+  }
+  if (isset($current['lessons']) && sizeof($current['lessons']) > 0 && $lessonsString) {
    if (isset($options['collapse']) && $options['collapse'] == 2) {
     $treeString .= '
        <tr id = "subtree'.$current['id'].'" name = "default_visible" '. $display_lessons.'>';
@@ -966,31 +991,8 @@ class EfrontDirectionsTree extends EfrontTree
    $treeString .= ' <td></td>
        <td class = "lessonsList_nocolor">&nbsp;</td>
        <td colspan = "2">
-        <table width = "100%">';
-   foreach ($current -> offsetGet('lessons') as $lessonId) {
-    $treeLesson = $lessons[$lessonId];
-    if (isset($treeLesson -> lesson['user_type']) && $treeLesson -> lesson['user_type']) {
-     $roleInLesson = $treeLesson -> lesson['user_type'];
-     $roleBasicType = $roles[$roleInLesson]; //Indicates that this is a catalog with user data
-    } else {
-     $roleBasicType = null;
-    }
-    if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeLesson -> lesson['completed'] && (is_null($treeLesson -> lesson['remaining']) || $treeLesson -> lesson['remaining'] > 0))) {
-     $treeString .= '<tr class = "directionEntry">';
-     if ($roleBasicType) {
-      $treeString .= $this -> printProgressBar($treeLesson, $roleBasicType);
-     }
-     $treeString .= '<td>';
-     $treeString .= $this -> printLessonBuyLink($treeLesson, $options);
-     $treeString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
-     $treeString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
-           '.(isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
-          </td>
-         </tr>';									
-    }
-   }
-   $treeString .= '
-         </table>
+        <table width = "100%">'.$lessonsString.'
+        </table>
         </td></tr>';
   }
   return $treeString;
@@ -1046,21 +1048,21 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * an HTML select object with directions->courses->lessons
 
-	 *  
+	 *
 
 	 * This function is used to create a select with directions, lessons and courses
 
 	 * categorized properly under a select item
 
-	 * 
+	 *
 
 	 * The values of the returned array of HTML select are different but always start
 
-	 * with the type of educational entity, i.e. "direction_", "course_" and "lesson_" 
+	 * with the type of educational entity, i.e. "direction_", "course_" and "lesson_"
 
 	 * and finish with the id of that entity "_<id>". The inbetween parts differ
 
-	 * 
+	 *
 
 	 * The categorization display is the following
 
@@ -1068,13 +1070,13 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * - subdirection SuBD
 
-	 * -- course C1 in SubD 
+	 * -- course C1 in SubD
 
 	 * ---- lesson in C1
 
 	 * ---- lesson in C1
 
-	 * - course C2 in D 
+	 * - course C2 in D
 
 	 * -- lesson in C2
 
@@ -1082,7 +1084,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * - lesson in D
 
-	 * 
+	 *
 
 	 * <br/>Example:
 
@@ -1092,7 +1094,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * </code>
 
-	 * 
+	 *
 
 	 * @param boolean $returnClassedHTML return the HTML select object rather than the array - different colors denote different educational entities
 
@@ -1106,7 +1108,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 * @param array $courses An array of EfrontCourse Objects
 
-	 * @return array to be used or string for The HTML version of the tree 
+	 * @return array to be used or string for The HTML version of the tree
 
 	 * @since 3.5.2
 
@@ -1220,7 +1222,7 @@ class EfrontDirectionsTree extends EfrontTree
      $first = 1;
      foreach ($coursesArray as $courseId => $courseName) {
       // The first result is the name of the course - the rest lesson names
-      // We need this distinction to have different keys (starting with course_ or lesson_ correctly 
+      // We need this distinction to have different keys (starting with course_ or lesson_ correctly
       if ($first) {
        $treeArray['course_' . $current['id']. '_' . $courseId . "_" . $courseId] = str_replace("'", "&#039;", $offset . "-". $courseName);
        $first = 0;

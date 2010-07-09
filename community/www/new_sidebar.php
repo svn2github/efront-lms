@@ -20,7 +20,9 @@ $path = "../libraries/";
 require_once $path."configuration.php";
 $benchmark = new EfrontBenchmark($debug_TimeStart);
 $benchmark -> set('init');
-
+//Set headers in order to eliminate browser cache (especially IE's)'
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 require_once $path."menu.class.php";
 
 

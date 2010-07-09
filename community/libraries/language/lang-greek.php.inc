@@ -1,8 +1,8 @@
 <?php
-if (is_file($GLOBALS['path']."language/custom-greek.php")){ 
+if (is_file($GLOBALS['path']."language/custom-greek.php")){
     include($GLOBALS['path']."language/custom-greek.php.inc");
 }
-
+define("_EFRONTURL", "http://www.efrontlearning.net");
 define("_EFRONTNAME", "eFront");
 define("_EFRONTLOGIN", "Είσοδος στο eFront");
 define("_HEADERLANGUAGEHTMLTAG","el-GR");
@@ -3745,4 +3745,6 @@ define("_INCLUDEFILETHATHANDLESUSERCREATION", "Κάνε include το αρχεί�
 define("_WEBSERVERREGISTRATION", "Εγγραφή μέσω web server");
 define("_USEORLOGICTOCORRECTANSWERS","Χρήση λογικής OR για υπολογισμό σωστής απάντησης");
 define("_VARIABLEMUSTCONTAINLOGIN", "Η μεταβλητή %x πρέπει να περιέχει &quot;%y&quot; για να συνεχίσετε");
+define("_OPENUNITINPOPUP","Άνοιγμα ενότητας σε popup");
+define("_USERALREADYEXISTSARCHIVED", "Υπάρχει ήδη χρήστης με αυτό το αναγνωριστικό (αρχειοθετημένος)")
 ?>

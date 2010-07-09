@@ -266,5 +266,3 @@
 {eF_template_printBlock title = "`$smarty.const._COMPLETE_TEST`" data = $smarty.capture.t_complete_test_code image = "32x32/tests.png"}
 
 {/if}
-
-{include file = "includes/closing.tpl"}

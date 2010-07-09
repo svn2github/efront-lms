@@ -10,6 +10,7 @@ if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess[
 if ($_student_) {
     $currentUser -> coreAccess['progress'] = 'view';
     $_GET['edit_user'] = $currentUser -> user['login'];
+ $smarty -> assign("T_STUDENT_ROLE", true);
 }
 
 if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login')) {

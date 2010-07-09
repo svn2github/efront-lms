@@ -277,7 +277,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                        'ctg_type' => $_GET['ctg'],
                                        'active' => 1,
                                        'timestamp' => time(),
-                                      // 'parent_content_ID' => $_GET['ctg'] != 'feedback' ? $values['parent_content'] : 0);  
+                                      // 'parent_content_ID' => $_GET['ctg'] != 'feedback' ? $values['parent_content'] : 0);
             'parent_content_ID' => $values['parent_content']);
         $testFields = array('active' => 1,
                               'lessons_ID' => (isset($currentLesson -> lesson['id']))?$currentLesson -> lesson['id']:0,
@@ -342,7 +342,7 @@ if ($skillgap_tests) {
             $sort = 'login';
         }
 
-        $testUsers = eF_getTableData("users LEFT OUTER JOIN users_to_skillgap_tests ON login = users_login AND tests_ID = '".$_GET['edit_test']."'", "distinct login, name,surname,tests_ID as partof, solved", "users.user_type = 'student'");
+        $testUsers = eF_getTableData("users LEFT OUTER JOIN users_to_skillgap_tests ON login = users_login AND tests_ID = '".$_GET['edit_test']."'", "distinct login, name,surname,tests_ID as partof, solved", "users.user_type = 'student' and users.archive=0 and users.active=1");
         $test_info = eF_getTableData("completed_tests", "id, users_LOGIN", "status != 'deleted' and tests_ID = " . $_GET['edit_test']);
 
         if (isset($_GET['sort'])) {
@@ -427,7 +427,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
     }
 
     $smarty -> assign('T_UNIT_QUESTIONS', $questions);
-//pr($questions);exit;    
+//pr($questions);exit;
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
     $form -> accept($renderer);
     $smarty -> assign('T_TEST_FORM', $renderer -> toArray());

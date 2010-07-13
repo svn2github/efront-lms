@@ -7,6 +7,8 @@
 - Fixed bug about displaying search results in pages that sidebar was refreshed
 - Added headers in order to eliminate browser cache in sidebar
 - Fixed skill-gap tests manual assignments issue
+- Fixed bug in manually sending pending notifications that was introduced in 3.6.4 build 7725
+- Added tooltip with organization information in employees list
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

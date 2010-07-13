@@ -134,7 +134,6 @@ try {
         }
     }
 } catch (Exception $e) {
-    header("HTTP/1.0 500");
-    echo $e -> getMessage().' ('.$e -> getCode().')';
+ handleAjaxExceptions($e);
 }
 ?>

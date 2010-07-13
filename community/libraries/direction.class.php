@@ -834,11 +834,17 @@ class EfrontDirectionsTree extends EfrontTree
   if ($lesson -> lesson['price']) {
    $lesson -> lesson['price'] ? $priceString = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true) : $priceString = false;
    return $priceString;
+  } else {
+   $priceString = _FREELESSON;
+   return $priceString;
   }
  }
  private function showCoursePrice($course) {
   if ($course -> course['price']) {
    $course -> course['price'] ? $priceString = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true) : $priceString = false;
+   return $priceString;
+  } else {
+   $priceString = _FREECOURSE;
    return $priceString;
   }
  }

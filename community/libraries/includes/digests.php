@@ -1004,7 +1004,6 @@ $loadScripts[] = "administrator/digests";
 
                 }
             }
-
             $smarty -> assign("T_NOTIFICATIONS", $notifications);
         }
 

@@ -159,7 +159,7 @@
                     <td align = "center">
                      <span id = "notification_status_{$notification.id}_{if isset($notification.is_event)}1{else}0{/if}" style="display:none">
                       {if $notification.active == 1}1{else}0{/if}</span>
-         <a href = "javascript:void(0);" {if $_change_}onclick = "activate(this, '{$notification.id}', '{$notification.is_event}')"{/if}>
+         <a href = "javascript:void(0);" {if $_change_ && $notification.event_type != 7 && $notification.event_type != 4}onclick = "activate(this, '{$notification.id}', '{$notification.is_event}')"{/if}>
                    {if $notification.active == 1}
                        <img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" border = "0">
                    {else}
@@ -176,8 +176,10 @@
                                     <a href = "{$smarty.session.s_type}.php?ctg=digests&edit_notification={$notification.id}{if isset($notification.is_event)}&event=1{/if}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
                                 </td>
                                 <td width="45%">
+        {if $notification.event_type != 7 && $notification.event_type != 4}
                                      <a href = "{$smarty.session.s_type}.php?ctg=digests&delete_notification={$notification.id}{if isset($notification.is_event)}&event=1{/if}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
-                                </td>
+                                {/if}
+        </td>
                             </tr>
                         </table>
                     </td>

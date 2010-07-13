@@ -725,7 +725,7 @@ color: green;
 }
 .resultsTitle .small a:hover{text-decoration: underline;}
 .resultsTitleBold{font-weight: bold;}
-.searchBox{background-repeat:no-repeat; border:1px solid #CCCCCC; margin-top:4px; margin-bottom:4px; padding-left:18px; padding-top:2px;padding-bottom:2px;width:134px}
+.searchBox{background-repeat:no-repeat; border:1px solid #CCCCCC; margin-top:4px; margin-bottom:4px; padding-left:18px; padding-top:2px;padding-bottom:2px;width:134px;background-image:url('images/16x16/search.png');}
 
 /*Progress bar classes*/
 div#progress_bar a{display:block;margin-top:10px;}

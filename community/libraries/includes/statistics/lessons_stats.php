@@ -49,7 +49,7 @@ try {
       $infoLesson -> lesson['users_per_role'] = $usersPerRole;
       $infoLesson -> lesson['num_users'] = array_sum($usersPerRole);
 
-/*	    	
+/*
 
 	    	$constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type in ("'.implode('","', $studentRoles).'")');
 
@@ -84,8 +84,8 @@ try {
           $dataSource = $users;
           $smarty -> assign("T_TABLE_SIZE", $totalEntries);
          //pr($users);
+          $tableName = $_GET['ajax'];
          }
-         $tableName = $_GET['ajax'];
          $alreadySorted = true;
          include("sorted_table.php");
         } catch (Exception $e) {
@@ -232,6 +232,17 @@ try {
                 $traffic['total_access'] += $value['accesses'];
             }
             $traffic['total_time'] = eF_convertIntervalToTime($traffic['total_seconds']);
+
+            if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph') {
+             $data = array();
+             foreach ($traffic['users'] as $login => $value) {
+              if ($value['accesses']) {
+               $data[] = array(formatLogin($login), $value['accesses']);
+              }
+             }
+             echo json_encode(array('data' => $data));
+             exit;
+            }
 
             $smarty -> assign("T_LESSON_TRAFFIC", $traffic);
             $smarty -> assign('T_FROM_TIMESTAMP', $from);

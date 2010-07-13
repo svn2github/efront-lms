@@ -78,7 +78,7 @@ function onSetSeenUnit(el, response) {
              }
             }
         }
- } catch (e) {alert(e);}
+ } catch (e) {}
 }
 function nextLesson(el) {
  parameters = {ajax:'next_lesson', method: 'get'};

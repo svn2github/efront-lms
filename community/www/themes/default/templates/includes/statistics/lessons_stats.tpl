@@ -394,7 +394,9 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                         <tr><td id = "right">
                                 <a href = "display_chart.php?id=8&lesson_id={$smarty.get.sel_lesson}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
                                  {$smarty.const._ACCESSSTATISTICS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" /></a>
-                            </td>
+      <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'));"/>
+     <div id = "graph_table"><div id = "proto_chart"></div></div>
+       </td>
                         </tr>
                     </table>
                     <table class = "statisticsGeneralInfo">

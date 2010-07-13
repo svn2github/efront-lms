@@ -626,7 +626,7 @@ class EfrontEvent
      //}
      // By default all notifications will be sent
      if ($send_notification) {
-      $event = new EfrontEvent($fields); // this should create an event instance for our class
+      $event = new EfrontEvent($fields); // this should create an event instance for our class		
       $event -> appendNewNotification($event_types); // append this notification to the email queue
      }
     }
@@ -1006,7 +1006,7 @@ class EfrontEvent
          } else if ($this -> event['type'] == EfrontEvent::SYSTEM_VISITED) {
           $this -> event['message'] .= _VISITEDTHESYSTEM;
          } else if ($this -> event['type'] == EfrontEvent::SYSTEM_FORGOTTEN_PASSWORD) {
-             $this -> esvent['message'] .= _HASFORGOTTENHISPASSWORD;
+             $this -> event['message'] .= _HASFORGOTTENHISPASSWORD;
    } else if ($this -> event['type'] == EfrontEvent::SYSTEM_REMOVAL) {
     $this -> event['message'] .= _HASBEENREMOVEDFROMTHESYSTEM;
          } else if ($this -> event['type'] == EfrontEvent::LESSON_ACQUISITION_AS_STUDENT) {

@@ -148,8 +148,10 @@
      {$smarty.const._ACCESSSTATISTICS}:
      <a href = "display_chart.php?id=11&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$T_USER_LOGIN}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
       <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
+{* <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), '{$T_FROM_TIMESTAMP}', '{$T_TO_TIMESTAMP}');"/>*}
     </td></tr>
   </table>
+  <div id = "graph_table"><div id = "proto_chart"></div></div>
   <table class = "statisticsGeneralInfo">
    <tr><td class = "topTitle" colspan = "2">{$smarty.const._USERTRAFFIC}</td></tr>
    <tr class = "oddRowColor">

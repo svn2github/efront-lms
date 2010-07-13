@@ -495,3 +495,53 @@ if ($('autocomplete_groups')) {
              afterUpdateElement : function (t, li) {document.location=document.location+'&sel_group='+li.id;},
              indicator : "busy"});
 }
+var d1 = d2 = d3 = d4 = d5 = d6 = d7 = d8 = d9 = d10 = [];
+var d1 = [];
+for (var i = 0; i < 14; i += 0.5)
+    d1.push([i, 5+Math.sin(i)]);
+var d2 = [[2, 3], [4, 8], [8, 5], [9, 13]];
+var d3 = [];
+for (var i = 0; i < 14; i += 0.5)
+    d3.push([i, 3+Math.cos(i)]);
+var d4 = [];
+for (var i = 0; i < 14; i += 0.5)
+    d4.push([i, Math.random() * 10]);
+var d5 = [];
+for (var i = 0; i < 14; i += 0.5)
+    d5.push([i, Math.random() * i]);
+var d6 = [];
+for(var i = 0; i < 4; i++)
+ {
+  var r = Math.floor(Math.random() * 14);
+  d6.push([i, i*r]);
+ }
+var d7 = [];
+for(var i = 0; i < 14; i++)
+ {
+  var r = Math.floor(Math.random() * 100);
+  d7.push([i, r]);
+ }
+function showGraph(el) {
+  parameters = {ajax:'graph', method: 'get'};
+  var url = location.toString();
+  ajaxRequest(el, url, parameters, onShowGraph);
+}
+function onShowGraph(el, response) {
+ try {
+ data = response.evalJSON(true).data;
+ y_axis = [];
+ x_axis = [];
+ for (var i=0;i < data.length;i++) {
+  x_axis.push([i+1, data[i][0]]);
+  y_axis.push([i+1, data[i][1]]);
+ }
+  new Proto.Chart(el,
+    [{data: y_axis}],
+    {
+     xaxis: {ticks:x_axis, min:0, max:x_axis.length+1},
+     yaxis: {min:0, max:10},
+     points: {show: true},
+     lines: {show: true}
+    });
+ } catch (e) {alert(e);}
+}

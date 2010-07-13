@@ -6,6 +6,7 @@
 - Fixed modules not appearing in lesson settings for professors that their primary type is 'student'
 - Fixed bug about displaying search results in pages that sidebar was refreshed
 - Added headers in order to eliminate browser cache in sidebar
+- Fixed skill-gap tests manual assignments issue
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

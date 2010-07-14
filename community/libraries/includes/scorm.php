@@ -79,7 +79,7 @@ if ($_GET['scorm_review']) {
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 
   $form -> addElement('file', 'scorm_file[0]', _UPLOADTHESCORMFILEINZIPFORMAT);
-        $form -> addRule('scorm_file[0]', _THEFIELD.' "'._UPLOADTHESCORMFILEINZIPFORMAT.'" '._ISMANDATORY, 'required', null, 'client');
+        //$form -> addRule('scorm_file[0]', _THEFIELD.' "'._UPLOADTHESCORMFILEINZIPFORMAT.'" '._ISMANDATORY, 'required', null, 'client');
   for ($i = 1; $i < $maxUploads; $i++) {
       $form -> addElement('file', "scorm_file[$i]", null);
   }
@@ -257,7 +257,7 @@ if ($_GET['scorm_review']) {
         if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid12Units)) {
          //eF_deleteTableData("scorm_data", "id=".$_GET['delete']);
          //$user = EfrontUserFactory::factory($scormData[0]['users_LOGIN']);
-         //$user -> setSeenUnit($scormData[0]['content_ID'], $currentLesson, false);            
+         //$user -> setSeenUnit($scormData[0]['content_ID'], $currentLesson, false);
         }
         //Reset scorm data
         if (isset($_GET['reset_scorm']) && isset($_GET['id']) && in_array($_GET['id'], $valid2004Units)) {

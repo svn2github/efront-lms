@@ -67,7 +67,7 @@ class EfrontCourse
 
 	 * The limit for a mass operation, such as adding users to a course
 
-	 * 
+	 *
 
 	 * @var int
 
@@ -211,11 +211,11 @@ class EfrontCourse
 
 	 * Set a category (direction) id, in case it's missing.
 
-	 * If this course is an instance, set it to be the same as the originating course. Otherwise, 
+	 * If this course is an instance, set it to be the same as the originating course. Otherwise,
 
 	 * set it to be the first active category
 
-	 * 
+	 *
 
 	 * @since 3.6.3
 
@@ -575,7 +575,7 @@ class EfrontCourse
   $lessonObjects = $this -> verifyLessonsList($lessons);
   $lastLessonId = $this -> getCourseLastLesson();
   $courseUsers = $this -> getUsers();
-  $result = eF_getTableDataFlat("lessons_to_courses", "lessons_ID", "courses_ID=".$this -> course['id']); //We don't call getCourseLessons() because we need all and every lesson, so this is faster 
+  $result = eF_getTableDataFlat("lessons_to_courses", "lessons_ID", "courses_ID=".$this -> course['id']); //We don't call getCourseLessons() because we need all and every lesson, so this is faster
   foreach ($lessonObjects as $key => $lesson) {
    if (!in_array($key, $result['lessons_ID'])) {
     eF_insertTableData("lessons_to_courses", array('courses_ID' => $this -> course['id'],
@@ -1130,7 +1130,7 @@ class EfrontCourse
   $where[] = "u.login=r.users_LOGIN";
   $select = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, max(role) as role, 1 as has_course, max(active_in_course) as active_in_course, max(enrolled_on) as enrolled_on";
   $groupby = "r.users_LOGIN";
-/*		
+/*
 
 #ifdef ENTERPRISE
 
@@ -1138,7 +1138,7 @@ class EfrontCourse
 
 			//$where[] = "e.users_LOGIN=u.login";
 
-			$select .= ",e.*, e.users_LOGIN as has_hcd";		
+			$select .= ",e.*, e.users_LOGIN as has_hcd";
 
 #endif
 
@@ -1301,7 +1301,7 @@ class EfrontCourse
   $from = "users u left outer join
      (select users_LOGIN,max(score) as score, max(completed) as completed, 1 as has_course from
       (select uc.user_type as role, uc.score,uc.completed,uc.users_LOGIN from courses c left outer join users_to_courses uc on uc.courses_ID=c.id where (c.id=".$this -> course['id']." or c.instance_source=".$this -> course['id'].") and uc.archive=0) foo
-     group by users_LOGIN) r on u.login=r.users_login";						 
+     group by users_LOGIN) r on u.login=r.users_login";
   $result = eF_getTableData($from, "u.*, r.*",
   implode(" and ", $where), $orderby, $groupby, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
@@ -2850,7 +2850,7 @@ class EfrontCourse
                              <td class = "listIcon">
                                     <img id = "course_img'.$this -> course['id'].'" src = "images/32x32/courses.png">
                                 </td>
-                                <td class = "listTitle">';        
+                                <td class = "listTitle">';
   if (!isset($this -> course['from_timestamp']) || $this -> course['from_timestamp']) {
    if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
     if ($options['tooltip']) {
@@ -2859,7 +2859,7 @@ class EfrontCourse
            <span class = "listName">'.$this -> course['name'].'</span>
            <img class = "tooltip" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
            <span class = "tooltipSpan"></span>
-          </a>';             
+          </a>';
     } else {
      $options['courses_link'] ? $courseString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'].'">'.$courseString .= $this -> course['name'].'</a>' : $courseString .= $this -> course['name'];
     }
@@ -2906,7 +2906,7 @@ class EfrontCourse
                                                     <img src = "images/16x16/export.png" title = "'._EXPORTCOURSE.'" alt = "'._EXPORTCOURSE.'" class = "handle"></a>
                                                 <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=import_course">
                                                     <img src = "images/16x16/import.png" title = "'._IMPORTCOURSE.'" alt = "'._IMPORTCOURSE.'" class = "handle"></a>
-                                                <span>)</span>';            
+                                                <span>)</span>';
   } else {
    if ($this -> course['completed']) {
     $courseString .= '<span class = "courseActions">&nbsp;</span>
@@ -2924,7 +2924,7 @@ class EfrontCourse
                          <span class = "buyLesson">
                                          <span onclick = "addToCart(this, \''.$this -> course['id'].'\', \'course\')">'.$priceString.'</span>
                           <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._BUY.'" title = "'._BUY.'" onclick = "addToCart(this, \''.$this -> course['id'].'\', \'course\')">
-                                        </span>';                    
+                                        </span>';
   }
   $courseString .= '
                                 </td></tr>';
@@ -2946,7 +2946,7 @@ class EfrontCourse
                                 <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
                                 <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
                                 &nbsp;&nbsp;
-                            </td>'; 
+                            </td>';
      } else {
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
@@ -2958,7 +2958,7 @@ class EfrontCourse
       } else {
        $courseString .= '
        <td class = "lessonProgress">
-                            </td>'; 
+                            </td>';
       }
      }
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
@@ -2985,7 +2985,7 @@ class EfrontCourse
                                 <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
                                 <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
                                 &nbsp;&nbsp;
-                            </td>'; 
+                            </td>';
      } elseif ($lesson -> lesson['user_type'] && $roles[$lesson -> lesson['user_type']] == 'student') {
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
@@ -2993,11 +2993,11 @@ class EfrontCourse
                                 <span class = "progressNumber" style = "width:50px;">'.$lesson -> lesson['overall_progress']['percentage'].'%</span>
                                 <span class = "progressBar" style = "width:'.($lesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
                                 &nbsp;&nbsp;
-                            </td>';  
+                            </td>';
       } else {
        $courseString .= '
        <td class = "lessonProgress">
-                            </td>'; 
+                            </td>';
       }
      } else {
       $courseString .= '

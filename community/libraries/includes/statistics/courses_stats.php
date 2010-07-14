@@ -6,108 +6,112 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $smarty -> assign("T_OPTION", $_GET['option']);
 
-require_once $path."includes/statistics/stats_filters.php";
+try {
+ require_once $path."includes/statistics/stats_filters.php";
 
-if (isset($_GET['sel_course'])) {
- $directionsTree = new EfrontDirectionsTree();
- $directionsPaths = $directionsTree -> toPathString();
+ if (isset($_GET['sel_course'])) {
+  $directionsTree = new EfrontDirectionsTree();
+  $directionsPaths = $directionsTree -> toPathString();
 
- $course_id = $_GET['sel_course'];
-    $infoCourse = new EfrontCourse($_GET['sel_course']);
-    $infoCourse -> course['num_lessons'] = $infoCourse -> countCourseLessons();
-    $constraints = array('table_filters' => $stats_filters);
-    //$infoCourse -> course['num_students']   = sizeof($infoCourse -> getStudentUsers(false, $constraints));
-    //$infoCourse -> course['num_professors'] = sizeof($infoCourse -> getProfessorUsers(false, $constraints));
-    $infoCourse -> course['category_path'] = $directionsPaths[$infoCourse -> course['directions_ID']];
+  $course_id = $_GET['sel_course'];
+     $infoCourse = new EfrontCourse($_GET['sel_course']);
+     $infoCourse -> course['num_lessons'] = $infoCourse -> countCourseLessons();
+     $constraints = array('table_filters' => $stats_filters);
+     //$infoCourse -> course['num_students']   = sizeof($infoCourse -> getStudentUsers(false, $constraints));
+     //$infoCourse -> course['num_professors'] = sizeof($infoCourse -> getProfessorUsers(false, $constraints));
+     $infoCourse -> course['category_path'] = $directionsPaths[$infoCourse -> course['directions_ID']];
 
-    $smarty -> assign("T_CURRENT_COURSE", $infoCourse);
-    $smarty -> assign("T_STATS_ENTITY_ID", $_GET['sel_course']);
+     $smarty -> assign("T_CURRENT_COURSE", $infoCourse);
+     $smarty -> assign("T_STATS_ENTITY_ID", $_GET['sel_course']);
 
-    try {
-     $roles = EfrontLessonUser :: getLessonsRoles(true);
-     $smarty -> assign("T_ROLES_ARRAY", $roles);
+     try {
+      $roles = EfrontLessonUser :: getLessonsRoles(true);
+      $smarty -> assign("T_ROLES_ARRAY", $roles);
 
-     $rolesBasic = EfrontLessonUser :: getLessonsRoles();
-     $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
+      $rolesBasic = EfrontLessonUser :: getLessonsRoles();
+      $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
-     foreach ($rolesBasic as $key => $role) {
-      $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'uc.user_type = "'.$key.'"');
-      $numUsers = $infoCourse -> countCourseUsers($constraints);
-      if ($numUsers) {
-       $usersPerRole[$key] = $numUsers;
+      foreach ($rolesBasic as $key => $role) {
+       $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'user_type = "'.$key.'"');
+       $numUsers = $infoCourse -> countCourseUsersAggregatingResults($constraints);
+       if ($numUsers) {
+        $usersPerRole[$key] = $numUsers;
+       }
+       //$role == 'student' ? $studentRoles[] = $key : $professorRoles[] = $key;
       }
-      //$role == 'student' ? $studentRoles[] = $key : $professorRoles[] = $key;
+      $infoCourse -> course['users_per_role'] = $usersPerRole;
+      $infoCourse -> course['num_users'] = array_sum($usersPerRole);
+
+
+      $courseInstances = $infoCourse -> getInstances();
+      $smarty -> assign("T_COURSE_INSTANCES", $courseInstances);
+      $smarty -> assign("T_COURSE_HAS_INSTANCES", sizeof($courseInstances) > 1);
+
+      $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
+      if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
+       $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations', 'to_timestamp', 'enrolled_on'));
+       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
+       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
+       $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
+       $totalEntries = $infoCourse -> countCourseUsersAggregatingResults($constraints);
+       $dataSource = $users;
+       $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+      }
+      if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {
+       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations', 'to_timestamp', 'active_in_course'));
+       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
+       $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
+       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
+       $constraints['required_fields'] = array('num_lessons', 'location');
+       $constraints['return_objects'] = false;
+       //$constraints['table_filters']   = $stats_filters;		//This is not needed here, since this list is for a specific user
+       $infoUser = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);
+       $courses = $infoUser -> getUserCourses($constraints);
+       $totalEntries= $infoUser -> countUserCourses($constraints);
+
+       $dataSource = $courses;
+       $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+      }
+      if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsUsersTable' && eF_checkParameter($_GET['courseLessonsUsersTable_source'], 'id')) {
+       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'time_in_lesson', 'overall_progress', 'test_status', 'project_status', 'completed', 'score', 'user_type'));
+       $infoUser = EfrontUserFactory :: factory($_GET['courseLessonsUsersTable_login']);
+       $lessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsUsersTable_source']));
+       $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+       $dataSource = $lessons;
+      }
+      if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
+       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_students', 'num_lessons', 'num_skills', 'price', 'created', 'operations', 'sort_by_column' => 8));
+       $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics', 'settings'));
+       $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
+       // the 'active' is now part of the table filters
+       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
+       $constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
+       $constraints['table_filters'] = $stats_filters;
+       $courses = EfrontCourse :: getAllCourses($constraints);
+       $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
+       array_walk($courses, create_function('&$v,$k', '$v["has_instances"] = 0;')); //Eliminate the information on whether this course has instances, since this table only lists a course's instances anyway (and we want the + to expand its lessons always)
+       $dataSource = $courses;
+      }
+      if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
+       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name'));
+       $lessons = $infoCourse -> getCourseLessons();
+       $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+       $dataSource = $lessons;
+      }
+
+      $tableName = $_GET['ajax'];
+      $alreadySorted = true;
+      include("sorted_table.php");
+     } catch (Exception $e) {
+      handleAjaxExceptions($e);
      }
-     $infoCourse -> course['users_per_role'] = $usersPerRole;
-     $infoCourse -> course['num_users'] = array_sum($usersPerRole);
 
+     $groups = EfrontGroup :: getGroups();
+     $smarty -> assign("T_GROUPS", $groups);
 
-     $courseInstances = $infoCourse -> getInstances();
-     $smarty -> assign("T_COURSE_INSTANCES", $courseInstances);
-     $smarty -> assign("T_COURSE_HAS_INSTANCES", sizeof($courseInstances) > 1);
-
-     $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations', 'to_timestamp', 'enrolled_on'));
-      $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
-      $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
-      $totalEntries = $infoCourse -> countCourseUsersAggregatingResults($constraints);
-      $dataSource = $users;
-      $smarty -> assign("T_TABLE_SIZE", $totalEntries);
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations', 'to_timestamp', 'active_in_course'));
-      $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
-      $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
-      $constraints['required_fields'] = array('num_lessons', 'location');
-      $constraints['return_objects'] = false;
-      //$constraints['table_filters']   = $stats_filters;		//This is not needed here, since this list is for a specific user
-      $infoUser = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);
-      $courses = $infoUser -> getUserCourses($constraints);
-      $totalEntries= $infoUser -> countUserCourses($constraints);
-
-      $dataSource = $courses;
-      $smarty -> assign("T_TABLE_SIZE", $totalEntries);
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsUsersTable' && eF_checkParameter($_GET['courseLessonsUsersTable_source'], 'id')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'time_in_lesson', 'overall_progress', 'test_status', 'project_status', 'completed', 'score', 'user_type'));
-      $infoUser = EfrontUserFactory :: factory($_GET['courseLessonsUsersTable_login']);
-      $lessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsUsersTable_source']));
-      $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
-      $dataSource = $lessons;
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_students', 'num_lessons', 'num_skills', 'price', 'created', 'operations', 'sort_by_column' => 8));
-      $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics', 'settings'));
-      $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
-      // the 'active' is now part of the table filters 
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
-      $constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
-      $constraints['table_filters'] = $stats_filters;
-      $courses = EfrontCourse :: getAllCourses($constraints);
-      $courses = EfrontCourse :: convertCourseObjectsToArrays($courses);
-      array_walk($courses, create_function('&$v,$k', '$v["has_instances"] = 0;')); //Eliminate the information on whether this course has instances, since this table only lists a course's instances anyway (and we want the + to expand its lessons always)
-      $dataSource = $courses;
-     }
-     if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
-      $smarty -> assign("T_DATASOURCE_COLUMNS", array('name'));
-      $lessons = $infoCourse -> getCourseLessons();
-      $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
-      $dataSource = $lessons;
-     }
-
-     $tableName = $_GET['ajax'];
-     $alreadySorted = true;
-     include("sorted_table.php");
-    } catch (Exception $e) {
-     handleAjaxExceptions($e);
-    }
-
-    $groups = EfrontGroup :: getGroups();
-    $smarty -> assign("T_GROUPS", $groups);
-
+ }
+} catch (Exception $e) {
+ handleNormalFlowExceptions($e);
 }
 
 if (isset($_GET['excel'])) {
@@ -123,7 +127,6 @@ if (isset($_GET['excel'])) {
             $groupname = str_replace(" ", "_" , $group -> group['name']);
         } catch (Exception $e) {
             $groupname = false;
-
         }
     }
     if (G_VERSIONTYPE == 'enterprise' && isset($_GET['branch_filter']) && $_GET['branch_filter']) {
@@ -367,7 +370,7 @@ if (isset($_GET['excel'])) {
         $pdf -> Cell(45, 7, formatScore($info['score'])."%", 0, 0, C, 0);
         $pdf -> Cell(45, 7, $info['completed'] ? _YES : _NO, 0, 1, C, 0);
     }
-//COMMENTED OUT BECAUSE WE CHANGED THE REPORTING METHOD NOT TO INCLUDE LESSONS    
+//COMMENTED OUT BECAUSE WE CHANGED THE REPORTING METHOD NOT TO INCLUDE LESSONS
 /*
 
     //lessons

@@ -30,7 +30,8 @@ $debug_InitTime = microtime(true) - $debug_TimeStart; //Debugging timer - time s
 //Set headers in order to eliminate browser cache (especially IE's)
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-$lowest_possible_time = time() - 21600; // last acceptable time - pending 6 hours in the queue to be sent 
+//debug();
+$lowest_possible_time = time() - 21600; // last acceptable time - pending 6 hours in the queue to be sent
 eF_deleteTableData("notifications", "timestamp != 0 AND timestamp <" . $lowest_possible_time);
 
 //echo G_SERVERNAME;
@@ -41,7 +42,7 @@ if (isset($_GET['notification_id'])) {
 
      // Try to send all messages of this notification
 
-     // Get message recipients: one or more 
+     // Get message recipients: one or more
      $recipients = $notification -> getRecipients();
      $sent_messages = 0;
      ////pr ($recipients);
@@ -99,8 +100,8 @@ if ($sent_messages) {
  EfrontNotification::clearSentMessages();
 }
 
-echo "A";exit;
-if (!$hide_messages && !isset($_GET['ajax'])) {
+
+if ((!isset($hide_messages) || !$hide_messages) && !isset($_GET['ajax']) && (basename($_SERVER['PHP_SELF']) != 'crontab_notifications.php')) {
  if ($sent_messages) {
   $message = $sent_messages . " notification emails sent successfully";
   $message_type = "success";
@@ -111,9 +112,15 @@ if (!$hide_messages && !isset($_GET['ajax'])) {
  }
  eF_redirect($_SESSION['s_type'] .".php?ctg=digests&message=$message&message_type=$message_type&tab=messages_queue");
 } else {
+ if (!isset($message)) {
+  $message = '';
+ }
  echo $message. "sent";
 }
 
+
 chdir($dir);
+
+//debug(false);
 exit;
 ?>

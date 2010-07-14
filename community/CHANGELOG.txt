@@ -9,6 +9,8 @@
 - Fixed skill-gap tests manual assignments issue
 - Fixed bug in manually sending pending notifications that was introduced in 3.6.4 build 7725
 - Added tooltip with organization information in employees list
+- Fixed group filter not working in course reports
+- Fixed upload from url not working when importing SCORM content
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

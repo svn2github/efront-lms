@@ -3746,5 +3746,9 @@ define("_WEBSERVERREGISTRATION", "Εγγραφή μέσω web server");
 define("_USEORLOGICTOCORRECTANSWERS","Χρήση λογικής OR για υπολογισμό σωστής απάντησης");
 define("_VARIABLEMUSTCONTAINLOGIN", "Η μεταβλητή %x πρέπει να περιέχει &quot;%y&quot; για να συνεχίσετε");
 define("_OPENUNITINPOPUP","Άνοιγμα ενότητας σε popup");
-define("_USERALREADYEXISTSARCHIVED", "Υπάρχει ήδη χρήστης με αυτό το αναγνωριστικό (αρχειοθετημένος)")
+define("_USERALREADYEXISTSARCHIVED", "Υπάρχει ήδη χρήστης με αυτό το αναγνωριστικό (αρχειοθετημένος)");
+define("_EVENTSSIZE", "Μέγεθος γεγονότων");
+define("_OLDESTEVENT", "Παλιότερο γεγονός");
+define("_PURGEEVENTSOLDERTHAN", "Εκκαθάριση γεγονότων παλιότερων από");
+define("_PURGEEVENTS", "Εκκαθάριση γεγονότων");
 ?>

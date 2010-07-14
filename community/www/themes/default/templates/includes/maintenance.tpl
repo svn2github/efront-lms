@@ -110,6 +110,24 @@
    </fieldset>
   </form>
 
+  {$T_CLEANUP_EVENTS_FORM.javascript}
+  <form {$T_CLEANUP_EVENTS_FORM.attributes}>
+   {$T_CLEANUP_EVENTS_FORM.hidden}
+   <fieldset class = "fieldsetSeparator">
+    <legend>{$smarty.const._PURGEEVENTS}</legend>
+   <table>
+    <tr><td class="labelCell">{$smarty.const._EVENTSSIZE}:&nbsp;</td>
+     <td class="elementCell">{$T_EVENTS_SIZE} {$smarty.const._ENTRIES}</td></tr>
+    <tr><td class="labelCell">{$smarty.const._OLDESTEVENT}:&nbsp;</td>
+     <td class="elementCell">#filter:timestamp-{$T_LAST_EVENTS_ENTRY}#</td></tr>
+          <tr><td class = "labelCell">{$smarty.const._PURGEEVENTSOLDERTHAN}:&nbsp;</td>
+              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_EVENTS_ENTRY start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+    <tr><td></td>
+     <td class = "submitCell">{$T_CLEANUP_EVENTS_FORM.submit.html}</td></tr>
+   </table>
+   </fieldset>
+  </form>
+
  {/capture}
  {capture name = "t_maintenance_code"}
  <table class = "formElements">

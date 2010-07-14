@@ -47,6 +47,20 @@ function resultsAjaxPost(login, el, table_id) {
 
 }
 
+function resetUser(login, el) {
+ url = location.toString();
+ parameters = {reset_user:login, postAjaxRequest: 1, method: 'get'};
+ ajaxRequest(el, url, parameters, onResetUser);
+}
+
+function onResetUser() {
+ tables = sortedTables.size();
+ for (var i = 0; i < tables; i++) {
+  if (sortedTables[i].id.match('resultsTable') && ajaxUrl[i]) {
+   eF_js_rebuildTable(i, 0, 'null', 'desc');
+  }
+ }
+}
 function onSortedTableComplete() {
  var heightValue;
  if (sortedTables[tableIndex].getDimensions().height != 0) {

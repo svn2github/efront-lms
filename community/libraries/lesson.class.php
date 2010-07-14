@@ -226,9 +226,9 @@ class EfrontLesson
 
 	 * a db query takes place in order to retrive lesson values. Otherwise, if it's an array
 
-	 * it is used for the lesson values. 
+	 * it is used for the lesson values.
 
-	 * 
+	 *
 
 	 * @param mixed $lesson A lesson id or an array with lesson values
 
@@ -254,7 +254,7 @@ class EfrontLesson
 
 	 * Initialize lesson directory and create if it does not exist
 
-	 * 
+	 *
 
 	 * @since 3.6.1
 
@@ -275,7 +275,7 @@ class EfrontLesson
 
 	 * Initialize lesson options, by unserializing the stored options array
 
-	 * 
+	 *
 
 	 * @since 3.6.1
 
@@ -296,7 +296,7 @@ class EfrontLesson
 
 	 * or a recurring price
 
-	 * 
+	 *
 
 	 * @since 3.6.1
 
@@ -374,7 +374,7 @@ class EfrontLesson
 
 	 * It accepts the $field argument and its type and validates the field argument against the
 
-	 * desired type. 
+	 * desired type.
 
 	 * <br/>Example:
 
@@ -415,7 +415,7 @@ class EfrontLesson
 
 	 * Validate input based on the specified type
 
-	 * 
+	 *
 
 	 * This function validates the parameter value against the specified
 
@@ -431,7 +431,7 @@ class EfrontLesson
 
 	 * </code>
 
-	 * 
+	 *
 
 	 * @param mixed $field The field to validate
 
@@ -530,7 +530,7 @@ class EfrontLesson
 
 	 * Sanitize parameter
 
-	 * 
+	 *
 
 	 * This function is used to sanitize the passed parameter, based on the type
 
@@ -546,7 +546,7 @@ class EfrontLesson
 
 	 * </code>
 
-	 *  
+	 *
 
 	 * @param mixed $field The field to sanitize
 
@@ -682,7 +682,7 @@ class EfrontLesson
 
 	 * Create lesson metadata
 
-	 * 
+	 *
 
 	 * @param array $fields Lesson properties
 
@@ -768,7 +768,7 @@ class EfrontLesson
 
      * Archive lesson
 
-     * 
+     *
 
      * This function is used to archive the lesson object, by setting its active status to 0 and its
 
@@ -780,11 +780,11 @@ class EfrontLesson
 
      * $lesson -> archive();	//Archives the lesson object
 
-     * $lesson -> unarchive();	//Archives the lesson object and activates it as well 
+     * $lesson -> unarchive();	//Archives the lesson object and activates it as well
 
      * </code>
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -800,7 +800,7 @@ class EfrontLesson
 
      * Unarchive lesson
 
-     * 
+     *
 
      * This function is used to unarchive the lesson object, by setting its active status to 1 and its
 
@@ -812,11 +812,11 @@ class EfrontLesson
 
      * $lesson -> archive();	//Archives the lesson object
 
-     * $lesson -> unarchive();	//Archives the lesson object and activates it as well 
+     * $lesson -> unarchive();	//Archives the lesson object and activates it as well
 
      * </code>
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -1044,13 +1044,13 @@ class EfrontLesson
 
      * Get url to lesson's directory
 
-     * 
+     *
 
      * This function is used to return the public url that this lesson uses
 
      * Since we may have shadow lessons, this url depends on the lesson directory
 
-     * 
+     *
 
      * @return string The lesson url
 
@@ -1301,7 +1301,7 @@ class EfrontLesson
 
 	 * Check if the specified user has a 'student' role in the course
 
-	 * 
+	 *
 
 	 * @param mixed $user a login or an EfrontUser object
 
@@ -1328,7 +1328,7 @@ class EfrontLesson
 
 	 * Check if the specified user has a 'professor' role in the course
 
-	 * 
+	 *
 
 	 * @param mixed $user a login or an EfrontUser object
 
@@ -1355,9 +1355,9 @@ class EfrontLesson
 
 	 * This function parses an array of users and verifies that they are
 
-	 * correct and converts it to an array if it's a single entry 
+	 * correct and converts it to an array if it's a single entry
 
-	 * 
+	 *
 
 	 * @param mixed $users The users to verify
 
@@ -1379,7 +1379,7 @@ class EfrontLesson
     unset($users[$key]);
    }
   }
-  return array_values(array_unique($users)); //array_values() to reindex array   
+  return array_values(array_unique($users)); //array_values() to reindex array
  }
  /**
 
@@ -1391,7 +1391,7 @@ class EfrontLesson
 
 	 * desired
 
-	 * 
+	 *
 
 	 * @param mixed $roles The roles to verify
 
@@ -1417,7 +1417,7 @@ class EfrontLesson
 
 	 * Check whether the specified role is of type 'student'
 
-	 * 
+	 *
 
 	 * @param mixed $role The role to check
 
@@ -1442,7 +1442,7 @@ class EfrontLesson
 
 	 * for improved efficiency
 
-	 * 
+	 *
 
 	 * @return array the possible users' roles in the lesson
 
@@ -1467,7 +1467,7 @@ class EfrontLesson
 
      * lesson or not
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -1475,9 +1475,9 @@ class EfrontLesson
 
      * $lesson = new EfrontLesson(32);                      //32 is a lesson id
 
-     * $lessonUsersCompleted    = $lesson -> getUsersCompleted(true);          
+     * $lessonUsersCompleted    = $lesson -> getUsersCompleted(true);
 
-     * $lessonUsersNotCompleted = $lesson -> getUsersCompleted(false);         
+     * $lessonUsersNotCompleted = $lesson -> getUsersCompleted(false);
 
      * </code>
 
@@ -1656,7 +1656,7 @@ class EfrontLesson
   }
   $this -> addUsersToLesson($usersToAddToLesson);
   $this -> setUserRolesInLesson($usersToSetRoleToLesson);
-  $this -> users = false; //Reset users cache		
+  $this -> users = false; //Reset users cache
   return $this -> getUsers();
     }
  public static function convertLessonObjectsToArrays($lessonObjects) {
@@ -1677,7 +1677,7 @@ class EfrontLesson
 
 	 * Add the user in the lesson having the specified role
 
-	 * 
+	 *
 
 	 * @param string $user The user's login
 
@@ -1738,7 +1738,7 @@ class EfrontLesson
 
 	 * Set the user's role in the lesson
 
-	 * 
+	 *
 
 	 * @param $user The user to set the role for
 
@@ -1915,7 +1915,7 @@ class EfrontLesson
 
      * Confirm user registration
 
-     * 
+     *
 
      * This function is used to set the specified user's status for the current lesson
 
@@ -1999,7 +1999,7 @@ class EfrontLesson
   foreach ($users as $key => $value) {
    eF_updateTableData("users_to_lessons", array('archive' => 0, 'user_type' => $roles[$key]), "users_LOGIN='".$value."' and lessons_ID=".$this -> lesson['id']);
          //$cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$value;
-         //Cache::resetCache($cacheKey);            
+         //Cache::resetCache($cacheKey);
   }
     }
     /**
@@ -2112,7 +2112,7 @@ class EfrontLesson
      * @static
 
      */
-    public function getScormTests(){
+    public function getScormTests() {
         $tests = array();
         $scorm_data = eF_getTableData("content", "id", "lessons_ID=".$this -> lesson['id']." and ctg_type='scorm_test'");
         foreach ($scorm_data as $data){
@@ -2138,7 +2138,7 @@ class EfrontLesson
 
     * </code>
 
-    * 
+    *
 
     * @param bool returnObjects. Flag to indicate whether to return a list of objects or a list of ids
 
@@ -2327,7 +2327,7 @@ class EfrontLesson
                 default: break;
             }
         }
-/*        
+/*
 
         $testIds = array();
 
@@ -2572,9 +2572,9 @@ class EfrontLesson
 
      * Get lesson units
 
-     * 
+     *
 
-     * This function returns a list of the units that 
+     * This function returns a list of the units that
 
      * belong to this lesson.
 
@@ -2742,7 +2742,7 @@ class EfrontLesson
                                            "current_unit" => 0,
                                            "score" => 0);
                     eF_updateTableData("users_to_lessons", $tracking_info, "lessons_ID = ".$this -> lesson['id']);
-/*                    
+/*
 
                     foreach ($this -> getUsers as $user => $foo) {
 
@@ -2794,7 +2794,7 @@ class EfrontLesson
                     break;
             }
         }
-/*        
+/*
 
         if (in_array('questions', $deleteEntities)) {                                                             //Delete lesson questions
 
@@ -2802,7 +2802,7 @@ class EfrontLesson
 
             foreach ($result as $value) {
 
-                $questionIds[] = $value['id']; 
+                $questionIds[] = $value['id'];
 
             }
 
@@ -2812,7 +2812,7 @@ class EfrontLesson
 
             }
 
-            eF_deleteTableData("questions", "lessons_ID=".$this -> lesson['id']);            
+            eF_deleteTableData("questions", "lessons_ID=".$this -> lesson['id']);
 
         }
 
@@ -2980,9 +2980,9 @@ class EfrontLesson
 
      * Get this lesson's chat room currently online users
 
-     * 
+     *
 
-     * This function is used to get all users currently existing in the chat room 
+     * This function is used to get all users currently existing in the chat room
 
      * These are either the ones having this lesson as $currentLesson or entering the lesson's chat room
 
@@ -3000,9 +3000,9 @@ class EfrontLesson
 
      *
 
-     * The result is stored under the $this -> chatroom['users'] array 
+     * The result is stored under the $this -> chatroom['users'] array
 
-     * @return the array of users where each record has the form [users_login] => [users_login, user_type, timestamp (of entrance)]  
+     * @return the array of users where each record has the form [users_login] => [users_login, user_type, timestamp (of entrance)]
 
      * @since 3.5.2
 
@@ -3659,7 +3659,7 @@ class EfrontLesson
         foreach (array_diff(array_keys($data), $dbtables) as $value) {
             unset($data[$value]);
         }
-        //tests_to_questions table requires special handling	
+        //tests_to_questions table requires special handling
   //$testsToQuestions = $data['tests_to_questions'];
   //unset($data['tests_to_questions']);
         if (!$data['questions'] && $data['tests_to_questions']) {
@@ -3670,7 +3670,7 @@ class EfrontLesson
 
                 $table = "glossary";
 
-			
+
 
             } */ // moved 20 lines above
             if ($table == "lessons") { //from v3 lessons parameters also imported
@@ -3852,7 +3852,7 @@ class EfrontLesson
                 eF_updateTableData("tests", array("name" => $test['c_name']), "id=".$test['id']);
             }
         }
-//exit;        
+//exit;
         return true;
     }
     /**
@@ -4167,7 +4167,7 @@ class EfrontLesson
     public function export2() {
         try {
          $dom = new DomDocument();
-      $id = $dom -> createAttribute('id');// 
+      $id = $dom -> createAttribute('id');//
       $id -> appendChild($dom -> createTextNode($this -> lesson['id']));
       $lessonNode = $dom -> createElement("lesson");
       $lessonNode -> appendChild($id);
@@ -4195,7 +4195,7 @@ if ($element == 'data') $value = htmlentities($value);
 
 		            foreach ($result[0] as $element => $value) {
 
-		                
+
 
 		            }
 
@@ -4258,7 +4258,7 @@ if ($element == 'data') $value = htmlentities($value);
 
      *
 
-     * This function is used used to return a list with all stand-alone 
+     * This function is used used to return a list with all stand-alone
 
      * system lessons.
 
@@ -4664,7 +4664,7 @@ if ($element == 'data') $value = htmlentities($value);
 
      * Get all skills: for the skills this lesson offers the lesson_ID value will be filled
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -4704,7 +4704,7 @@ if ($element == 'data') $value = htmlentities($value);
 
      * Get all branches: for the branches this lesson offers the lesson_ID value will be filled
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -4954,7 +4954,7 @@ if ($element == 'data') $value = htmlentities($value);
     }
    /**
 
-     * Assign a branch to this lesson 
+     * Assign a branch to this lesson
 
      *
 
@@ -4968,7 +4968,7 @@ if ($element == 'data') $value = htmlentities($value);
 
      * <code>
 
-     * $lesson -> assignBranch(2);   // The lesson will be assigned to branch with id 2 
+     * $lesson -> assignBranch(2);   // The lesson will be assigned to branch with id 2
 
      * </code>
 
@@ -5067,7 +5067,7 @@ if ($element == 'data') $value = htmlentities($value);
 
      * @param $avatarSize the normalization size for the avatar images
 
-     * @param $limit maximum number of events to return 
+     * @param $limit maximum number of events to return
 
      * @return boolean true/false
 
@@ -5083,7 +5083,7 @@ if ($element == 'data') $value = htmlentities($value);
      if ($topic_ID) {
       // only current lesson users
       $users = $this -> getUsers();
-      $users_logins = array_keys($users); // don't mix with course events - with courses_ID = $this->lesson['id']		
+      $users_logins = array_keys($users); // don't mix with course events - with courses_ID = $this->lesson['id']
       $related_events = eF_getTableData("events", "*", "type = '".EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC. "' AND entity_ID = '".$topic_ID."' AND lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."') AND (type < 50 OR type >74)", "timestamp desc");
         } else {
       // only current lesson users
@@ -5091,7 +5091,7 @@ if ($element == 'data') $value = htmlentities($value);
       $users_logins = array_keys($users);
 //    		if ($limit) {
 //    			$related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')", "timestamp desc LIMIT " . $limit);
-//    			
+//
 //    		} else {
       $related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc");
 //    		}
@@ -5141,7 +5141,7 @@ if ($element == 'data') $value = htmlentities($value);
 
 	 * Create lesson instance
 
-	 * 
+	 *
 
 	 * This function is used to create a lesson instance.
 
@@ -5153,9 +5153,9 @@ if ($element == 'data') $value = htmlentities($value);
 
 	 * </code>
 
-	 * 
+	 *
 
-	 * @param mixed $instanceSource Either a lesson id or an EfrontLesson object.  
+	 * @param mixed $instanceSource Either a lesson id or an EfrontLesson object.
 
 	 * @return EfrontLesson The new lesson instance
 
@@ -5192,9 +5192,9 @@ if ($element == 'data') $value = htmlentities($value);
  }
  /**
 
-	 * Convert a lesson argument to a lesson id 
+	 * Convert a lesson argument to a lesson id
 
-	 * 
+	 *
 
 	 * @param mixed $lesson The lesson argument, can be an id or an EfrontLesson object
 
@@ -5219,9 +5219,9 @@ if ($element == 'data') $value = htmlentities($value);
 
      * Convert argument to an EfrontLesson object
 
-     * 
+     *
 
-     * @param mixed $lesson The parameter to convert 
+     * @param mixed $lesson The parameter to convert
 
      * @return EfrontLesson a new EfrontLesson object
 

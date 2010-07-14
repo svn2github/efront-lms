@@ -233,6 +233,23 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     $renderer = prepareFormRenderer($form);
     $smarty -> assign("T_CLEANUP_NOTIFICATIONS_FORM", $renderer -> toArray());
 
+    $eventsSize = eF_countTableData("events", "timestamp");
+    $smarty -> assign("T_EVENTS_SIZE", $eventsSize[0]['count']);
+    $lastEventEntry = eF_getTableData("events", "timestamp", "", "timestamp", false, 1);
+    $smarty -> assign("T_LAST_EVENTS_ENTRY", $lastEventEntry[0]['timestamp']);
+    $form = new HTML_QuickForm("cleanup_events_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup", "", null, true);
+ $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
+ $form -> addElement("text", "events_size", null, 'class = "inputText" style = "width:60px"');
+    $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+    if ($form -> isSubmitted() && $form -> validate()) {
+     $timestamp = mktime(0, 0, 0, $_POST['purge_Month'], $_POST['purge_Day'], $_POST['purge_Year']);
+     if (eF_checkParameter($timestamp, 'int')) {
+      eF_deleteTableData("events", "timestamp < $timestamp");
+     }
+     eF_redirect(basename($_SERVER['PHP_SELF']."?ctg=maintenance&tab=cleanup&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success"));
+    }
+    $renderer = prepareFormRenderer($form);
+    $smarty -> assign("T_CLEANUP_EVENTS_FORM", $renderer -> toArray());
 
     //Recreate search table
     if (isset($_GET['reindex']) && $_GET['ajax'] == 1) {
@@ -247,10 +264,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
     if (isset($_GET['cache']) && $_GET['ajax'] == 1) {
         try {
             if ($_GET['cache'] == 'templates') {
-                $cacheTree = new FileSystemTree(G_THEMECACHE, true);
-                foreach (new EfrontDirectoryOnlyFilterIterator($cacheTree -> tree) as $value) {
-                    $value -> delete();
-                }
+                clearTemplatesCache();
             } else if ($_GET['cache'] == 'tests') {
                 eF_deleteTableData("cache");
             } else if ($_GET['cache'] == 'query') {
@@ -268,7 +282,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
   foreach ($users as $key => $value) {
    $usersArray[$value['login']] = $value;
   }
-//pr($usersArray);		
+//pr($usersArray);
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
                 isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 

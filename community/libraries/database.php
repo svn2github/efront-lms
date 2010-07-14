@@ -41,7 +41,7 @@ if (!isset($GLOBALS['db']) || !$GLOBALS['db']) {
 
 	$GLOBALS['db']->memCachePort = 11211; /// this is default memCache port
 
-	$GLOBALS['db']->memCacheCompress = false; /// Use 'true' to store the item compressed (uses zlib)    
+	$GLOBALS['db']->memCacheCompress = false; /// Use 'true' to store the item compressed (uses zlib)
 
 */
  $GLOBALS['db'] -> Connect(G_DBHOST, G_DBUSER, G_DBPASSWD, G_DBNAME);
@@ -93,7 +93,7 @@ function eF_executeNew($sql)
 
  * Execute code directly -- HIGHLY deprecated!!
 
- * 
+ *
 
  * @deprecated
 
@@ -160,7 +160,7 @@ function eF_execute($sql)
 function eF_insertTableData($table, $fields)
 {
     $thisQuery = microtime(true);
-    //Prepend prefix to the table    
+    //Prepend prefix to the table
     $table = G_DBPREFIX.$table;
     if (sizeof($fields) < 1) {
         trigger_error(_EMPTYFIELDSLIST, E_USER_WARNING);
@@ -242,7 +242,7 @@ function eF_insertTableData($table, $fields)
  */
 function eF_insertTableDataMultiple($table, $fields, $checkGpc = true) {
     $thisQuery = microtime(true);
-    //Prepend prefix to the table    
+    //Prepend prefix to the table
     $table = G_DBPREFIX.$table;
     if (sizeof($fields) == 0) {
         return false;
@@ -257,7 +257,7 @@ function eF_insertTableDataMultiple($table, $fields, $checkGpc = true) {
     foreach ($fields as $value) {
         $value = eF_addSlashes($value, $checkGpc);
      //Quote strings and insert "null" where the value is null
-     //$anon = create_function('&$v, $k', 'if (is_string($v)) $v = "\'".$v."\'"; else if (is_null($v)) $v = "null";');    	
+     //$anon = create_function('&$v, $k', 'if (is_string($v)) $v = "\'".$v."\'"; else if (is_null($v)) $v = "null";');
      array_walk($value, 'eF_NullifyRecursive');
         $valuesString = implode(",", $value);
         $currentLength[$table] += mb_strlen("('".$valuesString."')");
@@ -290,7 +290,7 @@ function eF_insertTableDataMultiple($table, $fields, $checkGpc = true) {
 
  * to convert empty strings to null values, as they should
 
- * 
+ *
 
  * @param $v array value
 
@@ -338,7 +338,7 @@ function eF_NullifyRecursive(&$v, $k) {
 function eF_updateTableData($table, $fields, $where)
 {
     $thisQuery = microtime(true);
-    //Prepend prefix to the table   
+    //Prepend prefix to the table
     $table = G_DBPREFIX.$table;
     if (sizeof($fields) < 1) {
         trigger_error(_EMPTYFIELDSLIST, E_USER_WARNING);
@@ -381,7 +381,7 @@ function eF_updateTableData($table, $fields, $where)
 */
 function eF_deleteTableData($table, $where="")
 {
-    //Prepend prefix to the table    
+    //Prepend prefix to the table
     $table = G_DBPREFIX.$table;
     $thisQuery = microtime(true);
     $sql = "DELETE FROM ".$table;
@@ -474,7 +474,7 @@ function eF_countTableData($table, $fields = "*", $where = "", $order = "", $gro
 function prepareGetTableData($table, $fields = "*", $where = "", $order = "", $group = "", $limit = "") {
     $tables = explode(",", $table);
     foreach ($tables as $key => $value) {
-        //Prepend prefix to the table    
+        //Prepend prefix to the table
         $tables[$key] = G_DBPREFIX.trim($value);
     }
     $table = implode(",", $tables);
@@ -674,7 +674,7 @@ function eF_getTableDataFlat($table, $fields="*", $where="", $order="", $group="
 
 */
 function eF_describeTable($table, $fields = false) {
-    //Prepend prefix to the table    
+    //Prepend prefix to the table
     $table = G_DBPREFIX.$table;
     if (!$fields) {
         $desc = $GLOBALS['db'] -> GetAll("describe $table");
@@ -705,7 +705,7 @@ function eF_describeTable($table, $fields = false) {
 
 */
 function eF_getTableFields($table) {
-    //Prepend prefix to the table    
+    //Prepend prefix to the table
     $table = G_DBPREFIX.$table;
     $result = $GLOBALS['db'] -> GetCol("describe $table");
     return $result;
@@ -714,7 +714,7 @@ function eF_getTableFields($table) {
 
  * Show all tables in the database
 
- * 
+ *
 
  * @return array The database tables
 
@@ -737,7 +737,7 @@ function eF_showTables() {
 
  * actually exists in the database
 
- * 
+ *
 
  * @param string $table The table to update data to
 
@@ -752,7 +752,7 @@ function eF_showTables() {
  */
 function eF_insertOrupdateTableData($table, $fields, $where)
 {
-    //Prepend prefix to the table    
+    //Prepend prefix to the table
     $table = G_DBPREFIX.$table;
  $result = eF_getTableData($table, '*', $where);
  if (!empty($result)) {
@@ -813,7 +813,7 @@ function eF_addSlashes($param, $checkGpc = true) {
 
  * Auxiliary function used by eF_addSlashes
 
- * 
+ *
 
  * @param $v
 

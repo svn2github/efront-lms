@@ -351,7 +351,9 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
     if (isset($_GET['postAjaxRequest'])) {
         try {
             $projectUsers = $currentProject -> getUsers();
-            if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login') && in_array($_GET['login'], array_keys($projectUsers))) {
+   if (isset($_GET['reset_user']) && eF_checkParameter($_GET['reset_user'], 'login')) {
+    $currentProject -> reset($_GET['reset_user']);
+            } elseif (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login') && in_array($_GET['login'], array_keys($projectUsers))) {
                 $currentProject -> grade($_GET['login'], $_GET['grade'], $_GET['comments']);
             }
         } catch (Exception $e) {

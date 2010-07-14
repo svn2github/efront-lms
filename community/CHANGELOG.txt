@@ -11,6 +11,9 @@
 - Added tooltip with organization information in employees list
 - Fixed group filter not working in course reports
 - Fixed upload from url not working when importing SCORM content
+- Added icon for deleting project completion info(grade, commnent, file) by professor
+- Added option to purge events size in maintenance -> cleanup
+- Supervisor can directly edit supervised branches
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

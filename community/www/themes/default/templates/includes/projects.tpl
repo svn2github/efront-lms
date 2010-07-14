@@ -134,7 +134,9 @@
                                         <td><input type = "text" id = "grade_{$user.users_LOGIN}" value = "{$user.grade}" size = "5" maxlength = "5" /></td>
                                         <td class = "centerAlign">
                                             <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._SAVE}" alt = "{$smarty.const._SAVE}" onclick = "resultsAjaxPost('{$user.users_LOGIN}', this)"/>
-                                        </td>
+           <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "resetUser('{$user.users_LOGIN}', this)"/>
+          </td>
+
                                     {else}
                                         <td>{$user.comments}</td>
                                         <td>{$user.grade}</td>

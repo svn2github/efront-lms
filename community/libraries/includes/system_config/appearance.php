@@ -112,6 +112,7 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
      throw new EfrontFileException(_NOTANIMAGEFILE, EfrontFileException::NOT_APPROPRIATE_TYPE);
     }
     EfrontConfiguration :: setValue('favicon', $faviconFile['id']);
+    clearTemplatesCache();
    } catch (Exception $e) {
     if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {throw $e;}
    }

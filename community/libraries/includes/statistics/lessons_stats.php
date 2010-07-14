@@ -46,6 +46,7 @@ try {
        }
           //$role == 'student' ? $studentRoles[] = $key : $professorRoles[] = $key;
       }
+
       $infoLesson -> lesson['users_per_role'] = $usersPerRole;
       $infoLesson -> lesson['num_users'] = array_sum($usersPerRole);
 
@@ -64,7 +65,7 @@ try {
       $smarty -> assign("T_CURRENT_LESSON", $infoLesson);
             $smarty -> assign("T_STATS_ENTITY_ID", $infoLesson -> lesson['id']);
          $lessonInfo = $infoLesson -> getStatisticInformation();
-            $smarty -> assign("T_LESSON_INFO", $lessonInfo);
+         $smarty -> assign("T_LESSON_INFO", $lessonInfo);
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);
         }
@@ -127,7 +128,6 @@ try {
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);
         }
-
 
         /*
 
@@ -210,7 +210,9 @@ try {
             }
 
             $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
-            $filteredUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+//pr($constraints);exit;
+            $filteredUsers = $infoLesson -> getLessonUsers($constraints);
+//echo "!";exit;
             $users = array();
             foreach ($filteredUsers as $user) {
              $users[$user['login']] = $user['active'];

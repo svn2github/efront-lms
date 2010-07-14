@@ -154,7 +154,7 @@ function profile($start = true, &$path) {
 function debug($mode = true, $level = E_ALL) {
     ini_set("display_errors", true);
     if ($mode) {
-  echo "Starting debug output";ob_end_flush();
+  echo "Starting debug output";
      $_SESSION['debug_start'] = microtime(true);
         error_reporting($level);
         $GLOBALS['db']->debug=true;
@@ -2559,6 +2559,23 @@ function addTime(&$a, $b) {
 
 
 	*/
+}
+/**
+
+* Clear templates cache
+
+* This function is used to explicity clear templates cache from code where needed
+
+* @version 1.0
+
+*/
+function clearTemplatesCache() {
+ try {
+  $cacheTree = new FileSystemTree(G_THEMECACHE, true);
+  foreach (new EfrontDirectoryOnlyFilterIterator($cacheTree -> tree) as $value) {
+   $value -> delete();
+  }
+ } catch (Exception $e) {}
 }
 class AjaxResultObject
 {

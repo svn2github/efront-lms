@@ -9,7 +9,7 @@
     {if $smarty.get.add_user || $smarty.get.edit_user}
     {*moduleNewUser: Create a new user*}
             {capture name = "moduleNewUser"}
-                                <tr><td class = "moduleCell">
+                                <tr><td class = "moduleCell" id = "singleColumn">
                                 {if !isset($smarty.get.print_preview) && !isset($smarty.get.print)}
                                     {if $smarty.get.edit_user != ""}
                                         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=users&edit_user='|cat:$smarty.get.edit_user|cat:'">'|cat:$smarty.const._EDITUSER|cat:'</a>'}

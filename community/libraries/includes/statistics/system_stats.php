@@ -124,6 +124,57 @@ try {
 
     $userTypes = eF_getTableData("users", "user_type, count(user_type) as num", "", "", "user_type");
     $smarty -> assign("T_USER_TYPES", $userTypes);
+
+    try {
+     if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_access') {
+      $result = eF_getTableData("logs", "*", "timestamp between $from and $to and action = 'login' order by timestamp");
+
+      $labels = array();
+      $count = array();
+      //Assign each day of the week an empty slot
+      for ($i = $from; $i <= $to; $i = $i + 86400) {
+       $labels[] = date('Y/m/d', $i);
+       $count[] = 0;
+      }
+
+      $max = 0;
+      //Assign the number of accesses to each week day
+      foreach ($result as $value) {
+       $cnt = 0;
+       for ($i = $from; $i <= $to; $i = $i + 86400) {
+        if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
+         $count[$cnt]++;
+         if ($count[$cnt] > $max){
+          $max = $count[$cnt];
+         }
+        }
+        $cnt++;
+       }
+      }
+
+      for ($i = 0; $i < sizeof($labels); $i++) {
+       $data[] = array($labels[$i], $count[$i]);
+      }
+      echo json_encode(array('data' => $data, 'type' => 'bar'));
+      exit;
+     } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_users_access') {
+      foreach ($userTimes as $key => $value) {
+       $data[] = array($key, $value);
+      }
+      echo json_encode(array('data' => $data, 'type' => 'bar'));
+      exit;
+     } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_user_types') {
+   $result = eF_getTableData("users", "user_type, count(user_type) as num", "", "", "user_type");
+      foreach ($result as $value) {
+       $data[] = array($value['user_type'], $value['num']);
+      }
+   echo json_encode(array('data' => $data, 'type' => 'bar'));
+      exit;
+     }
+    } catch (Exception $e) {
+     handleAjaxExceptions($e);
+    }
+
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

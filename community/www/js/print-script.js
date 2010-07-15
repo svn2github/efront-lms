@@ -540,32 +540,7 @@ function showObj(obj)
         }
 }
 
-function toggleVisibility(obj,img)
-{
-        if(!obj)
-                return;
 
-        if(obj.style.display=='')
-        {
-                obj.style.display = 'none';
-        createCookie(obj.id,'hidden',30);
-                if(img)
-                {
-                        img.className='plus';
-                        //changeImage(img);
-                }
-        }
-        else
-        {
-                obj.style.display = '';
-        createCookie(obj.id,'visible',30);
-                if(img)
-                {
-                        img.className='minus';
-                        //changeImage(img);
-                }
-        }
-}
 
 var currentShownPopup = null;
 

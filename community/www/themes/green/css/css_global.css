@@ -1341,6 +1341,9 @@ span.oldPrice{text-decoration:line-through;}
 span.normalPrice{}
 span.recurringPrice{}
 
+/*Protochart classes*/
+div.proto_graph{background-color:white;height:500px;}
+
 /*Various classes*/
 .horizontalSeparator{border-bottom:1px solid #888888}
 .horizontalSeparatorAbove{border-top:1px solid #555555;}

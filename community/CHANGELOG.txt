@@ -14,6 +14,7 @@
 - Added icon for deleting project completion info(grade, commnent, file) by professor
 - Added option to purge events size in maintenance -> cleanup
 - Supervisor can directly edit supervised branches
+- Fixed issue in view rtf certificate from professor
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

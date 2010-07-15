@@ -1,6 +1,4 @@
-<a href = "javascript:void(0)" onclick = "window.location='professor.php';">click me</a>
-
- {assign var = "title" value = '<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?op=employees">'|cat:$smarty.const._EMPLOYEES|cat:'</a>'}
+  {assign var = "title" value = '<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?op=employees">'|cat:$smarty.const._EMPLOYEES|cat:'</a>'}
 
  {*moduleShowemployees: Show employees*}
  {capture name = 't_employees_code'}

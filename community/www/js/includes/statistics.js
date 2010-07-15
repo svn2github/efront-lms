@@ -521,27 +521,50 @@ for(var i = 0; i < 14; i++)
   var r = Math.floor(Math.random() * 100);
   d7.push([i, r]);
  }
-function showGraph(el) {
-  parameters = {ajax:'graph', method: 'get'};
+function showGraph(el, graph_type, entity) {
+  parameters = {ajax:graph_type, entity: entity, method: 'get'};
   var url = location.toString();
   ajaxRequest(el, url, parameters, onShowGraph);
 }
 function onShowGraph(el, response) {
  try {
  data = response.evalJSON(true).data;
+ type = response.evalJSON(true).type;
  y_axis = [];
  x_axis = [];
+ maxValue = 0;
  for (var i=0;i < data.length;i++) {
   x_axis.push([i+1, data[i][0]]);
   y_axis.push([i+1, data[i][1]]);
+  maxValue = Math.max(data[i][1], maxValue);
  }
-  new Proto.Chart(el,
-    [{data: y_axis}],
-    {
-     xaxis: {ticks:x_axis, min:0, max:x_axis.length+1},
-     yaxis: {min:0, max:10},
-     points: {show: true},
-     lines: {show: true}
-    });
+ switch (type) {
+  case 'bar':
+   chartObject =
+   {
+    xaxis: {ticks:x_axis, min:0, max:x_axis.length+1},
+    yaxis: {min:0, max:maxValue+2},
+    points: {show: true},
+    bars: {show:true}
+   };
+   break;
+  case 'pie':
+   chartObject =
+   {
+    pies: {show: true, autoScale: true},
+    legend:{show:true}
+   };
+   break;
+  case 'line': default:
+   chartObject =
+   {
+    xaxis: {ticks:x_axis, min:0, max:x_axis.length+1},
+    yaxis: {min:0, max:maxValue+2},
+    points: {show: true},
+    lines: {show: true}
+   };
+  break;
+ }
+ new Proto.Chart(el, [{data: y_axis}], chartObject);
  } catch (e) {alert(e);}
 }

@@ -40,7 +40,7 @@
                 </tr>
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._USERS}:</td>
-                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.num_users} ({foreach name = "user_types_list" item ="item" key = "key" from = $T_CURRENT_LESSON->lesson.users_per_role}{$T_ROLES_ARRAY[$key]}: {$item}{if !$smarty.foreach.user_types_list.last}, {/if}{/foreach})</td>
+                    <td class = "elementCell">{if $T_CURRENT_LESSON->lesson.num_users}{$T_CURRENT_LESSON->lesson.num_users} ({foreach name = "user_types_list" item ="item" key = "key" from = $T_CURRENT_LESSON->lesson.users_per_role}{$T_ROLES_ARRAY[$key]}: {$item}{if !$smarty.foreach.user_types_list.last}, {/if}{/foreach}){else}0{/if}</td>
                 </tr>
             </table>
 
@@ -53,9 +53,9 @@ table#lessonUsersTable {width:100%;}
 table#lessonUsersTable td.login{width:30%;}
 table#lessonUsersTable td.user_type{width:10%;}
 table#lessonUsersTable td.time_in_lesson{width:15%;}
-table#lessonUsersTable td.overall_progress{width:5%;}
-table#lessonUsersTable td.test_status{width:5%;}
-table#lessonUsersTable td.project_status{width:5%;}
+table#lessonUsersTable td.overall_progress{width:100px;}
+table#lessonUsersTable td.test_status{width:100px;}
+table#lessonUsersTable td.project_status{width:100px;}
 table#lessonUsersTable td.completed{width:5%;text-align:center;}
 table#lessonUsersTable td.score{width:5%;text-align:center;}
 {/literal}
@@ -136,6 +136,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                             <td id = "right">
                                 <a href = "display_chart.php?id=2&lesson_id={$smarty.get.sel_lesson}&test_id={$test_info.general.id}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONSKIND}', 2)" target = "POPUP_FRAME">
                                  {$smarty.const._QUESTIONSKIND}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}"/></a>
+                                {$smarty.const._QUESTIONSKIND}: <img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_test_questions', '{$test_info.general.id}');"/>
                             </td>
                     </table>
                     <table class = "statisticsSubInfo" id = "tinfo{$test_id}" style = "display:none">
@@ -176,7 +177,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                     <table class = "sortedTable" sortBy = "0">
                         <tr>
                             <td style = "width:30%;" class = "topTitle">{$smarty.const._USER}</td>
-                            <td style = "" class = "topTitle centerAlign">{$smarty.const._SCORE}</td>
+                            <td style = "width:100px;" class = "topTitle centerAlign">{$smarty.const._SCORE}</td>
                             <td style = "" class = "topTitle centerAlign">{$smarty.const._MASTERYSCORE}</td>
                             <td style = "width:10%;" class = "topTitle centerAlign">{$smarty.const._STATUS}</td>
                             <td style = "width:25%;" class = "topTitle">{$smarty.const._DATE}</td>
@@ -195,7 +196,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                          <td>#filter:timestamp_time-{$done_test.timestamp}#</td>
                          <td class = "centerAlign">
                           {if !$test_info.general.scorm}
-                                <a href = "view_test.php?done_test_id={$done_test.id}" onclick = "eF_js_showDivPopup('{$smarty.const._VIEWTEST}', 2)" target = "POPUP_FRAME">
+                                <a href = "view_test.php?done_test_id={$done_test.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._VIEWTEST}', 3)" target = "POPUP_FRAME">
                                  <img src = "images/16x16/search.png" alt = "{$smarty.const._VIEWTEST}" title = "{$smarty.const._VIEWTEST}" /></a>
                              {/if}
                          </td>
@@ -269,14 +270,14 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                     </table>
                     <table class = "sortedTable" sortBy = "0">
                         <tr>
-                         <td style = "width:20%;" class = "topTitle">{$smarty.const._USER}</td>
-                         <td style = "width:15%;" class = "topTitle centerAlign">{$smarty.const._GRADE}</td>
-                         <td style = "width:15%;" class = "topTitle">{$smarty.const._DATE}</td>
+                         <td style = "" class = "topTitle">{$smarty.const._USER}</td>
+                         <td style = "min-width:100px;" class = "topTitle centerAlign">{$smarty.const._GRADE}</td>
+                         <td class = "topTitle">{$smarty.const._DATE}</td>
                         </tr>
                      {foreach name = 'done_projects_list' key = "key" item = "info" from = $project_info.done}
                         <tr class = "{cycle name = 'done_tests' values = 'oddRowColor, evenRowColor'}">
                             <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$info.users_LOGIN}">#filter:login-{$info.users_LOGIN}#</a></td>
-                            <td class = "progressCell">
+                            <td style = "width:100px;" class = "progressCell">
                                 <span style = "display:none">{$info.grade}</span>
                                 <span class = "progressNumber">#filter:score-{$info.grade}#%</span>
                                 <span class = "progressBar" style = "width:{$info.grade}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -392,10 +393,12 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                     {if $T_LESSON_TRAFFIC.total_access > 0}
                     <table class = "statisticsTools">
                         <tr><td id = "right">
+
                                 <a href = "display_chart.php?id=8&lesson_id={$smarty.get.sel_lesson}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
                                  {$smarty.const._ACCESSSTATISTICS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" /></a>
-      <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'));"/>
-     <div id = "graph_table"><div id = "proto_chart"></div></div>
+
+        {$smarty.const._ACCESSSTATISTICS}: <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_access');"/>
+        <div id = "graph_table" style = "display:none"><div id = "proto_chart" class = "proto_graph"></div></div>
        </td>
                         </tr>
                     </table>
@@ -419,16 +422,17 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                         </tr>
                     </table>
                     {/if}
-
      <br/>
                     <table class = "statisticsTools">
                         <tr><td>{$smarty.const._ACCESSNUMBER}</td>
+{*
                     {if $T_LESSON_TRAFFIC.total_seconds > 0 }
                             <td id = "right">
                                 <a href = "display_chart.php?id=5&lesson_id={$smarty.get.sel_lesson}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME" style = "vertical-align:middle">
                                  {$smarty.const._MOSTACTIVEUSERS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._MOSTACTIVEUSERS}" title = "{$smarty.const._MOSTACTIVEUSERS}"/></a>
                             </td>
                     {/if}
+*}
                      </tr>
                     </table>
                     <table class = "sortedTable">
@@ -455,6 +459,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                                 <td class = "centerAlign">
                                     <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$login}&lesson_id={$smarty.get.sel_lesson}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
                                      <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
+                                    <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_user_access', '{$login}');"/>
                                 </td>
                             </tr>
                             {/if}

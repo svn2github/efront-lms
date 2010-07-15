@@ -5,7 +5,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 
 $loadScripts[] = 'scriptaculous/ProtoChart';
-$loadScripts[] = 'scriptaculous/excanvas-compressed';
+$loadScripts[] = 'scriptaculous/excanvas';
 $loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/statistics';
 

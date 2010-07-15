@@ -194,8 +194,8 @@ class EfrontStats
    } else {
     $result = eF_getTableData("users u, users_to_lessons ul, user_types as ut", "u.login, ul.lessons_ID, ul.done_content", "ul.archive=0 and (ul.user_type = 'student' OR (ul.user_type=ut.id AND ut.basic_user_type = 'student')) and u.login = ul.users_LOGIN and u.login in ('".implode("','", $users)."') and ul.lessons_ID in (".implode(",", $lessons).")");
       }
-   //$result           = eF_getTableData("users u, users_to_lessons ul, user_types as ut", "u.login, ul.lessons_ID, ul.done_content", "(ul.user_type = 'student' OR (ul.user_type=ut.id AND ut.basic_user_type = 'student')) and u.login = ul.users_LOGIN");        
-         //$result           = eF_getTableData("users u, users_to_lessons ul", "u.login, ul.lessons_ID, ul.done_content", "ul.user_type = 'student' and u.login = ul.users_LOGIN");        
+   //$result           = eF_getTableData("users u, users_to_lessons ul, user_types as ut", "u.login, ul.lessons_ID, ul.done_content", "(ul.user_type = 'student' OR (ul.user_type=ut.id AND ut.basic_user_type = 'student')) and u.login = ul.users_LOGIN");
+         //$result           = eF_getTableData("users u, users_to_lessons ul", "u.login, ul.lessons_ID, ul.done_content", "ul.user_type = 'student' and u.login = ul.users_LOGIN");
    $usersDoneContent = array();
          foreach ($result as $value) {
              $usersDoneContent[$value['lessons_ID']][$value['login']] = unserialize($value['done_content']);
@@ -402,7 +402,7 @@ class EfrontStats
             }
             $lessonId = implode(",", $lessons);
         }
-/*        
+/*
 
         $usersDoneTests = eF_getTableData("tests t, content c, done_tests dt", "c.lessons_ID, c.name, c.active, t.content_ID, dt.id as done_tests_ID, dt.tests_ID, dt.score, dt.comments, dt.users_LOGIN, dt.timestamp", "dt.tests_ID = t.id and t.content_ID = c.id".($lessonId ? " and c.lessons_ID in ($lessonId)" : ""));
 
@@ -420,7 +420,7 @@ class EfrontStats
 
 */
         $doneTests = array();
-        //We create a 10-fold loop for memory efficiency 
+        //We create a 10-fold loop for memory efficiency
         for ($i = 0; $i < sizeof($users); $i += 20) {
          $temp = EfrontStats :: getDoneTestsPerUser(array_slice($users, $i, 10));
         }
@@ -465,7 +465,7 @@ class EfrontStats
 
 	 * Get users' done tests
 
-	 * 
+	 *
 
 	 * This function is used to get the users' done tests.
 
@@ -483,7 +483,7 @@ class EfrontStats
 
 	 * //$doneTests now contains an array of the form:
 
-	 * Array 
+	 * Array
 
 	 * (
 
@@ -517,9 +517,9 @@ class EfrontStats
 
 	 * )
 
-	 * </code> 
+	 * </code>
 
-	 * 
+	 *
 
 	 * @param mixed $user The user to get tests for, or all if false. Can be either the user login, or an EfrontUser object
 
@@ -607,7 +607,7 @@ class EfrontStats
 
 	 * Get users' done tests per test
 
-	 * 
+	 *
 
 	 * This function is used to get the users' done tests, on a per-test basis.
 
@@ -625,7 +625,7 @@ class EfrontStats
 
 	 * //$doneTests now contains an array of the form:
 
-	 * Array 
+	 * Array
 
 	 * (
 
@@ -659,9 +659,9 @@ class EfrontStats
 
 	 * )
 
-	 * </code> 
+	 * </code>
 
-	 * 
+	 *
 
 	 * @param mixed $user The user to get tests for, or all if false. Can be either the user login, or an EfrontUser object
 
@@ -761,7 +761,7 @@ class EfrontStats
 
      * EfrontStats :: getUsersTimeAll();                          			//Get statistics for all users in all lessons
 
-     * EfrontStats :: getUsersTimeAll(1259135220, 1259394420);             //Get statistics for all users in all lessons from 1259135220 to 1259394420 
+     * EfrontStats :: getUsersTimeAll(1259135220, 1259394420);             //Get statistics for all users in all lessons from 1259135220 to 1259394420
 
      * </code>
 
@@ -1143,7 +1143,7 @@ class EfrontStats
 
      * Since it is database-intensive, make sure that it is NEVER called inside a loop!
 
-     * 
+     *
 
      * @param array $lessons an array of lesson ids or EfrontLesson objects
 
@@ -1210,7 +1210,7 @@ class EfrontStats
 
      * Since it is database-intensive, make sure that it is NEVER called inside a loop!
 
-     * 
+     *
 
      * @param array $lessons an array of lesson ids or EfrontLesson objects
 
@@ -1224,7 +1224,7 @@ class EfrontStats
 
      */
     public static function getUsersLessonStatusAll($lessons = false, $users = false, $options = array()) {
-/*        
+/*
 
         $studentLessons = array();
 
@@ -1242,7 +1242,7 @@ class EfrontStats
 
 		$usersAssignedProjects = EfrontStats :: getStudentsAssignedProjects($studentLessons, array_keys($users));
 
-		$usersDoneTests        = EfrontStats :: getStudentsDoneTests($studentLessons, array_keys($users));     
+		$usersDoneTests        = EfrontStats :: getStudentsDoneTests($studentLessons, array_keys($users));
 
 */
      $usersDoneContent = EfrontStats :: getStudentsSeenContent($lessons, $users, $options); //Calculate the done content for users in this lesson
@@ -1306,7 +1306,7 @@ class EfrontStats
                  } else {
                      $value['remaining'] = null;
                  }
-                 //Check whether the lesson registration is expired. If so, set $value['from_timestamp'] to false, so that the effect is to appear disabled 
+                 //Check whether the lesson registration is expired. If so, set $value['from_timestamp'] to false, so that the effect is to appear disabled
                  if ($lesson -> lesson['duration'] && $value['from_timestamp'] && $lesson -> lesson['duration'] * 3600 * 24 + $value['from_timestamp'] < time()) {
                      $lesson -> archiveLessonUsers($value['users_LOGIN']);
                  } else {
@@ -1352,7 +1352,7 @@ class EfrontStats
                     }
                 }
                 $visitableUnits = $visitableContentIds + $visitableExampleIds + $visitableTestIds;
-/*                
+/*
 
                 $visitableContentIds = array();
 
@@ -1412,7 +1412,7 @@ class EfrontStats
 
                     $testIds[$key] = $key;                                                    //Get the scorm test unit ids for this content
 
-                }            
+                }
 
 */
             }
@@ -1423,7 +1423,7 @@ class EfrontStats
                                                                         'basic_user_type' => $users[$login]['user_type'],
                                                                         'user_type' => $value['user_type'], //The user's role in the lesson
                               'user_types_ID' => $users[$login]['user_types_ID'],
-                                                                        'different_role' => $value['user_type'] != $users[$login]['user_type'] && $value['user_type'] != $users[$login]['user_types_ID'], //Whether the user has a role different than the default in this lesson                
+                                                                        'different_role' => $value['user_type'] != $users[$login]['user_type'] && $value['user_type'] != $users[$login]['user_types_ID'], //Whether the user has a role different than the default in this lesson
                                                                         'active' => $users[$login]['active'],
                                                                         'lesson_name' => $lesson -> lesson['name'],
                                                                         'from_timestamp' => $value['from_timestamp'],
@@ -1498,7 +1498,7 @@ class EfrontStats
 
      * Get user(s) status in course(s)
 
-     * 
+     *
 
      * This function is used to calculate the user's status in the course, ie the score, completed
 
@@ -1565,7 +1565,7 @@ class EfrontStats
 
         $studentLessons = array_combine($result['lessons_ID'], $result['lessons_ID']);
 
-		if (sizeof($lessonsStatus) > 0) {        
+		if (sizeof($lessonsStatus) > 0) {
 
 	        //get statistics array
 
@@ -1641,7 +1641,7 @@ class EfrontStats
                         $courseStatus[$course -> course['id']][$login]['comments'] = $value['comments'];
                         $courseStatus[$course -> course['id']][$login]['issued_certificate'] = $value['issued_certificate'];
                         $courseStatus[$course -> course['id']][$login]['total_lessons'] = sizeof($course -> countCourseLessons());
-                        //Count completed lessons 
+                        //Count completed lessons
                         $completedLessons = 0;
                         if (isset($userLessonStatus[$course -> course['id']][$login])) {
                             foreach ($userLessonStatus[$course -> course['id']][$login] as $lesson) {
@@ -1663,7 +1663,7 @@ class EfrontStats
 
      * Get user(s) status in course(s)
 
-     * 
+     *
 
      * This function is used to calculate the user's status in the course, ie the score, completed
 
@@ -1732,7 +1732,7 @@ class EfrontStats
         $cacheKey = 'user_course_status:';
         $course instanceOf EfrontCourse ? $cacheKey .= 'course:'.$course -> course['id'] : $cacheKey .= 'course:'.$course;
         $user instanceOf EfrontUser ? $cacheKey .= 'user:'.$user -> user['login'] : $cacheKey .= 'user:'.$user;
-/*            
+/*
 
         if ($status = Cache::getCache($cacheKey)) {
 
@@ -1823,7 +1823,7 @@ class EfrontStats
         return $courseStatus;
     }
     public function getUserLessonStatus($lesson, $user, $options) {
-/*            
+/*
 
     	$cacheKey = 'user_lesson_status:';
 
@@ -1933,7 +1933,7 @@ class EfrontStats
                                                                         'basic_user_type' => $user['user_type'],
                                                                         'user_type' => $value['user_type'], //The user's role in the lesson
                               'user_types_ID' => $user['user_types_ID'],
-                                                                        'different_role' => $value['user_type'] != $user['user_type'] && $value['user_type'] != $user['user_types_ID'], //Whether the user has a role different than the default in this lesson                
+                                                                        'different_role' => $value['user_type'] != $user['user_type'] && $value['user_type'] != $user['user_types_ID'], //Whether the user has a role different than the default in this lesson
                                                                         'active' => $user['active'],
                                                                         'lesson_name' => $lesson -> lesson['name'],
                                                                         'from_timestamp' => $value['from_timestamp'],
@@ -2090,7 +2090,7 @@ class EfrontStats
             $conditionsMet[$conditionId] = $passed;
         }
         if (sizeof($conditionsRelation) > 0) {
-            $conditionsRelation[0] == 'or' ? $initial = 0 : $initial = 1; //Since the first condition is either 'or' or 'and', an initial value must be considered. If the first condition is "or", then the initial value is 0. Otherwise, it's 1 (since 0 OR x = x, 1 AND x = x)    
+            $conditionsRelation[0] == 'or' ? $initial = 0 : $initial = 1; //Since the first condition is either 'or' or 'and', an initial value must be considered. If the first condition is "or", then the initial value is 0. Otherwise, it's 1 (since 0 OR x = x, 1 AND x = x)
             $passed = eval('return '.$initial.' '.implode(" ", $conditionsRelation).';');
         } else {
             $passed = 0;
@@ -2294,7 +2294,9 @@ class EfrontStats
           $users[$user['login']] = $user;
          }
         }
-        $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users), false, false, false, $lesson);
+        if ($users) {
+         $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users), false, false, false, $lesson);
+        }
         foreach ($tests as $id) {
             $testInfo = array();
             $test = new EfrontTest($id);
@@ -2628,11 +2630,11 @@ class EfrontStats
 
      * Derive statistics for a single test
 
-     * 
+     *
 
      * This function is used to calculate statistics on users completion of a single
 
-     * test. 
+     * test.
 
      * <br/>Example:
 
@@ -2640,15 +2642,15 @@ class EfrontStats
 
      * $information = EfrontStats :: doneTestInfo(32);										//Get information for test with id 32
 
-     * 
+     *
 
-     * $results = eF_getTableData("completed_tests", "*");									//Alternatively, you may pre-collect the required data from the database...								
+     * $results = eF_getTableData("completed_tests", "*");									//Alternatively, you may pre-collect the required data from the database...
 
-     * foreach ($results as $value) {													
+     * foreach ($results as $value) {
 
      *     $doneTests[$value['tests_ID']][$value['id']] = $value;
 
-     * }            
+     * }
 
      * $information = EfrontStats :: doneTestInfo($doneTests[32]);							//...And give them ready to the database, thus eliminating the need for queries
 
@@ -2803,7 +2805,7 @@ class EfrontStats
         $stats = array('timesDone' => 0, 'meanScore' => 0, 'meanMeanScore' => 0, 'lastTimesMeanScore' => 0);
         //Calculate statistics per user
         foreach ($doneTests as $doneTestId => $doneTest) {
-            if (!($doneTest['test'] instanceof EfrontCompletedTest)) { //Unserialize test parameter, only if needed (otherwise it is already unserialized) 
+            if (!($doneTest['test'] instanceof EfrontCompletedTest)) { //Unserialize test parameter, only if needed (otherwise it is already unserialized)
                 $doneTest['test'] = unserialize($doneTest['test']);
                 $doneTests[$doneTestId]['test'] = $doneTest['test'];
             }
@@ -2831,7 +2833,7 @@ class EfrontStats
 
 	 * Get questions statistics for test
 
-	 * 
+	 *
 
 	 * This function analyzes the user's performance in a test's questions.
 
@@ -2925,9 +2927,9 @@ class EfrontStats
 
 	 *         )
 
-	 * ) 
+	 * )
 
-	 * </code> 
+	 * </code>
 
 	 *
 
@@ -2975,9 +2977,9 @@ class EfrontStats
 
 	 * Calculate statistics for done questions
 
-	 * 
+	 *
 
-	 * This function calculates statistics for questions, such as min max and average scores, times 
+	 * This function calculates statistics for questions, such as min max and average scores, times
 
 	 * it is done etc.
 
@@ -3144,7 +3146,7 @@ class EfrontStats
             $questionStats[$id]['answers_per_option'] = array();
           }
              if (!is_array($question -> results)) {
-              // Single answer MultChoiceQ, True/false 
+              // Single answer MultChoiceQ, True/false
               $selected_option = $question -> userAnswer;
               if (!isset($questionStats[$id]['answers_per_option'][$selected_option])) {
                $questionStats[$id]['answers_per_option'][$selected_option] = 100;
@@ -3168,7 +3170,7 @@ class EfrontStats
 //	            echo "<BR><BR>END OF Q<BR>";
          }
      }
-//       	
+//
 //	    echo "prin ta genika<BR>";
 //	    pr($questionStats[78]);
      foreach ($questionStats as $id => $question) {
@@ -3332,11 +3334,11 @@ class EfrontStats
 
 	 *
 
-	 * @param array $users Users return reports for 
+	 * @param array $users Users return reports for
 
-	 * @param timestamp $from Starting timestamp 
+	 * @param timestamp $from Starting timestamp
 
-	 * @param timestamp $to Ending timestamp 
+	 * @param timestamp $to Ending timestamp
 
 	 * @param array $interval The time interval to calculate statistics for
 

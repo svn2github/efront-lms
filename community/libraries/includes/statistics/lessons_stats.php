@@ -210,15 +210,13 @@ try {
             }
 
             $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
-//pr($constraints);exit;
+
             $filteredUsers = $infoLesson -> getLessonUsers($constraints);
-//echo "!";exit;
+
             $users = array();
             foreach ($filteredUsers as $user) {
              $users[$user['login']] = $user['active'];
             }
-//            $users = eF_getTableDataFlat("users", "login, active");
-//            $users = array_combine($users['login'], $users['active']);
             $traffic['users'] = EfrontStats :: getUsersTime($infoLesson -> lesson['id'], array_keys($users), $from, $to);
 
             foreach ($traffic['users'] as $key => $user) {
@@ -235,15 +233,62 @@ try {
             }
             $traffic['total_time'] = eF_convertIntervalToTime($traffic['total_seconds']);
 
-            if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph') {
-             $data = array();
-             foreach ($traffic['users'] as $login => $value) {
-              if ($value['accesses']) {
-               $data[] = array(formatLogin($login), $value['accesses']);
+            try {
+             if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_access') {
+              $data = array();
+              foreach ($traffic['users'] as $login => $value) {
+               if ($value['accesses']) {
+                $data[] = array(formatLogin($login), $value['accesses']);
+               }
               }
+              echo json_encode(array('data' => $data, 'type' => 'bar'));
+              exit;
+             } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_user_access') {
+              $user = EfrontUserFactory :: factory($_GET['entity']);
+
+              $result = eF_getTableData("logs", "id, users_LOGIN, action, timestamp", "timestamp between $from and $to and lessons_id=".$infoLesson -> lesson['id']." and users_LOGIN = '".$user -> user['login']."' order by timestamp");
+              $labels = array();
+              $count = array();
+              //Assign each day of the week an empty slot
+              for ($i = $from; $i <= $to; $i = $i + 86400) {
+               $labels[] = date('Y/m/d', $i);
+               $count[] = 0;
+              }
+              //Assign the number of accesses to each week day
+              $max = 0;
+              foreach ($result as $value) {
+               $cnt = 0;
+               for ($i = $from; $i <= $to; $i = $i + 86400) {
+                if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
+                 $count[$cnt]++;
+                 if ($count[$cnt] > $max) {
+                  $max = $count[$cnt];
+                 }
+                }
+                $cnt++;
+               }
+              }
+              for ($i = 0; $i < sizeof($labels); $i++) {
+               $data[] = array($labels[$i], $count[$i]);
+              }
+
+              echo json_encode(array('data' => $data, 'type' => 'bar'));
+              exit;
+             } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_test_questions') {
+              $test = new EfrontTest($_GET['entity']);
+              $types = array();
+              foreach ($test -> getQuestions() as $value) {
+               isset($types[$value['type']]) ? $types[$value['type']]++ : $types[$value['type']] = 1;
+              }
+              foreach ($types as $key => $value) {
+               $data[] = array($key, $value);
+              }
+
+              echo json_encode(array('data' => $data, 'type' => 'bar'));
+              exit;
              }
-             echo json_encode(array('data' => $data));
-             exit;
+            } catch (Exception $e) {
+             handleAjaxExceptions($e);
             }
 
             $smarty -> assign("T_LESSON_TRAFFIC", $traffic);

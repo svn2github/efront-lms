@@ -1,6 +1,6 @@
 {include file = "includes/header.tpl"}
 {if $T_MESSAGE}
-        {eF_template_printMessage message = $T_MESSAGE type = $T_MESSAGE_TYPE}    
+        {eF_template_printMessage message = $T_MESSAGE type = $T_MESSAGE_TYPE}
 {/if}
 
 {if $smarty.get.test_analysis}
@@ -8,19 +8,19 @@
 
     {capture name = "t_test_analysis_code"}
         <div class = "headerTools">
-        	<span>
+         <span>
                 <img src = "images/16x16/arrow_left.png" alt = "{$smarty.const._VIEWSOLVEDTEST}" title = "{$smarty.const._VIEWSOLVEDTEST}">
                 <a href = "{$smarty.server.PHP_SELF}?test_id={$T_TEST_DATA->test.id}&user={$T_TEST_DATA->completedTest.login}&show_solved_test={$smarty.get.show_solved_test}">{$smarty.const._VIEWSOLVEDTEST}</a>
             </span>
-			{if $T_TEST_STATUS.testIds|@sizeof > 1}
+   {if $T_TEST_STATUS.testIds|@sizeof > 1}
             <span>
                 <img src = "images/16x16/go_into.png" alt = "{$smarty.const._JUMPTOEXECUTION}" title = "{$smarty.const._JUMPTOEXECUTION}">
-				{$smarty.const._JUMPTOEXECUTION}
-				<select  style = "vertical-align:middle" onchange = "location.toString().match(/show_solved_test/) ? location = location.toString().replace(/show_solved_test=\d+/, 'show_solved_test='+this.options[this.selectedIndex].value) : location = location + '&show_solved_test='+this.options[this.selectedIndex].value">
-					{foreach name = "test_analysis_list" item = "item" key = "key" from = $T_TEST_STATUS.testIds}
-						<option value = "{$item}" {if $smarty.get.show_solved_test == $item}selected{/if}>#{$smarty.foreach.test_analysis_list.iteration} - #filter:timestamp_time-{$T_TEST_STATUS.timestamps[$key]}#</option>
-					{/foreach}
-				</select>
+    {$smarty.const._JUMPTOEXECUTION}
+    <select style = "vertical-align:middle" onchange = "location.toString().match(/show_solved_test/) ? location = location.toString().replace(/show_solved_test=\d+/, 'show_solved_test='+this.options[this.selectedIndex].value) : location = location + '&show_solved_test='+this.options[this.selectedIndex].value">
+     {foreach name = "test_analysis_list" item = "item" key = "key" from = $T_TEST_STATUS.testIds}
+      <option value = "{$item}" {if $smarty.get.show_solved_test == $item}selected{/if}>#{$smarty.foreach.test_analysis_list.iteration} - #filter:timestamp_time-{$T_TEST_STATUS.timestamps[$key]}#</option>
+     {/foreach}
+    </select>
             </span>
             {/if}
         </div>
@@ -32,7 +32,7 @@
 
     {eF_template_printBlock title = "`$smarty.const._TESTANALYSIS` `$smarty.const._FORTEST` <span class = "innerTableName">&quot;`$T_TEST_DATA->test.name`&quot;</span> `$smarty.const._ANDUSER` <span class = "innerTableName">&quot;#filter:login-`$T_TEST_DATA->completedTest.login`#&quot;</span>" data = $smarty.capture.t_test_analysis_code image='32x32/tests.png'}
 {else}
-	{$T_SOLVED_TEST}
+ {eF_template_printBlock title = $smarty.const._SOLVEDTEST data = $T_SOLVED_TEST image='32x32/tests.png'}
 {/if}
 
 

@@ -473,17 +473,21 @@ function ajaxShowAllSubbranches() {
  if (_showingAllEmployees) {
   prev = 1;
   _showingAllEmployees = 0;
-  $('andSubbranchesTitle').style.visibility = "hidden";
+  if ($('andSubbranchesTitle')) {
+   $('andSubbranchesTitle').style.visibility = "hidden";
+  }
  } else {
   prev = 0;
   _showingAllEmployees = 1;
-  $('andSubbranchesTitle').style.visibility = "visible";
+  if ($('andSubbranchesTitle')) {
+   $('andSubbranchesTitle').style.visibility = "visible";
+  }
  }
  // Update all form tables
  var tables = sortedTables.size();
  var i;
  for (i = 0; i < tables; i++) {
-  if (sortedTables[i].id == 'branchUsersTable' && ajaxUrl[i]) {
+  if ((sortedTables[i].id == 'branchUsersTable' || sortedTables[i].id == 'usersTable') && ajaxUrl[i]) {
    ajaxUrl[i] = ajaxUrl[i].replace("&showAllEmployees=" + prev, "&showAllEmployees=" + _showingAllEmployees);
    eF_js_rebuildTable(i, 0, 'null', 'desc');
   }

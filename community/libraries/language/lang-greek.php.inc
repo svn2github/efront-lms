@@ -3751,4 +3751,9 @@ define("_EVENTSSIZE", "Μέγεθος γεγονότων");
 define("_OLDESTEVENT", "Παλιότερο γεγονός");
 define("_PURGEEVENTSOLDERTHAN", "Εκκαθάριση γεγονότων παλιότερων από");
 define("_PURGEEVENTS", "Εκκαθάριση γεγονότων");
+define("_USERSEPERUSERTYPE", "Χρήστες ανά τύπο χρήστη");
+define("_MINUTESPERUSER", "Λεπτά ανά χρήστη");
+define("_LOGINSPERDAY", "Είσοδοι ανά ημέρα");
+define("_ACCESSES", "Προσβάσεις");
+define("_ACCESSESPERUSER", "Προσβάσεις ανά χρήστη");
 ?>

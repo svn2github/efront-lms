@@ -1,7 +1,7 @@
 <?php
 /**
 
- * File for notifications 
+ * File for notifications
 
  *
 
@@ -143,7 +143,7 @@ class EfrontNotification
 
      *
 
-     * This function returns an array with the notification types and their descriptive strings. 
+     * This function returns an array with the notification types and their descriptive strings.
 
      * <br/>Example:
 
@@ -157,7 +157,7 @@ class EfrontNotification
 
      * @param boolean $get_module_notifications, will also return notifications registered by modules
 
-     * @return array The current notification types 
+     * @return array The current notification types
 
      * @since 3.6.0
 
@@ -258,7 +258,7 @@ class EfrontNotification
                  _EMAILADDRESS.': ###users_email###<br>'.
                  _LANGUAGE.': ###users_language###<br>'.
                  _COMMENTS.': ###users_comments###<br><br>';
-   // we cannot really check about the other two cases...               
+   // we cannot really check about the other two cases...
          if ($GLOBALS['configuration']['mail_activation']) {
              $message .= _YOUMAYLOGINMAILACTIVATION . "<br><br>";
             }
@@ -270,7 +270,7 @@ class EfrontNotification
             "message" => $message);
    eF_insertTableData("event_notifications", $default_notification);
   }
-/*		
+/*
 
 h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to syzhthsoume)
 
@@ -437,17 +437,17 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     }
     /**
 
-     * Initialize the notifications for the ones sent prior or after some time to an event, i.e. 
+     * Initialize the notifications for the ones sent prior or after some time to an event, i.e.
 
      * Find all users that are related to this notification, see when they should have triggered this
 
      * notification (when this notification was not declared) and see to it that they get their message
 
-     * when they should  
+     * when they should
 
-     * 
+     *
 
-     * We should create the users that should be sent the newly created/edited notification according to 
+     * We should create the users that should be sent the newly created/edited notification according to
 
      * - the current time (time())
 
@@ -461,9 +461,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * which together with the 'type' field of the event will be passed as arguments to the appendNewNotification
 
-     * which works with these arguments 
+     * which works with these arguments
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -659,7 +659,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      *
 
-     * @param type: the event_type of this event. should be one of the EfrontEvent or custom module defined events 
+     * @param type: the event_type of this event. should be one of the EfrontEvent or custom module defined events
 
      * @param message: the templated message for this message. the values for the template are extracted from the condition
 
@@ -731,7 +731,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * Function used to the most recent sent notification messages
 
-     * 
+     *
 
      * @param: the maximum number of messages to be returned
 
@@ -749,9 +749,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     }
     /*
 
-     * Function used to return the notification's recipients 
+     * Function used to return the notification's recipients
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -769,7 +769,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * </code>
 
-     * 
+     *
 
      * @returns array of eFront logins, names, surnames, emails, user_types regarding the notification's recipients
 
@@ -786,7 +786,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         $recipients_list[$recipient['login']] = $recipient;
        }
    } else {
-    // the send_conditions field contains the information which identify the recipients 
+    // the send_conditions field contains the information which identify the recipients
     // it is defined in ....
     //digests.php during the definition of the event notification
     $this -> notification['send_conditions'] = unserialize($this -> notification['send_conditions']);
@@ -859,7 +859,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * Function that sends this notification as an email to a user
 
-     * 
+     *
 
      * The notification's message is supposed to be already formulated - i.e templates
 
@@ -877,7 +877,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * </code>
 
-     * 
+     *
 
      * @param: an array with the recipient's data containing 'login', 'email', 'name', 'surname' and 'user_type' or just a login
 
@@ -960,7 +960,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      $message = eF_replaceMD5($message);
      //ssssssssssssssssssssss
      if ($smtp -> send($recipient['email'], $header, $message)) {
-     //if (true) {  echo $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ") " . $message ."<BR>";  // for debugging	    
+     //if (true) {  echo $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ") " . $message ."<BR>";  // for debugging
      // put into sent_notifications table
          eF_insertTableData("sent_notifications", array("timestamp" => time(),
                      "recipient" => $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ")",
@@ -987,9 +987,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     }
     /*
 
-     * Function used statically to send the next notifications 
+     * Function used statically to send the next notifications
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -1003,7 +1003,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * and sends at most $limit emails according to each notifications' rules.
 
-     * 
+     *
 
      * @param: $limit the maximum number of emails to be sent
 
@@ -1019,27 +1019,34 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      foreach ($result as $next_notification) {
       $notification = new EfrontNotification($next_notification);
       // Try to send all messages of this notification
-      // Get message recipients: one or more 
+      // Get message recipients: one or more
       $recipients = $notification -> getRecipients();
       //pr($recipients);
       ////pr ($recipients);
-      foreach ($recipients as $login => $recipient) {
-       // Send message
-       if ($notification -> sendTo($recipient)) {
-        $limit--;
+      try {
+       foreach ($recipients as $login => $recipient) {
+        // Send message
+        if ($notification -> sendTo($recipient)) {
+         $limit--;
+        }
+        unset($recipients[$login]);
+        if (!$limit) {
+         break;
+        }
        }
-       unset($recipients[$login]);
-       if (!$limit) {
-        break;
-       }
+      } catch (Exception $e) {
+       $sendingErrors[] = $e -> getMessage();
       }
       // Check if the notification is periodical - if so  arrange (insert) the next notification
       // Note here: generated single recipient notifications should never have a send interval
       if ($notification -> notification['send_interval'] != "") {
        $notification -> scheduleNext();
       } else {
-       // Pop this notification - delet48434e it
+       // Pop this notification - delete it
        eF_deleteTableData("notifications", "id = '". $notification -> notification['id']."'");
+      }
+      if ($sendingErrors) {
+       throw new Exception(implode(",", $sendingErrors));
       }
       // If all $limit messages have been sent, check whether some recipients still remain
       if (!$limit) {
@@ -1062,9 +1069,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * Function used statically to remove the stored sent notifications
 
-     * beyond the limit of a certain number 
+     * beyond the limit of a certain number
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -1074,7 +1081,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * </code>
 
-     * 
+     *
 
      * @return: the number of messages deleted
 
@@ -1110,8 +1117,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     public static function deactivateEventNotification($event_notification_id) {
   eF_updateTableData("event_notifications", array("active" => 0), "id = '" . $event_notification_id. "'");
   // disable unsent event notifications currently in the queue
-  ///eF_updateTableData("notifications", array("active" => 0), "id_type_entity LIKE '" . $event_notification_id. "_%' ");    	
-  // delete all related events - they will be readded if the event is activated again through initializeEventNotification 
+  ///eF_updateTableData("notifications", array("active" => 0), "id_type_entity LIKE '" . $event_notification_id. "_%' ");
+  // delete all related events - they will be readded if the event is activated again through initializeEventNotification
   eF_deleteTableData("notifications", "id_type_entity LIKE '" . $event_notification_id. "_%' ");
 //		$event_notification = eF_getTableData("event_notifications", "*", "id = " . $event_notification_id);
 //		EfrontNotification::initializeEventNotification($event_notification[0]);
@@ -1199,11 +1206,11 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      *
 
-     * This function creates the message string for this notification 
+     * This function creates the message string for this notification
 
      * according to its type and its information
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -1213,7 +1220,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * $notification -> createMessage();
 
-     * echo $notification -> notification['message']; 
+     * echo $notification -> notification['message'];
 
      * </code>
 
@@ -1306,7 +1313,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     }
    /**
 
-     * Check whether the next notifications in the queue should be sent 
+     * Check whether the next notifications in the queue should be sent
 
      *
 
@@ -1320,7 +1327,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * - whether the send_immediately flag was set for an event notification
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -1330,7 +1337,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      * 		// send next notifications
 
-     * } 
+     * }
 
      * </code>
 
@@ -1350,7 +1357,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         if ((isset($_SESSION['send_next_notifications_now']) && $_SESSION['send_next_notifications_now']) ||
             ($GLOBALS['configuration']['notifications_pageloads'] > 0 && rand(1, $GLOBALS['configuration']['notifications_pageloads']) == 1) ||
             (($GLOBALS['configuration']['notifications_maximum_inter_time'] > 0 && $GLOBALS['configuration']['notifications_last_send_timestamp'] > 0) && ($GLOBALS['configuration']['notifications_last_send_timestamp'] + 60 *$GLOBALS['configuration']['notifications_maximum_inter_time'] < time()))) {
-                /*//Debugging 
+                /*//Debugging
 
                 echo "condition 1: ***" . (isset($_SESSION['send_next_notifications_now']) && $_SESSION['send_next_notifications_now']) . "***<BR>";
 

@@ -260,7 +260,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 7818;
+    $build = 7852;
     defined("G_BUILD") OR define("G_BUILD", $build);
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
@@ -620,6 +620,8 @@ function __autoload($className) {
     } else if (strpos($className, "glossary") !== false) {
         /**Glossary class*/
         require_once "glossary.class.php";
+    } else if (strpos($className, "graph") !== false) {
+     require_once "graph.class.php";
     } else if (strpos($className, "sso") !== false) {
         require_once "sso.class.php";
     } else if (strpos($className, "sumtotal") !== false) {

@@ -136,7 +136,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                             <td id = "right">
                                 <a href = "display_chart.php?id=2&lesson_id={$smarty.get.sel_lesson}&test_id={$test_info.general.id}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONSKIND}', 2)" target = "POPUP_FRAME">
                                  {$smarty.const._QUESTIONSKIND}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}"/></a>
-                                {$smarty.const._QUESTIONSKIND}: <img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_test_questions', '{$test_info.general.id}');"/>
+                                {$smarty.const._QUESTIONSKIND}: <img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONTYPES}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_test_questions', '{$test_info.general.id}');"/>
                             </td>
                     </table>
                     <table class = "statisticsSubInfo" id = "tinfo{$test_id}" style = "display:none">

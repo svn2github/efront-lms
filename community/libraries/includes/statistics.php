@@ -4,8 +4,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-$loadScripts[] = 'scriptaculous/ProtoChart';
 $loadScripts[] = 'scriptaculous/excanvas';
+$loadScripts[] = 'scriptaculous/canvastext';
+$loadScripts[] = 'scriptaculous/canvas2image';
+$loadScripts[] = 'scriptaculous/base64';
+$loadScripts[] = 'scriptaculous/flotr';
 $loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/statistics';
 

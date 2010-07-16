@@ -521,12 +521,12 @@ for(var i = 0; i < 14; i++)
   var r = Math.floor(Math.random() * 100);
   d7.push([i, r]);
  }
-function showGraph(el, graph_type, entity) {
+function showProtoGraph(el, graph_type, entity) {
   parameters = {ajax:graph_type, entity: entity, method: 'get'};
   var url = location.toString();
   ajaxRequest(el, url, parameters, onShowGraph);
 }
-function onShowGraph(el, response) {
+function onShowProtoGraph(el, response) {
  try {
  data = response.evalJSON(true).data;
  type = response.evalJSON(true).type;
@@ -566,5 +566,151 @@ function onShowGraph(el, response) {
   break;
  }
  new Proto.Chart(el, [{data: y_axis}], chartObject);
+ } catch (e) {alert(e);}
+}
+function showGraph(el, dataType, entity) {
+ parameters = {ajax:dataType, entity: entity, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onShowGraph);
+}
+function onShowGraph(el, response) {
+ var obj = response.evalJSON(true);
+ switch (obj.type) {
+  case 'horizontal_bar': showHorizontalBarGraph(el, obj); break;
+  case 'bar': showBarGraph(el, obj); break;
+  case 'pie': showPieGraph(el, obj); break;
+  case 'line': default: showLineGraph(el, obj); break;
+ }
+}
+function showHorizontalBarGraph(el, obj) {
+ try {
+  options = {"title": obj.title,
+       "xaxis": {"showLabels": true, "ticks":obj.yLabels, "title":obj.yTitle},
+       "yaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle},
+       "bars": {"show": true, "horizontal": true, "barWidth":0.2},
+       "mouse": {"track":true, "position": "ne"}
+       };
+  series = [{label: obj.label,
+       color: "#00A8F0",
+       data: obj.data,
+       xaxis: 1,
+       yaxis: 1}
+     ];
+  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+  Flotr.draw(el, series, options);
+ } catch (e) {
+  alert(e);
+ }
+}
+function showBarGraph(el, obj) {
+ try {
+  options = {"title": obj.title,
+       "xaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle},
+       "yaxis": {"showLabels": true, "title":obj.yTitle},
+       "bars": {"show": true, "horizontal": false},
+       "mouse": {"track":true, "position": "ne"}
+       };
+  series = [{label: obj.label,
+       color: "#00A8F0",
+       data: obj.data,
+       xaxis: 1,
+       yaxis: 1}
+     ];
+  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+  Flotr.draw(el, series, options);
+ } catch (e) {
+  alert(e);
+ }
+}
+function showLineGraph(el, obj) {
+ try {
+  options = {"title": obj.title,
+       "xaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle},
+       "yaxis": {"showLabels": true, "title":obj.yTitle},
+       "lines": {"show": true},
+       "mouse": {"track":true, "position": "ne"}
+       };
+  series = [{label: obj.label,
+       color: "#00A8F0",
+       data: obj.data,
+       xaxis: 1,
+       yaxis: 1}
+     ];
+  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+  Flotr.draw(el, series, options);
+ } catch (e) {
+  alert(e);
+ }
+}
+function showPieGraph(el, obj) {
+ try {
+  options = {"title": obj.title,
+       "xaxis": {"showLabels": false},
+       "yaxis": {"showLabels": false},
+          "grid": {"verticalLines": false, "horizontalLines": false},
+       "pie": {"show": true}
+       };
+  series = [];
+  for (var i = 0; i < obj.data.length; i++) {
+   series.push({label: obj.labels[i],
+     data: obj.data[i],
+       xaxis: 1,
+       yaxis: 1}
+     );
+  }
+  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+  Flotr.draw(el, series, options);
+ } catch (e) {
+  alert(e);
+ }
+}
+function onShowGraph2(el, response) {
+ try {
+  data = response.evalJSON(true).data;
+  type = response.evalJSON(true).type;
+  y_axis = [];
+  x_axis = [];
+  maxValue = 0;
+  for (var i=0;i < data.length;i++) {
+   x_axis.push([i+1, data[i][0]]);
+   y_axis.push([i+1, data[i][1]]);
+   maxValue = Math.max(data[i][1], maxValue);
+  }
+  switch (type) {
+  case 'bar':
+   chartObject =
+   {
+     xaxis: {ticks:x_axis, min:0, max:x_axis.length+1},
+     yaxis: {min:0, max:maxValue+2},
+     bars: {show:true}
+   };
+   break;
+  case 'horizontal_bar':
+   chartObject =
+   {
+     xaxis: {ticks:x_axis, min:0, max:x_axis.length+1},
+     yaxis: {min:0, max:maxValue+2},
+     bars: {show:true, horizontal:true}
+   };
+   break;
+  case 'pie':
+   chartObject =
+   {
+     pies: {show: true, autoScale: true},
+     legend:{show:true}
+   };
+   break;
+  case 'line': default:
+   chartObject =
+   {
+    xaxis: {ticks:x_axis, min:0, max:x_axis.length+1},
+    yaxis: {min:0, max:maxValue+2},
+    points: {show: true},
+    lines: {show: true}
+   };
+  break;
+  }
+//		new Proto.Chart(el, [{data: y_axis}], chartObject);
+  Flotr.draw(el, [{data: y_axis}], chartObject);
  } catch (e) {alert(e);}
 }

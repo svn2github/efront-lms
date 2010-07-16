@@ -3751,4 +3751,12 @@ define("_EVENTSSIZE", "Events size");
 define("_OLDESTEVENT", "Oldest event");
 define("_PURGEEVENTSOLDERTHAN", "Purge events older than");
 define("_PURGEEVENTS", "Purge events");
+define("_USERSEPERUSERTYPE", "Users per user type");
+define("_MINUTESPERUSER", "Minutes per user");
+define("_LOGINSPERDAY", "Logins per day");
+define("_ACCESSES", "Accesses");
+define("_ACCESSESPERUSER", "Accesses per user");
+define("_ACCESSESPERDAY", "Accesses per day");
+define("_OCCURENCES", "Occurences");
+define("_SCORES", "Scores");
 ?>

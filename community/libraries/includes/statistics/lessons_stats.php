@@ -235,56 +235,66 @@ try {
 
             try {
              if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_access') {
-              $data = array();
-              foreach ($traffic['users'] as $login => $value) {
-               if ($value['accesses']) {
-                $data[] = array(formatLogin($login), $value['accesses']);
-               }
+              $graph = new EfrontGraph();
+              $graph -> type = 'horizontal_bar';
+              $count = 0;
+              foreach ($traffic['users'] as $key => $value) {
+               $graph -> data[] = array($value['accesses'], $count);
+               $graph -> xLabels[] = array($count++, '<span style = "white-space:nowrap">'.formatLogin($key).'</span>');
               }
-              echo json_encode(array('data' => $data, 'type' => 'bar'));
+              //pr($graph);
+              $graph -> xTitle = _USERS;
+              $graph -> yTitle = _ACCESSES;
+              $graph -> title = _ACCESSESPERUSER;
+
+              echo json_encode($graph);
               exit;
              } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_user_access') {
               $user = EfrontUserFactory :: factory($_GET['entity']);
 
               $result = eF_getTableData("logs", "id, users_LOGIN, action, timestamp", "timestamp between $from and $to and lessons_id=".$infoLesson -> lesson['id']." and users_LOGIN = '".$user -> user['login']."' order by timestamp");
-              $labels = array();
-              $count = array();
-              //Assign each day of the week an empty slot
-              for ($i = $from; $i <= $to; $i = $i + 86400) {
-               $labels[] = date('Y/m/d', $i);
-               $count[] = 0;
-              }
-              //Assign the number of accesses to each week day
-              $max = 0;
-              foreach ($result as $value) {
-               $cnt = 0;
-               for ($i = $from; $i <= $to; $i = $i + 86400) {
-                if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
-                 $count[$cnt]++;
-                 if ($count[$cnt] > $max) {
-                  $max = $count[$cnt];
-                 }
-                }
-                $cnt++;
-               }
-              }
-              for ($i = 0; $i < sizeof($labels); $i++) {
-               $data[] = array($labels[$i], $count[$i]);
-              }
+     foreach ($result as $value) {
+      $cnt = 0;
+      for ($i = $from; $i <= $to; $i += 86400) {
+       $labels[$cnt] = $i;
+       isset($count[$cnt]) OR $count[$cnt] = 0;
+       if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
+        $count[$cnt]++;
+       }
+       $cnt++;
+      }
+     }
 
-              echo json_encode(array('data' => $data, 'type' => 'bar'));
-              exit;
+     $graph = new EfrontGraph();
+     $graph -> type = 'line';
+     for ($i = 0; $i < sizeof($labels); $i++) {
+      $graph -> data[] = array($i, $count[$i]);
+      $graph -> xLabels[] = array($i, '<span style = "white-space:nowrap">'.formatTimestamp($labels[$i]).'</span>');
+     }
+
+     $graph -> xTitle = _DAY;
+     $graph -> yTitle = _ACCESSES;
+     $graph -> title = _USERACCESSESINLESSON;
+
+     echo json_encode($graph);
+     exit;
+
              } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_test_questions') {
               $test = new EfrontTest($_GET['entity']);
-              $types = array();
+     $types = array();
               foreach ($test -> getQuestions() as $value) {
                isset($types[$value['type']]) ? $types[$value['type']]++ : $types[$value['type']] = 1;
               }
-              foreach ($types as $key => $value) {
-               $data[] = array($key, $value);
-              }
 
-              echo json_encode(array('data' => $data, 'type' => 'bar'));
+              $graph = new EfrontGraph();
+     $graph -> type = 'pie';
+     $count = 0;
+     foreach ($types as $key => $value) {
+      $graph -> data[] = array(array($count, $value));
+      $graph -> labels[] = array(Question :: $questionTypes[$key]);
+     }
+
+     echo json_encode($graph);
               exit;
              }
             } catch (Exception $e) {

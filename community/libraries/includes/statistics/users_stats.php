@@ -202,59 +202,54 @@ if (isset($_GET['sel_user'])) {
    try {
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_access') {
      $result = eF_getTableData("logs", "timestamp", "timestamp between ".$from." and ".$to." and action = 'login' and users_LOGIN = '".$infoUser -> user['login']."' order by timestamp");
-     $labels = array();
-     $count = array();
-     for ($i = $from; $i <= $to; $i = $i + 86400) {
-      $labels[] = date('Y/m/d', $i);
-      $count[] = 0;
-     }
      //Assign the number of accesses to each week day
-     $max = 0;
      foreach ($result as $value) {
       $cnt = 0;
-      for ($i = $from; $i <= $to; $i = $i + 86400) {
+      for ($i = $from; $i <= $to; $i += 86400) {
+       $labels[$cnt] = $i;
+       isset($count[$cnt]) OR $count[$cnt] = 0;
        if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
         $count[$cnt]++;
-        if ($count[$cnt] > $max){
-         $max = $count[$cnt];
-        }
        }
        $cnt++;
       }
      }
+     $graph = new EfrontGraph();
+     $graph -> type = 'line';
      for ($i = 0; $i < sizeof($labels); $i++) {
-      $data[] = array($labels[$i], $count[$i]);
+      $graph -> data[] = array($i, $count[$i]);
+      $graph -> xLabels[] = array($i, '<span style = "white-space:nowrap">'.formatTimestamp($labels[$i]).'</span>');
      }
-     echo json_encode(array('data' => $data, 'type' => 'bar'));
+     $graph -> xTitle = _DAY;
+     $graph -> yTitle = _LOGINS;
+     $graph -> title = _LOGINSPERDAY;
+     echo json_encode($graph);
      exit;
     } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_lesson_access') {
      $lesson = new EfrontLesson($_GET['entity']);
      $result = eF_getTableData("logs", "id, users_LOGIN, action, timestamp", "timestamp between $from and $to and lessons_id=".$lesson -> lesson['id']." and users_LOGIN = '".$infoUser -> user['login']."' order by timestamp");
-     $labels = array();
-     $count = array();
-     //Assign each day of the week an empty slot
-     for ($i = $from; $i <= $to; $i = $i + 86400) {
-      $labels[] = date('Y/m/d', $i);
-      $count[] = 0;
-     }
      //Assign the number of accesses to each week day
-     $max = 0;
      foreach ($result as $value) {
       $cnt = 0;
-      for ($i = $from; $i <= $to; $i = $i + 86400) {
+      for ($i = $from; $i <= $to; $i += 86400) {
+       $labels[$cnt] = $i;
+       isset($count[$cnt]) OR $count[$cnt] = 0;
        if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
         $count[$cnt]++;
-        if ($count[$cnt] > $max) {
-         $max = $count[$cnt];
-        }
        }
        $cnt++;
       }
      }
+     $graph = new EfrontGraph();
+     $graph -> type = 'line';
      for ($i = 0; $i < sizeof($labels); $i++) {
-      $data[] = array($labels[$i], $count[$i]);
+      $graph -> data[] = array($i, $count[$i]);
+      $graph -> xLabels[] = array($i, '<span style = "white-space:nowrap">'.formatTimestamp($labels[$i]).'</span>');
      }
-     echo json_encode(array('data' => $data, 'type' => 'bar'));
+     $graph -> xTitle = _DAY;
+     $graph -> yTitle = _ACCESSES;
+     $graph -> title = _ACCESSESPERDAY;
+     echo json_encode($graph);
      exit;
     }
    } catch (Exception $e) {

@@ -73,13 +73,17 @@ try {
         }
     }
 
+
     $totalUserAccesses = $totalUserTime = 0;
     foreach ($users as $key => $user) {
         $users[$key]['time'] = eF_convertIntervalToTime($user['seconds']);
         $totalUserAccesses += $user['accesses'];
         $totalUserTime += $user['seconds'];
-        $userTimes[$key] = $user['seconds']; //Needed only for chart
     }
+    foreach ($userTimes as $key => $value) {
+     $userTimes[$key] = $value['total_seconds'];
+    }
+
     if (!isset($_GET['showusers'])) {
         $users = array_slice($users, 0, 20);
     }
@@ -129,47 +133,62 @@ try {
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_access') {
       $result = eF_getTableData("logs", "*", "timestamp between $from and $to and action = 'login' order by timestamp");
 
-      $labels = array();
-      $count = array();
-      //Assign each day of the week an empty slot
-      for ($i = $from; $i <= $to; $i = $i + 86400) {
-       $labels[] = date('Y/m/d', $i);
-       $count[] = 0;
-      }
-
-      $max = 0;
       //Assign the number of accesses to each week day
       foreach ($result as $value) {
        $cnt = 0;
-       for ($i = $from; $i <= $to; $i = $i + 86400) {
+       for ($i = $from; $i <= $to; $i += 86400) {
+        $labels[$cnt] = $i;
+        isset($count[$cnt]) OR $count[$cnt] = 0;
         if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
          $count[$cnt]++;
-         if ($count[$cnt] > $max){
-          $max = $count[$cnt];
-         }
         }
         $cnt++;
        }
       }
 
+      $graph = new EfrontGraph();
+      $graph -> type = 'line';
       for ($i = 0; $i < sizeof($labels); $i++) {
-       $data[] = array($labels[$i], $count[$i]);
+       $graph -> data[] = array($i, $count[$i]);
+       $graph -> xLabels[] = array($i, '<span style = "white-space:nowrap">'.formatTimestamp($labels[$i]).'</span>');
       }
-      echo json_encode(array('data' => $data, 'type' => 'bar'));
+
+      $graph -> xTitle = _DAY;
+      $graph -> yTitle = _LOGINS;
+      $graph -> title = _LOGINSPERDAY;
+
+      echo json_encode($graph);
       exit;
      } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_users_access') {
+      $graph = new EfrontGraph();
+      $graph -> type = 'horizontal_bar';
+      $count = 0;
       foreach ($userTimes as $key => $value) {
-       $data[] = array($key, $value);
+       $graph -> data[] = array(round($value/60), $count);
+       $graph -> xLabels[] = array($count++, '<span style = "white-space:nowrap">'.formatLogin($key).'</span>');
       }
-      echo json_encode(array('data' => $data, 'type' => 'bar'));
+      $graph -> xTitle = _MINUTES;
+      $graph -> yTitle = _USERS;
+      $graph -> title = _MINUTESPERUSER;
+
+      echo json_encode($graph);
       exit;
      } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_user_types') {
    $result = eF_getTableData("users", "user_type, count(user_type) as num", "", "", "user_type");
+
+   $graph = new EfrontGraph();
+      $graph -> type = 'bar';
+      $count = 0;
       foreach ($result as $value) {
-       $data[] = array($value['user_type'], $value['num']);
+       $graph -> data[] = array($count, $value['num']);
+       $graph -> xLabels[] = array($count++, $value['user_type']);
       }
-   echo json_encode(array('data' => $data, 'type' => 'bar'));
-      exit;
+      $graph -> xTitle = _USERTYPES;
+      $graph -> yTitle = _USERS;
+      $graph -> title = _USERSEPERUSERTYPE;
+
+      echo json_encode($graph);
+   exit;
      }
     } catch (Exception $e) {
      handleAjaxExceptions($e);

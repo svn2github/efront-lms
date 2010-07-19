@@ -30,7 +30,7 @@ if (!isset($_GET['reset_popup']) && (isset($_GET['popup']) || isset($_POST['popu
 }
 $message = '';$message_type = ''; //Initialize messages, because if register_globals is turned on, some messages will be displayed twice
 try {
- $currentUser = EfrontUser :: checkUserAccess();
+ $currentUser = EfrontUser :: checkUserAccess(false, 'professor');
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
@@ -255,6 +255,31 @@ foreach ($loadedModules as $module) {
     }
     // Run onNewPageLoad code of the module (if such is defined)
     $module -> onNewPageLoad();
+}
+if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] != 1) {
+    try {
+        $bookmarks = bookmarks :: getBookmarks($currentUser, $currentLesson);
+        if ($_GET['bookmarks'] == 'remove' && in_array($_GET['id'], array_keys($bookmarks))) {
+            $bookmark = new bookmarks($_GET['id']);
+            $bookmark -> delete();
+        } elseif ($_GET['bookmarks'] == 'add') {
+            foreach ($bookmarks as $value) {
+                $urls[] = $value['url'];
+            }
+            if (!in_array($_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id'], $urls)) {
+             $fields = array('users_LOGIN' => $currentUser -> user['login'],
+                          'lessons_ID' => $currentLesson -> lesson['id'],
+                          'name' => $currentUnit['name'],
+                          'url' => $_SERVER['PHP_SELF']."?view_unit=".$currentUnit['id']);
+             bookmarks :: create($fields);
+            }
+        } else {
+            echo json_encode($bookmarks);
+        }
+    } catch (Exception $e) {
+     handleAjaxExceptions($e);
+    }
+    exit;
 }
 /*Added Session variable for search results*/
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];

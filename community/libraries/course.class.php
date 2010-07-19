@@ -1659,13 +1659,15 @@ class EfrontCourse
   $usersToAddToCourse = $usersToSetRoleToCourse = array();
   foreach ($users as $key => $user) {
    $roleInCourse = $roles[$key];
-   if ($this -> course['max_users'] && $this -> course['max_users'] <= $count++ && $this -> isStudentRole($roleInCourse)) {
-    throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
-   }
-   if (!in_array($user, $courseUsers)) { //added this to avoid adding existing user when admin changes his role
-    $usersToAddToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
-   } else {
-    $usersToSetRoleToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
+   if ($roleInCourse != 'administrator') {
+    if ($this -> course['max_users'] && $this -> course['max_users'] <= $count++ && $this -> isStudentRole($roleInCourse)) {
+     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
+    }
+    if (!in_array($user, $courseUsers)) { //added this to avoid adding existing user when admin changes his role
+     $usersToAddToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
+    } else {
+     $usersToSetRoleToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
+    }
    }
   }
   $this -> addUsersToCourse($usersToAddToCourse);

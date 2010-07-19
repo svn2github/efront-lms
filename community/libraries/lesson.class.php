@@ -1645,13 +1645,15 @@ class EfrontLesson
   $usersToAddToLesson = $usersToSetRoleToLesson = array();
   foreach ($users as $key => $user) {
    $roleInLesson = $roles[$key];
-   if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && $this -> isStudentRole($roleInLesson)) {
-    throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
-   }
-   if (!in_array($user, $lessonUsers)) { //added this to avoid adding existing user when admin changes his role
-    $usersToAddToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
-   } else {
-    $usersToSetRoleToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
+   if ($roleInLesson != 'administrator') {
+    if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && $this -> isStudentRole($roleInLesson)) {
+     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
+    }
+    if (!in_array($user, $lessonUsers)) { //added this to avoid adding existing user when admin changes his role
+     $usersToAddToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
+    } else {
+     $usersToSetRoleToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
+    }
    }
   }
   $this -> addUsersToLesson($usersToAddToLesson);

@@ -146,8 +146,6 @@
   <table class = "statisticsTools">
    <tr><td id = "right">
      {$smarty.const._ACCESSSTATISTICS}:
-     <a href = "display_chart.php?id=11&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$T_USER_LOGIN}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
-      <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
      <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_access');"/>
     </td></tr>
   </table>
@@ -195,8 +193,6 @@
       {if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smart.const._YES}" title = "{$smarty.const._COMPLETEDON} #filter:timestamp_time-{$lesson.to_timestamp}#">{else}<img src = "images/16x16/error_delete.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}">{/if}
      </td>
      <td class = "centerAlign">
-      <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$T_USER_LOGIN}&lesson_id={$id}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
-       <img src = "images/16x16/reports.png" title = "{$smarty.const._ACCESSSTATISTICS}" alt = "{$smarty.const._ACCESSSTATISTICS}"/></a>
       <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_lesson_access', '{$id}');"/>
      </td>
     </tr>

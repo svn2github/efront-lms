@@ -358,6 +358,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 $lessons_proposed = $analysisResults['lessons'];
                 $courses_proposed = $analysisResults['courses'];
             } else {
+             $loadScripts[] = 'scriptaculous/excanvas';
+             $loadScripts[] = 'scriptaculous/flotr';
+             $loadScripts[] = 'scriptaculous/controls';
+             $loadScripts[] = 'includes/graphs';
+
                 require_once 'charts/php-ofc-library/open-flash-chart.php';
                 list($parentScores, $analysisCode) = $completedTest -> analyseTest();
 
@@ -367,6 +372,24 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 $status = $completedTest -> getStatus($result[0]['users_LOGIN']);
                 $smarty -> assign("T_TEST_STATUS", $status);
 
+                try {
+                 if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_test_analysis') {
+                  $graph = new EfrontGraph();
+                  $graph -> type = 'pie';
+                  $count = 0;
+                  foreach ($parentScores as $key => $value) {
+                   $graph -> data[] = array(array($count, $value['percentage']));
+                   $graph -> labels[] = array($value['name']);
+                   //$graph -> xLabels[] = (array($count, $value['name']));
+                  }
+
+                  echo json_encode($graph);
+                  exit;
+                 }
+                } catch (Exception $e) {
+                 handleAjaxExceptions($e);
+                }
+
                 if (isset($_GET['display_chart'])) {
                     $url = basename($_SERVER['PHP_SELF']).'?ctg=tests&show_solved_test='.$completedTest -> completedTest['id'].'&test_analysis=1&selected_unit='.$_GET['selected_unit'].'&show_chart=1';
                     echo $completedTest -> displayChart($url);
@@ -375,6 +398,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     echo $completedTest -> calculateChart($parentScores);
                     exit;
                 }
+
             }
         }
 ?>

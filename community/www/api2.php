@@ -13,67 +13,67 @@ Foreach request you must provide the action argument, a token and possibly a set
 
 Below are the available action arguments an the corresponding arguments needed (where <token> is the returned token).
 
-/api.php?token=<token>&action=login&username=<login>&password=<password> 		logs <login> in eFront API (<login> must be an administrator account)
+/api2.php?token=<token>&action=login&username=<login>&password=<password> 		logs <login> in eFront API (<login> must be an administrator account)
 
-/api.php?token=<token>&action=efrontlogin&login=<login> 			logs <login> in eFront
+/api2.php?token=<token>&action=efrontlogin&login=<login> 			logs <login> in eFront
 
-/api.php?token=<token>&action=create_lesson&name=<name>&category=<category_id>&course_only=<course_only>&language=<language>&price=<price>	creates a new lesson with corresponding fields	
+/api2.php?token=<token>&action=create_lesson&name=<name>&category=<category_id>&course_only=<course_only>&language=<language>&price=<price>	creates a new lesson with corresponding fields	
 
-/api.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname> 	creates a new user with corresponding fields	
+/api2.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname> 	creates a new user with corresponding fields	
 
-/api.php?token=<token>&action=update_user&login=<login>&password=<password>&email=<email>&name=<name>&surname<surname> 	updates a user profile with corresponding fields	
+/api2.php?token=<token>&action=update_user&login=<login>&password=<password>&email=<email>&name=<name>&surname<surname> 	updates a user profile with corresponding fields	
 
-/api.php?token=<token>&action=deactivate_user&login=<login>			deactivates user <login>
+/api2.php?token=<token>&action=deactivate_user&login=<login>			deactivates user <login>
 
-/api.php?token=<token>&action=activate_user&login=<login>			activates user <login>
+/api2.php?token=<token>&action=activate_user&login=<login>			activates user <login>
 
-/api.php?token=<token>&action=remove_user&login=<login>				deletes user <login>
+/api2.php?token=<token>&action=remove_user&login=<login>				deletes user <login>
 
-/api.php?token=<token>&action=groups                                                		returns all groups defined in eFront
+/api2.php?token=<token>&action=groups                                                		returns all groups defined in eFront
 
-/api.php?token=<token>&action=group_info&group=<group_id>                           		returns <group_id> information 
+/api2.php?token=<token>&action=group_info&group=<group_id>                           		returns <group_id> information 
 
-/api.php?token=<token>&action=group_to_user&login=<login>&group=<group_id>         			assigns group with <group_id> to user <login>   
+/api2.php?token=<token>&action=group_to_user&login=<login>&group=<group_id>         			assigns group with <group_id> to user <login>   
 
-/api.php?token=<token>&action=group_from_user&login=<login>&lesson=<group_id>       		undo assignment for group with <group_id> to user <login>
+/api2.php?token=<token>&action=group_from_user&login=<login>&lesson=<group_id>       		undo assignment for group with <group_id> to user <login>
 
-/api.php?token=<token>&action=lesson_to_user&login=<login>&lesson=<lesson_id>&type=<user_type>		assigns lesson with <lesson_id> to user <login> with role <user_type> 
+/api2.php?token=<token>&action=lesson_to_user&login=<login>&lesson=<lesson_id>&type=<user_type>		assigns lesson with <lesson_id> to user <login> with role <user_type> 
 
-/api.php?token=<token>&action=activate_user_lesson&login=<login>&lesson=<lesson_id> 		activate assignment for lesson with <lesson_id> to user <login>
+/api2.php?token=<token>&action=activate_user_lesson&login=<login>&lesson=<lesson_id> 		activate assignment for lesson with <lesson_id> to user <login>
 
-/api.php?token=<token>&action=deactivate_user_lesson&login=<login>&lesson=<lesson_id> 		deactivate assignment for lesson with <lesson_id> to user <login>
+/api2.php?token=<token>&action=deactivate_user_lesson&login=<login>&lesson=<lesson_id> 		deactivate assignment for lesson with <lesson_id> to user <login>
 
-/api.php?token=<token>&action=lesson_from_user&login=<login>&lesson=<lesson_id>				undo assignment for lesson with <lesson_id> to user <login>
+/api2.php?token=<token>&action=lesson_from_user&login=<login>&lesson=<lesson_id>				undo assignment for lesson with <lesson_id> to user <login>
 
-/api.php?token=<token>&action=course_to_user&login=<login>&course=<course_id>&type=<user_type>		assigns course with <course_id> to user <login> with role <user_type>   
+/api2.php?token=<token>&action=course_to_user&login=<login>&course=<course_id>&type=<user_type>		assigns course with <course_id> to user <login> with role <user_type>   
 
-/api.php?token=<token>&action=course_from_user&login=<login>&courses=<course_id>		undo assignment for course with <course_id> to user <login> 
+/api2.php?token=<token>&action=course_from_user&login=<login>&courses=<course_id>		undo assignment for course with <course_id> to user <login> 
 
-/api.php?token=<token>&action=user_lessons&login=<login> 								returns the lessons that are assigned to the user <login>
+/api2.php?token=<token>&action=user_lessons&login=<login> 								returns the lessons that are assigned to the user <login>
 
-/api.php?token=<token>&action=user_courses&login=<login> 								returns the courses that are assigned to the user <login>
+/api2.php?token=<token>&action=user_courses&login=<login> 								returns the courses that are assigned to the user <login>
 
-/api.php?token=<token>&action=lesson_info&lesson=<lesson_id>							returns <lesson_id> information 
+/api2.php?token=<token>&action=lesson_info&lesson=<lesson_id>							returns <lesson_id> information 
 
-/api.php?token=<token>&action=user_info&login=<login>									returns <login> information 
+/api2.php?token=<token>&action=user_info&login=<login>									returns <login> information 
 
-/api.php?token=<token>&action=lessons													returns all lessons defined in eFront
+/api2.php?token=<token>&action=lessons													returns all lessons defined in eFront
 
-/api.php?token=<token>&action=courses													returns all courses defined in eFront
+/api2.php?token=<token>&action=courses													returns all courses defined in eFront
 
-/api.php?token=<token>&action=course_info&course=<course_id>							returns <course_id> information
+/api2.php?token=<token>&action=course_info&course=<course_id>							returns <course_id> information
 
-/api.php?token=<token>&action=course_lessons&course=<course_id>							returns lessons containing in <course_id>
+/api2.php?token=<token>&action=course_lessons&course=<course_id>							returns lessons containing in <course_id>
 
-/api.php?token=<token>&action=activate_user_course&login=<login>&course=<course_id> 	activate assignment for all lessons within <course_id> to user <login>
+/api2.php?token=<token>&action=activate_user_course&login=<login>&course=<course_id> 	activate assignment for all lessons within <course_id> to user <login>
 
-/api.php?token=<token>&action=deactivate_user_course&login=<login>&course=<course_id> 	deactivate assignment for all lessons within <course_id> to user <login>
+/api2.php?token=<token>&action=deactivate_user_course&login=<login>&course=<course_id> 	deactivate assignment for all lessons within <course_id> to user <login>
 
-/api.php?token=<token>&action=course_from_user&course=<course_id>&login=<login>			undo assignment for course with <course_id> to user <login>
+/api2.php?token=<token>&action=course_from_user&course=<course_id>&login=<login>			undo assignment for course with <course_id> to user <login>
 
-/api.php?token=<token>&action=catalog													returns the list with all courses and lessons of the system
+/api2.php?token=<token>&action=catalog													returns the list with all courses and lessons of the system
 
-/api.php?token=<token>&action=logout													logs out from eFront API
+/api2.php?token=<token>&action=logout													logs out from eFront API
 
 
 

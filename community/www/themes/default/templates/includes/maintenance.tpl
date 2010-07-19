@@ -179,45 +179,35 @@
   {eF_template_printBlock title=$smarty.const._LOCKDOWN data=$smarty.capture.t_lock_down_code image='32x32/key.png'}
     </div>
 
-
-
-
- {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
-     <div class = "tabbertab {if $smarty.get.tab=='cleanup'}tabbertabdefault{/if}">
-
-         <h3>{$smarty.const._CLEANUP}</h3>
-         {eF_template_printBlock title=$smarty.const._CLEANUP data=$smarty.capture.t_cleanup_code image='32x32/cleanup.png'}
-     </div>
+    {capture name = 't_reindex_code'}
      <script>var reindexcomplete = '{$smarty.const._OPERATIONCOMPLETEDSUCCESSFULLY}';</script>
-     <div class = "tabbertab {if $smarty.get.tab=='reindex'}tabbertabdefault{/if}">
-         <h3>{$smarty.const._RECREATESEARCHTABLE}</h3>
-         {capture name = 't_reindex_code'}
-         <table>
-     <tr><td class = "labelCell">{$smarty.const._CLICKHERETOREINDEX}:&nbsp;</td>
-         <td><input type = "button" class = "flatButton" value = "{$smarty.const._RECREATE}" onclick = "reIndex(this)"/></td></tr>
-         </table>
-         {/capture}
+        <table>
+      <tr><td class = "labelCell">{$smarty.const._CLICKHERETOREINDEX}:&nbsp;</td>
+          <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._RECREATE}" onclick = "reIndex(this)"/></td></tr>
+        </table>
+    {/capture}
+    {capture name = 't_clear_cache_code'}
+        <table>
+      <tr><td class = "labelCell">{$smarty.const._CLEARTEMPLATESCACHE}:&nbsp;</td>
+          <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'templates')"/></td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLEARTESTSCACHE}:&nbsp;</td>
+          <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'tests')"/></td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLEARQUERYCACHE}:&nbsp;</td>
+          <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'query')"/></td></tr>
+        </table>
+ {/capture}
 
-         {eF_template_printBlock title=$smarty.const._RECREATESEARCHTABLE data=$smarty.capture.t_reindex_code image='32x32/import_export.png'}
-     </div>
- {/if}
-     <div class = "tabbertab {if $smarty.get.tab=='reindex'}tabbertabdefault{/if}">
-         <h3>{$smarty.const._CLEARCACHE}</h3>
-         {capture name = 't_clear_cache_code'}
-         <table>
-     <tr><td class = "labelCell">{$smarty.const._CLEARTEMPLATESCACHE}:&nbsp;</td>
-         <td><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'templates')"/></td></tr>
-     <tr><td class = "labelCell">{$smarty.const._CLEARTESTSCACHE}:&nbsp;</td>
-         <td><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'tests')"/></td></tr>
-     <tr><td class = "labelCell">{$smarty.const._CLEARQUERYCACHE}:&nbsp;</td>
-         <td><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'query')"/></td></tr>
-         </table>
-         {/capture}
+ {capture name = "t_cleanup_div_code"}
+  <div class = "tabber">
+  {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
+          {eF_template_printBlock tabber = "cleanup" title=$smarty.const._CLEANUP data=$smarty.capture.t_cleanup_code image='32x32/cleanup.png'}
+          {eF_template_printBlock tabber = "reindex" title=$smarty.const._RECREATESEARCHTABLE data=$smarty.capture.t_reindex_code image='32x32/import_export.png'}
+  {/if}
+          {eF_template_printBlock tabber = "clear_cache" title=$smarty.const._CLEARCACHE data=$smarty.capture.t_clear_cache_code image='32x32/error_delete.png'}
+  </div>
+ {/capture}
 
-         {eF_template_printBlock title=$smarty.const._CLEARCACHE data=$smarty.capture.t_clear_cache_code image='32x32/error_delete.png'}
-     </div>
-
-
+  {eF_template_printBlock tabber = "cleanup" title=$smarty.const._CLEANUP data=$smarty.capture.t_cleanup_div_code image='32x32/cleanup.png'}
   <div class = "tabbertab {if $smarty.get.tab=='auto_login'}tabbertabdefault{/if}">
    <h3>{$smarty.const._AUTOLOGIN}</h3>
    {capture name = 't_auto_login_code'}

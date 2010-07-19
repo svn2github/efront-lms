@@ -900,3 +900,14 @@ function archiveUser(el, user) {
 function onArchiveUser(el, response) {
  new Effect.Fade(el.up().up());
 }
+function propagateCourse(el, course) {
+ var courseCheckbox = $('course_'+course);
+ if (courseCheckbox && courseCheckbox.checked) {
+  var selected = 1;
+ } else {
+  var selected = 0;
+ }
+ parameters = {propagate:course, postAjaxRequest:1, selected: selected, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters);
+}

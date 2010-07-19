@@ -1101,6 +1101,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 </div>
                 <table style = "width:100%">
                     <tr><td style = "vertical-align:top">{$T_CONTENT_ANALYSIS}</td></tr>
+{*
+                    <tr><td>
+                     <div id = "graph_table"><div id = "proto_chart" class = "proto_graph"></div></div>
+                    </td></tr>
+*}
                     <tr><td style = "vertical-align:top"><iframe width = "750px" height = "550px" id = "analysis_frame" frameborder = "no" src = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$T_TEST_DATA->completedTest.id}&selected_unit={$smarty.get.selected_unit}&display_chart=1"></iframe></td></tr>
                 </table>
             {/capture}

@@ -774,13 +774,19 @@ class EfrontDirectionsTree extends EfrontTree
   }
   $treeString = '
     <div style = "padding-top:8px;padding-bottom:8px">
-     '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '').'
-     <a href = "javascript:void(0)" onclick = "showAll()" >'._EXPANDALL.'</a> / <a href = "javascript:void(0)" onclick = "hideAll()">'._COLLAPSEALL.'</a>';
+     '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '');
+  $hideCollapseAll = $hideExpandAll = '';
+  if (isset($options['collapse']) && $options['collapse']) {
+   $hideCollapseAll = 'style = "display:none"';
+  } else {
+   $hideExpandAll = 'style = "display:none"';
+  }
+  $treeString .= '
+     <a href = "javascript:void(0)" onclick = "showAll()" id = "catalog_show_all" '.$hideExpandAll.'>'._EXPANDALL.'</a>
+     <a href = "javascript:void(0)" onclick = "hideAll()" id = "catalog_hide_all" '.$hideCollapseAll.'>'._COLLAPSEALL.'</a>';
   if ($options['only_progress_link'] && $this -> hasLessonsAsStudent) {
    $treeString .= '
-     |
-     <span>'._CURRENTLYSHOWING.':</span>
-     <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
+     | <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
       <option value = "0">'._MATERIALINPROGRESS.'</option>
       <option value = "1" '.($_COOKIE['display_all_courses'] == '1' ? 'selected' : '').'>'._ALLMATERIAL.'</option>
      </select>

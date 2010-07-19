@@ -388,14 +388,20 @@ class module_complete_test extends EfrontModule
       $completedTest = $selectedTest -> start($login);
       $completedTest -> complete($userAnswers, $results);
       $completedTest -> time['start'] = $timestamps[$key]; //The time that this test has started
-      $completedTest -> time['end'] = $timestamps[$key]; //The time that this test ends
+      $completedTest -> time['end'] = $timestamps[$key]+1; //The time that this test ends
+      $completedTest -> time['spent'] = 1; //The time that this test ends
+      $completedTest -> completedTest['status'] = 'passed'; //The time that this test ends
       $completedTest -> completedTest['score'] = (float)$parsedContents[$key][$scoreColumn];
+
       foreach ($completedTest -> getQuestions(true) as $id => $question) {
        $questionScoreColumn = $formValues[$id.'_score_source_hidden'];
        $parsedQuestionScore = $parsedContents[$key][$questionScoreColumn];
        $question -> score = $parsedQuestionScore <= 1 ? $parsedQuestionScore*100 : $parsedQuestionScore;
       }
       $completedTest -> save();
+      $currentUser = EfrontUserFactory::factory($login);
+      $currentUser -> setSeenUnit($selectedTest -> test['content_ID'], $_SESSION['s_lessons_ID'], 1);
+
       $numImported++;
      } catch (Exception $e) {
       $errorDuringImport[$user] = "Error during importing values for &quot;$user&quot;:".$e -> getMessage();

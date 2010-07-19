@@ -413,11 +413,11 @@ abstract class EfrontUser
   }
   return $newUser;
  }
- public static function checkUserAccess($type = false) {
+ public static function checkUserAccess($type = false, $forceType = false) {
   if ($GLOBALS['configuration']['webserver_auth']) {
    $user = EfrontUser :: checkWebserverAuthentication();
   } else if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
-   $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+   $user = EfrontUserFactory :: factory($_SESSION['s_login'], false, $forceType);
   } else {
    throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
   }
@@ -4137,7 +4137,7 @@ class EfrontUserFactory
 
 	 */
  public static function factory($user, $password = false, $forceType = false) {
-  if (is_string($user) && eF_checkParameter($user, 'login')) {
+  if ((is_string($user) || is_numeric($user)) && eF_checkParameter($user, 'login')) {
    $result = eF_getTableData("users", "*", "login='".$user."'");
    if (sizeof($result) == 0) {
     throw new EfrontUserException(_USERDOESNOTEXIST.': '.$user, EfrontUserException :: USER_NOT_EXISTS);

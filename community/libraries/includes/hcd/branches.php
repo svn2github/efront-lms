@@ -109,6 +109,16 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
      }
      exit;
 
+    } else if (isset($_GET['propagate'])) {
+     $subBranches = $currentBranch -> getAllSubbranches(true);
+     foreach ($subBranches as $branch) {
+      if ($_GET['selected']) {
+       $branch -> assignCourse($_GET['propagate']);
+      } else {
+       $branch -> removeCourse($_GET['propagate']);
+      }
+     }
+     exit;
     } else {
 
      // Find all employees having this skill
@@ -183,7 +193,8 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 
    $smarty -> assign("T_DATASOURCE_SORT_BY", 5);
    $smarty -> assign("T_DATASOURCE_SORT_ORDER", 'desc');
-   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_lessons', 'num_skills', 'has_course', 'has_instances'));
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_lessons', 'num_skills', 'has_course', 'has_instances', 'operations'));
+   $smarty -> assign("T_DATASOURCE_OPERATIONS", array('propagate'));
    if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {
     try {
      if ($_GET['ajax'] == 'coursesTable') {

@@ -3759,4 +3759,5 @@ define("_ACCESSESPERUSER", "Accesses per user");
 define("_ACCESSESPERDAY", "Accesses per day");
 define("_OCCURENCES", "Occurences");
 define("_SCORES", "Scores");
+define("_PROPAGATECOURSE", "Propagate course");
 ?>

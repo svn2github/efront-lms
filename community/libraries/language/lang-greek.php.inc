@@ -3756,4 +3756,8 @@ define("_MINUTESPERUSER", "Λεπτά ανά χρήστη");
 define("_LOGINSPERDAY", "Είσοδοι ανά ημέρα");
 define("_ACCESSES", "Προσβάσεις");
 define("_ACCESSESPERUSER", "Προσβάσεις ανά χρήστη");
+define("_ACCESSESPERDAY", "Προσβάσεις ανά ημέρα");
+define("_OCCURENCES", "Περιπτώσεις");
+define("_SCORES", "Βαθμοί");
+define("_PROPAGATECOURSE", "Διάδοση της δέσμης");
 ?>

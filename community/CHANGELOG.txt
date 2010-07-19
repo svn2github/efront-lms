@@ -17,6 +17,9 @@
 - Supervisor can now see all of his/her subbranches employees, from the employees screen
 - Fixed issue in view rtf certificate from professor
 - Fixed issue about displaying connected users in horizontal themes when option is globally disabled
+- Fixed bug about new lesson comment event
+- Replaced flash charts with flotr JS-based graphs
+- Fixed bookmarks not working for professor
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

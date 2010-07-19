@@ -20,7 +20,7 @@
                         {$smarty.const._EXPORTSTATS}
                         <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&group_filter={$smarty.get.group_filter}&excel=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/xls.png" title = "{$smarty.const._XLSFORMAT}" alt = "{$smarty.const._XLSFORMAT}"/>
-                        </a>
+                        </a>f
                         <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&group_filter={$smarty.get.group_filter}&pdf=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/pdf.png" title = "{$smarty.const._PDFFORMAT}" alt = "{$smarty.const._PDFFORMAT}"/>
                         </a>
@@ -134,8 +134,6 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
          {$smarty.const._TEST}: {$test_info.general.name}</a>
                             </td>
                             <td id = "right">
-                                <a href = "display_chart.php?id=2&lesson_id={$smarty.get.sel_lesson}&test_id={$test_info.general.id}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONSKIND}', 2)" target = "POPUP_FRAME">
-                                 {$smarty.const._QUESTIONSKIND}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}"/></a>
                                 {$smarty.const._QUESTIONSKIND}: <img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONTYPES}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_test_questions', '{$test_info.general.id}');"/>
                             </td>
                     </table>
@@ -169,6 +167,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                                     <tr class = "{cycle name = 'question_info' values = 'oddRowColor, evenRowColor'}"><td>{$smarty.const._HIGHDIFFICULTY}:</td><td>{$test_info.questions.high}</td></tr>
                                 </table>
                             </td></tr>
+                    </table>
                     {else}
      <table class = "statisticsTools">
                         <tr><td>{$smarty.const._TEST}: {$test_info.general.name} (SCORM)</td></tr>
@@ -393,12 +392,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                     {if $T_LESSON_TRAFFIC.total_access > 0}
                     <table class = "statisticsTools">
                         <tr><td id = "right">
-
-                                <a href = "display_chart.php?id=8&lesson_id={$smarty.get.sel_lesson}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
-                                 {$smarty.const._ACCESSSTATISTICS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" /></a>
-
         {$smarty.const._ACCESSSTATISTICS}: <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_access');"/>
-        <div id = "graph_table" style = "display:none"><div id = "proto_chart" class = "proto_graph"></div></div>
        </td>
                         </tr>
                     </table>
@@ -497,6 +491,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                 {/if}
             </div>
         {/if}
+  <div id = "graph_table" style = "display:none"><div id = "proto_chart" class = "proto_graph"></div></div>
     {/capture}
     {if $T_CURRENT_LESSON}
      {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON` <span class='innerTableName'>&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}

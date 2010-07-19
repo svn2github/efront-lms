@@ -22,9 +22,6 @@
                     </form>
                     <table class = "statisticsTools">
                        <tr><td id = "right">
-                                <a href = "display_chart.php?id=9&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" style = "vertical-align:middle" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)", target = "POPUP_FRAME">
-                                 {$smarty.const._ACCESSSTATISTICS}:
-                                 <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" /></a>
                              {$smarty.const._ACCESSSTATISTICS}: <img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_system_access');"/>
                              <div id = "graph_table" style = "display:none"><div id = "proto_chart" class = "proto_graph"></div></div>
                             </td></tr>
@@ -52,9 +49,6 @@
                     <table class = "statisticsTools">
                      <tr><td>{if $smarty.get.showusers}{$smarty.const._USERSACTIVITY}{else}{$smarty.const._MOSTACTIVEUSERS}{/if}</td>
                             <td id = "right">
-                                <a href = "display_chart.php?id=6&logins={$T_USER_TIMES.logins}&seconds={$T_USER_TIMES.times}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME">
-                                    {$smarty.const._MOSTACTIVEUSERS}:
-                                    <img src = "images/16x16/reports.png" alt = "{$smarty.const._MOSTACTIVEUSERS}" title = "{$smarty.const._MOSTACTIVEUSERS}" /></a>
          {$smarty.const._MOSTACTIVEUSERS}:<img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._MOSTACTIVEUSERS}" title = "{$smarty.const._MOSTACTIVEUSERS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_system_users_access');"/>
                             </td></tr>
                     </table>
@@ -141,9 +135,6 @@
                 <div class = "statisticsDiv tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'user_types')} tabbertabdefault{/if}" title = "{$smarty.const._USERTYPES}">
                     <table class = "statisticsTools">
                         <tr><td id = "right">
-                                <a href = "display_chart.php?id=4" onclick = "eF_js_showDivPopup('{$smarty.const._USERSKIND}', 2)" target = "POPUP_FRAME">
-         {$smarty.const._USERSKIND}:
-         <img src = "images/16x16/reports.png" alt = "{$smarty.const._USERSKIND}" title = "{$smarty.const._USERSKIND}"/></a>
          {$smarty.const._USERSKIND}:<img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._USERSKIND}" title = "{$smarty.const._USERSKIND}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_system_user_types');"/>
                             </td></tr>
                     </table>

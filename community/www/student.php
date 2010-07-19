@@ -36,7 +36,7 @@ $load_editor = false;
 $loadScripts = array();
 
 try {
- $currentUser = EfrontUser :: checkUserAccess();
+ $currentUser = EfrontUser :: checkUserAccess(false, 'student');
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
@@ -316,8 +316,7 @@ if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] 
             echo json_encode($bookmarks);
         }
     } catch (Exception $e) {
-        header("HTTP/1.0 500 ");
-        echo $e -> getMessage().' ('.$e -> getCode().')';
+     handleAjaxExceptions($e);
     }
     exit;
 }

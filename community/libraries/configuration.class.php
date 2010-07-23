@@ -159,13 +159,14 @@ class EfrontConfiguration
      'username_variable' => '$_SERVER["REMOTE_USER"]',
      'registration_file' => 'includes/webserver_registration.php',
 
-        //Payments settings    
+        //Payments settings
         'currency' => 'EUR',
   'currency_order' => '1',
      'paypalbusiness' => '',
         'paypalmode' => 'normal',
         'paypaldebug' => '0',
         'enable_balance' => '1',
+     'enable_cart' => '1',
      'total_discount' => '0',
         'discount_period' => '',
         'discount_start' => '',
@@ -290,7 +291,7 @@ class EfrontConfiguration
 
     * </code>
 
-    * 
+    *
 
     * @param string $name The variable name
 

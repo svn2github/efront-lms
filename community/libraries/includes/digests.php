@@ -927,8 +927,13 @@ $loadScripts[] = "administrator/digests";
 
                 if (isset($notification['send_conditions']['lessons_ID'])) {
                     if ($notification['send_conditions']['lessons_ID'] != 0) {
-                        $lesson = new EfrontLesson($notification['send_conditions']['lessons_ID']);
-
+                       try {
+       $lesson = new EfrontLesson($notification['send_conditions']['lessons_ID']);
+      } catch (Exception $e) {
+       if ($e -> getCode() == EfrontLessonException :: LESSON_NOT_EXISTS) {
+        eF_deleteTableData("event_notifications","id=".$notification['id']);
+       }
+      }
                         if (isset($notification['send_conditions']['user_type'])) {
                             $notifications[$key]['recipients'] = _PROFESSORSOFLESSON . ": " . $lesson -> lesson['name'];
                         } else {
@@ -939,7 +944,13 @@ $loadScripts[] = "administrator/digests";
                     }
                 } else if (isset($notification['send_conditions']['tests_ID'])) {
                     if ($notification['send_conditions']['tests_ID'] != 0) {
-                        $test = new EfrontTest($notification['send_conditions']['tests_ID']);
+                        try {
+       $test = new EfrontTest($notification['send_conditions']['tests_ID']);
+      } catch (Exception $e) {
+       if ($e -> getCode() == EfrontTestException :: TEST_NOT_EXISTS) {
+        eF_deleteTableData("event_notifications","id=".$notification['id']);
+       }
+      }
                         $notifications[$key]['recipients'] = _TEST . ": " . $test -> test['name'];
                     } else {
                         $notifications[$key]['recipients'] = _ANYTEST;

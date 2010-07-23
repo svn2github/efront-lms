@@ -146,7 +146,7 @@
    </form>
   {/if}
     {else}
-     <input class = "flatButton" type = "submit" value = "{$smarty.const._CONTINUE}&nbsp;&raquo;" onclick = "buyRedirect()">
+     <input class = "flatButton" type = "submit" value = "{$smarty.const._CONTINUE}&nbsp;&raquo;" onclick = "location=redirectLocation">
     {/if}
     </div>
 {else}
@@ -157,17 +157,15 @@
 <script type = "text/javascript">
 translations['_COUPON'] = '{$smarty.const._COUPON}';
 translations['_CLICKTOENTERDISCOUNTCOUPON'] = '{$smarty.const._CLICKTOENTERDISCOUNTCOUPON}';
-function buyRedirect() {ldelim}
- {if $smarty.session.s_login}
-  {if $smarty.server.PHP_SELF|basename|replace:'.php':'' == 'index'}
-   location = 'index.php?ctg=checkout&checkout=1&register_lessons=1';
-  {else}
-   location = '{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&checkout=1';
-  {/if}
+{if $smarty.session.s_login}
+ {if $smarty.server.PHP_SELF|basename|replace:'.php':'' == 'index'}
+  redirectLocation ='index.php?ctg=checkout&checkout=1&register_lessons=1';
  {else}
-  location = 'index.php?ctg=login&register_lessons=1&message='+encodeURI('{$smarty.const._PLEASELOGINTOCOMPLETEREGISTRATION}')+'&message_type=success';
+  redirectLocation ='{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&checkout=1';
  {/if}
-{rdelim}
+{else}
+ redirectLocation ='index.php?ctg=login&register_lessons=1';
+{/if}
 </script>
 {/strip}
 <!--/ajax:cart-->

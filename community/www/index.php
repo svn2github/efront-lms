@@ -226,6 +226,13 @@ if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
 
  */
 if (isset($_GET['register_lessons'])) {
+ if (!$_SESSION['s_login']) {
+  $message = _PLEASELOGINTOCOMPLETEREGISTRATION;
+  if ($GLOBALS['configuration']['signup']) {
+   $message .= _OTHERWISEPLEASEREGISTER;
+  }
+  $message_type = 'success';
+ }
 //	setcookie('c_request', 'index.php?register_lessons=1&checkout=1', time() + 300);
  $_SESSION['login_mode'] = '1';
 } elseif (!isset($_GET['ctg']) || $_GET['ctg'] == 'lessons') {

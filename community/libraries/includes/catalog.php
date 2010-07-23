@@ -64,7 +64,7 @@ if (isset($_GET['fct'])) {
     }
 
     $smarty -> display("includes/blocks/cart.tpl");
-    //It's always an ajax function 
+    //It's always an ajax function
     exit;
 } else if (isset($_GET['return_paypal'])) {
     if (isset($_GET['cart_entry']) && isset($_GET['product_type'])) {
@@ -148,32 +148,62 @@ if (isset($_GET['fct'])) {
         } else {
             $form -> addElement('submit', 'submit_order', _FREEREGISTRATION, 'class = "flatButton"');
         }
+    $nonFreeLessons = $freeLessons = array();
+    foreach ($cart['lesson'] as $key => $value) {
+     //Remove the lesson from the cart if it's not eligible
+     if (!$value['show_catalog'] || !$value['active'] || !$value['publish'] || $value['course_only']) {
+      //Do nothing, simpy bypassing lesson
+     } else if (!$value['price']) {
+      $freeLessons[] = $key;
+     } else {
+      $nonFreeLessons[] = $key;
+     }
+    }
+    $nonFreeCourses = $freeCourses = array();
+    foreach ($cart['course'] as $key => $value) {
+     //Remove the course from the cart if it's not eligible
+     if ((!$value['show_catalog'] && $course -> course['instance_source']) || !$value['active'] || !$value['publish']) {
+      //Do nothing, simpy bypassing course
+     } else if (!$value['price']) {
+      $freeCourses[] = $key;
+     } else {
+      $nonFreeCourses[] = $key;
+     }
+    }
+    if (!$GLOBALS['configuration']['enable_cart'] && (sizeof($freeLessons) > 0 || sizeof($freeCourses) > 0)) {
+     try {
+      if (sizeof($freeLessons) > 0) {
+       $currentUser -> addLessons($freeLessons, array_fill(0, sizeof($freeLessons), 'student'), true);
+      }
+      if (sizeof($freeCourses) > 0) {
+       $currentUser -> addCourses($freeCourses, array_fill(0, sizeof($freeCourses), 'student'), true);
+      }
+      unset($freeLessons);unset($freeCourses);
+      if (sizeof($nonFreeCourses) == 0 && sizeof($nonFreeLessons) == 0) {
+       unset($cart['lesson'][$key]);
+       unset($cart['course'][$key]);
+       cart :: storeCart($cart);
+       if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+        eF_redirect($_SESSION['s_type']."page.php?message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
+       } else {
+        eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
+       }
+      } else {
+       //$message = _FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE;
+       if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+        eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=checkout&checkout=1&register_lessons=1&message='.rawurlencode(_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE)."&message_type=success");
+       } else {
+        eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=lessons&catalog=1&checkout=1&message='.rawurlencode(_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE)."&message_type=success");
+       }
+      }
+     } catch (Exception $e) {
+      handleNormalFlowExceptions($e);
+     }
+    }
     if ($form -> isSubmitted() && $form -> validate()) {
-        try {
-            $nonFreeLessons = $freeLessons = array();
-            foreach ($cart['lesson'] as $key => $value) {
-                //Remove the lesson from the cart if it's not eligible
-                if (!$value['show_catalog'] || !$value['active'] || !$value['publish'] || $value['course_only']) {
-                    //Do nothing, simpy bypassing lesson
-                } else if (!$value['price']) {
-                    $freeLessons[] = $key;
-                } else {
-                    $nonFreeLessons[] = $key;
-                }
-                unset($cart['lesson'][$key]);
-            }
-            $nonFreeCourses = $freeCourses = array();
-            foreach ($cart['course'] as $key => $value) {
-                //Remove the course from the cart if it's not eligible
-                if ((!$value['show_catalog'] && $course -> course['instance_source']) || !$value['active'] || !$value['publish']) {
-                    //Do nothing, simpy bypassing course
-                } else if (!$value['price']) {
-                    $freeCourses[] = $key;
-                } else {
-                    $nonFreeCourses[] = $key;
-                }
-                unset($cart['course'][$key]);
-            }
+     try {
+      unset($cart['lesson'][$key]);
+      unset($cart['course'][$key]);
             //First, assign free lessons/courses, whatever happens
             if (sizeof($freeLessons) > 0) {
                 $currentUser -> addLessons($freeLessons, array_fill(0, sizeof($freeLessons), 'student'), true);
@@ -230,7 +260,7 @@ if (isset($_GET['fct'])) {
 
                     }
 
-                    
+
 
                     $fields = array("amount"      => $totalPrice,
 
@@ -240,7 +270,7 @@ if (isset($_GET['fct'])) {
 
 	                                "status"	  => "pending",
 
-                    				"users_LOGIN" => $currentUser -> user['login']);		
+                    				"users_LOGIN" => $currentUser -> user['login']);
 
                     $payment = payments :: create($fields);
 
@@ -268,9 +298,7 @@ if (isset($_GET['fct'])) {
                 eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
             }
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         handleNormalFlowExceptions($e);
         }
     }
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

@@ -1,6 +1,6 @@
 <div id = "cart_{$cartlist.id}" class = "cart">
     <div class = "cartElement">
-    	<div class = "cartTitle">{$cartlist.name}</div>
+     <div class = "cartTitle">{$cartlist.name}</div>
         <div class = "cartDelete">
             <span>{$cartlist.price}</span>
             <a href = "javascript:void(0)" onclick = "ajaxPostRemove('{$cartlist.id}', this);" id = "{$cartlist.id}">
@@ -8,13 +8,14 @@
         </div>
     &nbsp;</div>
     <div id = "cart_total"></div>
-    
+
     <form {$T_SUBSCRIPTION_FORMS[$key].attributes}>
-        {$T_SUBSCRIPTION_FORMS[$key].hidden}            
-        <div style = "text-align:center;">{$T_SUBSCRIPTION_FORMS[$key].order.html}</div>            
+        {$T_SUBSCRIPTION_FORMS[$key].hidden}
+        <div style = "text-align:center;">{$T_SUBSCRIPTION_FORMS[$key].order.html}</div>
     </form>
     <form {$T_PAYPAL_SUBSCRIPTION_FORMS[$key].attributes}>
         {$T_PAYPAL_SUBSCRIPTION_FORMS[$key].hidden}
-    	<div style = "text-align:center;">{$T_PAYPAL_SUBSCRIPTION_FORMS[$key].order.html}</div>
+     <div style = "text-align:center;">{$T_PAYPAL_SUBSCRIPTION_FORMS[$key].order.html}</div>
     </form>
 </div>
+asd

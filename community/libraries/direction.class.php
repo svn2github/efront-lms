@@ -828,10 +828,14 @@ class EfrontDirectionsTree extends EfrontTree
  private function printLessonBuyLink($treeLesson, $options) {
   $treeString = '';
   if (isset($options['buy_link']) && $options['buy_link'] && (!isset($treeLesson -> lesson['has_lesson']) || !$treeLesson -> lesson['has_lesson']) && (!isset($treeLesson -> lesson['reached_max_users']) || !$treeLesson -> lesson['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
+   $action = 'addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\');';
+   if (!$GLOBALS['configuration']['enable_cart']) {
+    $action .= 'location=redirectLocation';
+   }
    $treeString .= '
     <span class = "buyLesson">
-     <span onclick = "addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\')">'.$this -> showLessonPrice($treeLesson).'</span>
-     <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\')">
+     <span onclick = "'.$action.'">'.$this -> showLessonPrice($treeLesson).'</span>
+     <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">
     </span>';
   }
   return $treeString;
@@ -860,10 +864,14 @@ class EfrontDirectionsTree extends EfrontTree
   $href = str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> shouldDisplayInCatalog();
   if (isset($options['buy_link'])) {
    if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || !$treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
+    $action = 'addToCart(this, '.$treeCourse -> course['id'].', \'course\');';
+    if (!$GLOBALS['configuration']['enable_cart']) {
+     $action .= 'location=redirectLocation';
+    }
     $treeString .= '
         <span class = "buyLesson">
-         <span onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">'.$this -> showCoursePrice($treeCourse).'</span>
-         <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "addToCart(this, '.$treeCourse -> course['id'].', \'course\')">
+         <span onclick = "'.$action.'">'.$this -> showCoursePrice($treeCourse).'</span>
+         <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">
         </span>';
     $hasInstancesClass = 'boldFont';
    } else {

@@ -305,7 +305,12 @@ class EfrontProject {
         if ($comments && !eF_checkParameter($comments, 'text')) {
             throw new EfrontContentException(_INVALIDDATA.': '.$comments, EfrontContentException :: INVALID_DATA);
         }
-        if (eF_updateTableData("users_to_projects", array('grade' => $grade, 'comments' => $comments), "users_LOGIN='$login' and projects_ID=".$this -> project['id'])) {
+        if ($comments) {
+   $result = eF_updateTableData("users_to_projects", array('grade' => $grade, 'comments' => $comments), "users_LOGIN='$login' and projects_ID=".$this -> project['id']);
+  } else {
+   $result = eF_updateTableData("users_to_projects", array('grade' => $grade), "users_LOGIN='$login' and projects_ID=".$this -> project['id']);
+  }
+        if ($result) {
             return true;
         } else {
             throw new EfrontContentException(_THEPROJECTGRADECOULDNOTBEUPDATED, EfrontContentException :: DATABASE_ERROR);

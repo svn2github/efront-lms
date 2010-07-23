@@ -210,7 +210,7 @@
 {/if}
 
 {if $smarty.get.checkout}
- {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=checkout&checkout=1'>`$smarty.const._REVIEWANDCHECKOUT`</a>"}
+ {assign var = "title" value = "`$title`<a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=checkout&checkout=1'>`$smarty.const._REVIEWANDCHECKOUT`</a>"}
     {capture name = "center_code"}
         {if $T_MESSAGE && !$T_FACEBOOK_ACCOUNT_MERGE_POPUP}
           {eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}
@@ -246,5 +246,18 @@
 
 {/strip}
 
+<script type = "text/javascript">
+translations['_COUPON'] = '{$smarty.const._COUPON}';
+translations['_CLICKTOENTERDISCOUNTCOUPON'] = '{$smarty.const._CLICKTOENTERDISCOUNTCOUPON}';
+{if $smarty.session.s_login}
+ {if $smarty.server.PHP_SELF|basename|replace:'.php':'' == 'index'}
+  redirectLocation ='index.php?ctg=checkout&checkout=1&register_lessons=1';
+ {else}
+  redirectLocation ='{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&checkout=1';
+ {/if}
+{else}
+ redirectLocation ='index.php?ctg=login&register_lessons=1';
+{/if}
+</script>
 
 {include file = "includes/closing.tpl"}

@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT", "Save layout");
 define("_ADDBLOCK", "Add block");
 define("_RESTOREDEFAULTLAYOUT", "Restore default layout");
 define("_INFOFORCOURSE", "Information for course");
-define("_PLEASELOGINTOCOMPLETEREGISTRATION", "Please login to complete registration");
+define("_PLEASELOGINTOCOMPLETEREGISTRATION", "If you are an existing user, please login below to complete registration. ");
 define("_GOTOLESSONSLIST", "Go to lessons list");
 define("_PUBLISHED", "Published");
 define("_NOTPUBLISHED", "Not published");
@@ -3775,4 +3775,6 @@ define("_CHECKPERMISSIONSINSTRUCTIONS", "This operation will check which files a
 define("_OPERATIONOUTCOME", "Operation outcome");
 define("_NOOPERATIONPERFORMEDYET", "No operation performed yet");
 define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS", "Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files");
+define("_OTHERWISEPLEASEREGISTER", "Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>");
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses");
 ?>

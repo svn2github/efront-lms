@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT", "Αποθήκευση διάταξης");
 define("_ADDBLOCK", "Προσθήκη πλαισίου");
 define("_RESTOREDEFAULTLAYOUT", "Εφαρμογή προκαθορισμένης διάταξης");
 define("_INFOFORCOURSE", "Πληροορίες για τη δέσμη");
-define("_PLEASELOGINTOCOMPLETEREGISTRATION", "Παρακαλούμε μπείτε στο σύστημα για να ολοκληρώσετε τη δήλωση");
+define("_PLEASELOGINTOCOMPLETEREGISTRATION", "Αν έχετε ήδη λογαριασμό στο σύστημα, παρακαλούμε μπείτε στο σύστημα για να ολοκληρώσετε τη δήλωση");
 define("_GOTOLESSONSLIST", "Μετάβαση στη λίστα μαθημάτων");
 define("_PUBLISHED", "Δημοσιευμένο");
 define("_NOTPUBLISHED", "Μη δημοσιευμένο");
@@ -3775,4 +3775,6 @@ define("_CHECKPERMISSIONSINSTRUCTIONS", "Η λειτουργία αυτή θα �
 define("_OPERATIONOUTCOME", "Αποτέλεσμα λειτουργίας");
 define("_NOOPERATIONPERFORMEDYET", "Δεν επελέγη κάποια λειτουργία ακόμα");
 define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS", "Μερικά αρχεία/φάκελοι δεν είναι εγγράψιμα. Παρακαλούμε πηγαίντε στη σελίδα συντήρηση -> εκκαθάριση -> δικαιώματα για να ελέγξετε τα δικαιώματα και να πάρετε μία πλήρη λίστα των αρχείων αυτών");
+define("_OTHERWISEPLEASEREGISTER", "Εναλλακτικά, μπορείτε να δημιουργήσετε ένα <button onclick = \"location='index.php?ctg=signup'\">νέο λογαριασμό</button>");
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "Εγγραφήκατε στα δωρεάν μαθήματα και δέσμες. Παρακαλούμε επιβεβαιώστε την επιλογή σας για τα μαθήματα και δέσμες που δεν είναι δωρεάν");
 ?>

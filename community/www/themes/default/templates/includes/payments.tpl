@@ -255,6 +255,8 @@
      <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.currency_order.html}</td></tr>
     <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.enable_balance.label}:&nbsp;</td>
      <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.enable_balance.html}</td></tr>
+    <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.enable_cart.label}:&nbsp;</td>
+     <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.enable_cart.html}</td></tr>
     <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.total_discount.label} (%):&nbsp;</td>
      <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.total_discount.html}</td></tr>
     <tr><td class = "labelCell">{$smarty.const._DISCOUNTSTARTSAT}:&nbsp;</td>

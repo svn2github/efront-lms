@@ -294,6 +294,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
   $form -> setDefaults(array('comments' => $users[$_GET['login']]['comments']));
   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
    $values = $form -> exportValues();
+
    $result = eF_updateTableData("users_to_projects",array('comments' => $values['comments']), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$_GET['login']."'");
    if ($result) {
     //eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&message=".urlencode(_OPERATIONCOMPLETEDSUCCESFULLY)."&message_type=success");
@@ -354,7 +355,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
    if (isset($_GET['reset_user']) && eF_checkParameter($_GET['reset_user'], 'login')) {
     $currentProject -> reset($_GET['reset_user']);
             } elseif (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login') && in_array($_GET['login'], array_keys($projectUsers))) {
-                $currentProject -> grade($_GET['login'], $_GET['grade'], $_GET['comments']);
+                $currentProject -> grade($_GET['login'], $_GET['grade']);
             }
         } catch (Exception $e) {
             $message = _PROJECTCOULDNOTBEDELETED.': '.$e -> getMessage().' ('.$e -> getCode().')';

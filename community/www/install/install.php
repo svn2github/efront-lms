@@ -794,7 +794,8 @@ class Installation
              "quick_mails",
              "quote",
              "rss",
-             "youtube"
+             "youtube",
+             "gradebook"
              );
      $modulesList = eF_getTableData("modules", "*");
      foreach ($modulesList as $module) {

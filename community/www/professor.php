@@ -31,6 +31,9 @@ if (!isset($_GET['reset_popup']) && (isset($_GET['popup']) || isset($_POST['popu
 $message = '';$message_type = ''; //Initialize messages, because if register_globals is turned on, some messages will be displayed twice
 try {
  $currentUser = EfrontUser :: checkUserAccess(false, 'professor');
+ if ($currentUser -> user['user_type'] == 'administrator') {
+  throw new Exception(_ADMINISTRATORCANNOTACCESSLESSONPAGE, EfrontUserException :: RESTRICTED_USER_TYPE);
+ }
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {

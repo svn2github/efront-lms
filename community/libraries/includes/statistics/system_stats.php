@@ -150,7 +150,7 @@ try {
       $graph -> type = 'line';
       for ($i = 0; $i < sizeof($labels); $i++) {
        $graph -> data[] = array($i, $count[$i]);
-       $graph -> xLabels[] = array($i, '<span style = "white-space:nowrap">'.formatTimestamp($labels[$i]).'</span>');
+       $graph -> xLabels[] = array($i, formatTimestamp($labels[$i]));
       }
 
       $graph -> xTitle = _DAY;
@@ -165,7 +165,7 @@ try {
       $count = 0;
       foreach ($userTimes as $key => $value) {
        $graph -> data[] = array(round($value/60), $count);
-       $graph -> xLabels[] = array($count++, '<span style = "white-space:nowrap">'.formatLogin($key).'</span>');
+       $graph -> xLabels[] = array($count++, formatLogin($key));
       }
       $graph -> xTitle = _MINUTES;
       $graph -> yTitle = _USERS;

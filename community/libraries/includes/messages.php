@@ -137,7 +137,7 @@ try {
      }
         exit;
     } elseif (isset($_GET['add'])) {
-  if ($currentUser -> coreAccess['personal_messages'] && $currentUser -> coreAccess['forum'] !== 'change') {exit;}
+  if ($currentUser -> coreAccess['personal_messages'] && $currentUser -> coreAccess['personal_messages'] !== 'change') {exit;}
         $load_editor = true;
         $grant_full_access = false;
         if ($currentUser -> getType() == "administrator") {

@@ -49,6 +49,7 @@ class EfrontFileException extends Exception
     const NOT_APPROPRIATE_TYPE = 116;
     const ERROR_ZIP_PROCESSING = 117;
     const CANNOT_CREATE_DIR = 118;
+    const NOT_WRITABLE_ERROR = 119;
     const UNKNOWN_ERROR = 199;
     const DATABASE_ERROR = 301;
 }
@@ -636,7 +637,7 @@ class EfrontFile extends ArrayObject
 
 	 * Compress file
 
-	 * 
+	 *
 
      * @param string $zipName The name if the compressed file
 
@@ -763,9 +764,9 @@ class EfrontFile extends ArrayObject
 
      * List contents of compressed file
 
-     * 
+     *
 
-     * This function is used to list the contents of a compressed file. 
+     * This function is used to list the contents of a compressed file.
 
      * It returns an array with the file names contained in the archive
 
@@ -779,9 +780,9 @@ class EfrontFile extends ArrayObject
 
      * </code>
 
-     * 
+     *
 
-     * @return array The contents of the compressed file 
+     * @return array The contents of the compressed file
 
      * @access public
 
@@ -1117,9 +1118,9 @@ class EfrontFile extends ArrayObject
 
      * Send file to browser
 
-     * 
+     *
 
-     * This function reads a file from disk and outputs it to the client, sending appropriate headers 
+     * This function reads a file from disk and outputs it to the client, sending appropriate headers
 
      * @param boolena $attachment Whether to send as an attachment or inline
 
@@ -2235,7 +2236,7 @@ class FileSystemTree extends EfrontTree
 
      </form>';
 
-      
+
 
      return $formString;
 
@@ -2715,7 +2716,7 @@ class FileSystemTree extends EfrontTree
         } elseif (!isset($parentDir)) { //Don't display 'no data found' if in subdirectory, because it doesn't show up well with the .. (up one level)
             $filesCode .= '
                 <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">'._NODATAFOUND.'</td></tr>
-            </table>';            
+            </table>';
         }
         $str = '
          <div class = "headerTools">';

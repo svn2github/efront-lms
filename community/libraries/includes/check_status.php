@@ -176,9 +176,11 @@ $permissions['www/phplivedocx/samples/mail-merge/convert'] = array('writable' =>
                                                     'help' => 'This is the directory where the pdf certificates are temporarily written');
 $permissions['libraries'] = array('writable' => is_writable($path),
                                                     'help' => 'libraries directory should be writable only during the installation process');
-$permissions['libaries/language'] = array('writable' => is_writable($path.'language'),
+$permissions['libraries/language'] = array('writable' => is_writable($path.'language'),
                                                     'help' => 'This directory needs to writable, in order to be able to upload new language files or modify existing ones');
-$permissions['libaries/language/lang-english.php.inc'] = array('writable' => is_writable($path.'language/lang-english.php.inc'),
+$permissions['libraries/smarty/themes_cache']= array('writable' => is_writable($path.'smarty/themes_cache'),
+                                                    'help' => 'This directory needs to writable, in order for smarty to compile templates');
+$permissions['libraries/language/lang-english.php.inc'] = array('writable' => is_writable($path.'language/lang-english.php.inc'),
                                                     'help' => 'This file needs to writable, in order to set locales correctly');
 $permissions['backups'] = array('writable' => is_writable($path.'../backups'),
                                                     'help' => 'In this directory all the system backups are stored');

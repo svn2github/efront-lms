@@ -3,7 +3,7 @@
 
 * eFront social
 
-* 
+*
 
 * This page is used for the functionalities of the eFront social infrastructure
 
@@ -55,7 +55,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
         }
 
         /*Forum messages list*/
-  // Users see forum messages from the system forum and their own lessons while administrators for all 
+  // Users see forum messages from the system forum and their own lessons while administrators for all
      if (!empty($lessons_list)) {
    $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID IN ('0', '".implode("','", $lessons_list)."')", "fm.timestamp desc LIMIT 5");
      } elseif ($_admin_) { //This is the admin speaking
@@ -92,12 +92,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
       } else {
           //Administrator news, he doesn't have to see lesson news (since he can't actually access them)
           $news = news :: getNews(0, true);
-    //$announcements         = eF_getTableData("users u, news n LEFT OUTER JOIN lessons l ON n.lessons_ID = l.id", "n.*, l.name as show_lessons_name, l.id as show_lessons_id", "n.users_LOGIN = u.login", "n.timestamp desc, n.id desc LIMIT 5");		    	
+    //$announcements         = eF_getTableData("users u, news n LEFT OUTER JOIN lessons l ON n.lessons_ID = l.id", "n.*, l.name as show_lessons_name, l.id as show_lessons_id", "n.users_LOGIN = u.login", "n.timestamp desc, n.id desc LIMIT 5");
       }
 
             $announcements_options = array(array('text' => _ANNOUNCEMENTGO, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news&lessons_ID=all"));
 
-            $smarty -> assign("T_NEWS", $news); //Assign announcements to smarty            
+            $smarty -> assign("T_NEWS", $news); //Assign announcements to smarty
             $smarty -> assign("T_NEWS_OPTIONS",$announcements_options);
             $smarty -> assign("T_NEWS_LINK", "student.php?ctg=news");
         }
@@ -149,7 +149,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
              //$fb_options = array(                                                                          //Create fb options and assign them to smarty, to be displayed at the fb inner table
              //    array('text' => _FACEBOOKLOGGING, 'image' => "16x16/backup_restore.png", 'href' => "student.php?ctg=facebook")
              //);
-             //$smarty -> assign("T_FB_OPTIONS", $fb_options);	
+             //$smarty -> assign("T_FB_OPTIONS", $fb_options);
             }
 
         }
@@ -307,7 +307,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
       // Only allowed to delete comments referring to you
    if (sizeof(eF_getTableData("profile_comments", "*", "id=".$_GET['id']." and users_LOGIN='".$_SESSION['s_login']."'")) > 0) {
        eF_deleteTableData("profile_comments", "id=".$_GET['id']);
-       //eF_deleteTableData("search_keywords", "foreign_ID=".$id." AND table_name='comments'");                   
+       //eF_deleteTableData("search_keywords", "foreign_ID=".$id." AND table_name='comments'");
        $message = _COMMENTDELETED;
        $message_type = 'success';
 
@@ -464,7 +464,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
             if (isset($_GET['filter'])) {
                 $my_related_users = eF_filterData($my_related_users , $_GET['filter']);
             }
- //       $this -> event['time'] = 
+ //       $this -> event['time'] =
 
             $filtered_users_array = array();
             foreach ($my_related_users as $login => $user) {
@@ -578,7 +578,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
       $result = eF_getTableData("lessons_timeline_topics", "title", "id = " . $result[0]['topics_ID']);
       $topic_title = $result[0]['title'];
          eF_deleteTableData("lessons_timeline_topics_data", "id=".$_GET['id']);
-         //eF_deleteTableData("search_keywords", "foreign_ID=".$id." AND table_name='comments'");                   
+         //eF_deleteTableData("search_keywords", "foreign_ID=".$id." AND table_name='comments'");
          $message = _COMMENTDELETED;
          $message_type = 'success';
          // Timelines add event
@@ -642,7 +642,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                                             "users_LOGIN" => $currentUser -> user['login']);
 
                     if ($id = eF_insertTableData("lessons_timeline_topics_data", $topics_content)) {
-                        // Timelines add event				                	
+                        // Timelines add event
                         EfrontEvent::triggerEvent(array("type" => EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC, "entity_ID" => $_GET['post_topic'], "entity_name" => serialize(array("post_id" => $id, "data" => $form -> exportValue('data'), "topic_title" => $topic_name)), "lessons_ID" => $currentLesson -> lesson['id'], "lessons_name" => $currentLesson -> lesson['name'], "users_LOGIN" => $_SESSION['s_login'], "users_name" => $currentUser -> user['name'], "users_surname" => $currentUser -> user['surname']));
 
                         $message = _SUCCESFULLYADDEDTOPICPOST;
@@ -687,7 +687,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
        // ON DELETING A LESSONTIMELINE TOPIC
        if (isset($_GET['del_topic'])) { //The administrator asked to delete a skill
 
-        //@todo: delete events too? 
+        //@todo: delete events too?
         //eF_deleteTableData("lessons_timeline_topics", "type = " . . "  AND lessons_ID = ". ." AND entity_ID = '".$_GET['del_topic']."'");
         eF_deleteTableData("lessons_timeline_topics_data", "topics_ID = '".$_GET['del_topic']."'");
            eF_deleteTableData("lessons_timeline_topics", "id = '".$_GET['del_topic']."'");
@@ -916,6 +916,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
            }
        }
          }
+
             $count = sizeof($events);
             $smarty -> assign("T_TIMELINE_EVENTS_SIZE", $count);
 

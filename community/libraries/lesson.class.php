@@ -1659,7 +1659,7 @@ class EfrontLesson
   $this -> addUsersToLesson($usersToAddToLesson);
   $this -> setUserRolesInLesson($usersToSetRoleToLesson);
   $this -> users = false; //Reset users cache
-  return $this -> getUsers();
+  //return $this -> getUsers();
     }
  public static function convertLessonObjectsToArrays($lessonObjects) {
   foreach ($lessonObjects as $key => $value) {

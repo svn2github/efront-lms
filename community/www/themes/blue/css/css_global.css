@@ -112,7 +112,8 @@ table.pageLayout td.header #site_name{font-size:26px;}
 table.pageLayout td.header #logout_link{padding-right:2px}
 table.pageLayout td.header #logout_link a img{border-width:0px}
 table.pageLayout td.header #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
-table.pageLayout td.header #path{clear:left;padding-top:5px;background:url('../images/css_images/gradient.gif') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
+table.pageLayout td.header #path{clear:left;padding-top:5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;
+background:url('../images/css_images/gradient.gif') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
 table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right; padding-right:4px;}
 table.pageLayout td.footer{color:#FFFFFF;height:15px;font-size:12px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349;padding:5px;text-align: right;background:url('../images/css_images/gradient.gif') repeat-x top;}
@@ -1156,6 +1157,8 @@ margin-bottom:0px;
 }
 div.blockContents{   
 border: 1px solid #2A4562;
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
 padding:5px;
 background:#1E3247 url('../images/css_images/gradient.gif') repeat-x top;
 }

@@ -51,7 +51,6 @@ function createConstraintsFromSortedTable() {
 function handleAjaxExceptions($e) {
  header("HTTP/1.0 500");
  echo $e -> getMessage().' ('.$e -> getCode().')';
- //pr($e);
  exit;
 }
 
@@ -554,6 +553,58 @@ function eF_getCalendar($timestamp = false, $type = 1) {
         }
     }
     return $events;
+}
+function setWritePermissions($dir) {
+ $failedDirectories = $failedFiles = array();
+ $d = new RecursiveDirectoryIterator($dir);
+ if (!chmod($dir, 0755)) {
+  $failedDirectories[] = $dir;
+ }
+ foreach (new RecursiveIteratorIterator($d, RecursiveIteratorIterator::SELF_FIRST) as $path) {
+  if ($path->isDir() && $path -> getBasename() != '..') {
+   if (!chmod($path -> getPathName(), 0755)) {
+    $failedDirectories[] = $path -> getPathName();
+   }
+  } else if ($path -> isFile()) {
+   if (!chmod($path -> getPathName(), 0644)) {
+    $failedFiles[] = $path -> getPathName();
+   }
+  }
+ }
+ return array($failedDirectories, $failedFiles);
+}
+function setReadPermissions($dir) {
+ $failedDirectories = $failedFiles = array();
+ $d = new RecursiveDirectoryIterator($dir);
+ if (!chmod($dir, 0555)) {
+  $failedDirectories[] = $dir;
+ }
+ foreach (new RecursiveIteratorIterator($d, RecursiveIteratorIterator::SELF_FIRST) as $path) {
+  if ($path->isDir() && $path -> getBasename() != '..') {
+   if (!chmod($path -> getPathName(), 0555)) {
+    $failedDirectories[] = $path -> getPathName();
+   }
+  } else if ($path -> isFile()) {
+   if (!chmod($path -> getPathName(), 0444)) {
+    $failedFiles[] = $path -> getPathName();
+   }
+  }
+ }
+ return array($failedDirectories, $failedFiles);
+}
+function checkPermissions($dir) {
+ $failedDirectories = $failedFiles = array();
+ $d = new RecursiveDirectoryIterator($dir);
+ foreach (new RecursiveIteratorIterator($d, RecursiveIteratorIterator::SELF_FIRST) as $path) {
+  if (!$path -> isWritable()) {
+   if ($path->isDir()) {
+    $failedDirectories[] = $path -> getPathName();
+   } else {
+    $failedFiles[] = $path -> getPathName();
+   }
+  }
+ }
+ return array($failedDirectories, $failedFiles);
 }
 /**
 

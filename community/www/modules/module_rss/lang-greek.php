@@ -15,4 +15,13 @@ define("_RSS_REFRESH", "Ανανέωση ροών");
 define("_RSS_GOTORSS", "Μετάβαση στη σελίδα RSS");
 define("_RSS_NEWSFROM", "Νέα από");
 define("_RSS_ONLYSUMMARY", "Εμφάνιση μόνο τίτλου");
+define("_RSS_NONE", "Κανένα");
+define("_RSS_PROVIDELESSONFEED", "Παροχή ροής μαθήματος");
+define("_RSS_PROVIDEFEED", "Παροχή ροής");
+define("_RSS_RSSPROVIDER", "Παροχές ροής");
+define("_RSS_FEEDTYPE", "Τύπος ροής");
+define("_RSS_FEEDMODE", "Είδος ροής");
+define("_RSS_PROVIDEDFEEDS", "Ροές που παρέχονται");
+define("_RSS_RSSCLIENT", "Κατανάλωση ροής");
+define("_FEEDALREADYEXISTS", "Αυτή η ροή προσφέρεται ήδη");
 ?>

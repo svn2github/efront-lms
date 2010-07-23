@@ -42,6 +42,7 @@
    <span class = "headerText">{$smarty.const._YOUARECURRENTLYLOGGEDINAS}: </span><a href = "{$smarty.session.s_type}page.php?dashboard={$smarty.session.s_login}" class = "headerText">#filter:login-{$smarty.session.s_login}#</a>
    <a href = "index.php?logout=true" class = "headerText">({$smarty.const._LOGOUT})</a>
   {/if}
+  {if $T_THEME_SETTINGS->options.sidebar_interface != 0 && $T_HEADER_CLASS == 'header'}{$smarty.capture.t_path_additional_code}{/if}
  </div>
 
  {/if}
@@ -54,6 +55,7 @@
  {if !$hide_path}
  <div id = "path">
   <div id = "path_title">{$title|eF_formatTitlePath}</div>
+  <div id = "tab_handles_div" style = "float:right;">{if $T_THEME_SETTINGS->options.sidebar_interface == 0 || $T_HEADER_CLASS == 'headerHidden'}{$smarty.capture.t_path_additional_code}{/if}</div>
    <div id = "path_language">
   {if $smarty.server.PHP_SELF|basename == 'index.php' || $T_THEME_SETTINGS->options.sidebar_interface != 0}
    {*Search div*}
@@ -75,6 +77,5 @@
    {/if}
   {/if}
    </div>
-   <div id = "path_extra">{$smarty.capture.t_path_additional_code}</div>
  </div>
  {/if}

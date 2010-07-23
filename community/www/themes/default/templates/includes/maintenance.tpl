@@ -132,9 +132,9 @@
  {capture name = "t_maintenance_code"}
  <table class = "formElements">
   <tr><td class = "labelCell">{$smarty.const._VERSION}:&nbsp;</td>
-   <td class = "elementCell">{$smarty.const.G_VERSION_NUM}</td></tr>
+   <td class = "elementCell">{$smarty.const.G_VERSION_NUM} {$T_VERSION_TYPES[$smarty.const.G_VERSIONTYPE_CODEBASE]}</td></tr>
   <tr><td class = "labelCell">{$smarty.const._DATABASEVERSION}:&nbsp;</td>
-   <td class = "elementCell">{$T_CONFIGURATION.database_version}</td></tr>
+   <td class = "elementCell">{$T_CONFIGURATION.database_version} {$T_VERSION_TYPES[$T_CONFIGURATION.version_type]}</td></tr>
   {if $T_DIFFERENT_VERSIONS}
   <tr><td></td>
    <td class = "infoCell" style = "vertical-align:middle"><img src = "images/16x16/warning.png" class = "ajaxHandle" title = "{$smarty.const._WARNING}" alt = "{$smarty.const._WARNING}"/><span style = "vertical-align:middle"> {$smarty.const._DIFFERENTVERSIONSUPGRADENEEDED|replace:"%link":"<a href = 'install/install.php?step=1&upgrade=1' style = 'vertical-align:middle'>`$smarty.const._UPGRADE`</a>"}</span></td></tr>
@@ -179,8 +179,26 @@
   {eF_template_printBlock title=$smarty.const._LOCKDOWN data=$smarty.capture.t_lock_down_code image='32x32/key.png'}
     </div>
 
+    {capture name = 't_permissions_code'}
+        <table>
+      <tr><td class = "labelCell">{$smarty.const._CLICKHERETOCHECKPERMISSIONS}:&nbsp;</td>
+          <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._CHECKPERMISSIONS}" onclick = "setPermissions(this, 'check')"/></td></tr>
+   <tr><td></td>
+          <td class = "infoCell">{$smarty.const._CHECKPERMISSIONSINSTRUCTIONS}</td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLICKHERETOSETPERMISSIONS}:&nbsp;</td>
+          <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._SETPERMISSIONS}" onclick = "setPermissions(this, 'set')"/></td></tr>
+   <tr><td></td>
+          <td class = "infoCell">{$smarty.const._SETPERMISSIONSINSTRUCTIONS}</td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLICKHERETOUNSETPERMISSIONS}:&nbsp;</td>
+          <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._UNSETPERMISSIONS}" onclick = "setPermissions(this, 'unset')"/></td></tr>
+   <tr><td></td>
+          <td class = "infoCell">{$smarty.const._UNSETPERMISSIONSINSTRUCTIONS}</td></tr>
+      <tr><td class = "labelCell">{$smarty.const._OPERATIONOUTCOME}:&nbsp;</td>
+       <td class = "elementCell" id = "failed_permissions">{$smarty.const._NOOPERATIONPERFORMEDYET}</td></tr>
+        </table>
+
+    {/capture}
     {capture name = 't_reindex_code'}
-     <script>var reindexcomplete = '{$smarty.const._OPERATIONCOMPLETEDSUCCESSFULLY}';</script>
         <table>
       <tr><td class = "labelCell">{$smarty.const._CLICKHERETOREINDEX}:&nbsp;</td>
           <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._RECREATE}" onclick = "reIndex(this)"/></td></tr>
@@ -202,6 +220,7 @@
   {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
           {eF_template_printBlock tabber = "cleanup" title=$smarty.const._CLEANUP data=$smarty.capture.t_cleanup_code image='32x32/cleanup.png'}
           {eF_template_printBlock tabber = "reindex" title=$smarty.const._RECREATESEARCHTABLE data=$smarty.capture.t_reindex_code image='32x32/import_export.png'}
+          {eF_template_printBlock tabber = "permissions" title=$smarty.const._PERMISSIONS data=$smarty.capture.t_permissions_code image='32x32/generic.png'}
   {/if}
           {eF_template_printBlock tabber = "clear_cache" title=$smarty.const._CLEARCACHE data=$smarty.capture.t_clear_cache_code image='32x32/error_delete.png'}
   </div>

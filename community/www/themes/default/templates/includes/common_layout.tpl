@@ -11,7 +11,7 @@
     {*{include file = "includes/horizontal_sidebar.tpl"}*} {*Commented-out for now, as it is used nowhere and causes trouble if it's used*}
    {else}
     <tr><td class = "topTitle defaultRowHeight" colspan = "3">
-     {$smarty.capture.t_path_additional_code}
+     <div style = "float:right;">{$smarty.capture.t_path_additional_code}</div>
      {$title|eF_formatTitlePath}
     </td></tr>
    {/if}

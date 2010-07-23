@@ -773,7 +773,7 @@ class EfrontDirectionsTree extends EfrontTree
    setcookie('display_all_courses', 0);
   }
   $treeString = '
-    <div style = "padding-top:8px;padding-bottom:8px">
+    <div style = "padding-top:12px;padding-bottom:12px">
      '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '');
   $hideCollapseAll = $hideExpandAll = '';
   if (isset($options['collapse']) && $options['collapse']) {

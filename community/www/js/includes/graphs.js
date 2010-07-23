@@ -15,23 +15,28 @@ function onShowGraph(el, response) {
  }
 }
 
+
+
 function showHorizontalBarGraph(el, obj) {
  try {
 
-  options = {"title": obj.title,
+  options = {"HtmlText": false,
+       "title": obj.title,
        "xaxis": {"showLabels": true, "ticks":obj.yLabels, "title":obj.yTitle},
-       "yaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle},
-       "bars": {"show": true, "horizontal": true, "barWidth":0.2},
-       "mouse": {"track":true, "position": "ne"}
+       "yaxis": {"showLabels": true, "ticks":obj.xLabels},
+       "bars": {"show": true, "horizontal": true, "barWidth":0.8},
+       "mouse": {"track":true, "position": "ne", "relative": true, "trackFormatter": function(obj2){return obj.xTitle+' = ' + obj2.x+'';}}
        };
 
   series = [{label: obj.label,
        color: "#00A8F0",
        data: obj.data,
        xaxis: 1,
-       yaxis: 1}
+       yaxis: 1,
+       }
      ];
-  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+
+  //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
   Flotr.draw(el, series, options);
  } catch (e) {
@@ -42,10 +47,11 @@ function showBarGraph(el, obj) {
  try {
 
   options = {"title": obj.title,
-       "xaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle},
+       "xaxis": {"showLabels": true, "title":obj.xTitle},
        "yaxis": {"showLabels": true, "title":obj.yTitle},
        "bars": {"show": true, "horizontal": false},
-       "mouse": {"track":true, "position": "ne"}
+       "mouse": {"track":true, "position": "ne", "relative": true}
+
        };
 
   series = [{label: obj.label,
@@ -54,7 +60,7 @@ function showBarGraph(el, obj) {
        xaxis: 1,
        yaxis: 1}
      ];
-  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+  //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
   Flotr.draw(el, series, options);
  } catch (e) {
@@ -63,12 +69,12 @@ function showBarGraph(el, obj) {
 }
 function showLineGraph(el, obj) {
  try {
-  options = {"title": obj.title,
-       "HtmlText": false,
-       "xaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle, "labelsAngle":45},
+  options = {"HtmlText": false,
+       "title": obj.title,
+       "xaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle,"labelsAngle": 45},
        "yaxis": {"showLabels": true, "title":obj.yTitle},
-       "lines": {"show": true},
-       "mouse": {"track":true, "position": "ne"}
+       "lines": {"show": true, "fill":true},
+       "mouse": {"track":true, "position": "ne", "relative": true, "trackFormatter": function(obj2){ return obj.xLabels[parseInt(obj2.x)][1] + ' ('+obj.xTitle+') | '+obj2.y +' ('+obj.yTitle+')';}}
        };
 
   series = [{label: obj.label,
@@ -78,7 +84,7 @@ function showLineGraph(el, obj) {
        yaxis: 1}
      ];
 
-  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+  //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
   Flotr.draw(el, series, options);
  } catch (e) {
@@ -103,7 +109,7 @@ function showPieGraph(el, obj) {
        yaxis: 1}
      );
   }
-  el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
+  //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
   Flotr.draw(el, series, options);
  } catch (e) {

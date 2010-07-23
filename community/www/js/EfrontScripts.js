@@ -479,11 +479,13 @@ function toggleHorizontalSidebar(el, cookie) {
   cookie ? createCookie('horizontalSideBar', 'hidden') : null;
   $('logo').setStyle({display:'none'});
   $('horizontalBarRow').removeClassName('header').addClassName('headerHidden');
+  $('tab_handles_div').insert($('tab_handles').remove());
  } else {
   el.removeClassName('sprite16-navigate_down').addClassName('sprite16-navigate_up');
   cookie ? createCookie('horizontalSideBar', 'visible') : null;
   $('logo').setStyle({display:'block'});
   $('horizontalBarRow').removeClassName('headerHidden').addClassName('header');
+  $('logout_link').insert($('tab_handles').remove());
  }
 }
 function onSortedTableComplete() {

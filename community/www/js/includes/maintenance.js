@@ -6,6 +6,17 @@ function reIndex(el) {
 function onReIndex(el, response) {
 //	alert(reindexcomplete);
 }
+function setPermissions(el, set) {
+ $('failed_permissions').update('');
+ var parameters = {ajax:1, permissions:set, method:'get'};
+    var url = location.toString();
+    ajaxRequest(el, url, parameters, onSetPermissions);
+}
+function onSetPermissions(el, response) {
+ $('failed_permissions').update(response.evalJSON(true).message);
+}
+
+
 function clearCache(el, cache) {
  var parameters = {ajax:1, cache:cache, method:'get'};
     var url = location.toString();

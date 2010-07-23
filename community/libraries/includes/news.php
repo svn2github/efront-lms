@@ -7,12 +7,14 @@ $load_editor = true;
     if ($GLOBALS['configuration']['disable_news'] == 1 || (isset($currentUser -> coreAccess['content']) && $currentUser -> coreAccess['content'] == 'hidden')) {
      eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
  }
-    //Create shorthands for user access rights, to avoid long variable names	
+    //Create shorthands for user access rights, to avoid long variable names
  !isset($currentUser -> coreAccess['news']) || $currentUser -> coreAccess['news'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 
  if (isset($_GET['lessons_ID'])) {
-     $eligibleLessons = $currentUser -> getEligibleLessons();
-     if (in_array($_GET['lessons_ID'], array_keys($eligibleLessons))) {
+  if ($currentUser -> user['user_type'] != 'administrator') {
+      $eligibleLessons = $currentUser -> getEligibleLessons();
+  }
+     if (in_array($_GET['lessons_ID'], array_keys($eligibleLessons)) || $currentUser -> user['user_type'] == 'administrator') {
          $lessonId = $_GET['lessons_ID'];
      } else {
          $lessonId = array_keys($eligibleLessons);

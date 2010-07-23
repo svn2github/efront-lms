@@ -359,11 +359,25 @@
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
                         </tr>
+     {elseif $T_ACTION == 'curriculum_to_user'}
+                        <tr>
+                            <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
+                            <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
+                        </tr>
+                        <tr>
+                            <td class = "labelCell">{$T_ACTION_FORM.login.label}:&nbsp;</td>
+                            <td class = "elementCell">{$T_ACTION_FORM.login.html}</td>
+                        </tr>
+                        <tr>
+                            <td class = "labelCell">{$T_ACTION_FORM.curriculum.label}:&nbsp;</td>
+                            <td class = "elementCell">{$T_ACTION_FORM.curriculum.html}</td>
+                        </tr>
                     {elseif $T_ACTION == 'logout'}
                         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
                         </tr>
+
                     {/if}
 
                     <tr><td></td><td class = "submitCell centerAlign">

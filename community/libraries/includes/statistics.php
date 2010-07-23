@@ -10,6 +10,7 @@ $loadScripts[] = 'scriptaculous/flotr';
 $loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/graphs';
 $loadScripts[] = 'includes/statistics';
+$loadScripts[] = 'scriptaculous/canvastext';
 
 $smarty -> assign("T_CATEGORY", 'statistics');
 $smarty -> assign("T_BASIC_TYPE", $currentUser -> user['user_type']);

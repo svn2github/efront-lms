@@ -69,11 +69,13 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api2.php?token=<token>&action=deactivate_user_course&login=<login>&course=<course_id> 	deactivate assignment for all lessons within <course_id> to user <login>
 
-/api2.php?token=<token>&action=course_from_user&course=<course_id>&login=<login>			undo assignment for course with <course_id> to user <login>
-
 /api2.php?token=<token>&action=catalog													returns the list with all courses and lessons of the system
 
 /api2.php?token=<token>&action=logout													logs out from eFront API
+
+/api2.php?token=<token>&action=curriculum_to_user&login=<login>&curriculum=<curriculum_id>  assigns curriculum with <curriculum_id> to user <login> 
+
+
 
 
 
@@ -270,7 +272,8 @@ In case of error it returns also a message entity with description of the error 
                         if (isset($_GET['name']) && isset($_GET['category']) && isset($_GET['course_only']) && isset($_GET['language'])){
        if (!eF_checkParameter($_GET['category'], 'uint')) {
         echo "<xml>";
-                                echo "<status>Invalid category</status>";
+        echo "<status>error</status>";
+                                echo "<message>Invalid category</message>";
         echo "</xml>";
         exit;
        }
@@ -588,7 +591,7 @@ In case of error it returns also a message entity with description of the error 
        echo "<description>".$group -> group['description']."</description>";
        echo "<active>".$group -> group['active']."</active>";
        echo "<user_types_ID>".$group -> group['user_types_ID']."</user_types_ID>";
-       echo "<languages_NAME>".$group -> group['languages_NAME']."</languages_NAME>";
+       echo "<language>".$group -> group['languages_NAME']."</language>";
        echo "<users_active>".$group -> group['users_active']."</users_active>";
        echo "<assign_profile_to_new>".$group -> group['assign_profile_to_new']."</assign_profile_to_new>";
        echo "<unique_key>".$group -> group['unique_key']."</unique_key>";
@@ -622,12 +625,18 @@ In case of error it returns also a message entity with description of the error 
           $group = $groups[$_GET['group']];
           if (!empty($group)) {
          echo "<xml>";
-         echo "<general_info>";
+         echo "<id>".$group -> group['id']."</id>";
          echo "<name>".$group -> group['name']."</name>";
          echo "<description>".$group -> group['description']."</description>";
+         echo "<active>".$group -> group['active']."</active>";
+         echo "<user_types_ID>".$group -> group['user_types_ID']."</user_types_ID>";
          echo "<language>".$group -> group['languages_NAME']."</language>";
+         echo "<users_active>".$group -> group['users_active']."</users_active>";
+         echo "<assign_profile_to_new>".$group -> group['assign_profile_to_new']."</assign_profile_to_new>";
          echo "<unique_key>".$group -> group['unique_key']."</unique_key>";
-         echo "</general_info>";
+         echo "<is_default>".$group -> group['is_default']."</is_default>";
+         echo "<key_max_usage>".$group -> group['key_max_usage']."</key_max_usage>";
+         echo "<key_current_usage>".$group -> group['key_current_usage']."</key_current_usage>";
          echo "</xml>";
         } else {
          echo "<xml>";
@@ -940,11 +949,35 @@ In case of error it returns also a message entity with description of the error 
                 }
                 case 'lesson_from_user':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])){
+      if (eF_checkParameter($_GET['lesson'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid lesson id</message>";
+                                echo "</xml>";
+        exit;
+      }
+      if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+      }
                         if (isset($_GET['login']) && isset($_GET['lesson'])){
-                            $res = eF_deleteTableData("users_to_lessons", "users_LOGIN='".$_GET['login']."' and lessons_ID=".$_GET['lesson']);
-       echo "<xml>";
-                            echo "<status>ok</status>";
-       echo "</xml>";
+       $lesson = new EfrontLesson($_GET['lesson']);
+       $lessonUsers = $lesson -> getUsers();
+       if (!in_array($_GET['login'], array_keys($lessonUsers))) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Assignment does not exist</message>";
+                                echo "</xml>";
+        exit;
+       } else {
+        $lesson -> removeUsers($_GET['login']);
+        echo "<xml>";
+        echo "<status>ok</status>";
+        echo "</xml>";
+       }
                         }
                         else{
        echo "<xml>";
@@ -975,8 +1008,29 @@ In case of error it returns also a message entity with description of the error 
         $user = EfrontUserFactory :: factory($_GET['login']);
         $lessonsList = $user -> getLessons(true);
         echo "<xml>";
-        foreach ($lessonsList as $key => $lesson){
-         echo "<lesson>".$lesson -> lesson['name']."</lesson>";
+        foreach ($lessonsList as $key => $lesson) {
+         $info = $lesson -> getStatisticInformation();
+         $lesson_info = unserialize($lesson -> lesson['info']);
+         $metadata = unserialize($lesson -> lesson['metadata']);
+         echo "<lesson>";
+         echo "<name>".$lesson -> lesson['name']."</name>";
+         echo "<direction>".$lesson -> lesson['directions_ID']."</direction>";
+         echo "<price>";
+         echo "<value>".$info['price']."</value>";
+         echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
+         echo "</price>";
+         echo "<language>".$info['language']."</language>";
+         echo "<info>";
+         foreach ($lesson_info as $key => $value) {
+          echo "<".$key.">".$value."</".$key.">";
+         }
+         echo "</info>";
+         echo "<metadata>";
+         foreach ($metadata as $key => $value) {
+          echo "<".$key.">".$value."</".$key.">";
+         }
+         echo "</metadata>";
+         echo "</lesson>";
         }
         echo "</xml>";
        } catch (Exception $e) {
@@ -1020,7 +1074,7 @@ In case of error it returns also a message entity with description of the error 
                                 echo "<xml>";
                                 echo "<general_info>";
                                 echo "<name>".$lesson -> lesson['name']."</name>";
-                                echo "<direction>".$info['direction']."</direction>";
+                                echo "<direction>".$lesson -> lesson['directions_ID']."</direction>";
                                 echo "<price>";
         echo "<value>".$info['price']."</value>";
         echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
@@ -1073,7 +1127,28 @@ In case of error it returns also a message entity with description of the error 
         $coursesList = $user -> getUserCourses();
         echo "<xml>";
         foreach ($coursesList as $key => $course) {
-         echo "<course>".$course -> course['name']."</course>";
+         $info = unserialize($course -> course['info']);
+         $metadata = unserialize($course -> course['metadata']);
+         echo "<course>";
+         echo "<id>".$course -> course['id']."</id>";
+         echo "<name>".$course -> course['name']."</name>";
+         echo "<info>";
+         foreach ($info as $key => $value) {
+          echo "<".$key.">".$value."</".$key.">";
+         }
+         echo "</info>";
+         echo "<metadata>";
+         foreach ($metadata as $key => $value) {
+          echo "<".$key.">".$value."</".$key.">";
+         }
+         echo "</metadata>";
+         echo "<price>";
+         echo "<value>".$course -> course['price']."</value>";
+         echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
+         echo "</price>";
+         echo "<active>".$course -> course['active']."</active>";
+         echo "<language>".$course -> course['languages_NAME']."</language>";
+         echo "</course>";
         }
         echo "</xml>";
        } catch (Exception $e) {
@@ -1158,6 +1233,35 @@ In case of error it returns also a message entity with description of the error 
                             echo "<course>";
                             echo "<id>".$course -> course['id']."</id>";
                             echo "<name>".$course -> course['name']."</name>";
+       echo "<active>".$course -> course['active']."</active>";
+       echo "<show_catalog>".$course -> course['show_catalog']."</show_catalog>";
+       echo "<language>".$course -> course['languages_NAME']."</language>";
+       echo "<price>";
+       echo "<value>".$course -> course['price']."</value>";
+       echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
+       echo "</price>";
+       echo "<reset>".$course -> course['reset']."</reset>";
+       echo "<expiration>".$course -> course['certificate_expiration']."</expiration>";
+       $course_lessons = EfrontCourse::convertLessonObjectsToArrays($course->getCourseLessons());
+       echo "<lessons>";
+       foreach ($course_lessons as $key2 => $value2) {
+        echo "<lesson>";
+        echo "<id>".$value2['id']."</id>";
+        echo "<name>".$value2['name']."</name>";
+        echo "<previous_lessons_ID>".$value2['previous_lessons_ID']."</previous_lessons_ID>";
+        echo "<direction>".$value2['directions_ID']."</direction>";
+        echo "<active>".$value2['active']."</active>";
+        echo "<show_catalog>".$value2['show_catalog']."</show_catalog>";
+        echo "<duration>".$value2['duration']."</duration>";
+        echo "<language>".$value2['languages_NAME']."</language>";
+        echo "<course_only>".$value2['course_only']."</course_only>";
+        echo "<price>";
+        echo "<value>".$value2['price']."</value>";
+        echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
+        echo "</price>";
+        echo "</lesson>";
+       }
+       echo "<lessons>";
                             echo "</course>";
                         }
                         echo "</courses>";
@@ -1166,6 +1270,16 @@ In case of error it returns also a message entity with description of the error 
                             echo "<lesson>";
                             echo "<id>".$lesson['id']."</id>";
                             echo "<name>".$lesson['name']."</name>";
+       echo "<direction>".$lesson['directions_ID']."</direction>";
+       echo "<active>".$lesson['active']."</active>";
+       echo "<show_catalog>".$lesson['show_catalog']."</show_catalog>";
+       echo "<duration>".$lesson['duration']."</duration>";
+       echo "<language>".$lesson['languages_NAME']."</language>";
+       echo "<course_only>".$lesson['course_only']."</course_only>";
+       echo "<price>";
+        echo "<value>".$lesson['price']."</value>";
+        echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
+        echo "</price>";
                             echo "</lesson>";
                         }
                         echo "</lessons>";
@@ -1189,6 +1303,16 @@ In case of error it returns also a message entity with description of the error 
                             echo "<lesson>";
                             echo "<id>".$lesson['id']."</id>";
                             echo "<name>".$lesson['name']."</name>";
+       echo "<direction>".$lesson['directions_ID']."</direction>";
+       echo "<active>".$lesson['active']."</active>";
+       echo "<show_catalog>".$lesson['show_catalog']."</show_catalog>";
+       echo "<duration>".$lesson['duration']."</duration>";
+       echo "<language>".$lesson['languages_NAME']."</language>";
+       echo "<course_only>".$lesson['course_only']."</course_only>";
+       echo "<price>";
+        echo "<value>".$lesson['price']."</value>";
+        echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
+        echo "</price>";
                             echo "</lesson>";
                         }
                         echo "</lessons>";
@@ -1210,6 +1334,15 @@ In case of error it returns also a message entity with description of the error 
                             echo "<course>";
                             echo "<id>".$course -> course['id']."</id>";
                             echo "<name>".$course -> course['name']."</name>";
+       echo "<active>".$course -> course['active']."</active>";
+       echo "<show_catalog>".$course -> course['show_catalog']."</show_catalog>";
+       echo "<language>".$course -> course['languages_NAME']."</language>";
+       echo "<price>";
+       echo "<value>".$course -> course['price']."</value>";
+       echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
+       echo "</price>";
+       echo "<reset>".$course -> course['reset']."</reset>";
+       echo "<expiration>".$course -> course['certificate_expiration']."</expiration>";
                             echo "</course>";
                         }
                         echo "</courses>";
@@ -1255,8 +1388,8 @@ In case of error it returns also a message entity with description of the error 
         echo "<currency>".$GLOBALS['configuration']['currency']."</currency>";
         echo "</price>";
         echo "<active>".$course -> course['active']."</active>";
-        echo "<languages_NAME>".$course -> course['languages_NAME']."</languages_NAME>";
-        echo "<general_info>";
+        echo "<language>".$course -> course['languages_NAME']."</language>";
+        echo "</general_info>";
         echo "</xml>";
                             } catch (Exception $e) {
         echo "<xml>";
@@ -1308,49 +1441,6 @@ In case of error it returns also a message entity with description of the error 
          echo "<message>Course doesn't exist</message>";
          echo "</xml>";
        }
-       /*	
-
-							$lessons = eF_getTableData("lessons_to_courses", "courses_ID, lessons_ID, previous_lessons_ID", "courses_ID ='".$_GET['course']."'");
-
-							echo "<xml>";
-
-								echo "\n\t";
-
-								echo "<lessons>";
-
-								echo "\n\t\t";
-
-								for ($i=0; $i < sizeof($lessons);$i++){
-
-									echo "<lesson>";
-
-										echo "\n\t\t\t";
-
-										echo "<courses_ID>".$lessons[$i]['courses_ID']."</courses_ID>";
-
-										echo "\n\t\t\t";
-
-										echo "<lessons_ID>".$lessons[$i]['lessons_ID']."</lessons_ID>"; 
-
-										echo "\n\t\t\t";
-
-										echo "<previous_lessons_ID>".$lessons[$i]['previous_lessons_ID']."</previous_lessons_ID>"; 
-
-										echo "\n\t\t";
-
-									echo "</lesson>";
-
-						} 
-
-								echo "\n\t";
-
-								echo "<lessons>";	
-
-							echo "\n";
-
-							echo "</xml>";
-
-							*/
                         }
                         else{
        echo "<xml>";
@@ -1575,6 +1665,58 @@ In case of error it returns also a message entity with description of the error 
                     }
                     break;
                 }
+    case 'curriculum_to_user':{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+      if (isset($_GET['login']) && isset($_GET['curriculum'])) {
+       if (eF_checkParameter($_GET['curriculum'], 'id') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid curriculum id</message>";
+                                echo "</xml>";
+        exit;
+       }
+       if (eF_checkParameter($_GET['login'], 'login') == false) {
+        echo "<xml>";
+                                echo "<status>error</status>";
+                                echo "<message>Invalid login format</message>";
+                                echo "</xml>";
+        exit;
+       }
+        try {
+         $curriculum = new curriculums($_GET['curriculum']);
+         $user = EfrontUserFactory :: factory($_GET['login']);
+         $curriculum -> assignToUser($user);
+         echo "<xml>";
+         echo "<status>ok</status>";
+         echo "</xml>";
+        } catch (Exception $e) {
+         if ($e -> getCode() == EfrontCurriculumException :: EMPTY_COURSE) {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>A curriculum's course is empty</message>";
+          echo "</xml>";
+          exit;
+         } else {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>Some problem occured</message>";
+          echo "</xml>";
+         }
+        }
+                        } else {
+       echo "<xml>";
+                            echo "<status>error</status>";
+                            echo "<message>Incomplete arguments</message>";
+       echo "</xml>";
+                        }
+                    } else {
+      echo "<xml>";
+                        echo "<status>error</status>";
+                        echo "<message>Invalid token</message>";
+      echo "</xml>";
+                    }
+                    break;
+    }
                 case 'logout':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])) {
                         $token = $_GET['token'];

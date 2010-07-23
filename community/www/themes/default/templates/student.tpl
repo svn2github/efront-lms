@@ -568,17 +568,19 @@ function changeItemColor(item, color) {
  </table>
 {/capture}
 {capture name = "t_path_additional_code"}
- {if $T_CTG == 'content'}
-  {if $T_HORIZONTAL_BAR == 1}
-   <img src = "images/16x16/navigate_{if (!$T_CURRENT_LESSON->options.show_horizontal_bar && $_student_) || $smarty.cookies.horizontalSideBar == 'hidden'}down{else}up{/if}.png" alt = "{$smarty.const._TOGGLESIDEBAR}" title = "{$smarty.const._TOGGLESIDEBAR}" style = "float:right" onclick = "toggleHorizontalSidebar(this, true)"/>
-  {/if}
-  {if $T_UNIT.options.maximize_viewport !=1}
-      <img src = "images/16x16/navigate_{if (!$T_CURRENT_LESSON->options.show_right_bar && $_student_) || ($T_UNIT->options.maximize_viewport != 1 && $_student_) || $smarty.cookies.rightSideBar == 'hidden'}left{else}right{/if}.png" alt = "{$smarty.const._TOGGLESIDEBAR}" title = "{$smarty.const._TOGGLESIDEBAR}" style = "float:right" onclick = "toggleRightSidebar(this, true)"/>
-  {/if}
- {/if}
+ <span id = "tab_handles" class = "headerText">{if $T_THEME_SETTINGS->options.sidebar_interface != 0}&nbsp;|&nbsp;{/if}
  {if $smarty.session.s_lessons_ID != '' && !$T_CONFIGURATION.disable_bookmarks && $T_CURRENT_LESSON->options.bookmarking}
-  <img src = "images/16x16/bookmark.png" alt = "{$smarty.const._SHOWBOOKMARKS}" title = "{$smarty.const._SHOWBOOKMARKS}" style = "float:right" class = "ajaxHandle" onclick = "getBookmarks(this);"/>
+  <img class = "ajaxHandle" src = "images/16x16/bookmark.png" alt = "{$smarty.const._SHOWBOOKMARKS}" title = "{$smarty.const._SHOWBOOKMARKS}" onclick = "getBookmarks(this);"/>
  {/if}
+ {if $T_CTG == 'content'}
+  {if $T_UNIT.options.maximize_viewport !=1}
+      <img class = "ajaxHandle" src = "images/16x16/navigate_{if (!$T_CURRENT_LESSON->options.show_right_bar && $_student_) || $smarty.cookies.rightSideBar == 'hidden'}left{else}right{/if}.png" alt = "{$smarty.const._TOGGLESIDEBAR}" title = "{$smarty.const._TOGGLESIDEBAR}" onclick = "toggleRightSidebar(this, true)"/>
+  {/if}
+  {if $T_HORIZONTAL_BAR == 1}
+   <img class = "ajaxHandle" src = "images/16x16/navigate_{if (!$T_CURRENT_LESSON->options.show_horizontal_bar && $_student_) || $smarty.cookies.horizontalSideBar == 'hidden'}down{else}up{/if}.png" alt = "{$smarty.const._TOGGLESIDEBAR}" title = "{$smarty.const._TOGGLESIDEBAR}" onclick = "toggleHorizontalSidebar(this, true)"/>
+  {/if}
+ {/if}
+ </span>
 {/capture}
 {include file = "includes/common_layout.tpl"}
 {/strip}

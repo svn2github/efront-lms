@@ -86,3 +86,32 @@ if ($('loading_rss') && $('rss_list')) {
  getFeeds();
  new PeriodicalExecuter(getFeeds, 600);
 }
+
+function deleteFeed(el, id, type) {
+ parameters = {'delete_feed':id, type:type, method: 'get'};
+ var url = location.toString().toString();
+ ajaxRequest(el, url, parameters, onDeleteFeed);
+}
+function onDeleteFeed(el, response) {
+ new Effect.Fade(el.up().up());
+}
+function activateFeed(el, feed, type) {
+ if (el.className.match('red')) {
+     parameters = {activate_feed:feed, type:type, method: 'get'};
+ } else {
+  parameters = {deactivate_feed:feed, type:type, method: 'get'};
+ }
+    var url = location.toString();
+    ajaxRequest(el, url, parameters, onActivateFeed);
+}
+function onActivateFeed(el, response) {
+    if (response == 0) {
+     setImageSrc(el, 16, "trafficlight_red.png");
+        //el.writeAttribute({alt:activate, title:activate});
+        el.up().up().addClassName('deactivatedTableElement');
+    } else if (response == 1) {
+     setImageSrc(el, 16, "trafficlight_green.png");
+        //el.writeAttribute({alt:deactivate, title:deactivate});
+        el.up().up().removeClassName('deactivatedTableElement');
+    }
+}

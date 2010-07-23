@@ -817,8 +817,10 @@ class EfrontCourse
   }
   $users = $roles = array();
   foreach ($usersToAdd as $login => $user) {
-   $users[] = $login;
-   $roles[] = $user['role'];
+   if ($user['user_type'] != 'administrator') {
+    $users[] = $login;
+    $roles[] = $user['role'];
+   }
   }
   $lesson -> addUsers($users, $roles, $confirmed);
  }
@@ -2846,9 +2848,6 @@ class EfrontCourse
   $courseString = '
                         <table class = "coursesTable" >
                             <tr class = "lessonsList" >
-                             <td class = "listToggle">
-                              <img src = "images/16x16/navigate_'.$imageString.'.png" '.$classString.' alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "showHideCourses(this, $(\'subtree_course'.$this -> course['id'].'\'))">
-                             </td>
                              <td class = "listIcon">
                                     <img id = "course_img'.$this -> course['id'].'" src = "images/32x32/courses.png">
                                 </td>
@@ -2933,7 +2932,6 @@ class EfrontCourse
   if (sizeof($eligible) > 0) {
    $courseString .= '
                             <tr id = "subtree_course'.$this -> course['id'].'" name = "default_visible" '.$display_lessons.'>
-                                <td class = "lessonsList_nocolor">&nbsp;</td>
                                 <td colspan = "2">
                                  <table>';
    foreach ($eligible as $lessonId => $lesson) {

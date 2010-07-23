@@ -71,7 +71,7 @@ if (is_file($path."smarty/smarty_config.php") && is_file($path."language/lang-en
     exit;
 }
 //If we asked for unattended installation, there must be a 2nd parameter with the configuration details or performing an upgrade
-if (isset($_GET['unattended']) && (!isset($_GET['config']) || !is_file(basename($_GET['config'])) || isset($_GET['upgrade']))) {
+if (isset($_GET['unattended']) && !isset($_GET['upgrade']) && (!isset($_GET['config']) || !is_file(basename($_GET['config'])))) {
     unset($_GET['unattended']);
 }
 $smarty -> assign("T_INSTALLATION_OPTIONS", array(array('text' => 'Emergency restore', 'image' => "16x16/undo.png", 'href' => 'install/'.basename($_SERVER['PHP_SELF'])."?restore=1")));
@@ -177,7 +177,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     }
     if (($form -> isSubmitted() && $form -> validate()) || isset($_GET['unattended'])) {
         try {
-         $db = ADONewConnection($form -> exportValue('db_type')); //Set Connection parameter to "mysql"        
+         $db = ADONewConnection($form -> exportValue('db_type')); //Set Connection parameter to "mysql"
          if (isset($_GET['unattended'])) {
              if (isset($_GET['upgrade'])) {
                  $values = $currentVersion;
@@ -257,7 +257,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
         }
         $result -> MoveNext();
     }
-                //We are upgrading onto the same database. 
+                //We are upgrading onto the same database.
                 if ($values['old_db_name'] == $values['db_name']) {
                     $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
                     $db -> Execute("SET NAMES 'UTF8'");
@@ -293,7 +293,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                     $existingTables = array_diff($tables, $newTables); //These are tables pre-existing in the database, which should remain intact
                     $userProfile = eF_getTableData("user_profile", "*"); //Get any additional user profile fields
                 } else {
-                 //The inclusion of configuration.php triggered the creation of a new configuration file. Truncate it in the new database	           
+                 //The inclusion of configuration.php triggered the creation of a new configuration file. Truncate it in the new database
      $result = $db -> Execute("truncate configuration");
         //Special handling of modules table
                     $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['old_db_name']);
@@ -490,8 +490,10 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
      }
     } catch (Exception $e) {}
     Installation :: addModules(true);
-                header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");
-                exit;
+                if (!isset($_GET['unattended'])) {
+     header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");
+                 exit;
+                }
             } else {
                 //Create the file libraries/configuration.php
                 Installation :: createConfigurationFile($values);
@@ -528,9 +530,7 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
                 }
             }
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+         Installation::handleInstallationExceptions($e);
         }
     }
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
@@ -554,12 +554,14 @@ if (isset($_GET['finish']) || isset($_GET['unattended'])) {
             //$value -> delete();
         }
     } catch (Exception $e) {
-        $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-        $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-        $message_type = 'failure';
+     Installation::handleInstallationExceptions($e);
     }
     if (isset($_GET['unattended'])) {
-     header("location:".G_SERVERNAME."index.php?delete_install=1");
+     if ($_GET['ajax']) {
+      echo json_encode(array('status' => 1, 'message' => 'Successfully completed Unattended upgrade'));
+     } else {
+      header("location:".G_SERVERNAME."index.php?delete_install=1");
+     }
     }
 }
 if (isset($_GET['restore'])) {
@@ -585,9 +587,7 @@ if (isset($_GET['restore'])) {
             $message_type = "success";
         }
     } catch (Exception $e) {
-        $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-        $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-        $message_type = 'failure';
+     Installation::handleInstallationExceptions($e);
     }
 }
 $loadScripts = array('EfrontScripts',
@@ -602,7 +602,7 @@ $smarty -> load_filter('output', 'eF_template_applyThemeToImages');
 $smarty -> display ("install/install.tpl");
 /**
 
- * 
+ *
 
  * @author user
 
@@ -615,7 +615,7 @@ class InstallationException extends Exception
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -626,7 +626,7 @@ class Installation
 {
  /**
 
-	 * 
+	 *
 
 	 * @param $values
 
@@ -726,7 +726,7 @@ class Installation
     }
  /**
 
-	 * 
+	 *
 
 	 * @param $values
 
@@ -775,7 +775,7 @@ class Installation
 
 	 * Install modules
 
-	 * 
+	 *
 
 	 * @since 3.6.0
 
@@ -864,7 +864,7 @@ class Installation
  }
  /**
 
-	 * 
+	 *
 
 	 * @return unknown_type
 
@@ -891,17 +891,17 @@ class Installation
 
 	 * Automatically fix PHP settings errors
 
-	 * 
+	 *
 
 	 * This function is used to automatically apply a suitable php.ini or .htaccess file to correct the most
 
 	 * usual PHP settings errors: session.save_path, magic_quotes_gpc, register_globals.
 
-	 * 
+	 *
 
-	 * @param array $settings The settings that need to be fixed 
+	 * @param array $settings The settings that need to be fixed
 
-	 * @param string $mode Can be 'local', which means that the fix will be in a local php.ini file, or 'htaccess', which means that the fix will be performed with a .htaccess file 
+	 * @param string $mode Can be 'local', which means that the fix will be in a local php.ini file, or 'htaccess', which means that the fix will be performed with a .htaccess file
 
 	 * @since 3.6.0
 
@@ -911,7 +911,7 @@ class Installation
 
 	 */
  public static function fix($settings, $mode = 'local') {
-     //local mode: create and apply a local php.ini file 
+     //local mode: create and apply a local php.ini file
      if ($mode == 'local') {
          $localPhpIniString = "";
          if ($settings['session.save_path'] && function_exists('sys_get_temp_dir')) { //If the session.save_path does not exist, set it to system's default temp dir
@@ -919,7 +919,7 @@ class Installation
          }
          //When we need to apply a local php.ini file, even if session.save_path is correctly configured in the system, after applying
          //the php.ini file, for some reason the session.save_path goes away. So, whenever we are in this function, we *must*
-         //include the session.save_path inside the local php.ini file 
+         //include the session.save_path inside the local php.ini file
          elseif (!$settings['session.save_path']) {
              if (ini_get('session.save_path') && is_writable(ini_get('session.save_path'))) {
                  $localPhpIniString .= "session.save_path = \"".ini_get('session.save_path')."\"\n";
@@ -947,7 +947,7 @@ php_value register_globals Off
  }
  /**
 
-	 * 
+	 *
 
 	 * @param $table
 
@@ -1042,9 +1042,9 @@ php_value register_globals Off
  }
  /**
 
-	 * Update all tables by copying each one of them  
+	 * Update all tables by copying each one of them
 
-	 * 
+	 *
 
 	 * @param array $table The table to upgrade
 
@@ -1102,7 +1102,7 @@ php_value register_globals Off
              unset($data[$i]['paypal_data_ID']); //Obsolete field
          } else if ($table == 'courses') {
              $data[$i]['created'] != '' OR $data[$i]['created'] = time(); //Set a creation date to a course, if it doesn't have one
-    //Convert old table properties to options 	            
+    //Convert old table properties to options
              $options = unserialize($data[$i]['options']) OR $options = array(); //initialize the course options for the below operations
              !$data[$i]['certificate'] OR $options['certificate'] = $data[$i]['certificate'];
              !$data[$i]['auto_certificate'] OR $options['auto_certificate'] = $data[$i]['auto_certificate'];
@@ -1110,7 +1110,7 @@ php_value register_globals Off
              !$data[$i]['certificate_tpl_id'] OR $options['certificate_tpl_id'] = $data[$i]['certificate_tpl_id'];
              !$data[$i]['duration'] OR $options['duration'] = $data[$i]['duration'];
              $data[$i]['options'] = serialize($options);
-    //Unset old and deprecated fields	            
+    //Unset old and deprecated fields
              unset($data[$i]['certificate']);
              unset($data[$i]['auto_certificate']);
              unset($data[$i]['auto_complete']);
@@ -1121,7 +1121,7 @@ php_value register_globals Off
              unset($data[$i]['to_timestamp']);
              unset($data[$i]['shift']);
          }
-         //Convert any '' values inside fields that are now integers, to 0 (for example timestamps that used to be varchars)	        
+         //Convert any '' values inside fields that are now integers, to 0 (for example timestamps that used to be varchars)
          if (isset($data[$i])) {
           foreach ($data[$i] as $key => $value) {
               if (strpos($fieldTypes[$key], "int(") !== false && $value === '') {
@@ -1160,15 +1160,15 @@ php_value register_globals Off
 
 	 * Create a database table
 
-	 * 
+	 *
 
 	 * This function is used in order to read the sql table definitions and pick one
 
-	 * specific table creatoin declaration to execute. 
+	 * specific table creatoin declaration to execute.
 
-	 *  
+	 *
 
-	 * @param string $table The table to create 
+	 * @param string $table The table to create
 
 	 * @param $contents The sql definitions
 
@@ -1197,7 +1197,7 @@ php_value register_globals Off
 
 	 * Set error reporting for installation
 
-	 * 
+	 *
 
 	 * @since 3.6.0
 
@@ -1233,11 +1233,11 @@ php_value register_globals Off
 
 	 * Print a default error message
 
-	 * 
+	 *
 
-	 * This function prints an error message. 
+	 * This function prints an error message.
 
-	 *  
+	 *
 
 	 * @param string $message The error message
 
@@ -1269,6 +1269,13 @@ php_value register_globals Off
    $GLOBALS['db'] -> Execute("drop table if exists ".$table);
   } elseif ($driver == 'mssql') {
    $GLOBALS['db'] -> Execute("IF EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table') DROP TABLE $table;");
+  }
+ }
+ public static function handleInstallationExceptions($e) {
+  if ($_GET['unattended']) {
+   handleAjaxExceptions($e);
+  } else {
+   handleNormalFlowExceptions($e);
   }
  }
 }

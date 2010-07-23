@@ -21,6 +21,7 @@ ob_end_clean();
 $info = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $info);
 $smarty -> assign("T_PHPINFO", $info);
 
+$smarty -> assign("T_VERSION_TYPES", $GLOBALS['versionTypes']);
 
 //Lock down operations
 if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAccess['maintenance'] == 'change') {
@@ -256,8 +257,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         try {
             EfrontSearch :: reBuiltIndex();
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     }
@@ -271,10 +271,54 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
              eF_executeNew("reset query cache");
             }
         } catch (Exception $e) {
-            header("HTTP/1.0 500 ");
-            echo $e -> getMessage().' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
+    }
+
+//pr($permissions);
+    if (isset($_GET['permissions']) && $_GET['ajax'] == 1) {
+     try {
+      if ($_GET['permissions'] == 'set') {
+       list($failedDirectories, $failedFiles) = setWritePermissions(G_ROOTPATH);
+      } elseif ($_GET['permissions'] == 'unset') {
+       list($failedDirectories, $failedFiles) = setReadPermissions(G_ROOTPATH);
+      } elseif ($_GET['permissions'] == 'check') {
+       list($failedDirectories, $failedFiles) = checkPermissions(G_ROOTPATH);
+      }
+      if ($_GET['permissions'] == 'unset') {
+    foreach ($permissions as $key => $value) {
+     if ($key != 'libraries' && is_dir(G_ROOTPATH.$key)) {
+      list($failedDirectoriesTemp, $failedFilesTemp) = setWritePermissions(G_ROOTPATH.$key);
+      $failedDirectories += $failedDirectoriesTemp;
+      $failedFiles += $failedFilesTemp;
+     }
+    }
+      }
+      $text = '';
+      if (sizeof($failedDirectories)) {
+       $text .= "Failed directories:\n";
+       $text .= implode("\n", $failedDirectories);
+      }
+      if (sizeof($failedFiles)) {
+       $text .= "Failed files:\n";
+       $text .= implode("\n", $failedFiles);
+      }
+      if ($text) {
+       $failedFilesPath = $currentUser -> getDirectory().'failed_permissions.txt';
+       file_put_contents($failedFilesPath, $text);
+       //FileSystemTree::importFiles(array($failedFilesPath));
+       echo json_encode(array('failed_files' => sizeof($failedFiles),
+               'failed_directories' => sizeof($failedDirectories),
+               'failed_files_path' => $failedFilesPath,
+               'message' => str_replace(array('%x', '%y', '%z'), array(sizeof($failedDirectories), sizeof($failedFiles), $failedFilesPath), _FAILEDPERMISSIONSMESSAGE)));
+      } else {
+       echo json_encode(array('message' => _OPERATIONCOMPLETEDSUCCESSFULLY));
+      }
+      exit;
+     } catch (Exception $e) {
+      handleAjaxExceptions($e);
+     }
     }
 
  if (isset($_GET['autologin'])) {
@@ -338,8 +382,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
                 }
                 exit;
             } catch (Exception $e) {
-                header("HTTP/1.0 500 ");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         }

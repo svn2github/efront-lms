@@ -225,7 +225,8 @@ $MODULE_HCD_EVENTS['LEFT'] = 8;
 
  */
 function setupVersion() {
-    //Set the specific version parameters
+ define("G_VERSIONTYPE_CODEBASE", 'community');
+ //Set the specific version parameters
     $GLOBALS['versionTypes'] = array('educational' => 'Educational',
                           'enterprise' => 'Enterprise',
                           //'unregistered' => 'Unregistered',
@@ -259,8 +260,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 7867;
-    defined("G_BUILD") OR define("G_BUILD", $build);
+    $build = 7906;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

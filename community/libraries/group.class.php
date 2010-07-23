@@ -35,6 +35,7 @@ class EfrontGroupException extends Exception
     const INVALID_USER = 303;
     const USER_NOT_EXISTS = 304;
     const USER_ALREADY_MEMBER = 305;
+    const ASSIGNMENT_ERROR = 306;
 }
 /**
 
@@ -131,7 +132,7 @@ class EfrontGroup
             $group[0] = $group_id;
         } else {
          if (!eF_checkParameter($group_id, 'id')) {
-             throw new EfrontGroupException(_INVALIDID, EfrontGroupException :: INVALID_ID);
+             throw new EfrontGroupException(_INVALIDID.": $group_id", EfrontGroupException :: INVALID_ID);
          }
             $group = eF_getTableData("groups", "*", "id = $group_id");
         }
@@ -175,7 +176,7 @@ class EfrontGroup
 
      * </code><br/>
 
-     * 
+     *
 
      * @param array $fields The new group characteristics
 
@@ -317,7 +318,7 @@ class EfrontGroup
 
      * Add users to group
 
-     * 
+     *
 
      * This function is used to add users to the current group
 
@@ -349,8 +350,8 @@ class EfrontGroup
             }
             $users = array($users);
         }
-        $allUsers = eF_getTableDataFlat("users", "login", "archive=0"); //TODO: removed here the "active = 1 AND " 
-        // Optimization - get the lesson info extraciton out of the loop if you are to assign 
+        $allUsers = eF_getTableDataFlat("users", "login", "archive=0"); //TODO: removed here the "active = 1 AND "
+        // Optimization - get the lesson info extraciton out of the loop if you are to assign
         // them to new group users
         if ($this -> group['assign_profile_to_new']) {
             $groupLessons = $this -> getLessons();
@@ -361,27 +362,27 @@ class EfrontGroup
 
             foreach ($groupLessons as $lesson) {
 
-                $lessonTypes[] = $lesson['user_type'];   
+                $lessonTypes[] = $lesson['user_type'];
 
-            } 
+            }
 
 			*/
-            $groupCourses = $this -> getCourses();
-            $courseIds = array_keys($groupCourses);
-            /*        
+            $groupCourses = $this -> getCourses(true, true);
+            //$courseI = array_keys($groupCourses);
+            /*
 
             $courseTypes = array();
 
             foreach ($groupCourses as $course) {
 
-                $courseTypes[] = $course['user_type'];   
+                $courseTypes[] = $course['user_type'];
 
-            } 
+            }
 
 			*/
         }
-        $duplicate_found = false;
-        foreach ($users as $user) {
+        $errors = array();
+        foreach ($users as $key => $user) {
             if ($user instanceof EfrontUser) {
                 $user = $user -> user['login'];
             }
@@ -392,14 +393,11 @@ class EfrontGroup
                  $ok = eF_insertTableData("users_to_groups", $fields);
                 } catch (Exception $e) {
                  // Don't throw here, so that mass assignments can continue to the next user
-                 $duplicate_found = true;
+                 $errors[] = _USERALREADYEXISTSINGROUP.": $user";
                 }
                 if ($ok && $this -> group['assign_profile_to_new']) {
-                    try {
-                     $userObject = EfrontUserFactory::factory($user);
-                    } catch (Exception $e) {
-                     throw $e;
-                    }
+                 $userObject = EfrontUserFactory::factory($user);
+                 $userObjects[$user] = $userObject;
                     $fields = array();
                     if ($userObject -> getType() != 'administrator') {
                   // Update the user profile
@@ -430,9 +428,9 @@ class EfrontGroup
            }
            // Add lessons - info acquired before entering the new user assignment loop
                     if ($userObject -> getType() != 'administrator') {
-                     if ($fields["user_types_ID"]) {
+                     if (isset($fields["user_types_ID"])) {
                       $userTypeInCourses = $fields["user_types_ID"];
-                     } elseif ($fields["user_types_ID"]) {
+                     } elseif (isset($fields["user_type"])) {
                       $userTypeInCourses = $fields["user_type"];
                      } else {
                       $userTypeInCourses = $userObject -> getType();
@@ -440,25 +438,28 @@ class EfrontGroup
                         if (!empty($lessonIds)) {
        $userObject -> addLessons($lessonIds, $userTypeInCourses, 1); //active lessons
                         }
-      if (!empty($courseIds)) {
-       $userObject -> addCourses($courseIds, $userTypeInCourses, 1); // active courses
-      }
                     }
                 }
             } else {
-             throw new EfrontGroupException(_USERDOESNOTEXIST, EfrontGroupException :: USER_NOT_EXISTS);
+             $errors[] = _USERDOESNOTEXIST.": $user";
+             //throw new EfrontGroupException(_USERDOESNOTEXIST.": $user", EfrontGroupException :: USER_NOT_EXISTS);
             }
         }
-        // Used for user to groups import
-        if ($duplicate_found) {
-         throw new EfrontGroupException(_USERALREADYEXISTSINGROUP, EfrontGroupException :: USER_ALREADY_MEMBER);
+//pr($groupCourses);exit;
+        if (!empty($groupCourses)) {
+         foreach ($groupCourses as $course) {
+          $course -> addUsers($userObjects, $userTypeInCourses, 1);
+         }
+        }
+        if (!empty($errors)) {
+         throw new EfrontGroupException(implode("<br>", $errors), EfrontGroupException :: ASSIGNMENT_ERROR);
         }
     }
     /**
 
      * Remove users from group
 
-     * 
+     *
 
      * This function is used to remove users from the current group
 
@@ -502,9 +503,9 @@ class EfrontGroup
     }
     /**
 
-     * Update group users 
+     * Update group users
 
-     * 
+     *
 
      * This function is used to update ALL current group users
 
@@ -516,7 +517,7 @@ class EfrontGroup
 
      * $group = new EfrontGroup(2);
 
-     * $group -> group['active'] = 2; 	// deactivate users 
+     * $group -> group['active'] = 2; 	// deactivate users
 
      * $group -> updateUsers();
 
@@ -577,13 +578,13 @@ class EfrontGroup
 
      *
 
-     * This function returns an array with the group lessons. Each record in 
+     * This function returns an array with the group lessons. Each record in
 
      * the array holds the lesson id, lesson name and the type ('student' or 'professor')
 
      * assosiated with that lesson.
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -623,7 +624,7 @@ class EfrontGroup
             $result = eF_getTableData("lessons_to_groups lg, lessons l", "lg.*, l.name, l.active", "lg.lessons_ID = l.id and lg.groups_ID=".$this -> group['id']);
             $this -> lessons = array();
             foreach ($result as $value) {
-                $this -> lessons[$value['lessons_ID']] = array("lessons_ID" => $value['lessons_ID'], "lessons_name" => $value['name'], "user_type" => $value['user_type'], "active" => $value['active']);
+                $this -> lessons[$value['lessons_ID']] = array("lessons_ID" => $value['lessons_ID'], "lessons_name" => $value['name'], "user_type" => $this -> group['user_types_ID'], "active" => $value['active']);
             }
          }
         return $this -> lessons;
@@ -632,7 +633,7 @@ class EfrontGroup
 
      * Add lessons to group
 
-     * 
+     *
 
      * This function is used to add lessons to the current group
 
@@ -658,7 +659,7 @@ class EfrontGroup
 
      */
     public function addLesson($lessons_ID, $user_type = "student") {
-        // Check if the lesson exists in the group's list    
+        // Check if the lesson exists in the group's list
         $lessons = $this -> getLessons();
         if (in_array($lessons_ID, array_keys($lessons))) {
             // If the lesson is already assigned check if you need
@@ -685,7 +686,7 @@ class EfrontGroup
 
      * Remove lessons from group
 
-     * 
+     *
 
      * This function is used to remove lessons from the current group
 
@@ -733,13 +734,13 @@ class EfrontGroup
 
      *
 
-     * This function returns an array with the group courses. Each record in 
+     * This function returns an array with the group courses. Each record in
 
      * the array holds the course id, course name and the type ('student' or 'professor')
 
      * assosiated with that course.
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -786,7 +787,7 @@ class EfrontGroup
              if ($returnObjects) {
                  $this -> courses[$value['courses_ID']] = new EfrontCourse($value);
              } else {
-                 $this -> courses[$value['courses_ID']] = array("courses_ID" => $value['courses_ID'], "courses_name" => $value['courses_name'], "user_type" => $value['user_type']);
+                 $this -> courses[$value['courses_ID']] = array("courses_ID" => $value['courses_ID'], "courses_name" => $value['courses_name'], "user_type" => $this -> group['user_types_ID']);
              }
             }
          }
@@ -859,7 +860,7 @@ class EfrontGroup
     public function getGroupCoursesIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $select = "c.*, r.courses_ID is not null as has_course, 
+  $select = "c.*, r.courses_ID is not null as has_course,
        (select count( * ) from courses l where instance_source=c.id)
          as has_instances,
        (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
@@ -882,7 +883,7 @@ class EfrontGroup
 
      * Add courses to group
 
-     * 
+     *
 
      * This function is used to add courses to the current group
 
@@ -935,7 +936,7 @@ class EfrontGroup
 
      * Remove courses from group
 
-     * 
+     *
 
      * This function is used to remove courses from the current group
 
@@ -992,9 +993,9 @@ class EfrontGroup
 
      * Persist group values
 
-     * 
+     *
 
-     * This function is used to persist any changes made to the current 
+     * This function is used to persist any changes made to the current
 
      * group.
 
@@ -1010,7 +1011,7 @@ class EfrontGroup
 
      * </code>
 
-     * 
+     *
 
      * @return boolean True if everything is ok
 
@@ -1031,13 +1032,13 @@ class EfrontGroup
 
      * Adds a user to the default group
 
-     * 
+     *
 
      * This function adds a user to the default group, assigning to him the lessons
 
      * of that group.
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -1045,13 +1046,13 @@ class EfrontGroup
 
      * $userObject = EfrontUserFactory::factory('joe'); 	// create user object joe
 
-     * EfrontGroup :: addToDefaultGroup($userObject);							
+     * EfrontGroup :: addToDefaultGroup($userObject);
 
      * </code>
 
-     * 
+     *
 
-     * @param $user InstanceOf EfrontUser 
+     * @param $user InstanceOf EfrontUser
 
      * @return true if everything ok
 
@@ -1085,7 +1086,7 @@ class EfrontGroup
 
    		$group -> updateUsers($login);
 
-      
+
 
    		// Get updated version of user
 
@@ -1161,7 +1162,7 @@ class EfrontGroup
 
      * Returns the existing groups
 
-     * 
+     *
 
      * This function returns the existing groups
 
@@ -1171,13 +1172,13 @@ class EfrontGroup
 
      * <code>
 
-     * $groups -> EfrontGroup :: getGroups();							
+     * $groups -> EfrontGroup :: getGroups();
 
      * </code>
 
-     * 
+     *
 
-     * @param boolean Flat to indicate whether to return group objects or not 
+     * @param boolean Flat to indicate whether to return group objects or not
 
      * @param boolean Flag to indicate whether to return disabled groups
 
@@ -1213,7 +1214,7 @@ class EfrontGroup
 
      * Returns the lessons that are associated with the group's users (NOT necessarily with the group)
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -1221,13 +1222,13 @@ class EfrontGroup
 
      * $group = new EfrontGroup(2);
 
-     * $group->getLessonGroupUsers();							
+     * $group->getLessonGroupUsers();
 
      * </code>
 
-     * 
+     *
 
-     * @param boolean Flat to indicate whether to return lesson objects or not 
+     * @param boolean Flat to indicate whether to return lesson objects or not
 
      * @param boolean Flag to indicate whether to return disabled lessons
 

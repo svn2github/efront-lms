@@ -38,8 +38,9 @@
     $actions[23] = "course_to_user";
     $actions[24] = "course_from_user";
  $actions[25] = "course_lessons";
- $actions[26] = "efrontlogout";
-    $actions[27] = "logout";
+ $actions[26] = "curriculum_to_user";
+ $actions[27] = "efrontlogout";
+    $actions[28] = "logout";
 
     $smarty -> assign("T_ACTIONS", $actions);
 
@@ -171,6 +172,12 @@
             $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
             $form -> addElement('text', 'course', _COURSE, 'class = "inputText"');
    $form -> addElement("select", "type", _USERTYPE, array("student"=>_STUDENT, "professor"=>_PROFESSOR), 'class = "inputText"');
+            break;
+        }
+  case 'curriculum_to_user':{
+            $form -> addElement('text', 'token', _TOKEN, 'class = "inputText"');
+            $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
+            $form -> addElement('text', 'curriculum', _CURRICULUM, 'class = "inputText"');
             break;
         }
         case 'course_from_user':{
@@ -550,6 +557,17 @@
                         fclose($stream);
                     }
                     break;
+                    break;
+                }
+    case 'curriculum_to_user':{
+                    $login = $values['login'];
+                    $curriculum = $values['curriculum'];
+                    $token = $values['token'];
+                    if ($stream = fopen(G_SERVERNAME.'api2.php?action=curriculum_to_user&login='.$login.
+                    '&curriculum='.$curriculum.'&token='.$token, 'r')) {
+                        $output = stream_get_contents($stream);
+                        fclose($stream);
+                    }
                     break;
                 }
                 case 'logout':{

@@ -20,6 +20,13 @@
 - Fixed bug about new lesson comment event
 - Replaced flash charts with flotr JS-based graphs
 - Fixed bookmarks not working for professor
+- Added propagation handle to branch courses
+- Added code for hiding organization section for custom user types in enterprise edition
+- Fixed issue about sending messages with a custom user type
+- Provides RSS feeds through the RSS module
+- Fixed issue about assigning group user type to user via key
+- Added file permissions checking and setting functionality
+- Added api2.php for version 2.0 of eFront XML API
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

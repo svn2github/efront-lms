@@ -37,6 +37,9 @@ $loadScripts = array();
 
 try {
  $currentUser = EfrontUser :: checkUserAccess(false, 'student');
+ if ($currentUser -> user['user_type'] == 'administrator') {
+  throw new Exception(_ADMINISTRATORCANNOTACCESSLESSONPAGE, EfrontUserException :: RESTRICTED_USER_TYPE);
+ }
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {

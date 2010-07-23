@@ -11,7 +11,7 @@ abstract class EfrontImport
 {
  /**
 	 * The contents of the file to be imported
-	 * 
+	 *
 	 * @since 3.6.1
 	 * @var string
 	 * @access private
@@ -20,7 +20,7 @@ abstract class EfrontImport
 
  /**
 	 * Various options like duplicates handling are stored in the options array
-	 * 
+	 *
 	 * @since 3.6.1
 	 * @var array
 	 * @access private
@@ -30,7 +30,7 @@ abstract class EfrontImport
 
  /**
 	 * Log where the results of the import are stored
-	 * 
+	 *
 	 * @since 3.6.1
 	 * @var array
 	 * @access private
@@ -39,14 +39,14 @@ abstract class EfrontImport
 
     /**
      * Import the data from the file following the designated options
-     * 
+     *
      * <br/>Example:
      * <code>
      * $importer -> import(); //returns something like /var/www/efront/upload/admin/
-     * $logMessages = $importer -> getLogMessages(); 
+     * $logMessages = $importer -> getLogMessages();
      * </code>
-     * 
-     * @return void 
+     *
+     * @return void
      * @since 3.6.1
      * @access public
      */
@@ -54,14 +54,14 @@ abstract class EfrontImport
 
     /**
      * Get the log of the import operations
-     * 
+     *
      * <br/>Example:
      * <code>
      * $importer -> import(); //returns something like /var/www/efront/upload/admin/
-     * $logMessages = $importer -> getLogMessages(); 
+     * $logMessages = $importer -> getLogMessages();
      * </code>
-     * 
-     * @return array with subarrays "success" and "failure" each with corresponding messages 
+     *
+     * @return array with subarrays "success" and "failure" each with corresponding messages
      * @since 3.6.1
      * @access public
      */
@@ -202,7 +202,7 @@ abstract class EfrontImport
 }
 /****************************************************
  * Class used to import data from csv files
- * 
+ *
  */
 class EfrontImportCsv extends EfrontImport
 {
@@ -355,6 +355,25 @@ class EfrontImportCsv extends EfrontImport
    $this -> log["failure"][] = _LINE . " $line: " . $e -> getMessage();
   }
  }
+ private function importDataMultiple($type, $data) {
+  try {
+   switch($type) {
+    case "users_to_groups":
+     foreach ($data as $value) {
+      $groups_ID = current($this -> getGroupByName($value['groups.name']));
+      $groups[$groups_ID][] = $value['users_login'];
+     }
+     foreach ($groups as $id => $groupUsers) {
+      $group = new EfrontGroup($id);
+      $group -> addUsers($groupUsers);
+      $this -> log["success"][] = _NEWGROUPASSIGNMENT . " " . $group -> group['name'] . " - " . implode(",", $groupUsers);
+     }
+     break;
+   }
+  } catch (Exception $e) {
+   $this -> log["failure"][] = $e -> getMessage().' ('.$e -> getCode().')';// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
+  }
+ }
  /*
 	 * Use eFront classes according to the type of import to store the data used
 	 * @param line: the line of the imported file
@@ -366,7 +385,8 @@ class EfrontImportCsv extends EfrontImport
   try {
    switch($type) {
     case "users":
-     $newUser = EfrontUser::createUser($data); $this -> log["success"][] = _LINE . " $line: " . _IMPORTEDUSER . " " . $newUser -> login;
+     $newUser = EfrontUser::createUser($data);
+     $this -> log["success"][] = _LINE . " $line: " . _IMPORTEDUSER . " " . $newUser -> login;
      break;
     case "users_to_courses":
      $courses_name = trim($data['course_name']);
@@ -399,6 +419,7 @@ class EfrontImportCsv extends EfrontImport
      }
      break;
     case "users_to_groups":
+     //debug();
      $groups_ID = $this -> getGroupByName($data['groups.name']);
      $group_name = $data['groups.name'];
      unset($data['groups.name']);
@@ -409,6 +430,7 @@ class EfrontImportCsv extends EfrontImport
       $this -> log["success"][] = _LINE . " $line: " . _NEWGROUPASSIGNMENT . " " . $group_name . " - " . $data['users_login'];
      }
      break;
+     //debug(false);
    }
   } catch (Exception $e) {
    if ($this -> options['replace_existing']) {
@@ -467,13 +489,21 @@ class EfrontImportCsv extends EfrontImport
   } else {
    // Pairs of values <Csv column header> => <eFront DB field>
    $this -> types = EfrontImport::getTypes($type);
-   // Pairs of values <eFront DB field> => <import file column> 
+   // Pairs of values <eFront DB field> => <import file column>
    $this -> mappings = $this -> parseHeaderLine(&$headerLine);
    if ($this -> mappings) {
     if ($this -> checkImportEssentialField($type)) {
-     for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
-      $data = $this -> parseDataLine($line);
-      $this -> importData($line+1, $type, $data);
+     if ($type == 'users_to_groups') {
+      $data = array();
+      for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
+       $data[] = $this -> parseDataLine($line);
+      }
+      $this -> importDataMultiple($type, $data);
+     } else {
+      for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
+       $data = $this -> parseDataLine($line);
+       $this -> importData($line+1, $type, $data);
+      }
      }
     }
    } else {
@@ -529,10 +559,10 @@ class EfrontImportFactory
      *
      * This function is used to construct an import object which can be
      * of any type: EfrontCsvImport
-     * 
+     *
      * <br/>Example :
      * <code>
-     * $file = $filesystem -> uploadFile('upload_file'); 
+     * $file = $filesystem -> uploadFile('upload_file');
      * $user = EfrontImportFactory :: factory('csv', $file, array("keep_duplicates" => 1);            //Use factory function to instantiate user object with login 'jdoe'
      * </code>
      *
@@ -566,7 +596,7 @@ abstract class EfrontExport
 {
  /**
 	 * Various options like duplicates handling are stored in the options array
-	 * 
+	 *
 	 * @since 3.6.1
 	 * @var array
 	 * @access protected
@@ -574,7 +604,7 @@ abstract class EfrontExport
  protected $options;
  /**
 	 * The lines that should finally be exported are written in this array
-	 * 
+	 *
 	 * @since 3.6.1
 	 * @var array
 	 * @access protected
@@ -582,14 +612,14 @@ abstract class EfrontExport
  protected $lines = array();
     /**
      * Export the data from the file following the designated options
-     * 
+     *
      * <br/>Example:
      * <code>
      * $exporter -> export(); //returns something like /var/www/efront/upload/admin/
-     * $logMessages = $exporter -> getLogMessages(); 
+     * $logMessages = $exporter -> getLogMessages();
      * </code>
-     * 
-     * @return void 
+     *
+     * @return void
      * @since 3.6.1
      * @access public
      */
@@ -682,7 +712,7 @@ abstract class EfrontExport
 }
 /****************************************************
  * Class used to export data from csv files
- * 
+ *
  */
 class EfrontExportCsv extends EfrontExport
 {
@@ -797,10 +827,10 @@ class EfrontExportFactory
      *
      * This function is used to construct an export object which can be
      * of any type: EfrontCsvExport
-     * 
+     *
      * <br/>Example :
      * <code>
-     * $file = $filesystem -> uploadFile('upload_file'); 
+     * $file = $filesystem -> uploadFile('upload_file');
      * $user = EfrontExportFactory :: factory('csv', $file, array("keep_duplicates" => 1);            //Use factory function to instantiate user object with login 'jdoe'
      * </code>
      *

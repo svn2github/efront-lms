@@ -148,6 +148,7 @@ try {
 
       $graph = new EfrontGraph();
       $graph -> type = 'line';
+      //$step = sizeof($labels)/8;
       for ($i = 0; $i < sizeof($labels); $i++) {
        $graph -> data[] = array($i, $count[$i]);
        $graph -> xLabels[] = array($i, formatTimestamp($labels[$i]));
@@ -161,27 +162,27 @@ try {
       exit;
      } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_users_access') {
       $graph = new EfrontGraph();
-      $graph -> type = 'horizontal_bar';
+      $graph -> type = 'bar';
       $count = 0;
       foreach ($userTimes as $key => $value) {
-       $graph -> data[] = array(round($value/60), $count);
-       $graph -> xLabels[] = array($count++, formatLogin($key));
+       $graph -> xLabels[] = array($count, formatLogin($key));
+       $graph -> data[] = array($count++, round($value/60));
       }
-      $graph -> xTitle = _MINUTES;
-      $graph -> yTitle = _USERS;
+      $graph -> xTitle = _USERS;
+      $graph -> yTitle = _MINUTES;
       $graph -> title = _MINUTESPERUSER;
 
       echo json_encode($graph);
       exit;
      } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_user_types') {
    $result = eF_getTableData("users", "user_type, count(user_type) as num", "", "", "user_type");
-
+   $roles = EfrontUser::getRoles(true);
    $graph = new EfrontGraph();
       $graph -> type = 'bar';
       $count = 0;
       foreach ($result as $value) {
        $graph -> data[] = array($count, $value['num']);
-       $graph -> xLabels[] = array($count++, $value['user_type']);
+       $graph -> xLabels[] = array($count++, $roles[$value['user_type']]);
       }
       $graph -> xTitle = _USERTYPES;
       $graph -> yTitle = _USERS;

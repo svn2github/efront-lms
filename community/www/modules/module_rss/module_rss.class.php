@@ -584,16 +584,16 @@ class module_rss extends EfrontModule
        break;
       case 'forum':
        if ($mode == 'system') {
-        $result = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "ff.title as forum_name, fm.body, fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id ", "fm.timestamp desc LIMIT 100");
+        $result = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "ff.title as forum_name, fm.body, fm.title, fm.id, ft.id as topic_id, ft.title as topic_title, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id ", "fm.timestamp desc LIMIT 100");
        } elseif ($mode == 'lesson') {
         if ($lesson) {
-         $result = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "ff.title as forum_name, fm.body, fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID = '".$lesson."'", "fm.timestamp desc LIMIT 100");
+         $result = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "ff.title as forum_name, fm.body, fm.title, fm.id, ft.id as topic_id, ft.title as topic_title, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID = '".$lesson."'", "fm.timestamp desc LIMIT 100");
         } else {
-         $result = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "ff.title as forum_name, fm.body, fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID != 0", "fm.timestamp desc LIMIT 100");
+         $result = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "ff.title as forum_name, fm.body, fm.title, fm.id, ft.id as topic_id, ft.title as topic_title, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID != 0", "fm.timestamp desc LIMIT 100");
         }
        }
        foreach ($result as $value) {
-     $value['title'] = $value['forum_name'].' >> '.$value['title'];
+     $value['title'] = $value['forum_name'].' >> '.$value['topic_title'].' >> '.$value['title'];
         if (($mode == 'system' && $value['lessons_name']) || ($mode == 'lesson' && !$lesson)) {
          $value['title'] = $value['lessons_name'].': '.$value['title'];
         }

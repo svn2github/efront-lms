@@ -1,3 +1,4 @@
+ {if $T_CONFIGURATION.enable_cart}{assign var = "cart_image" value = "shopping_basket_add.png"}{else}{assign var = "cart_image" value = "add.png"}{/if}
 
  {if $T_LESSON_INFO}
          {foreach name = 'info_list' item = "item" key = "key" from = $T_LESSON_INFO->metadataArray}
@@ -19,18 +20,18 @@
       {if $T_LESSON->lesson.price}
           {if $T_HAS_LESSON}
               <span>{$T_LESSON->lesson.price_string}</span>
-              <img class = "ajaxHandle inactiveImage" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
+              <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
              {else}
               <span>{$T_LESSON->lesson.price_string}</span>
-              <img class = "ajaxHandle" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson')">
+              <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');location=redirectLocation">
              {/if}
          {else}
           {if $T_HAS_LESSON}
               <span>{$T_LESSON->lesson.price_string}</span>
-              <img class = "ajaxHandle inactiveImage" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
+              <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
              {else}
               <span>{$smarty.const._FREEOFCHARGE}</span>
-              <img class = "ajaxHandle" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson')">
+              <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');location=redirectLocation">
              {/if}
          {/if}
           </div>
@@ -39,18 +40,18 @@
           {if $T_COURSE->course.price}
               {if $T_HAS_COURSE}
                   <span>{$smarty.const._YOULAREDYHAVETHECOURSE} &quot;{$T_COURSE->course.name}&quot;</span>
-                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
+                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
                  {else}
                   <span>{$smarty.const._GETTHECOURSE} &quot;{$T_COURSE->course.name}&quot;, {$T_COURSE->course.price_string}</span>
-                  <img class = "ajaxHandle" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course')">
+                  <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');location=redirectLocation">
                  {/if}
           {else}
               {if $T_HAS_COURSE}
                   <span>{$smarty.const._YOULAREDYHAVETHECOURSE} &quot;{$T_COURSE->course.name}&quot; {$T_COURSE->course.price_string}</span>
-                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
+                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
                  {else}
                   <span>{$smarty.const._GETTHECOURSE} &quot;{$T_COURSE->course.name}&quot;, {$smarty.const._FREEOFCHARGE}</span>
-                  <img class = "ajaxHandle" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course')">
+                  <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');location=redirectLocation">
                  {/if}
        {/if}
     </div>
@@ -70,18 +71,18 @@
           {if $T_COURSE->course.price}
               {if $T_HAS_COURSE}
                   <span>{$T_COURSE->course.price_string}</span>
-                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
+                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
                  {else}
                   <span>{$T_COURSE->course.price_string}</span>
-                  <img class = "ajaxHandle" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course')">
+                  <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');location=redirectLocation">
                  {/if}
           {else}
               {if $T_HAS_COURSE}
                   <span>{$T_COURSE->course.price_string}</span>
-                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
+                  <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
                  {else}
                   <span>{$smarty.const._FREEOFCHARGE}</span>
-                  <img class = "ajaxHandle" src = "images/32x32/shopping_basket_add.png" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course')">
+                  <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');location=redirectLocation">
                  {/if}
        {/if}
                  </div>

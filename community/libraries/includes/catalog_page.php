@@ -110,8 +110,9 @@ if (!isset($_GET['checkout'])) {
   $smarty -> assign("T_ADDITIONAL_COURSE_INFO", $additionalInfo);
  }
 
-
- $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
+ if ($GLOBALS['configuration']['enable_cart']) {
+  $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
+ }
 
  $options = array('lessons_link' => basename($_SERVER['PHP_SELF']).'?ctg=lessons&catalog=1&info_lesson=',
                               'courses_link' => basename($_SERVER['PHP_SELF']).'?ctg=lessons&catalog=1&info_course=',

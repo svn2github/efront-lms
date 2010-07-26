@@ -20,7 +20,7 @@
                         {$smarty.const._EXPORTSTATS}
                         <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&group_filter={$smarty.get.group_filter}&excel=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/xls.png" title = "{$smarty.const._XLSFORMAT}" alt = "{$smarty.const._XLSFORMAT}"/>
-                        </a>f
+                        </a>
                         <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&group_filter={$smarty.get.group_filter}&pdf=lesson&branch_filter={$smarty.get.branch_filter}">
                             <img src = "images/file_types/pdf.png" title = "{$smarty.const._PDFFORMAT}" alt = "{$smarty.const._PDFFORMAT}"/>
                         </a>
@@ -451,8 +451,6 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                                     {/if}
                                 {/strip}</td>
                                 <td class = "centerAlign">
-                                    <a href = "display_chart.php?id=10&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}&login={$login}&lesson_id={$smarty.get.sel_lesson}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2)" target = "POPUP_FRAME">
-                                     <img src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}"/></a>
                                     <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_user_access', '{$login}');"/>
                                 </td>
                             </tr>

@@ -89,6 +89,7 @@ if (isset($_GET['sel_user'])) {
    $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonsTable') {
+    $tableName = $_GET['ajax'];
     $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'operations', 'sort_by_column' => 4));
     $smarty -> assign("T_DATASOURCE_OPERATIONS", array('progress'));
     $lessons = $infoUser -> getUserStatusInIndependentLessons();
@@ -96,6 +97,7 @@ if (isset($_GET['sel_user'])) {
     $dataSource = $lessons;
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
+    $tableName = $_GET['ajax'];
     $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'operations', 'sort_by_column' => 4));
     $smarty -> assign("T_DATASOURCE_OPERATIONS", array('progress'));
     $lessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsTable_source']));

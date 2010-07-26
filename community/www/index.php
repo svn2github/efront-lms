@@ -648,8 +648,12 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
 if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to display information on a lesson
  //session_start();			//Isn't needed here if the head session_start() is in place
  if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
+  include("directions_tree.php");
   try {
    if (isset($_GET['lessons_ID'])) {
+    if (isset($lessons[$_GET['lessons_ID']]) && ($lessons[$_GET['lessons_ID']] instanceOf EfrontLesson)) {
+     $smarty -> assign("T_HAS_LESSON", $lessons[$_GET['lessons_ID']] -> lesson['has_lesson']);
+    }
     $lesson = new EfrontLesson($_GET['lessons_ID']);
     $lesson -> lesson['price_string'] = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true);
     $smarty -> assign("T_LESSON", $lesson);
@@ -675,6 +679,9 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to 
      }
     }
    } else if ($_GET['courses_ID']) {
+    if (isset($courses[$_GET['courses_ID']]) && ($courses[$_GET['courses_ID']] instanceOf EfrontCourse)) {
+     $smarty -> assign("T_HAS_COURSE", $courses[$_GET['courses_ID']] -> course['has_course']);
+    }
     $course = new EfrontCourse($_GET['courses_ID']);
     $course -> course['num_students'] = sizeof($course -> getStudentUsers());
     $course -> course['seats_remaining'] = $course -> course['max_users'] - $course -> course['num_students'];

@@ -132,6 +132,7 @@ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElement
 {/if}
 </script>
 
+
 <script>
 
 {literal}
@@ -148,6 +149,19 @@ if (!usingHorizontalInterface) {
 {*{if !$smarty.get.popup && !$T_POPUP_MODE}closePopup();{/if}*}
 
 {*{if $smarty.get.popup || $T_POPUP_MODE}parent.displayPopup(document.body);{/if}*}
+
+ translations['_COUPON'] = '{$smarty.const._COUPON}';
+ translations['_CLICKTOENTERDISCOUNTCOUPON'] = '{$smarty.const._CLICKTOENTERDISCOUNTCOUPON}';
+ {if $smarty.session.s_login}
+  {if $smarty.server.PHP_SELF|basename|replace:'.php':'' == 'index'}
+   redirectLocation ='index.php?ctg=checkout&checkout=1&register_lessons=1';
+  {else}
+   redirectLocation ='{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&checkout=1';
+  {/if}
+ {else}
+  redirectLocation ='index.php?ctg=login&register_lessons=1';
+ {/if}
+
 </script>
 {*
 {literal}

@@ -32,7 +32,7 @@ function showHorizontalBarGraph(el, obj) {
        color: "#00A8F0",
        data: obj.data,
        xaxis: 1,
-       yaxis: 1,
+       yaxis: 1
        }
      ];
 
@@ -45,12 +45,20 @@ function showHorizontalBarGraph(el, obj) {
 }
 function showBarGraph(el, obj) {
  try {
+  var label = '';
+  var xLabelsFiltered = [];
+  var step = Math.round(obj.xLabels.length/8);
+  for (var i = 0; i < obj.xLabels.length; i++) {
+   i%step ? label = '' : label = obj.xLabels[i];
+   xLabelsFiltered.push(label);
+  }
 
-  options = {"title": obj.title,
-       "xaxis": {"showLabels": true, "title":obj.xTitle},
+  options = {"HtmlText": true,
+       "title": obj.title,
+       "xaxis": {"showLabels": true, "ticks":xLabelsFiltered, "title":obj.xTitle, "labelsAngle": 45},
        "yaxis": {"showLabels": true, "title":obj.yTitle},
        "bars": {"show": true, "horizontal": false},
-       "mouse": {"track":true, "position": "ne", "relative": true}
+       "mouse": {"track":true, "position": "ne", "relative": true, "trackFormatter": function(obj2){ return obj.xLabels[parseInt(obj2.x)][1] + ' ('+obj.xTitle+') | '+obj2.y +' ('+obj.yTitle+')';}}
 
        };
 
@@ -69,9 +77,17 @@ function showBarGraph(el, obj) {
 }
 function showLineGraph(el, obj) {
  try {
-  options = {"HtmlText": false,
+  var label = '';
+  var xLabelsFiltered = [];
+  var step = Math.round(obj.xLabels.length/8);
+  for (var i = 0; i < obj.xLabels.length; i++) {
+   i%step ? label = '' : label = obj.xLabels[i];
+   xLabelsFiltered.push(label);
+  }
+
+  options = {"HtmlText": true,
        "title": obj.title,
-       "xaxis": {"showLabels": true, "ticks":obj.xLabels, "title":obj.xTitle,"labelsAngle": 45},
+       "xaxis": {"showLabels": true, "ticks":xLabelsFiltered, "title":obj.xTitle},
        "yaxis": {"showLabels": true, "title":obj.yTitle},
        "lines": {"show": true, "fill":true},
        "mouse": {"track":true, "position": "ne", "relative": true, "trackFormatter": function(obj2){ return obj.xLabels[parseInt(obj2.x)][1] + ' ('+obj.xTitle+') | '+obj2.y +' ('+obj.yTitle+')';}}

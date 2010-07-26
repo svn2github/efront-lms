@@ -29,6 +29,7 @@
 - Added api2.php for version 2.0 of eFront XML API
 - Fixed issue in projects about removing the existing comment when grading student's project
 - Fixed issue in notifications about an exception when a lesson/test is deleted
+- Added cart disable functionality, to allow for single click enrolling to free lessons and courses
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

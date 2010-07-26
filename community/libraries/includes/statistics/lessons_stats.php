@@ -236,11 +236,11 @@ try {
             try {
              if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_access') {
               $graph = new EfrontGraph();
-              $graph -> type = 'horizontal_bar';
+              $graph -> type = 'bar';
               $count = 0;
               foreach ($traffic['users'] as $key => $value) {
-               $graph -> data[] = array($value['accesses'], $count);
-               $graph -> xLabels[] = array($count++, '<span style = "white-space:nowrap">'.formatLogin($key).'</span>');
+               $graph -> data[] = array($count, $value['accesses']);
+               $graph -> xLabels[] = array($count++, formatLogin($key));
               }
               //pr($graph);
               $graph -> xTitle = _USERS;
@@ -269,7 +269,7 @@ try {
      $graph -> type = 'line';
      for ($i = 0; $i < sizeof($labels); $i++) {
       $graph -> data[] = array($i, $count[$i]);
-      $graph -> xLabels[] = array($i, '<span style = "white-space:nowrap">'.formatTimestamp($labels[$i]).'</span>');
+      $graph -> xLabels[] = array($i, formatTimestamp($labels[$i]));
      }
 
      $graph -> xTitle = _DAY;

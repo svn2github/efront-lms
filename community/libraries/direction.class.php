@@ -831,11 +831,14 @@ class EfrontDirectionsTree extends EfrontTree
    $action = 'addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\');';
    if (!$GLOBALS['configuration']['enable_cart']) {
     $action .= 'location=redirectLocation';
+    $image = '<img class = "ajaxHandle" src = "images/16x16/add.png" alt = "'._ENROLL.'" title = "'._ENROLL.'" onclick = "'.$action.'">';
+   } else {
+    $image = '<img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">';
    }
    $treeString .= '
     <span class = "buyLesson">
      <span onclick = "'.$action.'">'.$this -> showLessonPrice($treeLesson).'</span>
-     <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">
+     '.$image.'
     </span>';
   }
   return $treeString;
@@ -867,11 +870,14 @@ class EfrontDirectionsTree extends EfrontTree
     $action = 'addToCart(this, '.$treeCourse -> course['id'].', \'course\');';
     if (!$GLOBALS['configuration']['enable_cart']) {
      $action .= 'location=redirectLocation';
+     $image = '<img class = "ajaxHandle" src = "images/16x16/add.png" alt = "'._ENROLL.'" title = "'._ENROLL.'" onclick = "'.$action.'">';
+    } else {
+     $image = '<img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">';
     }
     $treeString .= '
         <span class = "buyLesson">
          <span onclick = "'.$action.'">'.$this -> showCoursePrice($treeCourse).'</span>
-         <img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">
+         '.$image.'
         </span>';
     $hasInstancesClass = 'boldFont';
    } else {

@@ -331,7 +331,7 @@ var enableMyJobSelect = false;
    </tr>
   </table>
   {if $T_MESSAGE_TYPE == 'success'}
-     <script>parent.location = parent.location;</script>
+     <script>parent.location = parent.location.toString()+'&tab=evaluations';</script>
   {/if}
 {/capture}
 {/if}

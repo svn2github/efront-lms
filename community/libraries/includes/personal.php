@@ -92,9 +92,9 @@ if (isset($currentUser -> login) && $_SESSION['s_password']) {
 }
 if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
  if (isset($_GET['add_evaluation'])) {
-  $form = new HTML_QuickForm("evaluations_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['edit_user']."&add_evaluation=1", "", null, true);
+  $form = new HTML_QuickForm("evaluations_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['edit_user']."&add_evaluation=1&popup=1", "", null, true);
  } else {
-  $form = new HTML_QuickForm("evaluations_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['edit_user']."&edit_evaluation=".$_GET['edit_evaluation'], "", null, true);
+  $form = new HTML_QuickForm("evaluations_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['edit_user']."&edit_evaluation=".$_GET['edit_evaluation']."&popup=1", "", null, true);
  }
  // Hidden for maintaining the previous_url value
  $form -> addElement('hidden', 'previous_url', null, 'id="previous_url"');

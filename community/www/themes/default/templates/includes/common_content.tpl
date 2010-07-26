@@ -106,6 +106,10 @@
        <tr><td class = "labelCell">{$T_ENTITY_FORM.reentry_action.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.reentry_action.html}</td></tr>
        {if $T_ENTITY_FORM.reentry_action.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.reentry_action.error}</td></tr>{/if}
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.embed_type.label}:
+       <td class = "elementCell">{$T_ENTITY_FORM.embed_type.html}</td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.popup_parameters.label}:
+       <td class = "elementCell">{$T_ENTITY_FORM.popup_parameters.html}</td></tr>
       {else}
        <tr id = "toggleTools"><td colspan = "2" id = "toggleeditor_cell1">
         <div class = "headerTools">

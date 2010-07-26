@@ -93,7 +93,17 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      if (strpos($currentUnit['ctg_type'], 'scorm') !== false) {
          $form -> addElement('text', 'scorm_size', _EXPLICITIFRAMESIZE, 'class = "inputText" style = "width:50px"'); //Set an explicit size for the SCORM content
          $form -> addElement('select', 'reentry_action', _ACTIONONRENTRYCOMPLETED, array(0 => _LETCONTENTDECIDE, 1 => _DONTCHANGE), 'class = "inputText"'); //Set what action should be performed when a user re-enters a visited content
-         $form -> addRule('scorm_size', _INVALIDFIELDDATA, 'checkParameter', 'id');
+         $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
+   $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
+   $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
+
+   if (strpos($currentUnit['data'], 'iframe') !== false) {
+    $form -> setDefaults(array('embed_type' => 'iframe'));
+   } else {
+    $form -> setDefaults(array('embed_type' => 'popup'));
+   }
+
+   $form -> addRule('scorm_size', _INVALIDFIELDDATA, 'checkParameter', 'id');
          $smarty -> assign("T_SCORM", true);
      }
      //Set elements rules
@@ -187,6 +197,19 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
              if (strpos($currentUnit['ctg_type'], 'scorm') === false) {
                  $currentUnit['data'] = $values['data'];
              } else {
+     if ($values['embed_type'] == 'iframe' && strpos($currentUnit['data'], 'window.open') !== false) {
+      preg_match("/window.open\(.*,/U", $currentUnit['data'], $matches);
+      $scormValue = str_replace(array('window.open("', '",'),"",$matches[0]);
+      $currentUnit['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$scormValue. '" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
+     } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'iframe') !== false) {
+      preg_match("/src.*onload/U", $currentUnit['data'], $matches);
+      $scormValue = str_replace(array('src = "', '" onload'),"",$matches[0]);
+      $currentUnit['data'] = '
+                              <div style = "text-align:center;height:300px">
+                               <span>'._CLICKTOSTARTUNIT.'</span><br/>
+                            <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "'.$values['popup_parameters'].'")\' >
+                           </div>';
+     }
                  $currentUnit['data'] = preg_replace("/eF_js_setCorrectIframeSize\(.*\)/", "eF_js_setCorrectIframeSize(".$values['scorm_size'].")", $currentUnit['data']);
              }
              $values['ctg_type'] ? $currentUnit['ctg_type'] = $values['ctg_type'] : null;

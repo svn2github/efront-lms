@@ -97,7 +97,8 @@ try {
                                       "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
            "dashboard" => _DASHBOARD,
-           "social" => _SOCIAL);
+           "social" => _SOCIAL,
+           "course_settings" => _COURSEOPTIONS);
   $GLOBALS['configuration']['disable_glossary'] != 1 ? $professorOptions["glossary"] = _GLOSSARY : null;
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $professorOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_surveys'] != 1 ? $professorOptions["surveys"] = _SURVEYS : null;

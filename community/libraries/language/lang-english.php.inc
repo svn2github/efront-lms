@@ -3778,4 +3778,5 @@ define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS", "Some files
 define("_OTHERWISEPLEASEREGISTER", "Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>");
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses");
 define("_SUPERVISORS", "Supervisors");
+define("_COURSEOPTIONS","Course options");
 ?>

@@ -85,7 +85,7 @@
    <div class = "headerTools">
     <span>
      <img src = "images/16x16/autocomplete.png" title = "{$smarty.const._AUTOCOMPLETE}" alt = "{$smarty.const._AUTOCOMPLETE}"/>
-     <a href = "javascript:void(0)" onclick = "setAutoComplete(this)">{$smarty.const._AUTOCOMPLETE}: {if $T_CURRENT_COURSE->options.auto_complete}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</a>
+     <a href = "javascript:void(0)" {if $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "setAutoComplete(this)" {/if}>{$smarty.const._AUTOCOMPLETE}: {if $T_CURRENT_COURSE->options.auto_complete}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</a>
     </span>
    </div>
    {assign var = "courseUsers_url" value = "`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_certificates&"}
@@ -153,7 +153,9 @@
     </ul>
    </fieldset>
    <br/>
+  {if $T_CURRENT_USER->coreAccess.course_settings == 'change'}
    <input id = "save_button" class = "flatButton" type="button" onclick="saveQuestionTree(this)" value="{$smarty.const._SAVECHANGES}">
+  {/if}
   {/capture}
   {eF_template_printBlock title = $smarty.const._COURSEORDER data = $smarty.capture.t_course_rules_code image = '32x32/order.png' main_options = $T_TABLE_OPTIONS options = $T_COURSE_OPTIONS help='Course_actions'}
 {elseif $T_OP == 'course_scheduling'}
@@ -182,12 +184,14 @@
       </table>
      </td>
      <td>
+    {if $T_CURRENT_USER->coreAccess.course_settings == 'change'}
       <span id = "add_schedule_link_0">
        <img src = "images/16x16/{if $T_CURRENT_COURSE->course.start_date}edit.png{else}add.png{/if}" alt = "{$smarty.const._ADDSCHEDULE}" title = "{$smarty.const._ADDSCHEDULE}" class = "handle" onclick = "showEdit(0)"/>
        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETESCHEDULE}" title = "{$smarty.const._DELETESCHEDULE}" class = "handle" onclick = "deleteSchedule(this, 0)" {if !$T_CURRENT_COURSE->course.start_date}style = "display:none"{/if}/>
       </span>&nbsp;
       <img src = "images/16x16/success.png" alt = "{$smarty.const._SAVE}" title = "{$smarty.const._SAVE}" class = "ajaxHandle" id = "set_schedules_link_0" style = "display:none" onclick = "setSchedule(this, 0)"/>&nbsp;
       <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._CANCEL}" title = "{$smarty.const._CANCEL}" class = "ajaxHandle" id = "remove_schedule_link_0" style = "display:none" onclick = "hideEdit(0)" />
+    {/if}
      </td></tr>
    </table>
    </fieldset>
@@ -215,12 +219,14 @@
       </table>
      </td>
      <td>
+     {if $T_CURRENT_USER->coreAccess.course_settings == 'change'}
       <span id = "add_schedule_link_{$id}">
        <img src = "images/16x16/{if $lesson.start_date}edit.png{else}add.png{/if}" alt = "{$smarty.const._ADDSCHEDULE}" title = "{$smarty.const._ADDSCHEDULE}" class = "handle" onclick = "showEdit({$id})"/>
        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETESCHEDULE}" title = "{$smarty.const._DELETESCHEDULE}" class = "handle" onclick = "deleteSchedule(this, {$id})" {if !$lesson.start_date}style = "display:none"{/if}/>
       </span>&nbsp;
       <img src = "images/16x16/success.png" alt = "{$smarty.const._SAVE}" title = "{$smarty.const._SAVE}" class = "ajaxHandle" id = "set_schedules_link_{$id}" style = "display:none" onclick = "setSchedule(this, {$id})"/>&nbsp;
       <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._CANCEL}" title = "{$smarty.const._CANCEL}" class = "ajaxHandle" id = "remove_schedule_link_{$id}" style = "display:none" onclick = "hideEdit({$id})" />
+     {/if}
      </td></tr>
    {/foreach}
    </table>

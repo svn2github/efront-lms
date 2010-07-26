@@ -4,6 +4,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
+if (isset($currentUser -> coreAccess['course_settings']) && $currentUser -> coreAccess['course_settings'] == 'hidden') {
+ eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
+}
 
 $loadScripts[] = 'includes/course_settings';
 
@@ -12,8 +15,10 @@ $options[] = array('image' => '16x16/autocomplete.png', 'title' => _COMPLETION, 
 $options[] = array('image' => '16x16/rules.png', 'title' => _RULES, 'link' => $_GET['op'] != 'course_rules' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_rules' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_rules' ? false : true);
 $options[] = array('image' => '16x16/order.png', 'title' => _ORDER, 'link' => $_GET['op'] != 'course_order' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_order' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_order' ? false : true);
 $options[] = array('image' => '16x16/calendar.png', 'title' => _SCHEDULING, 'link' => $_GET['op'] != 'course_scheduling' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_scheduling' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_scheduling' ? false : true);
+if (!isset($currentUser -> coreAccess['course_settings']) || $currentUser -> coreAccess['course_settings'] == 'change') {
 $options[] = array('image' => '16x16/export.png', 'title' => _EXPORT, 'link' => $_GET['op'] != 'export_course' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=export_course' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'export_course' ? false : true);
 $options[] = array('image' => '16x16/import.png', 'title' => _IMPORT, 'link' => $_GET['op'] != 'import_course' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=import_course' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'import_course' ? false : true);
+}
 //pr($options);
 $smarty -> assign("T_TABLE_OPTIONS", $options);
 
@@ -26,11 +31,19 @@ if ($_GET['op'] == 'course_info') {
 
     $courseInformation = unserialize($currentCourse -> course['info']);
     $information = new LearningObjectInformation($courseInformation);
-    $smarty -> assign("T_COURSE_INFO_HTML", $information -> toHTML($form, false));
+ if (!isset($currentUser -> coreAccess['course_settings']) || $currentUser -> coreAccess['course_settings'] == 'change') {
+  $smarty -> assign("T_COURSE_INFO_HTML", $information -> toHTML($form, false));
+ } else {
+  $smarty -> assign("T_COURSE_INFO_HTML", $information -> toHTML($form, false, false));
+ }
 
-    $courseMetadata = unserialize($currentCourse -> course['metadata']);
+ $courseMetadata = unserialize($currentCourse -> course['metadata']);
     $metadata = new DublinCoreMetadata($courseMetadata);
-    $smarty -> assign("T_COURSE_METADATA_HTML", $metadata -> toHTML($form));
+ if (!isset($currentUser -> coreAccess['course_settings']) || $currentUser -> coreAccess['course_settings'] == 'change') {
+  $smarty -> assign("T_COURSE_METADATA_HTML", $metadata -> toHTML($form));
+ } else {
+  $smarty -> assign("T_COURSE_METADATA_HTML", $metadata -> toHTML($form, true, false));
+ }
 
     if (isset($_GET['postAjaxRequest'])) {
         if (in_array($_GET['dc'], array_keys($information -> metadataAttributes))) {
@@ -291,28 +304,32 @@ if ($_GET['op'] == 'course_info') {
 } else if ($_GET['op'] == 'course_rules') {
     $courseLessons = $currentCourse -> getCourseLessons();
     $rules_form = new HTML_QuickForm("course_rules_form", "post", basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=course_rules", "", null, true);
-    $rules_form -> addElement('submit', 'submit_rule', _SUBMIT, 'class = "flatButton"');
-    if ($rules_form -> isSubmitted() && $rules_form -> validate()) {
-        foreach ($_POST['rules'] as $rule_lesson) {
-            if (sizeof(array_unique($rule_lesson['lesson'])) != sizeof($rule_lesson['lesson'])) {
-                $duplicate = true;
-            }
-        }
-        if (!isset($duplicate)) {
-            try {
-                $currentCourse -> rules = $_POST['rules'];
-                $currentCourse -> persist();
-                eF_redirect("".basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=course_rules&message=".urlencode(_SUCCESFULLYSETORDER)."&message_type=success");
-            } catch (Exception $e) {
-                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message = _PROBLEMSETTINGORDER.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-                $message_type = 'failure';
-            }
-        } else {
-            $message = _DUPLICATESARENOTALLOWED;
-            $message_type = 'failure';
-        }
+    if (isset($currentUser -> coreAccess['course_settings']) && $currentUser -> coreAccess['course_settings'] != 'change') {
+  $rules_form -> freeze();
+ } else {
+  $rules_form -> addElement('submit', 'submit_rule', _SUBMIT, 'class = "flatButton"');
+  if ($rules_form -> isSubmitted() && $rules_form -> validate()) {
+   foreach ($_POST['rules'] as $rule_lesson) {
+    if (sizeof(array_unique($rule_lesson['lesson'])) != sizeof($rule_lesson['lesson'])) {
+     $duplicate = true;
     }
+   }
+   if (!isset($duplicate)) {
+    try {
+     $currentCourse -> rules = $_POST['rules'];
+     $currentCourse -> persist();
+     eF_redirect("".basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=course_rules&message=".urlencode(_SUCCESFULLYSETORDER)."&message_type=success");
+    } catch (Exception $e) {
+     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+     $message = _PROBLEMSETTINGORDER.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+     $message_type = 'failure';
+    }
+   } else {
+    $message = _DUPLICATESARENOTALLOWED;
+    $message_type = 'failure';
+   }
+  }
+ }
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
     $rules_form -> accept($renderer);
     $smarty -> assign('T_COURSE_RULES_FORM', $renderer -> toArray());

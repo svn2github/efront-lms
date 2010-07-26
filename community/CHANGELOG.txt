@@ -31,6 +31,7 @@
 - Fixed issue in notifications about an exception when a lesson/test is deleted
 - Added cart disable functionality, to allow for single click enrolling to free lessons and courses
 - Added ability to switch between display modes(iframe, popup) in editing scorm units
+- Added 'course options' in custom user type creation for professor types
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

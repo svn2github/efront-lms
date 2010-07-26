@@ -1161,7 +1161,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED","Mappar för följande lekt
 define("_EDITCONTENT","Redigera innehåll");//Edit content
 define("_NORMALSTATUS","Normal status");//Normal status
 define("_APPLICATIONPENDING","Ansökan behandlas. Tryck på \"Skicka\" för att kontrollera status");//Application pending
-define("_SUCCESS","Lyckades");//Success
+define("_SUCCESS","Lyckades");// imported IMS fileSuccess
 define("_WARNING","Varning!");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definitionen kunde inte läggas till");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Definitionen har uppdaterats");//Successfully updated definition
@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Och meddelanden av användare");//And the messag
 define("_ALLUSERS","Alla användare");//All users
 define("_INVALIDUSER","Ogiltigt användarnamn");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Ersätt dubbletter av användare");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Behåll dubletter av användare");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Behåll dubletter av användare");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Inga andra användare är online");//No other users currently online
 define("_USERNAME","Användarnamn");//User name
 define("_STATISTICSFORUSER","Rapporter om användare");//Reports for user
@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Avdelningsregistrering");//Branch record
 define("_BRANCHDATAUPDATED","Avdelningsdata uppdaterades");//Branch data updated
 define("_FATHERBRANCH","Överordnad avdelning");//Father branch
 define("_HCD","Humankapitalutveckling");//Human Capital Development
-define("_ORGANISATIONCHART","Organisationsschema");//Organisation chart
+define("_ORGANISATIONCHART","Organisationsschema");//Organization chart
 define("_CANDIDATES","Sökande");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Avdelning har skapats");//Branch was successfully created
 define("_ATBRANCH","i avdelningen");// at branch 
@@ -1479,7 +1479,7 @@ define("_VACANCIES","Tillgängliga tjänster");//Available placements
 define("_AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION","Vill du verkligen ta bort denna befattning?");//Are you sure you want to remove that job position?
 define("_JOBDESCRIPTIONDATA","Befattningsinformation");//Job position data
 define("_HAVINGJOBDESCRIPTION"," med befattningen");// having the job position 
-define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION", "Inga anställda har den här befattningen");//No users are currently assigned to this job position
+define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" , "No users are currently assigned to this job position");
 define("_SUCCESSFULLYCREATEDJOBDESCRIPTION","Befattning har skapats");//Successfully created job position
 define("_JOBDESCRIPTIONCOULDNOTBECREATED","Befattning kunde inte skapas");//Job position could not be created
 define("_JOBDESCRIPTIONDATAUPDATED","Befattning har uppdaterats");//Job position data were successfully updated
@@ -1505,7 +1505,7 @@ define("_NOSKILLSREGISTEREDASPREREQUISITES","Inga kompetenskrav registrerades");
 define("_SATISFYANYCRITERIA","Uppfyller ett kriteria");//Satisfy any criteria
 define("_SATISFYALLCRITERIA","Uppfyller alla kriterier");//Satisfy all criteria
 define("_WORKINGATBRANCH","Arbetar på avdelning");//Working at branch
-define("_WITHJOBDESCRIPTION" ,"Med befattningen");
+define("_WITHJOBDESCRIPTION" ,"With job position");
 define("_FINDEMPLOYEES","Sök anställd");//Find users
 define("_WITHSKILL","Med kompetens");//With skill
 define("_EMPLOYEESFULFILLINGCRITERIA","Anställda som uppfyller kriterierna");//Users fulfilling the criteria
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Tilldela kompetens");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Tilldela anställda kompetensen");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Inga avdelningar har registrerats");//No branches have been registered
 define("_ORGANIZATION","Organisation");//Organization
-define("_SEARCHFOREMPLOYEE","Sök anställd [Organisationskriterier]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Sök anställd [Organisationskriterier]");//Find users [Organization criteria]
 define("_SUBFORUMS","Subforum");//Subforums
 define("_NOSUBFORUMSFOUND","Det finns inga subforum definierade i detta forum");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Du kan inte skicka nya meddelanden eftersom detta ämne eller forum är låst");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Välj test");//Choose test
 define("_USERPROFILE","Användarprofil");//Public profile
 define("_VIEWBRANCHES","Visa avdelningar");//View branches
 define("_NOEMPLOYEESFOUND","Inga anställda hittades");//No users were found
-define("_SEARCHEMPLOYEE","Sök anställd");//Search user
+define("_SEARCHEMPLOYEE","Sök anställd");//Find users
 define("_ALLBRANCHES","Alla avdelningar");//All branches
 define("_ANSWERS","Svar");//Answers
 define("_GROUPDOESNOTEXIST","Gruppen finns inte");//The group doesn&#039;t exist
@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Omdömen");//Evaluations
 define("_TRANSPORTMEANS","(vakant)");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Du kan inte ta bort ett omdöme skriven av en annan användare");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Du kan inte redigera ett omdöme skrivet av en annan användare");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Sammanställning anställd");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Förhandsgranskning av sammanställning anställd");//User form print preview
+define("_EMPLOYEEFORM","Sammanställning anställd");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Förhandsgranskning av sammanställning anställd");//Training record print preview
 define("_PRINTPREVIEW","Skriv ut förhandsgranskning");//Print preview
-define("_PRINTEMPLOYEEFORM","Skriv ut sammanställning anställd");//Print user form
+define("_PRINTEMPLOYEEFORM","Skriv ut sammanställning anställd");//Print training record
 define("_PRINT","Skriv ut");//Print
 define("_NOSPECIFICJOB","Ingen specifik befattning");//No specific job position
 define("_GROUPS","Användargrupper");//User groups
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Lärare i lektionen");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Endast din avdelnings handledare");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Befattningar vid andra avdelningar");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Skicka meddelanden till alla funna anställda");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Sök anställd [Kurskriterier]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Sök anställd [Kurskriterier]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Datum för slutförande");//Completion date
 define("_YEAR","År");//Year
 define("_NOTASSIGNED","Ej utsedd ännu");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","Behörigheter");//Permissions
 define("_UNSHARE","Avbryt delning");//Cancel sharing
 define("_UNSHARESELECTED","Avbryt delning av valda filer");//Cancel sharing of selected files
 define("_SHARESELECTED","Dela valda filer");//Share selected files
-define("_YOUDONTHAVEPERMISSION","Du har inte behörighet att utföra den valda åtgärden");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","Du har inte behörighet att utföra den valda åtgärden");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","Exportera");//Export
 define("_NOMODULECLASSFOUND","Ingen modulklass hittades med det namnet");//No module class found with name
 define("_ERRORLOADINGMODULE","Fel vid laddning av modul");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Språket har skapats");//The language was s
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Språket har uppdaterats");//The language was successfully updated
 define("_LANGUAGES","Språk");//Languages
 define("_SERIALRULE","Användarna måste se innehållet i en sekvens");//Users must see content in a serial order
-define("_TREERULE","Användarna måste fylla i en avdelnings noder innan de flyttar till nästa");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Användarna måste fylla i en avdelnings noder innan de flyttar till nästa");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Lägg till egen regel");//Add custom rule
 define("_ADDREADYRULE","Lägg till färdig regel");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Följande användare kunde inte importeras");//The following users could not be imported
@@ -2087,7 +2087,7 @@ define("_BOTTOMLEFTCORNER","Nedre vänstra hörnet");//Bottom left corner
 define("_BOTTOMRIGHTCORNER","Nedre högra hörnet");//Bottom right corner
 define("_LOGOPOSITION","Logotypens position");//Logo position
 define("_LOGOFILE","Logotypfil");//Logo file
-define("_LESSONSKILLSSELECTION","Lektionen erbjuder kompetensurval");//Lesson offered skills selection
+define("_LESSONSKILLSSELECTION","Lektionen erbjuder kompetensurval");//Select skills offered by the lesson
 define("_TOPCENTER","Top center");//Top center
 define("_BOTTOMCENTER","Längst ner i mitten");//Bottom center
 define("_HIDECOMPLETEUNITICON","Göm hela enhetsikonen");//Hide complete unit icon
@@ -2207,14 +2207,14 @@ define("_AUTOMATICALLYASSIGNTOALLNEWSTUDENTS","Tilldela automatiskt till alla ny
 define("_SKILLGAPTESTSTOBECOMPLETED","Kompetensgaptester som skall färdigställas");//Skill gap tests to be completed
 define("_SKILLGAPTESTCOMPLETEDSUCCESSFULLY","Kompetensgapstest har slutförts");//Skill gap test completed successfully
 define("_RELEVANCE","Relevans");//Relevance
-define("_KNOWLEDGEOFLESSON" , "Lektionskunskap");
+define("_KNOWLEDGEOFLESSON" , "Knowledge of lesson");
 define("_KNOWLEDGEOFCOURSE","Kurskunskap");//Knowledge of course
 define("_NOSKILLSCORRELATEDWITHTHETESTSQUESTIONS","Ingen kompetens överensstämde med testet frågor");//No skills correlated with the test&#039;s questions
 define("_OPENFILEMANAGER","Öppna filhanteraren");//Open file manager
 define("_CLOSEFILEMANAGER","Stäng filhanteraren");//Close file manager
 define("_CLICKFORHELP","Klicka för hjälp");//Click for help
 define("_NOSKILLGAPTESTSASSIGNEDTOYOU","Inga kompetensgapstest har tilldelats dig");//No skill gap tests assigned to you
-define("_TESTSOLVEDVIEWTOSEESKILLGAPANALYSIS" , "Test genomförts: titta för att se kompetensgapsresultat");
+define("_TESTSOLVEDVIEWTOSEESKILLGAPANALYSIS" , "Test solved: View skill gap analysis");
 define("_GENERALTHRESHOLD","Gräns för godkänt");//General Threshold
 define("_UPLOADPDFFORCONTENT","Växla mellan pdf / anpassat innehåll");//Toggle pdf/custom content
 define("_PDFFILE","Lägg upp ny pdf-fil");//Upload new pdf file
@@ -2257,7 +2257,7 @@ define("_BLANKFORNOLIMIT","Lämnas tomt sätts ingen tidsgräns");//Leave blank 
 define("_HARDPLURAL","Svår");//Hard
 define("_MEDIUMPLURAL","Medium");//Medium
 define("_EASYPLURAL","Lätt");//Easy
-define("_UNLIMITED","Obegränsat");//Unilimited
+define("_UNLIMITED","Obegränsat");//Unlimited
 define("_INCORRECTQUESTION","Frågan är felaktig");//The question is incorrect
 define("_QUESTIONISCORRECT","Frågan är korrekt");//The question is correct
 define("_PARTIALLYCORRECTQUESTION","Frågan är delvis rätt");//The question is partially correct
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","min");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Ingen enhet");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Det finns inga systemnyheter");//There are no system announcements
-define("_NOONELOGGEDIN","Ingen är för närvarande inloggad");//Noone is currently connected
+define("_NOONELOGGEDIN","Ingen är för närvarande inloggad");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","Ange er e-postadress");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Skriv meddelandets ämne");//Enter the message subject
 define("_ENTERMESSAGE","Skriv meddelander");//Enter the message
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Spara layout");//Save layout
 define("_ADDBLOCK","Lägg till block");//Add block
 define("_RESTOREDEFAULTLAYOUT","Återställ standard-layout");//Restore default layout
 define("_INFOFORCOURSE","Information om kursen");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Logga in för att slutföra registreringen");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Logga in för att slutföra registreringen");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Gå till lektionslistan");//Go to lessons list
 define("_PUBLISHED","Publicerad");//Published
 define("_NOTPUBLISHED","Ej publicerad");//Not published
@@ -2424,8 +2424,8 @@ define("_ROOMSUCCESSFULLYDELETED","Room har tagits bort");//Room successfully de
 define("_LESSONROOMSCANNOTBEDELETED","Lektionsrum kan inte tas bort");//Lesson rooms cannot be deleted
 define("_CHANGESIDEBARWIDTH","Ändra sidomenyns bredd");//Change sidebar width
 define("_SIDEBARWIDTH","Sidomenybredd");//Sidebar width
-define("_VALUESUBMITTEDISNOTNUMERICAL","Det inmatade värdet är inte numeriskt!");
-define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Sidomenyns värden måste vara mellan");
+define("_VALUESUBMITTEDISNOTNUMERICAL" ,"Value submitted is not numerical!");
+define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Sidebar values must be between");
 define("_ACTIVATEEFRONTCHAT","Aktivera eFront-chatt");//Activate chat
 define("_DEACTIVATEEFRONTCHAT","Inaktivera eFront-chatt");//Deactivate chat
 define("_ENABLEMATHCONTENT","Aktivera matematiskt innehåll");//Enable mathematic type content
@@ -2456,11 +2456,12 @@ define("_ADMINISTRATIONGROUP","Administrationsgrupp");//The administration group
 define("_CHANGEFONTSIZE","Ändra teckenstorlek");//Change font size
 define("_SHOWEMPLOYEESFROMSUBBRANCHES","Visa anställda vid underavdelningar");//Show users from subbranches
 define("_ANDSUBBRANCHES","och dess underavdelningar");//and its subbranches
+define("_WITHTHEJOBDESCRIPTION","med befattningen");//with the job position
 define("_FORTHEJOBDESCRIPTION","för befattningen");//for the job position
 define("_ADMINISTRATORSNOJOBDESCRIPTIONS","Administratörer kan inte tilldelas befattningar");//Administrators can not be assigned with jobs
 define("_SUGGESTSKILLSACCORDINGTOLESSONS","Föreslå kompetens i enlighet med de kurser som frågan tillhör");//Suggest skills according to the lessons the question belongs
 define("_NOSKILLSTOPROPOSE","Ingen kompetens hittades för det föreslagna");//No skills were found for suggestion
-define("_ALLPROPOSEDSKILLSAREALREADYCORRELATED" ,"Alla föreslagna kompetenser är redan korrelerade");
+define("_ALLPROPOSEDSKILLSAREALREADYCORRELATED" ,"All proposed skills are already correlated");
 define("_ADDITIONALFOOTER","Ytterligare sidfot");//Additional footer
 define("_YOUHAVECOMPLETEDTHELESSON","Ni har slutfört lektionen");//You have completed the lesson
 define("_RECURRINGPAYMENTS","Återkommande betalningar");//Recurring payments
@@ -2493,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Ingen specifik avdelning");//No specific branch
 define("_BRANCHFILTER","Avdelningsfilter");//Branch filter
 define("_SEARCHUSER","Sök användare");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Inga användare uppfyller angivna kriterier");//No users fulfill the specified criteria
-define("_USERFORM","Användarformulär");//User form
-define("_USERFORMPRINTPREVIEW","Förhandsgranska användarformulär");//User form preview
+define("_USERFORM","Användarformulär");//Training record
+define("_USERFORMPRINTPREVIEW","Förhandsgranska användarformulär");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Användare som uppfyller kriterierna");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Icke kategoriserade kompetenser");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Snabbskapa kompetensgapstest");//Quick skill-gap test generator
@@ -2606,7 +2607,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Obs: Du är tillbaka på e
 define("_ACTIONONRENTRYCOMPLETED","Åtgärder vid återkomst");//Action on re-entry
 define("_LETCONTENTDECIDE","Låt innehållet avgöra");//Let content decide
 define("_DONTCHANGE","Lämna oförändrad");//Leave unchanged
-define("_DASHBOARD","Anslagstavla");//Dashboard
+define("_DASHBOARD","Anslagstavla");//my Dashboard
 define("_MYWALL","Min anslagstavla");//My wall
 define("_RELATEDPEOPLE","Relaterade personer");//Related people
 define("_LEARNINGACTIVITY","Läraktivitet");//Learning activity
@@ -2639,7 +2640,7 @@ define("_GOTOMYPROFILE","Gå till min profil");//Go to my profile
 define("_GOTOPEOPLELIST","Gå till deltagarlista");//Go to people&#039;s list
 define("_PEOPLE","Deltagare");//People
 define("_EVERYONE","Alla");//Everyone
-define("_RECENTLYCHANGED" ,"Nyligen ändrad status");
+define("_RECENTLYCHANGED" ,"Recently changed status");
 define("_RELATEDTOCURRENTLESSON","Anknuten till aktuell lektion");//Related to current lesson
 define("_NORELATEDPEOPLEFOUND","Inga anknutna deltagare funna");//No related people found
 define("_ADDCOMMENTTOMYPROFILE","Lägg till kommentar på min profil");//Add comment to my profile
@@ -2671,7 +2672,7 @@ define("_DELETEMESSAGEFORLESSONTIMELINETOPIC","Radera meddelande till ämnet fö
 define("_DELETEDAPOSTFORLESSONTOPIC","Radera en post till ämnet för lektion");//Deleted a post for lesson topic
 define("_TOPICPOSTDOESNOTEXISTANYMORE","Post till ämnet för lektion finns inte längre");//Lesson topic post does not exist any more
 define("_LESSONTIMELINETOPICDELETED","Ämnet för lektionen raderades");//Lesson topic successfully deleted
-define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC","Är du säker på att du vill radera ämnet och all post till ämnet för lektionen ");//Are you sure you want to delete the topic and all posts of lesson topic 
+define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC" , "Are you sure you want to delete the topic and all posts of lesson topic");
 define("_GOTOCOMPLETESYSTEMTIMELINE","Gå till systemhistorik");//Goto complete system timeline
 define("_SYSTEMTIMELINE","Systemhistorik");//System timeline
 define("_LOGOWIDTH","Logotypbredd");//Logo width
@@ -2818,7 +2819,7 @@ define("_MYGROUPS","Mina grupper");//my Groups
 define("_AVAILABLE","Tillgänglig");//Available
 define("_NEVER","Aldrig");//Never
 define("_CLASSMATES","Klasskamrater");//Classmates
-define("_LESSONPEOPLE","Lektionsdeltagare");//Lesson people
+define("_LESSONPEOPLE","Lektionsdeltagare");//Lesson users
 define("_NORMALIZEDIMENSIONS","Normalisera dimensioner");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","tilldelades kursen");//was assigned the course
 define("_WILLBETEACHINGCOURSE","är lärare på kursen");//will be teaching the course
@@ -2934,8 +2935,8 @@ define("_NEWTOPICPUBLISHEDINTHEFORUMOF","Ett nytt ämne har publicerats i forume
 define("_NEWMESSAGEPOSTFORFORUM","Nytt meddelande postat i forumet av");//New message posted in the forum of
 define("_NEWMESSAGEPOSTPUBLISHEDINTHEFORUMOF","Ett nytt inlägg har postats i forumet av");//A new messages has been posted in the forum of
 define("_CHANGEINUNIT","Förändring av avsnitt");//Change in unit
-define("_UNITTITLED" , "Avsnittet kallat");//The unit titled 
-define("_HASBEENMODIFIEDAS" ,"har ändrats på följande sätt");//has been modified as follows 
+define("_UNITTITLED" , "The unit titled");
+define("_HASBEENMODIFIEDAS" ,"has been modified as follows");
 define("_SHOWCURRENCYSYMBOLBEFOREPRICE","Visa valutasymbol före pris");//Show currency symbol before price
 define("_CERTIFICATEEXPIRED","Intyg har gått ut");//Certificate expired
 define("_CERTIFICATEISSUEDON","Intyg utfärdat");//Certificate issued on
@@ -3212,7 +3213,7 @@ define("_ONJOBASSIGNMENT","Tillsättning av befattning");//Job assignment
 define("_ONJOBREMOVAL","Ta bort befattning från användare");//Remove job from user
 define("_JOBDESCRIPTIONNAME","Befattningsnamn");//Job position name
 define("_ENCRYPTURL","Kryptera URL");//Encrypt URL
-define("_USERNAMEFORMATINFO","Formatera hur inloggningar visas i systemet. Använd # namn # för förnamn, # efternamn #  för efternamn, # användarnamn # för användarnamn och # N # för begynnelsebokstaven i förnamnet");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login and #n# for the first name's initial letter
+define("_USERNAMEFORMATINFO","Formatera hur inloggningar visas i systemet. Använd # namn # för förnamn, # efternamn #  för efternamn, # användarnamn # för användarnamn och # N # för begynnelsebokstaven i förnamnet");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
 define("_USERNAMEFORMAT","Format för användarnamn");//Username format
 define("_LDAP","LDAP");//LDAP
 define("_SMTP","SMTP");//SMTP
@@ -3310,6 +3311,7 @@ define("_VERSIONINFORMATION","Versionsinformation");//Version information
 define("_BUILD","build");//build
 define("_INSTALLEDVERSION","Installerad version");//Installed version
 define("_LATESTVERSION","Senaste version");//Latest version
+define("_DOWNLOADANDINSTALL","Ladda ner och installera");//Download and install (New)
 define("_DOWNLOADINGFILE","Filhämtning");//Downloading file
 define("_EDITION","Utgåva");//Edition
 define("_UPGRADEURL","Url att läsa in nya versioner från");//Url to read new versions from
@@ -3377,7 +3379,7 @@ define("_ARCHIVEDON","Arkiverad");//Archived on
 define("_RESTORESELECTED","Återställ vald");//Restore selected
 define("_ARCHIVEENTITY","Arkiv");//Archive
 define("_LOADMATHTYPESASIMAGES","Display matematiska symboler som bilder");//Display math types as images
-define("_MATHIMAGESINFO","Rekommenderas för Internet Explorer 8. Du har också raderat webbläsarens cacheminne");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Rekommenderas för Internet Explorer 8. Du har också raderat webbläsarens cacheminne");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kurser i kategorin");//Category courses
 define("_GROUPROLE","Grupps gemensamma roll");//Group common role
 define("_GROUPONLY","Grupp");//Group
@@ -3426,7 +3428,7 @@ define("_SMARTCONTENT","Smart content");//Smart content
 define("_ZIPHANDLING","Zip-hanteringsmetod");//Zip handling method
 define("_COMPLETION","Slutförande");//Completion
 define("_SETALLTO","Ställ in alla på");//Set all to
-define("_INADEQUATEBALANCE","Otillräcklig balans");//Inadequate balance 
+define("_INADEQUATEBALANCE","Otillräcklig balans");//Inadequate balance
 define("_PAYPALMODE","Paypal mode");//Paypal mode
 define("_SANDBOX","Sandbox");//Sandbox
 define("_VIEWTRANSACTIONLOGFILE","Transaktionsloggfil");//Transaction log file
@@ -3437,22 +3439,22 @@ define("_UNSUPPORTEDPAYMENTSTATUS","Betalningsstaus stöds ej");//Unsupported pa
 define("_YOUHAVECANCELLEDTHETRANSACTION","Du har avbrutit transaktionen");//You have cancelled the transaction
 define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaktionen genomfördes.");//The transaction was completed successfully.
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
-define("_MYACCOUNT","Mitt konto");//My account
+define("_MYACCOUNT","Mitt konto");//my Account
 define("_MODULE","Modul");//Module
 define("_EMBEDTYPE","Bädda in innehåll som");//Embed content as
 define("_INLINEIFRAME","Inline (iframe)");//Inline (iframe)
-define("_NEWWINDOWPOPUP","Nytt fönster (popup)");//New window (popup) 
+define("_NEWWINDOWPOPUP","Nytt fönster (popup)");//New window (popup)
 define("_POPUPPARAMETERS","Popupparametrar");//Popup parameters
 define("_CLICKTOSTARTUNIT","Klicka på knappen för att starta enheten");//Click on the button to start the unit
 define("_STARTUNIT","Starta enhet");//Start unit
 define("_SCORM2004NOTSUPPORTED","Tyvärr stöds inte SCORM 2004 i denna utgåva");//Unfortunately SCORM 2004 is not supported in this edition
-define("_RESTOREDEFAULTNOTIFICATIONS","Återställ standardinformation");//Restore default notifications 
+define("_RESTOREDEFAULTNOTIFICATIONS","Återställ standardinformation");//Restore default notifications
 define("_CONTENTPROGRESSEXCLUDINGTESTS","Framsteg (exkl. tester)");//Content progress (excl. tests)
 define("_DATABASEVERSION","Databasversion");//Database version
 define("_DIFFERENTVERSIONSUPGRADENEEDED","Din databasversion är annorlunda än kodversionen. Kör %link script");//Your database version is different than the code version. Please run the %link script
 define("_UPGRADE","Upgradera");//Upgrade
 define("_DOWNLOADEXPORTEDCOURSE","Hämta exporterad kurs");//Download exported course
-define("_MAXDISCOUNT100","Den maximala rabatten är 100%");//The maximum discount is 100% 
+define("_MAXDISCOUNT100","Den maximala rabatten är 100%");//The maximum discount is 100%
 define("_REGISTRATIONUPDATE","Registrering / Uppdatering");//Registration/Update
 define("_ROWS","Rader");//Rows
 define("_COMMANDFAILEDWITHOUTPUT","Kommandot misslyckades med följande resultat");//The command failed with the following output
@@ -3472,23 +3474,22 @@ define("_MUSTSPECIFYQUESTIONNUMBER","Du måste ange antalet frågor");//You must
 define("_MUSTSPECIFYVALUEFROM","Du måste ange ett värde från");//You must specify a value from
 define("_COURSEPROFESSORS","Kurslärare");//Course professors
 define("_PROFESSORSOFCOURSE","Lärare i kursen");//Professors of course
-define("_USERSUPERVISORS","Handledare för användare");//User supervisors (New)
-define("_USEROPTIONSFOR","Alternativ för användare");//Options for user (New)
-define("_MYSTATUS","Min utbildningsstatus");//my Learning Status (New)
-define("_MYCOURSES","Mina kurser");//my Courses (New)
-define("_CERTIFICATIONS","Intyg");//Certificates (New)
-define("_MYCERTIFICATIONS","Mina intyg");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","Inga intyg har ännu utfärdats för användaren");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","Skall aktiveras av handledare");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","Inga avdelningshandledare hittades");//No branch supervisors found (New)
+define("_USERSUPERVISORS","Handledare för användare");//User supervisors
+define("_USEROPTIONSFOR","Alternativ för användare");//Options for user
+define("_MYSTATUS","Min utbildningsstatus");//my Learning status
+define("_MYCOURSES","Mina kurser");//my Courses
+define("_CERTIFICATIONS","Intyg");//Certificates
+define("_MYCERTIFICATIONS","Mina intyg");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","Inga intyg har ännu utfärdats för användaren");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","Skall aktiveras av handledare");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","Inga avdelningshandledare hittades");//No branch supervisors found
 define("_PRINTCONTENT","Skriv ut innehåll");//Print content
 define("_VERIFYFOLLOWINGINFOISCORRECT","Kontrollera att följande information är korrekt");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Det finns inga definierade kategorier");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","Aktivering genom e-post från handledare");//Supervisor email activation (New)
+define("_SUPERVISORMAILUSERACTIVATION","Aktivering genom e-post från handledare");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Aktivering av anställds konto genom e-post");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Detta e-postmeddelande ger dig möjlighet att aktivera den nya användaren");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","placerad på avdelningen");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","med befattningen");//with the job description
 define("_BYCLICKINGONTHELINK","genom att klicka på följande länk");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Kontot för den andtällde har aktiverats");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Horistonellt fält");//Horizontal bar
@@ -3499,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Aktiverande handledare");//Activating superviso
 define("_LEAVEEMPTYTONOTUSE","Lämna tomt för att hoppa över");//Leave empty to ommit
 define("_PLEASESELECT","Vänligen välj");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Din handledare kommer att aktivera ditt konto");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","Importera IMS-innehåll");//Import IMS Content
 define("_IMSEXPORT","Exportera IMS-innehåll");//Export IMS Content
@@ -3509,7 +3511,6 @@ define("_TOOLTIP","Verktygstips");//Tooltip
 define("_HIDDEN","Dold för användare");//Hidden from users
 define("_RESETSCORMDATA","Återställ användardata");//Reset user data
 define("_TOGGLEADVENCEDPARAMETERS","Avancerade inställningar");//Advanced settings
-define("_INVALIDPARAMETER","");//Invalid parameter
 define("_ADDINSTANCE","Lägg till exempel");//Add instance
 define("_INSTANCE","Exempel");//Instance
 define("_COURSECODE","Kurskod");//Course code
@@ -3678,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Utbildningsegenskaper");//Curriculum properties
 define("_ENTRIES","Åtkomster");//Entries
 define("_ENTERPRISEOPTIONS","Företagsalternativ");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Visa organisationsschema för användare");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Visa personlig information för användare");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Visa personlig information för användare");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Visa ej tilldelade användare för handledare");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Tillåt användare att radera handledardelade filer");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","Min personliga information");//my Form
+define("_MYEMPLOYEEFORM","Min personliga information");//my Training record
 define("_CLEARQUERYCACHE","Rensa fråge-cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Kommentarsalternativ");//Feedback options
 define("_OPTIONSFORFEEDBACK","Alternativ för kommentarer");//Options for feedback
@@ -3745,4 +3746,37 @@ define("_WEBSERVERREGISTRATION","Webbserverregistrering");//Web server registrat
 define("_USEORLOGICTOCORRECTANSWERS","Använd logisk OR för att beräkna rätt svar");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Variabeln %x måste innehålla &quot;%y&quot; för att fortsätta");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Öppna enhet i popup-fönster");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","En användare med det angivna login redan finns (arkiverade)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Evenemang storlek");//Events size (New)
+define("_OLDESTEVENT","Äldsta händelse");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Rensa händelser äldre än");//Purge events older than (New)
+define("_PURGEEVENTS","Purge evenemang");//Purge events (New)
+define("_USERSEPERUSERTYPE","Användare per användare typ");//Users per user type (New)
+define("_MINUTESPERUSER","Minuter per användare");//Minutes per user (New)
+define("_LOGINSPERDAY","Inloggningar per dag");//Logins per day (New)
+define("_ACCESSES","Besök");//Accesses (New)
+define("_ACCESSESPERUSER","Besök per användare");//Accesses per user (New)
+define("_ACCESSESPERDAY","Besök per dag");//Accesses per day (New)
+define("_OCCURENCES","Förekomster");//Occurences (New)
+define("_SCORES","Betyg");//Scores (New)
+define("_PROPAGATECOURSE","Propagera kurs");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lektion struktur");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","En administratör kan inte komma åt lektion sidor");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X kataloger och filer% y är inte skrivbar av webservern. <br> Klicka <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>här</a> för att ladda ner en fullständig rapport");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Klicka här för att ställa skrivbehörighet");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Klicka här för att ändra skrivrättigheter");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Ange behörigheter");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset behörigheter");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att försöka att ställa in rättigheter till alla filer och mappar att skrivbar av webservern. Detta är obligatoriskt om du vill utföra automatiska uppgraderingar och kan vara användbar i fall du upplever problem under eller efter uppgradering. Å andra sidan, och lämnar alla filer skrivbara kan utgöra ett hot mot säkerheten under vissa omständigheter.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att försöka att ställa in rättigheter till alla filer och mappar som icke-skrivbar av webservern, med undantag för de obligatoriska för att systemet ska fungera ordentligt. Detta är den säkraste inställningen, men kommer att hindra systemet från att uppgradera automatiskt");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Klicka här för att kontrollera behörigheter");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Kontrollera behörigheter");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att kontrollera vilka filer och mappar i ditt system är inte skrivbar av webservern");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operation resultat");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Ingen trafik än");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Vissa filer / mappar inte är skrivbar. Gå in på &#39;rättigheter&#39; avsnittet i underhåll -&gt; rengöring för att kontrollera behörigheter och granska dessa filer");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Annars kan du skapa ett <button onclick = \"location='index.php?ctg=signup'\">nytt konto</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du rekryterades till gratis lektioner och kurser. Läs nedan ditt val av icke fria lektioner och kurser");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Handledare");//Supervisors (New)
+define("_COURSEOPTIONS","Valbara kurser");//Course options (New)
 ?>

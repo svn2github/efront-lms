@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Evaluations");//Evaluations
 define("_TRANSPORTMEANS","Transportmidler");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Du kan ikke slette en evaluering skrevet av en annen bruker");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Du kan ikke redigere en evaluering skrevet av en annen bruker");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Medarbeider skjema");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Medarbeider form forhåndsvisning");//User form print preview
+define("_EMPLOYEEFORM","Medarbeider skjema");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Medarbeider form forhåndsvisning");//Training record print preview
 define("_PRINTPREVIEW","Utskriftsvisning");//Print preview
-define("_PRINTEMPLOYEEFORM","Skriv ut ansatt skjema");//Print user form
+define("_PRINTEMPLOYEEFORM","Skriv ut ansatt skjema");//Print training record
 define("_PRINT","Skriv ut");//Print
 define("_NOSPECIFICJOB","Ingen spesifikke stillingsbeskrivelsen");//No specific job position
 define("_GROUPS","Bruker grupper");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Lagre layout");//Save layout
 define("_ADDBLOCK","Legg blokk");//Add block
 define("_RESTOREDEFAULTLAYOUT","Gjenopprett standard layout");//Restore default layout
 define("_INFOFORCOURSE","Informasjon for kurset");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Logg inn for å fullføre registreringen");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Logg inn for å fullføre registreringen");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Gå til timene liste");//Go to lessons list
 define("_PUBLISHED","Utgitt");//Published
 define("_NOTPUBLISHED","Ikke publisert");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Ingen bestemt gren");//No specific branch
 define("_BRANCHFILTER","Branch filter");//Branch filter
 define("_SEARCHUSER","Søkbrukeren");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Ingen brukere oppfylle de angitte kriteriene");//No users fulfill the specified criteria
-define("_USERFORM","Brukerskjemaet");//User form
-define("_USERFORMPRINTPREVIEW","Brukerskjemaet forhåndsvisning");//User form preview
+define("_USERFORM","Brukerskjemaet");//Training record
+define("_USERFORMPRINTPREVIEW","Brukerskjemaet forhåndsvisning");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Brukere som oppfyller kriteriene");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Ikke kategorisert ferdigheter");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick ferdigheter gap test generator");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Læreplan egenskaper");//Curriculum properties
 define("_ENTRIES","Oppføringer");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise alternativer");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Vis organisasjonskart til brukere");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Vise personlig form til brukere");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Vise personlig form til brukere");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Vis tilordnet brukere til veiledere");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Tillat brukere å slette veileder delte filer");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","min form");//my Form
+define("_MYEMPLOYEEFORM","min form");//my Training record
 define("_CLEARQUERYCACHE","Tøm buffer spørring");//Clear query cache
 define("_FEEDBACKOPTIONS","Tilbakemelding alternativer");//Feedback options
 define("_OPTIONSFORFEEDBACK","Alternativer for tilbakemelding");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modul filene finnes, men det er ikke i
 define("_DISABLEPAYMENTSNOTICE","Dette vil sette alle leksjoner og kurs pris til 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Angi objekt id for skjermen matchende dimensjoner");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Kommaseparert liste");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server autentisering");//Web server authentication (New)
-define("_USERSETTINGS","Brukerinnstillinger");//User settings (New)
-define("_THIRDPARTYTOOLS","3. parts verktøy");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Ikke ta det hensyn til i rettelse");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Er du sikker på at du vil initialisere leksjon? Dette vil permanent slette data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Eksterne verktøy");//External tools (New)
-define("_MATHSETTINGS","Math innstillinger");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Du har ikke tilgang til denne siden på grunn av følgende IP bli utestengt");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","E-post-innstillinger");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Feil side vises når brukernavnet mangler eller er tom");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Feil side vises når brukeren ikke kunne opprettes");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Variabel som inneholder brukernavnet");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Inkluder fil som håndterer oppretting av brukere");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web server registrering");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Bruk OR logikk for å beregne korrekt svar");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Variabelen% x må inneholde &quot;%y&quot; for å fortsette");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Åpne enhet i popup-vinduet");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server autentisering");//Web server authentication
+define("_USERSETTINGS","Brukerinnstillinger");//User settings
+define("_THIRDPARTYTOOLS","3. parts verktøy");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Ikke ta det hensyn til i rettelse");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Er du sikker på at du vil initialisere leksjon? Dette vil permanent slette data");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Eksterne verktøy");//External tools
+define("_MATHSETTINGS","Math innstillinger");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Du har ikke tilgang til denne siden på grunn av følgende IP bli utestengt");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","E-post-innstillinger");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Feil side vises når brukernavnet mangler eller er tom");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Feil side vises når brukeren ikke kunne opprettes");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Variabel som inneholder brukernavnet");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Inkluder fil som håndterer oppretting av brukere");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web server registrering");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Bruk OR logikk for å beregne korrekt svar");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Variabelen% x må inneholde &quot;%y&quot; for å fortsette");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Åpne enhet i popup-vinduet");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","En bruker med den oppgitte påloggingsinformasjonen allerede eksisterer (arkiverte)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Events størrelse");//Events size (New)
+define("_OLDESTEVENT","Eldste hendelse");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Purge hendelser eldre enn");//Purge events older than (New)
+define("_PURGEEVENTS","Rydd hendelser");//Purge events (New)
+define("_USERSEPERUSERTYPE","Brukere per bruker type");//Users per user type (New)
+define("_MINUTESPERUSER","Minutter per bruker");//Minutes per user (New)
+define("_LOGINSPERDAY","Pålogginger per dag");//Logins per day (New)
+define("_ACCESSES","Besøkende");//Accesses (New)
+define("_ACCESSESPERUSER","Besøkende per bruker");//Accesses per user (New)
+define("_ACCESSESPERDAY","Besøkende per dag");//Accesses per day (New)
+define("_OCCURENCES","Forekomster");//Occurences (New)
+define("_SCORES","Resultater");//Scores (New)
+define("_PROPAGATECOURSE","Forplante kurs");//Propagate course (New)
+define("_LESSONSTRUCTURE","Leksjon struktur");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","En administrator kan ikke få tilgang til leksjonen sider");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X kataloger og% y filer er ikke skrivbar for webserveren. <br> Klikk <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>her for</a> å laste ned en fullstendig rapport");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Klikk her for å sette skrivetillatelser");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Klikk her for å slette informasjonen skrivetillatelser");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Angi tillatelser");//Set permissions (New)
+define("_UNSETPERMISSIONS","Fjern tillatelser");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Denne operasjonen vil prøve og sette rettigheter til alle filer og mapper som skal skrives til av webserveren. Dette er obligatorisk hvis du ønsker å utføre automatiske oppgraderinger, og kan være nyttig i tilfeller du opplever problemer under eller etter oppgradering. På den annen side, lar alle filene skrivbare kan utgjøre en sikkerhetstrussel under visse omstendigheter.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Denne operasjonen vil prøve og sette rettigheter til alle filer og mapper å være ikke-skrivbar for webserveren, med unntak for de som obligatorisk for at systemet skal fungere ordentlig. Dette er den mest sikre innstillingen, men vil hindre systemet automatisk oppgradering");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Klikk her for å sjekke tillatelser");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Sjekk tillatelser");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Denne operasjonen vil sjekke hvilke filer og mapper i systemet ditt er ikke skrivbar for webserveren");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operasjon utfallet");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Ingen operasjon utført ennå");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Noen filer / mapper er ikke skrivbar. Vennligst besøk delen tillatelser i vedlikehold -&gt; opprydding for å sjekke tillatelser og lese disse filene");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Ellers kan du opprette en <button onclick = \"location='index.php?ctg=signup'\">ny konto</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du var meldt til gratis leksjoner og kurs. Se gjennom under valget av ikke gratis leksjoner og kurs");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Veiledere");//Supervisors (New)
+define("_COURSEOPTIONS","Emnevalg");//Course options (New)
 ?>

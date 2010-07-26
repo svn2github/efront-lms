@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","VlerËsime");//Evaluations
 define("_TRANSPORTMEANS","Mjetet e transportit");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Ju nuk mund të fshini një vlerësim me shkrim nga një përdorues tjetër");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Ju nuk mund të redaktoni një vlerësim të shkruara nga një përdorues tjetër");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","User formë");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","User formë print preview");//User form print preview
+define("_EMPLOYEEFORM","User formë");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","User formë print preview");//Training record print preview
 define("_PRINTPREVIEW","Print preview");//Print preview
-define("_PRINTEMPLOYEEFORM","Print përdorues formë");//Print user form
+define("_PRINTEMPLOYEEFORM","Print përdorues formë");//Print training record
 define("_PRINT","Print");//Print
 define("_NOSPECIFICJOB","Nuk ka punë specifike pozitë");//No specific job position
 define("_GROUPS","Grupet e përdoruesve");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Save layout");//Save layout
 define("_ADDBLOCK","Shto bllokojë");//Add block
 define("_RESTOREDEFAULTLAYOUT","Restauro default layout");//Restore default layout
 define("_INFOFORCOURSE","Informacion për kurs");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Ju lutemi hyni brënda për të kompletuar regjistrimin");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Ju lutemi hyni brënda për të kompletuar regjistrimin");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Shko tek lista mësimet");//Go to lessons list
 define("_PUBLISHED","Publikuar");//Published
 define("_NOTPUBLISHED","Nuk është publikuar");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Asnjë degë të veçanta të");//No specific branch
 define("_BRANCHFILTER","Dega filtër");//Branch filter
 define("_SEARCHUSER","Kërko përdorues");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Asnjë përdorues i përmbushin kriteret e përcaktuara");//No users fulfill the specified criteria
-define("_USERFORM","User formë");//User form
-define("_USERFORMPRINTPREVIEW","User formë preview");//User form preview
+define("_USERFORM","User formë");//Training record
+define("_USERFORMPRINTPREVIEW","User formë preview");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Përdorues përmbushjen e kritereve");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Jo-i kategorizuar aftësi");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick aftësi gap-test gjenerator");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","pronat e Kurrikulit");//Curriculum properties
 define("_ENTRIES","Hyrje");//Entries
 define("_ENTERPRISEOPTIONS","opsionet e Ndërmarrjeve");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Shfaq tabelë organizatë për përdoruesit e");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Show formë personale për përdoruesit e");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Show formë personale për përdoruesit e");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Show unassigned përdoruesve të mbikëqyrësve");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Lejo përdoruesit të fshini mbikëqyrësit të përbashkët fotografi");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","Forma e mia");//my Form
+define("_MYEMPLOYEEFORM","Forma e mia");//my Training record
 define("_CLEARQUERYCACHE","Pastro cache query");//Clear query cache
 define("_FEEDBACKOPTIONS","opsionet Feedback");//Feedback options
 define("_OPTIONSFORFEEDBACK","Mundësitë e zgjedhjes për reagime");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","fotografi Moduli janë të pranishëm,
 define("_DISABLEPAYMENTSNOTICE","Kjo do të përcaktojë të gjitha mësimet dhe kurse çmimi për 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Specifikoni objektit id për ekran përputhen dimensione");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Lista e ndarë me presje");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","tek Web serveri");//Web server authentication (New)
-define("_USERSETTINGS","Paneli i përdoruesit");//User settings (New)
-define("_THIRDPARTYTOOLS","mjete 3 partisë");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Mos e merr atë në konsideratë në korrigjim");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","A jeni i sigurt se doni të iniciojnë për mësim? Kjo do të fshijë të dhënat");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","mjete të jashtme");//External tools (New)
-define("_MATHSETTINGS","Paneli i Math");//Math settings (New)
-define("_PHPLIVEDOCX","livedocx PHP");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Ju nuk mund të hyni në këtë faqe për shkak të IP e mëposhtme duke u ndaluar");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Cilësimet e Email");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","faqe Gabim shfaqet kur emrin mungon ose është bosh");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","faqe Gabim shfaqet kur përdoruesi nuk mund të krijohet");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Ndryshore që përmban emrin");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Përfshij skedarin që trajton krijimin përdorues");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","regjistrimit Web server");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Përdorni logjikën OSE për të llogaritur përgjigje të saktë");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","% Variabël duhet të përmbajë x &quot;%y&quot; në mënyrë që të vazhdojnë");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","njësi të hapen në dritare popup");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","tek Web serveri");//Web server authentication
+define("_USERSETTINGS","Paneli i përdoruesit");//User settings
+define("_THIRDPARTYTOOLS","mjete 3 partisë");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Mos e merr atë në konsideratë në korrigjim");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","A jeni i sigurt se doni të iniciojnë për mësim? Kjo do të fshijë të dhënat");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","mjete të jashtme");//External tools
+define("_MATHSETTINGS","Paneli i Math");//Math settings
+define("_PHPLIVEDOCX","livedocx PHP");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Ju nuk mund të hyni në këtë faqe për shkak të IP e mëposhtme duke u ndaluar");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Cilësimet e Email");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","faqe Gabim shfaqet kur emrin mungon ose është bosh");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","faqe Gabim shfaqet kur përdoruesi nuk mund të krijohet");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Ndryshore që përmban emrin");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Përfshij skedarin që trajton krijimin përdorues");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","regjistrimit Web server");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Përdorni logjikën OSE për të llogaritur përgjigje të saktë");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","% Variabël duhet të përmbajë x &quot;%y&quot; në mënyrë që të vazhdojnë");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","njësi të hapen në dritare popup");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Një përdorues me login përcaktuar tashmë ekziston (arkivuar)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Ngjarje Madhësia");//Events size (New)
+define("_OLDESTEVENT","ngjarje të vjetër");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Purge ngjarjet më të vjetër se");//Purge events older than (New)
+define("_PURGEEVENTS","Purge events");//Purge events (New)
+define("_USERSEPERUSERTYPE","Perdorues nga përdoruesi lloj");//Users per user type (New)
+define("_MINUTESPERUSER","Procesverbalet nga përdoruesi");//Minutes per user (New)
+define("_LOGINSPERDAY","Hyrje në ditë");//Logins per day (New)
+define("_ACCESSES","Accesses");//Accesses (New)
+define("_ACCESSESPERUSER","Accesses per user");//Accesses per user (New)
+define("_ACCESSESPERDAY","Accesses në ditë");//Accesses per day (New)
+define("_OCCURENCES","Dukurive");//Occurences (New)
+define("_SCORES","Scores");//Scores (New)
+define("_PROPAGATECOURSE","Kursi shumoj");//Propagate course (New)
+define("_LESSONSTRUCTURE","Struktura mësim");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Një administrator nuk mund të hyni në mësim faqe");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X directories dhe fotografi y% nuk janë të shkruhet nga web server. <br> Kliko <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>këtu</a> për ta shkarkuar një raport të plotë");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Kliko këtu për të vendosur të drejtat e shkrimit");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Kliko këtu për të unset të drejtat e shkrimit");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","leje Set");//Set permissions (New)
+define("_UNSETPERMISSIONS","leje Anullon njëri");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Ky operacion do të përpiqet për vendosjen e lejeve të gjitha dosjet dhe dosjet që do të shkruhet nga web server. Kjo është e detyrueshme në qoftë se ju dëshironi që të kryejnë përmirësimet automatike dhe mund të jetë i dobishëm në raste të jeni duke përjetuar probleme gjatë ose pas përmirësimit. Nga ana tjetër, duke i lënë të gjitha dosjet shkruhet mund të përbëjë një kërcënim të sigurisë nën rrethana të caktuara.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ky operacion do të përpiqet për vendosjen e lejeve të gjitha dosjet dhe dosjet të jetë jo-të shkruhet nga web server, me përjashtim të atyre të detyrueshme për sistem të funksionojë si duhet. Kjo është edhe përcaktimin më të sigurt, por do të parandaluar ngritjen e sistemit nga automatikisht");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Kliko këtu për të kontrolluar lejet");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Kontrolloni lejet");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ky operacion do të kontrollojë që dosjet dhe dosjet e sistemit tuaj nuk janë të shkruhet nga web server");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operacioni rezultati");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Asnjë operacion kryhet ende");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Disa fotografi / dosjet nuk janë të shkruhet. Ju lutem vizitoni seksionin lejet &#39;në mirëmbajtjen - pastrim&gt; për të kontrolluar lejet dhe shqyrtojë këto fotografi");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Përndryshe, ju mund të krijojë një <button onclick = \"location='index.php?ctg=signup'\">llogari të re</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ju keni qenë të regjistruar për mësime falas dhe kurse. Ju lutemi të shqyrtojë më poshtë zgjedhjen tuaj të mësimeve jo të lirë dhe të kurseve të");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Mbikëqyrësit");//Supervisors (New)
+define("_COURSEOPTIONS","opsionet e kursit");//Course options (New)
 ?>

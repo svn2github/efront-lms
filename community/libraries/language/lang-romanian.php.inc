@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Evaluările");//Evaluations
 define("_TRANSPORTMEANS","Mijloace de transport");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Nu se poate şterge o evaluare scrisă de către un alt utilizator");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Nu puteţi să editaţi o evaluare scrisă de către un alt utilizator");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Formular de angajati");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Angajaţi formă Print Preview");//User form print preview
+define("_EMPLOYEEFORM","Formular de angajati");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Angajaţi formă Print Preview");//Training record print preview
 define("_PRINTPREVIEW","Print preview");//Print preview
-define("_PRINTEMPLOYEEFORM","Print angajat formă");//Print user form
+define("_PRINTEMPLOYEEFORM","Print angajat formă");//Print training record
 define("_PRINT","Print");//Print
 define("_NOSPECIFICJOB","Nr specifice descriere job");//No specific job position
 define("_GROUPS","Grupuri de Utilizatori");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Salvaţi aspectul");//Save layout
 define("_ADDBLOCK","Adăugaţi bloc");//Add block
 define("_RESTOREDEFAULTLAYOUT","Restabilire implicit layout");//Restore default layout
 define("_INFOFORCOURSE","Informaţii pentru curs");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Vă rugăm să autentifici pentru a finaliza înregistrarea");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Vă rugăm să autentifici pentru a finaliza înregistrarea");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Du-te la lista de lecţii");//Go to lessons list
 define("_PUBLISHED","Publicat");//Published
 define("_NOTPUBLISHED","Nu este publicat");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Nu specifice filiala");//No specific branch
 define("_BRANCHFILTER","Filiala filtru");//Branch filter
 define("_SEARCHUSER","Căutare utilizator");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Nu utilizatori indeplineasca criteriile specificate");//No users fulfill the specified criteria
-define("_USERFORM","Utilizator forma");//User form
-define("_USERFORMPRINTPREVIEW","Utilizator formă de previzualizare");//User form preview
+define("_USERFORM","Utilizator forma");//Training record
+define("_USERFORMPRINTPREVIEW","Utilizator formă de previzualizare");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Utilizatorii care îndeplinesc criteriile");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Non-categorizată aptitudini");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick skill-decalaj de test generator");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","");//Curriculum properties
 define("_ENTRIES","");//Entries
 define("_ENTERPRISEOPTIONS","");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","");//my Form
+define("_MYEMPLOYEEFORM","");//my Training record
 define("_CLEARQUERYCACHE","");//Clear query cache
 define("_FEEDBACKOPTIONS","");//Feedback options
 define("_OPTIONSFORFEEDBACK","");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modulul fişierele sunt prezente, dar 
 define("_DISABLEPAYMENTSNOTICE","Acest lucru va seta toţi lecţii şi cursuri de preţ la 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Specificaţi obiect id-ul de dimensiuni de ecran de potrivire");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Separate prin virgulă listă");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server de autentificare");//Web server authentication (New)
-define("_USERSETTINGS","Setări utilizator");//User settings (New)
-define("_THIRDPARTYTOOLS","3rd party unelte");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Nu o lua în considerare în corecţie");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Eşti sigur că vrei să iniţializa lecţie? Aceasta va şterge definitiv de date");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Instrumente externe");//External tools (New)
-define("_MATHSETTINGS","Math setările");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Nu puteţi accesa această pagină din cauza perioadei de anchetă urma să fie interzis");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Setările de e-mail");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","pagina de eroare afişate când lipseşte numele de utilizator sau gol");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","pagina de eroare afişat atunci când utilizatorul nu a putut fi creată");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Variabilă care conţine numele de utilizator");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Include fişierul care se ocupă de crearea de utilizator");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web serverului de înregistrare");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Utilizaţi logica sau pentru a calcula răspunsul corect");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","% Variabila x trebuie să conţină &quot;%y&quot; pentru a continua");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","unitate Open in fereastra pop-up");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server de autentificare");//Web server authentication
+define("_USERSETTINGS","Setări utilizator");//User settings
+define("_THIRDPARTYTOOLS","3rd party unelte");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Nu o lua în considerare în corecţie");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Eşti sigur că vrei să iniţializa lecţie? Aceasta va şterge definitiv de date");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Instrumente externe");//External tools
+define("_MATHSETTINGS","Math setările");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Nu puteţi accesa această pagină din cauza perioadei de anchetă urma să fie interzis");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Setările de e-mail");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","pagina de eroare afişate când lipseşte numele de utilizator sau gol");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","pagina de eroare afişat atunci când utilizatorul nu a putut fi creată");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Variabilă care conţine numele de utilizator");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Include fişierul care se ocupă de crearea de utilizator");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web serverului de înregistrare");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Utilizaţi logica sau pentru a calcula răspunsul corect");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","% Variabila x trebuie să conţină &quot;%y&quot; pentru a continua");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","unitate Open in fereastra pop-up");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Un utilizator cu conectare specificat există deja (arhivat)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Evenimente dimensiunea");//Events size (New)
+define("_OLDESTEVENT","Cele mai vechi eveniment");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Epurări evenimente mai în vârstă decât");//Purge events older than (New)
+define("_PURGEEVENTS","Epurări evenimente");//Purge events (New)
+define("_USERSEPERUSERTYPE","Utilizatorii per utilizator de tip");//Users per user type (New)
+define("_MINUTESPERUSER","Minute per utilizator");//Minutes per user (New)
+define("_LOGINSPERDAY","Logins pe zi");//Logins per day (New)
+define("_ACCESSES","Accese");//Accesses (New)
+define("_ACCESSESPERUSER","Accese per utilizator");//Accesses per user (New)
+define("_ACCESSESPERDAY","Accese pe zi");//Accesses per day (New)
+define("_OCCURENCES","Apariţii");//Occurences (New)
+define("_SCORES","Scoruri");//Scores (New)
+define("_PROPAGATECOURSE","Propaga curs");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lectia structura");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Un administrator nu poate accesa paginile lecţie");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","X% directoarele şi fişierele care y% nu sunt de scriere de către server de web. <br> Faceţi clic <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>aici</a> pentru a descărca un raport complet");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Click aici pentru a seta permisiuni de scriere");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Click aici pentru a demarca starea permisiuni de scriere");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Seta permisiuni");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset permisiunile");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Această operaţiune va încerca permisiunile de acces la toate fişierele şi folderele de a fi scris de serverul web. Acest lucru este obligatorie dacă doriţi să efectuaţi upgrade-uri automate şi poate fi util în cazuri vi se confruntă cu probleme în timpul sau după actualizarea. Pe de altă parte, lasand toate fişierele de scriere pot reprezenta o ameninţare la adresa securităţii, în anumite circumstanţe.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Această operaţiune va încerca permisiunile de acces la toate fişierele şi folderele să fie non-scris de server de web, cu excepţia celor obligatorii pentru ca sistemul să funcţioneze corect. Aceasta este setarea cea mai sigură, dar va preveni sistemul de upgrade automat");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Click aici pentru a verifica permisiunile");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Verificaţi permisiunile");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Această operaţiune, care va verifica fişierele şi folderele sistemului dvs. nu sunt de scriere de către serverul de web");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Rezultatul operaţiei");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Nici o operaţiune efectuată încă");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Unele fişiere / foldere nu sunt writable. Vă rugăm să vizitaţi \"permisiunile\" secţiune în întreţinere - cleanup&gt; pentru a verifica permisiunile şi să reexamineze aceste fişiere");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","În caz contrar, puteţi crea un <button onclick = \"location='index.php?ctg=signup'\">cont nou</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ai fost înscrişi la cursuri şi lecţii gratuite. Vă rugăm să citiţi mai jos selecţia dumneavoastră de lecţii non libere şi cursuri");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Inspectorilor");//Supervisors (New)
+define("_COURSEOPTIONS","Curs de opţiuni");//Course options (New)
 ?>

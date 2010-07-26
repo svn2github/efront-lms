@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","การวัดและประเมินผล");
 define("_TRANSPORTMEANS","Means of transport");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","You cannot delete an evaluation written by another user");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","You cannot edit an evaluation written by another user");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","แบบฟอร์มสมาชิก");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","ดูตัวอย่างหน้าพิมพ์แบบฟอร์ม");//User form print preview
+define("_EMPLOYEEFORM","แบบฟอร์มสมาชิก");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","ดูตัวอย่างหน้าพิมพ์แบบฟอร์ม");//Training record print preview
 define("_PRINTPREVIEW","ดูตัวอย่างหน้าพิมพ์");//Print preview
-define("_PRINTEMPLOYEEFORM","พิมพ์แบบฟอร์มสมาชิก");//Print user form
+define("_PRINTEMPLOYEEFORM","พิมพ์แบบฟอร์มสมาชิก");//Print training record
 define("_PRINT","พิมพ์");//Print
 define("_NOSPECIFICJOB","ไม่ระบุคำอธิบายงาน");//No specific job position
 define("_GROUPS","กลุ่มสมาชิก");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","บันทึกการจัดหน้า");//Save 
 define("_ADDBLOCK","เพิ่มบล็อกเมนูข้าง");//Add block
 define("_RESTOREDEFAULTLAYOUT","กลับไปใช้รูปแบบค่าเริ่มต้น");//Restore default layout
 define("_INFOFORCOURSE","ข้อมูลของเนื้อหา-วิชา");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","กรุณาสมัครเป็นสมาชิกหรือทำการเข้าสู่ระบบก่อน เพื่อเป็นการลงทะเบียนเรียนอย่างสมบูรณ์");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","กรุณาสมัครเป็นสมาชิกหรือทำการเข้าสู่ระบบก่อน เพื่อเป็นการลงทะเบียนเรียนอย่างสมบูรณ์");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","ไปที่รายชื่อบทเรียน");//Go to lessons list
 define("_PUBLISHED","เผยแพร่:เปิดแล้ว");//Published
 define("_NOTPUBLISHED","ยังไม่เปิด:เผยแพร่");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","ไม่ระบุ branch");//No specific branch
 define("_BRANCHFILTER","ตัวกรองค้นย่อย");//Branch filter
 define("_SEARCHUSER","ค้นหาสมาชิก");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","ไม่มีสมาชิก-ผู้เรียนที่ผ่านเกณฑ์");//No users fulfill the specified criteria
-define("_USERFORM","แบบฟอร์มสมาชิก");//User form
-define("_USERFORMPRINTPREVIEW","ดูแบบฟอร์มก่อนส่ง");//User form preview
+define("_USERFORM","แบบฟอร์มสมาชิก");//Training record
+define("_USERFORMPRINTPREVIEW","ดูแบบฟอร์มก่อนส่ง");//Training record preview
 define("_USERSFULFILLINGCRITERIA","สมาชิก-ผู้ใช้ที่ผ่านเกณฑ์");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Non-categorized skills");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick skill-gap test generator");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","คุณสมบัติหลักสูต
 define("_ENTRIES","Entries");//Entries
 define("_ENTERPRISEOPTIONS","ตัว Enterprise");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","แผนผังองค์กรแสดงให้กับผู้ใช้");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","แสดงแบบส่วนตัวให้กับผู้ใช้");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","แสดงแบบส่วนตัวให้กับผู้ใช้");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","แสดง unassigned ผู้ใช้ผู้บังคับบัญชา");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","อนุญาตให้ผู้ใช้ลบไฟล์ supervisor สาธารณะ");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","รูปของฉัน");//my Form
+define("_MYEMPLOYEEFORM","รูปของฉัน");//my Training record
 define("_CLEARQUERYCACHE","Clear cache แบบสอบถาม");//Clear query cache
 define("_FEEDBACKOPTIONS","ตัวเลือกความคิดเห็น");//Feedback options
 define("_OPTIONSFORFEEDBACK","ตัวเลือกสำหรับความคิดเห็น");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","ไฟล์ Module เป็นปั
 define("_DISABLEPAYMENTSNOTICE","นี้จะตั้งเรียนและหลักสูตรราคาเป็น 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","ระบุวัตถุ id ให้ตรงกับขนาดหน้าจอ");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Comma คั่นรายการ");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","ตรวจสอบเว็บเซิร์ฟเวอร์");//Web server authentication (New)
-define("_USERSETTINGS","การตั้งค่าการใช้งาน");//User settings (New)
-define("_THIRDPARTYTOOLS","เครื่องมือ 3 บุคคล");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","ไม่ได้นำเข้าบัญชีในการแก้ไข");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","คุณแน่ใจหรือว่าต้องการเริ่มต้นเรียน? นี้จะลบข้อมูลอย่างถาวร");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","เครื่องมือภายนอก");//External tools (New)
-define("_MATHSETTINGS","การตั้งค่าคณิตศาสตร์");//Math settings (New)
-define("_PHPLIVEDOCX","livedocx PHP");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","คุณไม่สามารถเข้าถึงหน้าเนื่องจาก IP ต่อไปนี้ถูกห้าม");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","การตั้งค่าอีเมล");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","หน้าข้อผิดพลาดปรากฏขึ้นเมื่อผู้ใช้จะหายไปหรือเปล่า");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","หน้าข้อผิดพลาดปรากฏขึ้นเมื่อผู้ใช้ไม่สามารถสร้างได้");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","ตัวแปรที่มีชื่อผู้ใช้");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","ไฟล์รวมที่จับผู้สร้าง");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","การลงทะเบียนเว็บเซิร์ฟเวอร์");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","ใช้ตรรกะหรือการคำนวณคำตอบที่ถูกต้อง");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","% ตัวแปร x จะต้องมี &quot;%y&quot;เพื่อดำเนินการต่อ");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","หน่วยเปิดในหน้าต่างป๊อปอัพ");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","ตรวจสอบเว็บเซิร์ฟเวอร์");//Web server authentication
+define("_USERSETTINGS","การตั้งค่าการใช้งาน");//User settings
+define("_THIRDPARTYTOOLS","เครื่องมือ 3 บุคคล");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","ไม่ได้นำเข้าบัญชีในการแก้ไข");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","คุณแน่ใจหรือว่าต้องการเริ่มต้นเรียน? นี้จะลบข้อมูลอย่างถาวร");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","เครื่องมือภายนอก");//External tools
+define("_MATHSETTINGS","การตั้งค่าคณิตศาสตร์");//Math settings
+define("_PHPLIVEDOCX","livedocx PHP");//PHP livedocx
+define("_CANNOTACCESSIPBAN","คุณไม่สามารถเข้าถึงหน้าเนื่องจาก IP ต่อไปนี้ถูกห้าม");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","การตั้งค่าอีเมล");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","หน้าข้อผิดพลาดปรากฏขึ้นเมื่อผู้ใช้จะหายไปหรือเปล่า");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","หน้าข้อผิดพลาดปรากฏขึ้นเมื่อผู้ใช้ไม่สามารถสร้างได้");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","ตัวแปรที่มีชื่อผู้ใช้");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","ไฟล์รวมที่จับผู้สร้าง");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","การลงทะเบียนเว็บเซิร์ฟเวอร์");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","ใช้ตรรกะหรือการคำนวณคำตอบที่ถูกต้อง");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","% ตัวแปร x จะต้องมี &quot;%y&quot;เพื่อดำเนินการต่อ");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","หน่วยเปิดในหน้าต่างป๊อปอัพ");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","ผู้ใช้กับระบบที่กำหนดอยู่แล้ว (เก็บ A)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","ขนาด Events");//Events size (New)
+define("_OLDESTEVENT","เหตุการณ์เก่า");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","กิจกรรมล้างข้อมูลเก่ากว่า");//Purge events older than (New)
+define("_PURGEEVENTS","กิจกรรมล้าง");//Purge events (New)
+define("_USERSEPERUSERTYPE","ผู้ใช้ต่อผู้ใช้ประเภท");//Users per user type (New)
+define("_MINUTESPERUSER","นาทีต่อผู้ใช้");//Minutes per user (New)
+define("_LOGINSPERDAY","การเข้าสู่ระบบวันละ");//Logins per day (New)
+define("_ACCESSES","Accesses");//Accesses (New)
+define("_ACCESSESPERUSER","Accesses ต่อผู้ใช้");//Accesses per user (New)
+define("_ACCESSESPERDAY","Accesses ต่อวัน");//Accesses per day (New)
+define("_OCCURENCES","ปรากฏขึ้น");//Occurences (New)
+define("_SCORES","คะแนน");//Scores (New)
+define("_PROPAGATECOURSE","หลักสูตรการเผยแพร่");//Propagate course (New)
+define("_LESSONSTRUCTURE","โครงสร้างบทเรียน");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","ผู้ดูแลระบบไม่สามารถเข้าถึงหน้าบทเรียน");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% x ไดเรกทอรีและไฟล์ y% ยังไม่ได้เขียนโดยเว็บเซิร์ฟเวอร์ <br> คลิก <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ที่นี่</a> เพื่อดาวน์โหลดรายงานสมบูรณ์");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","คลิกที่นี่เพื่อตั้งเขียนสิทธิ์");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","คลิกที่นี่เพื่อล้างเขียนสิทธิ์");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","ตั้งค่าสิทธิ์");//Set permissions (New)
+define("_UNSETPERMISSIONS","สิทธิ์ล้าง");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะลองตั้งค่าสิทธิ์ในแฟ้มและโฟลเดอร์ทั้งหมดจะเขียนโดยเว็บเซิร์ฟเวอร์ นี้จะบังคับหากคุณต้องการการอัพเกรดอัตโนมัติและอาจมีประโยชน์ในกรณีที่คุณพบปัญหาในระหว่างหรือหลังจากการอัพเกรด ในขณะที่ออกจากไฟล์เขียนอาจคุกคามความปลอดภัยภายใต้สถานการณ์บางอย่าง");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะลองตั้งค่าสิทธิ์ในแฟ้มและโฟลเดอร์ทั้งหมดจะไม่เขียนโดยเว็บเซิร์ฟเวอร์ให้ยกเว้นจำเป็นสำหรับระบบทำงานอย่างถูกต้อง นี่คือการที่ปลอดภัยที่สุด แต่จะป้องกันระบบจากการปรับโดยอัตโนมัติ");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","คลิกที่นี่เพื่อตรวจสอบสิทธิ์");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","ตรวจสอบสิทธิ์");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะตรวจสอบแฟ้มและโฟลเดอร์ของระบบของคุณไม่ได้เขียนโดยเว็บเซิร์ฟเวอร์");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","ผลการดำเนินงาน");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","ยังไม่มีการดำเนินการ");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","ไฟล์บางโฟลเดอร์ / ไม่ได้เขียน กรุณาเยี่ยมชมส่วน&#39;สิทธิ์ในการบำรุงรักษา -- ล้าง&gt; ตรวจสอบสิทธิ์และการตรวจสอบไฟล์เหล่านี้");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","<button onclick = \"location='index.php?ctg=signup'\">มิฉะนั้นคุณอาจสร้างบัญชีใหม่</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","คุณได้ลงทะเบียนเพื่อเรียนฟรีและหลักสูตร โปรดอ่านด้านล่างเลือกของการเรียนฟรีไม่และหลักสูตร");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","ผู้บังคับบัญชา");//Supervisors (New)
+define("_COURSEOPTIONS","ตัวเลือกหลักสูตร");//Course options (New)
 ?>

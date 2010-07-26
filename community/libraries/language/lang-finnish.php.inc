@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Arvioinnit");//Evaluations
 define("_TRANSPORTMEANS","Kuljetusväline");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Et voi poistaa arviointi on kirjoittanut toisen käyttäjän");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Et voi muokata arviointi on kirjoittanut toisen käyttäjän");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Työsuhde-muodossa");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Työsuhde-muodossa print preview");//User form print preview
+define("_EMPLOYEEFORM","Työsuhde-muodossa");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Työsuhde-muodossa print preview");//Training record print preview
 define("_PRINTPREVIEW","Print preview");//Print preview
-define("_PRINTEMPLOYEEFORM","Tulosta työntekijä muodossa");//Print user form
+define("_PRINTEMPLOYEEFORM","Tulosta työntekijä muodossa");//Print training record
 define("_PRINT","Tulosta");//Print
 define("_NOSPECIFICJOB","Ei erityisiä työn kuvaus");//No specific job position
 define("_GROUPS","Käyttäjän ryhmät");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Tallenna ulkoasu");//Save layout
 define("_ADDBLOCK","Lisää estää");//Add block
 define("_RESTOREDEFAULTLAYOUT","Restore default layout");//Restore default layout
 define("_INFOFORCOURSE","Tietoja tietenkin");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Kirjaudu täydellinen rekisteröinti");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Kirjaudu täydellinen rekisteröinti");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Siirry oppitunteja luettelo");//Go to lessons list
 define("_PUBLISHED","Julkaistu");//Published
 define("_NOTPUBLISHED","Ei julkaistu");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Ei erityisiä sivuliike");//No specific branch
 define("_BRANCHFILTER","Branch suodatin");//Branch filter
 define("_SEARCHUSER","Etsi käyttäjä");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Ei käyttäjät täyttävät määritellyt kriteerit");//No users fulfill the specified criteria
-define("_USERFORM","Käyttäjän muodossa");//User form
-define("_USERFORMPRINTPREVIEW","Käyttäjän muodossa esikatselu");//User form preview
+define("_USERFORM","Käyttäjän muodossa");//Training record
+define("_USERFORMPRINTPREVIEW","Käyttäjän muodossa esikatselu");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Käyttäjät, jotka täyttävät");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Ei-Luokittamatta taidot");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick taito-aukko testi generaattori");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Opetussuunnitelma ominaisuudet");//Curriculum pr
 define("_ENTRIES","Viestit");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise vaihtoehtoja");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Näytä organisaatiokaavio käyttäjille");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Näytä oma lomake käyttäjille");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Näytä oma lomake käyttäjille");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Näytä Määrittämätön käyttäjät valvojille");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Salli käyttäjien poistaa ohjaaja jaettuja tiedostoja");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","minun muoto");//my Form
+define("_MYEMPLOYEEFORM","minun muoto");//my Training record
 define("_CLEARQUERYCACHE","Tyhjennä kysely välimuisti");//Clear query cache
 define("_FEEDBACKOPTIONS","Palaute vaihtoehtoja");//Feedback options
 define("_OPTIONSFORFEEDBACK","Vaihtoehdot palaute");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Moduuli tiedostot ovat läsnä, mutta 
 define("_DISABLEPAYMENTSNOTICE","Tämä asettaa kaikki oppitunnit ja kurssit hinta 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Määritä objektin id näytön vastaavat mitat");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Pilkuilla erotettu lista");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web-palvelimen todennus");//Web server authentication (New)
-define("_USERSETTINGS","Käyttäjän asetukset");//User settings (New)
-define("_THIRDPARTYTOOLS","3rd party työkalut");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Älä ota sitä huomioon korjaus");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Oletko varma että haluat alustaa opetus? Tämä poistaa pysyvästi tietoja");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Ulkoiset työkalut");//External tools (New)
-define("_MATHSETTINGS","Math asetukset");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Et voi käyttää tätä sivua, koska seuraava IP on kielletty");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Sähköposti asetukset");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Virhe sivu näkyy, kun käyttäjätunnus puuttuu tai tyhjä");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Virhe sivu näytetään, kun käyttäjä ei voi luoda");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Muuttuja, joka sisältää käyttäjätunnuksen");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Sisällytä tiedoston hoitaa käyttäjän luominen");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web-palvelimen rekisteröinti");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Käytä tai logiikka laskea oikean vastauksen");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Muuttuja% x on oltava &quot;%y&quot;, jotta jatkossakin");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Avaa yksikkö ikkunaan");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web-palvelimen todennus");//Web server authentication
+define("_USERSETTINGS","Käyttäjän asetukset");//User settings
+define("_THIRDPARTYTOOLS","3rd party työkalut");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Älä ota sitä huomioon korjaus");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Oletko varma että haluat alustaa opetus? Tämä poistaa pysyvästi tietoja");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Ulkoiset työkalut");//External tools
+define("_MATHSETTINGS","Math asetukset");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Et voi käyttää tätä sivua, koska seuraava IP on kielletty");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Sähköposti asetukset");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Virhe sivu näkyy, kun käyttäjätunnus puuttuu tai tyhjä");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Virhe sivu näytetään, kun käyttäjä ei voi luoda");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Muuttuja, joka sisältää käyttäjätunnuksen");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Sisällytä tiedoston hoitaa käyttäjän luominen");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web-palvelimen rekisteröinti");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Käytä tai logiikka laskea oikean vastauksen");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Muuttuja% x on oltava &quot;%y&quot;, jotta jatkossakin");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Avaa yksikkö ikkunaan");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Käyttäjä määritelty kirjautuminen jo (arkistoitu)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Tapahtumia koko");//Events size (New)
+define("_OLDESTEVENT","Vanhin tapahtuma");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Tuhoa tapahtumia yli");//Purge events older than (New)
+define("_PURGEEVENTS","Tuhoa tapahtumia");//Purge events (New)
+define("_USERSEPERUSERTYPE","Käyttäjät per käyttäjä tyyppiä");//Users per user type (New)
+define("_MINUTESPERUSER","Pöytäkirja käyttäjää kohden");//Minutes per user (New)
+define("_LOGINSPERDAY","Kirjautumistunnukset päivässä");//Logins per day (New)
+define("_ACCESSES","Vierailuja");//Accesses (New)
+define("_ACCESSESPERUSER","Vierailuja per käyttäjä");//Accesses per user (New)
+define("_ACCESSESPERDAY","Vierailuja päivässä");//Accesses per day (New)
+define("_OCCURENCES","Poikkeamat");//Occurences (New)
+define("_SCORES","Tulokset");//Scores (New)
+define("_PROPAGATECOURSE","Lisääntyä kurssi");//Propagate course (New)
+define("_LESSONSTRUCTURE","Oppitunnin rakenne");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Järjestelmänvalvoja ei voi käyttää opetus-sivuja");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X hakemistot ja% y tiedostoja ei kirjoitusoikeus web palvelimella. <br> Klikkaa <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>tästä</a> ladataksesi täydellisen raportin");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Klikkaa asettaa kirjoitusoikeudet");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Klikkaa tästä katkaisuasemaan kirjoitusoikeudet");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Määritä käyttöoikeudet");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset käyttöoikeudet");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Tämä toimenpide kokeile oikeudet kaikki tiedostot ja kansiot olla kirjoitusoikeus web palvelimella. Tämä on pakollinen, jos haluat suorittaa automaattisia päivityksiä, ja ne voivat olla hyödyllisiä silloin sinulla on ongelmia aikana tai päivityksen jälkeen. Toisaalta, jolloin kaikki tiedostot kirjoittava voi aiheuttaa turvallisuusuhka tietyissä olosuhteissa.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Tämä toimenpide kokeile oikeudet kaikki tiedostot ja kansiot muina kuin kirjoitusoikeus web-palvelin, lukuun ottamatta pakollista moitteettomasti. Tämä on turvallisin asetus, mutta se estää järjestelmän päivitystä automaattisesti");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Klikkaa tästä tarkistaa käyttöoikeudet");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Tarkista käyttöoikeudet");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Tämä toiminto tarkistaa, mitkä tiedostot ja kansiot järjestelmän ei kirjoitusoikeus web-palvelin");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Käyttö tulos");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Ei suoritettuasi vielä");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Jotkut tiedostot / kansiot eivät ole kirjoitettavissa. Käy \"oikeudet\" osio huolto -&gt; aivan tarkistaa käyttöoikeudet ja tarkastella näitä tiedostoja");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Muuten voit luoda <button onclick = \"location='index.php?ctg=signup'\">uuden tilin</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Olit ilmoittautunut ilmaisia oppitunteja ja kursseja. Tarkista alla valintasi ei ilmaisia oppitunteja ja kursseja");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Valvojien");//Supervisors (New)
+define("_COURSEOPTIONS","Kurssivalikoimassa");//Course options (New)
 ?>

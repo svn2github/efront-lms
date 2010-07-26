@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","मूल्यांकन");//Evaluations
 define("_TRANSPORTMEANS","परिवहन के साधन");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","आप नहीं हटा सकते मूल्यांकन के द्वारा लिखे गए एक दूसरे उपयोगकर्ता");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","आप को संपादित नहीं कर सकते मूल्यांकन के द्वारा लिखे गए एक दूसरे उपयोगकर्ता");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","कर्मचारी रूप");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","मुद्रण पूर्वावलोकन के रूप कर्मचारी");//User form print preview
+define("_EMPLOYEEFORM","कर्मचारी रूप");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","मुद्रण पूर्वावलोकन के रूप कर्मचारी");//Training record print preview
 define("_PRINTPREVIEW","मुद्रण पूर्वावलोकन");//Print preview
-define("_PRINTEMPLOYEEFORM","मुद्रण कर्मचारी रूप");//Print user form
+define("_PRINTEMPLOYEEFORM","मुद्रण कर्मचारी रूप");//Print training record
 define("_PRINT","मुद्रण");//Print
 define("_NOSPECIFICJOB","कोई विशेष कार्य विवरण");//No specific job position
 define("_GROUPS","प्रयोक्ता समूह");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","लेआउट सहेजें");//Save layout
 define("_ADDBLOCK","खंड जोड़ें");//Add block
 define("_RESTOREDEFAULTLAYOUT","Restore डिफ़ॉल्ट लेआउट");//Restore default layout
 define("_INFOFORCOURSE","जानकारी पाठ्यक्रम के लिए");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","कृपया पंजीकरण पूरा करने के लिए लॉगिन");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","कृपया पंजीकरण पूरा करने के लिए लॉगिन");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","पाठ करने के लिए सूची को जाएँ");//Go to lessons list
 define("_PUBLISHED","प्रकाशित");//Published
 define("_NOTPUBLISHED","नहीं प्रकाशित");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","कोई विशेष शाखा");//No specif
 define("_BRANCHFILTER","शाखा फ़िल्टर");//Branch filter
 define("_SEARCHUSER","खोज उपयोगकर्ता");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","कोई उपयोगकर्ता नहीं निर्दिष्ट मानदंड को पूरा");//No users fulfill the specified criteria
-define("_USERFORM","प्रयोक्ता फार्म");//User form
-define("_USERFORMPRINTPREVIEW","प्रयोक्ता फार्म पूर्वावलोकन");//User form preview
+define("_USERFORM","प्रयोक्ता फार्म");//Training record
+define("_USERFORMPRINTPREVIEW","प्रयोक्ता फार्म पूर्वावलोकन");//Training record preview
 define("_USERSFULFILLINGCRITERIA","उपयोक्ता के मानदंडों को पूरा करने");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","गैर कौशल वर्गीकृत");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","त्वरित कौशल-अंतर परीक्षण जनरेटर");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","पाठ्यक्रम गुण");//Curric
 define("_ENTRIES","प्रविष्टियां");//Entries
 define("_ENTERPRISEOPTIONS","उद्यम विकल्प");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","दिखाएँ संगठन के उपयोगकर्ताओं के लिए चार्ट");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","दिखाने के उपयोगकर्ताओं के लिए व्यक्तिगत फार्म");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","दिखाने के उपयोगकर्ताओं के लिए व्यक्तिगत फार्म");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","दिखाएँ पर्यवेक्षकों के लिए उपयोगकर्ताओं को असाइन नहीं की गई");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","पर्यवेक्षक की अनुमति देने के उपयोगकर्ताओं को नष्ट करने के लिए फ़ाइलें साझा");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","मेरे पर्चा");//my Form
+define("_MYEMPLOYEEFORM","मेरे पर्चा");//my Training record
 define("_CLEARQUERYCACHE","स्पष्ट क्वेरी कैश");//Clear query cache
 define("_FEEDBACKOPTIONS","प्रतिक्रिया विकल्प");//Feedback options
 define("_OPTIONSFORFEEDBACK","प्रतिक्रिया के लिए विकल्प");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","मॉड्यूल फ़ाइल�
 define("_DISABLEPAYMENTSNOTICE","यह सब सबक और पाठ्यक्रमों 0 करने के लिए मूल्य निर्धारित करेंगे");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","निर्दिष्ट आयामों से मेल खाते स्क्रीन के लिए आईडी वस्तु");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","अल्पविराम से पृथक सूची");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","वेब सर्वर प्रमाणीकरण");//Web server authentication (New)
-define("_USERSETTINGS","प्रयोक्ता सेटिंग्स");//User settings (New)
-define("_THIRDPARTYTOOLS","3 पार्टी उपकरण");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","खाते में यह सुधार में मत लो");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","आप सुनिश्चित हैं कि आप पाठ आरंभ करना चाहते हैं? यह स्थायी रूप से डेटा को नष्ट करेगा");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","बाह्य उपकरणों");//External tools (New)
-define("_MATHSETTINGS","गणित सेटिंग्स");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","आप इस निम्नलिखित IP के कारण पृष्ठ का उपयोग नहीं किया जा रहा है पर प्रतिबंध लगा सकते हैं");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","ईमेल सेटिंग्स");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","त्रुटि पृष्ठ प्रदर्शित जब उपयोगकर्ता नाम नहीं है या खाली");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","त्रुटि पृष्ठ प्रदर्शित जब उपयोगकर्ता बनाया नहीं जा सकता");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","चर कि उपयोगकर्ता नाम शामिल हैं");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","शामिल फ़ाइल है कि उपयोगकर्ता का सृजन हैंडल");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","वेब सर्वर पंजीकरण");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","का प्रयोग करें या तर्क सही जवाब गणना करने के लिए");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","चर% x  &quot;%y&quot; मिल करने के लिए जारी करना चाहिए");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","पॉपअप विंडो में खोलें इकाई");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","वेब सर्वर प्रमाणीकरण");//Web server authentication
+define("_USERSETTINGS","प्रयोक्ता सेटिंग्स");//User settings
+define("_THIRDPARTYTOOLS","3 पार्टी उपकरण");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","खाते में यह सुधार में मत लो");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","आप सुनिश्चित हैं कि आप पाठ आरंभ करना चाहते हैं? यह स्थायी रूप से डेटा को नष्ट करेगा");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","बाह्य उपकरणों");//External tools
+define("_MATHSETTINGS","गणित सेटिंग्स");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","आप इस निम्नलिखित IP के कारण पृष्ठ का उपयोग नहीं किया जा रहा है पर प्रतिबंध लगा सकते हैं");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","ईमेल सेटिंग्स");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","त्रुटि पृष्ठ प्रदर्शित जब उपयोगकर्ता नाम नहीं है या खाली");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","त्रुटि पृष्ठ प्रदर्शित जब उपयोगकर्ता बनाया नहीं जा सकता");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","चर कि उपयोगकर्ता नाम शामिल हैं");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","शामिल फ़ाइल है कि उपयोगकर्ता का सृजन हैंडल");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","वेब सर्वर पंजीकरण");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","का प्रयोग करें या तर्क सही जवाब गणना करने के लिए");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","चर% x  &quot;%y&quot; मिल करने के लिए जारी करना चाहिए");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","पॉपअप विंडो में खोलें इकाई");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","निर्दिष्ट प्रवेश पहले से मौजूद है (संग्रह के साथ एक उपयोगकर्ता)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","घटनाक्रम आकार");//Events size (New)
+define("_OLDESTEVENT","सबसे पुरानी घटना");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","शुद्ध से बड़ी घटनाओं");//Purge events older than (New)
+define("_PURGEEVENTS","शुद्ध घटनाओं");//Purge events (New)
+define("_USERSEPERUSERTYPE","प्रति उपयोगकर्ता उपयोगकर्ताओं के प्रकार");//Users per user type (New)
+define("_MINUTESPERUSER","प्रति उपयोगकर्ता मिनट");//Minutes per user (New)
+define("_LOGINSPERDAY","प्रति दिन लॉगिन");//Logins per day (New)
+define("_ACCESSES","Accesses");//Accesses (New)
+define("_ACCESSESPERUSER","प्रति उपयोगकर्ता accesses");//Accesses per user (New)
+define("_ACCESSESPERDAY","प्रति दिन accesses");//Accesses per day (New)
+define("_OCCURENCES","संयोग");//Occurences (New)
+define("_SCORES","स्कोर");//Scores (New)
+define("_PROPAGATECOURSE","बेशक प्रचार");//Propagate course (New)
+define("_LESSONSTRUCTURE","सबक संरचना");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","एक प्रशासक सबक पृष्ठों उपयोग नहीं कर सकते");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","x निर्देशिकाओं और फ़ाइलों%% y वेब सर्वर द्वारा writable नहीं हैं. <br> क्लिक करें <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>यहाँ</a> पूरी रिपोर्ट डाउनलोड करने के लिए एक");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","यहाँ क्लिक करें लिखने की अनुमति सेट करने के लिए");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","यहाँ क्लिक करें अनसेट करने के लिए अनुमति लिखने के लिए");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","सेट की अनुमति");//Set permissions (New)
+define("_UNSETPERMISSIONS","अनसेट अनुमति");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","इस आपरेशन के सभी फ़ाइलें और फ़ोल्डर्स के लिए अनुमतियाँ स्थापित करने के लिए वेब सर्वर द्वारा writable होने की कोशिश करेंगे. यह अनिवार्य है यदि आप स्वत: उन्नयन प्रदर्शन करना चाहते हैं और मामलों में उपयोगी हो सकता है आप के दौरान या उन्नयन के बाद मुश्किलों का सामना कर रहे हैं. दूसरी ओर, सभी फाइलें कुछ निश्चित परिस्थितियों में एक सुरक्षा खतरा हो सकता है लिखने योग्य हो जाता है.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","इस आपरेशन के सभी फ़ाइलें और फ़ोल्डर्स के लिए अनुमतियाँ स्थापित करने के लिए वेब सर्वर द्वारा writable होने गैर के लिए इस प्रणाली के लिए अनिवार्य उन ठीक ढंग से काम करने के लिए छोड़कर, की कोशिश करेंगे. यह सबसे सुरक्षित सेटिंग है, लेकिन स्वतः प्रणाली के उन्नयन से रोकेगा");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","यहाँ क्लिक करें अनुमतियाँ जाँच करने के लिए");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","अनुमति की जाँच करें");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","इस ऑपरेशन की जाँच करेगा जो फ़ाइलों और फ़ोल्डरों को आपके सिस्टम के वेब सर्वर द्वारा writable नहीं कर रहे हैं");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","आपरेशन के परिणाम");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","अभी तक कोई आपरेशन प्रदर्शन");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ फ़ोल्डर कुछ फ़ाइलें लिखने योग्य नहीं हैं. कृपया रखरखाव में &#39;&#39; अनुमतियाँ अनुभाग यात्रा -&gt; सफाई करने के लिए अनुमति की जाँच करें और इन फ़ाइलों की समीक्षा");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","अन्यथा, आप <button onclick = \"location='index.php?ctg=signup'\">नया खाता</button> बनाने के लिए एक हो सकता है");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","तुम थे मुक्त सबक और पाठ्यक्रमों में दाखिला लिया. समीक्षा गैर नि: शुल्क शिक्षा और पाठ्यक्रम के अपने चयन के नीचे कृपया");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","पर्यवेक्षकों");//Supervisors (New)
+define("_COURSEOPTIONS","बेशक विकल्प");//Course options (New)
 ?>

@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","შეფასება");//Evaluations
 define("_TRANSPORTMEANS","სატრანსპორტო საშუალებები");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","არ გაქვთ სხვა მონაწილის შეფასების წაშლის უფლება");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","არ გაქვთ სხვა მონაწილის მიერ ჩაწერილი შეფასების რედაქტირების უფლება");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","მონაწილის ბარათი");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","მონაწილის ბარათის ამოსაბეჭდი ესკიზი");//User form print preview
+define("_EMPLOYEEFORM","მონაწილის ბარათი");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","მონაწილის ბარათის ამოსაბეჭდი ესკიზი");//Training record print preview
 define("_PRINTPREVIEW","ამობეჭდვის ესკიზი");//Print preview
-define("_PRINTEMPLOYEEFORM","მონაწილის ბარათის ამობეჭდვა");//Print user form
+define("_PRINTEMPLOYEEFORM","მონაწილის ბარათის ამობეჭდვა");//Print training record
 define("_PRINT","ამობეჭდვა");//Print
 define("_NOSPECIFICJOB","თანამდებობა არაა");//No specific job position
 define("_GROUPS","მონაწილეთა ჯგუფები");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","თარგის შენახვა");//Save layout
 define("_ADDBLOCK","ბლოკის დამატება");//Add block
 define("_RESTOREDEFAULTLAYOUT","ნაგულისხმები თარგის აღდგენა");//Restore default layout
 define("_INFOFORCOURSE","კურსის მონაცემები");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","რეგისტრაციის დასასრულებლად გთხოვთ სისტემაში შემოხვიდეთ");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","რეგისტრაციის დასასრულებლად გთხოვთ სისტემაში შემოხვიდეთ");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","გადასვლა გაკვეთილების სიაზე");//Go to lessons list
 define("_PUBLISHED","გამოქვეყნდა");//Published
 define("_NOTPUBLISHED","არ გამოქვეყნებულა");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","განყოფილების გარეშ
 define("_BRANCHFILTER","განყოფილებების ფილტრი");//Branch filter
 define("_SEARCHUSER","მონაწილის ძიება");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","მონაწილე მსგავსი კრიტერიუმით ვერ მოიძებნა");//No users fulfill the specified criteria
-define("_USERFORM","მონაწილის ბარათი");//User form
-define("_USERFORMPRINTPREVIEW","მონაწილის ბარათის ესკიზი");//User form preview
+define("_USERFORM","მონაწილის ბარათი");//Training record
+define("_USERFORMPRINTPREVIEW","მონაწილის ბარათის ესკიზი");//Training record preview
 define("_USERSFULFILLINGCRITERIA","კრიტერიუმის შესაბამისი მონაწილეები");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","უნარები კატეგორიის გარეშე");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","უნარების შეფასების ტესტის სრაფი გენერატორი");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","კურიკულუმი თვისე�
 define("_ENTRIES","ჩანაწერი");//Entries
 define("_ENTERPRISEOPTIONS","საწარმოს პარამეტრები");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","აჩვენეთ ორგანიზაციის ჰიტ users");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","აჩვენეთ პირადი ფორმა users");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","აჩვენეთ პირადი ფორმა users");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","აჩვენეთ unassigned მომხმარებლებს სუპერვაიზერების");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","ნება მომხმარებლების წაშლა ხელმძღვანელი გაუზიარა ფაილი:");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","ჩემი ფორმა");//my Form
+define("_MYEMPLOYEEFORM","ჩემი ფორმა");//my Training record
 define("_CLEARQUERYCACHE","ნათელი შეკითხვაზე ქეში");//Clear query cache
 define("_FEEDBACKOPTIONS","გამოხმაურება პარამეტრები");//Feedback options
 define("_OPTIONSFORFEEDBACK","პარამეტრები გამოხმაურება");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","მოდულის ფაილი 
 define("_DISABLEPAYMENTSNOTICE","ეს დააყენებს ყველა გაკვეთილი და კურსები ღირებულების 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","მიუთითეთ ობიექტის პირადობის for ეკრანზე შესატყვისი ზომები");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","მძიმეებით");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","");//Web server authentication (New)
-define("_USERSETTINGS","");//User settings (New)
-define("_THIRDPARTYTOOLS","");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","");//External tools (New)
-define("_MATHSETTINGS","");//Math settings (New)
-define("_PHPLIVEDOCX","");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","");//Web server authentication
+define("_USERSETTINGS","");//User settings
+define("_THIRDPARTYTOOLS","");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","");//External tools
+define("_MATHSETTINGS","");//Math settings
+define("_PHPLIVEDOCX","");//PHP livedocx
+define("_CANNOTACCESSIPBAN","");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","");//Events size (New)
+define("_OLDESTEVENT","");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","");//Purge events older than (New)
+define("_PURGEEVENTS","");//Purge events (New)
+define("_USERSEPERUSERTYPE","");//Users per user type (New)
+define("_MINUTESPERUSER","");//Minutes per user (New)
+define("_LOGINSPERDAY","");//Logins per day (New)
+define("_ACCESSES","");//Accesses (New)
+define("_ACCESSESPERUSER","");//Accesses per user (New)
+define("_ACCESSESPERDAY","");//Accesses per day (New)
+define("_OCCURENCES","");//Occurences (New)
+define("_SCORES","");//Scores (New)
+define("_PROPAGATECOURSE","");//Propagate course (New)
+define("_LESSONSTRUCTURE","");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","");//Set permissions (New)
+define("_UNSETPERMISSIONS","");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","");//Supervisors (New)
+define("_COURSEOPTIONS","");//Course options (New)
 ?>

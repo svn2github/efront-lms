@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","• Mga pagsusuri");//Evaluations
 define("_TRANSPORTMEANS","Ay nangangahulugan ng mga sasakyan");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Ikaw ay hindi maaaring tanggalin ang isang nakasulat na pagsusuri sa pamamagitan ng ibang user");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Ikaw ay hindi maaring i-edit ang isang nakasulat na pagsusuri sa pamamagitan ng ibang user");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","User form");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","User form na i-print preview");//User form print preview
+define("_EMPLOYEEFORM","User form");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","User form na i-print preview");//Training record print preview
 define("_PRINTPREVIEW","I-print preview");//Print preview
-define("_PRINTEMPLOYEEFORM","I-print user form");//Print user form
+define("_PRINTEMPLOYEEFORM","I-print user form");//Print training record
 define("_PRINT","I-print");//Print
 define("_NOSPECIFICJOB","Walang tiyak na posisyon sa trabaho");//No specific job position
 define("_GROUPS","User grupo");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","I-save ang layout");//Save layout
 define("_ADDBLOCK","Magdagdag ng block");//Add block
 define("_RESTOREDEFAULTLAYOUT","Ibalik ang mga default na layout");//Restore default layout
 define("_INFOFORCOURSE","Impormasyon para sa mga kurso");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Mangyaring mag-login upang makumpleto ang rehistrasyon ng");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Mangyaring mag-login upang makumpleto ang rehistrasyon ng");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Pumunta sa mga aralin na listahan");//Go to lessons list
 define("_PUBLISHED","Published");//Published
 define("_NOTPUBLISHED","Hindi nai-publish");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Walang tiyak na sangay ng");//No specific branch
 define("_BRANCHFILTER","Sangay ng filter");//Branch filter
 define("_SEARCHUSER","Search user");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Walang mga gumagamit matupad ang mga tinukoy na mga pamantayan");//No users fulfill the specified criteria
-define("_USERFORM","User form");//User form
-define("_USERFORMPRINTPREVIEW","User form preview");//User form preview
+define("_USERFORM","User form");//Training record
+define("_USERFORMPRINTPREVIEW","User form preview");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Gumagamit fulfilling ang pamantayan");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Non-nakategorya kasanayan");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Mabilis na kasanayan-gep pagsubok dyeneretor");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Curriculum-aari");//Curriculum properties
 define("_ENTRIES","Entries");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise mga opsyon");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Ipakita ang mga organisasyon tsart sa mga gumagamit");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Ipakita ang mga personal na form sa mga gumagamit");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Ipakita ang mga personal na form sa mga gumagamit");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Ipakita ang mga naka-assign sa mga gumagamit supervisors");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Payagan ang mga gumagamit upang tanggalin ang superbisor shared file");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","aking Form");//my Form
+define("_MYEMPLOYEEFORM","aking Form");//my Training record
 define("_CLEARQUERYCACHE","I-clear ang cache ng query");//Clear query cache
 define("_FEEDBACKOPTIONS","Feedback opsyon");//Feedback options
 define("_OPTIONSFORFEEDBACK","Opsyon para sa mga puna");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Module na mga files ay kasalukuyan, ng
 define("_DISABLEPAYMENTSNOTICE","Ito ay magse-set ang lahat ng mga aralin at mga kurso sa presyo 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Tukuyin ang object id para sa screen na sukat ng pagtutugma");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Na comma-separated list");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server authentication");//Web server authentication (New)
-define("_USERSETTINGS","User setting");//User settings (New)
-define("_THIRDPARTYTOOLS","Ika-3 partido ng mga kasangkapan");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Huwag dalhin ito sa account sa pagtutuwid");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Sigurado ka bang gusto mong magpasimula aral? Ito ay permanenteng tanggalin ang data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Panlabas na mga kasangkapan");//External tools (New)
-define("_MATHSETTINGS","Math mga setting ng");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Hindi ka maaaring ma-access ang pahina na ito dahil sa mga sumusunod na IP pagiging pinagbawalan");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Email setting");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Error sa pahinang ipinapakita kapag ang username ay kulang o walang laman");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Error sa pahinang ipinapakita kapag ang gumagamit ay hindi mabuo");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Variable na naglalaman ng mga username");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Isama ang file na humahawak sa paggawa ng user");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web server registration");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Gamitin O lohika upang makalkula ang tamang sagot");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Ang variable na x% ay dapat maglaman ng &quot;%y&quot; upang magpatuloy");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Buksan ang yunit sa popup window");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server authentication");//Web server authentication
+define("_USERSETTINGS","User setting");//User settings
+define("_THIRDPARTYTOOLS","Ika-3 partido ng mga kasangkapan");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Huwag dalhin ito sa account sa pagtutuwid");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Sigurado ka bang gusto mong magpasimula aral? Ito ay permanenteng tanggalin ang data");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Panlabas na mga kasangkapan");//External tools
+define("_MATHSETTINGS","Math mga setting ng");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Hindi ka maaaring ma-access ang pahina na ito dahil sa mga sumusunod na IP pagiging pinagbawalan");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Email setting");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Error sa pahinang ipinapakita kapag ang username ay kulang o walang laman");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Error sa pahinang ipinapakita kapag ang gumagamit ay hindi mabuo");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Variable na naglalaman ng mga username");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Isama ang file na humahawak sa paggawa ng user");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web server registration");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Gamitin O lohika upang makalkula ang tamang sagot");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Ang variable na x% ay dapat maglaman ng &quot;%y&quot; upang magpatuloy");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Buksan ang yunit sa popup window");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Ang isang user na may tinukoy na login na ito (naka-archive)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Events laki");//Events size (New)
+define("_OLDESTEVENT","Pinakaluma kaganapan");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Purgahin kaganapan mas matanda kaysa sa");//Purge events older than (New)
+define("_PURGEEVENTS","Purgahin kaganapan");//Purge events (New)
+define("_USERSEPERUSERTYPE","Ang mga gumagamit ng bawat uri ng user");//Users per user type (New)
+define("_MINUTESPERUSER","Minuto ng bawat user");//Minutes per user (New)
+define("_LOGINSPERDAY","Mga pag-login sa bawat araw");//Logins per day (New)
+define("_ACCESSES","Accesses");//Accesses (New)
+define("_ACCESSESPERUSER","Accesses bawat user");//Accesses per user (New)
+define("_ACCESSESPERDAY","Accesses bawat araw");//Accesses per day (New)
+define("_OCCURENCES","Bahagi");//Occurences (New)
+define("_SCORES","Kalidad");//Scores (New)
+define("_PROPAGATECOURSE","Magparami kurso");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lesson istraktura");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Isang tagapangasiwa ay hindi maaaring ma-access ang mga pahina ng aralin");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X directories at% y mga file ay hindi writable ng web server. <br> I-click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>dito</a> upang i-download ng isang kumpletong ulat");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Mag-click dito upang itakda sumulat pahintulot");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","I-click dito upang unset sumulat permissions");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Itakda ang mga pahintulot");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset permissions");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Ang operasyon na ito ay subukan ang setting na mga pahintulot upang ang lahat ng mga file at mga folder na writable ng web server. Ito ay sapilitan kung nais mong magsagawa automatic upgrade at maaaring maging kapaki-pakinabang sa mga kaso ikaw ay nakararanas ng problema sa panahon ng o matapos ang upgrade. Sa kabilang dako, Aalis ang lahat ng mga file writable maaaring magpose ng seguridad banta sa ilalim ng mga tiyak na pangyayari.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ang operasyon na ito ay subukan ang setting na mga pahintulot upang ang lahat ng mga file at mga folder na hindi pang-writable ng web server, maliban para sa mga sapilitan para sa mga system upang gumana ng maayos. Ito ang pinaka-secure na setting ngunit maiwasan ang sistema mula sa awtomatikong pag-upgrade");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","I-click dito upang suriin ang mga pahintulot");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Suriin ang mga pahintulot");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ang operasyon na ito ay i-tsek kung saan ang mga file at mga folder ng iyong system ay hindi writable ng web server");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operasyon ng kinalabasan");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Walang operasyon ginanap pa");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Ang ilang mga file / mga folder ay hindi writable. Mangyaring bisitahin ang seksiyon ng &#39;Mga pahintulot&#39; sa maintenance -&gt; paglilinis sa check pahintulot at repasuhin ang mga file na ito");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Kung hindi, maaari kang lumikha ng isang <button onclick = \"location='index.php?ctg=signup'\">bagong account</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ikaw ay nakatala sa libreng mga aralin at mga kurso. Maaring suriin muli sa ibaba ng iyong pagpili ng mga hindi libreng mga aralin at mga kurso");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Supervisors");//Supervisors (New)
+define("_COURSEOPTIONS","Course opsyon");//Course options (New)
 ?>

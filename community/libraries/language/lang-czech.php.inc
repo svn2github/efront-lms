@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Hodnocení");//Evaluations
 define("_TRANSPORTMEANS","Způsob dopravy");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Nemůžete smazat hodnocení napsané od jiného uživatele");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Nemůžete změnit hodnocení napsané od jiného uživatele");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Uživatelský formulář");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Uživatelský formulář - vytisknout náhled");//User form print preview
+define("_EMPLOYEEFORM","Uživatelský formulář");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Uživatelský formulář - vytisknout náhled");//Training record print preview
 define("_PRINTPREVIEW","Tiskový náhled");//Print preview
-define("_PRINTEMPLOYEEFORM","Vytiskni uživatelský formulář");//Print user form
+define("_PRINTEMPLOYEEFORM","Vytiskni uživatelský formulář");//Print training record
 define("_PRINT","Tisk");//Print
 define("_NOSPECIFICJOB","Žádný konkrétní popis práce");//No specific job position
 define("_GROUPS","Uživatelské skupiny");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Uložit rozložení");//Save layout
 define("_ADDBLOCK","Přidat blok");//Add block
 define("_RESTOREDEFAULTLAYOUT","Obnovit výchozí rozložení(layout)");//Restore default layout
 define("_INFOFORCOURSE","Informace o kurzu");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Prosím, přihlaste se pro dokončení registrace");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Prosím, přihlaste se pro dokončení registrace");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Přejít na seznam lekcí");//Go to lessons list
 define("_PUBLISHED","Zveřejněno");//Published
 define("_NOTPUBLISHED","Nezveřejněno");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Žádné konkrétní pobočky");//No specific branch
 define("_BRANCHFILTER","Filtr pobočky");//Branch filter
 define("_SEARCHUSER","Hledání uživatele");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Žádní uživatelé nesplnili stanovená kritéria");//No users fulfill the specified criteria
-define("_USERFORM","Uživatelský formulář");//User form
-define("_USERFORMPRINTPREVIEW","Uživatelský formulář - náhled");//User form preview
+define("_USERFORM","Uživatelský formulář");//Training record
+define("_USERFORMPRINTPREVIEW","Uživatelský formulář - náhled");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Uživatelé, kteří splňují kritéria");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Nekategorizované dovednosti");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Generátor rychlého kvalifikačního testu");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Curriculum vlastnosti");//Curriculum properties
 define("_ENTRIES","Příspěvky");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise volby");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Zobrazit organizační schéma pro uživatele");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Ukázat osobní formulář, který uživatelům");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Ukázat osobní formulář, který uživatelům");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Zobrazit nepřiřazeno uživatelům dohledu");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Povolit uživatelům mazat vedoucím sdílené soubory");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","Moje Form");//my Form
+define("_MYEMPLOYEEFORM","Moje Form");//my Training record
 define("_CLEARQUERYCACHE","Vymazat dotaz cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Zpětná vazba volby");//Feedback options
 define("_OPTIONSFORFEEDBACK","Možnosti pro zpětnou vazbu");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modul soubory jsou přítomny, ale nen
 define("_DISABLEPAYMENTSNOTICE","To nastaví všechny lekce a kurzy cenu na 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Určete objekt id pro obrazovku odpovídající rozměry");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Čárkou oddělený seznam");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server ověřování");//Web server authentication (New)
-define("_USERSETTINGS","Uživatelská nastavení");//User settings (New)
-define("_THIRDPARTYTOOLS","3. strany nástroje");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Neber to v úvahu při opravě");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Jste si jisti, že chcete inicializovat lekci? To bude trvale odstranit data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Externí nástroje");//External tools (New)
-define("_MATHSETTINGS","Matematický nastavení");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Nemáte přístup na tuto stránku z následujících IP byly zakázány");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Nastavení e-mailu");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Chybová stránka zobrazí, když uživatelské jméno chybí nebo je prázdná");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Chybová stránka zobrazí, pokud by uživatel nemůže být vytvořen");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Proměnná, která obsahuje uživatelské jméno");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Patří soubor, který zpracovává uživatelské vytváření");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web server o registraci");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Použijte nebo logika pro výpočet správnou odpověď");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Proměnná% x musí obsahovat &quot;%y&quot;, aby se i nadále");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Open jednotky v pop-up okně");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server ověřování");//Web server authentication
+define("_USERSETTINGS","Uživatelská nastavení");//User settings
+define("_THIRDPARTYTOOLS","3. strany nástroje");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Neber to v úvahu při opravě");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Jste si jisti, že chcete inicializovat lekci? To bude trvale odstranit data");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Externí nástroje");//External tools
+define("_MATHSETTINGS","Matematický nastavení");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Nemáte přístup na tuto stránku z následujících IP byly zakázány");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Nastavení e-mailu");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Chybová stránka zobrazí, když uživatelské jméno chybí nebo je prázdná");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Chybová stránka zobrazí, pokud by uživatel nemůže být vytvořen");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Proměnná, která obsahuje uživatelské jméno");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Patří soubor, který zpracovává uživatelské vytváření");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web server o registraci");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Použijte nebo logika pro výpočet správnou odpověď");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Proměnná% x musí obsahovat &quot;%y&quot;, aby se i nadále");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Open jednotky v pop-up okně");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Uživatel se zadaným přihlášení již existuje (archivované)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Události velikosti");//Events size (New)
+define("_OLDESTEVENT","Nejstarší události");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Vyčistit události starší než");//Purge events older than (New)
+define("_PURGEEVENTS","Vyčistit události");//Purge events (New)
+define("_USERSEPERUSERTYPE","Uživatelů na typ uživatele");//Users per user type (New)
+define("_MINUTESPERUSER","Zápis na uživatele");//Minutes per user (New)
+define("_LOGINSPERDAY","Přihlášení za den");//Logins per day (New)
+define("_ACCESSES","Přístupy");//Accesses (New)
+define("_ACCESSESPERUSER","Přístupy na uživatele");//Accesses per user (New)
+define("_ACCESSESPERDAY","Přístupy za den");//Accesses per day (New)
+define("_OCCURENCES","Výskyty");//Occurences (New)
+define("_SCORES","Skóre");//Scores (New)
+define("_PROPAGATECOURSE","Propagate kurz");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lekce struktura");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Správce nemůže získat přístup lekci stránky");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X adresářů a souborů% y nejsou zapisovatelné webovým serverem. <br> Klikněte <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>zde</a> pro stažení kompletní zprávu");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Klikněte zde pro nastavení zápis");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Klikněte zde pro unset zápis");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Nastavit oprávnění");//Set permissions (New)
+define("_UNSETPERMISSIONS","Zrušit oprávnění");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Tato operace se bude snažit nastavení oprávnění pro všechny soubory a složky které mají být zapisovatelné webovým serverem. To je povinné, pokud chcete provést automatickou upgrady a může být užitečné v případech, jste se setkali s problémy v průběhu nebo po aktualizaci. Na druhou stranu, takže všechny soubory zapisovatelné může představovat bezpečnostní hrozbu za určitých okolností.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Tato operace se bude snažit nastavení oprávnění pro všechny soubory a složky být non-právo zápisu do tohoto webového serveru, s výjimkou těch, povinné pro systém fungoval správně. Jedná se o nejbezpečnější nastavení, ale bude bránit systém před upgrade automaticky");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Klikněte zde pro kontrolu oprávnění");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Zkontrolujte oprávnění");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Tato operace bude zjistit, které soubory a složky na vašem systému nejsou zapisovatelné webovým serverem");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Výsledek operace");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Č. vykonávanou činnost zatím");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Některé soubory / složky nelze zapisovat. Prosím, navštivte sekci &#39;oprávnění&#39; na údržbu -&gt; cleanup pro kontrolu oprávnění a revize těchto souborů");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","V opačném případě můžete vytvořit <button onclick = \"location='index.php?ctg=signup'\">nový účet</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ty byly zařazeny do volné lekce a kurzy. Přečtěte si prosím níže svůj výběr zákazu volného lekce a kurzy");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Orgány dohledu");//Supervisors (New)
+define("_COURSEOPTIONS","Předmět volby");//Course options (New)
 ?>

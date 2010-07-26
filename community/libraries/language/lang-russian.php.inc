@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Оценивания");//Evaluations
 define("_TRANSPORTMEANS","Транспортные средства");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Вы не можете удалить оценивание, записанное другим пользователем");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Вы не можете редактировать оценивание, записанное другим пользователем");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Карточка сотрудника");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Предварительный просмотр карточки сотрудника");//User form print preview
+define("_EMPLOYEEFORM","Карточка сотрудника");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Предварительный просмотр карточки сотрудника");//Training record print preview
 define("_PRINTPREVIEW","Предварительный просмотр");//Print preview
-define("_PRINTEMPLOYEEFORM","Распечатать карточку сотрудника");//Print user form
+define("_PRINTEMPLOYEEFORM","Распечатать карточку сотрудника");//Print training record
 define("_PRINT","Печать");//Print
 define("_NOSPECIFICJOB","Нет должностей");//No specific job position
 define("_GROUPS","Группы пользователей");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Сохранить макет");//Save layout
 define("_ADDBLOCK","Добавить блок");//Add block
 define("_RESTOREDEFAULTLAYOUT","Восстановить макет по умолчанию");//Restore default layout
 define("_INFOFORCOURSE","Информация о курсе");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Пожалуйста, войдите в систему, чтобы завершить регистрацию");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Пожалуйста, войдите в систему, чтобы завершить регистрацию");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Перейти к списку уроков");//Go to lessons list
 define("_PUBLISHED","Опубликован");//Published
 define("_NOTPUBLISHED","Не опубликован");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Не вводить в подразделение");
 define("_BRANCHFILTER","Фильтр подразделений");//Branch filter
 define("_SEARCHUSER","Поиск пользователей");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Нет пользователей, удовлетворяющих указанным критериям");//No users fulfill the specified criteria
-define("_USERFORM","Карточка сотрудника");//User form
-define("_USERFORMPRINTPREVIEW","Предварительный просмотр карточки сотрудника");//User form preview
+define("_USERFORM","Карточка сотрудника");//Training record
+define("_USERFORMPRINTPREVIEW","Предварительный просмотр карточки сотрудника");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Пользователи, удовлетворяющие критерию");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Навыки без категории");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Быстрый генератор тестов на наличие навыков");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Учебный свойства");//Curriculum p
 define("_ENTRIES","Записи");//Entries
 define("_ENTERPRISEOPTIONS","Предприятие параметры");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Показать организационной структуры для пользователей");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Показать личные формы для пользователей");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Показать личные формы для пользователей");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Показать неназначенный пользователей для руководителей");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Разрешить пользователям удалять руководитель общих файлов");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","Моя форма");//my Form
+define("_MYEMPLOYEEFORM","Моя форма");//my Training record
 define("_CLEARQUERYCACHE","Очистить кэш запросов");//Clear query cache
 define("_FEEDBACKOPTIONS","Обратная связь параметры");//Feedback options
 define("_OPTIONSFORFEEDBACK","Функции для обратной связи");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Модуль файлы присутс
 define("_DISABLEPAYMENTSNOTICE","Это позволит установить все уроки и курсы, цены 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Укажите идентификатор объекта для экрана соответствия размеров");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Запятую");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Веб-сервер аутентификации");//Web server authentication (New)
-define("_USERSETTINGS","Пользовательские настройки");//User settings (New)
-define("_THIRDPARTYTOOLS","Третья сторона инструменты");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Не принимайте это во внимание при коррекции");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Вы уверены, что вы хотите инициализировать урок? Это позволит удалить данные");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Внешние инструменты");//External tools (New)
-define("_MATHSETTINGS","Мать настройки");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Вы не можете получить доступ к этой странице объясняется следующими IP запретили");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Настройки электронной почты");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Ошибка страницы отображается, когда имя пользователя отсутствует или пуст");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Ошибка страницы отображается, когда пользователь не может быть создана");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Переменная, которая содержит имя пользователя");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Включить файл, который управляет пользователь создания");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Веб-сервер регистрации");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Использование ИЛИ логики вычислить правильный ответ");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Переменная% х должно содержать &quot;%y&quot;, чтобы продолжить");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Открыть блок во всплывающем окне");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Веб-сервер аутентификации");//Web server authentication
+define("_USERSETTINGS","Пользовательские настройки");//User settings
+define("_THIRDPARTYTOOLS","Третья сторона инструменты");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Не принимайте это во внимание при коррекции");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Вы уверены, что вы хотите инициализировать урок? Это позволит удалить данные");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Внешние инструменты");//External tools
+define("_MATHSETTINGS","Мать настройки");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Вы не можете получить доступ к этой странице объясняется следующими IP запретили");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Настройки электронной почты");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Ошибка страницы отображается, когда имя пользователя отсутствует или пуст");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Ошибка страницы отображается, когда пользователь не может быть создана");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Переменная, которая содержит имя пользователя");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Включить файл, который управляет пользователь создания");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Веб-сервер регистрации");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Использование ИЛИ логики вычислить правильный ответ");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Переменная% х должно содержать &quot;%y&quot;, чтобы продолжить");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Открыть блок во всплывающем окне");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Пользователь с указанным Логин уже существует (архив)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","События размера");//Events size (New)
+define("_OLDESTEVENT","Старые события");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Чистки события старее");//Purge events older than (New)
+define("_PURGEEVENTS","Чистки события");//Purge events (New)
+define("_USERSEPERUSERTYPE","Пользователей в тип пользователя");//Users per user type (New)
+define("_MINUTESPERUSER","Минут на одного пользователя");//Minutes per user (New)
+define("_LOGINSPERDAY","Логинов в сутки");//Logins per day (New)
+define("_ACCESSES","Подъездные");//Accesses (New)
+define("_ACCESSESPERUSER","Доступ на одного пользователя");//Accesses per user (New)
+define("_ACCESSESPERDAY","Доступ в сутки");//Accesses per day (New)
+define("_OCCURENCES","Находки");//Occurences (New)
+define("_SCORES","Множество");//Scores (New)
+define("_PROPAGATECOURSE","Конечно Propagate");//Propagate course (New)
+define("_LESSONSTRUCTURE","Урок структуры");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Администратор не может получить доступ к страницам урок");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% Х каталогов и файлов% у не доступна для записи веб-сервером. <br> Нажмите <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>здесь</a> , чтобы скачать полный отчет");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Нажмите здесь, чтобы установить права на запись");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Нажмите здесь, чтобы написать отключенном разрешения");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Установка разрешений");//Set permissions (New)
+define("_UNSETPERMISSIONS","Отключенное разрешения");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Эта операция будет попробовать установить права доступа для всех файлов и папок для записи веб-сервером. Это является обязательным, если вы хотите выполнить автоматическое обновление и может быть полезна в тех случаях, вы испытываете проблемы во время или после модернизации. С другой стороны, в результате чего все файлы, записи могут представлять угрозу безопасности, при определенных обстоятельствах.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Эта операция будет попробовать установить права доступа для всех файлов и папок быть не доступна для записи веб-сервера, за исключением тех, обязательные для системы нормально функционировать. Это самое охраняемое учреждение, но не позволит системе автоматически обновлять");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Нажмите здесь, чтобы проверить разрешения");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Проверьте разрешения");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Эта операция будет проверить, какие файлы и папки в системе не доступна для записи веб-сервером");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Операция результатов");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Нет операцию еще");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Некоторые файлы и папки, не для записи. Пожалуйста, зайдите в раздел \"разрешения\" в обслуживание -&gt; очистки для проверки разрешений и рассмотрение этих файлов");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","В противном случае, вы можете создать <button onclick = \"location='index.php?ctg=signup'\">новую учетную запись</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Вы были зачислены на бесплатные уроки и курсы. Пожалуйста, ознакомьтесь с ниже вашего выбора, не бесплатные уроки и курсы");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Руководители");//Supervisors (New)
+define("_COURSEOPTIONS","Выбор курсов");//Course options (New)
 ?>

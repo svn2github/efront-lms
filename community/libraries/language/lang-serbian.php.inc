@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Оцењивање");//Evaluations
 define("_TRANSPORTMEANS","Превозна средства");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Не можете избрисати писана евалуација од стране другог корисника");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Не можете уређивати евалуација писаног други корисник");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Корисничко обрасца");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Корисничко образац принт превиеу");//User form print preview
+define("_EMPLOYEEFORM","Корисничко обрасца");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Корисничко образац принт превиеу");//Training record print preview
 define("_PRINTPREVIEW","Верзија за штампање");//Print preview
-define("_PRINTEMPLOYEEFORM","Штампај обрасца корисник");//Print user form
+define("_PRINTEMPLOYEEFORM","Штампај обрасца корисник");//Print training record
 define("_PRINT","Штампај");//Print
 define("_NOSPECIFICJOB","Нема специфичне радном месту");//No specific job position
 define("_GROUPS","Корисничке групе");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Сачувај изглед");//Save layout
 define("_ADDBLOCK","Додај блок");//Add block
 define("_RESTOREDEFAULTLAYOUT","Враћање подразумеваних лаыоут");//Restore default layout
 define("_INFOFORCOURSE","Информације за курс");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Молимо вас да попуните пријаву за регистрацију");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Молимо вас да попуните пријаву за регистрацију");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Иди на лекције листа");//Go to lessons list
 define("_PUBLISHED","Издања");//Published
 define("_NOTPUBLISHED","Није објављена");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Нема специфичних грана");//No sp
 define("_BRANCHFILTER","Подручна филтер");//Branch filter
 define("_SEARCHUSER","Претрага корисника");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Нема корисника задовољавају критеријум наведен");//No users fulfill the specified criteria
-define("_USERFORM","Корисничко обрасца");//User form
-define("_USERFORMPRINTPREVIEW","Корисничко образац превиеу");//User form preview
+define("_USERFORM","Корисничко обрасца");//Training record
+define("_USERFORMPRINTPREVIEW","Корисничко образац превиеу");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Корисници испуњавају критеријуме");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Није категоризована вештине");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Куицк скилл ГАП-тест генератор");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Наставни план и програм св
 define("_ENTRIES","Ставке");//Entries
 define("_ENTERPRISEOPTIONS","Предузећа опције");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Прикажи организационог дијаграма за кориснике");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Прикажи лични формулар за кориснике");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Прикажи лични формулар за кориснике");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Прикажи додељена корисницима супервизора");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Дозволи корисницима да избришете супервизор дељеним датотекама");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","мој образац");//my Form
+define("_MYEMPLOYEEFORM","мој образац");//my Training record
 define("_CLEARQUERYCACHE","Јасно упита кеш");//Clear query cache
 define("_FEEDBACKOPTIONS","Феедбацк опцијама");//Feedback options
 define("_OPTIONSFORFEEDBACK","Опције за повратне информације");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Модул датотеке су пр�
 define("_DISABLEPAYMENTSNOTICE","Ово ће подесити све лекције и курсева цена 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Наведите Објецт ИД за екран димензије одговарају");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Зарезом одвојена листа");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Веб сервер аутентификацију");//Web server authentication (New)
-define("_USERSETTINGS","Корисничка подешавања");//User settings (New)
-define("_THIRDPARTYTOOLS","3рд парти алата");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Не узимају се у обзир корекције");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Да ли сте сигурни да желите да покрене лекцију? Ово ће трајно обрисати податке");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Спољним алатима");//External tools (New)
-define("_MATHSETTINGS","Математика подешавања");//Math settings (New)
-define("_PHPLIVEDOCX","ПХП ливедоцк");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Не можете да приступите овој страници због следећих ИП адреса буде забрањен");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Е-маил подешавања");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Еррор страница која се приказује када се корисничко име недостаје или је празна");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Еррор страница која се приказује када корисник не може бити креиран");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Променљива која садржи корисничко име");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Укључи датотеку која рукује корисник стварање");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Веб сервер за регистрацију");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Користите ИЛИ логике за израчунавање тачан одговор");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Променљиве% к мора садржати &quot;%y&quot; како би наставили");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Отвори јединица у искачућем прозору");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Веб сервер аутентификацију");//Web server authentication
+define("_USERSETTINGS","Корисничка подешавања");//User settings
+define("_THIRDPARTYTOOLS","3рд парти алата");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Не узимају се у обзир корекције");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Да ли сте сигурни да желите да покрене лекцију? Ово ће трајно обрисати податке");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Спољним алатима");//External tools
+define("_MATHSETTINGS","Математика подешавања");//Math settings
+define("_PHPLIVEDOCX","ПХП ливедоцк");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Не можете да приступите овој страници због следећих ИП адреса буде забрањен");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Е-маил подешавања");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Еррор страница која се приказује када се корисничко име недостаје или је празна");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Еррор страница која се приказује када корисник не може бити креиран");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Променљива која садржи корисничко име");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Укључи датотеку која рукује корисник стварање");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Веб сервер за регистрацију");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Користите ИЛИ логике за израчунавање тачан одговор");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Променљиве% к мора садржати &quot;%y&quot; како би наставили");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Отвори јединица у искачућем прозору");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Корисник са наведеним именом већ постоји (у архиви)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Догађаји величину");//Events size (New)
+define("_OLDESTEVENT","Најстарији догађај");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Очисти догађаје старије од");//Purge events older than (New)
+define("_PURGEEVENTS","Очисти догађаји");//Purge events (New)
+define("_USERSEPERUSERTYPE","Корисници на тип корисника");//Users per user type (New)
+define("_MINUTESPERUSER","Минута по кориснику");//Minutes per user (New)
+define("_LOGINSPERDAY","Пријаве по дану");//Logins per day (New)
+define("_ACCESSES","Приступа");//Accesses (New)
+define("_ACCESSESPERUSER","Приступа по једном кориснику");//Accesses per user (New)
+define("_ACCESSESPERDAY","Приступа по дану");//Accesses per day (New)
+define("_OCCURENCES","Појавама");//Occurences (New)
+define("_SCORES","Резултати");//Scores (New)
+define("_PROPAGATECOURSE","Пропагирати курс");//Propagate course (New)
+define("_LESSONSTRUCTURE","Лекција структура");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Администратор не могу да приступе страницама сат");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% Кс директоријуме и датотеке и% се не може писати у веб сервера. <br> Кликните <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>овде</a> да бисте преузели комплетан извештај");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Кликните овде да поставите написати дозволе");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Кликните овде да бисте пореметити подешавања написати дозволе");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Постави дозволе");//Set permissions (New)
+define("_UNSETPERMISSIONS","Унсет дозволе");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Ова операција ће покушати постављање дозвола на све датотеке и фолдере бити могуће писати од веб сервера. Ово је обавезна ако желите да извршите аутоматску надоградњу и може бити корисна у случајевима имате проблема за време или после надоградње. С друге стране, остављајући све датотеке писати могу представљати претњу безбедности под одређеним околностима.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ова операција ће покушати постављање дозвола на све датотеке и фолдере да се не може писати у веб серверу, осим за оне који су обавезни да се систем правилно функционисао. Ово је најбезбеднији поставку, али ће спречити систем надоградње аутоматски");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Кликните овде да проверите дозволе");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Проверите дозволе");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ова операција ће проверити које датотеке и фасцикле на вашем систему се не може писати у веб сервера");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Операција исход");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Без операције извршене још");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Неки фајлова / фолдера се не може писати. Молимо Вас да посетите &#39;дозволе&#39; одељак у одржавање -&gt; Чишћење да проверите дозволе и преглед ових фајлова");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","У супротном, можете направити <button onclick = \"location='index.php?ctg=signup'\">нови налог</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Сте били уписани на бесплатне часове и курсеве. Молимо Вас да прегледате испод избор нису бесплатне часове и курсеве");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Супервизора");//Supervisors (New)
+define("_COURSEOPTIONS","Наравно, опција");//Course options (New)
 ?>

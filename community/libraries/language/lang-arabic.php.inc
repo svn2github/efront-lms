@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","التقييمات");//Evaluations
 define("_TRANSPORTMEANS","وسائل النقل");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","لا يمكنك حذف تقييم المكتوبة مستخدم آخر");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","لا يمكنك تحرير التقييم كتبت مستخدم آخر");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","الموظف شكل");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","شكل الموظف قبل الطباعه");//User form print preview
+define("_EMPLOYEEFORM","الموظف شكل");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","شكل الموظف قبل الطباعه");//Training record print preview
 define("_PRINTPREVIEW","للطباعة");//Print preview
-define("_PRINTEMPLOYEEFORM","اطبع شكل موظف");//Print user form
+define("_PRINTEMPLOYEEFORM","اطبع شكل موظف");//Print training record
 define("_PRINT","اطبع");//Print
 define("_NOSPECIFICJOB","توصيف وظيفة محددة لا");//No specific job position
 define("_GROUPS","مجموعات المستخدمين");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","حفظ التخطيط");//Save layout
 define("_ADDBLOCK","أضف عرقلة");//Add block
 define("_RESTOREDEFAULTLAYOUT","اعادة تصميم الافتراضية");//Restore default layout
 define("_INFOFORCOURSE","بالطبع للمعلومات");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","برجاء الدخول لتتمكن من استكمال التسجيل");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","برجاء الدخول لتتمكن من استكمال التسجيل");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","اذهب إلى قائمة الدروس");//Go to lessons list
 define("_PUBLISHED","نشر");//Published
 define("_NOTPUBLISHED","لم تنشر");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","اي فرع");//No specific branch
 define("_BRANCHFILTER","فرع فلتر");//Branch filter
 define("_SEARCHUSER","بحث المستخدم");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","لا مستخدمين تحقيق معايير محددة");//No users fulfill the specified criteria
-define("_USERFORM","الشكل المستخدم");//User form
-define("_USERFORMPRINTPREVIEW","معاينة الشكل المستخدم");//User form preview
+define("_USERFORM","الشكل المستخدم");//Training record
+define("_USERFORMPRINTPREVIEW","معاينة الشكل المستخدم");//Training record preview
 define("_USERSFULFILLINGCRITERIA","المستخدمين الوفاء بمعايير");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","غير مصنفة المهارات");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","سريع المهارات الفجوة اختبار مولد");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","خصائص المنهج");//Curriculum propertie
 define("_ENTRIES","إدخالات");//Entries
 define("_ENTERPRISEOPTIONS","المشاريع خيارات");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","وتظهر الخريطة التنظيمية للمستخدمين");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","وتظهر صورة الشخصية للمستخدمين");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","وتظهر صورة الشخصية للمستخدمين");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","غير مخصصة للمستخدمين عرض المشرفين");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","السماح للمستخدمين حذف الملفات المشتركة المشرف");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","بلدي نموذج");//my Form
+define("_MYEMPLOYEEFORM","بلدي نموذج");//my Training record
 define("_CLEARQUERYCACHE","واضح الاستعلام ذاكرة التخزين المؤقت");//Clear query cache
 define("_FEEDBACKOPTIONS","خيارات تعليقات");//Feedback options
 define("_OPTIONSFORFEEDBACK","خيارات للوقوف على آرائهم");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","ملفات الوحدة موجودة �
 define("_DISABLEPAYMENTSNOTICE","وهذا وضع جميع الدروس والدورات السعر إلى 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","تحديد هوية الكائن لأبعاد الشاشة مطابقة");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","قائمة مفصولة بفواصل");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","خادم الويب مصادقة");//Web server authentication (New)
-define("_USERSETTINGS","ضبط المستخدم");//User settings (New)
-define("_THIRDPARTYTOOLS","3rd الطرف أدوات");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","لا تأخذ في الاعتبار في التصحيح");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","هل أنت متأكد أنك تريد تهيئة الدرس؟ سيؤدي ذلك إلى حذف البيانات بشكل دائم");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","أدوات خارجية");//External tools (New)
-define("_MATHSETTINGS","إعدادات الرياضيات");//Math settings (New)
-define("_PHPLIVEDOCX","بي livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","لا يمكنك الوصول إلى هذه الصفحة بسبب الملكية الفكرية التالية حظرها");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","إعدادات البريد الإلكتروني");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","عرض صفحة خطأ عند اسم المستخدم مفقود أو فارغة");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","عرض صفحة خطأ عندما لا يمكن للمستخدم أن تنشأ");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","المتغير الذي يحتوي على اسم المستخدم");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","وتشمل الملف الذي يعالج مستخدم خلق");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","خادم الويب تسجيل");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","استخدام أو منطق لحساب الجواب الصحيح");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","ويجب أن تحتوي على ٪ متغير س &quot;%y&quot; من أجل مواصلة");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","فتح وحدة في نافذة منبثقة");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","خادم الويب مصادقة");//Web server authentication
+define("_USERSETTINGS","ضبط المستخدم");//User settings
+define("_THIRDPARTYTOOLS","3rd الطرف أدوات");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","لا تأخذ في الاعتبار في التصحيح");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","هل أنت متأكد أنك تريد تهيئة الدرس؟ سيؤدي ذلك إلى حذف البيانات بشكل دائم");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","أدوات خارجية");//External tools
+define("_MATHSETTINGS","إعدادات الرياضيات");//Math settings
+define("_PHPLIVEDOCX","بي livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","لا يمكنك الوصول إلى هذه الصفحة بسبب الملكية الفكرية التالية حظرها");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","إعدادات البريد الإلكتروني");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","عرض صفحة خطأ عند اسم المستخدم مفقود أو فارغة");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","عرض صفحة خطأ عندما لا يمكن للمستخدم أن تنشأ");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","المتغير الذي يحتوي على اسم المستخدم");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","وتشمل الملف الذي يعالج مستخدم خلق");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","خادم الويب تسجيل");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","استخدام أو منطق لحساب الجواب الصحيح");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","ويجب أن تحتوي على ٪ متغير س &quot;%y&quot; من أجل مواصلة");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","فتح وحدة في نافذة منبثقة");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","ألف مستخدم مع دخول المحدد موجود بالفعل (الأرشيف)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","حجم الأحداث");//Events size (New)
+define("_OLDESTEVENT","أقدم الحدث");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","إزالة أحداث مضى عليها أكثر من");//Purge events older than (New)
+define("_PURGEEVENTS","أحداث إزالة");//Purge events (New)
+define("_USERSEPERUSERTYPE","المستخدمين لكل مستخدم اكتب");//Users per user type (New)
+define("_MINUTESPERUSER","دقيقة لكل مستخدم");//Minutes per user (New)
+define("_LOGINSPERDAY","تسجيلات يوميا");//Logins per day (New)
+define("_ACCESSES","يصل");//Accesses (New)
+define("_ACCESSESPERUSER","يصل لكل مستخدم");//Accesses per user (New)
+define("_ACCESSESPERDAY","يصل في اليوم الواحد");//Accesses per day (New)
+define("_OCCURENCES","الحوادث");//Occurences (New)
+define("_SCORES","عشرات");//Scores (New)
+define("_PROPAGATECOURSE","نشر البرنامج الدراسي");//Propagate course (New)
+define("_LESSONSTRUCTURE","درس هيكل");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","يمكن للمسؤول لا يمكن الوصول إلى صفحات الدرس");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","٪ × الدلائل والملفات ذ ٪ ليست للكتابة من قبل خادم الويب. <br> انقر <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>هنا</a> لتحميل التقرير الكامل");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","انقر هنا لتعيين أذونات الكتابة");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","اضغط هنا لإلغاء تعيين أذونات الكتابة");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","تعيين أذونات");//Set permissions (New)
+define("_UNSETPERMISSIONS","إلغاء تعيين أذونات");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","وهذه العملية محاولة تحديد الأذونات على كافة الملفات والمجلدات لتكون قابلة للكتابة من قبل خادم الويب. هذه هي إلزامية إذا كنت ترغب في رفع مستوى أداء الآلية ويمكن أن تكون مفيدة في حالات كنت تعاني من صعوبات أثناء أو بعد الترقية. من ناحية أخرى ، وترك كافة الملفات للكتابة قد تشكل تهديدا أمنيا في ظل ظروف معينة.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","وهذه العملية محاولة تحديد الأذونات على كافة الملفات والمجلدات لتكون غير قابلة للكتابة من قبل خادم الويب ، باستثناء تلك الإلزامي لنظام ليعمل على نحو سليم. هذا هو الإعداد الأكثر أمانا ولكن سوف يمنع النظام من رفع تلقائيا");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","اضغط هنا للتحقق من الأذونات");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","تحقق من أذونات");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","وهذه العملية التي تحقق الملفات والمجلدات الخاصة بك من نظام غير قابل للكتابة من قبل خادم الويب");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","نتائج عملية");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","تنفيذ أي عملية حتى الآن");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","بعض الملفات / المجلدات غير قابل للكتابة. يرجى زيارة &#39;الأذونات قسم&#39; في مجال الصيانة -- تنظيف&gt; للتحقق من الأذونات واستعراض هذه الملفات");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","خلاف ذلك ، قد إنشاء <button onclick = \"location='index.php?ctg=signup'\">حساب جديد</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","التحق كنت لالدروس والدورات مجانا. الرجاء مراجعة أدناه اختيارك للدروس ودورات غير مجانية");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","المشرفون");//Supervisors (New)
+define("_COURSEOPTIONS","خيارات الدورة");//Course options (New)
 ?>

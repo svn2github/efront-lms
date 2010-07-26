@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","הערכות");//Evaluations
 define("_TRANSPORTMEANS","אמצעי תחבורה");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","אתה לא יכול למחוק הערכה נכתב על ידי משתמש אחר");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","אתה לא יכול לערוך הערכה נכתב על ידי משתמש אחר");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","משתמש בטופס");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","משתמש טופס הצג לפני הדפסה");//User form print preview
+define("_EMPLOYEEFORM","משתמש בטופס");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","משתמש טופס הצג לפני הדפסה");//Training record print preview
 define("_PRINTPREVIEW","הצג לפני הדפסה");//Print preview
-define("_PRINTEMPLOYEEFORM","הדפסה משתמש בטופס");//Print user form
+define("_PRINTEMPLOYEEFORM","הדפסה משתמש בטופס");//Print training record
 define("_PRINT","הדפס");//Print
 define("_NOSPECIFICJOB","אין מיקום ספציפי עבודה");//No specific job position
 define("_GROUPS","קבוצות משתמשים");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","שמור פריסה");//Save layout
 define("_ADDBLOCK","הוסף לחסום");//Add block
 define("_RESTOREDEFAULTLAYOUT","פריסת שחזר ברירת מחדל");//Restore default layout
 define("_INFOFORCOURSE","מידע עבור קורס");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","אנא התחבר כדי להשלים את ההרשמה");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","אנא התחבר כדי להשלים את ההרשמה");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","עבור אל רשימת שיעורים");//Go to lessons list
 define("_PUBLISHED","פורסם");//Published
 define("_NOTPUBLISHED","לא התפרסם");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","לא ספציפית הסניף");//No specific branc
 define("_BRANCHFILTER","סניף מסנן");//Branch filter
 define("_SEARCHUSER","חפש משתמש");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","משתמשים לא למלא את הקריטריונים שצוינו");//No users fulfill the specified criteria
-define("_USERFORM","משתמש בטופס");//User form
-define("_USERFORMPRINTPREVIEW","משתמש טופס תצוגה מקדימה");//User form preview
+define("_USERFORM","משתמש בטופס");//Training record
+define("_USERFORMPRINTPREVIEW","משתמש טופס תצוגה מקדימה");//Training record preview
 define("_USERSFULFILLINGCRITERIA","משתמשים הגשמת הקריטריונים");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","מי שאינם מסווגים מיומנויות");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","מיומנות-Quick הפער הבדיקה הגנרטור");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","קורות נכסים");//Curriculum properties
 define("_ENTRIES","ערכים");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise אפשרויות");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","הצג תרשים ארגוני המשתמשים");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","הצג בצורה אישית למשתמשים");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","הצג בצורה אישית למשתמשים");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","הצג מוקצים למשתמשים המפקחים");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","אפשר למשתמשים למחוק את המפקח קבצים משותפים");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","טופס שלי");//my Form
+define("_MYEMPLOYEEFORM","טופס שלי");//my Training record
 define("_CLEARQUERYCACHE","נקה את המטמון שאילתה");//Clear query cache
 define("_FEEDBACKOPTIONS","משוב אפשרויות");//Feedback options
 define("_OPTIONSFORFEEDBACK","אפשרויות עבור המשוב");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","קבצים מודול נוכחים, א
 define("_DISABLEPAYMENTSNOTICE","זה יהיה להגדיר את כל הלקחים וקורסים מחיר 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","ציין אובייקט מזהה על המסך התאמת מידות");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","מופרדים בפסיקים רשימה");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","אינטרנט אימות שרת");//Web server authentication (New)
-define("_USERSETTINGS","הגדרות משתמש");//User settings (New)
-define("_THIRDPARTYTOOLS","3 צד כלים");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","אל תיקח את זה בחשבון תיקון");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","האם אתה בטוח שאתה רוצה לאתחל את הלקח? זה יהיה למחוק את הנתונים");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","כלים חיצוניים");//External tools (New)
-define("_MATHSETTINGS","מתמטיקה הגדרות");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","אתה לא יכול לגשת לדף זה בגלל ה-IP הבאה להיות מגורש");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","הגדרות דוא"ל");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","דף שגיאה מוצגת כאשר שם המשתמש חסרה או ריקה");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","דף שגיאה מוצגת כאשר המשתמש לא יכול להיווצר");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","משתנה המכיל את שם המשתמש");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","כלול בקובץ כי ידיות המשתמש הבריאה");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","שרת אינטרנט אחת");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","ההיגיון שימוש או לחשב את התשובה הנכונה");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","% המשתנה x חייב להכיל &quot;%y&quot; על מנת להמשיך");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","יחידת פתח חלון קופץ");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","אינטרנט אימות שרת");//Web server authentication
+define("_USERSETTINGS","הגדרות משתמש");//User settings
+define("_THIRDPARTYTOOLS","3 צד כלים");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","אל תיקח את זה בחשבון תיקון");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","האם אתה בטוח שאתה רוצה לאתחל את הלקח? זה יהיה למחוק את הנתונים");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","כלים חיצוניים");//External tools
+define("_MATHSETTINGS","מתמטיקה הגדרות");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","אתה לא יכול לגשת לדף זה בגלל ה-IP הבאה להיות מגורש");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","הגדרות דואל");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","דף שגיאה מוצגת כאשר שם המשתמש חסרה או ריקה");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","דף שגיאה מוצגת כאשר המשתמש לא יכול להיווצר");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","משתנה המכיל את שם המשתמש");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","כלול בקובץ כי ידיות המשתמש הבריאה");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","שרת אינטרנט אחת");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","ההיגיון שימוש או לחשב את התשובה הנכונה");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","% המשתנה x חייב להכיל &quot;%y&quot; על מנת להמשיך");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","יחידת פתח חלון קופץ");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","משתמש עם הכניסה שצוין כבר קיים (ארכיון)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","אירועים גודל");//Events size (New)
+define("_OLDESTEVENT","הכי אירוע");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","טהר אירועים מבוגר");//Purge events older than (New)
+define("_PURGEEVENTS","טהר אירועים");//Purge events (New)
+define("_USERSEPERUSERTYPE","משתמשים לכל משתמש בסוג");//Users per user type (New)
+define("_MINUTESPERUSER","דקות לכל משתמש");//Minutes per user (New)
+define("_LOGINSPERDAY","כניסות ביום");//Logins per day (New)
+define("_ACCESSES","כניסות");//Accesses (New)
+define("_ACCESSESPERUSER","כניסות לכל משתמש");//Accesses per user (New)
+define("_ACCESSESPERDAY","כניסות ביום");//Accesses per day (New)
+define("_OCCURENCES","מופעים");//Occurences (New)
+define("_SCORES","ציוני");//Scores (New)
+define("_PROPAGATECOURSE","הפץ כמובן");//Propagate course (New)
+define("_LESSONSTRUCTURE","שיעור מבנה");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","מנהל לא יכול לגשת לדפים השיעור");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X ו-y ספריות קבצים% אינם לכתיבה על ידי שרת האינטרנט. <br> לחץ <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>כאן</a> כדי להוריד את הדוח המלא");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","לחץ כאן כדי להגדיר הרשאות כתיבה");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","לחץ כאן כדי unset הרשאות כתיבה");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","להגדיר הרשאות");//Set permissions (New)
+define("_UNSETPERMISSIONS","טל קביעת הרשאות");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","פעולה זו אנסה הגדרת הרשאות כל הקבצים והתיקיות להיות ניתן כתיבה עי שרת האינטרנט. זה חובה אם אתה רוצה לבצע שדרוגים אוטומטיים עשוי להיות שימושי במקרים שאתה חווה בעיות במהלך או לאחר שדרוג. מצד שני, והשאיר את כל הקבצים לצריבה עשוי להוות איום אבטחה בנסיבות מסוימות.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","פעולה זו אנסה הגדרת הרשאות כל הקבצים והתיקיות להיות בלתי ניתן לכתיבה על ידי שרת האינטרנט, למעט אלה חובה על המערכת לתפקד כראוי. זוהי הגדרת הבטוחה ביותר, אך ימנע מהמערכת שדרוג אוטומטי");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","לחץ כאן כדי לבדוק את הרשאות");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","בדוק את ההרשאות");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","פעולה זו תבדוק אילו קבצים ותיקיות של המערכת לא ניתן לכתיבה על ידי שרת האינטרנט");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","מבצע התוצאה");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","המבצע לא ביצעו עדיין");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Some files/folders are not writable. Please visit the \'permissions\' section in maintenance -> cleanup to check permissions and review these files");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","אחרת, אתה יכול ליצור <button onclick = \"location='index.php?ctg=signup'\">חשבון חדש</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","היית נרשם לשיעורים וקורסים חינם. נא עיין להלן הבחירה של שיעורים חופשיים קורסים שאינם");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","רוטמן");//Supervisors (New)
+define("_COURSEOPTIONS","קורס אופציות");//Course options (New)
 ?>

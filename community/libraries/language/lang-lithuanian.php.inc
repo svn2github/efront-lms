@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Vertinimai");//Evaluations
 define("_TRANSPORTMEANS","Transporto priemonės");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Jūs negalite ištrinti vertinimo raštu kito vartotojo");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Jūs negalite redaguoti vertinimo raštu kito vartotojo");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Vartotojo forma");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Vartotojo formą spausdinimo peržiūros");//User form print preview
+define("_EMPLOYEEFORM","Vartotojo forma");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Vartotojo formą spausdinimo peržiūros");//Training record print preview
 define("_PRINTPREVIEW","Spausdinimo peržiūra");//Print preview
-define("_PRINTEMPLOYEEFORM","Spausdinti vartotoją forma");//Print user form
+define("_PRINTEMPLOYEEFORM","Spausdinti vartotoją forma");//Print training record
 define("_PRINT","Spausdinti");//Print
 define("_NOSPECIFICJOB","Jokių specifinių darbo vieta");//No specific job position
 define("_GROUPS","Vartotojų grupės");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Įrašyti išdėstymą");//Save layout
 define("_ADDBLOCK","Pridėti blokas");//Add block
 define("_RESTOREDEFAULTLAYOUT","Restore default išdėstymas");//Restore default layout
 define("_INFOFORCOURSE","Informacija apie kursą");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Prisijunkite, norėdami baigti registracijos");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Prisijunkite, norėdami baigti registracijos");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Grįžti į pamokas sąrašą");//Go to lessons list
 define("_PUBLISHED","Paskelbta");//Published
 define("_NOTPUBLISHED","Nepaskelbtas");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Nėra specialaus filialas");//No specific branch
 define("_BRANCHFILTER","Skyrius filtras");//Branch filter
 define("_SEARCHUSER","Ieškoti vartotojo");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Nėra vartotojų, atitinka nustatytus kriterijus");//No users fulfill the specified criteria
-define("_USERFORM","Vartotojo forma");//User form
-define("_USERFORMPRINTPREVIEW","Vartotojo formą peržiūrėti");//User form preview
+define("_USERFORM","Vartotojo forma");//Training record
+define("_USERFORMPRINTPREVIEW","Vartotojo formą peržiūrėti");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Vartotojai kriterijų");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Ne kategorijas įgūdžių");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Greita įgūdžių trūkumą bandymo generatorius");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Gyvenimo savybės");//Curriculum properties
 define("_ENTRIES","Įrašai");//Entries
 define("_ENTERPRISEOPTIONS","Įmonių puslapį");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Rodyti organizacinė schema vartotojams");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Rodyti asmens forma vartotojams");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Rodyti asmens forma vartotojams");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Rodyti nepaskirstytasis vartotojams vadovai");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Leisti vartotojams ištrinti vadovas failai");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","mano forma");//my Form
+define("_MYEMPLOYEEFORM","mano forma");//my Training record
 define("_CLEARQUERYCACHE","Atviras užklausos talpyklos");//Clear query cache
 define("_FEEDBACKOPTIONS","Atsiliepimai puslapį");//Feedback options
 define("_OPTIONSFORFEEDBACK","Funkcijos ir atsiliepimai");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modulio failai yra, bet jis nėra įdi
 define("_DISABLEPAYMENTSNOTICE","Tai bus nustatyti visas pamokas ir paskaitas kaina 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Nurodykite objektą ID ekrano atitikimo matmenys");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Atskirti kableliais sąrašas");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web serverio autentifikavimo");//Web server authentication (New)
-define("_USERSETTINGS","Vartotojo parametrai");//User settings (New)
-define("_THIRDPARTYTOOLS","3rd party įrankiai");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Ar ne geriau į jį atsižvelgti koreguojant");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Ar tikrai norite inicijuoti pamoka? Tai bus ištrinti duomenis");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Kitos priemonės");//External tools (New)
-define("_MATHSETTINGS","Math Nustatymai");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Jūs negalite patekti į šį puslapį dėl šios IP yra uždraustas");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Pašto nustatymus");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Klaida puslapis rodomas vartotojo vardas yra dingęs ar prie tuščias");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Klaida puslapis rodomas vartotojui negali būti sukurtas");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Kintamasis, kurio sudėtyje Vartotojo vardas");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Pridėti failą kurie dirba su vartotojų kūrimas");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web serverio registracija");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Naudokite ar loginės apskaičiuoti teisingą atsakymą");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Kintamasis% x turi būti &quot;%y&quot;, kad ir toliau");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Atidaryti vienetas lango");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web serverio autentifikavimo");//Web server authentication
+define("_USERSETTINGS","Vartotojo parametrai");//User settings
+define("_THIRDPARTYTOOLS","3rd party įrankiai");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Ar ne geriau į jį atsižvelgti koreguojant");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Ar tikrai norite inicijuoti pamoka? Tai bus ištrinti duomenis");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Kitos priemonės");//External tools
+define("_MATHSETTINGS","Math Nustatymai");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Jūs negalite patekti į šį puslapį dėl šios IP yra uždraustas");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Pašto nustatymus");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Klaida puslapis rodomas vartotojo vardas yra dingęs ar prie tuščias");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Klaida puslapis rodomas vartotojui negali būti sukurtas");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Kintamasis, kurio sudėtyje Vartotojo vardas");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Pridėti failą kurie dirba su vartotojų kūrimas");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web serverio registracija");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Naudokite ar loginės apskaičiuoti teisingą atsakymą");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Kintamasis% x turi būti &quot;%y&quot;, kad ir toliau");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Atidaryti vienetas lango");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Su nurodytu vardas jau egzistuoja (archyvą vartotojas)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Renginiai dydis");//Events size (New)
+define("_OLDESTEVENT","Seniausi atveju");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Išvalyti Renginiai vyresni nei");//Purge events older than (New)
+define("_PURGEEVENTS","Išvalyti Renginiai");//Purge events (New)
+define("_USERSEPERUSERTYPE","Vartotojai vienam vartotojui tipas");//Users per user type (New)
+define("_MINUTESPERUSER","Protokolas vienam vartotojui");//Minutes per user (New)
+define("_LOGINSPERDAY","Prisijungimai per dieną");//Logins per day (New)
+define("_ACCESSES","Užklausos");//Accesses (New)
+define("_ACCESSESPERUSER","Užklausos vienam vartotojui");//Accesses per user (New)
+define("_ACCESSESPERDAY","Užklausos per dieną");//Accesses per day (New)
+define("_OCCURENCES","Įvykiai");//Occurences (New)
+define("_SCORES","Natos");//Scores (New)
+define("_PROPAGATECOURSE","Paplitimas kursai");//Propagate course (New)
+define("_LESSONSTRUCTURE","Pamoka struktūra");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administratorius negali patekti pamoka puslapių");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X katalogų ir% Y failai negali rašyti serveryje. <br> Spauskite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>čia</a> norėdami parsisiųsti visą pranešimą");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Spauskite čia, jei norite rašyti leidimus");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Spauskite čia norėdami išjungimo rašymo teises");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Nustatykite failo");//Set permissions (New)
+define("_UNSETPERMISSIONS","Atšaukti leidimą");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Ši operacija bus bandoma nustatyti teises į visus failus ir katalogus, kurie bus rašyti į interneto serverį. Tai yra privaloma, jei norite atlikti automatinį atnaujinimą ir gali būti naudinga tais atvejais jūs patiriate problemų metu arba po atnaujinimo. Kita vertus, palikus visus failus rašyti gali kelti grėsmę saugumui, tam tikromis aplinkybėmis.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ši operacija bus bandoma nustatyti teises į visus failus ir katalogus, kurie bus ne rašyti į interneto serverį, išskyrus tuos, kurie privalomi sistema veiktų tinkamai. Tai yra saugus nustatymas, bet neleis sistemos modernizavimo automatiškai");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Spauskite čia norėdami patikrinti leidimus");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Patikrinkite leidimus");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ši operacija bus patikrinti, kurie failai ir aplankai jūsų sistema yra negali rašyti serverio");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operacijos rezultatas");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Nr operacija, atliekama dar");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Kai kurie failai / aplankai negali rašyti. Prašome apsilankyti \"teises\" skyrių išlaikymo -&gt; cleanup patikrinti leidimus ir peržiūrėti failus");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Priešingu atveju, galite sukurti <button onclick = \"location='index.php?ctg=signup'\">naują paskyrą</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs, buvo įtraukti į laisvas pamokas ir paskaitas. Prašome peržiūrėti žemiau savo pasirinkimą ne laisvas pamokas ir kursai");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Priežiūros");//Supervisors (New)
+define("_COURSEOPTIONS","Modulio puslapį");//Course options (New)
 ?>

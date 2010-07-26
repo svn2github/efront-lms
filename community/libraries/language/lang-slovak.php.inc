@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Hodnotenia");//Evaluations
 define("_TRANSPORTMEANS","Dopravné prostriedky");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Nemôžete zmazať hodnotenie napísané iným užívateľom");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Nemôžete upravovať hodnotenie napísané iným užívateľom");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Užívateľský formulár");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Náhľad tlače užívateľského formuláru");//User form print preview
+define("_EMPLOYEEFORM","Užívateľský formulár");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Náhľad tlače užívateľského formuláru");//Training record print preview
 define("_PRINTPREVIEW","Náhľad tlače");//Print preview
-define("_PRINTEMPLOYEEFORM","Vytlač užívateľský formulár");//Print user form
+define("_PRINTEMPLOYEEFORM","Vytlač užívateľský formulár");//Print training record
 define("_PRINT","Vytlač");//Print
 define("_NOSPECIFICJOB","Žiadna konkrétna pracovná pozícia");//No specific job position
 define("_GROUPS","Užívateľské skupiny");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Uložiť rozloženie");//Save layout
 define("_ADDBLOCK","Pridať blok");//Add block
 define("_RESTOREDEFAULTLAYOUT","Obnoviť predvolené rozloženie");//Restore default layout
 define("_INFOFORCOURSE","Informácie o kurze");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Prosím, prihláste sa na dokončenie registrácie");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Prosím, prihláste sa na dokončenie registrácie");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Prejsť na zoznam lekcií");//Go to lessons list
 define("_PUBLISHED","Publikované");//Published
 define("_NOTPUBLISHED","Nepublikované");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Žiadne konkrétne pobočky");//No specific branch
 define("_BRANCHFILTER","Filter pobočky");//Branch filter
 define("_SEARCHUSER","Hľadanie užívateľov");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Žiadny užívatelia nesplnili stanovené kritéri");//No users fulfill the specified criteria
-define("_USERFORM","Formulár užívateľa");//User form
-define("_USERFORMPRINTPREVIEW","Náhľad formulára užívateľa");//User form preview
+define("_USERFORM","Formulár užívateľa");//Training record
+define("_USERFORMPRINTPREVIEW","Náhľad formulára užívateľa");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Užívatelia, ktorí spĺňajú kritériá");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Nekategorizované zručnosti");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Rýchly skill gap test generátor");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Curriculum vlastnosti");//Curriculum properties
 define("_ENTRIES","Príspevky");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise voľby");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Zobraziť organizačnú schému pre užívateľov");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Ukázať osobné formulár, ktorý používateľom");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Ukázať osobné formulár, ktorý používateľom");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Zobraziť nepriradené užívateľom dohľadu");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Povoliť používateľom mazať vedúcim zdieľané súbory");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","Moje Form");//my Form
+define("_MYEMPLOYEEFORM","Moje Form");//my Training record
 define("_CLEARQUERYCACHE","Vymazať dotaz cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Spätná väzba voľby");//Feedback options
 define("_OPTIONSFORFEEDBACK","Možnosti pre spätnú väzbu");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modul súbory sú prítomné, ale nie 
 define("_DISABLEPAYMENTSNOTICE","To nastaví všetky lekcie a kurzy cenu na 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Určite objekt id pre obrazovku príslušné rozmery");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Čiarkou oddelený zoznam");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server overovanie");//Web server authentication (New)
-define("_USERSETTINGS","Užívateľské nastavenia");//User settings (New)
-define("_THIRDPARTYTOOLS","3. strany nástroje");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Neber to do úvahy pri oprave");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Ste si istí, že chcete inicializovať lekciu? To bude natrvalo odstrániť dáta");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Externé nástroje");//External tools (New)
-define("_MATHSETTINGS","Matematický nastavenie");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Nemáte prístup na túto stránku z nasledovných IP boli zakázané");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Nastavenie e-mailu");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Chybová stránka zobrazí, keď užívateľské meno chýba alebo je prázdna");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Chybová stránka zobrazí, ak by používateľ nemôže byť vytvorený");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Premenná, ktorá obsahuje užívateľské meno");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Patrí súbor, ktorý spracováva užívateľské vytváranie");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web server o registráciu");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Použite alebo logika pre výpočet správnu odpoveď");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Premenná% x musí obsahovať &quot;%y&quot;, aby sa aj naďalej");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Open jednotky v pop-up okne");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server overovanie");//Web server authentication
+define("_USERSETTINGS","Užívateľské nastavenia");//User settings
+define("_THIRDPARTYTOOLS","3. strany nástroje");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Neber to do úvahy pri oprave");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Ste si istí, že chcete inicializovať lekciu? To bude natrvalo odstrániť dáta");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Externé nástroje");//External tools
+define("_MATHSETTINGS","Matematický nastavenie");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Nemáte prístup na túto stránku z nasledovných IP boli zakázané");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Nastavenie e-mailu");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Chybová stránka zobrazí, keď užívateľské meno chýba alebo je prázdna");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Chybová stránka zobrazí, ak by používateľ nemôže byť vytvorený");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Premenná, ktorá obsahuje užívateľské meno");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Patrí súbor, ktorý spracováva užívateľské vytváranie");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web server o registráciu");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Použite alebo logika pre výpočet správnu odpoveď");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Premenná% x musí obsahovať &quot;%y&quot;, aby sa aj naďalej");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Open jednotky v pop-up okne");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Užívateľ so zadaným prihlásení už existuje (archivované)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Udalosti veľkosti");//Events size (New)
+define("_OLDESTEVENT","Najstaršie udalosti");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Vyčistiť udalosti staršie ako");//Purge events older than (New)
+define("_PURGEEVENTS","Vyčistiť udalosti");//Purge events (New)
+define("_USERSEPERUSERTYPE","Užívateľov na typ užívateľa");//Users per user type (New)
+define("_MINUTESPERUSER","Zápis na užívateľa");//Minutes per user (New)
+define("_LOGINSPERDAY","Prihlásenie za deň");//Logins per day (New)
+define("_ACCESSES","Prístupy");//Accesses (New)
+define("_ACCESSESPERUSER","Prístupy na užívateľa");//Accesses per user (New)
+define("_ACCESSESPERDAY","Prístupy za deň");//Accesses per day (New)
+define("_OCCURENCES","Výskyty");//Occurences (New)
+define("_SCORES","Skóre");//Scores (New)
+define("_PROPAGATECOURSE","Propagate kurz");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lekcia štruktúra");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Správca nemôže získať prístup lekciu stránky");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X adresárov a súborov% y nie sú zapisovateľné webovým serverom. <br> Kliknite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>tu</a> pre stiahnutie kompletnú správu");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Kliknite tu pre nastavenie zápis");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Kliknite tu pre unset zápis");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Nastaviť povolenia");//Set permissions (New)
+define("_UNSETPERMISSIONS","Zrušiť povolenie");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Táto operácia sa bude snažiť nastavenie oprávnenia pre všetky súbory a priečinky ktoré majú byť zapisovateľné webovým serverom. To je povinné, ak chcete vykonať automatickú aktualizáciu a môže byť užitočná v prípadoch, ste sa stretli s problémami počas alebo po aktualizácii. Na druhú stranu, takže všetky súbory zapisovateľné môže predstavovať bezpečnostnú hrozbu za určitých okolností.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Táto operácia sa bude snažiť nastavenie oprávnenia pre všetky súbory a priečinky byť non-právo zápisu do tohto webového servera, s výnimkou tých, povinné pre systém fungoval správne. Ide o najbezpečnejšie nastavenie, ale bude brániť systém pred upgrade automaticky");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Kliknite tu pre kontrolu oprávnenia");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Skontrolujte oprávnenia");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Táto operácia bude zistiť, ktoré súbory a priečinky na vašom systéme nie sú zapisovateľné webovým serverom");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Výsledok operácie");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Č vykonávanú činnosť zatiaľ");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Niektoré súbory / priečinky nedá zapisovať. Prosím, navštívte sekciu &#39;oprávnenia&#39; na údržbu -&gt; cleanup pre kontrolu oprávnenia a revízie týchto súborov");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","V opačnom prípade môžete vytvoriť <button onclick = \"location='index.php?ctg=signup'\">nový účet</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Tie boli zaradené do voľnej lekcie a kurzy. Prečítajte si prosím nižšie svoj výber zákazu voľného lekcie a kurzy");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Orgány dohľadu");//Supervisors (New)
+define("_COURSEOPTIONS","Predmet voľby");//Course options (New)
 ?>

@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Evalueringer");//Evaluations
 define("_TRANSPORTMEANS","Transportmiddel");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Du kan ikke slette en evaluering skrevet af en anden bruger");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Du kan ikke redigere en evaluering skrevet af en anden bruger");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Medarbejder form");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Medarbejder form udskrift");//User form print preview
+define("_EMPLOYEEFORM","Medarbejder form");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Medarbejder form udskrift");//Training record print preview
 define("_PRINTPREVIEW","Print preview");//Print preview
-define("_PRINTEMPLOYEEFORM","Udskriv ansat form");//Print user form
+define("_PRINTEMPLOYEEFORM","Udskriv ansat form");//Print training record
 define("_PRINT","Print");//Print
 define("_NOSPECIFICJOB","Ingen specifik jobbeskrivelse");//No specific job position
 define("_GROUPS","Bruger grupper");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Gem layout");//Save layout
 define("_ADDBLOCK","Tilføj blok");//Add block
 define("_RESTOREDEFAULTLAYOUT","Gendan standard-layout");//Restore default layout
 define("_INFOFORCOURSE","Oplysninger til kursus");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Log ind for at fuldføre registreringen");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Log ind for at fuldføre registreringen");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Gå til lektioner liste");//Go to lessons list
 define("_PUBLISHED","Offentliggjort");//Published
 define("_NOTPUBLISHED","Ikke offentliggjort");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Ingen specifikke filial");//No specific branch
 define("_BRANCHFILTER","Branch filter");//Branch filter
 define("_SEARCHUSER","Søg bruger");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Ingen brugere opfylder bestemte kriterier");//No users fulfill the specified criteria
-define("_USERFORM","Bruger form");//User form
-define("_USERFORMPRINTPREVIEW","Bruger form preview");//User form preview
+define("_USERFORM","Bruger form");//Training record
+define("_USERFORMPRINTPREVIEW","Bruger form preview");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Brugere, som opfylder de kriterier");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Ikke-kategoriseret færdigheder");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick kvalifikationskrævende hul test generator");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Curriculum egenskaber");//Curriculum properties
 define("_ENTRIES","Angivelser");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise valgmuligheder");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Vis organisationsdiagram for brugerne");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Vis personlige form for brugerne");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Vis personlige form for brugerne");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Vis ikke tildelt brugerne tilsynsførende");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Tillad brugere at slette supervisor delte filer");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","min Form");//my Form
+define("_MYEMPLOYEEFORM","min Form");//my Training record
 define("_CLEARQUERYCACHE","Ryd query cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Feedback muligheder");//Feedback options
 define("_OPTIONSFORFEEDBACK","Valg til feedback");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modul-filer er til stede, men det er i
 define("_DISABLEPAYMENTSNOTICE","Dette vil sætte alle lektioner og kurser pris til 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Angiv objekt id til skærm matchende dimensioner");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Kommasepareret liste");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server authentication");//Web server authentication (New)
-define("_USERSETTINGS","Brugerindstillinger");//User settings (New)
-define("_THIRDPARTYTOOLS","3. parts værktøjer");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","De må ikke tage hensyn hertil korrektion");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Er du sikker på du vil initialisere lektion? Dette vil permanent slette data");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Eksterne værktøjer");//External tools (New)
-define("_MATHSETTINGS","Math-indstillinger");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Du kan ikke få adgang til denne side på grund af følgende IP blive forbudt");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Email indstillinger");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Fejl side vises, når brugernavn mangler eller er tom");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Fejl side vises, når brugeren kunne ikke oprettes");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Variabel, der indeholder brugernavnet");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Medtag fil, håndtag brugeroprettelse");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web server registrering");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Brug OR logik til at beregne korrekte svar");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Variablen% x skal indeholde &quot;%y&quot; for at fortsætte");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Åbn enhed i popup-vindue");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server authentication");//Web server authentication
+define("_USERSETTINGS","Brugerindstillinger");//User settings
+define("_THIRDPARTYTOOLS","3. parts værktøjer");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","De må ikke tage hensyn hertil korrektion");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Er du sikker på du vil initialisere lektion? Dette vil permanent slette data");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Eksterne værktøjer");//External tools
+define("_MATHSETTINGS","Math-indstillinger");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Du kan ikke få adgang til denne side på grund af følgende IP blive forbudt");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Email indstillinger");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Fejl side vises, når brugernavn mangler eller er tom");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Fejl side vises, når brugeren kunne ikke oprettes");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Variabel, der indeholder brugernavnet");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Medtag fil, håndtag brugeroprettelse");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web server registrering");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Brug OR logik til at beregne korrekte svar");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Variablen% x skal indeholde &quot;%y&quot; for at fortsætte");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Åbn enhed i popup-vindue");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","En bruger med den angivne login findes allerede (arkiveret)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Events størrelse");//Events size (New)
+define("_OLDESTEVENT","Ældste begivenhed");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Purge begivenheder ældre end");//Purge events older than (New)
+define("_PURGEEVENTS","Purge begivenheder");//Purge events (New)
+define("_USERSEPERUSERTYPE","Brugere per bruger type");//Users per user type (New)
+define("_MINUTESPERUSER","Minutter per bruger");//Minutes per user (New)
+define("_LOGINSPERDAY","Login per dag");//Logins per day (New)
+define("_ACCESSES","Adgangsveje");//Accesses (New)
+define("_ACCESSESPERUSER","Adgangsveje per bruger");//Accesses per user (New)
+define("_ACCESSESPERDAY","Adgangsveje per dag");//Accesses per day (New)
+define("_OCCURENCES","Hændelser");//Occurences (New)
+define("_SCORES","Scores");//Scores (New)
+define("_PROPAGATECOURSE","Udbrede kursus");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lektion struktur");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","En administrator kan ikke få adgang til lektion sider");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X mapper og% y filer er ikke skrivbare af webserveren. <br> Klik <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>her</a> for at downloade en fuldstændig rapport");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Klik her for at indstille skriverettigheder");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Klik her for at nulstille skriverettigheder");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Set tilladelser");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset tilladelser");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Denne operation vil forsøge indstilling af tilladelser til alle filer og mapper, der skal skrivbare af webserveren. Dette er obligatorisk, hvis du ønsker at udføre automatiske opgraderinger og kan være nyttig i de tilfælde du oplever problemer under eller efter opgradering. På den anden side. Overlade alle filer skrivbare kan udgøre en sikkerhedsrisiko under visse omstændigheder");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Denne operation vil forsøge indstilling af tilladelser til alle filer og mapper, der skal ikke skrivbar af webserveren, undtagen for de obligatoriske for at systemet kan fungere ordentligt. Dette er den mest sikre indstilling, men vil forhindre systemet i at opgradere automatisk");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Klik her for at se tilladelser");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Check tilladelser");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Denne transaktion vil tjekke, hvilke filer og mapper i dit system er ikke skrivbar af webserveren");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operation resultat");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Ingen operation udføres endnu");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Nogle filer / mapper er ikke skrivbar. Besøg &#39;tilladelser&#39; afdeling i vedligeholdelse -&gt; oprydning for at se tilladelser og gennemgå disse filer");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Ellers kan du oprette en <button onclick = \"location='index.php?ctg=signup'\">ny konto</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du var tilmeldt til gratis undervisning og kurser. Gennemgå venligst nedenstående dit valg af ikke gratis lektioner og kurser");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Vejledere");//Supervisors (New)
+define("_COURSEOPTIONS","Kursus muligheder");//Course options (New)
 ?>

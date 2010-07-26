@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Valutazioni");//Evaluations
 define("_TRANSPORTMEANS","Mezzi di trasporto");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Non è possibile eliminare una valutazione scritta da un altro utente");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Non è possibile modificare una valutazione scritta da un altro utente");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Dipendente sotto forma");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Dipendente sotto forma di anteprima di stampa");//User form print preview
+define("_EMPLOYEEFORM","Dipendente sotto forma");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Dipendente sotto forma di anteprima di stampa");//Training record print preview
 define("_PRINTPREVIEW","Anteprima di stampa");//Print preview
-define("_PRINTEMPLOYEEFORM","Dipendente sotto forma di stampa");//Print user form
+define("_PRINTEMPLOYEEFORM","Dipendente sotto forma di stampa");//Print training record
 define("_PRINT","Stampa");//Print
 define("_NOSPECIFICJOB","Assenza di specifiche descrizione di posti di lavoro");//No specific job position
 define("_GROUPS","Gruppi di utenti");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Salva layout");//Save layout
 define("_ADDBLOCK","Aggiungi blocco");//Add block
 define("_RESTOREDEFAULTLAYOUT","Ripristino configurazione di default");//Restore default layout
 define("_INFOFORCOURSE","Informazioni per il corso");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Effettua il login per completare la registrazione");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Effettua il login per completare la registrazione");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Vai alla lista lezioni");//Go to lessons list
 define("_PUBLISHED","Pubblicato");//Published
 define("_NOTPUBLISHED","Non pubblicata");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Nessuna specifica branca");//No specific branch
 define("_BRANCHFILTER","Filiale di filtro");//Branch filter
 define("_SEARCHUSER","Cerca utente");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","N. utenti soddisfare i criteri specificati");//No users fulfill the specified criteria
-define("_USERFORM","Utente forma");//User form
-define("_USERFORMPRINTPREVIEW","L&#39;utente sotto forma di anteprima");//User form preview
+define("_USERFORM","Utente forma");//Training record
+define("_USERFORMPRINTPREVIEW","L&#39;utente sotto forma di anteprima");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Gli utenti che soddisfano i criteri di");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Non categorizzato competenze");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick competenze divario prova generatore");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Curriculum di immobili");//Curriculum properties
 define("_ENTRIES","Entrate");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise opzioni");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Mostra organigramma per gli utenti");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Mostra forma personale per gli utenti");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Mostra forma personale per gli utenti");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Mostra non assegnati agli utenti di autorità di vigilanza");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Consentire agli utenti di cancellare i file condivisi supervisore");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","il mio modulo");//my Form
+define("_MYEMPLOYEEFORM","il mio modulo");//my Training record
 define("_CLEARQUERYCACHE","Cancella query cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Feedback opzioni");//Feedback options
 define("_OPTIONSFORFEEDBACK","Opzioni per il feedback");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","file di modulo sono presenti, ma non �
 define("_DISABLEPAYMENTSNOTICE","Questo imposterà tutte le lezioni e corsi di prezzo a 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Specificare ID oggetto per lo schermo di dimensioni corrispondenti");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Elenco separato da virgole");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server di autenticazione");//Web server authentication (New)
-define("_USERSETTINGS","Impostazioni utente");//User settings (New)
-define("_THIRDPARTYTOOLS","3a parte gli strumenti");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Non tenerne conto nella correzione");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Sei sicuro di voler inizializzare lezione? Questo eliminerà definitivamente i dati");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Strumenti esterni");//External tools (New)
-define("_MATHSETTINGS","Math impostazioni");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Non è possibile accedere a questa pagina per il periodo successivo di essere bandito");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Impostazioni e-mail");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Pagina di errore visualizzato quando l&#39;utente è mancante o vuoto");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Pagina di errore visualizzato quando l&#39;utente non può essere creata");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Variabile che contiene il nome utente");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Includere file che gestisce la creazione degli utenti");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web server di registrazione");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Usare la logica o per calcolare risposta corretta");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","La variabile% x deve contenere &quot;%y&quot; al fine di continuare");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","unità Apri in finestra pop-up");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server di autenticazione");//Web server authentication
+define("_USERSETTINGS","Impostazioni utente");//User settings
+define("_THIRDPARTYTOOLS","3a parte gli strumenti");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Non tenerne conto nella correzione");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Sei sicuro di voler inizializzare lezione? Questo eliminerà definitivamente i dati");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Strumenti esterni");//External tools
+define("_MATHSETTINGS","Math impostazioni");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Non è possibile accedere a questa pagina per il periodo successivo di essere bandito");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Impostazioni e-mail");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Pagina di errore visualizzato quando l&#39;utente è mancante o vuoto");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Pagina di errore visualizzato quando l&#39;utente non può essere creata");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Variabile che contiene il nome utente");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Includere file che gestisce la creazione degli utenti");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web server di registrazione");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Usare la logica o per calcolare risposta corretta");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","La variabile% x deve contenere &quot;%y&quot; al fine di continuare");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","unità Apri in finestra pop-up");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Un utente con l&#39;account di accesso specificato esiste già (archivio)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Eventi dimensione");//Events size (New)
+define("_OLDESTEVENT","Meno recente evento");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","eventi di spurgo di età superiore a");//Purge events older than (New)
+define("_PURGEEVENTS","Purge eventi");//Purge events (New)
+define("_USERSEPERUSERTYPE","Utenti per tipo di utente");//Users per user type (New)
+define("_MINUTESPERUSER","Minuti per utente");//Minutes per user (New)
+define("_LOGINSPERDAY","Accessi al giorno");//Logins per day (New)
+define("_ACCESSES","Accessi");//Accesses (New)
+define("_ACCESSESPERUSER","Accessi per utente");//Accesses per user (New)
+define("_ACCESSESPERDAY","Accessi al giorno");//Accesses per day (New)
+define("_OCCURENCES","Occorrenze");//Occurences (New)
+define("_SCORES","Punteggi");//Scores (New)
+define("_PROPAGATECOURSE","Propagare corso");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lezione struttura");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Un amministratore non può accedere alle pagine lezione");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X file e le directory% y non sono scrivibili dal server web. <br> Clicca <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>qui</a> per scaricare la relazione completa");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Clicca qui per impostare i permessi di scrittura");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Clicca qui per unset i permessi di scrittura");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Impostare le autorizzazioni");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset autorizzazioni");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Questa operazione cercano di impostare i permessi a tutti i file e le cartelle per essere scrivibile dal server web. Questo è obbligatorio se si desidera eseguire gli aggiornamenti automatici e può essere utile in casi si verificano problemi durante o dopo l&#39;aggiornamento. D&#39;altra parte, lasciando tutti i file scrivibili possono costituire una minaccia per la sicurezza in determinate circostanze.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Questa operazione cercano di impostare i permessi a tutti i file e le cartelle per non essere scrivibile dal server web, ad eccezione di quelli obbligatori per il sistema funzioni correttamente. Questa è l&#39;impostazione più sicura, ma impediscono al sistema di aggiornamento automatico");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Clicca qui per verificare le autorizzazioni");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Controllare le autorizzazioni");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Questa operazione controllare quali file e cartelle del vostro sistema non sono scrivibili dal server web");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operazione risultato");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Nessuna operazione eseguita ancora");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Alcuni file / cartelle non sono scrivibili. Si prega di visitare il &#39;permessi&#39; la sezione in manutenzione - pulitura&gt; per verificare le autorizzazioni e la revisione di questi file");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Altrimenti, è possibile creare un <button onclick = \"location='index.php?ctg=signup'\">nuovo account</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Sei sono stati arruolati a lezioni gratuite e corsi. Si prega di rivedere la selezione di sotto di non lezioni gratuite e corsi");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Le autorità di vigilanza");//Supervisors (New)
+define("_COURSEOPTIONS","Corso di opzioni");//Course options (New)
 ?>

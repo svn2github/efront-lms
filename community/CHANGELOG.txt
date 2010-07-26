@@ -1,4 +1,4 @@
-=== Version 3.6.4 build ===
+=== Version 3.6.5 build 7977 ===
 - Fixed issue in backup for files containing a ' in their names
 - Fixed issue in changing user role in courses assignment
 - Fixed bug in notification events related with specific courses

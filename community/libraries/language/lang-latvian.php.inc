@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Izvērtējumus");//Evaluations
 define("_TRANSPORTMEANS","Transportlīdzekļi");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Jūs nevarat izdzēst novērtējuma rakstveida ar citu lietotāju");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Jūs nevarat rediģēt novērtējuma rakstveida ar citu lietotāju");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Lietotājs forma");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Lietotājs forma print preview");//User form print preview
+define("_EMPLOYEEFORM","Lietotājs forma");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Lietotājs forma print preview");//Training record print preview
 define("_PRINTPREVIEW","Print preview");//Print preview
-define("_PRINTEMPLOYEEFORM","Drukāt lietotāja forma");//Print user form
+define("_PRINTEMPLOYEEFORM","Drukāt lietotāja forma");//Print training record
 define("_PRINT","Izdrukāt");//Print
 define("_NOSPECIFICJOB","Nekāda īpaša amatu");//No specific job position
 define("_GROUPS","User Groups");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Saglabāt izkārtojumu");//Save layout
 define("_ADDBLOCK","Pievienot bloks");//Add block
 define("_RESTOREDEFAULTLAYOUT","Atjaunot noklusēto izkārtojumu");//Restore default layout
 define("_INFOFORCOURSE","Informācija protams");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Lūdzu, piesakieties, lai pabeigtu reģistrāciju");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Lūdzu, piesakieties, lai pabeigtu reģistrāciju");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Atveriet stundu sarakstu");//Go to lessons list
 define("_PUBLISHED","Publicēts");//Published
 define("_NOTPUBLISHED","Nav publicēts");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Nr specifiskas");//No specific branch
 define("_BRANCHFILTER","Branch filtrs");//Branch filter
 define("_SEARCHUSER","Meklēt lietotāju");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Neviens no lietotājiem atbilst noteiktiem kritērijiem");//No users fulfill the specified criteria
-define("_USERFORM","Lietotājs forma");//User form
-define("_USERFORMPRINTPREVIEW","Lietotājs forma preview");//User form preview
+define("_USERFORM","Lietotājs forma");//Training record
+define("_USERFORMPRINTPREVIEW","Lietotājs forma preview");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Lietotāji, kas atbilst kritērijiem");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Non-kategorizēta prasmes");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Quick prasmju plaisu tests ģenerators");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Curriculum īpašības");//Curriculum properties
 define("_ENTRIES","Ieraksti");//Entries
 define("_ENTERPRISEOPTIONS","Uzņēmējdarbības iespējas");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Rādīt organizācijas diagrammu lietotājiem");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Rādīt personas forma lietotājiem");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Rādīt personas forma lietotājiem");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Parādīt nav piešķirts lietotājiem uzraugiem");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Atļaut lietotājiem dzēst vadītājam koplietojamo failus");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","mana forma");//my Form
+define("_MYEMPLOYEEFORM","mana forma");//my Training record
 define("_CLEARQUERYCACHE","Skaidrs query cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Atsauksmes iespējas");//Feedback options
 define("_OPTIONSFORFEEDBACK","Iespējas atsauksmes");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it 
 define("_DISABLEPAYMENTSNOTICE","Tas noteikti visus nodarbības un kursus, cena līdz 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Norādiet objekta ID ekrāna saskaņošanas izmēri");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Komatu atdalīts saraksts");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web servera autentifikācija");//Web server authentication (New)
-define("_USERSETTINGS","Lietotāja uzstādījumi");//User settings (New)
-define("_THIRDPARTYTOOLS","3rd Party instrumenti");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Neņem to vērā, korekcija");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Vai tiešām vēlaties inicializēt mācība? Tas neatgriezeniski dzēst datus");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Ārējie instrumenti");//External tools (New)
-define("_MATHSETTINGS","Math uzstādījumi");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Jūs nevarat piekļūt šai lapai, jo šādas izmeklēšanas ir aizliegts");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","E-pasta iestatījumus");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Kļūda lapa parādās, kad lietotājvārdu iztrūkst vai ir tukšs");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Kļūda lapa parādās, kad lietotājs nevar izveidot");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Mainīgais, kas satur lietotājvārdu");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Iekļaut failu, rokturi lietotāja izveidošana");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web serveris reģistrācija");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Izmantošanu vai loģika, lai aprēķinātu pareizu atbildi");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Mainīgo% x jābūt &quot;%y&quot;, lai turpinātu");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Open vienība uznirstošo logu");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web servera autentifikācija");//Web server authentication
+define("_USERSETTINGS","Lietotāja uzstādījumi");//User settings
+define("_THIRDPARTYTOOLS","3rd Party instrumenti");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Neņem to vērā, korekcija");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Vai tiešām vēlaties inicializēt mācība? Tas neatgriezeniski dzēst datus");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Ārējie instrumenti");//External tools
+define("_MATHSETTINGS","Math uzstādījumi");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Jūs nevarat piekļūt šai lapai, jo šādas izmeklēšanas ir aizliegts");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","E-pasta iestatījumus");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Kļūda lapa parādās, kad lietotājvārdu iztrūkst vai ir tukšs");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Kļūda lapa parādās, kad lietotājs nevar izveidot");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Mainīgais, kas satur lietotājvārdu");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Iekļaut failu, rokturi lietotāja izveidošana");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web serveris reģistrācija");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Izmantošanu vai loģika, lai aprēķinātu pareizu atbildi");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Mainīgo% x jābūt &quot;%y&quot;, lai turpinātu");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Open vienība uznirstošo logu");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Lietotājs ar noteikto pieteikšanās jau pastāv (arhivētas)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Notikumi izmērs");//Events size (New)
+define("_OLDESTEVENT","Vecākie notikums");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Purge notikumi vecāki par");//Purge events older than (New)
+define("_PURGEEVENTS","Purge notikumi");//Purge events (New)
+define("_USERSEPERUSERTYPE","Users per lietotāja tipu");//Users per user type (New)
+define("_MINUTESPERUSER","Minūtēm lietotājs");//Minutes per user (New)
+define("_LOGINSPERDAY","Autorizācijas dienā");//Logins per day (New)
+define("_ACCESSES","Piekļūšanas");//Accesses (New)
+define("_ACCESSESPERUSER","Piekļūšanas vienam lietotājam");//Accesses per user (New)
+define("_ACCESSESPERDAY","Piekļūšanas dienā");//Accesses per day (New)
+define("_OCCURENCES","Notikumi");//Occurences (New)
+define("_SCORES","Rādītājus");//Scores (New)
+define("_PROPAGATECOURSE","Izplatīt kurss");//Propagate course (New)
+define("_LESSONSTRUCTURE","Nodarbība struktūra");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administrators nevar piekļūt nodarbību lapām");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X katalogi un% y faili nav rakstāms ar web serveri. <br> Uzklikšķināt <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>šeit</a> , lai lejupielādētu pilnu ziņojumu");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Uzklikšķināt šeit, lai uzstādītu rakstīšanas atļaujas");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Uzklikšķināt šeit, lai atstatīt rakstīšanas atļaujām");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Iestatītu atļaujas");//Set permissions (New)
+define("_UNSETPERMISSIONS","Atiestatīts atļaujas");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Šī operācija mēģinās noteikt atļaujas visus failus un mapes, kas rakstāms ar web serveri. Tas ir obligāta, ja vēlaties veikt automātisko modernizāciju un var noderēt gadījumos, jūs piedzīvo nepatikšanas laikā vai pēc modernizācijas. No otras puses, atstājot visus failus rakstāmās var radīt draudus drošībai konkrētos apstākļos.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Šī operācija mēģinās noteikt atļaujas visus failus un mapes, kas nav rakstāms ar web serveri, izņemot tos obligāti sistēma darbotos pareizi. Šis ir drošākais iestatījums, bet novērstu sistēmas modernizāciju automātiski");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Uzklikšķināt šeit, lai pārbaudītu atļaujas");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Pārbaudiet atļaujas");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Šīs darbības būs pārbaudīt, kuri faili un mapes jūsu sistēmā nav rakstāms ar web serveri");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operācijas iznākumu");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Neviena darbība veikta vēl");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Dažus failus / mapes nav rakstīšanas tiesību. Lūdzu, apmeklējiet \"atļaujas\" sadaļu apkope -&gt; cleanup, lai pārbaudītu atļaujas un pārskatīt šos failus");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Pretējā gadījumā jūs varat izveidot <button onclick = \"location='index.php?ctg=signup'\">jaunu kontu</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs tika iekļauti, lai bezmaksas nodarbības un kursus. Lūdzu, pārskatiet tālāk savu izvēli nav bezmaksas nodarbības un kursi");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Uzraudzītājiem");//Supervisors (New)
+define("_COURSEOPTIONS","Protams iespējas");//Course options (New)
 ?>

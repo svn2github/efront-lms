@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","ارزیابی");//Evaluations
 define("_TRANSPORTMEANS","حمل و نقل به معنی");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","شما می توانید یک ارزیابی نوشته شده توسط کاربر دیگری را حذف کنید");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","شما می توانید یک ارزیابی نوشته شده توسط کاربر دیگری را ویرایش کنید");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","فرم کاربر");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","کاربر در فرم پیش نمایش نسخه قابل چاپ");//User form print preview
+define("_EMPLOYEEFORM","فرم کاربر");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","کاربر در فرم پیش نمایش نسخه قابل چاپ");//Training record print preview
 define("_PRINTPREVIEW","نمایش نسخه قابل چاپ");//Print preview
-define("_PRINTEMPLOYEEFORM","نسخه قابل چاپ فرم کاربر");//Print user form
+define("_PRINTEMPLOYEEFORM","نسخه قابل چاپ فرم کاربر");//Print training record
 define("_PRINT","نسخه قابل چاپ");//Print
 define("_NOSPECIFICJOB","هیچ موقعیت شغلی خاص");//No specific job position
 define("_GROUPS","گروههای کاربری");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","طرح ذخیره");//Save layout
 define("_ADDBLOCK","اضافه کردن بلوک");//Add block
 define("_RESTOREDEFAULTLAYOUT","بازگرداندن طرح پیش فرض");//Restore default layout
 define("_INFOFORCOURSE","برای کسب اطلاعات البته");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","لطفا وارد شوید و برای تکمیل ثبت نام");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","لطفا وارد شوید و برای تکمیل ثبت نام");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","برو به درس فهرست");//Go to lessons list
 define("_PUBLISHED","تاریخ انتشار");//Published
 define("_NOTPUBLISHED","منتشر نشده");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","هیچ شاخه خاص");//No specific branch
 define("_BRANCHFILTER","فیلتر شعبه");//Branch filter
 define("_SEARCHUSER","کاربر جستجو");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","هیچ کاربر براوردن ضوابط مشخص شده");//No users fulfill the specified criteria
-define("_USERFORM","فرم کاربر");//User form
-define("_USERFORMPRINTPREVIEW","کاربر پیش نمایش فرم");//User form preview
+define("_USERFORM","فرم کاربر");//Training record
+define("_USERFORMPRINTPREVIEW","کاربر پیش نمایش فرم");//Training record preview
 define("_USERSFULFILLINGCRITERIA","اعضا برآوردن معیارهای");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","غیر طبقه بندی مهارت");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","سریع مهارت - شکاف ژنراتور تست");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","خواص درسی");//Curriculum properties
 define("_ENTRIES","نوشته ها");//Entries
 define("_ENTERPRISEOPTIONS","گزینه های تصدی");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","نمایش چارت سازمانی به کاربران");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","نمایش فرم به کاربران شخصی");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","نمایش فرم به کاربران شخصی");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","نمایش unassigned کاربران ناظران");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","به کاربران اجازه حذف فایل های به اشتراک گذاشته سرپرست");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","فرم من");//my Form
+define("_MYEMPLOYEEFORM","فرم من");//my Training record
 define("_CLEARQUERYCACHE","پاک کردن حافظه جستجو");//Clear query cache
 define("_FEEDBACKOPTIONS","گزینه ها پیشنهادات و انتقادات");//Feedback options
 define("_OPTIONSFORFEEDBACK","گزینه های بازخورد");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","فایل های ماژول ها حضو
 define("_DISABLEPAYMENTSNOTICE","این همه درس و رشته های قیمت تا 0 ، مجموعه");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","برای مشخص کردن شیء روی صفحه نمایش مطابق ابعاد شناسه");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","فهرست کاما از هم جدا");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","وب سایت اعتبار سرور");//Web server authentication (New)
-define("_USERSETTINGS","تنظیمات کاربری");//User settings (New)
-define("_THIRDPARTYTOOLS","3 حزب ابزار");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","آیا آن را به حساب در اصلاح نیست");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","آیا مطمئن هستید که می خواهید به مقداردهی اولیه درس؟ این داده ها برای همیشه حذف خواهد شد");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","ابزار های خارجی");//External tools (New)
-define("_MATHSETTINGS","تنظیمات ریاضی");//Math settings (New)
-define("_PHPLIVEDOCX","livedocx پی اچ پی");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","شما می توانید این صفحه را به دلیل زیر آی پی دسترسی نمی بودن ممنوع");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","تنظیمات ایمیل");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","صفحه خطا نمایش داده شده هنگامی که نام کاربری است که گم شده و یا خالی");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","صفحه خطا نمایش داده شده هنگامی که کاربر می تواند ایجاد نمی");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","متغیر است که حاوی نام کاربری");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","فایل که شامل دسته ایجاد کاربر");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","وب سایت ثبت نام سرور");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","استفاده از منطق یا برای محاسبه پاسخ صحیح");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","٪ متغیر ایکس باید &quot;%y&quot; به منظور ادامه شامل");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","واحد باز در پنجره پنجره");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","وب سایت اعتبار سرور");//Web server authentication
+define("_USERSETTINGS","تنظیمات کاربری");//User settings
+define("_THIRDPARTYTOOLS","3 حزب ابزار");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","آیا آن را به حساب در اصلاح نیست");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","آیا مطمئن هستید که می خواهید به مقداردهی اولیه درس؟ این داده ها برای همیشه حذف خواهد شد");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","ابزار های خارجی");//External tools
+define("_MATHSETTINGS","تنظیمات ریاضی");//Math settings
+define("_PHPLIVEDOCX","livedocx پی اچ پی");//PHP livedocx
+define("_CANNOTACCESSIPBAN","شما می توانید این صفحه را به دلیل زیر آی پی دسترسی نمی بودن ممنوع");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","تنظیمات ایمیل");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","صفحه خطا نمایش داده شده هنگامی که نام کاربری است که گم شده و یا خالی");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","صفحه خطا نمایش داده شده هنگامی که کاربر می تواند ایجاد نمی");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","متغیر است که حاوی نام کاربری");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","فایل که شامل دسته ایجاد کاربر");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","وب سایت ثبت نام سرور");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","استفاده از منطق یا برای محاسبه پاسخ صحیح");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","٪ متغیر ایکس باید &quot;%y&quot; به منظور ادامه شامل");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","واحد باز در پنجره پنجره");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","کاربر با ورود به سایت مشخص شده از قبل وجود دارد (آرشیو)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","اندازه و رویدادها");//Events size (New)
+define("_OLDESTEVENT","رویداد قدیمی");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","حوادث پاکسازی مسن تر از");//Purge events older than (New)
+define("_PURGEEVENTS","حوادث پاکسازی");//Purge events (New)
+define("_USERSEPERUSERTYPE","اعضا در هر نوع کاربر");//Users per user type (New)
+define("_MINUTESPERUSER","دقیقه هر کاربر");//Minutes per user (New)
+define("_LOGINSPERDAY","باری در هر روز");//Logins per day (New)
+define("_ACCESSES","دسترسی");//Accesses (New)
+define("_ACCESSESPERUSER","دسترسی برای هر کاربر");//Accesses per user (New)
+define("_ACCESSESPERDAY","دسترسی در هر روز");//Accesses per day (New)
+define("_OCCURENCES","وقوع");//Occurences (New)
+define("_SCORES","بیشترین امتیاز");//Scores (New)
+define("_PROPAGATECOURSE","دوره انتشار");//Propagate course (New)
+define("_LESSONSTRUCTURE","ساختار درس");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","مدیر سایت می تواند صفحات درس دسترسی نیست");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","٪ اکس دایرکتوری ها و فایل های ٪ y ها توسط وب سرور قابل نوشتن نیست. <br> کلیک کنید <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>اینجا</a> برای دانلود گزارش کامل");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","اینجا را کلیک کنید برای تنظیم مجوز نوشتنی");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","اینجا را کلیک کنید تا باز نشاندن مجوز نوشتنی");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","اجازه انتخاب");//Set permissions (New)
+define("_UNSETPERMISSIONS","مجوز های ثابت نشده");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","این عمل سعی خواهد کرد که دسترسیها به تمام فایل ها و پوشه ها به وب سرور قابل نوشتن. این الزامی است اگر شما مایل به انجام ارتقا خودکار و ممکن است مفید باشد در مورد شما در حال تجربه مشکلات در طول یا پس از ارتقاء. از سوی دیگر ، ترک تمام فایل های قابل نوشتن ممکن است تهدید امنیتی تحت شرایط معینی مطرح.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","این عمل سعی خواهد کرد که دسترسیها به تمام فایل ها و پوشه ها می شود غیر قابل نوشتن توسط وب سرور ، جز برای کسانی که اجباری برای این سیستم را به عملکرد درست. این محیط امن ترین است اما سیستم به طور خودکار مانع از ارتقاء");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","اینجا را کلیک کنید برای بررسی مجوز");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","بررسی مجوز");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","این عملیات را بررسی کنید که چه فایل ها و پوشه های سیستم شما توسط وب سرور قابل نوشتن نیست");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","نتیجه عملیات");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","بدون انجام عملیات رتبهدهی نشده است");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","بعضی از فایل ها / پوشه ها قابل نوشتن نیست. لطفا از قسمت &#39;مجوز&#39; در تعمیر و نگهداری -- پاکسازی&gt; برای بررسی مجوز و بررسی این فایلها");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","در غیر این صورت ، شما ممکن است ایجاد <button onclick = \"location='index.php?ctg=signup'\">حساب جدید</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","شما وارد مطالعه شدند به درس های رایگان و دوره. لطفا بررسی زیر انتخاب خود را از درس و دوره های غیر رایگان");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","سوپروایزر");//Supervisors (New)
+define("_COURSEOPTIONS","انتخاب رشته");//Course options (New)
 ?>

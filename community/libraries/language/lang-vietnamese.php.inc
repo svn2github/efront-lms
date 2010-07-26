@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Đánh giá");//Evaluations
 define("_TRANSPORTMEANS","Có nghĩa là các phương tiện giao thông");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Bạn không thể xoá một đánh giá bằng văn bản của một người dùng khác");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Bạn không thể chỉnh sửa một đánh giá bằng văn bản của một người dùng khác");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Người mẫu");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Người dùng xem trước mẫu in ấn");//User form print preview
+define("_EMPLOYEEFORM","Người mẫu");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Người dùng xem trước mẫu in ấn");//Training record print preview
 define("_PRINTPREVIEW","Xem bản in");//Print preview
-define("_PRINTEMPLOYEEFORM","In người sử dụng hình thức");//Print user form
+define("_PRINTEMPLOYEEFORM","In người sử dụng hình thức");//Print training record
 define("_PRINT","In");//Print
 define("_NOSPECIFICJOB","Không có vị trí công việc cụ thể");//No specific job position
 define("_GROUPS","Nhóm người này");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","");//Save layout
 define("_ADDBLOCK","Thêm chặn");//Add block
 define("_RESTOREDEFAULTLAYOUT","Khôi phục lại mặc định bố trí");//Restore default layout
 define("_INFOFORCOURSE","Thông tin dành cho khóa học");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Vui lòng đăng nhập để hoàn tất đăng ký");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Vui lòng đăng nhập để hoàn tất đăng ký");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Về các bài học vào danh sách");//Go to lessons list
 define("_PUBLISHED","Xuất bản");//Published
 define("_NOTPUBLISHED","Không công bố");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Không có các chi nhánh");//No specific branch
 define("_BRANCHFILTER","Chi nhánh bộ lọc");//Branch filter
 define("_SEARCHUSER","Tìm kiếm người dùng");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Không có người dùng hoàn thành việc xác định các tiêu chí");//No users fulfill the specified criteria
-define("_USERFORM","Người mẫu");//User form
-define("_USERFORMPRINTPREVIEW","Người mẫu xem trước");//User form preview
+define("_USERFORM","Người mẫu");//Training record
+define("_USERFORMPRINTPREVIEW","Người mẫu xem trước");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Người sử dụng hoàn thành các tiêu chí");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Không phân loại kỹ năng");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","-Khoảng cách nhanh chóng kỹ năng kiểm tra máy phát điện");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Chương trình đào tạo tài sản");//Curri
 define("_ENTRIES","Entries");//Entries
 define("_ENTERPRISEOPTIONS","Doanh nghiệp lựa chọn");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Show tổ chức biểu đồ để người sử dụng");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Show hình thức cho người dùng cá nhân");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Show hình thức cho người dùng cá nhân");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Hiển thị không được gán người sử dụng để giám sát");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Cho phép người dùng xóa các tập tin được chia sẻ giám sát");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","Mẫu của tôi");//my Form
+define("_MYEMPLOYEEFORM","Mẫu của tôi");//my Training record
 define("_CLEARQUERYCACHE","Clear truy vấn bộ nhớ cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Thông tin phản hồi tùy chọn");//Feedback options
 define("_OPTIONSFORFEEDBACK","Tùy chọn thông tin phản hồi");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Module các tập tin, có mặt, như
 define("_DISABLEPAYMENTSNOTICE","Điều này sẽ đặt tất cả các bài học và các khóa học giá 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Xác định đối tượng id cho phù hợp với kích thước màn hình");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Dấu phẩy tách ra danh sách");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web server xác thực");//Web server authentication (New)
-define("_USERSETTINGS","Người sử dụng cài đặt");//User settings (New)
-define("_THIRDPARTYTOOLS","Các công cụ bên thứ 3");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Đừng đưa nó vào tài khoản trong sửa chữa");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Bạn có chắc bạn muốn khởi tạo bài học? Điều này sẽ xoá vĩnh viễn dữ liệu");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Các công cụ bên ngoài");//External tools (New)
-define("_MATHSETTINGS","Toán cài đặt");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Bạn không thể truy cập trang này do IP sau đây bị cấm");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","Email cài đặt");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Sửa lỗi hiển thị khi tên người dùng là mất tích hoặc có sản phẩm nào");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Sửa lỗi hiển thị khi người dùng không thể được tạo ra");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Biến có chứa tên người dùng");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Bao gồm các tập tin mà người sử dụng xử lý sáng tạo");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web server đăng ký");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Sử dụng OR để tính logic câu trả lời đúng");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Các biến% x phải có &quot;%y&quot; để tiếp tục");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Mở cửa sổ popup đơn vị");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web server xác thực");//Web server authentication
+define("_USERSETTINGS","Người sử dụng cài đặt");//User settings
+define("_THIRDPARTYTOOLS","Các công cụ bên thứ 3");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Đừng đưa nó vào tài khoản trong sửa chữa");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Bạn có chắc bạn muốn khởi tạo bài học? Điều này sẽ xoá vĩnh viễn dữ liệu");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Các công cụ bên ngoài");//External tools
+define("_MATHSETTINGS","Toán cài đặt");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Bạn không thể truy cập trang này do IP sau đây bị cấm");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","Email cài đặt");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Sửa lỗi hiển thị khi tên người dùng là mất tích hoặc có sản phẩm nào");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Sửa lỗi hiển thị khi người dùng không thể được tạo ra");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Biến có chứa tên người dùng");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Bao gồm các tập tin mà người sử dụng xử lý sáng tạo");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web server đăng ký");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Sử dụng OR để tính logic câu trả lời đúng");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Các biến% x phải có &quot;%y&quot; để tiếp tục");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Mở cửa sổ popup đơn vị");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","Một người sử dụng đăng nhập với quy định đã tồn tại (lưu trữ)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Sự kiện kích thước");//Events size (New)
+define("_OLDESTEVENT","Cũ sự kiện");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Thanh trừng các sự kiện cũ hơn");//Purge events older than (New)
+define("_PURGEEVENTS","Thanh trừng các sự kiện");//Purge events (New)
+define("_USERSEPERUSERTYPE","Người sử dụng cho mỗi người dùng loại");//Users per user type (New)
+define("_MINUTESPERUSER","Phút cho mỗi người dùng");//Minutes per user (New)
+define("_LOGINSPERDAY","Đăng nhập / ngày");//Logins per day (New)
+define("_ACCESSES","Truy cập");//Accesses (New)
+define("_ACCESSESPERUSER","Truy cập cho mỗi người dùng");//Accesses per user (New)
+define("_ACCESSESPERDAY","Truy cập mỗi ngày");//Accesses per day (New)
+define("_OCCURENCES","Những lần xuất hiện");//Occurences (New)
+define("_SCORES","Điểm");//Scores (New)
+define("_PROPAGATECOURSE","Tuyên truyền khóa học");//Propagate course (New)
+define("_LESSONSTRUCTURE","Bài học cấu trúc");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Một quản trị viên không thể truy cập các trang bài học");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X thư mục và tập tin y% là không thể ghi bởi các máy chủ web. <br> Click vào <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>đây</a> để tải về một báo cáo hoàn thành");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Click vào đây để thiết lập quyền ghi");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Click vào đây để bỏ đặt quyền ghi");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Thiết lập quyền");//Set permissions (New)
+define("_UNSETPERMISSIONS","Bỏ đặt quyền truy cập");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Hoạt động này sẽ cố gắng thiết lập quyền truy cập vào tất cả các file và thư mục được ghi bởi các máy chủ web. Điều này là bắt buộc nếu bạn muốn thực hiện nâng cấp tự động và có thể hữu ích trong trường hợp bạn đang gặp rắc rối trong hoặc sau khi nâng cấp. Mặt khác, để lại tất cả các tập tin ghi có thể đặt ra một mối đe dọa an ninh trong những hoàn cảnh nhất định.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Hoạt động này sẽ cố gắng thiết lập quyền truy cập vào tất cả các file và thư mục được không thể ghi bởi các máy chủ web, trừ những người bắt buộc cho hệ thống hoạt động tốt. Đây là thiết lập an toàn nhất nhưng sẽ ngăn chặn việc tự động nâng cấp hệ thống từ");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Click vào đây để kiểm tra quyền truy cập");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Kiểm tra quyền truy cập");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Hoạt động này sẽ kiểm tra các tập tin và thư mục của hệ thống của bạn không thể ghi bởi các máy chủ web");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Kết quả hoạt động");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Không có hoạt động chưa thực hiện");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Một số tập tin / thư mục không được phép ghi. Xin vui lòng truy cập vào &#39;quyền&#39; phần trong bảo trì - cleanup&gt; để kiểm tra quyền truy cập và xem lại những tập tin này");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Nếu không, bạn có thể tạo một <button onclick = \"location='index.php?ctg=signup'\">tài khoản mới</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Bạn đã được ghi danh vào các bài học miễn phí và các khóa học. Vui lòng xem dưới đây lựa chọn của bạn các bài học miễn phí và các khóa học không");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Giám sát");//Supervisors (New)
+define("_COURSEOPTIONS","Khóa học lựa chọn");//Course options (New)
 ?>

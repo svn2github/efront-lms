@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Értékelést");//Evaluations
 define("_TRANSPORTMEANS","Szállítóeszközt");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Nem törölheti értékelést írt egy másik felhasználó");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Nem módosíthatjuk értékelést írt egy másik felhasználó");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Felhasználói adatlapja");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Felhasználói formában nyomtatási kép");//User form print preview
+define("_EMPLOYEEFORM","Felhasználói adatlapja");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Felhasználói formában nyomtatási kép");//Training record print preview
 define("_PRINTPREVIEW","Nyomtatási kép");//Print preview
-define("_PRINTEMPLOYEEFORM","Nyomtatott formában user");//Print user form
+define("_PRINTEMPLOYEEFORM","Nyomtatott formában user");//Print training record
 define("_PRINT","Nyomtatási");//Print
 define("_NOSPECIFICJOB","Nincs specifikus job pozíció");//No specific job position
 define("_GROUPS","Felhasználói csoportok");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Mentés layout");//Save layout
 define("_ADDBLOCK","Add blokk");//Add block
 define("_RESTOREDEFAULTLAYOUT","Visszaállíthatók az alapértelmezett elrendezés");//Restore default layout
 define("_INFOFORCOURSE","Információk a tanfolyam");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Kérjük, jelentkezzen be, hogy a teljes regisztrációs");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Kérjük, jelentkezzen be, hogy a teljes regisztrációs");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Tovább a tanulságokat lista");//Go to lessons list
 define("_PUBLISHED","Közzétették");//Published
 define("_NOTPUBLISHED","Nem tették közzé");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Nincs specifikus ág");//No specific branch
 define("_BRANCHFILTER","Branch szűrő");//Branch filter
 define("_SEARCHUSER","Felhasználó keresése");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Egyetlen felhasználó teljesíti az előírt kritériumokat");//No users fulfill the specified criteria
-define("_USERFORM","Felhasználói adatlapja");//User form
-define("_USERFORMPRINTPREVIEW","Felhasználói formában preview");//User form preview
+define("_USERFORM","Felhasználói adatlapja");//Training record
+define("_USERFORMPRINTPREVIEW","Felhasználói formában preview");//Training record preview
 define("_USERSFULFILLINGCRITERIA","A felhasználók kritériumoknak megfelelő");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Nem kategorizált készségek");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Gyors skill-szakadék teszt generátor");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Tanterv tulajdonságok");//Curriculum properties
 define("_ENTRIES","Bejegyzések");//Entries
 define("_ENTERPRISEOPTIONS","Vállalkozási lehetőségek");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","Megjelenítés szervezeti diagram a felhasználók");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","Mutassa a személyes formában a felhasználók számára");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","Mutassa a személyes formában a felhasználók számára");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Megjelenítés kiosztatlan felhasználók felügyelők");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","A felhasználók törlése felügyelőnek megosztott fájlok");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","én forma");//my Form
+define("_MYEMPLOYEEFORM","én forma");//my Training record
 define("_CLEARQUERYCACHE","Egyértelmű lekérdezés cache");//Clear query cache
 define("_FEEDBACKOPTIONS","Visszajelzés lehetőségek");//Feedback options
 define("_OPTIONSFORFEEDBACK","Lehetőségek visszajelzés");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modul fájlok jelen vannak, de nincs t
 define("_DISABLEPAYMENTSNOTICE","Ez beállítja az összes órát és tanfolyamok ára 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Adja meg az objektum ID képernyő megfelelő méretek");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Vesszővel elválasztott listája");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web szerver hitelesítés");//Web server authentication (New)
-define("_USERSETTINGS","Felhasználói beállítások");//User settings (New)
-define("_THIRDPARTYTOOLS","3rd party eszközöket");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","Ne vegye figyelembe a korrekció");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Biztos benne, hogy szeretné elindítani leckét? Ez véglegesen törölni adatok");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Külső eszközök");//External tools (New)
-define("_MATHSETTINGS","Matematikai beállítások");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Nem tudja elérni ezt az oldalt miatt a következő IP-hogy kitiltották");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","E-mail beállítások");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Hiba lap jelenik meg, ha a felhasználói név hiányzik vagy üres");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Hiba lap jelenik meg, ha a felhasználó nem hozható létre");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Változót, amely tartalmazza a felhasználónevet");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Include file kezelő felhasználó létrehozása");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web szerver regisztráció");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Használja, vagy logikai kiszámításához helyes válasz");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","A változó% x tartalmaznia kell a &quot;%y&quot; annak érdekében, hogy továbbra is");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","Nyitott egység felugró ablakban");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web szerver hitelesítés");//Web server authentication
+define("_USERSETTINGS","Felhasználói beállítások");//User settings
+define("_THIRDPARTYTOOLS","3rd party eszközöket");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","Ne vegye figyelembe a korrekció");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Biztos benne, hogy szeretné elindítani leckét? Ez véglegesen törölni adatok");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Külső eszközök");//External tools
+define("_MATHSETTINGS","Matematikai beállítások");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Nem tudja elérni ezt az oldalt miatt a következő IP-hogy kitiltották");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","E-mail beállítások");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Hiba lap jelenik meg, ha a felhasználói név hiányzik vagy üres");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Hiba lap jelenik meg, ha a felhasználó nem hozható létre");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Változót, amely tartalmazza a felhasználónevet");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Include file kezelő felhasználó létrehozása");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web szerver regisztráció");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Használja, vagy logikai kiszámításához helyes válasz");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","A változó% x tartalmaznia kell a &quot;%y&quot; annak érdekében, hogy továbbra is");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","Nyitott egység felugró ablakban");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","A felhasználó a megadott bejelentkezési már létezik (archivált)");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Események méret");//Events size (New)
+define("_OLDESTEVENT","Legrégebbi esemény");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Purge események régebbi");//Purge events older than (New)
+define("_PURGEEVENTS","Purge események");//Purge events (New)
+define("_USERSEPERUSERTYPE","A felhasználók egy felhasználói típus");//Users per user type (New)
+define("_MINUTESPERUSER","Perc felhasználó");//Minutes per user (New)
+define("_LOGINSPERDAY","Logika naponta");//Logins per day (New)
+define("_ACCESSES","Hozzáférések");//Accesses (New)
+define("_ACCESSESPERUSER","Hozzáférések felhasználónként");//Accesses per user (New)
+define("_ACCESSESPERDAY","Hozzáférések naponta");//Accesses per day (New)
+define("_OCCURENCES","Események");//Occurences (New)
+define("_SCORES","Pontszámok");//Scores (New)
+define("_PROPAGATECOURSE","Propagál tanfolyam");//Propagate course (New)
+define("_LESSONSTRUCTURE","Lecke struktúrája");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Rendszergazda nem fér hozzá leckét oldalak");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X% y könyvtárak és fájlok nem írható a webszerver. <br> Kattintson <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ide</a> a letöltéshez teljes jelentést");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Kattintson ide, hogy meghatározott írási");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Kattintson ide, hogy unset írási");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Meghatározott jogosultságokat");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset jogosultságok");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Ez a művelet próbáljuk meg engedélyeket minden fájlokat és mappákat írható a webszerver. Ez kötelező, ha szeretné elvégezni az automatikus frissítéseket, és hasznos lehet abban az esetben, ha a tapasztalt bajok alatt vagy után korszerűsítése. Másrészről, így az összes fájl írható jelentő biztonsági fenyegetést bizonyos körülmények között.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ez a művelet próbáljuk meg engedélyeket minden fájlokat és mappákat, hogy nem írható a webszerver, kivéve kötelező a rendszer megfelelő működéséhez. Ez a legbiztonságosabb, de a beállítás megakadályozza, hogy a rendszer automatikusan korszerűsítés");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Kattintson ide a jogosultságok ellenőrzésére");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","Ellenőrizze a jogosultságokat");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ez a művelet ellenőrzi melyik fájlokat és mappákat a rendszer nem írható a webszerver");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Művelet eredménye");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Semmilyen műveletet végezni még");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Néhány fájl / mappa nem írható. Kérjük, látogasson el az \"engedély\" szakasz a fenntartó -&gt; razzia a jogosultságok ellenőrzésére és felülvizsgálatára ezeket a fájlokat");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Ellenkező esetben, akkor hozzon létre egy <button onclick = \"location='index.php?ctg=signup'\">új fiókot</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ön vontak be a szabad órák és tanfolyamok. Kérjük, olvassa el az alábbiakban a választás nem szabad órák és tanfolyamok");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Felügyelők");//Supervisors (New)
+define("_COURSEOPTIONS","Természetesen lehetőség");//Course options (New)
 ?>

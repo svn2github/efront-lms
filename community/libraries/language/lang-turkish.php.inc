@@ -1319,7 +1319,7 @@ define("_ANDTHEMESSAGESOFUSER","Ve kullanıcı mesajları");//And the messages o
 define("_ALLUSERS","Tüm kullanıcılar");//All users
 define("_INVALIDUSER","Geçersiz kullanıcı adı");//Invalid user name
 define("_REPLACEEXISTINGUSERS","Değiştir yinelenen kullanıcılar");//Replace duplicate users
-define("_KEEPEXISTINGUSERS","Yinelenen kullanıcılar tutun");//Keep duplicate users
+define("_KEEPEXISTINGUSERS","Yinelenen kullanıcılar tutun");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Başka kullanıcıları şu anda çevrimiçi");//No other users currently online
 define("_USERNAME","Kullanıcı adı");//User name
 define("_STATISTICSFORUSER","Kullanıcı için Raporlar");//Reports for user
@@ -1452,7 +1452,7 @@ define("_BRANCHRECORD","Şube kaydı");//Branch record
 define("_BRANCHDATAUPDATED","Şube veri güncelleme");//Branch data updated
 define("_FATHERBRANCH","Babam şube");//Father branch
 define("_HCD","İnsan Kaynakları Geliştirme");//Human Capital Development
-define("_ORGANISATIONCHART","Organizasyon şeması");//Organisation chart
+define("_ORGANISATIONCHART","Organizasyon şeması");//Organization chart
 define("_CANDIDATES","Adaylar");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Şube başarıyla oluşturuldu");//Branch was successfully created
 define("_ATBRANCH","şubesine");// at branch 
@@ -1574,7 +1574,7 @@ define("_ASSIGNSKILL","Ata beceri");//Assign skill
 define("_ASSIGNEMPLOYEESTHESKILL","Ata kullanıcılar beceri");//Assign users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Hayır şube tescil edilmiştir");//No branches have been registered
 define("_ORGANIZATION","Organizasyon");//Organization
-define("_SEARCHFOREMPLOYEE","Kullanıcı için arama [Organizasyon kriterleri]");//Search for user [Organization criteria]
+define("_SEARCHFOREMPLOYEE","Kullanıcı için arama [Organizasyon kriterleri]");//Find users [Organization criteria]
 define("_SUBFORUMS","Alt");//Subforums
 define("_NOSUBFORUMSFOUND","Bu forumda tanımlanmış alt başlık yoktur");//There are no subforums defined in this forum
 define("_NONEWMESSAGELOCKED","Çünkü bu konu veya forumun kilitli istediğiniz yeni mesaj gönderemezsiniz");//You cannot post any new messages because this topic or forum is locked
@@ -1590,7 +1590,7 @@ define("_CHOOSETEST","Test seçin");//Choose test
 define("_USERPROFILE","Kullanıcı profili");//Public profile
 define("_VIEWBRANCHES","Görünüm dalları");//View branches
 define("_NOEMPLOYEESFOUND","Hayır kullanıcı bulunamadı");//No users were found
-define("_SEARCHEMPLOYEE","Ara kullanıcı");//Search user
+define("_SEARCHEMPLOYEE","Ara kullanıcı");//Find users
 define("_ALLBRANCHES","Tüm branşlarda");//All branches
 define("_ANSWERS","Yanıtlar");//Answers
 define("_GROUPDOESNOTEXIST","Bu grup mevcut değil");//The group doesn&#039;t exist
@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","Değerlendirmeler");//Evaluations
 define("_TRANSPORTMEANS","Demektir ulaşım");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","Bir değerlendirme başka bir kullanıcı tarafından yazılmış silemezsiniz");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","Bir değerlendirme başka bir kullanıcı tarafından yazılmış düzenleyemezsiniz");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","Kullanıcı formu");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","Kullanıcı formu baskı önizleme");//User form print preview
+define("_EMPLOYEEFORM","Kullanıcı formu");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","Kullanıcı formu baskı önizleme");//Training record print preview
 define("_PRINTPREVIEW","Baskı önizleme");//Print preview
-define("_PRINTEMPLOYEEFORM","Kullanıcı formu");//Print user form
+define("_PRINTEMPLOYEEFORM","Kullanıcı formu");//Print training record
 define("_PRINT","Yazdır");//Print
 define("_NOSPECIFICJOB","Özel bir iş pozisyonu");//No specific job position
 define("_GROUPS","Kullanıcı grupları");//User groups
@@ -1906,7 +1906,7 @@ define("_PROFESSORSOFLESSON","Professors ders");//Professors of lesson
 define("_TOBRANCHSUPERVISORS","Sadece şube denetçiler");//Only your branch supervisors
 define("_OTHERBRANCHJOBS","Diğer Şubeleri İş pozisyonlar");//Job positions from other branches
 define("_SENDMESSAGETOALLFOUNDEMPLOYEES","Tüm kullanıcılar bulundu mesaj gönder");//Send messages to all users found
-define("_SEARCHCOURSEUSERS","Kullanıcı için arama [Ders kriterleri]");//Search for user [Course criteria]
+define("_SEARCHCOURSEUSERS","Kullanıcı için arama [Ders kriterleri]");//Find users [Course criteria]
 define("_COMPLETIONDATE","Bitiş tarihi");//Completion date
 define("_YEAR","Yıl");//Year
 define("_NOTASSIGNED","Henüz atanmadı");//Not assigned yet 
@@ -1995,7 +1995,7 @@ define("_PERMISSIONS","İzinler");//Permissions
 define("_UNSHARE","İptal paylaşımı");//Cancel sharing
 define("_UNSHARESELECTED","Seçilen dosyaların paylaşımını iptal et");//Cancel sharing of selected files
 define("_SHARESELECTED","Hisse dosya seçmediniz");//Share selected files
-define("_YOUDONTHAVEPERMISSION","Siz yok izin seçilen eylemi gerçekleştirmek zorunda");//You don&quot;t have permission to perform the selected action
+define("_YOUDONTHAVEPERMISSION","Siz yok izin seçilen eylemi gerçekleştirmek zorunda");//You don&#039;t have permission to perform the selected action
 define("_EXPORT","İhracat");//Export
 define("_NOMODULECLASSFOUND","Hayır modül sınıf adı ile buldum");//No module class found with name
 define("_ERRORLOADINGMODULE","Hata yükleme modülü");//Error loading module
@@ -2069,7 +2069,7 @@ define("_SUCCESSFULLYADDEDLANGUAGE","Dili başarıyla oluşturuldu");//The langu
 define("_SUCCESSFULLYUPDATEDLANGUAGE","Dili başarıyla güncellendi");//The language was successfully updated
 define("_LANGUAGES","Diller");//Languages
 define("_SERIALRULE","Kullanıcılar bir seri sırada içeriğini görmek gerekir");//Users must see content in a serial order
-define("_TREERULE","Kullanıcılar önce diğerine hareket düğümler bir şube zorundadırlar");//Users must complete a branch&quot;s nodes before moving to the next one
+define("_TREERULE","Kullanıcılar önce diğerine hareket düğümler bir şube zorundadırlar");//Users must complete a branch&#039;s nodes before moving to the next one
 define("_ADDCUSTOMRULE","Özel kural ekle");//Add custom rule
 define("_ADDREADYRULE","Hazır kural ekle");//Add ready rule
 define("_THEFOLLOWINGUSERSCOULDNOTBEIMPORTED","Aşağıdaki kullanıcılar alınamadı");//The following users could not be imported
@@ -2322,7 +2322,7 @@ define("_MINUTESSHORTHAND","M");//m
 define("_SECONDSSHORTHAND","s");//s
 define("_NONEUNIT","Birim yok");//None unit
 define("_NOSYSTEMANNOUNCEMENTS","Duyuru bulunmamaktadır");//There are no system announcements
-define("_NOONELOGGEDIN","Şu anda kimse bağlı değil");//Noone is currently connected
+define("_NOONELOGGEDIN","Şu anda kimse bağlı değil");//None are currently connected
 define("_ENTERYOUREMAILADDRESS","E-posta adresini girin");//Enter you email address
 define("_ENTERMESSAGESUBJECT","Mesajı konu girin");//Enter the message subject
 define("_ENTERMESSAGE","Mesajı girin");//Enter the message
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","Düzeni kaydet");//Save layout
 define("_ADDBLOCK","Bloğunu ekle");//Add block
 define("_RESTOREDEFAULTLAYOUT","Geri Yükleme varsayılan düzeni");//Restore default layout
 define("_INFOFORCOURSE","Bilgi kursa");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","Lütfen kayıt işlemini tamamlamak için giriş");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","Lütfen kayıt işlemini tamamlamak için giriş");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","Ders listesine git");//Go to lessons list
 define("_PUBLISHED","Yayınlandı");//Published
 define("_NOTPUBLISHED","Yayınlanmadı");//Not published
@@ -2424,8 +2424,8 @@ define("_ROOMSUCCESSFULLYDELETED","Oda başarıyla silindi");//Room successfully
 define("_LESSONROOMSCANNOTBEDELETED","Ders odası silinemez");//Lesson rooms cannot be deleted
 define("_CHANGESIDEBARWIDTH","Kenar çubuğu genişliğini değiştir");//Change sidebar width
 define("_SIDEBARWIDTH","Kenar çubuğu genişliği");//Sidebar width
-define("_VALUESUBMITTEDISNOTNUMERICAL" ,"Atanan değer sayısal değil!");
-define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Kenar çubuğu genişliğinin olması gereken aralık");
+define("_VALUESUBMITTEDISNOTNUMERICAL" ,"Value submitted is not numerical!");
+define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Sidebar values must be between");
 define("_ACTIVATEEFRONTCHAT","Sohbeti etkinleştir");//Activate chat
 define("_DEACTIVATEEFRONTCHAT","Sohbeti devre dışı bırak");//Deactivate chat
 define("_ENABLEMATHCONTENT","Matematik türü içeriği etkinleştir");//Enable mathematic type content
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","Özel şube");//No specific branch
 define("_BRANCHFILTER","Şube filtresi");//Branch filter
 define("_SEARCHUSER","Ara kullanıcı");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","Hayır kullanıcıların belirtilen kriterleri yerine getirmek");//No users fulfill the specified criteria
-define("_USERFORM","Kullanıcı formu");//User form
-define("_USERFORMPRINTPREVIEW","Kullanıcı formu önizleme");//User form preview
+define("_USERFORM","Kullanıcı formu");//Training record
+define("_USERFORMPRINTPREVIEW","Kullanıcı formu önizleme");//Training record preview
 define("_USERSFULFILLINGCRITERIA","Kullanıcılar kriterlere uygun herhangi bir");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","Olmayan becerileri kategorize");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","Hızlı beceri-gap testi jeneratör");//Quick skill-gap test generator
@@ -3379,7 +3379,7 @@ define("_ARCHIVEDON","Archived on");//Archived on
 define("_RESTORESELECTED","Geri Seçilen");//Restore selected
 define("_ARCHIVEENTITY","Arşiv");//Archive
 define("_LOADMATHTYPESASIMAGES","Ekran görüntüsü olarak matematik türlerini");//Display math types as images
-define("_MATHIMAGESINFO","Internet Explorer 8 için önerilir. Ayrıca tarayıcı önbelleği silmek için");//Recommended for Internet Explorer 8. You have also delete browser's cache
+define("_MATHIMAGESINFO","Internet Explorer 8 için önerilir. Ayrıca tarayıcı önbelleği silmek için");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
 define("_EDITCOURSESDIRECTION","Kategori kursları");//Category courses
 define("_GROUPROLE","Grup ortak rol");//Group common role
 define("_GROUPONLY","Grup");//Group
@@ -3476,7 +3476,7 @@ define("_COURSEPROFESSORS","Kurs eğitmenleri");//Course professors
 define("_PROFESSORSOFCOURSE","Dersin eğitmenleri");//Professors of course
 define("_USERSUPERVISORS","Kullanıcı denetçiler");//User supervisors
 define("_USEROPTIONSFOR","Kullanıcı için seçenekler");//Options for user
-define("_MYSTATUS","Öğrenim Durumum");//my Learning Status
+define("_MYSTATUS","Öğrenim Durumum");//my Learning status
 define("_MYCOURSES","Derslerim");//my Courses
 define("_CERTIFICATIONS","Sertifikalar");//Certificates
 define("_MYCERTIFICATIONS","Sertifikalarım");//my Certificates
@@ -3490,7 +3490,6 @@ define("_SUPERVISORMAILUSERACTIVATION","Danışman e-posta etkinleştirme");//Su
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Bir hesap etkinleştirme e-posta");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Bu e-posta size yeni sistemi kullanıcı etkinleştirmek sağlar");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","dalına atanan");//assigned to branch
-define("_WITHTHEJOBDESCRIPTION","iş pozisyonu ile");//with the job description
 define("_BYCLICKINGONTHELINK","Aşağıdaki linke tıklayarak");//by clicking on the following link
 define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","Senin çalışanın hesabını başarıyla aktive edildi");//The account of your employee was successfully activated
 define("_SHOWHORIZONTALBAR","Barfiks");//Horizontal bar
@@ -3501,6 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Gözetmen alan adı etkinleştirme");//Activati
 define("_LEAVEEMPTYTONOTUSE","Ommit boş bırak");//Leave empty to ommit
 define("_PLEASESELECT","Lütfen seçin");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Amirinle hesabınızı aktive eder");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","Geçersiz parametre");//Invalid parameter (New)
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","İthalat IMS İçerik");//Import IMS Content
 define("_IMSEXPORT","İhracat IMS İçerik");//Export IMS Content
@@ -3550,52 +3550,52 @@ define("_ADDALTERNATIVETRAINING","alternatif eğitim ekle");//Add alternative tr
 define("_HASREQUIREDTRAINING","eğitim gerekli Has");//Has required training
 define("_SEARCHRESULTSINGLOSSARY","Sözlük arama sonuçları");//Search results in glossary
 define("_NORESULTSFOUNDINGLOSSARY","Sözlükte aramada sonuç bulunamadı");//No results found in glossary
-define("_PROJECTSSCORE", "Projects score");
-define("_TESTSSCORE", "Tests score");
+define("_PROJECTSSCORE","Projects score");//Projects score
+define("_TESTSSCORE","Tests score");//Tests score
 define("_AUTOLOGIN","Otomatik giriş");//Auto login
 define("_ACCESSLINK","Bağlantıya erişin");//Access link
 define("_AUTOLOGINITHLINK","Kullanıcı otomatik olarak bu bağlantı ile giriş yapabilir");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Varsayılan kullanıcı türü");//Default user type
 define("_FORCEUSERANSERALLQUESTIONS","Öğrencileri tüm soruları cevaplamaya zorla");//Force student answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Tüm soruları yanıtlamak zorunda");//You have to answer all questions
-define("_ALLOWINDEPENDENTLESSONS", "Allow independent lessons");
-define("_NOPRESELECTEDDATE","No preselected date");
-define("_CURRENTDATE","Current date");
-define("_SHOWHELP"," Yardım bağlantılarını göster");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","İzin öğrenciler sadece yanlış sorularını yanıtlamıştır yeniden yapmak");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","Sadece test tekrar izin verilen durumlarda,");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","Yinele sadece yanlış yanıt");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Varsayılan temayı inported olamaz");//Default theme can not be inported (New)
+define("_ALLOWINDEPENDENTLESSONS","Allow independent lessons");//Allow independent lessons
+define("_NOPRESELECTEDDATE","No preselected date");//No preselected date
+define("_CURRENTDATE","Current date");//Current date
+define("_SHOWHELP"," Yardım bağlantılarını göster");//Display help links
+define("_ALLOWUSERANSERALLRONG","İzin öğrenciler sadece yanlış sorularını yanıtlamıştır yeniden yapmak");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","Sadece test tekrar izin verilen durumlarda,");//Only if test repetitions are allowed
+define("_USERREDOWRONG","Yinele sadece yanlış yanıt");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Varsayılan temayı inported olamaz");//Default theme can not be inported
 define("_ACCESSEXPIRED","Erişim süresi");//Access expired
 define("_LESSONSCHEDULE","Dersler tarifesi");//Lessons schedule
 define("_COURSESTARTSAT","Ders başlar");//The course starts on
 define("_COURSEENDSAT","Tabii tarihinde sona eriyor");//The course ends on
 define("_ENDDATE","Bitiş tarihi");//End date
 define("_SELECTSKILLCATEGORY","Select beceri kategori");//Select skill category
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No başlık satırı tanımlanan veya başlık ithal türüyle uyumlu değil");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","İthal kullanıcı");//Imported user (New)
-define("_USERSTOCOURSES","içerisinde Kullanıcılar");//Users to courses (New)
-define("_USERSTOGROUPS","gruplara Kullanıcılar");//Users to groups (New)
-define("_IMPORTANYTHING","Bir şey kabul");//Anything recognized (New)
-define("_DATATOIMPORT","Verilerini");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","Başarılı ithalat");//successfull imports (New)
-define("_FAILEDIMPORTS","başarısız ithalat");//failed imports (New)
-define("_REPLACEDUSER","Değiştirilen kullanıcı");//Replaced user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosya gerekli sütunlar içermiyor");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","Yerine mevcut atama");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","Yeni ders atama");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","Yeni grup atama");//New group assignment (New)
-define("_USERSTOJOBS","işleri Kullanıcılar");//Users to jobs (New)
-define("_USERSTOSKILLS","becerilerine Kullanıcılar");//Users to skills (New)
-define("_DATATOEXPORT","Veri ihracat");//Data to export (New)
-define("_MANDATORYFIELDS","Zorunlu alanlar");//Mandatory fields (New)
-define("_OPTIONALFIELDS","İsteğe bağlı alanlar");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","bir başlık satırı, her ithalat tipi içeren, tüm ve her türlü isteğe bağlı alan başlıklar olanlar herhangi bir sırada aşağıda sağlanan zorunlu bir dosya sağlayın. Her sütunun başlığı anlamını ifade eder. Tanınmayan sütunlar, prosedürün geri kalanını etkilemeden ihmal edilecektir.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","Yeni iş tanımı atama");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","Yeni beceri atama");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","Yerine mevcut şube");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","Yerine mevcut iş");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","Yerine mevcut beceri");//Replaced existing skill (New)
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","No başlık satırı tanımlanan veya başlık ithal türüyle uyumlu değil");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","İthal kullanıcı");//Imported user
+define("_USERSTOCOURSES","içerisinde Kullanıcılar");//Users to courses
+define("_USERSTOGROUPS","gruplara Kullanıcılar");//Users to groups
+define("_IMPORTANYTHING","Bir şey kabul");//Anything recognized
+define("_DATATOIMPORT","Verilerini");//Data to import
+define("_SUCCESSFULLIMPORTS","Başarılı ithalat");//successfull imports
+define("_FAILEDIMPORTS","başarısız ithalat");//failed imports
+define("_REPLACEDUSER","Değiştirilen kullanıcı");//Updated user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","Dosya gerekli sütunlar içermiyor");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","Yerine mevcut atama");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","Yeni ders atama");//New course assignment
+define("_NEWGROUPASSIGNMENT","Yeni grup atama");//New group assignment
+define("_USERSTOJOBS","işleri Kullanıcılar");//Users to jobs
+define("_USERSTOSKILLS","becerilerine Kullanıcılar");//Users to skills
+define("_DATATOEXPORT","Veri ihracat");//Data to export
+define("_MANDATORYFIELDS","Zorunlu alanlar");//Mandatory fields
+define("_OPTIONALFIELDS","İsteğe bağlı alanlar");//Optional fields
+define("_CSVIMPORTEXPLAINATION","bir başlık satırı, her ithalat tipi içeren, tüm ve her türlü isteğe bağlı alan başlıklar olanlar herhangi bir sırada aşağıda sağlanan zorunlu bir dosya sağlayın. Her sütunun başlığı anlamını ifade eder. Tanınmayan sütunlar, prosedürün geri kalanını etkilemeden ihmal edilecektir.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","Yeni iş tanımı atama");//New job description assignment
+define("_NEWSKILLASSIGNMENT","Yeni beceri atama");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","Yerine mevcut şube");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","Yerine mevcut iş");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","Yerine mevcut beceri");//Replaced existing skill
 define("_BRANCHALREADYEXISTS","Şube zaten var");//Branch exists already
 define("_MISSINGSKILLCATEGORY","beceri kategori Eksik");//Missing skill category
 define("_SKILLALREADYEXISTS","Beceri zaten var");//Skill exists already
@@ -3652,11 +3652,11 @@ define("_NOTITLEPROVIDEDFORNEWJOB","Başlıksız iş tanımı için sağlanan");
 define("_EDITORTYPE","Editör tipi");//Editor type
 define("_TINYMCE","Küçücük 3.2.1.1");//Tinymce 3.2.1.1
 define("_NEWTINYMCE","Küçücük 3.3.3");//Tinymce 3.3.3
-define("_DONOTSHOWTESTAFTERSUBMITTING","Testi tamamladıktan sonra sadece mesaj göster"); //Show only a message after submitting test
-define("_TESTSUCCESSFULLYSUBMITTED","Test başarıyla gönderildi"); // This test was successfully submitted
-define("_LEARNINGSTATUS","Eğitim Durumu"); //Learning Status
-define("_HASNOTANEMAILADDRESS","bir e-posta adresi yok"); //has not an e-mail address
-define("_FEEDBACK", "Geri bildirim");
+define("_DONOTSHOWTESTAFTERSUBMITTING","Testi tamamladıktan sonra sadece mesaj göster");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","Test başarıyla gönderildi");//This test was successfully submitted
+define("_LEARNINGSTATUS","Eğitim Durumu");//Learning Status
+define("_HASNOTANEMAILADDRESS","bir e-posta adresi yok");//has not an e-mail address
+define("_FEEDBACK","Geri bildirim");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","grup yerleştirin kullanıcılar");//Insert users into group
 define("_INSERTINTONEWGROUP","Yeni ekle gruba");//Insert into new group
 define("_INSERTINTOEXISTINGGROUP","Ekle mevcut gruba");//Insert into existing group
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","Müfredat özellikleri");//Curriculum properties
 define("_ENTRIES","Girişler");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise seçenekleri");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","kullanıcılara Show organizasyon şeması");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","kullanıcılara Show kişisel formu");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","kullanıcılara Show kişisel formu");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Show denetleyiciler kullanıcıları atanmamış");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Kullanıcıların paylaşılan dosyaları supervisor silmek için");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","benim Formu");//my Form
+define("_MYEMPLOYEEFORM","benim Formu");//my Training record
 define("_CLEARQUERYCACHE","Clear sorgu önbelleği");//Clear query cache
 define("_FEEDBACKOPTIONS","Geribildirim seçenekleri");//Feedback options
 define("_OPTIONSFORFEEDBACK","geribildirim için seçenekler");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","Modül dosyaları mevcut ama yüklü d
 define("_DISABLEPAYMENTSNOTICE","Bu, tüm dersler ve kurslar 0 için fiyat seçecektir");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Belirtmek ekran boyutları eşleşen id nesne");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Virgülle ayrılmış liste");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web sunucusu kimlik doğrulaması");//Web server authentication (New)
-define("_USERSETTINGS","Kullanıcı ayarları");//User settings (New)
-define("_THIRDPARTYTOOLS","3 parti araçları");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","dikkate düzeltme bunu almayın");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Are sen ders initialize istediğinizden emin misiniz? Bu kalıcı verilerini siler");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","Harici araçları");//External tools (New)
-define("_MATHSETTINGS","Matematik ayarları");//Math settings (New)
-define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","Sen yasak olan bu sayfada aşağıdaki IP dolayı erişemiyor");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","E-posta ayarları");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","Hata sayfası ne zaman kullanıcı adı eksik veya boş görüntülenen");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","Hata sayfası ne zaman kullanıcı oluşturulamadı görüntülenen");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","Değişken adı içeren");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","yaratma kullanıcı kolları dahil dosya");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web sunucusu kaydı");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","Kullanım OR mantık doğru cevabı hesaplamak için");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","Değişken% x devam etmek için &quot;%y&quot; içermelidir");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","halk aç birim penceresi");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web sunucusu kimlik doğrulaması");//Web server authentication
+define("_USERSETTINGS","Kullanıcı ayarları");//User settings
+define("_THIRDPARTYTOOLS","3 parti araçları");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","dikkate düzeltme bunu almayın");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Are sen ders initialize istediğinizden emin misiniz? Bu kalıcı verilerini siler");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","Harici araçları");//External tools
+define("_MATHSETTINGS","Matematik ayarları");//Math settings
+define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","Sen yasak olan bu sayfada aşağıdaki IP dolayı erişemiyor");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","E-posta ayarları");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","Hata sayfası ne zaman kullanıcı adı eksik veya boş görüntülenen");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","Hata sayfası ne zaman kullanıcı oluşturulamadı görüntülenen");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","Değişken adı içeren");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","yaratma kullanıcı kolları dahil dosya");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web sunucusu kaydı");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","Kullanım OR mantık doğru cevabı hesaplamak için");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","Değişken% x devam etmek için &quot;%y&quot; içermelidir");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","halk aç birim penceresi");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","zaten (arşivlenmiş) var belirtilen giriş kullanan bir kullanıcı");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","Etkinlikler boyutu");//Events size (New)
+define("_OLDESTEVENT","En eski olay");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","Temizle olaylar daha yaşlı");//Purge events older than (New)
+define("_PURGEEVENTS","Purge olaylar");//Purge events (New)
+define("_USERSEPERUSERTYPE","kullanıcı başına Kullanıcılar türü");//Users per user type (New)
+define("_MINUTESPERUSER","Dakika kullanıcı başına");//Minutes per user (New)
+define("_LOGINSPERDAY","Günde Girişler");//Logins per day (New)
+define("_ACCESSES","Girişler");//Accesses (New)
+define("_ACCESSESPERUSER","kullanıcı başına Girişler");//Accesses per user (New)
+define("_ACCESSESPERDAY","Günde Girişler");//Accesses per day (New)
+define("_OCCURENCES","Oluşumları");//Occurences (New)
+define("_SCORES","Skorlar");//Scores (New)
+define("_PROPAGATECOURSE","Üremek ders");//Propagate course (New)
+define("_LESSONSTRUCTURE","Ders yapı");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Bir yönetici ders sayfalarına erişemiyorum");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","% X müdür ve% y dosyaları yazılabilir web sunucusu tarafından değildir. <br> Tıkırtı <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>burada</a> raporunu tamamlamak için download a");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","Burayı yazma izinlerini ayarlamak için");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","Burayı yazma unset için");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","Izinler");//Set permissions (New)
+define("_UNSETPERMISSIONS","Unset izinleri");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","Bu işlemi tüm dosya ve klasörlere yazılabilir web sunucusu tarafından gereken izinleri ayarlama çalışacağız. Otomatik güncellemeleri yapmak ve isterseniz yararlı durumlarda sırasında veya yükselttikten sonra sorunlar yaşıyorsanız olabilir bu zorunludur. Diğer taraftan, tüm dosyalar belirli şartlar altında bir güvenlik tehdidi oluşturabilecek yazılabilir bırakarak.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","Bu işlemi tüm dosya ve klasörleri olmayan yazılabilir web sunucusu tarafından gereken izinleri ayarlama, bu sistem için zorunlu işlevini doğru hariç çalışacağız. Bu en güvenli ayar ancak otomatik güncelleme, sisteme önleyecektir");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","Burayı izinleri kontrol etmek");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","izinlerini denetleyin");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","Bu işlem hangi dosyaların ve sistem klasörlerini yazılabilir web sunucusu tarafından değil kontrol edecek");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","Operasyon sonucu");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","Herhangi bir işlem henüz yapıldı");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ Klasör bazı dosyalar yazılabilir değildir. Lütfen bakım &#39;izinler&#39; bölümünü ziyaret edin -&gt; temizleme izinleri kontrol etmek ve bu dosyaları inceleme");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","Aksi takdirde, <button onclick = \"location='index.php?ctg=signup'\">hesap yeni</button> olabilir oluşturun");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Senin yerinde ücretsiz dersler ve ders alındı. Lütfen olmayan ücretsiz ders ve ders seçiminizi gözden altında");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","Amirleri");//Supervisors (New)
+define("_COURSEOPTIONS","Kurs seçenekleri");//Course options (New)
 ?>

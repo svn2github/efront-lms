@@ -1645,10 +1645,10 @@ define("_EVALUATIONS","評價");//Evaluations
 define("_TRANSPORTMEANS","運輸途徑");//Means of transport
 define("_YOUCANNOTDELETESOMEELSESEVALUATION","您不能刪除評價的書面交由另一名使用者");//You cannot delete an evaluation written by another user
 define("_YOUCANNOTEDITSOMEELSESEVALUATION","您不能編輯評價書面交由另一名使用者");//You cannot edit an evaluation written by another user
-define("_EMPLOYEEFORM","使用者的形式");//User form
-define("_EMPLOYEEFORMPRINTPREVIEW","使用者的形式列印預覽");//User form print preview
+define("_EMPLOYEEFORM","使用者的形式");//Training record
+define("_EMPLOYEEFORMPRINTPREVIEW","使用者的形式列印預覽");//Training record print preview
 define("_PRINTPREVIEW","列印預覽");//Print preview
-define("_PRINTEMPLOYEEFORM","列印使用者的形式");//Print user form
+define("_PRINTEMPLOYEEFORM","列印使用者的形式");//Print training record
 define("_PRINT","列印");//Print
 define("_NOSPECIFICJOB","沒有具體的職位描述");//No specific job position
 define("_GROUPS","使用者組別");//User groups
@@ -2355,7 +2355,7 @@ define("_SAVELAYOUT","保存版面");//Save layout
 define("_ADDBLOCK","新增區塊");//Add block
 define("_RESTOREDEFAULTLAYOUT","還原預設版面");//Restore default layout
 define("_INFOFORCOURSE","課程資訊");//Information for course
-define("_PLEASELOGINTOCOMPLETEREGISTRATION","請登入以完成註冊");//Please login to complete registration
+define("_PLEASELOGINTOCOMPLETEREGISTRATION","請登入以完成註冊");//If you are an existing user, please login below to complete registration. 
 define("_GOTOLESSONSLIST","轉到列表中的經驗課程");//Go to lessons list
 define("_PUBLISHED","發布時間");//Published
 define("_NOTPUBLISHED","未發布");//Not published
@@ -2494,8 +2494,8 @@ define("_NOSPECIFICBRANCH","沒有具體的科");//No specific branch
 define("_BRANCHFILTER","科過濾器");//Branch filter
 define("_SEARCHUSER","搜尋使用者");//Search user
 define("_NOUSERSFULFILLTHESPECIFIEDCRITERIA","沒有使用者的特定標準履行");//No users fulfill the specified criteria
-define("_USERFORM","使用者窗體");//User form
-define("_USERFORMPRINTPREVIEW","使用者窗體預覽");//User form preview
+define("_USERFORM","使用者窗體");//Training record
+define("_USERFORMPRINTPREVIEW","使用者窗體預覽");//Training record preview
 define("_USERSFULFILLINGCRITERIA","使用者完成標準");//Users fulfilling the criteria
 define("_UNCATEGORIZEDSKILLS","非歸類技巧");//Non-categorized skills
 define("_ADDQUICKSKILLGAP","快速技能差距測試發生器");//Quick skill-gap test generator
@@ -3679,10 +3679,10 @@ define("_CURRICULUMPROPERTIES","課程性質");//Curriculum properties
 define("_ENTRIES","參賽作品");//Entries
 define("_ENTERPRISEOPTIONS","企業選擇");//Enterprise options
 define("_SHOWORGANIZATIONCHARTTOUSERS","組織結構圖顯示給用戶");//Show organization chart to users
-define("_SHOWUSERFORMTOUSERS","個人的形式顯示給用戶");//Show personal form to users
+define("_SHOWUSERFORMTOUSERS","個人的形式顯示給用戶");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","顯示未分配的用戶監督員");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","允許用戶共享文件刪除監");//Allow users to delete supervisor shared files
-define("_MYEMPLOYEEFORM","我的表");//my Form
+define("_MYEMPLOYEEFORM","我的表");//my Training record
 define("_CLEARQUERYCACHE","清除查詢緩存");//Clear query cache
 define("_FEEDBACKOPTIONS","反饋選項");//Feedback options
 define("_OPTIONSFORFEEDBACK","選項反饋");//Options for feedback
@@ -3728,22 +3728,55 @@ define("_MODULEFILESPRESENTNOTINSTALLED","模塊文件存在，但它沒有安�
 define("_DISABLEPAYMENTSNOTICE","這將設置所有的課程和課程價格為 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","指定對象的ID屏幕尺寸的匹配");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","逗號分隔的列表");//Comma separated list
-define("_WEBSERVERAUTHENTICATION","Web服務器的身份驗證");//Web server authentication (New)
-define("_USERSETTINGS","用戶設置");//User settings (New)
-define("_THIRDPARTYTOOLS","第三方工具");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","不要把它考慮到校正");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","你確定要初始化的教訓？這會永久刪除數據");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","外部工具");//External tools (New)
-define("_MATHSETTINGS","數學設置");//Math settings (New)
-define("_PHPLIVEDOCX","PHP的livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","您不能訪問此頁面由於下面的IP被禁止");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","電子郵件設置");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","錯誤頁時顯示的用戶名丟失或空");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","時顯示錯誤頁面，用戶無法創建");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","變量，它包含用戶名");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","包括文件處理用戶創造");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","Web服務器註冊");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","使用或邏輯來計算正確的答案");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","該變量％x必須包含 &quot;%y&quot;型，以繼續");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","在彈出的打開窗口單位");//Open unit in popup window (New)
+define("_WEBSERVERAUTHENTICATION","Web服務器的身份驗證");//Web server authentication
+define("_USERSETTINGS","用戶設置");//User settings
+define("_THIRDPARTYTOOLS","第三方工具");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","不要把它考慮到校正");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","你確定要初始化的教訓？這會永久刪除數據");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","外部工具");//External tools
+define("_MATHSETTINGS","數學設置");//Math settings
+define("_PHPLIVEDOCX","PHP的livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","您不能訪問此頁面由於下面的IP被禁止");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","電子郵件設置");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","錯誤頁時顯示的用戶名丟失或空");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","時顯示錯誤頁面，用戶無法創建");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","變量，它包含用戶名");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","包括文件處理用戶創造");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","Web服務器註冊");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","使用或邏輯來計算正確的答案");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","該變量％x必須包含 &quot;%y&quot;型，以繼續");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","在彈出的打開窗口單位");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","用戶使用指定的登錄名已經存在（存檔）");//A user with the specified login already exists (archived) (New)
+define("_EVENTSSIZE","活動規模");//Events size (New)
+define("_OLDESTEVENT","最古老的事件");//Oldest event (New)
+define("_PURGEEVENTSOLDERTHAN","清除事件以上");//Purge events older than (New)
+define("_PURGEEVENTS","清除事件");//Purge events (New)
+define("_USERSEPERUSERTYPE","用戶每用戶類型");//Users per user type (New)
+define("_MINUTESPERUSER","每個用戶紀要");//Minutes per user (New)
+define("_LOGINSPERDAY","每天登錄");//Logins per day (New)
+define("_ACCESSES","訪問");//Accesses (New)
+define("_ACCESSESPERUSER","每個用戶訪問");//Accesses per user (New)
+define("_ACCESSESPERDAY","每天訪問");//Accesses per day (New)
+define("_OCCURENCES","紀錄");//Occurences (New)
+define("_SCORES","成績");//Scores (New)
+define("_PROPAGATECOURSE","傳播過程");//Propagate course (New)
+define("_LESSONSTRUCTURE","課程結構");//Lesson structure (New)
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","管理員不能訪問網頁的教訓");//An administrator cannot access lesson pages (New)
+define("_FAILEDPERMISSIONSMESSAGE","目錄和％％× Ÿ文件不寫由Web服務器。 <br>點擊<a href = 'view_file.php?file=%z&action=download' target = '_NEW'>這裡</a>下載一個完整的報告");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
+define("_CLICKHERETOSETPERMISSIONS","點擊此處設置寫權限");//Click here to set write permissions (New)
+define("_CLICKHERETOUNSETPERMISSIONS","點擊此處未設置寫權限");//Click here to unset write permissions (New)
+define("_SETPERMISSIONS","設置權限");//Set permissions (New)
+define("_UNSETPERMISSIONS","撤消權限");//Unset permissions (New)
+define("_SETPERMISSIONSINSTRUCTIONS","此操作將嘗試設置權限的所有文件和文件夾可寫的Web服務器。這是強制性的，如果你想進行自動升級，可能是有用的情況下，你遇到麻煩期間或之後升級。另一方面，讓所有文件可寫，可能構成安全威脅，在某些情況下。");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
+define("_UNSETPERMISSIONSINSTRUCTIONS","此操作將嘗試設置權限的所有文件和文件夾將不寫由Web服務器，除了這些強制性的制度才能正常工作。這是最安全的設置，但會阻止系統從自動升級");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
+define("_CLICKHERETOCHECKPERMISSIONS","點擊這裡查看權限");//Click here to check permissions (New)
+define("_CHECKPERMISSIONS","檢查權限");//Check permissions (New)
+define("_CHECKPERMISSIONSINSTRUCTIONS","這一行動將檢查哪些文件和文件夾你的系統是不可寫入由Web服務器");//This operation will check which files and folders of your system are not writable by the web server (New)
+define("_OPERATIONOUTCOME","運行結果");//Operation outcome (New)
+define("_NOOPERATIONPERFORMEDYET","尚未進行任何操作");//No operation performed yet (New)
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","某些文件/文件夾不可寫。請訪問&#39;權限&#39;一節維修 - &gt;“清理檢查和審查這些文件的權限");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
+define("_OTHERWISEPLEASEREGISTER","否則，你可能會創建一個<button onclick = \"location='index.php?ctg=signup'\">新帳戶</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","你是來參加免費課程和課程。請檢閱以下的非自由選擇課程和課程");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
+define("_SUPERVISORS","監事");//Supervisors (New)
+define("_COURSEOPTIONS","課程選擇");//Course options (New)
 ?>

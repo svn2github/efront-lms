@@ -3777,4 +3777,5 @@ define("_NOOPERATIONPERFORMEDYET", "No operation performed yet");
 define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS", "Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files");
 define("_OTHERWISEPLEASEREGISTER", "Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>");
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses");
+define("_SUPERVISORS", "Supervisors");
 ?>

@@ -156,21 +156,21 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
       <table class = "lessonListOptions">
         <tr>
       {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
-                 <td class = "lessonListOption"><img src = "images/32x32/user.png" title = "{$smarty.const._MYACCOUNT}" alt = "{$smarty.const._MYACCOUNT}" ></td>
+                 <td class = "lessonListOption"><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}"><img src = "images/32x32/user.png" title = "{$smarty.const._MYACCOUNT}" alt = "{$smarty.const._MYACCOUNT}"></a></td>
                  <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}">{$smarty.const._MYACCOUNT}</a></td>
       {/if}
             {if $T_SKILLGAP_TESTS}
-                 <td class = "lessonListOption"><img src = "images/32x32/skill_gap.png" title = "{$T_SKILLGAP_TESTS}" alt = "{$T_SKILLGAP_TESTS}" ></td>
+                 <td class = "lessonListOption"><a href = "student.php?ctg=lessons&op=tests" title="{$T_SKILLGAP_TESTS}"><img src = "images/32x32/skill_gap.png" title = "{$T_SKILLGAP_TESTS}" alt = "{$T_SKILLGAP_TESTS}" ></a></td>
                  <td><a href = "student.php?ctg=lessons&op=tests" title="{$T_SKILLGAP_TESTS}">{$smarty.const._NEWSKILLGAPTESTS}</a></td>
             {/if}
 
        {if $T_CONFIGURATION.insert_group_key != 0}
-                  <td class = "lessonListOption"><img src = "images/32x32/key.png" title = "{$smarty.const._ENTERGROUPKEY}" alt = "{$smarty.const._ENTERGROUPKEY}" /></td>
+                  <td class = "lessonListOption"><a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._ENTERGROUPKEY}', 0, 'group_key_enter')" title = "{$smarty.const._ENTERGROUPKEY}"><img src = "images/32x32/key.png" title = "{$smarty.const._ENTERGROUPKEY}" alt = "{$smarty.const._ENTERGROUPKEY}" /></a></td>
                     <td><a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._ENTERGROUPKEY}', 0, 'group_key_enter')" title = "{$smarty.const._ENTERGROUPKEY}">{$smarty.const._ENTERGROUPKEY}</a></td>
                 {/if}
 
             {if $T_CONFIGURATION.lessons_directory != 0}
-                 <td class = "lessonListOption"><img src = "images/32x32/catalog.png" title = "{$smarty.const._LESSONSDIRECTORY}" alt = "{$smarty.const._LESSONSDIRECTORY}" ></td>
+                 <td class = "lessonListOption"><a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1"><img src = "images/32x32/catalog.png" title = "{$smarty.const._LESSONSDIRECTORY}" alt = "{$smarty.const._LESSONSDIRECTORY}" ></a></td>
                  <td><a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1">{$smarty.const._COURSECATALOG}</a></td>
             {/if}
 

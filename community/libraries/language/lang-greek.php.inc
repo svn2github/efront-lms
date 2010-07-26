@@ -3777,4 +3777,5 @@ define("_NOOPERATIONPERFORMEDYET", "Δεν επελέγη κάποια λειτ�
 define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS", "Μερικά αρχεία/φάκελοι δεν είναι εγγράψιμα. Παρακαλούμε πηγαίντε στη σελίδα συντήρηση -> εκκαθάριση -> δικαιώματα για να ελέγξετε τα δικαιώματα και να πάρετε μία πλήρη λίστα των αρχείων αυτών");
 define("_OTHERWISEPLEASEREGISTER", "Εναλλακτικά, μπορείτε να δημιουργήσετε ένα <button onclick = \"location='index.php?ctg=signup'\">νέο λογαριασμό</button>");
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "Εγγραφήκατε στα δωρεάν μαθήματα και δέσμες. Παρακαλούμε επιβεβαιώστε την επιλογή σας για τα μαθήματα και δέσμες που δεν είναι δωρεάν");
+define("_SUPERVISORS", "Προϊστάμενοι");
 ?>

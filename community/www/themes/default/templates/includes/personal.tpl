@@ -330,6 +330,9 @@ var enableMyJobSelect = false;
     </td>
    </tr>
   </table>
+  {if $T_MESSAGE_TYPE == 'success'}
+     <script>parent.location = parent.location;</script>
+  {/if}
 {/capture}
 {/if}
 {*----------------------------------------- PRESENTATION SETUP ACCORDING TO TYPE OF MANAGEMENT ----------------------------------------------*}

@@ -62,7 +62,7 @@ try {
 
 */
          $infoLesson -> lesson['category_path'] = $directionsPaths[$infoLesson -> lesson['directions_ID']];
-      $smarty -> assign("T_CURRENT_LESSON", $infoLesson);
+      $smarty -> assign("T_CURRENT_LESSON_INFO", $infoLesson);
             $smarty -> assign("T_STATS_ENTITY_ID", $infoLesson -> lesson['id']);
          $lessonInfo = $infoLesson -> getStatisticInformation();
          $smarty -> assign("T_LESSON_INFO", $lessonInfo);

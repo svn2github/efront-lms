@@ -4,6 +4,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 $loadScripts[] = 'includes/users';
+
 /* Check permissions: Only admins and supervisors may see employee lists - each of them a different list */
 if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $currentEmployee -> isSupervisor())) {
 

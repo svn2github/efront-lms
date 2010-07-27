@@ -9,13 +9,12 @@
                 </tr>
                 <tr><td></td>
                  <td class = "infoCell" colspan = "4">{$smarty.const._STARTTYPINGFORRELEVENTMATCHES}</td></tr>
-        {if !isset($T_CURRENT_LESSON)}
+        {if !isset($T_CURRENT_LESSON_INFO)}
          </table>
         {else}
 
     <tr>
      {include file = "includes/statistics/stats_filters.tpl"}
-
                     <td id = "right">
                         {$smarty.const._EXPORTSTATS}
                         <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}&group_filter={$smarty.get.group_filter}&excel=lesson&branch_filter={$smarty.get.branch_filter}">
@@ -32,15 +31,15 @@
             <table class = "statisticsGeneralInfo">
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._NAME}:</td>
-                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.name}</td>
+                    <td class = "elementCell">{$T_CURRENT_LESSON_INFO->lesson.name}</td>
                 </tr>
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._CATEGORY}:</td>
-                    <td class = "elementCell">{$T_CURRENT_LESSON->lesson.category_path}</td>
+                    <td class = "elementCell">{$T_CURRENT_LESSON_INFO->lesson.category_path}</td>
                 </tr>
                 <tr class = "{cycle name = 'common_lesson_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._USERS}:</td>
-                    <td class = "elementCell">{if $T_CURRENT_LESSON->lesson.num_users}{$T_CURRENT_LESSON->lesson.num_users} ({foreach name = "user_types_list" item ="item" key = "key" from = $T_CURRENT_LESSON->lesson.users_per_role}{$T_ROLES_ARRAY[$key]}: {$item}{if !$smarty.foreach.user_types_list.last}, {/if}{/foreach}){else}0{/if}</td>
+                    <td class = "elementCell">{if $T_CURRENT_LESSON_INFO->lesson.num_users}{$T_CURRENT_LESSON_INFO->lesson.num_users} ({foreach name = "user_types_list" item ="item" key = "key" from = $T_CURRENT_LESSON_INFO->lesson.users_per_role}{$T_ROLES_ARRAY[$key]}: {$item}{if !$smarty.foreach.user_types_list.last}, {/if}{/foreach}){else}0{/if}</td>
                 </tr>
             </table>
 
@@ -299,7 +298,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                         </tr>
                         <tr class = "defaultRowHeight {cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._PRICE}:</td>
-                            <td class = "elementCell">{$T_CURRENT_LESSON->lesson.price_string}</td>
+                            <td class = "elementCell">{$T_CURRENT_LESSON_INFO->lesson.price_string}</td>
                         </tr>
                         <tr class = "defaultRowHeight {cycle name = 'general_lesson_info' values = 'oddRowColor, evenRowColor'}">
                             <td class = "labelCell">{$smarty.const._ACTIVENEUTRAL}:</td>
@@ -491,8 +490,8 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
         {/if}
   <div id = "graph_table" style = "display:none"><div id = "proto_chart" class = "proto_graph"></div></div>
     {/capture}
-    {if $T_CURRENT_LESSON}
-     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON` <span class='innerTableName'>&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
+    {if $T_CURRENT_LESSON_INFO}
+     {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON` <span class='innerTableName'>&quot;`$T_CURRENT_LESSON_INFO->lesson.name`&quot;</span>" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
     {else}
      {eF_template_printBlock title = "`$smarty.const._STATISTICSFORLESSON`" data = $smarty.capture.lesson_statistics image = '32x32/reports.png' help = 'Reports'}
     {/if}

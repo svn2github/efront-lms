@@ -116,7 +116,7 @@
   </tr>
  </table>
 {/capture}
- {if $T_BASIC_TYPE == 'administrator' || isset($T_USER_INFO.general.supervised_by_user)}
+ {if $T_BASIC_TYPE == 'administrator' || $T_BASIC_TYPE == 'professor' || isset($T_USER_INFO.general.supervised_by_user)}
 {capture name = t_traffic_code}
   <form name = "period">
   <table class = "statisticsSelectDate">

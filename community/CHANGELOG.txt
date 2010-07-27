@@ -1,3 +1,11 @@
+=== Version 3.6.5 build ===
+- Fixed error in course settings not being available to professors
+- Scorm content completion update
+- supervisor access to employees of subbranches fix
+- fixed supervisor archiving users
+- fixed payments being visible to supervisor when disabled
+- Fixed issue in lesson reports
+
 === Version 3.6.5 build 8007 ===
 - Provides RSS feeds through the RSS module
 - Added api2.php for version 2.0 of eFront XML API

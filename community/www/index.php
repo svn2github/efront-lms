@@ -330,6 +330,9 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
     // Check if the mobile version of eFront is required - if so set a session variable accordingly
     //eF_setMobile();
     EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
+    if ($_SESSION['login_mode']) {
+     eF_redirect("index.php?ctg=checkout&checkout=1");
+    }
     LoginRedirect($user -> user['user_type']);
    } else {
     $user -> logout();

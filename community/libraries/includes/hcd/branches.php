@@ -352,9 +352,11 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchesTable') {
     $branches = $currentBranch -> getSubbranches();
+    //pr($_SESSION['supervises_branches']);exit;
+    //pr($branches);exit;
     if ($_SESSION['s_type'] != "administrator") {
      foreach ($branches as $key => $branch) {
-      if (!in_array($branch['branch_ID'], $_SESSION['supervises_branches'])) {
+      if (!in_array($branch['branch_ID'], explode(",", $_SESSION['supervises_branches']))) {
        unset($branches[$key]);
       }
      }

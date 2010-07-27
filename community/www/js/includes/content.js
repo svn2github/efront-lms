@@ -212,9 +212,17 @@ function updateProgress(obj) {
        w.$('passed_conditions').update(parseInt(conditions));
       }
       if (w.$('lesson_passed')) {
-       lesson_passed == true ? w.$('lesson_passed').down().removeClassName('failure').addClassName('success') : w.$('lesson_passed').down().removeClassName('success').addClassName('failure');
+    if (lesson_passed == true) {
+     w.$('lesson_passed').down().removeClassName('failure').addClassName('success')
+     w.$('completed_block').show();
+     //Effect.ScrollTo('completed_block');
+    } else {
+     w.$('lesson_passed').down().removeClassName('success').addClassName('failure');
+     //$('completed_block').hide();
+    }
       }
      }
+
 
      var status = '';
      for (var i in unitStatus) {

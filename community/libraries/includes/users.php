@@ -37,9 +37,7 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
         }
         $user -> delete();
     } catch (Exception $e) {
-        $message = _THEUSERCOULDNOTBEDELETED.': '.$e -> getMessage().' ('.$e->getCode().')';
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+     handleAjaxExceptions($e);
     }
     exit;
 } elseif (isset($_GET['archive_user']) && eF_checkParameter($_GET['archive_user'], 'login')) { //The administrator asked to delete a user
@@ -53,8 +51,7 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
         }
         $user -> archive();
     } catch (Exception $e) {
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+     handleAjaxExceptions($e);
     }
     exit;
 } elseif (isset($_GET['deactivate_user']) && eF_checkParameter($_GET['deactivate_user'], 'login') && ($_GET['deactivate_user'] != $_SESSION['s_login'])) { //The administrator asked to deactivate a user
@@ -66,9 +63,7 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
         $user -> deactivate();
         echo "0";
     } catch (Exception $e) {
-        $message = _THEUSERCOULDNOTBEDEACTIVATED.': '.$e -> getMessage().' ('.$e->getCode().')';
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+     handleAjaxExceptions($e);
     }
     exit;
 } elseif (isset($_GET['activate_user']) && eF_checkParameter($_GET['activate_user'], 'login')) { //The administrator asked to activate a user
@@ -80,9 +75,7 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
         $user -> activate();
         echo "1";
     } catch (Exception $e) {
-        $message = _THEUSERCOULDNOTBEACTIVATED.': '.$e -> getMessage().' ('.$e->getCode().')';
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+     handleAjaxExceptions($e);
     }
     exit;
 } elseif (isset($_GET['add_user']) || (isset($_GET['edit_user']) && $login = eF_checkParameter($_GET['edit_user'], 'login'))) { //The administrator asked to add a new user or to edit a user

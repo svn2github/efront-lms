@@ -27,8 +27,9 @@ foreach ($LMSToSCOValues as $key => $value)
     if ($key == 'score') {
         $value = 0;
     }
-    $SCOState .= "SCOState['$key'] = '$value';";//echo "alert('LMS Set: SCOState[$key] = $value');";
+    $SCOState .= "SCOState['$key'] = '".str_replace("'", "\'", $value)."';";//echo "alert('LMS Set: SCOState[$key] = $value');";
 }
+//pr($LMSToSCOValues);exit;
 
 error_reporting(E_ERROR);
 

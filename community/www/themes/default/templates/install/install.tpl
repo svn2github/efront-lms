@@ -103,7 +103,7 @@
                  <div class = "formLabel">
                   <div class = "header">Database name:&nbsp;</div>
  {if $smarty.get.upgrade}
-                  <div class = "explanation">Upgading to a different database is safer (leaving old data intact) but may be very slow</div>
+                  <div class = "explanation">Upgrading to a different database is safer (leaving old data intact) but may be very slow</div>
  {/if}
                  </div>
                  <div class = "formElement">

@@ -38,15 +38,8 @@ if ($currentUser -> user['user_type'] == 'administrator') {
 }
 
 if ($currentUser -> user['user_type'] != 'administrator' && $isSupervisor) {
-
- require_once $path."module_hcd_tools.php";
- $supervisor_at_branches = eF_getRights();
-
- $supervised_employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*","(users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." ) AND module_hcd_employee_works_at_branch.assigned='1') OR EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL))) AND active = 1 GROUP BY login", "login");
- foreach ($supervised_employees as $employee) {
-  if (!isset($validUsers[$employee['login']])) {
-   $validUsers[$employee['login']] = $employee;
-  }
+ if ($currentUser -> aspects['hcd'] -> supervisesEmployee($_GET['sel_user'])) {
+  $validUsers[] = $_GET['sel_user'];
  }
 }
 

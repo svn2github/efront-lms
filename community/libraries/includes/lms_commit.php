@@ -26,8 +26,8 @@ try {
   exit;
  }
  if ($_GET['scorm_version'] != '2004') {
-  $trackActivityInfo[$fields['content_ID']]['completion_status'] = $fields['lesson_status'];
-  $trackActivityInfo[$fields['content_ID']]['success_status'] = $fields['lesson_status'];
+  $trackActivityInfo[$fields['content_ID']]['completion_status'] = strtolower($fields['lesson_status']);
+  $trackActivityInfo[$fields['content_ID']]['success_status'] = strtolower($fields['lesson_status']);
   unset($fields['objectives']);
   unset($fields['navigation']);
   unset($fields['completion_status']);
@@ -78,13 +78,15 @@ try {
  $scoUser = EfrontUserFactory :: factory($_SESSION['s_login'], false, 'student');
  $scoLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
  $scoUnit = new EfrontUnit($fields['content_ID']);
- if (strtolower($fields['completion_status']) == 'passed' || strtolower($fields['completion_status']) == 'completed') {
+ if (strtolower($fields['completion_status']) == 'passed' ||
+  strtolower($fields['completion_status']) == 'completed' ||
+  strtolower($fields['lesson_status']) == 'passed' ||
+  strtolower($fields['lesson_status']) == 'completed' ) {
   $scoUser -> setSeenUnit($scoUnit, $scoLesson, true);
   $seenUnit = true;
  } else {
   $seenUnit = false;
  }
- //debug();
  $newUserProgress = EfrontStats :: getUsersLessonStatus($scoLesson, $scoUser -> user['login']);
  $newPercentage = $newUserProgress[$scoLesson -> lesson['id']][$scoUser -> user['login']]['overall_progress'];
  $newConditionsPassed = $newUserProgress[$scoLesson -> lesson['id']][$scoUser -> user['login']]['conditions_passed'];

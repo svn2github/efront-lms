@@ -1,37 +1,37 @@
 === Version 3.6.5 build 8007 ===
+- Provides RSS feeds through the RSS module
+- Added api2.php for version 2.0 of eFront XML API
+- Added cart disable functionality, to allow for single click enrolling to free lessons and courses
+- Added ability to switch between display modes(iframe, popup) in editing scorm units
+- Added 'course options' in custom user type creation for professor types
+- Added file permissions checking and setting functionality
+- Added code for hiding organization section for custom user types in enterprise edition
+- Added propagation handle to branch courses
+- Added tooltip with organization information in employees list
+- Added headers in order to eliminate browser cache in sidebar
+- Added icon for deleting project completion info(grade, commnent, file) by professor
+- Added option to purge events size in maintenance -> cleanup
+- Replaced flash charts with flotr JS-based graphs
+- Supervisor can directly edit supervised branches
+- Supervisor can now see all of his/her subbranches employees, from the employees screen
 - Fixed issue in backup for files containing a ' in their names
 - Fixed issue in changing user role in courses assignment
 - Fixed bug in notification events related with specific courses
 - Fixed logout redirecting to https pages
 - Fixed modules not appearing in lesson settings for professors that their primary type is 'student'
 - Fixed bug about displaying search results in pages that sidebar was refreshed
-- Added headers in order to eliminate browser cache in sidebar
 - Fixed skill-gap tests manual assignments issue
 - Fixed bug in manually sending pending notifications that was introduced in 3.6.4 build 7725
-- Added tooltip with organization information in employees list
 - Fixed group filter not working in course reports
 - Fixed upload from url not working when importing SCORM content
-- Added icon for deleting project completion info(grade, commnent, file) by professor
-- Added option to purge events size in maintenance -> cleanup
-- Supervisor can directly edit supervised branches
-- Supervisor can now see all of his/her subbranches employees, from the employees screen
 - Fixed issue in view rtf certificate from professor
 - Fixed issue about displaying connected users in horizontal themes when option is globally disabled
 - Fixed bug about new lesson comment event
-- Replaced flash charts with flotr JS-based graphs
 - Fixed bookmarks not working for professor
-- Added propagation handle to branch courses
-- Added code for hiding organization section for custom user types in enterprise edition
 - Fixed issue about sending messages with a custom user type
-- Provides RSS feeds through the RSS module
 - Fixed issue about assigning group user type to user via key
-- Added file permissions checking and setting functionality
-- Added api2.php for version 2.0 of eFront XML API
 - Fixed issue in projects about removing the existing comment when grading student's project
 - Fixed issue in notifications about an exception when a lesson/test is deleted
-- Added cart disable functionality, to allow for single click enrolling to free lessons and courses
-- Added ability to switch between display modes(iframe, popup) in editing scorm units
-- Added 'course options' in custom user type creation for professor types
 
 === Version 3.6.4 build 7725 ===
 - Rearranged system settings menu for speed and tidyness

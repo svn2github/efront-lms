@@ -72,9 +72,9 @@ if ($_GET['op'] == 'course_info') {
   $defaultConstraints = array('active' => true, 'instance' => false);
   //$users = $currentCourse -> getCourseUsers($constraints);
 
-/*	
+/*
 
-		$users = EfrontStats::getUsersCourseStatus($currentCourse);    
+		$users = EfrontStats::getUsersCourseStatus($currentCourse);
 
 		$users = $users[$currentCourse -> course['id']];
 

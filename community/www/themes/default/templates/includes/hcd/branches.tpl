@@ -210,12 +210,12 @@
               </tr>
               {foreach name = 'job_description_list' key = 'key' item = 'job_description' from = $T_JOB_DESCRIPTIONS}
               <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-                  <td><a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink">{$job_description.description}</a></td>
+                  <td><a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink">{$job_description.description}</a></td>
                   <td class = "centerAlign">{$job_description.Employees}</td>
                   <td class = "centerAlign">{$job_description.more_needed} </td>
                   <td class = "centerAlign">{$job_description.skill_req}</td>
                   <td class = "centerAlign">
-                   <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink"><img class="handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                   <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink"><img class="handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
                    <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION}')) deleteJob(this, '{$job_description.job_description_ID}', '{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions')" />
                   </td>
               </tr>

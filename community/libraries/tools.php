@@ -1997,6 +1997,33 @@ function eF_dateFormat($returnSpaces = true, $format = false)
     }
     return $output;
 }
+function eF_assignSupervisorMissingSubBranchesRecursive() {
+ $count = 0;
+ $fixed = true;
+ while ($fixed && $count++ < 10) {
+  $fixed = eF_assignSupervisorMissingSubBranches();
+  eF_getRights();
+ }
+ //exit;
+}
+function eF_assignSupervisorMissingSubBranches($currentUser) {
+//pr($_SESSION['supervises_branches']);
+ $currentUser = $GLOBALS['currentUser'];
+ $supervisor_at_branches = eF_getRights();
+ $derivedSupervisorAtBranches = array_keys($currentUser -> aspects['hcd'] -> getSupervisedBranchesRecursive()); //This dynamically calculates the branches that the user is supervisor. It is used to automatically fix discrepancies (for example, when a user is supervisor in branch A and not in branch A->B->C)
+ $fixed = false;
+ foreach ($derivedSupervisorAtBranches as $branchId) {
+  if (!in_array($branchId, $supervisor_at_branches['branch_ID'])) {
+   $fields = array('users_login' => $currentUser -> user['login'],
+       'supervisor' => 1,
+       'assigned' => 0,
+       'branch_ID' => $branchId);
+   eF_insertTableData("module_hcd_employee_works_at_branch", $fields);
+   $fixed = true;
+  }
+ }
+ return $fixed;
+}
 /**
 
  * Function that inserts automatic lesson skills and course skills

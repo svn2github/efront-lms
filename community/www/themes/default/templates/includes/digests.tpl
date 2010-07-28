@@ -82,6 +82,12 @@
         <td colspan="3" class = "formError">{$T_DIGESTS_FORM.header.error}</td>
        </tr>
        {/if}
+       <tr><td></td><td>
+        <span>
+         <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+         <a href = "javascript:toggleEditor('messageBody','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+        </span>
+       </td></tr>
        <tr>
         <td class = "fixedLabelCell">{$T_DIGESTS_FORM.message.label}:&nbsp;</td>
         <td colspan="3">{$T_DIGESTS_FORM.message.html}</td>

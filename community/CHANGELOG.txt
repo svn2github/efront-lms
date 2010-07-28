@@ -1,11 +1,15 @@
-=== Version 3.6.5 build ===
-- Fixed error in course settings not being available to professors
+=== Version 3.6.5 build 8071 ===
+- Fixed some course settings not being available to professors
 - Scorm content completion update
-- supervisor access to employees of subbranches fix
-- fixed supervisor archiving users
-- fixed payments being visible to supervisor when disabled
-- Fixed issue in lesson reports
-- Fixed bypassing cart when license note is enabled
+- Supervisor access to employees of subbranches fix
+- Fixed payments tab being visible to supervisor's users even when globally disabled
+- Fixed issue in lesson reports not being visible under certain conditions
+- Fixed bypassing cart not working when license note is enabled
+- Fixed ###timestamp### template not being parsed in notifications
+- Added toggle html mode in notifications editor
+- Supervisor can no longer archive users
+- Training record (user form) print preview fix
+- Supervisors no longer access inactive unattached users
 
 === Version 3.6.5 build 8007 ===
 - Provides RSS feeds through the RSS module

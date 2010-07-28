@@ -221,7 +221,7 @@ if ($_GET['op'] == 'course_info') {
      $issuedData = unserialize($value -> user['issued_certificate']);
      $users[$key] -> user['serial_number'] = $issuedData['serial_number'];
 
-     $dateFormat = eF_dateFormat();
+     //$dateFormat = eF_dateFormat();
      if (eF_checkParameter($issuedData['date'], 'timestamp')) {
       $expire_certificateTimestamp = $currentCourse -> course['certificate_expiration'] + $issuedData['date'];
       //$dateExpire = date($dateFormat, $expire_certificateTimestamp);

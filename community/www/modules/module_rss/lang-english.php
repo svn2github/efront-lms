@@ -18,10 +18,10 @@ define("_RSS_ONLYSUMMARY", "Display only summary");
 define("_RSS_NONE", "None");
 define("_RSS_PROVIDELESSONFEED", "Provide lesson feed");
 define("_RSS_PROVIDEFEED", "Provide feed");
-define("_RSS_RSSPROVIDER", "Provider");
+define("_RSS_RSSPROVIDER", "RSS provider");
 define("_RSS_FEEDTYPE", "Feed type");
 define("_RSS_FEEDMODE", "Feed mode");
 define("_RSS_PROVIDEDFEEDS", "Provided feeds");
-define("_RSS_RSSCLIENT", "Rss client");
+define("_RSS_RSSCLIENT", "RSS client");
 define("_FEEDALREADYEXISTS", "This feed already exists");
 ?>

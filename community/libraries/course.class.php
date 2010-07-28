@@ -2903,7 +2903,7 @@ class EfrontCourse
                                                 <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_order">
                                                     <img src = "images/16x16/order.png" title = "'._COURSEORDER.'" alt = "'._COURSEORDER.'" class = "handle"></a>
                                                 <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_scheduling">
-                                                    <img src = "images/16x16/calendar.png" title = "'._COURSESCHEDULE.'" alt = "'._COURSESCHEDULE.'" class = "handle"></a>';   
+                                                    <img src = "images/16x16/calendar.png" title = "'._COURSESCHEDULE.'" alt = "'._COURSESCHEDULE.'" class = "handle"></a>';
     if (!isset($GLOBALS['currentUser'] -> coreAccess['course_settings']) || $GLOBALS['currentUser'] -> coreAccess['course_settings'] == 'change') {
      $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=export_course">
              <img src = "images/16x16/export.png" title = "'._EXPORTCOURSE.'" alt = "'._EXPORTCOURSE.'" class = "handle"></a>

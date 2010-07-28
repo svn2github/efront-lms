@@ -626,7 +626,7 @@ class EfrontEvent
      //}
      // By default all notifications will be sent
      if ($send_notification) {
-      $event = new EfrontEvent($fields); // this should create an event instance for our class		
+      $event = new EfrontEvent($fields); // this should create an event instance for our class
       $event -> appendNewNotification($event_types); // append this notification to the email queue
      }
     }
@@ -642,11 +642,11 @@ class EfrontEvent
       $subst_array = array("users_name" => $this -> event['users_name'],
              "users_surname" => $this -> event['users_surname'],
               "users_LOGIN" => $this -> event['users_LOGIN'],
-            "date" => date(eF_dateFormat()),
-            "timestamp" => $timestamp);
+            "date" => formatTimestamp($timestamp),
+            "timestamp" => formatTimestamp($timestamp, 'time'));
      } else {
-      $subst_array = array("date" => date(eF_dateFormat()),
-            "timestamp" => $timestamp);
+      $subst_array = array("date" => formatTimestamp($timestamp),
+            "timestamp" => formatTimestamp($timestamp, 'time'));
      }
      $triggeringUser = EfrontUserFactory::factory($this -> event['users_LOGIN']);
      $subst_array["triggering_users_name"] = $triggeringUser -> user['name'];

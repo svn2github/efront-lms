@@ -24,7 +24,9 @@
    <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
    <td class = "topTitle" name = "timestamp">{$smarty.const._REGISTRATIONDATE}</td>
    <td class = "topTitle" name = "last_login">{$smarty.const._LASTLOGIN}</td>
-            <td class = "topTitle" name="bname">{$smarty.const._BRANCHNAME}</td>
+        {if $T_CURRENT_USER->user.user_type != 'administrator'}
+            <td class = "topTitle" name="branch_name">{$smarty.const._BRANCHNAME}</td>
+  {/if}
    <td class = "topTitle centerAlign" name = "jobs_num">{$smarty.const._JOBSASSIGNED}</td>
   {if $smarty.session.s_type == "administrator"}
    <td class = "topTitle centerAlign" name = "active">{$smarty.const._ACTIVE2}</td>
@@ -49,7 +51,9 @@
    <td>{$T_LANGUAGES[$user.languages_NAME]}</td>
    <td>#filter:timestamp-{$user.timestamp}#</td>
    <td>{if $user.last_login}#filter:timestamp_time_nosec-{$user.last_login}#{else}{$smarty.const._NEVER}{/if}</td>
+        {if $T_CURRENT_USER->user.user_type != 'administrator'}
          <td>{$user.branch_name}</td>
+  {/if}
    <td class = "centerAlign">{$user.jobs_num}</td>
   {if $smarty.session.s_type == "administrator"}
    <td class = "centerAlign">

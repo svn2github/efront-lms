@@ -1,4 +1,4 @@
-=== Version 3.6.5 build 8071 ===
+=== Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors
 - Scorm content completion update
 - Supervisor access to employees of subbranches fix

@@ -13,13 +13,8 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 	 SHOW EMPLOYEES
 
 	 *****************************************************/
- $show_subbranches_activate = array(
- array('text' => _SHOWEMPLOYEESFROMSUBBRANCHES, 'image' => "16x16/question_type_one_correct.png", 'href' => 'javascript:void(0)', 'onClick' => "ajaxShowAllSubbranches();", 'target' => '_self')
- );
- $smarty -> assign ("T_SUBBRANCHES_LINK", $show_subbranches_activate);
  // Create ajax enabled table for employees
  if (isset($_GET['ajax'])) {
-
   isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
   if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
@@ -33,7 +28,7 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
   if ($_GET['ajax'] == "unattachedUsersTable" && $currentEmployee -> getType() == _SUPERVISOR) {
    // Supervisors are allowed to see only the data of the employees that work in the braches they supervise
 
-   $unattached_employee = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*" , " users.user_type <> 'administrator' AND users.archive = 0 AND (EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) GROUP BY login", "login");
+   $unattached_employee = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*" , " users.user_type <> 'administrator' AND users.archive = 0 AND (EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) and users.active=1 GROUP BY login", "login");
 
    $result = eF_getTableDataFlat("logs", "users_LOGIN, timestamp", "action = 'login'", "timestamp");
    $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
@@ -61,27 +56,13 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
    // Supervisors are allowed to see only the data of the employees that work in the braches they supervise
    if ($currentEmployee -> getType() == _SUPERVISOR) {
     $exclude_admin_condition = " AND users.user_type != 'administrator'";
-    // Both roles are allowed to view all subbranches, if this is asked
-    if ($_GET['showAllEmployees'] == 1) {
-     $tree = new EfrontBranchesTree();
-     $branchPaths = $tree -> toPathString();
-     $supervisedBranchesAndSubbranches = array();
-     foreach ($currentEmployee -> getSupervisedBranches() as $branch) {
-      $supervisedBranchesAndSubbranches[] = $branch['branch_ID'];
-      $node = $tree -> seekNode($branch['branch_ID']);
-      $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($node), RecursiveIteratorIterator :: SELF_FIRST));
-      foreach ($iterator as $key => $value) {
-       $supervisedBranchesAndSubbranches[] = $key;
-      }
-     }
-     $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN", "users.*, count(job_description_ID) as jobs_num, branch_ID", " users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . implode(",", $supervisedBranchesAndSubbranches) ." ) AND module_hcd_employee_works_at_branch.assigned='1') OR EXISTS (SELECT module_hcd_employees.users_login FROM module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login WHERE users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) $exclude_admin_condition", "login", "login");
-    } else {
-
-     $employees = eF_getTableData("
+    $tree = new EfrontBranchesTree();
+    $branchPaths = $tree -> toPathString();
+    $employees = eF_getTableData("
      users
      LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN
      LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN",
-     "distinct users.*, count(distinct job_description_ID) as jobs_num",
+     "distinct users.*, count(distinct job_description_ID) as jobs_num, branch_ID",
      "users.user_type <> 'administrator'
      AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." )
      AND module_hcd_employee_works_at_branch.assigned='1')
@@ -92,7 +73,6 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
      WHERE users.login=module_hcd_employees.users_login
      AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) $exclude_admin_condition", "login", "login");
 
-    }
     foreach ($employees as $key => $value) {
      if (!$value['active'] || $value['archive'] || !$value['jobs_num']) {
       unset($employees[$key]);
@@ -107,7 +87,6 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
     $employees = eF_getTableData("
     users
     LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN",
-
     "users.*,
     count(module_hcd_employee_has_job_description.job_description_ID) as jobs_num",
     "users.archive = 0","","login");

@@ -18,15 +18,13 @@
 
 <!--ajax:usersTable-->
 
-  <table style = "width:100%" class = "sortedTable" sortBy = "0" size = "{$T_TABLE_SIZE}" id = "usersTable" useAjax = "1" branchFilter="{$T_BRANCHES_FILTER}" jobFilter="{$T_JOBS_FILTER}" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=users&showAllEmployees=0&">
+  <table style = "width:100%" class = "sortedTable" sortBy = "0" size = "{$T_TABLE_SIZE}" id = "usersTable" useAjax = "1" branchFilter="{$T_BRANCHES_FILTER}" jobFilter="{$T_JOBS_FILTER}" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=users&">
   <tr class = "topTitle">
    <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
    <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
    <td class = "topTitle" name = "timestamp">{$smarty.const._REGISTRATIONDATE}</td>
    <td class = "topTitle" name = "last_login">{$smarty.const._LASTLOGIN}</td>
-        {if isset($smarty.get.showAllEmployees) && $smarty.get.showAllEmployees == 1}
             <td class = "topTitle" name="bname">{$smarty.const._BRANCHNAME}</td>
-        {/if}
    <td class = "topTitle centerAlign" name = "jobs_num">{$smarty.const._JOBSASSIGNED}</td>
   {if $smarty.session.s_type == "administrator"}
    <td class = "topTitle centerAlign" name = "active">{$smarty.const._ACTIVE2}</td>
@@ -51,9 +49,7 @@
    <td>{$T_LANGUAGES[$user.languages_NAME]}</td>
    <td>#filter:timestamp-{$user.timestamp}#</td>
    <td>{if $user.last_login}#filter:timestamp_time_nosec-{$user.last_login}#{else}{$smarty.const._NEVER}{/if}</td>
-        {if isset($smarty.get.showAllEmployees) && $smarty.get.showAllEmployees == 1}
          <td>{$user.branch_name}</td>
-        {/if}
    <td class = "centerAlign">{$user.jobs_num}</td>
   {if $smarty.session.s_type == "administrator"}
    <td class = "centerAlign">
@@ -66,7 +62,7 @@
    {/if}
    </td>
   {/if}
-   <td class = "centerAlign">
+   <td class = "centerAlign nowrap">
   {if $user.login != $smarty.session.s_login && $user.user_type != 'administrator'}
     <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&print_preview=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}', 2)" target = "POPUP_FRAME"><img class = "handle" src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' /></a>
   {/if}

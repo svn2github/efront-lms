@@ -5,6 +5,7 @@
 - fixed supervisor archiving users
 - fixed payments being visible to supervisor when disabled
 - Fixed issue in lesson reports
+- Fixed bypassing cart when license note is enabled
 
 === Version 3.6.5 build 8007 ===
 - Provides RSS feeds through the RSS module

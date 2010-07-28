@@ -76,7 +76,22 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
      }
      $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN", "users.*, count(job_description_ID) as jobs_num, branch_ID", " users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . implode(",", $supervisedBranchesAndSubbranches) ." ) AND module_hcd_employee_works_at_branch.assigned='1') OR EXISTS (SELECT module_hcd_employees.users_login FROM module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login WHERE users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) $exclude_admin_condition", "login", "login");
     } else {
-     $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN", "users.*, count(job_description_ID) as jobs_num, branch_ID"," users.user_type <> 'administrator' AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." ) AND module_hcd_employee_works_at_branch.assigned='1') OR EXISTS (SELECT module_hcd_employees.users_login FROM module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login WHERE users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) $exclude_admin_condition", "login", "login");
+
+     $employees = eF_getTableData("
+     users
+     LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN
+     LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN",
+     "distinct users.*, count(distinct job_description_ID) as jobs_num",
+     "users.user_type <> 'administrator'
+     AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." )
+     AND module_hcd_employee_works_at_branch.assigned='1')
+     OR EXISTS
+     (SELECT module_hcd_employees.users_login
+     FROM module_hcd_employees
+     LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login
+     WHERE users.login=module_hcd_employees.users_login
+     AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) $exclude_admin_condition", "login", "login");
+
     }
     foreach ($employees as $key => $value) {
      if (!$value['active'] || $value['archive'] || !$value['jobs_num']) {
@@ -89,7 +104,14 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 
 
    } else if ($_SESSION['s_type'] == 'administrator') {
-    $employees = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN", "users.*, count(module_hcd_employee_has_job_description.job_description_ID) as jobs_num","users.archive = 0","","login");
+    $employees = eF_getTableData("
+    users
+    LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN",
+
+    "users.*,
+    count(module_hcd_employee_has_job_description.job_description_ID) as jobs_num",
+    "users.archive = 0","","login");
+
    }
    $result = eF_getTableDataFlat("logs", "users_LOGIN, timestamp", "action = 'login'", "timestamp");
    $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);

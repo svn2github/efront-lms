@@ -64,12 +64,12 @@
   {/if}
    <td class = "centerAlign nowrap">
   {if $user.login != $smarty.session.s_login && $user.user_type != 'administrator'}
-    <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&print_preview=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}', 2)" target = "POPUP_FRAME"><img class = "handle" src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' /></a>
+    <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&op=status&print_preview=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}', 2)" target = "POPUP_FRAME"><img class = "handle" src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' /></a>
   {/if}
   {if !isset($T_CURRENT_USER->coreAccess.statistics) || $T_CURRENT_USER->coreAccess.statistics != 'hidden'}
     <a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img class = "handle" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a>
   {/if}
-  {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
+  {if (!isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change') && $T_CURRENT_USER->user.user_type == 'administrator'}
     <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
     {if $smarty.session.s_login != $user.login}
      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._ARCHIVEENTITY}" alt = "{$smarty.const._ARCHIVEENTITY}" onclick = "archiveUser(this, '{$user.login}')"/>
@@ -144,7 +144,7 @@
       <td>{if $user.last_login}#filter:timestamp_time_nosec-{$user.last_login}#{else}{$smarty.const._NEVER}{/if}</td>
       <td class = "centerAlign">
        {if $user.login != $smarty.session.s_login && $user.user_type != 'administrator'}
-        <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&print_preview=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}', 2)" target = "POPUP_FRAME"><img src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' /></a>
+        <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&op=status&print_preview=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}', 2)" target = "POPUP_FRAME"><img src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' /></a>
        {else}
         <img class="handle" src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' />
        {/if}
@@ -154,15 +154,7 @@
        {/if}
 
        {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
-
         <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img class="handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-
-        {if $smarty.session.s_login != $user.login}
-         <a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOFIREEMPLOYEE}')" class = "deleteLink"><img class="handle" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
-        {else}
-         <a href = "javascript:void(0);" class = "deleteLink"><img class="handle" src = "images/16x16/error_delete.png" class = "inactiveImage" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>
-        {/if}
-
        {/if}
       </td>
      </tr>

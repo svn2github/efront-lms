@@ -1,3 +1,9 @@
+=== Version 3.6.6 ===
+- Fixed issue in user type in editing an admin by a subadmin
+- Fixed issue about printing test units
+
+
+
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors
 - Scorm content completion update

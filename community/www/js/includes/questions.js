@@ -80,6 +80,7 @@ function eF_js_addAdditionalChoice(question_type) {
    var check = document.createElement('input');
    check.setAttribute('type', 'text');
    check.className = 'inputText inputText_QuestionChoice'; //Set its class to 'inputText'
+   check.setAttribute('name', 'correct_match['+counter+']');
    td_right.appendChild(check);
   } else if (question_type == 'drag_drop') {
    var td_middle = document.createElement('td'); //Create a new table cell to hold the new raquos

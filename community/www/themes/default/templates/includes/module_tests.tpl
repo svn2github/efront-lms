@@ -834,7 +834,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      </td></tr>
      <tr><td colspan = "2" class = "horizontalSeparator"></td></tr>
      {/if}
-     <tr><td>
+     <tr><td id = "singleColumn">
      {if $smarty.get.print}
       {literal}
       <style>.rawTextQuestion {width:100%;height:400px;}/*For print version, display larger textareas*/</style>
@@ -858,11 +858,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     }
    </script>
    {/literal}
-         <table style = "width:100%;">
+     <!-- <table style = "width:100%;">
              <tr><td style = "padding-top:10px;padding-bottom:15px;text-align:center">
                  <input class = "flatButton" type = "submit" onClick = "printPartOfPage('shown_test');" value = "{$smarty.const._PRINTIT}"/>
              </td></tr>
-         </table>
+         </table> -->
      {/if}
      {$T_TEST_UNSOLVED}
      </td></tr>

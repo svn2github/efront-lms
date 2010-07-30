@@ -172,7 +172,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   // The $editedUser object will be set here if a user is changing his own data. Otherwise, it will be created here for the user under edition
   if (!isset($editedUser)) {
    try {
-    $editedUser = EfrontUserFactory :: factory($_GET['edit_user']); //new EfrontUser();
+    $editedUser = EfrontUserFactory :: factory($_GET['edit_user']); //new EfrontUser();				
     $editedEmployee = $editedUser -> aspects['hcd'];
    } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
@@ -712,9 +712,10 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
    $roles_array['student'] = _STUDENT;
    $roles_array['professor'] = _PROFESSOR;
    // Only the administrator may assign administrator rights
-   if ($currentUser -> getType() == "administrator" && $resultRole[0]['user_types_ID'] == 0) {
+   // Removed because it unassigns administrators from sub-admins. makriria 30/7/2010
+ //		if ($currentUser -> getType() == "administrator" && $resultRole[0]['user_types_ID'] == 0) {
     $roles_array['administrator'] = _ADMINISTRATOR;
-   }
+ //		}
    if (sizeof($roles) > 0) {
     for ($k = 0; $k < sizeof($roles['id']); $k++) {
      if ($roles['active'][$k] == 1 || (isset($editedUser) && $editedUser -> user['user_types_ID'] == $roles['id'][$k])) { //Make sure that the user's current role will be listed, even if it's deactivated

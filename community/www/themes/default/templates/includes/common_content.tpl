@@ -369,7 +369,11 @@
      <td id = "centerColumn">
         {if $smarty.get.print}
          <p style = "text-align:center"><input class = "flatButton" type = "submit" onClick = "window.print()" value = "{$smarty.const._PRINTIT}"/></p>
-         {eF_template_printBlock title = $T_UNIT.name data = $T_UNIT.data image = '32x32/printer.png'}
+      {if $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback'}
+       {include file = "includes/tests/show_unsolved_test.tpl"}
+      {else}
+      {eF_template_printBlock title = $T_UNIT.name data = $T_UNIT.data image = '32x32/printer.png'}
+      {/if}
         {else}
          <span id = "completed_block" {if !$T_USER_PROGRESS.lesson_passed && !$T_USER_PROGRESS.completed}style = "display:none"{/if}>
           {eF_template_printBlock title = $smarty.const._LESSONFINISHED data = $smarty.capture.t_end_of_lesson_code image = '32x32/information.png'}

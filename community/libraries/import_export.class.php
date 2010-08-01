@@ -369,6 +369,34 @@ class EfrontImportCsv extends EfrontImport
       $this -> log["success"][] = _NEWGROUPASSIGNMENT . " " . $group -> group['name'] . " - " . implode(",", $groupUsers);
      }
      break;
+    case "users":
+     $existingUsers = eF_getTableDataFlat("users", "login, active, archive");
+     foreach ($data as $key => $value) {
+      try {
+       $newUser = EfrontUser::createUser($value, $existingUsers, false);
+       $existingUsers['login'][] = $newUser -> user['login'];
+       $existingUsers['active'][] = $newUser -> user['active'];
+       $existingUsers['archive'][] = 0;
+       $addedUsers[] = $newUser -> user['login'];
+       $this -> log["success"][] = _IMPORTEDUSER . " " . $newUser -> user['login'];
+      } catch (Exception $e) {
+       if ($this -> options['replace_existing']) {
+        if ($this -> isAlreadyExistsException($e->getCode(), $type)) {
+         $this -> updateExistingData($key+2, $type, $value);
+        } else {
+         $this -> log["failure"][] = _LINE . " ".($key+2).": " . $e -> getMessage();// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
+        }
+       } else {
+        $this -> log["failure"][] = _LINE . " ".($key+2).": " . $e -> getMessage();// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
+       }
+      }
+     }
+     $defaultGroup = eF_getTableData("groups", "id", "is_default = 1 AND active = 1");
+     if (!empty($defaultGroup)) {
+      $defaultGroup = new EfrontGroup($defaultGroup);
+      $defaultGroup -> addUsers($addedUsers);
+     }
+     break;
    }
   } catch (Exception $e) {
    $this -> log["failure"][] = $e -> getMessage().' ('.$e -> getCode().')';// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
@@ -493,7 +521,7 @@ class EfrontImportCsv extends EfrontImport
    $this -> mappings = $this -> parseHeaderLine(&$headerLine);
    if ($this -> mappings) {
     if ($this -> checkImportEssentialField($type)) {
-     if ($type == 'users_to_groups') {
+     if ($type == 'users_to_groups' || $type == 'users') {
       $data = array();
       for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
        $data[] = $this -> parseDataLine($line);

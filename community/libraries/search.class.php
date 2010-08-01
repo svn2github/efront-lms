@@ -104,7 +104,12 @@ class EfrontSearch
    } else{
    }
   }
-  $result = eF_getTableDataFlat("search_invertedindex", "id,keyword");
+  //Querying for all values may be very slow; this is why we added this 20 values limit
+   if (sizeof($terms) > 20) {
+    $result = eF_getTableDataFlat("search_invertedindex", "id,keyword");
+   } else {
+    $result = eF_getTableDataFlat("search_invertedindex", "id,keyword", "keyword in ('".implode("','", $terms)."')");
+   }
       $result["keyword"] ? $allTerms = $result["keyword"] : $allTerms = array();
       if (! empty($terms)) {
           foreach ($terms as $key => $value) {
@@ -308,7 +313,7 @@ class EfrontSearch
 
 	 *
 
-	 * This function performs reduction of words in a given string. 
+	 * This function performs reduction of words in a given string.
 
 	 *
 
@@ -345,7 +350,7 @@ class EfrontSearch
 
 	 *
 
-	 * This function performs highlighting of words in a given string. 
+	 * This function performs highlighting of words in a given string.
 
 	 *
 
@@ -447,7 +452,7 @@ class EfrontSearch
      */
  public static function reBuiltIndex () {
      eF_deleteTableData("search_keywords"); //Delete old search terms
-//		eF_deleteTableData("search");    
+//		eF_deleteTableData("search");
   $GLOBALS['db'] -> Execute("truncate table search_invertedindex");
   //Courses Data
   $courses = eF_getTableData("courses", "id,name");

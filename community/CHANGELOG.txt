@@ -1,8 +1,8 @@
 === Version 3.6.6 ===
 - Fixed issue in user type in editing an admin by a subadmin
 - Fixed issue about printing test units
-
-
+- Moved logout redirect option to appearance tab
+- Fixed adding additional options in match questions error
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

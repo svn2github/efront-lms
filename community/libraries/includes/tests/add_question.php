@@ -261,7 +261,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
             } else {
                 $values = $form -> getSubmitValues();
             }
-
+pr($values['correct_match']);
             foreach ($values['match'] as $key => $value) {
                 $form -> addElement('text', 'match['.$key.']', null, 'class = "inputText inputText_QuestionChoice"');
                 $form -> addElement('text', 'correct_match['.$key.']', null, 'class = "inputText inputText_QuestionChoice"');

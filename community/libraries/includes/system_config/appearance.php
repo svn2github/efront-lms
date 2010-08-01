@@ -18,6 +18,7 @@ $appearanceMainForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG
 $appearanceMainForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEMPTYBLOCKS, null, 'class = "inputCheckBox"', array(0,1));
 $appearanceMainForm -> addElement("select", "lessons_directory", _VIEWDIRECTORY, array(_NO, _YES, _YESAFTERLOGIN), 'class = "inputSelect"');
 $appearanceMainForm -> addElement("select", "login_redirect_page", _LOGINREDIRECTPAGE, array('lesson_catalog' => _LESSONSCATALOG, 'user_dashboard' => _USERDASHBOARD), 'class = "inputCheckBox"');
+$appearanceMainForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"');
 $appearanceMainForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $appearanceMainForm -> freeze();

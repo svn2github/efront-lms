@@ -691,7 +691,8 @@ CREATE TABLE users_to_lessons (
   issued_certificate blob,
   comments text,
   to_timestamp int(10) unsigned default NULL,
-  primary key (users_LOGIN, lessons_ID)
+  primary key (users_LOGIN, lessons_ID),
+  index(users_LOGIN)
 ) DEFAULT CHARSET=utf8;
 
 --
@@ -1116,6 +1117,23 @@ CREATE TABLE files (
 
 
 
+--
+-- Table 'groups'
+--
+-- This table represent a group of users
+-- Fields:
+-- id (primary key): A numerical identifier
+-- name: The group name
+-- description: A description for the group
+-- active: Whether the group is active
+-- user_types_ID: The custom user type of the group
+-- languages_NAME: The language of the group
+-- users_active: Whether the members of this group should be set to 'active' or 'inactive'
+-- assign_profile_to_new: Whether to automatically assign the group profile to new users
+-- unique_key: A key identifying the group, that a user can use in order to automatically get the group's courses and lessons
+-- is_default: Whether this is the default group, meaning that new users are assigned to it
+-- key_max_usage: How many times a key may be used
+-- key_current_usage: How many times the key has been used so far
 CREATE TABLE groups (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
@@ -1132,7 +1150,43 @@ CREATE TABLE groups (
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
+--
+-- Table 'lessons_to_groups'
+--
+-- This table represents the relation of lessons to groups
+-- Fields:
+-- lessons_ID: The id of the lesson
+-- user_type: The default user type that users are assigned as to the lesson
+-- groups_ID: The id of the group
+CREATE TABLE lessons_to_groups (
+  lessons_ID mediumint(8) unsigned NOT NULL,
+  user_type varchar(50) default 'student',
+  groups_ID mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY(lessons_ID, groups_ID)
+) DEFAULT CHARSET=utf8;
 
+--
+-- Table 'courses_to_groups'
+--
+-- This table represents the relation of courses to groups
+-- Fields:
+-- lessons_ID: The id of the course
+-- user_type: The default user type that users are assigned as to the course
+-- groups_ID: The id of the group
+CREATE TABLE courses_to_groups (
+  courses_ID mediumint(8) unsigned NOT NULL,
+  user_type varchar(50) default 'student',
+  groups_ID mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY(courses_ID, groups_ID)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'users_to_groups'
+--
+-- This table represents the relation of users to groups
+-- Fields:
+-- groups_ID: The id of the group
+-- users_LOGIN: The login of the user
 CREATE TABLE users_to_groups (
   groups_ID mediumint(8) unsigned NOT NULL,
   users_LOGIN varchar(100) NOT NULL,
@@ -1247,19 +1301,6 @@ CREATE TABLE sent_notifications (
 ) DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE lessons_to_groups (
-  lessons_ID mediumint(8) unsigned NOT NULL,
-  user_type varchar(50) default 'student',
-  groups_ID mediumint(8) unsigned NOT NULL,
-  PRIMARY KEY(lessons_ID, groups_ID)
-) DEFAULT CHARSET=utf8;
-
-CREATE TABLE courses_to_groups (
-  courses_ID mediumint(8) unsigned NOT NULL,
-  user_type varchar(50) default 'student',
-  groups_ID mediumint(8) unsigned NOT NULL,
-  PRIMARY KEY(courses_ID, groups_ID)
-) DEFAULT CHARSET=utf8;
 
 --
 -- Table 'users_to_content'

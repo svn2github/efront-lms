@@ -35,6 +35,7 @@ class EfrontCourseException extends Exception
  const DATABASE_ERROR = 254;
  const INVALID_PARAMETER = 255;
  const PARTIAL_IMPORT = 256;
+ const INVALID_USER_TYPE = 257;
  const GENERAL_ERROR = 299;
  const INVALID_LOGIN = 300;
 }
@@ -1536,8 +1537,10 @@ class EfrontCourse
 	 * @access private
 
 	 */
- private function addUsersToCourse($usersData) {
-  $archivedCourseUsers = $this -> getArchivedUsers();
+ private function addUsersToCourse($usersData, $archivedCourseUsers = false) {
+  if (!$archivedCourseUsers) {
+   $archivedCourseUsers = $this -> getArchivedUsers();
+  }
   $newUsers = array();
   foreach ($usersData as $value) {
    if (in_array($value['login'], $archivedCourseUsers)) {
@@ -1653,7 +1656,7 @@ class EfrontCourse
 	 * @todo deprecated
 
 	 */
- public function addUsers($users, $roles = 'student', $confirmed = true) {
+ public function addUsers2($users, $roles = 'student', $confirmed = true) {
   $users = $this -> verifyUsersList($users);
   $roles = $this -> verifyRolesList($roles, sizeof($users));
   $courseUsers = array_keys($this -> getUsers());
@@ -1680,6 +1683,179 @@ class EfrontCourse
    $this -> addCourseUsersToLesson($lesson, $usersToAddToCourse, $confirmed);
   }
   return $this -> getUsers();
+ }
+ public function addUsers($users, $roleInCourse = 'student', $confirmed = true) {
+  $users = $this -> verifyUsersList($users);
+  if (empty($users)) {
+   return false;
+  }
+  $result = eF_getTableData("users_to_courses", "users_LOGIN, archive, user_type, to_timestamp", "courses_ID=".$this->course['id']);
+  $courseUsers = array();
+  $courseRoles = $this -> getPossibleCourseRoles();
+  $courseStudents = 0;
+  foreach ($result as $value) {
+   $courseUsers[$value['users_LOGIN']] = $value;
+   if (!$value['archive'] && $this -> isStudentRole($value['user_type'])) {
+    $courseStudents++;
+   }
+  }
+  $isStudentRoleInCourse = $this -> isStudentRole($roleInCourse);
+  if (!$isStudentRoleInCourse && !$this -> isProfessorRole($roleInCourse)) {
+   throw new Exception (_INVALIDUSERTYPE.': '.$roleInCourse, EfrontCourseException::INVALID_USER_TYPE);
+  }
+  /*This query returns an array like:
+
++------------+------------+-------------+-----------+----------------+---------+
+
+| courses_ID | lessons_ID | users_login | user_type | from_timestamp | archive |
+
++------------+------------+-------------+-----------+----------------+---------+
+
+|          1 |          3 | professor   | professor |     1233140503 |       0 |
+
+|          1 |          3 | elpapath    | professor |     1233140503 |       0 |
+
+|          1 |         19 | periklis3   | student   |     1280488977 |       0 |
+
+|          1 |         20 | NULL        | NULL      |           NULL |    NULL |
+
++------------+------------+-------------+-----------+----------------+---------+
+
+		So that it contains all the course's lessons and NULL for any lesson that does not have a user assigned
+
+		*/
+debug();
+  $result = eF_getTableData("lessons_to_courses lc left outer join users_to_lessons ul on lc.lessons_ID=ul.lessons_ID",
+          "lc.lessons_ID, ul.users_LOGIN, ul.user_type, ul.from_timestamp, ul.archive, ul.to_timestamp",
+          "courses_ID = ".$this -> course['id']);
+debug(false);
+  $courseLessonsToUsers = array();
+  foreach ($result as $value) {
+   if (!is_null($value['users_LOGIN'])) {
+    $courseLessonsToUsers[$value['lessons_ID']][$value['users_LOGIN']] = $value;
+   } else {
+    $courseLessonsToUsers[$value['lessons_ID']] = array();
+   }
+  }
+  $courseLessons = array_unique(array_keys($courseLessonsToUsers));
+  $result = eF_getTableData("projects", "id, lessons_ID", "auto_assign=1 and deadline < ".time()." and lessons_ID in (select lessons_ID from lessons_to_courses where courses_ID=".$this -> course['id'].")");
+  foreach ($result as $value) {
+   $courseLessonsAutoAssignProjects[$value['lessons_ID']][] = $value['id'];
+  }
+  $newUsers = array();
+  foreach ($users as $user) {
+   if ($this -> course['max_users'] && $isStudentRoleInCourse && $this -> course['max_users'] <= $courseStudents++) {
+    throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
+   }
+   if (!isset($courseUsers[$user])) {
+    //$usersToAddToCourse[$user] 	   = array('login' => $user, 'role' => , 'confirmed' => $confirmed);
+    //$newUsers[] = $value['login'];
+    $newUsers[] = array('users_LOGIN' => $user,
+         'courses_ID' => $this -> course['id'],
+         'active' => 1,
+         'archive' => 0,
+         'from_timestamp' => $confirmed ? time() : 0,
+         'user_type' => $roleInCourse,
+         'completed' => 0,
+         'score' => 0,
+         'issued_certificate' => '',
+         'comments' => '',
+         'to_timestamp' => 0);
+   } elseif ($roleInCourse != $courseUsers[$user]['user_type'] || $courseUsers[$user]['archive']) {
+    $fields = array('archive' => 0,
+        'user_type' => $roleInCourse,
+        'from_timestamp' => $confirmed ? time() : 0);
+    !$courseUsers[$user]['archive'] OR $fields['to_timestamp'] = 0;
+    $where = "users_LOGIN='".$user."' and courses_ID=".$this -> course['id'];
+    self::persistCourseUsers($fields, $where, $this -> course['id'], $user);
+   }
+   foreach ($courseLessons as $id) {
+    if (!isset($courseLessonsToUsers[$id][$user])) {
+     $usersToAddToCourseLesson[$id][$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
+     $newLessonUsers[] = array('users_LOGIN' => $user,
+            'lessons_ID' => $id,
+            'active' => 1,
+            'archive' => 0,
+            'from_timestamp' => $confirmed ? time() : 0,
+            'user_type' => $roleInCourse,
+            'positions' => '',
+            'done_content' => '',
+            'current_unit' => 0,
+            'completed' => 0,
+            'score' => 0,
+            'comments' => '',
+            'to_timestamp' => 0);
+    } elseif ($roleInCourse != $courseLessonsToUsers[$id][$user]['user_type'] || $courseLessonsToUsers[$id][$user]['archive']) {
+     $fields = array('archive' => 0,
+         'user_type' => $roleInCourse,
+         'from_timestamp' => $confirmed ? time() : 0);
+     !$courseLessonsToUsers[$id][$user]['archive'] OR $fields['to_timestamp'] = 0;
+     eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$user."' and lessons_ID=".$id);
+    }
+   }
+  }
+  if (!empty($newUsers)) {
+   eF_insertTableDataMultiple("users_to_courses", $newUsers);
+  }
+  if (!empty($newLessonUsers)) {
+   eF_insertTableDataMultiple("users_to_lessons", $newLessonUsers);
+/*
+
+						//$autoAssignedProjects = $this -> getAutoAssignProjects();
+
+			foreach ($autoAssignedProjects as $project) {
+
+				$project -> addUsers($newUsers);
+
+			}
+
+*/
+  }
+/*
+
+		if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
+
+			foreach ($usersData as $value) {
+
+				$event = array("type" 		  => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
+
+						   "users_LOGIN"  => $value['login'],
+
+						   "lessons_ID"   => $this -> lesson['id'],
+
+						   "lessons_name" => $this -> lesson['name']);
+
+				EfrontEvent::triggerEvent($event);
+
+			}
+
+		}
+
+
+
+
+
+		if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
+
+			foreach ($usersData as $value) {
+
+				$event = array("type" 		  => $this -> isStudentRole($value['role']) ? EfrontEvent::COURSE_ACQUISITION_AS_STUDENT : EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR,
+
+							   "users_LOGIN"  => $value['login'],
+
+							   "lessons_ID"   => $this -> course['id'],
+
+							   "lessons_name" => $this -> course['name']);
+
+				EfrontEvent::triggerEvent($event);
+
+			}
+
+		}
+
+*/
+  //$this -> addUsersToCourse($usersToAddToCourse, $archivedCourseUsers);
+  $this -> users = false; //Reset users cache
  }
  /**
 

@@ -354,13 +354,18 @@ abstract class EfrontUser
 	 * @access public
 
 	 */
- public static function createUser($userProperties, $users = array()) {
+ public static function createUser($userProperties, $users = array(), $addToDefaultGroup = true) {
   if (empty($users)) {
    $users = eF_getTableDataFlat("users", "login, active, archive");
-   $archived = array_combine($users['login'], $users['archive']);
-   $archived = array_filter($archived, create_function('$v', 'return $v;'));
-   $users = array_combine($users['login'], $users['active']);
   }
+  $archived = array_combine($users['login'], $users['archive']);
+  foreach ($archived as $key => $value) {
+   if (!$value) {
+    unset($archived[$key]);
+   }
+  }
+  //$archived = array_filter($archived, create_function('$v', 'return $v;'));
+  $users = array_combine($users['login'], $users['active']);
   $activatedUsers = array_sum($users); //not taking into account deactivated users in license users count
   //$versionDetails = eF_checkVersionKey($GLOBALS['configuration']['version_key']);
   if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {

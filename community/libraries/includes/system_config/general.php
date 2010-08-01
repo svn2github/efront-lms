@@ -14,7 +14,7 @@ $generalSecurityForm -> addElement("text", "password_length", _MINIMUMPASSWORDLE
 $generalSecurityForm -> addElement("text", "autologout_time", _LOGOUTUSERAFTER, 'size = "5"');
 $generalSecurityForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));
-$generalSecurityForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"');
+//$generalSecurityForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"'); // Moved to appearance tab
 $generalSecurityForm -> setDefaults($GLOBALS['configuration']);
 $generalSecurityForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSecurityForm -> addRule('autologout_time', _THEFIELD.' '._LOGOUTUSERAFTER.' '._ISMANDATORY, 'required', null, 'client');

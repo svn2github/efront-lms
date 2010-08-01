@@ -22,7 +22,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
  * @package eFront
 
- * @author Antonellis Panagiotis <antonellis@efront.gr>
+ * @author Antonellis Panagiotis
 
  * @version 1.0
 
@@ -47,7 +47,7 @@ class EfrontGroupException extends Exception
 
  * @package eFront
 
- * @author Antonellis Panagiotis <antonelli@efront.gr>
+ * @author Antonellis Panagiotis
 
  * @version 1.0
 
@@ -60,7 +60,7 @@ class EfrontGroup
 
      *
 
-     * @since 1.0
+     * @since 3.5.0
 
      * @var array
 
@@ -74,7 +74,7 @@ class EfrontGroup
 
      *
 
-     * @since 1.0
+     * @since 3.5.0
 
      * @var array
 
@@ -122,7 +122,7 @@ class EfrontGroup
 
      * @param int $group_id The group id or array with group's info array
 
-     * @since 1.0
+     * @since 3.5.0
 
      * @access public
 
@@ -182,7 +182,7 @@ class EfrontGroup
 
      * @return EfrontGroup the new group object
 
-     * @since 1.0
+     * @since 3.5.0
 
      * @access public
 
@@ -190,7 +190,6 @@ class EfrontGroup
 
      */
     public static function create($fields) {
-        //These are the mandatory fields. In case one of these is absent, fill it in with a default value
         $fields['name'] = trim($fields['name']);
         !isset($fields['name']) ? $fields['name'] = 'Default name' : null;
         $group_id = eF_insertTableData("groups", $fields); //Insert the group to the database
@@ -233,16 +232,16 @@ class EfrontGroup
 
      * @return boolean True if everything is ok
 
-     * @since 1.0
+     * @since 3.5.0
 
      * @access public
 
      */
     public function delete() {
-        ef_deleteTableData("users_to_groups", "groups_ID=".$this -> group['id']);
+        eF_deleteTableData("lessons_to_groups", "groups_ID=".$this -> group['id']);
+        eF_deleteTableData("courses_to_groups", "groups_ID=".$this -> group['id']);
+     eF_deleteTableData("users_to_groups", "groups_ID=".$this -> group['id']);
         eF_deleteTableData("groups", "id=".$this -> group['id']);
-        ef_deleteTableData("lessons_to_groups", "groups_ID=".$this -> group['id']);
-        ef_deleteTableData("courses_to_groups", "groups_ID=".$this -> group['id']);
         return true;
     }
     /**
@@ -295,7 +294,7 @@ class EfrontGroup
 
      * @return array A 2-dimensional array with group users per type, or a 1-dimensional array with group users of the specified type
 
-     * @since 1.0
+     * @since 3.5.0
 
      * @access public
 

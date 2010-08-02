@@ -365,8 +365,8 @@ class EfrontImportCsv extends EfrontImport
      }
      foreach ($groups as $id => $groupUsers) {
       $group = new EfrontGroup($id);
+      $this -> log["success"][] = _NEWGROUPASSIGNMENT . " " . $group -> group['name'];
       $group -> addUsers($groupUsers);
-      $this -> log["success"][] = _NEWGROUPASSIGNMENT . " " . $group -> group['name'] . " - " . implode(",", $groupUsers);
      }
      break;
     case "users":

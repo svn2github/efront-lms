@@ -3779,4 +3779,5 @@ define("_OTHERWISEPLEASEREGISTER", "Otherwise, you may create a <button onclick 
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses");
 define("_SUPERVISORS", "Supervisors");
 define("_COURSEOPTIONS","Course options");
+define("_RESETEXECUTIONSFORALLUSERS", "Reset executions for all users");
 ?>

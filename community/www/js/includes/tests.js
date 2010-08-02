@@ -1,3 +1,20 @@
+function deleteAllTests(el, login) {
+ parameters = {reset_all:1, login:login, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onDeleteAllTests);
+}
+function onDeleteAllTests(el, response) {
+ new Effect.Fade(el.up().up());
+}
+function deleteAllTestsForAllUsers(el) {
+ parameters = {reset_all_for_all:1, method: 'get'};
+ var url = location.toString();
+ ajaxRequest(el, url, parameters, onDeleteAllTestsAllUsers);
+}
+function onDeleteAllTestsAllUsers(el, response) {
+ location.reload();
+}
+
 function deleteQuestion(el, id) {
  parameters = {delete_question:id, method: 'get'};
  var url = location.toString();

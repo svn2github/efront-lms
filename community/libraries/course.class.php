@@ -1724,11 +1724,9 @@ class EfrontCourse
 		So that it contains all the course's lessons and NULL for any lesson that does not have a user assigned
 
 		*/
-debug();
   $result = eF_getTableData("lessons_to_courses lc left outer join users_to_lessons ul on lc.lessons_ID=ul.lessons_ID",
           "lc.lessons_ID, ul.users_LOGIN, ul.user_type, ul.from_timestamp, ul.archive, ul.to_timestamp",
           "courses_ID = ".$this -> course['id']);
-debug(false);
   $courseLessonsToUsers = array();
   foreach ($result as $value) {
    if (!is_null($value['users_LOGIN'])) {

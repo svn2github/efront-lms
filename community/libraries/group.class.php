@@ -389,55 +389,55 @@ class EfrontGroup
                 $fields = array('groups_ID' => $this -> group['id'],
                                 'users_LOGIN' => $user);
                 try {
-                 $ok = eF_insertTableData("users_to_groups", $fields);
+                 eF_insertTableData("users_to_groups", $fields);
+                 if ($this -> group['assign_profile_to_new']) {
+                  $userObject = EfrontUserFactory::factory($user);
+                  $userObjects[$user] = $userObject;
+                  $fields = array();
+                  if ($userObject -> getType() != 'administrator') {
+                   // Update the user profile
+                   if ($this -> group['user_types_ID']) {
+                    if ($this -> group['user_types_ID'] != 'student' && $this -> group['user_types_ID'] != 'professor') {
+                     $basic_type = eF_getTableData("user_types", "basic_user_type", "id = '" . $this -> group['user_types_ID']. "'");
+                     if (sizeof($basic_type)) {
+                      $fields["user_type"] = $basic_type[0]['basic_user_type'];
+                      $fields["user_types_ID"] = $this -> group['user_types_ID'];
+                     } else {
+                      throw new EfrontGroupException(_INVALIDID, EfrontGroupException :: INVALID_ID);
+                     }
+                    } else {
+                     // basic user type
+                     $fields["user_type"] = $this -> group['user_types_ID'];
+                     $fields["user_types_ID"] = 0;
+                    }
+                   }
+                  }
+                  if ($this -> group['languages_NAME']) {
+                   $fields["languages_NAME"] = $this -> group['languages_NAME'];
+                  }
+                  if ($this -> group['users_active']) {
+                   $fields["active"] = ($this -> group['users_active'] == 1)? 1:0;
+                  }
+                  if (sizeof($fields)) {
+                   eF_updateTableData("users", $fields, "login = '". $user ."'");
+                  }
+                  // Add lessons - info acquired before entering the new user assignment loop
+                  if ($userObject -> getType() != 'administrator') {
+                   if (isset($fields["user_types_ID"])) {
+                    $userTypeInCourses = $fields["user_types_ID"];
+                   } elseif (isset($fields["user_type"])) {
+                    $userTypeInCourses = $fields["user_type"];
+                   } else {
+                    $userTypeInCourses = $userObject -> getType();
+                   }
+                   if (!empty($lessonIds)) {
+                    $userObject -> addLessons($lessonIds, $userTypeInCourses, 1); //active lessons
+                   }
+                  }
+                 }
                 } catch (Exception $e) {
                  // Don't throw here, so that mass assignments can continue to the next user
                  $errors[] = _USERALREADYEXISTSINGROUP.": $user";
-                }
-                if ($ok && $this -> group['assign_profile_to_new']) {
-                 $userObject = EfrontUserFactory::factory($user);
-                 $userObjects[$user] = $userObject;
-                    $fields = array();
-                    if ($userObject -> getType() != 'administrator') {
-                  // Update the user profile
-                  if ($this -> group['user_types_ID']) {
-                   if ($this -> group['user_types_ID'] != 'student' && $this -> group['user_types_ID'] != 'professor') {
-                 $basic_type = eF_getTableData("user_types", "basic_user_type", "id = '" . $this -> group['user_types_ID']. "'");
-                 if (sizeof($basic_type)) {
-                     $fields["user_type"] = $basic_type[0]['basic_user_type'];
-                     $fields["user_types_ID"] = $this -> group['user_types_ID'];
-                 } else {
-                     throw new EfrontGroupException(_INVALIDID, EfrontGroupException :: INVALID_ID);
-                 }
-                   } else {
-                       // basic user type
-                    $fields["user_type"] = $this -> group['user_types_ID'];
-                    $fields["user_types_ID"] = 0;
-                }
-                  }
-                    }
-           if ($this -> group['languages_NAME']) {
-               $fields["languages_NAME"] = $this -> group['languages_NAME'];
-           }
-           if ($this -> group['users_active']) {
-               $fields["active"] = ($this -> group['users_active'] == 1)? 1:0;
-           }
-           if (sizeof($fields)) {
-               eF_updateTableData("users", $fields, "login = '". $user ."'");
-           }
-           // Add lessons - info acquired before entering the new user assignment loop
-                    if ($userObject -> getType() != 'administrator') {
-                     if (isset($fields["user_types_ID"])) {
-                      $userTypeInCourses = $fields["user_types_ID"];
-                     } elseif (isset($fields["user_type"])) {
-                      $userTypeInCourses = $fields["user_type"];
-                     } else {
-                      $userTypeInCourses = $userObject -> getType();
-                     }
-                        if (!empty($lessonIds)) {
-       $userObject -> addLessons($lessonIds, $userTypeInCourses, 1); //active lessons
-                        }
-                    }
                 }
             } else {
              $errors[] = _USERDOESNOTEXIST.": $user";

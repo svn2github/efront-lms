@@ -1169,6 +1169,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
 {elseif $smarty.get.test_results}
                                 {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=`$T_CTG`&test_results=`$smarty.get.test_results`'>`$T_TEST->test.name` `$smarty.const._RESULTS`</a>"}
                                 {capture name = 't_test_results_code'}
+        <div class = "headerTools">
+         <span>
+          <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._RESETEXECUTIONSFORALLUSERS}" title = "{$smarty.const._RESETEXECUTIONSFORALLUSERS}"/>
+          <a href = "javascript:void(0)" onclick = "deleteAllTestsForAllUsers(this);">{$smarty.const._RESETEXECUTIONSFORALLUSERS}</a>
+         </span>
+        </div>
                                     <table class = "sortedTable" style = "width:100%">
                                         <tr class="defaultRowHeight"><td class = "topTitle">{$smarty.const._USER}</td>
                                             {if !$T_SKILLGAP_TEST}
@@ -1217,31 +1223,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                     {/foreach}
                                     </table>
                                 {/capture}
-                                {literal}
-                                    <script>
-                                        function deleteAllTests(el, login) {
-                                            Element.extend(el);
-                                            url = "{/literal}{$smarty.server.PHP_SELF}{literal}?ctg=tests&test_results={/literal}{$smarty.get.test_results}{literal}&login="+login+"&ajax=1&reset_all=1";
-                                            if ($("progress_img")) {
-                                                $("progress_img").writeAttribute("src", "images/others/progress1.gif").show();
-                                            } else {
-                                                el.up().insert(new Element("img", {id:"progress_img", src:"images/others/progress1.gif"}).setStyle({verticalAlign:"middle", borderWidth:"0px"}));
-                                            }
-                                            new Ajax.Request(url, {
-                                                method:"get",
-                                                asynchronous:true,
-                                                onFailure: function (transport) {
-                                                    $("progress_img").writeAttribute({src:"images/16x16/error_delete.png", title:transport.responseText}).hide();
-                                                    new Effect.Appear($("progress_img"));
-                                                    window.setTimeout('Effect.Fade("progress_img")', 10000);
-                                                },
-                                                onSuccess: function (transport) {
-                                                    new Effect.Fade(el.up().up());
-                                                }
-                                            });
-                                        }
-                                    </script>
-                                {/literal}
         {if $T_CTG != 'feedback'}
          {eF_template_printBlock title = $smarty.const._TESTRESULTS data = $smarty.capture.t_test_results_code image='32x32/tests.png'}
         {else}

@@ -217,8 +217,17 @@ try {
                 }
                 $currentTest -> undo($_GET['login']);
             } catch (Exception $e) {
-                header("HTTP/1.0 500 ");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
+            }
+            exit;
+        } else if (isset($_GET['ajax']) && $_GET['reset_all_for_all'] == 1) {
+            try {
+          foreach ($doneTests[$currentTest -> test['id']] as $user => $done_test) {
+           $currentTest -> undo($user);
+          }
+
+            } catch (Exception $e) {
+             handleAjaxExceptions($e);
             }
             exit;
         }

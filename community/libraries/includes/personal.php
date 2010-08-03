@@ -754,6 +754,8 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
  /****************************************************************************************************************************************************/
  if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') || (isset($currentUser -> coreAccess['dashboard']) && $currentUser -> coreAccess['dashboard'] != 'change')) {
   $form -> freeze();
+ } elseif ($editedUser -> user['user_type'] == 'administrator' && $editedUser -> user['user_types_ID'] == 0 && $currentUser -> user['user_type'] == 'administrator' && $currentUser -> user['user_types_ID'] != 0) {
+  $form -> freeze();
  } else {
   $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
   if ($form -> isSubmitted() && $form -> validate()) {

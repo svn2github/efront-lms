@@ -44,4 +44,7 @@
 {elseif $T_OPTION == 'participation'}
  {include file = "includes/statistics/participation_stats.tpl"}
 
+{elseif $T_OPTION == 'advanced_user_reports'}
+ {include file = "includes/statistics/advanced_user_reports.tpl"}
+
 {/if}

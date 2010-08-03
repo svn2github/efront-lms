@@ -2010,7 +2010,11 @@ function eF_assignSupervisorMissingSubBranches($currentUser) {
 //pr($_SESSION['supervises_branches']);
  $currentUser = $GLOBALS['currentUser'];
  $supervisor_at_branches = eF_getRights();
- $derivedSupervisorAtBranches = array_keys($currentUser -> aspects['hcd'] -> getSupervisedBranchesRecursive()); //This dynamically calculates the branches that the user is supervisor. It is used to automatically fix discrepancies (for example, when a user is supervisor in branch A and not in branch A->B->C)
+ if (($currentUser -> aspects['hcd'] instanceOf EfrontSupervisor) || ($currentUser -> aspects['hcd'] instanceOf EfrontHcdAdministrator)) {
+  $derivedSupervisorAtBranches = array_keys($currentUser -> aspects['hcd'] -> getSupervisedBranchesRecursive()); //This dynamically calculates the branches that the user is supervisor. It is used to automatically fix discrepancies (for example, when a user is supervisor in branch A and not in branch A->B->C)
+ } else {
+  $derivedSupervisorAtBranches = array();
+ }
  $fixed = false;
  foreach ($derivedSupervisorAtBranches as $branchId) {
   if (!in_array($branchId, $supervisor_at_branches['branch_ID'])) {

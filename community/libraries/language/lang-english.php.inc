@@ -3780,4 +3780,28 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "You were enrol
 define("_SUPERVISORS", "Supervisors");
 define("_COURSEOPTIONS","Course options");
 define("_RESETEXECUTIONSFORALLUSERS", "Reset executions for all users");
+define("_ADVANCEDUSERREPORTS", "Advanced user reports");
+define("_ADDTOGROUP", "Add to group");
+define("_ASSIGNCOURSE", "Assign course");
+define("_ASSIGNLESSON", "Assign lesson");
+define("_REMOVECOURSE", "Remove course");
+define("_REMOVELESSON", "Remove lesson");
+define("_REMOVEFROMGROUP", "Remove from group");
+define("_RESETLEARNINGPROGRESS", "Reset learning progress");
+define("_BUILDER", "Builder");
+define("_ADDREPORT", "Add new report");
+define("_CONDITIONTYPE", "Condition type");
+define("_CONDITIONSPECIFICATION", "Condition specification");
+define("_ADDCOLUMN", "Add column");
+define("_RELATIONWITHTHEFOLLOWINGCONDITION", "Relation with the following condition");
+define("_COLUMNTYPE", "Column type");
+define("_GRIDNAME", "Grid name");
+define("_ALIGNED", "Aligned");
+define("_SELECTREPORT", "Select report");
+define("_AVAILABLEREPORTS", "Available reports");
+define("_EDITREPORT", "Edit report");
+define("_NOREPORTSINTHESYSTEM", "There are no reports defined in the system. Please ");
+define("_CREATEONE", "create one");
+define("_NEWREPORT", "New report");
+define("_REPORTNAME", "Report name");
 ?>

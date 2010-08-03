@@ -58,10 +58,12 @@
   {if $smarty.session.s_type == "administrator"}
    <td class = "centerAlign">
    {if $user.login != $smarty.session.s_login}
-    {if $user.active == 1}
-     <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $_change_}onclick = "activateUser(this, '{$user.login}')"{/if}>
-    {else}
-     <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $_change_}onclick = "activateUser(this, '{$user.login}')"{/if}>
+    {if !($user.user_type == 'administrator' && $user.user_types_ID == 0 && $T_CURRENT_USER->user.user_type == 'administrator' && $T_CURRENT_USER->user.user_types_ID != 0)}
+     {if $user.active == 1}
+      <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $_change_}onclick = "activateUser(this, '{$user.login}')"{/if}>
+     {else}
+      <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $_change_}onclick = "activateUser(this, '{$user.login}')"{/if}>
+     {/if}
     {/if}
    {/if}
    </td>
@@ -74,10 +76,14 @@
     <a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img class = "handle" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a>
   {/if}
   {if (!isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change') && $T_CURRENT_USER->user.user_type == 'administrator'}
-    <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+    {if !($user.user_type == 'administrator' && $user.user_types_ID == 0 && $T_CURRENT_USER->user.user_type == 'administrator' && $T_CURRENT_USER->user.user_types_ID != 0)}
+     <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+    {/if}
     {if $smarty.session.s_login != $user.login}
-     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._ARCHIVEENTITY}" alt = "{$smarty.const._ARCHIVEENTITY}" onclick = "archiveUser(this, '{$user.login}')"/>
-     {*<a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOFIREEMPLOYEE}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>*}
+     {if !($user.user_type == 'administrator' && $user.user_types_ID == 0 && $T_CURRENT_USER->user.user_type == 'administrator' && $T_CURRENT_USER->user.user_types_ID != 0)}
+      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._ARCHIVEENTITY}" alt = "{$smarty.const._ARCHIVEENTITY}" onclick = "archiveUser(this, '{$user.login}')"/>
+      {*<a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOFIREEMPLOYEE}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>*}
+     {/if}
     {/if}
   {/if}
    </td>

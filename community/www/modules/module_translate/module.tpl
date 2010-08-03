@@ -1,22 +1,22 @@
 {*Smarty template*}
 
-{capture name = 't_module_translate_code}
+{capture name = 't_module_translate_code'}
 
 <div id="translate_main" style = "width:100%">
-  	<form class="translate_query-box" style = "width:100%" onsubmit="return translate_submitChange();">
-  	<table style = "width:100%">	
+   <form class="translate_query-box" style = "width:100%" onsubmit="return translate_submitChange();">
+   <table style = "width:100%">
   <tr style = "width:100%"><td>
-  	<textarea class="translate_query-input" style = "width:100%" rows="10" id="source" type="text" onclick = "if (firstClick) {ldelim}firstClick=false;this.innerHTML = ''{rdelim}">{$smarty.const._TRANSLATE_HELLOWORLD}</textarea>
+   <textarea class="translate_query-input" style = "width:100%" rows="10" id="source" type="text">{$smarty.const._TRANSLATE_HELLOWORLD}</textarea>
 </td></tr>
 <tr><td>
-  		<select name="src" id="src"></select>
-  		>>
-  		<select name="dst" id="dst"></select>
+    <select name="src" id="src"></select>
+    >>
+    <select name="dst" id="dst"></select>
 
-  		<input class="translate_button" type="submit" value="{$smarty.const._TRANSLATE_TRANSLATE}"/>
-</td></tr>	
-	</table>
-  	</form>
+    <input class="translate_button" type="submit" value="{$smarty.const._TRANSLATE_TRANSLATE}"/>
+</td></tr>
+ </table>
+   </form>
 </div>
 
 <div id="translate_results">

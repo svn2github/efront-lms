@@ -5,6 +5,9 @@
 - Fixed adding additional options in match questions error
 - Improved performance during csv import for users
 - Added handle to reset all executions for all users in a test
+- Fixed toggle material in progress disappearing when only lessons are assigned to users, and are all complete
+- Fixed error when organizational chart is available to users and visited by non-supervisor
+- Added code for not allowing any sub-administrator to edit an administrator profile
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors
@@ -118,7 +121,9 @@
 - Updated adodb libraries to 5.10
 - Updated phplivedocx_server value to https://api.livedocx.com/1.2/mailmerge.asmx?WSDL
 - Updated layout to better support IE6/7 (eliminates annoying white empty space)
-- Fixed security vulnerabilities discovered by VUPEN Security http://www.vupen.com. The issue regarded XSS attacks via POST and was addressed by adding an optional parameter to sanitize POST parameters in admin's system settings 
+- Fixed security vulnerabilities discovered by VUPEN Security http://www.vupen.com. 
+The issue regarded XSS attacks via POST and was addressed by adding an optional parameter
+to sanitize POST parameters in admin's system settings 
 - Fixed issue about counting deactivated uses in license users count
 - Fixed bug in notifications about returning archived courses as well
 - Fixed display issue in lesson information about lesson completion rules
@@ -258,7 +263,8 @@
 - Fixed auto completion of courses for IE7
 - Fixed multiple instances of sidebar appearing when users enrolled to a lesson they already had (EF-512)
 - Fixed import/export users page dropping off page borders (EF-507)
-- The lesson language no longer appears in the lesson info, when a single language is set to be used throughout the system (EF-496)
+- The lesson language no longer appears in the lesson info, when a single language is set
+to be used throughout the system (EF-496)
 - Added "Print content" lesson property
 - Added list of not solved tests in user progress
 - List of category now does not include other categories' lessons and courses (EF-500)
@@ -268,7 +274,8 @@
 - Fixed bug in content management when more than one possible action was set
 - Fixed leaving orphaned entities while deleting lesson
 - Fixed bug about new message link for user types with only view permissions in messages
-- Added object{position: relative; z-index: 0} in css for properly display videos and tooltips together. Objects also need <param name="wmode" value="transparent">
+- Added object{position: relative; z-index: 0} in css for properly display videos and tooltips together.
+Objects also need <param name="wmode" value="transparent">
 - Added events in lesson initialization list
 - Fixed SCORM 1.2 detected as 2004 in enterprise edition
 - Fixed requesting sidebar in horizontal themes

@@ -992,6 +992,9 @@ class EfrontDirectionsTree extends EfrontTree
    } else {
     $roleBasicType = null;
    }
+   if ($roleBasicType == 'student') {
+    $this -> hasLessonsAsStudent = true;
+   }
    if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeLesson -> lesson['completed'] && (is_null($treeLesson -> lesson['remaining']) || $treeLesson -> lesson['remaining'] > 0))) {
     $lessonsString .= '<tr class = "directionEntry">';
     if ($roleBasicType) {

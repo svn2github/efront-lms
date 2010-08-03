@@ -54,10 +54,10 @@ try {
     /*no option is set, so just show the available options*/
     if (!isset($_GET['option'])) {
         if ($currentUser -> user['user_type'] == 'administrator') {
-            $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => "administrator.php?ctg=statistics&option=user");
-            $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => "administrator.php?ctg=statistics&option=lesson");
-            $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => "administrator.php?ctg=statistics&option=course");
-            $options[] = array('text' => _SYSTEMSTATISTICS, 'image' => "32x32/reports.png", 'href' => "administrator.php?ctg=statistics&option=system");
+            $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
+            $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=lesson");
+            $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
+            $options[] = array('text' => _SYSTEMSTATISTICS, 'image' => "32x32/reports.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=system");
             $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         } else if ($isProfessor) {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
@@ -94,10 +94,10 @@ try {
         require_once("statistics/branches_stats.php");
  } else if ($_GET['option'] == "participation") {
         require_once("statistics/participation_stats.php");
+ } else if ($_GET['option'] == "advanced_user_reports") {
+        require_once("statistics/advanced_user_reports.php");
  }
 } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
+ handleNormalFlowExceptions($e);
 }
 ?>

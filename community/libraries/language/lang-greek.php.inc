@@ -3780,4 +3780,28 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE", "Εγγραφή
 define("_SUPERVISORS", "Προϊστάμενοι");
 define("_COURSEOPTIONS","Επιλογές δέσμης");
 define("_RESETEXECUTIONSFORALLUSERS", "Αναίρεση εκτελέσεων για όλους τους χρήστες");
+define("_ADVANCEDUSERREPORTS", "Αναλυτική αναφορά χρηστών");
+define("_ADDTOGROUP", "Προσθήκη στην ομάδα");
+define("_ASSIGNCOURSE", "Ανάθεση δέσμης");
+define("_ASSIGNLESSON", "Ανάθεση μαθήματος");
+define("_REMOVECOURSE", "Αφαίρεση δέσμης");
+define("_REMOVELESSON", "Αφαίρεση μαθήματος");
+define("_REMOVEFROMGROUP", "Αφαίρεση από την ομάδα");
+define("_RESETLEARNINGPROGRESS", "Επαναφορά προόδου μαθημάτων");
+define("_BUILDER", "Οδηγός");
+define("_ADDREPORT", "Προσθήκη νέας αναφοράς");
+define("_CONDITIONTYPE", "Τύπος συνθήκης");
+define("_CONDITIONSPECIFICATION", "Ορισμός συνθήκης");
+define("_ADDCOLUMN", "Προσθήκη στήλης");
+define("_RELATIONWITHTHEFOLLOWINGCONDITION", "Σχέση με την επόμενη συνθήκη");
+define("_COLUMNTYPE", "Τύπος στήλης");
+define("_GRIDNAME", "Όνομα λίστας");
+define("_ALIGNED", "Στοίχιση");
+define("_SELECTREPORT", "Επιλέξτε αναφορά");
+define("_AVAILABLEREPORTS", "Διαθέσιμες αναφορές");
+define("_EDITREPORT", "Επεξεργασία αναφοράς");
+define("_NOREPORTSINTHESYSTEM", "Δεν υπάρχουν αναφορές στο σύστημα. Παρακαλώ");
+define("_CREATEONE", "δημιουργήστε μία");
+define("_NEWREPORT", "Νέα αναφορά");
+define("_REPORTNAME", "Όνομα αναφοράς");
 ?>

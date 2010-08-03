@@ -51,6 +51,7 @@ setDefines();
 setRequestURI();
 //Set default exception handler to be defaultExceptionHandler() function
 set_exception_handler('defaultExceptionHandler');
+register_shutdown_function('shutdownFunction');
 /** General tools for system */
 require_once("tools.php");
 /** Database manipulation functions*/
@@ -261,7 +262,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 8117;
+    $build = 8128;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -443,6 +444,29 @@ function defaultExceptionHandler($e) {
     } else {
         echo EfrontSystem :: printErrorMessage($e -> getMessage().' ('.$e -> getCode().')');
     }
+}
+/**
+
+ * Shutdown function
+
+ * This function gets executed whenever the script ends, normally or unexpectedly.
+
+ * We implement this in order to catch fatal errors (E_ERROR) level and display
+
+ * an appropriate message
+
+ *
+
+ * @since 3.6.6
+
+ */
+function shutDownFunction() {
+ if (function_exists('error_get_last')) {
+  $error = error_get_last();
+  if ($error['type'] == 1) {
+   echo EfrontSystem :: printErrorMessage($error['message'].' in '.$error['file'].' line '.$error['line']);
+  }
+ }
 }
 /**
 

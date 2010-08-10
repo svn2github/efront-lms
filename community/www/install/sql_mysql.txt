@@ -1126,6 +1126,8 @@ CREATE TABLE files (
 -- name: The group name
 -- description: A description for the group
 -- active: Whether the group is active
+-- dynamic: Whether this group is dynamic. Dynamic groups are created for mass operations and are not visible in group lists. The 'active' flag for dynamic groups is not considered
+-- created: A timestamp indicating when this group was created
 -- user_types_ID: The custom user type of the group
 -- languages_NAME: The language of the group
 -- users_active: Whether the members of this group should be set to 'active' or 'inactive'
@@ -1139,6 +1141,8 @@ CREATE TABLE groups (
   name varchar(150) NOT NULL,
   description text,
   active tinyint(1) NOT NULL default '1',
+  dynamic tinyint(1) NOT NULL default '0',
+  created int(10) unsigned default NULL,
   user_types_ID varchar(50) default '0',
   languages_NAME varchar(50) default NULL,
   users_active tinyint(1) default 0,

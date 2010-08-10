@@ -3359,5 +3359,10 @@ class EfrontStats
   }
      return $participation;
  }
+ public static function saveAdvancedUserReports($report) {
+  $report['rules']['conditions'] = array_values($report['rules']['conditions']); //reindex array
+  $report['rules']['columns'] = array_values($report['rules']['columns']); //reindex array
+  eF_updateTableData("advanced_user_reports", array('rules' => serialize($report['rules'])), "id=".$report['id']);
+ }
 }
 ?>

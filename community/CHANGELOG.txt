@@ -1,13 +1,18 @@
 === Version 3.6.6 ===
+- Added handle to reset all executions for all users in a test
+- Added code for not allowing any sub-administrator to edit an administrator profile
+- Improved performance during csv import for users
+- Moved logout redirect option to appearance tab
 - Fixed issue in user type in editing an admin by a subadmin
 - Fixed issue about printing test units
-- Moved logout redirect option to appearance tab
 - Fixed adding additional options in match questions error
-- Improved performance during csv import for users
-- Added handle to reset all executions for all users in a test
 - Fixed toggle material in progress disappearing when only lessons are assigned to users, and are all complete
 - Fixed error when organizational chart is available to users and visited by non-supervisor
-- Added code for not allowing any sub-administrator to edit an administrator profile
+- Fixed issue about onmouseover underline in content tree and IE7
+- Fixed issue in advlink plugin in editor with colored themes
+- Fixed issue introduced in 3.6.5 about course completion operations
+- Fixed changing course category not working when lessons with the same id existed in the category
+- Fixed user's progress in course/lesson initialization would result in other users' progress being initialized as well
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

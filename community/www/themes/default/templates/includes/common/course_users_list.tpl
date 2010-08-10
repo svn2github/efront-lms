@@ -115,7 +115,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('certificate', $T_DATASOURCE_OPERATIONS)}
  {/if}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('progress', $T_DATASOURCE_OPERATIONS)}
-  {if ($T_CURRENT_USER->coreAccess.course_settings == 'change' && $T_CURRENT_USER->user.user_type == 'professor' ) || $T_CURRENT_USER->user.user_type == 'administrator'}
+  {if ((!isset($T_CURRENT_USER->coreAccess.course_settings) || $T_CURRENT_USER->coreAccess.course_settings == 'change') && $T_CURRENT_USER->user.user_type == 'professor' ) || $T_CURRENT_USER->user.user_type == 'administrator'}
     <a href = "{$smarty.server.PHP_SELF}?{$T_BASE_URL}&op=course_certificates&edit_user={$user.login}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PROGRESS}', 2)" title = "{$smarty.const._VIEWUSERLESSONPROGRESS}">
      <img src = "images/16x16/users.png" title = "{$smarty.const._VIEWUSERCOURSEPROGRESS}" alt = "{$smarty.const._VIEWUSERCOURSEPROGRESS}"/>
     </a>

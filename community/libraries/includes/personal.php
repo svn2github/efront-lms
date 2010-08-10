@@ -668,10 +668,10 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
  }
  $form -> addElement('text', 'name', _NAME, 'class = "inputText"');
  $form -> addRule('name', _THEFIELD.' '._NAME.' '._ISMANDATORY, 'required', null, 'client');
- $form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
+ //$form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text'); //Removed as it is not needed any more and it prevented names as O'Neal
  $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
  $form -> addRule('surname', _THEFIELD.' '._SURNAME.' '._ISMANDATORY, 'required', null, 'client');
- $form -> addRule('surname', _INVALIDFIELDDATA, 'checkParameter', 'text');
+ //$form -> addRule('surname', _INVALIDFIELDDATA, 'checkParameter', 'text');
  $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText"');
  // Find all groups available to create the select-group drop down
  if (!isset($groups_table)) {

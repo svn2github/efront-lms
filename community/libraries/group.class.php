@@ -196,6 +196,21 @@ class EfrontGroup
         $newGroup = new EfrontGroup($group_id);
         return $newGroup;
     }
+    public static function createDynamicGroup($fields) {
+     self :: deleteDynamicGroup();
+        $group = self::create($fields); //Insert the group to the database
+        return $group;
+    }
+    public static function deleteDynamicGroup($group = false) {
+     if ($group) {
+      eF_deleteTableData("groups", "id=".$_SESSION['dynamic_group']);
+      eF_deleteTableData("users_to_groups", "groups_id=".$_SESSION['dynamic_group']);
+      unset($_SESSION['dynamic_group']);
+     } else {
+      eF_deleteTableData("groups", "dynamic=1 and created is not null and created < ".(time() - 360));
+      eF_deleteTableData("users_to_groups", "groups_id in (select id from groups where dynamic=1 and created is not null and created < ".(time() - 360).")");
+     }
+    }
     /**
 
      * Delete group

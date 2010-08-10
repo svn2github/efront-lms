@@ -21,7 +21,7 @@
                                         <tr><td class = "labelCell">{$smarty.const._TYPE}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.type.html}</td></tr>
                                         <tr id = "select_field" style = "display:none"><td class = "labelCell">{$smarty.const._VALUES}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.values[0].html}&nbsp;<img src = "images/16x16/add.png" title = "{$smarty.const._ADDVALUES}" alt = "{$smarty.const._ADDVALUES}" border = "0" style = "vertical-align:middle" onclick = "addValue()"></td></tr>
+                                            <td class = "elementCell">{$T_FIELD_FORM.values[0].html}&nbsp;<img src = "images/16x16/add.png" title = "{$smarty.const._ADDVALUES}" alt = "{$smarty.const._ADDVALUES}" onclick = "addValue()"></td></tr>
                                         {if $smarty.get.edit_field}
                                             {section name = 'field_list' loop = $T_FIELD_FORM.values}
                                                 {if !$smarty.section.field_list.first}

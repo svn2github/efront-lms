@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html {if $smarty.server.PHP_SELF|basename == 'browse.php'}class = "whitebg"{/if} {if $smarty.get.popup || $T_POPUP_MODE}class = "popup"{/if} {if $T_RTL}dir = "rtl"{/if} {if $T_OPEN_FACEBOOK_SESSION}xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml"{/if}>
+<html {if $smarty.server.PHP_SELF|basename == 'browse.php' || $smarty.server.PHP_SELF|basename == 'browsecontent.php'}class = "whitebg"{/if} {if $smarty.get.popup || $T_POPUP_MODE}class = "popup"{/if} {if $T_RTL}dir = "rtl"{/if} {if $T_OPEN_FACEBOOK_SESSION}xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml"{/if}>
 <head>
     <base href = "{$smarty.const.G_SERVERNAME}">
     <meta http-equiv = "Content-Language" content = "{$smarty.const._HEADERLANGUAGEHTMLTAG}">

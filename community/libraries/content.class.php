@@ -2331,8 +2331,8 @@ class EfrontContentTree extends EfrontTree
             //$toolsString = '<span class = "toolsDiv" style = "position:absolute">'.$activateLink.$editLink.$deleteLink.'</span>';
             $toolsString = '<span>'.$activateLink.$startLink.$editLink.$deleteLink.$options['custom'][$current['id']].'</span>';
    $treeString .= '
-                <li '.$display.' class = "'.implode(" ", $liClass).'" id = "node'.$current['id'].'" noDrag = "'.$nodrag.'" noRename = "true" noDelete = "true" style = "white-space:nowrap" >
-                    <a onclick = "'.$onclick.'" class = "'.(!$current['active'] ? 'treeinactive' : '').' treeLink '.implode(" ", $linkClass).'" href = "'.$targetLink.'" title = "'.$fullName.' '.implode(" ", $tooltip).'">'.$unitName."</a>&nbsp;".$toolsString;
+                <li '.$display.' class = "'.implode(" ", $liClass).'" id = "node'.$current['id'].'" noDrag = "'.$nodrag.'" noRename = "true" noDelete = "true">
+                    <a onclick = "'.$onclick.'" class = "'.(!$current['active'] ? 'treeinactive' : '').' treeLink '.implode(" ", $linkClass).'" href = "'.$targetLink.'" title = "'.$fullName.' '.implode(" ", $tooltip).'" style = "white-space:nowrap">'.$unitName." </a>&nbsp;".$toolsString;
             $iterator -> getDepth() > $depth ? $treeString .= '<ul>' : $treeString .= '</li>';
             for ($i = $depth; $i > $iterator -> getDepth() && $i > $initDepth; $i--) {
                 $treeString .= '</ul></li>';
@@ -2355,8 +2355,8 @@ class EfrontContentTree extends EfrontTree
                     <ul id = "'.$treeId.'" class = "dhtmlgoodies_tree" selectedNode = "'.$options['selectedNode'].'">';
         if ($options['tree_root']) {
             $str .= '
-                    <li style = "white-space:nowrap;" class = "theory" id = "0" noDrag = "false">
-                        <a class = "treeactive treeLink" href = "javascript:void(0)" title = "'._TREEROOT.'">'._TREEROOT."</a>&nbsp;";
+                    <li class = "theory" id = "0" noDrag = "false">
+                        <a class = "treeactive treeLink" style = "white-space:nowrap;" href = "javascript:void(0)" title = "'._TREEROOT.'">'._TREEROOT."</a>&nbsp;";
         }
         $str .= $treeString.'
                     </ul>

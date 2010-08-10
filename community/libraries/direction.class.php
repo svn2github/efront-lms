@@ -678,11 +678,11 @@ class EfrontDirectionsTree extends EfrontTree
   while ($iterator -> valid()) {
    $lessonsString = $this -> printCategoryLessons($iterator, $display_lessons, $options, $lessons);
    $coursesString = $this -> printCategoryCourses($iterator, $display, $userInfo, $options, $courses, $lessons);
-   if ($lessonsString || $coursesString) {
+//			if ($lessonsString || $coursesString) {
     $treeString .= $this -> printCategoryTitle($iterator, $display, $imageString, $classString);
     $treeString .= $lessonsString.$coursesString.'
        </table>';
-   }
+//			}
    $iterator -> next();
   }
   if ($options['tree_tools']) {
@@ -710,6 +710,18 @@ class EfrontDirectionsTree extends EfrontTree
     $lessons[$value['id']] = new EfrontLesson($value); //Create an array of EfrontLesson objects
    }
   }
+  $roles = EfrontLessonUser :: getLessonsRoles();
+  foreach ($lessons as $key => $treeLesson) {
+   if (isset($treeLesson -> lesson['user_type']) && $treeLesson -> lesson['user_type']) {
+    $roleInLesson = $treeLesson -> lesson['user_type'];
+    $roleBasicType = $roles[$roleInLesson]; //Indicates that this is a catalog with user data
+   } else {
+    $roleBasicType = null;
+   }
+   if ($_COOKIE['display_all_courses'] == '0' && $roleBasicType == 'student' && ($treeLesson -> lesson['completed'] || (!is_null($treeLesson -> lesson['remaining']) && $treeLesson -> lesson['remaining'] <= 0))) {
+    unset($lessons[$key]);
+   }
+  }
   return $lessons;
  }
  private function parseTreeCourses($courses) {
@@ -717,6 +729,18 @@ class EfrontDirectionsTree extends EfrontTree
    $result = eF_getTableData("courses", "*", "archive = 0 && active=1", "name"); //Get all courses at once, thus avoiding looping queries
    foreach ($result as $value) {
     $courses[$value['id']] = new EfrontCourse($value); //Create an array of EfrontCourse objects
+   }
+  }
+  $roles = EfrontLessonUser :: getLessonsRoles();
+  foreach ($courses as $key => $treeCourse) {
+   if (isset($treeCourse -> course['user_type']) && $treeCourse -> course['user_type']) {
+    $roleInCourse = $treeCourse -> course['user_type'];
+    $roleBasicType = $roles[$roleInCourse]; //Indicates that this is a catalog with user data
+   } else {
+    $roleBasicType = null;
+   }
+   if ($_COOKIE['display_all_courses'] == '0' && $roleBasicType == 'student' && ($treeCourse -> course['completed'] || (!is_null($treeCourse -> course['remaining']) && $treeCourse -> course['remaining'] <= 0))) {
+    unset($courses[$key]);
    }
   }
   return $courses;
@@ -995,7 +1019,7 @@ class EfrontDirectionsTree extends EfrontTree
    if ($roleBasicType == 'student') {
     $this -> hasLessonsAsStudent = true;
    }
-   if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeLesson -> lesson['completed'] && (is_null($treeLesson -> lesson['remaining']) || $treeLesson -> lesson['remaining'] > 0))) {
+   //if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeLesson -> lesson['completed'] && (is_null($treeLesson -> lesson['remaining']) || $treeLesson -> lesson['remaining'] > 0))) {
     $lessonsString .= '<tr class = "directionEntry">';
     if ($roleBasicType) {
      $lessonsString .= $this -> printProgressBar($treeLesson, $roleBasicType);
@@ -1007,7 +1031,7 @@ class EfrontDirectionsTree extends EfrontTree
            '.(isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
           </td>
          </tr>';
-   }
+   //}
   }
   if (isset($current['lessons']) && sizeof($current['lessons']) > 0 && $lessonsString) {
    if (isset($options['collapse']) && $options['collapse'] == 2) {
@@ -1044,7 +1068,7 @@ class EfrontDirectionsTree extends EfrontTree
     } else {
      $roleBasicType = null;
     }
-    if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeCourse -> course['completed'] && (is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0))) {
+//				if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeCourse -> course['completed'] && (is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0))) {
      if ($options['course_lessons']) {
       $coursesTreeString .= $treeCourse -> toHTML($lessons, $options);
      } else {
@@ -1058,7 +1082,7 @@ class EfrontDirectionsTree extends EfrontTree
        </tr>
       </table>';
      }
-    }
+//				}
    }
    if ($coursesTreeString) {
     $treeString .= '

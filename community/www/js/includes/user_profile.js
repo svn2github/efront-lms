@@ -35,7 +35,7 @@ function addValue() {
  .insert(new Element('td'))
  .insert(new Element('td')
  .insert(new Element('input', {type: 'text', name:'values['+elementCount+']', id:'values['+elementCount+']'}).toggleClassName('inputText')).insert('&nbsp')
- .insert(new Element('img', {src:'images/16x16/error_delete.png'}).setStyle({verticalAlign:'middle'}).observe('click', function(event) {event.findElement('tr').remove();elementCount--;}))
+ .insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-error_delete').setStyle({verticalAlign:'middle'}).observe('click', function(event) {event.findElement('tr').remove();elementCount--;}))
  .insert(new Element('br')))});
  $('default_value').insert(new Element('option', {value:elementCount}).update(elementCount));
 }

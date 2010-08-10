@@ -36,7 +36,7 @@
       <td>{$lesson.languages_NAME}</td>
       <td class = "centerAlign">
      {if $_change_}
-       <select name = "directions" id = "{$lesson.id}" onchange = "ajaxPost('{$lesson.id}', this, 'lessonsTable');">
+       <select name = "directions" id = "lesson_{$lesson.id}" onchange = "ajaxPost('lesson_{$lesson.id}', this, 'lessonsTable');">
       {foreach name = 'directions_list' key = "key" item = "item" from = $T_DIRECTIONS_PATHS}
         <option value = "{$key}" {if $lesson.directions_ID == $key}selected{/if}>{$item}</option>
       {/foreach}
@@ -66,7 +66,7 @@
       <td>{$course.languages_NAME}</td>
       <td class = "centerAlign">
      {if $_change_}
-       <select name = "directions" id = "{$course.id}" onchange = "ajaxPost('{$course.id}', this, 'coursesTable');">
+       <select name = "directions" id = "course_{$course.id}" onchange = "ajaxPost('course_{$course.id}', this, 'coursesTable');">
       {foreach name = 'directions_list' key = "key" item = "item" from = $T_DIRECTIONS_PATHS}
         <option value = "{$key}" {if $course.directions_ID == $key}selected{/if}>{$item}</option>
       {/foreach}

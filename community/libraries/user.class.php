@@ -2323,9 +2323,22 @@ abstract class EfrontLessonUser extends EfrontUser
           "completed" => 0,
           "current_unit" => 0,
           "score" => 0);
-  eF_updateTableData("users_to_lessons", $tracking_info, "lessons_ID = ".$lesson -> lesson['id']);
+  eF_updateTableData("users_to_lessons", $tracking_info, "users_LOGIN='".$this -> user['login']."' and lessons_ID = ".$lesson -> lesson['id']);
   eF_deleteTableData("completed_tests", "users_LOGIN = '".$this -> user['login']."' and tests_ID in (select id from tests where lessons_ID='".$lesson -> lesson['id']."')");
   eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
+ }
+ public function resetProgressInAllLessons() {
+  $tracking_info = array("done_content" => "",
+          "issued_certificate" => "",
+          "from_timestamp" => time(),
+          "to_timestamp" => null,
+          "comments" => "",
+          "completed" => 0,
+          "current_unit" => 0,
+          "score" => 0);
+  eF_updateTableData("users_to_lessons", $tracking_info, "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("completed_tests", "users_LOGIN = '".$this -> user['login']."'");
+  eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."'");
  }
  /**
 
@@ -2352,12 +2365,21 @@ abstract class EfrontLessonUser extends EfrontUser
           "to_timestamp" => 0,
           "completed" => 0,
           "score" => 0);
-  eF_updateTableData("users_to_courses", $tracking_info, "courses_ID = ".$course -> course['id']);
+  eF_updateTableData("users_to_courses", $tracking_info, "users_LOGIN='".$this -> user['login']."' and courses_ID = ".$course -> course['id']);
   if ($resetLessons) {
    foreach ($course -> getCourseLessons() as $lesson) {
     $this -> resetProgressInLesson($lesson);
    }
   }
+ }
+ public function resetProgressInAllCourses() {
+  $tracking_info = array("issued_certificate" => "",
+          "comments" => "",
+          "from_timestamp" => time(),
+          "to_timestamp" => 0,
+          "completed" => 0,
+          "score" => 0);
+  eF_updateTableData("users_to_courses", $tracking_info, "users_LOGIN='".$this -> user['login']."'");
  }
  /**
 

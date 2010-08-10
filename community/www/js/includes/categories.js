@@ -4,7 +4,7 @@ function activateCategory(el, category) {
  } else {
   parameters = {deactivate_direction:category, method: 'get'};
  }
-    var url = 'administrator.php?ctg=directions';
+    var url = location.toString();
     ajaxRequest(el, url, parameters, onActivateCategory);
 }
 function onActivateCategory(el, response) {
@@ -19,7 +19,7 @@ function onActivateCategory(el, response) {
 
 function deleteCategory(el, category) {
  parameters = {delete_direction:category, method: 'get'};
- var url = 'administrator.php?ctg=directions';
+ var url = location.toString();
  ajaxRequest(el, url, parameters, onDeleteCategory);
 }
 function onDeleteCategory(el, response) {
@@ -27,10 +27,9 @@ function onDeleteCategory(el, response) {
 }
 
 function ajaxPost(id, el, table_id) {
-    var url = 'administrator.php?ctg=directions';
+    var url = location.toString();
 
- parameters = {edit_direction: editCategory,
-      id:id,
+ parameters = {id:id.replace('course_', '').replace('lesson_', ''),
       directions_ID: $(id).options[$(id).options.selectedIndex].value,
       method: 'get'};
  if (table_id == 'lessonsTable') {

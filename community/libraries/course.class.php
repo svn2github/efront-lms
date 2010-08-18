@@ -3459,6 +3459,7 @@ class EfrontCourse
   if (!eF_checkParameter($newFileName, 'file')) {
    $newFileName = $file['name'];
   }
+        $newFileName = str_replace(array('"', '>', '<', '*', '?', ':'), array('&quot;', '&gt;', '&lt;', '&#42;', '&#63;', '&#58;'), $newFileName);
   $file -> rename($userTempDir['path'].'/'.$newFileName, true);
   //$file   -> rename($userTempDir['path'].'/'.EfrontFile :: encode($this -> course['name']).'.zip', true);
   $courseTempDir -> delete();

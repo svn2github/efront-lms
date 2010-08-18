@@ -48,6 +48,15 @@ function highlightSearch($search_results, $search_criteria, $bgcolor='Yellow'){
 }
 
 function askUsers() {
+ if (!isset($_SESSION['supervises_branches'])) {
+  include_once $path."module_hcd_tools.php";
+
+  //Automatically fix missing branch assignments for supervisors
+  eF_assignSupervisorMissingSubBranchesRecursive();
+  //discover employee role in the hierarchy
+  eF_getRights();
+ }
+
 //	$_POST['preffix'] = "%";	// Useful for debugging
  if (isset($_POST['preffix'])) {
   if (mb_strpos($_POST['preffix'], ";") === false) {
@@ -64,7 +73,7 @@ function askUsers() {
   // Return active users for statistics:
   // - admins: all
   // - supervisors: all supervised (in Enterprise)
-  // - professors: students 
+  // - professors: students
   if (!isset($_GET['messaging'])) {
    if ($_SESSION['s_type'] == "administrator") {
     $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "active = 1 and (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%' OR user_type like '$preffix%')", "login");
@@ -93,7 +102,7 @@ function askUsers() {
   // Return active users for messaging:
   // - admins: all
   // - supervisors: all
-  // - users: other users with common group, lesson, course (or branch in Enterprise)			
+  // - users: other users with common group, lesson, course (or branch in Enterprise)
   } else {
    if ($_SESSION['s_type'] == "administrator") {
     $users = eF_getTableData("users", "login,name,surname,user_type,user_types_ID", "login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%'", "login");

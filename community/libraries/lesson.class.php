@@ -4157,11 +4157,12 @@ class EfrontLesson
             $userTempDir = $userTempDir['path'];
         }
         try {
-            $existingFile = new EfrontFile($userTempDir.'/'.$this -> lesson['name'].'.zip'); //Delete any previous exported files
+            $existingFile = new EfrontFile($userTempDir.'/'.EfrontFile :: encode($this -> lesson['name']).'.zip'); //Delete any previous exported files
             $existingFile -> delete();
         } catch (Exception $e) {}
         if ($rename) {
-            $file -> rename($userTempDir.'/'.EfrontFile :: encode($this -> lesson['name']).'.zip', true);
+         $newName = str_replace(array('"', '>', '<', '*', '?', ':'), array('&quot;', '&gt;', '&lt;', '&#42;', '&#63;', '&#58;'), $this -> lesson['name']);
+            $file -> rename($userTempDir.'/'.EfrontFile :: encode($newName).'.zip', true);
         }
         unlink($this -> directory.'/'."data.dat"); //Delete database dump file
         return $file;

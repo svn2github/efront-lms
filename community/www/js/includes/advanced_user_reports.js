@@ -2,7 +2,7 @@ function setSpecification(el) {
  Element.extend(el);
  selected = el.options[el.options.selectedIndex].value;
  $$('tr.specification').each(function(s) {s.hide();});
- if ($('specification_'+selected)) {
+ if ($('specification_'+selected) && isNaN(parseInt(selected))) {
   $('specification_'+selected).show();
  }
 }
@@ -43,7 +43,7 @@ function deleteReport(el, report) {
  ajaxRequest(el, location.toString(), parameters, onDeleteReport);
 }
 function onDeleteReport(el, response) {
- window.location = window.location.toString().replace(/&report=\d*/, '');
+ window.location = window.location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&tab=builder';
 }
 
 function saveColumnTree(el) {
@@ -68,15 +68,21 @@ function onSetDefaultSort(el, response) {
 */
 }
 
-function setStatus(el, condition) {
- parameters = {'set_status':condition, ajax:1, method: 'get'};
+function setConditionStatus(el, condition) {
+ parameters = {'set_condition_status':condition, ajax:1, method: 'get'};
+ ajaxRequest(el, location.toString(), parameters, onSetStatus);
+}
+function setColumnStatus(el, condition) {
+ parameters = {'set_column_status':condition, ajax:1, method: 'get'};
  ajaxRequest(el, location.toString(), parameters, onSetStatus);
 }
 function onSetStatus(el, response) {
  if (response.evalJSON(true).active == 1) {
   setImageSrc(el, 16, 'trafficlight_green');
+  el.previous().update(1);
  } else if (response.evalJSON(true).active == 0) {
   setImageSrc(el, 16, 'trafficlight_red');
+  el.previous().update(0);
  }
 }
 

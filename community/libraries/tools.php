@@ -2032,7 +2032,7 @@ function eF_assignSupervisorMissingSubBranchesRecursive() {
  }
  //exit;
 }
-function eF_assignSupervisorMissingSubBranches($currentUser) {
+function eF_assignSupervisorMissingSubBranches() {
 //pr($_SESSION['supervises_branches']);
  $currentUser = $GLOBALS['currentUser'];
  $supervisor_at_branches = eF_getRights();

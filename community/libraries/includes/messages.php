@@ -4,9 +4,10 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-if (!$currentUser -> coreAccess['forum'] || $currentUser -> coreAccess['forum'] == 'change') {
+if (!$currentUser -> coreAccess['personal_messages'] || $currentUser -> coreAccess['forum'] == 'personal_messages') {
     $_change_ = 1;
 }
+$smarty -> assign("_change_", $_change_);
 
 $loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/messages';
@@ -50,48 +51,48 @@ try {
 
 //---------------------------------------End of Folders-------------------------------------------
 
-//---------------------------------------Start of Volume-------------------------------------------    
+//---------------------------------------Start of Volume-------------------------------------------
 /*
 
 	$res1 = eF_getTableData("f_configuration", "value", "name='quota_num_of_messages'");
 
 	$res2 = eF_getTableData("f_configuration", "value", "name='quota_kilobytes'");
 
-	
+
 
 	$res1[0]['value'] = ($res1[0]['value'])? $res1[0]['value'] : G_QUOTA_NUM_OF_MESSAGES;
 
 	$res2[0]['value'] = ($res2[0]['value'])? $res2[0]['value'] : G_QUOTA_KB;
 
-	
+
 
 	$smarty -> assign("T_QUOTA_NUM_OF_MESSAGES", $res1[0]['value']);
 
 	$smarty -> assign("T_QUOTA_KILOBYTES", $res2[0]['value']);
 
-	
+
 
 	$total_messages = eF_getTableData("f_personal_messages", "count(*)", "users_LOGIN='".$currentUser -> user['login']."'");
 
 	$total_files    = eF_diveIntoDir(G_UPLOADPATH.$currentUser -> user['login'].'/message_attachments/');
 
-	
+
 
 	$smarty -> assign("T_TOTAL_MESSAGES", $total_messages[0]['count(*)']);
 
 	$smarty -> assign("T_TOTAL_SIZE", ceil($total_files[2] / 1000));
 
-	
+
 
 	$total_messages_percentage = round(100 * $total_messages[0]['count(*)'] / $res1[0]['value'], 2);
 
 	$total_files_percentage    = round(100 * ceil($total_files[2]/1000) / $res2[0]['value'], 2);
 
-	
+
 
 	$smarty -> assign("T_TOTAL_MESSAGES_PERCENTAGE", $total_messages_percentage);
 
-	$smarty -> assign("T_TOTAL_FILES_PERCENTAGE", $total_files_percentage);	
+	$smarty -> assign("T_TOTAL_FILES_PERCENTAGE", $total_files_percentage);
 
 	//$smarty -> assign("T_VOLUME_OPTIONS", array(array('text' => _VIEWFOLDERSTATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages&folder_statistics=1", 'onclick' => "eF_js_showDivPopup('"._FOLDERSTATISTICS."', 2)", 'target' => 'POPUP_FRAME')));
 
@@ -137,7 +138,10 @@ try {
      }
         exit;
     } elseif (isset($_GET['add'])) {
-  if ($currentUser -> coreAccess['personal_messages'] && $currentUser -> coreAccess['personal_messages'] !== 'change') {exit;}
+  if (!$_change_) {
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=messages&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
+   exit;
+  }
         $load_editor = true;
         $grant_full_access = false;
         if ($currentUser -> getType() == "administrator") {
@@ -544,7 +548,7 @@ try {
         eF_updateTableData("f_personal_messages", array("viewed" => 1), "id=".$currentMessage['id']);
     } else {
      $folderMessages = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$currentFolder, "priority desc, viewed,timestamp desc");
-/*        
+/*
 
         if (isset($_GET['flag']) && eF_checkParameter($_GET['flag'], 'id')) {
 
@@ -596,7 +600,7 @@ try {
             // Keep only the first characters of the recipient's list
             //$subject_chars   = 50;
             //$recipient_chars = 30;
-/*            
+/*
 
             foreach ($messages as $key => $p_message) {
 
@@ -676,7 +680,7 @@ try {
         }
 
 */
-/*        
+/*
 
         $in_messages_count  = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$in_folder[0]['id']);
 

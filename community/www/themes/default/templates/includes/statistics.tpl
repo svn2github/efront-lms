@@ -4,7 +4,7 @@
 
 
 
-                    {eF_template_printBlock title = $smarty.const._STATISTICS columns = 4 links = $T_STATISTICS_OPTIONS image = '32x32/options.png' help = 'Reports'}
+                    {eF_template_printBlock title = $smarty.const._STATISTICS columns = 4 links = $T_STATISTICS_OPTIONS image = '32x32/options.png' help = 'Reports' groups = $T_REPORTS_GROUPS}
 
             </td></tr>
         </table>

@@ -226,7 +226,7 @@ try {
 
                  $smarty -> assign("T_DATASOURCE_SORT_BY", 5);
                  $smarty -> assign("T_DATASOURCE_SORT_ORDER", 'desc');
-                 $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_lessons', 'num_skills', 'has_course'));
+                 $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_lessons', 'has_course'));
                  if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
                   try {
                    if ($_GET['ajax'] == 'coursesTable') {
@@ -244,7 +244,7 @@ try {
                    handleAjaxExceptions($e);
                   }
                  }
-/*                    
+/*
 
                     if ($_GET['tab'] == 'courses') {
 
@@ -397,11 +397,6 @@ try {
         $form -> setDefaults(array( 'previous_url' => $previous_url));
         /* Needed for title */
         $smarty -> assign("T_JOB_DESCRIPTION_NAME", $currentJob -> job['description']);
-        $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-        $renderer -> setRequiredTemplate(
-            '{$html}{if $required}
-                &nbsp;<span class = "formRequired">*</span>
-            {/if}');
         /*****************************************************
 
          JOB_DESCRIPTION DATA SUBMISSION

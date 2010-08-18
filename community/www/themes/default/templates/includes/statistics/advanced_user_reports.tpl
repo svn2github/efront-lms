@@ -2,14 +2,16 @@
  {if $T_REPORT_NAMES}
  <div class = "headerTools">
   <span>
+   <form onsubmit = "location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+$('reports_list').options[$('reports_list').options.selectedIndex].value;return false">
    <span>{$smarty.const._SELECTREPORT}:&nbsp;</span>
-   <select>
+   <select id = "reports_list" onchange = "Element.extend(this).next().focus()">
     <option value = "0" {if $smarty.get.report==$key}selected{/if}>{$smarty.const._AVAILABLEREPORTS}</option>
    {foreach item = "item" key = "key" from = $T_REPORT_NAMES}
     <option value = "{$key}" {if $smarty.get.report==$key}selected{/if}>{$item}</option>
    {/foreach}
    </select>
-   <img src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" onclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value"/>
+   <input type = "image" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" nclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value" style = "border:0px;background-color:inherit"/>
+   </form>
   </span>
  </div>
  {else}
@@ -20,56 +22,60 @@
  <table id = "usersTable" style = "width:100%" sortBy="{$T_DEFAULT_SORT}" size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&">
   <tr class = "topTitle">
    {foreach name = 't_columns_list' item = "item" key = "key" from = $T_REPORT.rules.columns}
-   <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}" name = "{if $item.column == 'formatted_login'}login{else}{$item.column}{/if}">{if $item.grid_name}{$item.grid_name}{else}{$T_REPORT_COLUMNS[$item.column]}{/if}</td>
-   {foreachelse}
-   <td name = "login">{$smarty.const._USER}</td>
-   <td name = "user_type">{$smarty.const._USERTYPE}</td>
-   <td name = "email">{$smarty.const._EMAIL}</td>
+    {if $item.status}
+    <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}" name = "{if $item.column == 'formatted_login'}login{else}{$item.column}{/if}">{if $item.grid_name}{$item.grid_name}{else}{$T_REPORT_COLUMNS[$item.column]}{/if}</td>
+    {/if}
    {/foreach}
   </tr>
   {foreach name = 'conditions_list' item = "user" key = "key" from = $T_DATA_SOURCE}
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
    {foreach name = 't_columns_list' item = "item" key = "key" from = $T_REPORT.rules.columns}
-   <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}">
-    {assign var = "entry" value = $user[$item.column]}
-    {if $item.column == $T_EDIT_LINK}
-     <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
-    {/if}
-    {if $item.column == 'languages_NAME'}
-     {$T_LANGUAGES[$entry]}
-    {elseif $item.column == 'formatted_login'}
-     {$user.formatted_login}
-    {elseif $item.column == 'user_type'}
-     {$T_ROLE_NAMES[$entry]}
-    {elseif $item.column == 'active'}
-     {if $entry}<img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVE}" title = "{$smarty.const._ACTIVE}"/>{else}<img src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._INACTIVE}" title = "{$smarty.const._INACTIVE}"/>{/if}
-    {elseif $item.column == 'timestamp' || $item.column == 'last_login' || $item.column == 'hired_on' || $item.column == 'left_on'}
-     #filter:timestamp_time-{$entry}#
-    {elseif $item.column == 'branch'}
-     {$T_BRANCHES[$entry]}
-    {elseif $item.column == 'supervisor' || $item.column == 'driving_licence'}
-     {if $entry}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}
-    {elseif $item.column == 'marital_status'}
-     {if $entry}{$smarty.const._MARRIED}{else}{$smarty.const._SINGLE}{/if}
-    {elseif $item.column == 'sex'}
-     {if $entry}{$smarty.const._FEMALE}{else}{$smarty.const._MALE}{/if}
-    {elseif $item.column == 'way_of_working'}
-     {if $entry}{$smarty.const._PARTTIME}{else}{$smarty.const._FULLTIME}{/if}
-    {else}
-     {$entry}
-    {/if}
-    {if $item.column == $T_EDIT_LINK}
-     {if !$T_CONFIGURATION.disable_tooltip}
-      <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
-      <span class = "tooltipSpan"></span>
+    {if $item.status}
+    <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}">
+     {assign var = "entry" value = $user[$item.column]}
+     {if $item.column == $T_EDIT_LINK}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
      {/if}
-     </a>
+     {if $item.column == 'languages_NAME'}
+      {$T_LANGUAGES[$entry]}
+     {elseif $item.column == 'formatted_login'}
+      #filter:login-{$user.login}#
+     {elseif $item.column == 'user_type'}
+      {$T_ROLE_NAMES[$entry]}
+     {elseif $item.column == 'active'}
+      {if $entry}<img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVE}" title = "{$smarty.const._ACTIVE}"/>{else}<img src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._INACTIVE}" title = "{$smarty.const._INACTIVE}"/>{/if}
+     {elseif $item.column == 'timestamp' || $item.column == 'last_login' || $item.column == 'hired_on' || $item.column == 'left_on'}
+      #filter:timestamp_time-{$entry}#
+     {elseif $item.column == 'branch'}
+      {$T_BRANCHES[$entry]}
+     {elseif $item.column == 'supervisor' || $item.column == 'driving_licence'}
+      {if $entry}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}
+     {elseif $item.column == 'marital_status'}
+      {if $entry}{$smarty.const._MARRIED}{else}{$smarty.const._SINGLE}{/if}
+     {elseif $item.column == 'sex'}
+      {if $entry}{$smarty.const._FEMALE}{else}{$smarty.const._MALE}{/if}
+     {elseif $item.column == 'way_of_working'}
+      {if $entry}{$smarty.const._PARTTIME}{else}{$smarty.const._FULLTIME}{/if}
+     {elseif $item.column == 'course_status'}
+      {if $user.count_courses}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink">{$user.sum_courses}/{$user.count_courses}</a>{/if}
+     {elseif $item.column == 'lesson_status'}
+      {if $user.count_lessons}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink">{$user.sum_lessons}/{$user.count_lessons}</a>{/if}
+     {elseif $item.column == 'certifications'}
+      {if $user.total_certificates}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$user.total_certificates}</a>{/if}
+     {elseif $item.column == 'certificate_status'}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$entry}</a>
+     {else}
+      {$entry}
+     {/if}
+     {if $item.column == $T_EDIT_LINK}
+      {if !$T_CONFIGURATION.disable_tooltip}
+       <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
+       <span class = "tooltipSpan"></span>
+      {/if}
+      </a>
+     {/if}
+    </td>
     {/if}
-   </td>
-   {foreachelse}
-   <td>{$user.login}</td>
-   <td>{$T_ROLE_NAMES[$user.user_type]}</td>
-   <td>{$user.email}</td>
    {/foreach}
   </tr>
   {foreachelse}
@@ -146,74 +152,10 @@
  {/if}
 {/capture}
 
-{capture name = "t_report_tools_code"}
- <div class = "headerTools">
-  <span>
-   <img src = "images/16x16/mail.png" alt = "{$smarty.const._SENDEMAIL}" title = "{$smarty.const._SENDEMAIL}" />
-   <a href = "javascript:void(0)">{$smarty.const._SENDEMAIL}</a>
-  </span>
- </div>
- <div class = "headerTools">
-  <span>
-   <img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" />
-   <a href = "javascript:void(0)" onclick = "applyOperation(this, 'activate');">{$smarty.const._ACTIVATE}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" />
-   <a href = "javascript:void(0)" onclick = "applyOperation(this, 'deactivate');">{$smarty.const._DEACTIVATE}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._ARCHIVE}" title = "{$smarty.const._ARCHIVE}" />
-   <a href = "javascript:void(0)" onclick = "applyOperation(this, 'archive');">{$smarty.const._ARCHIVE}</a>
-  </span>
- </div>
- <div class = "headerTools">
-  <span>
-   <img src = "images/16x16/users.png" alt = "{$smarty.const._ADDTOGROUP}" title = "{$smarty.const._ADDTOGROUP}" />
-   <a href = "javascript:void(0)">{$smarty.const._ADDTOGROUP}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/courses.png" alt = "{$smarty.const._ASSIGNCOURSE}" title = "{$smarty.const._ASSIGNCOURSE}" />
-   <a href = "javascript:void(0)">{$smarty.const._ASSIGNCOURSE}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/lessons.png" alt = "{$smarty.const._ASSIGNLESSON}" title = "{$smarty.const._ASSIGNLESSON}" />
-   <a href = "javascript:void(0)">{$smarty.const._ASSIGNLESSON}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/certificate.png" alt = "{$smarty.const._ISSUECERTIFICATE}" title = "{$smarty.const._ISSUECERTIFICATE}" />
-   <a href = "javascript:void(0)">{$smarty.const._ISSUECERTIFICATE}</a>
-  </span>
- </div>
- <div class = "headerTools">
-  <span>
-   <img src = "images/16x16/users.png" alt = "{$smarty.const._REMOVEFROMGROUP}" title = "{$smarty.const._REMOVEFROMGROUP}" />
-   <a href = "javascript:void(0)">{$smarty.const._REMOVEFROMGROUP}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/courses.png" alt = "{$smarty.const._REMOVECOURSE}" title = "{$smarty.const._REMOVECOURSE}" />
-   <a href = "javascript:void(0)">{$smarty.const._REMOVECOURSE}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/lessons.png" alt = "{$smarty.const._REMOVELESSON}" title = "{$smarty.const._REMOVELESSON}" />
-   <a href = "javascript:void(0)">{$smarty.const._REMOVELESSON}</a>
-  </span>
-  <span>
-   <img src = "images/16x16/certificate.png" alt = "{$smarty.const._REVOKECERTIFICATE}" title = "{$smarty.const._REVOKECERTIFICATE}" />
-   <a href = "javascript:void(0)">{$smarty.const._REVOKECERTIFICATE}</a>
-  </span>
- </div>
- <div class = "headerTools">
-  <span>
-   <img src = "images/16x16/refresh.png" alt = "{$smarty.const._RESETLEARNINGPROGRESS}" title = "{$smarty.const._RESETLEARNINGPROGRESS}" />
-   <a href = "javascript:void(0)" onclick = "applyOperation(this, 'reset');">{$smarty.const._RESETLEARNINGPROGRESS}</a>
-  </span>
- </div>
-
-{/capture}
 
 {capture name = "t_report_builder_code"}
  <div class = "headerTools">
+   <form onsubmit = "location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&tab=builder&report='+$('reports_list_edit').options[$('reports_list_edit').options.selectedIndex].value;return false">
   <span>
    <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDREPORT}" title = "{$smarty.const._ADDREPORT}" />
    <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWREPORT}', 0)">{$smarty.const._ADDREPORT}</a>
@@ -222,14 +164,16 @@
   <span>
    <img src = "images/16x16/edit.png" alt = "{$smarty.const._EDITREPORT}" title = "{$smarty.const._EDITREPORT}" />
    {$smarty.const._EDITREPORT}:&nbsp;
-   <select>
+   <select id = "reports_list_edit" onchange = "Element.extend(this).next().focus(); if (this.options[this.options.selectedIndex].value != '0') $('delete_report').show(); else $('delete_report').hide();">
     <option value = "0" {if $smarty.get.report==$key}selected{/if}>{$smarty.const._AVAILABLEREPORTS}</option>
    {foreach item = "item" key = "key" from = $T_REPORT_NAMES}
     <option value = "{$key}" {if $smarty.get.report==$key}selected{/if}>{$item}</option>
    {/foreach}
    </select>
-   <img src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" onclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value+'&tab=builder'"/>
+   <input type = "image" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" nclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value" style = "border:0px;background-color:inherit"/>
+   <img id = "delete_report" {if !$smarty.get.report}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteReport(this, $('reports_list_edit').options[$('reports_list_edit').options.selectedIndex].value)"/>
   </span>
+   </form>
   <hr/>
   {/if}
  </div>
@@ -240,7 +184,6 @@
     <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWREPORT}', 0)">
      <img class = "handle" src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" onclick = ""/>
     </a>
-    <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteReport(this, '{$smarty.get.report}')"/>
    </div>
    <div class = "headerTools">
     <span>
@@ -254,7 +197,8 @@
      <td>{$smarty.const._CONDITIONTYPE}</td>
      <td>{$smarty.const._CONDITIONSPECIFICATION}</td>
      <td>{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
-     <td>{$smarty.const._TOOLS}</td>
+     <td class = "centerAlign">{$smarty.const._STATUS}</td>
+     <td class = "centerAlign">{$smarty.const._TOOLS}</td>
     </tr>
     {foreach name = 'conditions_list' item = "item" key = "key" from = $T_REPORT.rules.conditions}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
@@ -264,6 +208,8 @@
       {$T_CONDITIONS[$item.condition].additional_options[$item.additional]}
       {if $item.condition == 'lesson'}
        {$T_LESSONS[$item.option]}
+      {elseif $item.condition == 'sex'}
+       {if $entry == 0}{$smarty.const._MALE}{else}{$smarty.const._FEMALE}{/if}
       {elseif $item.condition == 'course'}
        {$T_COURSES[$item.option]}
       {elseif $item.condition == 'group'}
@@ -274,29 +220,33 @@
        {$T_BRANCHES[$item.option]}
       {elseif $item.condition == 'learning_status'}
        {$T_CONDITIONS[$item.condition].values[$item.option]}
+      {elseif $item.condition == 'job_description'}
+       {$T_JOBS[$item.option]}
       {else}
        {$item.option}
       {/if}
       {if $item.from}#filter:timestamp-{$item.from}# {$smarty.const._AND} #filter:timestamp-{$item.to}#{/if}
      </td>
      <td>{$item.relation}</td>
-     <td>
-      <img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setStatus(this, '{$key}')"/>
+     <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setConditionStatus(this, '{$key}')"/></td>
+     <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_condition={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCONDITION}', 3)">
        <img class = "ajaxHandle" src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" onclick = "eF_js_showDivPopup();"/></a>
       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "deleteCondition(this, '{$key}')"/>
      </td>
     </tr>
     {foreachelse}
-    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "4">{$smarty.const._NODATAFOUND}</td></tr>
+    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "5">{$smarty.const._NODATAFOUND}</td></tr>
     {/foreach}
    </table>
    <br/>
    <div class = "headerTools">
+{*
     <span>
      <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDCOLUMN}" title = "{$smarty.const._ADDCOLUMN}" />
      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add_column=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOLUMN}', 2)">{$smarty.const._ADDCOLUMN}</a>
     </span>
+*}
     <span>
      <img src = "images/16x16/order.png" alt = "{$smarty.const._CHANGECOLUMNORDER}" title = "{$smarty.const._CHANGECOLUMNORDER}" />
      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&order_column=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CHANGECOLUMNORDER}', 2)">{$smarty.const._CHANGECOLUMNORDER}</a>
@@ -306,25 +256,28 @@
     <tr class = "topTitle">
      <td>{$smarty.const._COLUMNTYPE}</td>
      <td>{$smarty.const._GRIDNAME}</td>
-     <td>{$smarty.const._WIDTH}</td>
+     <td class = "centerAlign">{$smarty.const._WIDTH}</td>
      <td>{$smarty.const._ALIGNED}</td>
-     <td>{$smarty.const._TOOLS}</td>
+     <td class = "centerAlign">{$smarty.const._DEFAULTSORT}</td>
+     <td class = "centerAlign">{$smarty.const._STATUS}</td>
+     <td class = "centerAlign">{$smarty.const._TOOLS}</td>
     </tr>
     {foreach name = 'columns_list' item = "item" key = "key" from = $T_REPORT.rules.columns}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
      <td>{$T_REPORT_COLUMNS[$item.column]}</td>
      <td>{$item.grid_name}</td>
-     <td>{if $item.width}{$item.width}%{/if}</td>
+     <td class = "centerAlign">{if $item.width}{$item.width}%{/if}</td>
      <td>{$item.align}</td>
-     <td>
-      <img class = "ajaxHandle" src = "images/16x16/{if $item.default_sort}pin_green{else}pin_red{/if}.png" alt = "{$smarty.const._DEFAULTSORT}" title = "{$smarty.const._DEFAULTSORT}" onclick = "setDefaultSort(this, '{$key}')"/>
+     <td class = "centerAlign"><span style = "display:none">{$item.default_sort}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.default_sort}pin_green{else}pin_red{/if}.png" alt = "{$smarty.const._DEFAULTSORT}" title = "{$smarty.const._DEFAULTSORT}" onclick = "setDefaultSort(this, '{$key}')"/></td>
+     <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setColumnStatus(this, '{$key}')"/></td>
+     <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_column={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOLUMN}', 3)">
        <img class = "ajaxHandle" src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" onclick = "eF_js_showDivPopup();"/></a>
       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "deleteColumn(this, '{$key}')"/>
      </td>
     </tr>
     {foreachelse}
-    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "5">{$smarty.const._NODATAFOUND}</td></tr>
+    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "7">{$smarty.const._NODATAFOUND}</td></tr>
     {/foreach}
    </table>
  {/if}
@@ -334,7 +287,6 @@
 {capture name = 't_tabber_code'}
 <div class = "tabber">
  {eF_template_printBlock tabber = "users" title = $smarty.const._REPORTS data = $smarty.capture.t_users_table_code image = '32x32/reports.png'}
- {*{eF_template_printBlock tabber = "tools" title = $smarty.const._TOOLS data = $smarty.capture.t_report_tools_code image = '32x32/tools.png'}*}
  {eF_template_printBlock tabber = "builder" title = $smarty.const._BUILDER data = $smarty.capture.t_report_builder_code image = '32x32/generic.png'}
 </div>
 {/capture}
@@ -379,7 +331,7 @@
       {elseif $item.type == 'select'}
        <select name = "option_{$key}">
        {foreach name = 'options_list' item = "option" key = "value" from = $item.values}
-        <option value = "{$value}">{$option}</option>
+        <option value = "{$value}" {if isset($T_EDITED_CONDITION) && $T_EDITED_CONDITION.option == $value}selected{/if}>{$option}</option>
        {/foreach}
        </select>
       {elseif $item.type == 'date'}
@@ -398,15 +350,15 @@
            <tr><td class = "labelCell"></td>
                <td class = "infoCell">{$smarty.const._ANDTAKESPRECEDENCE}</td></tr>
            <tr><td></td>
-               <td class = "submitCell">{$T_ADD_CONDITION_FORM.submit.html}</td></tr>
+               <td class = "submitCell">{$T_ADD_CONDITION_FORM.submit.html} {$T_ADD_CONDITION_FORM.submit_another.html}</td></tr>
        </table>
    </form>
 
   {/capture}
   {eF_template_printBlock title = $smarty.const._ADDCONDITION data = $smarty.capture.t_add_condition_code image = '32x32/add.png'}
 
-  {if $T_MESSAGE_TYPE == 'success'}
-     <script>parent.location = parent.location.toString()+'&tab=builder';</script>
+  {if $smarty.get.message_type == 'success' && !$smarty.get.post_another}
+     <script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&tab=builder';</script>
   {/if}
  {elseif (isset($smarty.get.edit_column) || isset($smarty.get.add_column)) && $smarty.get.report}
   {capture name = 't_add_column_code'}
@@ -423,9 +375,11 @@
   {capture name = 'column_tree'}
    <ul id = "dhtmlgoodies_column_tree" class = "dhtmlgoodies_tree">
    {foreach name = 'columns_list' key = 'id' item = 'column' from = $T_ORDER_COLUMNS}
+    {if $column.status}
     <li id = "dragtree_{$id+1}" noChildren = "true">
      <a class = "drag_tree_columns" href = "javascript:void(0)"> {$T_REPORT_COLUMNS[$column.column]}</a>
     </li>
+    {/if}
    {/foreach}
    </ul>
   {/capture}

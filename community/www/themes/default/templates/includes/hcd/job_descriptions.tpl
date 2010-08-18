@@ -254,7 +254,7 @@
                <td>{$lesson.languages_NAME}</td>
 
               {* enterprise version: Prices are replaced by the number of skills offered *}
-               <td align ="center">{if $lesson.skills_offered == 0}{$smarty.const._NOSKILLSOFFERED}{else}{$lesson.skills_offered}{/if}</td>
+               {*<td align ="center">{if $lesson.skills_offered == 0}{$smarty.const._NOSKILLSOFFERED}{else}{$lesson.skills_offered}{/if}</td>*}
 
               <td align="center">
                <input class = "inputCheckBox" type = "checkbox" id="lesson_{$lesson.id}" name = "lesson" onclick = "ajaxPost('{$lesson.id}', this);"
@@ -288,65 +288,7 @@
 
    {include file = "includes/common/courses_list.tpl"}
 
-{if 0}
-<!--ajax:coursesTable-->
 
-             <table style = "width:100%" class = "sortedTable" size = "{$T_COURSES_SIZE}" sortBy = "0" id = "coursesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$smarty.get.edit_job_description}&tab=courses&">
-              <tr class = "topTitle">
-               <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
-               <td class = "topTitle" name = "direction_name">{$smarty.const._DIRECTION}</td>
-               <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
-
-              {* enterprise version: Prices are replaced by the number of skills offered *}
-
-
-
-               <td class = "topTitle" name = "price">{$smarty.const._PRICE}</td>
-
-
-               <td class = "topTitle" name = "job_description_ID" style = "text-align:center">{$smarty.const._CHECK}</td>
-              </tr>
-
-          {foreach name = 'courses_list2' key = 'key' item = 'course' from = $T_COURSES_DATA}
-              <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-               <td>
-            {if ($course.info)}
-                <a href = {if $course.active == 1}"{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$course.id}"{else}"javascript:void(0)"{/if} class = "info nonEmptyCourse">
-                 {$course.name}
-                 <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/>
-                 <span class="tooltipSpan">
-                  {if isset($course.info.general_description)}<strong>{$smarty.const._GENERALDESCRIPTION|cat:'</strong>:&nbsp;'|cat:$course.info.general_description}<br/>{/if}
-                  {if isset($course.info.assessment)} <strong>{$smarty.const._ASSESSMENT|cat:'</strong>:&nbsp;'|cat:$course.info.assessment}<br/> {/if}
-                  {if isset($course.info.objectives)} <strong>{$smarty.const._OBJECTIVES|cat:'</strong>:&nbsp;'|cat:$course.info.objectives}<br/> {/if}
-                  {if isset($course.info.course_topics)} <strong>{$smarty.const._COURSETOPICS|cat:'</strong>:&nbsp;'|cat:$course.info.course_topics}<br/> {/if}
-                  {if isset($course.info.resources)} <strong>{$smarty.const._RESOURCES|cat:'</strong>:&nbsp;'|cat:$course.info.resources}<br/> {/if}
-                  {if isset($course.info.other_info)} <strong>{$smarty.const._OTHERINFO|cat:'</strong>:&nbsp;'|cat:$course.info.other_info}<br/> {/if}
-                 </span>
-                </a>
-            {else}
-                {if $course.active == 1}<a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$course.id}" class = "editLink">{$course.name}</a>{else}{$course.name}{/if}
-            {/if}
-               </td>
-               <td>{$course.direction_name}</td>
-               <td>{$course.languages_NAME}</td>
-
-              {* enterprise version: Prices are replaced by the number of skills offered *}
-               <td align ="center">{if $course.skills_offered == 0}{$smarty.const._NOSKILLSOFFERED}{else}{$course.skills_offered}{/if}</td>
-
-              <td align="center">
-               <input class = "inputCheckBox" type = "checkbox" id="course_{$course.id}" name = "course" onclick = "ajaxPost('{$course.id}', this);"
-               {if $course.job_description_ID == $smarty.get.edit_job_description}
-                checked
-               {/if}
-               >
-              </td>
-              </tr>
-          {foreachelse}
-             <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NOCOURSESFOUND}</td></tr>
-          {/foreach}
-             </table>
-<!--/ajax:coursesTable-->
-{/if}
     {/capture}
 
 

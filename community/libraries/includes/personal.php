@@ -172,7 +172,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   // The $editedUser object will be set here if a user is changing his own data. Otherwise, it will be created here for the user under edition
   if (!isset($editedUser)) {
    try {
-    $editedUser = EfrontUserFactory :: factory($_GET['edit_user']); //new EfrontUser();				
+    $editedUser = EfrontUserFactory :: factory($_GET['edit_user']); //new EfrontUser();
     $editedEmployee = $editedUser -> aspects['hcd'];
    } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
@@ -675,7 +675,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
  $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText"');
  // Find all groups available to create the select-group drop down
  if (!isset($groups_table)) {
-  $groups_table = eF_getTableData("groups", "id, name", "");
+  $groups_table = eF_getTableData("groups", "id, name", "active=1");
  }
  if (!empty($groups_table)) {
   $groups = array ("" => "");
@@ -948,7 +948,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
    $smarty -> assign("T_USER_TO_CERTIFICATES", $certificates);
   }
   /** Get groups **/
-  $groups = eF_getTableData("groups", "*");
+  $groups = eF_getTableData("groups", "*", "active=1");
   $user_groups = $editedUser -> getGroups();
   $groups_size = sizeof($groups);
   for ($k = 0; $k < $groups_size; $k++) {

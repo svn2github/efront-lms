@@ -46,7 +46,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $form -> addRule('score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
     $form -> addElement('textarea', 'comments', _COMMENTS, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:5em;"'); //Comments on student's performance
 
-    //$user_data  = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_SESSION['s_lessons_ID']);    
+    //$user_data  = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_SESSION['s_lessons_ID']);
 //    $userStats  = EfrontStats::getUsersLessonStatus($currentLesson, $editedUser -> user['login']);
 //    pr($userStats);
     $userStats = $editedUser -> getUserStatusInLessons($currentLesson);
@@ -68,7 +68,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
             } else {
                 eF_updateTableData("users_to_lessons", array('completed' => 0, 'score' => 0, 'to_timestamp' => null), "users_LOGIN = '".$editedUser -> user['login']."' and lessons_ID=".$currentLesson -> lesson['id']);
 //		        $cacheKey = "user_lesson_status:lesson:".$currentLesson -> lesson['id']."user:".$editedUser -> user['login'];
-//		        Cache::resetCache($cacheKey);            
+//		        Cache::resetCache($cacheKey);
             }
 
             eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=progress&message='.urlencode(_STUDENTSTATUSCHANGED).'&message_type=success');
@@ -158,7 +158,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 
 	try {
 
-		$users = EfrontStats::getUsersLessonStatus($currentLesson, array_keys($currentLesson -> getUsers('student')), array('notests' => 1, 'noprojects' => 1));		
+		$users = EfrontStats::getUsersLessonStatus($currentLesson, array_keys($currentLesson -> getUsers('student')), array('notests' => 1, 'noprojects' => 1));
 
 		$users = $users[$currentLesson -> lesson['id']];
 

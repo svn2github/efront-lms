@@ -52,10 +52,12 @@ if ($currentUser -> user['user_type'] != 'administrator' && !$isSupervisor) {
 $smarty -> assign("T_OPTION", $_GET['option']);
 try {
     /*no option is set, so just show the available options*/
-    if (!isset($_GET['option'])) {
-        if ($currentUser -> user['user_type'] == 'administrator') {
-            $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
-            $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=lesson");
+ if (!isset($_GET['option'])) {
+  $reportGroups = array(0 => 0);
+  $smarty -> assign("T_REPORTS_GROUPS", $reportGroups);
+  if ($currentUser -> user['user_type'] == 'administrator') {
+   $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
+   $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=lesson");
             $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
             $options[] = array('text' => _SYSTEMSTATISTICS, 'image' => "32x32/reports.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=system");
             $smarty -> assign("T_STATISTICS_OPTIONS", $options);

@@ -1423,7 +1423,7 @@ abstract class EfrontUser
 	 */
  public function getGroups() {
   if (! $this -> groups ) {
-   $result = eF_getTableData("users_to_groups", "groups_ID", "users_LOGIN = '".$this -> login."'");
+   $result = eF_getTableData("users_to_groups ug, groups g", "ug.groups_ID", "ug.users_LOGIN = '".$this -> login."' and g.id=ug.groups_ID and g.active=1");
    foreach ($result as $group) {
     $id = $group['groups_ID'];
     $this -> groups[$id] = $group;

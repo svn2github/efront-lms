@@ -378,12 +378,25 @@ class eF_PersonalMessage
         $result_users = eF_getTableData("users", "login, email, user_type"); //Get all user user information
         $result_messages = eF_getTableDataFlat("f_personal_messages", "users_LOGIN");
         $messages = array_count_values($result_messages['users_LOGIN']); //Count the number of messages for each user. Nice alternative to looping queries
-        foreach ($result_users as $user) {
-            $this -> userData[$user['login']] = $user;
-            $this -> userData[$user['login']]['messages'] = isset($messages[$user['login']]) ? $messages[$user['login']] : 0;
-        }
         foreach ($result_folders as $folder) {
-            $this -> userData[$folder['users_LOGIN']]['folders'][$folder['name']] = $folder['id'];
+            $folders[$folder['users_LOGIN']][$folder['name']] = $folder['id'];
+        }
+        foreach ($result_users as $user) {
+      if (!isset($folders[$user['login']]['Incoming'])) {
+       $id = eF_insertTableData("f_folders", array('name' => 'Incoming', 'users_LOGIN' => $user['login']));
+       $folders[$user['login']]['Incoming'] = $id;
+      }
+      if (!isset($folders[$user['login']]['Sent'])) {
+       $id = eF_insertTableData("f_folders", array('name' => 'Sent', 'users_LOGIN' => $user['login']));
+       $folders[$user['login']]['Sent'] = $id;
+      }
+      if (!isset($folders[$user['login']]['Drafts'])) {
+       $id = eF_insertTableData("f_folders", array('name' => 'Drafts', 'users_LOGIN' => $user['login']));
+       $folders[$user['login']]['Drafts'] = $id;
+      }
+            $this -> userData[$user['login']] = $user;
+            $this -> userData[$user['login']]['folders'] = $folders[$user['login']];
+            $this -> userData[$user['login']]['messages'] = isset($messages[$user['login']]) ? $messages[$user['login']] : 0;
         }
     }
     /**
@@ -449,7 +462,7 @@ class eF_PersonalMessage
 
      * Get user message folders
 
-     * 
+     *
 
      * This function retrieves the folders of the specified user. The folders are returned so that
 
@@ -469,7 +482,7 @@ class eF_PersonalMessage
 
      * The function creates any missing directories in the user space as well
 
-     * 
+     *
 
      * @param mixed $user The user to retrieve folders for
 
@@ -489,6 +502,10 @@ class eF_PersonalMessage
      if (!is_dir(G_UPLOADPATH.$user.'/message_attachments/')) { //Check if the messages folder for this user exists on the disk
          mkdir(G_UPLOADPATH.$user.'/message_attachments/', 0755);
      }
+     $result = eF_getTableDataFlat("f_folders", "name", "users_LOGIN='$user'");
+     in_array('Incoming', $result['name']) OR eF_insertTableData("f_folders", array('name' => 'Incoming', 'users_LOGIN' => $user));
+     in_array('Sent', $result['name']) OR eF_insertTableData("f_folders", array('name' => 'Sent', 'users_LOGIN' => $user));
+     in_array('Drafts', $result['name']) OR eF_insertTableData("f_folders", array('name' => 'Drafts', 'users_LOGIN' => $user));
      $folders = $incoming = $sent = $drafts = array();
      $result = eF_getTableData("f_folders f left outer join f_personal_messages pm on pm.f_folders_ID=f.id", "f.*, count(pm.id) as messages_num", "f.users_LOGIN='".$user."'", "", "f.id");
      foreach ($result as $value) {
@@ -564,7 +581,7 @@ class eF_PersonalMessage
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -626,7 +643,7 @@ class f_folders extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @param $fields
 

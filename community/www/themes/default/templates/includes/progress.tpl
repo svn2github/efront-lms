@@ -32,6 +32,7 @@
               <tr><td colspan = "3">{$smarty.const._TIMEINLESSON}:
                       {if $T_USER_TIME.hours == 1}{$T_USER_TIME.hours} {$smarty.const._HOUR}{elseif $T_USER_TIME.hours > 1}{$T_USER_TIME.hours} {$smarty.const._HOURS}{/if}
                       {if $T_USER_TIME.minutes == 1}{$T_USER_TIME.minutes} {$smarty.const._MINUTE}{elseif $T_USER_TIME.minutes > 1}{$T_USER_TIME.minutes} {$smarty.const._MINUTES}{/if}
+                      {if $T_USER_TIME.seconds == 1}{$T_USER_TIME.seconds} {$smarty.const._SECOND}{elseif $T_USER_TIME.seconds > 1}{$T_USER_TIME.seconds} {$smarty.const._SECONDS}{/if}
                   </td>
               </tr>
               <tr><td>{$smarty.const._OVERALLPROGRESS}:&nbsp;</td>
@@ -65,7 +66,9 @@
                   </td>
               </tr>
               {foreachelse}
-              <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._TESTS}: {$smarty.const._NODATAFOUND}</td></tr>
+               {if $T_USER_LESSONS_INFO.scorm_done_tests|@sizeof == 0}
+                <tr><td colspan = "3" class = "emptyCategory">{$smarty.const._TESTS}: {$smarty.const._NODATAFOUND}</td></tr>
+    {/if}
               {/foreach}
               {foreach name = 'scorm_done_tests_list' item = "test" key = "id" from = $T_USER_LESSONS_INFO.scorm_done_tests}
               <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span></td>

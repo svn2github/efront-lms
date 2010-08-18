@@ -108,9 +108,9 @@ class EfrontSearch
    if (sizeof($terms) > 20) {
     $result = eF_getTableDataFlat("search_invertedindex", "id,keyword");
    } else {
-    $result = eF_getTableDataFlat("search_invertedindex", "id,keyword", "keyword in ('".implode("','", array_walk($terms, eF_addSlashes))."')");
+    $result = eF_getTableDataFlat("search_invertedindex", "id,keyword", "keyword in ('".implode("','", array_walk($terms, 'eF_addSlashes'))."')");
    }
-      $result["keyword"] ? $allTerms = $result["keyword"] : $allTerms = array();
+      isset($result["keyword"]) && $result["keyword"] ? $allTerms = $result["keyword"] : $allTerms = array();
       if (! empty($terms)) {
           foreach ($terms as $key => $value) {
               $position = array_search( $value, $allTerms); //array_search may also return null!

@@ -99,6 +99,7 @@ if ($importForm -> isSubmitted()) {
         } else {
 
          $log = $importer -> import($importType);
+         file_put_contents('import_log_'.time().'.txt', implode("\n", $log['success']).implode("\n", $log['failure']));
          $excess_elements = 0;
         //	pr($log);
         }

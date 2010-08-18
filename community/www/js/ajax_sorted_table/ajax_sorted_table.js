@@ -704,7 +704,7 @@ function eF_js_sortTable(el, other) {
         //option.setAttribute('value', rowsPerPage[tableIndex]);
         //option.innerHTML = rowsPerPage[tableIndex];
         //select.appendChild(option);
-        rowsPerPageArray = new Array('10', '15', '20', '50', '200');
+        rowsPerPageArray = new Array('10', '15', '20', '50', '100', '200', '500');
         for (var i = 0; i < rowsPerPageArray.length; i++) { //Append 10 values, 5,10,15, ..., 45 rows per page
             var option = document.createElement('option');
             option.setAttribute('value', rowsPerPageArray[i]);
@@ -1027,4 +1027,14 @@ function augmentUrl(table_id) {
   }
  }
  return augmentedUrl;
+}
+
+function findSortedTableIndex(name) {
+    tables = sortedTables.size();
+    for (var i = 0; i < tables; i++) {
+        if (sortedTables[i].id.match(name)) {
+         return i;
+        }
+    }
+
 }

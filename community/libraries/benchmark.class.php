@@ -91,11 +91,17 @@ class EfrontBenchmark
       "total_queries" => $this -> dbtimes['queries'],
       "max_query" => serialize(array_slice($GLOBALS['db'] -> queries, 0, 1)),
       "timestamp" => time());
-  try {
-   eF_insertTableData("benchmark", $fields);
-   eF_deleteTableData("benchmark", "timestamp < ".(time() - 3600*24*7)); //Keep a week's data only
-  } catch (Exception $e) {}
+/*
 
+		try {
+
+			eF_insertTableData("benchmark", $fields);
+
+			eF_deleteTableData("benchmark", "timestamp < ".(time() - 3600*24*7));	//Keep a week's data only
+
+		} catch (Exception $e) {}
+
+*/
   return $str;
  }
 }

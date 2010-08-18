@@ -211,6 +211,7 @@ $MODULE_HCD_EVENTS['SKILL'] = 5;
 $MODULE_HCD_EVENTS['SEMINAR'] = 6;
 $MODULE_HCD_EVENTS['FIRED'] = 7;
 $MODULE_HCD_EVENTS['LEFT'] = 8;
+$loadScripts = array();
 /**
 
  * Setup version
@@ -262,7 +263,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 8145;
+    $build = 8167;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

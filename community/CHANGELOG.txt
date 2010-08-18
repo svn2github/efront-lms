@@ -13,6 +13,12 @@
 - Fixed issue introduced in 3.6.5 about course completion operations
 - Fixed changing course category not working when lessons with the same id existed in the category
 - Fixed user's progress in course/lesson initialization would result in other users' progress being initialized as well
+- Fixed not displaying empty categories in catalog, even if children are not empty
+- Fixed $loadScripts not being initialized causes modules' javascripts not being included
+- Added automatic creation of message folders to users, in case they are missing
+- Fixed exporting lessons with illegal windows filesystem characters in their name
+- Fixed avatars list not displayed when administrator edits himself
+- Fixed "view" user_type restriction for messages displayed non-working add/reply/fwd handles
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

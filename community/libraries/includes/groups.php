@@ -365,7 +365,7 @@ $loadScripts[] = 'includes/groups';
         }
 
     } else {
-        $result = eF_getTableData("groups g LEFT OUTER JOIN users_to_groups ug ON g.id=ug.groups_ID", "g.*, count(ug.groups_ID) as num_users", "", "", "id");
+        $result = eF_getTableData("groups g LEFT OUTER JOIN users_to_groups ug ON g.id=ug.groups_ID", "g.*, count(ug.groups_ID) as num_users", "g.dynamic=0", "", "id");
         $smarty -> assign("T_USERGROUPS", $result);
     }
 

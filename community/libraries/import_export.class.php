@@ -371,6 +371,7 @@ class EfrontImportCsv extends EfrontImport
      break;
     case "users":
      $existingUsers = eF_getTableDataFlat("users", "login, active, archive");
+     $addedUsers = array();
      foreach ($data as $key => $value) {
       try {
        $newUser = EfrontUser::createUser($value, $existingUsers, false);
@@ -392,8 +393,8 @@ class EfrontImportCsv extends EfrontImport
       }
      }
      $defaultGroup = eF_getTableData("groups", "id", "is_default = 1 AND active = 1");
-     if (!empty($defaultGroup)) {
-      $defaultGroup = new EfrontGroup($defaultGroup);
+     if (!empty($defaultGroup) && !empty($addedUsers)) {
+      $defaultGroup = new EfrontGroup($defaultGroup[0]['id']);
       $defaultGroup -> addUsers($addedUsers);
      }
      break;

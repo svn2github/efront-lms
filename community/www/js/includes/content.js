@@ -437,3 +437,6 @@ if (typeof(matchscreenobjectid) != 'undefined' && matchscreenobjectid) {
   }
  }
 }
+if (typeof(autoSetSeenUnit) != 'undefined' && autoSetSeenUnit) {
+ setSeenUnit(1);
+}

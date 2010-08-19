@@ -216,6 +216,7 @@ if (isset($_GET['fct'])) {
             }
             if (sizeof($nonFreeLessons) > 0 || sizeof($nonFreeCourses) > 0) {
                 if (isset($_POST['submit_checkout_balance'])) {
+                 $message = _SUCCESSFULLYENROLLED;
                  if ($form -> exportValue('coupon') && $coupon = new coupons($form -> exportValue('coupon'), true)) {
          if (!$coupon -> checkEligibility()) {
           throw new Exception(_INVALIDCOUPON);
@@ -289,13 +290,14 @@ if (isset($_GET['fct'])) {
                     if (sizeof($nonFreeCourses) > 0) {
                         $currentUser -> addCourses($nonFreeCourses, array_fill(0, sizeof($nonFreeCourses), 'student'), false);
                     }
+                    $message = _ADMINISTRATORCONFIRMENROLLED;
                 }
             }
             cart :: storeCart($cart);
             if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-                eF_redirect($_SESSION['s_type']."page.php?message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
+                eF_redirect($_SESSION['s_type']."page.php?message=".rawurlencode($message)."&message_type=success");
             } else {
-                eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
+                eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".rawurlencode($message)."&message_type=success");
             }
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);

@@ -18,6 +18,7 @@
  <div>{$smarty.const._NOREPORTSINTHESYSTEM}<a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&tab=builder&add=1">{$smarty.const._CREATEONE}</a></div>
  {/if}
  {if $T_REPORT}
+
 <!--ajax:usersTable-->
  <table id = "usersTable" style = "width:100%" sortBy="{$T_DEFAULT_SORT}" size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&">
   <tr class = "topTitle">
@@ -26,10 +27,11 @@
     <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}" name = "{if $item.column == 'formatted_login'}login{else}{$item.column}{/if}">{if $item.grid_name}{$item.grid_name}{else}{$T_REPORT_COLUMNS[$item.column]}{/if}</td>
     {/if}
    {/foreach}
+    <td class = "centerAlign noSort">{$smarty.const._SELECT}</td>
   </tr>
   {foreach name = 'conditions_list' item = "user" key = "key" from = $T_DATA_SOURCE}
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
-   {foreach name = 't_columns_list' item = "item" key = "key" from = $T_REPORT.rules.columns}
+   {foreach name = 't_columns_list' item = "item" key = "foo" from = $T_REPORT.rules.columns}
     {if $item.status}
     <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}">
      {assign var = "entry" value = $user[$item.column]}
@@ -47,7 +49,9 @@
      {elseif $item.column == 'timestamp' || $item.column == 'last_login' || $item.column == 'hired_on' || $item.column == 'left_on'}
       #filter:timestamp_time-{$entry}#
      {elseif $item.column == 'branch'}
-      {$T_BRANCHES[$entry]}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$entry}" class = "editLink">({$user.sum_branch}) {$T_BRANCHES[$entry]}</a>
+     {elseif $item.column == 'job_description'}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$entry}" class = "editLink">{$T_JOBS[$entry]}</a>
      {elseif $item.column == 'supervisor' || $item.column == 'driving_licence'}
       {if $entry}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}
      {elseif $item.column == 'marital_status'}
@@ -61,7 +65,7 @@
      {elseif $item.column == 'lesson_status'}
       {if $user.count_lessons}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink">{$user.sum_lessons}/{$user.count_lessons}</a>{/if}
      {elseif $item.column == 'certifications'}
-      {if $user.total_certificates}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$user.total_certificates}</a>{/if}
+      {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$user.certifications}</a>{/if}
      {elseif $item.column == 'certificate_status'}
       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$entry}</a>
      {else}
@@ -77,23 +81,26 @@
     </td>
     {/if}
    {/foreach}
+    <td class = "centerAlign"><img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMSET}" title = "{$smarty.const._REMOVEFROMSET}" onclick = "removeFromSet(this, '{$user.login}')"/></td>
   </tr>
   {foreachelse}
   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{if $T_REPORT.rules.columns}{$T_REPORT.rules.columns|@sizeof}{else}3{/if}">{$smarty.const._NODATAFOUND}</td></tr>
   {/foreach}
  </table>
 <!--/ajax:usersTable-->
+
  <div class = ""><span>{$smarty.const._CURREPAGEOPERATIONS}:</span>
+  <img class = "ajaxHandle" src = "images/16x16/refresh.png" alt = "{$smarty.const._REFRESHTABLE}" title = "{$smarty.const._REFRESHTABLE}" onclick = "eF_js_rebuildTable('usersTable', 0, 'null', 'desc');"/>
   <img class = "ajaxHandle" src = "images/file_types/xls.png" alt = "{$smarty.const._EXPORTTOCSV}" title = "{$smarty.const._EXPORTTOCSV}" onclick = "exportCsv(this);"/>
   <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'activate');"/>
   <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'deactivate');"/>
   <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._ARCHIVE}" title = "{$smarty.const._ARCHIVE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'archive');"/>
-  <img class = "ajaxHandle" src = "images/16x16/refresh.png" alt = "{$smarty.const._RESETLEARNINGPROGRESS}" title = "{$smarty.const._RESETLEARNINGPROGRESS}"onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'reset');"/>
+  <img class = "ajaxHandle" src = "images/16x16/undo.png" alt = "{$smarty.const._RESETLEARNINGPROGRESS}" title = "{$smarty.const._RESETLEARNINGPROGRESS}"onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'reset');"/>
   <img class = "ajaxHandle" src = "images/16x16/users.png" alt = "{$smarty.const._GROUPOPERATIONS}" title = "{$smarty.const._GROUPOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._GROUPOPERATIONS}', 0, 'add_group_table')"/>
   <img class = "ajaxHandle" src = "images/16x16/courses.png" alt = "{$smarty.const._COURSEOPERATIONS}" title = "{$smarty.const._COURSEOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._COURSEOPERATIONS}', 0, 'add_course_table')"/>
   <img class = "ajaxHandle" src = "images/16x16/lessons.png" alt = "{$smarty.const._LESSONOPERATIONS}" title = "{$smarty.const._LESSONOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._LESSONOPERATIONS}', 0, 'add_lesson_table')"/>
   <img class = "ajaxHandle" src = "images/16x16/certificate.png" alt = "{$smarty.const._CERTIFICATEOPERATIONS}" title = "{$smarty.const._CERTIFICATEOPERATIONS}"onclick = "eF_js_showDivPopup('{$smarty.const._CERTIFICATEOPERATIONS}', 0, 'add_certificate_table')"/>
-  <img class = "ajaxHandle" src = "images/16x16/mail.png" alt = "{$smarty.const._SENDEMAIL}" title = "{$smarty.const._SENDEMAIL}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=messages&add=1&popup=1';eF_js_showDivPopup('{$smarty.const._SENDEMAIL}', 2)"/>
+  {*<img class = "ajaxHandle" src = "images/16x16/mail.png" alt = "{$smarty.const._SENDEMAIL}" title = "{$smarty.const._SENDEMAIL}" onclick = "eF_js_showDivPopup('{$smarty.const._SENDEMAIL}', 2);$('popup_frame').src='{$smarty.server.PHP_SELF}?ctg=messages&add=1&popup=1';"/>*}
  </div>
  <div id = "add_group_table" style = "display:none">
   {capture name = "t_add_group_table_code"}
@@ -191,17 +198,25 @@
      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add_condition=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCONDITION}', 3)">{$smarty.const._ADDCONDITION}</a>
      {*<a href = "javascript:void(0)" onclick = "addCondition()">{$smarty.const._ADDCONDITION}</a>*}
     </span>
+    <span>
+     <img src = "images/16x16/order.png" alt = "{$smarty.const._CHANGECONDITIONORDER}" title = "{$smarty.const._CHANGECONDITIONORDER}" />
+     <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&order_condition=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CHANGECONDITIONORDER}', 2)">{$smarty.const._CHANGECONDITIONORDER}</a>
+    </span>
    </div>
-   <table class = "sortedTable" style = "width:100%" id = "conditions_table">
+
+<!--ajax:conditionsTable-->
+ <table id = "conditionsTable" style = "width:100%" size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&">
     <tr class = "topTitle">
-     <td>{$smarty.const._CONDITIONTYPE}</td>
-     <td>{$smarty.const._CONDITIONSPECIFICATION}</td>
-     <td>{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
-     <td class = "centerAlign">{$smarty.const._STATUS}</td>
-     <td class = "centerAlign">{$smarty.const._TOOLS}</td>
+     <td name = "index" class = "centerAlign">{$smarty.const._INDEX}</td>
+     <td name = "condition">{$smarty.const._CONDITIONTYPE}</td>
+     <td name = "option">{$smarty.const._CONDITIONSPECIFICATION}</td>
+     <td name = "relation">{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
+     <td name = "status" class = "centerAlign">{$smarty.const._STATUS}</td>
+     <td class = "centerAlign noSort">{$smarty.const._TOOLS}</td>
     </tr>
-    {foreach name = 'conditions_list' item = "item" key = "key" from = $T_REPORT.rules.conditions}
+    {foreach name = 'conditions_list' item = "item" key = "key" from = $T_DATA_SOURCE}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
+     <td class = "centerAlign">{$key+1}</td>
      <td>{$T_CONDITIONS[$item.condition].name}</td>
      <td>
       {$T_CONDITIONS[$item.condition].negation[$item.negation]}
@@ -216,10 +231,12 @@
        {$T_GROUPS[$item.option]}
       {elseif $item.condition == 'active'}
        {if $item.option == 1}{$smarty.const._ACTIVE}{else}{$smarty.const._INACTIVE}{/if}
-      {elseif $item.condition == 'branch'}
+      {elseif $item.condition == 'branch' || $item.condition == 'branch_tree'}
        {$T_BRANCHES[$item.option]}
       {elseif $item.condition == 'learning_status'}
        {$T_CONDITIONS[$item.condition].values[$item.option]}
+      {elseif $item.condition == 'skill'}
+       {$T_SKILLS[$item.option]}
       {elseif $item.condition == 'job_description'}
        {$T_JOBS[$item.option]}
       {else}
@@ -236,9 +253,11 @@
      </td>
     </tr>
     {foreachelse}
-    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "5">{$smarty.const._NODATAFOUND}</td></tr>
+    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "6">{$smarty.const._NODATAFOUND}</td></tr>
     {/foreach}
    </table>
+<!--/ajax:conditionsTable-->
+
    <br/>
    <div class = "headerTools">
 {*
@@ -267,7 +286,7 @@
      <td>{$T_REPORT_COLUMNS[$item.column]}</td>
      <td>{$item.grid_name}</td>
      <td class = "centerAlign">{if $item.width}{$item.width}%{/if}</td>
-     <td>{$item.align}</td>
+     <td><a href = "javascript:void(0)" onclick = "setAlign(this, '{$key}')">{$item.align}</a></td>
      <td class = "centerAlign"><span style = "display:none">{$item.default_sort}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.default_sort}pin_green{else}pin_red{/if}.png" alt = "{$smarty.const._DEFAULTSORT}" title = "{$smarty.const._DEFAULTSORT}" onclick = "setDefaultSort(this, '{$key}')"/></td>
      <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setColumnStatus(this, '{$key}')"/></td>
      <td class = "centerAlign">
@@ -358,7 +377,9 @@
   {eF_template_printBlock title = $smarty.const._ADDCONDITION data = $smarty.capture.t_add_condition_code image = '32x32/add.png'}
 
   {if $smarty.get.message_type == 'success' && !$smarty.get.post_another}
-     <script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&tab=builder';</script>
+     {*<script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&tab=builder';</script>*}
+          <script>finishedAddingConditions = 1;</script>
+
   {/if}
  {elseif (isset($smarty.get.edit_column) || isset($smarty.get.add_column)) && $smarty.get.report}
   {capture name = 't_add_column_code'}
@@ -370,6 +391,31 @@
      <script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&tab=builder';</script>
   {/if}
 
+ {elseif $smarty.get.order_condition && $smarty.get.report}
+
+  {capture name = 'condition_tree'}
+   <ul id = "dhtmlgoodies_condition_tree" class = "dhtmlgoodies_tree">
+   {foreach name = 'conditions_list' key = 'id' item = 'condition' from = $T_ORDER_CONDITIONS}
+    {if $condition.status}
+    <li id = "dragtree_{$id+1}" noChildren = "true">
+     <a class = "drag_tree_conditions" href = "javascript:void(0)"> {$T_CONDITIONS[$condition.condition].name}</a>
+    </li>
+    {/if}
+   {/foreach}
+   </ul>
+  {/capture}
+
+  {capture name = 'conditions_treeTotal'}
+   <table style = "width:100%">
+    <tr><td class = "mediumHeader popUpInfoDiv" style = "width:90%">{$smarty.const._DRAGITEMSTOCHANGEORDER}</td></tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr><td>{$smarty.capture.condition_tree}</td></tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr><td><input class = "flatButton" type="button" onclick="saveConditionTree(this)" value="{$smarty.const._SAVECHANGES}"></td></tr>
+   </table>
+  {/capture}
+  {eF_template_printBlock title = $smarty.const._CHANGEORDER data = $smarty.capture.conditions_treeTotal image = '32x32/order.png'}
  {elseif $smarty.get.order_column && $smarty.get.report}
 
   {capture name = 'column_tree'}

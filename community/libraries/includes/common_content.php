@@ -318,8 +318,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         if ($_student_) {
    //$smarty -> assign("T_NEXT_LESSON", $currentLesson -> getNextLesson());
          if ($_change_ && $currentLesson -> options['tracking'] && $currentUnit['options']['auto_complete'] && $ruleCheck) {
-                $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
-                $currentContent -> markSeenNodes($currentUser);
+                //$currentUser    -> setSeenUnit($currentUnit, $currentLesson, 1);
+                //$currentContent -> markSeenNodes($currentUser);
+                $smarty -> assign("T_AUTO_SET_SEEN_UNIT", true);
             }
    /*$hideFeedback = false;
 

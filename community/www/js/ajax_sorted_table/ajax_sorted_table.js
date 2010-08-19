@@ -146,6 +146,13 @@
 
     function eF_js_rebuildTable(tableIndex, offset, column_name, order, other, noDiv) {
      try {
+      if ($(tableIndex)) {
+          for (var i = 0; i < sortedTables.size(); i++) {
+              if (sortedTables[i].id.match(tableIndex)) {
+                  tableIndex = i;
+              }
+          }
+      }
       if (window.onBeforeSortedTable) {
        window.onBeforeSortedTable(sortedTables[tableIndex]);
       }

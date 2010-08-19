@@ -28,7 +28,7 @@ function filterSortPage($dataSource) {
 
  if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
   isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-  $dataSource = array_slice($dataSource, $offset, $limit);
+  $dataSource = array_slice($dataSource, $offset, $limit, true);
  }
 
  return array($tableSize, $dataSource);

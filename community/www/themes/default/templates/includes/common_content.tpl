@@ -355,6 +355,7 @@
   {*moduleShowUnit: A specific content page*}
   {capture name = "moduleShowUnit"}
    <tr><td class = "moduleCell" style = "height:100%">
+   {if $T_AUTO_SET_SEEN_UNIT}<script>autoSetSeenUnit = 1;</script>{/if}
    {if $T_UNIT.options.previous}{assign var = "T_PREVIOUS_UNIT" value = ""}{/if}
    {if $T_UNIT.options.continue}{assign var = "T_NEXT_UNIT" value = ""}{/if}
    {if $T_UNIT.name}{assign var = "unit_name" value = $T_UNIT.name}{else}{assign var = "unit_name" value = $smarty.const._NOCONTENT}{/if}

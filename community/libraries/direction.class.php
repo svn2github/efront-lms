@@ -435,7 +435,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 */
  public function reset() {
-  $directions = eF_getTableData("directions", "*", "", "name");
+  $directions = eF_getTableData("directions", "*", "", "id desc");
   if (sizeof($directions) == 0) {
    $this -> tree = new RecursiveArrayIterator(array());
    return;
@@ -667,8 +667,12 @@ class EfrontDirectionsTree extends EfrontTree
 	 */
  public function toHTML($iterator = false, $lessons = false, $courses = false, $userInfo = array(), $options = array()) {
   $options = $this -> parseTreeOptions($options);
-  $lessons = $this -> parseTreeLessons($lessons);
-  $courses = $this -> parseTreeCourses($courses);
+  $parsedLessons = $this -> parseTreeLessons($lessons);
+  $parsedCourses = $this -> parseTreeCourses($courses);
+  if (!empty($parsedCourses) || !empty($parsedLessons)) {
+   $lessons = $parsedLessons;
+   $courses = $parsedCourses;
+  }
   $iterator = $this -> initializeIterator($iterator, $lessons, $courses, $options);
   $current = $iterator -> current();
   $treeString = '

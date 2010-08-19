@@ -3850,4 +3850,10 @@ define("_UNCOMPRESSRECURSIVELYIMPORT", "Uncompress zip file(s) and import conten
 define("_THEMELOCKED", "The theme is locked");
 define("_BLANKREPORT", "Blank report");
 define("_CUSTOMREPORTS", "Custom reports");
+define("_ADMINISTRATORCONFIRMENROLLED", "The system administrator will review and activate your enrollments");
+define("_REFRESHTABLE", "Refresh table");
+define("_REMOVEFROMSET", "Remove from set");
+define("_BRANCHTREE", "Branch tree");
+define("_CHANGECONDITIONORDER", "Change condition order");
+define("_INDEX", "Index");
 ?>

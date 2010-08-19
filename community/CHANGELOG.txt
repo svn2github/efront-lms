@@ -19,6 +19,10 @@
 - Fixed exporting lessons with illegal windows filesystem characters in their name
 - Fixed avatars list not displayed when administrator edits himself
 - Fixed "view" user_type restriction for messages displayed non-working add/reply/fwd handles
+- Fixed lesson reports listing projects for users, when they have been unenrolled from the lesson
+- Set catalog to display completed lessons and courses when everything is completed even if "show material in progress" is selected
+- Setting unit property 'auto complete' triggers ajax event for immediately popping up completion info block
+- Fixed error in api2.php file that caused newly created users' passwords to be encoded twice 
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

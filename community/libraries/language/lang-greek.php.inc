@@ -3850,4 +3850,10 @@ define("_UNCOMPRESSRECURSIVELYIMPORT", "Αποσυμπίεσε τα αρχεία
 define("_THEMELOCKED", "Το θέμα είναι κλειδωμένο");
 define("_BLANKREPORT", "Κενή αναφορά");
 define("_CUSTOMREPORTS", "Προσαρμοσμένες αναφορές");
+define("_ADMINISTRATORCONFIRMENROLLED", "Ο διαχειριστής του συστήματος θα επιβεβαιώσει την εγγραφή σας");
+define("_REFRESHTABLE", "Ανανέωση πίνακα");
+define("_REMOVEFROMSET", "Αφαίρεση από το σύνολο");
+define("_BRANCHTREE", "Δέντρο τμημάτων");
+define("_CHANGECONDITIONORDER", "Αλλαγή σειράς συνθηκών");
+define("_INDEX", "Σειρά");
 ?>

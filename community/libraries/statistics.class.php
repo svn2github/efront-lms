@@ -2610,7 +2610,7 @@ class EfrontStats
             $project_info['general']['deadline'] = $project -> project['deadline'];
             $project_info['general']['auto_assign'] = $project -> project['auto_assign'];
             $project_info['done'] = array();
-            $assigned_data = eF_getTableData("users u, users_to_projects up", "u.LOGIN, u.name, u.surname, up.grade, up.upload_timestamp, up.status, up.comments", "u.LOGIN = up.users_LOGIN and up.projects_ID=".$project_id);
+            $assigned_data = eF_getTableData("users u, users_to_projects up, projects p, users_to_lessons ul", "u.LOGIN, u.name, u.surname, up.grade, up.upload_timestamp, up.status, up.comments", "p.id=up.projects_ID and ul.lessons_ID=p.lessons_ID and ul.users_LOGIN=u.login and ul.archive=0 and u.archive=0 and u.LOGIN = up.users_LOGIN and up.projects_ID=".$project_id);
             foreach ($assigned_data as $data) {
                 $done_project = array();
                 $done_project['users_LOGIN'] = $data['LOGIN'];

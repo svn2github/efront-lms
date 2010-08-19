@@ -65,11 +65,15 @@ try {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
             $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=lesson");
             $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
-            $smarty -> assign("T_STATISTICS_OPTIONS", $options);
+   if ($isSupervisor) {
+    $options[] = array('group' => 1, 'text' => _ADVANCEDUSERREPORTS, 'image' => "32x32/users.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=advanced_user_reports");
+   }
+   $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         } else if ($isSupervisor) {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
             $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
             $options[] = array('text' => _BRANCHSTATISTICS, 'image' => "32x32/branch.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=branches");
+   $options[] = array('group' => 1, 'text' => _ADVANCEDUSERREPORTS, 'image' => "32x32/users.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=advanced_user_reports");
             $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         }
     } else if ($_GET['option'] == 'user') {

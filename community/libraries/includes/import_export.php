@@ -42,7 +42,7 @@ if (isset($_GET['csv_sample']) && $_GET['csv_sample']==1 && isset($_GET['sample_
     exit;
 }
 
-//debug();
+
 if ($importForm -> isSubmitted()) {
     try {
         if (!is_dir($currentUser -> user['directory']."/temp")) {
@@ -132,7 +132,6 @@ if ($importForm -> isSubmitted()) {
         $message_type = 'failure';
     }
 }
-//debug(false);
 $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
 $importForm -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
 $importForm -> setRequiredNote(_REQUIREDNOTE);

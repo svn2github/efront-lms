@@ -17,11 +17,11 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api2.php?token=<token>&action=efrontlogin&login=<login> 			logs <login> in eFront
 
-/api2.php?token=<token>&action=create_lesson&name=<name>&category=<category_id>&course_only=<course_only>&language=<language>&price=<price>	creates a new lesson with corresponding fields	
+/api2.php?token=<token>&action=create_lesson&name=<name>&category=<category_id>&course_only=<course_only>&language=<language>&price=<price>	creates a new lesson with corresponding fields
 
-/api2.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname> 	creates a new user with corresponding fields	
+/api2.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname> 	creates a new user with corresponding fields
 
-/api2.php?token=<token>&action=update_user&login=<login>&password=<password>&email=<email>&name=<name>&surname<surname> 	updates a user profile with corresponding fields	
+/api2.php?token=<token>&action=update_user&login=<login>&password=<password>&email=<email>&name=<name>&surname<surname> 	updates a user profile with corresponding fields
 
 /api2.php?token=<token>&action=deactivate_user&login=<login>			deactivates user <login>
 
@@ -31,13 +31,13 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api2.php?token=<token>&action=groups                                                		returns all groups defined in eFront
 
-/api2.php?token=<token>&action=group_info&group=<group_id>                           		returns <group_id> information 
+/api2.php?token=<token>&action=group_info&group=<group_id>                           		returns <group_id> information
 
-/api2.php?token=<token>&action=group_to_user&login=<login>&group=<group_id>         			assigns group with <group_id> to user <login>   
+/api2.php?token=<token>&action=group_to_user&login=<login>&group=<group_id>         			assigns group with <group_id> to user <login>
 
 /api2.php?token=<token>&action=group_from_user&login=<login>&lesson=<group_id>       		undo assignment for group with <group_id> to user <login>
 
-/api2.php?token=<token>&action=lesson_to_user&login=<login>&lesson=<lesson_id>&type=<user_type>		assigns lesson with <lesson_id> to user <login> with role <user_type> 
+/api2.php?token=<token>&action=lesson_to_user&login=<login>&lesson=<lesson_id>&type=<user_type>		assigns lesson with <lesson_id> to user <login> with role <user_type>
 
 /api2.php?token=<token>&action=activate_user_lesson&login=<login>&lesson=<lesson_id> 		activate assignment for lesson with <lesson_id> to user <login>
 
@@ -45,17 +45,17 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api2.php?token=<token>&action=lesson_from_user&login=<login>&lesson=<lesson_id>				undo assignment for lesson with <lesson_id> to user <login>
 
-/api2.php?token=<token>&action=course_to_user&login=<login>&course=<course_id>&type=<user_type>		assigns course with <course_id> to user <login> with role <user_type>   
+/api2.php?token=<token>&action=course_to_user&login=<login>&course=<course_id>&type=<user_type>		assigns course with <course_id> to user <login> with role <user_type>
 
-/api2.php?token=<token>&action=course_from_user&login=<login>&courses=<course_id>		undo assignment for course with <course_id> to user <login> 
+/api2.php?token=<token>&action=course_from_user&login=<login>&courses=<course_id>		undo assignment for course with <course_id> to user <login>
 
 /api2.php?token=<token>&action=user_lessons&login=<login> 								returns the lessons that are assigned to the user <login>
 
 /api2.php?token=<token>&action=user_courses&login=<login> 								returns the courses that are assigned to the user <login>
 
-/api2.php?token=<token>&action=lesson_info&lesson=<lesson_id>							returns <lesson_id> information 
+/api2.php?token=<token>&action=lesson_info&lesson=<lesson_id>							returns <lesson_id> information
 
-/api2.php?token=<token>&action=user_info&login=<login>									returns <login> information 
+/api2.php?token=<token>&action=user_info&login=<login>									returns <login> information
 
 /api2.php?token=<token>&action=lessons													returns all lessons defined in eFront
 
@@ -73,7 +73,7 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api2.php?token=<token>&action=logout													logs out from eFront API
 
-/api2.php?token=<token>&action=curriculum_to_user&login=<login>&curriculum=<curriculum_id>  assigns curriculum with <curriculum_id> to user <login> 
+/api2.php?token=<token>&action=curriculum_to_user&login=<login>&curriculum=<curriculum_id>  assigns curriculum with <curriculum_id> to user <login>
 
 
 
@@ -319,7 +319,7 @@ In case of error it returns also a message entity with description of the error 
                     if (isset($_GET['token']) && checkToken($_GET['token'])){
                         if (isset($_GET['login']) && isset($_GET['password']) && isset($_GET['email']) && isset($_GET['languages']) && isset($_GET['name']) && isset($_GET['surname'])){
        $insert['login'] = $_GET['login'];
-                            $insert['password'] = EfrontUser :: createPassword($_GET['password']);
+                            $insert['password'] = $_GET['password'];
                             $insert['email'] = $_GET['email'];
                             $insert['languages_NAME'] = $_GET['languages'];
                             $insert['name'] = $_GET['name'];
@@ -399,7 +399,7 @@ In case of error it returns also a message entity with description of the error 
        }
        try {
         $user = EfrontUserFactory :: factory($_GET['login']);
- //pr($user);	exit;						
+ //pr($user);	exit;
         $user -> user['password'] = EfrontUser::createPassword($_GET['password']);
         $_GET['email'] != "" ? $user -> user['email'] = $_GET['email'] : null;
         $_GET['name'] != "" ? $user -> user['name'] = $_GET['name'] : null;

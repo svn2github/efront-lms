@@ -787,7 +787,7 @@ class Installation
  public static function addModules($upgrade = false) {
      $modulesToInstall = array("billboard",
              "blogs",
-             "dimdim",
+             "bbb",
              "faq",
              "flashcards",
              "links",

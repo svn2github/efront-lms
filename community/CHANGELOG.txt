@@ -1,4 +1,4 @@
-=== Version 3.6.6 ===
+=== Version 3.6.6 8186 ===
 - Added handle to reset all executions for all users in a test
 - Added code for not allowing any sub-administrator to edit an administrator profile
 - Improved performance during csv import for users
@@ -23,6 +23,7 @@
 - Set catalog to display completed lessons and courses when everything is completed even if "show material in progress" is selected
 - Setting unit property 'auto complete' triggers ajax event for immediately popping up completion info block
 - Fixed error in api2.php file that caused newly created users' passwords to be encoded twice 
+- Fixed error in activation email code sent out when new users are registering and "email activation" is set
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

@@ -643,10 +643,12 @@ class EfrontEvent
              "users_surname" => $this -> event['users_surname'],
               "users_LOGIN" => $this -> event['users_LOGIN'],
             "date" => formatTimestamp($timestamp),
-            "timestamp" => formatTimestamp($timestamp, 'time'));
+               "date_time" => formatTimestamp(time(), 'time'),
+            "timestamp" => $timestamp);
      } else {
       $subst_array = array("date" => formatTimestamp($timestamp),
-            "timestamp" => formatTimestamp($timestamp, 'time'));
+            "date_time" => formatTimestamp(time(), 'time'),
+            "timestamp" => $timestamp);
      }
      $triggeringUser = EfrontUserFactory::factory($this -> event['users_LOGIN']);
      $subst_array["triggering_users_name"] = $triggeringUser -> user['name'];

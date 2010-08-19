@@ -3856,4 +3856,5 @@ define("_REMOVEFROMSET", "Αφαίρεση από το σύνολο");
 define("_BRANCHTREE", "Δέντρο τμημάτων");
 define("_CHANGECONDITIONORDER", "Αλλαγή σειράς συνθηκών");
 define("_INDEX", "Σειρά");
+define("_EVENTDATETIME", "Ημέρα και ώρα γεγονότος");
 ?>

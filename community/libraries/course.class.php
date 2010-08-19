@@ -1686,6 +1686,9 @@ class EfrontCourse
  }
  public function addUsers($users, $roleInCourse = 'student', $confirmed = true) {
   $users = $this -> verifyUsersList($users);
+  if (is_array($roleInCourse)) {
+   $roleInCourse = 'student';
+  }
   if (empty($users)) {
    return false;
   }

@@ -349,7 +349,7 @@ class EfrontCourse
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
   $from = "lessons_to_courses lc, lessons l";
-  $where[] = "l.archive = 0 and l.id=lc.lessons_ID and courses_ID=".$this -> course['id'];
+  $where[] = "l.archive = 0 and l.course_only=1 and l.id=lc.lessons_ID and courses_ID=".$this -> course['id'];
   $result = eF_getTableData($from, "lc.start_date, lc.end_date, lc.previous_lessons_ID, l.*",
   implode(" and ", $where), $orderby, false, $limit);
   $result = $this -> sortLessons($result);

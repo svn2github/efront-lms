@@ -427,24 +427,26 @@ class EfrontStats
         //@todo: This is for compatibility with previous version and should be removed in the future
         foreach ($temp as $user => $value) {
             foreach ($value as $testId => $testData) {
-                foreach ($testData as $done_tests_ID => $dt) {
-                    if (($test = unserialize($dt['test'])) instanceof EfrontCompletedTest) {
-                        $unit = $test -> getUnit();
-                        $stats = array('lessons_ID' => $unit['lessons_ID'],
-                                       'name' => $test -> test['name'],
-                                       'active' => $unit['active'],
-                                       'content_ID' => $unit['id'],
-                                       'done_tests_ID' => $done_tests_ID,
-                                       'tests_ID' => $test -> test['id'],
-                                       'score' => $test -> completedTest['score'],
-                                       'comments' => $test -> completedTest['feedback'],
-                                       'users_LOGIN'=> $user,
-                                       'timestamp' => $test -> time['end']);
-                        if ($dt['archive'] == 0 && $test -> completedTest['status'] != 'incomplete' && $test -> completedTest['status'] != '' && ($lessons === false || in_array($stats['lessons_ID'], $lessons)) && in_array($stats['users_LOGIN'], $users)) {
-                            $doneTests[$user][$test -> test['content_ID']] = $stats;
-                        }
-                    }
-                }
+             if (is_array($testData)) {
+                 foreach ($testData as $done_tests_ID => $dt) {
+                     if (isset($dt['test']) && (($test = unserialize($dt['test'])) instanceof EfrontCompletedTest)) {
+                         $unit = $test -> getUnit();
+                         $stats = array('lessons_ID' => $unit['lessons_ID'],
+                                        'name' => $test -> test['name'],
+                                        'active' => $unit['active'],
+                                        'content_ID' => $unit['id'],
+                                        'done_tests_ID' => $done_tests_ID,
+                                        'tests_ID' => $test -> test['id'],
+                                        'score' => $test -> completedTest['score'],
+                                        'comments' => $test -> completedTest['feedback'],
+                                        'users_LOGIN'=> $user,
+                                        'timestamp' => $test -> time['end']);
+                         if ($dt['archive'] == 0 && $test -> completedTest['status'] != 'incomplete' && $test -> completedTest['status'] != '' && ($lessons === false || in_array($stats['lessons_ID'], $lessons)) && in_array($stats['users_LOGIN'], $users)) {
+                             $doneTests[$user][$test -> test['content_ID']] = $stats;
+                         }
+                     }
+                 }
+             }
             }
         }
         $usersDoneScormTests = eF_getTableData("content c, scorm_data sd", "c.lessons_ID, c.name, c.active, sd.masteryscore, sd.lesson_status, sd.content_ID, sd.score, sd.minscore, sd.maxscore, sd.users_LOGIN, sd.timestamp", "sd.content_ID = c.id and c.ctg_type = 'scorm_test' and sd.users_LOGIN != ''".($lessonId ? " and c.lessons_ID in ($lessonId)" : ""));
@@ -561,6 +563,7 @@ class EfrontStats
              throw new EfrontTestException(_INVALIDID.': '.$test, EfrontTestException :: INVALID_ID);
          }
      }
+     $sql = '';
      if ($lesson) {
       $sql = ' and t.lessons_ID='.$lesson;
      }
@@ -1876,7 +1879,7 @@ class EfrontStats
             $lesson = new EfrontLesson($lesson);
         }
         $result = eF_getTableData("users_to_lessons", "*", "users_LOGIN ='".$user['login']."' and lessons_ID = ".$lesson -> lesson['id']);
-        if (sizeof($result[0]['users_LOGIN'], array_keys($users))) {
+        if (sizeof($result[0]['users_LOGIN']) > 0) {
             if ($lesson -> lesson['duration'] && $result[0]['from_timestamp']) {
                 $result[0]['remaining'] = $result[0]['from_timestamp'] + $lesson -> lesson['duration']*3600*24 - time();
             } else {
@@ -2001,9 +2004,15 @@ class EfrontStats
                     $lessonStatus['comments'] = $value['comments'] ? $value['comments'] : 0;
                 }
             }
+/*
+
         if ($storeCache) {
-         //Cache::setCache($cacheKey, serialize($lessonStatus));
+
+        	//Cache::setCache($cacheKey, serialize($lessonStatus));
+
         }
+
+*/
         return $lessonStatus;
     }
     /**

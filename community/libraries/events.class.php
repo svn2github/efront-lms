@@ -251,7 +251,7 @@ class EfrontEvent
      */
     private static $system_events = false;
     public static function getEventTypes($get_module_events = false) {
-     if (!$system_events) {
+     if (!isset($system_events) || !$system_events) {
       $system_events = array(EfrontEvent::SYSTEM_JOIN => array("text" => _SYSTEMJOIN, "category" => "system", "priority" => 1, "afterEvent" => 1),
              EfrontEvent::SYSTEM_REMOVAL => array("text" => _SYSTEM_REMOVAL, "category" => "system"),
              EfrontEvent::SYSTEM_VISITED => array("text" => _SYSTEM_VISITED, "category" => "system", "canBeNegated" => _SYSTEM_NOT_VISITED, "priority" => 1, "afterEvent" => 1),

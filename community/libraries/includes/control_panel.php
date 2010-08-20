@@ -224,7 +224,9 @@ try {
             if ($currentLesson -> options['digital_library'] && $currentUser -> coreAccess['content'] != 'hidden') { //If the lesson digital library is enabled
     $result = eF_getTableData("files", "*", "shared=".$currentLesson -> lesson['id']);
     foreach ($result as $value) {
-     $sharedFiles[G_ROOTPATH.$value['path']] = new EfrontFile($value['id']);
+     try {
+      $sharedFiles[G_ROOTPATH.$value['path']] = new EfrontFile($value['id']);
+     } catch (Exception $e) {/*Do nothing if you can't load a shared file*/}
     }
                 if (sizeof($sharedFiles) > 0) {
                     $basedir = $currentLesson -> getDirectory();

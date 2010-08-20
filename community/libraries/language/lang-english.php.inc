@@ -3857,4 +3857,5 @@ define("_BRANCHTREE", "Branch tree");
 define("_CHANGECONDITIONORDER", "Change condition order");
 define("_INDEX", "Index");
 define("_EVENTDATETIME", "Event date and time");
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET", "The certificate file was missing or corrupt and thus was reset");
 ?>

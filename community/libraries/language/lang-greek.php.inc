@@ -3857,4 +3857,5 @@ define("_BRANCHTREE", "Δέντρο τμημάτων");
 define("_CHANGECONDITIONORDER", "Αλλαγή σειράς συνθηκών");
 define("_INDEX", "Σειρά");
 define("_EVENTDATETIME", "Ημέρα και ώρα γεγονότος");
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET", "Το αρχείο του πιστοποιητικού δεν ήταν έγκυρο, για αυτό αρχικοποιήθηκε στο προκαθορισμένο");
 ?>

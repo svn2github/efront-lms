@@ -24,6 +24,7 @@
 - Setting unit property 'auto complete' triggers ajax event for immediately popping up completion info block
 - Fixed error in api2.php file that caused newly created users' passwords to be encoded twice 
 - Fixed error in activation email code sent out when new users are registering and "email activation" is set
+- If certificate template file is missing, the system reverts to the default
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

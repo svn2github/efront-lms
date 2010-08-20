@@ -49,7 +49,7 @@
      {elseif $item.column == 'timestamp' || $item.column == 'last_login' || $item.column == 'hired_on' || $item.column == 'left_on'}
       #filter:timestamp_time-{$entry}#
      {elseif $item.column == 'branch'}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$entry}" class = "editLink">({$user.sum_branch}) {$T_BRANCHES[$entry]}</a>
+      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$entry}" class = "editLink">{$T_BRANCHES[$entry]} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}</a>
      {elseif $item.column == 'job_description'}
       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$entry}" class = "editLink">{$T_JOBS[$entry]}</a>
      {elseif $item.column == 'supervisor' || $item.column == 'driving_licence'}
@@ -99,7 +99,7 @@
   <img class = "ajaxHandle" src = "images/16x16/users.png" alt = "{$smarty.const._GROUPOPERATIONS}" title = "{$smarty.const._GROUPOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._GROUPOPERATIONS}', 0, 'add_group_table')"/>
   <img class = "ajaxHandle" src = "images/16x16/courses.png" alt = "{$smarty.const._COURSEOPERATIONS}" title = "{$smarty.const._COURSEOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._COURSEOPERATIONS}', 0, 'add_course_table')"/>
   <img class = "ajaxHandle" src = "images/16x16/lessons.png" alt = "{$smarty.const._LESSONOPERATIONS}" title = "{$smarty.const._LESSONOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._LESSONOPERATIONS}', 0, 'add_lesson_table')"/>
-  <img class = "ajaxHandle" src = "images/16x16/certificate.png" alt = "{$smarty.const._CERTIFICATEOPERATIONS}" title = "{$smarty.const._CERTIFICATEOPERATIONS}"onclick = "eF_js_showDivPopup('{$smarty.const._CERTIFICATEOPERATIONS}', 0, 'add_certificate_table')"/>
+  {*<img class = "ajaxHandle" src = "images/16x16/certificate.png" alt = "{$smarty.const._CERTIFICATEOPERATIONS}" title = "{$smarty.const._CERTIFICATEOPERATIONS}"onclick = "eF_js_showDivPopup('{$smarty.const._CERTIFICATEOPERATIONS}', 0, 'add_certificate_table')"/>*}
   {*<img class = "ajaxHandle" src = "images/16x16/mail.png" alt = "{$smarty.const._SENDEMAIL}" title = "{$smarty.const._SENDEMAIL}" onclick = "eF_js_showDivPopup('{$smarty.const._SENDEMAIL}', 2);$('popup_frame').src='{$smarty.server.PHP_SELF}?ctg=messages&add=1&popup=1';"/>*}
  </div>
  <div id = "add_group_table" style = "display:none">
@@ -292,7 +292,6 @@
      <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_column={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOLUMN}', 3)">
        <img class = "ajaxHandle" src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" onclick = "eF_js_showDivPopup();"/></a>
-      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "deleteColumn(this, '{$key}')"/>
      </td>
     </tr>
     {foreachelse}

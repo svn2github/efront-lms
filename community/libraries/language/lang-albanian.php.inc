@@ -44,7 +44,7 @@ define("_RESTORE","Rikthim");//Restore
 define("_FREE","Pa pagesë mësim");//Free lesson
 define("_SUCCESSREGISTER","Ju keni regjistruar me sukses");//You have registered successfully
 define("_LESSONSREGISTRATION","Mësim i regjistrimit");//Lesson registration
-define("_YOUREMAIL","Your e-mail");//Your e-mail 
+define("_YOUREMAIL","Your e-mail");//Your Email 
 define("_MESSAGESUBJECT","Subjekti i mesazhit");//Message subject
 define("_PASSWORDLEAVEBLANK","Fjalëkalimi (i bardhë për të lënë të pandryshuara)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Your personal info është ndryshuar me sukses");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Email u është dërguar me");//Email was sent to
 define("_CHOOSELESSON","Zgjidhni mësim");//Choose lesson
 define("_SUBJECT","Subjekti");//Subject
 define("_RECIPIENTSSELECTION","Recipients përzgjedhjes");//Recipients selection
-define("_EMAILBODY","E-mail trupit");//E-mail body
-define("_SENDEMAIL","Send E-mail");//Send E-mail
+define("_EMAILBODY","E-mail trupit");//Email body
+define("_SENDEMAIL","Send E-mail");//Send Email
 define("_EXIT","Dil");//Exit
 define("_MORE","më shumë");//more
 define("_DELETE","Fshij");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Qendra e Kontrollit");//Control center
 define("_EXAMPLES","Shembuj");//Examples
 define("_FORUM","Forumi");//Forum
 define("_NOCONTENT","Njësia e pa përmbajtje");//Unit without content
-define("_INACTIVE","Inactive njësi");//Inactive unit
+define("_INACTIVE","Inactive njësi");//Inactive
 define("_CONTENTMANAGEMENT","Përmbajtja");//Content
 define("_SCHEDULING","Caktimin");//Scheduling
 define("_OFDEVELOPMENT","zhvillimi");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Nuk gjeti asnjë rezultat në mesazh
 define("_SEARCHRESULTSINPERSONALMESSAGES","Rezultatet e kërkimit në mesazhe personale");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Rezultatet e kërkimit në kurset e");//Search results in courses
 define("_MESSAGEFOLDER","Mesazh folder");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Reset password");//Reset password
 define("_JOINED","Anëtarësuar");//Joined
 define("_MOREINFO","More info");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Shkoni në fillim të faqes");//Scroll to top of pa
 define("_SCROLLTOBOTTOMOFPAGE","Shkoni në fund të faqes");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Asnjë përdorues ka bërë këtë studim ende");//No user has done this survey yet
 define("_SYSTEM","Sistemit");//System
-define("_EMAILCONFIGURATIONS","E-mail server configuration");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-mail server configuration");//Emails server configuration
 define("_SAWUNIT","Set si njësi e përfunduar");//Set the unit as completed
 define("_NOTSAWUNIT","Set e jo si njësi e përfunduar");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Kushtet e përfunduar");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Submit sondazh");//Submit survey
 define("_ROWSPERPAGE","Rreshtat për faqe");//Rows per page
 define("_FILTER","Filter");//Filter
 define("_OF","i");//of
-define("_SENDALSOVIAEMAIL","Dërgo ftesën nëpërmjet e-mail");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Dërgo ftesën nëpërmjet e-mail");//Send invitation via Email
 define("_STYLE","Style");//Style
 define("_MENU","Menu");//Menu
 define("_SELECTION","Zgjedhja");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Ky modul u fshi me sukses");//The module was
 define("_AUTHOR","Author");//Author
 define("_VERSION","Version");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Në fushat e juaj CSV file duhet të përmbajnë këto fusha");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Fushat në të kuqe janë të detyrueshme. Në rast se nuk ka dhënë password, password fillestare do te behet e njëjta si të identifikoheni.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Fushat në të kuqe janë të detyrueshme. Në rast se nuk ka dhënë password, password fillestare do te behet e njëjta si të identifikoheni.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Ju lutem kontrolloni format e juaj CSV file");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Në shabllonin, përdorni # # organizatë për emrin e organizatës, për # # user_name user&#39;s name, # # user_surname për user&#39;s mbiemrin, # # course_name për emrin e kursit, # # grade për klasën dhe për # # data data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Vota");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Assign përdoruesit");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Cakto për përdoruesit e degës");//Assign users to branch 
 define("_EDITSKILL","Edit aftësi");//Edit skill
 define("_ASSIGNSKILL","Assign aftësi");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Assign përdoruesit e aftësi");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Assign përdoruesit e aftësi");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Asnjë degë janë regjistruar");//No branches have been registered
 define("_ORGANIZATION","Organizata");//Organization
 define("_SEARCHFOREMPLOYEE","Kërko për përdoruesin [Organizata kriteret]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Pronat Anketa");//Poll properties
 define("_FORUMPROPERTIES","Pronat Forum");//Forum properties
 define("_UPDATETHEME","Theme Update");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Ju mund të lidheni Facebook llogarinë tuaj me një eFront ekzistues duke siguruar login përdoruesit dhe fjalë-kalimin e atij llogari");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Ka më shumë se një përdorues me të njëjtën adresë e-mail. Përdorimi login tuaj në formën më poshtë");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Ka më shumë se një përdorues me të njëjtën adresë e-mail. Përdorimi login tuaj në formën më poshtë");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Llogari plotësisht u fshi me sukses");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Pronat Theme");//Theme properties
 define("_CHANGETHEME","Change theme");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Shfaq vetëm një mesazh pasi të fusni test");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Ky test është i paraqitur me sukses");//This test was successfully submitted
 define("_LEARNINGSTATUS","Mësoni Statusi");//Learning Status
-define("_HASNOTANEMAILADDRESS","nuk ka adresë e-mail");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","nuk ka adresë e-mail");//has not an Email address
 define("_FEEDBACK","Reagim");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Përdoruesit Fut në grup");//Insert users into group
 define("_INSERTINTONEWGROUP","Fut në grup të ri");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","regjistrimit Web server");//Web server registra
 define("_USEORLOGICTOCORRECTANSWERS","Përdorni logjikën OSE për të llogaritur përgjigje të saktë");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","% Variabël duhet të përmbajë x &quot;%y&quot; në mënyrë që të vazhdojnë");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","njësi të hapen në dritare popup");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Një përdorues me login përcaktuar tashmë ekziston (arkivuar)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Ngjarje Madhësia");//Events size (New)
-define("_OLDESTEVENT","ngjarje të vjetër");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Purge ngjarjet më të vjetër se");//Purge events older than (New)
-define("_PURGEEVENTS","Purge events");//Purge events (New)
-define("_USERSEPERUSERTYPE","Perdorues nga përdoruesi lloj");//Users per user type (New)
-define("_MINUTESPERUSER","Procesverbalet nga përdoruesi");//Minutes per user (New)
-define("_LOGINSPERDAY","Hyrje në ditë");//Logins per day (New)
-define("_ACCESSES","Accesses");//Accesses (New)
-define("_ACCESSESPERUSER","Accesses per user");//Accesses per user (New)
-define("_ACCESSESPERDAY","Accesses në ditë");//Accesses per day (New)
-define("_OCCURENCES","Dukurive");//Occurences (New)
-define("_SCORES","Scores");//Scores (New)
-define("_PROPAGATECOURSE","Kursi shumoj");//Propagate course (New)
-define("_LESSONSTRUCTURE","Struktura mësim");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Një administrator nuk mund të hyni në mësim faqe");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X directories dhe fotografi y% nuk janë të shkruhet nga web server. <br> Kliko <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>këtu</a> për ta shkarkuar një raport të plotë");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Kliko këtu për të vendosur të drejtat e shkrimit");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Kliko këtu për të unset të drejtat e shkrimit");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","leje Set");//Set permissions (New)
-define("_UNSETPERMISSIONS","leje Anullon njëri");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Ky operacion do të përpiqet për vendosjen e lejeve të gjitha dosjet dhe dosjet që do të shkruhet nga web server. Kjo është e detyrueshme në qoftë se ju dëshironi që të kryejnë përmirësimet automatike dhe mund të jetë i dobishëm në raste të jeni duke përjetuar probleme gjatë ose pas përmirësimit. Nga ana tjetër, duke i lënë të gjitha dosjet shkruhet mund të përbëjë një kërcënim të sigurisë nën rrethana të caktuara.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Ky operacion do të përpiqet për vendosjen e lejeve të gjitha dosjet dhe dosjet të jetë jo-të shkruhet nga web server, me përjashtim të atyre të detyrueshme për sistem të funksionojë si duhet. Kjo është edhe përcaktimin më të sigurt, por do të parandaluar ngritjen e sistemit nga automatikisht");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Kliko këtu për të kontrolluar lejet");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Kontrolloni lejet");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Ky operacion do të kontrollojë që dosjet dhe dosjet e sistemit tuaj nuk janë të shkruhet nga web server");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operacioni rezultati");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Asnjë operacion kryhet ende");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Disa fotografi / dosjet nuk janë të shkruhet. Ju lutem vizitoni seksionin lejet &#39;në mirëmbajtjen - pastrim&gt; për të kontrolluar lejet dhe shqyrtojë këto fotografi");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Përndryshe, ju mund të krijojë një <button onclick = \"location='index.php?ctg=signup'\">llogari të re</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ju keni qenë të regjistruar për mësime falas dhe kurse. Ju lutemi të shqyrtojë më poshtë zgjedhjen tuaj të mësimeve jo të lirë dhe të kurseve të");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Mbikëqyrësit");//Supervisors (New)
-define("_COURSEOPTIONS","opsionet e kursit");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Një përdorues me login përcaktuar tashmë ekziston (arkivuar)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Ngjarje Madhësia");//Events size
+define("_OLDESTEVENT","ngjarje të vjetër");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Purge ngjarjet më të vjetër se");//Purge events older than
+define("_PURGEEVENTS","Purge events");//Purge events
+define("_USERSEPERUSERTYPE","Perdorues nga përdoruesi lloj");//Users per user type
+define("_MINUTESPERUSER","Procesverbalet nga përdoruesi");//Minutes per user
+define("_LOGINSPERDAY","Hyrje në ditë");//Logins per day
+define("_ACCESSES","Accesses");//Accesses
+define("_ACCESSESPERUSER","Accesses per user");//Accesses per user
+define("_ACCESSESPERDAY","Accesses në ditë");//Accesses per day
+define("_OCCURENCES","Dukurive");//Occurences
+define("_SCORES","Scores");//Scores
+define("_PROPAGATECOURSE","Kursi shumoj");//Propagate course
+define("_LESSONSTRUCTURE","Struktura mësim");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Një administrator nuk mund të hyni në mësim faqe");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X directories dhe fotografi y% nuk janë të shkruhet nga web server. <br> Kliko <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>këtu</a> për ta shkarkuar një raport të plotë");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Kliko këtu për të vendosur të drejtat e shkrimit");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Kliko këtu për të unset të drejtat e shkrimit");//Click here to unset write permissions
+define("_SETPERMISSIONS","leje Set");//Set permissions
+define("_UNSETPERMISSIONS","leje Anullon njëri");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Ky operacion do të përpiqet për vendosjen e lejeve të gjitha dosjet dhe dosjet që do të shkruhet nga web server. Kjo është e detyrueshme në qoftë se ju dëshironi që të kryejnë përmirësimet automatike dhe mund të jetë i dobishëm në raste të jeni duke përjetuar probleme gjatë ose pas përmirësimit. Nga ana tjetër, duke i lënë të gjitha dosjet shkruhet mund të përbëjë një kërcënim të sigurisë nën rrethana të caktuara.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ky operacion do të përpiqet për vendosjen e lejeve të gjitha dosjet dhe dosjet të jetë jo-të shkruhet nga web server, me përjashtim të atyre të detyrueshme për sistem të funksionojë si duhet. Kjo është edhe përcaktimin më të sigurt, por do të parandaluar ngritjen e sistemit nga automatikisht");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Kliko këtu për të kontrolluar lejet");//Click here to check permissions
+define("_CHECKPERMISSIONS","Kontrolloni lejet");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ky operacion do të kontrollojë që dosjet dhe dosjet e sistemit tuaj nuk janë të shkruhet nga web server");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operacioni rezultati");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Asnjë operacion kryhet ende");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Disa fotografi / dosjet nuk janë të shkruhet. Ju lutem vizitoni seksionin lejet &#39;në mirëmbajtjen - pastrim&gt; për të kontrolluar lejet dhe shqyrtojë këto fotografi");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Përndryshe, ju mund të krijojë një <button onclick = \"location='index.php?ctg=signup'\">llogari të re</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ju keni qenë të regjistruar për mësime falas dhe kurse. Ju lutemi të shqyrtojë më poshtë zgjedhjen tuaj të mësimeve jo të lirë dhe të kurseve të");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Mbikëqyrësit");//Supervisors
+define("_COURSEOPTIONS","opsionet e kursit");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","ekzekutimet Reset për të gjithë përdoruesit");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Perdorues raportet gjenerator");//Users reports generator (New)
+define("_ADDTOGROUP","Shtoni në grup");//Add to group (New)
+define("_ASSIGNCOURSE","Kursi Cakto");//Assign course (New)
+define("_ASSIGNLESSON","Cakto mësim");//Assign lesson (New)
+define("_REMOVECOURSE","Kursi Hiq");//Remove course (New)
+define("_REMOVELESSON","mësim Hiq");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Hiq nga grupi");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset përparim të mësuarit");//Reset learning progress (New)
+define("_BUILDER","Ndërtues");//Builder (New)
+define("_ADDREPORT","Raporti Shto");//Add new report (New)
+define("_CONDITIONTYPE","Kushti type");//Condition type
+define("_CONDITIONSPECIFICATION","specifikim Kushti");//Condition specification (New)
+define("_ADDCOLUMN","kolonën Shto");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Lidhje me e ardhshme");//Relation with next (New)
+define("_COLUMNTYPE","Lloji i Column");//Column type (New)
+define("_GRIDNAME","Emri i Rrjetit Elektrik");//Grid name (New)
+define("_ALIGNED","Linjë");//Aligned (New)
+define("_SELECTREPORT","Raporti Zgjidh");//Select report (New)
+define("_AVAILABLEREPORTS","Raportet në dispozicion");//Available reports (New)
+define("_EDITREPORT","Raporti i Edit");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Nuk ka raporte të definuara në sistem. Ju lutem");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","të krijuar një");//create one (New)
+define("_NEWREPORT","Raporti i ri");//New report (New)
+define("_REPORTNAME","Emri Raporti");//Report name (New)
+define("_SELECTCONDITION","Zgjidhni kusht");//Select condition (New)
+define("_ISNOT","nuk është");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Ka përfunduar të gjitha mësimet e caktuar");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Ka përfunduar të gjitha të caktuar kurse");//Has completed all assigned courses (New)
+define("_HAS","Ka");//Has (New)
+define("_HASNOT","Nuk ka");//Has not (New)
+define("_ENROLLEDTO","Regjistruar në");//Enrolled to (New)
+define("_BETWEEN","Midis");//Between (New)
+define("_ISASSIGNED","Caktohet");//Is assigned (New)
+define("_ISNOTASSIGNED","A nuk është caktuar");//Is not assigned (New)
+define("_DURINGLASTDAY","24h e fundit");//last 24h (New)
+define("_DURINGLASTWEEK","javën e kaluar");//last week (New)
+define("_DURINGLASTMONTH","muajin e kaluar");//last month (New)
+define("_COLUMN","Kolonë");//Column (New)
+define("_SELECTCOLUMN","Zgjidhni kolonën");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Lëre bosh për të rregulluar auto-gjerësi");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Lëre bosh për të kolonën e emrit");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Gjerësia (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Ju lutem zgjidhni një kolonë");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Ndryshimi shtyllat qëllim");//Change the columns order (New)
+define("_VIEWINGREPORT","Raporti i parë");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Ju lutem zgjidhni një kusht");//Please select a condition (New)
+define("_BASIC","Themelor");//Basic (New)
+define("_LEARNING","Mësim");//Learning (New)
+define("_ENTERPRISE","Ndërmarrje");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Drag artikuj të ndryshojë rendin");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Fushat Custom");//Custom fields (New)
+define("_FORMATTEDLOGIN","login formatuar");//Formatted login (New)
+define("_DEFAULTSORT","Default lloj");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operatori ka përparësi");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","operacionet e tanishme faqe");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Ose të specifikoni një grup të ri për të shtuar të");//Or specify a new group to add to (New)
+define("_ADDTO","Shtoni në të");//Add to (New)
+define("_REMOVEFROM","Hiq nga");//Remove from (New)
+define("_GROUPOPERATIONS","operacionet e Grupit");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","operacionet Certifikata");//Certificate operations (New)
+define("_LESSONOPERATIONS","operacionet mësim");//Lesson operations (New)
+define("_COURSEOPERATIONS","operacionet e kursit");//Course operations (New)
+define("_EXPORTTOCSV","Eksport në CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Nuk ka ngjarje të përcaktuar kodin");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Files importuar me sukses");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Convert dosje të hierarkisë mbivendosur");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","uncompress file zip (ë) dhe përmbajtja e importit");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Tema është kyçur");//The theme is locked (New)
+define("_BLANKREPORT","Raporti Blank");//Blank report (New)
+define("_CUSTOMREPORTS","Raportet Custom");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Administratori i sistemit do të shqyrtojë dhe të aktivizuar regjistruarve tuaj");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Tabela Refresh");//Refresh table (New)
+define("_REMOVEFROMSET","Hiq nga vendosur");//Remove from set (New)
+define("_BRANCHTREE","pemë Dega");//Branch tree (New)
+define("_CHANGECONDITIONORDER","qëllim Ndryshimi kusht");//Change condition order (New)
+define("_INDEX","Indeks");//Index (New)
+define("_EVENTDATETIME","Event data dhe kohë");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Skedari çertifikatë ishte zhdukur apo të korruptuar dhe kështu u reset");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

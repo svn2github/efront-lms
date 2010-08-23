@@ -44,7 +44,7 @@ define("_RESTORE","Gjenopprett systemet");//Restore
 define("_FREE","Denne leksjonen er gratis for alle");//Free lesson
 define("_SUCCESSREGISTER","Du har registrert vellykket");//You have registered successfully
 define("_LESSONSREGISTRATION","Leksjon registrering");//Lesson registration
-define("_YOUREMAIL","Din e-post");//Your e-mail 
+define("_YOUREMAIL","Din e-post");//Your Email 
 define("_MESSAGESUBJECT","Meldingsemne");//Message subject
 define("_PASSWORDLEAVEBLANK","Passord (blank for å forlate uendret)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Dine personlige opplysninger har blitt endret");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","E-post ble sendt til");//Email was sent to
 define("_CHOOSELESSON","Velg leksjon");//Choose lesson
 define("_SUBJECT","Emne");//Subject
 define("_RECIPIENTSSELECTION","Mottakere utvalg");//Recipients selection
-define("_EMAILBODY","E-post body");//E-mail body
-define("_SENDEMAIL","Send e-post");//Send E-mail
+define("_EMAILBODY","E-post body");//Email body
+define("_SENDEMAIL","Send e-post");//Send Email
 define("_EXIT","Exit");//Exit
 define("_MORE","mer");//more
 define("_DELETE","Slette");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Control Center");//Control center
 define("_EXAMPLES","Eksempler");//Examples
 define("_FORUM","Forum");//Forum
 define("_NOCONTENT","Unit uten innhold");//Unit without content
-define("_INACTIVE","Inaktive enhet");//Inactive unit
+define("_INACTIVE","Inaktive enhet");//Inactive
 define("_CONTENTMANAGEMENT","Innhold");//Content
 define("_SCHEDULING","Planlegging");//Scheduling
 define("_OFDEVELOPMENT","utvikling");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Ingen resultater funnet på personli
 define("_SEARCHRESULTSINPERSONALMESSAGES","Søkeresultater på personlige meldinger");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Søkeresultater på kurs");//Search results in courses
 define("_MESSAGEFOLDER","Melding mappe");//Message folder
-define("_EMAIL","e-post");//e-mail
+define("_EMAIL","e-post");//Email
 define("_RESETPASSWORD","Tilbakestill passord");//Reset password
 define("_JOINED","Begynte");//Joined
 define("_MOREINFO","Mer info");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Bla til toppen av siden");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Bla til bunnen av siden");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Ingen ansatt har gjort denne undersøkelsen ennå");//No user has done this survey yet
 define("_SYSTEM","System");//System
-define("_EMAILCONFIGURATIONS","E-post server konfigurasjon");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-post server konfigurasjon");//Emails server configuration
 define("_SAWUNIT","Sett enheten som avsluttet");//Set the unit as completed
 define("_NOTSAWUNIT","Sett enhet som ikke fullført");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Betingelser avsluttet");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Send undersøkelse");//Submit survey
 define("_ROWSPERPAGE","Rader per side");//Rows per page
 define("_FILTER","Filter");//Filter
 define("_OF","av");//of
-define("_SENDALSOVIAEMAIL","Send invitasjon via e-post");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Send invitasjon via e-post");//Send invitation via Email
 define("_STYLE","Stil");//Style
 define("_MENU","Meny");//Menu
 define("_SELECTION","Utvalg");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Modulen ble slettet");//The module was succe
 define("_AUTHOR","Forfatter");//Author
 define("_VERSION","Versjon");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Feltene i CSV-filen må inneholde følgende felt");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Felt i rødt er obligatorisk. Hvis det ikke er noen passord gitt, den første passord vil bli satt de samme som pålogging.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Felt i rødt er obligatorisk. Hvis det ikke er noen passord gitt, den første passord vil bli satt de samme som pålogging.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kontroller formatet i CSV-filen din");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Bruk brukernavn # # for brukerens navn, # user_surname # for brukeren etternavn, # course_name # for kurset navn, # # klasse for klasse og dato # # for dato.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Stemmer");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Tilordne ansatte");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Tilordne ansatte til avslaget");//Assign users to branch 
 define("_EDITSKILL","Rediger ferdighet");//Edit skill
 define("_ASSIGNSKILL","Tilordne ferdighet");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Tilordne ansatte i ferdighet");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Tilordne ansatte i ferdighet");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Ingen avdelinger er registrerte");//No branches have been registered
 define("_ORGANIZATION","Organisasjon");//Organization
 define("_SEARCHFOREMPLOYEE","Søk etter ansatt [Organisasjonen kriteriene]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Poll egenskaper");//Poll properties
 define("_FORUMPROPERTIES","Forum egenskaper");//Forum properties
 define("_UPDATETHEME","Oppdater tema");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Du kan koble til din Facebook-konto med en eksisterende eFront en ved å gi brukeren brukernavnet og passordet på kontoen");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Det er flere brukere med samme e-postadresse. Bruk din logikk i skjemaet nedenfor");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Det er flere brukere med samme e-postadresse. Bruk din logikk i skjemaet nedenfor");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Kartlagt kontoen ble slettet");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Theme egenskaper");//Theme properties
 define("_CHANGETHEME","Bytt tema");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Viser bare en melding etter å ha sendt test");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Denne testen ble sendt inn");//This test was successfully submitted
 define("_LEARNINGSTATUS","Læring Status");//Learning Status
-define("_HASNOTANEMAILADDRESS","har ikke en e-postadresse");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","har ikke en e-postadresse");//has not an Email address
 define("_FEEDBACK","Tilbakemelding");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Sett brukere i gruppa");//Insert users into group
 define("_INSERTINTONEWGROUP","Sett inn i ny gruppe");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web server registrering");//Web server registra
 define("_USEORLOGICTOCORRECTANSWERS","Bruk OR logikk for å beregne korrekt svar");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Variabelen% x må inneholde &quot;%y&quot; for å fortsette");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Åpne enhet i popup-vinduet");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","En bruker med den oppgitte påloggingsinformasjonen allerede eksisterer (arkiverte)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Events størrelse");//Events size (New)
-define("_OLDESTEVENT","Eldste hendelse");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Purge hendelser eldre enn");//Purge events older than (New)
-define("_PURGEEVENTS","Rydd hendelser");//Purge events (New)
-define("_USERSEPERUSERTYPE","Brukere per bruker type");//Users per user type (New)
-define("_MINUTESPERUSER","Minutter per bruker");//Minutes per user (New)
-define("_LOGINSPERDAY","Pålogginger per dag");//Logins per day (New)
-define("_ACCESSES","Besøkende");//Accesses (New)
-define("_ACCESSESPERUSER","Besøkende per bruker");//Accesses per user (New)
-define("_ACCESSESPERDAY","Besøkende per dag");//Accesses per day (New)
-define("_OCCURENCES","Forekomster");//Occurences (New)
-define("_SCORES","Resultater");//Scores (New)
-define("_PROPAGATECOURSE","Forplante kurs");//Propagate course (New)
-define("_LESSONSTRUCTURE","Leksjon struktur");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","En administrator kan ikke få tilgang til leksjonen sider");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X kataloger og% y filer er ikke skrivbar for webserveren. <br> Klikk <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>her for</a> å laste ned en fullstendig rapport");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Klikk her for å sette skrivetillatelser");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Klikk her for å slette informasjonen skrivetillatelser");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Angi tillatelser");//Set permissions (New)
-define("_UNSETPERMISSIONS","Fjern tillatelser");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Denne operasjonen vil prøve og sette rettigheter til alle filer og mapper som skal skrives til av webserveren. Dette er obligatorisk hvis du ønsker å utføre automatiske oppgraderinger, og kan være nyttig i tilfeller du opplever problemer under eller etter oppgradering. På den annen side, lar alle filene skrivbare kan utgjøre en sikkerhetstrussel under visse omstendigheter.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Denne operasjonen vil prøve og sette rettigheter til alle filer og mapper å være ikke-skrivbar for webserveren, med unntak for de som obligatorisk for at systemet skal fungere ordentlig. Dette er den mest sikre innstillingen, men vil hindre systemet automatisk oppgradering");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Klikk her for å sjekke tillatelser");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Sjekk tillatelser");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Denne operasjonen vil sjekke hvilke filer og mapper i systemet ditt er ikke skrivbar for webserveren");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operasjon utfallet");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Ingen operasjon utført ennå");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Noen filer / mapper er ikke skrivbar. Vennligst besøk delen tillatelser i vedlikehold -&gt; opprydding for å sjekke tillatelser og lese disse filene");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Ellers kan du opprette en <button onclick = \"location='index.php?ctg=signup'\">ny konto</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du var meldt til gratis leksjoner og kurs. Se gjennom under valget av ikke gratis leksjoner og kurs");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Veiledere");//Supervisors (New)
-define("_COURSEOPTIONS","Emnevalg");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","En bruker med den oppgitte påloggingsinformasjonen allerede eksisterer (arkiverte)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Events størrelse");//Events size
+define("_OLDESTEVENT","Eldste hendelse");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Purge hendelser eldre enn");//Purge events older than
+define("_PURGEEVENTS","Rydd hendelser");//Purge events
+define("_USERSEPERUSERTYPE","Brukere per bruker type");//Users per user type
+define("_MINUTESPERUSER","Minutter per bruker");//Minutes per user
+define("_LOGINSPERDAY","Pålogginger per dag");//Logins per day
+define("_ACCESSES","Besøkende");//Accesses
+define("_ACCESSESPERUSER","Besøkende per bruker");//Accesses per user
+define("_ACCESSESPERDAY","Besøkende per dag");//Accesses per day
+define("_OCCURENCES","Forekomster");//Occurences
+define("_SCORES","Resultater");//Scores
+define("_PROPAGATECOURSE","Forplante kurs");//Propagate course
+define("_LESSONSTRUCTURE","Leksjon struktur");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","En administrator kan ikke få tilgang til leksjonen sider");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X kataloger og% y filer er ikke skrivbar for webserveren. <br> Klikk <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>her for</a> å laste ned en fullstendig rapport");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Klikk her for å sette skrivetillatelser");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Klikk her for å slette informasjonen skrivetillatelser");//Click here to unset write permissions
+define("_SETPERMISSIONS","Angi tillatelser");//Set permissions
+define("_UNSETPERMISSIONS","Fjern tillatelser");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Denne operasjonen vil prøve og sette rettigheter til alle filer og mapper som skal skrives til av webserveren. Dette er obligatorisk hvis du ønsker å utføre automatiske oppgraderinger, og kan være nyttig i tilfeller du opplever problemer under eller etter oppgradering. På den annen side, lar alle filene skrivbare kan utgjøre en sikkerhetstrussel under visse omstendigheter.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Denne operasjonen vil prøve og sette rettigheter til alle filer og mapper å være ikke-skrivbar for webserveren, med unntak for de som obligatorisk for at systemet skal fungere ordentlig. Dette er den mest sikre innstillingen, men vil hindre systemet automatisk oppgradering");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Klikk her for å sjekke tillatelser");//Click here to check permissions
+define("_CHECKPERMISSIONS","Sjekk tillatelser");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Denne operasjonen vil sjekke hvilke filer og mapper i systemet ditt er ikke skrivbar for webserveren");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operasjon utfallet");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Ingen operasjon utført ennå");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Noen filer / mapper er ikke skrivbar. Vennligst besøk delen tillatelser i vedlikehold -&gt; opprydding for å sjekke tillatelser og lese disse filene");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Ellers kan du opprette en <button onclick = \"location='index.php?ctg=signup'\">ny konto</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du var meldt til gratis leksjoner og kurs. Se gjennom under valget av ikke gratis leksjoner og kurs");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Veiledere");//Supervisors
+define("_COURSEOPTIONS","Emnevalg");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Reset henrettelser for alle brukere");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Brukere rapporter generator");//Users reports generator (New)
+define("_ADDTOGROUP","Legg til i gruppe");//Add to group (New)
+define("_ASSIGNCOURSE","Tilordne kurs");//Assign course (New)
+define("_ASSIGNLESSON","Tilordne leksjon");//Assign lesson (New)
+define("_REMOVECOURSE","Fjern kurs");//Remove course (New)
+define("_REMOVELESSON","Fjern leksjon");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Fjern fra gruppe");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Tilbakestill læring framgang");//Reset learning progress (New)
+define("_BUILDER","Builder");//Builder (New)
+define("_ADDREPORT","Legg til ny rapport");//Add new report (New)
+define("_CONDITIONTYPE","Tilstand type");//Condition type
+define("_CONDITIONSPECIFICATION","");//Condition specification (New)
+define("_ADDCOLUMN","Legg kolonne");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relasjon med neste");//Relation with next (New)
+define("_COLUMNTYPE","Kolonnetype");//Column type (New)
+define("_GRIDNAME","Grid navnet");//Grid name (New)
+define("_ALIGNED","Justerte");//Aligned (New)
+define("_SELECTREPORT","Velg rapport");//Select report (New)
+define("_AVAILABLEREPORTS","Tilgjengelige rapporter");//Available reports (New)
+define("_EDITREPORT","Rediger rapport");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Det er ingen rapporter definert i systemet. Vennligst");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","opprette en");//create one (New)
+define("_NEWREPORT","Ny rapport");//New report (New)
+define("_REPORTNAME","Rapportnavn");//Report name (New)
+define("_SELECTCONDITION","Velg tilstand");//Select condition (New)
+define("_ISNOT","er ikke");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Har fullført alle tildelte timer");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Har fullført alle tildelt kurs");//Has completed all assigned courses (New)
+define("_HAS","Har");//Has (New)
+define("_HASNOT","Har ikke");//Has not (New)
+define("_ENROLLEDTO","Programmers til å");//Enrolled to (New)
+define("_BETWEEN","Mellom");//Between (New)
+define("_ISASSIGNED","Er tildelt");//Is assigned (New)
+define("_ISNOTASSIGNED","Er ikke tildelt");//Is not assigned (New)
+define("_DURINGLASTDAY","siste Resepsjon åpen 24");//last 24h (New)
+define("_DURINGLASTWEEK","siste uke");//last week (New)
+define("_DURINGLASTMONTH","siste måned");//last month (New)
+define("_COLUMN","Kolonne");//Column (New)
+define("_SELECTCOLUMN","Velg kolonnen");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","La tomt for auto-justere bredde");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","La stå tom for å bruke kolonnenavn");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Bredde (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Velg en kolonne");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Endre kolonnene rekkefølgen");//Change the columns order (New)
+define("_VIEWINGREPORT","Vise rapporten");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Velg en tilstand");//Please select a condition (New)
+define("_BASIC","Grunnleggende");//Basic (New)
+define("_LEARNING","Læring");//Learning (New)
+define("_ENTERPRISE","Enterprise");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Dra elementer for å endre rekkefølgen");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Egendefinerte felt");//Custom fields (New)
+define("_FORMATTEDLOGIN","Formatert login");//Formatted login (New)
+define("_DEFAULTSORT","Standard sortering");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operatøren går foran");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Gjeldende side operasjoner");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Eller angi en ny gruppe for å legge til");//Or specify a new group to add to (New)
+define("_ADDTO","Legg til");//Add to (New)
+define("_REMOVEFROM","Fjern fra");//Remove from (New)
+define("_GROUPOPERATIONS","Gruppe operasjoner");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Sertifikat operasjoner");//Certificate operations (New)
+define("_LESSONOPERATIONS","Leksjon operasjoner");//Lesson operations (New)
+define("_COURSEOPERATIONS","Kurs operasjoner");//Course operations (New)
+define("_EXPORTTOCSV","Eksporter til CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Ingen hendelsen kode definert");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Filer importert");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Konverter mapper til nestede hierarki");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Pakke zip-fil (er) og importere innhold");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Temaet er låst");//The theme is locked (New)
+define("_BLANKREPORT","Blank rapport");//Blank report (New)
+define("_CUSTOMREPORTS","Egendefinerte rapporter");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Systemadministrator vil gjennomgå og aktivere din påmeldingene");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Oppdater tabellen");//Refresh table (New)
+define("_REMOVEFROMSET","Fjern fra sett");//Remove from set (New)
+define("_BRANCHTREE","Branch treet");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Endre tilstand bestilling");//Change condition order (New)
+define("_INDEX","Indeks");//Index (New)
+define("_EVENTDATETIME","Event dato og klokkeslett");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikatet filen ble mangler eller er skadet og dermed ble nullstilt");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

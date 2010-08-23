@@ -44,7 +44,7 @@ define("_RESTORE","استعادة النظام");//Restore
 define("_FREE","هذا درس مجاني للجميع");//Free lesson
 define("_SUCCESSREGISTER","كنت قد سجلت بنجاح");//You have registered successfully
 define("_LESSONSREGISTRATION","الدرس التسجيل");//Lesson registration
-define("_YOUREMAIL","بريدك الالكتروني");//Your e-mail 
+define("_YOUREMAIL","بريدك الالكتروني");//Your Email 
 define("_MESSAGESUBJECT","موضوع الرسالة");//Message subject
 define("_PASSWORDLEAVEBLANK","كلمة السر (فارغا لاجازة بدون تغيير)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","المعلومات الشخصيه الخاصة بك تم بنجاح تغيير");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","تم ارسال بريد الكتروني الى");//Emai
 define("_CHOOSELESSON","اختيار الدرس");//Choose lesson
 define("_SUBJECT","موضوع");//Subject
 define("_RECIPIENTSSELECTION","اختيار المستفيدين");//Recipients selection
-define("_EMAILBODY","هيئة البريد الالكتروني");//E-mail body
-define("_SENDEMAIL","ارسال بريد الكتروني");//Send E-mail
+define("_EMAILBODY","هيئة البريد الالكتروني");//Email body
+define("_SENDEMAIL","ارسال بريد الكتروني");//Send Email
 define("_EXIT","خروج");//Exit
 define("_MORE","اكثر");//more
 define("_DELETE","حذف");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","مركز التحكم");//Control center
 define("_EXAMPLES","امثلة");//Examples
 define("_FORUM","المنتدى");//Forum
 define("_NOCONTENT","وحده من دون محتوى");//Unit without content
-define("_INACTIVE","الخامله وحده");//Inactive unit
+define("_INACTIVE","الخامله وحده");//Inactive
 define("_CONTENTMANAGEMENT","محتوى");//Content
 define("_SCHEDULING","جدوله");//Scheduling
 define("_OFDEVELOPMENT","تطوير");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","لم يتم العثور على نت
 define("_SEARCHRESULTSINPERSONALMESSAGES","نتائج البحث في الرسائل الشخصيه");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","نتائج البحث في الدورات");//Search results in courses
 define("_MESSAGEFOLDER","رسالة مجلد");//Message folder
-define("_EMAIL","البريد الالكتروني");//e-mail
+define("_EMAIL","البريد الالكتروني");//Email
 define("_RESETPASSWORD","اعادة ضبط كلمة السر");//Reset password
 define("_JOINED","انضم");//Joined
 define("_MOREINFO","لمزيد من المعلومات");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","انتقل الى اعلى الصفحه");//Scroll 
 define("_SCROLLTOBOTTOMOFPAGE","انتقل الى اسفل الصفحه");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","اي موظف وقد فعلت ذلك بعد المسح");//No user has done this survey yet
 define("_SYSTEM","نظام");//System
-define("_EMAILCONFIGURATIONS","ه - خدمة البريد");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","ه - خدمة البريد");//Emails server configuration
 define("_SAWUNIT","مجموعة الوحدة كما انجزت");//Set the unit as completed
 define("_NOTSAWUNIT","مجموعة الوحدة على انها لم تكتمل");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","اكملت الشروط");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","تقدم الدراسه الاستقصاءيه");//Submi
 define("_ROWSPERPAGE","الصفوف في الصفحه");//Rows per page
 define("_FILTER","مرشح");//Filter
 define("_OF","من");//of
-define("_SENDALSOVIAEMAIL","ارسال دعوة عن طريق البريد الإلكتروني");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","ارسال دعوة عن طريق البريد الإلكتروني");//Send invitation via Email
 define("_STYLE","الاسلوب");//Style
 define("_MENU","القائمة");//Menu
 define("_SELECTION","إختيار");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","وكان الوحدة نجح حذف");//The 
 define("_AUTHOR","المؤلف");//Author
 define("_VERSION","النسخه");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","الميادين الخاصة بك في ملف CSV يجب ان تتضمن المجالات التالية");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","الأحمر في مجالات الزاميه. واذا لم يكن هناك كلمة سر ونظرا ل، الاولى سيتم تحديد كلمة السر نفس تسجيل الدخول.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","الأحمر في مجالات الزاميه. واذا لم يكن هناك كلمة سر ونظرا ل، الاولى سيتم تحديد كلمة السر نفس تسجيل الدخول.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","يرجى التحقق من الشكل الخاص بك من ملف CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","# # USER_NAME استخدام لاسم المستخدم ، # # user_surname المستخدم للقب ، course_name # # لاسم وبطبيعة الحال ، ل# # الدرجة والرتبه و# # للتاريخ حتى الآن.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","الاصوات");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","تعيين الموظفين");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","تعيين الموظفين لفرع");//Assign users to branch 
 define("_EDITSKILL","تحرير المهاره");//Edit skill
 define("_ASSIGNSKILL","اسناد المهارات");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","تعيين الموظفين المهاره");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","تعيين الموظفين المهاره");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","لا فروع وقد تم تسجيل");//No branches have been registered
 define("_ORGANIZATION","المنظمه");//Organization
 define("_SEARCHFOREMPLOYEE","البحث عن موظف [معايير منظمة]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","استطلاع الخصائص");//Poll properties
 define("_FORUMPROPERTIES","منتدى العقارات");//Forum properties
 define("_UPDATETHEME","موضوع التحديث");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","يمكنك الاتصال بك أمام الحساب مع احد eFront القائمة عن طريق توفير دخول المستخدم وكلمة السر لهذا الحساب");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","هناك أكثر من شاهد واحد مع نفس عنوان البريد الإلكتروني. استخدام تسجيل الدخول الخاص بك في النموذج التالي");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","هناك أكثر من شاهد واحد مع نفس عنوان البريد الإلكتروني. استخدام تسجيل الدخول الخاص بك في النموذج التالي");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","تعيين حساب تم بنجاح حذف");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","موضوع خصائص");//Theme properties
 define("_CHANGETHEME","موضوع التغيير");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","تظهر إلا بعد تقديم رسالة اختبار");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","وقدم هذا الاختبار بنجاح");//This test was successfully submitted
 define("_LEARNINGSTATUS","مركز التعلم");//Learning Status
-define("_HASNOTANEMAILADDRESS","وليس عنوان البريد الإلكتروني");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","وليس عنوان البريد الإلكتروني");//has not an Email address
 define("_FEEDBACK","ردود الفعل");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","إدراج المستخدمين في المجموعة");//Insert users into group
 define("_INSERTINTONEWGROUP","إدراج مجموعة جديدة");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","خادم الويب تسجيل");//Web server r
 define("_USEORLOGICTOCORRECTANSWERS","استخدام أو منطق لحساب الجواب الصحيح");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","ويجب أن تحتوي على ٪ متغير س &quot;%y&quot; من أجل مواصلة");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","فتح وحدة في نافذة منبثقة");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","ألف مستخدم مع دخول المحدد موجود بالفعل (الأرشيف)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","حجم الأحداث");//Events size (New)
-define("_OLDESTEVENT","أقدم الحدث");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","إزالة أحداث مضى عليها أكثر من");//Purge events older than (New)
-define("_PURGEEVENTS","أحداث إزالة");//Purge events (New)
-define("_USERSEPERUSERTYPE","المستخدمين لكل مستخدم اكتب");//Users per user type (New)
-define("_MINUTESPERUSER","دقيقة لكل مستخدم");//Minutes per user (New)
-define("_LOGINSPERDAY","تسجيلات يوميا");//Logins per day (New)
-define("_ACCESSES","يصل");//Accesses (New)
-define("_ACCESSESPERUSER","يصل لكل مستخدم");//Accesses per user (New)
-define("_ACCESSESPERDAY","يصل في اليوم الواحد");//Accesses per day (New)
-define("_OCCURENCES","الحوادث");//Occurences (New)
-define("_SCORES","عشرات");//Scores (New)
-define("_PROPAGATECOURSE","نشر البرنامج الدراسي");//Propagate course (New)
-define("_LESSONSTRUCTURE","درس هيكل");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","يمكن للمسؤول لا يمكن الوصول إلى صفحات الدرس");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","٪ × الدلائل والملفات ذ ٪ ليست للكتابة من قبل خادم الويب. <br> انقر <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>هنا</a> لتحميل التقرير الكامل");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","انقر هنا لتعيين أذونات الكتابة");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","اضغط هنا لإلغاء تعيين أذونات الكتابة");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","تعيين أذونات");//Set permissions (New)
-define("_UNSETPERMISSIONS","إلغاء تعيين أذونات");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","وهذه العملية محاولة تحديد الأذونات على كافة الملفات والمجلدات لتكون قابلة للكتابة من قبل خادم الويب. هذه هي إلزامية إذا كنت ترغب في رفع مستوى أداء الآلية ويمكن أن تكون مفيدة في حالات كنت تعاني من صعوبات أثناء أو بعد الترقية. من ناحية أخرى ، وترك كافة الملفات للكتابة قد تشكل تهديدا أمنيا في ظل ظروف معينة.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","وهذه العملية محاولة تحديد الأذونات على كافة الملفات والمجلدات لتكون غير قابلة للكتابة من قبل خادم الويب ، باستثناء تلك الإلزامي لنظام ليعمل على نحو سليم. هذا هو الإعداد الأكثر أمانا ولكن سوف يمنع النظام من رفع تلقائيا");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","اضغط هنا للتحقق من الأذونات");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","تحقق من أذونات");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","وهذه العملية التي تحقق الملفات والمجلدات الخاصة بك من نظام غير قابل للكتابة من قبل خادم الويب");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","نتائج عملية");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","تنفيذ أي عملية حتى الآن");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","بعض الملفات / المجلدات غير قابل للكتابة. يرجى زيارة &#39;الأذونات قسم&#39; في مجال الصيانة -- تنظيف&gt; للتحقق من الأذونات واستعراض هذه الملفات");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","خلاف ذلك ، قد إنشاء <button onclick = \"location='index.php?ctg=signup'\">حساب جديد</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","التحق كنت لالدروس والدورات مجانا. الرجاء مراجعة أدناه اختيارك للدروس ودورات غير مجانية");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","المشرفون");//Supervisors (New)
-define("_COURSEOPTIONS","خيارات الدورة");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","ألف مستخدم مع دخول المحدد موجود بالفعل (الأرشيف)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","حجم الأحداث");//Events size
+define("_OLDESTEVENT","أقدم الحدث");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","إزالة أحداث مضى عليها أكثر من");//Purge events older than
+define("_PURGEEVENTS","أحداث إزالة");//Purge events
+define("_USERSEPERUSERTYPE","المستخدمين لكل مستخدم اكتب");//Users per user type
+define("_MINUTESPERUSER","دقيقة لكل مستخدم");//Minutes per user
+define("_LOGINSPERDAY","تسجيلات يوميا");//Logins per day
+define("_ACCESSES","يصل");//Accesses
+define("_ACCESSESPERUSER","يصل لكل مستخدم");//Accesses per user
+define("_ACCESSESPERDAY","يصل في اليوم الواحد");//Accesses per day
+define("_OCCURENCES","الحوادث");//Occurences
+define("_SCORES","عشرات");//Scores
+define("_PROPAGATECOURSE","نشر البرنامج الدراسي");//Propagate course
+define("_LESSONSTRUCTURE","درس هيكل");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","يمكن للمسؤول لا يمكن الوصول إلى صفحات الدرس");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","٪ × الدلائل والملفات ذ ٪ ليست للكتابة من قبل خادم الويب. <br> انقر <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>هنا</a> لتحميل التقرير الكامل");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","انقر هنا لتعيين أذونات الكتابة");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","اضغط هنا لإلغاء تعيين أذونات الكتابة");//Click here to unset write permissions
+define("_SETPERMISSIONS","تعيين أذونات");//Set permissions
+define("_UNSETPERMISSIONS","إلغاء تعيين أذونات");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","وهذه العملية محاولة تحديد الأذونات على كافة الملفات والمجلدات لتكون قابلة للكتابة من قبل خادم الويب. هذه هي إلزامية إذا كنت ترغب في رفع مستوى أداء الآلية ويمكن أن تكون مفيدة في حالات كنت تعاني من صعوبات أثناء أو بعد الترقية. من ناحية أخرى ، وترك كافة الملفات للكتابة قد تشكل تهديدا أمنيا في ظل ظروف معينة.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","وهذه العملية محاولة تحديد الأذونات على كافة الملفات والمجلدات لتكون غير قابلة للكتابة من قبل خادم الويب ، باستثناء تلك الإلزامي لنظام ليعمل على نحو سليم. هذا هو الإعداد الأكثر أمانا ولكن سوف يمنع النظام من رفع تلقائيا");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","اضغط هنا للتحقق من الأذونات");//Click here to check permissions
+define("_CHECKPERMISSIONS","تحقق من أذونات");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","وهذه العملية التي تحقق الملفات والمجلدات الخاصة بك من نظام غير قابل للكتابة من قبل خادم الويب");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","نتائج عملية");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","تنفيذ أي عملية حتى الآن");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","بعض الملفات / المجلدات غير قابل للكتابة. يرجى زيارة &#39;الأذونات قسم&#39; في مجال الصيانة -- تنظيف&gt; للتحقق من الأذونات واستعراض هذه الملفات");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","خلاف ذلك ، قد إنشاء <button onclick = \"location='index.php?ctg=signup'\">حساب جديد</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","التحق كنت لالدروس والدورات مجانا. الرجاء مراجعة أدناه اختيارك للدروس ودورات غير مجانية");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","المشرفون");//Supervisors
+define("_COURSEOPTIONS","خيارات الدورة");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","الإعدام لكافة المستخدمين إعادة تعيين");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","شاهد تقارير مولد");//Users reports generator (New)
+define("_ADDTOGROUP","أضف الى المجموعة");//Add to group (New)
+define("_ASSIGNCOURSE","تعيين الدراسي");//Assign course (New)
+define("_ASSIGNLESSON","تعيين الدرس");//Assign lesson (New)
+define("_REMOVECOURSE","إزالة البرنامج الدراسي");//Remove course (New)
+define("_REMOVELESSON","إزالة الدرس");//Remove lesson (New)
+define("_REMOVEFROMGROUP","إزالة من مجموعة");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","إعادة التقدم التعلم");//Reset learning progress (New)
+define("_BUILDER","منشئ");//Builder (New)
+define("_ADDREPORT","تقرير جديد صادر عن إضافة");//Add new report (New)
+define("_CONDITIONTYPE","نوع شرطا");//Condition type
+define("_CONDITIONSPECIFICATION","حالة المواصفة");//Condition specification (New)
+define("_ADDCOLUMN","إضافة عمود");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","العلاقة مع القادم");//Relation with next (New)
+define("_COLUMNTYPE","نوع العمود");//Column type (New)
+define("_GRIDNAME","اسم الشبكة");//Grid name (New)
+define("_ALIGNED","الانحياز");//Aligned (New)
+define("_SELECTREPORT","حدد تقرير");//Select report (New)
+define("_AVAILABLEREPORTS","التقارير المتاحة");//Available reports (New)
+define("_EDITREPORT","تحرير التقرير");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","ولم ترد تقارير عن المعرفة في النظام. من فضلك");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","إنشاء واحد");//create one (New)
+define("_NEWREPORT","تقرير جديد");//New report (New)
+define("_REPORTNAME","اسم التقرير");//Report name (New)
+define("_SELECTCONDITION","حدد الشرط");//Select condition (New)
+define("_ISNOT","لا");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","الانتهاء من جميع المحال الدروس");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","الانتهاء من جميع المحال المقررات");//Has completed all assigned courses (New)
+define("_HAS","وقد");//Has (New)
+define("_HASNOT","لم");//Has not (New)
+define("_ENROLLEDTO","المسجلين في");//Enrolled to (New)
+define("_BETWEEN","بين");//Between (New)
+define("_ISASSIGNED","يتم تعيين");//Is assigned (New)
+define("_ISNOTASSIGNED","لم يتم تعيين");//Is not assigned (New)
+define("_DURINGLASTDAY","آخر 24h");//last 24h (New)
+define("_DURINGLASTWEEK","الاسبوع الماضي");//last week (New)
+define("_DURINGLASTMONTH","الشهر الماضي");//last month (New)
+define("_COLUMN","عمود");//Column (New)
+define("_SELECTCOLUMN","حدد العمود");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","يترك فارغا لصناعة السيارات في ضبط العرض");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","ترك فارغا لاستخدام اسم العمود");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","عرض (٪)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","يرجى تحديد عمود");//Please select a column (New)
+define("_CHANGECOLUMNORDER","تغيير ترتيب الأعمدة");//Change the columns order (New)
+define("_VIEWINGREPORT","عرض التقرير");//Viewing report (New)
+define("_PLEASESELECTACONDITION","الرجاء تحديد شرط");//Please select a condition (New)
+define("_BASIC","الأساسية");//Basic (New)
+define("_LEARNING","تعلم");//Learning (New)
+define("_ENTERPRISE","مشروع");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","سحب العناصر لتغيير النظام");//Drag items to change order (New)
+define("_CUSTOMFIELDS","الحقول المخصصة");//Custom fields (New)
+define("_FORMATTEDLOGIN","تنسيق الدخول");//Formatted login (New)
+define("_DEFAULTSORT","الفرز الافتراضي");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; عامل الأسبقية");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","صفحة العمليات الحالية");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","أو تحديد مجموعة جديدة إضافة إلى");//Or specify a new group to add to (New)
+define("_ADDTO","إضافة إلى");//Add to (New)
+define("_REMOVEFROM","من إزالة");//Remove from (New)
+define("_GROUPOPERATIONS","مجموعة العمليات");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","عمليات شهادة");//Certificate operations (New)
+define("_LESSONOPERATIONS","درس عمليات");//Lesson operations (New)
+define("_COURSEOPERATIONS","عمليات دورة");//Course operations (New)
+define("_EXPORTTOCSV","تصدير إلى كسف");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","لا يعرف رمز الحدث");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","ملفات استيرادها بنجاح");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","التسلسل الهرمي للمجلدات تحويل المتداخلة");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","إلغاء ضغط ملف مضغوط (ق) واستيراد محتويات");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","مؤمن الموضوع");//The theme is locked (New)
+define("_BLANKREPORT","تقرير فارغ");//Blank report (New)
+define("_CUSTOMREPORTS","تقارير مخصص");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","وسيكون المسؤول عن النظام وتفعيل استعراض الالتحاق الخاص");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","تحديث الجدول");//Refresh table (New)
+define("_REMOVEFROMSET","إزالة من مجموعة");//Remove from set (New)
+define("_BRANCHTREE","فرع شجرة");//Branch tree (New)
+define("_CHANGECONDITIONORDER","تغيير حالة النظام");//Change condition order (New)
+define("_INDEX","مؤشر");//Index (New)
+define("_EVENTDATETIME","الحدث التاريخ والوقت");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","وكان ملف الشهادة مفقود أو معطوب وبالتالي تم إعادة تعيين");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

@@ -44,7 +44,7 @@ define("_RESTORE","Restaura");//Restore
 define("_FREE","Lliure lliçó");//Free lesson
 define("_SUCCESSREGISTER","Que s&#39;hagi registrat amb èxit");//You have registered successfully
 define("_LESSONSREGISTRATION","Lliçó de registre");//Lesson registration
-define("_YOUREMAIL","El seu e-mail");//Your e-mail 
+define("_YOUREMAIL","El seu e-mail");//Your Email 
 define("_MESSAGESUBJECT","Missatge");//Message subject
 define("_PASSWORDLEAVEBLANK","Contrasenya (en blanc per deixar sense canvis)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","La informació personal s&#39;ha alterat");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Correu electrònic va ser enviat a");//Email was sent to
 define("_CHOOSELESSON","Escull lliçó");//Choose lesson
 define("_SUBJECT","Tema");//Subject
 define("_RECIPIENTSSELECTION","Selecció de beneficiaris");//Recipients selection
-define("_EMAILBODY","E-mail cos");//E-mail body
-define("_SENDEMAIL","Enviar E-mail");//Send E-mail
+define("_EMAILBODY","E-mail cos");//Email body
+define("_SENDEMAIL","Enviar E-mail");//Send Email
 define("_EXIT","Sortir");//Exit
 define("_MORE","més");//more
 define("_DELETE","Esborrar");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Centre de control");//Control center
 define("_EXAMPLES","Exemples");//Examples
 define("_FORUM","Fòrum");//Forum
 define("_NOCONTENT","Unitat sense contingut");//Unit without content
-define("_INACTIVE","Inactiu unitat");//Inactive unit
+define("_INACTIVE","Inactiu unitat");//Inactive
 define("_CONTENTMANAGEMENT","Contingut");//Content
 define("_SCHEDULING","Programació");//Scheduling
 define("_OFDEVELOPMENT","desenvolupament");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","No s&#39;han trobat resultats en mis
 define("_SEARCHRESULTSINPERSONALMESSAGES","Resultats de la cerca en els missatges personals");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Resultats de cerca en els cursos");//Search results in courses
 define("_MESSAGEFOLDER","Carpeta missatges");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Restablir contrasenya");//Reset password
 define("_JOINED","Antiguitat");//Joined
 define("_MOREINFO","Més informació");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Aneu a la part superior de la pàgina");//Scroll to
 define("_SCROLLTOBOTTOMOFPAGE","Aneu a la part inferior de la pàgina");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Cap usuari ha realitzat aquesta enquesta encara");//No user has done this survey yet
 define("_SYSTEM","Sistema");//System
-define("_EMAILCONFIGURATIONS","E-mail de configuració del servidor");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-mail de configuració del servidor");//Emails server configuration
 define("_SAWUNIT","Ajust la unitat com completada");//Set the unit as completed
 define("_NOTSAWUNIT","Ajust la unitat en la qual no es completa");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Condicions acabat");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Enviar enquesta");//Submit survey
 define("_ROWSPERPAGE","Files per pàgina");//Rows per page
 define("_FILTER","Filtre");//Filter
 define("_OF","d&#39;");//of
-define("_SENDALSOVIAEMAIL","Envia la invitació per e-mail");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Envia la invitació per e-mail");//Send invitation via Email
 define("_STYLE","Estil");//Style
 define("_MENU","Menú");//Menu
 define("_SELECTION","Selecció");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","El mòdul s&#39;ha suprimit");//The module w
 define("_AUTHOR","Autor");//Author
 define("_VERSION","Versió");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Els camps en el fitxer CSV ha de contenir els següents camps");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Els camps en vermell són obligatoris. Si no hi ha contrasenya donada, la contrasenya inicial serà el mateix que l&#39;inici de sessió.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Els camps en vermell són obligatoris. Si no hi ha contrasenya donada, la contrasenya inicial serà el mateix que l&#39;inici de sessió.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Si us plau, comproveu el format del vostre fitxer CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","A la plantilla, utilitzeu # # organització per a l&#39;organització el nom, l&#39;usuari # # per al nom d&#39;usuari, # # per user_surname cognom de l&#39;usuari, # # course_name per descomptat el nom, grau # # # per al grau i la data per a la data #.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Vots");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Assignació d&#39;usuaris");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Assignació d&#39;usuaris a la branca");//Assign users to branch 
 define("_EDITSKILL","Edita habilitat");//Edit skill
 define("_ASSIGNSKILL","Assignar qualificacions");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Assignar els usuaris l&#39;habilitat");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Assignar els usuaris l&#39;habilitat");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Les branques no s&#39;han registrat");//No branches have been registered
 define("_ORGANIZATION","Organització");//Organization
 define("_SEARCHFOREMPLOYEE","Cerca usuari [Organització criteris]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Valoració propietats");//Poll properties
 define("_FORUMPROPERTIES","Fòrum de propietats");//Forum properties
 define("_UPDATETHEME","Tema d&#39;actualització de");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Vostè pot connectar el seu compte de Facebook amb un eFront existent, en establir l&#39;inici de sessió d&#39;usuari i contrasenya del compte");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Hi ha més d&#39;un usuari amb la mateixa adreça de correu electrònic. Utilitzeu nom del usuari en el formulari de sota");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Hi ha més d&#39;un usuari amb la mateixa adreça de correu electrònic. Utilitzeu nom del usuari en el formulari de sota");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Compte assignada ha estat esborrat");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Tema propietats");//Theme properties
 define("_CHANGETHEME","Canviar tema");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Mostra només després d&#39;enviar un missatge de prova");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Aquesta prova s&#39;ha enviat correctament");//This test was successfully submitted
 define("_LEARNINGSTATUS","Estat d&#39;aprenentatge");//Learning Status
-define("_HASNOTANEMAILADDRESS","té no una adreça de correu electrònic");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","té no una adreça de correu electrònic");//has not an Email address
 define("_FEEDBACK","Realimentació");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Introduïu els usuaris en el grup");//Insert users into group
 define("_INSERTINTONEWGROUP","Inserir en el nou grup");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Registre del servidor web");//Web server regist
 define("_USEORLOGICTOCORRECTANSWERS","Utilitza la lògica o per calcular resposta correcta");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","La variable% x ha de contenir &quot;%y&quot; per continuar");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Obriu la unitat en una finestra emergent");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Un usuari amb l&#39;inici de sessió especificat ja existeix (arxivada)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Esdeveniments mida");//Events size (New)
-define("_OLDESTEVENT","El més antic esdeveniment");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Purga de més esdeveniments");//Purge events older than (New)
-define("_PURGEEVENTS","Purga esdeveniments");//Purge events (New)
-define("_USERSEPERUSERTYPE","Usuaris per tipus d&#39;usuari");//Users per user type (New)
-define("_MINUTESPERUSER","Minuts per usuari");//Minutes per user (New)
-define("_LOGINSPERDAY","Inicis de sessió per dia");//Logins per day (New)
-define("_ACCESSES","Accessos");//Accesses (New)
-define("_ACCESSESPERUSER","Accessos per usuari");//Accesses per user (New)
-define("_ACCESSESPERDAY","Accessos per dia");//Accesses per day (New)
-define("_OCCURENCES","Ocurrències");//Occurences (New)
-define("_SCORES","Partitures");//Scores (New)
-define("_PROPAGATECOURSE","Propagar curs");//Propagate course (New)
-define("_LESSONSTRUCTURE","Lliçó estructura");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Un administrador no pot accedir a les pàgines lliçó");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X% directoris i fitxers i no poden ser escrits pel servidor web. <br> Feu clic <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>aquí</a> per descarregar un informe complet");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Feu clic aquí per establir permisos d&#39;escriptura");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Feu clic aquí per unset permisos d&#39;escriptura");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Establir permisos");//Set permissions (New)
-define("_UNSETPERMISSIONS","Anular permisos");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Aquesta operació s&#39;intenti establir permisos a tots els arxius i carpetes de ser escriptura només per al servidor web. Això és obligatori si es desitja realitzar actualitzacions automàtiques i pot ser útil en els casos que està experimentant problemes durant o després d&#39;actualitzar. D&#39;altra banda, deixant a tots els arxius modificables pot suposar una amenaça per a la seguretat en determinades circumstàncies.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Aquesta operació s&#39;intenti establir permisos a tots els arxius i carpetes llevat escriptura només per el lloc web, a excepció dels obligatoris perquè el sistema funcioni correctament. Aquesta és la configuració més segura, sinó d&#39;evitar que el sistema d&#39;actualització automàtica");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Feu clic aquí per comprovar els permisos");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Comproveu els permisos");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Aquesta operació va a comprovar quins fitxers i carpetes del sistema no poden ser escrits pel servidor web");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operació resultats");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","No obstant això operació realitzada");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Alguns arxius o carpetes no es pot escriure. Si us plau visiti la secció \"permisos\" en el manteniment - neteja&gt; per comprovar els permisos i revisar aquests arxius");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","En cas contrari, pot crear un <button onclick = \"location='index.php?ctg=signup'\">compte nou</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Vostè es van inscriure a classes gratuïtes i cursos. Reviseu a continuació la selecció de no classes gratuïtes i cursos");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Supervisors");//Supervisors (New)
-define("_COURSEOPTIONS","Curs d&#39;opcions");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Un usuari amb l&#39;inici de sessió especificat ja existeix (arxivada)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Esdeveniments mida");//Events size
+define("_OLDESTEVENT","El més antic esdeveniment");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Purga de més esdeveniments");//Purge events older than
+define("_PURGEEVENTS","Purga esdeveniments");//Purge events
+define("_USERSEPERUSERTYPE","Usuaris per tipus d&#39;usuari");//Users per user type
+define("_MINUTESPERUSER","Minuts per usuari");//Minutes per user
+define("_LOGINSPERDAY","Inicis de sessió per dia");//Logins per day
+define("_ACCESSES","Accessos");//Accesses
+define("_ACCESSESPERUSER","Accessos per usuari");//Accesses per user
+define("_ACCESSESPERDAY","Accessos per dia");//Accesses per day
+define("_OCCURENCES","Ocurrències");//Occurences
+define("_SCORES","Partitures");//Scores
+define("_PROPAGATECOURSE","Propagar curs");//Propagate course
+define("_LESSONSTRUCTURE","Lliçó estructura");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Un administrador no pot accedir a les pàgines lliçó");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X% directoris i fitxers i no poden ser escrits pel servidor web. <br> Feu clic <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>aquí</a> per descarregar un informe complet");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Feu clic aquí per establir permisos d&#39;escriptura");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Feu clic aquí per unset permisos d&#39;escriptura");//Click here to unset write permissions
+define("_SETPERMISSIONS","Establir permisos");//Set permissions
+define("_UNSETPERMISSIONS","Anular permisos");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Aquesta operació s&#39;intenti establir permisos a tots els arxius i carpetes de ser escriptura només per al servidor web. Això és obligatori si es desitja realitzar actualitzacions automàtiques i pot ser útil en els casos que està experimentant problemes durant o després d&#39;actualitzar. D&#39;altra banda, deixant a tots els arxius modificables pot suposar una amenaça per a la seguretat en determinades circumstàncies.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Aquesta operació s&#39;intenti establir permisos a tots els arxius i carpetes llevat escriptura només per el lloc web, a excepció dels obligatoris perquè el sistema funcioni correctament. Aquesta és la configuració més segura, sinó d&#39;evitar que el sistema d&#39;actualització automàtica");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Feu clic aquí per comprovar els permisos");//Click here to check permissions
+define("_CHECKPERMISSIONS","Comproveu els permisos");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Aquesta operació va a comprovar quins fitxers i carpetes del sistema no poden ser escrits pel servidor web");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operació resultats");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","No obstant això operació realitzada");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Alguns arxius o carpetes no es pot escriure. Si us plau visiti la secció \"permisos\" en el manteniment - neteja&gt; per comprovar els permisos i revisar aquests arxius");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","En cas contrari, pot crear un <button onclick = \"location='index.php?ctg=signup'\">compte nou</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Vostè es van inscriure a classes gratuïtes i cursos. Reviseu a continuació la selecció de no classes gratuïtes i cursos");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Supervisors");//Supervisors
+define("_COURSEOPTIONS","Curs d&#39;opcions");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Restablir les execucions de tots els usuaris");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Generador d&#39;informes d&#39;usuari");//Users reports generator (New)
+define("_ADDTOGROUP","Afegir a grup");//Add to group (New)
+define("_ASSIGNCOURSE","Assignar curs");//Assign course (New)
+define("_ASSIGNLESSON","Assignar lliçó");//Assign lesson (New)
+define("_REMOVECOURSE","Traieu curs");//Remove course (New)
+define("_REMOVELESSON","Traieu lliçó");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Eliminar del grup");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","He perdut el meu progrés en l&#39;aprenentatge");//Reset learning progress (New)
+define("_BUILDER","Constructor");//Builder (New)
+define("_ADDREPORT","Afegeix un informe");//Add new report (New)
+define("_CONDITIONTYPE","Condició de tipus");//Condition type
+define("_CONDITIONSPECIFICATION","Condició plec de condicions");//Condition specification (New)
+define("_ADDCOLUMN","Afegir columna");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relació amb el següent");//Relation with next (New)
+define("_COLUMNTYPE","Columna de tipus");//Column type (New)
+define("_GRIDNAME","Grid nom");//Grid name (New)
+define("_ALIGNED","Alineat");//Aligned (New)
+define("_SELECTREPORT","Ponències");//Select report (New)
+define("_AVAILABLEREPORTS","Els informes disponibles");//Available reports (New)
+define("_EDITREPORT","Edita informe");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","No hi ha informes definits al sistema. Si us plau,");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","crear un");//create one (New)
+define("_NEWREPORT","Un nou informe d&#39;");//New report (New)
+define("_REPORTNAME","Nom de l&#39;informe");//Report name (New)
+define("_SELECTCONDITION","Seleccioneu condició");//Select condition (New)
+define("_ISNOT","no és");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Ha completat totes les lliçons assignades");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Ha realitzat cursos de tots els afectats");//Has completed all assigned courses (New)
+define("_HAS","Ha");//Has (New)
+define("_HASNOT","No ha");//Has not (New)
+define("_ENROLLEDTO","Inscrit a");//Enrolled to (New)
+define("_BETWEEN","Entre");//Between (New)
+define("_ISASSIGNED","S&#39;assigna");//Is assigned (New)
+define("_ISNOTASSIGNED","No és assignada");//Is not assigned (New)
+define("_DURINGLASTDAY","Darreres 24 hores");//last 24h (New)
+define("_DURINGLASTWEEK","setmana passada");//last week (New)
+define("_DURINGLASTMONTH","mes passat");//last month (New)
+define("_COLUMN","Columna");//Column (New)
+define("_SELECTCOLUMN","Seleccioneu la columna");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Deixar en blanc per a auto-ajustar l&#39;ample de");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Deixa en blanc per a usar el nom de columna");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Ample (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Si us plau, seleccioneu una columna");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Canviar les columnes per");//Change the columns order (New)
+define("_VIEWINGREPORT","Veient l&#39;informe");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Si us plau, seleccioneu una condició");//Please select a condition (New)
+define("_BASIC","Bàsic");//Basic (New)
+define("_LEARNING","Aprenentatge");//Learning (New)
+define("_ENTERPRISE","Empresa");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Arrossegueu els elements per canviar l&#39;ordre");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Camps personalitzats");//Custom fields (New)
+define("_FORMATTEDLOGIN","entrada amb format");//Formatted login (New)
+define("_DEFAULTSORT","Defecte Classificar");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; agent té prioritat");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Pàgina actual operacions");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","O bé introduïu un nou grup per afegir");//Or specify a new group to add to (New)
+define("_ADDTO","Afegir a");//Add to (New)
+define("_REMOVEFROM","Eliminar de la");//Remove from (New)
+define("_GROUPOPERATIONS","Grup d&#39;operacions");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Certificat d&#39;operacions");//Certificate operations (New)
+define("_LESSONOPERATIONS","Lliçó operacions");//Lesson operations (New)
+define("_COURSEOPERATIONS","Curs d&#39;operacions");//Course operations (New)
+define("_EXPORTTOCSV","Exportar a csv");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Cap codi d&#39;esdeveniments definits");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Arxius importat correctament");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Convertir carpetes a la jerarquia imbricada");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Descomprimir l&#39;arxiu zip (s) i el contingut d&#39;importació");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","El tema està bloquejat");//The theme is locked (New)
+define("_BLANKREPORT","Informe en blanc");//Blank report (New)
+define("_CUSTOMREPORTS","Informes personalitzats");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","L&#39;administrador del sistema revisarà i activar la matrícula");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Actualitzar la taula");//Refresh table (New)
+define("_REMOVEFROMSET","Eliminar de la sèrie");//Remove from set (New)
+define("_BRANCHTREE","Branca d&#39;un arbre");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Canvia l&#39;ordre d&#39;estat");//Change condition order (New)
+define("_INDEX","Índex");//Index (New)
+define("_EVENTDATETIME","Data i hora");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","L&#39;arxiu de certificat es troba o està malmès i per tant es restableix");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

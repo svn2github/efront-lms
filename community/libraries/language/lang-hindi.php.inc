@@ -44,7 +44,7 @@ define("_RESTORE","पुनर्स्थापित प्रणाली");
 define("_FREE","यह सबक सभी के लिए स्वतंत्र है");//Free lesson
 define("_SUCCESSREGISTER","आपने सफलतापूर्वक पंजीकृत");//You have registered successfully
 define("_LESSONSREGISTRATION","पंजीकरण नालचिक");//Lesson registration
-define("_YOUREMAIL","आपकी ईमेल");//Your e-mail 
+define("_YOUREMAIL","आपकी ईमेल");//Your Email 
 define("_MESSAGESUBJECT","संदेश का विषय है");//Message subject
 define("_PASSWORDLEAVEBLANK","कूटशब्द ( रिक्त छोड़ अपरिवर्तित करने के लिए )");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","आपकी व्यक्तिगत जानकारी को सफलतापूर्वक बदल दिया गया है");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","ईमेल को भेजा गया था");//Ema
 define("_CHOOSELESSON","पाठ चुनें");//Choose lesson
 define("_SUBJECT","विषय");//Subject
 define("_RECIPIENTSSELECTION","प्राप्तकर्ता का चयन");//Recipients selection
-define("_EMAILBODY","ई मेल से शरीर");//E-mail body
-define("_SENDEMAIL","ई मेल भेजें");//Send E-mail
+define("_EMAILBODY","ई मेल से शरीर");//Email body
+define("_SENDEMAIL","ई मेल भेजें");//Send Email
 define("_EXIT","बाहर निकलें");//Exit
 define("_MORE","अधिक");//more
 define("_DELETE","मिटाना");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","नियंत्रण केंद्र");//Control
 define("_EXAMPLES","उदाहरण");//Examples
 define("_FORUM","फोरम");//Forum
 define("_NOCONTENT","यूनिट के बिना सामग्री");//Unit without content
-define("_INACTIVE","निष्क्रिय इकाई");//Inactive unit
+define("_INACTIVE","निष्क्रिय इकाई");//Inactive
 define("_CONTENTMANAGEMENT","सामग्री");//Content
 define("_SCHEDULING","समय सारिणी");//Scheduling
 define("_OFDEVELOPMENT","विकास");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","निजी संदेश मे�
 define("_SEARCHRESULTSINPERSONALMESSAGES","निजी संदेश में खोज परिणाम");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","पाठ्यक्रमों में खोज परिणाम");//Search results in courses
 define("_MESSAGEFOLDER","फ़ोल्डर संदेश");//Message folder
-define("_EMAIL","ई मेल से");//e-mail
+define("_EMAIL","ई मेल से");//Email
 define("_RESETPASSWORD","पासवर्ड रीसेट");//Reset password
 define("_JOINED","शामिल");//Joined
 define("_MOREINFO","अधिक जानकारी");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","स्क्रॉल करने के लिए
 define("_SCROLLTOBOTTOMOFPAGE","नीचे स्क्रॉल करने के लिए पृष्ठ");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","कर्मचारी ने नहीं किया है फिर भी इस सर्वेक्षण");//No user has done this survey yet
 define("_SYSTEM","सिस्टम");//System
-define("_EMAILCONFIGURATIONS","ई मेल सर्वर विन्यास");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","ई मेल सर्वर विन्यास");//Emails server configuration
 define("_SAWUNIT","पूरी यूनिट के रूप में सेट करें");//Set the unit as completed
 define("_NOTSAWUNIT","यूनिट के रूप में सेट पूरा नहीं");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","शर्तों को पूरा");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","सर्वेक्षण भेजें");//Submit s
 define("_ROWSPERPAGE","पंक्तियाँ प्रति पृष्ठ");//Rows per page
 define("_FILTER","फ़िल्टर");//Filter
 define("_OF","का");//of
-define("_SENDALSOVIAEMAIL","ईमेल के माध्यम से आमंत्रण भेजें");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","ईमेल के माध्यम से आमंत्रण भेजें");//Send invitation via Email
 define("_STYLE","शैली");//Style
 define("_MENU","मेनू");//Menu
 define("_SELECTION","चयन");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","इस मॉड्यूल सफलता
 define("_AUTHOR","लेखक");//Author
 define("_VERSION","संस्करण");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","csv फ़ाइल के क्षेत्रों में अपने क्षेत्रों में निम्नलिखित शामिल होना चाहिए");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","लाल क्षेत्रों में अनिवार्य हैं . यदि नहीं है पासवर्ड दिया , प्रारम्भिक पासवर्ड सेट किया जाएगा प्रवेश के समान ही है .");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","लाल क्षेत्रों में अनिवार्य हैं . यदि नहीं है पासवर्ड दिया , प्रारम्भिक पासवर्ड सेट किया जाएगा प्रवेश के समान ही है .");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","कृपया जाँचें कि आपके CSV फ़ाइल प्रारूप");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","# # का उपयोग करें user_name के लिए उपयोगकर्ता का नाम , # # user_surname के लिए उपयोगकर्ता के उपनाम , # # course_name के लिए पाठ्यक्रम का नाम , ग्रेड # # # के लिए ग्रेड के लिए तिथि और तिथि # .");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","वोट");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","कर्मचारियों को निरु
 define("_ASSIGNEMPLOYEESTOBRANCH","कर्मचारियों को निरुपित शाखा");//Assign users to branch 
 define("_EDITSKILL","कौशल का संपादन करें");//Edit skill
 define("_ASSIGNSKILL","निरुपित कौशल");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","निरुपित कर्मचारियों के कौशल");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","निरुपित कर्मचारियों के कौशल");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","कोई शाखाओं को पंजीकृत किया गया है");//No branches have been registered
 define("_ORGANIZATION","संगठन");//Organization
 define("_SEARCHFOREMPLOYEE","खोज के लिए कर्मचारी [ संगठन मानदंड ]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","सर्वेक्षण के गुण");//Poll 
 define("_FORUMPROPERTIES","फोरम गुण");//Forum properties
 define("_UPDATETHEME","अद्यतन विषय");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","तुम उपयोगकर्ता लॉगिन और उस खाते के पासवर्ड प्रदान करके एक मौजूदा eFront एक Facebook के साथ आपके खाते से कनेक्ट कर सकते हैं");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","वहाँ एक ही ई मेल पते के साथ एक से अधिक उपयोगकर्ताओं रहे हैं. फार्म नीचे में अपने प्रवेश का प्रयोग करें");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","वहाँ एक ही ई मेल पते के साथ एक से अधिक उपयोगकर्ताओं रहे हैं. फार्म नीचे में अपने प्रवेश का प्रयोग करें");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","प्रतिचित्रित खाते सफलतापूर्वक नष्ट कर दिया गया");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","विषय गुण");//Theme properties
 define("_CHANGETHEME","बदलें विषय");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","दिखाएँ केवल परीक्षण प्रस्तुत करने के बाद एक संदेश");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","इस परीक्षण सफलतापूर्वक प्रस्तुत की गई थी");//This test was successfully submitted
 define("_LEARNINGSTATUS","सीखने का स्तर");//Learning Status
-define("_HASNOTANEMAILADDRESS","ई - मेल पता नहीं है एक");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","ई - मेल पता नहीं है एक");//has not an Email address
 define("_FEEDBACK","प्रतिक्रिया");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","सम्मिलित करें समूह में उपयोगकर्ताओं");//Insert users into group
 define("_INSERTINTONEWGROUP","नए समूह में डालें");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","वेब सर्वर पंजीकरण
 define("_USEORLOGICTOCORRECTANSWERS","का प्रयोग करें या तर्क सही जवाब गणना करने के लिए");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","चर% x  &quot;%y&quot; मिल करने के लिए जारी करना चाहिए");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","पॉपअप विंडो में खोलें इकाई");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","निर्दिष्ट प्रवेश पहले से मौजूद है (संग्रह के साथ एक उपयोगकर्ता)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","घटनाक्रम आकार");//Events size (New)
-define("_OLDESTEVENT","सबसे पुरानी घटना");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","शुद्ध से बड़ी घटनाओं");//Purge events older than (New)
-define("_PURGEEVENTS","शुद्ध घटनाओं");//Purge events (New)
-define("_USERSEPERUSERTYPE","प्रति उपयोगकर्ता उपयोगकर्ताओं के प्रकार");//Users per user type (New)
-define("_MINUTESPERUSER","प्रति उपयोगकर्ता मिनट");//Minutes per user (New)
-define("_LOGINSPERDAY","प्रति दिन लॉगिन");//Logins per day (New)
-define("_ACCESSES","Accesses");//Accesses (New)
-define("_ACCESSESPERUSER","प्रति उपयोगकर्ता accesses");//Accesses per user (New)
-define("_ACCESSESPERDAY","प्रति दिन accesses");//Accesses per day (New)
-define("_OCCURENCES","संयोग");//Occurences (New)
-define("_SCORES","स्कोर");//Scores (New)
-define("_PROPAGATECOURSE","बेशक प्रचार");//Propagate course (New)
-define("_LESSONSTRUCTURE","सबक संरचना");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","एक प्रशासक सबक पृष्ठों उपयोग नहीं कर सकते");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","x निर्देशिकाओं और फ़ाइलों%% y वेब सर्वर द्वारा writable नहीं हैं. <br> क्लिक करें <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>यहाँ</a> पूरी रिपोर्ट डाउनलोड करने के लिए एक");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","यहाँ क्लिक करें लिखने की अनुमति सेट करने के लिए");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","यहाँ क्लिक करें अनसेट करने के लिए अनुमति लिखने के लिए");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","सेट की अनुमति");//Set permissions (New)
-define("_UNSETPERMISSIONS","अनसेट अनुमति");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","इस आपरेशन के सभी फ़ाइलें और फ़ोल्डर्स के लिए अनुमतियाँ स्थापित करने के लिए वेब सर्वर द्वारा writable होने की कोशिश करेंगे. यह अनिवार्य है यदि आप स्वत: उन्नयन प्रदर्शन करना चाहते हैं और मामलों में उपयोगी हो सकता है आप के दौरान या उन्नयन के बाद मुश्किलों का सामना कर रहे हैं. दूसरी ओर, सभी फाइलें कुछ निश्चित परिस्थितियों में एक सुरक्षा खतरा हो सकता है लिखने योग्य हो जाता है.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","इस आपरेशन के सभी फ़ाइलें और फ़ोल्डर्स के लिए अनुमतियाँ स्थापित करने के लिए वेब सर्वर द्वारा writable होने गैर के लिए इस प्रणाली के लिए अनिवार्य उन ठीक ढंग से काम करने के लिए छोड़कर, की कोशिश करेंगे. यह सबसे सुरक्षित सेटिंग है, लेकिन स्वतः प्रणाली के उन्नयन से रोकेगा");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","यहाँ क्लिक करें अनुमतियाँ जाँच करने के लिए");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","अनुमति की जाँच करें");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","इस ऑपरेशन की जाँच करेगा जो फ़ाइलों और फ़ोल्डरों को आपके सिस्टम के वेब सर्वर द्वारा writable नहीं कर रहे हैं");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","आपरेशन के परिणाम");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","अभी तक कोई आपरेशन प्रदर्शन");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ फ़ोल्डर कुछ फ़ाइलें लिखने योग्य नहीं हैं. कृपया रखरखाव में &#39;&#39; अनुमतियाँ अनुभाग यात्रा -&gt; सफाई करने के लिए अनुमति की जाँच करें और इन फ़ाइलों की समीक्षा");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","अन्यथा, आप <button onclick = \"location='index.php?ctg=signup'\">नया खाता</button> बनाने के लिए एक हो सकता है");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","तुम थे मुक्त सबक और पाठ्यक्रमों में दाखिला लिया. समीक्षा गैर नि: शुल्क शिक्षा और पाठ्यक्रम के अपने चयन के नीचे कृपया");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","पर्यवेक्षकों");//Supervisors (New)
-define("_COURSEOPTIONS","बेशक विकल्प");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","निर्दिष्ट प्रवेश पहले से मौजूद है (संग्रह के साथ एक उपयोगकर्ता)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","घटनाक्रम आकार");//Events size
+define("_OLDESTEVENT","सबसे पुरानी घटना");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","शुद्ध से बड़ी घटनाओं");//Purge events older than
+define("_PURGEEVENTS","शुद्ध घटनाओं");//Purge events
+define("_USERSEPERUSERTYPE","प्रति उपयोगकर्ता उपयोगकर्ताओं के प्रकार");//Users per user type
+define("_MINUTESPERUSER","प्रति उपयोगकर्ता मिनट");//Minutes per user
+define("_LOGINSPERDAY","प्रति दिन लॉगिन");//Logins per day
+define("_ACCESSES","Accesses");//Accesses
+define("_ACCESSESPERUSER","प्रति उपयोगकर्ता accesses");//Accesses per user
+define("_ACCESSESPERDAY","प्रति दिन accesses");//Accesses per day
+define("_OCCURENCES","संयोग");//Occurences
+define("_SCORES","स्कोर");//Scores
+define("_PROPAGATECOURSE","बेशक प्रचार");//Propagate course
+define("_LESSONSTRUCTURE","सबक संरचना");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","एक प्रशासक सबक पृष्ठों उपयोग नहीं कर सकते");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","x निर्देशिकाओं और फ़ाइलों%% y वेब सर्वर द्वारा writable नहीं हैं. <br> क्लिक करें <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>यहाँ</a> पूरी रिपोर्ट डाउनलोड करने के लिए एक");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","यहाँ क्लिक करें लिखने की अनुमति सेट करने के लिए");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","यहाँ क्लिक करें अनसेट करने के लिए अनुमति लिखने के लिए");//Click here to unset write permissions
+define("_SETPERMISSIONS","सेट की अनुमति");//Set permissions
+define("_UNSETPERMISSIONS","अनसेट अनुमति");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","इस आपरेशन के सभी फ़ाइलें और फ़ोल्डर्स के लिए अनुमतियाँ स्थापित करने के लिए वेब सर्वर द्वारा writable होने की कोशिश करेंगे. यह अनिवार्य है यदि आप स्वत: उन्नयन प्रदर्शन करना चाहते हैं और मामलों में उपयोगी हो सकता है आप के दौरान या उन्नयन के बाद मुश्किलों का सामना कर रहे हैं. दूसरी ओर, सभी फाइलें कुछ निश्चित परिस्थितियों में एक सुरक्षा खतरा हो सकता है लिखने योग्य हो जाता है.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","इस आपरेशन के सभी फ़ाइलें और फ़ोल्डर्स के लिए अनुमतियाँ स्थापित करने के लिए वेब सर्वर द्वारा writable होने गैर के लिए इस प्रणाली के लिए अनिवार्य उन ठीक ढंग से काम करने के लिए छोड़कर, की कोशिश करेंगे. यह सबसे सुरक्षित सेटिंग है, लेकिन स्वतः प्रणाली के उन्नयन से रोकेगा");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","यहाँ क्लिक करें अनुमतियाँ जाँच करने के लिए");//Click here to check permissions
+define("_CHECKPERMISSIONS","अनुमति की जाँच करें");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","इस ऑपरेशन की जाँच करेगा जो फ़ाइलों और फ़ोल्डरों को आपके सिस्टम के वेब सर्वर द्वारा writable नहीं कर रहे हैं");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","आपरेशन के परिणाम");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","अभी तक कोई आपरेशन प्रदर्शन");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ फ़ोल्डर कुछ फ़ाइलें लिखने योग्य नहीं हैं. कृपया रखरखाव में &#39;&#39; अनुमतियाँ अनुभाग यात्रा -&gt; सफाई करने के लिए अनुमति की जाँच करें और इन फ़ाइलों की समीक्षा");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","अन्यथा, आप <button onclick = \"location='index.php?ctg=signup'\">नया खाता</button> बनाने के लिए एक हो सकता है");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","तुम थे मुक्त सबक और पाठ्यक्रमों में दाखिला लिया. समीक्षा गैर नि: शुल्क शिक्षा और पाठ्यक्रम के अपने चयन के नीचे कृपया");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","पर्यवेक्षकों");//Supervisors
+define("_COURSEOPTIONS","बेशक विकल्प");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","सभी उपयोगकर्ताओं के लिए रीसेट फांसी");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","उपयोगकर्ताओं रिपोर्ट जनरेटर");//Users reports generator (New)
+define("_ADDTOGROUP","समूह में जोड़ें");//Add to group (New)
+define("_ASSIGNCOURSE","असाइन पाठ्यक्रम");//Assign course (New)
+define("_ASSIGNLESSON","असाइन सबक");//Assign lesson (New)
+define("_REMOVECOURSE","निकालें पाठ्यक्रम");//Remove course (New)
+define("_REMOVELESSON","निकालें सबक");//Remove lesson (New)
+define("_REMOVEFROMGROUP","समूह से निकालें");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","रीसेट सीखने की प्रगति");//Reset learning progress (New)
+define("_BUILDER","बनानेवाला");//Builder (New)
+define("_ADDREPORT","जोड़ें नए रिपोर्ट");//Add new report (New)
+define("_CONDITIONTYPE","दशा के प्रकार");//Condition type
+define("_CONDITIONSPECIFICATION","हालत विनिर्देशन");//Condition specification (New)
+define("_ADDCOLUMN","स्तंभ जोड़ें");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","के साथ संबंध आगे");//Relation with next (New)
+define("_COLUMNTYPE","स्तंभ प्रकार");//Column type (New)
+define("_GRIDNAME","ग्रिड नाम");//Grid name (New)
+define("_ALIGNED","गठबंधन");//Aligned (New)
+define("_SELECTREPORT","रिपोर्ट का चयन करें");//Select report (New)
+define("_AVAILABLEREPORTS","उपलब्ध रिपोर्टों");//Available reports (New)
+define("_EDITREPORT","संपादित रिपोर्ट");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","कोई प्रणाली में परिभाषित रिपोर्ट कर रहे हैं. कृपया");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","एक बनाने के लिए");//create one (New)
+define("_NEWREPORT","नई रिपोर्ट");//New report (New)
+define("_REPORTNAME","रिपोर्ट नाम");//Report name (New)
+define("_SELECTCONDITION","चुनें हालत");//Select condition (New)
+define("_ISNOT","नहीं है");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","है सभी पाठ पूरा सौंपा");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","है सभी पाठ्यक्रमों को पूरा सौंपा");//Has completed all assigned courses (New)
+define("_HAS","है");//Has (New)
+define("_HASNOT","नहीं है");//Has not (New)
+define("_ENROLLEDTO","भर्ती करने के लिए");//Enrolled to (New)
+define("_BETWEEN","के बीच");//Between (New)
+define("_ISASSIGNED","सौंपा है");//Is assigned (New)
+define("_ISNOTASSIGNED","असाइन नहीं है");//Is not assigned (New)
+define("_DURINGLASTDAY","पिछले 24");//last 24h (New)
+define("_DURINGLASTWEEK","पिछले सप्ताह");//last week (New)
+define("_DURINGLASTMONTH","पिछले महीने");//last month (New)
+define("_COLUMN","स्तंभ");//Column (New)
+define("_SELECTCOLUMN","स्तंभ का चयन करें");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","खाली करने के लिए स्वत: समायोजित चौड़ाई छोड़ दो");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","रिक्त छोड़ दो स्तंभ नाम का उपयोग");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","चौड़ाई (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","कृपया एक स्तंभ का चयन");//Please select a column (New)
+define("_CHANGECOLUMNORDER","बदलें स्तंभ आदेश");//Change the columns order (New)
+define("_VIEWINGREPORT","रिपोर्ट को देखने");//Viewing report (New)
+define("_PLEASESELECTACONDITION","कृपया एक शर्त चयन");//Please select a condition (New)
+define("_BASIC","बुनियादी");//Basic (New)
+define("_LEARNING","शिक्षा");//Learning (New)
+define("_ENTERPRISE","उद्यम");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","खींचें वस्तुओं क्रम बदलने के लिए");//Drag items to change order (New)
+define("_CUSTOMFIELDS","कस्टम फ़ील्ड्स");//Custom fields (New)
+define("_FORMATTEDLOGIN","स्वरूपित लॉगिन");//Formatted login (New)
+define("_DEFAULTSORT","डिफ़ॉल्ट सॉर्ट");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; ऑपरेटर पूर्वता लेता है");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","वर्तमान पृष्ठ का आपरेशन");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","या एक नए समूह को निर्दिष्ट करने के लिए जोड़");//Or specify a new group to add to (New)
+define("_ADDTO","में जोड़ें");//Add to (New)
+define("_REMOVEFROM","से निकालें");//Remove from (New)
+define("_GROUPOPERATIONS","समूह संचालन");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","प्रमाणपत्र आपरेशन");//Certificate operations (New)
+define("_LESSONOPERATIONS","सबक आपरेशन");//Lesson operations (New)
+define("_COURSEOPERATIONS","बेशक आपरेशनों");//Course operations (New)
+define("_EXPORTTOCSV","निर्यात करने के लिए csv");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","कोई घटना कोड को परिभाषित");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","फ़ाइलें आयात सफलतापूर्वक");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","नीडिंत अनुक्रम कन्वर्ट करने के लिए फ़ोल्डर्स");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress ज़िप फ़ाइल (एस) और आयात सामग्री");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","विषय बंद है");//The theme is locked (New)
+define("_BLANKREPORT","रिक्त रिपोर्ट");//Blank report (New)
+define("_CUSTOMREPORTS","कस्टम रिपोर्ट");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","सिस्टम व्यवस्थापक की समीक्षा करें और अपने नामांकन को सक्रिय करेंगे");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","ताज़ा तालिका");//Refresh table (New)
+define("_REMOVEFROMSET","सेट से निकालें");//Remove from set (New)
+define("_BRANCHTREE","शाखा पेड़");//Branch tree (New)
+define("_CHANGECONDITIONORDER","हालत बदलने के आदेश");//Change condition order (New)
+define("_INDEX","सूची");//Index (New)
+define("_EVENTDATETIME","घटना दिनांक और समय");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","प्रमाणपत्र फाइल गायब है या भ्रष्ट था और इस तरह रीसेट हो गया");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

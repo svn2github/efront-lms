@@ -44,7 +44,7 @@ define("_RESTORE","システムの復元");//Restore
 define("_FREE","このレッスンは無料のすべての");//Free lesson
 define("_SUCCESSREGISTER","あなたが登録正常に");//You have registered successfully
 define("_LESSONSREGISTRATION","レッスンユーザ登録");//Lesson registration
-define("_YOUREMAIL","あなたのe -メール");//Your e-mail 
+define("_YOUREMAIL","あなたのe -メール");//Your Email 
 define("_MESSAGESUBJECT","メッセージの件名");//Message subject
 define("_PASSWORDLEAVEBLANK","パスワード（空白を離れる現行どおり）");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","お客様の個人情報が変更されました");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","電子メールを送信しました。");//Email was sen
 define("_CHOOSELESSON","選択授業");//Choose lesson
 define("_SUBJECT","主題");//Subject
 define("_RECIPIENTSSELECTION","受信者の選択");//Recipients selection
-define("_EMAILBODY","電子メールの本文");//E-mail body
-define("_SENDEMAIL","電子メールを送る");//Send E-mail
+define("_EMAILBODY","電子メールの本文");//Email body
+define("_SENDEMAIL","電子メールを送る");//Send Email
 define("_EXIT","出口");//Exit
 define("_MORE","よりたくさんの");//more
 define("_DELETE","削除する");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","管制センター");//Control center
 define("_EXAMPLES","例");//Examples
 define("_FORUM","フォーラム");//Forum
 define("_NOCONTENT","単位なしのコンテンツ");//Unit without content
-define("_INACTIVE","非アクティブなユニット");//Inactive unit
+define("_INACTIVE","非アクティブなユニット");//Inactive
 define("_CONTENTMANAGEMENT","内容");//Content
 define("_SCHEDULING","スケジューリング");//Scheduling
 define("_OFDEVELOPMENT","開発");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","個人的なメッセージを発見
 define("_SEARCHRESULTSINPERSONALMESSAGES","検索結果が表示さ個人的なメッセージ");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","検索結果が表示さコース");//Search results in courses
 define("_MESSAGEFOLDER","メッセージが表示さフォルダ");//Message folder
-define("_EMAIL","電子メール");//e-mail
+define("_EMAIL","電子メール");//Email
 define("_RESETPASSWORD","パスワードのリセット");//Reset password
 define("_JOINED","メンバー登録");//Joined
 define("_MOREINFO","さらに詳しい情報");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","スクロールしてページのトップへ");//S
 define("_SCROLLTOBOTTOMOFPAGE","ページ下部までスクロールして");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","従業員は、この調査の完了はまだありません");//No user has done this survey yet
 define("_SYSTEM","システム");//System
-define("_EMAILCONFIGURATIONS","電子メールサーバーの設定");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","電子メールサーバーの設定");//Emails server configuration
 define("_SAWUNIT","単位として設定して完了");//Set the unit as completed
 define("_NOTSAWUNIT","単位として設定するには完了する");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","条件を完了");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","提出調査");//Submit survey
 define("_ROWSPERPAGE","1ページの行");//Rows per page
 define("_FILTER","フィルタ");//Filter
 define("_OF","の");//of
-define("_SENDALSOVIAEMAIL","電子メールで招待状を送る");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","電子メールで招待状を送る");//Send invitation via Email
 define("_STYLE","スタイル");//Style
 define("_MENU","メニュー");//Menu
 define("_SELECTION","セレクション");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","このモジュールは正常に削除さ")
 define("_AUTHOR","著者");//Author
 define("_VERSION","バージョン");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","csvファイルのフィールドにしては、次のフィールドを含む必要があります。");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","赤のフィールドは必須項目です。与えられたパスワードがない場合は、最初のパスワードは同じに設定してログインしてください。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","赤のフィールドは必須項目です。与えられたパスワードがない場合は、最初のパスワードは同じに設定してログインしてください。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","確認してください。 csvファイルの形式をして");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","＃ ＃ user_nameに使用するユーザーの名前、 ＃ ＃ user_surnameのユーザーの姓、 ＃ ＃ forコースのcourse_nameの名前を、 ＃グレード＃ ＃日付＃日付等級とします。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","投票");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","従業員に割り当てる");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","支店の従業員を割り当てる");//Assign users to branch 
 define("_EDITSKILL","編集技能");//Edit skill
 define("_ASSIGNSKILL","スキルを割り当てる");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","従業員のスキルを割り当てる");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","従業員のスキルを割り当てる");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","いいえ枝が登録されて");//No branches have been registered
 define("_ORGANIZATION","組織");//Organization
 define("_SEARCHFOREMPLOYEE","検索の従業員[組織基準]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","世論調査のプロパティ");//Poll properties
 define("_FORUMPROPERTIES","フォーラムのプロパティ");//Forum properties
 define("_UPDATETHEME","更新プログラムのテーマ");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","場合は、ユーザーがログインし、そのアカウントのパスワードを提供することによって、既存eFront 1を使用してFacebookのアカウントを接続することが");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","が、同じ電子メールアドレスを持つ複数のユーザーです。下記のフォームにお客様のログインを使用");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","が、同じ電子メールアドレスを持つ複数のユーザーです。下記のフォームにお客様のログインを使用");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","マップされたアカウントが正常に削除されました");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","テーマのプロパティ");//Theme properties
 define("_CHANGETHEME","変更するテーマ");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCEは3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","テストを提出した後だけを表示するメッセージ");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","このテストは正常に送信さ");//This test was successfully submitted
 define("_LEARNINGSTATUS","学習状況");//Learning Status
-define("_HASNOTANEMAILADDRESS","ていない電子メールアドレスを持って");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","ていない電子メールアドレスを持って");//has not an Email address
 define("_FEEDBACK","フィードバック");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","グループ挿入のユーザー");//Insert users into group
 define("_INSERTINTONEWGROUP","挿入新しいグループに");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Webサーバーの登録");//Web server registr
 define("_USEORLOGICTOCORRECTANSWERS","使用してのORロジックが正しい答えを計算する");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","変数％xは続行するには &quot;%y&quot;含める必要があります");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","ポップアップで開くユニットは、ウィンドウ");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","すでに（アーカイブ）が存在する指定されたログインを持つユーザー");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","イベントの大きさ");//Events size (New)
-define("_OLDESTEVENT","古いイベント");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","パージのイベントよりも古い");//Purge events older than (New)
-define("_PURGEEVENTS","パージイベント");//Purge events (New)
-define("_USERSEPERUSERTYPE","ユーザーごとにユーザーが入力");//Users per user type (New)
-define("_MINUTESPERUSER","分1ユーザーあたり");//Minutes per user (New)
-define("_LOGINSPERDAY","1日あたりのログイン");//Logins per day (New)
-define("_ACCESSES","アクセス");//Accesses (New)
-define("_ACCESSESPERUSER","ユーザーごとにアクセス");//Accesses per user (New)
-define("_ACCESSESPERDAY","1日あたりのアクセス");//Accesses per day (New)
-define("_OCCURENCES","出現");//Occurences (New)
-define("_SCORES","スコア");//Scores (New)
-define("_PROPAGATECOURSE","伝播コース");//Propagate course (New)
-define("_LESSONSTRUCTURE","授業構成");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","管理者は、レッスンのページにアクセスすることはできません");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","％xはディレクトリと％yのファイル書き込みのWebサーバーではありません。 <br>をクリックして<a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ここに</a>レポートを完全にダウンロード");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","ここをクリックし書き込み権限を設定する");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","ここをクリックし書き込み権限を解除する");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","アクセス許可を設定");//Set permissions (New)
-define("_UNSETPERMISSIONS","解除のアクセス許可");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","この操作は、すべてのファイルとフォルダへの書き込みのWebサーバーによってするアクセス許可を設定しようとします。あなたは自動アップグレードを実行し、希望する場合に便利ケースでは、中またはアップグレード後にトラブルを経験している可能性がありますこれは必須です。一方、すべてのファイルは、特定の状況下でセキュリティ上の脅威をもたらす可能性があります書き込み残して。");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","この操作は、すべてのファイルとフォルダへの書き込み不可のWeb serverによって上書きするアクセス許可の設定、それらはシステムの必須正しく機能するために除いてtryします。これは最も安全な設定ですが、自動的にアップグレードからシステムを防止する");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","ここをクリックしアクセス許可を確認する");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","アクセス権を確認");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","この操作は、ファイルやシステムのフォルダは書き込み可能なWebサーバではなくであることを確認します");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","操作の結果");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","ノーオペレーションはまだ実行");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/フォルダいくつかのファイルが書き込み可能ではありません。してくださいメンテナンスのアクセス許可]セクションを参照してください - &gt;クリーンアップアクセス許可を確認し、これらのファイルを確認");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","それ以外の場合は、 <button onclick = \"location='index.php?ctg=signup'\">アカウントを新しい</button>可能性があります作成");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","君がいたが、無料レッスンやコースに入学。してください非無料レッスンやコースの選択のレビューを以下の");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","監視");//Supervisors (New)
-define("_COURSEOPTIONS","コースオプション");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","すでに（アーカイブ）が存在する指定されたログインを持つユーザー");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","イベントの大きさ");//Events size
+define("_OLDESTEVENT","古いイベント");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","パージのイベントよりも古い");//Purge events older than
+define("_PURGEEVENTS","パージイベント");//Purge events
+define("_USERSEPERUSERTYPE","ユーザーごとにユーザーが入力");//Users per user type
+define("_MINUTESPERUSER","分1ユーザーあたり");//Minutes per user
+define("_LOGINSPERDAY","1日あたりのログイン");//Logins per day
+define("_ACCESSES","アクセス");//Accesses
+define("_ACCESSESPERUSER","ユーザーごとにアクセス");//Accesses per user
+define("_ACCESSESPERDAY","1日あたりのアクセス");//Accesses per day
+define("_OCCURENCES","出現");//Occurences
+define("_SCORES","スコア");//Scores
+define("_PROPAGATECOURSE","伝播コース");//Propagate course
+define("_LESSONSTRUCTURE","授業構成");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","管理者は、レッスンのページにアクセスすることはできません");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","％xはディレクトリと％yのファイル書き込みのWebサーバーではありません。 <br>をクリックして<a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ここに</a>レポートを完全にダウンロード");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","ここをクリックし書き込み権限を設定する");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","ここをクリックし書き込み権限を解除する");//Click here to unset write permissions
+define("_SETPERMISSIONS","アクセス許可を設定");//Set permissions
+define("_UNSETPERMISSIONS","解除のアクセス許可");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","この操作は、すべてのファイルとフォルダへの書き込みのWebサーバーによってするアクセス許可を設定しようとします。あなたは自動アップグレードを実行し、希望する場合に便利ケースでは、中またはアップグレード後にトラブルを経験している可能性がありますこれは必須です。一方、すべてのファイルは、特定の状況下でセキュリティ上の脅威をもたらす可能性があります書き込み残して。");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","この操作は、すべてのファイルとフォルダへの書き込み不可のWeb serverによって上書きするアクセス許可の設定、それらはシステムの必須正しく機能するために除いてtryします。これは最も安全な設定ですが、自動的にアップグレードからシステムを防止する");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","ここをクリックしアクセス許可を確認する");//Click here to check permissions
+define("_CHECKPERMISSIONS","アクセス権を確認");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","この操作は、ファイルやシステムのフォルダは書き込み可能なWebサーバではなくであることを確認します");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","操作の結果");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","ノーオペレーションはまだ実行");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/フォルダいくつかのファイルが書き込み可能ではありません。してくださいメンテナンスのアクセス許可]セクションを参照してください - &gt;クリーンアップアクセス許可を確認し、これらのファイルを確認");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","それ以外の場合は、 <button onclick = \"location='index.php?ctg=signup'\">アカウントを新しい</button>可能性があります作成");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","君がいたが、無料レッスンやコースに入学。してください非無料レッスンやコースの選択のレビューを以下の");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","監視");//Supervisors
+define("_COURSEOPTIONS","コースオプション");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","すべてのユーザーのリセットの実行");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","ユーザーのレポート生成");//Users reports generator (New)
+define("_ADDTOGROUP","グループに追加");//Add to group (New)
+define("_ASSIGNCOURSE","割り当てますコース");//Assign course (New)
+define("_ASSIGNLESSON","割り当てのレッスン");//Assign lesson (New)
+define("_REMOVECOURSE","削除コース");//Remove course (New)
+define("_REMOVELESSON","削除レッスン");//Remove lesson (New)
+define("_REMOVEFROMGROUP","グループから削除");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","リセットの学習進捗状況");//Reset learning progress (New)
+define("_BUILDER","ビルダー");//Builder (New)
+define("_ADDREPORT","追加新しいレポート");//Add new report (New)
+define("_CONDITIONTYPE","条件の種類");//Condition type
+define("_CONDITIONSPECIFICATION","条件仕様");//Condition specification (New)
+define("_ADDCOLUMN","追加の列");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","との関係、次の");//Relation with next (New)
+define("_COLUMNTYPE","カラムタイプ");//Column type (New)
+define("_GRIDNAME","グリッド名");//Grid name (New)
+define("_ALIGNED","沿磁力線");//Aligned (New)
+define("_SELECTREPORT","選択してレポート");//Select report (New)
+define("_AVAILABLEREPORTS","利用可能なレポート");//Available reports (New)
+define("_EDITREPORT","[編集]レポート");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","ないレポートは、システムで定義されています。てください。");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","を作成する");//create one (New)
+define("_NEWREPORT","新しいレポート");//New report (New)
+define("_REPORTNAME","レポート名");//Report name (New)
+define("_SELECTCONDITION","選択条件");//Select condition (New)
+define("_ISNOT","されていません");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","持っては、すべてのレッスンを割り当て完了");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","持ってはすべてのコースを割り当て完了");//Has completed all assigned courses (New)
+define("_HAS","あり");//Has (New)
+define("_HASNOT","はあり");//Has not (New)
+define("_ENROLLEDTO","に入学");//Enrolled to (New)
+define("_BETWEEN","の間に");//Between (New)
+define("_ISASSIGNED","割り当てられます");//Is assigned (New)
+define("_ISNOTASSIGNED","割り当てられていないか");//Is not assigned (New)
+define("_DURINGLASTDAY","最後の24時間");//last 24h (New)
+define("_DURINGLASTWEEK","先週");//last week (New)
+define("_DURINGLASTMONTH","先月");//last month (New)
+define("_COLUMN","列");//Column (New)
+define("_SELECTCOLUMN","選択列");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","空自動幅調整を残す");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","空白の名前の列を使用してコメントを残す");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","幅（％）");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","ご列を選択する");//Please select a column (New)
+define("_CHANGECOLUMNORDER","変更列は順序");//Change the columns order (New)
+define("_VIEWINGREPORT","表示レポート");//Viewing report (New)
+define("_PLEASESELECTACONDITION","ご条件を選択");//Please select a condition (New)
+define("_BASIC","基本的な");//Basic (New)
+define("_LEARNING","学習");//Learning (New)
+define("_ENTERPRISE","エンタープライズ");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","項目をドラッグ順序を変更する");//Drag items to change order (New)
+define("_CUSTOMFIELDS","カスタムフィールド");//Custom fields (New)
+define("_FORMATTEDLOGIN","フォーマットログイン");//Formatted login (New)
+define("_DEFAULTSORT","既定の並べ替え");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot;演算子が優先されます");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","現在のページの操作");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","または追加するために新しいグループを指定する");//Or specify a new group to add to (New)
+define("_ADDTO","に追加");//Add to (New)
+define("_REMOVEFROM","から削除");//Remove from (New)
+define("_GROUPOPERATIONS","グループの操作");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","証明書の操作");//Certificate operations (New)
+define("_LESSONOPERATIONS","レッスンの操作");//Lesson operations (New)
+define("_COURSEOPERATIONS","コース操作");//Course operations (New)
+define("_EXPORTTOCSV","エクスポートcsvファイル");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","いいえイベントコードが定義され");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","ファイルをインポートしました");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","ネストされた階層に変換するフォルダ");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","解凍のzipファイル（s）と輸入の内容");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","テーマはロックされて");//The theme is locked (New)
+define("_BLANKREPORT","空白のレポート");//Blank report (New)
+define("_CUSTOMREPORTS","カスタムレポート");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","システム管理者が確認し、あなたの入学を有効にする");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","リフレッシュテーブル");//Refresh table (New)
+define("_REMOVEFROMSET","削除セットから");//Remove from set (New)
+define("_BRANCHTREE","ブランチツリー");//Branch tree (New)
+define("_CHANGECONDITIONORDER","変更条件命令");//Change condition order (New)
+define("_INDEX","インデックス");//Index (New)
+define("_EVENTDATETIME","イベントの日付と時刻");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","証明書ファイルが存在しないか破損していたため、リセットされた");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

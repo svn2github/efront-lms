@@ -44,7 +44,7 @@ define("_RESTORE","Vraćanje sustava");//Restore
 define("_FREE","Ovo predavanje je slobodan za sve");//Free lesson
 define("_SUCCESSREGISTER","Uspješno ste se vec registrirali");//You have registered successfully
 define("_LESSONSREGISTRATION","Obrazovni registracije");//Lesson registration
-define("_YOUREMAIL","Vaša e-mail");//Your e-mail 
+define("_YOUREMAIL","Vaša e-mail");//Your Email 
 define("_MESSAGESUBJECT","Message subject");//Message subject
 define("_PASSWORDLEAVEBLANK","Lozinka (ostavite prazno da nepromijenjene)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Vaši osobni podaci uspješno je promijenila");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","E-pošta poslana je na");//Email was sent to
 define("_CHOOSELESSON","Izaberite lekciju");//Choose lesson
 define("_SUBJECT","Predmet");//Subject
 define("_RECIPIENTSSELECTION","Primatelji izbor");//Recipients selection
-define("_EMAILBODY","E-mail tijela");//E-mail body
-define("_SENDEMAIL","Pošalji E-mail");//Send E-mail
+define("_EMAILBODY","E-mail tijela");//Email body
+define("_SENDEMAIL","Pošalji E-mail");//Send Email
 define("_EXIT","Exit");//Exit
 define("_MORE","više");//more
 define("_DELETE","Izbrisati");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Kontrolni centar");//Control center
 define("_EXAMPLES","Primjeri");//Examples
 define("_FORUM","Forum");//Forum
 define("_NOCONTENT","Unit bez sadržaja");//Unit without content
-define("_INACTIVE","Neaktivna jedinica");//Inactive unit
+define("_INACTIVE","Neaktivna jedinica");//Inactive
 define("_CONTENTMANAGEMENT","Sadržaj");//Content
 define("_SCHEDULING","Raspoređivanje");//Scheduling
 define("_OFDEVELOPMENT","razvoj");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","No results found in osobne poruke");
 define("_SEARCHRESULTSINPERSONALMESSAGES","Rezultati pretraživanja u osobne poruke");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Rezultati pretraživanja u tečajeve");//Search results in courses
 define("_MESSAGEFOLDER","Poruka mape");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Reset password");//Reset password
 define("_JOINED","Pridružen /");//Joined
 define("_MOREINFO","Više informacija");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Pomaknite se na vrh stranice");//Scroll to top of p
 define("_SCROLLTOBOTTOMOFPAGE","Pomaknite se na dnu stranice");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Br. zaposlenika je to učinio još anketa");//No user has done this survey yet
 define("_SYSTEM","System");//System
-define("_EMAILCONFIGURATIONS","E-mail server konfiguracija");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-mail server konfiguracija");//Emails server configuration
 define("_SAWUNIT","Postavite jedinicu kao dovršen");//Set the unit as completed
 define("_NOTSAWUNIT","Postavite kao jedinica nije dovršen");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Uvjeti dovršen");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Dodaj survey");//Submit survey
 define("_ROWSPERPAGE","Rows per page");//Rows per page
 define("_FILTER","Filter");//Filter
 define("_OF","od");//of
-define("_SENDALSOVIAEMAIL","Pošalji poziv putem e-mail");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Pošalji poziv putem e-mail");//Send invitation via Email
 define("_STYLE","Style");//Style
 define("_MENU","Izbornik");//Menu
 define("_SELECTION","Odabir");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Modul je uspješno obrisana");//The module w
 define("_AUTHOR","Autor");//Author
 define("_VERSION","Version");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Polja u CSV datoteka mora sadržavati sljedeće polja");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Polja u crvenim su obavezne. Ukoliko ne postoji lozinka given, početno lozinka će biti postavljen isti kao i za prijavu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Polja u crvenim su obavezne. Ukoliko ne postoji lozinka given, početno lozinka će biti postavljen isti kao i za prijavu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Provjerite format CSV datoteku");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Koristite # # korisničko_ime za korisničkog imena, # # user_surname za korisnika prezime, # # course_name za tečaj ime, grade # # za ocjenu i datum # # za datum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Votes");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Raspoređivati uposlene");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Raspoređivati uposlene da grane");//Assign users to branch 
 define("_EDITSKILL","Uredi vještina");//Edit skill
 define("_ASSIGNSKILL","Dodijeli vještina");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Raspoređivati uposlene vještine");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Raspoređivati uposlene vještine");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nema grane su registrirani");//No branches have been registered
 define("_ORGANIZATION","Organizacija");//Organization
 define("_SEARCHFOREMPLOYEE","Search for zaposlenika [Organizacija kriterije]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Anketa svojstva");//Poll properties
 define("_FORUMPROPERTIES","Forum svojstva");//Forum properties
 define("_UPDATETHEME","Update temu");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Vi svibanj povezati svoj Facebook račun s postojećim eFront jedan po pružajući korisničko ime i zaporku za taj račun");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Postoji više od jednog korisnika sa istim e-mail adresa. Koristite svoju prijavu u obrazac ispod");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Postoji više od jednog korisnika sa istim e-mail adresa. Koristite svoju prijavu u obrazac ispod");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Mapirani račun je uspješno izbrisan");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Tema svojstva");//Theme properties
 define("_CHANGETHEME","Promijeni temu");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Prikaži samo poruke nakon slanja testa");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Ovaj test je uspješno poslan");//This test was successfully submitted
 define("_LEARNINGSTATUS","Učenje Status");//Learning Status
-define("_HASNOTANEMAILADDRESS","nije e-mail adresu");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","nije e-mail adresu");//has not an Email address
 define("_FEEDBACK","Ocjena");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Umetnite korisnik u skupini");//Insert users into group
 define("_INSERTINTONEWGROUP","Umetnuti u novu grupu");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web poslužitelj registracije");//Web server re
 define("_USEORLOGICTOCORRECTANSWERS","Koristite ili logika za izračun točan odgovor");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Varijablu x% mora sadržavati &quot;%y&quot;, kako bi i dalje");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Otvorite jedinicu u skočnom prozoru");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Korisnik s korisničkim imenom već postoji određeno (arhivirano)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Događanja veličini");//Events size (New)
-define("_OLDESTEVENT","Najstariji događaj");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Purge događanja stariji od");//Purge events older than (New)
-define("_PURGEEVENTS","Purge događanja");//Purge events (New)
-define("_USERSEPERUSERTYPE","Korisnici po korisniku tipa");//Users per user type (New)
-define("_MINUTESPERUSER","Minuta po korisniku");//Minutes per user (New)
-define("_LOGINSPERDAY","Prijave po danu");//Logins per day (New)
-define("_ACCESSES","Pristupa");//Accesses (New)
-define("_ACCESSESPERUSER","Pristupa po korisniku");//Accesses per user (New)
-define("_ACCESSESPERDAY","Pristupa po danu");//Accesses per day (New)
-define("_OCCURENCES","Pojava");//Occurences (New)
-define("_SCORES","Rezultati");//Scores (New)
-define("_PROPAGATECOURSE","Razmnožavati tečaj");//Propagate course (New)
-define("_LESSONSTRUCTURE","Obrazovni struktura");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administrator ne mogu pristupiti stranicama sat");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X% y direktorije i datoteke ne može pisati web server. <br> Kliknite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ovdje</a> za download potpuno izvješće");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Kliknite ovdje za postavljanje pisati dozvole");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Kliknite ovdje kako bi postavljene vrijednosti i sačuvali pisati dozvole");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Postavljanje dozvola");//Set permissions (New)
-define("_UNSETPERMISSIONS","Unset dozvole");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Ova operacija će pokušati postavljanje dopuštenja za sve datoteke i mape se može pisati web server. Ovo je obavezna ako želite obaviti automatski ažurirati i svibanj biti koristan u slučajevima ste se suočili poteškoće tijekom ili nakon nadogradnje. S druge strane, ostavljajući sve datoteke pisati mogu predstavljati sigurnosnu prijetnju pod određenim okolnostima.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Ova operacija će pokušati postavljanje dopuštenja za sve datoteke i mape da se ne može pisati u web server, osim onih koji obvezno za sustav da funkcionira ispravno. To je najsigurnije postavke, ali će spriječiti sustav nadogradnje se automatski");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Kliknite ovdje da provjerite ovlasti");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Provjerite dozvole");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Ova operacija će provjeriti koje datoteke i mape vašeg sustava se ne može pisati web server");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operacija ishod");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Nema se obavlja još");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Neke datoteke / mape ne može pisati. Molimo posjetite &#39;dozvole&#39; dio u održavanju -&gt; Čišćenje provjeriti dozvole i pregled ovih datoteka");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","U protivnom, možete stvoriti <button onclick = \"location='index.php?ctg=signup'\">novi korisnički račun</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Bili ste upisani na slobodan poduka i tečajeva. Molimo pregledajte vaš odabir ispod non besplatne lekcije i tečajevi");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Supervizori");//Supervisors (New)
-define("_COURSEOPTIONS","Tečaj opcija");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Korisnik s korisničkim imenom već postoji određeno (arhivirano)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Događanja veličini");//Events size
+define("_OLDESTEVENT","Najstariji događaj");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Purge događanja stariji od");//Purge events older than
+define("_PURGEEVENTS","Purge događanja");//Purge events
+define("_USERSEPERUSERTYPE","Korisnici po korisniku tipa");//Users per user type
+define("_MINUTESPERUSER","Minuta po korisniku");//Minutes per user
+define("_LOGINSPERDAY","Prijave po danu");//Logins per day
+define("_ACCESSES","Pristupa");//Accesses
+define("_ACCESSESPERUSER","Pristupa po korisniku");//Accesses per user
+define("_ACCESSESPERDAY","Pristupa po danu");//Accesses per day
+define("_OCCURENCES","Pojava");//Occurences
+define("_SCORES","Rezultati");//Scores
+define("_PROPAGATECOURSE","Razmnožavati tečaj");//Propagate course
+define("_LESSONSTRUCTURE","Obrazovni struktura");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administrator ne mogu pristupiti stranicama sat");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X% y direktorije i datoteke ne može pisati web server. <br> Kliknite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ovdje</a> za download potpuno izvješće");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Kliknite ovdje za postavljanje pisati dozvole");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Kliknite ovdje kako bi postavljene vrijednosti i sačuvali pisati dozvole");//Click here to unset write permissions
+define("_SETPERMISSIONS","Postavljanje dozvola");//Set permissions
+define("_UNSETPERMISSIONS","Unset dozvole");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Ova operacija će pokušati postavljanje dopuštenja za sve datoteke i mape se može pisati web server. Ovo je obavezna ako želite obaviti automatski ažurirati i svibanj biti koristan u slučajevima ste se suočili poteškoće tijekom ili nakon nadogradnje. S druge strane, ostavljajući sve datoteke pisati mogu predstavljati sigurnosnu prijetnju pod određenim okolnostima.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ova operacija će pokušati postavljanje dopuštenja za sve datoteke i mape da se ne može pisati u web server, osim onih koji obvezno za sustav da funkcionira ispravno. To je najsigurnije postavke, ali će spriječiti sustav nadogradnje se automatski");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Kliknite ovdje da provjerite ovlasti");//Click here to check permissions
+define("_CHECKPERMISSIONS","Provjerite dozvole");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ova operacija će provjeriti koje datoteke i mape vašeg sustava se ne može pisati web server");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operacija ishod");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Nema se obavlja još");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Neke datoteke / mape ne može pisati. Molimo posjetite &#39;dozvole&#39; dio u održavanju -&gt; Čišćenje provjeriti dozvole i pregled ovih datoteka");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","U protivnom, možete stvoriti <button onclick = \"location='index.php?ctg=signup'\">novi korisnički račun</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Bili ste upisani na slobodan poduka i tečajeva. Molimo pregledajte vaš odabir ispod non besplatne lekcije i tečajevi");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Supervizori");//Supervisors
+define("_COURSEOPTIONS","Tečaj opcija");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Nanovo naoštriti pogubljenja za sve korisnike");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Korisnici izvještaja generator");//Users reports generator (New)
+define("_ADDTOGROUP","Dodaj grupi");//Add to group (New)
+define("_ASSIGNCOURSE","Dodijeli tečaj");//Assign course (New)
+define("_ASSIGNLESSON","Dodijeli sat");//Assign lesson (New)
+define("_REMOVECOURSE","Ukloni tečaj");//Remove course (New)
+define("_REMOVELESSON","Ukloni sat");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Ukloni iz grupe");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset učenja napredak");//Reset learning progress (New)
+define("_BUILDER","Graditelj");//Builder (New)
+define("_ADDREPORT","Dodaj novi izvještaj");//Add new report (New)
+define("_CONDITIONTYPE","Stanje tip");//Condition type
+define("_CONDITIONSPECIFICATION","Stanje kupca");//Condition specification (New)
+define("_ADDCOLUMN","Dodavanje stupca");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Odnos sa slijedećom");//Relation with next (New)
+define("_COLUMNTYPE","Stupac tipa");//Column type (New)
+define("_GRIDNAME","Grid ime");//Grid name (New)
+define("_ALIGNED","Uskladio");//Aligned (New)
+define("_SELECTREPORT","Odaberite izvješće");//Select report (New)
+define("_AVAILABLEREPORTS","Dostupan izvješća");//Available reports (New)
+define("_EDITREPORT","Uredi izvješća");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Nema izvješća definirana u sustavu. Molim");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","napraviti");//create one (New)
+define("_NEWREPORT","Novi izvještaj");//New report (New)
+define("_REPORTNAME","Naziv izvješća");//Report name (New)
+define("_SELECTCONDITION","Odaberite uređaj");//Select condition (New)
+define("_ISNOT","nije");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Završetka svih dodijeljenih sati");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Završetka svih dodijeljenih tečajeve");//Has completed all assigned courses (New)
+define("_HAS","Je");//Has (New)
+define("_HASNOT","Nije");//Has not (New)
+define("_ENROLLEDTO","Upisani na");//Enrolled to (New)
+define("_BETWEEN","Između");//Between (New)
+define("_ISASSIGNED","Dodjeljuje");//Is assigned (New)
+define("_ISNOTASSIGNED","Nije dodijeljena");//Is not assigned (New)
+define("_DURINGLASTDAY","posljednja 24h");//last 24h (New)
+define("_DURINGLASTWEEK","prošli tjedan");//last week (New)
+define("_DURINGLASTMONTH","prošli mjesec");//last month (New)
+define("_COLUMN","Kolona");//Column (New)
+define("_SELECTCOLUMN","Odaberite stupac");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Ostavite prazno za automatsko podešavanje širine");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Ostavite prazno za korištenje imena stupca");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Širina (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Molimo odaberite stupac");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Promjena stupaca kako bi");//Change the columns order (New)
+define("_VIEWINGREPORT","Gleda izvješća");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Molimo odaberite uvjet");//Please select a condition (New)
+define("_BASIC","Osnovni");//Basic (New)
+define("_LEARNING","Učenje");//Learning (New)
+define("_ENTERPRISE","Poduzeće");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Povucite predmeta za promjenu kako bi");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Prilagođena polja");//Custom fields (New)
+define("_FORMATTEDLOGIN","Oblikovani prijavu");//Formatted login (New)
+define("_DEFAULTSORT","Zadani poredak");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator ima prednost");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Trenutna stranica operacije");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Ili odrediti novu grupu za dodavanje u");//Or specify a new group to add to (New)
+define("_ADDTO","Dodati");//Add to (New)
+define("_REMOVEFROM","Ukloni iz");//Remove from (New)
+define("_GROUPOPERATIONS","Grupa poslovanje");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Certifikat operacije");//Certificate operations (New)
+define("_LESSONOPERATIONS","Obrazovni operacije");//Lesson operations (New)
+define("_COURSEOPERATIONS","Tečaj operacije");//Course operations (New)
+define("_EXPORTTOCSV","Izvoz u csv");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Nema događaja broj definiranih");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Datoteka je uspješno uvezena");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Pretvori mape za ugniježđeni hijerarhiji");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress zip datoteku (e) i uvoz sadržaj");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Tema je zaključana");//The theme is locked (New)
+define("_BLANKREPORT","Prazno izvješće");//Blank report (New)
+define("_CUSTOMREPORTS","Prilagođena izvješća");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Administrator sustava će se pregledati i aktivirati svoj upis");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Osvježi stol");//Refresh table (New)
+define("_REMOVEFROMSET","Ukloni iz zalazak");//Remove from set (New)
+define("_BRANCHTREE","Branch stablo");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Promjena stanja kako bi");//Change condition order (New)
+define("_INDEX","Indeks");//Index (New)
+define("_EVENTDATETIME","Događaj datum i vrijeme");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Potvrdu je nedostaje ili je oštećen i time je vratiti");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

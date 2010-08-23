@@ -44,7 +44,7 @@ define("_RESTORE","Възстановяване на системата");//Rest
 define("_FREE","Този урок е безплатно за всички");//Free lesson
 define("_SUCCESSREGISTER","Вие сте регистриран успешно");//You have registered successfully
 define("_LESSONSREGISTRATION","Урок за регистрация");//Lesson registration
-define("_YOUREMAIL","Вашата електронна поща");//Your e-mail 
+define("_YOUREMAIL","Вашата електронна поща");//Your Email 
 define("_MESSAGESUBJECT","Тема");//Message subject
 define("_PASSWORDLEAVEBLANK","Парола (празно, за да оставите непроменен)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Вашата лична информация е успешно променена");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Ви бе изпратено");//Email was sent to
 define("_CHOOSELESSON","Изберете урок");//Choose lesson
 define("_SUBJECT","Предмет");//Subject
 define("_RECIPIENTSSELECTION","Получатели селекция");//Recipients selection
-define("_EMAILBODY","Е-мейл тяло");//E-mail body
-define("_SENDEMAIL","Изпрати Е-мейл");//Send E-mail
+define("_EMAILBODY","Е-мейл тяло");//Email body
+define("_SENDEMAIL","Изпрати Е-мейл");//Send Email
 define("_EXIT","Изход");//Exit
 define("_MORE","повече");//more
 define("_DELETE","Изтривам");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Контролен център");//Control center
 define("_EXAMPLES","Примери");//Examples
 define("_FORUM","Форум");//Forum
 define("_NOCONTENT","Звено, без съдържание");//Unit without content
-define("_INACTIVE","Неактивни единица");//Inactive unit
+define("_INACTIVE","Неактивни единица");//Inactive
 define("_CONTENTMANAGEMENT","Съдържание");//Content
 define("_SCHEDULING","Планиране");//Scheduling
 define("_OFDEVELOPMENT","развитие");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Няма намерени резул
 define("_SEARCHRESULTSINPERSONALMESSAGES","Резултат от търсенето в лични съобщения");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Резултат от търсенето в курсове");//Search results in courses
 define("_MESSAGEFOLDER","Съобщение папка");//Message folder
-define("_EMAIL","електронна поща");//e-mail
+define("_EMAIL","електронна поща");//Email
 define("_RESETPASSWORD","Възстанови парола");//Reset password
 define("_JOINED","Съвместни");//Joined
 define("_MOREINFO","Повече информация");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Свитък към началото на стра�
 define("_SCROLLTOBOTTOMOFPAGE","Свитък към долната част на страницата");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Не служител е направил това изследване още");//No user has done this survey yet
 define("_SYSTEM","Система");//System
-define("_EMAILCONFIGURATIONS","Е-мейл сървър конфигурация");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","Е-мейл сървър конфигурация");//Emails server configuration
 define("_SAWUNIT","Задайте единица, както е попълнен");//Set the unit as completed
 define("_NOTSAWUNIT","Задайте единица, както не е завършена");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Условия попълнен");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Подаване на изследването");//Submi
 define("_ROWSPERPAGE","Редове на страница");//Rows per page
 define("_FILTER","Филтър");//Filter
 define("_OF","на");//of
-define("_SENDALSOVIAEMAIL","Изпрати покана по електронна поща");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Изпрати покана по електронна поща");//Send invitation via Email
 define("_STYLE","Стил");//Style
 define("_MENU","Меню");//Menu
 define("_SELECTION","Селекция");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Модулът е успешно изтри�
 define("_AUTHOR","Автор");//Author
 define("_VERSION","Версия");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Областите, в своята csv файл трябва да съдържа следните полета");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Полетата в червено са задължителни. Ако няма парола дадени, първоначалната парола ще бъде същата като за вход.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Полетата в червено са задължителни. Ако няма парола дадени, първоначалната парола ще бъде същата като за вход.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Моля проверете формата на вашите CSV файл");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Ползвайте # # потребителско_име за потребителско име, # # user_surname за потребителя, презиме, # # course_name за хода на името, # # клас за клас и # # дата за дата.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Гласове");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Назначете служители");//Assign user
 define("_ASSIGNEMPLOYEESTOBRANCH","Назначете служители на клона");//Assign users to branch 
 define("_EDITSKILL","Редактиране на умение");//Edit skill
 define("_ASSIGNSKILL","Назначете умения");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Назначете служители на умение");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Назначете служители на умение");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Не са регистрирани клонове");//No branches have been registered
 define("_ORGANIZATION","Организация");//Organization
 define("_SEARCHFOREMPLOYEE","Търсене на служител [Организация критерии]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Анкета имоти");//Poll properties
 define("_FORUMPROPERTIES","Форум Имоти");//Forum properties
 define("_UPDATETHEME","Актуализация тема");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Можете да свържете вашия Facebook сметка при съществуваща eFront чрез предоставяне на потребителя потребителско име и парола на тази сметка");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Има повече от един потребител със същия адрес на електронна поща. Използвайте данните си за вход във формата по-долу");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Има повече от един потребител със същия адрес на електронна поща. Използвайте данните си за вход във формата по-долу");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Картографирани сметка беше изтрит успешно");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Тема имоти");//Theme properties
 define("_CHANGETHEME","Промяна на темата");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Покажи само съобщение след подаване на тест");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Този тест е успешно, представени");//This test was successfully submitted
 define("_LEARNINGSTATUS","Учене Статус");//Learning Status
-define("_HASNOTANEMAILADDRESS","не е един е-мейл адрес");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","не е един е-мейл адрес");//has not an Email address
 define("_FEEDBACK","Обратна връзка");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Вмъкване на потребителите в групата");//Insert users into group
 define("_INSERTINTONEWGROUP","Поставете в нова група");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Уеб сървър регистрация");//
 define("_USEORLOGICTOCORRECTANSWERS","Използвайте или логика за изчисляване на верен отговор");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Променливата% х трябва да съдържа &quot;%y&quot;, за да продължи");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Отворено единица в изскачащи прозорци");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","А потребител с определен вход вече съществува (архивирани)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Събития размер");//Events size (New)
-define("_OLDESTEVENT","Стар случай");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Чистка събития на повече от");//Purge events older than (New)
-define("_PURGEEVENTS","Чистка събития");//Purge events (New)
-define("_USERSEPERUSERTYPE","Потребителите на тип потребител");//Users per user type (New)
-define("_MINUTESPERUSER","Протокол за потребител");//Minutes per user (New)
-define("_LOGINSPERDAY","Входът на ден");//Logins per day (New)
-define("_ACCESSES","Посещаемост");//Accesses (New)
-define("_ACCESSESPERUSER","Посещаемост на потребителя");//Accesses per user (New)
-define("_ACCESSESPERDAY","Посещаемост на ден");//Accesses per day (New)
-define("_OCCURENCES","Събитията");//Occurences (New)
-define("_SCORES","Рекорди");//Scores (New)
-define("_PROPAGATECOURSE","Пропаганда курс");//Propagate course (New)
-define("_LESSONSTRUCTURE","Урок структура");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Администраторът не може да намерите урок страници");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X директории и файлове% Y не са за писане от уеб сървъра. <br> Щракнете <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>тук</a> , за да изтеглите пълен доклад");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Щракнете тук, за да зададете права за писане");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Щракнете тук, за да унищожите права за писане");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Задаване на разрешения");//Set permissions (New)
-define("_UNSETPERMISSIONS","Унищожи разрешения");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Тази операция ще се опита създаването разрешения за всички файлове и папки, за да бъде разрешена за писане от уеб сървър. Това е задължително, ако искате да изпълнява автоматична подобрения и могат да бъдат полезни в случаите, имате проблеми по време на или след обновяване. От друга страна, оставяйки всички файлове, писане могат да представляват заплаха за сигурността при определени обстоятелства.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Тази операция ще се опита създаването разрешения за всички файлове и папки, че не е достъпна за писане от уеб сървър, с изключение на тези задължителни за доброто функциониране на системата. Това е най-сигурната настройка, но ще попречи на системата от повишаване автоматично");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Щракнете тук, за да проверите разрешения");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Проверка на разрешения");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Тази операция ще провери кои файлове и папки на вашата система не са за писане от уеб сървър");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Операция резултата");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","В момента не извършва още");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Някои файлове / папки не се поддържа запис. Моля, посетете раздела \"разрешения\" за поддържане -&gt; почистване на проверка за достъп и да преразглеждат тези файлове");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","В противен случай, може да създадете <button onclick = \"location='index.php?ctg=signup'\">нов профил</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Можете са включени в безплатни уроци и курсове. Моля, прегледайте по-долу избора си на не безплатни уроци и курсове");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Надзорници");//Supervisors (New)
-define("_COURSEOPTIONS","Учебни варианти");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","А потребител с определен вход вече съществува (архивирани)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Събития размер");//Events size
+define("_OLDESTEVENT","Стар случай");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Чистка събития на повече от");//Purge events older than
+define("_PURGEEVENTS","Чистка събития");//Purge events
+define("_USERSEPERUSERTYPE","Потребителите на тип потребител");//Users per user type
+define("_MINUTESPERUSER","Протокол за потребител");//Minutes per user
+define("_LOGINSPERDAY","Входът на ден");//Logins per day
+define("_ACCESSES","Посещаемост");//Accesses
+define("_ACCESSESPERUSER","Посещаемост на потребителя");//Accesses per user
+define("_ACCESSESPERDAY","Посещаемост на ден");//Accesses per day
+define("_OCCURENCES","Събитията");//Occurences
+define("_SCORES","Рекорди");//Scores
+define("_PROPAGATECOURSE","Пропаганда курс");//Propagate course
+define("_LESSONSTRUCTURE","Урок структура");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Администраторът не може да намерите урок страници");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X директории и файлове% Y не са за писане от уеб сървъра. <br> Щракнете <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>тук</a> , за да изтеглите пълен доклад");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Щракнете тук, за да зададете права за писане");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Щракнете тук, за да унищожите права за писане");//Click here to unset write permissions
+define("_SETPERMISSIONS","Задаване на разрешения");//Set permissions
+define("_UNSETPERMISSIONS","Унищожи разрешения");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Тази операция ще се опита създаването разрешения за всички файлове и папки, за да бъде разрешена за писане от уеб сървър. Това е задължително, ако искате да изпълнява автоматична подобрения и могат да бъдат полезни в случаите, имате проблеми по време на или след обновяване. От друга страна, оставяйки всички файлове, писане могат да представляват заплаха за сигурността при определени обстоятелства.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Тази операция ще се опита създаването разрешения за всички файлове и папки, че не е достъпна за писане от уеб сървър, с изключение на тези задължителни за доброто функциониране на системата. Това е най-сигурната настройка, но ще попречи на системата от повишаване автоматично");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Щракнете тук, за да проверите разрешения");//Click here to check permissions
+define("_CHECKPERMISSIONS","Проверка на разрешения");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Тази операция ще провери кои файлове и папки на вашата система не са за писане от уеб сървър");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Операция резултата");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","В момента не извършва още");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Някои файлове / папки не се поддържа запис. Моля, посетете раздела \"разрешения\" за поддържане -&gt; почистване на проверка за достъп и да преразглеждат тези файлове");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","В противен случай, може да създадете <button onclick = \"location='index.php?ctg=signup'\">нов профил</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Можете са включени в безплатни уроци и курсове. Моля, прегледайте по-долу избора си на не безплатни уроци и курсове");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Надзорници");//Supervisors
+define("_COURSEOPTIONS","Учебни варианти");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Проучване екзекуции за всички потребители");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Потребителите доклади генератор");//Users reports generator (New)
+define("_ADDTOGROUP","Добави в група");//Add to group (New)
+define("_ASSIGNCOURSE","Присвояване курс");//Assign course (New)
+define("_ASSIGNLESSON","Присвояване урок");//Assign lesson (New)
+define("_REMOVECOURSE","Премахване на курс");//Remove course (New)
+define("_REMOVELESSON","Премахване на урок");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Премахване от групата");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Проучване живот напредък");//Reset learning progress (New)
+define("_BUILDER","Строител");//Builder (New)
+define("_ADDREPORT","Добавяне на нов доклад");//Add new report (New)
+define("_CONDITIONTYPE","Състояние тип");//Condition type
+define("_CONDITIONSPECIFICATION","Състояние спецификация");//Condition specification (New)
+define("_ADDCOLUMN","Добави колона");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Връзка с следващата");//Relation with next (New)
+define("_COLUMNTYPE","Двуколонни");//Column type (New)
+define("_GRIDNAME","Решетка име");//Grid name (New)
+define("_ALIGNED","Наравно");//Aligned (New)
+define("_SELECTREPORT","Изберете доклад");//Select report (New)
+define("_AVAILABLEREPORTS","Налични доклади");//Available reports (New)
+define("_EDITREPORT","Редактиране на доклада");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Няма съобщения, определени в Системата. Моля");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","Създай");//create one (New)
+define("_NEWREPORT","Нов доклад");//New report (New)
+define("_REPORTNAME","Име на отчет");//Report name (New)
+define("_SELECTCONDITION","Изберете състояние");//Select condition (New)
+define("_ISNOT","не е");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Е завършила всички възложени уроци");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Има завършени курсове за всички целеви");//Has completed all assigned courses (New)
+define("_HAS","Има");//Has (New)
+define("_HASNOT","Не е ли");//Has not (New)
+define("_ENROLLEDTO","Записан в");//Enrolled to (New)
+define("_BETWEEN","Между");//Between (New)
+define("_ISASSIGNED","Е назначена");//Is assigned (New)
+define("_ISNOTASSIGNED","Не е възложено");//Is not assigned (New)
+define("_DURINGLASTDAY","Последните 24 часов");//last 24h (New)
+define("_DURINGLASTWEEK","миналата седмица");//last week (New)
+define("_DURINGLASTMONTH","миналия месец");//last month (New)
+define("_COLUMN","Колона");//Column (New)
+define("_SELECTCOLUMN","Изберете колона");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Оставете празно за автоматично коригира ширината");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Оставете празно, за да използвате името колона");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Ширина (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Моля изберете една колона");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Промяна на колони цел");//Change the columns order (New)
+define("_VIEWINGREPORT","Разглеждане на доклад");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Изберете едно условие");//Please select a condition (New)
+define("_BASIC","Основен");//Basic (New)
+define("_LEARNING","Учене");//Learning (New)
+define("_ENTERPRISE","Предприятия");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Изтегляне на обекти да се промени цел");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Потребителски полета");//Custom fields (New)
+define("_FORMATTEDLOGIN","Форматиран вход");//Formatted login (New)
+define("_DEFAULTSORT","Сортиране по подразбиране");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; оператор има предимство");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Текуща страница операции");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Или нова група, която да добавите към");//Or specify a new group to add to (New)
+define("_ADDTO","Добави към");//Add to (New)
+define("_REMOVEFROM","Сваля се от");//Remove from (New)
+define("_GROUPOPERATIONS","Група операции");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Сертификат операции");//Certificate operations (New)
+define("_LESSONOPERATIONS","Урок операции");//Lesson operations (New)
+define("_COURSEOPERATIONS","Учебни дейности");//Course operations (New)
+define("_EXPORTTOCSV","Износ за CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Няма събития кода, определен");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Файлове внесени успешно");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Конвертиране на папки вложени йерархията");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress пощенски файл (а) и съдържание за внос");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Темата е заключена");//The theme is locked (New)
+define("_BLANKREPORT","Празна доклад");//Blank report (New)
+define("_CUSTOMREPORTS","Персонализирани отчети");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Системният администратор ще направи преглед и да активирате вашия записвания");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Обнови таблица");//Refresh table (New)
+define("_REMOVEFROMSET","Сваля се от определени");//Remove from set (New)
+define("_BRANCHTREE","Клон дърво");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Промяна на състоянието цел");//Change condition order (New)
+define("_INDEX","Индекс");//Index (New)
+define("_EVENTDATETIME","Събитие дата и час");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Сертификатът файл липсва или корумпирани и по този начин се възстанови");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

@@ -1260,7 +1260,7 @@ CREATE TABLE profile_comments (
 CREATE TABLE notifications (
   id mediumint(8) unsigned NOT NULL auto_increment,
   timestamp int(10) NOT NULL,
-  send_interval varchar(10) NOT NULL,
+  send_interval varchar(10) NOT NULL default 0,
   send_conditions text,
   id_type_entity varchar(255) default NULL,
   recipient varchar(255),

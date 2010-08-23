@@ -44,7 +44,7 @@ define("_RESTORE","שחזור");//Restore
 define("_FREE","שיעור חופשי");//Free lesson
 define("_SUCCESSREGISTER","אתה נרשמו בהצלחה");//You have registered successfully
 define("_LESSONSREGISTRATION","שיעור רישום");//Lesson registration
-define("_YOUREMAIL","הדואר האלקטרוני שלך");//Your e-mail 
+define("_YOUREMAIL","הדואר האלקטרוני שלך");//Your Email 
 define("_MESSAGESUBJECT","נושא ההודעה");//Message subject
 define("_PASSWORDLEAVEBLANK","סיסמה (ריק לעזוב ללא שינוי)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","מידע אישי שלך בהצלחה שינו");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","דואל נשלח");//Email was sent to
 define("_CHOOSELESSON","בחר שיעור");//Choose lesson
 define("_SUBJECT","נושא");//Subject
 define("_RECIPIENTSSELECTION","בחירת נמענים");//Recipients selection
-define("_EMAILBODY","דואר אלקטרוני: גוף");//E-mail body
-define("_SENDEMAIL","שלח דואר אלקטרוני");//Send E-mail
+define("_EMAILBODY","דואר אלקטרוני: גוף");//Email body
+define("_SENDEMAIL","שלח דואר אלקטרוני");//Send Email
 define("_EXIT","יציאה");//Exit
 define("_MORE","עוד");//more
 define("_DELETE","למחוק");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","מרכז הבקרה");//Control center
 define("_EXAMPLES","דוגמאות");//Examples
 define("_FORUM","פורום");//Forum
 define("_NOCONTENT","יחידת ללא תוכן");//Unit without content
-define("_INACTIVE","לא פעיל יחידת");//Inactive unit
+define("_INACTIVE","לא פעיל יחידת");//Inactive
 define("_CONTENTMANAGEMENT","תוכן");//Content
 define("_SCHEDULING","תזמון");//Scheduling
 define("_OFDEVELOPMENT","פיתוח");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","לא נמצאו תוצאות איש�
 define("_SEARCHRESULTSINPERSONALMESSAGES","תוצאות חיפוש אישי הודעות");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","תוצאות חיפוש קורסים");//Search results in courses
 define("_MESSAGEFOLDER","הודעה תיקייה");//Message folder
-define("_EMAIL","דואר אלקטרוני");//e-mail
+define("_EMAIL","דואר אלקטרוני");//Email
 define("_RESETPASSWORD","אפס סיסמא");//Reset password
 define("_JOINED","הצטרפות");//Joined
 define("_MOREINFO","לפרטים נוספים");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","גלול אל ראש הדף");//Scroll to top of pa
 define("_SCROLLTOBOTTOMOFPAGE","גלול לתחתית העמוד");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","המשתמש לא עשה זאת עדיין הסקר");//No user has done this survey yet
 define("_SYSTEM","מערכת");//System
-define("_EMAILCONFIGURATIONS","שרת הדואר האלקטרוני תצורה");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","שרת הדואר האלקטרוני תצורה");//Emails server configuration
 define("_SAWUNIT","בחר את יחידת כפי הושלמה");//Set the unit as completed
 define("_NOTSAWUNIT","בחר את יחידת לא הושלמה");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","תנאים הושלמה");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","שלח סקר");//Submit survey
 define("_ROWSPERPAGE","שורות לעמוד");//Rows per page
 define("_FILTER","מסנן");//Filter
 define("_OF","של");//of
-define("_SENDALSOVIAEMAIL","שלח הזמנה באמצעות דואר אלקטרוני");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","שלח הזמנה באמצעות דואר אלקטרוני");//Send invitation via Email
 define("_STYLE","סגנון");//Style
 define("_MENU","תפריט");//Menu
 define("_SELECTION","בחירה");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","את המודול נמחק בהצלחה");//
 define("_AUTHOR","מחבר");//Author
 define("_VERSION","גירסה");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","השדות בקובץ CSV שלך צריך להכיל את השדות הבאים");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","השדות באדום הם שדות חובה. אם אין נתון סיסמא, את הסיסמא הראשונית יוגדר זהה הכניסה.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","השדות באדום הם שדות חובה. אם אין נתון סיסמא, את הסיסמא הראשונית יוגדר זהה הכניסה.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","אנא בדוק את הפורמט של קובץ CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","בתבנית, השתמש הארגון # # עבור הארגון שם, USER_NAME # # עבור שם המשתמש, user_surname # # עבור המשתמש שם משפחה, course_name # # עבור קורס שם, כיתה # # עבור כיתה ו # # עבור התאריך היום.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","הצבעות");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","משתמשי הקצה");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","למשתמשי הקצה הסניף");//Assign users to branch 
 define("_EDITSKILL","עריכת מיומנות");//Edit skill
 define("_ASSIGNSKILL","הקצה מיומנות");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","משתמשי הקצה של מיומנות");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","משתמשי הקצה של מיומנות");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","לא היה רשום סניפים");//No branches have been registered
 define("_ORGANIZATION","ארגון");//Organization
 define("_SEARCHFOREMPLOYEE","חפש המשתמש [ארגון קריטריונים]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","סקר נכסים");//Poll properties
 define("_FORUMPROPERTIES","מאפייני פורום");//Forum properties
 define("_UPDATETHEME","נושא עדכון");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","אתה יכול לחבר את חשבון פייסבוק שלך עם אחד eFront הקיימים על ידי מתן שם משתמש וסיסמה של חשבון");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","יש יותר משתמשים עם כתובת דואר אלקטרוני זהה. שימוש פרטי הכניסה שלך בפורמט למטה");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","יש יותר משתמשים עם כתובת דואר אלקטרוני זהה. שימוש פרטי הכניסה שלך בפורמט למטה");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","חשבון ממופים נמחק בהצלחה");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","מאפייני Theme");//Theme properties
 define("_CHANGETHEME","שנה ערכת נושא");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","הצג רק הודעה לאחר הגשת המבחן");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","בדיקה זו הוגשה בהצלחה");//This test was successfully submitted
 define("_LEARNINGSTATUS","הלמידה סטטוס");//Learning Status
-define("_HASNOTANEMAILADDRESS","אין כתובת דואר אלקטרוני");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","אין כתובת דואר אלקטרוני");//has not an Email address
 define("_FEEDBACK","משוב");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","הוספת משתמשים אל הקבוצה");//Insert users into group
 define("_INSERTINTONEWGROUP","הכנס לתוך קבוצה חדשה");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","שרת אינטרנט אחת");//Web server reg
 define("_USEORLOGICTOCORRECTANSWERS","ההיגיון שימוש או לחשב את התשובה הנכונה");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","% המשתנה x חייב להכיל &quot;%y&quot; על מנת להמשיך");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","יחידת פתח חלון קופץ");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","משתמש עם הכניסה שצוין כבר קיים (ארכיון)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","אירועים גודל");//Events size (New)
-define("_OLDESTEVENT","הכי אירוע");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","טהר אירועים מבוגר");//Purge events older than (New)
-define("_PURGEEVENTS","טהר אירועים");//Purge events (New)
-define("_USERSEPERUSERTYPE","משתמשים לכל משתמש בסוג");//Users per user type (New)
-define("_MINUTESPERUSER","דקות לכל משתמש");//Minutes per user (New)
-define("_LOGINSPERDAY","כניסות ביום");//Logins per day (New)
-define("_ACCESSES","כניסות");//Accesses (New)
-define("_ACCESSESPERUSER","כניסות לכל משתמש");//Accesses per user (New)
-define("_ACCESSESPERDAY","כניסות ביום");//Accesses per day (New)
-define("_OCCURENCES","מופעים");//Occurences (New)
-define("_SCORES","ציוני");//Scores (New)
-define("_PROPAGATECOURSE","הפץ כמובן");//Propagate course (New)
-define("_LESSONSTRUCTURE","שיעור מבנה");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","מנהל לא יכול לגשת לדפים השיעור");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X ו-y ספריות קבצים% אינם לכתיבה על ידי שרת האינטרנט. <br> לחץ <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>כאן</a> כדי להוריד את הדוח המלא");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","לחץ כאן כדי להגדיר הרשאות כתיבה");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","לחץ כאן כדי unset הרשאות כתיבה");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","להגדיר הרשאות");//Set permissions (New)
-define("_UNSETPERMISSIONS","טל קביעת הרשאות");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","פעולה זו אנסה הגדרת הרשאות כל הקבצים והתיקיות להיות ניתן כתיבה עי שרת האינטרנט. זה חובה אם אתה רוצה לבצע שדרוגים אוטומטיים עשוי להיות שימושי במקרים שאתה חווה בעיות במהלך או לאחר שדרוג. מצד שני, והשאיר את כל הקבצים לצריבה עשוי להוות איום אבטחה בנסיבות מסוימות.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","פעולה זו אנסה הגדרת הרשאות כל הקבצים והתיקיות להיות בלתי ניתן לכתיבה על ידי שרת האינטרנט, למעט אלה חובה על המערכת לתפקד כראוי. זוהי הגדרת הבטוחה ביותר, אך ימנע מהמערכת שדרוג אוטומטי");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","לחץ כאן כדי לבדוק את הרשאות");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","בדוק את ההרשאות");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","פעולה זו תבדוק אילו קבצים ותיקיות של המערכת לא ניתן לכתיבה על ידי שרת האינטרנט");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","מבצע התוצאה");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","המבצע לא ביצעו עדיין");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Some files/folders are not writable. Please visit the \'permissions\' section in maintenance -> cleanup to check permissions and review these files");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","אחרת, אתה יכול ליצור <button onclick = \"location='index.php?ctg=signup'\">חשבון חדש</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","היית נרשם לשיעורים וקורסים חינם. נא עיין להלן הבחירה של שיעורים חופשיים קורסים שאינם");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","רוטמן");//Supervisors (New)
-define("_COURSEOPTIONS","קורס אופציות");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","משתמש עם הכניסה שצוין כבר קיים (ארכיון)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","אירועים גודל");//Events size
+define("_OLDESTEVENT","הכי אירוע");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","טהר אירועים מבוגר");//Purge events older than
+define("_PURGEEVENTS","טהר אירועים");//Purge events
+define("_USERSEPERUSERTYPE","משתמשים לכל משתמש בסוג");//Users per user type
+define("_MINUTESPERUSER","דקות לכל משתמש");//Minutes per user
+define("_LOGINSPERDAY","כניסות ביום");//Logins per day
+define("_ACCESSES","כניסות");//Accesses
+define("_ACCESSESPERUSER","כניסות לכל משתמש");//Accesses per user
+define("_ACCESSESPERDAY","כניסות ביום");//Accesses per day
+define("_OCCURENCES","מופעים");//Occurences
+define("_SCORES","ציוני");//Scores
+define("_PROPAGATECOURSE","הפץ כמובן");//Propagate course
+define("_LESSONSTRUCTURE","שיעור מבנה");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","מנהל לא יכול לגשת לדפים השיעור");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X ו-y ספריות קבצים% אינם לכתיבה על ידי שרת האינטרנט. <br> לחץ <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>כאן</a> כדי להוריד את הדוח המלא");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","לחץ כאן כדי להגדיר הרשאות כתיבה");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","לחץ כאן כדי unset הרשאות כתיבה");//Click here to unset write permissions
+define("_SETPERMISSIONS","להגדיר הרשאות");//Set permissions
+define("_UNSETPERMISSIONS","טל קביעת הרשאות");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","פעולה זו אנסה הגדרת הרשאות כל הקבצים והתיקיות להיות ניתן כתיבה עי שרת האינטרנט. זה חובה אם אתה רוצה לבצע שדרוגים אוטומטיים עשוי להיות שימושי במקרים שאתה חווה בעיות במהלך או לאחר שדרוג. מצד שני, והשאיר את כל הקבצים לצריבה עשוי להוות איום אבטחה בנסיבות מסוימות.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","פעולה זו אנסה הגדרת הרשאות כל הקבצים והתיקיות להיות בלתי ניתן לכתיבה על ידי שרת האינטרנט, למעט אלה חובה על המערכת לתפקד כראוי. זוהי הגדרת הבטוחה ביותר, אך ימנע מהמערכת שדרוג אוטומטי");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","לחץ כאן כדי לבדוק את הרשאות");//Click here to check permissions
+define("_CHECKPERMISSIONS","בדוק את ההרשאות");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","פעולה זו תבדוק אילו קבצים ותיקיות של המערכת לא ניתן לכתיבה על ידי שרת האינטרנט");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","מבצע התוצאה");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","המבצע לא ביצעו עדיין");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Some files/folders are not writable. Please visit the \'permissions\' section in maintenance -> cleanup to check permissions and review these files");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","אחרת, אתה יכול ליצור <button onclick = \"location='index.php?ctg=signup'\">חשבון חדש</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","היית נרשם לשיעורים וקורסים חינם. נא עיין להלן הבחירה של שיעורים חופשיים קורסים שאינם");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","רוטמן");//Supervisors
+define("_COURSEOPTIONS","קורס אופציות");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","איפוס להורג עבור כל המשתמשים");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","משתמשים מחולל דוחות");//Users reports generator (New)
+define("_ADDTOGROUP","הוסף לקבוצה");//Add to group (New)
+define("_ASSIGNCOURSE","הקצאת כמובן");//Assign course (New)
+define("_ASSIGNLESSON","הקצאת השיעור");//Assign lesson (New)
+define("_REMOVECOURSE","הסר כמובן");//Remove course (New)
+define("_REMOVELESSON","הסר את הלקח");//Remove lesson (New)
+define("_REMOVEFROMGROUP","הסר מהקבוצה");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","אפס למידה התקדמות");//Reset learning progress (New)
+define("_BUILDER","בונה");//Builder (New)
+define("_ADDREPORT","הוסף דוח חדש");//Add new report (New)
+define("_CONDITIONTYPE","סוג מצב");//Condition type
+define("_CONDITIONSPECIFICATION","תנאי המפרט");//Condition specification (New)
+define("_ADDCOLUMN","הוסף עמודה");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","הקשר עם הבא");//Relation with next (New)
+define("_COLUMNTYPE","טור סוג");//Column type (New)
+define("_GRIDNAME","Grid שם");//Grid name (New)
+define("_ALIGNED","מסודרים");//Aligned (New)
+define("_SELECTREPORT","בחר לדווח");//Select report (New)
+define("_AVAILABLEREPORTS","דוחות זמינים");//Available reports (New)
+define("_EDITREPORT","עריכת דוח");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","אין דוחות שהוגדרו במערכת. בבקשה");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","צור אחד");//create one (New)
+define("_NEWREPORT","דוח חדש");//New report (New)
+define("_REPORTNAME","דווח שם");//Report name (New)
+define("_SELECTCONDITION","בחר במצב");//Select condition (New)
+define("_ISNOT","לא");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","השלים את כל השיעורים שהוקצו");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","השלים את כל הקורסים שהוקצו");//Has completed all assigned courses (New)
+define("_HAS","האם");//Has (New)
+define("_HASNOT","האם לא");//Has not (New)
+define("_ENROLLEDTO","נרשם ל");//Enrolled to (New)
+define("_BETWEEN","בין");//Between (New)
+define("_ISASSIGNED","מוקצה");//Is assigned (New)
+define("_ISNOTASSIGNED","האם לא מוקצה");//Is not assigned (New)
+define("_DURINGLASTDAY","לאחרונה 24 שעות");//last 24h (New)
+define("_DURINGLASTWEEK","בשבוע שעבר");//last week (New)
+define("_DURINGLASTMONTH","בחודש שעבר");//last month (New)
+define("_COLUMN","טור");//Column (New)
+define("_SELECTCOLUMN","בחר עמודה");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","השאר ריק כדי להתאים את רוחב אוטומטי");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","השאר ריק כדי להשתמש בעמודה שם");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","רוחב (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","אנא בחר עמודה");//Please select a column (New)
+define("_CHANGECOLUMNORDER","שינוי סדר העמודות");//Change the columns order (New)
+define("_VIEWINGREPORT","הצגת דוח");//Viewing report (New)
+define("_PLEASESELECTACONDITION","נא לבחור מצב");//Please select a condition (New)
+define("_BASIC","בסיסי");//Basic (New)
+define("_LEARNING","למידה");//Learning (New)
+define("_ENTERPRISE","מפעל");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","גרור פריטים כדי לשנות את סדר");//Drag items to change order (New)
+define("_CUSTOMFIELDS","שדות מותאמים אישית");//Custom fields (New)
+define("_FORMATTEDLOGIN","כניסה מעוצב");//Formatted login (New)
+define("_DEFAULTSORT","ברירת המחדל של מיון");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; מפעיל קדימות");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","פעולות דף נוכחי");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","או להגדיר קבוצה חדשה כדי להוסיף");//Or specify a new group to add to (New)
+define("_ADDTO","הוסף");//Add to (New)
+define("_REMOVEFROM","הסר");//Remove from (New)
+define("_GROUPOPERATIONS","קבוצת פעולות");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","אישור פעולות");//Certificate operations (New)
+define("_LESSONOPERATIONS","שיעור המבצעים");//Lesson operations (New)
+define("_COURSEOPERATIONS","קורס מבצעים");//Course operations (New)
+define("_EXPORTTOCSV","יצוא ל-CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","אין קוד אירוע שהוגדר");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","קבצים יובאו בהצלחה");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","המרת תיקיות היררכיה מקוננות");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","הדחיסה של קובץ zip (ים) ותכנים לייבא");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","הנושא נעול");//The theme is locked (New)
+define("_BLANKREPORT","ריק דוח");//Blank report (New)
+define("_CUSTOMREPORTS","דוחות מותאמים אישית");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","מנהל המערכת תבחן ולהפעיל הרשמות שלך");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","רענן השולחן");//Refresh table (New)
+define("_REMOVEFROMSET","הסר להגדיר");//Remove from set (New)
+define("_BRANCHTREE","סניף עץ");//Branch tree (New)
+define("_CHANGECONDITIONORDER","שינוי סדר במצב");//Change condition order (New)
+define("_INDEX","מדד");//Index (New)
+define("_EVENTDATETIME","אירוע התאריך והשעה");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","קובץ האישור היה חסר או פגום, ולכן היה לאפס");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

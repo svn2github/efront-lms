@@ -44,7 +44,7 @@ define("_RESTORE","恢复系统");//Restore
 define("_FREE","这个课程是免费提供给所有");//Free lesson
 define("_SUCCESSREGISTER","您已注册成功");//You have registered successfully
 define("_LESSONSREGISTRATION","课程登记");//Lesson registration
-define("_YOUREMAIL","您的电子邮件");//Your e-mail 
+define("_YOUREMAIL","您的电子邮件");//Your Email 
 define("_MESSAGESUBJECT","邮件主题");//Message subject
 define("_PASSWORDLEAVEBLANK","密码（保持不变请保留空白）");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","您的个人信息已成功改变");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","电子邮件被送往");//Email was sent to
 define("_CHOOSELESSON","选择的课程");//Choose lesson
 define("_SUBJECT","主题");//Subject
 define("_RECIPIENTSSELECTION","收件人的选择");//Recipients selection
-define("_EMAILBODY","电子邮件机构");//E-mail body
-define("_SENDEMAIL","发送电子邮件");//Send E-mail
+define("_EMAILBODY","电子邮件机构");//Email body
+define("_SENDEMAIL","发送电子邮件");//Send Email
 define("_EXIT","退出");//Exit
 define("_MORE","更多");//more
 define("_DELETE","删除");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","控制面板");//Control center
 define("_EXAMPLES","例子");//Examples
 define("_FORUM","论坛");//Forum
 define("_NOCONTENT","单元没有内容");//Unit without content
-define("_INACTIVE","未激活单元");//Inactive unit
+define("_INACTIVE","未激活单元");//Inactive
 define("_CONTENTMANAGEMENT","内容");//Content
 define("_SCHEDULING","调度");//Scheduling
 define("_OFDEVELOPMENT","发展");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","在个人信息中未找到结果");
 define("_SEARCHRESULTSINPERSONALMESSAGES","在个人信息在检索");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","搜索结果在课程");//Search results in courses
 define("_MESSAGEFOLDER","消息文件夹");//Message folder
-define("_EMAIL","电子邮件");//e-mail
+define("_EMAIL","电子邮件");//Email
 define("_RESETPASSWORD","重设密码");//Reset password
 define("_JOINED","加入");//Joined
 define("_MOREINFO","更多信息");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","翻阅到返回页首");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","滚动到页面底部");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","没有用户所做的这项调查，但");//No user has done this survey yet
 define("_SYSTEM","系统设置");//System
-define("_EMAILCONFIGURATIONS","电子邮件服务器配置");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","电子邮件服务器配置");//Emails server configuration
 define("_SAWUNIT","标记为已经学习");//Set the unit as completed
 define("_NOTSAWUNIT","标记为未学习");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","条件完成");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","提交调查");//Submit survey
 define("_ROWSPERPAGE","每页上的行数");//Rows per page
 define("_FILTER","过滤器");//Filter
 define("_OF","出于");//of
-define("_SENDALSOVIAEMAIL","发送邀请通过电子邮件");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","发送邀请通过电子邮件");//Send invitation via Email
 define("_STYLE","作风");//Style
 define("_MENU","菜单");//Menu
 define("_SELECTION","选择");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","该插件已成功删除");//The module was 
 define("_AUTHOR","作者");//Author
 define("_VERSION","版本");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","该领域在您的CSV文件必须包含下列领域");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","红色领域是强制性的。如果没有密码，给出初始密码将被设置相同的登录。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","红色领域是强制性的。如果没有密码，给出初始密码将被设置相同的登录。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","请选中格式的CSV文件");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","使用用户名＃ ＃为使用者的名称，编号user_surname ＃为用户的姓， ＃ course_name ＃课程的名称，编号＃级，一级和＃日期＃日期。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","投票数");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","指派员工");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","指派员工分行");//Assign users to branch 
 define("_EDITSKILL","编辑技巧");//Edit skill
 define("_ASSIGNSKILL","转让的技术");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","指派员工技能");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","指派员工技能");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","没有分行已登记");//No branches have been registered
 define("_ORGANIZATION","组织");//Organization
 define("_SEARCHFOREMPLOYEE","搜索为用户[组织准则]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","调查属性");//Poll properties
 define("_FORUMPROPERTIES","论坛属性");//Forum properties
 define("_UPDATETHEME","更新主题");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","你可以连接一个提供用户登录和帐户的密码现有易纺一您的Facebook帐户");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","有一个以上具有相同的电子邮件地址的用户。使用下面的表格登录");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","有一个以上具有相同的电子邮件地址的用户。使用下面的表格登录");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","映射的帐户已成功删除");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","主题属性");//Theme properties
 define("_CHANGETHEME","更改主题");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE的3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","只显示一个消息后，提交测试");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","这次试验是成功提交");//This test was successfully submitted
 define("_LEARNINGSTATUS","学习现状");//Learning Status
-define("_HASNOTANEMAILADDRESS","没有电子邮件地址");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","没有电子邮件地址");//has not an Email address
 define("_FEEDBACK","反馈");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","插入到用户组");//Insert users into group
 define("_INSERTINTONEWGROUP","插入新的组");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web服务器注册");//Web server registration
 define("_USEORLOGICTOCORRECTANSWERS","使用或逻辑来计算正确的答案");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","该变量％x必须包含 &quot;%y&quot;型，以继续");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","在弹出的打开窗口单位");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","具有指定登录已经存在（存档用户）");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","活动规模");//Events size (New)
-define("_OLDESTEVENT","最古老的事件");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","清除事件以上");//Purge events older than (New)
-define("_PURGEEVENTS","清除事件");//Purge events (New)
-define("_USERSEPERUSERTYPE","每个用户的用户类型");//Users per user type (New)
-define("_MINUTESPERUSER","每个用户纪要");//Minutes per user (New)
-define("_LOGINSPERDAY","每天登录");//Logins per day (New)
-define("_ACCESSES","访问");//Accesses (New)
-define("_ACCESSESPERUSER","每个用户访问");//Accesses per user (New)
-define("_ACCESSESPERDAY","每天访问");//Accesses per day (New)
-define("_OCCURENCES","纪录");//Occurences (New)
-define("_SCORES","成绩");//Scores (New)
-define("_PROPAGATECOURSE","传播过程");//Propagate course (New)
-define("_LESSONSTRUCTURE","课程结构");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","管理员不能访问网页的教训");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","目录和％％× Ÿ文件不写由Web服务器。 <br>点击<a href = 'view_file.php?file=%z&action=download' target = '_NEW'>这里</a>下载一个完整的报告");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","点击此处设置写权限");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","点击此处未设置写权限");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","设置权限");//Set permissions (New)
-define("_UNSETPERMISSIONS","撤消权限");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","此操作将尝试设置权限的所有文件和文件夹是由网络服务器可写。这是强制性的，如果你想进行自动升级，可能是有用的情况下你遇到期间或之后升级的麻烦。另一方面，让所有文件可写，可能在某些情况下构成的安全威胁。");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","此操作将尝试设置权限的所有文件和文件夹是由网络服务器不能写，除了那些强制性的制度运作正常。这是最安全的设置，但会阻止自动升级系统");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","点击这里查看权限");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","检查权限");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","这一行动将检查哪些文件和你的系统文件夹不是由网络服务器可写");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","运行结果");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","尚未进行任何操作");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","有些文件/文件夹不写。请访问&#39;在维护权限&#39;节 - &gt;清理，检查和审查这些文件的权限");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","否则，你可能会创建一个<button onclick = \"location='index.php?ctg=signup'\">新帐户</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","你是来参加免费课程和课程。请检阅下方的非免费课程及课程选择");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","监事");//Supervisors (New)
-define("_COURSEOPTIONS","课程选择");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","具有指定登录已经存在（存档用户）");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","活动规模");//Events size
+define("_OLDESTEVENT","最古老的事件");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","清除事件以上");//Purge events older than
+define("_PURGEEVENTS","清除事件");//Purge events
+define("_USERSEPERUSERTYPE","每个用户的用户类型");//Users per user type
+define("_MINUTESPERUSER","每个用户纪要");//Minutes per user
+define("_LOGINSPERDAY","每天登录");//Logins per day
+define("_ACCESSES","访问");//Accesses
+define("_ACCESSESPERUSER","每个用户访问");//Accesses per user
+define("_ACCESSESPERDAY","每天访问");//Accesses per day
+define("_OCCURENCES","纪录");//Occurences
+define("_SCORES","成绩");//Scores
+define("_PROPAGATECOURSE","传播过程");//Propagate course
+define("_LESSONSTRUCTURE","课程结构");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","管理员不能访问网页的教训");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","目录和％％× Ÿ文件不写由Web服务器。 <br>点击<a href = 'view_file.php?file=%z&action=download' target = '_NEW'>这里</a>下载一个完整的报告");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","点击此处设置写权限");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","点击此处未设置写权限");//Click here to unset write permissions
+define("_SETPERMISSIONS","设置权限");//Set permissions
+define("_UNSETPERMISSIONS","撤消权限");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","此操作将尝试设置权限的所有文件和文件夹是由网络服务器可写。这是强制性的，如果你想进行自动升级，可能是有用的情况下你遇到期间或之后升级的麻烦。另一方面，让所有文件可写，可能在某些情况下构成的安全威胁。");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","此操作将尝试设置权限的所有文件和文件夹是由网络服务器不能写，除了那些强制性的制度运作正常。这是最安全的设置，但会阻止自动升级系统");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","点击这里查看权限");//Click here to check permissions
+define("_CHECKPERMISSIONS","检查权限");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","这一行动将检查哪些文件和你的系统文件夹不是由网络服务器可写");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","运行结果");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","尚未进行任何操作");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","有些文件/文件夹不写。请访问&#39;在维护权限&#39;节 - &gt;清理，检查和审查这些文件的权限");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","否则，你可能会创建一个<button onclick = \"location='index.php?ctg=signup'\">新帐户</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","你是来参加免费课程和课程。请检阅下方的非免费课程及课程选择");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","监事");//Supervisors
+define("_COURSEOPTIONS","课程选择");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","为所有用户重置处决");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","用户报告生成");//Users reports generator (New)
+define("_ADDTOGROUP","添加到组");//Add to group (New)
+define("_ASSIGNCOURSE","分配过程");//Assign course (New)
+define("_ASSIGNLESSON","分配教训");//Assign lesson (New)
+define("_REMOVECOURSE","删除过程");//Remove course (New)
+define("_REMOVELESSON","删除教训");//Remove lesson (New)
+define("_REMOVEFROMGROUP","从组中删除");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","复位的学习进度");//Reset learning progress (New)
+define("_BUILDER","生成器");//Builder (New)
+define("_ADDREPORT","添加新的报告");//Add new report (New)
+define("_CONDITIONTYPE","条件类型");//Condition type
+define("_CONDITIONSPECIFICATION","条件规范");//Condition specification (New)
+define("_ADDCOLUMN","地址栏");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","与未来的关系");//Relation with next (New)
+define("_COLUMNTYPE","列类型");//Column type (New)
+define("_GRIDNAME","电网名称");//Grid name (New)
+define("_ALIGNED","不结盟");//Aligned (New)
+define("_SELECTREPORT","选择报告");//Select report (New)
+define("_AVAILABLEREPORTS","可用的报告");//Available reports (New)
+define("_EDITREPORT","编辑报告");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","有系统中定义的报告。请");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","创建一个");//create one (New)
+define("_NEWREPORT","新报告");//New report (New)
+define("_REPORTNAME","报告名称");//Report name (New)
+define("_SELECTCONDITION","选择条件");//Select condition (New)
+define("_ISNOT","不");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","已完成了所有指定的教训");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","已完成了所有指定课程");//Has completed all assigned courses (New)
+define("_HAS","已");//Has (New)
+define("_HASNOT","没有");//Has not (New)
+define("_ENROLLEDTO","登记到");//Enrolled to (New)
+define("_BETWEEN","之间");//Between (New)
+define("_ISASSIGNED","分配");//Is assigned (New)
+define("_ISNOTASSIGNED","未分配");//Is not assigned (New)
+define("_DURINGLASTDAY","最后24小时");//last 24h (New)
+define("_DURINGLASTWEEK","上星期");//last week (New)
+define("_DURINGLASTMONTH","上个月");//last month (New)
+define("_COLUMN","柱");//Column (New)
+define("_SELECTCOLUMN","选择列");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","留空将自动调整宽度");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","留空使用列名");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","宽度（％）");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","请选择一列");//Please select a column (New)
+define("_CHANGECOLUMNORDER","更改列的顺序");//Change the columns order (New)
+define("_VIEWINGREPORT","检视报告");//Viewing report (New)
+define("_PLEASESELECTACONDITION","请选择一个条件");//Please select a condition (New)
+define("_BASIC","基本的");//Basic (New)
+define("_LEARNING","学习");//Learning (New)
+define("_ENTERPRISE","企业");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","拖动项目变更单");//Drag items to change order (New)
+define("_CUSTOMFIELDS","自定义字段");//Custom fields (New)
+define("_FORMATTEDLOGIN","格式化登录");//Formatted login (New)
+define("_DEFAULTSORT","默认的排序");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; 经营者优先");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","当前页面操作");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","或指定一个新的小组，增加");//Or specify a new group to add to (New)
+define("_ADDTO","增加");//Add to (New)
+define("_REMOVEFROM","删除");//Remove from (New)
+define("_GROUPOPERATIONS","集团业务");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","证书业务");//Certificate operations (New)
+define("_LESSONOPERATIONS","业务课");//Lesson operations (New)
+define("_COURSEOPERATIONS","当然行动");//Course operations (New)
+define("_EXPORTTOCSV","导出为CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","没有事件代码中定义");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","文件导入成功");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","转换文件夹嵌套层次结构");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","解压缩zip文件（s）和进口内容");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","该主题已被锁定");//The theme is locked (New)
+define("_BLANKREPORT","空白报告");//Blank report (New)
+define("_CUSTOMREPORTS","自定义报告");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","系统管理员将审查并启动招生");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","刷新表");//Refresh table (New)
+define("_REMOVEFROMSET","从集合中删除");//Remove from set (New)
+define("_BRANCHTREE","科树");//Branch tree (New)
+define("_CHANGECONDITIONORDER","更改条件顺序");//Change condition order (New)
+define("_INDEX","指数");//Index (New)
+define("_EVENTDATETIME","事件的日期和时间");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","该证书文件丢失或损坏，因此被重置");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

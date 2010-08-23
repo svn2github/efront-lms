@@ -44,7 +44,7 @@ define("_RESTORE","Восстановление системы");//Restore
 define("_FREE","Бесплатный урок");//Free lesson
 define("_SUCCESSREGISTER","Ваша регистрация успешно завершена");//You have registered successfully
 define("_LESSONSREGISTRATION","Регистрация урока");//Lesson registration
-define("_YOUREMAIL","Ваш email");//Your e-mail 
+define("_YOUREMAIL","Ваш email");//Your Email 
 define("_MESSAGESUBJECT","Тема сообщения");//Message subject
 define("_PASSWORDLEAVEBLANK","Пароль (оставьте пустым, чтобы не менять)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Ваша личная информация была успешно изменена");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Сообщение было отправлено");//Emai
 define("_CHOOSELESSON","Выберите урок");//Choose lesson
 define("_SUBJECT","Тема");//Subject
 define("_RECIPIENTSSELECTION","Выбрать получателей");//Recipients selection
-define("_EMAILBODY","Текст сообщения");//E-mail body
-define("_SENDEMAIL","Отправить сообщение");//Send E-mail
+define("_EMAILBODY","Текст сообщения");//Email body
+define("_SENDEMAIL","Отправить сообщение");//Send Email
 define("_EXIT","Выходи");//Exit
 define("_MORE","еще==");//more
 define("_DELETE","Удалить");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Центр управления");//Control center
 define("_EXAMPLES","Примеры");//Examples
 define("_FORUM","Форум");//Forum
 define("_NOCONTENT","Блок без материала");//Unit without content
-define("_INACTIVE","Неактивный блок");//Inactive unit
+define("_INACTIVE","Неактивный блок");//Inactive
 define("_CONTENTMANAGEMENT","Материал");//Content
 define("_SCHEDULING","Расписание");//Scheduling
 define("_OFDEVELOPMENT","развитие");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Нет результатов в л�
 define("_SEARCHRESULTSINPERSONALMESSAGES","Результаты поиска в личных сообщений");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Результаты поиска в курсах");//Search results in courses
 define("_MESSAGEFOLDER","Папка сообщений");//Message folder
-define("_EMAIL","eMail");//e-mail
+define("_EMAIL","eMail");//Email
 define("_RESETPASSWORD","Сброс пароля");//Reset password
 define("_JOINED","Присоединился");//Joined
 define("_MOREINFO","Подробнее");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Перейти наверх");//Scroll to top of pa
 define("_SCROLLTOBOTTOMOFPAGE","Перейти Вниз страницы");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Никто еще не отвечал на этот опрос");//No user has done this survey yet
 define("_SYSTEM","Система");//System
-define("_EMAILCONFIGURATIONS","Конфигурация сервера электронной почты");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","Конфигурация сервера электронной почты");//Emails server configuration
 define("_SAWUNIT","Отметить блок как выполненный");//Set the unit as completed
 define("_NOTSAWUNIT","Отметить блок как невыполненный");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Условия выполнены");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Добавить опрос");//Submit survey
 define("_ROWSPERPAGE","Строк на страницу");//Rows per page
 define("_FILTER","Фильтр");//Filter
 define("_OF","в");//of
-define("_SENDALSOVIAEMAIL","Отправить приглашение по электронной почте");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Отправить приглашение по электронной почте");//Send invitation via Email
 define("_STYLE","Стиль");//Style
 define("_MENU","Меню");//Menu
 define("_SELECTION","Выбор");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Модуль был удален");//The mod
 define("_AUTHOR","Автор");//Author
 define("_VERSION","Версия");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Поля в вашем csv-файле должны быть следующими");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Поля, выделенные красным цветом являются обязательными. Если пароль не указан, он будет таким же, как и имя учетной записи.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Поля, выделенные красным цветом являются обязательными. Если пароль не указан, он будет таким же, как и имя учетной записи.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Пожалуйста, проверьте формат вашего файла CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","В шаблоне используйте #user_name# для имени пользователя, #user_surname# для фамилии, #course_name# для наименования курса, #grade# для оценки и #date# для даты.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Голосов");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Назначить сотрудников");//Assign 
 define("_ASSIGNEMPLOYEESTOBRANCH","Назначить сотрудников в подразделение");//Assign users to branch 
 define("_EDITSKILL","Изменить навык");//Edit skill
 define("_ASSIGNSKILL","Закрепить навык");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Закрепить сотрудникам навык");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Закрепить сотрудникам навык");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Подразделения не зарегистрированы");//No branches have been registered
 define("_ORGANIZATION","Организация");//Organization
 define("_SEARCHFOREMPLOYEE","Подбор сотрудников [Организационные критерии]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Опрос свойствами");//Poll properties
 define("_FORUMPROPERTIES","Forum Properties");//Forum properties
 define("_UPDATETHEME","Обновление темы");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Вы можете подключить ваш Facebook счет существующего eFront путем предоставления Логин и пароль этой учетной записи");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Уже есть пользователь с такой же электронной почтой. Укажите свою учетную запись в форме ниже");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Уже есть пользователь с такой же электронной почтой. Укажите свою учетную запись в форме ниже");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Ассоциированная учетная запись удалена");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Тема свойств");//Theme properties
 define("_CHANGETHEME","Изменить тему");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Показать только после отправки сообщения испытания");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Этот тест был успешно представили");//This test was successfully submitted
 define("_LEARNINGSTATUS","Статус обучения");//Learning Status
-define("_HASNOTANEMAILADDRESS","не адрес электронной почты");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","не адрес электронной почты");//has not an Email address
 define("_FEEDBACK","Обратная связь");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Включить в группу пользователей");//Insert users into group
 define("_INSERTINTONEWGROUP","Включить в новую группу");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Веб-сервер регистрации");//
 define("_USEORLOGICTOCORRECTANSWERS","Использование ИЛИ логики вычислить правильный ответ");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Переменная% х должно содержать &quot;%y&quot;, чтобы продолжить");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Открыть блок во всплывающем окне");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Пользователь с указанным Логин уже существует (архив)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","События размера");//Events size (New)
-define("_OLDESTEVENT","Старые события");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Чистки события старее");//Purge events older than (New)
-define("_PURGEEVENTS","Чистки события");//Purge events (New)
-define("_USERSEPERUSERTYPE","Пользователей в тип пользователя");//Users per user type (New)
-define("_MINUTESPERUSER","Минут на одного пользователя");//Minutes per user (New)
-define("_LOGINSPERDAY","Логинов в сутки");//Logins per day (New)
-define("_ACCESSES","Подъездные");//Accesses (New)
-define("_ACCESSESPERUSER","Доступ на одного пользователя");//Accesses per user (New)
-define("_ACCESSESPERDAY","Доступ в сутки");//Accesses per day (New)
-define("_OCCURENCES","Находки");//Occurences (New)
-define("_SCORES","Множество");//Scores (New)
-define("_PROPAGATECOURSE","Конечно Propagate");//Propagate course (New)
-define("_LESSONSTRUCTURE","Урок структуры");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Администратор не может получить доступ к страницам урок");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% Х каталогов и файлов% у не доступна для записи веб-сервером. <br> Нажмите <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>здесь</a> , чтобы скачать полный отчет");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Нажмите здесь, чтобы установить права на запись");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Нажмите здесь, чтобы написать отключенном разрешения");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Установка разрешений");//Set permissions (New)
-define("_UNSETPERMISSIONS","Отключенное разрешения");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Эта операция будет попробовать установить права доступа для всех файлов и папок для записи веб-сервером. Это является обязательным, если вы хотите выполнить автоматическое обновление и может быть полезна в тех случаях, вы испытываете проблемы во время или после модернизации. С другой стороны, в результате чего все файлы, записи могут представлять угрозу безопасности, при определенных обстоятельствах.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Эта операция будет попробовать установить права доступа для всех файлов и папок быть не доступна для записи веб-сервера, за исключением тех, обязательные для системы нормально функционировать. Это самое охраняемое учреждение, но не позволит системе автоматически обновлять");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Нажмите здесь, чтобы проверить разрешения");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Проверьте разрешения");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Эта операция будет проверить, какие файлы и папки в системе не доступна для записи веб-сервером");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Операция результатов");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Нет операцию еще");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Некоторые файлы и папки, не для записи. Пожалуйста, зайдите в раздел \"разрешения\" в обслуживание -&gt; очистки для проверки разрешений и рассмотрение этих файлов");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","В противном случае, вы можете создать <button onclick = \"location='index.php?ctg=signup'\">новую учетную запись</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Вы были зачислены на бесплатные уроки и курсы. Пожалуйста, ознакомьтесь с ниже вашего выбора, не бесплатные уроки и курсы");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Руководители");//Supervisors (New)
-define("_COURSEOPTIONS","Выбор курсов");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Пользователь с указанным Логин уже существует (архив)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","События размера");//Events size
+define("_OLDESTEVENT","Старые события");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Чистки события старее");//Purge events older than
+define("_PURGEEVENTS","Чистки события");//Purge events
+define("_USERSEPERUSERTYPE","Пользователей в тип пользователя");//Users per user type
+define("_MINUTESPERUSER","Минут на одного пользователя");//Minutes per user
+define("_LOGINSPERDAY","Логинов в сутки");//Logins per day
+define("_ACCESSES","Подъездные");//Accesses
+define("_ACCESSESPERUSER","Доступ на одного пользователя");//Accesses per user
+define("_ACCESSESPERDAY","Доступ в сутки");//Accesses per day
+define("_OCCURENCES","Находки");//Occurences
+define("_SCORES","Множество");//Scores
+define("_PROPAGATECOURSE","Конечно Propagate");//Propagate course
+define("_LESSONSTRUCTURE","Урок структуры");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Администратор не может получить доступ к страницам урок");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% Х каталогов и файлов% у не доступна для записи веб-сервером. <br> Нажмите <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>здесь</a> , чтобы скачать полный отчет");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Нажмите здесь, чтобы установить права на запись");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Нажмите здесь, чтобы написать отключенном разрешения");//Click here to unset write permissions
+define("_SETPERMISSIONS","Установка разрешений");//Set permissions
+define("_UNSETPERMISSIONS","Отключенное разрешения");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Эта операция будет попробовать установить права доступа для всех файлов и папок для записи веб-сервером. Это является обязательным, если вы хотите выполнить автоматическое обновление и может быть полезна в тех случаях, вы испытываете проблемы во время или после модернизации. С другой стороны, в результате чего все файлы, записи могут представлять угрозу безопасности, при определенных обстоятельствах.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Эта операция будет попробовать установить права доступа для всех файлов и папок быть не доступна для записи веб-сервера, за исключением тех, обязательные для системы нормально функционировать. Это самое охраняемое учреждение, но не позволит системе автоматически обновлять");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Нажмите здесь, чтобы проверить разрешения");//Click here to check permissions
+define("_CHECKPERMISSIONS","Проверьте разрешения");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Эта операция будет проверить, какие файлы и папки в системе не доступна для записи веб-сервером");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Операция результатов");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Нет операцию еще");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Некоторые файлы и папки, не для записи. Пожалуйста, зайдите в раздел \"разрешения\" в обслуживание -&gt; очистки для проверки разрешений и рассмотрение этих файлов");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","В противном случае, вы можете создать <button onclick = \"location='index.php?ctg=signup'\">новую учетную запись</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Вы были зачислены на бесплатные уроки и курсы. Пожалуйста, ознакомьтесь с ниже вашего выбора, не бесплатные уроки и курсы");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Руководители");//Supervisors
+define("_COURSEOPTIONS","Выбор курсов");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Сброс казни для всех пользователей");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Пользователь генератор отчетов");//Users reports generator (New)
+define("_ADDTOGROUP","Добавить в группу");//Add to group (New)
+define("_ASSIGNCOURSE","Назначение курса");//Assign course (New)
+define("_ASSIGNLESSON","Назначение урок");//Assign lesson (New)
+define("_REMOVECOURSE","Удалить конечно");//Remove course (New)
+define("_REMOVELESSON","Удалить урок");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Удалить из группы");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Сброс обучения прогресса");//Reset learning progress (New)
+define("_BUILDER","Строитель");//Builder (New)
+define("_ADDREPORT","Добавить новый отчет");//Add new report (New)
+define("_CONDITIONTYPE","Тип условия");//Condition type
+define("_CONDITIONSPECIFICATION","Состояние спецификации");//Condition specification (New)
+define("_ADDCOLUMN","Добавить столбец");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Связь со следующим");//Relation with next (New)
+define("_COLUMNTYPE","Тип столбца");//Column type (New)
+define("_GRIDNAME","Grid имя");//Grid name (New)
+define("_ALIGNED","Унифицированные");//Aligned (New)
+define("_SELECTREPORT","Выбор отчета");//Select report (New)
+define("_AVAILABLEREPORTS","Доступные отчеты");//Available reports (New)
+define("_EDITREPORT","Изменить отчет");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Есть никаких сообщений определены в системе. Пожалуйста");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","создать один");//create one (New)
+define("_NEWREPORT","Новый отчет");//New report (New)
+define("_REPORTNAME","Название отчета");//Report name (New)
+define("_SELECTCONDITION","Выберите условие");//Select condition (New)
+define("_ISNOT","не является");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","С завершила все присвоенные уроки");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","С завершила все назначенные курсы");//Has completed all assigned courses (New)
+define("_HAS","С");//Has (New)
+define("_HASNOT","Разве не");//Has not (New)
+define("_ENROLLEDTO","Зачислен в");//Enrolled to (New)
+define("_BETWEEN","Между");//Between (New)
+define("_ISASSIGNED","Задает");//Is assigned (New)
+define("_ISNOTASSIGNED","Разве это не назначен");//Is not assigned (New)
+define("_DURINGLASTDAY","за последние 24 часа");//last 24h (New)
+define("_DURINGLASTWEEK","на прошлой неделе");//last week (New)
+define("_DURINGLASTMONTH","в прошлом месяце");//last month (New)
+define("_COLUMN","Столбец");//Column (New)
+define("_SELECTCOLUMN","Выберите столбец");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Оставьте поле пустым для авто-настройки ширины");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Оставьте пустым, чтобы использовать имя столбца");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Ширина (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Пожалуйста, выберите столбец");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Изменение порядка столбцов");//Change the columns order (New)
+define("_VIEWINGREPORT","Просмотр доклад");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Пожалуйста, выберите условие");//Please select a condition (New)
+define("_BASIC","Основной");//Basic (New)
+define("_LEARNING","Изучение");//Learning (New)
+define("_ENTERPRISE","Предприятие");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Перетащите пунктов изменить порядок");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Пользовательские поля");//Custom fields (New)
+define("_FORMATTEDLOGIN","Форматирования Войти");//Formatted login (New)
+define("_DEFAULTSORT","По умолчанию рода");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; оператор имеет преимущество");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Текущая страница операций");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Или задать новую группу, чтобы добавить в");//Or specify a new group to add to (New)
+define("_ADDTO","Добавить");//Add to (New)
+define("_REMOVEFROM","Удалить из");//Remove from (New)
+define("_GROUPOPERATIONS","Группа операций");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Сертификат операций");//Certificate operations (New)
+define("_LESSONOPERATIONS","Урок операций");//Lesson operations (New)
+define("_COURSEOPERATIONS","Курс операций");//Course operations (New)
+define("_EXPORTTOCSV","Экспорт в CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Нет событий код, определяемый");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Файлы успешно импортирован");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Преобразование папки иерархии");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Распакуйте почтовый файл (ы) и импорта содержимого");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Тема закрывается");//The theme is locked (New)
+define("_BLANKREPORT","Бланк доклад");//Blank report (New)
+define("_CUSTOMREPORTS","Пользовательские отчеты");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Системный администратор будет рассматривать и активировать свой контингент учащихся");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Обновить таблицу");//Refresh table (New)
+define("_REMOVEFROMSET","Удалить из множества");//Remove from set (New)
+define("_BRANCHTREE","Отделение дерево");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Изменение условий для");//Change condition order (New)
+define("_INDEX","Индекс");//Index (New)
+define("_EVENTDATETIME","Событие даты и времени");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Сертификат файл отсутствует или поврежден и, следовательно, был сброс");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

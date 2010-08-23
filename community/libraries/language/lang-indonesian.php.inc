@@ -44,7 +44,7 @@ define("_RESTORE","Memulihkan");//Restore
 define("_FREE","Pelajaran gratis");//Free lesson
 define("_SUCCESSREGISTER","Anda telah berhasil terdaftar");//You have registered successfully
 define("_LESSONSREGISTRATION","Pelajaran registrasi");//Lesson registration
-define("_YOUREMAIL","E-mail Anda");//Your e-mail 
+define("_YOUREMAIL","E-mail Anda");//Your Email 
 define("_MESSAGESUBJECT","Judul Pesan");//Message subject
 define("_PASSWORDLEAVEBLANK","Password (biarkan kosong untuk tidak berubah)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Informasi pribadi Anda telah berhasil diubah");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Email telah dikirim ke");//Email was sent to
 define("_CHOOSELESSON","Memilih pelajaran");//Choose lesson
 define("_SUBJECT","Subyek");//Subject
 define("_RECIPIENTSSELECTION","Penerima pilihan");//Recipients selection
-define("_EMAILBODY","E-mail tubuh");//E-mail body
-define("_SENDEMAIL","Kirim E-mail");//Send E-mail
+define("_EMAILBODY","E-mail tubuh");//Email body
+define("_SENDEMAIL","Kirim E-mail");//Send Email
 define("_EXIT","Keluar");//Exit
 define("_MORE","lebih");//more
 define("_DELETE","Menghapus");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Kontrol pusat");//Control center
 define("_EXAMPLES","Contoh");//Examples
 define("_FORUM","Forum");//Forum
 define("_NOCONTENT","Unit tanpa isi");//Unit without content
-define("_INACTIVE","Unit tidak aktif");//Inactive unit
+define("_INACTIVE","Unit tidak aktif");//Inactive
 define("_CONTENTMANAGEMENT","Isi");//Content
 define("_SCHEDULING","Penjadwalan");//Scheduling
 define("_OFDEVELOPMENT","pembangunan");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Tidak ada hasil ditemukan di pesan p
 define("_SEARCHRESULTSINPERSONALMESSAGES","Hasil pencarian di pesan pribadi");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Hasil pencarian di kursus");//Search results in courses
 define("_MESSAGEFOLDER","Folder pesan");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Reset password");//Reset password
 define("_JOINED","Bergabung");//Joined
 define("_MOREINFO","More info");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Gulir ke atas halaman");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Gulir ke bawah halaman");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Tidak ada pengguna telah melakukan survei ini belum");//No user has done this survey yet
 define("_SYSTEM","Sistem");//System
-define("_EMAILCONFIGURATIONS","E-mail server konfigurasi");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-mail server konfigurasi");//Emails server configuration
 define("_SAWUNIT","Mengatur unit yang sudah selesai");//Set the unit as completed
 define("_NOTSAWUNIT","Ditetapkan sebagai unit tidak selesai");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Kondisi lengkap");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Kirim survei");//Submit survey
 define("_ROWSPERPAGE","Baris per halaman");//Rows per page
 define("_FILTER","Filter");//Filter
 define("_OF","dari");//of
-define("_SENDALSOVIAEMAIL","Kirim undangan melalui e-mail");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Kirim undangan melalui e-mail");//Send invitation via Email
 define("_STYLE","Gaya");//Style
 define("_MENU","Menu");//Menu
 define("_SELECTION","Pilihan");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Modul berhasil dihapus");//The module was su
 define("_AUTHOR","Penulis");//Author
 define("_VERSION","Versi");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Kolom di csv harus berisi kolom berikut");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Kolom merah adalah wajib. Jika tidak ada kata sandi diberikan, pada awalnya akan menetapkan sandi yang sama sebagai login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Kolom merah adalah wajib. Jika tidak ada kata sandi diberikan, pada awalnya akan menetapkan sandi yang sama sebagai login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Silakan cek format file CSV Anda");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Dalam template, gunakan # organisasi # untuk nama organisasi, # # user_name nama pengguna, # user_surname # untuk pengguna surname, # # untuk course_name nama saja, # # untuk grade grade dan # # untuk tanggal tanggal.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Dinilai");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Arahkan pengguna");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Menetapkan pengguna ke cabang");//Assign users to branch 
 define("_EDITSKILL","Edit keterampilan");//Edit skill
 define("_ASSIGNSKILL","Memberikan keterampilan");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Arahkan pengguna keahlian");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Arahkan pengguna keahlian");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Tidak ada kantor cabang telah terdaftar");//No branches have been registered
 define("_ORGANIZATION","Organisasi");//Organization
 define("_SEARCHFOREMPLOYEE","Mencari pengguna [Organisasi kriteria]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Poll properti");//Poll properties
 define("_FORUMPROPERTIES","Forum properti");//Forum properties
 define("_UPDATETHEME","Update tema");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Anda dapat menghubungkan account Facebook Anda yang sudah ada dengan menyediakan eFront satu user login dan password account");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Ada lebih dari satu pengguna dengan sama alamat e-mail. Gunakan login Anda dalam formulir di bawah ini");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Ada lebih dari satu pengguna dengan sama alamat e-mail. Gunakan login Anda dalam formulir di bawah ini");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Account dipetakan berhasil dihapus");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Theme properti");//Theme properties
 define("_CHANGETHEME","Ubah tema");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Tampilkan hanya setelah mengirim pesan uji");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Tes ini telah berhasil diajukan");//This test was successfully submitted
 define("_LEARNINGSTATUS","Belajar Status");//Learning Status
-define("_HASNOTANEMAILADDRESS","tidak mempunyai alamat e-mail");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","tidak mempunyai alamat e-mail");//has not an Email address
 define("_FEEDBACK","Saran atau masukan");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Masukkan user ke dalam grup");//Insert users into group
 define("_INSERTINTONEWGROUP","Masukkan ke dalam grup baru");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web server registrasi");//Web server registrati
 define("_USEORLOGICTOCORRECTANSWERS","Gunakan logika OR untuk menghitung jawaban yang benar");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","The% variabel x harus berisi &quot;%y&quot; untuk melanjutkan");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","unit Buka di jendela popup");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Seorang pengguna dengan login yang diberikan sudah ada (diarsipkan)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Acara ukuran");//Events size (New)
-define("_OLDESTEVENT","Terlama acara");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Purge lebih tua dari peristiwa");//Purge events older than (New)
-define("_PURGEEVENTS","Purge peristiwa");//Purge events (New)
-define("_USERSEPERUSERTYPE","Pengguna per tipe user");//Users per user type (New)
-define("_MINUTESPERUSER","Menit per pengguna");//Minutes per user (New)
-define("_LOGINSPERDAY","Login per hari");//Logins per day (New)
-define("_ACCESSES","Akses");//Accesses (New)
-define("_ACCESSESPERUSER","Akses per pengguna");//Accesses per user (New)
-define("_ACCESSESPERDAY","Akses per hari");//Accesses per day (New)
-define("_OCCURENCES","Kemunculan");//Occurences (New)
-define("_SCORES","Skor");//Scores (New)
-define("_PROPAGATECOURSE","Menyebarkan program");//Propagate course (New)
-define("_LESSONSTRUCTURE","Pelajaran struktur");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administrator tidak dapat mengakses halaman pelajaran");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X direktori dan file% y tidak dapat ditulis oleh server web. <br> Klik <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>di sini</a> untuk mendownload laporan lengkap");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Klik di sini untuk mengatur hak akses menulis");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Klik di sini untuk menulis hak akses diset");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Set hak akses");//Set permissions (New)
-define("_UNSETPERMISSIONS","Diset perizinan");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Operasi ini akan mencoba mengatur hak akses ke semua file dan folder dapat ditulis oleh server web. Ini adalah wajib jika Anda ingin melakukan upgrade otomatis dan dapat berguna dalam kasus Anda mengalami masalah selama atau setelah meng-upgrade. Di sisi lain, meninggalkan semua file dapat ditulis mungkin menimbulkan ancaman keamanan dalam keadaan tertentu.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Operasi ini akan mencoba mengatur hak akses ke semua file dan folder yang akan non-ditulis oleh server web, kecuali yang wajib bagi sistem berfungsi dengan benar. Ini adalah pengaturan yang paling aman tapi akan mencegah sistem dari upgrade secara otomatis");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Klik di sini untuk memeriksa hak akses");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Periksa izin");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Operasi ini akan memeriksa file dan folder dalam sistem Anda tidak dapat ditulis oleh server web");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operasi hasil");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Tidak ada operasi yang dilakukan belum");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Beberapa file / folder tidak dapat ditulis. Silakan kunjungi bagian &#39;hak akses&#39; dalam pemeliharaan - cleanup&gt; untuk memeriksa hak akses dan meninjau file-file ini");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Jika tidak, Anda dapat membuat <button onclick = \"location='index.php?ctg=signup'\">account baru</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Anda bebas mendaftarkan diri untuk pelajaran dan program. Silakan tinjau di bawah pilihan Anda bebas non pelajaran dan program");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Pengawas");//Supervisors (New)
-define("_COURSEOPTIONS","Kursus Pilihan");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Seorang pengguna dengan login yang diberikan sudah ada (diarsipkan)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Acara ukuran");//Events size
+define("_OLDESTEVENT","Terlama acara");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Purge lebih tua dari peristiwa");//Purge events older than
+define("_PURGEEVENTS","Purge peristiwa");//Purge events
+define("_USERSEPERUSERTYPE","Pengguna per tipe user");//Users per user type
+define("_MINUTESPERUSER","Menit per pengguna");//Minutes per user
+define("_LOGINSPERDAY","Login per hari");//Logins per day
+define("_ACCESSES","Akses");//Accesses
+define("_ACCESSESPERUSER","Akses per pengguna");//Accesses per user
+define("_ACCESSESPERDAY","Akses per hari");//Accesses per day
+define("_OCCURENCES","Kemunculan");//Occurences
+define("_SCORES","Skor");//Scores
+define("_PROPAGATECOURSE","Menyebarkan program");//Propagate course
+define("_LESSONSTRUCTURE","Pelajaran struktur");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administrator tidak dapat mengakses halaman pelajaran");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X direktori dan file% y tidak dapat ditulis oleh server web. <br> Klik <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>di sini</a> untuk mendownload laporan lengkap");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Klik di sini untuk mengatur hak akses menulis");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Klik di sini untuk menulis hak akses diset");//Click here to unset write permissions
+define("_SETPERMISSIONS","Set hak akses");//Set permissions
+define("_UNSETPERMISSIONS","Diset perizinan");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Operasi ini akan mencoba mengatur hak akses ke semua file dan folder dapat ditulis oleh server web. Ini adalah wajib jika Anda ingin melakukan upgrade otomatis dan dapat berguna dalam kasus Anda mengalami masalah selama atau setelah meng-upgrade. Di sisi lain, meninggalkan semua file dapat ditulis mungkin menimbulkan ancaman keamanan dalam keadaan tertentu.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Operasi ini akan mencoba mengatur hak akses ke semua file dan folder yang akan non-ditulis oleh server web, kecuali yang wajib bagi sistem berfungsi dengan benar. Ini adalah pengaturan yang paling aman tapi akan mencegah sistem dari upgrade secara otomatis");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Klik di sini untuk memeriksa hak akses");//Click here to check permissions
+define("_CHECKPERMISSIONS","Periksa izin");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Operasi ini akan memeriksa file dan folder dalam sistem Anda tidak dapat ditulis oleh server web");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operasi hasil");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Tidak ada operasi yang dilakukan belum");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Beberapa file / folder tidak dapat ditulis. Silakan kunjungi bagian &#39;hak akses&#39; dalam pemeliharaan - cleanup&gt; untuk memeriksa hak akses dan meninjau file-file ini");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Jika tidak, Anda dapat membuat <button onclick = \"location='index.php?ctg=signup'\">account baru</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Anda bebas mendaftarkan diri untuk pelajaran dan program. Silakan tinjau di bawah pilihan Anda bebas non pelajaran dan program");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Pengawas");//Supervisors
+define("_COURSEOPTIONS","Kursus Pilihan");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Reset eksekusi untuk semua pengguna");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Pengguna laporan generator");//Users reports generator (New)
+define("_ADDTOGROUP","Tambahkan ke grup");//Add to group (New)
+define("_ASSIGNCOURSE","Menetapkan program");//Assign course (New)
+define("_ASSIGNLESSON","Menetapkan pelajaran");//Assign lesson (New)
+define("_REMOVECOURSE","Hapus saja");//Remove course (New)
+define("_REMOVELESSON","Hapus pelajaran");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Hapus dari grup");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset kemajuan belajar");//Reset learning progress (New)
+define("_BUILDER","Pembangun");//Builder (New)
+define("_ADDREPORT","Tambah baru laporan");//Add new report (New)
+define("_CONDITIONTYPE","Kondisi jenis");//Condition type
+define("_CONDITIONSPECIFICATION","Kondisi spesifikasi");//Condition specification (New)
+define("_ADDCOLUMN","Tambahkan kolom");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Hubungan dengan berikutnya");//Relation with next (New)
+define("_COLUMNTYPE","Kolom jenis");//Column type (New)
+define("_GRIDNAME","Grid nama");//Grid name (New)
+define("_ALIGNED","Blok");//Aligned (New)
+define("_SELECTREPORT","Pilih laporan");//Select report (New)
+define("_AVAILABLEREPORTS","Tersedia laporan");//Available reports (New)
+define("_EDITREPORT","Edit Laporan");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Tidak ada laporan didefinisikan dalam sistem. Silahkan");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","membuat satu");//create one (New)
+define("_NEWREPORT","Laporan Baru");//New report (New)
+define("_REPORTNAME","Nama laporan");//Report name (New)
+define("_SELECTCONDITION","Pilih kondisi");//Select condition (New)
+define("_ISNOT","tidak");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Telah menyelesaikan semua pelajaran yang ditugaskan");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Telah menyelesaikan semua program yang ditugaskan");//Has completed all assigned courses (New)
+define("_HAS","Memiliki");//Has (New)
+define("_HASNOT","Belum");//Has not (New)
+define("_ENROLLEDTO","Mendaftarkan diri untuk");//Enrolled to (New)
+define("_BETWEEN","Antara");//Between (New)
+define("_ISASSIGNED","Apakah yang ditugaskan");//Is assigned (New)
+define("_ISNOTASSIGNED","Apakah tidak ditugaskan");//Is not assigned (New)
+define("_DURINGLASTDAY","terakhir 24h");//last 24h (New)
+define("_DURINGLASTWEEK","minggu lalu");//last week (New)
+define("_DURINGLASTMONTH","bulan lalu");//last month (New)
+define("_COLUMN","Kolom");//Column (New)
+define("_SELECTCOLUMN","Pilih kolom");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Biarkan kosong untuk otomatis menyesuaikan lebar");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Biarkan kosong untuk menggunakan kolom nama");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Lebar (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Silakan pilih kolom");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Mengubah urutan kolom");//Change the columns order (New)
+define("_VIEWINGREPORT","Melihat laporan");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Silakan pilih kondisi");//Please select a condition (New)
+define("_BASIC","Dasar");//Basic (New)
+define("_LEARNING","Belajar");//Learning (New)
+define("_ENTERPRISE","Perusahaan");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Tarik item untuk mengubah urutan");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Bidang Kustom");//Custom fields (New)
+define("_FORMATTEDLOGIN","Diformat login");//Formatted login (New)
+define("_DEFAULTSORT","Default semacam");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator diutamakan");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Halaman Lancar operasi");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Atau menentukan grup baru untuk ditambahkan ke");//Or specify a new group to add to (New)
+define("_ADDTO","Tambahkan ke");//Add to (New)
+define("_REMOVEFROM","Hapus dari");//Remove from (New)
+define("_GROUPOPERATIONS","Operasi Kelompok");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Sertifikat operasi");//Certificate operations (New)
+define("_LESSONOPERATIONS","Pelajaran operasi");//Lesson operations (New)
+define("_COURSEOPERATIONS","Kursus operasi");//Course operations (New)
+define("_EXPORTTOCSV","Ekspor ke csv");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Tidak ada kode event didefinisikan");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","File berhasil diimpor");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Mengkonversi nested hirarki folder ke");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress zip file (s) dan isinya impor");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Tema ini terkunci");//The theme is locked (New)
+define("_BLANKREPORT","Blank laporan");//Blank report (New)
+define("_CUSTOMREPORTS","Laporan kustom");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Administrator sistem akan meninjau dan mahasiswa, Anda mengaktifkan");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Refresh tabel");//Refresh table (New)
+define("_REMOVEFROMSET","Hapus dari set");//Remove from set (New)
+define("_BRANCHTREE","Cabang pohon");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Ubah urutan kondisi");//Change condition order (New)
+define("_INDEX","Indeks");//Index (New)
+define("_EVENTDATETIME","Acara tanggal dan waktu");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","File sertifikat yang hilang atau rusak dan oleh karena itu ulang");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

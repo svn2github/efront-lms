@@ -44,7 +44,7 @@ define("_RESTORE","การกู้คืน");//Restore
 define("_FREE","เรียนฟรี");//Free lesson
 define("_SUCCESSREGISTER","คุณได้ลงทะเบียนเป็นสมาชิก-ผู้ใช้ของระบบอีฟร้อนท์ รีเฟรชชิ่ง อีเลิร์นนิ่ง เรียบร้อยแล้ว");//You have registered successfully
 define("_LESSONSREGISTRATION","ลงทะเบียนเรียนวิชา");//Lesson registration
-define("_YOUREMAIL","ชื่อที่อยู่อีเมลของคุณ");//Your e-mail 
+define("_YOUREMAIL","ชื่อที่อยู่อีเมลของคุณ");//Your Email 
 define("_MESSAGESUBJECT","เรื่อง");//Message subject
 define("_PASSWORDLEAVEBLANK","ตั้งรหัสผ่านใหม่(ว่างไว้หากยังไม่ต้องการเปลี่ยน)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","ได้ปรับเปลี่ยนข้อมูลส่วนตัวของคุณเรียบร้อยแล้ว");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","ได้ส่งอีเมลไปถึง");//Emai
 define("_CHOOSELESSON","เลือกบทเรียน");//Choose lesson
 define("_SUBJECT","เรื่อง");//Subject
 define("_RECIPIENTSSELECTION","เลือกรายชื่อผู้รับ");//Recipients selection
-define("_EMAILBODY","ข้อความ-เนื้อหาส่งอีเมล");//E-mail body
-define("_SENDEMAIL","ส่งอีเมล");//Send E-mail
+define("_EMAILBODY","ข้อความ-เนื้อหาส่งอีเมล");//Email body
+define("_SENDEMAIL","ส่งอีเมล");//Send Email
 define("_EXIT","ออก");//Exit
 define("_MORE","เพิ่มเติม");//more
 define("_DELETE","ลบ");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","ศูนย์จัดการระบบ");//Contr
 define("_EXAMPLES","ตัวอย่างผลงาน");//Examples
 define("_FORUM","การอภิปราย");//Forum
 define("_NOCONTENT","สาระที่ยังไม่มีเนื้อหา");//Unit without content
-define("_INACTIVE","สาระที่ยังไม่เปิดใช้");//Inactive unit
+define("_INACTIVE","สาระที่ยังไม่เปิดใช้");//Inactive
 define("_CONTENTMANAGEMENT","เนื้อหา");//Content
 define("_SCHEDULING","จัดตารางเรียน");//Scheduling
 define("_OFDEVELOPMENT","การพัฒนา");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","ไม่พบผลลัพธ์
 define("_SEARCHRESULTSINPERSONALMESSAGES","ผลลัพธ์การค้นหาในข้อความส่วนตัว");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","ผลลัพธ์การค้นหาในหลักสูตรวิชา");//Search results in courses
 define("_MESSAGEFOLDER","แฟ้มข้อความ");//Message folder
-define("_EMAIL","ชื่อที่อยู่อีเมล");//e-mail
+define("_EMAIL","ชื่อที่อยู่อีเมล");//Email
 define("_RESETPASSWORD","คำร้องขอให้ตั้งรหัสผ่านที่ลืม ให้ใหม่");//Reset password
 define("_JOINED","เข้าร่วมเมื่อ");//Joined
 define("_MOREINFO","ดูรายละเอียดเพิ่มเติม");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","เลื่อนไปที่ส่วนบน
 define("_SCROLLTOBOTTOMOFPAGE","เลื่อนไปที่ส่วนล่างสุดของหน้า");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","ยังไม่มีผู้ใดทำแบบสอมถามเสร็จ");//No user has done this survey yet
 define("_SYSTEM","การบริหารจัดการ");//System
-define("_EMAILCONFIGURATIONS","การตั้งค่า E-mail server");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","การตั้งค่า E-mail server");//Emails server configuration
 define("_SAWUNIT","คลิกที่นี่ เพื่อแจ้งผลการเรียนว่า คุณได้เข้าเรียนรู้และทำกิจกรรมในเนื้อหา-หน่วยเรียนนี้ ครบเรียบร้อยแล้ว (อาจารย์ผู้สอนจะเข้าตรวจสอบเวลาที่บันทึกการเข้าเรียนของคุณอีกครั้ง)");//Set the unit as completed
 define("_NOTSAWUNIT","คลิกตั้งค่าย้อนกลับไป เพื่อแจ้งว่ายังเรียนไม่เสร็จ ขอเรียนซ้ำหรือยังเรียนไม่ครบตามเงื่อนไขการเรียน ในเนื้อหา-หน่วยเรียนนี้");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","ได้ผ่านเกณฑ์:เงื่อนไขแล้ว");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","ส่งแบบสำรวจ");//Submit survey
 define("_ROWSPERPAGE","จำนวนรายการที่แสดงต่อหน้า");//Rows per page
 define("_FILTER","พิมพ์คำกรองค้น");//Filter
 define("_OF","ของ");//of
-define("_SENDALSOVIAEMAIL","ส่งคำเชิญทางอีเมล");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","ส่งคำเชิญทางอีเมล");//Send invitation via Email
 define("_STYLE","รูปแบบ");//Style
 define("_MENU","เมนู");//Menu
 define("_SELECTION","การเลือก");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","ลบโมดูลเสริมออ�
 define("_AUTHOR","ผู้สร้าง");//Author
 define("_VERSION","เวอร์ชั่น");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","รูปแบบการพิมพ์เขตข้อมูลของไฟล์ csv ต้องเ็ป็นไปตามรูปแบบดังนี้คือ");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","เขตข้อมูลกรอบสีแดงคือค่าบังคับใช้. หากไม่ตั้งรหัสผ่านไว้ ระบบจะตั้งให้อัตโนมัติเหมือนกับชื่อเข้าระบบ.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","เขตข้อมูลกรอบสีแดงคือค่าบังคับใช้. หากไม่ตั้งรหัสผ่านไว้ ระบบจะตั้งให้อัตโนมัติเหมือนกับชื่อเข้าระบบ.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","กรุณาตรวจสอบรูปแบบไฟล์ CSV ของคุณว่าถูกต้องหรือไม่");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","รูปแบบไฟล์ต้นแบบที่กำหนดให้คือ, ใช้ #organization# สำหรับ organization&#039;s name, #user_name# สำหรับ user&#039;s name, #user_surname# สำหรับ user&#039;s surname, #course_name# สำหรับ course&#039;s name, #grade# สำหรับ grade and #date# สำหรับ date.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","ผู้ตอบ");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Assign users");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Assign users to branch ");//Assign users to branch 
 define("_EDITSKILL","แก้ไขทักษะ");//Edit skill
 define("_ASSIGNSKILL","Assign skill");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Assign users the skill ");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Assign users the skill ");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","No branches have been registered");//No branches have been registered
 define("_ORGANIZATION","Organization");//Organization
 define("_SEARCHFOREMPLOYEE","Search for user [Organization criteria]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","คุณสมบัติสำรวจความ
 define("_FORUMPROPERTIES","คุณสมบัติ Forum");//Forum properties
 define("_UPDATETHEME","Theme Update");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","คุณสามารถเชื่อมต่อบัญชี Facebook ของคุณกับ eFront ที่มีอยู่โดยการให้เข้าสู่ระบบผู้ใช้และรหัสผ่านของบัญชีที่");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","มีสมาชิก-ผู้่ใช้ ที่ใช้ที่อยู่อีเมลซ้ำ ดังรายชื่อด้านล่างนี้");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","มีสมาชิก-ผู้่ใช้ ที่ใช้ที่อยู่อีเมลซ้ำ ดังรายชื่อด้านล่างนี้");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","ได้ลบบัญชีชื่อพ่วง ให้เรียบร้อยแล้ว");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","คุณสมบัติ Theme");//Theme properties
 define("_CHANGETHEME","Theme เปลี่ยน");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","แสดงเฉพาะข้อความหลังจากที่ส่งทดสอบ");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","การทดสอบนี้ถูกส่งเรียบร้อยแล้ว");//This test was successfully submitted
 define("_LEARNINGSTATUS","สถานะการเรียนรู้");//Learning Status
-define("_HASNOTANEMAILADDRESS","ไม่ได้อยู่อีเมล");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","ไม่ได้อยู่อีเมล");//has not an Email address
 define("_FEEDBACK","ความคิดเห็น");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","ผู้ใช้แทรกในกลุ่ม");//Insert users into group
 define("_INSERTINTONEWGROUP","แทรกลงในกลุ่มใหม่");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","การลงทะเบียนเว็�
 define("_USEORLOGICTOCORRECTANSWERS","ใช้ตรรกะหรือการคำนวณคำตอบที่ถูกต้อง");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","% ตัวแปร x จะต้องมี &quot;%y&quot;เพื่อดำเนินการต่อ");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","หน่วยเปิดในหน้าต่างป๊อปอัพ");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","ผู้ใช้กับระบบที่กำหนดอยู่แล้ว (เก็บ A)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","ขนาด Events");//Events size (New)
-define("_OLDESTEVENT","เหตุการณ์เก่า");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","กิจกรรมล้างข้อมูลเก่ากว่า");//Purge events older than (New)
-define("_PURGEEVENTS","กิจกรรมล้าง");//Purge events (New)
-define("_USERSEPERUSERTYPE","ผู้ใช้ต่อผู้ใช้ประเภท");//Users per user type (New)
-define("_MINUTESPERUSER","นาทีต่อผู้ใช้");//Minutes per user (New)
-define("_LOGINSPERDAY","การเข้าสู่ระบบวันละ");//Logins per day (New)
-define("_ACCESSES","Accesses");//Accesses (New)
-define("_ACCESSESPERUSER","Accesses ต่อผู้ใช้");//Accesses per user (New)
-define("_ACCESSESPERDAY","Accesses ต่อวัน");//Accesses per day (New)
-define("_OCCURENCES","ปรากฏขึ้น");//Occurences (New)
-define("_SCORES","คะแนน");//Scores (New)
-define("_PROPAGATECOURSE","หลักสูตรการเผยแพร่");//Propagate course (New)
-define("_LESSONSTRUCTURE","โครงสร้างบทเรียน");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","ผู้ดูแลระบบไม่สามารถเข้าถึงหน้าบทเรียน");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% x ไดเรกทอรีและไฟล์ y% ยังไม่ได้เขียนโดยเว็บเซิร์ฟเวอร์ <br> คลิก <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ที่นี่</a> เพื่อดาวน์โหลดรายงานสมบูรณ์");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","คลิกที่นี่เพื่อตั้งเขียนสิทธิ์");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","คลิกที่นี่เพื่อล้างเขียนสิทธิ์");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","ตั้งค่าสิทธิ์");//Set permissions (New)
-define("_UNSETPERMISSIONS","สิทธิ์ล้าง");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะลองตั้งค่าสิทธิ์ในแฟ้มและโฟลเดอร์ทั้งหมดจะเขียนโดยเว็บเซิร์ฟเวอร์ นี้จะบังคับหากคุณต้องการการอัพเกรดอัตโนมัติและอาจมีประโยชน์ในกรณีที่คุณพบปัญหาในระหว่างหรือหลังจากการอัพเกรด ในขณะที่ออกจากไฟล์เขียนอาจคุกคามความปลอดภัยภายใต้สถานการณ์บางอย่าง");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะลองตั้งค่าสิทธิ์ในแฟ้มและโฟลเดอร์ทั้งหมดจะไม่เขียนโดยเว็บเซิร์ฟเวอร์ให้ยกเว้นจำเป็นสำหรับระบบทำงานอย่างถูกต้อง นี่คือการที่ปลอดภัยที่สุด แต่จะป้องกันระบบจากการปรับโดยอัตโนมัติ");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","คลิกที่นี่เพื่อตรวจสอบสิทธิ์");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","ตรวจสอบสิทธิ์");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะตรวจสอบแฟ้มและโฟลเดอร์ของระบบของคุณไม่ได้เขียนโดยเว็บเซิร์ฟเวอร์");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","ผลการดำเนินงาน");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","ยังไม่มีการดำเนินการ");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","ไฟล์บางโฟลเดอร์ / ไม่ได้เขียน กรุณาเยี่ยมชมส่วน&#39;สิทธิ์ในการบำรุงรักษา -- ล้าง&gt; ตรวจสอบสิทธิ์และการตรวจสอบไฟล์เหล่านี้");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","<button onclick = \"location='index.php?ctg=signup'\">มิฉะนั้นคุณอาจสร้างบัญชีใหม่</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","คุณได้ลงทะเบียนเพื่อเรียนฟรีและหลักสูตร โปรดอ่านด้านล่างเลือกของการเรียนฟรีไม่และหลักสูตร");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","ผู้บังคับบัญชา");//Supervisors (New)
-define("_COURSEOPTIONS","ตัวเลือกหลักสูตร");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","ผู้ใช้กับระบบที่กำหนดอยู่แล้ว (เก็บ A)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","ขนาด Events");//Events size
+define("_OLDESTEVENT","เหตุการณ์เก่า");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","กิจกรรมล้างข้อมูลเก่ากว่า");//Purge events older than
+define("_PURGEEVENTS","กิจกรรมล้าง");//Purge events
+define("_USERSEPERUSERTYPE","ผู้ใช้ต่อผู้ใช้ประเภท");//Users per user type
+define("_MINUTESPERUSER","นาทีต่อผู้ใช้");//Minutes per user
+define("_LOGINSPERDAY","การเข้าสู่ระบบวันละ");//Logins per day
+define("_ACCESSES","Accesses");//Accesses
+define("_ACCESSESPERUSER","Accesses ต่อผู้ใช้");//Accesses per user
+define("_ACCESSESPERDAY","Accesses ต่อวัน");//Accesses per day
+define("_OCCURENCES","ปรากฏขึ้น");//Occurences
+define("_SCORES","คะแนน");//Scores
+define("_PROPAGATECOURSE","หลักสูตรการเผยแพร่");//Propagate course
+define("_LESSONSTRUCTURE","โครงสร้างบทเรียน");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","ผู้ดูแลระบบไม่สามารถเข้าถึงหน้าบทเรียน");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% x ไดเรกทอรีและไฟล์ y% ยังไม่ได้เขียนโดยเว็บเซิร์ฟเวอร์ <br> คลิก <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>ที่นี่</a> เพื่อดาวน์โหลดรายงานสมบูรณ์");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","คลิกที่นี่เพื่อตั้งเขียนสิทธิ์");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","คลิกที่นี่เพื่อล้างเขียนสิทธิ์");//Click here to unset write permissions
+define("_SETPERMISSIONS","ตั้งค่าสิทธิ์");//Set permissions
+define("_UNSETPERMISSIONS","สิทธิ์ล้าง");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะลองตั้งค่าสิทธิ์ในแฟ้มและโฟลเดอร์ทั้งหมดจะเขียนโดยเว็บเซิร์ฟเวอร์ นี้จะบังคับหากคุณต้องการการอัพเกรดอัตโนมัติและอาจมีประโยชน์ในกรณีที่คุณพบปัญหาในระหว่างหรือหลังจากการอัพเกรด ในขณะที่ออกจากไฟล์เขียนอาจคุกคามความปลอดภัยภายใต้สถานการณ์บางอย่าง");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะลองตั้งค่าสิทธิ์ในแฟ้มและโฟลเดอร์ทั้งหมดจะไม่เขียนโดยเว็บเซิร์ฟเวอร์ให้ยกเว้นจำเป็นสำหรับระบบทำงานอย่างถูกต้อง นี่คือการที่ปลอดภัยที่สุด แต่จะป้องกันระบบจากการปรับโดยอัตโนมัติ");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","คลิกที่นี่เพื่อตรวจสอบสิทธิ์");//Click here to check permissions
+define("_CHECKPERMISSIONS","ตรวจสอบสิทธิ์");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","การดำเนินการนี้จะตรวจสอบแฟ้มและโฟลเดอร์ของระบบของคุณไม่ได้เขียนโดยเว็บเซิร์ฟเวอร์");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","ผลการดำเนินงาน");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","ยังไม่มีการดำเนินการ");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","ไฟล์บางโฟลเดอร์ / ไม่ได้เขียน กรุณาเยี่ยมชมส่วน&#39;สิทธิ์ในการบำรุงรักษา -- ล้าง&gt; ตรวจสอบสิทธิ์และการตรวจสอบไฟล์เหล่านี้");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","<button onclick = \"location='index.php?ctg=signup'\">มิฉะนั้นคุณอาจสร้างบัญชีใหม่</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","คุณได้ลงทะเบียนเพื่อเรียนฟรีและหลักสูตร โปรดอ่านด้านล่างเลือกของการเรียนฟรีไม่และหลักสูตร");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","ผู้บังคับบัญชา");//Supervisors
+define("_COURSEOPTIONS","ตัวเลือกหลักสูตร");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","executions Reset สำหรับผู้ใช้ทั้งหมด");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","รายงานผู้ใช้เครื่องกำเนิดไฟฟ้า");//Users reports generator (New)
+define("_ADDTOGROUP","เพิ่มกลุ่ม");//Add to group (New)
+define("_ASSIGNCOURSE","หลักสูตรกำหนด");//Assign course (New)
+define("_ASSIGNLESSON","บทเรียนกำหนด");//Assign lesson (New)
+define("_REMOVECOURSE","หลักสูตร Remove");//Remove course (New)
+define("_REMOVELESSON","บทเรียนออก");//Remove lesson (New)
+define("_REMOVEFROMGROUP","ออกจากกลุ่ม");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset ความคืบหน้าการเรียนรู้");//Reset learning progress (New)
+define("_BUILDER","ผู้ก่อสร้าง");//Builder (New)
+define("_ADDREPORT","รายงานใหม่เพิ่ม");//Add new report (New)
+define("_CONDITIONTYPE","ประเภทเกณฑ์:เงื่อนไขการเรียน");//Condition type
+define("_CONDITIONSPECIFICATION","กำหนดเงื่อนไข");//Condition specification (New)
+define("_ADDCOLUMN","คอลัมน์เพิ่ม");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","ความสัมพันธ์กับหน้า");//Relation with next (New)
+define("_COLUMNTYPE","ชนิดคอลัมน์");//Column type (New)
+define("_GRIDNAME","ชื่อตาราง");//Grid name (New)
+define("_ALIGNED","ชิด");//Aligned (New)
+define("_SELECTREPORT","รายงานเลือก");//Select report (New)
+define("_AVAILABLEREPORTS","รายงานการจำหน่าย");//Available reports (New)
+define("_EDITREPORT","รายงานแก้ไข");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","มีรายงานที่ไม่กำหนดไว้ในระบบได้ กรุณา");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","สร้างหนึ่ง");//create one (New)
+define("_NEWREPORT","รายงานใหม่");//New report (New)
+define("_REPORTNAME","ชื่อรายงาน");//Report name (New)
+define("_SELECTCONDITION","สภาพเลือก");//Select condition (New)
+define("_ISNOT","ไม่ใช่");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","ทั้งหมดมีกำหนดเสร็จสิ้นบทเรียน");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","ทั้งหมดมีกำหนดเสร็จสิ้นหลักสูตร");//Has completed all assigned courses (New)
+define("_HAS","ได้");//Has (New)
+define("_HASNOT","ยังไม่ได้");//Has not (New)
+define("_ENROLLEDTO","ลงทะเบียนเพื่อ");//Enrolled to (New)
+define("_BETWEEN","ระหว่าง");//Between (New)
+define("_ISASSIGNED","มีการกำหนด");//Is assigned (New)
+define("_ISNOTASSIGNED","ยังไม่ได้กำหนด");//Is not assigned (New)
+define("_DURINGLASTDAY","24 ชั่วโมงล่าสุด");//last 24h (New)
+define("_DURINGLASTWEEK","สัปดาห์สุดท้าย");//last week (New)
+define("_DURINGLASTMONTH","เมื่อเดือนที่แล้ว");//last month (New)
+define("_COLUMN","คอลัมน์");//Column (New)
+define("_SELECTCOLUMN","คอลัมน์เลือก");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","เว้นว่างไว้เพื่อปรับความกว้างอัตโนมัติ");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","เว้นว่างไว้เพื่อใช้คอลัมน์ชื่อ");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","กว้าง (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","โปรดเลือกคอลัมน์");//Please select a column (New)
+define("_CHANGECOLUMNORDER","เปลี่ยนคอลัมน์ลำดับ");//Change the columns order (New)
+define("_VIEWINGREPORT","รายงานการดู");//Viewing report (New)
+define("_PLEASESELECTACONDITION","โปรดเลือกเงื่อนไข");//Please select a condition (New)
+define("_BASIC","ขั้นพื้นฐาน");//Basic (New)
+define("_LEARNING","การเรียนรู้");//Learning (New)
+define("_ENTERPRISE","บริษัท");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","ลากรายการเพื่อเปลี่ยนลำดับ");//Drag items to change order (New)
+define("_CUSTOMFIELDS","เขต Custom");//Custom fields (New)
+define("_FORMATTEDLOGIN","เข้าสู่ระบบที่จัดรูปแบบ");//Formatted login (New)
+define("_DEFAULTSORT","เรียง Default");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; ผู้ประกอบการจะสำคัญ");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","การดำเนินงานหน้าปัจจุบัน");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","หรือระบุกลุ่มใหม่เพื่อเพิ่ม");//Or specify a new group to add to (New)
+define("_ADDTO","สั่ง");//Add to (New)
+define("_REMOVEFROM","ลบออกจาก");//Remove from (New)
+define("_GROUPOPERATIONS","การดำเนินงานของกลุ่ม");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","การรับรอง");//Certificate operations (New)
+define("_LESSONOPERATIONS","บทเรียนการดำเนินงาน");//Lesson operations (New)
+define("_COURSEOPERATIONS","การดำเนินการหลักสูตร");//Course operations (New)
+define("_EXPORTTOCSV","csv ส่งออก");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","รหัสไม่มีเหตุการณ์ที่กำหนด");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","ไฟล์ที่นำเข้าสำเร็จแล้ว");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","โฟลเดอร์แปลงเป็นลำดับชั้นซ้อนกัน");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","ยกเลิกการบีบอัดไฟล์ซิป (s) และเนื้อหานำเข้า");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","theme ถูกล็อค");//The theme is locked (New)
+define("_BLANKREPORT","รายงานเปล่า");//Blank report (New)
+define("_CUSTOMREPORTS","รายงาน Custom");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","ผู้ดูแลระบบจะตรวจสอบและเปิดใช้สมัครเรียนของคุณ");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","ตาราง Refresh");//Refresh table (New)
+define("_REMOVEFROMSET","ออกจากชุด");//Remove from set (New)
+define("_BRANCHTREE","ต้นไม้สาขา");//Branch tree (New)
+define("_CHANGECONDITIONORDER","เงื่อนไขการเปลี่ยนสินค้า");//Change condition order (New)
+define("_INDEX","ดัชนี");//Index (New)
+define("_EVENTDATETIME","กิจกรรมวันที่และเวลา");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","ไฟล์ใบรับรองหายไปหรือเสียหายจึงได้ตั้ง");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

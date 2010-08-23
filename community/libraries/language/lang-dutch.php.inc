@@ -44,7 +44,7 @@ define("_RESTORE","Herstel systeem");//Restore
 define("_FREE","Gratis les");//Free lesson
 define("_SUCCESSREGISTER","U bent succelvol geregistreerd");//You have registered successfully
 define("_LESSONSREGISTRATION","Les registratie");//Lesson registration
-define("_YOUREMAIL","Uw e-mail");//Your e-mail 
+define("_YOUREMAIL","Uw e-mail");//Your Email 
 define("_MESSAGESUBJECT","Onderwerp van Bericht");//Message subject
 define("_PASSWORDLEAVEBLANK","Wachtwoord (blanco om ongewijzigd te laten)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Uw persoonlijke info is succesvol gewijzigd");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","E-mail is verzonden naar");//Email was sent to
 define("_CHOOSELESSON","Kies een les");//Choose lesson
 define("_SUBJECT","Onderwerp");//Subject
 define("_RECIPIENTSSELECTION","Ontvangers selectie");//Recipients selection
-define("_EMAILBODY","E-mail");//E-mail body
-define("_SENDEMAIL","Verzend E-mail");//Send E-mail
+define("_EMAILBODY","E-mail");//Email body
+define("_SENDEMAIL","Verzend E-mail");//Send Email
 define("_EXIT","Uitgang");//Exit
 define("_MORE","meer");//more
 define("_DELETE","Wissen");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Controle center");//Control center
 define("_EXAMPLES","Voorbeelden");//Examples
 define("_FORUM","Forum");//Forum
 define("_NOCONTENT","Eenheid zonder inhoud");//Unit without content
-define("_INACTIVE","Inactieve eenheid");//Inactive unit
+define("_INACTIVE","Inactieve eenheid");//Inactive
 define("_CONTENTMANAGEMENT","Inhoud");//Content
 define("_SCHEDULING","Planning");//Scheduling
 define("_OFDEVELOPMENT","ontwikkeling");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Geen resultaten gevonden in persoonl
 define("_SEARCHRESULTSINPERSONALMESSAGES","Zoekresultaten in persoonlijke berichten");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Zoekresultaten in cursussen");//Search results in courses
 define("_MESSAGEFOLDER","Berichten map");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Het wachtwoord opnieuw instellen");//Reset password
 define("_JOINED","Toegevoegd");//Joined
 define("_MOREINFO","Meer info");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Ga naar het begin van de pagina");//Scroll to top o
 define("_SCROLLTOBOTTOMOFPAGE","Ga naar het einde van de pagina");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Geen enkele gerbuiker heeft deze enquête gedaan");//No user has done this survey yet
 define("_SYSTEM","Systeem");//System
-define("_EMAILCONFIGURATIONS","E-mail server configuratie");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-mail server configuratie");//Emails server configuration
 define("_SAWUNIT","Zet eenheid als voltooid");//Set the unit as completed
 define("_NOTSAWUNIT","Zet eenheid als niet voltooid");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Voorwaarden voldaan");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Bevesting enquête");//Submit survey
 define("_ROWSPERPAGE","Rijen per pagina");//Rows per page
 define("_FILTER","Filter");//Filter
 define("_OF","van");//of
-define("_SENDALSOVIAEMAIL","Stuur uitnodiging via e-mail");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Stuur uitnodiging via e-mail");//Send invitation via Email
 define("_STYLE","Stijl");//Style
 define("_MENU","Menu");//Menu
 define("_SELECTION","Selectie");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","De module is verwijderd");//The module was s
 define("_AUTHOR","Auteur");//Author
 define("_VERSION","Versie");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","De velden in uw CSV-bestand moet over de volgende velden beschikken");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Velden in rood zijn verplicht. Als er geen wachtwoord gegeven, het eerste wachtwoord wordt hetzelfde ingesteld als de login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Velden in rood zijn verplicht. Als er geen wachtwoord gegeven, het eerste wachtwoord wordt hetzelfde ingesteld als de login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Controleer het formaat van uw CSV-bestand");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Gebruik user_name # # voor de naam van de gebruiker, # # user_surname voor de gebruikers achternaam, # # course_name voor de cursus de naam, rang # # voor rang en # # datum voor de datum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Stemmen");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Gebruikers toewijzen");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Gebruikers toewijzen aan filiaal");//Assign users to branch 
 define("_EDITSKILL","Vaardigheid bewerken");//Edit skill
 define("_ASSIGNSKILL","Vaardigheid toewijzen");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","De gebruikers de vaardigheid toewijzen");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","De gebruikers de vaardigheid toewijzen");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Geen filialen zijn geregistreerd");//No branches have been registered
 define("_ORGANIZATION","Organisatie");//Organization
 define("_SEARCHFOREMPLOYEE","Zoek een medewerker [Organisatie criteria]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Poll eigenschappen");//Poll properties
 define("_FORUMPROPERTIES","Forum eigenschappen");//Forum properties
 define("_UPDATETHEME","Update thema");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","U kunt een verbinding tussen uw Facebook-account met een bestaande eFront een door de gebruiker login en wachtwoord van die account");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Er zijn meer dan een gebruikers met hetzelfde e-mailadres. Gebruik uw login het onderstaande formulier");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Er zijn meer dan een gebruikers met hetzelfde e-mailadres. Gebruik uw login het onderstaande formulier");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Mapped account is verwijderd");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Thema eigenschappen");//Theme properties
 define("_CHANGETHEME","Thema");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Toon alleen een boodschap achter na de indiening van proef");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Deze test is succesvol verzonden");//This test was successfully submitted
 define("_LEARNINGSTATUS","Leren Status");//Learning Status
-define("_HASNOTANEMAILADDRESS","heeft geen e-mail adres");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","heeft geen e-mail adres");//has not an Email address
 define("_FEEDBACK","Terugkoppeling");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Plaats gebruikers in de groep");//Insert users into group
 define("_INSERTINTONEWGROUP","Plaats in de nieuwe groep");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Webserver registratie");//Web server registrati
 define("_USEORLOGICTOCORRECTANSWERS","Gebruik OR logica juiste antwoord te berekenen");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","De variabele x% moet bevatten &quot;%y&quot; om door te gaan");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Open eenheid in pop-up venster");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Een gebruiker met de opgegeven ingelogd reeds bestaat (gearchiveerd)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Evenementen grootte");//Events size (New)
-define("_OLDESTEVENT","Oudste evenement");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Purge gebeurtenissen die ouder zijn dan");//Purge events older than (New)
-define("_PURGEEVENTS","Purge evenementen");//Purge events (New)
-define("_USERSEPERUSERTYPE","Gebruikers per type gebruiker");//Users per user type (New)
-define("_MINUTESPERUSER","Minuten per gebruiker");//Minutes per user (New)
-define("_LOGINSPERDAY","Logins per dag");//Logins per day (New)
-define("_ACCESSES","Bezoekers");//Accesses (New)
-define("_ACCESSESPERUSER","Bezoekers per gebruiker");//Accesses per user (New)
-define("_ACCESSESPERDAY","Bezoekers per dag");//Accesses per day (New)
-define("_OCCURENCES","Voorvallen");//Occurences (New)
-define("_SCORES","Scores");//Scores (New)
-define("_PROPAGATECOURSE","Propagate natuurlijk");//Propagate course (New)
-define("_LESSONSTRUCTURE","Les structuur");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Een beheerder kan geen toegang tot les pages");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X mappen en y% bestanden worden niet schrijfbaar door de webserver. <br> Klik <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>hier</a> om een volledige rapport te downloaden");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Klik hier om schrijfrechten");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Klik hier om unset schrijfrechten");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Stel machtigingen");//Set permissions (New)
-define("_UNSETPERMISSIONS","Uitgeschakelde machtigingen");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Deze operatie zal proberen permissies om alle bestanden en mappen op schrijfbaar door de webserver. Dit is verplicht als je wilt automatische upgrades uit te voeren en kunnen nuttig zijn in geval u problemen ondervindt tijdens of na de upgrade. Aan de andere kant, waardoor alle bestanden schrijfbaar kan een bedreiging vormen onder bepaalde omstandigheden.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Deze operatie zal proberen permissies om alle bestanden en mappen op niet-schrijfbaar door de webserver, met uitzondering van die welke verplicht zijn voor het systeem goed te laten functioneren. Dit is de meest veilige instelling, maar zal voorkomen dat het systeem automatisch upgraden");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Klik hier om machtigingen te controleren");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Controleer de machtigingen");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Deze operatie zal niet controleren welke bestanden en mappen van uw systeem beschrijfbaar zijn door de webserver");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operatie resultaten");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Geen operatie uitgevoerd nog");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Sommige bestanden / mappen zijn niet beschrijfbaar. Ga naar de &#39;permissies&#39; in onderhoud -&gt; schoonmaakbeurt om de machtigingen te controleren en deze bestanden review");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Anders kunt u een <button onclick = \"location='index.php?ctg=signup'\">nieuwe account</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Je was ingeschreven voor gratis lessen en cursussen. Lees hieronder uw selectie van niet gratis lessen en cursussen");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Toezichthouders");//Supervisors (New)
-define("_COURSEOPTIONS","Cursus opties");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Een gebruiker met de opgegeven ingelogd reeds bestaat (gearchiveerd)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Evenementen grootte");//Events size
+define("_OLDESTEVENT","Oudste evenement");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Purge gebeurtenissen die ouder zijn dan");//Purge events older than
+define("_PURGEEVENTS","Purge evenementen");//Purge events
+define("_USERSEPERUSERTYPE","Gebruikers per type gebruiker");//Users per user type
+define("_MINUTESPERUSER","Minuten per gebruiker");//Minutes per user
+define("_LOGINSPERDAY","Logins per dag");//Logins per day
+define("_ACCESSES","Bezoekers");//Accesses
+define("_ACCESSESPERUSER","Bezoekers per gebruiker");//Accesses per user
+define("_ACCESSESPERDAY","Bezoekers per dag");//Accesses per day
+define("_OCCURENCES","Voorvallen");//Occurences
+define("_SCORES","Scores");//Scores
+define("_PROPAGATECOURSE","Propagate natuurlijk");//Propagate course
+define("_LESSONSTRUCTURE","Les structuur");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Een beheerder kan geen toegang tot les pages");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X mappen en y% bestanden worden niet schrijfbaar door de webserver. <br> Klik <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>hier</a> om een volledige rapport te downloaden");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Klik hier om schrijfrechten");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Klik hier om unset schrijfrechten");//Click here to unset write permissions
+define("_SETPERMISSIONS","Stel machtigingen");//Set permissions
+define("_UNSETPERMISSIONS","Uitgeschakelde machtigingen");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Deze operatie zal proberen permissies om alle bestanden en mappen op schrijfbaar door de webserver. Dit is verplicht als je wilt automatische upgrades uit te voeren en kunnen nuttig zijn in geval u problemen ondervindt tijdens of na de upgrade. Aan de andere kant, waardoor alle bestanden schrijfbaar kan een bedreiging vormen onder bepaalde omstandigheden.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Deze operatie zal proberen permissies om alle bestanden en mappen op niet-schrijfbaar door de webserver, met uitzondering van die welke verplicht zijn voor het systeem goed te laten functioneren. Dit is de meest veilige instelling, maar zal voorkomen dat het systeem automatisch upgraden");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Klik hier om machtigingen te controleren");//Click here to check permissions
+define("_CHECKPERMISSIONS","Controleer de machtigingen");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Deze operatie zal niet controleren welke bestanden en mappen van uw systeem beschrijfbaar zijn door de webserver");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operatie resultaten");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Geen operatie uitgevoerd nog");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Sommige bestanden / mappen zijn niet beschrijfbaar. Ga naar de &#39;permissies&#39; in onderhoud -&gt; schoonmaakbeurt om de machtigingen te controleren en deze bestanden review");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Anders kunt u een <button onclick = \"location='index.php?ctg=signup'\">nieuwe account</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Je was ingeschreven voor gratis lessen en cursussen. Lees hieronder uw selectie van niet gratis lessen en cursussen");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Toezichthouders");//Supervisors
+define("_COURSEOPTIONS","Cursus opties");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Reset executies voor alle gebruikers");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Gebruikers rapporten generator");//Users reports generator (New)
+define("_ADDTOGROUP","Toevoegen aan groep");//Add to group (New)
+define("_ASSIGNCOURSE","Wijs natuurlijk");//Assign course (New)
+define("_ASSIGNLESSON","Wijs les");//Assign lesson (New)
+define("_REMOVECOURSE","Verwijder natuurlijk");//Remove course (New)
+define("_REMOVELESSON","Verwijder de les");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Verwijder uit groep");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset leervooruitgang");//Reset learning progress (New)
+define("_BUILDER","Bouwer");//Builder (New)
+define("_ADDREPORT","Voeg nieuwe rapport");//Add new report (New)
+define("_CONDITIONTYPE","Type Voorwaarde");//Condition type
+define("_CONDITIONSPECIFICATION","Voorwaarde specificatie");//Condition specification (New)
+define("_ADDCOLUMN","Voeg kolom");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relatie met de volgende");//Relation with next (New)
+define("_COLUMNTYPE","Kolomtype");//Column type (New)
+define("_GRIDNAME","Grid naam");//Grid name (New)
+define("_ALIGNED","Aligned");//Aligned (New)
+define("_SELECTREPORT","Selecteer verslag");//Select report (New)
+define("_AVAILABLEREPORTS","Beschikbare rapporten");//Available reports (New)
+define("_EDITREPORT","Edit verslag");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Er zijn geen meldingen in het systeem gedefinieerd. Alstublieft");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","Maak een account aan");//create one (New)
+define("_NEWREPORT","Nieuw rapport");//New report (New)
+define("_REPORTNAME","Verslag naam");//Report name (New)
+define("_SELECTCONDITION","Selecteer voorwaarde");//Select condition (New)
+define("_ISNOT","is niet");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Heeft afgerond alle toegewezen lessen");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Heeft afgerond alle toegewezen cursussen");//Has completed all assigned courses (New)
+define("_HAS","Heeft");//Has (New)
+define("_HASNOT","Is niet");//Has not (New)
+define("_ENROLLEDTO","Ingeschreven op");//Enrolled to (New)
+define("_BETWEEN","Tussen");//Between (New)
+define("_ISASSIGNED","Is toegewezen");//Is assigned (New)
+define("_ISNOTASSIGNED","Is het niet toegewezen");//Is not assigned (New)
+define("_DURINGLASTDAY","laatste 24 uur");//last 24h (New)
+define("_DURINGLASTWEEK","vorige week");//last week (New)
+define("_DURINGLASTMONTH","vorige maand");//last month (New)
+define("_COLUMN","Kolom");//Column (New)
+define("_SELECTCOLUMN","Selecteer kolom");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Laat leeg om auto-aanpassing van de breedte");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Laat leeg om kolom gebruik de naam");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Breedte (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Selecteer een kolom");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Wijzig de kolommen om");//Change the columns order (New)
+define("_VIEWINGREPORT","Bekijk het verslag");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Selecteer een voorwaarde");//Please select a condition (New)
+define("_BASIC","Fundamenteel");//Basic (New)
+define("_LEARNING","Leren");//Learning (New)
+define("_ENTERPRISE","Onderneming");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Sleep items op volgorde te veranderen");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Aangepaste velden");//Custom fields (New)
+define("_FORMATTEDLOGIN","Opgemaakte ingelogd");//Formatted login (New)
+define("_DEFAULTSORT","Standaard sorteren");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; exploitant heeft voorrang");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Huidige pagina operaties");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Of geef een nieuwe groep toe te voegen aan");//Or specify a new group to add to (New)
+define("_ADDTO","Toevoegen aan");//Add to (New)
+define("_REMOVEFROM","Verwijderen uit");//Remove from (New)
+define("_GROUPOPERATIONS","Activiteiten van de groep");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Certificaat operaties");//Certificate operations (New)
+define("_LESSONOPERATIONS","Les operaties");//Lesson operations (New)
+define("_COURSEOPERATIONS","Cursus operaties");//Course operations (New)
+define("_EXPORTTOCSV","Exporteren naar CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Geen enkele gebeurtenis beschreven code");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Bestanden geïmporteerd");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Zet mappen om geneste hiërarchie");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Decomprimeer zip file (s) de inhoud en de invoer");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Het thema is vergrendeld");//The theme is locked (New)
+define("_BLANKREPORT","Blank verslag");//Blank report (New)
+define("_CUSTOMREPORTS","Aangepaste rapporten");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","De systeembeheerder zal herzien en het activeren van uw inschrijvingen");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Vernieuwen tafel");//Refresh table (New)
+define("_REMOVEFROMSET","Verwijderen uit set");//Remove from set (New)
+define("_BRANCHTREE","Branch boom");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Verander voorwaarde om");//Change condition order (New)
+define("_INDEX","Index");//Index (New)
+define("_EVENTDATETIME","Event datum en tijd");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Het certificaat is bestand ontbreekt of beschadigd is en dus is gereset");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

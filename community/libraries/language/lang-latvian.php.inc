@@ -44,7 +44,7 @@ define("_RESTORE","Atjaunot");//Restore
 define("_FREE","Bezmaksas nodarbība");//Free lesson
 define("_SUCCESSREGISTER","Jums ir reģistrēti sekmīgi");//You have registered successfully
 define("_LESSONSREGISTRATION","Nodarbība reģistrācija");//Lesson registration
-define("_YOUREMAIL","Jūsu e-pasts");//Your e-mail 
+define("_YOUREMAIL","Jūsu e-pasts");//Your Email 
 define("_MESSAGESUBJECT","Vēstules virsraksts");//Message subject
 define("_PASSWORDLEAVEBLANK","Parole (tukšu atstāt bez izmaiņām)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Jūsu personīgā info ir veiksmīgi izmainīta");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","E-pasts tika nosūtīts");//Email was sent to
 define("_CHOOSELESSON","Izvēlieties stunda");//Choose lesson
 define("_SUBJECT","Temats");//Subject
 define("_RECIPIENTSSELECTION","Saņēmēji atlase");//Recipients selection
-define("_EMAILBODY","E-pasts ķermeņa");//E-mail body
-define("_SENDEMAIL","Sūtīt e-pastu");//Send E-mail
+define("_EMAILBODY","E-pasts ķermeņa");//Email body
+define("_SENDEMAIL","Sūtīt e-pastu");//Send Email
 define("_EXIT","Iziet");//Exit
 define("_MORE","vairāk");//more
 define("_DELETE","Dzēst");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Kontroles centrs");//Control center
 define("_EXAMPLES","Piemēri");//Examples
 define("_FORUM","Forums");//Forum
 define("_NOCONTENT","Unit bez satura");//Unit without content
-define("_INACTIVE","Neaktīvs vienība");//Inactive unit
+define("_INACTIVE","Neaktīvs vienība");//Inactive
 define("_CONTENTMANAGEMENT","Saturs");//Content
 define("_SCHEDULING","Plānošana");//Scheduling
 define("_OFDEVELOPMENT","attīstība");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Nekas nav atrasts personiskajā slud
 define("_SEARCHRESULTSINPERSONALMESSAGES","Meklēšanas rezultāti personiskajā sludinājumi");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Meklēšanas rezultāti kursos");//Search results in courses
 define("_MESSAGEFOLDER","Message mape");//Message folder
-define("_EMAIL","e-pasts");//e-mail
+define("_EMAIL","e-pasts");//Email
 define("_RESETPASSWORD","Atjaunot paroli");//Reset password
 define("_JOINED","Joined");//Joined
 define("_MOREINFO","Plašāka informācija");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Ritiniet uz augšu");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Ritiniet uz leju of page");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Neviens lietotājs izdarījis šo aptauju vēl");//No user has done this survey yet
 define("_SYSTEM","System");//System
-define("_EMAILCONFIGURATIONS","E-pasta servera konfigurācija");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-pasta servera konfigurācija");//Emails server configuration
 define("_SAWUNIT","Iestatīt vienības par pabeigtiem");//Set the unit as completed
 define("_NOTSAWUNIT","Iestatīt vienības, kas nav pabeigts");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Nosacījumi, kas pabeigti");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Iesniegt aptauja");//Submit survey
 define("_ROWSPERPAGE","Rows per page");//Rows per page
 define("_FILTER","Filtrs");//Filter
 define("_OF","no");//of
-define("_SENDALSOVIAEMAIL","Sūtīt uzaicinājumu pa e-pastu");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Sūtīt uzaicinājumu pa e-pastu");//Send invitation via Email
 define("_STYLE","Style");//Style
 define("_MENU","Izvēlne");//Menu
 define("_SELECTION","Atlase");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Moduļa tika veiksmīgi izdzēsts");//The mo
 define("_AUTHOR","Autors");//Author
 define("_VERSION","Version");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Laukus jūsu csv fails ir jāietver šādās jomās");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Lauki, ar sarkanu ir obligāta. Ja nav parole, ņemot vērā, sākotnējā parole tiks noteikta tāda pati kā pieteikumvārdu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Lauki, ar sarkanu ir obligāta. Ja nav parole, ņemot vērā, sākotnējā parole tiks noteikta tāda pati kā pieteikumvārdu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Lūdzu pārbaudiet formātu jūsu CSV fails");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Tā kā veidni, izmantojiet # organizācija # par organizācijas nosaukums, # Lietotāja_vārds # lietotāja vārdu, # # user_surname lietotāja uzvārds, # course_name # par kursa nosaukumu, # grade # kategorijas un # datuma # par datumu.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Balsis");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Piešķirt lietotājiem");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Piešķirt lietotājiem filiāle");//Assign users to branch 
 define("_EDITSKILL","Edit prasme");//Edit skill
 define("_ASSIGNSKILL","Piešķirt prasme");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Piešķirt lietotājiem prasme");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Piešķirt lietotājiem prasme");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nr filiāles nav reģistrētas");//No branches have been registered
 define("_ORGANIZATION","Organization");//Organization
 define("_SEARCHFOREMPLOYEE","Meklēt lietotājs [organizācijas kritērijiem]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Poll īpašības");//Poll properties
 define("_FORUMPROPERTIES","Forums īpašības");//Forum properties
 define("_UPDATETHEME","Update tēma");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Jūs varat pievienot savu Facebook kontā esošo eFront vienu sniedzot lietotāja vārdu un paroli šajā kontā");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Ir vairāk nekā viens lietotāji, pašu e-pasta adresi. Izmantojiet savu pieteikšanās vārdu zemāk esošo formu");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Ir vairāk nekā viens lietotāji, pašu e-pasta adresi. Izmantojiet savu pieteikšanās vārdu zemāk esošo formu");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Kartē konts tika veiksmīgi izdzēsts");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Theme īpašības");//Theme properties
 define("_CHANGETHEME","Change tēma");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Rādīt tikai ziņu pēc iesniegšanas testa");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Šis tests ir iesniegta veiksmīgi");//This test was successfully submitted
 define("_LEARNINGSTATUS","Mācības statuss");//Learning Status
-define("_HASNOTANEMAILADDRESS","nav e-pasta adresi");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","nav e-pasta adresi");//has not an Email address
 define("_FEEDBACK","Atsauksmes");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Ievietojiet lietotājus grupā");//Insert users into group
 define("_INSERTINTONEWGROUP","Ievietot jaunu grupu");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web serveris reģistrācija");//Web server regi
 define("_USEORLOGICTOCORRECTANSWERS","Izmantošanu vai loģika, lai aprēķinātu pareizu atbildi");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Mainīgo% x jābūt &quot;%y&quot;, lai turpinātu");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Open vienība uznirstošo logu");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Lietotājs ar noteikto pieteikšanās jau pastāv (arhivētas)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Notikumi izmērs");//Events size (New)
-define("_OLDESTEVENT","Vecākie notikums");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Purge notikumi vecāki par");//Purge events older than (New)
-define("_PURGEEVENTS","Purge notikumi");//Purge events (New)
-define("_USERSEPERUSERTYPE","Users per lietotāja tipu");//Users per user type (New)
-define("_MINUTESPERUSER","Minūtēm lietotājs");//Minutes per user (New)
-define("_LOGINSPERDAY","Autorizācijas dienā");//Logins per day (New)
-define("_ACCESSES","Piekļūšanas");//Accesses (New)
-define("_ACCESSESPERUSER","Piekļūšanas vienam lietotājam");//Accesses per user (New)
-define("_ACCESSESPERDAY","Piekļūšanas dienā");//Accesses per day (New)
-define("_OCCURENCES","Notikumi");//Occurences (New)
-define("_SCORES","Rādītājus");//Scores (New)
-define("_PROPAGATECOURSE","Izplatīt kurss");//Propagate course (New)
-define("_LESSONSTRUCTURE","Nodarbība struktūra");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administrators nevar piekļūt nodarbību lapām");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X katalogi un% y faili nav rakstāms ar web serveri. <br> Uzklikšķināt <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>šeit</a> , lai lejupielādētu pilnu ziņojumu");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Uzklikšķināt šeit, lai uzstādītu rakstīšanas atļaujas");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Uzklikšķināt šeit, lai atstatīt rakstīšanas atļaujām");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Iestatītu atļaujas");//Set permissions (New)
-define("_UNSETPERMISSIONS","Atiestatīts atļaujas");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Šī operācija mēģinās noteikt atļaujas visus failus un mapes, kas rakstāms ar web serveri. Tas ir obligāta, ja vēlaties veikt automātisko modernizāciju un var noderēt gadījumos, jūs piedzīvo nepatikšanas laikā vai pēc modernizācijas. No otras puses, atstājot visus failus rakstāmās var radīt draudus drošībai konkrētos apstākļos.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Šī operācija mēģinās noteikt atļaujas visus failus un mapes, kas nav rakstāms ar web serveri, izņemot tos obligāti sistēma darbotos pareizi. Šis ir drošākais iestatījums, bet novērstu sistēmas modernizāciju automātiski");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Uzklikšķināt šeit, lai pārbaudītu atļaujas");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Pārbaudiet atļaujas");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Šīs darbības būs pārbaudīt, kuri faili un mapes jūsu sistēmā nav rakstāms ar web serveri");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operācijas iznākumu");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Neviena darbība veikta vēl");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Dažus failus / mapes nav rakstīšanas tiesību. Lūdzu, apmeklējiet \"atļaujas\" sadaļu apkope -&gt; cleanup, lai pārbaudītu atļaujas un pārskatīt šos failus");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Pretējā gadījumā jūs varat izveidot <button onclick = \"location='index.php?ctg=signup'\">jaunu kontu</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs tika iekļauti, lai bezmaksas nodarbības un kursus. Lūdzu, pārskatiet tālāk savu izvēli nav bezmaksas nodarbības un kursi");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Uzraudzītājiem");//Supervisors (New)
-define("_COURSEOPTIONS","Protams iespējas");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Lietotājs ar noteikto pieteikšanās jau pastāv (arhivētas)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Notikumi izmērs");//Events size
+define("_OLDESTEVENT","Vecākie notikums");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Purge notikumi vecāki par");//Purge events older than
+define("_PURGEEVENTS","Purge notikumi");//Purge events
+define("_USERSEPERUSERTYPE","Users per lietotāja tipu");//Users per user type
+define("_MINUTESPERUSER","Minūtēm lietotājs");//Minutes per user
+define("_LOGINSPERDAY","Autorizācijas dienā");//Logins per day
+define("_ACCESSES","Piekļūšanas");//Accesses
+define("_ACCESSESPERUSER","Piekļūšanas vienam lietotājam");//Accesses per user
+define("_ACCESSESPERDAY","Piekļūšanas dienā");//Accesses per day
+define("_OCCURENCES","Notikumi");//Occurences
+define("_SCORES","Rādītājus");//Scores
+define("_PROPAGATECOURSE","Izplatīt kurss");//Propagate course
+define("_LESSONSTRUCTURE","Nodarbība struktūra");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administrators nevar piekļūt nodarbību lapām");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X katalogi un% y faili nav rakstāms ar web serveri. <br> Uzklikšķināt <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>šeit</a> , lai lejupielādētu pilnu ziņojumu");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Uzklikšķināt šeit, lai uzstādītu rakstīšanas atļaujas");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Uzklikšķināt šeit, lai atstatīt rakstīšanas atļaujām");//Click here to unset write permissions
+define("_SETPERMISSIONS","Iestatītu atļaujas");//Set permissions
+define("_UNSETPERMISSIONS","Atiestatīts atļaujas");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Šī operācija mēģinās noteikt atļaujas visus failus un mapes, kas rakstāms ar web serveri. Tas ir obligāta, ja vēlaties veikt automātisko modernizāciju un var noderēt gadījumos, jūs piedzīvo nepatikšanas laikā vai pēc modernizācijas. No otras puses, atstājot visus failus rakstāmās var radīt draudus drošībai konkrētos apstākļos.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Šī operācija mēģinās noteikt atļaujas visus failus un mapes, kas nav rakstāms ar web serveri, izņemot tos obligāti sistēma darbotos pareizi. Šis ir drošākais iestatījums, bet novērstu sistēmas modernizāciju automātiski");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Uzklikšķināt šeit, lai pārbaudītu atļaujas");//Click here to check permissions
+define("_CHECKPERMISSIONS","Pārbaudiet atļaujas");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Šīs darbības būs pārbaudīt, kuri faili un mapes jūsu sistēmā nav rakstāms ar web serveri");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operācijas iznākumu");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Neviena darbība veikta vēl");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Dažus failus / mapes nav rakstīšanas tiesību. Lūdzu, apmeklējiet \"atļaujas\" sadaļu apkope -&gt; cleanup, lai pārbaudītu atļaujas un pārskatīt šos failus");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Pretējā gadījumā jūs varat izveidot <button onclick = \"location='index.php?ctg=signup'\">jaunu kontu</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs tika iekļauti, lai bezmaksas nodarbības un kursus. Lūdzu, pārskatiet tālāk savu izvēli nav bezmaksas nodarbības un kursi");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Uzraudzītājiem");//Supervisors
+define("_COURSEOPTIONS","Protams iespējas");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Reset izpildei attiecībā uz visiem lietotājiem");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Lietotāji ziņojumi ģenerators");//Users reports generator (New)
+define("_ADDTOGROUP","Pievienot grupai");//Add to group (New)
+define("_ASSIGNCOURSE","Piešķirt laikā");//Assign course (New)
+define("_ASSIGNLESSON","Piešķirt nodarbība");//Assign lesson (New)
+define("_REMOVECOURSE","Noņemt kurss");//Remove course (New)
+define("_REMOVELESSON","Noņemt nodarbība");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Noņemt no grupas");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset mācīšanās panākumus");//Reset learning progress (New)
+define("_BUILDER","Celtnieks");//Builder (New)
+define("_ADDREPORT","Pievienot jaunu ziņojumu");//Add new report (New)
+define("_CONDITIONTYPE","Stāvoklis tips");//Condition type
+define("_CONDITIONSPECIFICATION","Stāvoklis specifikācija");//Condition specification (New)
+define("_ADDCOLUMN","Pievienot kolonnu");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Saistība ar nākamo");//Relation with next (New)
+define("_COLUMNTYPE","Kolonnas tips");//Column type (New)
+define("_GRIDNAME","Grid nosaukums");//Grid name (New)
+define("_ALIGNED","Saskaņota");//Aligned (New)
+define("_SELECTREPORT","Izvēlēties ziņojumu");//Select report (New)
+define("_AVAILABLEREPORTS","Pieejamajos ziņojumos");//Available reports (New)
+define("_EDITREPORT","Labot ziņojumu");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Nav ziņojumi definēti sistēmā. Lūdzu");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","izveidot vienu");//create one (New)
+define("_NEWREPORT","Jauns ziņojums");//New report (New)
+define("_REPORTNAME","Ziņojuma nosaukums");//Report name (New)
+define("_SELECTCONDITION","Izvēlēties stāvoklī");//Select condition (New)
+define("_ISNOT","nav");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Ir pabeidzis visus piešķirtos nodarbības");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Ir pabeidzis visus piešķirtos kursi");//Has completed all assigned courses (New)
+define("_HAS","Ir");//Has (New)
+define("_HASNOT","Nav");//Has not (New)
+define("_ENROLLEDTO","Uzņemti ar");//Enrolled to (New)
+define("_BETWEEN","Starp");//Between (New)
+define("_ISASSIGNED","Tiek piešķirts");//Is assigned (New)
+define("_ISNOTASSIGNED","Nav piešķirta");//Is not assigned (New)
+define("_DURINGLASTDAY","pēdējās 24h");//last 24h (New)
+define("_DURINGLASTWEEK","pēdējās nedēļas laikā");//last week (New)
+define("_DURINGLASTMONTH","pēdējā mēneša laikā");//last month (New)
+define("_COLUMN","Kolonna");//Column (New)
+define("_SELECTCOLUMN","Izvēlēties kolonnas");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Atstājiet tukšu, lai auto-regulēt platumu");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Atstājiet tukšu, lai izmantotu kolonnas nosaukuma");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Platums (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Lūdzu, izvēlieties kolonnu");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Mainīt kolonnu, lai");//Change the columns order (New)
+define("_VIEWINGREPORT","Apskatot ziņojumu");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Lūdzu, izvēlieties nosacījumu");//Please select a condition (New)
+define("_BASIC","Pamata");//Basic (New)
+define("_LEARNING","Mācīšanās");//Learning (New)
+define("_ENTERPRISE","Uzņēmums");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Velciet vienumus mainīt, lai");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Muitas jomās");//Custom fields (New)
+define("_FORMATTEDLOGIN","Formatēts login");//Formatted login (New)
+define("_DEFAULTSORT","Noklusējuma kārtošanas");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; uzņēmējs spēks");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Pašreizējā lapa operācijas");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Vai norādīt jaunu grupu, pievienot");//Or specify a new group to add to (New)
+define("_ADDTO","Pievienot");//Add to (New)
+define("_REMOVEFROM","Izņemt no");//Remove from (New)
+define("_GROUPOPERATIONS","Grupu darbības");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Sertifikāta darbības");//Certificate operations (New)
+define("_LESSONOPERATIONS","Nodarbība operācijas");//Lesson operations (New)
+define("_COURSEOPERATIONS","Protams operācijas");//Course operations (New)
+define("_EXPORTTOCSV","Eksports uz CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Nekādā gadījumā kods, kas noteikts");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Failu ieved veiksmīgi");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Convert mapes ligzdotu hierarhija");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Atspiest zip failu (s) un importa saturu");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Tēma ir slēgta");//The theme is locked (New)
+define("_BLANKREPORT","Tukšu ziņojumu");//Blank report (New)
+define("_CUSTOMREPORTS","Custom ziņojumus");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Sistēmas administrators pārskatīs un aktivizēt savu iesaistīšanos");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Atsvaidzināt tabula");//Refresh table (New)
+define("_REMOVEFROMSET","Izņemt no noteikta");//Remove from set (New)
+define("_BRANCHTREE","Filiāle koks");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Mainīt nosacījums, lai");//Change condition order (New)
+define("_INDEX","Indekss");//Index (New)
+define("_EVENTDATETIME","Notikuma datums un laiks");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikāts fails ir pazudis vai bojāts un tāpēc bija reset");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

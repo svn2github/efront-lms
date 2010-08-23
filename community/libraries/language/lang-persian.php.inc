@@ -44,7 +44,7 @@ define("_RESTORE","اعاده");//Restore
 define("_FREE","درس رایگان");//Free lesson
 define("_SUCCESSREGISTER","شما با موفقیت به ثبت نام");//You have registered successfully
 define("_LESSONSREGISTRATION","ثبت نام درس");//Lesson registration
-define("_YOUREMAIL","آدرس ایمیل شما");//Your e-mail 
+define("_YOUREMAIL","آدرس ایمیل شما");//Your Email 
 define("_MESSAGESUBJECT","عنوان پیام");//Message subject
 define("_PASSWORDLEAVEBLANK","رمز عبور (به خالی به مرخصی بدون تغییر)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","اطلاعات شخصی شما با موفقیت مخدوش");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","ایمیل ارسال شد");//Email was sent to
 define("_CHOOSELESSON","انتخاب درس");//Choose lesson
 define("_SUBJECT","موضوع");//Subject
 define("_RECIPIENTSSELECTION","انتخاب گیرندگان");//Recipients selection
-define("_EMAILBODY","آدرس بدن پست الکترونیکی");//E-mail body
-define("_SENDEMAIL","ارسال پست الکترونیکی");//Send E-mail
+define("_EMAILBODY","آدرس بدن پست الکترونیکی");//Email body
+define("_SENDEMAIL","ارسال پست الکترونیکی");//Send Email
 define("_EXIT","خروج");//Exit
 define("_MORE","بیشتر");//more
 define("_DELETE","حذف");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","مرکز کنترل");//Control center
 define("_EXAMPLES","نمونه");//Examples
 define("_FORUM","تالار گفتگو");//Forum
 define("_NOCONTENT","واحد بدون محتوا");//Unit without content
-define("_INACTIVE","واحد غیر فعال");//Inactive unit
+define("_INACTIVE","واحد غیر فعال");//Inactive
 define("_CONTENTMANAGEMENT","مطالب و محتوا");//Content
 define("_SCHEDULING","زمان بندی");//Scheduling
 define("_OFDEVELOPMENT","توسعه");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","هیچ نتیجه ای در بر د�
 define("_SEARCHRESULTSINPERSONALMESSAGES","نتایج جستجو در پیام های شخصی");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","نتایج جستجو در دوره ها");//Search results in courses
 define("_MESSAGEFOLDER","پوشه پیام");//Message folder
-define("_EMAIL","پست الکترونیکی");//e-mail
+define("_EMAIL","پست الکترونیکی");//Email
 define("_RESETPASSWORD","تنظیم مجدد رمز ورود");//Reset password
 define("_JOINED","تاریخ عضویت");//Joined
 define("_MOREINFO","اطلاعات بیشتر");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","رفته به ابتدای صفحه");//Scroll to t
 define("_SCROLLTOBOTTOMOFPAGE","طومار به پایین صفحه");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","هیچ کاربر انجام داده است در این بررسی نشده");//No user has done this survey yet
 define("_SYSTEM","سیستم");//System
-define("_EMAILCONFIGURATIONS","پست الکترونیکی تنظیمات سرور");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","پست الکترونیکی تنظیمات سرور");//Emails server configuration
 define("_SAWUNIT","مجموعه ای از واحد به عنوان تکمیل");//Set the unit as completed
 define("_NOTSAWUNIT","مجموعه واحد را تکمیل کنید");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","شرایط تکمیل");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","بررسی ارسال مقاله");//Submit survey
 define("_ROWSPERPAGE","سطرها در هر صفحه");//Rows per page
 define("_FILTER","فیلتر");//Filter
 define("_OF","از");//of
-define("_SENDALSOVIAEMAIL","ارسال دعوت نامه از طریق پست الکترونیکی");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","ارسال دعوت نامه از طریق پست الکترونیکی");//Send invitation via Email
 define("_STYLE","سبک");//Style
 define("_MENU","منو");//Menu
 define("_SELECTION","انتخاب");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","ماژول با موفقیت حذف شد");/
 define("_AUTHOR","نویسنده");//Author
 define("_VERSION","نسخه");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","در زمینه فایل csv شما باید زمینه های زیر را شامل");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","در زمینه های قرمز اجباری. اگر رمز عبور داده شده است وجود دارد ، که رمز عبور اولیه خواهد بود که همان ورود به سایت تنظیم.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","در زمینه های قرمز اجباری. اگر رمز عبور داده شده است وجود دارد ، که رمز عبور اولیه خواهد بود که همان ورود به سایت تنظیم.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","لطفا در قالب فایل CSV شما را بررسی");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","در این الگو ، استفاده از سازمان # # برای نام سازمان ، # # را برای user_name نام کاربر ، # # را برای user_surname نام خانوادگی کاربر ، # # را برای course_name نام در دوره ، کلاس را برای کلاس # # # # و تاریخ برای تاریخ.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","رای");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","اعضای واگذار");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","اعضای اختصاص به شعبه");//Assign users to branch 
 define("_EDITSKILL","مهارت ویرایش");//Edit skill
 define("_ASSIGNSKILL","مهارت اختصاص");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","اعضای تعیین مهارت");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","اعضای تعیین مهارت");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","هیچ شعب ثبت نام شده اند");//No branches have been registered
 define("_ORGANIZATION","سازمان");//Organization
 define("_SEARCHFOREMPLOYEE","جستجو برای کاربر [ضوابط سازمان]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","خواص نظرسنجی");//Poll properties
 define("_FORUMPROPERTIES","خواص تالار گفتگو");//Forum properties
 define("_UPDATETHEME","تم به روز رسانی");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","شما نمی توانید حساب کاربری خود فیس بوک با یک eFront موجود ارائه شده توسط کاربر و کلمه رمز وارد شوید که حساب وصل");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","بیش از یک کاربر با همان آدرس ایمیل وجود دارد. ورود به سایت استفاده خود را در فرم زیر");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","بیش از یک کاربر با همان آدرس ایمیل وجود دارد. ورود به سایت استفاده خود را در فرم زیر");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","حساب کاربری نگاشت با موفقیت پاک شد");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","خواص تم ها");//Theme properties
 define("_CHANGETHEME","تغییر تم");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","نمایش پیام تنها پس از ارسال تست");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","این آزمایش با موفقیت ارسال شده");//This test was successfully submitted
 define("_LEARNINGSTATUS","وضعیت آموزش");//Learning Status
-define("_HASNOTANEMAILADDRESS","تا نیست ، نشانی پست الکترونیکی");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","تا نیست ، نشانی پست الکترونیکی");//has not an Email address
 define("_FEEDBACK","انتقادات و پیشنهادات");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","کاربران در داخل گروه");//Insert users into group
 define("_INSERTINTONEWGROUP","در داخل گروه جدید");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","وب سایت ثبت نام سرور");//Web se
 define("_USEORLOGICTOCORRECTANSWERS","استفاده از منطق یا برای محاسبه پاسخ صحیح");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","٪ متغیر ایکس باید &quot;%y&quot; به منظور ادامه شامل");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","واحد باز در پنجره پنجره");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","کاربر با ورود به سایت مشخص شده از قبل وجود دارد (آرشیو)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","اندازه و رویدادها");//Events size (New)
-define("_OLDESTEVENT","رویداد قدیمی");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","حوادث پاکسازی مسن تر از");//Purge events older than (New)
-define("_PURGEEVENTS","حوادث پاکسازی");//Purge events (New)
-define("_USERSEPERUSERTYPE","اعضا در هر نوع کاربر");//Users per user type (New)
-define("_MINUTESPERUSER","دقیقه هر کاربر");//Minutes per user (New)
-define("_LOGINSPERDAY","باری در هر روز");//Logins per day (New)
-define("_ACCESSES","دسترسی");//Accesses (New)
-define("_ACCESSESPERUSER","دسترسی برای هر کاربر");//Accesses per user (New)
-define("_ACCESSESPERDAY","دسترسی در هر روز");//Accesses per day (New)
-define("_OCCURENCES","وقوع");//Occurences (New)
-define("_SCORES","بیشترین امتیاز");//Scores (New)
-define("_PROPAGATECOURSE","دوره انتشار");//Propagate course (New)
-define("_LESSONSTRUCTURE","ساختار درس");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","مدیر سایت می تواند صفحات درس دسترسی نیست");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","٪ اکس دایرکتوری ها و فایل های ٪ y ها توسط وب سرور قابل نوشتن نیست. <br> کلیک کنید <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>اینجا</a> برای دانلود گزارش کامل");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","اینجا را کلیک کنید برای تنظیم مجوز نوشتنی");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","اینجا را کلیک کنید تا باز نشاندن مجوز نوشتنی");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","اجازه انتخاب");//Set permissions (New)
-define("_UNSETPERMISSIONS","مجوز های ثابت نشده");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","این عمل سعی خواهد کرد که دسترسیها به تمام فایل ها و پوشه ها به وب سرور قابل نوشتن. این الزامی است اگر شما مایل به انجام ارتقا خودکار و ممکن است مفید باشد در مورد شما در حال تجربه مشکلات در طول یا پس از ارتقاء. از سوی دیگر ، ترک تمام فایل های قابل نوشتن ممکن است تهدید امنیتی تحت شرایط معینی مطرح.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","این عمل سعی خواهد کرد که دسترسیها به تمام فایل ها و پوشه ها می شود غیر قابل نوشتن توسط وب سرور ، جز برای کسانی که اجباری برای این سیستم را به عملکرد درست. این محیط امن ترین است اما سیستم به طور خودکار مانع از ارتقاء");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","اینجا را کلیک کنید برای بررسی مجوز");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","بررسی مجوز");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","این عملیات را بررسی کنید که چه فایل ها و پوشه های سیستم شما توسط وب سرور قابل نوشتن نیست");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","نتیجه عملیات");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","بدون انجام عملیات رتبهدهی نشده است");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","بعضی از فایل ها / پوشه ها قابل نوشتن نیست. لطفا از قسمت &#39;مجوز&#39; در تعمیر و نگهداری -- پاکسازی&gt; برای بررسی مجوز و بررسی این فایلها");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","در غیر این صورت ، شما ممکن است ایجاد <button onclick = \"location='index.php?ctg=signup'\">حساب جدید</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","شما وارد مطالعه شدند به درس های رایگان و دوره. لطفا بررسی زیر انتخاب خود را از درس و دوره های غیر رایگان");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","سوپروایزر");//Supervisors (New)
-define("_COURSEOPTIONS","انتخاب رشته");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","کاربر با ورود به سایت مشخص شده از قبل وجود دارد (آرشیو)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","اندازه و رویدادها");//Events size
+define("_OLDESTEVENT","رویداد قدیمی");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","حوادث پاکسازی مسن تر از");//Purge events older than
+define("_PURGEEVENTS","حوادث پاکسازی");//Purge events
+define("_USERSEPERUSERTYPE","اعضا در هر نوع کاربر");//Users per user type
+define("_MINUTESPERUSER","دقیقه هر کاربر");//Minutes per user
+define("_LOGINSPERDAY","باری در هر روز");//Logins per day
+define("_ACCESSES","دسترسی");//Accesses
+define("_ACCESSESPERUSER","دسترسی برای هر کاربر");//Accesses per user
+define("_ACCESSESPERDAY","دسترسی در هر روز");//Accesses per day
+define("_OCCURENCES","وقوع");//Occurences
+define("_SCORES","بیشترین امتیاز");//Scores
+define("_PROPAGATECOURSE","دوره انتشار");//Propagate course
+define("_LESSONSTRUCTURE","ساختار درس");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","مدیر سایت می تواند صفحات درس دسترسی نیست");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","٪ اکس دایرکتوری ها و فایل های ٪ y ها توسط وب سرور قابل نوشتن نیست. <br> کلیک کنید <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>اینجا</a> برای دانلود گزارش کامل");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","اینجا را کلیک کنید برای تنظیم مجوز نوشتنی");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","اینجا را کلیک کنید تا باز نشاندن مجوز نوشتنی");//Click here to unset write permissions
+define("_SETPERMISSIONS","اجازه انتخاب");//Set permissions
+define("_UNSETPERMISSIONS","مجوز های ثابت نشده");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","این عمل سعی خواهد کرد که دسترسیها به تمام فایل ها و پوشه ها به وب سرور قابل نوشتن. این الزامی است اگر شما مایل به انجام ارتقا خودکار و ممکن است مفید باشد در مورد شما در حال تجربه مشکلات در طول یا پس از ارتقاء. از سوی دیگر ، ترک تمام فایل های قابل نوشتن ممکن است تهدید امنیتی تحت شرایط معینی مطرح.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","این عمل سعی خواهد کرد که دسترسیها به تمام فایل ها و پوشه ها می شود غیر قابل نوشتن توسط وب سرور ، جز برای کسانی که اجباری برای این سیستم را به عملکرد درست. این محیط امن ترین است اما سیستم به طور خودکار مانع از ارتقاء");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","اینجا را کلیک کنید برای بررسی مجوز");//Click here to check permissions
+define("_CHECKPERMISSIONS","بررسی مجوز");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","این عملیات را بررسی کنید که چه فایل ها و پوشه های سیستم شما توسط وب سرور قابل نوشتن نیست");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","نتیجه عملیات");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","بدون انجام عملیات رتبهدهی نشده است");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","بعضی از فایل ها / پوشه ها قابل نوشتن نیست. لطفا از قسمت &#39;مجوز&#39; در تعمیر و نگهداری -- پاکسازی&gt; برای بررسی مجوز و بررسی این فایلها");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","در غیر این صورت ، شما ممکن است ایجاد <button onclick = \"location='index.php?ctg=signup'\">حساب جدید</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","شما وارد مطالعه شدند به درس های رایگان و دوره. لطفا بررسی زیر انتخاب خود را از درس و دوره های غیر رایگان");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","سوپروایزر");//Supervisors
+define("_COURSEOPTIONS","انتخاب رشته");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","اعدام برای تنظیم مجدد به همه کاربران");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","اعضا ژنراتور گزارش");//Users reports generator (New)
+define("_ADDTOGROUP","افزودن به گروه");//Add to group (New)
+define("_ASSIGNCOURSE","البته انتساب");//Assign course (New)
+define("_ASSIGNLESSON","درس اختصاص");//Assign lesson (New)
+define("_REMOVECOURSE","البته حذف");//Remove course (New)
+define("_REMOVELESSON","حذف درس");//Remove lesson (New)
+define("_REMOVEFROMGROUP","حذف از گروه");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","تنظیم مجدد یادگیری پیشرفت");//Reset learning progress (New)
+define("_BUILDER","سازنده");//Builder (New)
+define("_ADDREPORT","افزودنیهای گزارش جدید");//Add new report (New)
+define("_CONDITIONTYPE","نوع وضعیت");//Condition type
+define("_CONDITIONSPECIFICATION","مشخصات وضعیت");//Condition specification (New)
+define("_ADDCOLUMN","اضافه کردن ستون");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","ارتباط با آینده");//Relation with next (New)
+define("_COLUMNTYPE","نوع ستون");//Column type (New)
+define("_GRIDNAME","نام توری");//Grid name (New)
+define("_ALIGNED","تعهد");//Aligned (New)
+define("_SELECTREPORT","گزارش را انتخاب کنید");//Select report (New)
+define("_AVAILABLEREPORTS","گزارش شد");//Available reports (New)
+define("_EDITREPORT","ویرایش گزارش");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","هیچ گزارشی تعریف شده در سیستم وجود دارد. لطفا");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","ایجاد 1");//create one (New)
+define("_NEWREPORT","گزارش جدید");//New report (New)
+define("_REPORTNAME","نام گزارش");//Report name (New)
+define("_SELECTCONDITION","شرط انتخاب");//Select condition (New)
+define("_ISNOT","نیست");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","از اتمام تمام درس اختصاص داده");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","از اتمام تمام دوره های اختصاص داده");//Has completed all assigned courses (New)
+define("_HAS","است");//Has (New)
+define("_HASNOT","است نه");//Has not (New)
+define("_ENROLLEDTO","ثبت نام به");//Enrolled to (New)
+define("_BETWEEN","میان");//Between (New)
+define("_ISASSIGNED","تخصیص داده شده است");//Is assigned (New)
+define("_ISNOTASSIGNED","آیا واگذار نشده ،");//Is not assigned (New)
+define("_DURINGLASTDAY","24h آخرین");//last 24h (New)
+define("_DURINGLASTWEEK","هفته گذشته");//last week (New)
+define("_DURINGLASTMONTH","ماه گذشته");//last month (New)
+define("_COLUMN","ستون");//Column (New)
+define("_SELECTCOLUMN","ستون را انتخاب کنید");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","خالی بگذارید یک رمزعبور برای عرض تنظیم");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","خالی بگذارید به استفاده از ستون نام");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","عرض (٪)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","لطفا انتخاب کنید ستون");//Please select a column (New)
+define("_CHANGECOLUMNORDER","تغییر ستون سفارش");//Change the columns order (New)
+define("_VIEWINGREPORT","مشاهده گزارش");//Viewing report (New)
+define("_PLEASESELECTACONDITION","لطفا انتخاب کنید وضعیت");//Please select a condition (New)
+define("_BASIC","اساسی");//Basic (New)
+define("_LEARNING","یادگیری");//Learning (New)
+define("_ENTERPRISE","سرمایه گذاری");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","کشیدن آیتم برای تغییر نظم");//Drag items to change order (New)
+define("_CUSTOMFIELDS","زمینه های سفارشی");//Custom fields (New)
+define("_FORMATTEDLOGIN","ورود به فرمت");//Formatted login (New)
+define("_DEFAULTSORT","مرتب سازی پیش فرض");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; اپراتور تقدم");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","صفحه کنونی عملیات");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","یا مشخص کردن یک گروه جدید به اضافه");//Or specify a new group to add to (New)
+define("_ADDTO","افزودن به");//Add to (New)
+define("_REMOVEFROM","حذف از");//Remove from (New)
+define("_GROUPOPERATIONS","فعالیت های گروه");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","عملیات مدرک");//Certificate operations (New)
+define("_LESSONOPERATIONS","عملیات درس");//Lesson operations (New)
+define("_COURSEOPERATIONS","عملیات رشته");//Course operations (New)
+define("_EXPORTTOCSV","صادرات به csv");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","هیچ یک از کدهای رویداد تعریف شده");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","فایلها وارد موفقیت");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","تبدیل پوشه به سلسله مراتب تودرتو");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","فشرده فایل زیپ (ها) و مطالب واردات");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","موضوع قفل شده است");//The theme is locked (New)
+define("_BLANKREPORT","گزارش خالی");//Blank report (New)
+define("_CUSTOMREPORTS","گزارش های سفارشی");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","مدیر سیستم را بررسی و فعال سازی ثبت نام شما");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","جدول بازآوردن");//Refresh table (New)
+define("_REMOVEFROMSET","حذف از مجموعه");//Remove from set (New)
+define("_BRANCHTREE","درخت شعبه");//Branch tree (New)
+define("_CHANGECONDITIONORDER","تغییر وضعیت سفارش");//Change condition order (New)
+define("_INDEX","شاخص");//Index (New)
+define("_EVENTDATETIME","تاریخ و زمان رویداد");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","پرونده گواهی بود گم شده و یا فاسد شده بود و به این ترتیب تغییر دهید");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

@@ -44,7 +44,7 @@ define("_RESTORE","Obnovenie systému");//Restore
 define("_FREE","Táto lekcia je dostupná zadarmo");//Free lesson
 define("_SUCCESSREGISTER","Zaregistrovali ste sa úspešne");//You have registered successfully
 define("_LESSONSREGISTRATION","Registrácia lekcie");//Lesson registration
-define("_YOUREMAIL","Váš e-mail");//Your e-mail 
+define("_YOUREMAIL","Váš e-mail");//Your Email 
 define("_MESSAGESUBJECT","Predmet správy");//Message subject
 define("_PASSWORDLEAVEBLANK","Heslo (prázdne = ponechať bez žiadnych zmien)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Vaše osobné informáccie boli úspešne zmenené");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Email bol odoslaný na");//Email was sent to
 define("_CHOOSELESSON","Vyberte si lekciu");//Choose lesson
 define("_SUBJECT","Predmet");//Subject
 define("_RECIPIENTSSELECTION","Výber príjemcu ");//Recipients selection
-define("_EMAILBODY","Telo e-mailu");//E-mail body
-define("_SENDEMAIL","Poslať e-mailom");//Send E-mail
+define("_EMAILBODY","Telo e-mailu");//Email body
+define("_SENDEMAIL","Poslať e-mailom");//Send Email
 define("_EXIT","Opustiť");//Exit
 define("_MORE","viac");//more
 define("_DELETE","Odstrániť");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Ovládacie centrum");//Control center
 define("_EXAMPLES","Príklady");//Examples
 define("_FORUM","Fórum");//Forum
 define("_NOCONTENT","Jednotka bez obsahu");//Unit without content
-define("_INACTIVE","Neaktívna jednotka");//Inactive unit
+define("_INACTIVE","Neaktívna jednotka");//Inactive
 define("_CONTENTMANAGEMENT","Obsah");//Content
 define("_SCHEDULING","Plánovanie");//Scheduling
 define("_OFDEVELOPMENT","vývoj");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Žiadne výsledky neboli nájdené v
 define("_SEARCHRESULTSINPERSONALMESSAGES","Výsledky hľadania v osobných správach");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Výsledky hľadania v kurzoch");//Search results in courses
 define("_MESSAGEFOLDER","Složka správ ");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Resetovať heslo");//Reset password
 define("_JOINED","Pripojil");//Joined
 define("_MOREINFO","Viac info");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Prejdite na začiatok stránky");//Scroll to top of
 define("_SCROLLTOBOTTOMOFPAGE","Prejdite na koniec stránky");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Žiadny užívateľ zatial neurobil tento prieskum");//No user has done this survey yet
 define("_SYSTEM","Systém");//System
-define("_EMAILCONFIGURATIONS","Konfigurácia E-mail serveru");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","Konfigurácia E-mail serveru");//Emails server configuration
 define("_SAWUNIT","Nastav jednotku ako dokončenú");//Set the unit as completed
 define("_NOTSAWUNIT","Nastav jednotku ako nedokončenú");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Podmienky splnené");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Predložiť priezkum");//Submit survey
 define("_ROWSPERPAGE","Riadkov na stránku");//Rows per page
 define("_FILTER","Filter");//Filter
 define("_OF","z");//of
-define("_SENDALSOVIAEMAIL","Poslať pozvánku prostredníctvom e-mailu");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Poslať pozvánku prostredníctvom e-mailu");//Send invitation via Email
 define("_STYLE","Štýl");//Style
 define("_MENU","Menu");//Menu
 define("_SELECTION","Výber");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Modul bol úspešne vymazaný");//The module
 define("_AUTHOR","Autor");//Author
 define("_VERSION","Verzia");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Polia vo vašom csv súbore musia obsahovať tieto polia");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Oblasti načerveno sú povinné. Ak nieje dodané heslo, štartovacie heslo bude nastavená rovnako ako prihlásenie (login).");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Oblasti načerveno sú povinné. Ak nieje dodané heslo, štartovacie heslo bude nastavená rovnako ako prihlásenie (login).");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Skontrolujte si prosím formát vášho CSV súboru");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","V šablóne, použite # # organizácii pre organizáciu mene, meno_používateľa # # pre užívateľské meno, # # user_surname pre užívateľa priezvisko, # # za course_name samozrejme meno, # # trieda pre triedu a dátum # # dátum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Hlasovania");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Priradenie užívateľov");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Priradenie užívateľov k pobočke");//Assign users to branch 
 define("_EDITSKILL","Upraviť zručnosť");//Edit skill
 define("_ASSIGNSKILL","Pridelenie zručnosti");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Priradenie zručnosti užívateľom");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Priradenie zručnosti užívateľom");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Žiadne pobočky neboli registrované");//No branches have been registered
 define("_ORGANIZATION","Organizácia");//Organization
 define("_SEARCHFOREMPLOYEE","Hľadanie užívateľa [Organizácie kritérií]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Anketa vlastnosti");//Poll properties
 define("_FORUMPROPERTIES","Forum vlastnosti");//Forum properties
 define("_UPDATETHEME","Aktualizácia tému");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Môžete pripojiť Facebook účet s existujúcou eFront jeden tým, že používateľ prihlasovacie meno a heslo tohto konta");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Existuje viac než jedného užívateľa sa rovnakú e-mailovú adresu. Použite vaše prihlasovacie údaje do formulára nižšie");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Existuje viac než jedného užívateľa sa rovnakú e-mailovú adresu. Použite vaše prihlasovacie údaje do formulára nižšie");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Mapoval účtu bol úspešne vypustený");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Určenie nehnuteľností");//Theme properties
 define("_CHANGETHEME","Zmeniť vzhľad");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Zobraziť iba správy po predložení test");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Tento test bol úspešne odoslaný");//This test was successfully submitted
 define("_LEARNINGSTATUS","Učenie Status");//Learning Status
-define("_HASNOTANEMAILADDRESS","nemá e-mailovú adresu");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","nemá e-mailovú adresu");//has not an Email address
 define("_FEEDBACK","Spätná väzba");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Vložiť užívateľa do skupiny");//Insert users into group
 define("_INSERTINTONEWGROUP","Vložiť do novej skupiny");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web server o registráciu");//Web server regist
 define("_USEORLOGICTOCORRECTANSWERS","Použite alebo logika pre výpočet správnu odpoveď");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Premenná% x musí obsahovať &quot;%y&quot;, aby sa aj naďalej");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Open jednotky v pop-up okne");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Užívateľ so zadaným prihlásení už existuje (archivované)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Udalosti veľkosti");//Events size (New)
-define("_OLDESTEVENT","Najstaršie udalosti");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Vyčistiť udalosti staršie ako");//Purge events older than (New)
-define("_PURGEEVENTS","Vyčistiť udalosti");//Purge events (New)
-define("_USERSEPERUSERTYPE","Užívateľov na typ užívateľa");//Users per user type (New)
-define("_MINUTESPERUSER","Zápis na užívateľa");//Minutes per user (New)
-define("_LOGINSPERDAY","Prihlásenie za deň");//Logins per day (New)
-define("_ACCESSES","Prístupy");//Accesses (New)
-define("_ACCESSESPERUSER","Prístupy na užívateľa");//Accesses per user (New)
-define("_ACCESSESPERDAY","Prístupy za deň");//Accesses per day (New)
-define("_OCCURENCES","Výskyty");//Occurences (New)
-define("_SCORES","Skóre");//Scores (New)
-define("_PROPAGATECOURSE","Propagate kurz");//Propagate course (New)
-define("_LESSONSTRUCTURE","Lekcia štruktúra");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Správca nemôže získať prístup lekciu stránky");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X adresárov a súborov% y nie sú zapisovateľné webovým serverom. <br> Kliknite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>tu</a> pre stiahnutie kompletnú správu");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Kliknite tu pre nastavenie zápis");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Kliknite tu pre unset zápis");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Nastaviť povolenia");//Set permissions (New)
-define("_UNSETPERMISSIONS","Zrušiť povolenie");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Táto operácia sa bude snažiť nastavenie oprávnenia pre všetky súbory a priečinky ktoré majú byť zapisovateľné webovým serverom. To je povinné, ak chcete vykonať automatickú aktualizáciu a môže byť užitočná v prípadoch, ste sa stretli s problémami počas alebo po aktualizácii. Na druhú stranu, takže všetky súbory zapisovateľné môže predstavovať bezpečnostnú hrozbu za určitých okolností.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Táto operácia sa bude snažiť nastavenie oprávnenia pre všetky súbory a priečinky byť non-právo zápisu do tohto webového servera, s výnimkou tých, povinné pre systém fungoval správne. Ide o najbezpečnejšie nastavenie, ale bude brániť systém pred upgrade automaticky");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Kliknite tu pre kontrolu oprávnenia");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Skontrolujte oprávnenia");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Táto operácia bude zistiť, ktoré súbory a priečinky na vašom systéme nie sú zapisovateľné webovým serverom");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Výsledok operácie");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Č vykonávanú činnosť zatiaľ");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Niektoré súbory / priečinky nedá zapisovať. Prosím, navštívte sekciu &#39;oprávnenia&#39; na údržbu -&gt; cleanup pre kontrolu oprávnenia a revízie týchto súborov");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","V opačnom prípade môžete vytvoriť <button onclick = \"location='index.php?ctg=signup'\">nový účet</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Tie boli zaradené do voľnej lekcie a kurzy. Prečítajte si prosím nižšie svoj výber zákazu voľného lekcie a kurzy");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Orgány dohľadu");//Supervisors (New)
-define("_COURSEOPTIONS","Predmet voľby");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Užívateľ so zadaným prihlásení už existuje (archivované)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Udalosti veľkosti");//Events size
+define("_OLDESTEVENT","Najstaršie udalosti");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Vyčistiť udalosti staršie ako");//Purge events older than
+define("_PURGEEVENTS","Vyčistiť udalosti");//Purge events
+define("_USERSEPERUSERTYPE","Užívateľov na typ užívateľa");//Users per user type
+define("_MINUTESPERUSER","Zápis na užívateľa");//Minutes per user
+define("_LOGINSPERDAY","Prihlásenie za deň");//Logins per day
+define("_ACCESSES","Prístupy");//Accesses
+define("_ACCESSESPERUSER","Prístupy na užívateľa");//Accesses per user
+define("_ACCESSESPERDAY","Prístupy za deň");//Accesses per day
+define("_OCCURENCES","Výskyty");//Occurences
+define("_SCORES","Skóre");//Scores
+define("_PROPAGATECOURSE","Propagate kurz");//Propagate course
+define("_LESSONSTRUCTURE","Lekcia štruktúra");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Správca nemôže získať prístup lekciu stránky");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X adresárov a súborov% y nie sú zapisovateľné webovým serverom. <br> Kliknite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>tu</a> pre stiahnutie kompletnú správu");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Kliknite tu pre nastavenie zápis");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Kliknite tu pre unset zápis");//Click here to unset write permissions
+define("_SETPERMISSIONS","Nastaviť povolenia");//Set permissions
+define("_UNSETPERMISSIONS","Zrušiť povolenie");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Táto operácia sa bude snažiť nastavenie oprávnenia pre všetky súbory a priečinky ktoré majú byť zapisovateľné webovým serverom. To je povinné, ak chcete vykonať automatickú aktualizáciu a môže byť užitočná v prípadoch, ste sa stretli s problémami počas alebo po aktualizácii. Na druhú stranu, takže všetky súbory zapisovateľné môže predstavovať bezpečnostnú hrozbu za určitých okolností.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Táto operácia sa bude snažiť nastavenie oprávnenia pre všetky súbory a priečinky byť non-právo zápisu do tohto webového servera, s výnimkou tých, povinné pre systém fungoval správne. Ide o najbezpečnejšie nastavenie, ale bude brániť systém pred upgrade automaticky");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Kliknite tu pre kontrolu oprávnenia");//Click here to check permissions
+define("_CHECKPERMISSIONS","Skontrolujte oprávnenia");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Táto operácia bude zistiť, ktoré súbory a priečinky na vašom systéme nie sú zapisovateľné webovým serverom");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Výsledok operácie");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Č vykonávanú činnosť zatiaľ");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Niektoré súbory / priečinky nedá zapisovať. Prosím, navštívte sekciu &#39;oprávnenia&#39; na údržbu -&gt; cleanup pre kontrolu oprávnenia a revízie týchto súborov");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","V opačnom prípade môžete vytvoriť <button onclick = \"location='index.php?ctg=signup'\">nový účet</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Tie boli zaradené do voľnej lekcie a kurzy. Prečítajte si prosím nižšie svoj výber zákazu voľného lekcie a kurzy");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Orgány dohľadu");//Supervisors
+define("_COURSEOPTIONS","Predmet voľby");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Reset prevedeniach pre všetkých užívateľov");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Užívateľské správy generátor");//Users reports generator (New)
+define("_ADDTOGROUP","Pridať do skupiny");//Add to group (New)
+define("_ASSIGNCOURSE","Priradiť kurz");//Assign course (New)
+define("_ASSIGNLESSON","Priradiť lekcie");//Assign lesson (New)
+define("_REMOVECOURSE","Odstrániť kurz");//Remove course (New)
+define("_REMOVELESSON","Odstrániť lekcie");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Odstrániť zo skupiny");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset pokroku v učení");//Reset learning progress (New)
+define("_BUILDER","Staviteľ");//Builder (New)
+define("_ADDREPORT","Pridať nové správy");//Add new report (New)
+define("_CONDITIONTYPE","Typ podmienky");//Condition type
+define("_CONDITIONSPECIFICATION","Stav špecifikácie");//Condition specification (New)
+define("_ADDCOLUMN","Pridať stĺpec");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Vzťah k ďalším");//Relation with next (New)
+define("_COLUMNTYPE","Typ stĺpca");//Column type (New)
+define("_GRIDNAME","Mriežka meno");//Grid name (New)
+define("_ALIGNED","Zladené");//Aligned (New)
+define("_SELECTREPORT","Vybrať správu");//Select report (New)
+define("_AVAILABLEREPORTS","Dostupné správy");//Available reports (New)
+define("_EDITREPORT","Upraviť správu");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Nie sú žiadne správy v systéme definované. Prosím");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","vytvoriť jednu");//create one (New)
+define("_NEWREPORT","Nová správa");//New report (New)
+define("_REPORTNAME","Správa meno");//Report name (New)
+define("_SELECTCONDITION","Vyberte podmienku");//Select condition (New)
+define("_ISNOT","nie je");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Splnenie všetkých účelovo lekcie");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Splnenie všetkých účelovo kurzy");//Has completed all assigned courses (New)
+define("_HAS","Má");//Has (New)
+define("_HASNOT","Nie je");//Has not (New)
+define("_ENROLLEDTO","Zapísaných na");//Enrolled to (New)
+define("_BETWEEN","Medzi");//Between (New)
+define("_ISASSIGNED","Je priradený");//Is assigned (New)
+define("_ISNOTASSIGNED","Nie je priradený");//Is not assigned (New)
+define("_DURINGLASTDAY","posledný 24h");//last 24h (New)
+define("_DURINGLASTWEEK","Posledná týždni");//last week (New)
+define("_DURINGLASTMONTH","posledný mesiac");//last month (New)
+define("_COLUMN","Stĺpec");//Column (New)
+define("_SELECTCOLUMN","Vyberte stĺpce");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Ak ponecháte prázdne, auto-nastavenie šírky");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Ponechajte prázdne pre názvu stĺpca");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Šírka (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Prosím, vyberte stĺpec");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Zmena stĺpcov, aby");//Change the columns order (New)
+define("_VIEWINGREPORT","Informácie o správe");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Prosím, vyberte podmienku");//Please select a condition (New)
+define("_BASIC","Základné");//Basic (New)
+define("_LEARNING","Štúdium");//Learning (New)
+define("_ENTERPRISE","Podnik");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Presuňte položky, meniť poradie");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Vlastné pole");//Custom fields (New)
+define("_FORMATTEDLOGIN","Formátovaný prihlásení");//Formatted login (New)
+define("_DEFAULTSORT","Predvolené radenie");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; prevádzkovateľ má prednosť");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Aktuálna stránka prevádzky");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Alebo zadať novú skupinu, aby do");//Or specify a new group to add to (New)
+define("_ADDTO","Pridať do");//Add to (New)
+define("_REMOVEFROM","Odstrániť z");//Remove from (New)
+define("_GROUPOPERATIONS","Skupina operácie");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Certifikát operácie");//Certificate operations (New)
+define("_LESSONOPERATIONS","Lekcia operácie");//Lesson operations (New)
+define("_COURSEOPERATIONS","Predmet činnosti");//Course operations (New)
+define("_EXPORTTOCSV","Export do formátu CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Žiadna udalosť kód definovaná");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Súbory úspešne importovaný");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Premeniť zložky vnorené hierarchie");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Rozbaľte zip súbor (y) a import obsah");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Téma je uzamknutá");//The theme is locked (New)
+define("_BLANKREPORT","Prázdne správu");//Blank report (New)
+define("_CUSTOMREPORTS","Vlastné správy");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Správca systému bude revízia a aktivovať zápisy");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Aktualizovať tabuľku");//Refresh table (New)
+define("_REMOVEFROMSET","Odstrániť z nastavenia");//Remove from set (New)
+define("_BRANCHTREE","Vetva stromu");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Zmena stavu, aby");//Change condition order (New)
+define("_INDEX","Index");//Index (New)
+define("_EVENTDATETIME","Udalosť Dátum a čas");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Certifikát bol súbor poškodený alebo nebol nájdený, a tak bol reset");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

@@ -45,9 +45,13 @@
       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
      {/if}
      {if $item.column == 'branch'}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$entry}" class = "editLink">{$entry} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}</a>
+      {if !$T_EDIT_LINK}
+       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$user.branch_ID}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">{$entry} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}
+      {else}
+       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$user.branch_ID}" class = "editLink">{$entry} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}</a>
+      {/if}
      {elseif $item.column == 'job_description'}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$entry}" class = "editLink">{$entry}</a>
+      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$user.job_description_ID}" class = "editLink">{$entry}</a>
      {elseif $item.column == 'course_status'}
       {if $user.count_courses}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink">{$user.course_status}</a>{/if}
      {elseif $item.column == 'lesson_status'}
@@ -59,7 +63,7 @@
      {else}
       {$entry}
      {/if}
-     {if $item.column == $T_EDIT_LINK}
+     {if $item.column == $T_EDIT_LINK || !$T_EDIT_LINK && $item.column=='branch'}
       {if !$T_CONFIGURATION.disable_tooltip}
        <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
        <span class = "tooltipSpan"></span>
@@ -199,16 +203,16 @@
 <!--ajax:conditionsTable-->
  <table id = "conditionsTable" style = "width:100%" size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&">
     <tr class = "topTitle">
-     <td name = "index" class = "centerAlign">{$smarty.const._INDEX}</td>
-     <td name = "condition">{$smarty.const._CONDITIONTYPE}</td>
-     <td name = "option">{$smarty.const._CONDITIONSPECIFICATION}</td>
-     <td name = "relation">{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
-     <td name = "status" class = "centerAlign">{$smarty.const._STATUS}</td>
+     {*<td class = "noSort" name = "index" class = "centerAlign">{$smarty.const._INDEX}</td>*}
+     <td class = "noSort" name = "condition">{$smarty.const._CONDITIONTYPE}</td>
+     <td class = "noSort" name = "option">{$smarty.const._CONDITIONSPECIFICATION}</td>
+     <td class = "noSort" name = "relation">{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
+     <td class = "noSort" name = "status" class = "centerAlign">{$smarty.const._STATUS}</td>
      <td class = "centerAlign noSort">{$smarty.const._TOOLS}</td>
     </tr>
     {foreach name = 'conditions_list' item = "item" key = "key" from = $T_DATA_SOURCE}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
-     <td class = "centerAlign">{$key+1}</td>
+     {*<td class = "centerAlign">{$key+1}</td>*}
      <td>{$T_CONDITIONS[$item.condition].name}</td>
      <td>
       {$T_CONDITIONS[$item.condition].negation[$item.negation]}
@@ -263,22 +267,27 @@
      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&order_column=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CHANGECOLUMNORDER}', 2)">{$smarty.const._CHANGECOLUMNORDER}</a>
     </span>
    </div>
+   <script>translations['left'] = '{$smarty.const._LEFT}';translations['center'] = '{$smarty.const._CENTER}';translations['right'] = '{$smarty.const._RIGHT}';</script>
    <table class = "sortedTable" style = "width:100%" id = "columns_table">
     <tr class = "topTitle">
-     <td>{$smarty.const._COLUMNTYPE}</td>
-     <td>{$smarty.const._GRIDNAME}</td>
-     <td class = "centerAlign">{$smarty.const._WIDTH}</td>
-     <td>{$smarty.const._ALIGNED}</td>
-     <td class = "centerAlign">{$smarty.const._DEFAULTSORT}</td>
-     <td class = "centerAlign">{$smarty.const._STATUS}</td>
-     <td class = "centerAlign">{$smarty.const._TOOLS}</td>
+     <td class = "noSort">{$smarty.const._COLUMNTYPE}</td>
+     <td class = "noSort">{$smarty.const._GRIDNAME}</td>
+     <td class = "centerAlign noSort">{$smarty.const._WIDTH}</td>
+     <td class = "centerAlign noSort">{$smarty.const._ALIGNED}</td>
+     <td class = "centerAlign noSort">{$smarty.const._DEFAULTSORT}</td>
+     <td class = "centerAlign noSort">{$smarty.const._STATUS}</td>
+     <td class = "centerAlign noSort">{$smarty.const._TOOLS}</td>
     </tr>
     {foreach name = 'columns_list' item = "item" key = "key" from = $T_REPORT.rules.columns}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
      <td>{$T_REPORT_COLUMNS[$item.column]}</td>
      <td>{$item.grid_name}</td>
      <td class = "centerAlign">{if $item.width}{$item.width}%{/if}</td>
-     <td><a href = "javascript:void(0)" onclick = "setAlign(this, '{$key}')">{$item.align}</a></td>
+     <td class = "centerAlign">
+      {if $item.align == 'left'}<img class = "ajaxHandle" onclick = "setAlign(this, '{$key}')" src = "images/16x16/arrow_left.png" alt = "{$smarty.const._LEFT}" title = "{$smarty.const._LEFT}"/>
+      {elseif $item.align == 'center'}<img class = "ajaxHandle" onclick = "setAlign(this, '{$key}')" src = "images/16x16/stop.png" alt = "{$smarty.const._CENTER}" title = "{$smarty.const._CENTER}" />
+      {elseif $item.align == 'right'}<img class = "ajaxHandle" onclick = "setAlign(this, '{$key}')" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._RIGHT}" title = "{$smarty.const._RIGHT}" />{/if}
+     </td>
      <td class = "centerAlign"><span style = "display:none">{$item.default_sort}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.default_sort}pin_green{else}pin_red{/if}.png" alt = "{$smarty.const._DEFAULTSORT}" title = "{$smarty.const._DEFAULTSORT}" onclick = "setDefaultSort(this, '{$key}')"/></td>
      <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setColumnStatus(this, '{$key}')"/></td>
      <td class = "centerAlign">

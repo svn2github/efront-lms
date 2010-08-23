@@ -44,7 +44,7 @@ define("_RESTORE","Återställ systemet");//Restore
 define("_FREE","Denna lektion är gratis för alla");//Free lesson
 define("_SUCCESSREGISTER","Du har registrerats");//You have registered successfully
 define("_LESSONSREGISTRATION","Registrering av lektion");//Lesson registration
-define("_YOUREMAIL","Din e-post");//Your e-mail 
+define("_YOUREMAIL","Din e-post");//Your Email 
 define("_MESSAGESUBJECT","Meddelanderubrik");//Message subject
 define("_PASSWORDLEAVEBLANK","Lösenord (lämna tomt för att behålla oförändrat)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Din personliga info har ändrats");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","E-post skickades till");//Email was sent to
 define("_CHOOSELESSON","Välj lektion");//Choose lesson
 define("_SUBJECT","Ämne");//Subject
 define("_RECIPIENTSSELECTION","Val av mottagare");//Recipients selection
-define("_EMAILBODY","Meddelandetext");//E-mail body
-define("_SENDEMAIL","Skicka e-post");//Send E-mail
+define("_EMAILBODY","Meddelandetext");//Email body
+define("_SENDEMAIL","Skicka e-post");//Send Email
 define("_EXIT","Exit");//Exit
 define("_MORE","mer");//more
 define("_DELETE","Ta bort");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Kontrollcenter");//Control center
 define("_EXAMPLES","Exempel");//Examples
 define("_FORUM","Forum");//Forum
 define("_NOCONTENT","Avsnitt utan innehåll");//Unit without content
-define("_INACTIVE","Inaktivt avsnitt");//Inactive unit
+define("_INACTIVE","Inaktivt avsnitt");//Inactive
 define("_CONTENTMANAGEMENT","Innehåll");//Content
 define("_SCHEDULING","Planering");//Scheduling
 define("_OFDEVELOPMENT","utveckling");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Inga resultat hittades bland personl
 define("_SEARCHRESULTSINPERSONALMESSAGES","Sökresultat bland personliga meddelanden");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Sökresultat bland kurser");//Search results in courses
 define("_MESSAGEFOLDER","Meddelandemapp");//Message folder
-define("_EMAIL","e-post");//e-mail
+define("_EMAIL","e-post");//Email
 define("_RESETPASSWORD","Återställ lösenord");//Reset password
 define("_JOINED","Anslutna");//Joined
 define("_MOREINFO","Mer info");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Bläddra till sidans topp");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Bläddra till botten av sidan");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Ingen har gjort denna utvärdering ännu");//No user has done this survey yet
 define("_SYSTEM","System");//System
-define("_EMAILCONFIGURATIONS","Konfiguration av e-postserver");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","Konfiguration av e-postserver");//Emails server configuration
 define("_SAWUNIT","Ange avsnittet som klart");//Set the unit as completed
 define("_NOTSAWUNIT","Ange avsnittet som inte klart");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Villkoren uppfyllda");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Skicka in utvärderingen");//Submit survey
 define("_ROWSPERPAGE","Rader per sida");//Rows per page
 define("_FILTER","Filter");//Filter
 define("_OF","av");//of
-define("_SENDALSOVIAEMAIL","Skicka inbjudan via e-post");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Skicka inbjudan via e-post");//Send invitation via Email
 define("_STYLE","Stil");//Style
 define("_MENU","Meny");//Menu
 define("_SELECTION","Urval");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Modulen har tagits bort");//The module was s
 define("_AUTHOR","Författare");//Author
 define("_VERSION","Version");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Fälten i CSV-filen måste innehålla följande fält");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Fält i rött är obligatoriska. Om det inte finns ett angivet lösenord, kommer samma lösenord som vid inloggningen att användas.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Fält i rött är obligatoriska. Om det inte finns ett angivet lösenord, kommer samma lösenord som vid inloggningen att användas.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kontrollera formatet av din CSV-fil");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Använd # user_name # för användarens namn, # user_surname # för användarens efternamn, # course_name # för kursen namn, # # klass för klass och datum # # för dagen.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Omröstningar");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Tilldela anställda");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Tilldela anställda en avdelning");//Assign users to branch 
 define("_EDITSKILL","Redigera kompetens");//Edit skill
 define("_ASSIGNSKILL","Tilldela kompetens");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Tilldela anställda kompetensen");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Tilldela anställda kompetensen");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Inga avdelningar har registrerats");//No branches have been registered
 define("_ORGANIZATION","Organisation");//Organization
 define("_SEARCHFOREMPLOYEE","Sök anställd [Organisationskriterier]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Egenskaper för omröstning");//Poll properties
 define("_FORUMPROPERTIES","Forumegenskaper");//Forum properties
 define("_UPDATETHEME","Uppdatera tema");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Du kan ansluta ditt Facebook-konto till ett befintligt eFront-konto genom att ange användarnamn och lösenord för kontot");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Det finns fler än en användare med samma e-postadress. Använd ditt användarnamn i formuläret nedan");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Det finns fler än en användare med samma e-postadress. Använd ditt användarnamn i formuläret nedan");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Det anslutna kontot har raderats");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Egenskaper för tema");//Theme properties
 define("_CHANGETHEME","Byt tema");//Change theme
@@ -3311,7 +3311,7 @@ define("_VERSIONINFORMATION","Versionsinformation");//Version information
 define("_BUILD","build");//build
 define("_INSTALLEDVERSION","Installerad version");//Installed version
 define("_LATESTVERSION","Senaste version");//Latest version
-define("_DOWNLOADANDINSTALL","Ladda ner och installera");//Download and install (New)
+define("_DOWNLOADANDINSTALL","Ladda ner och installera");//Download and install
 define("_DOWNLOADINGFILE","Filhämtning");//Downloading file
 define("_EDITION","Utgåva");//Edition
 define("_UPGRADEURL","Url att läsa in nya versioner från");//Url to read new versions from
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Visa endast ett meddelande efter inlämning av test");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Inlämning av test lyckad");//This test was successfully submitted
 define("_LEARNINGSTATUS","Inlärningsstatus");//Learning Status
-define("_HASNOTANEMAILADDRESS","har ingen e-postadress");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","har ingen e-postadress");//has not an Email address
 define("_FEEDBACK","Kommentarer");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Lägg till användare till grupp");//Insert users into group
 define("_INSERTINTONEWGROUP","Lägg till i ny grupp");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Webbserverregistrering");//Web server registrat
 define("_USEORLOGICTOCORRECTANSWERS","Använd logisk OR för att beräkna rätt svar");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Variabeln %x måste innehålla &quot;%y&quot; för att fortsätta");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Öppna enhet i popup-fönster");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","En användare med det angivna login redan finns (arkiverade)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Evenemang storlek");//Events size (New)
-define("_OLDESTEVENT","Äldsta händelse");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Rensa händelser äldre än");//Purge events older than (New)
-define("_PURGEEVENTS","Purge evenemang");//Purge events (New)
-define("_USERSEPERUSERTYPE","Användare per användare typ");//Users per user type (New)
-define("_MINUTESPERUSER","Minuter per användare");//Minutes per user (New)
-define("_LOGINSPERDAY","Inloggningar per dag");//Logins per day (New)
-define("_ACCESSES","Besök");//Accesses (New)
-define("_ACCESSESPERUSER","Besök per användare");//Accesses per user (New)
-define("_ACCESSESPERDAY","Besök per dag");//Accesses per day (New)
-define("_OCCURENCES","Förekomster");//Occurences (New)
-define("_SCORES","Betyg");//Scores (New)
-define("_PROPAGATECOURSE","Propagera kurs");//Propagate course (New)
-define("_LESSONSTRUCTURE","Lektion struktur");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","En administratör kan inte komma åt lektion sidor");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X kataloger och filer% y är inte skrivbar av webservern. <br> Klicka <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>här</a> för att ladda ner en fullständig rapport");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Klicka här för att ställa skrivbehörighet");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Klicka här för att ändra skrivrättigheter");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Ange behörigheter");//Set permissions (New)
-define("_UNSETPERMISSIONS","Unset behörigheter");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att försöka att ställa in rättigheter till alla filer och mappar att skrivbar av webservern. Detta är obligatoriskt om du vill utföra automatiska uppgraderingar och kan vara användbar i fall du upplever problem under eller efter uppgradering. Å andra sidan, och lämnar alla filer skrivbara kan utgöra ett hot mot säkerheten under vissa omständigheter.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att försöka att ställa in rättigheter till alla filer och mappar som icke-skrivbar av webservern, med undantag för de obligatoriska för att systemet ska fungera ordentligt. Detta är den säkraste inställningen, men kommer att hindra systemet från att uppgradera automatiskt");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Klicka här för att kontrollera behörigheter");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Kontrollera behörigheter");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att kontrollera vilka filer och mappar i ditt system är inte skrivbar av webservern");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operation resultat");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Ingen trafik än");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Vissa filer / mappar inte är skrivbar. Gå in på &#39;rättigheter&#39; avsnittet i underhåll -&gt; rengöring för att kontrollera behörigheter och granska dessa filer");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Annars kan du skapa ett <button onclick = \"location='index.php?ctg=signup'\">nytt konto</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du rekryterades till gratis lektioner och kurser. Läs nedan ditt val av icke fria lektioner och kurser");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Handledare");//Supervisors (New)
-define("_COURSEOPTIONS","Valbara kurser");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","En användare med det angivna login redan finns (arkiverade)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Evenemang storlek");//Events size
+define("_OLDESTEVENT","Äldsta händelse");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Rensa händelser äldre än");//Purge events older than
+define("_PURGEEVENTS","Purge evenemang");//Purge events
+define("_USERSEPERUSERTYPE","Användare per användare typ");//Users per user type
+define("_MINUTESPERUSER","Minuter per användare");//Minutes per user
+define("_LOGINSPERDAY","Inloggningar per dag");//Logins per day
+define("_ACCESSES","Besök");//Accesses
+define("_ACCESSESPERUSER","Besök per användare");//Accesses per user
+define("_ACCESSESPERDAY","Besök per dag");//Accesses per day
+define("_OCCURENCES","Förekomster");//Occurences
+define("_SCORES","Betyg");//Scores
+define("_PROPAGATECOURSE","Propagera kurs");//Propagate course
+define("_LESSONSTRUCTURE","Lektion struktur");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","En administratör kan inte komma åt lektion sidor");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X kataloger och filer% y är inte skrivbar av webservern. <br> Klicka <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>här</a> för att ladda ner en fullständig rapport");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Klicka här för att ställa skrivbehörighet");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Klicka här för att ändra skrivrättigheter");//Click here to unset write permissions
+define("_SETPERMISSIONS","Ange behörigheter");//Set permissions
+define("_UNSETPERMISSIONS","Unset behörigheter");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att försöka att ställa in rättigheter till alla filer och mappar att skrivbar av webservern. Detta är obligatoriskt om du vill utföra automatiska uppgraderingar och kan vara användbar i fall du upplever problem under eller efter uppgradering. Å andra sidan, och lämnar alla filer skrivbara kan utgöra ett hot mot säkerheten under vissa omständigheter.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att försöka att ställa in rättigheter till alla filer och mappar som icke-skrivbar av webservern, med undantag för de obligatoriska för att systemet ska fungera ordentligt. Detta är den säkraste inställningen, men kommer att hindra systemet från att uppgradera automatiskt");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Klicka här för att kontrollera behörigheter");//Click here to check permissions
+define("_CHECKPERMISSIONS","Kontrollera behörigheter");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Denna transaktion kommer att kontrollera vilka filer och mappar i ditt system är inte skrivbar av webservern");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operation resultat");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Ingen trafik än");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Vissa filer / mappar inte är skrivbar. Gå in på &#39;rättigheter&#39; avsnittet i underhåll -&gt; rengöring för att kontrollera behörigheter och granska dessa filer");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Annars kan du skapa ett <button onclick = \"location='index.php?ctg=signup'\">nytt konto</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du rekryterades till gratis lektioner och kurser. Läs nedan ditt val av icke fria lektioner och kurser");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Handledare");//Supervisors
+define("_COURSEOPTIONS","Valbara kurser");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Återställ avrättningar för alla användare");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Användare rapporterar generator");//Users reports generator (New)
+define("_ADDTOGROUP","Lägg till i grupp");//Add to group (New)
+define("_ASSIGNCOURSE","Tilldela kurs");//Assign course (New)
+define("_ASSIGNLESSON","Tilldela lektion");//Assign lesson (New)
+define("_REMOVECOURSE","Ta bort kurs");//Remove course (New)
+define("_REMOVELESSON","Ta bort lektion");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Ta bort från grupp");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Återställ inlärningen");//Reset learning progress (New)
+define("_BUILDER","Builder");//Builder (New)
+define("_ADDREPORT","Lägg till ny rapport");//Add new report (New)
+define("_CONDITIONTYPE","Typ av villkor");//Condition type
+define("_CONDITIONSPECIFICATION","Villkor specifikation");//Condition specification (New)
+define("_ADDCOLUMN","Lägg till kolumn");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Samband med nästa");//Relation with next (New)
+define("_COLUMNTYPE","Kolumn typ");//Column type (New)
+define("_GRIDNAME","Grid namn");//Grid name (New)
+define("_ALIGNED","Aligned");//Aligned (New)
+define("_SELECTREPORT","Välj rapport");//Select report (New)
+define("_AVAILABLEREPORTS","Tillgängliga rapporter");//Available reports (New)
+define("_EDITREPORT","Redigera rapport");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Det finns inga rapporter definieras i systemet. Vänligen");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","Skapa ett");//create one (New)
+define("_NEWREPORT","Ny rapport");//New report (New)
+define("_REPORTNAME","Rapport namn");//Report name (New)
+define("_SELECTCONDITION","Välj villkor");//Select condition (New)
+define("_ISNOT","är inte");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Har vidtagit alla de tilldelade lektioner");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Har vidtagit alla de tilldelade kurser");//Has completed all assigned courses (New)
+define("_HAS","Har");//Has (New)
+define("_HASNOT","Har inte");//Has not (New)
+define("_ENROLLEDTO","Inskrivna");//Enrolled to (New)
+define("_BETWEEN","Mellan");//Between (New)
+define("_ISASSIGNED","Tillskrivs");//Is assigned (New)
+define("_ISNOTASSIGNED","Hänförs inte");//Is not assigned (New)
+define("_DURINGLASTDAY","senaste 24h");//last 24h (New)
+define("_DURINGLASTWEEK","förra veckan");//last week (New)
+define("_DURINGLASTMONTH","senaste månaden");//last month (New)
+define("_COLUMN","Kolumn");//Column (New)
+define("_SELECTCOLUMN","Välj kolumn");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Lämna tomt för att automatiskt justera bredden");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Lämna tomt för att använda kolumnnamn");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Bredd (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Välj en kolumn");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Ändra kolumnerna för");//Change the columns order (New)
+define("_VIEWINGREPORT","Kollar på rapport");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Välj en förutsättning");//Please select a condition (New)
+define("_BASIC","Grundläggande");//Basic (New)
+define("_LEARNING","Lärande");//Learning (New)
+define("_ENTERPRISE","Enterprise");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Dra objekt för att ändra ordning");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Anpassade fält");//Custom fields (New)
+define("_FORMATTEDLOGIN","Formaterad inloggning");//Formatted login (New)
+define("_DEFAULTSORT","Standard sortera");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operatör har företräde");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Aktuell sida operationer");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Eller ange en ny grupp att lägga till");//Or specify a new group to add to (New)
+define("_ADDTO","Lägg till");//Add to (New)
+define("_REMOVEFROM","Ta bort från");//Remove from (New)
+define("_GROUPOPERATIONS","Koncernens verksamhet");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Intyg operationer");//Certificate operations (New)
+define("_LESSONOPERATIONS","Lektion operationer");//Lesson operations (New)
+define("_COURSEOPERATIONS","Hästkapplöpningsbanor");//Course operations (New)
+define("_EXPORTTOCSV","Exportera till CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Inga händelser kod som avses");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Filer har importerats");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Konvertera mappar till nästlade hierarki");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Temat är låst");//The theme is locked (New)
+define("_BLANKREPORT","Blank rapport");//Blank report (New)
+define("_CUSTOMREPORTS","Anpassade rapporter");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Systemadministratören kommer att se över och aktivera dina anmälningar");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Uppdatera tabell");//Refresh table (New)
+define("_REMOVEFROMSET","Ta bort från uppsättning");//Remove from set (New)
+define("_BRANCHTREE","Branch träd");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Ändra villkor för");//Change condition order (New)
+define("_INDEX","Index");//Index (New)
+define("_EVENTDATETIME","Event datum och tid");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Intyget filen saknas eller är skadad och därmed har återställts");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

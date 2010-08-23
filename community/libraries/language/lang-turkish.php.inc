@@ -44,7 +44,7 @@ define("_RESTORE","Geri Yükleme");//Restore
 define("_FREE","Ücretsiz ders");//Free lesson
 define("_SUCCESSREGISTER","Başarıyla kayıt oldunuz");//You have registered successfully
 define("_LESSONSREGISTRATION","Ders kaydı");//Lesson registration
-define("_YOUREMAIL","E-postanız");//Your e-mail 
+define("_YOUREMAIL","E-postanız");//Your Email 
 define("_MESSAGESUBJECT","Mesaj Konusu");//Message subject
 define("_PASSWORDLEAVEBLANK","Parola (değiştirmeden bırakmak için boş bırakın)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Kişisel bilgileriniz başarıyla değiştirildi");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","E-posta gönderildi");//Email was sent to
 define("_CHOOSELESSON","Ders seçin");//Choose lesson
 define("_SUBJECT","Konu");//Subject
 define("_RECIPIENTSSELECTION","Alıcı seçimi");//Recipients selection
-define("_EMAILBODY","E-posta Metni");//E-mail body
-define("_SENDEMAIL","E-posta Gönder");//Send E-mail
+define("_EMAILBODY","E-posta Metni");//Email body
+define("_SENDEMAIL","E-posta Gönder");//Send Email
 define("_EXIT","Çıkış");//Exit
 define("_MORE","daha fazla");//more
 define("_DELETE","Sil");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Kontrol merkezi");//Control center
 define("_EXAMPLES","Örnekler");//Examples
 define("_FORUM","Forum");//Forum
 define("_NOCONTENT","Birim içerik olmadan");//Unit without content
-define("_INACTIVE","Kapalı birimi");//Inactive unit
+define("_INACTIVE","Kapalı birimi");//Inactive
 define("_CONTENTMANAGEMENT","Içerik");//Content
 define("_SCHEDULING","Planlama");//Scheduling
 define("_OFDEVELOPMENT","gelişme");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Sonuç yok kişisel mesaj bulundu");
 define("_SEARCHRESULTSINPERSONALMESSAGES","Kişisel mesajları arama sonuçları");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Kurs arama sonuçları");//Search results in courses
 define("_MESSAGEFOLDER","Mesaj klasörü");//Message folder
-define("_EMAIL","e-posta");//e-mail
+define("_EMAIL","e-posta");//Email
 define("_RESETPASSWORD","Şifre");//Reset password
 define("_JOINED","Kayıt");//Joined
 define("_MOREINFO","Daha fazla bilgi");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Sayfanın başına git");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Sayfanın altına git");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Anket henüz kullanıcılar tarafından yapılmadı");//No user has done this survey yet
 define("_SYSTEM","Sistem");//System
-define("_EMAILCONFIGURATIONS","E-posta sunucu yapılandırması");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-posta sunucu yapılandırması");//Emails server configuration
 define("_SAWUNIT","Üniteyi tamamladım olarak işaretle");//Set the unit as completed
 define("_NOTSAWUNIT","Üniteyi tamamlamamış olarak işaretle");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Tamamlan koşullar");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Gönder anket");//Submit survey
 define("_ROWSPERPAGE","Sayfa başına Satır");//Rows per page
 define("_FILTER","Filtre");//Filter
 define("_OF","onun");//of
-define("_SENDALSOVIAEMAIL","E davet Gönder");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","E davet Gönder");//Send invitation via Email
 define("_STYLE","Stil");//Style
 define("_MENU","Menü");//Menu
 define("_SELECTION","Seçim");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Modül başarıyla silindi");//The module wa
 define("_AUTHOR","Yazar");//Author
 define("_VERSION","Sürüm");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","CSV dosyasında alanlar aşağıdaki alanları içermelidir");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Alanları kırmızı zorunlu bulunmaktadır. Eğer verilen bir şifre, ilk şifre giriş aynı ayarlanacak.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Alanları kırmızı zorunlu bulunmaktadır. Eğer verilen bir şifre, ilk şifre giriş aynı ayarlanacak.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Lütfen CSV dosya biçimini kontrol");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Bu şablonu, organizasyon adı #, kullanıcı adı # # kullanıcı_adı için kullanıcının soyadı # # user_surname için tarih notu # # # # course_name notu ders adı için # ve tarih # # organizasyon için kullanın.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Oy");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Ata kullanıcılar");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Ata kullanıcılar şube için");//Assign users to branch 
 define("_EDITSKILL","Düzenle beceri");//Edit skill
 define("_ASSIGNSKILL","Ata beceri");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Ata kullanıcılar beceri");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Ata kullanıcılar beceri");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Hayır şube tescil edilmiştir");//No branches have been registered
 define("_ORGANIZATION","Organizasyon");//Organization
 define("_SEARCHFOREMPLOYEE","Kullanıcı için arama [Organizasyon kriterleri]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Anket özellikleri");//Poll properties
 define("_FORUMPROPERTIES","Forum özellikleri");//Forum properties
 define("_UPDATETHEME","Güncelleme tema");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Bu kullanıcı girişi ve hesap şifrenizi sağlayarak varolan eFront biri ile Facebook hesabınıza bağlayabilirsiniz");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Orada aynı e-posta adresiyle birden fazla kullanıcı var. Formu aşağıda giriş kullanın");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Orada aynı e-posta adresiyle birden fazla kullanıcı var. Formu aşağıda giriş kullanın");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Mapped hesabınız başarıyla silindi");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Tema özellikleri");//Theme properties
 define("_CHANGETHEME","Değiştirmek bahis");//Change theme
@@ -3500,7 +3500,7 @@ define("_SUPERVISORDESCRIPTION","Gözetmen alan adı etkinleştirme");//Activati
 define("_LEAVEEMPTYTONOTUSE","Ommit boş bırak");//Leave empty to ommit
 define("_PLEASESELECT","Lütfen seçin");//Please select
 define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","Amirinle hesabınızı aktive eder");//Your supervisor will activate your account
-define("_INVALIDPARAMETER","Geçersiz parametre");//Invalid parameter (New)
+define("_INVALIDPARAMETER","Geçersiz parametre");//Invalid parameter
 define("_IMS","IMS");//IMS
 define("_IMSIMPORT","İthalat IMS İçerik");//Import IMS Content
 define("_IMSEXPORT","İhracat IMS İçerik");//Export IMS Content
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","Küçücük 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Testi tamamladıktan sonra sadece mesaj göster");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Test başarıyla gönderildi");//This test was successfully submitted
 define("_LEARNINGSTATUS","Eğitim Durumu");//Learning Status
-define("_HASNOTANEMAILADDRESS","bir e-posta adresi yok");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","bir e-posta adresi yok");//has not an Email address
 define("_FEEDBACK","Geri bildirim");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","grup yerleştirin kullanıcılar");//Insert users into group
 define("_INSERTINTONEWGROUP","Yeni ekle gruba");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web sunucusu kaydı");//Web server registration
 define("_USEORLOGICTOCORRECTANSWERS","Kullanım OR mantık doğru cevabı hesaplamak için");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Değişken% x devam etmek için &quot;%y&quot; içermelidir");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","halk aç birim penceresi");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","zaten (arşivlenmiş) var belirtilen giriş kullanan bir kullanıcı");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Etkinlikler boyutu");//Events size (New)
-define("_OLDESTEVENT","En eski olay");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Temizle olaylar daha yaşlı");//Purge events older than (New)
-define("_PURGEEVENTS","Purge olaylar");//Purge events (New)
-define("_USERSEPERUSERTYPE","kullanıcı başına Kullanıcılar türü");//Users per user type (New)
-define("_MINUTESPERUSER","Dakika kullanıcı başına");//Minutes per user (New)
-define("_LOGINSPERDAY","Günde Girişler");//Logins per day (New)
-define("_ACCESSES","Girişler");//Accesses (New)
-define("_ACCESSESPERUSER","kullanıcı başına Girişler");//Accesses per user (New)
-define("_ACCESSESPERDAY","Günde Girişler");//Accesses per day (New)
-define("_OCCURENCES","Oluşumları");//Occurences (New)
-define("_SCORES","Skorlar");//Scores (New)
-define("_PROPAGATECOURSE","Üremek ders");//Propagate course (New)
-define("_LESSONSTRUCTURE","Ders yapı");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Bir yönetici ders sayfalarına erişemiyorum");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X müdür ve% y dosyaları yazılabilir web sunucusu tarafından değildir. <br> Tıkırtı <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>burada</a> raporunu tamamlamak için download a");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Burayı yazma izinlerini ayarlamak için");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Burayı yazma unset için");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Izinler");//Set permissions (New)
-define("_UNSETPERMISSIONS","Unset izinleri");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Bu işlemi tüm dosya ve klasörlere yazılabilir web sunucusu tarafından gereken izinleri ayarlama çalışacağız. Otomatik güncellemeleri yapmak ve isterseniz yararlı durumlarda sırasında veya yükselttikten sonra sorunlar yaşıyorsanız olabilir bu zorunludur. Diğer taraftan, tüm dosyalar belirli şartlar altında bir güvenlik tehdidi oluşturabilecek yazılabilir bırakarak.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Bu işlemi tüm dosya ve klasörleri olmayan yazılabilir web sunucusu tarafından gereken izinleri ayarlama, bu sistem için zorunlu işlevini doğru hariç çalışacağız. Bu en güvenli ayar ancak otomatik güncelleme, sisteme önleyecektir");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Burayı izinleri kontrol etmek");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","izinlerini denetleyin");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Bu işlem hangi dosyaların ve sistem klasörlerini yazılabilir web sunucusu tarafından değil kontrol edecek");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operasyon sonucu");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Herhangi bir işlem henüz yapıldı");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ Klasör bazı dosyalar yazılabilir değildir. Lütfen bakım &#39;izinler&#39; bölümünü ziyaret edin -&gt; temizleme izinleri kontrol etmek ve bu dosyaları inceleme");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Aksi takdirde, <button onclick = \"location='index.php?ctg=signup'\">hesap yeni</button> olabilir oluşturun");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Senin yerinde ücretsiz dersler ve ders alındı. Lütfen olmayan ücretsiz ders ve ders seçiminizi gözden altında");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Amirleri");//Supervisors (New)
-define("_COURSEOPTIONS","Kurs seçenekleri");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","zaten (arşivlenmiş) var belirtilen giriş kullanan bir kullanıcı");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Etkinlikler boyutu");//Events size
+define("_OLDESTEVENT","En eski olay");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Temizle olaylar daha yaşlı");//Purge events older than
+define("_PURGEEVENTS","Purge olaylar");//Purge events
+define("_USERSEPERUSERTYPE","kullanıcı başına Kullanıcılar türü");//Users per user type
+define("_MINUTESPERUSER","Dakika kullanıcı başına");//Minutes per user
+define("_LOGINSPERDAY","Günde Girişler");//Logins per day
+define("_ACCESSES","Girişler");//Accesses
+define("_ACCESSESPERUSER","kullanıcı başına Girişler");//Accesses per user
+define("_ACCESSESPERDAY","Günde Girişler");//Accesses per day
+define("_OCCURENCES","Oluşumları");//Occurences
+define("_SCORES","Skorlar");//Scores
+define("_PROPAGATECOURSE","Üremek ders");//Propagate course
+define("_LESSONSTRUCTURE","Ders yapı");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Bir yönetici ders sayfalarına erişemiyorum");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X müdür ve% y dosyaları yazılabilir web sunucusu tarafından değildir. <br> Tıkırtı <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>burada</a> raporunu tamamlamak için download a");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Burayı yazma izinlerini ayarlamak için");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Burayı yazma unset için");//Click here to unset write permissions
+define("_SETPERMISSIONS","Izinler");//Set permissions
+define("_UNSETPERMISSIONS","Unset izinleri");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Bu işlemi tüm dosya ve klasörlere yazılabilir web sunucusu tarafından gereken izinleri ayarlama çalışacağız. Otomatik güncellemeleri yapmak ve isterseniz yararlı durumlarda sırasında veya yükselttikten sonra sorunlar yaşıyorsanız olabilir bu zorunludur. Diğer taraftan, tüm dosyalar belirli şartlar altında bir güvenlik tehdidi oluşturabilecek yazılabilir bırakarak.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Bu işlemi tüm dosya ve klasörleri olmayan yazılabilir web sunucusu tarafından gereken izinleri ayarlama, bu sistem için zorunlu işlevini doğru hariç çalışacağız. Bu en güvenli ayar ancak otomatik güncelleme, sisteme önleyecektir");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Burayı izinleri kontrol etmek");//Click here to check permissions
+define("_CHECKPERMISSIONS","izinlerini denetleyin");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Bu işlem hangi dosyaların ve sistem klasörlerini yazılabilir web sunucusu tarafından değil kontrol edecek");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operasyon sonucu");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Herhangi bir işlem henüz yapıldı");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ Klasör bazı dosyalar yazılabilir değildir. Lütfen bakım &#39;izinler&#39; bölümünü ziyaret edin -&gt; temizleme izinleri kontrol etmek ve bu dosyaları inceleme");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Aksi takdirde, <button onclick = \"location='index.php?ctg=signup'\">hesap yeni</button> olabilir oluşturun");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Senin yerinde ücretsiz dersler ve ders alındı. Lütfen olmayan ücretsiz ders ve ders seçiminizi gözden altında");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Amirleri");//Supervisors
+define("_COURSEOPTIONS","Kurs seçenekleri");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Tüm kullanıcılar için Reset infaz");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Kullanıcılar raporları jeneratör");//Users reports generator (New)
+define("_ADDTOGROUP","Gruba ekle");//Add to group (New)
+define("_ASSIGNCOURSE","Ata ders");//Assign course (New)
+define("_ASSIGNLESSON","Ata ders");//Assign lesson (New)
+define("_REMOVECOURSE","Kaldır ders");//Remove course (New)
+define("_REMOVELESSON","Kaldır dersi");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Gruptan kaldır");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Reset öğrenme sürecinin");//Reset learning progress (New)
+define("_BUILDER","Inşaatçı");//Builder (New)
+define("_ADDREPORT","Ekle yeni bir rapor");//Add new report (New)
+define("_CONDITIONTYPE","Durum türü");//Condition type
+define("_CONDITIONSPECIFICATION","Durum özellikleri");//Condition specification (New)
+define("_ADDCOLUMN","Eklemek sütun");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","İlişkisi sonraki");//Relation with next (New)
+define("_COLUMNTYPE","Kolon tipi");//Column type (New)
+define("_GRIDNAME","Grid ismi");//Grid name (New)
+define("_ALIGNED","Hizalanmış");//Aligned (New)
+define("_SELECTREPORT","Select raporu");//Select report (New)
+define("_AVAILABLEREPORTS","Kullanılabilir raporlar");//Available reports (New)
+define("_EDITREPORT","Edit raporu");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Hiçbir raporlar sistem tanımlanmıştır. Lütfen");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","oluşturmak");//create one (New)
+define("_NEWREPORT","Yeni bir rapor");//New report (New)
+define("_REPORTNAME","Rapor adı");//Report name (New)
+define("_SELECTCONDITION","Select durum");//Select condition (New)
+define("_ISNOT","değil");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Olan tüm dersleri atanan tamamlandı");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Has tüm dersleri atanan tamamlandı");//Has completed all assigned courses (New)
+define("_HAS","Has");//Has (New)
+define("_HASNOT","Henüz");//Has not (New)
+define("_ENROLLEDTO","için Kayıt Yaptıran");//Enrolled to (New)
+define("_BETWEEN","Arasında");//Between (New)
+define("_ISASSIGNED","atanmış mı");//Is assigned (New)
+define("_ISNOTASSIGNED","atanmış değil");//Is not assigned (New)
+define("_DURINGLASTDAY","son 24 saat");//last 24h (New)
+define("_DURINGLASTWEEK","geçen hafta");//last week (New)
+define("_DURINGLASTMONTH","geçen ay");//last month (New)
+define("_COLUMN","Sütun");//Column (New)
+define("_SELECTCOLUMN","Seç sütunu");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","için boş auto-genişliğini ayarlayabilirsiniz bırak");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","boş isim sütunu kullanmak bırak");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Genişlik (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Lütfen bir sütunu seçin");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Değişim sütunlar sırası");//Change the columns order (New)
+define("_VIEWINGREPORT","Inceleyen rapor");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Lütfen bir koşul seçin");//Please select a condition (New)
+define("_BASIC","Temel");//Basic (New)
+define("_LEARNING","Öğrenme");//Learning (New)
+define("_ENTERPRISE","Girişim");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","öğeler Drag sırasını değiştirmek için");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Özel alanlar");//Custom fields (New)
+define("_FORMATTEDLOGIN","Biçimlendirilmiş giriş");//Formatted login (New)
+define("_DEFAULTSORT","Varsayılan sıralama");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operatörü önceliklidir");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Geçerli sayfa operasyonları");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Eklemek veya yeni bir grup belirleyebilirsiniz");//Or specify a new group to add to (New)
+define("_ADDTO","Ekle");//Add to (New)
+define("_REMOVEFROM","Kaldır");//Remove from (New)
+define("_GROUPOPERATIONS","Grup operasyonları");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Sertifika işlemleri");//Certificate operations (New)
+define("_LESSONOPERATIONS","Ders işlemleri");//Lesson operations (New)
+define("_COURSEOPERATIONS","Ders işlemleri");//Course operations (New)
+define("_EXPORTTOCSV","Aktar csv");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Hiçbir durumda kod tanımlanmış");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Dosyalar başarıyla");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","İç içe hiyerarşi dönüştürme klasörleri");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress zip dosya (lar) ve ithalat içeriği");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Tema kilitli");//The theme is locked (New)
+define("_BLANKREPORT","Boş raporu");//Blank report (New)
+define("_CUSTOMREPORTS","Özel raporlar");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Sistem yöneticisi gözden geçirecek ve kayıtları etkinleştirmek");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Yenile tablo");//Refresh table (New)
+define("_REMOVEFROMSET","Kaldır kümesindeki");//Remove from set (New)
+define("_BRANCHTREE","Şube ağaç");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Durum değişikliği sipariş");//Change condition order (New)
+define("_INDEX","Indeks");//Index (New)
+define("_EVENTDATETIME","Olay tarihi ve saati");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifika dosya eksik veya bozuk ve böylece sıfırlandığını");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

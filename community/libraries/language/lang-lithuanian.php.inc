@@ -44,7 +44,7 @@ define("_RESTORE","Atkurti");//Restore
 define("_FREE","Nemokamas pamoka");//Free lesson
 define("_SUCCESSREGISTER","Jūs registruotas sėkmingai");//You have registered successfully
 define("_LESSONSREGISTRATION","Pamoka registracija");//Lesson registration
-define("_YOUREMAIL","Jūsų e-mail");//Your e-mail 
+define("_YOUREMAIL","Jūsų e-mail");//Your Email 
 define("_MESSAGESUBJECT","Pranešimo tema");//Message subject
 define("_PASSWORDLEAVEBLANK","Slaptažodis (tuščia nekeisti)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Jūsų asmeninė informacija buvo sėkmingai pakeista");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Laiškas buvo išsiųstas į");//Email was sent to
 define("_CHOOSELESSON","Pasirinkite pamoką");//Choose lesson
 define("_SUBJECT","Dalykas");//Subject
 define("_RECIPIENTSSELECTION","Gavėjų atranka");//Recipients selection
-define("_EMAILBODY","E-mail įstaiga");//E-mail body
-define("_SENDEMAIL","Siųsti e-mail");//Send E-mail
+define("_EMAILBODY","E-mail įstaiga");//Email body
+define("_SENDEMAIL","Siųsti e-mail");//Send Email
 define("_EXIT","Atsijungti");//Exit
 define("_MORE","daugiau");//more
 define("_DELETE","Ištrinti");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Kontrolės centras");//Control center
 define("_EXAMPLES","Pavyzdžiai");//Examples
 define("_FORUM","Forumas");//Forum
 define("_NOCONTENT","Vienetas be turinio");//Unit without content
-define("_INACTIVE","Neaktyvūs vieneto");//Inactive unit
+define("_INACTIVE","Neaktyvūs vieneto");//Inactive
 define("_CONTENTMANAGEMENT","Turinys");//Content
 define("_SCHEDULING","Tvarkaraštis");//Scheduling
 define("_OFDEVELOPMENT","plėtojimasis");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Rezultatų nerasta asmeninių prane�
 define("_SEARCHRESULTSINPERSONALMESSAGES","Paieškos rezultatai asmeninių pranešimų");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Paieškos rezultatai kursuose");//Search results in courses
 define("_MESSAGEFOLDER","Pranešimas katalogą");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Atstatyti slaptažodį");//Reset password
 define("_JOINED","Prisijungė");//Joined
 define("_MOREINFO","Daugiau informacijos");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Nueikite į viršų");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Pereikite prie puslapio apačioje");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","Nė vienas vartotojas padarė šį tyrimą dar");//No user has done this survey yet
 define("_SYSTEM","Sistema");//System
-define("_EMAILCONFIGURATIONS","E-mail serverio konfigūracijos");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-mail serverio konfigūracijos");//Emails server configuration
 define("_SAWUNIT","Nustatykite vieneto užbaigtais");//Set the unit as completed
 define("_NOTSAWUNIT","Nustatykite vieneto kaip nebaigė");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Sąlygos baigtas");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Pateikti tyrimo");//Submit survey
 define("_ROWSPERPAGE","Eilučių puslapyje");//Rows per page
 define("_FILTER","Filtruoti");//Filter
 define("_OF","iš");//of
-define("_SENDALSOVIAEMAIL","Siųsti kvietimus elektroniniu paštu");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Siųsti kvietimus elektroniniu paštu");//Send invitation via Email
 define("_STYLE","Stilius");//Style
 define("_MENU","Meniu");//Menu
 define("_SELECTION","Atranka");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Modulis buvo sėkmingai ištrintas");//The m
 define("_AUTHOR","Autorius");//Author
 define("_VERSION","Versija");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Laukai Jūsų Csv turi būti šie laukai");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Laukai, pažymėti raudona yra privalomi. Jei nėra slaptažodį pateikta, pirminis slaptažodis bus nustatyti tokie patys, kaip prisijungti.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Laukai, pažymėti raudona yra privalomi. Jei nėra slaptažodį pateikta, pirminis slaptažodis bus nustatyti tokie patys, kaip prisijungti.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Prašome patikrinti formato failą CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Į šabloną, naudokite # organizavimo # organizacijos pavadinimas, # # vartotojo_vardas vartotojo vardą, # user_surname # naudotojo pavardė, # # course_name už kurso pavadinimą, # laipsnių # klasės ir # # data ir data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Balsavimas");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Priskirti vartotojams");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Priskirti vartotojams filialas");//Assign users to branch 
 define("_EDITSKILL","Redaguoti įgūdžių");//Edit skill
 define("_ASSIGNSKILL","Susieti įgūdžių");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Priskirti vartotojams įgūdžių");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Priskirti vartotojams įgūdžių");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","Nr filialuose buvo užregistruota");//No branches have been registered
 define("_ORGANIZATION","Organizacija");//Organization
 define("_SEARCHFOREMPLOYEE","Ieškoti vartotojo [Organizacija kriterijai]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Apklausa savybės");//Poll properties
 define("_FORUMPROPERTIES","Forumas savybės");//Forum properties
 define("_UPDATETHEME","Atnaujinti tema");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Galite prijungti savo Facebook sąskaitą su esama eFront vienas teikiant vartotojo vardą ir slaptažodį, kad sąskaitą");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Yra daugiau nei vienas vartotojams su tuo pačiu elektroninio pašto adresą. Naudokite savo prisijungimo vardą žemiau esančią formą");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","Yra daugiau nei vienas vartotojams su tuo pačiu elektroninio pašto adresą. Naudokite savo prisijungimo vardą žemiau esančią formą");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Atvaizduotos sąskaita buvo sėkmingai ištrintas");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Tema savybės");//Theme properties
 define("_CHANGETHEME","Keisti temą");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Rodyti tik po pateikimo bandymas pranešimas");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Šis bandymas buvo sėkmingai pateiktas");//This test was successfully submitted
 define("_LEARNINGSTATUS","Mokymai statusas");//Learning Status
-define("_HASNOTANEMAILADDRESS","nėra elektroninio pašto adresas");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","nėra elektroninio pašto adresas");//has not an Email address
 define("_FEEDBACK","Grįžtamasis ryšys");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Įtraukti vartotojus į grupę");//Insert users into group
 define("_INSERTINTONEWGROUP","Įtraukti į naują grupę");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web serverio registracija");//Web server regist
 define("_USEORLOGICTOCORRECTANSWERS","Naudokite ar loginės apskaičiuoti teisingą atsakymą");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Kintamasis% x turi būti &quot;%y&quot;, kad ir toliau");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Atidaryti vienetas lango");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Su nurodytu vardas jau egzistuoja (archyvą vartotojas)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Renginiai dydis");//Events size (New)
-define("_OLDESTEVENT","Seniausi atveju");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Išvalyti Renginiai vyresni nei");//Purge events older than (New)
-define("_PURGEEVENTS","Išvalyti Renginiai");//Purge events (New)
-define("_USERSEPERUSERTYPE","Vartotojai vienam vartotojui tipas");//Users per user type (New)
-define("_MINUTESPERUSER","Protokolas vienam vartotojui");//Minutes per user (New)
-define("_LOGINSPERDAY","Prisijungimai per dieną");//Logins per day (New)
-define("_ACCESSES","Užklausos");//Accesses (New)
-define("_ACCESSESPERUSER","Užklausos vienam vartotojui");//Accesses per user (New)
-define("_ACCESSESPERDAY","Užklausos per dieną");//Accesses per day (New)
-define("_OCCURENCES","Įvykiai");//Occurences (New)
-define("_SCORES","Natos");//Scores (New)
-define("_PROPAGATECOURSE","Paplitimas kursai");//Propagate course (New)
-define("_LESSONSTRUCTURE","Pamoka struktūra");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administratorius negali patekti pamoka puslapių");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X katalogų ir% Y failai negali rašyti serveryje. <br> Spauskite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>čia</a> norėdami parsisiųsti visą pranešimą");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Spauskite čia, jei norite rašyti leidimus");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Spauskite čia norėdami išjungimo rašymo teises");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Nustatykite failo");//Set permissions (New)
-define("_UNSETPERMISSIONS","Atšaukti leidimą");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Ši operacija bus bandoma nustatyti teises į visus failus ir katalogus, kurie bus rašyti į interneto serverį. Tai yra privaloma, jei norite atlikti automatinį atnaujinimą ir gali būti naudinga tais atvejais jūs patiriate problemų metu arba po atnaujinimo. Kita vertus, palikus visus failus rašyti gali kelti grėsmę saugumui, tam tikromis aplinkybėmis.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Ši operacija bus bandoma nustatyti teises į visus failus ir katalogus, kurie bus ne rašyti į interneto serverį, išskyrus tuos, kurie privalomi sistema veiktų tinkamai. Tai yra saugus nustatymas, bet neleis sistemos modernizavimo automatiškai");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Spauskite čia norėdami patikrinti leidimus");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Patikrinkite leidimus");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Ši operacija bus patikrinti, kurie failai ir aplankai jūsų sistema yra negali rašyti serverio");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Operacijos rezultatas");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Nr operacija, atliekama dar");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Kai kurie failai / aplankai negali rašyti. Prašome apsilankyti \"teises\" skyrių išlaikymo -&gt; cleanup patikrinti leidimus ir peržiūrėti failus");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Priešingu atveju, galite sukurti <button onclick = \"location='index.php?ctg=signup'\">naują paskyrą</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs, buvo įtraukti į laisvas pamokas ir paskaitas. Prašome peržiūrėti žemiau savo pasirinkimą ne laisvas pamokas ir kursai");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Priežiūros");//Supervisors (New)
-define("_COURSEOPTIONS","Modulio puslapį");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Su nurodytu vardas jau egzistuoja (archyvą vartotojas)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Renginiai dydis");//Events size
+define("_OLDESTEVENT","Seniausi atveju");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Išvalyti Renginiai vyresni nei");//Purge events older than
+define("_PURGEEVENTS","Išvalyti Renginiai");//Purge events
+define("_USERSEPERUSERTYPE","Vartotojai vienam vartotojui tipas");//Users per user type
+define("_MINUTESPERUSER","Protokolas vienam vartotojui");//Minutes per user
+define("_LOGINSPERDAY","Prisijungimai per dieną");//Logins per day
+define("_ACCESSES","Užklausos");//Accesses
+define("_ACCESSESPERUSER","Užklausos vienam vartotojui");//Accesses per user
+define("_ACCESSESPERDAY","Užklausos per dieną");//Accesses per day
+define("_OCCURENCES","Įvykiai");//Occurences
+define("_SCORES","Natos");//Scores
+define("_PROPAGATECOURSE","Paplitimas kursai");//Propagate course
+define("_LESSONSTRUCTURE","Pamoka struktūra");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Administratorius negali patekti pamoka puslapių");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X katalogų ir% Y failai negali rašyti serveryje. <br> Spauskite <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>čia</a> norėdami parsisiųsti visą pranešimą");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Spauskite čia, jei norite rašyti leidimus");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Spauskite čia norėdami išjungimo rašymo teises");//Click here to unset write permissions
+define("_SETPERMISSIONS","Nustatykite failo");//Set permissions
+define("_UNSETPERMISSIONS","Atšaukti leidimą");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Ši operacija bus bandoma nustatyti teises į visus failus ir katalogus, kurie bus rašyti į interneto serverį. Tai yra privaloma, jei norite atlikti automatinį atnaujinimą ir gali būti naudinga tais atvejais jūs patiriate problemų metu arba po atnaujinimo. Kita vertus, palikus visus failus rašyti gali kelti grėsmę saugumui, tam tikromis aplinkybėmis.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Ši operacija bus bandoma nustatyti teises į visus failus ir katalogus, kurie bus ne rašyti į interneto serverį, išskyrus tuos, kurie privalomi sistema veiktų tinkamai. Tai yra saugus nustatymas, bet neleis sistemos modernizavimo automatiškai");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Spauskite čia norėdami patikrinti leidimus");//Click here to check permissions
+define("_CHECKPERMISSIONS","Patikrinkite leidimus");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Ši operacija bus patikrinti, kurie failai ir aplankai jūsų sistema yra negali rašyti serverio");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Operacijos rezultatas");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Nr operacija, atliekama dar");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Kai kurie failai / aplankai negali rašyti. Prašome apsilankyti \"teises\" skyrių išlaikymo -&gt; cleanup patikrinti leidimus ir peržiūrėti failus");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Priešingu atveju, galite sukurti <button onclick = \"location='index.php?ctg=signup'\">naują paskyrą</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs, buvo įtraukti į laisvas pamokas ir paskaitas. Prašome peržiūrėti žemiau savo pasirinkimą ne laisvas pamokas ir kursai");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Priežiūros");//Supervisors
+define("_COURSEOPTIONS","Modulio puslapį");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Atstatyti bausmė visiems vartotojams");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Vartotojai ataskaitų generatorius");//Users reports generator (New)
+define("_ADDTOGROUP","Įtraukti į grupę");//Add to group (New)
+define("_ASSIGNCOURSE","Priskirti kursą");//Assign course (New)
+define("_ASSIGNLESSON","Priskirti pamoka");//Assign lesson (New)
+define("_REMOVECOURSE","Pašalinti kursai");//Remove course (New)
+define("_REMOVELESSON","Pašalinti pamoka");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Pašalinti iš grupės");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Atstatyti mokymosi pažangą");//Reset learning progress (New)
+define("_BUILDER","Statybininkas");//Builder (New)
+define("_ADDREPORT","Pridėti naują pranešimą");//Add new report (New)
+define("_CONDITIONTYPE","Būklė tipas");//Condition type
+define("_CONDITIONSPECIFICATION","Būklė specifikacija");//Condition specification (New)
+define("_ADDCOLUMN","Pridėti stulpelį");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Santykis su šalia");//Relation with next (New)
+define("_COLUMNTYPE","Tipas stulpelio");//Column type (New)
+define("_GRIDNAME","Tinklelis pavadinimas");//Grid name (New)
+define("_ALIGNED","Aligned");//Aligned (New)
+define("_SELECTREPORT","Pasirinkite pranešimą");//Select report (New)
+define("_AVAILABLEREPORTS","Galimos ataskaitos");//Available reports (New)
+define("_EDITREPORT","Redaguoti pranešimą");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Nėra pranešimų, apibrėžtų šioje sistemoje. Prašom");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","sukurti vieną");//create one (New)
+define("_NEWREPORT","Naujas pranešimas");//New report (New)
+define("_REPORTNAME","Ataskaitos pavadinimas");//Report name (New)
+define("_SELECTCONDITION","Pasirinkite sąlyga");//Select condition (New)
+define("_ISNOT","nėra");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Baigė visas priskiriamas pamokos");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Baigė visas priskiriamas kursai");//Has completed all assigned courses (New)
+define("_HAS","Ar");//Has (New)
+define("_HASNOT","Ar ne");//Has not (New)
+define("_ENROLLEDTO","DC į");//Enrolled to (New)
+define("_BETWEEN","Tarp");//Between (New)
+define("_ISASSIGNED","Priskiriama");//Is assigned (New)
+define("_ISNOTASSIGNED","Nėra priskirta");//Is not assigned (New)
+define("_DURINGLASTDAY","per paskutines 24 valandas");//last 24h (New)
+define("_DURINGLASTWEEK","praėjusią savaitę");//last week (New)
+define("_DURINGLASTMONTH","praėjusį mėnesį");//last month (New)
+define("_COLUMN","Skiltis");//Column (New)
+define("_SELECTCOLUMN","Pasirinkite stulpelį");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Palikite tuščią, kad auto-adjust plotis");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Palikite tuščią, kad naudoti stulpelio pavadinimo");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Plotis (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Pasirinkite stulpelį");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Pakeisti stulpelių tvarka");//Change the columns order (New)
+define("_VIEWINGREPORT","Peržiūri pranešimą");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Pasirinkite sąlyga");//Please select a condition (New)
+define("_BASIC","Pagrindinis");//Basic (New)
+define("_LEARNING","Mokymasis");//Learning (New)
+define("_ENTERPRISE","Įmonė");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Vilkite elementus pakeisti siekiant");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Vartotojo sukurti laukai");//Custom fields (New)
+define("_FORMATTEDLOGIN","Formatinio prisijungti");//Formatted login (New)
+define("_DEFAULTSORT","Numatytoji rūšiavimo");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; naudotojas turi viršenybę");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Current page operacijos");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Arba nurodykite naują grupę įtraukti į");//Or specify a new group to add to (New)
+define("_ADDTO","Pridėti į");//Add to (New)
+define("_REMOVEFROM","Pašalinti iš");//Remove from (New)
+define("_GROUPOPERATIONS","Grupės veikla");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Pažymėjimas operacijos");//Certificate operations (New)
+define("_LESSONOPERATIONS","Pamoka operacijos");//Lesson operations (New)
+define("_COURSEOPERATIONS","Modulio operacijos");//Course operations (New)
+define("_EXPORTTOCSV","Eksportuoti į CSV");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Jokiu kodu, apibrėžtu");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Failai sėkmingai importuotas");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Konvertuoti aplankus lizdinė struktūra");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Rozpakuj zip failas (-ai) ir importo kiekis");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Ši tema yra uždaryta");//The theme is locked (New)
+define("_BLANKREPORT","Tuščia ataskaita");//Blank report (New)
+define("_CUSTOMREPORTS","Kliento ataskaitos");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Sistemos administratorius peržiūrės ir aktyvuoti savo mokinių");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Atnaujinti lentelė");//Refresh table (New)
+define("_REMOVEFROMSET","Pašalinti iš nustatytų");//Remove from set (New)
+define("_BRANCHTREE","Skyrius medis");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Keisti sąlyga, kad");//Change condition order (New)
+define("_INDEX","Rodyklė");//Index (New)
+define("_EVENTDATETIME","Įvykio data ir laikas");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikato byla arba jis sugadintas ir taip buvo iš naujo");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

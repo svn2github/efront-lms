@@ -2,8 +2,8 @@
 if (is_file($GLOBALS['path']."language/custom-korean.php.inc")) {
 include($GLOBALS['path']."language/custom-korean.php.inc");
 }
-define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net (New)
-define("_EFRONTNAME","eFront");//eFront (New)
+define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
+define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","로그인 eFront로");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ko");//en
 define("_CURRENTLANGUAGESYMBOL","ko");//en
@@ -44,7 +44,7 @@ define("_RESTORE","복원 시스템");//Restore
 define("_FREE","무료 레슨");//Free lesson
 define("_SUCCESSREGISTER","성공적으로 등록");//You have registered successfully
 define("_LESSONSREGISTRATION","수업 등록");//Lesson registration
-define("_YOUREMAIL","전자 - 메일");//Your e-mail 
+define("_YOUREMAIL","전자 - 메일");//Your Email 
 define("_MESSAGESUBJECT","메시지 제목");//Message subject
 define("_PASSWORDLEAVEBLANK","비밀 번호 (그대로두고) 빈");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","귀하의 개인 정보를 성공적으로 바껴서");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","이메일로 보냈습니다");//Email was sent to
 define("_CHOOSELESSON","선택 수업");//Choose lesson
 define("_SUBJECT","주제");//Subject
 define("_RECIPIENTSSELECTION","받는 사람 선택");//Recipients selection
-define("_EMAILBODY","전자 - 메일 본문");//E-mail body
-define("_SENDEMAIL","이메일 보내기 - 메일");//Send E-mail
+define("_EMAILBODY","전자 - 메일 본문");//Email body
+define("_SENDEMAIL","이메일 보내기 - 메일");//Send Email
 define("_EXIT","출구");//Exit
 define("_MORE","기타");//more
 define("_DELETE","삭제");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","제어 센터");//Control center
 define("_EXAMPLES","예");//Examples
 define("_FORUM","포럼");//Forum
 define("_NOCONTENT","단위 콘텐츠없이");//Unit without content
-define("_INACTIVE","운영중지된 단위");//Inactive unit
+define("_INACTIVE","운영중지된 단위");//Inactive
 define("_CONTENTMANAGEMENT","내용");//Content
 define("_SCHEDULING","예약");//Scheduling
 define("_OFDEVELOPMENT","개발");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","개인 메시지에서 찾은 결과
 define("_SEARCHRESULTSINPERSONALMESSAGES","개인 메시지에 검색 결과");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","과정에 검색 결과");//Search results in courses
 define("_MESSAGEFOLDER","메시지 폴더");//Message folder
-define("_EMAIL","전자 - 메일");//e-mail
+define("_EMAIL","전자 - 메일");//Email
 define("_RESETPASSWORD","비밀 번호 재설정");//Reset password
 define("_JOINED","가입");//Joined
 define("_MOREINFO","상세 정보");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","페이지의 맨 위로 스크롤");//Scroll to top
 define("_SCROLLTOBOTTOMOFPAGE","페이지의 맨 아래로 스크롤");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","사용자는 아직 없음이 조사 하셨읍니다");//No user has done this survey yet
 define("_SYSTEM","시스템");//System
-define("_EMAILCONFIGURATIONS","전자 - 메일 서버 구성");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","전자 - 메일 서버 구성");//Emails server configuration
 define("_SAWUNIT","단위로 설정이 완료");//Set the unit as completed
 define("_NOTSAWUNIT","단위로 설정이 완료되지");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","약관 완성");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","설문 조사 제출");//Submit survey
 define("_ROWSPERPAGE","페이 지당 행");//Rows per page
 define("_FILTER","필터");//Filter
 define("_OF","의");//of
-define("_SENDALSOVIAEMAIL","이메일을 통해 초대장을 보내 - 메일");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","이메일을 통해 초대장을 보내 - 메일");//Send invitation via Email
 define("_STYLE","스타일");//Style
 define("_MENU","메뉴");//Menu
 define("_SELECTION","선택");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","이 모듈이 성공적으로 삭제되었�
 define("_AUTHOR","저자");//Author
 define("_VERSION","버젼");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","CSV 파일에있는 필드는 다음 필드를 포함해야합니다");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","필드가 빨간색으로 의무가없습니다. 경우에는 비밀 번호가 부여되면, 초기 비밀 번호 로그인과 같은 설정됩니다.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","필드가 빨간색으로 의무가없습니다. 경우에는 비밀 번호가 부여되면, 초기 비밀 번호 로그인과 같은 설정됩니다.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","CSV 파일의 형식을 확인하십시오");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","에있는 템플릿, 단체의 이름은 #, 사용자의 이름 # USER_NAME이 #, 대한 사용자의 성씨 # user_surname #, # 날짜 학년 # course_name # # 학년 과정의 이름과 날짜를 # # # 조직을 사용합니다.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","투표수");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","사용자 할당");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","사용자 할당 지점에");//Assign users to branch 
 define("_EDITSKILL","편집 기술");//Edit skill
 define("_ASSIGNSKILL","할당 기술");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","사용자 할당 기술");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","사용자 할당 기술");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","아니 가지 등록되어있다");//No branches have been registered
 define("_ORGANIZATION","조직도");//Organization
 define("_SEARCHFOREMPLOYEE","사용자에 대한 검색 [기구 기준]");//Find users [Organization criteria]
@@ -2607,156 +2607,156 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","참고 :이 장치는 하�
 define("_ACTIONONRENTRYCOMPLETED","액션 재에 - 항목");//Action on re-entry
 define("_LETCONTENTDECIDE","콘텐츠 결정하자");//Let content decide
 define("_DONTCHANGE","그대로 놔둬");//Leave unchanged
-define("_DASHBOARD","내 대시보드");//my Dashboard (New)
-define("_MYWALL","내 벽");//My wall (New)
-define("_RELATEDPEOPLE","관련 사람들");//Related people (New)
-define("_LEARNINGACTIVITY","학습 활동");//Learning activity (New)
-define("_TIMELINE","타임 라인");//Timeline (New)
-define("_WASASSIGNEDTHELESSON","교훈을 할당했습니다");//was assigned lesson (New)
-define("_WILLBETEACHINGLESSON","교훈을 가르치는 것입니다");//will be teaching the lesson (New)
-define("_HASCOMPLETEDLESSON","교훈을 완료했습니다");//has completed lesson (New)
-define("_NOLONGERATTENDSLESSON","더 오래 강의를 참석");//no longer attends lesson (New)
-define("_WROTEACOMMENTFORUNIT","단위에 대해 의견을 썼습니다");//wrote a comment for unit (New)
-define("_COMPLETEDTEST","테스트 완료");//completed test (New)
-define("_CREATEDTHENEWFORUM","새로운 포럼을 마련");//created the new forum (New)
-define("_CREATEDTHENEWTOPIC","새 주제를 작성");//created the new topic (New)
-define("_CREATEDTHENEWPOLL","새로운 설문 조사를 만들어");//created the new poll (New)
-define("_POSTEDTHENEWMESSAGE","새 메시지를 게시");//posted the new message (New)
-define("_CHANGEDHISHERPROFILE","그 / 그녀의 프로필을 변경");//changed his/her profile (New)
-define("_CHANGEDHISHERAVATARPICTURE","그 / 그녀 표시 사진 변경");//changed his/her display picture (New)
-define("_INTHEFORUMOFTHELESSON","수업의 포럼에서");//in the forum of the lesson (New)
-define("_OFTHELESSON","수업 중");//of the lesson (New)
-define("_FORTHELESSON","수업에 대한");//for the lesson (New)
-define("_CLICKTOCHANGESTATUS","클릭 상태 변경");//Click to change status (New)
-define("_SHORTDESCRIPTIONCV","간단한 설명 / 이력서");//Short description/CV (New)
-define("_APPLYPROFILECHANGES","프로필 변경 사항 적용");//Apply profile changes (New)
-define("_IS","입니다");//is (New)
-define("_SUCCESFULLYUPDATEDPROFILE","성공적으로 프로파일을 업데이트");//Successfully updated profile (New)
-define("_WRITESOMETHINGABOUTYOURSELF","자신에 대해 뭔가를 써주세요");//write something about yourself (New)
-define("_NAMEARTICLE","");// (New)
-define("_INVITETOCHATINCURRENTROOM","초대 현재 대화방에서 채팅");//Invite to chat in current room (New)
-define("_GOTODASHBOARD","대시보드로 이동");//Go to dashboard (New)
-define("_GOTOMYPROFILE","내 프로필로 이동");//Go to my profile (New)
-define("_GOTOPEOPLELIST","사람의 목록으로 이동");//Go to people&#039;s list (New)
-define("_PEOPLE","사람들");//People (New)
-define("_EVERYONE","모두");//Everyone (New)
+define("_DASHBOARD","내 대시보드");//my Dashboard
+define("_MYWALL","내 벽");//My wall
+define("_RELATEDPEOPLE","관련 사람들");//Related people
+define("_LEARNINGACTIVITY","학습 활동");//Learning activity
+define("_TIMELINE","타임 라인");//Timeline
+define("_WASASSIGNEDTHELESSON","교훈을 할당했습니다");//was assigned lesson
+define("_WILLBETEACHINGLESSON","교훈을 가르치는 것입니다");//will be teaching the lesson
+define("_HASCOMPLETEDLESSON","교훈을 완료했습니다");//has completed lesson
+define("_NOLONGERATTENDSLESSON","더 오래 강의를 참석");//no longer attends lesson
+define("_WROTEACOMMENTFORUNIT","단위에 대해 의견을 썼습니다");//wrote a comment for unit
+define("_COMPLETEDTEST","테스트 완료");//completed test
+define("_CREATEDTHENEWFORUM","새로운 포럼을 마련");//created the new forum
+define("_CREATEDTHENEWTOPIC","새 주제를 작성");//created the new topic
+define("_CREATEDTHENEWPOLL","새로운 설문 조사를 만들어");//created the new poll
+define("_POSTEDTHENEWMESSAGE","새 메시지를 게시");//posted the new message
+define("_CHANGEDHISHERPROFILE","그 / 그녀의 프로필을 변경");//changed his/her profile
+define("_CHANGEDHISHERAVATARPICTURE","그 / 그녀 표시 사진 변경");//changed his/her display picture
+define("_INTHEFORUMOFTHELESSON","수업의 포럼에서");//in the forum of the lesson
+define("_OFTHELESSON","수업 중");//of the lesson
+define("_FORTHELESSON","수업에 대한");//for the lesson
+define("_CLICKTOCHANGESTATUS","클릭 상태 변경");//Click to change status
+define("_SHORTDESCRIPTIONCV","간단한 설명 / 이력서");//Short description/CV
+define("_APPLYPROFILECHANGES","프로필 변경 사항 적용");//Apply profile changes
+define("_IS","입니다");//is
+define("_SUCCESFULLYUPDATEDPROFILE","성공적으로 프로파일을 업데이트");//Successfully updated profile
+define("_WRITESOMETHINGABOUTYOURSELF","자신에 대해 뭔가를 써주세요");//write something about yourself
+define("_NAMEARTICLE","");//
+define("_INVITETOCHATINCURRENTROOM","초대 현재 대화방에서 채팅");//Invite to chat in current room
+define("_GOTODASHBOARD","대시보드로 이동");//Go to dashboard
+define("_GOTOMYPROFILE","내 프로필로 이동");//Go to my profile
+define("_GOTOPEOPLELIST","사람의 목록으로 이동");//Go to people&#039;s list
+define("_PEOPLE","사람들");//People
+define("_EVERYONE","모두");//Everyone
 define("_RECENTLYCHANGED" ,"Recently changed status");
-define("_RELATEDTOCURRENTLESSON","현재 수업에 관한");//Related to current lesson (New)
-define("_NORELATEDPEOPLEFOUND","아니오 관련 사람들이 발견");//No related people found (New)
-define("_ADDCOMMENTTOMYPROFILE","내 프로필에 코멘트를 추가");//Add comment to my profile (New)
-define("_COMMENTEDONTHEPROFILEOF","의 프로필에 댓글");//commented on the profile of (New)
-define("_COMMENTEDONHISHEROWNPROFILE","그 / 그녀의 자신의 프로필에 댓글");//commented on his/her own profile (New)
-define("_DELETEDACOMMENTFROMHISHEROWNPROFILE","그 / 그녀의 프로필에서 댓글을 삭제");//deleted a comment from his/her profile (New)
-define("_UNREGISTEREDEVENT","미등록 이벤트");//Unregistered event (New)
-define("_FORTHEMODULE","의 모듈");//for the module (New)
-define("_COMMONLESSONS","일반 수업");//common lessons (New)
-define("_COMMONLESSON","일반 수업");//common lesson (New)
-define("_LESSONSTIMELINE","수업 일정");//Lesson timeline (New)
-define("_NORELATEDEVENTSFOUND","아니오 관련 이벤트를 찾을 수");//No related events found (New)
-define("_SELECTTIMELINETOPIC","선택 항목");//Select topic (New)
-define("_ANYTOPIC","어떤");//Any (New)
-define("_ADDLESSONTIMELINETOPIC","수업 주제 추가");//Add lesson topic (New)
-define("_DELETELESSONTIMELINETOPIC","삭제 수업 주제");//Delete lesson topic (New)
-define("_EDITLESSONTIMELINETOPIC","편집 수업 주제");//Edit lesson topic (New)
-define("_LESSONTIMELINETOPIC","수업 주제 제목");//Lesson topic title (New)
-define("_SUCCESSFULLYCREATEDLESSONTIMELINETOPIC","수업 주제가 성공적으로 만들어");//Lesson topic created successfully (New)
-define("_LESSONTIMELINETOPICDATAUPDATED","수업 주제가 성공적으로 업데이 트");//Lesson topic updated successfully (New)
-define("_POSTMESSAGEFORLESSONTIMELINETOPIC","이 강의에 대한 게시물 메시지 주제");//Post message for this lesson topic (New)
-define("_ADDPOSTFORLESSONTOPIC","수업 주제를 게시 추가");//Add post to lesson topic (New)
-define("_EDITPOSTFORLESSONTOPIC","수업로 편집 게시 주제");//Edit post to lesson topic (New)
-define("_SUCCESFULLYADDEDTOPICPOST","성공적으로 수업 주제의 게시물을 추가");//Successfully added lesson topic post (New)
-define("_THEPOST","메시지");//the message (New)
-define("_POSTEDFORLESSONTOPIC","강의 주제 게시");//posted for the lesson topic (New)
-define("_EDITMESSAGEFORLESSONTIMELINETOPIC","수업에 대한 수정 메시지 주제");//Edit message for lesson topic (New)
-define("_DELETEMESSAGEFORLESSONTIMELINETOPIC","수업에 대한 삭제 메시지가 주제");//Delete message for lesson topic (New)
-define("_DELETEDAPOSTFORLESSONTOPIC","삭제된 게시물 수업 주제");//Deleted a post for lesson topic (New)
-define("_TOPICPOSTDOESNOTEXISTANYMORE","수업 주제 게시 더 이상 존재하지 않습니다");//Lesson topic post does not exist any more (New)
-define("_LESSONTIMELINETOPICDELETED","수업 주제가 성공적으로 삭제");//Lesson topic successfully deleted (New)
+define("_RELATEDTOCURRENTLESSON","현재 수업에 관한");//Related to current lesson
+define("_NORELATEDPEOPLEFOUND","아니오 관련 사람들이 발견");//No related people found
+define("_ADDCOMMENTTOMYPROFILE","내 프로필에 코멘트를 추가");//Add comment to my profile
+define("_COMMENTEDONTHEPROFILEOF","의 프로필에 댓글");//commented on the profile of
+define("_COMMENTEDONHISHEROWNPROFILE","그 / 그녀의 자신의 프로필에 댓글");//commented on his/her own profile
+define("_DELETEDACOMMENTFROMHISHEROWNPROFILE","그 / 그녀의 프로필에서 댓글을 삭제");//deleted a comment from his/her profile
+define("_UNREGISTEREDEVENT","미등록 이벤트");//Unregistered event
+define("_FORTHEMODULE","의 모듈");//for the module
+define("_COMMONLESSONS","일반 수업");//common lessons
+define("_COMMONLESSON","일반 수업");//common lesson
+define("_LESSONSTIMELINE","수업 일정");//Lesson timeline
+define("_NORELATEDEVENTSFOUND","아니오 관련 이벤트를 찾을 수");//No related events found
+define("_SELECTTIMELINETOPIC","선택 항목");//Select topic
+define("_ANYTOPIC","어떤");//Any
+define("_ADDLESSONTIMELINETOPIC","수업 주제 추가");//Add lesson topic
+define("_DELETELESSONTIMELINETOPIC","삭제 수업 주제");//Delete lesson topic
+define("_EDITLESSONTIMELINETOPIC","편집 수업 주제");//Edit lesson topic
+define("_LESSONTIMELINETOPIC","수업 주제 제목");//Lesson topic title
+define("_SUCCESSFULLYCREATEDLESSONTIMELINETOPIC","수업 주제가 성공적으로 만들어");//Lesson topic created successfully
+define("_LESSONTIMELINETOPICDATAUPDATED","수업 주제가 성공적으로 업데이 트");//Lesson topic updated successfully
+define("_POSTMESSAGEFORLESSONTIMELINETOPIC","이 강의에 대한 게시물 메시지 주제");//Post message for this lesson topic
+define("_ADDPOSTFORLESSONTOPIC","수업 주제를 게시 추가");//Add post to lesson topic
+define("_EDITPOSTFORLESSONTOPIC","수업로 편집 게시 주제");//Edit post to lesson topic
+define("_SUCCESFULLYADDEDTOPICPOST","성공적으로 수업 주제의 게시물을 추가");//Successfully added lesson topic post
+define("_THEPOST","메시지");//the message
+define("_POSTEDFORLESSONTOPIC","강의 주제 게시");//posted for the lesson topic
+define("_EDITMESSAGEFORLESSONTIMELINETOPIC","수업에 대한 수정 메시지 주제");//Edit message for lesson topic
+define("_DELETEMESSAGEFORLESSONTIMELINETOPIC","수업에 대한 삭제 메시지가 주제");//Delete message for lesson topic
+define("_DELETEDAPOSTFORLESSONTOPIC","삭제된 게시물 수업 주제");//Deleted a post for lesson topic
+define("_TOPICPOSTDOESNOTEXISTANYMORE","수업 주제 게시 더 이상 존재하지 않습니다");//Lesson topic post does not exist any more
+define("_LESSONTIMELINETOPICDELETED","수업 주제가 성공적으로 삭제");//Lesson topic successfully deleted
 define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC" , "Are you sure you want to delete the topic and all posts of lesson topic");
-define("_GOTOCOMPLETESYSTEMTIMELINE","고토 전체 시스템 타임 라인");//Goto complete system timeline (New)
-define("_SYSTEMTIMELINE","시스템 타임 라인");//System timeline (New)
-define("_LOGOWIDTH","로고 너비");//Logo width (New)
-define("_LOGOHEIGHT","로고 높이");//Logo height (New)
-define("_LOGODIMENSIONSMUSTBEPOSITIVE","로고 크기는 긍정적인 여야합니다");//Logo dimensions must be positive (New)
-define("_SOCIAL","사회적인");//Social (New)
-define("_OPTIONSFORSOCIALMODULE","위한 옵션 사회");//Options for social (New)
-define("_ENTIRESOCIALMODULE","전체 사회 모듈");//Entire social module (New)
-define("_EVENTSLOGGING","이벤트 로깅");//Event&#039;s logging (New)
-define("_SYSTEMTIMELINES","시스템 타임 라인");//System timelines (New)
-define("_LESSONTIMELINES","수업 일정");//Lessons timelines (New)
-define("_USERSTATUS","사용자 상태");//User status (New)
-define("_FBCONNECT","페이스 북은 연결");//Facebook connect (New)
-define("_EMAILDIGESTS","알림");//Notifications (New)
-define("_SENDNOTIFICATION","보내기 알림");//Send notification (New)
-define("_ONDATE","데이트");//On date (New)
-define("_ONEVENT","이벤트");//On event (New)
-define("_AFTEREVENT","이벤트 후");//After event (New)
-define("_FREQUENCY","주파수");//Frequency (New)
-define("_ONCE","한 번");//Once (New)
-define("_PERIODICALLY","정기적으로");//Periodically (New)
-define("_EVERY","모든");//Every (New)
-define("_3DAYS","3 일");//3 days (New)
-define("_JOIN","회원 가입");//Join (New)
-define("_VISITED","방문");//Visited (New)
-define("_NOTVISITED","방문하지");//Not visited (New)
-define("_LEAVE","놔둬");//Leave (New)
-define("_ASSIGNED","할당");//Assigned (New)
-define("_REMOVED","제거됨");//Removed (New)
-define("_ANYLESSON","모든 수업");//Any lesson (New)
-define("_ANYCOURSE","어떤 코스");//Any course (New)
-define("_ANYTEST","모든 시험");//Any test (New)
-define("_ADDTEMPLATIZEDTEXT","templatized 텍스트 추가");//Add templatized text (New)
-define("_RECIPIENTSUSERNAME","받는 사람의 이름");//Recipient&#039;s name (New)
-define("_AUTHORUSERNAME","저자의 이름");//Author&#039;s username (New)
-define("_COURSETITLE","코스 제목");//Course title (New)
-define("_GROUPNAME","그룹 이름");//Group name (New)
-define("_TIMEAFTEREVENT","시간은 행사 후 전송");//Time to send after event (New)
-define("_STARTINGFROM","부터 시작");//Starting from (New)
-define("_SYSTEMJOIN","시스템 가입");//System join (New)
-define("_SYSTEM_REMOVAL","시스템 제거");//System removal (New)
-define("_LESSON_ACQUISITION_AS_STUDENT","학생 수업 수집");//Lesson acquisition as student (New)
-define("_LESSON_ACQUISITION_AS_PROFESSOR","교수 수업 수집");//Lesson acquisition as professor (New)
-define("_LESSON_VISITED","수업 방문");//Lesson visited (New)
-define("_LESSON_REMOVAL","수업 제거");//Lesson removal (New)
-define("_LESSON_COMPLETION","수업 완료");//Lesson completion (New)
-define("_NEW_POST_FOR_LESSON_TIMELINE_TOPIC","게시물 수업 일정 항목에 대한");//Post for lesson timeline topic (New)
-define("_DELETE_POST_FROM_LESSON_TIMELINE","삭제 수업 일정 항목에서");//Delete from lesson timeline topic (New)
-define("_TEST_CREATION","테스트 생성");//Test creation (New)
-define("_TEST_START","테스트 시작");//Test start (New)
-define("_TEST_COMPLETION","테스트 완료");//Test completion (New)
-define("_CONTENT_CREATION","콘텐츠 생성");//Content creation (New)
-define("_CONTENT_MODIFICATION","콘텐츠 수정");//Content modification (New)
-define("_CONTENT_START","콘텐츠 시작");//Content start (New)
-define("_CONTENT_COMPLETION","콘텐츠 완성");//Content completion (New)
-define("_NEW_COMMENT_WRITING","새로운 수업 의견 쓰기");//New lesson comment writing (New)
-define("_NEW_FORUM","새로운 포럼");//New forum (New)
-define("_NEW_TOPIC","새 항목");//New topic (New)
-define("_NEW_POLL","새로운 설문 조사");//New poll (New)
-define("_NEW_FORUM_MESSAGE_POST","새 포럼 메시지 게시");//New forum message post (New)
-define("_STATUS_CHANGE","상태 변화");//Status change (New)
-define("_AVATAR_CHANGE","아바타 변경");//Avatar change (New)
-define("_PROFILE_CHANGE","프로필 변경");//Profile change (New)
-define("_NEW_PROFILE_COMMENT_FOR_OTHER","새 프로필에 대한 의견을 다른");//New profile comment for other (New)
-define("_NEW_PROFILE_COMMENT_FOR_SELF","새 프로필에 대한 의견을 자기");//New profile comment for self (New)
-define("_DELETE_PROFILE_COMMENT_FOR_SELF","에 대한 프로필을 삭제 댓글 자체");//Delete profile comment for self (New)
-define("_NOT","아니");//Not (New)
-define("_UNITCONTENT","단위 콘텐츠");//Unit content (New)
-define("_ANYUNIT","모든 단위");//Any unit (New)
-define("_REGISTEREDNOTIFICATIONS","등록 알림");//Registered notifications (New)
-define("_ADDNOTIFICATION","알림 추가");//Add notification (New)
-define("_WHEN","언제");//When (New)
-define("_NOTIFICATIONSETUPSUCCESSFULLY","알림 설정을 성공적으로");//Notification setup successfully (New)
-define("_DAYSAFTEREVENT","행사 일 후에");//days after event (New)
-define("_NOTIFICATIONDELETEDSUCCESSFULLY","알림이 성공적으로 삭제");//Notification deleted successfully (New)
-define("_AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION","당신은이 통지를 삭제하시겠습니까?");//Are you sure you want to remove this notification? (New)
-define("_SYSTEM_VISITED","시스템 방문");//System visited (New)
-define("_SYSTEM_NOT_VISITED","시스템이 방문하지");//System not visited (New)
-define("_LESSON_NOT_VISITED","수업 방문하지");//Lesson not visited (New)
-define("_LESSON_NOT_COMPLETED","수업 완료되지");//Lesson not completed (New)
-define("_TEST_NOT_COMPLETED","테스트가 완료되지");//Test not completed (New)
-define("_CONTENT_NOT_COMPLETED","콘텐츠가 완료되지");//Content not completed (New)
-define("_VISITEDLESSON","방문 수업");//visited lesson (New)
-define("_GOTOLESSONSTIMELINE","고토 강의 일정");//Goto lessons timeline (New)
+define("_GOTOCOMPLETESYSTEMTIMELINE","고토 전체 시스템 타임 라인");//Goto complete system timeline
+define("_SYSTEMTIMELINE","시스템 타임 라인");//System timeline
+define("_LOGOWIDTH","로고 너비");//Logo width
+define("_LOGOHEIGHT","로고 높이");//Logo height
+define("_LOGODIMENSIONSMUSTBEPOSITIVE","로고 크기는 긍정적인 여야합니다");//Logo dimensions must be positive
+define("_SOCIAL","사회적인");//Social
+define("_OPTIONSFORSOCIALMODULE","위한 옵션 사회");//Options for social
+define("_ENTIRESOCIALMODULE","전체 사회 모듈");//Entire social module
+define("_EVENTSLOGGING","이벤트 로깅");//Event&#039;s logging
+define("_SYSTEMTIMELINES","시스템 타임 라인");//System timelines
+define("_LESSONTIMELINES","수업 일정");//Lessons timelines
+define("_USERSTATUS","사용자 상태");//User status
+define("_FBCONNECT","페이스 북은 연결");//Facebook connect
+define("_EMAILDIGESTS","알림");//Notifications
+define("_SENDNOTIFICATION","보내기 알림");//Send notification
+define("_ONDATE","데이트");//On date
+define("_ONEVENT","이벤트");//On event
+define("_AFTEREVENT","이벤트 후");//After event
+define("_FREQUENCY","주파수");//Frequency
+define("_ONCE","한 번");//Once
+define("_PERIODICALLY","정기적으로");//Periodically
+define("_EVERY","모든");//Every
+define("_3DAYS","3 일");//3 days
+define("_JOIN","회원 가입");//Join
+define("_VISITED","방문");//Visited
+define("_NOTVISITED","방문하지");//Not visited
+define("_LEAVE","놔둬");//Leave
+define("_ASSIGNED","할당");//Assigned
+define("_REMOVED","제거됨");//Removed
+define("_ANYLESSON","모든 수업");//Any lesson
+define("_ANYCOURSE","어떤 코스");//Any course
+define("_ANYTEST","모든 시험");//Any test
+define("_ADDTEMPLATIZEDTEXT","templatized 텍스트 추가");//Add templatized text
+define("_RECIPIENTSUSERNAME","받는 사람의 이름");//Recipient&#039;s name
+define("_AUTHORUSERNAME","저자의 이름");//Author&#039;s username
+define("_COURSETITLE","코스 제목");//Course title
+define("_GROUPNAME","그룹 이름");//Group name
+define("_TIMEAFTEREVENT","시간은 행사 후 전송");//Time to send after event
+define("_STARTINGFROM","부터 시작");//Starting from
+define("_SYSTEMJOIN","시스템 가입");//System join
+define("_SYSTEM_REMOVAL","시스템 제거");//System removal
+define("_LESSON_ACQUISITION_AS_STUDENT","학생 수업 수집");//Lesson acquisition as student
+define("_LESSON_ACQUISITION_AS_PROFESSOR","교수 수업 수집");//Lesson acquisition as professor
+define("_LESSON_VISITED","수업 방문");//Lesson visited
+define("_LESSON_REMOVAL","수업 제거");//Lesson removal
+define("_LESSON_COMPLETION","수업 완료");//Lesson completion
+define("_NEW_POST_FOR_LESSON_TIMELINE_TOPIC","게시물 수업 일정 항목에 대한");//Post for lesson timeline topic
+define("_DELETE_POST_FROM_LESSON_TIMELINE","삭제 수업 일정 항목에서");//Delete from lesson timeline topic
+define("_TEST_CREATION","테스트 생성");//Test creation
+define("_TEST_START","테스트 시작");//Test start
+define("_TEST_COMPLETION","테스트 완료");//Test completion
+define("_CONTENT_CREATION","콘텐츠 생성");//Content creation
+define("_CONTENT_MODIFICATION","콘텐츠 수정");//Content modification
+define("_CONTENT_START","콘텐츠 시작");//Content start
+define("_CONTENT_COMPLETION","콘텐츠 완성");//Content completion
+define("_NEW_COMMENT_WRITING","새로운 수업 의견 쓰기");//New lesson comment writing
+define("_NEW_FORUM","새로운 포럼");//New forum
+define("_NEW_TOPIC","새 항목");//New topic
+define("_NEW_POLL","새로운 설문 조사");//New poll
+define("_NEW_FORUM_MESSAGE_POST","새 포럼 메시지 게시");//New forum message post
+define("_STATUS_CHANGE","상태 변화");//Status change
+define("_AVATAR_CHANGE","아바타 변경");//Avatar change
+define("_PROFILE_CHANGE","프로필 변경");//Profile change
+define("_NEW_PROFILE_COMMENT_FOR_OTHER","새 프로필에 대한 의견을 다른");//New profile comment for other
+define("_NEW_PROFILE_COMMENT_FOR_SELF","새 프로필에 대한 의견을 자기");//New profile comment for self
+define("_DELETE_PROFILE_COMMENT_FOR_SELF","에 대한 프로필을 삭제 댓글 자체");//Delete profile comment for self
+define("_NOT","아니");//Not
+define("_UNITCONTENT","단위 콘텐츠");//Unit content
+define("_ANYUNIT","모든 단위");//Any unit
+define("_REGISTEREDNOTIFICATIONS","등록 알림");//Registered notifications
+define("_ADDNOTIFICATION","알림 추가");//Add notification
+define("_WHEN","언제");//When
+define("_NOTIFICATIONSETUPSUCCESSFULLY","알림 설정을 성공적으로");//Notification setup successfully
+define("_DAYSAFTEREVENT","행사 일 후에");//days after event
+define("_NOTIFICATIONDELETEDSUCCESSFULLY","알림이 성공적으로 삭제");//Notification deleted successfully
+define("_AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION","당신은이 통지를 삭제하시겠습니까?");//Are you sure you want to remove this notification?
+define("_SYSTEM_VISITED","시스템 방문");//System visited
+define("_SYSTEM_NOT_VISITED","시스템이 방문하지");//System not visited
+define("_LESSON_NOT_VISITED","수업 방문하지");//Lesson not visited
+define("_LESSON_NOT_COMPLETED","수업 완료되지");//Lesson not completed
+define("_TEST_NOT_COMPLETED","테스트가 완료되지");//Test not completed
+define("_CONTENT_NOT_COMPLETED","콘텐츠가 완료되지");//Content not completed
+define("_VISITEDLESSON","방문 수업");//visited lesson
+define("_GOTOLESSONSTIMELINE","고토 강의 일정");//Goto lessons timeline
 define("_GROUPLESSONS","그룹 레슨");//Group lessons
 define("_GROUPCOURSES","그룹 코스");//Group courses
 define("_GROUPUSERSTATUS","그룹 사용자의 상태를");//Group user status
@@ -2798,985 +2798,1064 @@ define("_STUDENTSINGROUP","그룹의 학생들은");//Students in group
 define("_PROFESSORSINGROUP","교수 그룹에");//Professors in group
 define("_SUPERVISEDEMPLOYEES","감독");//Supervised
 define("_UNATTACHEDEMPLOYEES","무소속");//Unattached
-define("_NONOTIFICATIONSHAVEBEENREGISTERED","아니 알림 등록되었습니다");//No notifications have been registered (New)
-define("_CANNOTSCHEDULEMESSAGEFORPASTDATE","당신은 과거의 날짜에 대한 통지를 예약할 수 없습니다");//You cannot schedule a notification for a past date (New)
-define("_EDITNOTIFICATION","수정 알림");//Edit notification (New)
-define("_NOMESSAGESHAVEBEENPOSTEDONYOURWALLYET","없음 메시지가 벽에 아직 게시되었습니다");//No messages have been posted on your wall yet (New)
-define("_NOUSERSARECURRENTLYRELATEDTOYOU","아니 사용자는 현재 당신에게 관련되어");//No users are currently related to you (New)
-define("_RECENTINCOMINGMESSAGES","최근 수신 메시지");//Recent incoming messages (New)
-define("_GOTOMYMESSAGES","내 메시지로 이동");//Go to my messages (New)
+define("_NONOTIFICATIONSHAVEBEENREGISTERED","아니 알림 등록되었습니다");//No notifications have been registered
+define("_CANNOTSCHEDULEMESSAGEFORPASTDATE","당신은 과거의 날짜에 대한 통지를 예약할 수 없습니다");//You cannot schedule a notification for a past date
+define("_EDITNOTIFICATION","수정 알림");//Edit notification
+define("_NOMESSAGESHAVEBEENPOSTEDONYOURWALLYET","없음 메시지가 벽에 아직 게시되었습니다");//No messages have been posted on your wall yet
+define("_NOUSERSARECURRENTLYRELATEDTOYOU","아니 사용자는 현재 당신에게 관련되어");//No users are currently related to you
+define("_RECENTINCOMINGMESSAGES","최근 수신 메시지");//Recent incoming messages
+define("_GOTOMYMESSAGES","내 메시지로 이동");//Go to my messages
 define("_USERINACTIVE","이 계정은 관리자에 의해 비활성화되었습니다");//The account has been deactivated by the administrator
 define("_TESTCORRUPTEDASKRESETEXECUTION","죄송하지만,이 시험이 손상되고 따라서 액세스할 수없습니다. 이 테스트를 실행하여 교수에게 물어주십시오 재설정");//We are sorry, but this test is corrupted and thus inaccessible. Please ask your professor to reset this test execution
 define("_LOWERHANDLES","낮은 핸들");//Lower handles
 define("_UPPERHANDLES","어퍼 핸들");//Upper handles
 define("_ALLHANDLES","모든 핸들");//All handles
-define("_MYPROFILE","내 프로필");//my Profile (New)
-define("_MYPLACEMENTS","내 게재 위치");//my Placements (New)
-define("_MYHISTORY","나의 역사");//my History (New)
-define("_MYFILES","나의 파일");//my Files (New)
-define("_MAPPEDACCOUNTS","매핑된 계정");//Mapped accounts (New)
-define("_MYGROUPS","내 그룹");//my Groups (New)
+define("_MYPROFILE","내 프로필");//my Profile
+define("_MYPLACEMENTS","내 게재 위치");//my Placements
+define("_MYHISTORY","나의 역사");//my History
+define("_MYFILES","나의 파일");//my Files
+define("_MAPPEDACCOUNTS","매핑된 계정");//Mapped accounts
+define("_MYGROUPS","내 그룹");//my Groups
 define("_AVAILABLE","사용 가능");//Available
 define("_NEVER","절대");//Never
-define("_CLASSMATES","급우");//Classmates (New)
-define("_LESSONPEOPLE","수업 사용자");//Lesson users (New)
-define("_NORMALIZEDIMENSIONS","정상화 치수");//Normalize dimensions (New)
-define("_WASASSIGNEDTHECOURSE","코스를 할당했습니다");//was assigned the course (New)
-define("_WILLBETEACHINGCOURSE","과정을 가르치는 것입니다");//will be teaching the course (New)
-define("_VISITEDCOURSE","코스를 방문");//visited course (New)
-define("_HASCOMPLETEDCOURSE","과정을 완료했습니다");//has completed the course (New)
-define("_NOLONGERATTENDSCOURSE","더 오래 과정 참석");//no longer attends the course (New)
-define("_STARTEDTEST","테스트 시작");//started the test (New)
-define("_PROJECT_SUBMISSION","프로젝트 제출");//Project submission (New)
-define("_SUBMITTEDPROJECT","프로젝트를 제출");//submitted the project (New)
-define("_COMMENTSWALL","댓글 / 장성");//Comments/Wall (New)
-define("_AREYOUSUREYOUWANTTODELETETHISCOMMENT","당신은 당신이 코멘트를 삭제하시겠습니까?");//Are you sure you want to delete this comment? (New)
-define("_COULDNOTRETRIEVEEMPLOYEESJOBS","사용자의 작업을 검색할 수 없습니다");//Could not retrieve user's jobs (New)
-define("_ADDTEXTTEMPLATE","템플릿에 텍스트 추가");//Add text template (New)
-define("_NONOTIFICATIONRECIPIENTSDEFINED","아니 알림 수신자 정의");//No notification recipients defined (New)
-define("_HIDESIDEBARIMAGES","숨기기 사이드바 이미지");//Hide sidebar images (New)
-define("_RECIPIENTSSURNAME","받는 사람의 성");//Recipient&#039;s surname (New)
-define("_MESSAGESQUEUE","메시지 대기열");//Messages queue (New)
-define("_SENDNEXTQUEUEMESSAGES","다음 보내기 메시지 대기열");//Send next queue messages (New)
-define("_COURSE_ACQUISITION_AS_STUDENT","학생 코스 수집");//Course acquisition as student (New)
-define("_COURSE_ACQUISITION_AS_PROFESSOR","교수 과정 취득");//Course acquisition as professor (New)
-define("_COURSE_VISITED","코스 방문");//Course visited (New)
-define("_COURSE_REMOVAL","과정 제거");//Course removal (New)
-define("_COURSE_COMPLETION","코스 완료");//Course completion (New)
-define("_COURSE_NOT_VISITED","코스는 방문하지");//Course not visited (New)
-define("_COURSE_NOT_COMPLETED","코스 완료되지");//Course not completed (New)
-define("_PENDINGTESTS","테스트를 보류");//Pending tests (New)
-define("_SETPERIOD","선택 기간");//Select period (New)
-define("_PREVIOUSWEEK","이전 주");//Previous week (New)
-define("_TODAY","오늘");//Today (New)
-define("_YESTERDAY","어제");//Yesterday (New)
-define("_PREVIOUSMONTH","이전 달");//Previous month (New)
-define("_AUTOMATICCOMPLETION","자동 완성");//Complete automatically (New)
-define("_EXPIREDBEFORE","전에 만료");//expired before (New)
-define("_DEADLINEDATEMUSTBEINFUTURE","마감일은 미래에 있어야합니다");//Deadline date must be in the future (New)
-define("_NOTIFICATIONLANGUAGETEMPLATEINFO","언어 태그를 설정하면 다른 언어로 모든 사용자의 언어에 따라 알림을 보낼 수 있습니다. 각 언어 태그를 아래의 메시지는 그 언어를 사용하는 모든 사용자에게 발송됩니다. 사용하는 사용자의 언어 또는 정의되지 아니 태그는 다음의 기본 메시지를 (아무 태그가 상단에있는 첫 번째 사용하는 경우)에");//Setting language tags allows you to send notifications in different languages according to every user&#039;s language. The message below each language tag will be sent to all users who use that language. In the case where a user&#039;s language is not defined or no tags are used, then the default message (the first one on the top that has no tag) is used (New)
-define("_SYSTEM_ONPASSWORD_FORGOTTEN","비밀 번호 분실");//Password forgotten (New)
-define("_MD5ENCODINGOF","의 MD5 인코딩");//MD5 encoding (New)
-define("_RECIPIENTSLOGIN","받는 사람의 로그인");//Recipient&#039;s login (New)
-define("_HOSTSYSTEMURL","시스템 호스트 URL을");//System host url (New)
-define("_WRITETEXTORENTERTEMPLATETOBEENCODED","bracktes가 텍스트를 작성하거나 내부는 인코딩되어야 템플릿 추가");//Inside the bracktes write the text or add the template to be encoded (New)
-define("_SYSTEM_REGISTERED","사용자 등록");//User registration (New)
-define("_SYSTEM_EMAIL_ACTIVATION","사용자 이메일 활성화");//User email activation (New)
-define("_RECIPIENTSEMAIL","수신자의 이메일");//Recipient&#039;s email (New)
-define("_RECIPIENTSLANGUAGE","받는 사람의 언어");//Recipient&#039;s language (New)
-define("_RECIPIENTSCOMMENTS","받는 사람의 의견");//Recipient&#039;s comments (New)
-define("_NEWSYSTEMANNOUNCEMENT","새로운 시스템 발표");//New system announcement (New)
-define("_NEWLESSONANNOUNCEMENT","새로운 수업 발표");//New lesson announcement (New)
-define("_RECIPIENTSUSERTYPE","수신자의 사용자 유형");//Recipient&#039;s user type (New)
-define("_EVENTDATE","이벤트의 날짜");//Event&#039;s date (New)
-define("_EVENTTIMESTAMP","이벤트의 타임 스탬프");//Event&#039;s timestamp (New)
-define("_HUMANNAME","이름");//Name (New)
-define("_CONSIDERSUBUNITS","subunits를 고려");//Consider subunits (New)
-define("_USERSFILTER","사용자 필터");//Users filter (New)
-define("_ACTIVEUSERS","활성 사용자");//Active users (New)
-define("_INACTIVEUSERS","비활성 사용자");//Inactive users (New)
-define("_WELCOMETOOUR","우리 오신 것을 환영합니다");//Welcome to our (New)
-define("_TOALLSYSTEMUSERS","모든 시스템 사용자에게");//to all system users (New)
-define("_ALLLESSONUSERS","모든 수업 사용자");//All lesson users (New)
-define("_USERTRIGGERINGTHEEVENT","사용자가 이벤트를 트리거");//User triggering the event (New)
-define("_EVENTAPPLIESTO","이벤트가 적용되는");//Event applies to (New)
-define("_SYSTEM_ON_NEW_PASSWORD_REQUEST","새 비밀 번호 요청");//New password request (New)
-define("_SURVEYID","설문 조사 아이디");//Survey id (New)
-define("_SURVEYMESSAGE","설문 조사 메시지");//Survey message (New)
-define("_NEWSURVEY","새로운 설문 조사 출판");//New survey published (New)
-define("_EXPLICITLYSELECTED","명시적으로 선택된");//Explicitly selected (New)
-define("_LESSONPROFESSORS","레슨 교수");//Lesson professors (New)
-define("_TOBESENTIMMEDIATELY","즉시 발송");//To be sent immediately (New)
-define("_NEWLESSONPROJECT","새로운 수업 프로젝트");//New lesson project (New)
-define("_REMAININGPLURAL","나머지");//remaining (New)
-define("_NONESKILL","없음");//None (New)
-define("_LASTMONTH","지난 달");//Last month (New)
-define("_LASTWEEK","지난 주");//Last week (New)
-define("_LAST24HOURS","지난 24 시간");//Last 24 hours (New)
-define("_WEEKLYREMINDERFROM","주간 알림에서");//Weekly reminder from (New)
-define("_YOUHAVENOTLOGGEDINFORAWEEK","당신은 시스템에 일주일 동안 로그인하지 않았습니다");//You have not logged into the system for a week (New)
-define("_USETHEFOLLOWINGLINKTOLOGINTONOW","당신은 시스템을 현재에 로그인할 때 다음 링크를 사용할 수 있습니다");//You can use the following link to log into the system now (New)
-define("_SYSTEMADMINISTRATOR","시스템 관리자");//System administrator (New)
-define("_NEWSYSTEMJOININ","시스템에 새 사용자");//New user in system (New)
-define("_ANEWUSERHASBEENINSERTEDINTOTHESYSTEM","새로운 사용자가 시스템에 삽입되었습니다");//A new user has been inserted into the system (New)
-define("_MATHSERVER","수학 서버 위치");//Math server location (New)
-define("_MATHSERVERINFO","자세한 내용은 http://www.forkosh.com/mimetex.html에서 봐");//For more info see at http://www.forkosh.com/mimetex.html (New)
-define("_ANSWERNOTVISIBLE","답변 보이지 않습니다");//Answer not visible (New)
-define("_PROGRAMMEDLESSONSTART","수업 시작 예정");//Lesson scheduled beginning (New)
-define("_PROGRAMMEDLESSONEXPIRY","수업 예약 만료");//Lesson scheduled expiration (New)
-define("_BEFOREEVENT","이벤트를하기 전에");//Before event (New)
-define("_TIMEBEFOREEVENT","시간은 행사 전에 보내");//Time to send before event (New)
-define("_DAYSBEFOREEVENT","이벤트 일전");//days before event (New)
-define("_PROJECTEXPIRY","프로젝트 만료");//Project expiration (New)
-define("_SELECTEDUSERS","선택된 사용자");//Selected users (New)
-define("_DURATIONFOREXPIRATION","시간 인증서 만료");//Time for certificate expiration (New)
-define("_MONTHS","개월");//Months (New)
-define("_EXPIREINSTRUCTIONS","세트 증명서 후 만료에 대한 시간이 발급됩니다. 선택 0 없습니다 만료");//Set the time for expiration after certificate will be issued. Select 0 for no expiration (New)
-define("_RESETCOURSEWHENEXPIRE","재설정 과정 인증서가 만료");//Reset course when certificate expires (New)
-define("_SENDMESSAGEASHTML","html 형식으로 이메일 보내기");//Send email in html format (New)
-define("_RECENTLYSENT","최근 전송");//Recently sent (New)
-define("_REGISTERED","등록된");//Registered (New)
-define("_PAGELOADSBEFORESENDINGNEXTNOTIFICATIONS","알림의 다음 세트를 보내기 전에 평균 페이지가로드");//Average page loads before sending the next set of notifications (New)
-define("_MESSAGESTOSENDEVERYTIME","번호 알림의 각 패스에 보내");//Number of notifications to send in each pass (New)
-define("_MAXIMUMSENTMESSAGESSTORED","최근 보낸 번호 알림 저장할 수");//Number of recently sent notifications to store (New)
-define("_NOTIFICATIONCONFIGURATIONSUPDATEDSUCCESSFULLY","알림 구성이 성공적으로 업데이 트되었습니다");//Notification configuration was updated successfully (New)
-define("_LESSONNOTFOUND","교훈을 찾을 수 없습니다.");//The lesson was not found. (New)
-define("_PROJECTEXPIRATIONFORLESSON","만기는 수업의 프로젝트에 대한 접근");//Expiration approaching for project of lesson (New)
-define("_LESSONEXPIRATIONFORLESSON","만기는 수업에 대한 접근");//Expiration approaching for lesson (New)
-define("_TESTCOMPLETIONFORLESSON","수업에 대한 테스트 완료");//Test completion for lesson (New)
-define("_STUDENTOFLESSON","수업의 학생");//A student of lesson (New)
-define("_PROJECTCOMPLETIONFORLESSON","수업을위한 프로젝트 제출");//Project submission for lesson (New)
-define("_HASSUBMITTEDATEST","테스트를 완료했습니다");//has completed a test (New)
-define("_HASSUBMITTEDAPROJECT","프로젝트를 제출했다");//has submitted a project (New)
-define("_THEPROJECTFORLESSON","수업을위한 프로젝트");//the project for lesson (New)
-define("_ISABOUTTOEXPIREINTHREEDAYS","약 3 일 후에 만료됩니다");//is about to expire in three days (New)
-define("_NEWTOPICFORFORUM","의 포럼에 대한 새 항목");//New topic for the forum of (New)
-define("_NEWTOPICPUBLISHEDINTHEFORUMOF","새로운 주제는 포럼에 게시되었습니다");//A new topic has been published in the forum of (New)
-define("_NEWMESSAGEPOSTFORFORUM","새로운 메시지가 포럼에 게시");//New message posted in the forum of (New)
-define("_NEWMESSAGEPOSTPUBLISHEDINTHEFORUMOF","새 메시지가 포럼에 게시되었습니다");//A new messages has been posted in the forum of (New)
-define("_CHANGEINUNIT","변경 단위");//Change in unit (New)
+define("_CLASSMATES","급우");//Classmates
+define("_LESSONPEOPLE","수업 사용자");//Lesson users
+define("_NORMALIZEDIMENSIONS","정상화 치수");//Normalize dimensions
+define("_WASASSIGNEDTHECOURSE","코스를 할당했습니다");//was assigned the course
+define("_WILLBETEACHINGCOURSE","과정을 가르치는 것입니다");//will be teaching the course
+define("_VISITEDCOURSE","코스를 방문");//visited course
+define("_HASCOMPLETEDCOURSE","과정을 완료했습니다");//has completed the course
+define("_NOLONGERATTENDSCOURSE","더 오래 과정 참석");//no longer attends the course
+define("_STARTEDTEST","테스트 시작");//started the test
+define("_PROJECT_SUBMISSION","프로젝트 제출");//Project submission
+define("_SUBMITTEDPROJECT","프로젝트를 제출");//submitted the project
+define("_COMMENTSWALL","댓글 / 장성");//Comments/Wall
+define("_AREYOUSUREYOUWANTTODELETETHISCOMMENT","당신은 당신이 코멘트를 삭제하시겠습니까?");//Are you sure you want to delete this comment?
+define("_COULDNOTRETRIEVEEMPLOYEESJOBS","사용자의 작업을 검색할 수 없습니다");//Could not retrieve user's jobs
+define("_ADDTEXTTEMPLATE","템플릿에 텍스트 추가");//Add text template
+define("_NONOTIFICATIONRECIPIENTSDEFINED","아니 알림 수신자 정의");//No notification recipients defined
+define("_HIDESIDEBARIMAGES","숨기기 사이드바 이미지");//Hide sidebar images
+define("_RECIPIENTSSURNAME","받는 사람의 성");//Recipient&#039;s surname
+define("_MESSAGESQUEUE","메시지 대기열");//Messages queue
+define("_SENDNEXTQUEUEMESSAGES","다음 보내기 메시지 대기열");//Send next queue messages
+define("_COURSE_ACQUISITION_AS_STUDENT","학생 코스 수집");//Course acquisition as student
+define("_COURSE_ACQUISITION_AS_PROFESSOR","교수 과정 취득");//Course acquisition as professor
+define("_COURSE_VISITED","코스 방문");//Course visited
+define("_COURSE_REMOVAL","과정 제거");//Course removal
+define("_COURSE_COMPLETION","코스 완료");//Course completion
+define("_COURSE_NOT_VISITED","코스는 방문하지");//Course not visited
+define("_COURSE_NOT_COMPLETED","코스 완료되지");//Course not completed
+define("_PENDINGTESTS","테스트를 보류");//Pending tests
+define("_SETPERIOD","선택 기간");//Select period
+define("_PREVIOUSWEEK","이전 주");//Previous week
+define("_TODAY","오늘");//Today
+define("_YESTERDAY","어제");//Yesterday
+define("_PREVIOUSMONTH","이전 달");//Previous month
+define("_AUTOMATICCOMPLETION","자동 완성");//Complete automatically
+define("_EXPIREDBEFORE","전에 만료");//expired before
+define("_DEADLINEDATEMUSTBEINFUTURE","마감일은 미래에 있어야합니다");//Deadline date must be in the future
+define("_NOTIFICATIONLANGUAGETEMPLATEINFO","언어 태그를 설정하면 다른 언어로 모든 사용자의 언어에 따라 알림을 보낼 수 있습니다. 각 언어 태그를 아래의 메시지는 그 언어를 사용하는 모든 사용자에게 발송됩니다. 사용하는 사용자의 언어 또는 정의되지 아니 태그는 다음의 기본 메시지를 (아무 태그가 상단에있는 첫 번째 사용하는 경우)에");//Setting language tags allows you to send notifications in different languages according to every user&#039;s language. The message below each language tag will be sent to all users who use that language. In the case where a user&#039;s language is not defined or no tags are used, then the default message (the first one on the top that has no tag) is used
+define("_SYSTEM_ONPASSWORD_FORGOTTEN","비밀 번호 분실");//Password forgotten
+define("_MD5ENCODINGOF","의 MD5 인코딩");//MD5 encoding
+define("_RECIPIENTSLOGIN","받는 사람의 로그인");//Recipient&#039;s login
+define("_HOSTSYSTEMURL","시스템 호스트 URL을");//System host url
+define("_WRITETEXTORENTERTEMPLATETOBEENCODED","bracktes가 텍스트를 작성하거나 내부는 인코딩되어야 템플릿 추가");//Inside the bracktes write the text or add the template to be encoded
+define("_SYSTEM_REGISTERED","사용자 등록");//User registration
+define("_SYSTEM_EMAIL_ACTIVATION","사용자 이메일 활성화");//User email activation
+define("_RECIPIENTSEMAIL","수신자의 이메일");//Recipient&#039;s email
+define("_RECIPIENTSLANGUAGE","받는 사람의 언어");//Recipient&#039;s language
+define("_RECIPIENTSCOMMENTS","받는 사람의 의견");//Recipient&#039;s comments
+define("_NEWSYSTEMANNOUNCEMENT","새로운 시스템 발표");//New system announcement
+define("_NEWLESSONANNOUNCEMENT","새로운 수업 발표");//New lesson announcement
+define("_RECIPIENTSUSERTYPE","수신자의 사용자 유형");//Recipient&#039;s user type
+define("_EVENTDATE","이벤트의 날짜");//Event&#039;s date
+define("_EVENTTIMESTAMP","이벤트의 타임 스탬프");//Event&#039;s timestamp
+define("_HUMANNAME","이름");//Name
+define("_CONSIDERSUBUNITS","subunits를 고려");//Consider subunits
+define("_USERSFILTER","사용자 필터");//Users filter
+define("_ACTIVEUSERS","활성 사용자");//Active users
+define("_INACTIVEUSERS","비활성 사용자");//Inactive users
+define("_WELCOMETOOUR","우리 오신 것을 환영합니다");//Welcome to our
+define("_TOALLSYSTEMUSERS","모든 시스템 사용자에게");//to all system users
+define("_ALLLESSONUSERS","모든 수업 사용자");//All lesson users
+define("_USERTRIGGERINGTHEEVENT","사용자가 이벤트를 트리거");//User triggering the event
+define("_EVENTAPPLIESTO","이벤트가 적용되는");//Event applies to
+define("_SYSTEM_ON_NEW_PASSWORD_REQUEST","새 비밀 번호 요청");//New password request
+define("_SURVEYID","설문 조사 아이디");//Survey id
+define("_SURVEYMESSAGE","설문 조사 메시지");//Survey message
+define("_NEWSURVEY","새로운 설문 조사 출판");//New survey published
+define("_EXPLICITLYSELECTED","명시적으로 선택된");//Explicitly selected
+define("_LESSONPROFESSORS","레슨 교수");//Lesson professors
+define("_TOBESENTIMMEDIATELY","즉시 발송");//To be sent immediately
+define("_NEWLESSONPROJECT","새로운 수업 프로젝트");//New lesson project
+define("_REMAININGPLURAL","나머지");//remaining
+define("_NONESKILL","없음");//None
+define("_LASTMONTH","지난 달");//Last month
+define("_LASTWEEK","지난 주");//Last week
+define("_LAST24HOURS","지난 24 시간");//Last 24 hours
+define("_WEEKLYREMINDERFROM","주간 알림에서");//Weekly reminder from
+define("_YOUHAVENOTLOGGEDINFORAWEEK","당신은 시스템에 일주일 동안 로그인하지 않았습니다");//You have not logged into the system for a week
+define("_USETHEFOLLOWINGLINKTOLOGINTONOW","당신은 시스템을 현재에 로그인할 때 다음 링크를 사용할 수 있습니다");//You can use the following link to log into the system now
+define("_SYSTEMADMINISTRATOR","시스템 관리자");//System administrator
+define("_NEWSYSTEMJOININ","시스템에 새 사용자");//New user in system
+define("_ANEWUSERHASBEENINSERTEDINTOTHESYSTEM","새로운 사용자가 시스템에 삽입되었습니다");//A new user has been inserted into the system
+define("_MATHSERVER","수학 서버 위치");//Math server location
+define("_MATHSERVERINFO","자세한 내용은 http://www.forkosh.com/mimetex.html에서 봐");//For more info see at http://www.forkosh.com/mimetex.html
+define("_ANSWERNOTVISIBLE","답변 보이지 않습니다");//Answer not visible
+define("_PROGRAMMEDLESSONSTART","수업 시작 예정");//Lesson scheduled beginning
+define("_PROGRAMMEDLESSONEXPIRY","수업 예약 만료");//Lesson scheduled expiration
+define("_BEFOREEVENT","이벤트를하기 전에");//Before event
+define("_TIMEBEFOREEVENT","시간은 행사 전에 보내");//Time to send before event
+define("_DAYSBEFOREEVENT","이벤트 일전");//days before event
+define("_PROJECTEXPIRY","프로젝트 만료");//Project expiration
+define("_SELECTEDUSERS","선택된 사용자");//Selected users
+define("_DURATIONFOREXPIRATION","시간 인증서 만료");//Time for certificate expiration
+define("_MONTHS","개월");//Months
+define("_EXPIREINSTRUCTIONS","세트 증명서 후 만료에 대한 시간이 발급됩니다. 선택 0 없습니다 만료");//Set the time for expiration after certificate will be issued. Select 0 for no expiration
+define("_RESETCOURSEWHENEXPIRE","재설정 과정 인증서가 만료");//Reset course when certificate expires
+define("_SENDMESSAGEASHTML","html 형식으로 이메일 보내기");//Send email in html format
+define("_RECENTLYSENT","최근 전송");//Recently sent
+define("_REGISTERED","등록된");//Registered
+define("_PAGELOADSBEFORESENDINGNEXTNOTIFICATIONS","알림의 다음 세트를 보내기 전에 평균 페이지가로드");//Average page loads before sending the next set of notifications
+define("_MESSAGESTOSENDEVERYTIME","번호 알림의 각 패스에 보내");//Number of notifications to send in each pass
+define("_MAXIMUMSENTMESSAGESSTORED","최근 보낸 번호 알림 저장할 수");//Number of recently sent notifications to store
+define("_NOTIFICATIONCONFIGURATIONSUPDATEDSUCCESSFULLY","알림 구성이 성공적으로 업데이 트되었습니다");//Notification configuration was updated successfully
+define("_LESSONNOTFOUND","교훈을 찾을 수 없습니다.");//The lesson was not found.
+define("_PROJECTEXPIRATIONFORLESSON","만기는 수업의 프로젝트에 대한 접근");//Expiration approaching for project of lesson
+define("_LESSONEXPIRATIONFORLESSON","만기는 수업에 대한 접근");//Expiration approaching for lesson
+define("_TESTCOMPLETIONFORLESSON","수업에 대한 테스트 완료");//Test completion for lesson
+define("_STUDENTOFLESSON","수업의 학생");//A student of lesson
+define("_PROJECTCOMPLETIONFORLESSON","수업을위한 프로젝트 제출");//Project submission for lesson
+define("_HASSUBMITTEDATEST","테스트를 완료했습니다");//has completed a test
+define("_HASSUBMITTEDAPROJECT","프로젝트를 제출했다");//has submitted a project
+define("_THEPROJECTFORLESSON","수업을위한 프로젝트");//the project for lesson
+define("_ISABOUTTOEXPIREINTHREEDAYS","약 3 일 후에 만료됩니다");//is about to expire in three days
+define("_NEWTOPICFORFORUM","의 포럼에 대한 새 항목");//New topic for the forum of
+define("_NEWTOPICPUBLISHEDINTHEFORUMOF","새로운 주제는 포럼에 게시되었습니다");//A new topic has been published in the forum of
+define("_NEWMESSAGEPOSTFORFORUM","새로운 메시지가 포럼에 게시");//New message posted in the forum of
+define("_NEWMESSAGEPOSTPUBLISHEDINTHEFORUMOF","새 메시지가 포럼에 게시되었습니다");//A new messages has been posted in the forum of
+define("_CHANGEINUNIT","변경 단위");//Change in unit
 define("_UNITTITLED" , "The unit titled");
 define("_HASBEENMODIFIEDAS" ,"has been modified as follows");
-define("_SHOWCURRENCYSYMBOLBEFOREPRICE","가격보기 전에 통화 기호");//Show currency symbol before price (New)
-define("_CERTIFICATEEXPIRED","인증서가 만료");//Certificate expired (New)
-define("_CERTIFICATEISSUEDON","인증서가 발급");//Certificate issued on (New)
-define("_CERTIFICATEEXPIREDON","인증서가 만료");//Certificate expired on (New)
-define("_CERTIFICATEEXPIRESON","인증서가 만료");//Certificate expires on (New)
-define("_RESETCOURSEAFTEREXPIRATION","만료 후 재설정 과정");//Reset course after expiration (New)
-define("_RESETLICENSENOTE","재설정 라이센스 메모");//Reset license note (New)
-define("_USETHISINCASEYOUWANTALLUSERSTORECOMPLYTOLICENSENOTE","당신은 모든 사용자에게 다시 라이센스에 메모를 준수하려는 경우이 체크");//Check this if you want all users to re-comply to the license note (New)
-define("_USERSWITHCOMMONLESSONS","나와 함께 공유하는 사용자는 누구 레슨");//Users who share lessons with me (New)
-define("_SHOWLESSONINCATALOG","카탈로그보기 교훈");//Show lesson in catalog (New)
-define("_SHOWALLIMAGES","모든 이미지 표시");//Show all images (New)
-define("_HIDESIDEBARANDINNERTABLESIMAGES","숨기기 사이드바 및 innertable 이미지");//Hide sidebar and innertable images (New)
-define("_IMAGESDISPLAYING","이미지 표시");//Images displaying (New)
-define("_NOTEMPTY","정의");//Defined (New)
-define("_PAGECOULDNOTBEDELETED","이 페이지는 삭제할 수 없습니다");//The page could not be deleted (New)
-define("_LOGGOUTUSERIFINACTIVEFOR","로그아웃 사용자 그가 운영 중지 상태에 대한 시간 (분)에있는 경우");//Logout user if he is inactive for (in minutes) (New)
-define("_PREVIOUSMESSAGE","이전 메시지");//Previous message (New)
-define("_ORCAPITAL","또는");//OR (New)
-define("_CHARACTERS","캐릭터");//Characters (New)
-define("_UNDISCLOSEDRECIPIENTS","공개되지 않은받는 사람");//Undisclosed recipients (New)
-define("_RANDOMPOOLQUESTIONSCANNOTBELESSTHANQUESTIONS","임의 수영장 질문은 시험의 질문에보다 적은 수 없습니다");//Random pool questions cannot be less than the test's questions (New)
-define("_DISABLEOPTIONS","비활성화 옵션");//Disable options (New)
-define("_SELECTOPTIONSDISABLED","옵션을 선택 당신이 전역 장애가되고 싶어요");//Select the options you want to be globally disabled (New)
-define("_HASJOINEDTHESYSTEM","시스템에 입사했다");//has joined the system (New)
-define("_HASBEENREMOVEDFROMTHESYSTEM","시스템에서 제거되었습니다");//has been removed from the system (New)
-define("_THEPROJECT","프로젝트");//The project (New)
-define("_HASEXPIRED","만료되었습니다");//has expired (New)
-define("_HASCREATEDUNIT","장치를 만들었습니다");//has created the unit (New)
-define("_HASMODIFIEDUNIT","단위를 수정");//has modified the unit (New)
-define("_HASCOMPLETEDUNIT","유닛을 완료했습니다");//has completed the unit (New)
-define("_HASPUBLISHEDSURVEY","설문 조사를 발표했다");//has published the survey (New)
-define("_HASCREATEDPROJECT","프로젝트를 발표했습니다");//has published project (New)
-define("_ISSUECERTIFICATEFORCOMPLTETED","완료에 대한 이슈 인증서");//Issue certificates for completed (New)
-define("_COMPLETEDON","완료일");//Completed on (New)
-define("_SMARTYCACHING","활성화 멋지 캐싱");//Enable Smarty caching (New)
-define("_SMARTYCACHETIMEOUT","멋지 캐싱 시간 초과");//Smarty caching timeout (New)
-define("_ESTIMATETIMETOCOMPLETE","예상 시간 완료");//Estimated time to complete (New)
-define("_TOTALDURATION","총 재생 시간");//Total duration (New)
-define("_CURRENTLYSELECTEDTIMEFROM","총 시간에서 수");//Total time may be from (New)
-define("_UPDATETESTTIME","업데이트 테스트 시간");//Update test time (New)
-define("_AUTOSELECT","자동 선택");//Auto select (New)
-define("_REFRESHDURATION","질문에 따라 새로 고침 테스트 기간");//Refresh test duration based on questions (New)
-define("_TOTALQUESTIONSOFWHICH","총 질문들 중");//Total questions, out of which (New)
-define("_CHOOSEUNITS","단위 선택");//Choose units (New)
-define("_CHOOSENUMBERANDTYPEOFQUESTIONS","선택 번호와 질문 유형");//Choose number and type of questions (New)
-define("_SETTOTALDURATION","전체 기간 설정");//Set total duration (New)
-define("_CLICKWILLCREATEATESTWITH","클릭하면 무작위 테스트가 같이 생성됩니다");//Clicking Randomize will create a test with (New)
-define("_SELECTEDUNITS","선정 단위");//Selected units (New)
-define("_RANDOMIZATION","랜덤");//Randomization (New)
-define("_DRAGNDROP","드래그 앤 드롭");//Drag and drop (New)
-define("_PHPLIVEDOCXINFO","phpLiveDocx는 플랫폼 PDF 형식의 인증서 문서를 변환하는 데 사용됩니다. 이것은 다음과 같은 라이센스 : http://www.phplivedocx.org/articles/phplivedocx-license/하에 배포됩니다. 당신은 계정을 가입해야 <a target=\"_blank\" href=\"https://www.livedocx.com/user/account_registration.aspx\">이곳</a> 과 자격 증명을 붙여넣으십시오");//phpLiveDocx is a platform used to transform certificate documents in a pdf format. It is released under the following license: http://www.phplivedocx.org/articles/phplivedocx-license/ . You have to sign up an account <a target=\"_blank\" href=\"https://www.livedocx.com/user/account_registration.aspx\">here</a> and paste your credentials (New)
-define("_PHPLIVEDOCXSERVER","Phplivedocx 서버");//Phplivedocx server (New)
-define("_INSERTDRAGDROPCOUPLES","삽입 드래그 앤 드롭 커플");//Insert drag and drop couples (New)
-define("_USESSO","를 사용하여 현재 SSO");//Use SSO (New)
-define("_HACPURL","HACP 이전 URL");//HACP Url (New)
-define("_CLASSNOTIMPLEMENTED","클래스 구현되지");//Class not implemented (New)
-define("_RANDOMIZETESTQUESTIONS","무작위 시험 질문");//Randomize test questions (New)
-define("_COULDNOTREADDATAFROMSERVER","데이터는 서버에서 읽을 수 없습니다");//Data could not be read from server (New)
-define("_COULDNOTCONNECTTOSERVER","서버와 연결을 설정할 수 없습니다");//A connection with the server could not be established (New)
-define("_ANERROROCCURED","오류가 발생했습니다");//An error occured (New)
-define("_REMAININGQUESTIONTIME","질문 남은 시간");//Remaining question time (New)
-define("_REMAININGTESTTIME","남은 테스트 시간");//Remaining test time (New)
-define("_SUBMITQUESTION","질문 제출");//Submit Question (New)
-define("_ONLYFORWARD","단지 앞으로 이동");//Move only forward (New)
-define("_APPLICABLETOONEBYONE","하나만별로 한 테스트를 적용");//Only applies to one-by-one tests (New)
-define("_TIMESPENT","시간 동안");//Time spent (New)
-define("_INVALIDKEY","잘못된 키");//Invalid key (New)
-define("_FORGROUP","그룹에 대한");//for group (New)
-define("_FORBRANCH","분기에");//for branch (New)
-define("_ANDBRANCH","및 지사");//and branch (New)
-define("_PREVIEWSAVEDLAYOUT","미리보기 레이아웃을 저장한");//Preview saved layout (New)
-define("_EDITHEADER","편집 헤더");//Edit header (New)
-define("_EDITFOOTER","편집 꼬리말");//Edit footer (New)
-define("_HEADERCONTENT","헤더 내용");//Header content (New)
-define("_FOOTERCONTENT","꼬리말 내용");//Footer content (New)
-define("_HIDEHEADER","숨기기 헤더");//Hide header (New)
-define("_HIDEFOOTER","숨기기 꼬리말");//Hide footer (New)
-define("_DELETECUSTOMHEADERAREYOUSURE","이 작업은 영구적으로) 사용자 지정 헤더를 (꼬리말 삭제됩니다. 당신은 확실한가요?");//This action will permanently delete the custom header (footer). Are you sure? (New)
-define("_SYSTEMENTITIES","시스템 개체");//System entities (New)
-define("_ALLEVENTS","모든 이벤트");//All events (New)
-define("_COLLAPSECATALOG","축소 카탈로그");//Collapse catalog (New)
-define("_PERIODWASADDEDSUCCESSFULLY ","기간이 성공적으로 추가되었습니다");//Period was added successfully (New)
-define("_THEMES","테마");//Themes (New)
-define("_CUSTOMIZATION","사용자 정의");//Customization (New)
-define("_EXTERNALPAGES","외부 페이지");//External pages (New)
-define("_SITEFAVICON","사이트 파비콘");//Site favicon (New)
-define("_USEDEFAULTFAVICON","를 사용하여 기본 favicon은");//Use default favicon (New)
-define("_CUSTOMCSS","사용자 정의 CSS를");//Custom css (New)
-define("_VISUALSETTINGS","시각 설정");//Visual settings (New)
-define("_LASTIPUSED","마지막 IP 사용");//Last ip used (New)
-define("_CERTIFICATEKEY","인증서 키");//Certificate key (New)
-define("_HIDEINDEX","숨기기 색인 페이지에서");//Hide from index page (New)
-define("_HIDEBLOCKIMAGES","숨기기 블록 이미지");//Hide block images (New)
-define("_UPLOADEDPROJECTS","업로드된 프로젝트");//Uploaded projects (New)
-define("_SEARCHTEXTMUSTBENONEMPTYANDMORETHAN","텍스트 검색이 아닌 이상 3 자 비어 있어야합니다");//Search text must be non empty and more than 3 characters (New)
-define("_MAXIMIZEVIEWABLEAREA","최대화 볼 수있는 지역");//Maximize viewable area (New)
-define("_IMAGESDISPLAY","이미지 디스플레이");//Images display (New)
-define("_YOUARECURRENTLYLOGGEDINAS","넌로 로그인");//You are logged in as (New)
-define("_VERYHARD","아주 열심히");//Very hard (New)
-define("_CURRENTTESTHAS","현재 테스트했습니다");//The current test has (New)
-define("_QUESTIONSOFTOTALTIME","전체 시간의 질문");//questions of total time (New)
-define("_WHEREARANDOMPOOLOF","어디에 임의의 수영장");//where a random pool of (New)
-define("_QUESTIONSISUSEDEACHTIME","질문 때마다 사용됩니다");//questions is used each time (New)
-define("_SELECTOPTION","선택 옵션");//Select option (New)
-define("_CREATERANDOMTESTTHATLASTS","만들기 지속 무작위 검사");//Create a random test that lasts (New)
-define("_CREATERANDOMTESTTHATHAS","만들기가 무작위 검사");//Create a random test that has (New)
-define("_CHANGEQUESTIONSBASEDONDIFFICULTY","어려움을 조정");//Adjust difficulty (New)
-define("_ADJUSTTYPE","유형 조정");//Adjust type (New)
-define("_BASICTESTPARAMETERS","기본 매개 변수");//Basic parameters (New)
-define("_DIFFICULTYLEVELS","난이도 수준");//Difficulty levels (New)
-define("_QUESTIONTYPES","질문 유형");//Question types (New)
-define("_ADVANCEDSETTINGS","고급 설정");//Advanced settings (New)
-define("_QUESTIONSINEACHEXECUTION","각 테스트 실행 (임의의 풀)에 질문");//questions in each test execution (random pool) (New)
-define("_USE","사용");//Use (New)
-define("_QUESTIONSBYPERCENTAGE","백분율로 질문");//Questions by percentage (New)
-define("_QUESTIONPERCENTAGE","질문 비율");//Questions percentage (New)
-define("_MEANDIFFICULTY","민 어려움");//Mean difficulty (New)
-define("_ANY","어떤");//Any (New)
-define("_IMPORTANCEOFQUESTIONSVSDURATION","중요성은 질문 대 기간");//Importance of questions vs duration (New)
-define("_ACCURATEPERCENTAGE","정확한 비율");//Accurate percentage (New)
-define("_TOTALQUESTIONSTIME","총 질문 시간");//total questions time (New)
-define("_UPDATETOTALTESTTIME","자동으로 시간 전체 시험 시간이 질문에 기반 업데이트");//Automatically update total test time based on questions time (New)
-define("_QUESTIONCODE","질문 코드");//Question code (New)
-define("_QUESTIONTYPECODE","질문 유형 코드");//Question type code (New)
-define("_VERYHIGH","매우 높은");//Very high (New)
-define("_ADJUSTQUESTIONS","질문을 조정");//Adjust questions (New)
-define("_CUSTOMSTATISTICS","시간 제약이 보고서");//Time constraint reports (New)
-define("_WANTUSAGEREPOSTLESSON","수업에 대한 사용 보고서");//Usage report for lesson (New)
-define("_WANTUSAGEREPOSTCOURSE","코스에 대한 사용 보고서");//Usage report for course (New)
-define("_WANTUSERSENROLLEDLESSON","사용자는 수업에 등록한");//Users enrolled to lesson (New)
-define("_WANTUSERSENROLLEDCOURSE","사용자는 과정 입학");//Users enrolled to course (New)
-define("_WANTUSERSCOMPLETEDLESSON","사용자는 교훈을 완료");//Users completed the lesson (New)
-define("_WANTUSERSCOMPLETEDCOURSE","사용자는 과정을 완료");//Users completed the course (New)
-define("_WANTUSERSCERTIFICATEDCOURSE","과정에 대한 인증을 가지고있는 사용자");//Users that got a certification for the course (New)
-define("_WANTMOSTACTIVEUSERS","대부분의 활성 사용자");//Most active users (New)
-define("_WANTMOSTACTIVELESSONS","가장 적극적으로 수업");//Most active lessons (New)
-define("_WANTMOSTACTIVECOURSES","가장 활발한 코스");//Most active courses (New)
-define("_WANTUSERSCOMPLETEDTEST","사용자는 테스트 완료");//Users completed the test (New)
-define("_WANTUSERSSUBMITTEDPROJECT","사용자가 프로젝트를 제출");//Users submitted the project (New)
-define("_WANTUSERSREGISTEREDSYSTEM","사용자는 시스템에 등록");//Users registered to the system (New)
-define("_SIDEBARINTERFACE","사이드바 인터페이스");//Sidebar interface (New)
-define("_NORMALVERTICAL","세로 (기본값)");//Vertical (Default) (New)
-define("_HORIZONTALSIDEBAR","수평");//Horizontal (New)
-define("_MOBILEVERSION","모바일 버전 (제한 수평)");//Mobile version (limited horizontal) (New)
-define("_NOSIDEBAR","사이드바 없음");//No sidebar (New)
-define("_EDITLESSONINFORMATION","편집 수업 정보");//Edit lesson information (New)
-define("_ENTITYNOTFOUND","엔티티를 찾을 수 없습니다");//Entity not found (New)
-define("_OPERATIONCOMPLETEDSUCCESSFULLY","작업이 성공적으로 완료");//Operation completed successfully (New)
-define("_ONLYFORLESSONS","수업 전용");//Only for lessons (New)
-define("_CONTENTTOOLS","콘텐츠 도구");//Content tools (New)
-define("_TOGGLEFILEMANAGER","전환 파일 관리자");//Toggle file manager (New)
-define("_UNITPROPERTIES","단위 속성");//Unit properties (New)
-define("_COPYSURVEYS","복사 설문 조사");//Copy surveys (New)
-define("_COPYQUESTIONS","복사 질문");//Copy questions (New)
-define("_INSTALLTHEME","설치 테마");//Install theme (New)
-define("_UPLOADTHEMEFILEZIPFORMAT","업로드 테마 파일 (우편 번호)");//Upload the theme file (zip) (New)
-define("_THEMESUCCESSFULLYINSTALLED","테마가 성공적으로 설치되었습니다");//The theme was successfully installed (New)
-define("_USETHEME","사용하는 테마");//Use theme (New)
-define("_ACTIVETHEME","액티브 테마");//Active theme (New)
-define("_THEMESELECTION","테마 선택");//Theme selection (New)
-define("_NOTANIMAGEFILE","업로드한 파일이 이미지가 없습니다");//The uploaded file is not an image (New)
-define("_COMMENT","논평");//Comment (New)
-define("_COMMENTPROPERTIES","댓글 등록");//Comment properties (New)
-define("_EDITCOMMENT","편집 의견");//Edit comment (New)
-define("_EDITCONDITIONS","수정 조건");//Edit conditions (New)
-define("_EDITINFORMATION","편집 정보");//Edit information (New)
-define("_FACEBOOK","페이 스북");//Facebook (New)
-define("_OPTIONSFORFACEBOOKMODULE","옵션 페이스 북을위한 모듈");//Options for Facebook module (New)
-define("_ENTIREFACEBOOKMODULE","페이스 북의 전체 모듈");//Entire Facebook module (New)
-define("_FACEBOOKDATAACQUISITION","페이스 북의 데이터 수집");//Facebook data acquisition (New)
-define("_FACEBOOKLOGGING","페이스 북과 연결");//Connect with Facebook (New)
-define("_FACEBOOKEXTERNALLOGGING","페이스 북을 통해 외부 로그인");//External login through Facebook (New)
-define("_FACEBOOKCONNECT","페이스 북과 연결");//Connection with Facebook (New)
-define("_FACEBOOKPROFILE","페이 스북 프로필");//Facebook profile (New)
-define("_YOUARENOTCONNECTEDTOFACEBOOK","당신은 페이스 북에 연결되지 않습니다. 연결을 클릭하여");//You are not connected to Facebook. Connect by clicking (New)
-define("_NOUSERFOUNDWITHTHISFACEBOOKIDPLEASELOGIN","당신은 성공적으로 페이 스북 계정에 연결되어 있지만 아무 eFront 사용자가 그것과 연결 수 있습니다. eFront으로 로그인하십시오 지금이 두 계정을 연결");//You have been successfully connected to your Facebook account, but no eFront user could be linked with it. Please login into eFront to link the two accounts now (New)
-define("_EXPORTCURRENTTHEME","테마로 내보내기 현재 설정");//Export current settings as theme (New)
-define("_SOCIALMODULEOPTIONS","사회 모듈 옵션");//Social module options (New)
-define("_FACEBOOKAPIKEY","페이스 북의 API를 키");//Facebook API key (New)
-define("_FACEBOOKSECRET","페이 스북 어플 리케이션 비밀");//Facebook Application Secret (New)
-define("_FACEBOOKCONNECTENABLEDBUTNOAPPPROVIDED","페이스 북이 활성화되어 있지만 같은 API를 더 자세한 키 연결과 검찰은 해당 응용 프로그램이 제공됩니다");//Facebook connect is enabled, but no details like API key and Secret are provided for the corresponding application (New)
-define("_WELCOME","환영");//Welcome (New)
-define("_FACEBOOKLOGININFO","당신은 사용자 로그인 및 해당 계정의 비밀 번호 또는 Google 시스템에 지금하고 새 eFront 계정에 대한 암호는 사용자 로그인을 선택하여 새 계정을 만들을 제공하여 기존의 eFront 하나를 귀하의 페이 스북 계정을 연결할 수 있습니다");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account or create a new account into our system right now by selecting a user login and a password for your new eFront account (New)
-define("_FACEBOOKMERGEACCOUNT","병합 페이스 북과 eFront 계정");//Merge Facebook and eFront accounts (New)
-define("_EXISTINGLOGIN","시스템 로그인을 기존");//Existing system login (New)
-define("_NEWLOGIN","새 로그인");//New login (New)
-define("_MERGEWITHEXISTINGACCOUNT","병합 기존 계정으로");//Merge with existing account (New)
-define("_CREATENEWACCOUNTTOMERGEWITHFACEBOOK","귀하의 페이 스북 프로필에서 새 계정 만들기");//Create new account from your Facebook profile (New)
-define("_FACEBOOKMAPPEDACCOUNT","페이스 북의 계정을 매핑");//Facebook mapped account (New)
-define("_YOUHAVENTSETFACEBOOKACCOUNT","당신은 페이 스북 계정을 설정하지 않은");//You haven&#039;t set a Facebook account (New)
-define("_COULDNOTCONNECTTOFACEBOOK","페이스 북에 연결할 수 없습니다");//Could not connect to Facebook (New)
-define("_LOGINWITHYOURFACEBOOKACCOUNT","로그인 귀하의 페이 스북 계정에");//Login with your Facebook account (New)
-define("_HERE","여기에");//here (New)
-define("_MESSAGEPROPERTIES","메시지 속성");//Message properties (New)
-define("_TOPICPROPERTIES","주제 속성");//Topic properties (New)
-define("_POLLPROPERTIES","설문 등록");//Poll properties (New)
-define("_FORUMPROPERTIES","포럼 등록");//Forum properties (New)
-define("_UPDATETHEME","업데이트 테마");//Update theme (New)
-define("_FACEBOOKLOGININFOONLYMERGE","당신은 사용자 로그인하고 계정의 암호를 제공하여 기존의 eFront 하나를 귀하의 페이 스북 계정을 연결할 수 있습니다");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account (New)
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","그 같은 전자 메일 주소와 하나 이상의 사용자가 있습니다. 아래 양식에 귀하의 로그인을 사용하여");//There are more than one users with the same e-mail address. Use your login in the form below (New)
-define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","매핑된 계정이 성공적으로 삭제되었습니다");//Mapped account was successfully deleted (New)
-define("_THEMEPROPERTIES","테마 속성");//Theme properties (New)
-define("_CHANGETHEME","테마 변경");//Change theme (New)
-define("_LOGO","로고");//Logo (New)
-define("_FAVICON","파비콘");//Favicon (New)
-define("_NOLOGOFOUND","로고를 찾을 수 없음");//No logo found (New)
-define("_DOWNLOADTHEME","Donwload 테마");//Donwload theme (New)
-define("_ORSPECIFYREMOTETHEME","또는 원격 테마를 지정");//Or specify remote theme (New)
-define("_INSTALL","설치");//Install (New)
-define("_REMOTETHEMEXMLFILE","제발 파일을 원격 주제의 XML 설명의 URL을 지정");//Please specify the URL of the remote theme's XML description file (New)
-define("_THEMEALREADYEXISTS","같은 이름의 테마가 이미 존재");//A theme with the same name already exists (New)
-define("_COMMUNICATIONWITHTHIRDPARTY","통신 타사 도구와");//Communication with 3rd party tools (New)
-define("_USERACTIVATIONSETTINGS","사용자 인증 / 등록");//User activation/registration (New)
-define("_LANGUAGESETTINGS","언어 설정");//Language settings (New)
-define("_SECURITYSETTINGS","보안 설정");//Security settings (New)
-define("_CLEARCACHE","캐시 지우기");//Clear cache (New)
-define("_CLEARTEMPLATESCACHE","지우기 캐시 템플릿");//Clear templates cache (New)
-define("_CLEARTESTSCACHE","지우기 테스트 캐시");//Clear tests cache (New)
-define("_CLEAR","맑은");//Clear (New)
-define("_CREDIT","신용");//Credit (New)
-define("_COURSECATALOG","과정 카탈로그");//Course catalog (New)
-define("_PAYMENTS","지불");//Payments (New)
-define("_AMOUNT","금액");//Amount (New)
-define("_ADDMANUALPAYMENT","수동으로 추가 지불");//Add manual payment (New)
-define("_METHOD","방법");//Method (New)
-define("_MANUAL","수동");//Manual (New)
-define("_ACCOUNTS","계정");//Accounts (New)
-define("_BALANCE","균형");//Balance (New)
-define("_ENABLEBALANCE","사용 잔액");//Enable balance (New)
-define("_ENABLEVOUCHER","활성화 할인권");//Enable discount voucher (New)
-define("_SEASONDISCOUNT","시즌 할인");//Season discount (New)
-define("_DISCOUNTPERIOD","시즌 할인 간격");//Season discount interval (New)
-define("_VOUCHERDISCOUNT","바우처 할인");//Voucher discount (New)
-define("_DISCOUNTSTARTSAT","시즌 할인에서 시작");//Season discount starts at (New)
-define("_ANDLASTS","그리고 지속");//and lasts (New)
-define("_CREATEVOUCHER","만들기 바우처");//Create voucher (New)
-define("_AFTERPRICE","가격 후");//After price (New)
-define("_BEFOREPRICE","이전 가격");//Before price (New)
-define("_SHOWCURRENCYSYMBOL","표시 통화 기호");//Show currency symbol (New)
-define("_PAYMENT","지불");//Payment (New)
-define("_PAYUSINGYOURBALANCE","귀하의 계정 잔액을 사용하여 지불");//Pay using your account balance (New)
-define("_VOUCHER","증거 서류");//Voucher (New)
-define("_REVIEWANDCHECKOUT","검토 선택 및 마무리");//Review selections and finish (New)
-define("_JOBS","채용 정보");//Jobs (New)
-define("_SHOWCOURSEINCATALOG","카탈로그에 표시 코스");//Show course in catalog (New)
-define("_PASTESELECTED","붙여넣기 선택");//Paste selected (New)
-define("_SWITCHACCOUNT","계정 전환");//Switch account (New)
-define("_CONNECTED","연결");//Connected (New)
-define("_CANNOTMAPSAMEACCOUNT","당신 자신과 매핑된 계정을 추가할 수 없습니다");//You can not add a mapped account with yourself (New)
-define("_EXPORTTHEME","내보내기 테마");//Export theme (New)
-define("_DEFAULTFORBROWSER","기본 브라우저");//Default for browser (New)
-define("_MOBILECLIENT","모바일 클라이언트");//Mobile client (New)
-define("_USETHEMEBROWSER","이 브라우저에서 기본적으로 사용 테마");//Use theme by default for this browser (New)
-define("_ACTIVETHEMEBROWSER","이 브라우저의 기본 테마");//Default theme for this browser (New)
-define("_JOBNOTASSIGNED","작업이 할당되지 않은");//Job not assigned (New)
-define("_DISCOUNTVOUCHER","할인권");//Discount voucher (New)
-define("_CLICKTOENTERDISCOUNTVOUCHER","클릭 할인권을 입력");//Click to enter discount voucher (New)
-define("_INVALIDVOUCHER","쿠폰 코드 입력하신가 유효하지 않습니다");//The voucher code you entered is not valid (New)
-define("_TOTALPRICEAFTERDISCOUNT","할인 후 총 가격");//Total price after discount (New)
-define("_SUCCESSFULLYENROLLED","등록 절차가 성공적으로 완료되었습니다");//The enrollment procedure was completed successfully (New)
-define("_SORRYYOUALREADYHAVETHELESSONSYOUSELECTED","죄송합니다,하지만 당신이 이미 당신이 선택한 수업에 가입하고있는 것 같아");//We are sorry, but it seems that you are already enrolled to the lessons you selected (New)
-define("_ADDITIONALACCOUNTALREADYEXISTS","이 계정은 이미 매핑된 계정에 존재");//This account already exists in your mapped accounts (New)
-define("_TRIGGERINGUSERSNAME","트리거링 사용자 이름");//Triggering user&#039;s name (New)
-define("_TRIGGERINGUSERSSURNAME","트리거링 사용자의 성");//Triggering user&#039;s surname (New)
-define("_TRIGGERINGUSERSLOGIN","트리거링 사용자 로그인");//Triggering user&#039;s login (New)
-define("_TRIGGERINGUSERSTYPE","트리거링 사용자의 유형");//Triggering user&#039;s type (New)
-define("_TRIGGERINGUSERSEMAIL","트리거링 사용자의 이메일");//Triggering user&#039;s email (New)
-define("_FUTUREASSIGNMENTSWILL","미래의 과제는 모든 직업의 위치로 설명에 적용됩니다 :");//Future assignments will apply to all job positions described as:  (New)
-define("_FUTUREASSIGNMENTSWILLNOT","향후 과제는 해당 직급으로 설명에만 적용됩니다 :");//Future assignments will apply only to this job position described as:  (New)
-define("_NOCORRELATEDSKILLSHAVEBEENFOUND","서로 다른 기술이 발견되었습니다");//No other correlated skills have been found (New)
-define("_ONNEWBRANCH","새로운 지점뿐만 아니라");//New branch addition (New)
-define("_ONBRANCHREMOVAL","지점 제거");//Branch removal (New)
-define("_ONJOBASSIGNMENT","작업 할당");//Job assignment (New)
-define("_ONJOBREMOVAL","사용자 제거 작업");//Remove job from user (New)
-define("_JOBDESCRIPTIONNAME","직급 이름");//Job position name (New)
-define("_ENCRYPTURL","URL을 암호화");//Encrypt URL (New)
-define("_USERNAMEFORMATINFO","포맷 방식의 로그인 시스템에 나타납니다. 마지막으로 이름을 #에 대한 최초의 이름에 사용 # # 이름, 성 #, # # 로그인 로그인에 대한 최초의 이름은 초기 편지 #에 대한 사용자의 유형과 # n # #는 #을 입력");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter (New)
-define("_USERNAMEFORMAT","사용자 이름 형식");//Username format (New)
-define("_LDAP","LDAP를");//LDAP (New)
-define("_SMTP","SMTP를");//SMTP (New)
-define("_LOCALE","장소");//Locale (New)
-define("_PHP","PHP는");//PHP (New)
-define("_SOCIALOPTIONS","사회 옵션");//Social options (New)
-define("_PHPINFO","PHP로 정보");//PHP info (New)
-define("_APPEARANCE","외관");//Appearance (New)
-define("_SITELOGO","사이트 로고");//Site logo (New)
-define("_CHANGELAYOUTFORTHEME","테마에 대한 변경 레이아웃");//Change layout for theme (New)
-define("_LAYOUTFORTHEME","테마 레이아웃");//Layout for theme (New)
-define("_RESETTHEME","재설정 테마");//Reset theme (New)
-define("_THISWILLDELETECUSTOMBLOCKS","이 작업은, 사용자 정의 블록과 머리글 / 바닥글을 포함한 모든 수정 삭제됩니다. 당신은 확실한가요?");//This action will delete all modifications, including custom blocks and header/footer. Are you sure? (New)
-define("_THEMEFAVICON","테마 파비콘");//Theme favicon (New)
-define("_THEMELOGO","테마 로고");//Theme logo (New)
-define("_USETHEMEFAVICON","사용하는 테마 favicon은");//Use theme favicon (New)
-define("_USETHEMELOGO","테마를 사용하여 로고");//Use theme logo (New)
-define("_SHOWSTUDENTCPANEL","쇼 학생 제어판");//Show student control panel (New)
-define("_FORWARD","앞으로");//Forward (New)
-define("_SENDER","보내는 사람");//Sender (New)
-define("_ORIGINALMESSAGE","원본 메시지");//Original message (New)
-define("_PRIORITY","우선");//Priority (New)
-define("_PLEASEPICKANOPTION","제발 옵션을 선택하십시오");//Please pick an option (New)
-define("_YOUHAVEMETCONDITIONS","완료 조건, 보류 확인을 만난");//Completion conditions met, confirmation pending (New)
-define("_OVERALLPROGRESS","전체 진행");//Overall progress (New)
-define("_THEORYPROGRESS","이론 진행");//Theory progress (New)
-define("_AVERAGETESTSCOREOFLASTEXECUTIONS","평균 점수 (각 시험의 마지막 사형 집행 계산)");//Average test score (counting each test's last execution) (New)
-define("_AVERAGEPROJECTSCORE","평균 프로젝트 점수");//Average project score (New)
-define("_HELP","도움");//Help (New)
-define("_LOGOUTUSERAFTER","로그아웃 사용자 후");//Logout users after (New)
-define("_MINUTESOFINACTIVITY","비활성의 분");//minutes of inactivity (New)
-define("_ENABLED","활성 화됨");//Enabled (New)
-define("_DISABLEDFORSTUDENTS","학생을위한 장애");//Disabled for students (New)
-define("_DISABLEDFORPROFESSORSANDSTUDENTS","학생과 교수에 대한 장애");//Disabled for students and professors (New)
-define("_DISABLEDFORALL","사용 불가");//Disabled (New)
-define("_COPYPROPERTIESFROM","복사 등록 정보에서");//Copy properties from (New)
-define("_SHAREFOLDERWITH","공유 폴더");//Share folder with (New)
-define("_CLONELESSON","클론 레슨");//Clone lesson (New)
-define("_START","시작");//Start (New)
-define("_RESUMEALL","모든 이력서");//Resume all (New)
-define("_SUSPENDALL","모두 일시 중지");//Suspend all (New)
-define("_EXITALL","모든 출구");//Exit all (New)
-define("_DAYLOWER","하루");//day (New)
-define("_LESSONUSERSNOTCOMPLETED","교훈을 완료하지 않은 사용자");//Users that have not completed the lesson (New)
-define("_NOUSEREMAILFOUND","이메일을 찾을 수 없습니다");//no email found (New)
-define("_SENDIMMEDIATELY","즉시 보내기");//Send immediately (New)
-define("_MAXIMUMTIMEBETWEENNOTIFICATIONS","연속 알림 세트 사이에 최대에 이르렀다 분");//Maximum minutes between successive notification sets dispatches (New)
-define("_POSITIVENUMBERREQUIRED","긍정적인 번호가 필요합니다");//Positive number required (New)
-define("_EFRONTFILE","Efront 독점");//Efront proprietary (New)
-define("_SCORM2004","SCORM 2004");//SCORM 2004 (New)
-define("_SCORM12","SCORM 1.2");//SCORM 1.2 (New)
-define("_AICC","AICC");//AICC (New)
-define("_CSV","CSV");//CSV (New)
-define("_PDF","PDF 파일");//PDF (New)
-define("_DOC","덕");//DOC (New)
-define("_HTML","HTML을");//HTML (New)
-define("_XML","XML을");//XML (New)
-define("_AUTODETECT","자동 감지");//Auto detect (New)
-define("_GENERICSTRUCTURE","일반 구조");//Generic structure (New)
-define("_IMPORTTYPE","가져오기 형식");//Import type (New)
-define("_IMPORTFILE","가져오기 파일");//Import file (New)
-define("_IMPORTFROMURL","URL에서 가져오기");//Import from URL (New)
-define("_IMPORTFROMPATH","경로에서 가져오기");//Import from path (New)
-define("_CHOOSEUNIT","단위 선택");//Choose unit (New)
-define("_USECRON","를 사용하여 cron 작업");//Use cron job (New)
-define("_USECRONINFO","");//You can have notifications being sent by a cron job by executing<br> the send_notifications.php script located in the www/ <br>folder of your installation. However, it is essential that you define <br>the HTTP_HOST variable for the \$_SERVER variable. <br>A sample script that could be executed by cron is the following: <br><br>&lt;"."?php<br>\$_SERVER['HTTP_HOST'] = \"127.0.0.1\";<BR>include \"/home/user/eFront/www/send_notifications.php\";<BR>?"."> (New)
-define("_HOURSAFTEREVENT","행사 후 시간");//hours after event (New)
-define("_HOURSBEFOREEVENT","행사 전에 시간");//hours before event (New)
-define("_AVAILABLEFOR","가능");//Available for (New)
-define("_DAYSAFTERREGISTRATION","등록 일 후에");//days after registration (New)
-define("_NOTIFICATIONTIME","시간");//Time (New)
-define("_RESEND","이메일 다시 보내기");//Resend email (New)
-define("_CERTIFICATESTATISTICS","인증 리포트");//Certificate reports (New)
-define("_WANTUSERSCERTIFICATEDALLCOURSES","어떤 과정에 대한 인증을 가지고있는 사용자");//Users that got a certification for any course (New)
-define("_EVENTSTATISTICS","이벤트 보고서");//Events reports (New)
-define("_EVENTSMATCHINGTHECRITERIA","이벤트 일치하는 기준");//Events matching criteria (New)
-define("_NOEVENTSFOUND","아니 이벤트가 귀하의 검색 기준과 일치");//No events match your search criteria (New)
-define("_VISITEDTHESYSTEM","시스템을 방문");//visited the system (New)
-define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","수업에 대한 일정 시작 날짜를 설정했습니다");//has set the scheduled starting date for lesson (New)
-define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","수업에 대한 일정 유효 기간을 설정했습니다");//has set the scheduled expiry date for lesson (New)
-define("_HASPUBLISHEDTHEANNOUNCEMENT","발표를 발표했다");//has published the announcement (New)
-define("_HASASKEDFORANEWPASSWORD","새 비밀 번호 요청");//asked for a new password (New)
-define("_WASREGISTEREDINTOTHESYSTEM","시스템에 등록되었습니다");//was registered into the system (New)
-define("_ACTIVATEDHISACCOUNTWITHEACTIVATIONMAIL","이메일을 통해 자신의 계정을 활성화");//activated his account via email (New)
-define("_CREATEDTHETEST","테스트를 생성");//created the test (New)
-define("_CREATEDTHEBRANCH","지점을 만든");//created the branch (New)
-define("_DELETEDTHEBRANCH","지점을 삭제");//deleted the branch (New)
-define("_WASASSIGNEDTHEJOB","작업을 할당했습니다");//was assigned the job (New)
-define("_WASREMOVEDFROMJOB","직장에서 제거되었습니다");//was removed from job (New)
-define("_SCHEDULEDSTARTOFLESSON","예약된 수업의 시작");//Scheduled start of lesson (New)
-define("_SCHEDULEDEXPIRYOFLESSON","수업의 예약 만료");//Scheduled expiration of lesson (New)
-define("_HASFORGOTTENHISPASSWORD","자신의 비밀 번호를 분실했습니다");//has forgotten his password (New)
-define("_BLOCKFILENAME","블록 이름");//Block name (New)
-define("_VERSIONINFORMATION","버전 정보");//Version information (New)
-define("_BUILD","빌드");//build (New)
-define("_INSTALLEDVERSION","설치된 버전");//Installed version (New)
-define("_LATESTVERSION","최신 버전");//Latest version (New)
-define("_DOWNLOADANDINSTALL","다운로드 및 설치");//Download and install (New)
-define("_DOWNLOADINGFILE","파일 다운로드");//Downloading file (New)
-define("_EDITION","판");//Edition (New)
-define("_UPGRADEURL","URL이에서 새 버전을 읽을 수");//Url to read new versions from (New)
-define("_SOMEFILESARENOTWRITABLE","일부 파일에 쓰기 권한이 없습니다");//Some files are not writable (New)
-define("_SOMEDIRECTORIESARENOTWRITABLE","일부 디렉토리에 쓰기 권한이 없습니다");//Some directories are not writable (New)
-define("_ONFIRED","회사에서 제거 사용자");//Remove user from company (New)
-define("_WASFIRED","회사에서 해고되었습니다");//was laid off from the company (New)
-define("_GROUPASSIGNMENT","그룹 과제");//Group assignment (New)
-define("_WASASSIGNEDTOGROUP","그룹에 할당된");//was assigned to group (New)
-define("_REMOVALFROMGROUP","그룹에서 제거");//Removal from group (New)
-define("_WASREMOVEDFROMGROUP","그룹에서 제거되었습니다");//was removed from group (New)
-define("_ONNEWSKILL","기술 과제");//Skill assignment (New)
-define("_WASASSIGNEDSKILL","기술을 할당했습니다");//was assigned skill (New)
-define("_ONSKILLREMOVAL","기술 제거");//Skill removal (New)
-define("_DOESNOTHAVEANYMORESKILL","더 이상 기술이 없습니다");//does not have anymore skill (New)
-define("_ONSKILLEDIT","사용자 편집 기능");//User skill edited (New)
-define("_HADHISSKILLEDITEDTO","기술에 대한 새로운 설명을했다");//has a new description for skill (New)
-define("_ONHCDHIRED","사용자가 고용");//User hired (New)
-define("_WASHIRED","회사에 고용되었다");//was hired to the company (New)
-define("_ONHCDLEFT","이용자는 회사를 떠난");//User left company (New)
-define("_HASLEFTHECOMPANY","회사를 떠났다");//left the company (New)
-define("_ONWAGECHANGE","임금의 변화");//Wage change (New)
-define("_HASHADHISWAGECHANGETO","새로운 임금을받을 것입니다");//will be receiving a new wage of (New)
-define("_EVENTTYPE","이벤트 유형");//Event type (New)
-define("_ANYEVENT","모든 이벤트");//Any event (New)
-define("_PERIOD","기간");//Period (New)
-define("_KEY","키");//Key (New)
-define("_SEARCHCERTIFICATESBYKEY","검색 인증서를 사용하여 자사의 핵심");//Search for certificate using its key (New)
-define("_ENTERPARTOFCERTIFICATEKEY","키 인증의 일부를 입력하십시오");//Enter part of certification key (New)
-define("_SMARTYBLOCK","블록에서 사용 멋지 코드");//Use smarty code in block (New)
-define("_EXPORTSETTINGS","내보내기 설정");//Export settings (New)
-define("_IMPORTSETTINGS","가져오기 설정");//Import settings (New)
-define("_SETTINGSFILE","설정 파일");//Settings file (New)
-define("_SETTINGSIMPORTEDSUCCESFULLY","설정을 성공적으로 가져왔습니다");//Settings imported successfully (New)
-define("_TOGGLEACCESSASSEPARATEPAGE","별도의 페이지로 전환 액세스");//Toggle access as a separate page (New)
-define("_LINKS","링크");//Links (New)
-define("_HASCERTIFICATED","가지고 증명서");//got certificate for (New)
-define("_WITHGRADE","학년과");//with grade (New)
-define("_WITHKEY","열쇠");//with key (New)
-define("_CERTIFICATEISSUE","인증서 발급");//Certificate issue (New)
-define("_CERTIFICATEREVOKE","인증서 / 만료 취소");//Certificate revoke/expire (New)
-define("_HASLOSTCERTIFICATE","분실 증명서");//lost certificate for (New)
-define("_PREVIOUSCERTIFICATES","이전 ceriticates");//Previous ceriticates (New)
-define("_PRIVATE","비공개");//Private (New)
-define("_WANTCERTIFICATESEXPIRED","인증서 만료됩니다");//Certificates that will expire (New)
-define("_MAXIMUMUSERS","최대 사용자");//Maximum users (New)
-define("_MAXIMUMUSERSREACHEDFORLESSON","이 강의에 대한 사용자의 최대에 도달");//The maximum number of users for this lesson is reached (New)
-define("_MAXIMUMUSERSREACHEDFORCOURSE","이 과정에 대한 사용자의 최대에 도달");//The maximum number of users for this course is reached (New)
-define("_FILTERS","필터");//Filters (New)
-define("_NOBEFOREUPLOAD","onunload 이벤트를 복사하지 마십시오");//Don't copy onunload events (New)
-define("_GROUPSTATISTICS","그룹 리포트");//Group reports (New)
-define("_BRANCHSTATISTICS","분기 보고서");//Branch reports (New)
-define("_CHOOSEGROUP","선택 그룹");//Choose group (New)
-define("_GROUPISNOTVALIDORYOUCANNOTSEEGROUP","이 단체가 유효하지 않습니다 또는 그룹을 볼 수 없습니다");//The group is not valid or you cannot see the group (New)
-define("_REPORTSFORGROUP","그룹에 대한 리포트");//Reports for group (New)
-define("_COUNTONLYGROUPUSERS","백작 유일한 그룹 사용자");//Count only group users (New)
-define("_GROUPUSERTRAFFIC","그룹 사용자 트래픽");//Group user traffic (New)
-define("_USERSTRAFFIC","사용자 트래픽");//Users traffic (New)
-define("_ONLYFORGROUPLESSONS","유일한 그룹 레슨");//Only group lessons (New)
-define("_ONLYFORGROUPUSERS","사용자만이 그룹");//Only group users (New)
-define("_LESSONSTRAFFIC","수업 트래픽");//Lessons traffic (New)
-define("_GROUPLESSONTRAFFIC","그룹 레슨 트래픽");//Group lessons traffic (New)
-define("_ARCHIVE","아카이브");//Archive (New)
-define("_ARCHIVEDON","에 보관된");//Archived on (New)
-define("_RESTORESELECTED","복원을 선택");//Restore selected (New)
-define("_ARCHIVEENTITY","아카이브");//Archive (New)
-define("_LOADMATHTYPESASIMAGES","이미지로 표시 수학 유형");//Display math types as images (New)
-define("_MATHIMAGESINFO","인터넷 익스플로러 8 추천. 당신은 또한 브라우저의 캐시를 삭제해야 할 수 있습니다");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache (New)
-define("_EDITCOURSESDIRECTION","카테고리 코스");//Category courses (New)
-define("_GROUPROLE","그룹 공통의 역할");//Group common role (New)
-define("_GROUPONLY","그룹");//Group (New)
-define("_YOUCANTDOTHESURVEYCONTACTLESSONPROFESSOR","어느 쪽이든 당신은 조사를했을하거나 비활성화되어 있습니다");//Either you have done the survey or it is inactive (New)
-define("_CHOOSEBRANCH","지점 선택");//Choose branch (New)
-define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","가지가 유효하지 않습니다 또는 분기를 볼 수 없습니다");//The branch is not valid or you cannot see the branch (New)
-define("_REPORTSFORBRANCH","지사에 대한 리포트");//Reports for branch (New)
-define("_BRANCHUSERS","지점 사용자");//Branch users (New)
-define("_BRANCHUSERTRAFFIC","지점 사용자 트래픽");//Branch user traffic (New)
-define("_CORRECTANSWERPERCENTAGE","정확한 응답 비율");//Correct answer percentage (New)
-define("_QUESTIONANALYSIS","질문 분석");//Question analysis (New)
-define("_PARTICIPANTSCAP","참가자");//Participants (New)
-define("_PERCENTWITHSCOREHIGHEREQUAL","평가 점수가 높을 또는 동등한 비율로");//Percent with score higher or equal (New)
-define("_PARTICIPATIONSTATISTICS","참가 보고서");//Participation reports (New)
-define("_YESABBREVIATION","Y");//Y (New)
-define("_NOABBREVIATION","N");//N (New)
-define("_TOGGLESIDEBAR","전환 사이드바");//Toggle sidebar (New)
-define("_SCOREDISTRIBUTION","점수 분포");//Score distribution (New)
-define("_CUMULATIVESCOREDISTRIBUTION","누적 점수 분포");//Cumulative score distribution (New)
-define("_SEARCHTYPE","에 대한 리포트는 특정");//Reports for a specific (New)
-define("_KEYUSAGE","키 사용");//Key usage (New)
-define("_INVALIDVERSIONKEY","잘못된 버전 키");//Invalid version key (New)
-define("_SETTINGKEYFAILEDWITHCODE","버전 키 설정 코드와 함께 실패했습니다");//Setting the version key failed with code (New)
-define("_THEREISNEWVERSION","거기에 새 버전을 사용할 수 있습니다!");//There is a new version available! (New)
-define("_RELEASENOTES","릴리스 정보");//Release notes (New)
-define("_VERSIONUPTODATE","버전이 최신입니다");//Your version is up to date (New)
-define("_CONTACTINGSERVER","서버에 접속하는 ...");//Contacting server... (New)
-define("_ERRORCONNECTINGTOLICENSESERVER","이 시스템은 서버 라이센스에 연결할 수 없습니다");//The system could not connect to license server (New)
-define("_LICENSESERVER","라이센스 서버");//License server (New)
-define("_UPGRADESVALIDUNTIL","승급까지 유효");//Upgrades valid until (New)
-define("_ACTIVATEDON","활성화");//Activated on (New)
-define("_SERVERRESPONDED","서버가 응답");//The server responded (New)
-define("_FILEZEROSIZE","업그레 이드 파일에 대한 적절한 정보를 검색하지 못했습니다");//Failed to retrieve proper information about the upgrade file (New)
-define("_FILECANNOTOPEN","파일을 검색할 수 없습니다");//The file could not be retrieved (New)
-define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","다운로드한 파일은 홈 디렉토리에 쓸 수 없습니다");//The downloaded file could not be written to your home directory (New)
-define("_SHOWEMPTYBLOCKS","빈 블록보기");//Show empty blocks (New)
-define("_INACTIVITYLOGOUT","당신은 비활성 오랜 기간으로 인해 로그아웃되었습니다");//You have been logged out due to a long period of inactivity (New)
-define("_ABANDON","포기");//Abandon (New)
-define("_ABANDONALL","모두 버려라");//Abandon all (New)
-define("_COMPLETIONPERCENTAGEBLOCK","완료 비율 블록");//Completion percentage block (New)
-define("_UNITOPTIONSBLOCK","단위 옵션 블록");//Unit options block (New)
-define("_RIGHTBAR","오른쪽 사이드바");//Right sidebar (New)
-define("_LEFTBAR","왼쪽 사이드바");//Left sidebar (New)
-define("_STUDENTCPANEL","학생 제어판");//Student control panel (New)
-define("_SMARTCONTENT","스마트 콘텐츠");//Smart content (New)
-define("_ZIPHANDLING","우편 처리 방식");//Zip handling method (New)
-define("_COMPLETION","완성");//Completion (New)
-define("_SETALLTO","설정 모두");//Set all to (New)
-define("_INADEQUATEBALANCE","불충 분한 잔액");//Inadequate balance (New)
-define("_PAYPALMODE","페이팔 모드");//Paypal mode (New)
-define("_SANDBOX","모래 상자");//Sandbox (New)
-define("_VIEWTRANSACTIONLOGFILE","트랜잭션 로그 파일");//Transaction log file (New)
-define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","현재 주소를 설정 사업장 주소를받지 일치하지 않습니다");//Currently set address does not match received business address (New)
-define("_UNSUPPORTEDOPERATIONTYPE","지원되지 않는 작업 유형");//Unsupported operation type (New)
-define("_DUPLICATECOMPLETEDPAYMENT","중복 결제를 완료");//Duplicate completed payment (New)
-define("_UNSUPPORTEDPAYMENTSTATUS","지불되지 않는 상태");//Unsupported payment status (New)
-define("_YOUHAVECANCELLEDTHETRANSACTION","당신은 거래를 취소했습니다");//You have cancelled the transaction (New)
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","트랜잭션이 성공적으로 완료되었습니다.");//The transaction was completed successfully. (New)
-define("_PAYPALDEBUG","페이팔 디버그 모드");//Paypal debug mode (New)
-define("_MYACCOUNT","내 계정");//my Account (New)
-define("_MODULE","모듈");//Module (New)
-define("_EMBEDTYPE","소스 콘텐츠로");//Embed content as (New)
-define("_INLINEIFRAME","인라인 (iframe이)");//Inline (iframe) (New)
-define("_NEWWINDOWPOPUP","새 창 (팝업)");//New window (popup) (New)
-define("_POPUPPARAMETERS","팝업 매개 변수");//Popup parameters (New)
-define("_CLICKTOSTARTUNIT","버튼을 클릭에 대한 단위를 시작합니다");//Click on the button to start the unit (New)
-define("_STARTUNIT","시작 단위");//Start unit (New)
-define("_SCORM2004NOTSUPPORTED","불행히도 SCORM 2004이 제품에서 지원되지 않습니다");//Unfortunately SCORM 2004 is not supported in this edition (New)
-define("_RESTOREDEFAULTNOTIFICATIONS","복원 기본 알림");//Restore default notifications (New)
-define("_CONTENTPROGRESSEXCLUDINGTESTS","콘텐츠 진행 중 (excl. 검사)");//Content progress (excl. tests) (New)
-define("_DATABASEVERSION","데이터베이스 버전");//Database version (New)
-define("_DIFFERENTVERSIONSUPGRADENEEDED","데이터베이스 버전은 코드 버전과 다를 수 있습니다. 주십시오 %의 링크는 스크립트 실행");//Your database version is different than the code version. Please run the %link script (New)
-define("_UPGRADE","업그레 이드");//Upgrade (New)
-define("_DOWNLOADEXPORTEDCOURSE","다운로드 과정을 수출");//Download exported course (New)
-define("_MAXDISCOUNT100","최대 할인가 100 %");//The maximum discount is 100% (New)
-define("_REGISTRATIONUPDATE","등록 / 업데이트");//Registration/Update (New)
-define("_ROWS","행");//Rows (New)
-define("_COMMANDFAILEDWITHOUTPUT","이 명령은 다음과 같은 출력이 실패했습니다");//The command failed with the following output (New)
-define("_PERHAPSDONTSUPPORTZIP","아마 시스템이 우편 처리를 지원하지 않습니다?");//Perhaps your system does not support zip processing? (New)
-define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","위해서는 코스를 만들려면 먼저 카테고리를 만들어야합니다");//In order to create a course, you must first create a category (New)
-define("_LESSONBRANCHESSELECTION","선택 수업 지점");//Select lesson branches (New)
-define("_LESSONBRANCHES","수업 지점");//Lesson branches (New)
-define("_COURSEBRANCHES","코스 지점");//Course branches (New)
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","허용 학생들이 각 테스트 실행에 질문의 개수를 지정합니다");//Allow students to specify number of questions in each test execution (New)
-define("_MAXIMUM","최대의");//Maximum (New)
-define("_MINIMUM","최소한의");//Minimum (New)
-define("_REPETITIONS","반복");//Repetitions (New)
-define("_MAINTAINHISTORY","유지의 역사");//Maintain history (New)
-define("_KEYISNOTFORTHISEDITION","열쇠는이 제품에 적합 없습니다");//The key is not suitable for this edition (New)
-define("_ILLEGALMODE","불법 모드");//Illegal mode (New)
-define("_MUSTSPECIFYQUESTIONNUMBER","당신은 질문의 개수를 지정해야합니다");//You must specify the number of questions (New)
-define("_MUSTSPECIFYVALUEFROM","당신의 값을 지정해야합니다");//You must specify a value from (New)
-define("_COURSEPROFESSORS","과정 교수");//Course professors (New)
-define("_PROFESSORSOFCOURSE","물론 교수");//Professors of course (New)
-define("_USERSUPERVISORS","사용자 감독자");//User supervisors (New)
-define("_USEROPTIONSFOR","사용자에 대한 옵션");//Options for user (New)
-define("_MYSTATUS","나의 학습 상태");//my Learning status (New)
-define("_MYCOURSES","내 코스");//my Courses (New)
-define("_CERTIFICATIONS","인증서");//Certificates (New)
-define("_MYCERTIFICATIONS","내 인증서");//my Certificates (New)
-define("_NOCERTIFICATESHAVEBEENISSUEDYET","아니 인증서는 사용자에게 아직 발행되었습니다");//No certificates have been issued to the user yet (New)
-define("_SUPERVISORTOACTIVATE","하려면 관리자에 의해 활성화");//To be activated by supervisor (New)
-define("_NOSUPERVISORSFOUND","없음 지점 감독자를 찾을 수");//No branch supervisors found (New)
-define("_PRINTCONTENT","인쇄 내용");//Print content (New)
-define("_VERIFYFOLLOWINGINFOISCORRECT","제발 다음과 같은 정보가 정확한지 확인");//Please verify that the following information is correct (New)
-define("_NOCATEGORIESDEFINED","아무 카테고리 정의되어 있습니다");//There are no categories defined (New)
-define("_SUPERVISORMAILUSERACTIVATION","관리자 이메일 활성화");//Supervisor email activation (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","사원 계정 활성화 이메일");//Employee account activation email (New)
-define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","이 이메일은 당신이 새로운 시스템은 사용자가 활성화할 수 있습니다");//This email enables you to activate the new system user (New)
-define("_ASSIGNEDTOBRANCH","분기에 할당");//assigned to branch (New)
-define("_BYCLICKINGONTHELINK","다음의 링크를 클릭하여");//by clicking on the following link (New)
-define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","직원의 계정이 성공적으로 활성화되었습니다");//The account of your employee was successfully activated (New)
-define("_SHOWHORIZONTALBAR","수평 막대");//Horizontal bar (New)
-define("_BRANCHINFORMATION","지점 정보");//Branch information (New)
-define("_BRANCHNAMEDESCRIPTION","지점 필드 이름");//Branch field name (New)
-define("_JOBDESCRIPTIONDESCRIPTION","직업 필드 이름");//Job field name (New)
-define("_SUPERVISORDESCRIPTION","관리자 필드 이름을 활성화");//Activating supervisor field name (New)
-define("_LEAVEEMPTYTONOTUSE","빈 ommit 맡겨");//Leave empty to ommit (New)
-define("_PLEASESELECT","선택하십시오");//Please select (New)
-define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","당신의 상사와 귀하의 계정을 활성화합니다");//Your supervisor will activate your account (New)
-define("_INVALIDPARAMETER","잘못된 매개 변수");//Invalid parameter (New)
-define("_IMS","이무즈");//IMS (New)
-define("_IMSIMPORT","가져오기 콘텐츠 이무즈");//Import IMS Content (New)
-define("_IMSEXPORT","내보내기 콘텐츠 이무즈");//Export IMS Content (New)
-define("_UPLOADTHEIMSFILEINZIPFORMAT","우편으로 업로드 IMS 데이터 파일 형식");//Upload IMS file in ZIP format (New)
-define("_IMSOPTIONS","IMS 데이터 옵션");//IMS options (New)
-define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS 데이터 파일이 성공적으로 가져왔습니다");//IMS file was successfully imported (New)
-define("_TOOLTIP","툴팁");//Tooltip (New)
-define("_HIDDEN","숨겨진 사용자");//Hidden from users (New)
-define("_RESETSCORMDATA","재설정 사용자 데이터");//Reset user data (New)
-define("_TOGGLEADVENCEDPARAMETERS","고급 설정");//Advanced settings (New)
-define("_ADDINSTANCE","인스턴스를 추가합니다");//Add instance (New)
-define("_INSTANCE","예");//Instance (New)
-define("_COURSECODE","과정 코드");//Course code (New)
-define("_TRAININGHOURS","시간 교육");//Training hours (New)
-define("_COURSEINSTANCES","코스 인스턴스");//Course instances (New)
-define("_CAPACITY","용량");//Capacity (New)
-define("_SEATSREMAINING","남은 좌석");//Seats remaining (New)
-define("_STARTDATE","시작일");//Start date (New)
-define("_AREYOUSUREYOUWANTTODELETEINSTANCE","당신은이 인스턴스를 삭제하시겠습니까?");//Are you sure you want to delete this instance? (New)
-define("_EDITCOURSEINSTANCE","편집 인스턴스");//Edit instance (New)
-define("_EDITLESSONSCOURSEINSTANCE","인스턴스 레슨");//Instance lessons (New)
-define("_EDITUSERSCOURSEINSTANCE","인스턴스 사용자");//Instance users (New)
-define("_SKILLSOFFEREDINSTANCE","인스턴스 기술");//Instance skills (New)
-define("_COURSEOPTIONSFORINSTANCE","예를 들어 옵션");//Options for instance (New)
-define("_JUMPTO","점프");//Jump to (New)
-define("_PARENTCOURSE","학부모 강좌");//Parent Course (New)
-define("_LOCATIONBRANCH","위치 (지점)");//Location (branch) (New)
-define("_SELECTBRANCH","지점 선택");//Select branch (New)
-define("_SHARED","공유");//Shared (New)
-define("_UNIQUE","유일한");//Unique (New)
-define("_MODE","모드");//Mode (New)
-define("_USEONLYCOURSESINCATALOG","카탈로그에 사용 전용 코스");//Use only courses in catalog (New)
-define("_ALLJOBS","모든 작업");//All jobs (New)
-define("_SHOWMOTTOONHEADER","표시 이름과 모토 헤더 또한");//Show name and motto also on header (New)
-define("_ASSIGNCOURSES","할당 과정");//Assign courses (New)
-define("_MASSCOURSESASSIGNMENTINFO","선택 과정은 모든 사용자에게 할당할 발견");//Select courses to assign to all the users found (New)
-define("_NOUSERSHAVEBEENFOUND","아니 사용자가 발견되었습니다");//No users have been found (New)
-define("_ASSIGNMENT","할당");//Assignment (New)
-define("_ANYLOWESTLEVELBRANCH","모든 가장 낮은 수준에서");//Any at the lowest level (New)
-define("_ANYABOVETHELOWESTLEVELBRANCH","가장 낮은 수준의 모든 바로 위에있는");//Any just above the lowest level (New)
-define("_NOCOURSESHAVEBEENREGISTERED","아니 과정 등록되었습니다");//No courses have been registered (New)
-define("_NOREQUIREDTRAININGSETYET","아니 필요한 훈련은 아직 정의되었습니다");//No required training has been defined yet (New)
-define("_REQUIREDTRAINING","필수 교육");//Required training (New)
-define("_NEWREQUIREDTRAININGCOURSE","새로운 교육 조건");//New training condition (New)
-define("_REQUIREDTRAININGCOURSES","필수 교육 과정");//Required training courses (New)
-define("_ADDALTERNATIVETRAINING","대안 교육을 추가");//Add alternative training (New)
-define("_HASREQUIREDTRAINING","훈련이 필요 했나");//Has required training (New)
-define("_SEARCHRESULTSINGLOSSARY","용어의 검색 결과");//Search results in glossary (New)
-define("_NORESULTSFOUNDINGLOSSARY","결과는 용어에서 나온");//No results found in glossary (New)
-define("_PROJECTSSCORE","프로젝트 점수");//Projects score (New)
-define("_TESTSSCORE","시험 점수");//Tests score (New)
-define("_AUTOLOGIN","자동 로그인");//Auto login (New)
-define("_ACCESSLINK","액세스 링크");//Access link (New)
-define("_AUTOLOGINITHLINK","사용자가 자동으로 링크하여 로그인하실 수 있습니다");//User can login automatically by link (New)
-define("_DEFAULTUSERTYPE","기본 사용자 유형");//Default user type (New)
-define("_FORCEUSERANSERALLQUESTIONS","강제로 학생이 모든 질문에 대한 답변");//Force student answer all questions (New)
-define("_YOUHAVETOANSWERALLQUESTIONS","당신이 모든 질문에 대답해야");//You have to answer all questions (New)
-define("_ALLOWINDEPENDENTLESSONS","독립적인 수업 허용");//Allow independent lessons (New)
-define("_NOPRESELECTEDDATE","아니 미리 선택된 날짜");//No preselected date (New)
-define("_CURRENTDATE","현재 날짜");//Current date (New)
-define("_SHOWHELP","디스플레이의 도움말 링크");//Display help links (New)
-define("_ALLOWUSERANSERALLRONG","허용 학생은 엉뚱한 대답 질문을 해보죠");//Allow students to redo only the wrong answered questions (New)
-define("_ALLOWANSWERWRONGINFO","오직 테스트 반복이 허용하는 경우");//Only if test repetitions are allowed (New)
-define("_USERREDOWRONG","반복은 잘못된 대답");//Redo only wrong answered (New)
-define("_DEFAULTTHEMECANNOTBEIMPORTED","기본 테마 inported 수 없습니다");//Default theme can not be inported (New)
-define("_ACCESSEXPIRED","액세스가 만료");//Access expired (New)
-define("_LESSONSCHEDULE","수업 일정");//Lessons schedule (New)
-define("_COURSESTARTSAT","코스가 시작됩니다");//The course starts on (New)
-define("_COURSEENDSAT","이 과정에 끝나");//The course ends on (New)
-define("_ENDDATE","종료일");//End date (New)
-define("_SELECTSKILLCATEGORY","선택 기술 분류");//Select skill category (New)
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","없음 헤더 행가 정의되었다 또는 헤더 가져오기 형식과 호환되지 않습니다");//No header row was defined or header not compatible with import type (New)
-define("_IMPORTEDUSER","수입 사용자");//Imported user (New)
-define("_USERSTOCOURSES","코스 사용자");//Users to courses (New)
-define("_USERSTOGROUPS","그룹에 사용자");//Users to groups (New)
-define("_IMPORTANYTHING","뭐든 인정");//Anything recognized (New)
-define("_DATATOIMPORT","데이터 가져오기");//Data to import (New)
-define("_SUCCESSFULLIMPORTS","성공적인 수입");//successfull imports (New)
-define("_FAILEDIMPORTS","실패 수입");//failed imports (New)
-define("_REPLACEDUSER","업데이트 사용자");//Updated user (New)
-define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","이 파일은 필요한 열이 포함되어 있지 않습니다");//The file does not contain the necessary columns (New)
-define("_REPLACEDEXISTINGASSIGNMENT","대체 기존 할당");//Replaced existing assignment (New)
-define("_NEWCOURSEASSIGNMENT","새로운 코스 할당");//New course assignment (New)
-define("_NEWGROUPASSIGNMENT","새 그룹에 할당");//New group assignment (New)
-define("_USERSTOJOBS","작업에 사용자");//Users to jobs (New)
-define("_USERSTOSKILLS","능력 사용자");//Users to skills (New)
-define("_DATATOEXPORT","데이터 수출");//Data to export (New)
-define("_MANDATORYFIELDS","필수 필드");//Mandatory fields (New)
-define("_OPTIONALFIELDS","선택 입력란");//Optional fields (New)
-define("_CSVIMPORTEXPLAINATION","헤더 라인의 각 유형에 대한 수입 포함, 모두와 선택적 필드 제목 자들의 순서는 아래에 제공된에서 강제로 파일을 제공합니다. 각 열에 대한 제목은 그 의미를 나타냅니다. 알 수없는 열이, 프로 시저의 나머지 부분에 영향을주지 않고 생략됩니다.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure. (New)
-define("_NEWJOBASSIGNMENT","새로운 직업 설명 할당");//New job description assignment (New)
-define("_NEWSKILLASSIGNMENT","새로운 기술 할당");//New skill assignment (New)
-define("_REPLACEDEXISTINGBRANCH","대체 기존 지사");//Replaced existing branch (New)
-define("_REPLACEDEXISTINGJOB","대체 기존의 직업");//Replaced existing job (New)
-define("_REPLACEDEXISTINGSKILL","기존의 대체 기술");//Replaced existing skill (New)
-define("_BRANCHALREADYEXISTS","지점이 이미 존재합니다");//Branch exists already (New)
-define("_MISSINGSKILLCATEGORY","기술 범주를 누락");//Missing skill category (New)
-define("_SKILLALREADYEXISTS","기술이 이미 존재합니다");//Skill exists already (New)
-define("_BRANCHDOESNOTEXIST","지점이 존재하지 않습니다");//Branch does not exist (New)
-define("_BRANCHNAMEAMBIGUOUS","지점 이름이 모호합니다");//Branch name is ambiguous (New)
-define("_JOBTITLEAMBIGUOUS","구인 제목 모호한입니다");//Job title is ambiguous (New)
-define("_SKILLAMBIGUOUS","스킬 이름이 모호합니다");//Skill name is ambiguous (New)
-define("_SKILLCATEGORYAMBIGUOUS","기술 분류가 모호합니다");//Skill category is ambiguous (New)
-define("_MISSING_JOB_DESCRIPTION","직업 설명 누락");//Missing job description (New)
-define("_SKILLDOESNOTEXIST","이 기술이 존재하지 않습니다");//This skill does not exist (New)
-define("_USERALREADYEXISTSINGROUP","사용자가 이미 그룹에 존재");//User already exists in group (New)
-define("_COUPONS","쿠폰");//Coupons (New)
-define("_COUPONCODE","쿠폰 코드");//Coupon code (New)
-define("_TOTALUSES","총 사용");//Total uses (New)
-define("_TOTALUSESBYSINGLEUSER","단일 사용자에 의해 총 사용");//Total uses by single user (New)
-define("_MAXIMUMUSESBYSINGLEUSER","최대 단일 사용자에 의해 사용");//Maximum uses by single user (New)
-define("_VALIDFROM","유효 기간부터");//Valid from (New)
-define("_DISCOUNT","할인");//Discount (New)
-define("_SUCCESSFULLYUPDATEDCOUPON","성공적으로 업데이 트 쿠폰");//Successfully updated coupon (New)
-define("_CREATEUNIQUECOUPON","만들기 독특한 쿠폰");//Create unique coupon (New)
-define("_ADDCOUPON","쿠폰 추가");//Add coupon (New)
-define("_COUPONPROPERTIES","쿠폰 등록");//Coupon properties (New)
-define("_REPORTS","리포트");//Reports (New)
-define("_EXPIRED","만료된");//Expired (New)
-define("_USES","용도");//Uses (New)
-define("_VALIDUNTIL","유효 기간");//Valid until (New)
-define("_USESREMAINING","용도 나머지");//Uses remaining (New)
-define("_MAXIMUMUSES","최대 사용");//Maximum uses (New)
-define("_USESSOFAR","용도까지");//Uses so far (New)
-define("_COUPON","쿠폰");//Coupon (New)
-define("_INVALIDCOUPON","잘못된 쿠폰");//Invalid coupon (New)
-define("_CLICKTOENTERDISCOUNTCOUPON","클릭하여 쿠폰 할인을 입력");//Click to enter discount coupon (New)
-define("_TESTREDONE","수정");//Corrected (New)
-define("_CURRICULUMS","교과 과정");//Curricula (New)
-define("_CURRICULUM","교과 과정");//Curriculum (New)
-define("_ASSIGNCURRICULUMTOGROUPUSERS","그룹에 할당 교과 과정은 사용자");//Assign curriculum to group users (New)
-define("_ASSIGNCURRICULUMTOUSER","사용자에게 할당 교과 과정");//Assign curriculum to user (New)
-define("_ADDCURRICULUM","교과 과정을 추가");//Add curriculum (New)
-define("_EDITCURRICULUM","수정 교과 과정");//Edit curriculum (New)
-define("_COULDNOTFINDCOURSE","코스를 찾을 수 없습니다");//Could not find course (New)
-define("_IMPORTRESULTSFOR","가져오기 결과");//Import results for (New)
-define("_COUPONUSAGE","쿠폰 사용");//Coupon usage (New)
-define("_NEWPAYPALPAYMENT","새로운 페이팔 지불");//New paypal payment (New)
-define("_NEWBALANCEPAYMENT","새 잔액 지불");//New balance payment (New)
-define("_USEDCOUPON","쿠폰 사용");//Used coupon (New)
-define("_PAYEDWITHBALANCE","균형과 도를");//Payed with balance (New)
-define("_PAYEDWITHPAYPAL","페이팔과 도를");//Payed with paypal (New)
-define("_YOUMUSTCOMPLETEALLTESTS","당신은 모든 테스트를 완료해야합니다");//You must complete all tests (New)
-define("_ELIMINATEPOSTXSS","POST를 제거 &lt;script&gt; 태그");//Remove &lt;script&gt; tags from POST (New)
-define("_LOGINREDIRECTPAGE","로그인 후 사용자가 리디렉션");//Redirect user after login to (New)
-define("_LESSONSCATALOG","사용자의 레슨 카탈로그");//User's lesson catalog (New)
-define("_USERDASHBOARD","사용자 대시보드");//User's dashboard (New)
-define("_NOTITLEPROVIDEDFORNEWJOB","제목 없음 직업 설명을 위해 제공");//No title provided for job description (New)
-define("_EDITORTYPE","편집기 유형");//Editor type (New)
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1 (New)
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3 (New)
-define("_DONOTSHOWTESTAFTERSUBMITTING","테스트를 제출한 후에는 만 표시 메시지");//Show only a message after submitting test (New)
-define("_TESTSUCCESSFULLYSUBMITTED","이 테스트가 성공적으로 제출되었습니다");//This test was successfully submitted (New)
-define("_LEARNINGSTATUS","학습 상태");//Learning Status (New)
-define("_HASNOTANEMAILADDRESS","없는 전자 메일 주소를 가지고");//has not an e-mail address (New)
-define("_FEEDBACK","피드백");//Feedback (New)
-define("_SETFOUNDEMPLOYEESINTOGROUP","그룹에 넣습니다 사용자");//Insert users into group (New)
-define("_INSERTINTONEWGROUP","새 그룹으로 삽입");//Insert into new group (New)
-define("_INSERTINTOEXISTINGGROUP","기존의 그룹에 삽입");//Insert into existing group (New)
-define("_NEWGROUPNAME","새 그룹 이름");//New group name (New)
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","당신도 기존의 그룹을 선택해야하거나 새 그룹 이름을 제공합니다");//You should either select an existing group or provide a new group name (New)
-define("_SUBMITANDEDITGROUP","제출 및 편집 그룹");//Submit and edit group (New)
-define("_SEARCHGROUPUSERS","검색 사용자가 그룹에 추가하려면");//Search users to add to group (New)
-define("_AFTER","후");//After (New)
-define("_BEFORE","전에");//Before (New)
-define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","참여 그룹의 과정에있는 모든 사용자의");//Participation of all users in the courses of the group (New)
-define("_PARTICIPATIONOFGROUPUSERSINCOURSES","참여 그룹 사용자의 시스템의 과정");//Participation of group users in the courses of the system (New)
-define("_PURGELOGS","지우기 로그");//Purge logs (New)
-define("_LOGSSIZE","로그 크기");//Logs size (New)
-define("_OLDESTLOG","오래된 로그 항목");//Oldest log entry (New)
-define("_PURGELOGSOLDERTHAN","지우기 나이가 로그를보다");//Purge logs older than (New)
-define("_SUCCESSFULLYPURGEDLOGS","성공적으로 정화 로그");//Successfully purged logs (New)
-define("_ONLYXCANBEAPPLIEDATATIME","유일한 % 엑스,이 작업에 대한 제한 처리 기관");//Only %x entities where processed, which is the limit for this operation (New)
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","그것은 과정이 있기 때문에이 과정에 사용자를 할당할 수 없습니다");//You cannot assign users to this curriculum because it has no courses (New)
-define("_CURRICULUMPROPERTIES","교과 과정의 특성");//Curriculum properties (New)
-define("_ENTRIES","항목");//Entries (New)
-define("_ENTERPRISEOPTIONS","엔터 프라이즈 옵션");//Enterprise options (New)
-define("_SHOWORGANIZATIONCHARTTOUSERS","사용자에게 표시 조직도");//Show organization chart to users (New)
-define("_SHOWUSERFORMTOUSERS","사용자에게 표시 훈련 기록");//Show training record to users (New)
-define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","보기 감독자에 사용자를 할당되지 않음");//Show unassigned users to supervisors (New)
-define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","허용 사용자가 파일을 공유 감독관을 삭제합니다");//Allow users to delete supervisor shared files (New)
-define("_MYEMPLOYEEFORM","나의 교육 기록");//my Training record (New)
-define("_CLEARQUERYCACHE","삭제 쿼리 캐시");//Clear query cache (New)
-define("_FEEDBACKOPTIONS","피드백 옵션");//Feedback options (New)
-define("_OPTIONSFORFEEDBACK","피드백을위한 옵션");//Options for feedback (New)
-define("_RECENTLYCOMPLETEDFEEDBACK","최근 의견 완료");//Recently completed feedback (New)
-define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP는 LiveDocx 설정 파일 (/ phplivedocx_config.php 도서관) 쓰기 권한이 없습니다. 모든 변경 당신이 livedocx 구성에 저장되지 않았습니다 제출");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved (New)
-define("_RESETPROGRESSDATA","재설정 진행 자료");//Reset progress data (New)
-define("_DEBUGMODE","디버그 모드");//Debug mode (New)
-define("_GENERALSETTINGS","일반 설정");//General settings (New)
-define("_FINISHLESSONMESSAGE","축하합니다! 당신이 수업을 완료했습니다. 제발 자리를 지금 가야 선택 :");//Congratulations! You have finished the lesson. Please select a place to go now: (New)
-define("_NEXTLESSON","다음 수업");//Next lesson (New)
-define("_LESSONFINISHED","수업 완료");//Lesson finished (New)
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","당신은 마지막 수업에서 귀하가 방문하는 수 있습니다");//You are at the last lesson you may visit (New)
-define("_FEEDBACKISDONE","피드백이 이루어집니다");//Feedback is done (New)
-define("_PROCEEDTOFEEDBACK","피드백로 이동");//Proceed to feedback (New)
-define("_SUCCESFULLYMODIFIEDFEEDBACK","성공적으로 의견을 수정");//Successfully modified feedback (New)
-define("_FEEDBACKSTARTEDAT","의견에서 시작");//Feedback started at (New)
-define("_EXPLICITLYSELECTEDINFO","받는 사람은 시스템 인터페이스하여 이벤트에 따라 선택됩니다. <BR> - "._NEWSURVEY.":받는 사용자가 설문 조사에 참가하고있다. <BR> - "._ONJOBASSIGNMENT."가받는 사람을 : 감독관 직원으로 선택됩니다. <BR> - "._PROJECTEXPIRY.":받는 사람이 프로젝트를 맡게 되셨습니다 사용자도 있습니다.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project. (New)
-define("_ENROLLEDON","에 등록된");//Enrolled on (New)
-define("_JOBDOESNOTEXIST","직업이 존재하지 않습니다");//Job does not exist (New)
-define("_SEARCHFORUSER","찾기 사용자 [프로필 기준]");//Find users [Profile criteria] (New)
-define("_SEARCHCRITERIA","검색 기준");//Search criteria (New)
-define("_SUBMITFEEDBACK","의견 제출");//Submit feedback (New)
-define("_FEEDBACKRESULTS","피드백 결과");//Feedback results (New)
-define("_PASSWORDREMINDER","비밀 번호 알림");//Password reminder (New)
-define("_MUSTCOMPLETEALLTESTS","반드시 모든 테스트를 완료");//Must complete all tests (New)
-define("_FEEDBACKSTATISTICS","피드백 보고서");//Feedback reports (New)
-define("_CHOOSEFEEDBACK","선택 피드백");//Choose feedback (New)
-define("_REPORTSFORFEEDBACK","보고서에 대한 의견");//Report for feedback (New)
-define("_CURRENTLYBROWSINGFOLDER","현재 폴더를 탐색");//Currently browsing folder (New)
-define("_CURRENTLYSHOWING","보기");//Showing (New)
-define("_MATERIALINPROGRESS","소재 진행");//Material in progress (New)
-define("_ALLMATERIAL","전체 자료");//All material (New)
-define("_CACHEENTRYNOTFOUND","캐시 항목을 찾을 수 없습니다");//Cache entry not found (New)
-define("_CACHEENTRYEXPIRED","캐시 항목이 만료");//Cache entry expired (New)
-define("_CACHEENTRYINVALID","캐시 항목이 잘못되었습니다");//Cache entry is invalid (New)
-define("_PURGENOTIFICATIONS","지우기 알림");//Purge notifications (New)
-define("_NOTIFICATIONSSIZE","알림 크기");//Notifications size (New)
-define("_OLDESTNOTIFICATION","오래된 알림");//Oldest notification (New)
-define("_PURGENOTIFICATIONSOLDERTHAN","지우기 알림보다 오래된");//Purge notifications older than (New)
-define("_CURRENTUSERS","현재");//Current (New)
-define("_SELECTEDCOURSES","선정 과정");//Selected courses (New)
-define("_MODULEFILESPRESENTNOTINSTALLED","모듈 파일은 존재하지만, 그것이 설치되어 있지 않습니다");//Module files are present, but it is not installed (New)
-define("_DISABLEPAYMENTSNOTICE","이것은 모든 수업 및 코스의 가격을 0으로 설정합니다");//This will set all lessons and courses price to 0 (New)
-define("_SPECIFYIDFORSREENMATCHING","를 지정은 화면 크기와 일치하는 ID를 개체");//Specify object id for screen matching dimensions (New)
-define("_COMMASEPARATEDLIST","쉼표로 구분된 목록");//Comma separated list (New)
-define("_WEBSERVERAUTHENTICATION","웹 서버 인증");//Web server authentication (New)
-define("_USERSETTINGS","사용자 설정");//User settings (New)
-define("_THIRDPARTYTOOLS","타사 도구");//3rd party tools (New)
-define("_DONOTTAKEACCOUNTINCORRECTING","계정에 보정에 데려가지 말아줘");//Do not take it into account in correction (New)
-define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","당신은 당신이 수업을 초기화 하시겠습니까? 이것은 영구적으로 데이터를 삭제합니다");//Are you sure you want to initialize lesson? This will permanently delete data (New)
-define("_EXTERNALTOOLS","외부 도구");//External tools (New)
-define("_MATHSETTINGS","수학 설정");//Math settings (New)
-define("_PHPLIVEDOCX","PHP는 livedocx");//PHP livedocx (New)
-define("_CANNOTACCESSIPBAN","당신이 금지되는이 페이지를 다음과 같은 IP로 인해 액세스할 수 없습니다");//You cannot access this page due to the following IP being banned (New)
-define("_EMAILSETTINGS","이메일 설정");//Email settings (New)
-define("_ERRORPAGEFORINVALIDLOGIN","오류 페이지가 때 사용자 이름이 없거나 빈 표시");//Error page displayed when the username is missing or empty (New)
-define("_ERRORPAGEFORUNAUTHORIZED","오류 페이지는 사용자가 만들 수 없습니다 표시");//Error page displayed when the user could not be created (New)
-define("_VARIABLEFORUSERNAME","변수는 사용자 이름을 포함");//Variable that contains the username (New)
-define("_INCLUDEFILETHATHANDLESUSERCREATION","창작 사용자를 처리하는 파일을 포함");//Include file that handles user creation (New)
-define("_WEBSERVERREGISTRATION","웹 서버 등록");//Web server registration (New)
-define("_USEORLOGICTOCORRECTANSWERS","사용 또는 논리 올바른 해답을 계산하도록");//Use OR logic to calculate correct answer (New)
-define("_VARIABLEMUSTCONTAINLOGIN","변수 %의 x 명령을 계속하기 위해 &quot;%y&quot; 포함해야합니다");//The variable %x must contain &quot;%y&quot; in order to continue (New)
-define("_OPENUNITINPOPUP","팝업 열기 단위 창");//Open unit in popup window (New)
-define("_USERALREADYEXISTSARCHIVED","이미 (보관) 존재 지정된 로그인 사용자");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","행사 규모");//Events size (New)
-define("_OLDESTEVENT","오래된 이벤트");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","지우기 이벤트보다 오래된");//Purge events older than (New)
-define("_PURGEEVENTS","지우기 이벤트");//Purge events (New)
-define("_USERSEPERUSERTYPE","사용자마다 사용자 유형");//Users per user type (New)
-define("_MINUTESPERUSER","분 자당");//Minutes per user (New)
-define("_LOGINSPERDAY","하루에 로그인");//Logins per day (New)
-define("_ACCESSES","접근");//Accesses (New)
-define("_ACCESSESPERUSER","사용자별로 접근");//Accesses per user (New)
-define("_ACCESSESPERDAY","하루에 접근");//Accesses per day (New)
-define("_OCCURENCES","사건");//Occurences (New)
-define("_SCORES","점수");//Scores (New)
-define("_PROPAGATECOURSE","번식 과정");//Propagate course (New)
-define("_LESSONSTRUCTURE","수업 구조");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","관리자가 수업 페이지에 액세스할 수 없습니다");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% x가 디렉토리와 % y는 파일을 쓰기 가능한 웹 서버에 의해하지 않습니다. <br> 클릭하여 <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>여기에</a> 보고서를 완료하려면 다운로드");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","여기를 클릭 쓰기 권한을 설정하는 방법");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","여기를 클릭 쓰기 권한을 해제하는");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","설정 권한");//Set permissions (New)
-define("_UNSETPERMISSIONS","해제 권한");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","이 작업은 모든 파일과 폴더에 쓰기 권한 웹 서버에 의해 사용 권한 설정을 시도합니다. 당신은 자동 업그레이 드를 수행하고 원하는 경우 유용 경우에 당신은 동안 또는 업그레이드한 후에 문제가 발생하는 수도 있습니다 이것은 의무 사항입니다. 반면에, 모든 파일은 특정 상황에서 보안 위협 쓰기 떠날 수 있습니다.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","이 작업은 모든 파일과 폴더에 대한 쓰기 권한이 아닌 웹 서버에 의해 사용 권한을 설정, 이들은 시스템에 대한 의무가 제대로 작동하려면를 제외하고 노력할 것입니다. 이것은 가장 안전한 설정을하지만, 자동으로 업그레이 드에서 시스템을 방지할 수");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","여기를 클릭하여 사용 권한을 확인하십시오");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","권한을 확인");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","이 작업은 파일 시스템의 폴더에 쓰기 권한이 웹 서버에서 확인되지 않습니다");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","운영 결과");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","아니 작업을 아직 수행");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ 폴더에 일부 파일에 쓰기 권한이 없습니다. 제발 유지 관리에서 &#39;사용 권한&#39;섹션을 방문 -&gt; 정리 권한을 확인하고 이러한 파일을 검토");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","그렇지 않으면, 당신은 <button onclick = \"location='index.php?ctg=signup'\">계정을 새로</button> 만들 수 있습니다");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","당신이 있었는 무료 레슨과 코스에 등록됩니다. 제발 비 무료 레슨과 코스를 선택, 아래 리뷰");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","감독자");//Supervisors (New)
-define("_COURSEOPTIONS","코스 옵션");//Course options (New)
+define("_SHOWCURRENCYSYMBOLBEFOREPRICE","가격보기 전에 통화 기호");//Show currency symbol before price
+define("_CERTIFICATEEXPIRED","인증서가 만료");//Certificate expired
+define("_CERTIFICATEISSUEDON","인증서가 발급");//Certificate issued on
+define("_CERTIFICATEEXPIREDON","인증서가 만료");//Certificate expired on
+define("_CERTIFICATEEXPIRESON","인증서가 만료");//Certificate expires on
+define("_RESETCOURSEAFTEREXPIRATION","만료 후 재설정 과정");//Reset course after expiration
+define("_RESETLICENSENOTE","재설정 라이센스 메모");//Reset license note
+define("_USETHISINCASEYOUWANTALLUSERSTORECOMPLYTOLICENSENOTE","당신은 모든 사용자에게 다시 라이센스에 메모를 준수하려는 경우이 체크");//Check this if you want all users to re-comply to the license note
+define("_USERSWITHCOMMONLESSONS","나와 함께 공유하는 사용자는 누구 레슨");//Users who share lessons with me
+define("_SHOWLESSONINCATALOG","카탈로그보기 교훈");//Show lesson in catalog
+define("_SHOWALLIMAGES","모든 이미지 표시");//Show all images
+define("_HIDESIDEBARANDINNERTABLESIMAGES","숨기기 사이드바 및 innertable 이미지");//Hide sidebar and innertable images
+define("_IMAGESDISPLAYING","이미지 표시");//Images displaying
+define("_NOTEMPTY","정의");//Defined
+define("_PAGECOULDNOTBEDELETED","이 페이지는 삭제할 수 없습니다");//The page could not be deleted
+define("_LOGGOUTUSERIFINACTIVEFOR","로그아웃 사용자 그가 운영 중지 상태에 대한 시간 (분)에있는 경우");//Logout user if he is inactive for (in minutes)
+define("_PREVIOUSMESSAGE","이전 메시지");//Previous message
+define("_ORCAPITAL","또는");//OR
+define("_CHARACTERS","캐릭터");//Characters
+define("_UNDISCLOSEDRECIPIENTS","공개되지 않은받는 사람");//Undisclosed recipients
+define("_RANDOMPOOLQUESTIONSCANNOTBELESSTHANQUESTIONS","임의 수영장 질문은 시험의 질문에보다 적은 수 없습니다");//Random pool questions cannot be less than the test's questions
+define("_DISABLEOPTIONS","비활성화 옵션");//Disable options
+define("_SELECTOPTIONSDISABLED","옵션을 선택 당신이 전역 장애가되고 싶어요");//Select the options you want to be globally disabled
+define("_HASJOINEDTHESYSTEM","시스템에 입사했다");//has joined the system
+define("_HASBEENREMOVEDFROMTHESYSTEM","시스템에서 제거되었습니다");//has been removed from the system
+define("_THEPROJECT","프로젝트");//The project
+define("_HASEXPIRED","만료되었습니다");//has expired
+define("_HASCREATEDUNIT","장치를 만들었습니다");//has created the unit
+define("_HASMODIFIEDUNIT","단위를 수정");//has modified the unit
+define("_HASCOMPLETEDUNIT","유닛을 완료했습니다");//has completed the unit
+define("_HASPUBLISHEDSURVEY","설문 조사를 발표했다");//has published the survey
+define("_HASCREATEDPROJECT","프로젝트를 발표했습니다");//has published project
+define("_ISSUECERTIFICATEFORCOMPLTETED","완료에 대한 이슈 인증서");//Issue certificates for completed
+define("_COMPLETEDON","완료일");//Completed on
+define("_SMARTYCACHING","활성화 멋지 캐싱");//Enable Smarty caching
+define("_SMARTYCACHETIMEOUT","멋지 캐싱 시간 초과");//Smarty caching timeout
+define("_ESTIMATETIMETOCOMPLETE","예상 시간 완료");//Estimated time to complete
+define("_TOTALDURATION","총 재생 시간");//Total duration
+define("_CURRENTLYSELECTEDTIMEFROM","총 시간에서 수");//Total time may be from
+define("_UPDATETESTTIME","업데이트 테스트 시간");//Update test time
+define("_AUTOSELECT","자동 선택");//Auto select
+define("_REFRESHDURATION","질문에 따라 새로 고침 테스트 기간");//Refresh test duration based on questions
+define("_TOTALQUESTIONSOFWHICH","총 질문들 중");//Total questions, out of which
+define("_CHOOSEUNITS","단위 선택");//Choose units
+define("_CHOOSENUMBERANDTYPEOFQUESTIONS","선택 번호와 질문 유형");//Choose number and type of questions
+define("_SETTOTALDURATION","전체 기간 설정");//Set total duration
+define("_CLICKWILLCREATEATESTWITH","클릭하면 무작위 테스트가 같이 생성됩니다");//Clicking Randomize will create a test with
+define("_SELECTEDUNITS","선정 단위");//Selected units
+define("_RANDOMIZATION","랜덤");//Randomization
+define("_DRAGNDROP","드래그 앤 드롭");//Drag and drop
+define("_PHPLIVEDOCXINFO","phpLiveDocx는 플랫폼 PDF 형식의 인증서 문서를 변환하는 데 사용됩니다. 이것은 다음과 같은 라이센스 : http://www.phplivedocx.org/articles/phplivedocx-license/하에 배포됩니다. 당신은 계정을 가입해야 <a target=\"_blank\" href=\"https://www.livedocx.com/user/account_registration.aspx\">이곳</a> 과 자격 증명을 붙여넣으십시오");//phpLiveDocx is a platform used to transform certificate documents in a pdf format. It is released under the following license: http://www.phplivedocx.org/articles/phplivedocx-license/ . You have to sign up an account <a target=\"_blank\" href=\"https://www.livedocx.com/user/account_registration.aspx\">here</a> and paste your credentials
+define("_PHPLIVEDOCXSERVER","Phplivedocx 서버");//Phplivedocx server
+define("_INSERTDRAGDROPCOUPLES","삽입 드래그 앤 드롭 커플");//Insert drag and drop couples
+define("_USESSO","를 사용하여 현재 SSO");//Use SSO
+define("_HACPURL","HACP 이전 URL");//HACP Url
+define("_CLASSNOTIMPLEMENTED","클래스 구현되지");//Class not implemented
+define("_RANDOMIZETESTQUESTIONS","무작위 시험 질문");//Randomize test questions
+define("_COULDNOTREADDATAFROMSERVER","데이터는 서버에서 읽을 수 없습니다");//Data could not be read from server
+define("_COULDNOTCONNECTTOSERVER","서버와 연결을 설정할 수 없습니다");//A connection with the server could not be established
+define("_ANERROROCCURED","오류가 발생했습니다");//An error occured
+define("_REMAININGQUESTIONTIME","질문 남은 시간");//Remaining question time
+define("_REMAININGTESTTIME","남은 테스트 시간");//Remaining test time
+define("_SUBMITQUESTION","질문 제출");//Submit Question
+define("_ONLYFORWARD","단지 앞으로 이동");//Move only forward
+define("_APPLICABLETOONEBYONE","하나만별로 한 테스트를 적용");//Only applies to one-by-one tests
+define("_TIMESPENT","시간 동안");//Time spent
+define("_INVALIDKEY","잘못된 키");//Invalid key
+define("_FORGROUP","그룹에 대한");//for group
+define("_FORBRANCH","분기에");//for branch
+define("_ANDBRANCH","및 지사");//and branch
+define("_PREVIEWSAVEDLAYOUT","미리보기 레이아웃을 저장한");//Preview saved layout
+define("_EDITHEADER","편집 헤더");//Edit header
+define("_EDITFOOTER","편집 꼬리말");//Edit footer
+define("_HEADERCONTENT","헤더 내용");//Header content
+define("_FOOTERCONTENT","꼬리말 내용");//Footer content
+define("_HIDEHEADER","숨기기 헤더");//Hide header
+define("_HIDEFOOTER","숨기기 꼬리말");//Hide footer
+define("_DELETECUSTOMHEADERAREYOUSURE","이 작업은 영구적으로) 사용자 지정 헤더를 (꼬리말 삭제됩니다. 당신은 확실한가요?");//This action will permanently delete the custom header (footer). Are you sure?
+define("_SYSTEMENTITIES","시스템 개체");//System entities
+define("_ALLEVENTS","모든 이벤트");//All events
+define("_COLLAPSECATALOG","축소 카탈로그");//Collapse catalog
+define("_PERIODWASADDEDSUCCESSFULLY ","기간이 성공적으로 추가되었습니다");//Period was added successfully
+define("_THEMES","테마");//Themes
+define("_CUSTOMIZATION","사용자 정의");//Customization
+define("_EXTERNALPAGES","외부 페이지");//External pages
+define("_SITEFAVICON","사이트 파비콘");//Site favicon
+define("_USEDEFAULTFAVICON","를 사용하여 기본 favicon은");//Use default favicon
+define("_CUSTOMCSS","사용자 정의 CSS를");//Custom css
+define("_VISUALSETTINGS","시각 설정");//Visual settings
+define("_LASTIPUSED","마지막 IP 사용");//Last ip used
+define("_CERTIFICATEKEY","인증서 키");//Certificate key
+define("_HIDEINDEX","숨기기 색인 페이지에서");//Hide from index page
+define("_HIDEBLOCKIMAGES","숨기기 블록 이미지");//Hide block images
+define("_UPLOADEDPROJECTS","업로드된 프로젝트");//Uploaded projects
+define("_SEARCHTEXTMUSTBENONEMPTYANDMORETHAN","텍스트 검색이 아닌 이상 3 자 비어 있어야합니다");//Search text must be non empty and more than 3 characters
+define("_MAXIMIZEVIEWABLEAREA","최대화 볼 수있는 지역");//Maximize viewable area
+define("_IMAGESDISPLAY","이미지 디스플레이");//Images display
+define("_YOUARECURRENTLYLOGGEDINAS","넌로 로그인");//You are logged in as
+define("_VERYHARD","아주 열심히");//Very hard
+define("_CURRENTTESTHAS","현재 테스트했습니다");//The current test has
+define("_QUESTIONSOFTOTALTIME","전체 시간의 질문");//questions of total time
+define("_WHEREARANDOMPOOLOF","어디에 임의의 수영장");//where a random pool of
+define("_QUESTIONSISUSEDEACHTIME","질문 때마다 사용됩니다");//questions is used each time
+define("_SELECTOPTION","선택 옵션");//Select option
+define("_CREATERANDOMTESTTHATLASTS","만들기 지속 무작위 검사");//Create a random test that lasts
+define("_CREATERANDOMTESTTHATHAS","만들기가 무작위 검사");//Create a random test that has
+define("_CHANGEQUESTIONSBASEDONDIFFICULTY","어려움을 조정");//Adjust difficulty
+define("_ADJUSTTYPE","유형 조정");//Adjust type
+define("_BASICTESTPARAMETERS","기본 매개 변수");//Basic parameters
+define("_DIFFICULTYLEVELS","난이도 수준");//Difficulty levels
+define("_QUESTIONTYPES","질문 유형");//Question types
+define("_ADVANCEDSETTINGS","고급 설정");//Advanced settings
+define("_QUESTIONSINEACHEXECUTION","각 테스트 실행 (임의의 풀)에 질문");//questions in each test execution (random pool)
+define("_USE","사용");//Use
+define("_QUESTIONSBYPERCENTAGE","백분율로 질문");//Questions by percentage
+define("_QUESTIONPERCENTAGE","질문 비율");//Questions percentage
+define("_MEANDIFFICULTY","민 어려움");//Mean difficulty
+define("_ANY","어떤");//Any
+define("_IMPORTANCEOFQUESTIONSVSDURATION","중요성은 질문 대 기간");//Importance of questions vs duration
+define("_ACCURATEPERCENTAGE","정확한 비율");//Accurate percentage
+define("_TOTALQUESTIONSTIME","총 질문 시간");//total questions time
+define("_UPDATETOTALTESTTIME","자동으로 시간 전체 시험 시간이 질문에 기반 업데이트");//Automatically update total test time based on questions time
+define("_QUESTIONCODE","질문 코드");//Question code
+define("_QUESTIONTYPECODE","질문 유형 코드");//Question type code
+define("_VERYHIGH","매우 높은");//Very high
+define("_ADJUSTQUESTIONS","질문을 조정");//Adjust questions
+define("_CUSTOMSTATISTICS","시간 제약이 보고서");//Time constraint reports
+define("_WANTUSAGEREPOSTLESSON","수업에 대한 사용 보고서");//Usage report for lesson
+define("_WANTUSAGEREPOSTCOURSE","코스에 대한 사용 보고서");//Usage report for course
+define("_WANTUSERSENROLLEDLESSON","사용자는 수업에 등록한");//Users enrolled to lesson
+define("_WANTUSERSENROLLEDCOURSE","사용자는 과정 입학");//Users enrolled to course
+define("_WANTUSERSCOMPLETEDLESSON","사용자는 교훈을 완료");//Users completed the lesson
+define("_WANTUSERSCOMPLETEDCOURSE","사용자는 과정을 완료");//Users completed the course
+define("_WANTUSERSCERTIFICATEDCOURSE","과정에 대한 인증을 가지고있는 사용자");//Users that got a certification for the course
+define("_WANTMOSTACTIVEUSERS","대부분의 활성 사용자");//Most active users
+define("_WANTMOSTACTIVELESSONS","가장 적극적으로 수업");//Most active lessons
+define("_WANTMOSTACTIVECOURSES","가장 활발한 코스");//Most active courses
+define("_WANTUSERSCOMPLETEDTEST","사용자는 테스트 완료");//Users completed the test
+define("_WANTUSERSSUBMITTEDPROJECT","사용자가 프로젝트를 제출");//Users submitted the project
+define("_WANTUSERSREGISTEREDSYSTEM","사용자는 시스템에 등록");//Users registered to the system
+define("_SIDEBARINTERFACE","사이드바 인터페이스");//Sidebar interface
+define("_NORMALVERTICAL","세로 (기본값)");//Vertical (Default)
+define("_HORIZONTALSIDEBAR","수평");//Horizontal
+define("_MOBILEVERSION","모바일 버전 (제한 수평)");//Mobile version (limited horizontal)
+define("_NOSIDEBAR","사이드바 없음");//No sidebar
+define("_EDITLESSONINFORMATION","편집 수업 정보");//Edit lesson information
+define("_ENTITYNOTFOUND","엔티티를 찾을 수 없습니다");//Entity not found
+define("_OPERATIONCOMPLETEDSUCCESSFULLY","작업이 성공적으로 완료");//Operation completed successfully
+define("_ONLYFORLESSONS","수업 전용");//Only for lessons
+define("_CONTENTTOOLS","콘텐츠 도구");//Content tools
+define("_TOGGLEFILEMANAGER","전환 파일 관리자");//Toggle file manager
+define("_UNITPROPERTIES","단위 속성");//Unit properties
+define("_COPYSURVEYS","복사 설문 조사");//Copy surveys
+define("_COPYQUESTIONS","복사 질문");//Copy questions
+define("_INSTALLTHEME","설치 테마");//Install theme
+define("_UPLOADTHEMEFILEZIPFORMAT","업로드 테마 파일 (우편 번호)");//Upload the theme file (zip)
+define("_THEMESUCCESSFULLYINSTALLED","테마가 성공적으로 설치되었습니다");//The theme was successfully installed
+define("_USETHEME","사용하는 테마");//Use theme
+define("_ACTIVETHEME","액티브 테마");//Active theme
+define("_THEMESELECTION","테마 선택");//Theme selection
+define("_NOTANIMAGEFILE","업로드한 파일이 이미지가 없습니다");//The uploaded file is not an image
+define("_COMMENT","논평");//Comment
+define("_COMMENTPROPERTIES","댓글 등록");//Comment properties
+define("_EDITCOMMENT","편집 의견");//Edit comment
+define("_EDITCONDITIONS","수정 조건");//Edit conditions
+define("_EDITINFORMATION","편집 정보");//Edit information
+define("_FACEBOOK","페이 스북");//Facebook
+define("_OPTIONSFORFACEBOOKMODULE","옵션 페이스 북을위한 모듈");//Options for Facebook module
+define("_ENTIREFACEBOOKMODULE","페이스 북의 전체 모듈");//Entire Facebook module
+define("_FACEBOOKDATAACQUISITION","페이스 북의 데이터 수집");//Facebook data acquisition
+define("_FACEBOOKLOGGING","페이스 북과 연결");//Connect with Facebook
+define("_FACEBOOKEXTERNALLOGGING","페이스 북을 통해 외부 로그인");//External login through Facebook
+define("_FACEBOOKCONNECT","페이스 북과 연결");//Connection with Facebook
+define("_FACEBOOKPROFILE","페이 스북 프로필");//Facebook profile
+define("_YOUARENOTCONNECTEDTOFACEBOOK","당신은 페이스 북에 연결되지 않습니다. 연결을 클릭하여");//You are not connected to Facebook. Connect by clicking
+define("_NOUSERFOUNDWITHTHISFACEBOOKIDPLEASELOGIN","당신은 성공적으로 페이 스북 계정에 연결되어 있지만 아무 eFront 사용자가 그것과 연결 수 있습니다. eFront으로 로그인하십시오 지금이 두 계정을 연결");//You have been successfully connected to your Facebook account, but no eFront user could be linked with it. Please login into eFront to link the two accounts now
+define("_EXPORTCURRENTTHEME","테마로 내보내기 현재 설정");//Export current settings as theme
+define("_SOCIALMODULEOPTIONS","사회 모듈 옵션");//Social module options
+define("_FACEBOOKAPIKEY","페이스 북의 API를 키");//Facebook API key
+define("_FACEBOOKSECRET","페이 스북 어플 리케이션 비밀");//Facebook Application Secret
+define("_FACEBOOKCONNECTENABLEDBUTNOAPPPROVIDED","페이스 북이 활성화되어 있지만 같은 API를 더 자세한 키 연결과 검찰은 해당 응용 프로그램이 제공됩니다");//Facebook connect is enabled, but no details like API key and Secret are provided for the corresponding application
+define("_WELCOME","환영");//Welcome
+define("_FACEBOOKLOGININFO","당신은 사용자 로그인 및 해당 계정의 비밀 번호 또는 Google 시스템에 지금하고 새 eFront 계정에 대한 암호는 사용자 로그인을 선택하여 새 계정을 만들을 제공하여 기존의 eFront 하나를 귀하의 페이 스북 계정을 연결할 수 있습니다");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account or create a new account into our system right now by selecting a user login and a password for your new eFront account
+define("_FACEBOOKMERGEACCOUNT","병합 페이스 북과 eFront 계정");//Merge Facebook and eFront accounts
+define("_EXISTINGLOGIN","시스템 로그인을 기존");//Existing system login
+define("_NEWLOGIN","새 로그인");//New login
+define("_MERGEWITHEXISTINGACCOUNT","병합 기존 계정으로");//Merge with existing account
+define("_CREATENEWACCOUNTTOMERGEWITHFACEBOOK","귀하의 페이 스북 프로필에서 새 계정 만들기");//Create new account from your Facebook profile
+define("_FACEBOOKMAPPEDACCOUNT","페이스 북의 계정을 매핑");//Facebook mapped account
+define("_YOUHAVENTSETFACEBOOKACCOUNT","당신은 페이 스북 계정을 설정하지 않은");//You haven&#039;t set a Facebook account
+define("_COULDNOTCONNECTTOFACEBOOK","페이스 북에 연결할 수 없습니다");//Could not connect to Facebook
+define("_LOGINWITHYOURFACEBOOKACCOUNT","로그인 귀하의 페이 스북 계정에");//Login with your Facebook account
+define("_HERE","여기에");//here
+define("_MESSAGEPROPERTIES","메시지 속성");//Message properties
+define("_TOPICPROPERTIES","주제 속성");//Topic properties
+define("_POLLPROPERTIES","설문 등록");//Poll properties
+define("_FORUMPROPERTIES","포럼 등록");//Forum properties
+define("_UPDATETHEME","업데이트 테마");//Update theme
+define("_FACEBOOKLOGININFOONLYMERGE","당신은 사용자 로그인하고 계정의 암호를 제공하여 기존의 eFront 하나를 귀하의 페이 스북 계정을 연결할 수 있습니다");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","그 같은 전자 메일 주소와 하나 이상의 사용자가 있습니다. 아래 양식에 귀하의 로그인을 사용하여");//There are more than one users with the same Email address. Use your login in the form below
+define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","매핑된 계정이 성공적으로 삭제되었습니다");//Mapped account was successfully deleted
+define("_THEMEPROPERTIES","테마 속성");//Theme properties
+define("_CHANGETHEME","테마 변경");//Change theme
+define("_LOGO","로고");//Logo
+define("_FAVICON","파비콘");//Favicon
+define("_NOLOGOFOUND","로고를 찾을 수 없음");//No logo found
+define("_DOWNLOADTHEME","Donwload 테마");//Donwload theme
+define("_ORSPECIFYREMOTETHEME","또는 원격 테마를 지정");//Or specify remote theme
+define("_INSTALL","설치");//Install
+define("_REMOTETHEMEXMLFILE","제발 파일을 원격 주제의 XML 설명의 URL을 지정");//Please specify the URL of the remote theme's XML description file
+define("_THEMEALREADYEXISTS","같은 이름의 테마가 이미 존재");//A theme with the same name already exists
+define("_COMMUNICATIONWITHTHIRDPARTY","통신 타사 도구와");//Communication with 3rd party tools
+define("_USERACTIVATIONSETTINGS","사용자 인증 / 등록");//User activation/registration
+define("_LANGUAGESETTINGS","언어 설정");//Language settings
+define("_SECURITYSETTINGS","보안 설정");//Security settings
+define("_CLEARCACHE","캐시 지우기");//Clear cache
+define("_CLEARTEMPLATESCACHE","지우기 캐시 템플릿");//Clear templates cache
+define("_CLEARTESTSCACHE","지우기 테스트 캐시");//Clear tests cache
+define("_CLEAR","맑은");//Clear
+define("_CREDIT","신용");//Credit
+define("_COURSECATALOG","과정 카탈로그");//Course catalog
+define("_PAYMENTS","지불");//Payments
+define("_AMOUNT","금액");//Amount
+define("_ADDMANUALPAYMENT","수동으로 추가 지불");//Add manual payment
+define("_METHOD","방법");//Method
+define("_MANUAL","수동");//Manual
+define("_ACCOUNTS","계정");//Accounts
+define("_BALANCE","균형");//Balance
+define("_ENABLEBALANCE","사용 잔액");//Enable balance
+define("_ENABLEVOUCHER","활성화 할인권");//Enable discount voucher
+define("_SEASONDISCOUNT","시즌 할인");//Season discount
+define("_DISCOUNTPERIOD","시즌 할인 간격");//Season discount interval
+define("_VOUCHERDISCOUNT","바우처 할인");//Voucher discount
+define("_DISCOUNTSTARTSAT","시즌 할인에서 시작");//Season discount starts at
+define("_ANDLASTS","그리고 지속");//and lasts
+define("_CREATEVOUCHER","만들기 바우처");//Create voucher
+define("_AFTERPRICE","가격 후");//After price
+define("_BEFOREPRICE","이전 가격");//Before price
+define("_SHOWCURRENCYSYMBOL","표시 통화 기호");//Show currency symbol
+define("_PAYMENT","지불");//Payment
+define("_PAYUSINGYOURBALANCE","귀하의 계정 잔액을 사용하여 지불");//Pay using your account balance
+define("_VOUCHER","증거 서류");//Voucher
+define("_REVIEWANDCHECKOUT","검토 선택 및 마무리");//Review selections and finish
+define("_JOBS","채용 정보");//Jobs
+define("_SHOWCOURSEINCATALOG","카탈로그에 표시 코스");//Show course in catalog
+define("_PASTESELECTED","붙여넣기 선택");//Paste selected
+define("_SWITCHACCOUNT","계정 전환");//Switch account
+define("_CONNECTED","연결");//Connected
+define("_CANNOTMAPSAMEACCOUNT","당신 자신과 매핑된 계정을 추가할 수 없습니다");//You can not add a mapped account with yourself
+define("_EXPORTTHEME","내보내기 테마");//Export theme
+define("_DEFAULTFORBROWSER","기본 브라우저");//Default for browser
+define("_MOBILECLIENT","모바일 클라이언트");//Mobile client
+define("_USETHEMEBROWSER","이 브라우저에서 기본적으로 사용 테마");//Use theme by default for this browser
+define("_ACTIVETHEMEBROWSER","이 브라우저의 기본 테마");//Default theme for this browser
+define("_JOBNOTASSIGNED","작업이 할당되지 않은");//Job not assigned
+define("_DISCOUNTVOUCHER","할인권");//Discount voucher
+define("_CLICKTOENTERDISCOUNTVOUCHER","클릭 할인권을 입력");//Click to enter discount voucher
+define("_INVALIDVOUCHER","쿠폰 코드 입력하신가 유효하지 않습니다");//The voucher code you entered is not valid
+define("_TOTALPRICEAFTERDISCOUNT","할인 후 총 가격");//Total price after discount
+define("_SUCCESSFULLYENROLLED","등록 절차가 성공적으로 완료되었습니다");//The enrollment procedure was completed successfully
+define("_SORRYYOUALREADYHAVETHELESSONSYOUSELECTED","죄송합니다,하지만 당신이 이미 당신이 선택한 수업에 가입하고있는 것 같아");//We are sorry, but it seems that you are already enrolled to the lessons you selected
+define("_ADDITIONALACCOUNTALREADYEXISTS","이 계정은 이미 매핑된 계정에 존재");//This account already exists in your mapped accounts
+define("_TRIGGERINGUSERSNAME","트리거링 사용자 이름");//Triggering user&#039;s name
+define("_TRIGGERINGUSERSSURNAME","트리거링 사용자의 성");//Triggering user&#039;s surname
+define("_TRIGGERINGUSERSLOGIN","트리거링 사용자 로그인");//Triggering user&#039;s login
+define("_TRIGGERINGUSERSTYPE","트리거링 사용자의 유형");//Triggering user&#039;s type
+define("_TRIGGERINGUSERSEMAIL","트리거링 사용자의 이메일");//Triggering user&#039;s email
+define("_FUTUREASSIGNMENTSWILL","미래의 과제는 모든 직업의 위치로 설명에 적용됩니다 :");//Future assignments will apply to all job positions described as: 
+define("_FUTUREASSIGNMENTSWILLNOT","향후 과제는 해당 직급으로 설명에만 적용됩니다 :");//Future assignments will apply only to this job position described as: 
+define("_NOCORRELATEDSKILLSHAVEBEENFOUND","서로 다른 기술이 발견되었습니다");//No other correlated skills have been found
+define("_ONNEWBRANCH","새로운 지점뿐만 아니라");//New branch addition
+define("_ONBRANCHREMOVAL","지점 제거");//Branch removal
+define("_ONJOBASSIGNMENT","작업 할당");//Job assignment
+define("_ONJOBREMOVAL","사용자 제거 작업");//Remove job from user
+define("_JOBDESCRIPTIONNAME","직급 이름");//Job position name
+define("_ENCRYPTURL","URL을 암호화");//Encrypt URL
+define("_USERNAMEFORMATINFO","포맷 방식의 로그인 시스템에 나타납니다. 마지막으로 이름을 #에 대한 최초의 이름에 사용 # # 이름, 성 #, # # 로그인 로그인에 대한 최초의 이름은 초기 편지 #에 대한 사용자의 유형과 # n # #는 #을 입력");//Format the way logins appear in the system. Use #name# for the first name, #surname# for the last name, #login# for the login, #type# for the user type and #n# for the first name's initial letter
+define("_USERNAMEFORMAT","사용자 이름 형식");//Username format
+define("_LDAP","LDAP를");//LDAP
+define("_SMTP","SMTP를");//SMTP
+define("_LOCALE","장소");//Locale
+define("_PHP","PHP는");//PHP
+define("_SOCIALOPTIONS","사회 옵션");//Social options
+define("_PHPINFO","PHP로 정보");//PHP info
+define("_APPEARANCE","외관");//Appearance
+define("_SITELOGO","사이트 로고");//Site logo
+define("_CHANGELAYOUTFORTHEME","테마에 대한 변경 레이아웃");//Change layout for theme
+define("_LAYOUTFORTHEME","테마 레이아웃");//Layout for theme
+define("_RESETTHEME","재설정 테마");//Reset theme
+define("_THISWILLDELETECUSTOMBLOCKS","이 작업은, 사용자 정의 블록과 머리글 / 바닥글을 포함한 모든 수정 삭제됩니다. 당신은 확실한가요?");//This action will delete all modifications, including custom blocks and header/footer. Are you sure?
+define("_THEMEFAVICON","테마 파비콘");//Theme favicon
+define("_THEMELOGO","테마 로고");//Theme logo
+define("_USETHEMEFAVICON","사용하는 테마 favicon은");//Use theme favicon
+define("_USETHEMELOGO","테마를 사용하여 로고");//Use theme logo
+define("_SHOWSTUDENTCPANEL","쇼 학생 제어판");//Show student control panel
+define("_FORWARD","앞으로");//Forward
+define("_SENDER","보내는 사람");//Sender
+define("_ORIGINALMESSAGE","원본 메시지");//Original message
+define("_PRIORITY","우선");//Priority
+define("_PLEASEPICKANOPTION","제발 옵션을 선택하십시오");//Please pick an option
+define("_YOUHAVEMETCONDITIONS","완료 조건, 보류 확인을 만난");//Completion conditions met, confirmation pending
+define("_OVERALLPROGRESS","전체 진행");//Overall progress
+define("_THEORYPROGRESS","이론 진행");//Theory progress
+define("_AVERAGETESTSCOREOFLASTEXECUTIONS","평균 점수 (각 시험의 마지막 사형 집행 계산)");//Average test score (counting each test's last execution)
+define("_AVERAGEPROJECTSCORE","평균 프로젝트 점수");//Average project score
+define("_HELP","도움");//Help
+define("_LOGOUTUSERAFTER","로그아웃 사용자 후");//Logout users after
+define("_MINUTESOFINACTIVITY","비활성의 분");//minutes of inactivity
+define("_ENABLED","활성 화됨");//Enabled
+define("_DISABLEDFORSTUDENTS","학생을위한 장애");//Disabled for students
+define("_DISABLEDFORPROFESSORSANDSTUDENTS","학생과 교수에 대한 장애");//Disabled for students and professors
+define("_DISABLEDFORALL","사용 불가");//Disabled
+define("_COPYPROPERTIESFROM","복사 등록 정보에서");//Copy properties from
+define("_SHAREFOLDERWITH","공유 폴더");//Share folder with
+define("_CLONELESSON","클론 레슨");//Clone lesson
+define("_START","시작");//Start
+define("_RESUMEALL","모든 이력서");//Resume all
+define("_SUSPENDALL","모두 일시 중지");//Suspend all
+define("_EXITALL","모든 출구");//Exit all
+define("_DAYLOWER","하루");//day
+define("_LESSONUSERSNOTCOMPLETED","교훈을 완료하지 않은 사용자");//Users that have not completed the lesson
+define("_NOUSEREMAILFOUND","이메일을 찾을 수 없습니다");//no email found
+define("_SENDIMMEDIATELY","즉시 보내기");//Send immediately
+define("_MAXIMUMTIMEBETWEENNOTIFICATIONS","연속 알림 세트 사이에 최대에 이르렀다 분");//Maximum minutes between successive notification sets dispatches
+define("_POSITIVENUMBERREQUIRED","긍정적인 번호가 필요합니다");//Positive number required
+define("_EFRONTFILE","Efront 독점");//Efront proprietary
+define("_SCORM2004","SCORM 2004");//SCORM 2004
+define("_SCORM12","SCORM 1.2");//SCORM 1.2
+define("_AICC","AICC");//AICC
+define("_CSV","CSV");//CSV
+define("_PDF","PDF 파일");//PDF
+define("_DOC","덕");//DOC
+define("_HTML","HTML을");//HTML
+define("_XML","XML을");//XML
+define("_AUTODETECT","자동 감지");//Auto detect
+define("_GENERICSTRUCTURE","일반 구조");//Generic structure
+define("_IMPORTTYPE","가져오기 형식");//Import type
+define("_IMPORTFILE","가져오기 파일");//Import file
+define("_IMPORTFROMURL","URL에서 가져오기");//Import from URL
+define("_IMPORTFROMPATH","경로에서 가져오기");//Import from path
+define("_CHOOSEUNIT","단위 선택");//Choose unit
+define("_USECRON","를 사용하여 cron 작업");//Use cron job
+define("_USECRONINFO","");//You can have notifications being sent by a cron job by executing<br> the send_notifications.php script located in the www/ <br>folder of your installation. However, it is essential that you define <br>the HTTP_HOST variable for the \$_SERVER variable. <br>A sample script that could be executed by cron is the following: <br><br>&lt;"."?php<br>\$_SERVER['HTTP_HOST'] = \"127.0.0.1\";<BR>include \"/home/user/eFront/www/send_notifications.php\";<BR>?".">
+define("_HOURSAFTEREVENT","행사 후 시간");//hours after event
+define("_HOURSBEFOREEVENT","행사 전에 시간");//hours before event
+define("_AVAILABLEFOR","가능");//Available for
+define("_DAYSAFTERREGISTRATION","등록 일 후에");//days after registration
+define("_NOTIFICATIONTIME","시간");//Time
+define("_RESEND","이메일 다시 보내기");//Resend email
+define("_CERTIFICATESTATISTICS","인증 리포트");//Certificate reports
+define("_WANTUSERSCERTIFICATEDALLCOURSES","어떤 과정에 대한 인증을 가지고있는 사용자");//Users that got a certification for any course
+define("_EVENTSTATISTICS","이벤트 보고서");//Events reports
+define("_EVENTSMATCHINGTHECRITERIA","이벤트 일치하는 기준");//Events matching criteria
+define("_NOEVENTSFOUND","아니 이벤트가 귀하의 검색 기준과 일치");//No events match your search criteria
+define("_VISITEDTHESYSTEM","시스템을 방문");//visited the system
+define("_HASSETTHESCHEDULEDSTARTINGDATEFORLESSON","수업에 대한 일정 시작 날짜를 설정했습니다");//has set the scheduled starting date for lesson
+define("_HASSETTHESCHEDULEDEXPIRYDATEFORLESSON","수업에 대한 일정 유효 기간을 설정했습니다");//has set the scheduled expiry date for lesson
+define("_HASPUBLISHEDTHEANNOUNCEMENT","발표를 발표했다");//has published the announcement
+define("_HASASKEDFORANEWPASSWORD","새 비밀 번호 요청");//asked for a new password
+define("_WASREGISTEREDINTOTHESYSTEM","시스템에 등록되었습니다");//was registered into the system
+define("_ACTIVATEDHISACCOUNTWITHEACTIVATIONMAIL","이메일을 통해 자신의 계정을 활성화");//activated his account via email
+define("_CREATEDTHETEST","테스트를 생성");//created the test
+define("_CREATEDTHEBRANCH","지점을 만든");//created the branch
+define("_DELETEDTHEBRANCH","지점을 삭제");//deleted the branch
+define("_WASASSIGNEDTHEJOB","작업을 할당했습니다");//was assigned the job
+define("_WASREMOVEDFROMJOB","직장에서 제거되었습니다");//was removed from job
+define("_SCHEDULEDSTARTOFLESSON","예약된 수업의 시작");//Scheduled start of lesson
+define("_SCHEDULEDEXPIRYOFLESSON","수업의 예약 만료");//Scheduled expiration of lesson
+define("_HASFORGOTTENHISPASSWORD","자신의 비밀 번호를 분실했습니다");//has forgotten his password
+define("_BLOCKFILENAME","블록 이름");//Block name
+define("_VERSIONINFORMATION","버전 정보");//Version information
+define("_BUILD","빌드");//build
+define("_INSTALLEDVERSION","설치된 버전");//Installed version
+define("_LATESTVERSION","최신 버전");//Latest version
+define("_DOWNLOADANDINSTALL","다운로드 및 설치");//Download and install
+define("_DOWNLOADINGFILE","파일 다운로드");//Downloading file
+define("_EDITION","판");//Edition
+define("_UPGRADEURL","URL이에서 새 버전을 읽을 수");//Url to read new versions from
+define("_SOMEFILESARENOTWRITABLE","일부 파일에 쓰기 권한이 없습니다");//Some files are not writable
+define("_SOMEDIRECTORIESARENOTWRITABLE","일부 디렉토리에 쓰기 권한이 없습니다");//Some directories are not writable
+define("_ONFIRED","회사에서 제거 사용자");//Remove user from company
+define("_WASFIRED","회사에서 해고되었습니다");//was laid off from the company
+define("_GROUPASSIGNMENT","그룹 과제");//Group assignment
+define("_WASASSIGNEDTOGROUP","그룹에 할당된");//was assigned to group
+define("_REMOVALFROMGROUP","그룹에서 제거");//Removal from group
+define("_WASREMOVEDFROMGROUP","그룹에서 제거되었습니다");//was removed from group
+define("_ONNEWSKILL","기술 과제");//Skill assignment
+define("_WASASSIGNEDSKILL","기술을 할당했습니다");//was assigned skill
+define("_ONSKILLREMOVAL","기술 제거");//Skill removal
+define("_DOESNOTHAVEANYMORESKILL","더 이상 기술이 없습니다");//does not have anymore skill
+define("_ONSKILLEDIT","사용자 편집 기능");//User skill edited
+define("_HADHISSKILLEDITEDTO","기술에 대한 새로운 설명을했다");//has a new description for skill
+define("_ONHCDHIRED","사용자가 고용");//User hired
+define("_WASHIRED","회사에 고용되었다");//was hired to the company
+define("_ONHCDLEFT","이용자는 회사를 떠난");//User left company
+define("_HASLEFTHECOMPANY","회사를 떠났다");//left the company
+define("_ONWAGECHANGE","임금의 변화");//Wage change
+define("_HASHADHISWAGECHANGETO","새로운 임금을받을 것입니다");//will be receiving a new wage of
+define("_EVENTTYPE","이벤트 유형");//Event type
+define("_ANYEVENT","모든 이벤트");//Any event
+define("_PERIOD","기간");//Period
+define("_KEY","키");//Key
+define("_SEARCHCERTIFICATESBYKEY","검색 인증서를 사용하여 자사의 핵심");//Search for certificate using its key
+define("_ENTERPARTOFCERTIFICATEKEY","키 인증의 일부를 입력하십시오");//Enter part of certification key
+define("_SMARTYBLOCK","블록에서 사용 멋지 코드");//Use smarty code in block
+define("_EXPORTSETTINGS","내보내기 설정");//Export settings
+define("_IMPORTSETTINGS","가져오기 설정");//Import settings
+define("_SETTINGSFILE","설정 파일");//Settings file
+define("_SETTINGSIMPORTEDSUCCESFULLY","설정을 성공적으로 가져왔습니다");//Settings imported successfully
+define("_TOGGLEACCESSASSEPARATEPAGE","별도의 페이지로 전환 액세스");//Toggle access as a separate page
+define("_LINKS","링크");//Links
+define("_HASCERTIFICATED","가지고 증명서");//got certificate for
+define("_WITHGRADE","학년과");//with grade
+define("_WITHKEY","열쇠");//with key
+define("_CERTIFICATEISSUE","인증서 발급");//Certificate issue
+define("_CERTIFICATEREVOKE","인증서 / 만료 취소");//Certificate revoke/expire
+define("_HASLOSTCERTIFICATE","분실 증명서");//lost certificate for
+define("_PREVIOUSCERTIFICATES","이전 ceriticates");//Previous ceriticates
+define("_PRIVATE","비공개");//Private
+define("_WANTCERTIFICATESEXPIRED","인증서 만료됩니다");//Certificates that will expire
+define("_MAXIMUMUSERS","최대 사용자");//Maximum users
+define("_MAXIMUMUSERSREACHEDFORLESSON","이 강의에 대한 사용자의 최대에 도달");//The maximum number of users for this lesson is reached
+define("_MAXIMUMUSERSREACHEDFORCOURSE","이 과정에 대한 사용자의 최대에 도달");//The maximum number of users for this course is reached
+define("_FILTERS","필터");//Filters
+define("_NOBEFOREUPLOAD","onunload 이벤트를 복사하지 마십시오");//Don't copy onunload events
+define("_GROUPSTATISTICS","그룹 리포트");//Group reports
+define("_BRANCHSTATISTICS","분기 보고서");//Branch reports
+define("_CHOOSEGROUP","선택 그룹");//Choose group
+define("_GROUPISNOTVALIDORYOUCANNOTSEEGROUP","이 단체가 유효하지 않습니다 또는 그룹을 볼 수 없습니다");//The group is not valid or you cannot see the group
+define("_REPORTSFORGROUP","그룹에 대한 리포트");//Reports for group
+define("_COUNTONLYGROUPUSERS","백작 유일한 그룹 사용자");//Count only group users
+define("_GROUPUSERTRAFFIC","그룹 사용자 트래픽");//Group user traffic
+define("_USERSTRAFFIC","사용자 트래픽");//Users traffic
+define("_ONLYFORGROUPLESSONS","유일한 그룹 레슨");//Only group lessons
+define("_ONLYFORGROUPUSERS","사용자만이 그룹");//Only group users
+define("_LESSONSTRAFFIC","수업 트래픽");//Lessons traffic
+define("_GROUPLESSONTRAFFIC","그룹 레슨 트래픽");//Group lessons traffic
+define("_ARCHIVE","아카이브");//Archive
+define("_ARCHIVEDON","에 보관된");//Archived on
+define("_RESTORESELECTED","복원을 선택");//Restore selected
+define("_ARCHIVEENTITY","아카이브");//Archive
+define("_LOADMATHTYPESASIMAGES","이미지로 표시 수학 유형");//Display math types as images
+define("_MATHIMAGESINFO","인터넷 익스플로러 8 추천. 당신은 또한 브라우저의 캐시를 삭제해야 할 수 있습니다");//Recommended for Internet Explorer 8. You may also have to delete your browser&#039;s cache
+define("_EDITCOURSESDIRECTION","카테고리 코스");//Category courses
+define("_GROUPROLE","그룹 공통의 역할");//Group common role
+define("_GROUPONLY","그룹");//Group
+define("_YOUCANTDOTHESURVEYCONTACTLESSONPROFESSOR","어느 쪽이든 당신은 조사를했을하거나 비활성화되어 있습니다");//Either you have done the survey or it is inactive
+define("_CHOOSEBRANCH","지점 선택");//Choose branch
+define("_BRANCHISNOTVALIDORYOUCANNOTSEEBRANCH","가지가 유효하지 않습니다 또는 분기를 볼 수 없습니다");//The branch is not valid or you cannot see the branch
+define("_REPORTSFORBRANCH","지사에 대한 리포트");//Reports for branch
+define("_BRANCHUSERS","지점 사용자");//Branch users
+define("_BRANCHUSERTRAFFIC","지점 사용자 트래픽");//Branch user traffic
+define("_CORRECTANSWERPERCENTAGE","정확한 응답 비율");//Correct answer percentage
+define("_QUESTIONANALYSIS","질문 분석");//Question analysis
+define("_PARTICIPANTSCAP","참가자");//Participants
+define("_PERCENTWITHSCOREHIGHEREQUAL","평가 점수가 높을 또는 동등한 비율로");//Percent with score higher or equal
+define("_PARTICIPATIONSTATISTICS","참가 보고서");//Participation reports
+define("_YESABBREVIATION","Y");//Y
+define("_NOABBREVIATION","N");//N
+define("_TOGGLESIDEBAR","전환 사이드바");//Toggle sidebar
+define("_SCOREDISTRIBUTION","점수 분포");//Score distribution
+define("_CUMULATIVESCOREDISTRIBUTION","누적 점수 분포");//Cumulative score distribution
+define("_SEARCHTYPE","에 대한 리포트는 특정");//Reports for a specific
+define("_KEYUSAGE","키 사용");//Key usage
+define("_INVALIDVERSIONKEY","잘못된 버전 키");//Invalid version key
+define("_SETTINGKEYFAILEDWITHCODE","버전 키 설정 코드와 함께 실패했습니다");//Setting the version key failed with code
+define("_THEREISNEWVERSION","거기에 새 버전을 사용할 수 있습니다!");//There is a new version available!
+define("_RELEASENOTES","릴리스 정보");//Release notes
+define("_VERSIONUPTODATE","버전이 최신입니다");//Your version is up to date
+define("_CONTACTINGSERVER","서버에 접속하는 ...");//Contacting server...
+define("_ERRORCONNECTINGTOLICENSESERVER","이 시스템은 서버 라이센스에 연결할 수 없습니다");//The system could not connect to license server
+define("_LICENSESERVER","라이센스 서버");//License server
+define("_UPGRADESVALIDUNTIL","승급까지 유효");//Upgrades valid until
+define("_ACTIVATEDON","활성화");//Activated on
+define("_SERVERRESPONDED","서버가 응답");//The server responded
+define("_FILEZEROSIZE","업그레 이드 파일에 대한 적절한 정보를 검색하지 못했습니다");//Failed to retrieve proper information about the upgrade file
+define("_FILECANNOTOPEN","파일을 검색할 수 없습니다");//The file could not be retrieved
+define("_FILECANNOTBEWRITTENTOHOMEDIRECTORY","다운로드한 파일은 홈 디렉토리에 쓸 수 없습니다");//The downloaded file could not be written to your home directory
+define("_SHOWEMPTYBLOCKS","빈 블록보기");//Show empty blocks
+define("_INACTIVITYLOGOUT","당신은 비활성 오랜 기간으로 인해 로그아웃되었습니다");//You have been logged out due to a long period of inactivity
+define("_ABANDON","포기");//Abandon
+define("_ABANDONALL","모두 버려라");//Abandon all
+define("_COMPLETIONPERCENTAGEBLOCK","완료 비율 블록");//Completion percentage block
+define("_UNITOPTIONSBLOCK","단위 옵션 블록");//Unit options block
+define("_RIGHTBAR","오른쪽 사이드바");//Right sidebar
+define("_LEFTBAR","왼쪽 사이드바");//Left sidebar
+define("_STUDENTCPANEL","학생 제어판");//Student control panel
+define("_SMARTCONTENT","스마트 콘텐츠");//Smart content
+define("_ZIPHANDLING","우편 처리 방식");//Zip handling method
+define("_COMPLETION","완성");//Completion
+define("_SETALLTO","설정 모두");//Set all to
+define("_INADEQUATEBALANCE","불충 분한 잔액");//Inadequate balance
+define("_PAYPALMODE","페이팔 모드");//Paypal mode
+define("_SANDBOX","모래 상자");//Sandbox
+define("_VIEWTRANSACTIONLOGFILE","트랜잭션 로그 파일");//Transaction log file
+define("_CURRENTSETADDRESSDOESNOTMATCHPAYPAL","현재 주소를 설정 사업장 주소를받지 일치하지 않습니다");//Currently set address does not match received business address
+define("_UNSUPPORTEDOPERATIONTYPE","지원되지 않는 작업 유형");//Unsupported operation type
+define("_DUPLICATECOMPLETEDPAYMENT","중복 결제를 완료");//Duplicate completed payment
+define("_UNSUPPORTEDPAYMENTSTATUS","지불되지 않는 상태");//Unsupported payment status
+define("_YOUHAVECANCELLEDTHETRANSACTION","당신은 거래를 취소했습니다");//You have cancelled the transaction
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","트랜잭션이 성공적으로 완료되었습니다.");//The transaction was completed successfully.
+define("_PAYPALDEBUG","페이팔 디버그 모드");//Paypal debug mode
+define("_MYACCOUNT","내 계정");//my Account
+define("_MODULE","모듈");//Module
+define("_EMBEDTYPE","소스 콘텐츠로");//Embed content as
+define("_INLINEIFRAME","인라인 (iframe이)");//Inline (iframe)
+define("_NEWWINDOWPOPUP","새 창 (팝업)");//New window (popup)
+define("_POPUPPARAMETERS","팝업 매개 변수");//Popup parameters
+define("_CLICKTOSTARTUNIT","버튼을 클릭에 대한 단위를 시작합니다");//Click on the button to start the unit
+define("_STARTUNIT","시작 단위");//Start unit
+define("_SCORM2004NOTSUPPORTED","불행히도 SCORM 2004이 제품에서 지원되지 않습니다");//Unfortunately SCORM 2004 is not supported in this edition
+define("_RESTOREDEFAULTNOTIFICATIONS","복원 기본 알림");//Restore default notifications
+define("_CONTENTPROGRESSEXCLUDINGTESTS","콘텐츠 진행 중 (excl. 검사)");//Content progress (excl. tests)
+define("_DATABASEVERSION","데이터베이스 버전");//Database version
+define("_DIFFERENTVERSIONSUPGRADENEEDED","데이터베이스 버전은 코드 버전과 다를 수 있습니다. 주십시오 %의 링크는 스크립트 실행");//Your database version is different than the code version. Please run the %link script
+define("_UPGRADE","업그레 이드");//Upgrade
+define("_DOWNLOADEXPORTEDCOURSE","다운로드 과정을 수출");//Download exported course
+define("_MAXDISCOUNT100","최대 할인가 100 %");//The maximum discount is 100%
+define("_REGISTRATIONUPDATE","등록 / 업데이트");//Registration/Update
+define("_ROWS","행");//Rows
+define("_COMMANDFAILEDWITHOUTPUT","이 명령은 다음과 같은 출력이 실패했습니다");//The command failed with the following output
+define("_PERHAPSDONTSUPPORTZIP","아마 시스템이 우편 처리를 지원하지 않습니다?");//Perhaps your system does not support zip processing?
+define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","위해서는 코스를 만들려면 먼저 카테고리를 만들어야합니다");//In order to create a course, you must first create a category
+define("_LESSONBRANCHESSELECTION","선택 수업 지점");//Select lesson branches
+define("_LESSONBRANCHES","수업 지점");//Lesson branches
+define("_COURSEBRANCHES","코스 지점");//Course branches
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","허용 학생들이 각 테스트 실행에 질문의 개수를 지정합니다");//Allow students to specify number of questions in each test execution
+define("_MAXIMUM","최대의");//Maximum
+define("_MINIMUM","최소한의");//Minimum
+define("_REPETITIONS","반복");//Repetitions
+define("_MAINTAINHISTORY","유지의 역사");//Maintain history
+define("_KEYISNOTFORTHISEDITION","열쇠는이 제품에 적합 없습니다");//The key is not suitable for this edition
+define("_ILLEGALMODE","불법 모드");//Illegal mode
+define("_MUSTSPECIFYQUESTIONNUMBER","당신은 질문의 개수를 지정해야합니다");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","당신의 값을 지정해야합니다");//You must specify a value from
+define("_COURSEPROFESSORS","과정 교수");//Course professors
+define("_PROFESSORSOFCOURSE","물론 교수");//Professors of course
+define("_USERSUPERVISORS","사용자 감독자");//User supervisors
+define("_USEROPTIONSFOR","사용자에 대한 옵션");//Options for user
+define("_MYSTATUS","나의 학습 상태");//my Learning status
+define("_MYCOURSES","내 코스");//my Courses
+define("_CERTIFICATIONS","인증서");//Certificates
+define("_MYCERTIFICATIONS","내 인증서");//my Certificates
+define("_NOCERTIFICATESHAVEBEENISSUEDYET","아니 인증서는 사용자에게 아직 발행되었습니다");//No certificates have been issued to the user yet
+define("_SUPERVISORTOACTIVATE","하려면 관리자에 의해 활성화");//To be activated by supervisor
+define("_NOSUPERVISORSFOUND","없음 지점 감독자를 찾을 수");//No branch supervisors found
+define("_PRINTCONTENT","인쇄 내용");//Print content
+define("_VERIFYFOLLOWINGINFOISCORRECT","제발 다음과 같은 정보가 정확한지 확인");//Please verify that the following information is correct
+define("_NOCATEGORIESDEFINED","아무 카테고리 정의되어 있습니다");//There are no categories defined
+define("_SUPERVISORMAILUSERACTIVATION","관리자 이메일 활성화");//Supervisor email activation
+define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","사원 계정 활성화 이메일");//Employee account activation email
+define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","이 이메일은 당신이 새로운 시스템은 사용자가 활성화할 수 있습니다");//This email enables you to activate the new system user
+define("_ASSIGNEDTOBRANCH","분기에 할당");//assigned to branch
+define("_BYCLICKINGONTHELINK","다음의 링크를 클릭하여");//by clicking on the following link
+define("_EMPLOYEEACCOUNTSUCCESSFULLYACTIVATED","직원의 계정이 성공적으로 활성화되었습니다");//The account of your employee was successfully activated
+define("_SHOWHORIZONTALBAR","수평 막대");//Horizontal bar
+define("_BRANCHINFORMATION","지점 정보");//Branch information
+define("_BRANCHNAMEDESCRIPTION","지점 필드 이름");//Branch field name
+define("_JOBDESCRIPTIONDESCRIPTION","직업 필드 이름");//Job field name
+define("_SUPERVISORDESCRIPTION","관리자 필드 이름을 활성화");//Activating supervisor field name
+define("_LEAVEEMPTYTONOTUSE","빈 ommit 맡겨");//Leave empty to ommit
+define("_PLEASESELECT","선택하십시오");//Please select
+define("_YOURSUPERVISORWILLACTIVATEYOURACCOUNT","당신의 상사와 귀하의 계정을 활성화합니다");//Your supervisor will activate your account
+define("_INVALIDPARAMETER","잘못된 매개 변수");//Invalid parameter
+define("_IMS","이무즈");//IMS
+define("_IMSIMPORT","가져오기 콘텐츠 이무즈");//Import IMS Content
+define("_IMSEXPORT","내보내기 콘텐츠 이무즈");//Export IMS Content
+define("_UPLOADTHEIMSFILEINZIPFORMAT","우편으로 업로드 IMS 데이터 파일 형식");//Upload IMS file in ZIP format
+define("_IMSOPTIONS","IMS 데이터 옵션");//IMS options
+define("_SUCCESSFULLYIMPORTEDIMSFILE","IMS 데이터 파일이 성공적으로 가져왔습니다");//IMS file was successfully imported
+define("_TOOLTIP","툴팁");//Tooltip
+define("_HIDDEN","숨겨진 사용자");//Hidden from users
+define("_RESETSCORMDATA","재설정 사용자 데이터");//Reset user data
+define("_TOGGLEADVENCEDPARAMETERS","고급 설정");//Advanced settings
+define("_ADDINSTANCE","인스턴스를 추가합니다");//Add instance
+define("_INSTANCE","예");//Instance
+define("_COURSECODE","과정 코드");//Course code
+define("_TRAININGHOURS","시간 교육");//Training hours
+define("_COURSEINSTANCES","코스 인스턴스");//Course instances
+define("_CAPACITY","용량");//Capacity
+define("_SEATSREMAINING","남은 좌석");//Seats remaining
+define("_STARTDATE","시작일");//Start date
+define("_AREYOUSUREYOUWANTTODELETEINSTANCE","당신은이 인스턴스를 삭제하시겠습니까?");//Are you sure you want to delete this instance?
+define("_EDITCOURSEINSTANCE","편집 인스턴스");//Edit instance
+define("_EDITLESSONSCOURSEINSTANCE","인스턴스 레슨");//Instance lessons
+define("_EDITUSERSCOURSEINSTANCE","인스턴스 사용자");//Instance users
+define("_SKILLSOFFEREDINSTANCE","인스턴스 기술");//Instance skills
+define("_COURSEOPTIONSFORINSTANCE","예를 들어 옵션");//Options for instance
+define("_JUMPTO","점프");//Jump to
+define("_PARENTCOURSE","학부모 강좌");//Parent Course
+define("_LOCATIONBRANCH","위치 (지점)");//Location (branch)
+define("_SELECTBRANCH","지점 선택");//Select branch
+define("_SHARED","공유");//Shared
+define("_UNIQUE","유일한");//Unique
+define("_MODE","모드");//Mode
+define("_USEONLYCOURSESINCATALOG","카탈로그에 사용 전용 코스");//Use only courses in catalog
+define("_ALLJOBS","모든 작업");//All jobs
+define("_SHOWMOTTOONHEADER","표시 이름과 모토 헤더 또한");//Show name and motto also on header
+define("_ASSIGNCOURSES","할당 과정");//Assign courses
+define("_MASSCOURSESASSIGNMENTINFO","선택 과정은 모든 사용자에게 할당할 발견");//Select courses to assign to all the users found
+define("_NOUSERSHAVEBEENFOUND","아니 사용자가 발견되었습니다");//No users have been found
+define("_ASSIGNMENT","할당");//Assignment
+define("_ANYLOWESTLEVELBRANCH","모든 가장 낮은 수준에서");//Any at the lowest level
+define("_ANYABOVETHELOWESTLEVELBRANCH","가장 낮은 수준의 모든 바로 위에있는");//Any just above the lowest level
+define("_NOCOURSESHAVEBEENREGISTERED","아니 과정 등록되었습니다");//No courses have been registered
+define("_NOREQUIREDTRAININGSETYET","아니 필요한 훈련은 아직 정의되었습니다");//No required training has been defined yet
+define("_REQUIREDTRAINING","필수 교육");//Required training
+define("_NEWREQUIREDTRAININGCOURSE","새로운 교육 조건");//New training condition
+define("_REQUIREDTRAININGCOURSES","필수 교육 과정");//Required training courses
+define("_ADDALTERNATIVETRAINING","대안 교육을 추가");//Add alternative training
+define("_HASREQUIREDTRAINING","훈련이 필요 했나");//Has required training
+define("_SEARCHRESULTSINGLOSSARY","용어의 검색 결과");//Search results in glossary
+define("_NORESULTSFOUNDINGLOSSARY","결과는 용어에서 나온");//No results found in glossary
+define("_PROJECTSSCORE","프로젝트 점수");//Projects score
+define("_TESTSSCORE","시험 점수");//Tests score
+define("_AUTOLOGIN","자동 로그인");//Auto login
+define("_ACCESSLINK","액세스 링크");//Access link
+define("_AUTOLOGINITHLINK","사용자가 자동으로 링크하여 로그인하실 수 있습니다");//User can login automatically by link
+define("_DEFAULTUSERTYPE","기본 사용자 유형");//Default user type
+define("_FORCEUSERANSERALLQUESTIONS","강제로 학생이 모든 질문에 대한 답변");//Force student answer all questions
+define("_YOUHAVETOANSWERALLQUESTIONS","당신이 모든 질문에 대답해야");//You have to answer all questions
+define("_ALLOWINDEPENDENTLESSONS","독립적인 수업 허용");//Allow independent lessons
+define("_NOPRESELECTEDDATE","아니 미리 선택된 날짜");//No preselected date
+define("_CURRENTDATE","현재 날짜");//Current date
+define("_SHOWHELP","디스플레이의 도움말 링크");//Display help links
+define("_ALLOWUSERANSERALLRONG","허용 학생은 엉뚱한 대답 질문을 해보죠");//Allow students to redo only the wrong answered questions
+define("_ALLOWANSWERWRONGINFO","오직 테스트 반복이 허용하는 경우");//Only if test repetitions are allowed
+define("_USERREDOWRONG","반복은 잘못된 대답");//Redo only wrong answered
+define("_DEFAULTTHEMECANNOTBEIMPORTED","기본 테마 inported 수 없습니다");//Default theme can not be inported
+define("_ACCESSEXPIRED","액세스가 만료");//Access expired
+define("_LESSONSCHEDULE","수업 일정");//Lessons schedule
+define("_COURSESTARTSAT","코스가 시작됩니다");//The course starts on
+define("_COURSEENDSAT","이 과정에 끝나");//The course ends on
+define("_ENDDATE","종료일");//End date
+define("_SELECTSKILLCATEGORY","선택 기술 분류");//Select skill category
+define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","없음 헤더 행가 정의되었다 또는 헤더 가져오기 형식과 호환되지 않습니다");//No header row was defined or header not compatible with import type
+define("_IMPORTEDUSER","수입 사용자");//Imported user
+define("_USERSTOCOURSES","코스 사용자");//Users to courses
+define("_USERSTOGROUPS","그룹에 사용자");//Users to groups
+define("_IMPORTANYTHING","뭐든 인정");//Anything recognized
+define("_DATATOIMPORT","데이터 가져오기");//Data to import
+define("_SUCCESSFULLIMPORTS","성공적인 수입");//successfull imports
+define("_FAILEDIMPORTS","실패 수입");//failed imports
+define("_REPLACEDUSER","업데이트 사용자");//Updated user
+define("_HEADERDOESNOTINCLUDEESSENTIALCOLUMN","이 파일은 필요한 열이 포함되어 있지 않습니다");//The file does not contain the necessary columns
+define("_REPLACEDEXISTINGASSIGNMENT","대체 기존 할당");//Replaced existing assignment
+define("_NEWCOURSEASSIGNMENT","새로운 코스 할당");//New course assignment
+define("_NEWGROUPASSIGNMENT","새 그룹에 할당");//New group assignment
+define("_USERSTOJOBS","작업에 사용자");//Users to jobs
+define("_USERSTOSKILLS","능력 사용자");//Users to skills
+define("_DATATOEXPORT","데이터 수출");//Data to export
+define("_MANDATORYFIELDS","필수 필드");//Mandatory fields
+define("_OPTIONALFIELDS","선택 입력란");//Optional fields
+define("_CSVIMPORTEXPLAINATION","헤더 라인의 각 유형에 대한 수입 포함, 모두와 선택적 필드 제목 자들의 순서는 아래에 제공된에서 강제로 파일을 제공합니다. 각 열에 대한 제목은 그 의미를 나타냅니다. 알 수없는 열이, 프로 시저의 나머지 부분에 영향을주지 않고 생략됩니다.");//Provide a file with a header line containing for each import type, all mandatory and any optional field titles from the ones provided below in any order. The title of each column denotes its meaning. Unrecognized columns will be ommitted, without affecting the rest of the procedure.
+define("_NEWJOBASSIGNMENT","새로운 직업 설명 할당");//New job description assignment
+define("_NEWSKILLASSIGNMENT","새로운 기술 할당");//New skill assignment
+define("_REPLACEDEXISTINGBRANCH","대체 기존 지사");//Replaced existing branch
+define("_REPLACEDEXISTINGJOB","대체 기존의 직업");//Replaced existing job
+define("_REPLACEDEXISTINGSKILL","기존의 대체 기술");//Replaced existing skill
+define("_BRANCHALREADYEXISTS","지점이 이미 존재합니다");//Branch exists already
+define("_MISSINGSKILLCATEGORY","기술 범주를 누락");//Missing skill category
+define("_SKILLALREADYEXISTS","기술이 이미 존재합니다");//Skill exists already
+define("_BRANCHDOESNOTEXIST","지점이 존재하지 않습니다");//Branch does not exist
+define("_BRANCHNAMEAMBIGUOUS","지점 이름이 모호합니다");//Branch name is ambiguous
+define("_JOBTITLEAMBIGUOUS","구인 제목 모호한입니다");//Job title is ambiguous
+define("_SKILLAMBIGUOUS","스킬 이름이 모호합니다");//Skill name is ambiguous
+define("_SKILLCATEGORYAMBIGUOUS","기술 분류가 모호합니다");//Skill category is ambiguous
+define("_MISSING_JOB_DESCRIPTION","직업 설명 누락");//Missing job description
+define("_SKILLDOESNOTEXIST","이 기술이 존재하지 않습니다");//This skill does not exist
+define("_USERALREADYEXISTSINGROUP","사용자가 이미 그룹에 존재");//User already exists in group
+define("_COUPONS","쿠폰");//Coupons
+define("_COUPONCODE","쿠폰 코드");//Coupon code
+define("_TOTALUSES","총 사용");//Total uses
+define("_TOTALUSESBYSINGLEUSER","단일 사용자에 의해 총 사용");//Total uses by single user
+define("_MAXIMUMUSESBYSINGLEUSER","최대 단일 사용자에 의해 사용");//Maximum uses by single user
+define("_VALIDFROM","유효 기간부터");//Valid from
+define("_DISCOUNT","할인");//Discount
+define("_SUCCESSFULLYUPDATEDCOUPON","성공적으로 업데이 트 쿠폰");//Successfully updated coupon
+define("_CREATEUNIQUECOUPON","만들기 독특한 쿠폰");//Create unique coupon
+define("_ADDCOUPON","쿠폰 추가");//Add coupon
+define("_COUPONPROPERTIES","쿠폰 등록");//Coupon properties
+define("_REPORTS","리포트");//Reports
+define("_EXPIRED","만료된");//Expired
+define("_USES","용도");//Uses
+define("_VALIDUNTIL","유효 기간");//Valid until
+define("_USESREMAINING","용도 나머지");//Uses remaining
+define("_MAXIMUMUSES","최대 사용");//Maximum uses
+define("_USESSOFAR","용도까지");//Uses so far
+define("_COUPON","쿠폰");//Coupon
+define("_INVALIDCOUPON","잘못된 쿠폰");//Invalid coupon
+define("_CLICKTOENTERDISCOUNTCOUPON","클릭하여 쿠폰 할인을 입력");//Click to enter discount coupon
+define("_TESTREDONE","수정");//Corrected
+define("_CURRICULUMS","교과 과정");//Curricula
+define("_CURRICULUM","교과 과정");//Curriculum
+define("_ASSIGNCURRICULUMTOGROUPUSERS","그룹에 할당 교과 과정은 사용자");//Assign curriculum to group users
+define("_ASSIGNCURRICULUMTOUSER","사용자에게 할당 교과 과정");//Assign curriculum to user
+define("_ADDCURRICULUM","교과 과정을 추가");//Add curriculum
+define("_EDITCURRICULUM","수정 교과 과정");//Edit curriculum
+define("_COULDNOTFINDCOURSE","코스를 찾을 수 없습니다");//Could not find course
+define("_IMPORTRESULTSFOR","가져오기 결과");//Import results for
+define("_COUPONUSAGE","쿠폰 사용");//Coupon usage
+define("_NEWPAYPALPAYMENT","새로운 페이팔 지불");//New paypal payment
+define("_NEWBALANCEPAYMENT","새 잔액 지불");//New balance payment
+define("_USEDCOUPON","쿠폰 사용");//Used coupon
+define("_PAYEDWITHBALANCE","균형과 도를");//Payed with balance
+define("_PAYEDWITHPAYPAL","페이팔과 도를");//Payed with paypal
+define("_YOUMUSTCOMPLETEALLTESTS","당신은 모든 테스트를 완료해야합니다");//You must complete all tests
+define("_ELIMINATEPOSTXSS","POST를 제거 &lt;script&gt; 태그");//Remove &lt;script&gt; tags from POST
+define("_LOGINREDIRECTPAGE","로그인 후 사용자가 리디렉션");//Redirect user after login to
+define("_LESSONSCATALOG","사용자의 레슨 카탈로그");//User's lesson catalog
+define("_USERDASHBOARD","사용자 대시보드");//User's dashboard
+define("_NOTITLEPROVIDEDFORNEWJOB","제목 없음 직업 설명을 위해 제공");//No title provided for job description
+define("_EDITORTYPE","편집기 유형");//Editor type
+define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
+define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
+define("_DONOTSHOWTESTAFTERSUBMITTING","테스트를 제출한 후에는 만 표시 메시지");//Show only a message after submitting test
+define("_TESTSUCCESSFULLYSUBMITTED","이 테스트가 성공적으로 제출되었습니다");//This test was successfully submitted
+define("_LEARNINGSTATUS","학습 상태");//Learning Status
+define("_HASNOTANEMAILADDRESS","없는 전자 메일 주소를 가지고");//has not an Email address
+define("_FEEDBACK","피드백");//Feedback
+define("_SETFOUNDEMPLOYEESINTOGROUP","그룹에 넣습니다 사용자");//Insert users into group
+define("_INSERTINTONEWGROUP","새 그룹으로 삽입");//Insert into new group
+define("_INSERTINTOEXISTINGGROUP","기존의 그룹에 삽입");//Insert into existing group
+define("_NEWGROUPNAME","새 그룹 이름");//New group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","당신도 기존의 그룹을 선택해야하거나 새 그룹 이름을 제공합니다");//You should either select an existing group or provide a new group name
+define("_SUBMITANDEDITGROUP","제출 및 편집 그룹");//Submit and edit group
+define("_SEARCHGROUPUSERS","검색 사용자가 그룹에 추가하려면");//Search users to add to group
+define("_AFTER","후");//After
+define("_BEFORE","전에");//Before
+define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","참여 그룹의 과정에있는 모든 사용자의");//Participation of all users in the courses of the group
+define("_PARTICIPATIONOFGROUPUSERSINCOURSES","참여 그룹 사용자의 시스템의 과정");//Participation of group users in the courses of the system
+define("_PURGELOGS","지우기 로그");//Purge logs
+define("_LOGSSIZE","로그 크기");//Logs size
+define("_OLDESTLOG","오래된 로그 항목");//Oldest log entry
+define("_PURGELOGSOLDERTHAN","지우기 나이가 로그를보다");//Purge logs older than
+define("_SUCCESSFULLYPURGEDLOGS","성공적으로 정화 로그");//Successfully purged logs
+define("_ONLYXCANBEAPPLIEDATATIME","유일한 % 엑스,이 작업에 대한 제한 처리 기관");//Only %x entities where processed, which is the limit for this operation
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","그것은 과정이 있기 때문에이 과정에 사용자를 할당할 수 없습니다");//You cannot assign users to this curriculum because it has no courses
+define("_CURRICULUMPROPERTIES","교과 과정의 특성");//Curriculum properties
+define("_ENTRIES","항목");//Entries
+define("_ENTERPRISEOPTIONS","엔터 프라이즈 옵션");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","사용자에게 표시 조직도");//Show organization chart to users
+define("_SHOWUSERFORMTOUSERS","사용자에게 표시 훈련 기록");//Show training record to users
+define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","보기 감독자에 사용자를 할당되지 않음");//Show unassigned users to supervisors
+define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","허용 사용자가 파일을 공유 감독관을 삭제합니다");//Allow users to delete supervisor shared files
+define("_MYEMPLOYEEFORM","나의 교육 기록");//my Training record
+define("_CLEARQUERYCACHE","삭제 쿼리 캐시");//Clear query cache
+define("_FEEDBACKOPTIONS","피드백 옵션");//Feedback options
+define("_OPTIONSFORFEEDBACK","피드백을위한 옵션");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","최근 의견 완료");//Recently completed feedback
+define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","PHP는 LiveDocx 설정 파일 (/ phplivedocx_config.php 도서관) 쓰기 권한이 없습니다. 모든 변경 당신이 livedocx 구성에 저장되지 않았습니다 제출");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
+define("_RESETPROGRESSDATA","재설정 진행 자료");//Reset progress data
+define("_DEBUGMODE","디버그 모드");//Debug mode
+define("_GENERALSETTINGS","일반 설정");//General settings
+define("_FINISHLESSONMESSAGE","축하합니다! 당신이 수업을 완료했습니다. 제발 자리를 지금 가야 선택 :");//Congratulations! You have finished the lesson. Please select a place to go now:
+define("_NEXTLESSON","다음 수업");//Next lesson
+define("_LESSONFINISHED","수업 완료");//Lesson finished
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","당신은 마지막 수업에서 귀하가 방문하는 수 있습니다");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","피드백이 이루어집니다");//Feedback is done
+define("_PROCEEDTOFEEDBACK","피드백로 이동");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","성공적으로 의견을 수정");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","의견에서 시작");//Feedback started at
+define("_EXPLICITLYSELECTEDINFO","받는 사람은 시스템 인터페이스하여 이벤트에 따라 선택됩니다. <BR> - "._NEWSURVEY.":받는 사용자가 설문 조사에 참가하고있다. <BR> - "._ONJOBASSIGNMENT."가받는 사람을 : 감독관 직원으로 선택됩니다. <BR> - "._PROJECTEXPIRY.":받는 사람이 프로젝트를 맡게 되셨습니다 사용자도 있습니다.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
+define("_ENROLLEDON","에 등록된");//Enrolled on
+define("_JOBDOESNOTEXIST","직업이 존재하지 않습니다");//Job does not exist
+define("_SEARCHFORUSER","찾기 사용자 [프로필 기준]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","검색 기준");//Search criteria
+define("_SUBMITFEEDBACK","의견 제출");//Submit feedback
+define("_FEEDBACKRESULTS","피드백 결과");//Feedback results
+define("_PASSWORDREMINDER","비밀 번호 알림");//Password reminder
+define("_MUSTCOMPLETEALLTESTS","반드시 모든 테스트를 완료");//Must complete all tests
+define("_FEEDBACKSTATISTICS","피드백 보고서");//Feedback reports
+define("_CHOOSEFEEDBACK","선택 피드백");//Choose feedback
+define("_REPORTSFORFEEDBACK","보고서에 대한 의견");//Report for feedback
+define("_CURRENTLYBROWSINGFOLDER","현재 폴더를 탐색");//Currently browsing folder
+define("_CURRENTLYSHOWING","보기");//Showing
+define("_MATERIALINPROGRESS","소재 진행");//Material in progress
+define("_ALLMATERIAL","전체 자료");//All material
+define("_CACHEENTRYNOTFOUND","캐시 항목을 찾을 수 없습니다");//Cache entry not found
+define("_CACHEENTRYEXPIRED","캐시 항목이 만료");//Cache entry expired
+define("_CACHEENTRYINVALID","캐시 항목이 잘못되었습니다");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","지우기 알림");//Purge notifications
+define("_NOTIFICATIONSSIZE","알림 크기");//Notifications size
+define("_OLDESTNOTIFICATION","오래된 알림");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","지우기 알림보다 오래된");//Purge notifications older than
+define("_CURRENTUSERS","현재");//Current
+define("_SELECTEDCOURSES","선정 과정");//Selected courses
+define("_MODULEFILESPRESENTNOTINSTALLED","모듈 파일은 존재하지만, 그것이 설치되어 있지 않습니다");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","이것은 모든 수업 및 코스의 가격을 0으로 설정합니다");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","를 지정은 화면 크기와 일치하는 ID를 개체");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","쉼표로 구분된 목록");//Comma separated list
+define("_WEBSERVERAUTHENTICATION","웹 서버 인증");//Web server authentication
+define("_USERSETTINGS","사용자 설정");//User settings
+define("_THIRDPARTYTOOLS","타사 도구");//3rd party tools
+define("_DONOTTAKEACCOUNTINCORRECTING","계정에 보정에 데려가지 말아줘");//Do not take it into account in correction
+define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","당신은 당신이 수업을 초기화 하시겠습니까? 이것은 영구적으로 데이터를 삭제합니다");//Are you sure you want to initialize lesson? This will permanently delete data
+define("_EXTERNALTOOLS","외부 도구");//External tools
+define("_MATHSETTINGS","수학 설정");//Math settings
+define("_PHPLIVEDOCX","PHP는 livedocx");//PHP livedocx
+define("_CANNOTACCESSIPBAN","당신이 금지되는이 페이지를 다음과 같은 IP로 인해 액세스할 수 없습니다");//You cannot access this page due to the following IP being banned
+define("_EMAILSETTINGS","이메일 설정");//Email settings
+define("_ERRORPAGEFORINVALIDLOGIN","오류 페이지가 때 사용자 이름이 없거나 빈 표시");//Error page displayed when the username is missing or empty
+define("_ERRORPAGEFORUNAUTHORIZED","오류 페이지는 사용자가 만들 수 없습니다 표시");//Error page displayed when the user could not be created
+define("_VARIABLEFORUSERNAME","변수는 사용자 이름을 포함");//Variable that contains the username
+define("_INCLUDEFILETHATHANDLESUSERCREATION","창작 사용자를 처리하는 파일을 포함");//Include file that handles user creation
+define("_WEBSERVERREGISTRATION","웹 서버 등록");//Web server registration
+define("_USEORLOGICTOCORRECTANSWERS","사용 또는 논리 올바른 해답을 계산하도록");//Use OR logic to calculate correct answer
+define("_VARIABLEMUSTCONTAINLOGIN","변수 %의 x 명령을 계속하기 위해 &quot;%y&quot; 포함해야합니다");//The variable %x must contain &quot;%y&quot; in order to continue
+define("_OPENUNITINPOPUP","팝업 열기 단위 창");//Open unit in popup window
+define("_USERALREADYEXISTSARCHIVED","이미 (보관) 존재 지정된 로그인 사용자");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","행사 규모");//Events size
+define("_OLDESTEVENT","오래된 이벤트");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","지우기 이벤트보다 오래된");//Purge events older than
+define("_PURGEEVENTS","지우기 이벤트");//Purge events
+define("_USERSEPERUSERTYPE","사용자마다 사용자 유형");//Users per user type
+define("_MINUTESPERUSER","분 자당");//Minutes per user
+define("_LOGINSPERDAY","하루에 로그인");//Logins per day
+define("_ACCESSES","접근");//Accesses
+define("_ACCESSESPERUSER","사용자별로 접근");//Accesses per user
+define("_ACCESSESPERDAY","하루에 접근");//Accesses per day
+define("_OCCURENCES","사건");//Occurences
+define("_SCORES","점수");//Scores
+define("_PROPAGATECOURSE","번식 과정");//Propagate course
+define("_LESSONSTRUCTURE","수업 구조");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","관리자가 수업 페이지에 액세스할 수 없습니다");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% x가 디렉토리와 % y는 파일을 쓰기 가능한 웹 서버에 의해하지 않습니다. <br> 클릭하여 <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>여기에</a> 보고서를 완료하려면 다운로드");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","여기를 클릭 쓰기 권한을 설정하는 방법");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","여기를 클릭 쓰기 권한을 해제하는");//Click here to unset write permissions
+define("_SETPERMISSIONS","설정 권한");//Set permissions
+define("_UNSETPERMISSIONS","해제 권한");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","이 작업은 모든 파일과 폴더에 쓰기 권한 웹 서버에 의해 사용 권한 설정을 시도합니다. 당신은 자동 업그레이 드를 수행하고 원하는 경우 유용 경우에 당신은 동안 또는 업그레이드한 후에 문제가 발생하는 수도 있습니다 이것은 의무 사항입니다. 반면에, 모든 파일은 특정 상황에서 보안 위협 쓰기 떠날 수 있습니다.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","이 작업은 모든 파일과 폴더에 대한 쓰기 권한이 아닌 웹 서버에 의해 사용 권한을 설정, 이들은 시스템에 대한 의무가 제대로 작동하려면를 제외하고 노력할 것입니다. 이것은 가장 안전한 설정을하지만, 자동으로 업그레이 드에서 시스템을 방지할 수");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","여기를 클릭하여 사용 권한을 확인하십시오");//Click here to check permissions
+define("_CHECKPERMISSIONS","권한을 확인");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","이 작업은 파일 시스템의 폴더에 쓰기 권한이 웹 서버에서 확인되지 않습니다");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","운영 결과");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","아니 작업을 아직 수행");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","/ 폴더에 일부 파일에 쓰기 권한이 없습니다. 제발 유지 관리에서 &#39;사용 권한&#39;섹션을 방문 -&gt; 정리 권한을 확인하고 이러한 파일을 검토");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","그렇지 않으면, 당신은 <button onclick = \"location='index.php?ctg=signup'\">계정을 새로</button> 만들 수 있습니다");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","당신이 있었는 무료 레슨과 코스에 등록됩니다. 제발 비 무료 레슨과 코스를 선택, 아래 리뷰");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","감독자");//Supervisors
+define("_COURSEOPTIONS","코스 옵션");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","모든 사용자에 대해 재설정 사형 집행");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","사용자는 보고서 생성기");//Users reports generator (New)
+define("_ADDTOGROUP","그룹에 추가");//Add to group (New)
+define("_ASSIGNCOURSE","할당 과정");//Assign course (New)
+define("_ASSIGNLESSON","할당 레슨");//Assign lesson (New)
+define("_REMOVECOURSE","제거 과정");//Remove course (New)
+define("_REMOVELESSON","삭제 레슨");//Remove lesson (New)
+define("_REMOVEFROMGROUP","그룹에서 제거");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","재설정 학습 진행");//Reset learning progress (New)
+define("_BUILDER","건축업자");//Builder (New)
+define("_ADDREPORT","새 보고서 추가");//Add new report (New)
+define("_CONDITIONTYPE","조건을 입력합니다");//Condition type
+define("_CONDITIONSPECIFICATION","조건 사양");//Condition specification (New)
+define("_ADDCOLUMN","추가 열");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","다음과 관계");//Relation with next (New)
+define("_COLUMNTYPE","열 유형");//Column type (New)
+define("_GRIDNAME","그리드 이름");//Grid name (New)
+define("_ALIGNED","정렬");//Aligned (New)
+define("_SELECTREPORT","선택 보고서");//Select report (New)
+define("_AVAILABLEREPORTS","사용 가능한 리포트");//Available reports (New)
+define("_EDITREPORT","수정 보고서");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","거기에 대한보고가 시스템에 정의되어 있습니다. 제발");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","하나를 만들");//create one (New)
+define("_NEWREPORT","새 보고서");//New report (New)
+define("_REPORTNAME","리포트 이름");//Report name (New)
+define("_SELECTCONDITION","선택 조건");//Select condition (New)
+define("_ISNOT","아니");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","있다는 모든 수업을 배정 완료");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","있다이 모든 과정을 배정 완료");//Has completed all assigned courses (New)
+define("_HAS","있다");//Has (New)
+define("_HASNOT","아니라고");//Has not (New)
+define("_ENROLLEDTO","에 등록한");//Enrolled to (New)
+define("_BETWEEN","사이에");//Between (New)
+define("_ISASSIGNED","할당됩니다");//Is assigned (New)
+define("_ISNOTASSIGNED","할당되지 않은");//Is not assigned (New)
+define("_DURINGLASTDAY","지난 24 시간");//last 24h (New)
+define("_DURINGLASTWEEK","지난 주");//last week (New)
+define("_DURINGLASTMONTH","지난 달");//last month (New)
+define("_COLUMN","칼럼");//Column (New)
+define("_SELECTCOLUMN","선택 열");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","에 빈 자동 폭 조정 남겨주세요");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","이름은 공백으로 컬럼을 사용하도록 맡겨");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","폭 (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","제발 열을 선택합니다");//Please select a column (New)
+define("_CHANGECOLUMNORDER","변경 항목 순서");//Change the columns order (New)
+define("_VIEWINGREPORT","보고서보기");//Viewing report (New)
+define("_PLEASESELECTACONDITION","제발 조건을 선택하십시오");//Please select a condition (New)
+define("_BASIC","기본");//Basic (New)
+define("_LEARNING","배우기");//Learning (New)
+define("_ENTERPRISE","기업");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","항목을 드래그하여 순서를 변경하려면");//Drag items to change order (New)
+define("_CUSTOMFIELDS","사용자 정의 필드");//Custom fields (New)
+define("_FORMATTEDLOGIN","포맷된 로그인");//Formatted login (New)
+define("_DEFAULTSORT","기본 정렬");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; 연산자를 우선합니다");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","현재 페이지 작업");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","또는 추가할 새 그룹을 지정");//Or specify a new group to add to (New)
+define("_ADDTO","에 추가");//Add to (New)
+define("_REMOVEFROM","제거에서");//Remove from (New)
+define("_GROUPOPERATIONS","그룹 작업");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","인증서 작업");//Certificate operations (New)
+define("_LESSONOPERATIONS","수업 운영");//Lesson operations (New)
+define("_COURSEOPERATIONS","과정 운영");//Course operations (New)
+define("_EXPORTTOCSV","csv로 내보내기");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","없음 이벤트 코드 정의");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","파일을 성공적으로 가져왔습니다");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","중첩된 계층 구조로 변환 폴더");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","압축 프로그램 zip 파일 (들) 및 수입 내용");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","테마가 잠겨있다");//The theme is locked (New)
+define("_BLANKREPORT","빈 보고서");//Blank report (New)
+define("_CUSTOMREPORTS","사용자 정의 리포트");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","시스템 관리자는 검토하고 enrollments를 활성화");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","새로고침 테이블");//Refresh table (New)
+define("_REMOVEFROMSET","집합에서 제거");//Remove from set (New)
+define("_BRANCHTREE","지점의 나무");//Branch tree (New)
+define("_CHANGECONDITIONORDER","변경 조건 주문");//Change condition order (New)
+define("_INDEX","색인");//Index (New)
+define("_EVENTDATETIME","이벤트 날짜 및 시간");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","인증서 파일이 없거나 손상되어 있었는데 이렇게 재설정되었습니다");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

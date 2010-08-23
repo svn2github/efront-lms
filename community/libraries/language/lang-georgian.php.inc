@@ -44,7 +44,7 @@ define("_RESTORE","აღდგენა");//Restore
 define("_FREE","ღია გაკვეთილი");//Free lesson
 define("_SUCCESSREGISTER","თქვენი რეგისტრაცია დასრულდა");//You have registered successfully
 define("_LESSONSREGISTRATION","გაკვეთილის რეგისტრაცია");//Lesson registration
-define("_YOUREMAIL","თქვენი ელფოსტა");//Your e-mail 
+define("_YOUREMAIL","თქვენი ელფოსტა");//Your Email 
 define("_MESSAGESUBJECT","გამოხმაურების თემა");//Message subject
 define("_PASSWORDLEAVEBLANK","პაროლი (დატოვეთ ცარიელი ძველის შესანარჩუნებლად)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","თქვენი პირადი მონაცმები შეიცვალა");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","ელფოსტა გაიგზავნა");//Ema
 define("_CHOOSELESSON","გაკვეთილის არჩევა");//Choose lesson
 define("_SUBJECT","თემა");//Subject
 define("_RECIPIENTSSELECTION","ადრესატების შერჩევა");//Recipients selection
-define("_EMAILBODY","გზავნილის ტექსტი");//E-mail body
-define("_SENDEMAIL","წერილის გაგზავნა");//Send E-mail
+define("_EMAILBODY","გზავნილის ტექსტი");//Email body
+define("_SENDEMAIL","წერილის გაგზავნა");//Send Email
 define("_EXIT","გამოსვლა");//Exit
 define("_MORE","სხვა...");//more
 define("_DELETE","წაშლა");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","მართვის პულტი");//Control cente
 define("_EXAMPLES","მაგალითები");//Examples
 define("_FORUM","ფორუმი");//Forum
 define("_NOCONTENT","ბლოკი მასალების გარეშე");//Unit without content
-define("_INACTIVE","პასიური ბლოკი");//Inactive unit
+define("_INACTIVE","პასიური ბლოკი");//Inactive
 define("_CONTENTMANAGEMENT","მასალა");//Content
 define("_SCHEDULING","განრიგი");//Scheduling
 define("_OFDEVELOPMENT","განვითარება");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","პირად გზავნი�
 define("_SEARCHRESULTSINPERSONALMESSAGES","პირად გზავნილებში ძიების შედეგები");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","კურსებში ძიების შედეგები");//Search results in courses
 define("_MESSAGEFOLDER","გზავნილების დასტა");//Message folder
-define("_EMAIL","ელფოსტა");//e-mail
+define("_EMAIL","ელფოსტა");//Email
 define("_RESETPASSWORD","პაროლის განულება");//Reset password
 define("_JOINED","რეგისტრაცია");//Joined
 define("_MOREINFO","დაწვრილებით");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","გევრდის თავში");//Scroll to
 define("_SCROLLTOBOTTOMOFPAGE","გვერდის ბოლოს");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","ეს კითხვარი ჯერ არავის შეუვსია");//No user has done this survey yet
 define("_SYSTEM","სისტემა");//System
-define("_EMAILCONFIGURATIONS","ელფოსტის სერვერის კონფიგურაცია");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","ელფოსტის სერვერის კონფიგურაცია");//Emails server configuration
 define("_SAWUNIT","ბლოკის მონიშვნა შესრულებულად");//Set the unit as completed
 define("_NOTSAWUNIT","ბლოკის მონიშვნა დასასრულებლად");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","პირობები შესრულდა");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","კითხვარის დამატება");/
 define("_ROWSPERPAGE","სტრიქონი გვერდზე");//Rows per page
 define("_FILTER","ფილტრი");//Filter
 define("_OF","-");//of
-define("_SENDALSOVIAEMAIL","მოწვევის ელფოსტით გაგზავნა");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","მოწვევის ელფოსტით გაგზავნა");//Send invitation via Email
 define("_STYLE","სტილი");//Style
 define("_MENU","მენიუ");//Menu
 define("_SELECTION","მონიშნული");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","მოდული წაიშალა");/
 define("_AUTHOR","ავტორი");//Author
 define("_VERSION","ვერსია");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","თქვენი csv ფაილი უნდა შეიცავდეს შემდეგ ველებს");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","წითელი ფერით გამოყოფილი ველები სავალდებულოა. თუ პაროლი არ მითითებულა, იგი იქნება იგივე, რაც სახელი.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","წითელი ფერით გამოყოფილი ველები სავალდებულოა. თუ პაროლი არ მითითებულა, იგი იქნება იგივე, რაც სახელი.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","გთხოვთ გადაამოწმოთ თქვენი CSV ფაილის ფორმატი");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","თარგებში ისარგებლეთ ცვლადებით #user_name# - მონაწილის სახელი, #user_surname# - გვარი, #course_name# - კურსის დასახელება, #grade# - შეფასება და #date# - თარიღი.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","ხმები");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","მონაწილეთა გაპიროვ�
 define("_ASSIGNEMPLOYEESTOBRANCH","მონაწილეთა გაპიროვნება განყოფილებაში");//Assign users to branch 
 define("_EDITSKILL","უნარის რედაქტირება");//Edit skill
 define("_ASSIGNSKILL","უნარის გაპიროვნება");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","მონაწილეთათვის უნარის გაპიროვნება");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","მონაწილეთათვის უნარის გაპიროვნება");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","ქვეგანყოფილებები არ მითითებულა");//No branches have been registered
 define("_ORGANIZATION","ორგანიზაცია");//Organization
 define("_SEARCHFOREMPLOYEE","მონაწილის მოძიება [საორგანიზაციო კრიტერიუმი]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","");//Poll properties
 define("_FORUMPROPERTIES","");//Forum properties
 define("_UPDATETHEME","");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","There are more than one users with the same e-mail address. Use your login in the form below");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","There are more than one users with the same e-mail address. Use your login in the form below");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Mapped account was successfully deleted");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","");//Theme properties
 define("_CHANGETHEME","");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","აჩვენეთ მხოლოდ გაგზავნა შემდეგ წარდგენის ტესტი");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","ამ ტესტირების წარმატებით წარმოადგინა");//This test was successfully submitted
 define("_LEARNINGSTATUS","სწავლის სტატუსი");//Learning Status
-define("_HASNOTANEMAILADDRESS","არ აქვს e-mail მისამართი");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","არ აქვს e-mail მისამართი");//has not an Email address
 define("_FEEDBACK","დაგვიკავშირდით");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","ჩადეთ მომხმარებლებს შევიდა ჯგუფის");//Insert users into group
 define("_INSERTINTONEWGROUP","ჩადეთ შევიდა ახალი ჯგუფი");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","");//Web server registration
 define("_USEORLOGICTOCORRECTANSWERS","");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","");//Events size (New)
-define("_OLDESTEVENT","");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","");//Purge events older than (New)
-define("_PURGEEVENTS","");//Purge events (New)
-define("_USERSEPERUSERTYPE","");//Users per user type (New)
-define("_MINUTESPERUSER","");//Minutes per user (New)
-define("_LOGINSPERDAY","");//Logins per day (New)
-define("_ACCESSES","");//Accesses (New)
-define("_ACCESSESPERUSER","");//Accesses per user (New)
-define("_ACCESSESPERDAY","");//Accesses per day (New)
-define("_OCCURENCES","");//Occurences (New)
-define("_SCORES","");//Scores (New)
-define("_PROPAGATECOURSE","");//Propagate course (New)
-define("_LESSONSTRUCTURE","");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","");//Set permissions (New)
-define("_UNSETPERMISSIONS","");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","");//Supervisors (New)
-define("_COURSEOPTIONS","");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","");//Events size
+define("_OLDESTEVENT","");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","");//Purge events older than
+define("_PURGEEVENTS","");//Purge events
+define("_USERSEPERUSERTYPE","");//Users per user type
+define("_MINUTESPERUSER","");//Minutes per user
+define("_LOGINSPERDAY","");//Logins per day
+define("_ACCESSES","");//Accesses
+define("_ACCESSESPERUSER","");//Accesses per user
+define("_ACCESSESPERDAY","");//Accesses per day
+define("_OCCURENCES","");//Occurences
+define("_SCORES","");//Scores
+define("_PROPAGATECOURSE","");//Propagate course
+define("_LESSONSTRUCTURE","");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","");//Click here to unset write permissions
+define("_SETPERMISSIONS","");//Set permissions
+define("_UNSETPERMISSIONS","");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","");//Click here to check permissions
+define("_CHECKPERMISSIONS","");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","");//Supervisors
+define("_COURSEOPTIONS","");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","");//Users reports generator (New)
+define("_ADDTOGROUP","");//Add to group (New)
+define("_ASSIGNCOURSE","");//Assign course (New)
+define("_ASSIGNLESSON","");//Assign lesson (New)
+define("_REMOVECOURSE","");//Remove course (New)
+define("_REMOVELESSON","");//Remove lesson (New)
+define("_REMOVEFROMGROUP","");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","");//Reset learning progress (New)
+define("_BUILDER","");//Builder (New)
+define("_ADDREPORT","");//Add new report (New)
+define("_CONDITIONTYPE","პირობის ტიპი");//Condition type
+define("_CONDITIONSPECIFICATION","");//Condition specification (New)
+define("_ADDCOLUMN","");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","");//Relation with next (New)
+define("_COLUMNTYPE","");//Column type (New)
+define("_GRIDNAME","");//Grid name (New)
+define("_ALIGNED","");//Aligned (New)
+define("_SELECTREPORT","");//Select report (New)
+define("_AVAILABLEREPORTS","");//Available reports (New)
+define("_EDITREPORT","");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","");//create one (New)
+define("_NEWREPORT","");//New report (New)
+define("_REPORTNAME","");//Report name (New)
+define("_SELECTCONDITION","");//Select condition (New)
+define("_ISNOT","");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","");//Has completed all assigned courses (New)
+define("_HAS","");//Has (New)
+define("_HASNOT","");//Has not (New)
+define("_ENROLLEDTO","");//Enrolled to (New)
+define("_BETWEEN","");//Between (New)
+define("_ISASSIGNED","");//Is assigned (New)
+define("_ISNOTASSIGNED","");//Is not assigned (New)
+define("_DURINGLASTDAY","");//last 24h (New)
+define("_DURINGLASTWEEK","");//last week (New)
+define("_DURINGLASTMONTH","");//last month (New)
+define("_COLUMN","");//Column (New)
+define("_SELECTCOLUMN","");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","");//Please select a column (New)
+define("_CHANGECOLUMNORDER","");//Change the columns order (New)
+define("_VIEWINGREPORT","");//Viewing report (New)
+define("_PLEASESELECTACONDITION","");//Please select a condition (New)
+define("_BASIC","");//Basic (New)
+define("_LEARNING","");//Learning (New)
+define("_ENTERPRISE","");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","");//Drag items to change order (New)
+define("_CUSTOMFIELDS","");//Custom fields (New)
+define("_FORMATTEDLOGIN","");//Formatted login (New)
+define("_DEFAULTSORT","");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","");//Or specify a new group to add to (New)
+define("_ADDTO","");//Add to (New)
+define("_REMOVEFROM","");//Remove from (New)
+define("_GROUPOPERATIONS","");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","");//Certificate operations (New)
+define("_LESSONOPERATIONS","");//Lesson operations (New)
+define("_COURSEOPERATIONS","");//Course operations (New)
+define("_EXPORTTOCSV","");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","");//The theme is locked (New)
+define("_BLANKREPORT","");//Blank report (New)
+define("_CUSTOMREPORTS","");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","");//Refresh table (New)
+define("_REMOVEFROMSET","");//Remove from set (New)
+define("_BRANCHTREE","");//Branch tree (New)
+define("_CHANGECONDITIONORDER","");//Change condition order (New)
+define("_INDEX","");//Index (New)
+define("_EVENTDATETIME","");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

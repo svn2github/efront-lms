@@ -71,11 +71,14 @@ function setAlign(el, column) {
 function onSetAlign(el, response) {
  if (response.evalJSON(true).status) {
   if (response.evalJSON(true).align == 'left') {
-   el.update('left');
+   setImageSrc(el, 16, 'arrow_left');
+   el.writeAttribute({alt:translations['left'],title:translations['left']});
   } else if (response.evalJSON(true).align == 'center') {
-   el.update('center');
+   setImageSrc(el, 16, 'stop');
+   el.writeAttribute({alt:translations['center'],title:translations['center']});
   } else if (response.evalJSON(true).align == 'right') {
-   el.update('right');
+   setImageSrc(el, 16, 'arrow_right');
+   el.writeAttribute({alt:translations['right'],title:translations['right']});
   }
  }
 }
@@ -171,7 +174,7 @@ function onRemoveFromSet(el, response) {
 */
 function onFinishedAddingConditions() {
  eF_js_showDivPopup('', '');
- eF_js_redrawPage('conditionsTable', false);
+ eF_js_redrawPage('conditionsTable', true);
 }
 
 if (typeof(finishedAddingConditions) != 'undefined' && finishedAddingConditions) {

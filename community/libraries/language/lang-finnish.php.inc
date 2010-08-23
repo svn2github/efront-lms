@@ -44,7 +44,7 @@ define("_RESTORE","Palauta järjestelmä");//Restore
 define("_FREE","Tämä opetus on ilmainen kaikille");//Free lesson
 define("_SUCCESSREGISTER","Sinulla on rekisteröity onnistuneesti");//You have registered successfully
 define("_LESSONSREGISTRATION","Oppitunnin rekisteröinti");//Lesson registration
-define("_YOUREMAIL","Your e-mail");//Your e-mail 
+define("_YOUREMAIL","Your e-mail");//Your Email 
 define("_MESSAGESUBJECT","Viestin aihe");//Message subject
 define("_PASSWORDLEAVEBLANK","Salasana (tyhjäksi jättämään ennallaan)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Your personal info on onnistuneesti muuttaa");//Your personal info has been successfully altered
@@ -75,8 +75,8 @@ define("_EMAILSENDAT","Sähköposti on lähetetty");//Email was sent to
 define("_CHOOSELESSON","Valitse oppitunti");//Choose lesson
 define("_SUBJECT","Aihe");//Subject
 define("_RECIPIENTSSELECTION","Vastaanottajat valinta");//Recipients selection
-define("_EMAILBODY","Sähköposti laitos");//E-mail body
-define("_SENDEMAIL","Lähetä E-mail");//Send E-mail
+define("_EMAILBODY","Sähköposti laitos");//Email body
+define("_SENDEMAIL","Lähetä E-mail");//Send Email
 define("_EXIT","Exit");//Exit
 define("_MORE","enemmän");//more
 define("_DELETE","Poistaa");//Delete
@@ -218,7 +218,7 @@ define("_CONTROLCENTER","Ohjauskeskus");//Control center
 define("_EXAMPLES","Esimerkkejä");//Examples
 define("_FORUM","Forum");//Forum
 define("_NOCONTENT","Yksikkö ilman sisältöä");//Unit without content
-define("_INACTIVE","Toimimattomia yksikkö");//Inactive unit
+define("_INACTIVE","Toimimattomia yksikkö");//Inactive
 define("_CONTENTMANAGEMENT","Sisällys");//Content
 define("_SCHEDULING","Ajoitus");//Scheduling
 define("_OFDEVELOPMENT","kehitys");//development
@@ -499,7 +499,7 @@ define("_NORESULTSFOUNDINPERSONALMESSAGES","Tuloksia ei löytynyt henkilökohtai
 define("_SEARCHRESULTSINPERSONALMESSAGES","Hakutulokset henkilökohtaisia viestejä");//Search results in personal messages
 define("_SEARCHRESULTSINCOURSES","Hakutulokset kurssit");//Search results in courses
 define("_MESSAGEFOLDER","Viesti kansio");//Message folder
-define("_EMAIL","e-mail");//e-mail
+define("_EMAIL","e-mail");//Email
 define("_RESETPASSWORD","Nollaa salasana");//Reset password
 define("_JOINED","Yhdistetyt");//Joined
 define("_MOREINFO","More info");//More info
@@ -994,7 +994,7 @@ define("_SCROLLTOTOPOFPAGE","Siirry sivun alkuun");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Siirry bottom of page");//Scroll to bottom of page
 define("_NOUSERHAVEDONETHISSURVEYYET","O työntekijä on tehnyt tämän kyselyn vielä");//No user has done this survey yet
 define("_SYSTEM","System");//System
-define("_EMAILCONFIGURATIONS","E-Mail Server Configuration");//E-mails server configuration
+define("_EMAILCONFIGURATIONS","E-Mail Server Configuration");//Emails server configuration
 define("_SAWUNIT","Aseta yksikkönä sellaisena kuin se on valmistunut");//Set the unit as completed
 define("_NOTSAWUNIT","Aseta yksikkö ei valmistunut");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","Edellytykset valmistunut");//Conditions completed
@@ -1072,7 +1072,7 @@ define("_SURVEYSUBMIT","Lähetä kysely");//Submit survey
 define("_ROWSPERPAGE","Riviä / sivu");//Rows per page
 define("_FILTER","Suodattimen");//Filter
 define("_OF","/");//of
-define("_SENDALSOVIAEMAIL","Lähetä kutsu via e-mail");//Send invitation via e-mail
+define("_SENDALSOVIAEMAIL","Lähetä kutsu via e-mail");//Send invitation via Email
 define("_STYLE","Tyyli");//Style
 define("_MENU","Valikko");//Menu
 define("_SELECTION","Valinta");//Selection
@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE","Moduuli poistaminen onnistui");//The module 
 define("_AUTHOR","Tekijä");//Author
 define("_VERSION","Versio");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Kentät CSV-tiedoston on sisällettävä seuraavat kentät");//The fields in your csv file must contain the following fields
-define("_IFEMPTYNEWPASSWORD","Toimialoja punainen ovat pakollisia. Jos ei ole salasanaa, se alkuperäinen salasana on asetettava samat kuin login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.
+define("_IFEMPTYNEWPASSWORD","Toimialoja punainen ovat pakollisia. Jos ei ole salasanaa, se alkuperäinen salasana on asetettava samat kuin login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Please check muodossa CSV-tiedosto");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Käytä # USER_NAME # käyttäjän nimi, # user_surname # käyttäjälle sukunimi, # course_name # kurssin nimi, # grade #-luokan ja # date # päivämäärää.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_VOTES","Ääniä");//Votes
@@ -1571,7 +1571,7 @@ define("_ASSIGNEMPLOYEES","Määrää työntekijää");//Assign users
 define("_ASSIGNEMPLOYEESTOBRANCH","Määrää työntekijää sivuliikkeelle");//Assign users to branch 
 define("_EDITSKILL","Edit taitoa");//Edit skill
 define("_ASSIGNSKILL","Määrää taitoa");//Assign skill
-define("_ASSIGNEMPLOYEESTHESKILL","Määrää työntekijöiden ammattitaidon");//Assign users the skill 
+define("_ASSIGNEMPLOYEESTHESKILL","Määrää työntekijöiden ammattitaidon");//Assign to users the skill 
 define("_NOBRANCHESHAVEBEENREGISTERED","N: o sivuliikkeet on rekisteröity");//No branches have been registered
 define("_ORGANIZATION","Organisaatio");//Organization
 define("_SEARCHFOREMPLOYEE","Etsi työntekijä [Järjestö perusteet]");//Find users [Organization criteria]
@@ -3136,7 +3136,7 @@ define("_POLLPROPERTIES","Poll ominaisuudet");//Poll properties
 define("_FORUMPROPERTIES","Forum ominaisuudet");//Forum properties
 define("_UPDATETHEME","Päivityksen Theme");//Update theme
 define("_FACEBOOKLOGININFOONLYMERGE","Asiakas saa liittää oman Facebook-tilin olemassa eFront yksi antamalla käyttäjän käyttäjätunnuksen ja salasanan, joiden osuus");//You may connect your Facebook account with an existing eFront one by providing the user login and password of that account
-define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","On enemmän kuin yksi käyttäjä jolla on sama sähköpostiosoite. Käytä kirjautuminen muodossa alla");//There are more than one users with the same e-mail address. Use your login in the form below
+define("_MORETHANONEUSERWITHSAMEMAILENTERLOGIN","On enemmän kuin yksi käyttäjä jolla on sama sähköpostiosoite. Käytä kirjautuminen muodossa alla");//There are more than one users with the same Email address. Use your login in the form below
 define("_MAPPEDACCOUNTSUCCESSFULLYDELETED","Kartoitettu tili on poistettu onnistuneesti");//Mapped account was successfully deleted
 define("_THEMEPROPERTIES","Theme ominaisuudet");//Theme properties
 define("_CHANGETHEME","Vaihda teemaa");//Change theme
@@ -3655,7 +3655,7 @@ define("_NEWTINYMCE","Hento 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Näytä vain viestin lähettämisen jälkeen testi");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Tämä testi on onnistuneesti toimitettu");//This test was successfully submitted
 define("_LEARNINGSTATUS","Learning Status");//Learning Status
-define("_HASNOTANEMAILADDRESS","ei sähköpostiosoitetta");//has not an e-mail address
+define("_HASNOTANEMAILADDRESS","ei sähköpostiosoitetta");//has not an Email address
 define("_FEEDBACK","Palaute");//Feedback
 define("_SETFOUNDEMPLOYEESINTOGROUP","Lisää käyttäjiä ryhmä");//Insert users into group
 define("_INSERTINTONEWGROUP","Lisää uusia ryhmä");//Insert into new group
@@ -3746,37 +3746,116 @@ define("_WEBSERVERREGISTRATION","Web-palvelimen rekisteröinti");//Web server re
 define("_USEORLOGICTOCORRECTANSWERS","Käytä tai logiikka laskea oikean vastauksen");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Muuttuja% x on oltava &quot;%y&quot;, jotta jatkossakin");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Avaa yksikkö ikkunaan");//Open unit in popup window
-define("_USERALREADYEXISTSARCHIVED","Käyttäjä määritelty kirjautuminen jo (arkistoitu)");//A user with the specified login already exists (archived) (New)
-define("_EVENTSSIZE","Tapahtumia koko");//Events size (New)
-define("_OLDESTEVENT","Vanhin tapahtuma");//Oldest event (New)
-define("_PURGEEVENTSOLDERTHAN","Tuhoa tapahtumia yli");//Purge events older than (New)
-define("_PURGEEVENTS","Tuhoa tapahtumia");//Purge events (New)
-define("_USERSEPERUSERTYPE","Käyttäjät per käyttäjä tyyppiä");//Users per user type (New)
-define("_MINUTESPERUSER","Pöytäkirja käyttäjää kohden");//Minutes per user (New)
-define("_LOGINSPERDAY","Kirjautumistunnukset päivässä");//Logins per day (New)
-define("_ACCESSES","Vierailuja");//Accesses (New)
-define("_ACCESSESPERUSER","Vierailuja per käyttäjä");//Accesses per user (New)
-define("_ACCESSESPERDAY","Vierailuja päivässä");//Accesses per day (New)
-define("_OCCURENCES","Poikkeamat");//Occurences (New)
-define("_SCORES","Tulokset");//Scores (New)
-define("_PROPAGATECOURSE","Lisääntyä kurssi");//Propagate course (New)
-define("_LESSONSTRUCTURE","Oppitunnin rakenne");//Lesson structure (New)
-define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Järjestelmänvalvoja ei voi käyttää opetus-sivuja");//An administrator cannot access lesson pages (New)
-define("_FAILEDPERMISSIONSMESSAGE","% X hakemistot ja% y tiedostoja ei kirjoitusoikeus web palvelimella. <br> Klikkaa <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>tästä</a> ladataksesi täydellisen raportin");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report (New)
-define("_CLICKHERETOSETPERMISSIONS","Klikkaa asettaa kirjoitusoikeudet");//Click here to set write permissions (New)
-define("_CLICKHERETOUNSETPERMISSIONS","Klikkaa tästä katkaisuasemaan kirjoitusoikeudet");//Click here to unset write permissions (New)
-define("_SETPERMISSIONS","Määritä käyttöoikeudet");//Set permissions (New)
-define("_UNSETPERMISSIONS","Unset käyttöoikeudet");//Unset permissions (New)
-define("_SETPERMISSIONSINSTRUCTIONS","Tämä toimenpide kokeile oikeudet kaikki tiedostot ja kansiot olla kirjoitusoikeus web palvelimella. Tämä on pakollinen, jos haluat suorittaa automaattisia päivityksiä, ja ne voivat olla hyödyllisiä silloin sinulla on ongelmia aikana tai päivityksen jälkeen. Toisaalta, jolloin kaikki tiedostot kirjoittava voi aiheuttaa turvallisuusuhka tietyissä olosuhteissa.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances. (New)
-define("_UNSETPERMISSIONSINSTRUCTIONS","Tämä toimenpide kokeile oikeudet kaikki tiedostot ja kansiot muina kuin kirjoitusoikeus web-palvelin, lukuun ottamatta pakollista moitteettomasti. Tämä on turvallisin asetus, mutta se estää järjestelmän päivitystä automaattisesti");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically (New)
-define("_CLICKHERETOCHECKPERMISSIONS","Klikkaa tästä tarkistaa käyttöoikeudet");//Click here to check permissions (New)
-define("_CHECKPERMISSIONS","Tarkista käyttöoikeudet");//Check permissions (New)
-define("_CHECKPERMISSIONSINSTRUCTIONS","Tämä toiminto tarkistaa, mitkä tiedostot ja kansiot järjestelmän ei kirjoitusoikeus web-palvelin");//This operation will check which files and folders of your system are not writable by the web server (New)
-define("_OPERATIONOUTCOME","Käyttö tulos");//Operation outcome (New)
-define("_NOOPERATIONPERFORMEDYET","Ei suoritettuasi vielä");//No operation performed yet (New)
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Jotkut tiedostot / kansiot eivät ole kirjoitettavissa. Käy \"oikeudet\" osio huolto -&gt; aivan tarkistaa käyttöoikeudet ja tarkastella näitä tiedostoja");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files (New)
-define("_OTHERWISEPLEASEREGISTER","Muuten voit luoda <button onclick = \"location='index.php?ctg=signup'\">uuden tilin</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button> (New)
-define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Olit ilmoittautunut ilmaisia oppitunteja ja kursseja. Tarkista alla valintasi ei ilmaisia oppitunteja ja kursseja");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses (New)
-define("_SUPERVISORS","Valvojien");//Supervisors (New)
-define("_COURSEOPTIONS","Kurssivalikoimassa");//Course options (New)
+define("_USERALREADYEXISTSARCHIVED","Käyttäjä määritelty kirjautuminen jo (arkistoitu)");//A user with the specified login already exists (archived)
+define("_EVENTSSIZE","Tapahtumia koko");//Events size
+define("_OLDESTEVENT","Vanhin tapahtuma");//Oldest event
+define("_PURGEEVENTSOLDERTHAN","Tuhoa tapahtumia yli");//Purge events older than
+define("_PURGEEVENTS","Tuhoa tapahtumia");//Purge events
+define("_USERSEPERUSERTYPE","Käyttäjät per käyttäjä tyyppiä");//Users per user type
+define("_MINUTESPERUSER","Pöytäkirja käyttäjää kohden");//Minutes per user
+define("_LOGINSPERDAY","Kirjautumistunnukset päivässä");//Logins per day
+define("_ACCESSES","Vierailuja");//Accesses
+define("_ACCESSESPERUSER","Vierailuja per käyttäjä");//Accesses per user
+define("_ACCESSESPERDAY","Vierailuja päivässä");//Accesses per day
+define("_OCCURENCES","Poikkeamat");//Occurences
+define("_SCORES","Tulokset");//Scores
+define("_PROPAGATECOURSE","Lisääntyä kurssi");//Propagate course
+define("_LESSONSTRUCTURE","Oppitunnin rakenne");//Lesson structure
+define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Järjestelmänvalvoja ei voi käyttää opetus-sivuja");//An administrator cannot access lesson pages
+define("_FAILEDPERMISSIONSMESSAGE","% X hakemistot ja% y tiedostoja ei kirjoitusoikeus web palvelimella. <br> Klikkaa <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>tästä</a> ladataksesi täydellisen raportin");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_CLICKHERETOSETPERMISSIONS","Klikkaa asettaa kirjoitusoikeudet");//Click here to set write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Klikkaa tästä katkaisuasemaan kirjoitusoikeudet");//Click here to unset write permissions
+define("_SETPERMISSIONS","Määritä käyttöoikeudet");//Set permissions
+define("_UNSETPERMISSIONS","Unset käyttöoikeudet");//Unset permissions
+define("_SETPERMISSIONSINSTRUCTIONS","Tämä toimenpide kokeile oikeudet kaikki tiedostot ja kansiot olla kirjoitusoikeus web palvelimella. Tämä on pakollinen, jos haluat suorittaa automaattisia päivityksiä, ja ne voivat olla hyödyllisiä silloin sinulla on ongelmia aikana tai päivityksen jälkeen. Toisaalta, jolloin kaikki tiedostot kirjoittava voi aiheuttaa turvallisuusuhka tietyissä olosuhteissa.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_UNSETPERMISSIONSINSTRUCTIONS","Tämä toimenpide kokeile oikeudet kaikki tiedostot ja kansiot muina kuin kirjoitusoikeus web-palvelin, lukuun ottamatta pakollista moitteettomasti. Tämä on turvallisin asetus, mutta se estää järjestelmän päivitystä automaattisesti");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
+define("_CLICKHERETOCHECKPERMISSIONS","Klikkaa tästä tarkistaa käyttöoikeudet");//Click here to check permissions
+define("_CHECKPERMISSIONS","Tarkista käyttöoikeudet");//Check permissions
+define("_CHECKPERMISSIONSINSTRUCTIONS","Tämä toiminto tarkistaa, mitkä tiedostot ja kansiot järjestelmän ei kirjoitusoikeus web-palvelin");//This operation will check which files and folders of your system are not writable by the web server
+define("_OPERATIONOUTCOME","Käyttö tulos");//Operation outcome
+define("_NOOPERATIONPERFORMEDYET","Ei suoritettuasi vielä");//No operation performed yet
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Jotkut tiedostot / kansiot eivät ole kirjoitettavissa. Käy \"oikeudet\" osio huolto -&gt; aivan tarkistaa käyttöoikeudet ja tarkastella näitä tiedostoja");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_OTHERWISEPLEASEREGISTER","Muuten voit luoda <button onclick = \"location='index.php?ctg=signup'\">uuden tilin</button>");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
+define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Olit ilmoittautunut ilmaisia oppitunteja ja kursseja. Tarkista alla valintasi ei ilmaisia oppitunteja ja kursseja");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
+define("_SUPERVISORS","Valvojien");//Supervisors
+define("_COURSEOPTIONS","Kurssivalikoimassa");//Course options
+define("_RESETEXECUTIONSFORALLUSERS","Nollaa teloituksista kaikille käyttäjille");//Reset executions for all users (New)
+define("_ADVANCEDUSERREPORTS","Käyttäjät raportit generaattori");//Users reports generator (New)
+define("_ADDTOGROUP","Lisää ryhmään");//Add to group (New)
+define("_ASSIGNCOURSE","Anna kurssin");//Assign course (New)
+define("_ASSIGNLESSON","Anna oppitunti");//Assign lesson (New)
+define("_REMOVECOURSE","Poista kurssi");//Remove course (New)
+define("_REMOVELESSON","Poista oppitunti");//Remove lesson (New)
+define("_REMOVEFROMGROUP","Poista ryhmästä");//Remove from group (New)
+define("_RESETLEARNINGPROGRESS","Nollaa oppimisen edistymistä");//Reset learning progress (New)
+define("_BUILDER","Rakennusmestari");//Builder (New)
+define("_ADDREPORT","Lisää uusi raportti");//Add new report (New)
+define("_CONDITIONTYPE","Edellytys tyyppi");//Condition type
+define("_CONDITIONSPECIFICATION","Kunto eritelmä");//Condition specification (New)
+define("_ADDCOLUMN","Lisää sarake");//Add column (New)
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Liittyy ja seuraavan");//Relation with next (New)
+define("_COLUMNTYPE","Sarake tyyppi");//Column type (New)
+define("_GRIDNAME","Grid nimi");//Grid name (New)
+define("_ALIGNED","Tasattu");//Aligned (New)
+define("_SELECTREPORT","Valitse raportti");//Select report (New)
+define("_AVAILABLEREPORTS","Saatavilla olevat raportit");//Available reports (New)
+define("_EDITREPORT","Muokkaa raportin");//Edit report (New)
+define("_NOREPORTSINTHESYSTEM","Ei ole raportoitu määritelty järjestelmä. Haluta");//There are no reports defined in the system. Please  (New)
+define("_CREATEONE","luoda");//create one (New)
+define("_NEWREPORT","Uusi raportti");//New report (New)
+define("_REPORTNAME","Ilmoita nimi");//Report name (New)
+define("_SELECTCONDITION","Valitse ehto");//Select condition (New)
+define("_ISNOT","ei");//is not (New)
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","On suorittanut kaikki sidottujen opetukset");//Has completed all assigned lessons (New)
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","On suorittanut kaikki sidottujen kurssit");//Has completed all assigned courses (New)
+define("_HAS","On");//Has (New)
+define("_HASNOT","Ei ole");//Has not (New)
+define("_ENROLLEDTO","Ilmoittautunut");//Enrolled to (New)
+define("_BETWEEN","Välillä");//Between (New)
+define("_ISASSIGNED","Liitetään");//Is assigned (New)
+define("_ISNOTASSIGNED","Ei ole määritetty");//Is not assigned (New)
+define("_DURINGLASTDAY","viime 24h");//last 24h (New)
+define("_DURINGLASTWEEK","viime viikolla");//last week (New)
+define("_DURINGLASTMONTH","viime kuussa");//last month (New)
+define("_COLUMN","Sarake");//Column (New)
+define("_SELECTCOLUMN","Valitse sarake");//Select column (New)
+define("_LEAVEBLANKTOAUTOADJUST","Jätä tyhjäksi jos haluat automaattisesti säätää leveys");//Leave blank to auto-adjust width (New)
+define("_LEAVEBLANKTOUSECOLUMNNAME","Jätä tyhjäksi sarakkeen nimi");//Leave blank to use column name (New)
+define("_WIDTHPERCENTAGE","Leveys (%)");//Width (%) (New)
+define("_PLEASESELECTACOLUMN","Valitse sarake");//Please select a column (New)
+define("_CHANGECOLUMNORDER","Muuta sarakkeiden järjestys");//Change the columns order (New)
+define("_VIEWINGREPORT","Katselu raportti");//Viewing report (New)
+define("_PLEASESELECTACONDITION","Valitse ehto");//Please select a condition (New)
+define("_BASIC","Perus-");//Basic (New)
+define("_LEARNING","Oppiminen");//Learning (New)
+define("_ENTERPRISE","Yritys");//Enterprise (New)
+define("_DRAGITEMSTOCHANGEORDER","Vedä kohteet muuttaa, jotta");//Drag items to change order (New)
+define("_CUSTOMFIELDS","Mukautetut kentät");//Custom fields (New)
+define("_FORMATTEDLOGIN","Muotoiltu kirjautunut");//Formatted login (New)
+define("_DEFAULTSORT","Oletuslajittelujärjestys");//Default sort (New)
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operaattori on etusijalla");//&quot;and&quot; operator takes precedence (New)
+define("_CURREPAGEOPERATIONS","Nykyinen sivu toiminta");//Current page operations (New)
+define("_ORSPECIFYANEWGROUPTOADDTO","Tai määritä uusi ryhmä lisätä");//Or specify a new group to add to (New)
+define("_ADDTO","Lisää");//Add to (New)
+define("_REMOVEFROM","Poista");//Remove from (New)
+define("_GROUPOPERATIONS","Konsernin liiketoimintojen");//Group operations (New)
+define("_CERTIFICATEOPERATIONS","Todistus toiminta");//Certificate operations (New)
+define("_LESSONOPERATIONS","Oppitunti toiminta");//Lesson operations (New)
+define("_COURSEOPERATIONS","Kurssin toiminta");//Course operations (New)
+define("_EXPORTTOCSV","Vie CSV-muotoon");//Export to csv (New)
+define("_NOEVENTCODEDEFINED","Missään tapauksessa koodi määritelty");//No event code defined (New)
+define("_FILESIMPORTEDSUCCESSFULLY","Tiedostot tuotu onnistuneesti");//Files imported successfully (New)
+define("_CONVERTFOLDERSTOHIERARCHY","Muunna kansiot sisäkkäin hierarkian");//Convert folders to nested hierarchy (New)
+define("_UNCOMPRESSRECURSIVELYIMPORT","Pura zip-tiedosto (t) ja tuonti sisältö");//Uncompress zip file(s) and import contents (New)
+define("_THEMELOCKED","Teemana on lukittu");//The theme is locked (New)
+define("_BLANKREPORT","Tyhjä raportti");//Blank report (New)
+define("_CUSTOMREPORTS","Mukautetut raportit");//Custom reports (New)
+define("_ADMINISTRATORCONFIRMENROLLED","Järjestelmänvalvoja tarkistaa ja aktivoi ilmoittautumiset");//The system administrator will review and activate your enrollments (New)
+define("_REFRESHTABLE","Päivitä taulukko");//Refresh table (New)
+define("_REMOVEFROMSET","Poista asettaa");//Remove from set (New)
+define("_BRANCHTREE","Branch puu");//Branch tree (New)
+define("_CHANGECONDITIONORDER","Muuta edellytys, jotta");//Change condition order (New)
+define("_INDEX","Hakemisto");//Index (New)
+define("_EVENTDATETIME","Tapahtuman päivämäärä ja kellonaika");//Event date and time (New)
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Varmennetiedostoa puuttuu tai on vioittunut ja siten nollattiin");//The certificate file was missing or corrupt and thus was reset (New)
 ?>

@@ -273,7 +273,7 @@
      <td class = "noSort">{$smarty.const._COLUMNTYPE}</td>
      <td class = "noSort">{$smarty.const._GRIDNAME}</td>
      <td class = "centerAlign noSort">{$smarty.const._WIDTH}</td>
-     <td class = "centerAlign noSort">{$smarty.const._ALIGNED}</td>
+     <td class = "noSort">{$smarty.const._ALIGNED}</td>
      <td class = "centerAlign noSort">{$smarty.const._DEFAULTSORT}</td>
      <td class = "centerAlign noSort">{$smarty.const._STATUS}</td>
      <td class = "centerAlign noSort">{$smarty.const._TOOLS}</td>
@@ -283,10 +283,15 @@
      <td>{$T_REPORT_COLUMNS[$item.column]}</td>
      <td>{$item.grid_name}</td>
      <td class = "centerAlign">{if $item.width}{$item.width}%{/if}</td>
-     <td class = "centerAlign">
-      {if $item.align == 'left'}<img class = "ajaxHandle" onclick = "setAlign(this, '{$key}')" src = "images/16x16/arrow_left.png" alt = "{$smarty.const._LEFT}" title = "{$smarty.const._LEFT}"/>
-      {elseif $item.align == 'center'}<img class = "ajaxHandle" onclick = "setAlign(this, '{$key}')" src = "images/16x16/stop.png" alt = "{$smarty.const._CENTER}" title = "{$smarty.const._CENTER}" />
-      {elseif $item.align == 'right'}<img class = "ajaxHandle" onclick = "setAlign(this, '{$key}')" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._RIGHT}" title = "{$smarty.const._RIGHT}" />{/if}
+     <td>
+     {if $item.align == 'left'}
+      <span>{$smarty.const._LEFT}</span>
+     {elseif $item.align == 'center'}
+      <span>{$smarty.const._CENTER}</span>
+     {elseif $item.align == 'right'}
+      <span>{$smarty.const._RIGHT}</span>
+     {/if}
+      &nbsp;<img src = "images/16x16/arrow_right.png" alt = "{$smarty.const._CHANGE}" title = "{$smarty.const._CHANGE}" class = "handle" onclick = "setAlign(this, '{$key}')"/>
      </td>
      <td class = "centerAlign"><span style = "display:none">{$item.default_sort}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.default_sort}pin_green{else}pin_red{/if}.png" alt = "{$smarty.const._DEFAULTSORT}" title = "{$smarty.const._DEFAULTSORT}" onclick = "setDefaultSort(this, '{$key}')"/></td>
      <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setColumnStatus(this, '{$key}')"/></td>

@@ -71,14 +71,11 @@ function setAlign(el, column) {
 function onSetAlign(el, response) {
  if (response.evalJSON(true).status) {
   if (response.evalJSON(true).align == 'left') {
-   setImageSrc(el, 16, 'arrow_left');
-   el.writeAttribute({alt:translations['left'],title:translations['left']});
+   Element.extend(el).previous().update(translations['left']);
   } else if (response.evalJSON(true).align == 'center') {
-   setImageSrc(el, 16, 'stop');
-   el.writeAttribute({alt:translations['center'],title:translations['center']});
+   Element.extend(el).previous().update(translations['center']);
   } else if (response.evalJSON(true).align == 'right') {
-   setImageSrc(el, 16, 'arrow_right');
-   el.writeAttribute({alt:translations['right'],title:translations['right']});
+   Element.extend(el).previous().update(translations['right']);
   }
  }
 }

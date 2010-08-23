@@ -1,4 +1,4 @@
-=== Version 3.6.6 8236 ===
+=== Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)
 - Added handle to reset all executions for all users in a test
 - Added code for not allowing any sub-administrator to edit an administrator profile

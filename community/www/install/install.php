@@ -721,7 +721,8 @@ class Installation
    $course = EfrontCourse :: createCourse(array_merge(array('name' => 'How to be a programmer'), $fields));
    $file = $file -> copy($lesson -> getDirectory()); //$lesson is put here on purpose, since $course does not have a directory
    $course -> import($file);
-   $course -> addUsers(array_keys($users), array_values($users));
+   $course -> addUsers(array('student'), 'student');
+   $course -> addUsers(array('professor'), 'professor');
   } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
     }
  /**

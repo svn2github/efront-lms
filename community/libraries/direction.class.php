@@ -435,7 +435,7 @@ class EfrontDirectionsTree extends EfrontTree
 
 	 */
  public function reset() {
-  $directions = eF_getTableData("directions", "*", "", "id desc");
+  $directions = eF_getTableData("directions", "*", "", "name");
   if (sizeof($directions) == 0) {
    $this -> tree = new RecursiveArrayIterator(array());
    return;

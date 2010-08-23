@@ -424,13 +424,16 @@ try {
             }
             $theme -> options['browsers'][$_GET['browser']] = 1;
             $theme -> persist();
+            $url = '';
             if (detectBrowser() == $_GET['browser']) {
              if ($theme -> options['sidebar_interface'] > 0) {
-                 echo basename($_SERVER['PHP_SELF']).'?ctg=themes';
+              $url = basename($_SERVER['PHP_SELF']).'?ctg=themes';
              } else {
-                 echo basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes';
+                 $url = basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes';
              }
             }
+            echo json_encode(array('status' => 1, 'browser' => $_GET['browser'], 'url' => $url));
+
         } catch (Exception $e) {
          handleAjaxExceptions($e);
         }

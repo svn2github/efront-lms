@@ -169,9 +169,9 @@
     <td class = "centerAlign {$key}">
    {if $_change_}
     {if $theme.options.browsers[$key]}
-     <img class = "ajaxHandle" src = "images/16x16/pin_green.png" alt = "{$smarty.const._ACTIVETHEMEBROWSER}" title = "{$smarty.const._ACTIVETHEMEBROWSER}" onclick = "setBrowser(this, '{$theme.id}', '{$key}')">
+     <img class = "ajaxHandle browser_{$key}" src = "images/16x16/pin_green.png" alt = "{$smarty.const._ACTIVETHEMEBROWSER}" title = "{$smarty.const._ACTIVETHEMEBROWSER}" onclick = "setBrowser(this, '{$theme.id}', '{$key}')">
     {else}
-     <img class = "ajaxHandle" src = "images/16x16/pin_red.png" alt = "{$smarty.const._USETHEMEBROWSER}" title = "{$smarty.const._USETHEMEBROWSER}" onclick = "setBrowser(this, '{$theme.id}', '{$key}')">
+     <img class = "ajaxHandle browser_{$key}" src = "images/16x16/pin_red.png" alt = "{$smarty.const._USETHEMEBROWSER}" title = "{$smarty.const._USETHEMEBROWSER}" onclick = "setBrowser(this, '{$theme.id}', '{$key}')">
     {/if}
    {else}
     {if $theme.options.browsers[$key]}

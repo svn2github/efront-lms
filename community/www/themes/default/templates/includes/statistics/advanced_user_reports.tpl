@@ -10,7 +10,8 @@
     <option value = "{$key}" {if $smarty.get.report==$key}selected{/if}>{$item}</option>
    {/foreach}
    </select>
-   <input type = "image" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" nclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value" style = "border:0px;background-color:inherit"/>
+   {*<input type = "image" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" nclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value" style = "border:0px;background-color:inherit"/>*}
+   <input type = "submit" value = "{$smarty.const._SHOW}" class = "flatButton"/>
    </form>
   </span>
  </div>
@@ -24,7 +25,12 @@
   <tr class = "topTitle">
    {foreach name = 't_columns_list' item = "item" key = "key" from = $T_REPORT.rules.columns}
     {if $item.status}
-    <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}" name = "{if $item.column == 'formatted_login'}login{else}{$item.column}{/if}">{if $item.grid_name}{$item.grid_name}{else}{$T_REPORT_COLUMNS[$item.column]}{/if}</td>
+     {if $item.column == 'formatted_login'}{assign var = "sort" value = "login"}
+     {elseif $item.column == 'course_status'}{assign var = "sort" value = "count_courses"}
+     {elseif $item.column == 'lesson_status'}{assign var = "sort" value = "count_lessons"}
+     {else}{assign var = "sort" value = $item.column}
+     {/if}
+    <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}" name = "{$sort}">{if $item.grid_name}{$item.grid_name}{else}{$T_REPORT_COLUMNS[$item.column]}{/if}</td>
     {/if}
    {/foreach}
     <td class = "centerAlign noSort">{$smarty.const._SELECT}</td>
@@ -38,32 +44,14 @@
      {if $item.column == $T_EDIT_LINK}
       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
      {/if}
-     {if $item.column == 'languages_NAME'}
-      {$T_LANGUAGES[$entry]}
-     {elseif $item.column == 'formatted_login'}
-      #filter:login-{$user.login}#
-     {elseif $item.column == 'user_type'}
-      {$T_ROLE_NAMES[$entry]}
-     {elseif $item.column == 'active'}
-      {if $entry}<img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVE}" title = "{$smarty.const._ACTIVE}"/>{else}<img src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._INACTIVE}" title = "{$smarty.const._INACTIVE}"/>{/if}
-     {elseif $item.column == 'timestamp' || $item.column == 'last_login' || $item.column == 'hired_on' || $item.column == 'left_on'}
-      #filter:timestamp_time-{$entry}#
-     {elseif $item.column == 'branch'}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$entry}" class = "editLink">{$T_BRANCHES[$entry]} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}</a>
+     {if $item.column == 'branch'}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$entry}" class = "editLink">{$entry} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}</a>
      {elseif $item.column == 'job_description'}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$entry}" class = "editLink">{$T_JOBS[$entry]}</a>
-     {elseif $item.column == 'supervisor' || $item.column == 'driving_licence'}
-      {if $entry}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}
-     {elseif $item.column == 'marital_status'}
-      {if $entry}{$smarty.const._MARRIED}{else}{$smarty.const._SINGLE}{/if}
-     {elseif $item.column == 'sex'}
-      {if $entry}{$smarty.const._FEMALE}{else}{$smarty.const._MALE}{/if}
-     {elseif $item.column == 'way_of_working'}
-      {if $entry}{$smarty.const._PARTTIME}{else}{$smarty.const._FULLTIME}{/if}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$entry}" class = "editLink">{$entry}</a>
      {elseif $item.column == 'course_status'}
-      {if $user.count_courses}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink">{$user.sum_courses}/{$user.count_courses}</a>{/if}
+      {if $user.count_courses}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink">{$user.course_status}</a>{/if}
      {elseif $item.column == 'lesson_status'}
-      {if $user.count_lessons}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink">{$user.sum_lessons}/{$user.count_lessons}</a>{/if}
+      {if $user.count_lessons}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink">{$user.lesson_status}</a>{/if}
      {elseif $item.column == 'certifications'}
       {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$user.certifications}</a>{/if}
      {elseif $item.column == 'certificate_status'}
@@ -81,7 +69,10 @@
     </td>
     {/if}
    {/foreach}
-    <td class = "centerAlign"><img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMSET}" title = "{$smarty.const._REMOVEFROMSET}" onclick = "removeFromSet(this, '{$user.login}')"/></td>
+    <td class = "centerAlign">
+     <input type = "checkbox" id = "check_{$user.login}" onclick = "toggleUserDynamicGroup(this)"/>
+     {*<img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMSET}" title = "{$smarty.const._REMOVEFROMSET}" onclick = "removeFromSet(this, '{$user.login}')"/>*}
+    </td>
   </tr>
   {foreachelse}
   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{if $T_REPORT.rules.columns}{$T_REPORT.rules.columns|@sizeof}{else}3{/if}">{$smarty.const._NODATAFOUND}</td></tr>
@@ -177,7 +168,8 @@
     <option value = "{$key}" {if $smarty.get.report==$key}selected{/if}>{$item}</option>
    {/foreach}
    </select>
-   <input type = "image" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" nclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value" style = "border:0px;background-color:inherit"/>
+   {*<input type = "image" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" nclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value" style = "border:0px;background-color:inherit"/>*}
+   <input type = "submit" value = "{$smarty.const._SHOW}" class = "flatButton"/>
    <img id = "delete_report" {if !$smarty.get.report}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteReport(this, $('reports_list_edit').options[$('reports_list_edit').options.selectedIndex].value)"/>
   </span>
    </form>
@@ -441,5 +433,9 @@
   {/capture}
   {eF_template_printBlock title = $smarty.const._CHANGEORDER data = $smarty.capture.columns_treeTotal image = '32x32/order.png'}
  {else}
-  {eF_template_printBlock title = $smarty.const._ADVANCEDUSERREPORTS data = $smarty.capture.t_tabber_code image = '32x32/users.png'}
+  {if $smarty.session.s_type == 'administrator'}
+   {eF_template_printBlock title = $smarty.const._ADVANCEDUSERREPORTS data = $smarty.capture.t_tabber_code image = '32x32/users.png'}
+  {else}
+   {eF_template_printBlock title = $smarty.const._REPORTS data = $smarty.capture.t_users_table_code image = '32x32/reports.png'}
+  {/if}
  {/if}

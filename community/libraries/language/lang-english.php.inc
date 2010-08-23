@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE", "The module was successfully deleted");
 define("_AUTHOR", "Author");
 define("_VERSION", "Version");
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","The fields in your csv file must contain the following fields");
-define("_IFEMPTYNEWPASSWORD","Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login.");
+define("_IFEMPTYNEWPASSWORD","Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP");
 define("_PLEASECHECKYOURCSVFILEFORMAT","Please check the format of your CSV file");
 define("_CERTIFICATEINSTRUCTIONS", "In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.");
 define("_VOTES","Votes");

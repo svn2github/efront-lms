@@ -1183,7 +1183,7 @@ define("_SUCCESFULLYDELETEDMODULE", "Το άρθρωμα διαγράφηκε ε
 define("_AUTHOR", "Συγγραφέας");
 define("_VERSION", "Έκδοση");
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Τα πεδία στο αρχείο csv πρέπει να περιέχουν τα παρακάτω πεδία");
-define("_IFEMPTYNEWPASSWORD","Τα πεδία με κόκκινο είναι υποχρεωτικά. Αν δεν οριστεί κωδικός, θα γίνει εισαγωγή με αρχικό κωδικό το 'login'.");
+define("_IFEMPTYNEWPASSWORD","Τα πεδία με κόκκινο είναι υποχρεωτικά. Αν δεν οριστεί κωδικός, θα γίνει εισαγωγή με αρχικό κωδικό το 'login'. Αν βάλετε 'ldap' στο πεδίο 'password', τότε οι χρήστες θα κάνουν ταυτοποίηση μέσω LDAP");
 define("_PLEASECHECKYOURCSVFILEFORMAT","Παρακαλώ ελέγξτε την μορφή του CSV αρχείου σας");
 define("_CERTIFICATEINSTRUCTIONS", "Στο πρότυπο, χρησιμοποιήσετε #organization# για το όνομα του οργανισμού, #user_name# για το όνομα του χρήστη, #user_surname# για το επώνυμο του χρήστη, #course_name# για το όνομα της δέσμης, #grade# για το βαθμό και #date# για την ημερομηνία.");
 define("_VOTES","Ψήφοι");

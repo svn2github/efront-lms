@@ -186,7 +186,7 @@ $loadScripts[] = 'includes/groups';
         if (isset($_GET['edit_user_group'])) {
             $groupUsers = $currentGroup -> getUsers();
 
-            $result = eF_getTableData("users", "*");
+            $result = eF_getTableData("users", "*", "archive=0");
             $users = array();
             foreach ($result as $user) {
                 $user['in_group'] = false;
@@ -365,7 +365,7 @@ $loadScripts[] = 'includes/groups';
         }
 
     } else {
-        $result = eF_getTableData("groups g LEFT OUTER JOIN users_to_groups ug ON g.id=ug.groups_ID", "g.*, count(ug.groups_ID) as num_users", "g.dynamic=0", "", "id");
+        $result = eF_getTableData("groups g LEFT OUTER JOIN (select ug.groups_ID from users_to_groups ug, users u where u.login=ug.users_LOGIN and u.archive=0) c ON g.id=c.groups_ID", "g.*, count(c.groups_ID) as num_users", "g.dynamic=0", "", "id");
         $smarty -> assign("T_USERGROUPS", $result);
     }
 

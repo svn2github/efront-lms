@@ -144,7 +144,25 @@
 
     }
 
-    function eF_js_rebuildTable(tableIndex, offset, column_name, order, other, noDiv) {
+    function eF_js_redrawPage(tableIndex, draw, other) {
+  if ($(tableIndex)) {
+      for (var i = 0; i < sortedTables.size(); i++) {
+          if (sortedTables[i].id.match(tableIndex)) {
+              tableIndex = i;
+          }
+      }
+  }
+  if (other) {
+   currentOther[tableIndex] = other;
+  }
+     if (draw) {
+      eF_js_rebuildTable(tableIndex, currentOffset[tableIndex], currentSort[tableIndex], currentOrder[tableIndex], currentOther[tableIndex]);
+     } else {
+      eF_js_rebuildTable(tableIndex, currentOffset[tableIndex], currentSort[tableIndex], currentOrder[tableIndex], currentOther[tableIndex], true, true);
+  }
+    }
+
+    function eF_js_rebuildTable(tableIndex, offset, column_name, order, other, noDiv, noRefresh) {
      try {
       if ($(tableIndex)) {
           for (var i = 0; i < sortedTables.size(); i++) {
@@ -202,6 +220,7 @@
        //alert(transport.responseText);
       },
       onSuccess: function (transport) {
+       if (noRefresh) { return true;}
        var tableId = sortedTables[tableIndex].id;
        var spanElement = document.createElement('span');
 
@@ -259,6 +278,7 @@
        if (sortedTables[tableIndex].hasClassName('subSection')) {
         onLoadSubSection(sortedTables[tableIndex]);
        }
+
       }
       });
      } catch (e) {

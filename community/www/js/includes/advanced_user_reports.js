@@ -62,7 +62,7 @@ function saveConditionTree(el) {
  ajaxRequest(el, location.toString(), parameters, onSaveConditionTree);
 }
 function onSaveConditionTree(el, response) {
-    parent.eF_js_rebuildTable('conditionsTable', 0, 'null', 'desc');
+    parent.eF_js_redrawPage('conditionsTable', true);
 }
 function setAlign(el, column) {
  parameters = {'set_align':column, ajax:1, method: 'get'};
@@ -108,14 +108,7 @@ function onSetStatus(el, response) {
 
 //Uses the 'other' argument in eF_js_rebuildTable to send the action
 function exportCsv(el) {
-    tables = sortedTables.size();
-
-    for (var i = 0; i < tables; i++) {
-        if (sortedTables[i].id.match('usersTable')) {
-            eF_js_rebuildTable(i, 0, 'null', 'desc', 'csv');
-        }
-    }
-
+ eF_js_redrawPage('usersTable', false, 'csv');
     currentOther = new Array();
 
     $('popup_frame').src = location.toString()+'&ajax=1&csv=1';
@@ -142,22 +135,43 @@ function onApplyOperation(el, response) {
  if (response.evalJSON(true).table_name) {
   eF_js_showDivPopup('', '', response.evalJSON(true).table_name);
  }
-    eF_js_rebuildTable('usersTable', 0, 'null', 'desc');
+ eF_js_redrawPage('usersTable', true);
 }
 
+function ajaxPost(foo, el) {
+ toggleUserDynamicGroup(el, true);
+}
+
+function toggleUserDynamicGroup(el, allUsers) {
+ user = el.id.replace('check_', '');
+ if (allUsers) {
+  if (el.checked) {
+   eF_js_redrawPage('usersTable', false, 'dynamic');
+   currentOther = new Array();
+  } else {
+   parameters = {toggle_user_to_dynamic_group:1, status:0, allUsers:1, ajax:1, method: 'get'};
+   ajaxRequest(el, location.toString(), parameters);
+  }
+ } else {
+  parameters = {toggle_user_to_dynamic_group:user, status:el.checked, ajax:1, method: 'get'};
+  ajaxRequest(el, location.toString(), parameters);
+ }
+
+}
+/*
 function removeFromSet(el, user) {
- parameters = {remove_user_from_dynamic_group:1, user:user, ajax:1, method: 'get'};
- ajaxRequest(el, location.toString(), parameters, onRemoveFromSet);
+	parameters = {remove_user_from_dynamic_group:1, user:user, ajax:1, method: 'get'};
+	ajaxRequest(el, location.toString(), parameters, onRemoveFromSet);
 }
 function onRemoveFromSet(el, response) {
- if (response.evalJSON(true).status) {
-  new Effect.Fade(el.up().up());
- }
+	if (response.evalJSON(true).status) {
+		new Effect.Fade(el.up().up());
+	}
 }
-
+*/
 function onFinishedAddingConditions() {
  eF_js_showDivPopup('', '');
-    eF_js_rebuildTable('conditionsTable', 0, 'null', 'desc');
+ eF_js_redrawPage('conditionsTable', false);
 }
 
 if (typeof(finishedAddingConditions) != 'undefined' && finishedAddingConditions) {

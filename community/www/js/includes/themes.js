@@ -4,12 +4,16 @@ function setBrowser(el, id, browser) {
  ajaxRequest(el, url, parameters, onSetBrowser);
 }
 function onSetBrowser(el, response) {
-    $('themesTable').select('img.sprite16-pin_green').each(function (s) {if (s.up().hasClassName(response)) {s.writeAttribute({alt: usetheme, title: usetheme});setImageSrc(s, 16, 'pin_red.png');}});
-    el.writeAttribute({alt: activetheme, title: activetheme});
-    setImageSrc(el, 16, 'pin_green.png');
-    if (response.match(/\.php/)) {
-     top.location = response;
-    }
+ response = response.evalJSON(true);
+ if (response.status) {
+     //$('themesTable').select('img.sprite16-pin_red').each(function (s, k) {if (s == el) {idx = (k%8);alert('idx: '+idx);}});
+     $('themesTable').select('img.sprite16-pin_green').each(function (s, k) {if (s.hasClassName('browser_'+response.browser)) {s.writeAttribute({alt: usetheme, title: usetheme});setImageSrc(s, 16, 'pin_red.png');}});
+     el.writeAttribute({alt: activetheme, title: activetheme});
+     setImageSrc(el, 16, 'pin_green.png');
+     if (response.url.match(/\.php/)) {
+      top.location = response.url;
+     }
+ }
 }
 /**
 

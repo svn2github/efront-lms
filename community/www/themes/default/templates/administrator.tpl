@@ -405,16 +405,27 @@
    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=groups&sel_group='|cat:$smarty.get.sel_group|cat:'">'|cat:$T_GROUP_NAME|cat:'</a>'}
   {/if}
  {elseif $smarty.get.option == 'branches'}
+
+
+
+
+
+
+    {elseif $smarty.get.option == 'advanced_user_reports'}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=advanced_user_reports">'|cat:$smarty.const._ADVANCEDUSERREPORTS|cat:'</a>'}
     {elseif $smarty.get.option == 'participation'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=participation">'|cat:$smarty.const._PARTICIPATIONSTATISTICS|cat:'</a>'}
  {/if}
+
     {capture name = "moduleStatistics"}
             <tr><td class = "moduleCell">
                 {include file = "includes/statistics.tpl"}
             </td></tr>
     {/capture}
 {/if}
+
 {if ($T_CTG == 'calendar')}
+
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=calendar">'|cat:$smarty.const._CALENDAR|cat:'</a>'}
     {*moduleCalendarPage: Display the calendar page*}
     {capture name = "moduleCalendarPage"}
@@ -424,16 +435,30 @@
                             </td></tr>
     {/capture}
 {/if}
+
+
 {if $T_CTG == 'search_courses'}
+
     {assign var = "title" value = '<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
+
+
+
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=search_courses">'|cat:$smarty.const._SEARCHCOURSEUSERS|cat:'</a>'}
+
+
     {*moduleSearchCoursesPage: Display the search courses page*}
     {capture name = "moduleSearchCoursesPage"}
                             <tr><td class = "moduleCell">
                                 {include file = "search_courses.tpl"}
+
+
+
+
+
                                     {eF_template_printBlock title=$smarty.const._FINDEMPLOYEES data=$smarty.capture.t_search_course_code image='32x32/scorm.png' main_options=$T_TABLE_OPTIONS}
                                     <br />
                                     {eF_template_printBlock title=$smarty.const._USERSFULFILLINGCRITERIA data=$smarty.capture.t_found_employees_code image='32x32/user.png' options = $T_SENDALLMAIL_LINK}
+
                             </td></tr>
     {/capture}
 {/if}

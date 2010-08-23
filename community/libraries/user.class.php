@@ -3108,8 +3108,8 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  private function getUserScormTestsStatusInLesson($lesson) {
   $usersDoneScormTests = eF_getTableData("scorm_data sd left outer join content c on c.id=sd.content_ID",
-              "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
-              "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$this -> user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$lesson -> lesson['id']);
+              "c.id, c.ctg_type, sd.users_LOGIN, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
+              "c.ctg_type = 'scorm_test' and sd.users_LOGIN = '".$this -> user['login']."' and c.lessons_ID = ".$lesson -> lesson['id']);
   $tests = array();
   foreach ($usersDoneScormTests as $doneScormTest) {
    if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {

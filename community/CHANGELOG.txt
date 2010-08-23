@@ -27,6 +27,7 @@
 - If certificate template file is missing, the system reverts to the default
 - Fixed archived users appearing in group's users list
 - Fixed average test score reporting for SCORM tests not matching actual mean score (a test may be skipped)
+- Fixed error while completing a test when accessing a lesson as student, having professor as default user type and on an horizontal theme
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

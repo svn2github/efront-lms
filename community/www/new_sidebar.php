@@ -28,7 +28,9 @@ require_once $path."menu.class.php";
 
 /*Check the user type. If the user is not valid, he cannot access this page, so exit*/
 try {
- $currentUser = EfrontUser :: checkUserAccess();
+ if (!isset($currentUser)) {
+  $currentUser = EfrontUser :: checkUserAccess();
+ }
  $smarty -> assign("T_CURRENT_USER", $currentUser);
  if ($_SESSION['s_lessons_ID'] && ($currentUser instanceof EfrontLessonUser)) {
   $userLessons = $currentUser -> getLessons();

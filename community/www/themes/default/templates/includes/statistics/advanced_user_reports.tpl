@@ -291,7 +291,7 @@
      {elseif $item.align == 'right'}
       <span>{$smarty.const._RIGHT}</span>
      {/if}
-      &nbsp;<img src = "images/16x16/arrow_right.png" alt = "{$smarty.const._CHANGE}" title = "{$smarty.const._CHANGE}" class = "handle" onclick = "setAlign(this, '{$key}')"/>
+      &nbsp;<img src = "images/16x16/refresh.png" alt = "{$smarty.const._CHANGE}" title = "{$smarty.const._CHANGE}" class = "handle" onclick = "setAlign(this, '{$key}')"/>
      </td>
      <td class = "centerAlign"><span style = "display:none">{$item.default_sort}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.default_sort}pin_green{else}pin_red{/if}.png" alt = "{$smarty.const._DEFAULTSORT}" title = "{$smarty.const._DEFAULTSORT}" onclick = "setDefaultSort(this, '{$key}')"/></td>
      <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setColumnStatus(this, '{$key}')"/></td>

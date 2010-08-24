@@ -1,6 +1,7 @@
 {*Closing template functions*}
 <script>
  {if $T_UNIT}var currentUnit = document.getElementById('node{$T_UNIT.id}');{else}var currentUnit = '';{/if}
+  var g_servername = '{$smarty.const.G_SERVERNAME}';
 </script>
 <script>var BOOKMARKTRANSLATION = '{$smarty.const._BOOKMARKS}';var NODATAFOUND = '{$smarty.const._NODATAFOUND}';</script>
 <script type = "text/javascript" src = "js/scripts.php?build={$smarty.const.G_BUILD}&load={$T_HEADER_MAIN_SCRIPTS}"> </script> {*Main scripts, such as prototype*}

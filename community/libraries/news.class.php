@@ -16,9 +16,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 /**
 
- * 
+ *
 
- * @author user
+ * @author Periklis Venakis
 
  *
 
@@ -29,7 +29,7 @@ class news extends EfrontEntity
 
      * The news properties
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -43,7 +43,7 @@ class news extends EfrontEntity
 
      * Create news
 
-     * 
+     *
 
      * This function is used to create news
 
@@ -67,15 +67,15 @@ class news extends EfrontEntity
 
 	 * $news = news :: create($fields, 0));
 
-	 * 
+	 *
 
      * </code>
 
-     * 
+     *
 
      * @param $fields An array of data
 
-     * @param $sendEmail Whether to send the announcement as an email as well 
+     * @param $sendEmail Whether to send the announcement as an email as well
 
      * @return news The new object
 
@@ -111,9 +111,9 @@ class news extends EfrontEntity
 
      * Persist news properties
 
-     * 
+     *
 
-     * This function can be used to persist with the database 
+     * This function can be used to persist with the database
 
      * any changes made to the current news object.
 
@@ -127,7 +127,7 @@ class news extends EfrontEntity
 
      * </code>
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -145,7 +145,7 @@ class news extends EfrontEntity
 
      * Delete the news
 
-     * 
+     *
 
      * This function is used to delete the current news.
 
@@ -163,7 +163,7 @@ class news extends EfrontEntity
 
      * </code>
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -313,7 +313,7 @@ class news extends EfrontEntity
    }
    return $news;
   }
-  //We don't have an "else" statement here, because in case the check in the above if removed all elements of lessonId (they were not ids), this part of code will be executed and the function won't fail 
+  //We don't have an "else" statement here, because in case the check in the above if removed all elements of lessonId (they were not ids), this part of code will be executed and the function won't fail
   if (!eF_checkParameter($lessonId, 'id')) {
       $lessonId = 0;
   }

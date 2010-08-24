@@ -327,7 +327,7 @@
     <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=forum&add=1&type=topic&forum_id={$T_LESSON_FORUM}&subject={$T_UNIT.name}", onclick = "eF_js_showDivPopup('{$smarty.const._ADDFORUMPOSTONTHISUNIT}', 2)" target = "POPUP_FRAME" title="{$smarty.const._ADDFORUMPOSTONTHISUNIT}">{$smarty.const._ADDFORUMPOSTONTHISUNIT|eF_truncate:25:"...":true}</a></div>
    {/if}
    {if !$T_SCORM}
-   <div>{counter name = "unit_operations"}. <a href = "javascript:void(0)", onclick = "window.open('{$smarty.server.PHP_SELF}?ctg=content&view_unit={$T_UNIT.id}&popup=1','unit_popup','width=900,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no')">{$smarty.const._OPENUNITINPOPUP}</a></div>
+   <div>{counter name = "unit_operations"}. <a href = "javascript:void(0)", onclick = "window.open('{$smarty.server.PHP_SELF}?ctg=content&view_unit={$T_UNIT.id}&popup=1','unit_popup','width=900,height=600,scrollbars=yes,resizable=yes,status=yes,toolbar=no,location=no,menubar=no')">{$smarty.const._OPENUNITINPOPUP}</a></div>
    {/if}
   {/capture}
 

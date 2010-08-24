@@ -1,3 +1,7 @@
+=== Version 3.6.7 ===
+- Fixed group assignment with common user type causing error when the group has courses
+- Fix for IE7 bug issuing false non-secure items warning under https when viewing the sorted table.
+
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)
 - Added handle to reset all executions for all users in a test

@@ -438,7 +438,7 @@ class EfrontGroup
                   }
                   // Add lessons - info acquired before entering the new user assignment loop
                   if ($userObject -> getType() != 'administrator') {
-                   if (isset($fields["user_types_ID"])) {
+                   if (isset($fields["user_types_ID"]) && $fields["user_types_ID"]) {
                     $userTypeInCourses = $fields["user_types_ID"];
                    } elseif (isset($fields["user_type"])) {
                     $userTypeInCourses = $fields["user_type"];

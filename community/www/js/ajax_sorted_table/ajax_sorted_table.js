@@ -23,6 +23,8 @@
 
     var checkedEntries = new Array();
 
+    var progressImg = g_servername+'js/ajax_sorted_table/images/progress1.gif';
+
     for (var k = 0; k < allTables.length; k++) { //Walk through all document tables
         if (allTables[k].className.match('sortedTable')) { //Get all tables that have 'sortedTable' as part of their class definition. These will be paging/sorting enabled
             //sortedTables.push(allTables[k]);                                //Add this table to the sorted tables array
@@ -303,7 +305,7 @@ function eF_js_sortTable(el, other) {
         if (useAjax[tableIndex]) {
    if (el) {
     //Element.extend(el).insert(new Element('img', {id: 'img_', src:'js/ajax_sorted_table/images/progress1.gif'}).setStyle({borderWidth:'0px', position:'absolute'}));
-    Element.extend(el).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+    Element.extend(el).addClassName('loadingImg').setStyle({background:'url("'+progressImg+'") center right no-repeat'});
    }
             eF_js_rebuildTable(tableIndex, 0, column_name, order, other, true);
         } else {
@@ -811,7 +813,7 @@ function eF_js_sortTable(el, other) {
         if (useAjax[tableIndex]) {
          var showing_image = false;
          if ($(tableIndex+'_sortedTable_jobFilter')) {
-          Element.extend($(tableIndex+'_sortedTable_jobFilter')).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+          Element.extend($(tableIndex+'_sortedTable_jobFilter')).addClassName('loadingImg').setStyle({background:'url("'+progressImg+'") center right no-repeat'});
 
           var jobStr = document.getElementById(tableIndex+'_sortedTable_jobFilter').value;
           currentJobFilter[tableIndex] = jobStr;
@@ -820,7 +822,7 @@ function eF_js_sortTable(el, other) {
 
          if ($(tableIndex+'_sortedTable_branchFilter')) {
           if (!showing_image) {
-           Element.extend($(tableIndex+'_sortedTable_branchFilter')).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+           Element.extend($(tableIndex+'_sortedTable_branchFilter')).addClassName('loadingImg').setStyle({background:'url("'+progressImg+'") center right no-repeat'});
            showing_image = true;
           }
 
@@ -829,7 +831,7 @@ function eF_js_sortTable(el, other) {
          }
 
          if (!showing_image) {
-          Element.extend($(tableIndex+'_sortedTable_filter')).addClassName('loadingImg').setStyle({background:'url("js/ajax_sorted_table/images/progress1.gif") center right no-repeat'});
+          Element.extend($(tableIndex+'_sortedTable_filter')).addClassName('loadingImg').setStyle({background:'url("'+progressImg+'") center right no-repeat'});
          }
 
             var str = document.getElementById(tableIndex+'_sortedTable_filter').value; //Get the filter value, from the corresponding text box

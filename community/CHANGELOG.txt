@@ -1,6 +1,10 @@
 === Version 3.6.7 ===
 - Fixed group assignment with common user type causing error when the group has courses
+- Fixed issue about editing popup parameters in scorm units
 - Fix for IE7 bug issuing false non-secure items warning under https when viewing the sorted table.
+- Fixed issue in course completion page about students with professor role to a course
+- Fixed issue about not displaying in list a forum of deactivated/archived lesson
+- Fixed the "material in progress" select box disappearing when the user has completed all assigned lessons/courses and has also access to others as a professor
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

@@ -55,7 +55,7 @@
     {if $smarty.get.add_branch || $smarty.get.edit_branch}
 
   {capture name = 't_branch_code'}
-   {eF_template_printForm form=$T_BRANCH_FORM handles=$T_FORM_HANDLES}
+   {eF_template_printForm form=$T_BRANCH_FORM}
 
       {if $smarty.get.edit_branch}
           {literal}

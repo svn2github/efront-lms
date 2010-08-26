@@ -3858,4 +3858,7 @@ define("_CHANGECONDITIONORDER", "Change condition order");
 define("_INDEX", "Index");
 define("_EVENTDATETIME", "Event date and time");
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET", "The certificate file was missing or corrupt and thus was reset");
+define("_VISIBLEFROM", "Visible from");
+define("_EXPIRESAT", "Expires at");
+define("_CALENDARDISPLAYDATE", "Calendar display date");
 ?>

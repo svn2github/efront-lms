@@ -719,6 +719,9 @@ class EfrontDirectionsTree extends EfrontTree
    if (isset($treeLesson -> lesson['user_type']) && $treeLesson -> lesson['user_type']) {
     $roleInLesson = $treeLesson -> lesson['user_type'];
     $roleBasicType = $roles[$roleInLesson]; //Indicates that this is a catalog with user data
+    if ($roleBasicType == 'student') {
+     $this -> hasLessonsAsStudent = true;
+    }
    } else {
     $roleBasicType = null;
    }
@@ -740,6 +743,9 @@ class EfrontDirectionsTree extends EfrontTree
    if (isset($treeCourse -> course['user_type']) && $treeCourse -> course['user_type']) {
     $roleInCourse = $treeCourse -> course['user_type'];
     $roleBasicType = $roles[$roleInCourse]; //Indicates that this is a catalog with user data
+    if ($roleBasicType == 'student') {
+     $this -> hasLessonsAsStudent = true;
+    }
    } else {
     $roleBasicType = null;
    }

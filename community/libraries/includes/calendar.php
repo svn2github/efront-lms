@@ -23,7 +23,7 @@ isset($_GET['show_interval']) ? $show_interval = $_GET['show_interval'] : $show_
 
 
 // The type variable denotes the profile of the calendar: Organization profile, Current lesson profile, All lessons profile (0,1 and 2 respectively)
-  $events = eF_getCalendar(); //Get all events	
+  $events = eF_getCalendar(); //Get all events
 $smarty -> assign("T_CALENDAR_EVENTS", $events);
 $timestamp_info = getdate($view_calendar); //Extract date information from timestamp
 $timestamp_info['wday'] == 0 ? $timestamp_info['wday'] = 7 : ''; //getdate() returns week days from 0-6, with Sunday beeing 0. So, we convert Sunday to 7

@@ -144,6 +144,7 @@ CREATE TABLE chatrooms (
 -- content_ID: The id of the unit this comment was appended to, corresponding to the 'id' field of the 'content' table.
 -- timestamp: A 10-digit number representing the time that the comment was posted
 -- active: Whether this comment should appear.
+-- private: Whether this comment is private (appears only in submitting user)
 CREATE TABLE comments (
   id mediumint(8) unsigned NOT NULL auto_increment,
   data text NOT NULL,
@@ -759,7 +760,10 @@ CREATE TABLE modules (
 -- id (primary key): A numerical identifier
 -- title: The announcement's title
 -- data: The annoucnement itself
--- timestamp: The time that the announcement will be valid from
+-- timestamp: The time that the announcement will be valid from (1 timestamp)
+-- expire: The time that the announcement will be valid until (1 timestamp)
+-- calendar: The date/time that the event will show up in the calendar (1 timestamp)
+-- private: Whether this event is private (appears only in submitting user)
 -- lessons_ID: The id of the lesson that this announcement concerns. If it's 0, it's a system announcement
 -- users_LOGIN: The user that posted the announcement
 CREATE TABLE news (
@@ -768,6 +772,8 @@ CREATE TABLE news (
   data text,
   timestamp int(10) unsigned default 0,
   expire int(10) unsigned default 0,
+  calendar int(10) unsigned default 0,
+  private tinyint(1) NOT NULL default '0',
   lessons_ID mediumint(8) unsigned default NULL,
   users_LOGIN varchar(100) NOT NULL,
   PRIMARY KEY (id)

@@ -433,6 +433,24 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                  //Add default notifications to 3.5
                  EfrontNotification::addDefaultNotifications();
                 }
+       if (version_compare($dbVersion, '3.6.7') == -1) {
+        try {
+         $result = eF_getTableData("calendar", "*");
+         foreach ($result as $value) {
+          $fields[] = array('title' => _EVENT,
+                'data' => $value['data'],
+                'timestamp' => $value['timestamp'] < time() ? $value['timestamp'] : time(),
+                'expire' => 0,
+                'calendar' => $value['timestamp'],
+                'private' => 0,
+                'users_LOGIN' => $value['users_LOGIN'],
+                'lessons_ID' => $value['lessons_ID']);
+         }
+         eF_insertTableDataMultiple("news", $fields);
+         eF_executeNew("drop table if exists calendar");
+         eF_executeNew("drop table if exists install_calendar");
+        } catch (Exception $e) {/*Do nothing if the table didn't exist*/}
+       }
     //the following lines remove some old editor files that prevent editor from loading in version 3.6
     $removedDir = array();
     $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/themes/advanced/langs';

@@ -7,8 +7,8 @@ define("_EFRONTNAME", "eFront");
 define("_EFRONTLOGIN", "Είσοδος στο eFront");
 define("_HEADERLANGUAGEHTMLTAG","el-GR");
 define("_CURRENTLANGUAGESYMBOL","el");
-define("_HEADERLANGUAGETAG", "greek");
-define("_CHARSET","ISO-8859-7");
+define("_HEADERLANGUAGETAG", "el_GR.utf8");
+define("_CHARSET","UTF-8");
 define("_LANGUAGE","Γλώσσα");
 define("_PASSWORD","Κωδικός");
 define("_SUBMIT","Αποστολή");
@@ -3858,4 +3858,7 @@ define("_CHANGECONDITIONORDER", "Αλλαγή σειράς συνθηκών");
 define("_INDEX", "Σειρά");
 define("_EVENTDATETIME", "Ημέρα και ώρα γεγονότος");
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET", "Το αρχείο του πιστοποιητικού δεν ήταν έγκυρο, για αυτό αρχικοποιήθηκε στο προκαθορισμένο");
+define("_VISIBLEFROM", "Ορατό από");
+define("_EXPIRESAT", "Λήγει στις");
+define("_CALENDARDISPLAYDATE", "Ημερομηνία ημερολογίου");
 ?>

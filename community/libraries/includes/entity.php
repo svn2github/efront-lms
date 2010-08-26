@@ -3,7 +3,7 @@
 
  * Common entity file
 
- * 
+ *
 
  * This file handles the common operations in an entity
 
@@ -80,6 +80,9 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         $entityForm -> accept($renderer);
 
      $smarty -> assign('T_ENTITY_FORM', $renderer -> toArray());
+     $smarty -> assign('T_ENTITY_FORM_ARRAY', $entityForm -> toArray());
+
+
 
     } catch (Exception $e) {
         handleNormalFlowExceptions($e);

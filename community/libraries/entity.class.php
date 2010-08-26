@@ -230,6 +230,21 @@ abstract class EfrontEntity
        break;
      }
     }
+    public function createDateElement($form, $elementName, $elementLabel, $options = array()) {
+     $options = array_merge(array('format' => getDateFormat().' h:i',
+             'minYear' => date("Y") - 4,
+             'maxYear' => date("Y") + 3), $options);
+     $el = $form -> createElement("date", $elementName, $elementLabel, $options);
+     for ($i = 0; $i < 12; $i++) {
+      $el -> _locale['en']['months_long'][$i] = iconv(_CHARSET, 'UTF-8', strftime("%B", mktime(0, 0, 0, $i+1, 1, 2000)));
+      $el -> _locale['en']['months_short'][$i] = iconv(_CHARSET, 'UTF-8', strftime("%b", mktime(0, 0, 0, $i+1, 1, 2000)));
+     }
+     for ($i = 0; $i < 7; $i++) {
+      $el -> _locale['en']['weekdays_long'][$i] = iconv(_CHARSET, 'UTF-8', strftime("%A", mktime(0, 0, 0, 1, $i+2, 2000)));
+      $el -> _locale['en']['weekdays_short'][$i] = iconv(_CHARSET, 'UTF-8', strftime("%a", mktime(0, 0, 0, 1, $i+2, 2000)));
+     }
+     return $el;
+    }
     /**
 
      * Get all entity entries

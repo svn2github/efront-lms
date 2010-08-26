@@ -2,31 +2,34 @@
  <tr><td class = "moduleCell">
  {if !$_student_ && ($smarty.get.add || $smarty.get.edit)}
      {capture name = 't_add_code'}
+   {eF_template_printForm form = $T_ENTITY_FORM_ARRAY}
+{*
    {$T_ENTITY_FORM.javascript}
    <form {$T_ENTITY_FORM.attributes}>
        {$T_ENTITY_FORM.hidden}
        <table class = "formElements">
            <tr><td class = "labelCell">{$T_ENTITY_FORM.title.label}:&nbsp;</td>
                <td class = "elementCell">{$T_ENTITY_FORM.title.html}</td></tr>
-           {if $T_ENTITY_FORM.title.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.title.error}</td></tr>{/if}
-     <tr><td></td>
-      <td><span>
-       <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-       <a href = "javascript:toggleEditor('data','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a></span></td></tr>
            <tr><td class = "labelCell">{$T_ENTITY_FORM.data.label}:&nbsp;</td>
-               <td class = "elementCell">{$T_ENTITY_FORM.data.html}</td></tr>
-           {if $T_ENTITY_FORM.data.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.data.error}</td></tr>{/if}
+               <td class = "elementCell">
+                <div>
+                 <img onclick = "toggleEditor('data','simpleEditor');" class = "handle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+        <a href = "javascript:toggleEditor('data','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+       </div>
+       {$T_ENTITY_FORM.data.html}</td></tr>
            <tr><td class = "labelCell">{$smarty.const._FROM}:&nbsp;</td>
                <td class = "elementCell">{eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $T_FROM_TIMESTAMP display_seconds = false}</td></tr>
            <tr><td class = "labelCell">{$smarty.const._TO}:&nbsp;</td>
                <td class = "elementCell">{eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $T_TO_TIMESTAMP display_seconds = false}</td></tr>
+           <tr><td class = "labelCell">{$smarty.const._DISPLAYONCALENDAR}:&nbsp;</td>
+               <td class = "elementCell">{eF_template_html_select_date prefix="calendar_" time=$T_CALENDAR_TIMESTAMP start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $T_TO_TIMESTAMP display_seconds = false}</td></tr>
      <tr><td class = "labelCell">{$smarty.const._SENDASEMAILALSO}:&nbsp;</td>
                         <td class = "elementCell">{$T_ENTITY_FORM.email.html}</td></tr>
-                        {if $T_ENTITY_FORM.email.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.email.error}</td></tr>{/if}
            <tr><td></td>
                <td class = "submitCell">{$T_ENTITY_FORM.submit.html}</td></tr>
        </table>
    </form>
+*}
   {if $T_MESSAGE_TYPE == 'success'}
      <script>parent.location = parent.location;</script>
   {/if}

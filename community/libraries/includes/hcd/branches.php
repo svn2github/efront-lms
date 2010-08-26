@@ -410,12 +410,12 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     $fatherBranchId = $_GET['add_branch_to'];
     $details_link = 'href="'.basename($_SERVER['PHP_SELF']).'?ctg=module_hcd&op=branches&edit_branch='.$_GET['add_branch_to'].'"';
    }
-   $form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches, $only_existing),'class = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
    if (!$details_link || !$fatherBranchId || ($_GET['add_branch'] && !$_GET['add_branch_to']) || $forbidden_link) {
     $handleVisibility = ' style="visibility:hidden"';
    }
    $handle = '<a id = "details_link" name = "details_link" '.$details_link.$handleVisibility.'><img src = "images/16x16/search.png" class = "handle" title="'._DETAILS.'" alt="'._DETAILS.'" ></a>';
-   $smarty -> assign("T_FORM_HANDLES", array('fatherBranch' => $handle));
+      $form -> addElement('static', 'sidenote', $handle);
+   $form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches, $only_existing),'class = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
   } else {
    $first_branch = 1;
   }

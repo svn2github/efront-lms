@@ -957,6 +957,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
    $message = str_replace("<p>", "\r\n", $message);
    $message = str_replace("</p>", "\r\n", $message);
    $message = str_replace("&amp;", "&", $message);
+   $message = strip_tags($message);
   }
         $message = eF_formulateTemplateMessage($message, $template_formulations);
      $message = eF_replaceMD5($message);

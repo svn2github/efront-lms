@@ -36,7 +36,7 @@ class EfrontSystemException extends Exception
 
  * System class
 
- * 
+ *
 
  * This class incorporates system-wise static functions
 
@@ -53,11 +53,11 @@ class EfrontSystem
 
 	 * Backup system
 
-	 * 
+	 *
 
 	 * This function is used to backup the system. There are 2 types of backup, database only and full.
 
-	 * In the first case (the default), only the database is backed up, while in the second case, files 
+	 * In the first case (the default), only the database is backed up, while in the second case, files
 
 	 * are backed up as well.
 
@@ -65,13 +65,13 @@ class EfrontSystem
 
 	 * <code>
 
-	 * $backupFile = EfrontSystem :: backup('13_3_2007');			//Backup database only 
+	 * $backupFile = EfrontSystem :: backup('13_3_2007');			//Backup database only
 
 	 * </code>
 
 	 *
 
-	 * @param string $backupName The name of the backup 
+	 * @param string $backupName The name of the backup
 
 	 * @param int $backupType Can be either 0 or 1, where 0 siginifies database only backup and 1 is for including backup files as well
 
@@ -107,7 +107,7 @@ class EfrontSystem
             $definition[] = "drop table ".$temp[0]['Table'];
             $definition[] = $temp[0]['Create Table'];
         }
-/*	    
+/*
 
 		foreach ($tables as $table) {
 
@@ -149,7 +149,7 @@ class EfrontSystem
 
 	 * Restore system
 
-	 * 
+	 *
 
 	 * This function is used to restore a backup previously taken
 
@@ -157,7 +157,7 @@ class EfrontSystem
 
 	 * <code>
 
-	 * </code> 
+	 * </code>
 
 	 *
 
@@ -253,7 +253,7 @@ class EfrontSystem
 
 	 * Import users
 
-	 * 
+	 *
 
 	 * This function is used to import users from the given CSV
 
@@ -279,7 +279,7 @@ class EfrontSystem
 
 	 * @since 3.5.0
 
-	 * @access public 
+	 * @access public
 
 	 */
  public static function importUsers($file, $replaceUsers = false) {
@@ -294,7 +294,7 @@ class EfrontSystem
         foreach($userTypesTable as $key => $userType) {
             $userTypesTable[$userType['name']] = $userType;
         }
-        // If we work on the enterprise version we need to distinguish between users and module_hcd_employees tables fields 
+        // If we work on the enterprise version we need to distinguish between users and module_hcd_employees tables fields
         //$userFields = array('login', 'password','email','languages_NAME','name','surname','active','comments','user_type','timestamp','avatar','pending','user_types_ID');
         $userFields = eF_getTableFields('users');
         $existingUsers = eF_getTableDataFlat("users", "login");
@@ -339,7 +339,7 @@ class EfrontSystem
                 }
                 // Check the user-type existence by name
                 if ($csvUser['user_type_name'] != "" && isset($userTypesTable[$csvUser['user_type_name']])) {
-                    // If there is a mismatch between the imported custom type basic type and the current basic type 
+                    // If there is a mismatch between the imported custom type basic type and the current basic type
                     // then set no custom type
                     if ($userTypesTable[$csvUser['user_type_name']]['basic_user_type'] != $csvUser['user_type']) {
                         $csvUser['user_types_ID'] = 0;
@@ -389,7 +389,7 @@ class EfrontSystem
 
      * Export users
 
-     * 
+     *
 
      * This function is used to produce a CSV file with the system
 
@@ -401,7 +401,7 @@ class EfrontSystem
 
      * EfrontSystem :: exportUsers(";");		Create a semicolon-delimited CSV file with system users
 
-     * </code> 
+     * </code>
 
      *
 
@@ -434,9 +434,9 @@ class EfrontSystem
 
      * Export chat conversation
 
-     * 
+     *
 
-     * This function is used to produce a txt file with a selected 
+     * This function is used to produce a txt file with a selected
 
      * conversation.
 
@@ -446,7 +446,7 @@ class EfrontSystem
 
      * EfrontSystem :: exportChat($messages);		Create a semicolon-delimited CSV file with system users
 
-     * </code> 
+     * </code>
 
      *
 
@@ -475,7 +475,7 @@ class EfrontSystem
 
 	 * Get system languages
 
-	 * 
+	 *
 
 	 * This function is used to get the languages installed to the system
 
@@ -559,7 +559,7 @@ class EfrontSystem
 
 	 * Lock system
 
-	 * 
+	 *
 
 	 * This function locks down system, so that no users can login (for example when upgrading)
 
@@ -573,7 +573,7 @@ class EfrontSystem
 
 	 * </code>
 
-	 * 
+	 *
 
 	 * @param string $message The message to display on the index page
 
@@ -581,7 +581,7 @@ class EfrontSystem
 
 	 * @since 3.6.0
 
-	 * @access public 
+	 * @access public
 
 	 * @static
 
@@ -603,7 +603,7 @@ class EfrontSystem
 
 	 * Unlock system
 
-	 * 
+	 *
 
 	 * This function unlocks the system, previously locked with EfrontSystem::lockSystem
 
@@ -613,9 +613,9 @@ class EfrontSystem
 
 	 * EfrontSystem :: unlockSystem();
 
-	 * </code> 
+	 * </code>
 
-	 * 
+	 *
 
 	 * @since 3.6.0
 
@@ -631,7 +631,7 @@ class EfrontSystem
 
 	 * Check version key
 
-	 * 
+	 *
 
 	 * This function is used to check a version key for validity. It does so by communicating with
 
@@ -645,7 +645,7 @@ class EfrontSystem
 
 	 * </code>
 
-	 * 
+	 *
 
 	 * @param string $key The version key
 
@@ -741,7 +741,7 @@ class EfrontSystem
 
 	 * Delete version key
 
-	 * 
+	 *
 
 	 * This function deletes the currently stored version key, thus setting the version to
 
@@ -755,7 +755,7 @@ class EfrontSystem
 
 	 * </code>
 
-	 * 
+	 *
 
 	 * @since 3.6.0
 
@@ -776,11 +776,11 @@ class EfrontSystem
 
 	 * Print a default error message
 
-	 * 
+	 *
 
 	 * This function prints an error message. It is used for system errors, when any other chance of normally displaying an error is lost!
 
-	 *  
+	 *
 
 	 * @param string $message The error message
 
@@ -806,6 +806,29 @@ class EfrontSystem
      </table>
      ';
      return $str;
+ }
+ public static function exportToXls($data) {
+  require_once 'Spreadsheet/Excel/Writer.php';
+  $workBook = new Spreadsheet_Excel_Writer();
+  $workBook -> setTempDir(G_UPLOADPATH);
+  $workBook -> setVersion(8);
+  $workSheet = & $workBook -> addWorksheet('info');
+  $workSheet -> setInputEncoding('utf-8');
+  $columnIndex = 1;
+  foreach (current($data) as $key => $value) {
+   $workSheet -> write(0, $columnIndex++, $key);
+  }
+  $rowIndex = 1;
+  foreach ($data as $rowData) {
+   $columnIndex = 1;
+   foreach ($rowData as $cell) {
+    $workSheet -> write($rowIndex, $columnIndex++, $cell);
+   }
+   $rowIndex++;
+  }
+  $workBook -> close();
+  $workBook -> send('export.xls');
+  exit;
  }
 }
 ?>

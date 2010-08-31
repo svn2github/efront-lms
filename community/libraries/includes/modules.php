@@ -286,8 +286,8 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
                 } else {
                     $message = _NOMODULECLASSFOUND . ' "'. $className .'" : '.G_MODULESPATH.$module_folder;
                     $message_type = 'failure';
-                    $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-     $dir -> delete();
+                    //$dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
+     //$dir -> delete();
                     //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
                 }
             } else if (!is_dir(G_MODULESPATH.$module_folder)) {

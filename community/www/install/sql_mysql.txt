@@ -797,6 +797,18 @@ CREATE TABLE periods (
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
+--
+-- Table 'projects'
+--
+-- Fields:
+-- id (primary key): A numerical identifier
+-- title: The project name
+-- data: The complete description for this project
+-- deadline: The timestamp indicating when this project expires
+-- creator_LOGIN: The user who created the project
+-- lessons_ID: The lesson that this project belongs to
+-- auto_assign: Whether to automatically assign this project to new users
+-- metadata: The project metadata, in a serialized array, that can be instantiated to an EfrontInformation object
 CREATE TABLE projects (
   id mediumint(8) unsigned NOT NULL auto_increment,
   title varchar(150) default NULL,

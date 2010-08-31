@@ -231,7 +231,7 @@ abstract class EfrontEntity
      }
     }
     public function createDateElement($form, $elementName, $elementLabel, $options = array()) {
-     $options = array_merge(array('format' => getDateFormat().' h:i',
+     $options = array_merge(array('format' => getDateFormat().' H:i',
              'minYear' => date("Y") - 4,
              'maxYear' => date("Y") + 3), $options);
      $el = $form -> createElement("date", $elementName, $elementLabel, $options);

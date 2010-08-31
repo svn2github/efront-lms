@@ -3861,4 +3861,8 @@ define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET", "Το αρχείο το
 define("_VISIBLEFROM", "Ορατό από");
 define("_EXPIRESAT", "Λήγει στις");
 define("_CALENDARDISPLAYDATE", "Ημερομηνία ημερολογίου");
+define("_GLOBAL", "Γενικό");
+define("_ALLDAY", "Όλη μέρα");
+define("_CREATECALENDAREVENT", "Kαταγραφή στο ημερολόγιο");
+define("_OVERWRITEIFFOLDEREXISTS", "Αντικατέστησε υπάρχων φάκελο");
 ?>

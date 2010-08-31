@@ -17,7 +17,9 @@ table#courseUsersTable td.operations,table#instanceUsersTable td.operations{widt
 table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{width:10%;text-align:center;}
 {/literal}
 </style>
-<script>var currentUserLogin ='';</script>
+<script>
+if (typeof(currentUserLogin) == 'undefined')) var currentUserLogin ='';
+</script>
   <tr class = "topTitle">
 {if in_array('login', $T_DATASOURCE_COLUMNS)} <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>{/if}
 {if in_array('name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle name" name = "name">{$smarty.const._NAME}</td>{/if}

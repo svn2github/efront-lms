@@ -1914,7 +1914,7 @@ abstract class EfrontUser
 
 	 */
  public static function convertArgumentToUserLogin($login) {
-  if ($login instanceof EfrontLessonUser) {
+  if ($login instanceof EfrontUser) {
    $login = $login -> user['login'];
   } else if (!eF_checkParameter($login, 'login')) {
    throw new EfrontUserException(_INVALIDLOGIN, EfrontUserException::INVALID_LOGIN);
@@ -3989,7 +3989,7 @@ class EfrontStudent extends EfrontLessonUser
 
 	 * @param boolean $seen Whether to set the unit as seen or not
 
-	 * @return boolean true if everything is ok
+	 * @return boolean true if the lesson was completed as well
 
 	 * @since 3.5.0
 
@@ -4027,13 +4027,14 @@ class EfrontStudent extends EfrontLessonUser
    }
   }
   sizeof($doneContent) ? $doneContent = serialize($doneContent) : $doneContent = null;
-  $result = eF_updateTableData("users_to_lessons", array('done_content' => $doneContent, 'current_unit' => $current_unit), "users_LOGIN='".$this -> user['login']."' and lessons_ID=".$lesson);
+  eF_updateTableData("users_to_lessons", array('done_content' => $doneContent, 'current_unit' => $current_unit), "users_LOGIN='".$this -> user['login']."' and lessons_ID=".$lesson);
 //		$cacheKey = "user_lesson_status:lesson:".$lesson."user:".$this -> user['login'];
 //		Cache::resetCache($cacheKey);
   if ($current_unit) {
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::CONTENT_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $lesson, "entity_ID" => $current_unit));
   }
   //Set the lesson as complete, if it can be.
+  $completedLesson = false;
   if ($seen) {
    $userProgress = EfrontStats :: getUsersLessonStatus($lesson, $this -> user['login']);
    $userProgress = $userProgress[$lesson][$this -> user['login']];
@@ -4043,10 +4044,11 @@ class EfrontStudent extends EfrontLessonUser
      $userProgress['tests_avg_score'] ? $avgScore = $userProgress['tests_avg_score'] : $avgScore = 100;
      $timestamp = _AUTOCOMPLETEDAT.': '.date("Y/m/d, H:i:s");
      $this -> completeLesson($lesson, $avgScore, $timestamp);
+     $completedLesson = true;
     }
    }
   }
-  return $result;
+  return $completedLesson;
  }
  /**
 

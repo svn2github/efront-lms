@@ -233,6 +233,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
  $form -> addElement('select', 'W_duration', _WEEKSCONDITIONAL, $recurringDurations['W']);
  $form -> addElement('select', 'M_duration', _MONTHSCONDITIONAL, $recurringDurations['M']);
  $form -> addElement('select', 'Y_duration', _YEARSCONDITIONAL, $recurringDurations['Y']);
+ $form -> addElement('text', 'calendar_event', _CALENDAREVENT, 'class = "inputText"');
  $form -> addElement('text', 'max_users', _MAXIMUMUSERS, 'class = "inputText" style = "width:50px"');
  $form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
  $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');

@@ -242,7 +242,7 @@
            </span>
           </div>
      {elseif $_change_ && $_student_}
-          <a id = "seenLink" href = "javascript:void(0)" onclick = "setSeenUnit();" {$hideStyle}>
+          <a {if !$hideStyle}id = "seenLink"{/if} href = "javascript:void(0)" onclick = "setSeenUnit();" {$hideStyle}>
             {if $T_SEEN_UNIT}
              <img class = "handle" src = "images/32x32/unit_completed.png" title = "{$smarty.const._NOTSAWUNIT}" alt = "{$smarty.const._NOTSAWUNIT}" />
              <div>{$smarty.const._NOTSAWUNIT}</div>

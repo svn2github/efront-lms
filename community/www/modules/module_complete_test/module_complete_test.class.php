@@ -157,8 +157,7 @@ class module_complete_test extends EfrontModule
 
       //Set the unit as "seen"
       $testInstance -> complete($values['question']);
-      $user -> setSeenUnit($currentUnit, $currentLesson, 1);
-
+      $completedLesson = $user -> setSeenUnit($currentUnit, $currentLesson, 1);
       eF_redirect("".$this -> moduleBaseUrl.'&login='.$_GET['login'].'&test='.$_GET['test']);
       exit;
      }
@@ -176,22 +175,9 @@ class module_complete_test extends EfrontModule
 
 
     $form = $this -> buildCorrelateDataForm($selectedTest, $uploadedFile);
-    //list($dateFormat, $userFormat) = $this -> handleCorrelateDataForm($form);
     list($errorDuringImport, $numImported) = $this -> handleCorrelateDataForm($form);
-    //pr($errorDuringImport);
     $renderer = prepareFormRenderer($form);
     $smarty -> assign('T_CORRELATE_FORM', $renderer -> toArray());
-
-
-
-    //$this -> importTestResults($selectedTest, $uploadedFile, $dateFormat, $userFormat);
-    //pr($selectedTest);
-
-    //$form = $this -> buildMappingsForm($dateFormat, $userFormat);
-
-
-
-
 
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
      $lessonUsers = $currentLesson -> getUsers('student'); //Get all users that have this lesson
@@ -325,6 +311,7 @@ class module_complete_test extends EfrontModule
     $form -> addElement('hidden', $key.'_score_source_hidden', '', 'id = "'.$key.'_score_source_hidden"');
    }
   }
+  $form -> addElement('advcheckbox', 'complete_course', _COMPLETE_TEST_COMPLETECOURSEWITHLESSON, array(0,1));
   $form -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
 
   return $form;
@@ -381,8 +368,6 @@ class module_complete_test extends EfrontModule
 
        $questionScoreColumn = $formValues[$id.'_score_source_hidden'];
        $parsedQuestionScore = $parsedContents[$key][$questionScoreColumn];
-       //pr($parsedQuestionScore);
-       //$results[$id]	=
       }
 
       $completedTest = $selectedTest -> start($login);
@@ -400,7 +385,23 @@ class module_complete_test extends EfrontModule
       }
       $completedTest -> save();
       $currentUser = EfrontUserFactory::factory($login);
-      $currentUser -> setSeenUnit($selectedTest -> test['content_ID'], $_SESSION['s_lessons_ID'], 1);
+
+      $completedLesson = $currentUser -> setSeenUnit($selectedTest -> test['content_ID'], $_SESSION['s_lessons_ID'], 1);
+      $result = eF_getTableData("users_to_lessons", "completed", "users_LOGIN='".$currentUser -> user['login']."' and lessons_ID=".$_SESSION['s_lessons_ID']);
+      if ($result[0]['completed'] && $formValues['complete_course']) {
+       $lessonCourses = $currentLesson -> getCourses(true); //Get the courses that this lesson is part of. This way, we can auto complete a course, if it should be auto completed
+
+       //Filter out courses that the student doesn't have
+       $result = eF_getTableDataFlat("users_to_courses", "courses_ID", "users_LOGIN='".$currentUser -> user['login']."'");
+       $userCourses = $result['courses_ID'];
+       foreach ($lessonCourses as $id => $course) {
+        if (!in_array($id, $userCourses)) {
+         unset($lessonCourses[$id]);
+        } else {
+         $currentUser -> completeCourse($course -> course['id'], 100, _AUTOCOMPLETEDCOURSE);
+        }
+       }
+      }
 
       $numImported++;
      } catch (Exception $e) {

@@ -60,14 +60,15 @@ try {
             $today = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']); //Create a timestamp that is today, 00:00. this will be used in calendar for displaying today
             isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp') ? $view_calendar = $_GET['view_calendar'] : $view_calendar = $today; //If a specific calendar date is not defined in the GET, set as the current day to be today
             $calendarOptions = array();
-            if (!$_student_ && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['content'] == 'change')) {
-                $calendarOptions[] = array('text' => _ADDCALENDAR, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&add_calendar=1&view_calendar=".$view_calendar."&popup=1", "onClick" => "eF_js_showDivPopup('"._ADDCALENDAR."', 2)", "target" => "POPUP_FRAME", "id" => "add_new_event_link");
+            if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] == 'change') {
+                $calendarOptions[] = array('text' => _ADDCALENDAR, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&add=1&view_calendar=".$view_calendar."&popup=1", "onClick" => "eF_js_showDivPopup('"._ADDCALENDAR."', 2)", "target" => "POPUP_FRAME");
             }
             $calendarOptions[] = array('text' => _GOTOCALENDAR, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
             $smarty -> assign("T_CALENDAR_OPTIONS", $calendarOptions);
             $smarty -> assign("T_CALENDAR_LINK", basename($_SERVER['PHP_SELF'])."?ctg=calendar");
             isset($_GET['add_another']) ? $smarty -> assign('T_ADD_ANOTHER', "1") : null;
-                 $events = eF_getCalendar(false, 1);
+            $events = calendar :: getCalendarEventsForUser($currentUser);
+   $events = calendar :: sortCalendarEventsByTimestamp($events);
             $smarty -> assign("T_CALENDAR_EVENTS", $events); //Assign events and specific day timestamp to smarty, to be used from calendar
             $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
         }
@@ -274,7 +275,9 @@ try {
         } else {
             $smarty -> assign("T_POSITIONS", array());
         }
-//pr($elementPositions['visibility']);exit;
+  $controlPanelGroups = array(0 => 0);
+  $controlPanelGroups[1] = _MODULES;
+  $smarty -> assign("T_CONTROL_PANEL_GROUPS", $controlPanelGroups);
         $controlPanelOptions = array();
         //Set control panel elemenets for administrator
         if ($_admin_) {
@@ -331,7 +334,7 @@ try {
              }
             }
             if (!isset($currentUser -> coreAccess['modules']) || $currentUser -> coreAccess['modules'] != 'hidden') {
-                $controlPanelOptions[] = array('text' => _MODULES, 'image' => "32x32/addons.png", 'href' => "administrator.php?ctg=modules");
+                $controlPanelOptions[] = array('text' => _MODULES, 'image' => "32x32/addons.png", 'href' => "administrator.php?ctg=modules", 'group' => 1);
             }
         }
         //Set control panel elements for professor
@@ -428,7 +431,11 @@ try {
                     $InnertableHTML ? $module_smarty_file = $module -> getLessonSmartyTpl() : $module_smarty_file = false;
                 }
                 if ($centerLinkInfo) {
-                    $controlPanelOptions[] = array('text' => $centerLinkInfo['title'], 'image' => eF_getRelativeModuleImagePath($centerLinkInfo['image']), 'href' => $centerLinkInfo['link']);
+                    $controlPanelOption = array('text' => $centerLinkInfo['title'], 'image' => eF_getRelativeModuleImagePath($centerLinkInfo['image']), 'href' => $centerLinkInfo['link']);
+                    if ($_SESSION['s_lesson_user_type'] != 'student') {
+                     $controlPanelOption['group'] = 1;
+                    }
+                    $controlPanelOptions[] = $controlPanelOption;
                 }
                 // If the module has a lesson innertable
                 if ($InnertableHTML) {

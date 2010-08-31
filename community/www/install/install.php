@@ -325,8 +325,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                         $db -> Execute("truncate table $table");
                     }
                 }
-                //$result = eF_getTableData("user_profile", "*");
-//                pr($result);debug();
                 for ($i = 0; $i < sizeof($userProfile); $i++) {
                     $userProfile[$i]['mandatory'] ? $mandatory = "NOT NULL" : $mandatory = "NULL";
                     $userProfile[$i]['default_value'] ? $default = $userProfile[$i]['default_value'] : $default = false;
@@ -433,24 +431,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
                  //Add default notifications to 3.5
                  EfrontNotification::addDefaultNotifications();
                 }
-       if (version_compare($dbVersion, '3.6.7') == -1) {
-        try {
-         $result = eF_getTableData("calendar", "*");
-         foreach ($result as $value) {
-          $fields[] = array('title' => _EVENT,
-                'data' => $value['data'],
-                'timestamp' => $value['timestamp'] < time() ? $value['timestamp'] : time(),
-                'expire' => 0,
-                'calendar' => $value['timestamp'],
-                'private' => 0,
-                'users_LOGIN' => $value['users_LOGIN'],
-                'lessons_ID' => $value['lessons_ID']);
-         }
-         eF_insertTableDataMultiple("news", $fields);
-         eF_executeNew("drop table if exists calendar");
-         eF_executeNew("drop table if exists install_calendar");
-        } catch (Exception $e) {/*Do nothing if the table didn't exist*/}
-       }
     //the following lines remove some old editor files that prevent editor from loading in version 3.6
     $removedDir = array();
     $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/themes/advanced/langs';
@@ -823,7 +803,6 @@ class Installation
      $filesystem = new FileSystemTree(G_MODULESPATH, true);
      foreach (new EfrontNodeFilterIterator($filesystem -> tree) as $moduleDirectory => $value) {
          try {
-             //pr(str_replace("module_", "", basename($moduleDirectory)));
              if (in_array(str_replace("module_", "", basename($moduleDirectory)), $modulesToInstall) && is_file($moduleDirectory.'/module.xml')) {
                  $xml = simplexml_load_file($moduleDirectory.'/module.xml');
                  $className = (string)$xml -> className;
@@ -1140,6 +1119,17 @@ php_value register_globals Off
              unset($data[$i]['from_timestamp']);
              unset($data[$i]['to_timestamp']);
              unset($data[$i]['shift']);
+         } else if ($table == 'calendar') {
+          if (isset($data[$i]['lessons_ID'])) {
+           if ($data[$i]['lessons_ID']) {
+      $data[$i]['foreign_ID'] = $data[$i]['lessons_ID'];
+      $data[$i]['type'] = 'lesson';
+           } else {
+      $data[$i]['foreign_ID'] = 0;
+      $data[$i]['type'] = '';
+           }
+     unset($data[$i]['lessons_ID']);
+    }
          }
          //Convert any '' values inside fields that are now integers, to 0 (for example timestamps that used to be varchars)
          if (isset($data[$i])) {
@@ -1151,7 +1141,7 @@ php_value register_globals Off
          }
          //Remove missing fields (usually deprecated fields no longer existing in current version)
          isset($data[$i]) ? $keys = array_keys($data[$i]) : $keys = array();
-         $obsolete_fields = array_diff($keys, $table_fields);
+         $obsolete_fields = array_diff($table_fields, $keys);
          foreach ($obsolete_fields as $value) {
              unset($data[$i][$value]);
          }

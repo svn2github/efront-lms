@@ -224,7 +224,7 @@
     {if $T_CURRENT_USER->coreAccess.control_panel != 'hidden' && (!$_student_ || ($T_CURRENT_LESSON && $T_CURRENT_LESSON->options.show_student_cpanel))}
         {capture name = "moduleIconFunctions"}
      <tr><td class = "moduleCell">
-         {eF_template_printBlock title=$smarty.const._OPTIONS columns=4 links=$T_CONTROL_PANEL_OPTIONS image='32x32/options.png' expand = $T_POSITIONS_VISIBILITY.moduleIconFunctions}
+         {eF_template_printBlock title=$smarty.const._OPTIONS columns=4 links=$T_CONTROL_PANEL_OPTIONS image='32x32/options.png' expand = $T_POSITIONS_VISIBILITY.moduleIconFunctions groups = $T_CONTROL_PANEL_GROUPS}
         </td></tr>
         {/capture}
  {/if}

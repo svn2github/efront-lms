@@ -74,18 +74,22 @@ CREATE TABLE cache (
 -- This table represents a calendar event.
 -- Fields:
 -- id (primary key): A numerical identifier
--- lessons_ID: The id of the lesson that the event is for. The value matches the 'id' field in the 'lessons' table. If it's 0, it means that this event is not associated to any lesson 
 -- data: The event itself
 -- timestamp: A 10-digit number representing the event's date and time
 -- active: Whether this event should appear. Valid values are 0 (not active) and 1 (active)
+-- private: Whether this calendar event is private (appears only in submitting user)
 -- users_LOGIN: The user that posted this event, matching the 'login' field at the 'users' table
+-- foreign_ID: The id of the entity that the event is related to. The value matches the 'id' field in the respective entity table (defined at the 'type' field). If it's 0, it means that this event is not associated to any entity, making it in effect 'global' (if it's not set as private of course)
+-- type: The entity that this event is related to, for example 'course' or 'lesson'. If it's not related to anything, and the event is not private, then it's considered 'global'
 CREATE TABLE calendar (
   id mediumint(8) unsigned NOT NULL auto_increment,
-  lessons_ID mediumint(8) unsigned default '0',
   data text,
   timestamp int(10) unsigned NOT NULL,
   active tinyint(1) NOT NULL default '1',
+  private tinyint(1) NOT NULL default '0',
   users_LOGIN varchar(100) NOT NULL,
+  foreign_ID mediumint(8) unsigned default '0',
+  type varchar(50) NOT NULL default '',
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
@@ -762,8 +766,6 @@ CREATE TABLE modules (
 -- data: The annoucnement itself
 -- timestamp: The time that the announcement will be valid from (1 timestamp)
 -- expire: The time that the announcement will be valid until (1 timestamp)
--- calendar: The date/time that the event will show up in the calendar (1 timestamp)
--- private: Whether this event is private (appears only in submitting user)
 -- lessons_ID: The id of the lesson that this announcement concerns. If it's 0, it's a system announcement
 -- users_LOGIN: The user that posted the announcement
 CREATE TABLE news (
@@ -772,8 +774,6 @@ CREATE TABLE news (
   data text,
   timestamp int(10) unsigned default 0,
   expire int(10) unsigned default 0,
-  calendar int(10) unsigned default 0,
-  private tinyint(1) NOT NULL default '0',
   lessons_ID mediumint(8) unsigned default NULL,
   users_LOGIN varchar(100) NOT NULL,
   PRIMARY KEY (id)
@@ -1256,7 +1256,7 @@ CREATE TABLE profile_comments (
 -- Table 'notifications'
 --
 -- timestamp of date for the email to be sent
--- send_intervanl should the email be sent periodically? if so this is the period
+-- send_interval should the email be sent periodically? if so this is the period
 -- send_conditions to which category should the email be sent?
 -- type_entity the type of the event . "_" . the ID of the involved entity from the list in events.class.php OR NULl if we have a non-event notification
 -- recipient if IS NOT NULL then this is the single recipient's login of the email

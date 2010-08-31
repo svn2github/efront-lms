@@ -598,13 +598,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'calendar')}
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=calendar">'|cat:$smarty.const._CALENDAR|cat:'</a>'}
-    {*moduleCalendarPage: Display the calendar page*}
-    {capture name = "moduleCalendarPage"}
-                            <tr><td class = "moduleCell">
-                                {include file = "includes/calendar.tpl"}
-                                {eF_template_printBlock title=$T_CALENDAR_TITLE data=$smarty.capture.t_calendar_code image='32x32/calendar.png' main_options=$T_CALENDAR_OPTIONS help = 'Calendar'}
-                            </td></tr>
-    {/capture}
+ {include file = "includes/calendar.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'settings')}
     {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`'>`$smarty.const._OPTIONSFORLESSON` &quot;`$T_CURRENT_LESSON->lesson.name`&quot;</a>"}

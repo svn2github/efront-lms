@@ -5,6 +5,8 @@
 - Fixed issue in course completion page about students with professor role to a course
 - Fixed issue about not displaying in list a forum of deactivated/archived lesson
 - Fixed the "material in progress" select box disappearing when the user has completed all assigned lessons/courses and has also access to others as a professor
+- Fixed issue in course reports about js error in toggling course row in user (ticket 470)
+- Fixed issue about assigning all courses with a user
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

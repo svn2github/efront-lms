@@ -154,13 +154,7 @@
 {/if}
 {if $T_CTG == 'calendar'}
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=calendar">'|cat:$smarty.const._CALENDAR|cat:'</a>'}
-    {*moduleCalendarPage: Display the calendar page*}
-    {capture name = "moduleCalendarPage"}
-                            <tr><td class = "moduleCell">
-                                {include file = "includes/calendar.tpl"}
-                                {eF_template_printBlock title=$T_CALENDAR_TITLE data=$smarty.capture.t_calendar_code image='32x32/calendar.png' main_options=$T_CALENDAR_OPTIONS help = 'Calendar'}
-                            </td></tr>
-    {/capture}
+ {include file = "includes/calendar.tpl"}
 {/if}
 {if $T_CTG == 'statistics'}
     {assign var = "category" value = 'mypage'}

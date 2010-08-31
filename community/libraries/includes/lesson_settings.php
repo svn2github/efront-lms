@@ -397,7 +397,7 @@ if ($_GET['op'] == 'reset_lesson') {
                     require_once $mod_lang_file;
                 }
             }
-            $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => ($currentLesson -> options[$module -> className] == 1) ? null : 'inactiveImage');
+            $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 3, 'class' => ($currentLesson -> options[$module -> className] == 1) ? null : 'inactiveImage');
         }
     }
 
@@ -416,7 +416,7 @@ if ($_GET['op'] == 'reset_lesson') {
     }
 
     $smarty -> assign("T_LESSON_SETTINGS", $lessonSettings);
-    $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES));
+    $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES, 3 => _MODULES));
 
     if (!isset($currentUser -> coreAccess['settings']) || $currentUser -> coreAccess['settings'] == 'change') {
         if (isset($_GET['ajax']) && isset($_GET['activate']) && in_array($_GET['activate'], array_keys($lessonSettings))) {

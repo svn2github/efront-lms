@@ -81,6 +81,8 @@
                                             <td class = "elementCell">{$T_UPLOAD_FILE_FORM.file_upload.0.html}</td></tr>
                                         <tr><td></td><td class = "infoCell">{$smarty.const._EACHFILESIZEMUSTBESMALLERTHAN} <b>{$smarty.const.G_MAXFILESIZE/1024}</b> {$smarty.const._KB}</td></tr>
                                         {if $T_UPLOAD_FILE_FORM.file_upload.0.error}<tr><td></td><td class = "formError">{$T_UPLOAD_FILE_FORM.file_upload.0.error}</td></tr>{assign var = 'div_error' value = 'upload_file_table'}{/if}
+                                        <tr><td class = "labelCell">{$T_UPLOAD_FILE_FORM.overwrite.label}:&nbsp;</td>
+                                            <td class = "elementCell">{$T_UPLOAD_FILE_FORM.overwrite.html}</td></tr>
                                         <tr><td></td><td >&nbsp;</td></tr>
                                         <tr><td></td><td class = "submitCell">{$T_UPLOAD_FILE_FORM.submit_upload_file.html}</td></tr>
                                     </table>

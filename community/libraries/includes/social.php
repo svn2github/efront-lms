@@ -109,30 +109,24 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
         /* Calendar */
         if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden') {
-            $calendar_options = array( //Create calendar options and assign them to smarty, to be displayed at the calendar inner table
-                array('text' => _GOTOCALENDAR, 'image' => "16x16/go_into.png", 'href' => "student.php?ctg=calendar")
-            );
-            $smarty -> assign("T_CALENDAR_OPTIONS", $calendar_options);
-            $smarty -> assign("T_CALENDAR_LINK", "student.php?ctg=calendar");
-
             $today = getdate(time()); //Get current time in an array
             $today = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']); //Create a timestamp that is today, 00:00. this will be used in calendar for displaying today
-            (isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp')) ? $view_calendar = $_GET['view_calendar']: $view_calendar = $today; //If a specific calendar date is not defined in the GET, set as the current day to be today
+            isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp') ? $view_calendar = $_GET['view_calendar'] : $view_calendar = $today; //If a specific calendar date is not defined in the GET, set as the current day to be today
 
-            if (isset($lessons_list)) {
-             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON l.id = lessons_ID","c.*, l.name as show_lessons_name","lessons_ID IN ('0', '".implode("','", $lessons_list)."')");
-            } else {
-             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON l.id = lessons_ID","c.*, l.name as show_lessons_name","");
+            $calendarOptions = array();
+            if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] == 'change') {
+                $calendarOptions[] = array('text' => _ADDCALENDAR, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&add=1&view_calendar=".$view_calendar."&popup=1", "onClick" => "eF_js_showDivPopup('"._ADDCALENDAR."', 2)", "target" => "POPUP_FRAME");
             }
+            $calendarOptions[] = array('text' => _GOTOCALENDAR, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
 
-            $calendar_events = array();
-            foreach ($result as $event) {
+            $smarty -> assign("T_CALENDAR_OPTIONS", $calendarOptions);
+            $smarty -> assign("T_CALENDAR_LINK", basename($_SERVER['PHP_SELF'])."?ctg=calendar");
+            isset($_GET['add_another']) ? $smarty -> assign('T_ADD_ANOTHER', "1") : null;
 
-                $calendar_events[$event['timestamp']]['data'][] = "<b>" .$event['show_lessons_name'] . "</b>: " . $event['data'];
-                $calendar_events[$event['timestamp']]['id'][] = $event['id'];
-            }
+            $events = calendar :: getCalendarEventsForUser($currentUser);
+   $events = calendar :: sortCalendarEventsByTimestamp($events);
 
-            $smarty -> assign("T_CALENDAR_EVENTS", $calendar_events); //Assign events and specific day timestamp to smarty, to be used from calendar
+            $smarty -> assign("T_CALENDAR_EVENTS", $events); //Assign events and specific day timestamp to smarty, to be used from calendar
             $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
         }
 

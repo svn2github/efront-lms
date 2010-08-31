@@ -201,7 +201,7 @@
        <div id = "{$id}_answer_source" style = "display:none">Click on the column that will serve as answer for question <b>{$question.text|@strip_tags|eF_truncate:30}</b><span id = "{$id}_answer_source_result">: </span></div>
        <div id = "{$id}_score_source" style = "display:none">Click on the column that will serve as score for question <b>{$question.text|@strip_tags|eF_truncate:30}</b><span id = "{$id}_score_source_result">: </span></div>
       {/foreach}
-       <div id = "continue_button" style = "display:none">{$T_CORRELATE_FORM.submit.html}</div>
+       <div id = "continue_button" style = "display:none">{$T_CORRELATE_FORM.complete_course.label}: {$T_CORRELATE_FORM.complete_course.html}<br/>{$T_CORRELATE_FORM.submit.html}</div>
      </td></tr>
      <tr class = "topTitle"><td class = "topTitle centerAlign" colspan = "100%">{$smarty.const._RESULTS}</td></tr>
     {foreach name = 'parsed_contents_loop' key = "key" item = "row" from = $T_COMPLETED_TEST_PARSED_CONTENTS}

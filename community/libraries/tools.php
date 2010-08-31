@@ -448,6 +448,7 @@ function formatTimestamp($timestamp, $mode = false) {
     switch ($mode) {
         case 'time': $format .= ', %H:%M:%S'; break;
         case 'time_nosec': $format .= ', %H:%M'; break;
+        case 'time_only_nosec': $format = '%H:%M'; break;
         default: break;
     }
     $dateString = iconv(_CHARSET, 'UTF-8', strftime($format, $timestamp));
@@ -599,30 +600,28 @@ function eF_getCalendar($timestamp = false, $type = 1) {
             $lessons[] = "0";
         }
     }
-$timestamp_from = $timestamp_to = time();
     if (sizeof($lessons) > 0) {
      $l = implode(",", $lessons);
      if (!$timestamp || !eF_checkParameter($timestamp, 'timestamp')) {
-//	            $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "c.lessons_ID in (".$l.") AND c.active=1", "timestamp");
+             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "c.lessons_ID in (".$l.") AND c.active=1", "timestamp");
  //            $result = eF_getTableData("calendar c, lessons l", "c.id, c.timestamp, c.data, l.name", "c.lessons_ID in (".$l.") AND c.active=1 AND c.lessons_ID = l.ID", "timestamp");
      } else {
          $timestamp_info = getdate($timestamp);
          $timestamp_from = mktime(0, 0, 0, $timestamp_info['mon'], $timestamp_info['mday'], $timestamp_info['year']); //today first sec
          $timestamp_to = mktime(23, 23, 59, $timestamp_info['mon'], $timestamp_info['mday'], $timestamp_info['year']); //today last sec
-//	            $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "l.id in (".$l.") AND c.active=1 AND timestamp >= ".($timestamp_from)." AND timestamp <= ".($timestamp_to), "timestamp");
+             $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "l.id in (".$l.") AND c.active=1 AND timestamp >= ".($timestamp_from)." AND timestamp <= ".($timestamp_to), "timestamp");
  //            $result = eF_getTableData("calendar c, lessons l", "c.id, c.timestamp, c.data, l.name", "c.lessons_ID in (".$l.") AND c.active=1 AND c.lessons_ID = l.ID AND timestamp >= ".($timestamp_from)." AND timestamp <= ".($timestamp_to), "timestamp");
      }
     }
- $result = eF_getTableData("news left outer join lessons l on l.id=lessons_ID", "news.*, l.name as lesson_name", "timestamp <= ".$timestamp_from." and (expire=0 or expire >= ".$timestamp_to.") and calendar != 0");
     $events = array();
     foreach ($result as $event) {
-     $events[$event['calendar']]['id'][] = $event['id'];
-     $events[$event['calendar']]['data'][] = $event['data'];
-     $events[$event['calendar']]['users_login'][] = $event['users_LOGIN'];
+     $events[$event['timestamp']]['id'][] = $event['id'];
+     $events[$event['timestamp']]['data'][] = $event['data'];
+     $events[$event['timestamp']]['users_login'][] = $event['users_login'];
         if ($event['name'] != "") {
-   $events[$event['calendar']]['lesson_name'][] = $event['name']; //leson name in individual column
+   $events[$event['timestamp']]['lesson_name'][] = $event['name']; //leson name in individual column
         } else {
-   $events[$event['calendar']]['lesson_name'][] = "";
+   $events[$event['timestamp']]['lesson_name'][] = "";
         }
     }
     return $events;
@@ -667,11 +666,14 @@ function setReadPermissions($dir) {
 }
 function checkPermissions($dir) {
  $failedDirectories = $failedFiles = array();
+ $efrontDirectories = array("www", "libraries", "Zend", "PEAR", "backups", "upload");
  $d = new RecursiveDirectoryIterator($dir);
- foreach (new RecursiveIteratorIterator($d, RecursiveIteratorIterator::SELF_FIRST) as $path) {
+ foreach (new RecursiveIteratorIterator($d, RecursiveIteratorIterator::SELF_FIRST) as $key => $path) {
   if (!$path -> isWritable()) {
    if ($path->isDir()) {
-    $failedDirectories[] = $path -> getPathName();
+    if (in_array($path -> getFilename(), $efrontDirectories)) {
+     $failedDirectories[] = $path -> getPathName();
+    }
    } else {
     $failedFiles[] = $path -> getPathName();
    }

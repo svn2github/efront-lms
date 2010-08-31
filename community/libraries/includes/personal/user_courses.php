@@ -70,7 +70,7 @@ try {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => isset($_GET['instancesTable_source']) && $_GET['instancesTable_source'] ? $_GET['instancesTable_source'] : false);
     $constraints['condition'] = 'r.courses_ID is null or r.archive != 0';
     $userCourses = $courseUser -> getUserCoursesIncludingUnassigned($constraints);
-    $courseUser -> addCourses($userCourses, 0, 1);
+    $courseUser -> addCourses($userCourses, $courseUser -> user['user_type'], 1);
    } else if (isset($_GET['removeAll'])) {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => isset($_GET['instancesTable_source']) && $_GET['instancesTable_source'] ? $_GET['instancesTable_source'] : false);
     $userCourses = $courseUser -> getUserCourses($constraints);

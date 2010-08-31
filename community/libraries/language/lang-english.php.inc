@@ -3861,4 +3861,8 @@ define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET", "The certificate file w
 define("_VISIBLEFROM", "Visible from");
 define("_EXPIRESAT", "Expires at");
 define("_CALENDARDISPLAYDATE", "Calendar display date");
+define("_GLOBAL", "Global");
+define("_ALLDAY", "All day");
+define("_CREATECALENDAREVENT", "Create calendar event");
+define("_OVERWRITEIFFOLDEREXISTS", "Overwrite existing folder");
 ?>

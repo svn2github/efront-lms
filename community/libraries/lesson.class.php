@@ -886,6 +886,7 @@ class EfrontLesson
         $this -> removeLessonChat();
         $this -> removeLessonForums();
         $this -> removeLessonSkills();
+        eF_deleteTableData("calendar", "type = 'lesson' and foreign_ID=".$this -> lesson['id']);
         eF_deleteTableData("events", "lessons_ID=".$this -> lesson['id']);
         eF_deleteTableData("lessons_to_groups", "lessons_ID=".$this -> lesson['id']);
         eF_deleteTableData("lessons_timeline_topics", "lessons_ID=".$this -> lesson['id']);
@@ -3722,6 +3723,20 @@ class EfrontLesson
                             unset($tabledata[$i]['shuffle_answers']);
                         }
                     }
+                }
+                if ($table == 'calendar') {
+                 for ($i = 0; $i < sizeof($tabledata); $i++) {
+                  if (isset($tabledata[$i]['lessons_ID'])) {
+                   if ($tabledata[$i]['lessons_ID']) {
+                    $tabledata[$i]['foreign_ID'] = $tabledata[$i]['lessons_ID'];
+                    $tabledata[$i]['type'] = 'lesson';
+                   } else {
+                    $tabledata[$i]['foreign_ID'] = 0;
+                    $tabledata[$i]['type'] = '';
+                   }
+                   unset($tabledata[$i]['lessons_ID']);
+                  }
+                 }
                 }
                 for ($i = 0; $i < sizeof($tabledata); $i++) {
                     if ($table == "tests") {

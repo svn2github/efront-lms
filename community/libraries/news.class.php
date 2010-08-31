@@ -91,7 +91,6 @@ class news extends EfrontEntity
                         'data' => $fields['data'],
                         'timestamp' => $fields['timestamp'] ? $fields['timestamp'] : time(),
                         'expire' => $fields['expire'] ? $fields['expire'] : null,
-                        'calendar' => $fields['calendar'] ? $fields['calendar'] : null,
             'lessons_ID' => $fields['lessons_ID'],
                         'users_LOGIN' => $fields['users_LOGIN']);
         $newId = eF_insertTableData("news", $fields);
@@ -188,21 +187,17 @@ class news extends EfrontEntity
      $form -> addElement('text', 'title', _ANNOUNCEMENTTITLE, 'class = "inputText"');
      $form -> addRule('title', _THEFIELD.' "'._ANNOUNCEMENTTITLE.'" '._ISMANDATORY, 'required', null, 'client');
      $form -> addElement('static', 'toggle_editor_code', 'toggleeditor_link');
-     $form -> addElement('textarea', 'data', _ANNOUNCEMENTBODY, 'class = "simpleEditor inputTextarea" style = "width:98%;height:10em;"');
+     $form -> addElement('textarea', 'data', _ANNOUNCEMENTBODY, 'class = "simpleEditor inputTextarea" style = "width:98%;height:7em;"');
         $form -> addElement($this -> createDateElement($form, 'timestamp', _VISIBLEFROM));
      $form -> addElement('static', 'sidenote', $sidenote);
         $form -> addElement($this -> createDateElement($form, 'expire', _EXPIRESAT, array('addEmptyOption' => true)));
-     $form -> addElement('static', 'sidenote', $sidenote);
-        $form -> addElement($this -> createDateElement($form, 'calendar', _CALENDARDISPLAYDATE, array('addEmptyOption' => true)));
-     //$form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
-     $form -> addElement('checkbox', 'private', _PRIVATE, null, 'class = "inputCheckBox"');
-     //$form -> addElement('header', 'fdf', 'asd');
+     $form -> addElement('checkbox', 'calendar', _CREATECALENDAREVENT, null, 'class = "inputCheckBox"');
+        $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
         $form -> addElement('submit', 'submit', _ANNOUNCEMENTADD, 'class = "flatButton"');
      $form -> setDefaults(array('title' => $this -> news['title'],
               'data' => $this -> news['data'],
               'timestamp' => $this -> news['timestamp'] ? $this -> news['timestamp'] : time(),
-              'expire' => $this -> news['timestamp'] ? $this -> news['expire'] : time()+(86400*30),
-              'calendar' => $this -> news['timestamp'] ? $this -> news['calendar'] : time()));
+              'expire' => $this -> news['timestamp'] ? $this -> news['expire'] : time()+(86400*30)));
         return $form;
     }
     /**
@@ -216,24 +211,31 @@ class news extends EfrontEntity
      $values = $form -> exportValues();
         $timestamp = mktime($values['timestamp']['h'], $values['timestamp']['i'], 0, $values['timestamp']['M'], $values['timestamp']['d'], $values['timestamp']['Y']);
         $expire = mktime($values['expire']['h'], $values['expire']['i'], 0, $values['expire']['M'], $values['expire']['d'], $values['expire']['Y']);
-        $calendar = mktime($values['calendar']['h'], $values['calendar']['i'], 0, $values['calendar']['M'], $values['calendar']['d'], $values['calendar']['Y']);
         if (isset($_GET['edit'])) {
             $this -> news["title"] = $values['title'];
             $this -> news["data"] = $values['data'];
             $this -> news["timestamp"] = $timestamp;
             $this -> news["expire"] = $expire;
-            $this -> news["calendar"] = $calendar;
             $this -> persist();
         } else {
             $fields = array("title" => $values['title'],
                             "data" => $values['data'],
                             "timestamp" => $timestamp,
        "expire" => $expire,
-       "calendar" => $calendar,
                 "lessons_ID" => isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : 0,
                             "users_LOGIN" => $_SESSION['s_login']);
             $news = self :: create($fields, isset($_POST['email']));
             $this -> news = $news;
+        }
+        if ($values['calendar']) {
+         $calendarFields = array('data' => $fields['data'],
+                         'timestamp' => $timestamp,
+                         'active' => 1,
+             'private' => 0,
+             'type' => $fields['lessons_ID'] ? 'lesson' : '',
+             'foreign_ID' => $fields['lessons_ID'] ? $fields['lessons_ID'] : 0,
+                         'users_LOGIN' => $_SESSION['s_login']);
+         calendar :: create($fields);
         }
     }
  /**

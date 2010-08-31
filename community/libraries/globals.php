@@ -79,7 +79,6 @@ isset($configuration['max_execution_time']) && $configuration['max_execution_tim
 isset($GLOBALS['configuration']['time_zone']) && isset($GLOBALS['configuration']['time_zone']) ? date_default_timezone_set($GLOBALS['configuration']['time_zone']) : null;
 ini_set('magic_quotes_runtime', false); // check http://www.smarty.net/forums/viewtopic.php?t=4936
 //handleSEO();
-
 //Setup the current version
 setupVersion();
 
@@ -263,7 +262,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 8249;
+    $build = 8282;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -651,6 +650,8 @@ function __autoload($className) {
         require_once "sso.class.php";
     } else if (strpos($className, "sumtotal") !== false) {
         require_once "versions/sso/sumtotal.class.php";
+    } else if (strpos($className, "calendar") !== false) {
+        require_once "calendar.class.php";
     } else if (strpos($className, "efrontfacebook") !== false) {
     }
 }

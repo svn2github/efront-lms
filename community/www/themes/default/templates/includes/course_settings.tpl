@@ -161,6 +161,14 @@
 {elseif $T_OP == 'course_scheduling'}
   <script>var noscheduleset = '{$smarty.const._NOSCHEDULESET}';</script>
   {capture name = 't_course_scheduling_code'}
+   <div class = "headerTools">
+   {if !$T_CURRENT_USER->coreAccess.calendar == 'change' || $T_CURRENT_USER->coreAccess.calendar == 'change'}
+    <span>
+     <img src = "images/16x16/add.png" title = "{$smarty.const._ADDCALENDAR}" alt = "{$smarty.const._ADDCALENDAR}"/>
+     <a href = "{$smarty.server.PHP_SELF}?ctg=calendar&add=1&course={$smarty.get.course}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCALENDAR}', 2)" target = "POPUP_FRAME">{$smarty.const._ADDCALENDAR}</a>
+    </span>
+   </div>
+   {/if}
    <fieldset class = "fieldsetSeparator">
    <legend>{$smarty.const._COURSESCHEDULE}</legend>
    <table>

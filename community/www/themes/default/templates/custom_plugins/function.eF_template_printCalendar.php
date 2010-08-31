@@ -8,7 +8,7 @@
  */
 function smarty_function_eF_template_printCalendar($params, &$smarty) {
  $events = $params['events'];
- isset($params['ctg']) ? $current_ctg = $params['ctg'] : $current_ctg = 'control_panel'; //If a ctg is defined (e.g. ctg=calendar), use this as the links target. Otherwise, use control_panel (default)
+ //isset($params['ctg']) ? $current_ctg = $params['ctg'] : $current_ctg = 'control_panel';             //If a ctg is defined (e.g. ctg=calendar), use this as the links target. Otherwise, use control_panel (default)
  foreach ($events as $key => $event) {
   $temp = getdate($key);
   foreach ($event['data'] as $key2 => $value) {
@@ -16,8 +16,6 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
   }
   $events_per_day[mktime(0, 0, 0, $temp['mon'], $temp['mday'], $temp['year'])][$key] = $event['data'];
  }
- //pr($events_per_day);
- //pr($events);
  if (!isset($params['timestamp'])) {
   $params['timestamp'] = time();
  }
@@ -45,30 +43,20 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
  isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp') ? $view_calendar = $_GET['view_calendar'] : $view_calendar = $today;
  isset($_GET['show_interval']) ? $show_interval_link = '&show_interval='.$_GET['show_interval'] : $show_interval_link = '';
 
-
-
-
-
-
-
-   $type = "";
-
-
-
  $str = '
     <table>
         <tr><td>
             <table class = "calendarHeader" >
                 <tr class = "calendar">
                     <td class = "calendarHeader">
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$previous_month.$show_interval_link.$type.'">&laquo; </a>
+                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.($_GET['ctg'] ? $_GET['ctg'] : 'calendar').'&view_calendar='.$previous_month.$show_interval_link.'">&laquo; </a>
                         '.iconv(_CHARSET, 'UTF-8', strftime('%B', $params['timestamp'])).'
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$next_month.$show_interval_link.$type.'">&raquo; </a>
+                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.($_GET['ctg'] ? $_GET['ctg'] : 'calendar').'&view_calendar='.$next_month.$show_interval_link.'">&raquo; </a>
                     </td>
                     <td class = "calendarHeader">
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$previous_year.$show_interval_link.$type.'">&laquo; </a>
+                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.($_GET['ctg'] ? $_GET['ctg'] : 'calendar').'&view_calendar='.$previous_year.$show_interval_link.'">&laquo; </a>
                         '.$timestamp_info['year'].'
-                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$current_ctg.'&view_calendar='.$next_year.$show_interval_link.$type.'"> &raquo;</a>
+                        <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.($_GET['ctg'] ? $_GET['ctg'] : 'calendar').'&view_calendar='.$next_year.$show_interval_link.'"> &raquo;</a>
                     </td></tr>
             </table>
         </td></tr>
@@ -105,18 +93,19 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
     $dayEvents = array();
 
     foreach ($events_per_day[$day_timestamp] as $key => $value) {
-     //pr($key);
-     $dayEvents[] = '#filter:timestamp_time_only_nosec-'.$key.'# '.rawurlencode(implode(", ", $value));
+     if (date("His",$key) == '0') {
+      $dayEvents[] = rawurlencode(implode(", ", strip_tags($value)));
+     } else {
+      $dayEvents[] = '#filter:timestamp_time_only_nosec-'.$key.'# '.rawurlencode(strip_tags(implode(", ", $value)));
+     }
     }
-//pr($dayEvents);				
     $dayEvents = implode("<br>", $dayEvents);
-    //$events[$day_timestamp] = str_replace("&#039;","&amp;#039;", $events[$day_timestamp]);
 //This requires wz_tooltip.js See outputfilter.eF_template_includeScripts.php for when this gets loaded
     $day_str = '
-                 <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.$show_interval_link.$type.'" onmouseover = "this.T_PADDING = 5; this.T_TEXTALIGN = \'left\'; this.T_TITLE = \'#filter:timestamp-'.$day_timestamp.'#\'; return escape(decodeURI(\''.($dayEvents).'\'))">'.$day.'</a>'; 
+                 <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.($_GET['ctg'] ? $_GET['ctg'] : 'calendar').'&view_calendar='.$day_timestamp.'" onmouseover = "this.T_PADDING = 5; this.T_TEXTALIGN = \'left\'; this.T_TITLE = \'#filter:timestamp-'.$day_timestamp.'#\'; return escape(decodeURI(\''.($dayEvents).'\'))">'.$day.'</a>';
    } else {
     $day_str = '
-                    <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.$show_interval_link.$type.'">'.$day.'</a>';
+                    <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.($_GET['ctg'] ? $_GET['ctg'] : 'calendar').'&view_calendar='.$day_timestamp.'">'.$day.'</a>';
    }
 
    if ($day_timestamp == $today) {

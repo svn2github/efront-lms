@@ -2616,8 +2616,23 @@ class EfrontCourse
   $this -> deleteCourseInstances();
   $this -> removeCourseSkills();
   $this -> deleteUniqueLessons();
+  $this -> deleteCourseCalendarEvents();
   eF_deleteTableData("courses", "id=".$this -> course['id']);
   EfrontSearch :: removeText('courses', $this -> course['id'], '');
+ }
+ /**
+
+	 * Delete course calendar events
+
+	 *
+
+	 * @since 3.6.7
+
+	 * @access private
+
+	 */
+ private function deleteCourseCalendarEvents() {
+  eF_deleteTableData("calendar", "type = 'course' and foreign_ID=".$this -> course['id']);
  }
  /**
 
@@ -4526,10 +4541,12 @@ class EfrontCourse
 
 	 * @since 3.6.1
 
-	 * @access private
+	 * @access public
+
+	 * @static
 
 	 */
- private function convertArgumentToCourseId($course) {
+ public static function convertArgumentToCourseId($course) {
   if ($course instanceOf EfrontCourse) {
    $course = $course -> course['id'];
   } else if (!eF_checkParameter($course, 'id')) {

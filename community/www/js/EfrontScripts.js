@@ -86,7 +86,7 @@ function getDocHeight(D) {
 function eF_js_showDivPopup(popup_title, size, popup_data_id) {
 
  //From now on there are only 3 possible sizes: small, medium, big. Old values are automatically converted to one of them
- var sizes = [new Array('500px', '300px'), new Array('640px', '400px'), new Array('720px', '480px'), new Array('800px', '500px')];
+ var sizes = [new Array('500px', '300px'), new Array('640px', '400px'), new Array('720px', '500px'), new Array('800px', '550px')];
  var popup_dim = sizes[size];
 
     parent.mainframe ? main_frame = parent.mainframe : main_frame = window;

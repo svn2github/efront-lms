@@ -230,7 +230,7 @@ abstract class EfrontEntity
        break;
      }
     }
-    public function createDateElement($form, $elementName, $elementLabel, $options = array()) {
+    public static function createDateElement($form, $elementName, $elementLabel, $options = array()) {
      $options = array_merge(array('format' => getDateFormat().' H:i',
              'minYear' => date("Y") - 4,
              'maxYear' => date("Y") + 3), $options);

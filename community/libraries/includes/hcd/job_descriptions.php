@@ -236,6 +236,8 @@ try {
                     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $_GET['instancesTable_source']);
                    }
                    $courses = $currentJob -> getJobCoursesIncludingUnassigned($constraints);
+       $totalEntries = $currentJob -> countJobCoursesIncludingUnassigned($constraints);
+       $smarty -> assign("T_TABLE_SIZE", $totalEntries);
                    $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);
                    $tableName = $_GET['ajax'];
                    $alreadySorted = 1;

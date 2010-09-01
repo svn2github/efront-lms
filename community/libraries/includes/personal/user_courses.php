@@ -67,12 +67,12 @@ try {
    } else if ($_GET['insert'] == "false") {
     $courseUser -> archiveUserCourses($_GET['add_course']);
    } else if (isset($_GET['addAll'])) {
-    $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => isset($_GET['instancesTable_source']) && $_GET['instancesTable_source'] ? $_GET['instancesTable_source'] : false);
+    $constraints = array('archive' => false, 'active' => true, 'instance' => isset($_GET['instancesTable_source']) && $_GET['instancesTable_source'] ? $_GET['instancesTable_source'] : false) + createConstraintsFromSortedTable();
     $constraints['condition'] = 'r.courses_ID is null or r.archive != 0';
     $userCourses = $courseUser -> getUserCoursesIncludingUnassigned($constraints);
     $courseUser -> addCourses($userCourses, $courseUser -> user['user_type'], 1);
    } else if (isset($_GET['removeAll'])) {
-    $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => isset($_GET['instancesTable_source']) && $_GET['instancesTable_source'] ? $_GET['instancesTable_source'] : false);
+    $constraints = array('archive' => false, 'active' => true, 'instance' => isset($_GET['instancesTable_source']) && $_GET['instancesTable_source'] ? $_GET['instancesTable_source'] : false) + createConstraintsFromSortedTable();
     $userCourses = $courseUser -> getUserCourses($constraints);
     $courseUser -> archiveUserCourses($userCourses);
    } else if (isset($_GET['addAllCoursesFromTest'])) {
@@ -145,7 +145,8 @@ try {
   if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'active_in_course', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
-    $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => false);
+    $constraints = array('archive' => false, 'active' => true, 'instance' => false) + createConstraintsFromSortedTable();
+    pr($constraints);
     $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($showUnassigned) {
@@ -157,7 +158,7 @@ try {
     }
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
-    $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
+    $constraints = array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
     $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($showUnassigned) {

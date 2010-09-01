@@ -51,7 +51,11 @@ class module_BBB extends EfrontModule {
             $d = eF_executeNew("UPDATE configuration SET value = '29ae87201c1d23f7099f3dfb92f63578' WHERE name = 'module_BBB_salt';");
         }
 
-        return $a && $b && $c && $d;
+        if (!($e = eF_executeNew("INSERT INTO configuration VALUES ('module_BBB_server_version', '1');"))) {
+            $e = eF_executeNew("UPDATE configuration SET value = '1' WHERE name = 'module_BBB_server_version';");
+        }
+
+        return $a && $b && $c && $d && $e;
     }
 
     // And on deleting the module
@@ -60,8 +64,9 @@ class module_BBB extends EfrontModule {
         $b = eF_executeNew("DROP TABLE module_BBB_users_to_meeting;");
         $c = eF_executeNew("DELETE FROM configuration WHERE name='module_BBB_server';");
   $d = eF_executeNew("DELETE FROM configuration WHERE name='module_BBB_salt';");
+  $e = eF_executeNew("DELETE FROM configuration WHERE name='module_BBB_server_version';");
 
-        return $a && $b && $c && $d;
+        return $a && $b && $c && $d && $e;
     }
 
     // On exporting a lesson
@@ -177,6 +182,16 @@ class module_BBB extends EfrontModule {
         return $this -> BBB_server_host;
     }
 
+    private $BBB_server_version = false;
+    private function getBBBServerVer() {
+        if (!$this -> BBB_server_version) {
+            $BBB_server_ver = eF_getTableData("configuration", "value", "name = 'module_BBB_server_version'");
+            $this -> BBB_server_version = $BBB_server_ver[0]['value'];
+        }
+
+        return $this -> BBB_server_version;
+    }
+
  // Function to return the security salt
     private $BBB_security_salt = false;
     private function getBBBSalt() {
@@ -197,7 +212,8 @@ class module_BBB extends EfrontModule {
 	 */
   function bbb_wrap_simplexml_load_file($url)
   {
-   return (simplexml_load_file($url));
+  $xmlresp = simplexml_load_file($url);
+   return $xmlresp;
   }
     /*
 
@@ -213,6 +229,7 @@ class module_BBB extends EfrontModule {
     private function createBBBUrl($currentUser, $meeting_info, $always_joining = false) {
   // These are common in all cases
   $BBB_server = $this -> getBBBServer();
+  $BBB_server_ver = $this -> getBBBServerVer();
   $securitySalt = $this -> getBBBSalt();
   if ($BBB_server[strlen($BBB_server)-1] == '/') {
    $BBB_serverPath = $BBB_server."bigbluebutton/api/";
@@ -226,12 +243,21 @@ class module_BBB extends EfrontModule {
    $moderatorPassword = "M97f15B7113G";
    $attendeePassword = "Ow2D75JE160B";
    $optionString = 'meetingID='.$conferenceNameAndID.'&name='.$conferenceNameAndID.'&moderatorPW='.$moderatorPassword.'&attendeePW='.$attendeePassword;
-   $saltedHash = sha1($optionString.$securitySalt);
+   if($BBB_server_ver == 1) {
+    //echo ' String to salt: '.'create'.$optionString.$securitySalt;
+    $saltedHash = sha1('create'.$optionString.$securitySalt);
+   }
+   else {
+    $saltedHash = sha1($optionString.$securitySalt);
+   }
+
    $BBBurl = $BBB_serverPath.'create?'.$optionString.'&checksum='.$saltedHash;
 
    //We parsed the creation URL, let's see what the server has to say.
    //It would be really nice to handle this reply in the future,
    //but it would require a radical rewrite of the whole smarty connection button thing...
+   //echo 'to create'.$BBBurl;
+   //echo ' create URL: '.$BBBurl;
    $xml = $this -> bbb_wrap_simplexml_load_file($BBBurl);
 
    // Returning the join URL when all's gone well....
@@ -242,13 +268,20 @@ class module_BBB extends EfrontModule {
 
     $optionString = 'fullName='.$fullName.'&meetingID='.$conferenceNameAndID.'&password='.$moderatorPassword;
 
-    $saltedHash = sha1($optionString.$securitySalt);
+    if($BBB_server_ver == 1) {
+     $saltedHash = sha1('join'.$optionString.$securitySalt);
+    }
+    else {
+     $saltedHash = sha1($optionString.$securitySalt);
+    }
+
     $BBBurl = $BBB_serverPath.'join?'.$optionString.'&checksum='.$saltedHash;
 
     eF_updateTableData("module_BBB", array('status' => '1'), "id=".$meeting_info[id]);
    } else {
    //...or the professor page if it hasn't.
-    $BBBurl = "professorpage.php";
+    //echo ' xml response '.$xml;
+    $BBBurl = "professorpage.php?ctg=module&op=module_bbb";
    }
   } else {
 
@@ -264,7 +297,13 @@ class module_BBB extends EfrontModule {
 
    $optionString = 'fullName='.$fullName.'&meetingID='.$conferenceNameAndID.'&password='.$password;
 
-   $saltedHash = sha1($optionString.$securitySalt);
+   if($BBB_server_ver == 1) {
+    $saltedHash = sha1('join'.$optionString.$securitySalt);
+   }
+   else {
+    $saltedHash = sha1($optionString.$securitySalt);
+   }
+
    $BBBurl = $BBB_serverPath.'join?'.$optionString.'&checksum='.$saltedHash;
 
   }
@@ -280,6 +319,7 @@ class module_BBB extends EfrontModule {
 		echo "BBBurl".$BBBurl;
 
 */
+  //echo ' URL is: '.$BBBurl;
   return $BBBurl;
  }
     /* MAIN-INDEPENDENT MODULE PAGES */
@@ -294,22 +334,27 @@ class module_BBB extends EfrontModule {
             $form -> addElement('text', 'server', null, 'class = "inputText" id="server_input"');
             $form -> addRule('server', _BBBTHEFIELDNAMEISMANDATORY, 'required', null, 'client');
             $form -> addElement('text', 'salt', null, 'class = "inputText" id="salt_input"');
+            $form -> addElement('checkbox', 'serverVersion', null);
             $form -> addElement('submit', 'submit_BBB_server', _SUBMIT, 'class = "flatButton"');
-
 
             if ($form -> isSubmitted() && $form -> validate()) {
                 $server_name = $form -> exportValue('server');
     $salt_string = $form -> exportValue('salt');
+    $version_choice = $form -> exportValue('serverVersion');
                 if ($server_name[strlen($server_name)-1] == "/") {
                     $server_name = substr($server_name, 0, strlen($server_name)-1);
                 }
                 eF_updateTableData("configuration", array("value" => $server_name), "name = 'module_BBB_server'");
     eF_updateTableData("configuration", array("value" => $salt_string), "name = 'module_BBB_salt'");
+    eF_updateTableData("configuration", array("value" => $version_choice), "name = 'module_BBB_server_version'");
                 $this -> setMessageVar(_BBB_SUCCESFULLYCHANGEDSERVER, "success");
             }
 
             $form -> setDefaults(array('server' => $this -> getBBBServer()));
    $form -> setDefaults(array('salt' => $this -> getBBBSalt()));
+            $form -> setDefaults(array('serverVersion' => $this -> getBBBServerVer()));
+
+   //echo 'My server version is 0.7+: '.$this -> getBBBServerVer();
 
             $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
             $form -> accept($renderer);

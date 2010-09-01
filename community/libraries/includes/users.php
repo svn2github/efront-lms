@@ -107,6 +107,11 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
             $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
             foreach ($users as $key => $value) {
                 $users[$key]['last_login'] = $lastLogins[$value['login']];
+    if (isset($_COOKIE['toggle_active'])) {
+     if (($_COOKIE['toggle_active'] == 1 && !$value['active']) || ($_COOKIE['toggle_active'] == -1 && $value['active'])) {
+      unset($users[$key]);
+     }
+    }
             }
 
             $users = eF_multiSort($users, $sort, $order);

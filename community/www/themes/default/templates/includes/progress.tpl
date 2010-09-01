@@ -146,7 +146,7 @@
          {capture name = 't_progress_code'}
  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'usersTable'}
 <!--ajax:usersTable-->
-                 <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=progress&">
+                 <table style = "width:100%" activeFilter = "1" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=progress&">
                      <tr class = "topTitle">
                          <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
                          {*<td class = "topTitle centerAlign" name = "conditions_passed" >{$smarty.const._CONDITIONSCOMPLETED}</td>*}

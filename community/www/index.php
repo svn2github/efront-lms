@@ -825,8 +825,11 @@ if (G_DEBUG) {
  echo $output;
 }
 function LoginRedirect($user_type) {
- if ($GLOBALS['configuration']['login_redirect_page'] == "user_dashboard" && $user_type != "administrator") {
+ $redirectPage = $GLOBALS['configuration']['login_redirect_page'];
+ if ($redirectPage == "user_dashboard" && $user_type != "administrator") {
   eF_redirect("userpage.php?ctg=personal");
+ } elseif (strpos($redirectPage, "module") !== false) {
+  eF_redirect("userpage.php?ctg=landing_page");
  } else {
   eF_redirect("userpage.php");
  }

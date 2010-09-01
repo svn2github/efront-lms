@@ -5,7 +5,7 @@
 
          <table style = "width:100%;">
           <tr><td style = "vertical-align:top;">
-                 <ul id = "rss_list" style = "padding-left:0px;margin-left:0px">
+                 <ul id = "rss_list" style = "padding-left:0px;margin-left:0px;list-style-type:none;">
 
                  </ul>
           </td></tr>

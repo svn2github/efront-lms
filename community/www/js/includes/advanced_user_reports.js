@@ -106,20 +106,18 @@ function onSetStatus(el, response) {
  }
 }
 
-//Uses the 'other' argument in eF_js_rebuildTable to send the action
 function exportCsv(el) {
  eF_js_redrawPage('usersTable', false, 'csv');
     currentOther = new Array();
 
     $('popup_frame').src = location.toString()+'&ajax=1&csv=1';
-    //parameters = {'csv':1, ajax:1, method: 'get'};
-    //ajaxRequest(el, location.toString(), parameters, onExportCsv);
 }
-/*
-function onExportCsv(el, response) {
-	$('popup_frame').src = 'view_file.php?file='+response.evalJSON(true).path;
+function exportXls(el) {
+ eF_js_redrawPage('usersTable', false, 'xls');
+    currentOther = new Array();
+
+    $('popup_frame').src = location.toString()+'&ajax=1&xls=1';
 }
-*/
 function applyOperation(el, operation) {
  parameters = {'operation':operation, ajax:1, method: 'get'};
  if (operation == 'group' || operation == 'course' || operation == 'lesson') {

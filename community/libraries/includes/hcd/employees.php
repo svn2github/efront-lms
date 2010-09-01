@@ -94,9 +94,16 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
    }
    $result = eF_getTableDataFlat("logs", "users_LOGIN, timestamp", "action = 'login'", "timestamp");
    $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
+
    foreach ($employees as $key => $value) {
     $employees[$key]['last_login'] = $lastLogins[$value['login']];
+    if (isset($_COOKIE['toggle_active'])) {
+     if (($_COOKIE['toggle_active'] == 1 && !$value['active']) || ($_COOKIE['toggle_active'] == -1 && $value['active'])) {
+      unset($employees[$key]);
+     }
+    }
    }
+
 
    $tableName = "usersTable";
    $dataSource = $employees;

@@ -85,6 +85,12 @@ function createConstraintsFromSortedTable() {
  !isset($filter[1]) OR $constraints['branch'] = $filter[1];
  !isset($filter[2]) OR $constraints['jobs'] = $filter[2];
 
+ if (isset($_COOKIE['toggle_active']) && $_COOKIE['toggle_active'] == 1) {
+  $constraints['active'] = 1;
+ } else if (isset($_COOKIE['toggle_active']) && $_COOKIE['toggle_active'] == -1) {
+  $constraints['active'] = 0;
+ }
+
  return $constraints;
 }
 

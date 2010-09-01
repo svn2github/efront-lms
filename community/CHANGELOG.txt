@@ -8,6 +8,7 @@
 - Fixed issue in course reports about js error in toggling course row in user (ticket 470)
 - Fixed issue about assigning all courses with a user
 - Fixed stripping html tags in notifications without html option checked
+- Fixed issue in educational version about autocompleting recipients
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

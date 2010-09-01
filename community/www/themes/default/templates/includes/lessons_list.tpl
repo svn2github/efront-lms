@@ -152,6 +152,20 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
      {/capture}
     {/if}
        {elseif $T_DIRECTIONS_TREE}
+
+        {*Inner table modules *}
+       {foreach name = 'module_inner_tables_list' key = key item = moduleItem from = $T_INNERTABLE_MODULES}
+           {capture name = $key|replace:"_":""} {*We cut off the underscore, since scriptaculous does not seem to like them*}
+               <tr><td class = "moduleCell">
+                   {if $moduleItem.smarty_file}
+                       {include file = $moduleItem.smarty_file}
+                   {else}
+                       {$moduleItem.html_code}
+                   {/if}
+               </td></tr>
+           {/capture}
+       {/foreach}
+
         {capture name = "t_directions_tree_code"}
       <table class = "lessonListOptions">
         <tr>
@@ -184,6 +198,17 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
 
         {$T_DIRECTIONS_TREE}
     {/capture}
+    {*///MODULES INNERTABLES APPEARING*}
+    {foreach name = 'module_inner_tables_list' key = key item = module from = $T_INNERTABLE_MODULES}
+           {assign var = module_name value = $key|replace:"_":""}
+                            <table class = "singleColumnData">
+                                {$smarty.capture.$module_name}
+                            </table>
+
+
+
+
+       {/foreach}
     {eF_template_printBlock title = $smarty.const._MYCOURSES data = $smarty.capture.t_directions_tree_code image = '32x32/theory.png'}
 
    {elseif $T_OP == 'search'}

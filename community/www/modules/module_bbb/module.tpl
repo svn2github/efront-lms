@@ -11,8 +11,10 @@
                             <td class = "elementCell" align="left" width="100%">&nbsp;<a href="javascript:void(0)" onClick="document.getElementById('server_input').value = ''" ><img src="images/16x16/go_into.png" title="{$smarty.const._BBB_RESETDEFAULTSERVER}" alt="{$smarty.const._BBB_RESETDEFAULTSERVER}" border =0 style="vertical-align:middle"/></a> </td>
        <td class = "formError">{$T_BBB_FORM.server.error}</td></tr>
        <td class = "labelCell">{$smarty.const._BBB_SECURITYSALT}:&nbsp;</td>
-       <td class = "elementCell">{$T_BBB_FORM.salt.html}</td>
-      <tr><td></td><td >&nbsp;</td></tr>
+       <td class = "elementCell">{$T_BBB_FORM.salt.html}</td></tr>
+       <td class = "labelCell">{$smarty.const._BBB_BBBSERVERVERSION}:&nbsp;</td>
+       <td class = "elementCell">{$T_BBB_FORM.serverVersion.html}</td>
+       <tr><td></td><td >&nbsp;</td></tr>
                         <tr><td></td><td class = "submitCell">{$T_BBB_FORM.submit_BBB_server.html}</td></tr>
                     </table>
                 </form>

@@ -40,6 +40,7 @@ define("_BBB_BBBMEETINGDATA", "Πληροφορίες για τη σύσκεψη
 
 define("_BBB_BBBSERVER", "Ρύθμιση BBB εξυπηρετητή για συσκέψεις");
 define("_BBB_BBBSERVERNAME", "Εξυπηρετητής");
+define("_BBB_BBBSERVERVERSION", "Εκδοση εξυπηρετητή 0.7+");
 define("_BBB_SECURITYSALT", "Κωδικός ασφαλείας (salt)");
 define("_BBB_SUCCESFULLYCHANGEDSERVER", "Ο εξυπηρετητής καταχωρήθηκε επιτυχώς");
 define("_BBB_NOBBBSERVERDEFINED", "Δεν έχει οριστεί εξυπηρετητής για BBB συσκέψεις");

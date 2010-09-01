@@ -205,7 +205,7 @@ if ($_GET['op'] == 'course_info') {
    //pr($studentRoles);
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
       $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+      $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
       $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
       $users = $currentCourse -> getCourseUsers($constraints);
 

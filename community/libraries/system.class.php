@@ -807,9 +807,9 @@ class EfrontSystem
      ';
      return $str;
  }
- public static function exportToXls($data) {
+ public static function exportToXls($data, $file = false) {
   require_once 'Spreadsheet/Excel/Writer.php';
-  $workBook = new Spreadsheet_Excel_Writer();
+  $workBook = new Spreadsheet_Excel_Writer($file);
   $workBook -> setTempDir(G_UPLOADPATH);
   $workBook -> setVersion(8);
   $workSheet = & $workBook -> addWorksheet('info');
@@ -827,8 +827,9 @@ class EfrontSystem
    $rowIndex++;
   }
   $workBook -> close();
-  $workBook -> send('export.xls');
-  exit;
+  if (!$file) {
+   $workBook -> send('export.xls');
+  }
  }
 }
 ?>

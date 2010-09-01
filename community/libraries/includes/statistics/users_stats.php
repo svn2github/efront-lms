@@ -102,14 +102,14 @@ if (isset($_GET['sel_user'])) {
    if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
     $tableName = $_GET['ajax'];
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
-     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => false);
+     $constraints = array('archive' => false, 'active' => true, 'instance' => false) + createConstraintsFromSortedTable();
      $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
      $constraints['return_objects'] = false;
      $courses = $infoUser -> getUserCoursesAggregatingResults($constraints);
     }
 
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
-     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
+     $constraints = array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
      $constraints['required_fields'] = array('num_lessons', 'location');
      $constraints['return_objects'] = false;
      $courses = $infoUser -> getUserCourses($constraints);

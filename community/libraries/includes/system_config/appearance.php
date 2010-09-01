@@ -6,7 +6,16 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $themeSettingsTools = array(array('text' => _THEMES, 'image' => "16x16/layout.png", 'href' => basename($_SERVER['PHP_SELF']).'?ctg=themes'));
 $smarty -> assign ("T_THEMES_LINK", $themeSettingsTools);
-
+$loginRedirectArray = array();
+//pr($loadedModules);exit;
+foreach ($loadedModules as $module) {
+ $className = $module -> className;
+ if ($loadedModules[$className] -> getLandingPageModule()) {
+  $loginRedirectArray[$className] = $className;
+ }
+}
+$loginRedirectArray['lesson_catalog'] = _LESSONSCATALOG;
+$loginRedirectArray['user_dashboard'] = _USERDASHBOARD;
 $appearanceMainForm = new Html_QuickForm("appearance_main_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=main", "", null, true);
 $appearanceMainForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $appearanceMainForm -> addElement("advcheckbox", "show_footer", _SHOWFOOTER, null, 'class = "inputCheckBox"', array(0, 1));
@@ -17,7 +26,7 @@ $appearanceMainForm -> addElement("advcheckbox", "motto_on_header", _SHOWMOTTOON
 $appearanceMainForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG, array(_NO, _YES, _ONLYFORLESSONS), 'class = "inputCheckBox"');
 $appearanceMainForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEMPTYBLOCKS, null, 'class = "inputCheckBox"', array(0,1));
 $appearanceMainForm -> addElement("select", "lessons_directory", _VIEWDIRECTORY, array(_NO, _YES, _YESAFTERLOGIN), 'class = "inputSelect"');
-$appearanceMainForm -> addElement("select", "login_redirect_page", _LOGINREDIRECTPAGE, array('lesson_catalog' => _LESSONSCATALOG, 'user_dashboard' => _USERDASHBOARD), 'class = "inputCheckBox"');
+$appearanceMainForm -> addElement("select", "login_redirect_page", _LOGINREDIRECTPAGE, $loginRedirectArray, 'class = "inputCheckBox"');
 $appearanceMainForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"');
 $appearanceMainForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {

@@ -3865,4 +3865,6 @@ define("_GLOBAL", "Γενικό");
 define("_ALLDAY", "Όλη μέρα");
 define("_CREATECALENDAREVENT", "Kαταγραφή στο ημερολόγιο");
 define("_OVERWRITEIFFOLDEREXISTS", "Αντικατέστησε υπάρχων φάκελο");
+define("_EXPORTTOXLS", "Εξαγωγή σε xls");
+define("_LANDINGPAGE","Σελίδα έναρξης");
 ?>

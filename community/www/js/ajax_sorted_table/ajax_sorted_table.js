@@ -20,6 +20,7 @@
     var jobFilter = new Array();
     var currentBranchFilter = new Array();
     var currentJobFilter = new Array();
+    var activeFilter = new Array();
 
     var checkedEntries = new Array();
 
@@ -122,7 +123,11 @@
             } else {
              jobFilter[tableIndex] = false;
             }
-
+            if (table.getAttribute('activeFilter')) {
+             activeFilter[tableIndex] = true;
+            } else {
+             activeFilter[tableIndex] = false;
+            }
 
             if (table.getAttribute('noFooter') == 'true') {
                 noFooter[tableIndex] = true;
@@ -654,6 +659,15 @@ function eF_js_sortTable(el, other) {
         //input.className = 'inputSearchText';
         div.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["filter"]+':&nbsp;</span>';
         div.appendChild(input); //Append it to the footer cell
+        if (activeFilter[tableIndex]) {
+         if (getCookie('toggle_active') == 1) {
+          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_green.png', alt:'', title:'', onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
+         } else if (getCookie('toggle_active') == -1) {
+          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_red.png', alt:'', title:'', onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
+         } else {
+          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_on.png', alt:'', title:'', onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
+         }
+        }
   // Enterprise filters
   if (branchFilter[tableIndex]) {
          var selectBranch = document.createElement('select'); //Create a select element that will hold the rows per page
@@ -711,6 +725,7 @@ function eF_js_sortTable(el, other) {
   }
         div.className = 'sortTablefilter';
         td.appendChild(div);
+
   if (useAjax[tableIndex]) {
    var startResult = 0;
    var endResult = 0;
@@ -788,7 +803,7 @@ function eF_js_sortTable(el, other) {
         td.innerHTML += '&nbsp;<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+',\'next\')\"><img src = "js/ajax_sorted_table/images/navigate_right.png" border = "0" style = "vertical-align:middle" /></a>'; //Add a \"next page\" handler
         td.innerHTML += '&nbsp;<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+','+(pages - 1)+')\"><img src = "js/ajax_sorted_table/images/navigate_right2.png" border = "0" style = "vertical-align:middle" /></a>'; //Add a \"last page\" handler
 
-        if (!Object.isUndefined(noFooter[tableIndex]) || ((table.rows.length < minimumRows + 2 || parseInt(table.getAttribute('size')) < minimumRows) && !currentFilter[tableIndex] && !currentOffset[tableIndex] && !currentBranchFilter[tableIndex] && !currentJobFilter[tableIndex])) {
+        if (!Object.isUndefined(noFooter[tableIndex]) || ((table.rows.length < minimumRows + 2 || parseInt(table.getAttribute('size')) < minimumRows) && !currentFilter[tableIndex] && !currentOffset[tableIndex] && !currentBranchFilter[tableIndex] && !currentJobFilter[tableIndex] && !activeFilter[tableIndex])) {
             tr.style.display = 'none';
             if (!Object.isUndefined(noFooter[tableIndex])) {
              tr.setAttribute('id', 'noFooterRow'+tableIndex);
@@ -1066,4 +1081,18 @@ function findSortedTableIndex(name) {
         }
     }
 
+}
+
+function toggleActive(el, tableIndex) {
+ if (getCookie('toggle_active') == 1) {
+  el.writeAttribute({src:'js/ajax_sorted_table/images/trafficlight_red.png'});
+  setCookie('toggle_active', -1);
+ } else if (getCookie('toggle_active') == -1) {
+  el.writeAttribute({src:'js/ajax_sorted_table/images/trafficlight_on.png'});
+  setCookie('toggle_active', 0);
+ } else {
+  el.writeAttribute({src:'js/ajax_sorted_table/images/trafficlight_green.png'});
+  setCookie('toggle_active', 1);
+ }
+ eF_js_rebuildTable(tableIndex, 0, 'null', 'desc');
 }

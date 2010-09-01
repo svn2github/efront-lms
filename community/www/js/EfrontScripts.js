@@ -130,7 +130,11 @@ function eF_js_showDivPopup(popup_title, size, popup_data_id) {
             dimmer.show();
         }
         if (dimmer_side) {
-            dimmer_side.style.height = side_frame.document.body.scrollHeight+'px';
+            if (side_frame.document.documentElement) { //IE in strict mode uses documentElement in place of body
+                dimmer_side.style.height = side_frame.document.documentElement.scrollHeight+'px';
+            } else {
+                dimmer_side.style.height = side_frame.document.body.scrollHeight+'px';
+            }
             dimmer_side.show();
         }
         popup_table.setStyle({width:popup_dim[0], height:popup_dim[1]});

@@ -3865,4 +3865,6 @@ define("_GLOBAL", "Global");
 define("_ALLDAY", "All day");
 define("_CREATECALENDAREVENT", "Create calendar event");
 define("_OVERWRITEIFFOLDEREXISTS", "Overwrite existing folder");
+define("_LANDINGPAGE","Landing page");
+define("_EXPORTTOXLS", "Export to xls");
 ?>

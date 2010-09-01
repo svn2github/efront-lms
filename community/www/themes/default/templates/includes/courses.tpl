@@ -67,7 +67,7 @@
   <script>translationsToJS['_USERHASTHECOURSE'] = '{$smarty.const._USERHASTHECOURSE}'; translationsToJS['_APPLICATIONPENDING'] = '{$smarty.const._APPLICATIONPENDING}';</script>
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'usersTable'}
 <!--ajax:usersTable-->
-   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "6" order="desc" useAjax = "1" id = "usersTable" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" {if isset($T_BRANCHES_FILTER)}branchFilter="{$T_BRANCHES_FILTER}"{/if} {if isset($T_JOBS_FILTER)}jobFilter="{$T_JOBS_FILTER}"{/if} url = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$smarty.get.edit_course}&">
+   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" activeFilter = "1" sortBy = "6" order="desc" useAjax = "1" id = "usersTable" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" {if isset($T_BRANCHES_FILTER)}branchFilter="{$T_BRANCHES_FILTER}"{/if} {if isset($T_JOBS_FILTER)}jobFilter="{$T_JOBS_FILTER}"{/if} url = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$smarty.get.edit_course}&">
     <tr class = "topTitle">
      <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
      <td class = "topTitle" name = "role">{$smarty.const._USERROLE}</td>

@@ -146,7 +146,7 @@
         {assign var = "change_lessons" value = 1}
        {/if}
 <!--ajax:lessonsTable-->
-        <table style = "width:100%" class = "sortedTable" size = "{$T_LESSONS_SIZE}" sortBy = "0" useAjax = "1" id = "lessonsTable" rowsPerPage = "20" url = "administrator.php?ctg=lessons&">
+        <table style = "width:100%" class = "sortedTable" activeFilter = 1 size = "{$T_LESSONS_SIZE}" sortBy = "0" useAjax = "1" id = "lessonsTable" rowsPerPage = "20" url = "administrator.php?ctg=lessons&">
          <tr class = "topTitle">
           <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
           <td class = "topTitle" name = "direction_name">{$smarty.const._CATEGORY}</td>

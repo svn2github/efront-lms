@@ -187,6 +187,10 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  {/if}
     {include file = "includes/control_panel.tpl"}
 {/if}
+{if (isset($T_CTG) && $T_CTG == 'landing_page')}
+ {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=landing_page">'|cat:$smarty.const._LANDINGPAGE|cat:'</a>'}
+    {include file = "includes/landing_page.tpl"}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'import')}
  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink'  href = '`$smarty.server.PHP_SELF`?ctg=import'>`$smarty.const._IMPORT`</a>"}
  {include file = "includes/import.tpl"}
@@ -798,6 +802,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
   {$smarty.capture.moduleForum}
   {$smarty.capture.moduleTopics}
   {$smarty.capture.modulePoll}
+  {$smarty.capture.moduleLandingPage}
  </table>
 {/capture}
 {capture name = "left_code"}

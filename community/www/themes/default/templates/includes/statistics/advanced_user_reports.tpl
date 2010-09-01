@@ -16,7 +16,7 @@
   </span>
  </div>
  {else}
- <div>{$smarty.const._NOREPORTSINTHESYSTEM}<a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&tab=builder&add=1">{$smarty.const._CREATEONE}</a></div>
+ <div>{$smarty.const._NOREPORTSINTHESYSTEM}<a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&tab=builder&add=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDREPORT}', 0)">{$smarty.const._CREATEONE}</a></div>
  {/if}
  {if $T_REPORT}
 
@@ -36,7 +36,7 @@
     <td class = "centerAlign noSort">{$smarty.const._SELECT}</td>
   </tr>
   {foreach name = 'conditions_list' item = "user" key = "key" from = $T_DATA_SOURCE}
-  <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
+  <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if $user.active != $smarty.const._ACTIVE}deactivatedTableElement{/if}">
    {foreach name = 't_columns_list' item = "item" key = "foo" from = $T_REPORT.rules.columns}
     {if $item.status}
     <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}">
@@ -86,7 +86,8 @@
 
  <div class = ""><span>{$smarty.const._CURREPAGEOPERATIONS}:</span>
   <img class = "ajaxHandle" src = "images/16x16/refresh.png" alt = "{$smarty.const._REFRESHTABLE}" title = "{$smarty.const._REFRESHTABLE}" onclick = "eF_js_rebuildTable('usersTable', 0, 'null', 'desc');"/>
-  <img class = "ajaxHandle" src = "images/file_types/xls.png" alt = "{$smarty.const._EXPORTTOCSV}" title = "{$smarty.const._EXPORTTOCSV}" onclick = "exportCsv(this);"/>
+  <img class = "ajaxHandle" src = "images/file_types/xls.png" alt = "{$smarty.const._EXPORTTOXLS}" title = "{$smarty.const._EXPORTTOXLS}" onclick = "exportXls(this);"/>
+  <img class = "ajaxHandle" src = "images/file_types/txt.png" alt = "{$smarty.const._EXPORTTOCSV}" title = "{$smarty.const._EXPORTTOCSV}" onclick = "exportCsv(this);"/>
   <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'activate');"/>
   <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'deactivate');"/>
   <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._ARCHIVE}" title = "{$smarty.const._ARCHIVE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'archive');"/>
@@ -320,7 +321,7 @@
   {capture name = 't_new_report_code'}
    {eF_template_printForm form=$T_ADD_REPORTING_FORM}
   {/capture}
-  {eF_template_printBlock title = $smarty.const._NEWREPORT data = $smarty.capture.t_new_report_code image = '32x32/add.png'}
+  {eF_template_printBlock title = $smarty.const._NEWREPORT data = $smarty.capture.t_new_report_code image = '32x32/reports.png'}
 
   {if $T_MESSAGE_TYPE == 'success'}
      <script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$T_ADDED_REPORT}&tab=builder';</script>

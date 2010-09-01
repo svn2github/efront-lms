@@ -57,7 +57,6 @@ if (isset($_COOKIE['c_request']) && $_COOKIE['c_request']) {
 }
 
 $loadedModules = $currentUser -> getModules();
-
 $module_css_array = array();
 $module_js_array = array();
 
@@ -129,6 +128,10 @@ try {
  if ($ctg == 'control_panel') {
      /***/
      require_once ("control_panel.php");
+ }
+ elseif ($ctg == 'landing_page') {
+     /***/
+     require_once ("landing_page.php");
  }
  elseif ($ctg == 'social') {
      /***/

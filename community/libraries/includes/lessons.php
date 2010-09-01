@@ -477,6 +477,11 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
           } else {
            $lessons[$key]['students'] = 0;
           }
+    if (isset($_COOKIE['toggle_active'])) {
+     if (($_COOKIE['toggle_active'] == 1 && !$lesson['active']) || ($_COOKIE['toggle_active'] == -1 && $lesson['active'])) {
+      unset($lessons[$key]);
+     }
+    }
          }
          /*
 

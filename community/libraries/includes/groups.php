@@ -345,10 +345,10 @@ $loadScripts[] = 'includes/groups';
              }
              if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {
               if ($_GET['ajax'] == 'coursesTable') {
-               $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => false);
+               $constraints = array('archive' => false, 'instance' => false) + createConstraintsFromSortedTable();
               }
               if ($_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
-               $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
+               $constraints = array('archive' => false, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
               }
               $courses = $currentGroup -> getGroupCoursesIncludingUnassigned($constraints);
               $totalEntries = $currentGroup -> countGroupCoursesIncludingUnassigned($constraints);

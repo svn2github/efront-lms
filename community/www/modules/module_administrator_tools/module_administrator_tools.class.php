@@ -84,7 +84,7 @@ class module_administrator_tools extends EfrontModule {
 
      */
     public function onUninstall() {
-  //eF_executeNew("DROP TABLE module_cancellations;");
+  //eF_executeNew("DROP TABLE ;");
     }
     /*
 
@@ -185,27 +185,49 @@ class module_administrator_tools extends EfrontModule {
     try {
      $values = $form -> exportValues();
      $user = EfrontUserFactory::factory($values['users_LOGIN']);
+     try {
+      $existingUser = true;
+      $newUser = EfrontUserFactory::factory($values['new_login']);
+     } catch (Exception $e) {
+      $existingUser = false;
+     }
+     if ($existingUser) {
+      throw new Exception(_MODULE_ADMINISTRATOR_TOOLS_USERALREADYEXISTS);
+     }
      $existingTables = $GLOBALS['db'] -> GetCol("show tables");
+     $views = $GLOBALS['db'] -> GetCol("show tables like '%_view'");
+     $errors = array();
      foreach ($existingTables as $table) {
-      $fields = $GLOBALS['db'] -> GetCol("describe $table");
-      foreach ($fields as $value) {
-       if (stripos($value, 'login') !== false) {
-        eF_updateTableData($table, array($value => $values['new_login']), "$value = '".$values['users_LOGIN']."'");
+      try {
+       if (!in_array($table, $views)) {
+        $fields = $GLOBALS['db'] -> GetCol("describe $table");
+        foreach ($fields as $value) {
+         if (stripos($value, 'login') !== false) {
+          eF_updateTableData($table, array($value => $values['new_login']), "$value = '".$values['users_LOGIN']."'");
+         }
+        }
+        if ($table == 'f_personal_messages') {
+         //@todo:recipient
+         eF_updateTableData($table, array("sender" => $values['new_login']), "sender = '".$values['users_LOGIN']."'");
+        }
+        if ($table == 'notifications' || $table == 'sent_notifications') {
+         eF_updateTableData($table, array("recipient" => $values['new_login']), "recipient = '".$values['users_LOGIN']."'");
+        }
+        if ($table == 'surveys' || $table == 'module_hcd_events') {
+         eF_updateTableData($table, array("author" => $values['new_login']), "author = '".$values['users_LOGIN']."'");
+        }
        }
-      }
-      if ($table == 'f_personal_messages') {
-       //@todo:recipient
-       eF_updateTableData($table, array("sender" => $values['new_login']), "sender = '".$values['users_LOGIN']."'");
-      }
-      if ($table == 'notifications' || $table == 'sent_notifications') {
-       eF_updateTableData($table, array("recipient" => $values['new_login']), "recipient = '".$values['users_LOGIN']."'");
-      }
-      if ($table == 'surveys' || $table == 'module_hcd_events') {
-       eF_updateTableData($table, array("author" => $values['new_login']), "author = '".$values['users_LOGIN']."'");
+      } catch (Exception $e) {
+       $errors[] = $e -> getMessage();
       }
      }
-     $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
-     $message_type= 'success';
+     if (empty($errors)) {
+      $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
+      $message_type= 'success';
+     } else {
+      $message = _MODULE_ADMINISTRATOR_TOOLS_OPERATIONCOMPLETEDSUCCESSFULLYBUTHEFOLLOWINGTABLESCOULDNOTBEUPDATED.': <br>'.implode("<br>", $errors);
+      $message_type= 'failure';
+     }
     } catch (Exception $e) {
      $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
      $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

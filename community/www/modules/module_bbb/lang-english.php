@@ -43,6 +43,7 @@ define("_BBB_BBBMEETINGDATA", "BBB conference information");
 
 define("_BBB_BBBSERVER", "BBB Conference Server configuration");
 define("_BBB_BBBSERVERNAME", "Server host");
+define("_BBB_BBBSERVERVERSION", "Server Version 0.7+");
 define("_BBB_SECURITYSALT","Security salt");
 define("_BBB_SUCCESFULLYCHANGEDSERVER", "Server host has been successfully updated");
 define("_BBB_NOBBBSERVERDEFINED", "No BBB conferences server has been defined");

@@ -324,6 +324,10 @@ try {
      /***/
      require_once ("control_panel.php");
  }
+ elseif ($ctg == 'landing_page') {
+     /***/
+     require_once ("landing_page.php");
+ }
  elseif ($ctg == 'content') {
      if (isset($_GET['commit_lms'])) {
          /***/

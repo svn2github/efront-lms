@@ -116,6 +116,30 @@ try {
   if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {
    $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $userLessons, $userCourses, $userProgress, $options));
   }
+  $innertable_modules = array();
+  foreach ($loadedModules as $module) {
+   unset($InnertableHTML);
+     $centerLinkInfo = $module -> getCenterLinkInfo();
+    $InnertableHTML = $module -> getDashboardModule();
+    $InnertableHTML ? $module_smarty_file = $module -> getDashboardSmartyTpl() : $module_smarty_file = false;
+   // If the module has a lesson innertable
+   if ($InnertableHTML) {
+    // Get module html - two ways: pure HTML or PHP+smarty
+    // If no smarty file is defined then false will be returned
+    if ($module_smarty_file) {
+     // Execute the php code -> The code has already been executed by above (**HERE**)
+     // Let smarty know to include the module smarty file
+     $innertable_modules[$module->className] = array('smarty_file' => $module_smarty_file);
+    } else {
+     // Present the pure HTML cod
+     $innertable_modules[$module->className] = array('html_code' => $InnertableHTML);
+    }
+   }
+  }
+  //pr($innertable_modules);
+  if (!empty($innertable_modules)) {
+   $smarty -> assign("T_INNERTABLE_MODULES", $innertable_modules);
+  }
  }
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);

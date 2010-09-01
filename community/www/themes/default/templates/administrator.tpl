@@ -57,6 +57,10 @@
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=maintenance">'|cat:$smarty.const._MAINTENANCE|cat:'</a>'}
     {include file = "includes/maintenance.tpl"}
 {/if}
+{if (isset($T_CTG) && $T_CTG == 'landing_page')}
+ {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=landing_page">'|cat:$smarty.const._LANDINGPAGE|cat:'</a>'}
+    {include file = "includes/landing_page.tpl"}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'system_config')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=system_config">'|cat:$smarty.const._CONFIGURATIONVARIABLES|cat:'</a>'}
     {include file = "includes/system_config.tpl"}
@@ -594,6 +598,7 @@
   {$smarty.capture.moduleCalendarPage}
   {$smarty.capture.moduleSearchCoursesPage}
   {$smarty.capture.modulePayments}
+  {$smarty.capture.moduleLandingPage}
   {$smarty.capture.moduleCurriculums}
   {$smarty.capture.moduleVersionKey}
   {$smarty.capture.moduleSocialAdmin}

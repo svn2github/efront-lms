@@ -44,4 +44,4 @@
 {/capture}
 
 
-{eF_template_printBlock title=$smarty.const._BBB_BBBLIST data=$smarty.capture.t_BBB_list_code absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/bbb32.png' options=$T_MODULE_BBB_INNERTABLE_OPTIONS}
+{eF_template_printBlock title=$smarty.const._BBB_BBBLIST data=$smarty.capture.t_BBB_list_code absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png' options=$T_MODULE_BBB_INNERTABLE_OPTIONS}

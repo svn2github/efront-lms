@@ -79,7 +79,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    include("sorted_table.php");
   } else if ($_GET['ajax'] == 'lessonsTable') {
 
-      $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+      $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
       $lessons = $editCourse -> getCourseLessonsIncludingUnassigned($constraints);
       $totalEntries = $editCourse -> countCourseLessonsIncludingUnassigned($constraints);
    $dataSource = EfrontLesson :: convertLessonObjectsToArrays($lessons);
@@ -116,7 +116,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
          $rolesBasic = EfrontLessonUser :: getLessonsRoles();
          $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
-         $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+         $constraints = array('archive' => false) + createConstraintsFromSortedTable();
 
    $users = $editCourse -> getCourseUsersIncludingUnassigned($constraints);
    $totalEntries = $editCourse -> countCourseUsersIncludingUnassigned($constraints);

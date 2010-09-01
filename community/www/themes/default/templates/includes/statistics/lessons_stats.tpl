@@ -60,7 +60,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
 {/literal}
 </style>
 <!--ajax:lessonUsersTable-->
-  <table id = "lessonUsersTable" sortBy=0 size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}{$T_STATS_FILTERS_URL}&">
+  <table id = "lessonUsersTable" sortBy=0 size = "{$T_TABLE_SIZE}" activeFilter = "1" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=lesson&sel_lesson={$smarty.get.sel_lesson}{$T_STATS_FILTERS_URL}&">
    <tr class = "topTitle">
     <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>
     <td class = "topTitle user_type" name = "role">{$smarty.const._USERTYPE}</td>
@@ -112,7 +112,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
     <td class = "score">{if $user.basic_user_type != 'professor'}#filter:score-{$user.score}#%{else}<div class = "centerAlign">-</div>{/if}</td>
    </tr>
    {foreachelse}
-   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>
+   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
    {/foreach}
   </table>
 <!--/ajax:lessonUsersTable-->

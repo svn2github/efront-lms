@@ -25,6 +25,10 @@
  {/if}
     {include file = "includes/control_panel.tpl"}
 {/if}
+{if (isset($T_CTG) && $T_CTG == 'landing_page')}
+ {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=landing_page">'|cat:$smarty.const._LANDINGPAGE|cat:'</a>'}
+    {include file = "includes/landing_page.tpl"}
+{/if}
 {if (isset($T_CTG) && $T_CTG == 'lesson_information')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lesson_information">'|cat:$smarty.const._LESSONINFORMATION|cat:'</a>'}
     {include file = "includes/lesson_information.tpl"}
@@ -550,6 +554,7 @@ function changeItemColor(item, color) {
   {$smarty.capture.moduleMessagesPage}
   {$smarty.capture.moduleForum}
   {$smarty.capture.moduleProgress}
+  {$smarty.capture.moduleLandingPage}
  </table>
 {/capture}
 {if !$T_LAYOUT_CLASS}{assign var = "layoutClass" value = "centerFull"}{else}{assign var = "layoutClass" value = $T_LAYOUT_CLASS}{/if}

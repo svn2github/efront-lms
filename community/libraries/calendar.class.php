@@ -140,11 +140,11 @@ class calendar extends EfrontEntity
   $values = $form -> exportValues();
 
   $timestamp = mktime($values['timestamp']['H'] ? $values['timestamp']['H'] : 0,
-  $values['timestamp']['i'] ? $values['timestamp']['i'] : 0,
-  0,
-  $values['timestamp']['M'],
-  $values['timestamp']['d'],
-  $values['timestamp']['Y']);
+       $values['timestamp']['i'] ? $values['timestamp']['i'] : 0,
+       0,
+       $values['timestamp']['M'],
+       $values['timestamp']['d'],
+       $values['timestamp']['Y']);
 
   eF_checkParameter($values['foreign_ID'], 'id') OR $values['foreign_ID'] = 0;
   $_SESSION['s_lesson_user_type'] != 'student' OR $values['private'] = 1;

@@ -3609,6 +3609,7 @@ class EfrontCourse
                 'course_only' => true,
                 'directions_ID' => $this -> course['directions_ID']));
    $lessonFile = new EfrontFile($courseFile['directory'].'/'.$value['lessons_ID'].'_exported.zip');
+   $lessonFile = $lessonFile -> copy($lesson -> getDirectory());
    $lesson -> import($lessonFile, false, false, true);
    $this -> addLessons($lesson);
    $this -> replaceLessonInCourseRules($value['lessons_ID'], $lesson);

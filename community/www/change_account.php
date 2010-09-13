@@ -23,10 +23,13 @@ try {
                 setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID, time() + 300);
             }
    unset($_SESSION['referer']);
-   if ($GLOBALS['configuration']['login_redirect_page'] == "user_dashboard" && $newUser -> user['user_type'] != "administrator") {
-    echo $newUser -> user['user_type'].'page.php?ctg=personal';
+   $redirectPage = $GLOBALS['configuration']['login_redirect_page'];
+   if ($redirectPage == "user_dashboard" && $newUser -> user['user_type'] != "administrator") {
+    echo 'userpage.php?ctg=personal';
+   }elseif (strpos($redirectPage, "module") !== false) {
+    echo 'userpage.php?ctg=landing_page';
    } else {
-    echo $newUser -> user['user_type'].'page.php';
+    echo 'userpage.php';
    }
         }
     }

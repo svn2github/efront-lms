@@ -182,6 +182,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   }
  }
  $smarty -> assign("T_LOGIN", $_GET['edit_user']);
+ $smarty -> assign("T_EDITEDUSER", $editedUser);
  //Set the avatar
  try {
   $avatarsFileSystemTree = new FileSystemTree(G_SYSTEMAVATARSPATH);

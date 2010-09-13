@@ -135,9 +135,13 @@ try {
   }
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'completed', 'score'));
-
-   $lessons = $courseUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsTable_source']));
-   $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+   $course = new EfrontCourse($_GET['courseLessonsTable_source']);
+   $courseLessons = $course -> getCourseLessons();
+   $userLessons = $courseUser -> getUserStatusInCourseLessons($course);
+   foreach ($userLessons as $key => $value) {
+    $courseLessons[$key] = $value;
+   }
+   $lessons = EfrontLesson :: convertLessonObjectsToArrays($courseLessons);
    $dataSource = $lessons;
   }
 
@@ -146,7 +150,6 @@ try {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'active_in_course', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
     $constraints = array('archive' => false, 'active' => true, 'instance' => false) + createConstraintsFromSortedTable();
-    pr($constraints);
     $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($showUnassigned) {

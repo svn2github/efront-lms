@@ -120,8 +120,8 @@ try {
   foreach ($loadedModules as $module) {
    unset($InnertableHTML);
      $centerLinkInfo = $module -> getCenterLinkInfo();
-    $InnertableHTML = $module -> getDashboardModule();
-    $InnertableHTML ? $module_smarty_file = $module -> getDashboardSmartyTpl() : $module_smarty_file = false;
+    $InnertableHTML = $module -> getCatalogModule();
+    $InnertableHTML ? $module_smarty_file = $module -> getCatalogSmartyTpl() : $module_smarty_file = false;
    // If the module has a lesson innertable
    if ($InnertableHTML) {
     // Get module html - two ways: pure HTML or PHP+smarty

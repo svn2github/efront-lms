@@ -1,7 +1,7 @@
 <?php
 /**
 
- * 
+ *
 
  */
 //This file cannot be called directly, only included.
@@ -10,7 +10,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -115,7 +115,7 @@ class EfrontScorm
             switch ($value['tag']) {
                 case 'SCHEMAVERSION':
                     $scormVersion = $value['value'];
-                    if (stripos($scormVersion, '2004') !== false && (G_VERSIONTYPE == 'community' || G_VERSIONTYPE == 'standard')) { //This additional line is used in case we have the community edition                    
+                    if (stripos($scormVersion, '2004') !== false && (G_VERSIONTYPE == 'community' || G_VERSIONTYPE == 'standard')) { //This additional line is used in case we have the community edition
                         throw new EfrontContentException(_SCORM2004NOTSUPPORTED, EfrontContentException::UNSUPPORTED_CONTENT);
                     }
                     break;

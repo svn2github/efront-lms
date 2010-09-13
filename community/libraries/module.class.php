@@ -130,6 +130,10 @@ class EfrontModuleException extends Exception
 
  * - getDashboardSmartyTpl()
 
+ * - getCatalogModule()
+
+ * - getCatalogSmartyTpl() 
+
  * - getLandingPageModule()
 
  * - getLandingPageSmartyTpl()
@@ -582,6 +586,15 @@ abstract class EfrontModule
         return false;
     }
     public function getDashboardSmartyTpl() {
+        $smarty = $this->getSmartyVar();
+        $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
+        $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
+        return false;
+    }
+    public function getCatalogModule() {
+        return false;
+    }
+    public function getCatalogSmartyTpl() {
         $smarty = $this->getSmartyVar();
         $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);

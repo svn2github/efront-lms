@@ -25,7 +25,12 @@
                  <td class = "elementCell">{$T_ENTITY_FORM.status.html}</td></tr>
                  {if $T_ENTITY_FORM.status.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.status.error}</td></tr>{/if}
      {/if}
-
+    <tr><td></td><td>
+    <span>
+     <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+     <a href = "javascript:toggleEditor('comments','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+    </span>
+    </td></tr>
              <tr><td class = "labelCell">{$smarty.const._COMMENTS}:&nbsp;</td>
                  <td class = "elementCell">{$T_ENTITY_FORM.comments.html}</td></tr>
                  {if $T_ENTITY_FORM.comments.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.comments.error}</td></tr>{/if}
@@ -53,6 +58,12 @@
                  {if $T_ENTITY_FORM.status.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.status.error}</td></tr>{/if}
          {/if}
  {if !$smarty.get.edit}
+    <tr><td></td><td>
+    <span>
+     <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+     <a href = "javascript:toggleEditor('message','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+    </span>
+    </td></tr>
              <tr><td class = "labelCell">{$smarty.const._MESSAGE}:&nbsp;</td>
                  <td class = "elementCell">{$T_ENTITY_FORM.message.html}</td></tr>
                  {if $T_ENTITY_FORM.message.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.message.error}</td></tr>{/if}
@@ -75,6 +86,13 @@
              <tr><td class = "labelCell">{$smarty.const._TITLE}:&nbsp;</td>
                  <td class = "elementCell">{$T_ENTITY_FORM.poll_subject.html}</td></tr>
                  {if $T_ENTITY_FORM.poll_subject.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.poll_subject.error}</td></tr>{/if}
+             <tr><td></td><td>
+    <span>
+     <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+     <a href = "javascript:toggleEditor('poll_text','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+    </span>
+    </td></tr>
+
              <tr><td class = "labelCell">{$smarty.const._BODY}:&nbsp;</td>
                  <td class = "elementCell">{$T_ENTITY_FORM.poll_text.html}</td></tr>
                  {if $T_ENTITY_FORM.poll_text.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.poll_text.error}</td></tr>{/if}

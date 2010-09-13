@@ -389,9 +389,11 @@ var enableMyJobSelect = false;
   {*** Status ***}
   {elseif $T_OP == "status"}
    <div class="tabber">
+   {if $T_EDITEDUSER->user.user_type != 'administrator'}
      {eF_template_printBlock tabber="courses" title = $T_TITLES.status.courses data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
    {if $T_CONFIGURATION.lesson_enroll}
      {eF_template_printBlock tabber="lessons" title = $T_TITLES.status.lessons data = $smarty.capture.t_lessons_code image = '32x32/lessons.png'}
+   {/if}
    {/if}
     {if isset($T_USER_TO_GROUP_FORM)}
     <div class="tabbertab" title="{$T_TITLES.status.groups}">

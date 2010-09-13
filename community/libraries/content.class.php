@@ -195,13 +195,13 @@ class EfrontUnit extends ArrayObject
 
      * Covert unit to SCORM unit
 
-     * 
+     *
 
      * This function augments a unit so that it includes
 
      * all the scorm-related fields
 
-     * 
+     *
 
      * @param array $array The original unit
 
@@ -310,7 +310,7 @@ class EfrontUnit extends ArrayObject
                         'metadata' => $this['metadata']);
         //The special string efront#special#text is used in order to remove the (heavy) content from the nodes when traversing it. However,
         //there is a chance that the tree traversal persists values as well. So, using this special string, we know that we must not
-        //alter the content 
+        //alter the content
         if ($this['data'] == 'efront#special#text') {
             unset($fields['data']);
         }
@@ -752,7 +752,7 @@ class EfrontContentTree extends EfrontTree
 
      * These values signify the SCORM 2004 version
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -788,7 +788,7 @@ class EfrontContentTree extends EfrontTree
 
      * @param mixed $lesson Either The lesson id or an EfrontLesson object
 
-     * @param array $data If true, then the tree nodes hold data as well  
+     * @param array $data If true, then the tree nodes hold data as well
 
      * @since 3.5.0
 
@@ -878,7 +878,7 @@ class EfrontContentTree extends EfrontTree
             if (!$this -> data) {
                 $node['has_data'] ? $node['data'] = 'efront#special#text' : $node['data'] = ''; //Eliminate with 'efront#special#text' data for units that don't have any content, and set an empty space ' ' for units that have content. This is done so that the toHTML can handle differently the ones from the others. The efront#special#text is checked by persist() in order to leave data unchanged in case we are updating
             }
-            $node = new EfrontUnit($node); //We convert arrays to array objects, which is best for manipulating data through iterators            
+            $node = new EfrontUnit($node); //We convert arrays to array objects, which is best for manipulating data through iterators
             if (!isset($previousNodes[$node['previous_content_ID']])) {
                 $previousNodes[$node['previous_content_ID']] = $node;
             } else {
@@ -939,7 +939,7 @@ class EfrontContentTree extends EfrontTree
             }
         }
         $this -> tree = new RecursiveArrayIterator($tree);
-        //Create arrays for assigning the immediate children and the parents of each unit. These will come especially handy for SCORM 2004 calculations 
+        //Create arrays for assigning the immediate children and the parents of each unit. These will come especially handy for SCORM 2004 calculations
         $this -> immediateDescendants = array();
         $this -> nodeParents = array();
         foreach (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($tree), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
@@ -1029,13 +1029,13 @@ class EfrontContentTree extends EfrontTree
   //        $units[$value['content_ID']]['rules']['rule'] = $allRules[$value['id']];
          //   $value['rule'] = $allRules[$value['id']]['rule'];
          //   $units[$value['content_ID']]['rules'][$key] = $value;
-//pr($value); 
-//pr($allRules[$value['id']]);           
+//pr($value);
+//pr($allRules[$value['id']]);
             //$units[$value['content_ID']] = array_merge($units[$value['content_ID']], $allRules[$value['id']]);
-//pr($units[$value['content_ID']]);            
+//pr($units[$value['content_ID']]);
   }
-     //  pr($value); 
-/*        
+     //  pr($value);
+/*
 
         $result = eF_getTableData("scorm_sequencing_rollup_rules", "*", "content_ID in ($scormContentIds)");
 
@@ -1063,7 +1063,7 @@ class EfrontContentTree extends EfrontTree
 
             $array['rules'][$key]['rule'] = $result;
 
-        }        
+        }
 
 */
         return $units;
@@ -1776,7 +1776,7 @@ class EfrontContentTree extends EfrontTree
     public function copyTest($testId, $targetUnit = false, $copyQuestions = true) {
         $oldTest = new EfrontTest($testId);
         $oldUnit = $oldTest -> getUnit();
-        $oldUnit['data'] = $oldTest -> test['description']; //Hack in order to successfully copy files. It will be removed when we implement the new copy/export framework 
+        $oldUnit['data'] = $oldTest -> test['description']; //Hack in order to successfully copy files. It will be removed when we implement the new copy/export framework
         $newUnit = $this -> copySimpleUnit($oldUnit, $targetUnit);
         $oldTest -> test['description'] = $newUnit['data']; //As above
         $newTest = EfrontTest::createTest($newUnit, $oldTest -> test);
@@ -1940,7 +1940,7 @@ class EfrontContentTree extends EfrontTree
 
      * @param mixed $previousUnit The id of the previous unit (or the unit itself) of the new unit, or false (the unit will be put to the end of the units)
 
-     * @param boolean $copyFiles whether to copy files as well. 
+     * @param boolean $copyFiles whether to copy files as well.
 
      * @param boolean $copyQuestions Whether to copy questions as well
 
@@ -1998,7 +1998,7 @@ class EfrontContentTree extends EfrontTree
                         str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
                         $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceUnit['lessons_ID']."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data, -1, $count);
                     }
-                } //this means that the file already exists            
+                } //this means that the file already exists
             }
             $unit -> offsetSet('data', $data);
          if ($file && $unit['ctg_type'] == 'scorm' || $unit['ctg_type'] == 'scorm_test') {
@@ -2304,7 +2304,7 @@ class EfrontContentTree extends EfrontTree
 
 				$liClass[] = $ctgType.'_incomplete';
 
-				$tooltip[] = '('._TESTSTARTEDAT.': '.formatTimestamp($current['incomplete'], 'time').')';				
+				$tooltip[] = '('._TESTSTARTEDAT.': '.formatTimestamp($current['incomplete'], 'time').')';
 
 
 
@@ -2475,15 +2475,15 @@ class EfrontContentTree extends EfrontTree
 
      * Get node ancestors - cached
 
-     * 
+     *
 
      * This function overloads EfrontTree : getNodeAncestors to support for caching
 
-     * 
+     *
 
      * @param mixed $node Either the node id or an EfrontNode object
 
-     * @param boolean $refresh Whether to refresh the cached copy 
+     * @param boolean $refresh Whether to refresh the cached copy
 
      * @see libraries/EfrontTree#getNodeAncestors()
 
@@ -2506,13 +2506,13 @@ class EfrontContentTree extends EfrontTree
 
 	 * Create empty units from an array
 
-	 * 
+	 *
 
 	 * This functions takes a nested array of names and converts them to an hierarchy
 
-	 * of empty units. 
+	 * of empty units.
 
-	 * 
+	 *
 
 	 * @param array $structure The names that will be converted to a units structure
 
@@ -2905,7 +2905,7 @@ class EfrontContentFilterIterator extends FilterIterator
 
  * Iterator for removing data from nodes
 
- * 
+ *
 
  * @package eFront
 

@@ -1152,7 +1152,7 @@ function eF_checkParameter($parameter, $type, $correct = false)
             }
        break;
        case 'path':
-           if (preg_match("/^.*[$\'\"]+.*$/", $parameter)) {
+           if (preg_match("/^.*[$\"]+.*$/", $parameter)) {
                 return false;
             }
        break;

@@ -1,7 +1,7 @@
 <?php
 /**
 
- * 
+ *
 
  */
 //This file cannot be called directly, only included.
@@ -10,7 +10,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -426,7 +426,7 @@ class EfrontIMS
 
          * - type (xs:string, m): the type of the resource
 
-         * - href (xs:string, o): the “entry point” or “launching point” of this resource
+         * - href (xs:string, o): the ï¿½entry pointï¿½ or ï¿½launching pointï¿½ of this resource
 
          * - xml:base (xs:anyURI, o): a relative path offset for the files contained in the manifest
 

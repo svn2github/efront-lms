@@ -804,6 +804,15 @@ index_link:{
 linkdescription : 'Συνδεθείτε',
 link_desc : 'Σύνδεσμος για σύνδεση'
 },
+save_template_dlg:{
+save_template_title : 'Αποθήκευση ως πρότυπο',
+save_template_name : 'Όνομα αρχείου',
+save : 'Αποθήκευση',
+save_template_desc : 'Αποθήκευση περιεχομένου κειμενογράφου ως πρότυπο',
+fileexists : 'Το όνομα αρχείου υπάρχει ήδη',
+filesaved : 'Το πρότυπο αποθηκεύτηκε επιτωχώς',
+problem : 'Πρόβλημα κατά την αποθήκευση του προτύπου'
+},
 java_dlg:{
 title : 'Εισαγωγή / διόρθωση αρχείου Java',
 desc : 'Εισαγωγή / διόρθωση αρχείου Java',

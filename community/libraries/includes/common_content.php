@@ -209,7 +209,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                                <span>'._CLICKTOSTARTUNIT.'</span><br/>
                             <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "'.$values['popup_parameters'].'")\' >
                            </div>';
-     } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'window.open') !== false) { //in case changing only popup parameters field	
+     } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'window.open') !== false) { //in case changing only popup parameters field
       preg_match("/\"scormFrameName\".*\"\)'/U", $currentUnit['data'], $matches);
       $currentUnit['data'] = preg_replace("/\"scormFrameName\".*\"\)'/U", '"scormFrameName", "'.$values['popup_parameters'].'")\'' , $currentUnit['data']);
      }

@@ -203,9 +203,15 @@ class module_certificates extends EfrontModule {
     $filenameRtf = "certificate_".$_GET['user'].".rtf";
     $filenamePdf = G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".pdf";
     file_put_contents(G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".rtf", $certificate);
-    $RetValues = file(G_SERVERNAME."phplivedocx/samples/mail-merge/convert/convert-document.php?filename=certificate_".$_GET['user']);
+    $webserver = explode(' ',$_SERVER['SERVER_SOFTWARE']); //GET Server information from $_SERVER
+    $webserver_type = explode('/', $webserver[0]);
 
-    if ($RetValues[0] == "true") {
+    if (stristr($webserver_type[0], "IIS") === false) { //because of note here http://php.net/manual/en/function.file.php
+     $retValues = file(G_SERVERNAME."phplivedocx/samples/mail-merge/convert/convert-document.php?filename=certificate_".$_GET['user']);
+    } else {
+     $retValues[0] == "false";
+    }
+    if ($retValues[0] == "true") {
      header("Content-type: application/pdf");
      header("Content-disposition: inline; filename=$filename");
      $filePdf = file_get_contents($filenamePdf);

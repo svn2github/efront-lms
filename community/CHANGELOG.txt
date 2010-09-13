@@ -10,6 +10,7 @@
 - Fixed stripping html tags in notifications without html option checked
 - Fixed issue in educational version about autocompleting recipients
 - Fixed issue about downloading language files
+- Fixed issue about displaying test name in preview/print test
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

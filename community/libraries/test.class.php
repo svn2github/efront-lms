@@ -2010,7 +2010,6 @@ class EfrontTest
                     var questionSec = new Array();
                     var showtest=1;
      </script>';
-        if (!$this -> options['duration']) {
             $str .= '
             <table class = "doneTestHeader">
                 <tr><td id = "doneTestImage">
@@ -2024,7 +2023,7 @@ class EfrontTest
                         </table>
                     </td></tr>
             </table>';
-        } else {
+        if ($this -> options['duration']) {
             if (!$remainingTime) {
                 $remainingTime = eF_convertIntervalToTime($this -> options['duration']);
             } else {

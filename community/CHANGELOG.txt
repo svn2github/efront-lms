@@ -17,6 +17,7 @@
 - Installing modules now handles existing folder error
 - Fixed course import leaving out lesson files
 - Fixed issue about exporting certificates to pdf format(EC-142)
+- Fixed issue about displaying footer when option is unchecked in System settings
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

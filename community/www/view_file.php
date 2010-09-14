@@ -3,7 +3,7 @@
 
 * View file
 
-* 
+*
 
 * This file offers the user the ability to view and/or download a file.
 
@@ -21,21 +21,21 @@ $path = "../libraries/";
 //Turn output buffering off, since it messes up files
 define("NO_OUTPUT_BUFFERING", true);
 /** Configuration file.*/
-include_once $path."configuration.php";
-if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
-    try {
-        $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
-    } catch (EfrontException $e) {
-        $message = $e -> getMessage().' ('.$e -> getCode().')';
-        eF_redirect("index.php?message=".urlencode($message)."&message_type=failure");
-        exit;
-    }
-} else {
-    eF_redirect("index.php?message=".urlencode(_YOUCANNOTACCESSTHISPAGE)."&message_type=failure");
-    exit;
-}
+require_once $path."configuration.php";
 try {
-    $file = new EfrontFile($_GET['file']);
+ $currentUser = EfrontUser :: checkUserAccess();
+} catch (Exception $e) {
+ eF_redirect("index.php?message=".urlencode($message = $e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure", true);
+ exit;
+}
+//pr($_SERVER);pr($_GET);exit;
+try {
+ if (isset($_GET['server'])) {
+  $urlParts = parse_url($_SERVER['REQUEST_URI']);
+  $file = new EfrontFile($_SERVER['DOCUMENT_ROOT'].$urlParts['path']);
+ } else {
+     $file = new EfrontFile($_GET['file']);
+ }
  if (strpos($file['path'], G_ROOTPATH.'libraries') !== false && strpos($file['path'], G_ROOTPATH.'libraries/language') === false && $file['mime_type'] != "application/inc") {
   throw new EfrontFileException(_ILLEGALPATH.': '.$file['path'], EfrontFileException :: ILLEGAL_PATH);
  }

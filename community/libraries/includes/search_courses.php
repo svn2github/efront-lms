@@ -114,7 +114,6 @@ if (isset($_GET['ajax'])) {
     if ($found) {
 
         $employees = eF_getTableData($dif_tables, "users.*",$search_string,"");
-//pr($employees);
 
         // @todo: problem with professors in one and students in another course
         foreach ($employees as $userId => $employee) {
@@ -198,18 +197,31 @@ for ($i = ($thisyear-45); $i < ($thisyear+2); $i++) {
 }
 
 $date_conditions = array("1" => _FROM, "2" => _ON, "3"=> _TO);
+
+// Create the main menu headers
+
+
+
+
+
+
+
 $form -> addElement('select', 'courses' , null, $course_list ,'id="courses_row" onchange="javascript:ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'condition' , null, array("1" => _COMPLETED, "2" => _NOTCOMPLETED, "3" => _NOTASSIGNED),'id="condition_row" onchange="javascript: show_hide_dates(\\\'row\\\', this);ajaxPostSearch(\\\'row\\\',this);"');
+
 $form -> addElement('select', 'from_date_cond' , null, $date_conditions ,'id="from_date_cond_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'from_date_day' , null, $days ,'id="from_date_day_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'from_date_month' , null, $months,'id="from_date_month_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'from_date_year' , null, $years,'id="from_date_year_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
+
 $form -> addElement('select', 'to_date_cond' , null, $date_conditions ,'id="to_date_cond_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'to_date_day' , null, $days ,'id="to_date_day_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'to_date_month' , null, $months,'id="to_date_month_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
 $form -> addElement('select', 'to_date_year' , null, $years,'id="to_date_year_row" onchange="ajaxPostSearch(\\\'row\\\',this);"');
+
 // Hidden where the current query is stored
 $form -> addElement('hidden', 'query' , null, 'id="query"');
+
 // Set today as the default to-date
 $today = getdate(time());
 $form -> setDefaults(array( 'from_date_cond' => '1',
@@ -217,6 +229,7 @@ $form -> setDefaults(array( 'from_date_cond' => '1',
                             'to_date_day' => $today['mday'],
                             'to_date_month' => $today['mon'],
                             'to_date_year' => $today['year']));
+
 // Render and create the form
 $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
 $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
@@ -224,10 +237,17 @@ $form -> setRequiredNote(_REQUIREDNOTE);
 $form -> accept($renderer);
 $smarty -> assign("T_EMPLOYEES_SIZE", 0);
 $smarty -> assign('T_SEARCH_COURSE_USERS_FORM', $renderer -> toArray());
+
 /* Create the link to the search for course user page */
 if ($currentUser -> getType() == "administrator") {
+
+
+
+
   $options = array(array('image' => '16x16/scorm.png', 'title' => _SEARCHFORUSER, 'link' => $_SESSION['s_type'].'.php?ctg=search_users' , 'selected' => false),
        array('image' => '16x16/glossary.png', 'title' => _SEARCHCOURSEUSERS, 'link' => 'administrator.php?ctg=search_courses', 'selected' => true));
+
+
  $smarty -> assign("T_TABLE_OPTIONS", $options);
 }
 ?>

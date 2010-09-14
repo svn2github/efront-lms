@@ -13,8 +13,10 @@
 - Fixed administrator user types displaying course-specific tabs in learning status page
 - Community++ now supports subscriptions
 - Fixed issue about displaying test name in preview/print test
+- Fixed issue in search_courses about join
 - Installing modules now handles existing folder error
 - Fixed course import leaving out lesson files
+- Fixed issue about exporting certificates to pdf format(EC-142)
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

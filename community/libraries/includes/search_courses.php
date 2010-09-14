@@ -50,11 +50,11 @@ if (isset($_GET['ajax'])) {
                 }
                 $search_string .= "NOT EXISTS (SELECT users_login FROM users_to_courses AS users_to_courses".$id." WHERE users_to_courses".$id.".courses_ID = '".$value."' AND users_to_courses".$id.".users_login = login) ";
             } else {
-                $dif_tables .= " LEFT OUTER JOIN users_to_courses as users_to_courses".$id." ON users.login = users_to_courses".$id.".users_login";
+                $dif_tables .= " JOIN users_to_courses as users_to_courses".$id." ON users.login = users_to_courses".$id.".users_login";
                 if ($search_string != "") {
                     $search_string .= " AND ";
                 }
-                $search_string .= "users_to_courses".$id.".courses_ID = '".$value."' ";
+                $search_string .= "users_to_courses".$id.".courses_ID = '".$value."' and users.active=1";
 
                 if (!isset($_GET['condition_'.$id]) || $_GET['condition_'.$id] == '' || $_GET['condition_'.$id] == '1') {
                     $search_string .= " AND users_to_courses".$id.".completed = '1' ";
@@ -113,7 +113,7 @@ if (isset($_GET['ajax'])) {
 
     if ($found) {
 
-        $employees = eF_getTableData($dif_tables, "users.*",$search_string,"","login limit ".G_DEFAULT_TABLE_SIZE);
+        $employees = eF_getTableData($dif_tables, "users.*",$search_string,"");
 //pr($employees);
 
         // @todo: problem with professors in one and students in another course

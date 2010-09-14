@@ -213,7 +213,7 @@ class module_certificates extends EfrontModule {
     }
     if ($retValues[0] == "true") {
      header("Content-type: application/pdf");
-     header("Content-disposition: inline; filename=$filename");
+     header("Content-disposition: inline; filename=$filenamePdf");
      $filePdf = file_get_contents($filenamePdf);
      header("Content-length: " . strlen($filePdf));
      echo $filePdf;

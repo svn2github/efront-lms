@@ -626,7 +626,7 @@ class EfrontEvent
      //}
      // By default all notifications will be sent
      if ($send_notification) {
-      $event = new EfrontEvent($fields); // this should create an event instance for our class
+      $event = new EfrontEvent($fields); // this should create an event instance for our class	
       $event -> appendNewNotification($event_types); // append this notification to the email queue
      }
     }

@@ -823,6 +823,16 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         } else if (isset($this -> recipients['entity_ID']) && isset($this -> recipients['entity_category'])) {
          if ($this -> recipients['entity_category'] == "survey") {
           $recipients = eF_getTableData("users_to_surveys JOIN users ON users_LOGIN = users.login", "users.*", "surveys_ID = '".$this -> recipients["entity_ID"]."'");
+       $resDone = eF_getTableDataFlat("users_to_done_surveys", "users_LOGIN", "surveys_ID=".$this -> recipients["entity_ID"]);
+          $usersToSent = array();
+          if (!empty($resDone['users_LOGIN'])){
+        foreach ($recipients as $key => $value) {
+         if (!in_array($value['login'], $resDone['users_LOGIN'])){
+          $usersToSent[] = $value;
+         }
+        }
+        $recipients = $usersToSent;
+          }
          } else if ($this -> recipients['entity_category'] == "projects") {
        $recipients = eF_getTableData("users_to_projects JOIN users ON users_LOGIN = users.login", "users.*", "projects_ID = '".$this -> recipients["entity_ID"]."'");
          }

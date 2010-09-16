@@ -1127,7 +1127,7 @@ CREATE TABLE files (
   description text,
   groups_ID mediumint(8) unsigned not null default 0,
   access smallint(3) unsigned not null default 755,
-  shared tinyint(1) default 0,
+  shared mediumint(8) unsigned default 0,
   metadata text,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;

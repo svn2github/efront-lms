@@ -19,6 +19,9 @@
 - Fixed issue about exporting certificates to pdf format(EC-142)
 - Fixed issue about displaying footer when option is unchecked in System settings
 - Enabled restriction on access to content files without a user being logged in
+- Removed "lesson users" option from professor's administration when a lesson is in course
+- Lessons in "my courses" list is now being sorted by name
+- Projects now allow for decimal or fractional score
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

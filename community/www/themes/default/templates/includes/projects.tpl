@@ -265,7 +265,7 @@
                         {/if}
                                         </tr>
                         {foreachelse}
-                                        <tr class = "defaultRowHeight oddRowColor"><td class = "centerAlign emptyCategory" colspan = "100%">{$smarty.const._NOPROJECTS}</td></tr>
+                                        <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
                         {/foreach}
                                     </table>
         {/capture}
@@ -316,7 +316,7 @@
                         {/if}
                                         </tr>
                         {foreachelse}
-                                        <tr class = "defaultRowHeight oddRowColor"><td class = "centerAlign emptyCategory" colspan = "100%">{$smarty.const._NOPROJECTS}</td></tr>
+                                        <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
                         {/foreach}
                                     </table>
         {/capture}

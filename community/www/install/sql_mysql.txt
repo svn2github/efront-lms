@@ -1093,7 +1093,7 @@ CREATE TABLE users_to_projects (
   projects_ID mediumint(8) unsigned NOT NULL default '0',
   status tinyint(1) NOT NULL default '0',
   comments text,
-  grade tinyint(3) unsigned DEFAULT NULL,
+  grade float default NULL,
   filename varchar(255) default NULL,
   upload_timestamp int(10) unsigned default NULL,
   primary key (users_LOGIN, projects_ID)

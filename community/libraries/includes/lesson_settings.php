@@ -12,7 +12,10 @@ $options = array(
    2 => array('image' => '16x16/refresh.png', 'title' => _RESTARTLESSON, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=reset_lesson' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'reset_lesson' ? true : false),
    3 => array('image' => '16x16/import.png', 'title' => _IMPORTLESSON, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=import_lesson', 'selected' => isset($_GET['op']) && $_GET['op'] == 'import_lesson' ? true : false),
    4 => array('image' => '16x16/export.png', 'title' => _EXPORTLESSON, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=export_lesson', 'selected' => isset($_GET['op']) && $_GET['op'] == 'export_lesson' ? true : false),
-   5 => array('image' => '16x16/users.png', 'title' => _LESSONUSERS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=lesson_users', 'selected' => isset($_GET['op']) && $_GET['op'] == 'lesson_users' ? true : false));
+   );
+if (!$currentLesson -> lesson['course_only']) {
+ $options[] = array('image' => '16x16/users.png', 'title' => _LESSONUSERS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=lesson_users', 'selected' => isset($_GET['op']) && $_GET['op'] == 'lesson_users' ? true : false);
+}
 
    //Unset values based on user's type restrictions
 if (isset($currentUser -> coreAccess['content']) && $currentUser -> coreAccess['content'] != 'change') {

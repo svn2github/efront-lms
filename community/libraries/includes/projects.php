@@ -51,9 +51,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         $currentProject = $projects[$_GET['delete_project']];
         $currentProject -> delete();
     } catch (Exception $e) {
-        $message = _PROJECTCOULDNOTBEDELETED.': '.$e -> getMessage().' ('.$e -> getCode().')';
-        header("HTTP/1.0 500 ");
-        echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+     handleAjaxExceptions($e);
     }
     exit;
 } else if (isset($_GET['compress_data']) && in_array($_GET['compress_data'], array_keys($projects)) && $_professor_) { //download project data
@@ -358,9 +356,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
                 $currentProject -> grade($_GET['login'], $_GET['grade']);
             }
         } catch (Exception $e) {
-            $message = _PROJECTCOULDNOTBEDELETED.': '.$e -> getMessage().' ('.$e -> getCode().')';
-            header("HTTP/1.0 500 ");
-            echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     }

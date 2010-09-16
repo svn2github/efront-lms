@@ -727,8 +727,15 @@ class EfrontDirectionsTree extends EfrontTree
    }
    if ($_COOKIE['display_all_courses'] == '0' && $roleBasicType == 'student' && ($treeLesson -> lesson['completed'] || (!is_null($treeLesson -> lesson['remaining']) && $treeLesson -> lesson['remaining'] <= 0))) {
     unset($lessons[$key]);
+   } else {
+    $lessonNames[$key] = $treeLesson -> lesson['name'];
    }
   }
+  asort($lessonNames);
+  foreach ($lessonNames as $key => $foo) {
+   $temp[$key] = $lessons[$key];
+  }
+  $lessons = $temp;
   return $lessons;
  }
  private function parseTreeCourses($courses) {

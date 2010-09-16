@@ -18,7 +18,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
  * Class for projects
 
- * 
+ *
 
  * @package eFront
 
@@ -70,7 +70,7 @@ class EfrontProject {
 
      * The project users
 
-     * 
+     *
 
      * @since 3.5.0
 
@@ -84,7 +84,7 @@ class EfrontProject {
 
      * The project properties
 
-     * 
+     *
 
      * @since 3.5.0
 
@@ -98,11 +98,11 @@ class EfrontProject {
 
      * Initialize project
 
-     * 
+     *
 
      * This function is used to initialize the designated project
 
-     * 
+     *
 
      * @param $project The project initialization data
 
@@ -130,7 +130,7 @@ class EfrontProject {
 
      * Get users for project
 
-     * 
+     *
 
      * This function returns a list of users that this project
 
@@ -148,7 +148,7 @@ class EfrontProject {
 
      * This object caches data; Set $refresh to true in order to receive a clean copy
 
-     * 
+     *
 
      * @param $refresh Whether to refresh cache information
 
@@ -174,7 +174,7 @@ class EfrontProject {
 
      * Assign project to users
 
-     * 
+     *
 
      * This function is used to assign one or more users to the
 
@@ -192,7 +192,7 @@ class EfrontProject {
 
      * </code>
 
-     * 
+     *
 
      * @param mixed The users to add to the project, may be a single login or an array of logins
 
@@ -220,7 +220,7 @@ class EfrontProject {
 
      * Remove project from users
 
-     * 
+     *
 
      * This function is used to remove assignment of one or more users from the
 
@@ -238,7 +238,7 @@ class EfrontProject {
 
      * </code>
 
-     * 
+     *
 
      * @param mixed The users to remove from the project, may be a single login or an array of logins
 
@@ -266,7 +266,7 @@ class EfrontProject {
 
      * Grade user
 
-     * 
+     *
 
      * This function is used to grade the project that a user uploaded
 
@@ -299,7 +299,13 @@ class EfrontProject {
         if (!in_array($login, array_keys($this -> getUsers()))) {
             throw new EfrontContentException(_USERDOESNOTHAVETHISPROJECT, EfrontContentException :: INVALID_LOGIN);
         }
-        if (eF_checkParameter($grade, 'uint') === false || $grade > 100) {
+        if (!is_numeric($grade)) {
+         $gradeParts = explode("/", $grade);
+         if (sizeof($gradeParts) == 2) {
+          $grade = 100*$gradeParts[0]/$gradeParts[1];
+         }
+        }
+        if (!is_numeric($grade) || $grade > 100 || $grade < 0) {
             throw new EfrontContentException(_INVALIDSCORE.': "'.$grade.'" '._SCOREMUSTBEINTEGERBETWEEN0100, EfrontContentException :: INVALID_SCORE);
         }
         if ($comments && !eF_checkParameter($comments, 'text')) {
@@ -324,9 +330,9 @@ class EfrontProject {
 
      * This function returns a list of file ids that have been posted
 
-     * for this project. this list includes the user name and surname, 
+     * for this project. this list includes the user name and surname,
 
-     * the id, full path and name of the file and finally the time it 
+     * the id, full path and name of the file and finally the time it
 
      * was uploaded.
 
@@ -338,7 +344,7 @@ class EfrontProject {
 
      * </code>
 
-     * 
+     *
 
      * @return array The list of files posted for this project
 
@@ -355,7 +361,7 @@ class EfrontProject {
 
      * Create a new project
 
-     * 
+     *
 
      * This function is used to create a new project,
 
@@ -367,7 +373,7 @@ class EfrontProject {
 
      * </code>
 
-     * 
+     *
 
      * @param array $fields The new project properties
 
@@ -396,9 +402,9 @@ class EfrontProject {
 
      * Persist project properties
 
-     * 
+     *
 
-     * This function can be used to persist with the database 
+     * This function can be used to persist with the database
 
      * any changes made to the current project object.
 
@@ -412,7 +418,7 @@ class EfrontProject {
 
      * </code>
 
-     * 
+     *
 
      * @return boolean True if everything is ok
 
@@ -428,7 +434,7 @@ class EfrontProject {
 
      * Delete the project
 
-     * 
+     *
 
      * This function is used to delete the current project.
 
@@ -446,7 +452,7 @@ class EfrontProject {
 
      * </code>
 
-     * 
+     *
 
      * @since 3.5.0
 
@@ -458,8 +464,10 @@ class EfrontProject {
     public function delete() {
         foreach ($this -> getUsers() as $value) {
             if ($value['filename']) {
-                $file = new EfrontFile($value['filename']);
-                $file -> delete();
+             try {
+                 $file = new EfrontFile($value['filename']);
+                 $file -> delete();
+             } catch (Exception $e) {/*bypass non-existing files*/}
             }
         }
         eF_deleteTableData("users_to_projects", "projects_ID=".$this -> project['id']);
@@ -469,7 +477,7 @@ class EfrontProject {
 
      * Reset the project completion
 
-     * 
+     *
 
      * This function is used to reset the current project completion.
 
@@ -487,7 +495,7 @@ class EfrontProject {
 
      * </code>
 
-     * 
+     *
 
      * @since 3.5.0
 
@@ -497,17 +505,17 @@ class EfrontProject {
 
      */
     public function reset($login = false) {
-  $users = $this -> getUsers();
-  if (!in_array($login, array_keys($users))) {
-   throw new EfrontContentException(_USERDOESNOTHAVETHISPROJECT, EfrontContentException :: INVALID_LOGIN);
-  }
-  if (eF_updateTableData("users_to_projects", array('grade' => NULL, 'comments' => NULL, 'upload_timestamp' => NULL, 'filename' => NULL), "users_LOGIN='$login' and projects_ID=".$this -> project['id'])) {
-            $file = new EfrontFile($users[$login]['filename']);
-   $file -> delete();
-   return true;
-        } else {
-            throw new EfrontContentException(_THEPROJECTGRADECOULDNOTBEUPDATED, EfrontContentException :: DATABASE_ERROR);
-        }
+     $users = $this -> getUsers();
+     if (!in_array($login, array_keys($users))) {
+      throw new EfrontContentException(_USERDOESNOTHAVETHISPROJECT, EfrontContentException :: INVALID_LOGIN);
+     }
+     $fields = array('grade' => NULL, 'comments' => NULL, 'upload_timestamp' => NULL, 'filename' => NULL);
+     eF_updateTableData("users_to_projects", $fields, "users_LOGIN='$login' and projects_ID=".$this -> project['id']);
+     try {
+      $file = new EfrontFile($users[$login]['filename']);
+      $file -> delete();
+     } catch (Exception $e) {/*Do nothing if a file does not exist*/}
+     return true;
     }
 }
 ?>

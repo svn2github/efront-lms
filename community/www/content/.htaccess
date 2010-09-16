@@ -1,1 +1,7 @@
 Options -Indexes
+<IfModule rewrite_module>
+ RewriteEngine on
+ RewriteBase /
+ RewriteCond %{REQUEST_URI} ^(.*)\/content\/lessons\/.*$
+ RewriteRule !^((.*.php)|(.*\/))$ %1/view_file.php?server=1
+</IfModule>

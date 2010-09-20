@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /*
 
@@ -34,7 +34,7 @@ class module_administrator_tools extends EfrontModule {
   return $this->moduleBaseDir."module_administrator_tools.js";
  }
     public function addScripts() {
-     return array("scriptaculous/effects", "scriptaculous/controls");
+     return array("scriptaculous/effects", "scriptaculous/controls", "includes/lesson_settings");
     }
     /*
 
@@ -244,12 +244,119 @@ class module_administrator_tools extends EfrontModule {
       } catch (Exception $e) {
        handleAjaxExceptions($e);
       }
+      $lessonSettings = $this -> getLessonSettings();
+      $smarty -> assign("T_LESSON_SETTINGS", $lessonSettings);
+      $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES, 3 => _MODULES));
+      try {
+       if (isset($_GET['ajax']) && isset($_GET['activate']) && in_array($_GET['activate'], array_keys($lessonSettings))) {
+        $this -> toggleSetting($_GET['activate'], 1);
+        exit;
+       } elseif (isset($_GET['ajax']) && isset($_GET['deactivate']) && in_array($_GET['deactivate'], array_keys($lessonSettings))) {
+        $this -> toggleSetting($_GET['deactivate'], 0);
+        exit;
+       }
+      } catch (Exception $e) {
+       handleAjaxExceptions($e);
+      }
      } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
             $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
             $message_type = 'failure';
      }
      $this -> setMessageVar($message, $message_type);
+    }
+    private function toggleSetting($setting, $enable) {
+     $result = eF_getTableData("lessons", "id, options");
+     foreach ($result as $value) {
+      $options = unserialize($value['options']);
+      $enable ? $options[$setting] = 1 : $options[$setting] = 0;
+      eF_updateTableData("lessons", array("options" => serialize($options)), "id=".$value['id']);
+      if ($setting == 'chat') {
+       if ($enable) {
+        eF_updateTableData("chatrooms", array("active" => 1), "lessons_ID = '".$value['id']."'");
+       } else {
+           eF_updateTableData("chatrooms", array("active" => 0), "lessons_ID = '".$value['id']."'");
+       }
+      }
+     }
+    }
+    private function getLessonSettings() {
+     $lessonSettings['theory'] = array('text' => _THEORY, 'image' => "32x32/theory.png", 'onClick' => 'activate(this, \'theory\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['theory']) && $currentLesson -> options['theory'] ? null : 'inactiveImage');
+     $lessonSettings['examples'] = array('text' => _EXAMPLES, 'image' => "32x32/examples.png", 'onClick' => 'activate(this, \'examples\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['examples']) && $currentLesson -> options['examples'] ? null : 'inactiveImage');
+     if ($GLOBALS['configuration']['disable_projects'] != 1) {
+      $lessonSettings['projects'] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'onClick' => 'activate(this, \'projects\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['projects']) && $currentLesson -> options['projects'] ? null : 'inactiveImage');
+     }
+     if ($GLOBALS['configuration']['disable_tests'] != 1) {
+      $lessonSettings['tests'] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'onClick' => 'activate(this, \'tests\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['tests']) && $currentLesson -> options['tests'] ? null : 'inactiveImage');
+     }
+     if ($GLOBALS['configuration']['disable_feedback'] != 1) {
+      $lessonSettings['feedback'] = array('text' => _FEEDBACK, 'image' => "32x32/feedback.png", 'onClick' => 'activate(this, \'feedback\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['feedback']) && $currentLesson -> options['feedback'] ? null : 'inactiveImage');
+     }
+     $lessonSettings['rules'] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'onClick' => 'activate(this, \'rules\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['rules']) && $currentLesson -> options['rules'] ? null : 'inactiveImage');
+     if ($GLOBALS['configuration']['disable_forum'] != 1) {
+      $lessonSettings['forum'] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'onClick' => 'activate(this, \'forum\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['forum']) && $currentLesson -> options['forum'] ? null : 'inactiveImage');
+     }
+     if ($GLOBALS['configuration']['disable_comments'] != 1) {
+      $lessonSettings['comments'] = array('text' => _COMMENTS, 'image' => "32x32/note.png", 'onClick' => 'activate(this, \'comments\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['comments']) && $currentLesson -> options['comments'] ? null : 'inactiveImage');
+     }
+     if ($GLOBALS['configuration']['disable_news'] != 1) {
+      $lessonSettings['news'] = array('text' => _ANNOUNCEMENTS, 'image' => "32x32/announcements.png", 'onClick' => 'activate(this, \'news\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['news']) && $currentLesson -> options['news'] ? null : 'inactiveImage');
+     }
+     if ($GLOBALS['configuration']['disable_online_users'] != 1) {
+      $lessonSettings['online'] = array('text' => _USERSONLINE, 'image' => "32x32/users.png", 'onClick' => 'activate(this, \'online\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['online']) && $currentLesson -> options['online'] ? null : 'inactiveImage');
+     }
+     if ($GLOBALS['configuration']['chat_enabled']) {
+      $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['chat']) && $currentLesson -> options['chat'] ? null : 'inactiveImage');
+     }
+     $lessonSettings['scorm'] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'onClick' => 'activate(this, \'scorm\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['scorm']) && $currentLesson -> options['scorm'] ? null : 'inactiveImage');
+     $lessonSettings['digital_library'] = array('text' => _DIGITALLIBRARY, 'image' => "32x32/file_explorer.png", 'onClick' => 'activate(this, \'digital_library\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['digital_library']) && $currentLesson -> options['digital_library'] ? null : 'inactiveImage');
+     if ($GLOBALS['configuration']['disable_calendar'] != 1) {
+      $lessonSettings['calendar'] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'onClick' => 'activate(this, \'calendar\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['calendar']) && $currentLesson -> options['calendar'] ? null : 'inactiveImage');
+     }
+     if ($GLOBALS['configuration']['disable_glossary'] != 1) {
+      $lessonSettings['glossary'] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'onClick' => 'activate(this, \'glossary\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['glossary']) && $currentLesson -> options['glossary'] ? null : 'inactiveImage');
+     }
+     $lessonSettings['auto_complete'] = array('text' => _AUTOCOMPLETE, 'image' => "32x32/autocomplete.png", 'onClick' => 'activate(this, \'auto_complete\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['auto_complete']) && $currentLesson -> options['auto_complete'] ? null : 'inactiveImage');
+     $lessonSettings['content_tree'] = array('text' => _CONTENTTREEFIRSTPAGE, 'image' => "32x32/content_tree.png", 'onClick' => 'activate(this, \'content_tree\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['content_tree']) && $currentLesson -> options['content_tree'] ? null : 'inactiveImage');
+     $lessonSettings['lesson_info'] = array('text' => _LESSONINFORMATION, 'image' => "32x32/information.png", 'onClick' => 'activate(this, \'lesson_info\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['lesson_info']) && $currentLesson -> options['lesson_info'] ? null : 'inactiveImage');
+     if ($GLOBALS['configuration']['disable_bookmarks'] != 1) {
+      $lessonSettings['bookmarking'] = array('text' => _BOOKMARKS, 'image' => "32x32/bookmark.png", 'onClick' => 'activate(this, \'bookmarking\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['bookmarking']) && $currentLesson -> options['bookmarking'] ? null : 'inactiveImage');
+     }
+     $lessonSettings['reports'] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'onClick' => 'activate(this, \'reports\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['reports']) && $currentLesson -> options['reports'] ? null : 'inactiveImage');
+     $lessonSettings['content_report'] = array('text' => _CONTENTREPORT, 'image' => "32x32/warning.png", 'onClick' => 'activate(this, \'content_report\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['content_report']) && $currentLesson -> options['content_report'] ? null : 'inactiveImage');
+     $lessonSettings['print_content'] = array('text' => _PRINTCONTENT, 'image' => "32x32/printer.png", 'onClick' => 'activate(this, \'print_content\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['print_content']) && $currentLesson -> options['print_content'] ? null : 'inactiveImage');
+     $lessonSettings['start_resume'] = array('text' => _STARTRESUME, 'image' => "32x32/continue.png", 'onClick' => 'activate(this, \'start_resume\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['start_resume']) && $currentLesson -> options['start_resume'] ? null : 'inactiveImage');
+     $lessonSettings['show_percentage'] = array('text' => _COMPLETIONPERCENTAGEBLOCK, 'image' => "32x32/percent.png", 'onClick' => 'activate(this, \'show_percentage\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['show_percentage']) && $currentLesson -> options['show_percentage'] ? null : 'inactiveImage');
+     $lessonSettings['show_content_tools'] = array('text' => _UNITOPTIONSBLOCK, 'image' => "32x32/options.png", 'onClick' => 'activate(this, \'show_content_tools\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['show_content_tools']) && $currentLesson -> options['show_content_tools'] ? null : 'inactiveImage');
+     $lessonSettings['show_right_bar'] = array('text' => _RIGHTBAR, 'image' => "32x32/hide_right.png", 'onClick' => 'activate(this, \'show_right_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['show_right_bar']) && $currentLesson -> options['show_right_bar'] ? null : 'inactiveImage');
+     $lessonSettings['show_left_bar'] = array('text' => _LEFTBAR, 'image' => "32x32/hide_left.png", 'onClick' => 'activate(this, \'show_left_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['show_left_bar']) && $currentLesson -> options['show_left_bar'] ? null : 'inactiveImage');
+     $lessonSettings['show_student_cpanel'] = array('text' => _STUDENTCPANEL, 'image' => "32x32/options.png", 'onClick' => 'activate(this, \'show_student_cpanel\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['show_student_cpanel']) && $currentLesson -> options['show_student_cpanel'] ? null : 'inactiveImage');
+     $lessonSettings['show_dashboard'] = array('text' => _DASHBOARD, 'image' => "32x32/generic.png", 'onClick' => 'activate(this, \'show_dashboard\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => !isset($currentLesson -> options['show_dashboard']) || $currentLesson -> options['show_dashboard'] ? null : 'inactiveImage');
+     if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
+      $lessonSettings['show_horizontal_bar'] = array('text' => _SHOWHORIZONTALBAR, 'image' => "32x32/export.png", 'onClick' => 'activate(this, \'show_horizontal_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => !isset($currentLesson -> options['show_horizontal_bar']) || $currentLesson -> options['show_horizontal_bar'] ? null : 'inactiveImage');
+     }
+     foreach (eF_loadAllModules(true) as $module) {
+      if ($module -> isLessonModule()) {
+       // The $setLanguage variable is defined in globals.php
+       if (!in_array("administrator", $module -> getPermittedRoles())) {
+        $mod_lang_file = $module -> getLanguageFile($setLanguage);
+        if (is_file ($mod_lang_file)) {
+         require_once $mod_lang_file;
+        }
+       }
+       // The $setLanguage variable is defined in globals.php
+       if (!in_array("administrator", $module -> getPermittedRoles())) {
+        $mod_lang_file = $module -> getLanguageFile($setLanguage);
+        if (is_file ($mod_lang_file)) {
+         require_once $mod_lang_file;
+        }
+       }
+       $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 3, 'class' => ($currentLesson -> options[$module -> className] == 1) ? null : 'inactiveImage');
+      }
+     }
+     $lessonSettings[$key]['onClick'] = 'activate(this, \''.$key.'\')';
+     $lessonSettings[$key]['style'] = 'color:inherit';
+     return $lessonSettings;
     }
     /*
 

@@ -6,4 +6,5 @@ define("_MODULE_ADMINISTRATOR_TOOLS_SELECTUSERTOCHANGELOGINFOR", "Select user to
 define("_MODULE_ADMINISTRATOR_TOOLS_CHANGELOGIN", "Change login");
 define("_MODULE_ADMINISTRATOR_TOOLS_USERALREADYEXISTS", "A user with this login already exists");
 define("_MODULE_ADMINISTRATOR_TOOLS_OPERATIONCOMPLETEDSUCCESSFULLYBUTHEFOLLOWINGTABLESCOULDNOTBEUPDATED", "Operation completed successfully but the following tables could not be updated");
+define("_MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS", "Global lesson settings");
 ?>

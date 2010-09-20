@@ -36,10 +36,9 @@ try {
 
         if (class_exists($className)) {
             $module = new $className("administrator.php?ctg=module&op=".$className, $folder);
-            $module -> onUninstall();
-        } else {
-            $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
-            $message_type = 'failure';
+            try {
+             $module -> onUninstall();
+            } catch (Exception $e) {/*Do nothing*/}
         }
 
         // PROBLEM: if the folder is open and cannot be deleted then the module cannot be reinstalled
@@ -47,8 +46,6 @@ try {
         $folder -> delete();
         eF_deleteTableData("modules", "className='".$className."'");
 
-        $message = _SUCCESFULLYDELETEDMODULE;
-        $message_type = 'success';
         exit;
     } elseif(isset($_GET['activate_module']) && eF_checkParameter($_GET['activate_module'], 'filename')) {
         if (isset($currentUser -> coreAccess['modules']) && $currentUser -> coreAccess['modules'] != 'change') {

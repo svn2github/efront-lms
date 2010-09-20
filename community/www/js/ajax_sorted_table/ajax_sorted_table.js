@@ -661,11 +661,11 @@ function eF_js_sortTable(el, other) {
         div.appendChild(input); //Append it to the footer cell
         if (activeFilter[tableIndex]) {
          if (getCookie('toggle_active') == 1) {
-          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_green.png', alt:'', title:'', onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
+          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_green.png', alt:sorted_translations['_SHOWINGONLYACTIVEENTITIES'], title:sorted_translations['_SHOWINGONLYACTIVEENTITIES'], onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
          } else if (getCookie('toggle_active') == -1) {
-          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_red.png', alt:'', title:'', onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
+          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_red.png', alt:sorted_translations['_SHOWINGONLYINACTIVEENTITIES'], title:sorted_translations['_SHOWINGONLYINACTIVEENTITIES'], onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
          } else {
-          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_on.png', alt:'', title:'', onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
+          div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_on.png', alt:sorted_translations['_SHOWINGALLENTITIES'], title:sorted_translations['_SHOWINGALLENTITIES'], onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
          }
         }
   // Enterprise filters

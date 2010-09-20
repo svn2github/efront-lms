@@ -1298,6 +1298,7 @@ width:100%;
 height:400px;
 }
 
+
 /*PHPinfo classes*/
 .phpinfodisplay {background-color: #ffffff; color: #000000;font-size:16px}
 .phpinfodisplay hr {margin-left:0px}
@@ -1451,6 +1452,10 @@ vertical-align:middle;
    margin:0px;
    width:100%;
    height: 100%;
+}
+.mceContentBody#tinymce p {
+  margin: 0; 
+  padding: 0; 
 }
 sup{font-size:xx-small; vertical-align:top!important;}
 sub{font-size:xx-small; vertical-align:bottom!important;}

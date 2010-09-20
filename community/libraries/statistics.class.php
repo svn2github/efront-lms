@@ -3373,5 +3373,41 @@ class EfrontStats
   $report['rules']['columns'] = array_values($report['rules']['columns']); //reindex array
   eF_updateTableData("advanced_user_reports", array('rules' => serialize($report['rules'])), "id=".$report['id']);
  }
+ public static function getQuestionResponseDetails($testStats) {
+  $userQuestions = array();
+  foreach ($testStats as $value) {
+   foreach ($value as $user => $testAttempts) {
+    foreach ($testAttempts as $testAttempt) {
+     $test = unserialize($testAttempt['test']);
+     foreach ($test -> questions as $question) {
+      $answers = array();
+      if (($question instanceOf MultipleManyQuestion)) {
+       foreach ($question -> order as $index) {
+        if ($question -> userAnswer[$index]) {
+         $answers[] = $question -> options[$index];
+        }
+       }
+      } elseif (($question instanceOf MatchQuestion) || ($question instanceOf DragDropQuestion)) {
+       foreach ($question -> order as $index) {
+        $answers[] = $question -> options[$index].'&nbsp;&rarr;&nbsp;'.$question -> answer[$question -> userAnswer[$index]];
+       }
+      } elseif (($question instanceOf EmptySpacesQuestion) || ($question instanceOf TrueFalseQuestion)) {
+       $answers[] = $question -> userAnswer ? _FALSE : _TRUE;
+      } elseif (($question instanceOf MultipleOneQuestion)) {
+       foreach ($question -> order as $index) {
+        if ($question -> userAnswer == $index) {
+         $answers[] = $question -> options[$index];
+        }
+       }
+      } elseif (($question instanceOf RawTextQuestion)) {
+       $answers[] = $question -> userAnswer;
+      }
+      $userQuestions[$question -> question['id']][$user] = implode(",", $answers);
+     }
+    }
+   }
+  }
+  return $userQuestions;
+ }
 }
 ?>

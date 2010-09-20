@@ -3867,4 +3867,9 @@ define("_CREATECALENDAREVENT", "Create calendar event");
 define("_OVERWRITEIFFOLDEREXISTS", "Overwrite existing folder");
 define("_LANDINGPAGE","Landing page");
 define("_EXPORTTOXLS", "Export to xls");
+define("_SURVEYFAILEDTOBEPUBLISHED", "Survey failed to be published");
+define("_RESPONSEDETAILS", "Response details");
+define("_SHOWINGONLYACTIVEENTITIES", "Showing only active entities");
+define("_SHOWINGONLYINACTIVEENTITIES", "Showing only inactive entities");
+define("_SHOWINGALLENTITIES", "Showing both active and inactive entities");
 ?>

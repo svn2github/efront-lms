@@ -2191,6 +2191,9 @@ abstract class EfrontLessonUser extends EfrontUser
   if (!is_array($userTypes)) {
    $userTypes = array($userTypes);
   }
+  if (sizeof($userTypes) < sizeof($lessonIds)) {
+    $userTypes = array_pad($userTypes, sizeof($lessonIds), $userTypes[0]);
+  }
   $lessons = eF_getTableData("lessons", "*", "id in (".implode(",", $lessonIds).")");
   foreach ($lessons as $key => $lesson) {
    $lesson = new EfrontLesson($lesson);

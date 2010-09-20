@@ -1416,6 +1416,10 @@ td.smallIconCell{
 width:16px;
 vertical-align:middle;
 }
+.mceContentBody#tinymce p {
+  margin: 0; 
+  padding: 0; 
+}
 sup{font-size:xx-small; vertical-align:top!important;}
 sub{font-size:xx-small; vertical-align:bottom!important;}
 /*other deprecated elements*/

@@ -1,5 +1,3 @@
-
-
 {include file = "includes/header.tpl"}
 
 {if $smarty.session.s_lessons_ID}

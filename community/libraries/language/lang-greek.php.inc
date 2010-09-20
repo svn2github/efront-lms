@@ -3867,4 +3867,9 @@ define("_CREATECALENDAREVENT", "Kαταγραφή στο ημερολόγιο");
 define("_OVERWRITEIFFOLDEREXISTS", "Αντικατέστησε υπάρχων φάκελο");
 define("_EXPORTTOXLS", "Εξαγωγή σε xls");
 define("_LANDINGPAGE","Σελίδα έναρξης");
+define("_SURVEYFAILEDTOBEPUBLISHED", "Πρόβλημα κατα την δημοσιοποίηση του ερωτηματολογίου");
+define("_QUESTIONDETAILS", "Λεπτομέρειες απάντησης");
+define("_SHOWINGONLYACTIVEENTITIES", "Εμφάνιση μόνο των ενεργών οντοτήτων");
+define("_SHOWINGONLYINACTIVEENTITIES", "Εμφάνιση μόνο των ανενεργών οντοτήτων");
+define("_SHOWINGALLENTITIES", "Εμφάνιση μόνο ενεργών κι ανενεργών οντοτήτων");
 ?>

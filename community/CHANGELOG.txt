@@ -22,6 +22,13 @@
 - Removed "lesson users" option from professor's administration when a lesson is in course
 - Lessons in "my courses" list is now being sorted by name
 - Projects now allow for decimal or fractional score
+- Fixed shared files inconsistency with lesson
+- Removed force_br_newlines that causes problems in alignment in IE
+- Added padding 0 for <p> in editor needed for the above change
+- Fixed issue about redo only wrong answered questions in tests
+- Fixed issue about converting external links with encrypt url option
+- Fixed issue with group key lessons assignment when assign_profile_to_new is set
+- Added question response details option in test reports
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

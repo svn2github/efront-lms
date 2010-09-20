@@ -236,16 +236,16 @@ function createSortables() {
 * the current layout. Alternatively, it may reset the current layout to the default one.
 
 */
-function updatePositions(el, reset) {
+function updateLayoutPositions(el, reset) {
     parameters = {leftList: $('leftList') ? Sortable.serialize('leftList') : null,
       centerList: $('centerList') ? Sortable.serialize('centerList') : null,
       rightList: $('rightList') ? Sortable.serialize('rightList') : null,
       layout: currentLayout,
       method: 'post'};
     reset ? url = location.toString()+'&ajax=reset_layout' : url = location.toString()+'&ajax=set_layout';
- ajaxRequest(el, url, parameters, onUpdatePostions);
+ ajaxRequest(el, url, parameters, onUpdateLayoutPostions);
 }
-function onUpdatePostions(el, response) {
+function onUpdateLayoutPostions(el, response) {
     if (response == 'reset') {
      window.location.reload();
     }

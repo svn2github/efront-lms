@@ -12,11 +12,13 @@ function smarty_outputfilter_eF_template_encryptQuery($compiled, &$smarty) {
     return $compiled;
 }
 function local_encryptQueryReplace($matches) {
-    //pr(($matches[2]));
- $matches[2] = 'cru='.encryptString($matches[2]);
+    //pr(($matches));
+    $parsedUrl = parse_url($matches[0]);
+    //Convert only internal links
+    if (stristr($parsedUrl['host'], 'http') === false || stristr('http://'.$parsedUrl['path'], G_SERVERNAME) !== false || stristr('https://'.$parsedUrl['path'], G_SERVERNAME) !== false) {
+  $matches[2] = 'cru='.encryptString($matches[2]);
+    }
     //pr($matches[1].$matches[2].$matches[3]);
     return $matches[1].$matches[2].$matches[3];
 }
-
-
 ?>

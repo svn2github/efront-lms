@@ -410,7 +410,7 @@ function myCommit(parameter)
                     echo "document.getElementById('content_ID').value = ".$_GET['view_unit'].";";
                 }
             ?>
-   $('scorm_form').request({onSuccess:handleCommit});
+   $('scorm_form').request({asynchronous:false, onSuccess:handleCommit});
             //document.scorm_form.submit();
             return_value = "true";
         } catch (e) {

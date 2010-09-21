@@ -29,6 +29,7 @@
 - Fixed issue about converting external links with encrypt url option
 - Fixed issue with group key lessons assignment when assign_profile_to_new is set
 - Added question response details option in test reports
+- Fixed lesson/course skills being deleted along with lesson/course in enterprise edition
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

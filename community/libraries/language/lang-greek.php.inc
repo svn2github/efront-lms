@@ -3868,6 +3868,7 @@ define("_OVERWRITEIFFOLDEREXISTS", "Αντικατέστησε υπάρχων φ
 define("_EXPORTTOXLS", "Εξαγωγή σε xls");
 define("_LANDINGPAGE","Σελίδα έναρξης");
 define("_SURVEYFAILEDTOBEPUBLISHED", "Πρόβλημα κατα την δημοσιοποίηση του ερωτηματολογίου");
+define("_PRINTCHART","Εκτύπωησ ιεραρχίας");
 define("_QUESTIONDETAILS", "Λεπτομέρειες απάντησης");
 define("_SHOWINGONLYACTIVEENTITIES", "Εμφάνιση μόνο των ενεργών οντοτήτων");
 define("_SHOWINGONLYINACTIVEENTITIES", "Εμφάνιση μόνο των ανενεργών οντοτήτων");

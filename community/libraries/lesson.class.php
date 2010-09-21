@@ -2726,7 +2726,7 @@ class EfrontLesson
                  }
                  break;
                 case 'calendar':
-                    in_array('calendar', $deleteEntities) ? eF_deleteTableData("calendar", "lessons_ID=".$this -> lesson['id']) : null;
+                    in_array('calendar', $deleteEntities) ? eF_deleteTableData("calendar", "type = 'lesson' and foreign_ID=".$this -> lesson['id']) : null;
                     break;
                 case 'glossary':
                     in_array('glossary', $deleteEntities) ? eF_deleteTableData("glossary", "lessons_ID=".$this -> lesson['id']) : null;

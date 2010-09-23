@@ -60,7 +60,12 @@ function ajaxPost(login, el, table_id) {
 
 
 function assignToGroupUsers(el, category) {
-    var url = location.toString();
+ Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+ var url = location.toString();
  parameters = {postAjaxRequest:1, assign_to_all_users: category, method: 'get'};
- ajaxRequest(el, url, parameters);
+ ajaxRequest(el, url, parameters, onAssignToGroupUsers);
+}
+function onAssignToGroupUsers(el, response) {
+ el.down().remove();
 }

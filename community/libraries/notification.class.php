@@ -1137,9 +1137,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 //		EfrontNotification::initializeEventNotification($event_notification[0]);
     }
     public static function deleteEventNotification($event_notification_id) {
-  eF_deleteTableData("event_notifications", "id = '" . $event_notification_id. "'");
-  // delete unsent event notifications currently in the queue
-  eF_deleteTableData("notifications", "id_type_entity LIKE '" . $event_notification_id. "_%' ");
+     eF_deleteTableData("event_notifications", "id = '" . $event_notification_id. "'");
+     // delete unsent event notifications currently in the queue
+     eF_deleteTableData("notifications", "id_type_entity LIKE '" . $event_notification_id. "_%' ");
     }
     public function activate() {
   return eF_updateTableData("notifications", array("active" => 1), "id = '" . $this -> notification['id'] . "'");
@@ -1175,7 +1175,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      */
     public static function getAllNotifications() {
      $allNotifications = eF_getTableData("notifications", "*" , "id_type_entity IS NULL");
-     $event_notifications = eF_getTableData("event_notifications", "*" , "");
+     $event_notifications = eF_getTableData("event_notifications", "*" , "", "active desc");
      $event_types = EfrontEvent::getEventTypes();
      foreach ($event_notifications as $notification) {
       if ($notification['event_type'] > 0) {

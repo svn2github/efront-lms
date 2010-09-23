@@ -3873,4 +3873,6 @@ define("_RESPONSEDETAILS", "Response details");
 define("_SHOWINGONLYACTIVEENTITIES", "Showing only active entities");
 define("_SHOWINGONLYINACTIVEENTITIES", "Showing only inactive entities");
 define("_SHOWINGALLENTITIES", "Showing both active and inactive entities");
+define("_EVENTDOESNOTEXIST", "This event no longer exists");
+define("_CLEARQUEUEMESSAGES", "Clear queue messages");
 ?>

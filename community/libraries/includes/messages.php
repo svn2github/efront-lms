@@ -4,7 +4,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-if (!$currentUser -> coreAccess['personal_messages'] || $currentUser -> coreAccess['forum'] == 'personal_messages') {
+if (!$currentUser -> coreAccess['personal_messages'] || $currentUser -> coreAccess['personal_messages'] == 'change') {
     $_change_ = 1;
 }
 $smarty -> assign("_change_", $_change_);

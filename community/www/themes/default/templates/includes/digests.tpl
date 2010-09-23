@@ -158,14 +158,14 @@
        {if isset($T_NOTIFICATIONS)}
                 {foreach name = 'notification_list' key = 'key' item = 'notification' from = $T_NOTIFICATIONS}
              <tr id = "notification_row_{$notification.id}_{if isset($notification.is_event)}1{else}0{/if}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$notification.active}deactivatedTableElement{/if}">
-                    <td align = "left">{$notification.when}</td>
-                    <td align = "left">{$notification.event}</td>
-                    <td align = "left">{if $notification.event_notification_recipients != ""}{$notification.recipients}{/if}</td>
-                    <td align = "left">{if $notification.event_notification_recipients != ""}{$notification.event_notification_recipients}{else}{$notification.recipients}{/if}</td>
-                    <td align = "center">
+                    <td >{$notification.when}</td>
+                    <td >{$notification.event}</td>
+                    <td >{if $notification.event_notification_recipients != ""}{$notification.recipients}{/if}</td>
+                    <td >{if $notification.event_notification_recipients != ""}{$notification.event_notification_recipients}{else}{$notification.recipients}{/if}</td>
+                    <td class = centerAlign">
                      <span id = "notification_status_{$notification.id}_{if isset($notification.is_event)}1{else}0{/if}" style="display:none">
                       {if $notification.active == 1}1{else}0{/if}</span>
-         <a href = "javascript:void(0);" {if $_change_ && $notification.event_type != 7 && $notification.event_type != 4}onclick = "activate(this, '{$notification.id}', '{$notification.is_event}')"{/if}>
+         <a href = "javascript:void(0);" {if $_change_ && $notification.event_type != 7 && $notification.event_type != 4}onclick = "activateNotification(this, '{$notification.id}', '{$notification.is_event}')"{/if}>
                    {if $notification.active == 1}
                        <img src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" border = "0">
                    {else}
@@ -173,21 +173,13 @@
                    {/if}
                   </a>
      </td>
-                    {*<td align = "left">{$notification.subject|eF_truncate:40}</td>*}
+                    {*<td >{$notification.subject|eF_truncate:40}</td>*}
                     {if $_change_}
-                    <td align = "center">
-                        <table>
-                            <tr>
-                                <td width="45%">
-                                    <a href = "{$smarty.session.s_type}.php?ctg=digests&edit_notification={$notification.id}{if isset($notification.is_event)}&event=1{/if}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-                                </td>
-                                <td width="45%">
-        {if $notification.event_type != 7 && $notification.event_type != 4}
-                                     <a href = "{$smarty.session.s_type}.php?ctg=digests&delete_notification={$notification.id}{if isset($notification.is_event)}&event=1{/if}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
-                                {/if}
-        </td>
-                            </tr>
-                        </table>
+                    <td class = centerAlign">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=digests&edit_notification={$notification.id}{if isset($notification.is_event)}&event=1{/if}" class = "editLink"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+      {if $notification.event_type != 7 && $notification.event_type != 4}
+                         <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if(confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION}')) deleteNotification(this, '{$notification.id}', '{$notification.is_event}')"/>
+                        {/if}
                     </td>
      {/if}
                 </tr>
@@ -206,7 +198,11 @@
             <div class = "headerTools">
              <span>
               <img src="images/16x16/go_into.png" title="{$smarty.const._SENDNEXTQUEUEMESSAGES}" alt="{$smarty.const._SENDNEXTQUEUEMESSAGES}">
-     <a href="send_notifications.php">{$smarty.const._SENDNEXTQUEUEMESSAGES}</a>
+     <a href="javascript:void(0)" onclick = "sendQueueMessages(this)">{$smarty.const._SENDNEXTQUEUEMESSAGES}</a>
+             </span>
+             <span>
+              <img src="images/16x16/error_delete.png" title="{$smarty.const._CLEARQUEUEMESSAGES}" alt="{$smarty.const._CLEARQUEUEMESSAGES}">
+     <a href="javascript:void(0)" onclick = "clearQueueMessages(this)">{$smarty.const._CLEARQUEUEMESSAGES}</a>
              </span>
             </div>
             {/if}
@@ -216,32 +212,20 @@
                     <td class = "topTitle" name="timestamp" width = "35%">{$smarty.const._DATE}</td>
                     <td name="recipients" class = "topTitle">{$smarty.const._RECIPIENTS}</td>
                     <td name="subject" class = "topTitle">{$smarty.const._SUBJECT}</td>
-                    <td class = "topTitle noSort" align="center">{$smarty.const._OPERATIONS}</td>
+                    <td class = "topTitle noSort centerAling">{$smarty.const._OPERATIONS}</td>
                 </tr>
           {foreach name = 'queue_message_list' key = 'key' item = 'queue_message' from = $T_QUEUE_MSGS}
           <tr class = "{cycle values = "oddRowColor, evenRowColor"}  {if $queue_message.timestamp && $queue_message.timestamp > $T_TIMESTAMP_NOW}deactivatedTableElement{/if}">
-              <td align = "left">{if $queue_message.timestamp}#filter:timestamp_time-{$queue_message.timestamp}#{else}{$smarty.const._TOBESENTIMMEDIATELY}{/if}</td>
-              <td align = "left">{$queue_message.recipients} {if isset($queue_message.recipients_count)}({$queue_message.recipients_count}){/if}</td>
-              <td align = "left">{$queue_message.subject|eF_truncate:40}</td>
-              <td align = "center">
-                  <table>
-                      <tr>
-                          <td width="45%">
-                              <a href = "send_notifications.php?notification_id={$queue_message.id}" class = "editLink"><img border = "0" src = "images/16x16/mail.png" title = "{$smarty.const._SEND}" alt = "{$smarty.const._SEND}" /></a>
-                          </td>
-                          <td width="45%">
-                              <a href = "{$smarty.session.s_type}.php?ctg=digests&delete_notification={$queue_message.id}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
-                          </td>
-                      </tr>
-                  </table>
+              <td >{if $queue_message.timestamp}#filter:timestamp_time-{$queue_message.timestamp}#{else}{$smarty.const._TOBESENTIMMEDIATELY}{/if}</td>
+              <td >{$queue_message.recipients} {if isset($queue_message.recipients_count)}({$queue_message.recipients_count}){/if}</td>
+              <td >{$queue_message.subject|eF_truncate:40}</td>
+              <td class = "centerAlign">
+                     <img class ="ajaxHandle" src = "images/16x16/mail.png" title = "{$smarty.const._SEND}" alt = "{$smarty.const._SEND}" onclick = "sendQueueMessage(this, '{$queue_message.id}');"/>
+                        <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION}')) clearQueueMessage(this, '{$queue_message.id}');"/>
               </td>
           </tr>
           {foreachelse}
-            <tr><td colspan=4>
-            <table width = "100%">
-                <tr><td class = "emptyCategory">{$smarty.const._NOMESSAGESFOUND}</td></tr>
-            </table>
-            </td></tr>
+    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "4">{$smarty.const._NODATAFOUND}</td></tr>
           {/foreach}
      </table>
 <!--/ajax:msgQueueTable-->
@@ -256,22 +240,14 @@
                 </tr>
           {foreach name = 'recent_messages_list' key = 'key' item = 'recent_message' from = $T_RECENTLY_SENT_NOTIFICATIONS}
           <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-              <td align = "left">#filter:timestamp_time-{$recent_message.timestamp}#</td>
-              <td align = "left">{$recent_message.recipient}</td>
-              <td align = "left">{$recent_message.subject}</td>
-              <td align = "center">
-                  <table>
-                      <tr>
-                          <td width="45%">
-                              <a href = "send_notifications.php?sent_notification_id={$recent_message.id}" class = "editLink"><img class="handle" src = "images/16x16/mail.png" title = "{$smarty.const._RESEND}" alt = "{$smarty.const._RESEND}" /></a>
-                          </td>
-                          <td width="45%">
-                           <a title="{$smarty.const._PREVIEW}" href = "{$smarty.server.PHP_SELF}?ctg=digests&op=preview&sent_id={$recent_message.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 3)" target = "POPUP_FRAME" style = "vertical-align:middle">
-                   <img src="images/16x16/search.png" class="handle" title="{$smarty.const._PREVIEW}" alt="{$smarty.const._PREVIEW}" />
-                  </a>
-                          </td>
-                      </tr>
-                  </table>
+              <td >#filter:timestamp_time-{$recent_message.timestamp}#</td>
+              <td >{$recent_message.recipient}</td>
+              <td >{$recent_message.subject}</td>
+              <td class = "centerAlign">
+                     <img class ="ajaxHandle" src = "images/16x16/mail.png" title = "{$smarty.const._RESEND}" alt = "{$smarty.const._RESEND}" onclick = "sendSentMessage(this, '{$recent_message.id}');"/>
+                        <a title="{$smarty.const._PREVIEW}" href = "{$smarty.server.PHP_SELF}?ctg=digests&op=preview&sent_id={$recent_message.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 3)" target = "POPUP_FRAME" style = "vertical-align:middle">
+                <img src="images/16x16/search.png" class="handle" title="{$smarty.const._PREVIEW}" alt="{$smarty.const._PREVIEW}" />
+               </a>
               </td>
           </tr>
           {foreachelse}

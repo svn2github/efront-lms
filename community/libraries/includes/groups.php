@@ -360,6 +360,7 @@ $loadScripts[] = 'includes/groups';
               include("sorted_table.php");
              }
             } catch (Exception $e) {
+             //pr($e);
              handleAjaxExceptions($e);
             }
         }

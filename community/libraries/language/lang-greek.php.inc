@@ -3873,4 +3873,6 @@ define("_QUESTIONDETAILS", "Λεπτομέρειες απάντησης");
 define("_SHOWINGONLYACTIVEENTITIES", "Εμφάνιση μόνο των ενεργών οντοτήτων");
 define("_SHOWINGONLYINACTIVEENTITIES", "Εμφάνιση μόνο των ανενεργών οντοτήτων");
 define("_SHOWINGALLENTITIES", "Εμφάνιση μόνο ενεργών κι ανενεργών οντοτήτων");
+define("_EVENTDOESNOTEXIST", "Αυτό το γεγονός δεν υπάρχει πλέον");
+define("_CLEARQUEUEMESSAGES", "Διαγραφή λίστας μηνυμάτων");
 ?>

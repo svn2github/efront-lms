@@ -60,7 +60,7 @@
   <div class = "headerTools">
    <span>
     <img src = "images/16x16/users.png" title = "{$smarty.const._ASSIGNLESSONSTOGROUPUSERS}" alt = "{$smarty.const._ASSIGNLESSONSTOGROUPUSERS}">
-    <a href = "javascript:void(0)" onclick = "assignToGroupUsers(Element.extend(this).previous(), 'lessons')" title = "{$smarty.const._ASSIGNLESSONSTOGROUPUSERS}" >{$smarty.const._ASSIGNLESSONSTOGROUPUSERS}</a>
+    <a href = "javascript:void(0)" onclick = "assignToGroupUsers(this, 'lessons')" title = "{$smarty.const._ASSIGNLESSONSTOGROUPUSERS}" >{$smarty.const._ASSIGNLESSONSTOGROUPUSERS}</a>
    </span>
   </div>
 <!--ajax:lessonsTable-->
@@ -94,7 +94,7 @@
   <div class = "headerTools">
    <span>
     <img src = "images/16x16/users.png" title = "{$smarty.const._ASSIGNCOURSESTOGROUPUSERS}" alt = "{$smarty.const._ASSIGNCOURSESTOGROUPUSERS}">
-    <a href = "javascript:void(0)" onclick = "assignToGroupUsers(Element.extend(this).previous(), 'courses')" title = "{$smarty.const._ASSIGNCOURSESTOGROUPUSERS}" >{$smarty.const._ASSIGNCOURSESTOGROUPUSERS}</a>
+    <a href = "javascript:void(0)" onclick = "assignToGroupUsers(this, 'courses')" title = "{$smarty.const._ASSIGNCOURSESTOGROUPUSERS}" >{$smarty.const._ASSIGNCOURSESTOGROUPUSERS}</a>
    </span>
   </div>
   {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=user_groups&edit_user_group=`$smarty.get.edit_user_group`&"}

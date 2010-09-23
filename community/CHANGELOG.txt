@@ -30,6 +30,11 @@
 - Fixed issue with group key lessons assignment when assign_profile_to_new is set
 - Added question response details option in test reports
 - Fixed lesson/course skills being deleted along with lesson/course in enterprise edition
+- Fixed issue about sorting files by name by default
+- Fixed archive users being taken into account during lesson assignment
+- Fixed archive users' requests for activation and enrollment appearing in administrator's control panel
+- Fixed messages being set to "view" for custom user types
+- Fixed lesson users in lesson's administration menu not having custom user types selected by default
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

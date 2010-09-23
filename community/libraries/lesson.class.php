@@ -1640,6 +1640,7 @@ class EfrontLesson
      */
     public function addUsers($users, $roles = 'student', $confirmed = true) {
   $users = $this -> verifyUsersList($users);
+  $users = $this -> filterOutArchivedUsers($users);
   $roles = $this -> verifyRolesList($roles, sizeof($users));
   $lessonUsers = array_keys($this -> getUsers());
   $count = sizeof($this -> getStudentUsers());
@@ -1661,6 +1662,15 @@ class EfrontLesson
   $this -> setUserRolesInLesson($usersToSetRoleToLesson);
   $this -> users = false; //Reset users cache
   //return $this -> getUsers();
+    }
+    private function filterOutArchivedUsers($users) {
+  $archivedUsers = eF_getTableDataFlat("users", "login", "archive != 0");
+  foreach ($users as $key => $value) {
+   if (in_array($value, $archivedUsers['login'])) {
+    unset($users[$key]);
+   }
+  }
+     return $users;
     }
  public static function convertLessonObjectsToArrays($lessonObjects) {
   foreach ($lessonObjects as $key => $value) {

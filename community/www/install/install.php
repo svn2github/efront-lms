@@ -566,7 +566,12 @@ if (isset($_GET['restore'])) {
     try {
         $path = "../../libraries/";
         try {
-            require_once($path."configuration.php");
+           if (is_file($path."configuration.php")) {
+                require_once($path."configuration.php");
+            } else {
+                echo Installation :: printErrorMessage("You must have a valid configuration file for the emergency restore to work");
+                exit;
+            }
         } catch (Exception $e) {
          $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
          $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

@@ -206,11 +206,7 @@ if ($_GET['op'] == 'reset_lesson') {
             in_array($key, array_keys($nonLessonUsers)) ? $users[$key]['in_lesson'] = false : $users[$key]['in_lesson'] = true;
         }
 
-        $roles = eF_getTableDataFlat("user_types","name","active=1 AND basic_user_type!='administrator'"); //Get available roles
-        if (sizeof($roles) > 0) {
-            $roles = array_combine($roles['name'], $roles['name']); //Match keys with values, it's more practical this way
-        }
-        $roles = array_merge(array('student' => _STUDENT, 'professor' => _PROFESSOR), $roles); //Append basic user types to the beginning of the array
+  $roles = EfrontUser::getRoles(true);
 
         if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;

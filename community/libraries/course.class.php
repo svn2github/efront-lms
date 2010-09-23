@@ -1692,13 +1692,13 @@ class EfrontCourse
   if (empty($users)) {
    return false;
   }
-  $result = eF_getTableData("users_to_courses", "users_LOGIN, archive, user_type, to_timestamp", "courses_ID=".$this->course['id']);
+  $result = eF_getTableData("users_to_courses uc, users u", "uc.users_LOGIN, uc.archive, uc.user_type, uc.to_timestamp, u.archive as user_archive", "u.login=uc.users_LOGIN and uc.courses_ID=".$this->course['id']);
   $courseUsers = array();
   $courseRoles = $this -> getPossibleCourseRoles();
   $courseStudents = 0;
   foreach ($result as $value) {
    $courseUsers[$value['users_LOGIN']] = $value;
-   if (!$value['archive'] && $this -> isStudentRole($value['user_type'])) {
+   if (!$value['user_archive'] && !$value['archive'] && $this -> isStudentRole($value['user_type'])) {
     $courseStudents++;
    }
   }
@@ -3880,7 +3880,8 @@ class EfrontCourse
  public static function getCoursesWithPendingUsers($constraints = array()) {
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $where[] = "uc.courses_ID=c.id and uc.from_timestamp=0";
-  $result = eF_getTableData("courses c, users_to_courses uc", "c.*, uc.users_LOGIN", implode(" and ", $where), $orderby, $groupby, $limit);
+  $where[] = "uc.users_LOGIN=u.login and u.archive=0";
+  $result = eF_getTableData("users u, courses c, users_to_courses uc", "c.*, uc.users_LOGIN", implode(" and ", $where), $orderby, $groupby, $limit);
   return self :: convertDatabaseResultToCourseObjects($result);
  }
  /**

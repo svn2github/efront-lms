@@ -2528,6 +2528,8 @@ class FileSystemTree extends EfrontTree
         }
         $files = array();
         $fileArrays = array();
+        $foldersArray = array();
+        $filesArray = array();
         if ($options['folders']) {
             $iterator = new EfrontDirectoryOnlyFilterIterator((new ArrayIterator($currentDir))); //Plain ArrayIterator so that it iterates only on the current's folder files
             if ($options['db_files_only']) { //Filter out directories without database representation
@@ -2543,8 +2545,9 @@ class FileSystemTree extends EfrontTree
                 $current['size'] = 0;
                 $current['extension'] = '';
                 $current['shared'] = 10; //Add these 3 parameters, so that sorting below works correctly (10 means nothing, since a folder cannot be shared, but it is handy for sorting)
-                $fileArrays[] = (array)$current; //Array representation of directory objects, on which we can apply sorting, filtering, etc
-            }
+                $foldersArray[] = (array)$current; //Array representation of directory objects, on which we can apply sorting, filtering, etc
+           }
+           $foldersArray = eF_multiSort($foldersArray, 'name', 'asc');
         }
         if ($defaultIterator) {
             $iterator = $defaultIterator;
@@ -2561,8 +2564,11 @@ class FileSystemTree extends EfrontTree
                     unset ($current[$k]);
                 }
             }
-            $fileArrays[] = (array)$current; //Array representation of file objects, on which we can apply sorting, filtering, etc
+            $filesArray[] = (array)$current; //Array representation of file objects, on which we can apply sorting, filtering, etc
         }
+        $filesArray = eF_multiSort($filesArray, 'name', 'asc');
+        $fileArrays = array_merge($foldersArray, $filesArray);
+  //pr($fileArrays);  
         isset($ajaxOptions['order']) && $ajaxOptions['order'] == 'asc' ? $ajaxOptions['order'] = 'asc' : $ajaxOptions['order'] = 'desc';
         !isset($ajaxOptions['sort']) ? $ajaxOptions['sort'] = 'name' : null;
         !isset($ajaxOptions['limit']) ? $ajaxOptions['limit'] = 20 : null;
@@ -2581,7 +2587,7 @@ class FileSystemTree extends EfrontTree
                        '.($options['show_size'] ? '<td class = "topTitle" name = "size">'._SIZE.'</td>' : '').'
                        '.($options['show_date'] ? '<td class = "topTitle" name = "timestamp">'._LASTMODIFIED.'</td>' : '').'
                        '.($_SESSION['s_lessons_ID'] && $options['share'] ? '<td class = "topTitle centerAlign" name = "shared">'._SHARE.'</td>' : '').'
-                       '.($options['show_tools'] ? '<td class = "topTitle centerAlign">'._OPERATIONS.'</td>' : '').'
+                       '.($options['show_tools'] ? '<td class = "topTitle centerAlign noSort">'._OPERATIONS.'</td>' : '').'
                        '.($options['delete'] || ($_SESSION['s_lessons_ID'] && $options['share']) ? '<td class = "topTitle centerAlign">'._SELECT.'</td>' : '').'
                       </tr>';
         if (isset($parentDir)) {

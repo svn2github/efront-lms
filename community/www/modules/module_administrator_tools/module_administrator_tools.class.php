@@ -34,7 +34,7 @@ class module_administrator_tools extends EfrontModule {
   return $this->moduleBaseDir."module_administrator_tools.js";
  }
     public function addScripts() {
-     return array("scriptaculous/effects", "scriptaculous/controls", "includes/lesson_settings");
+     return array("scriptaculous/effects", "scriptaculous/controls");
     }
     /*
 

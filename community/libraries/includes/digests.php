@@ -22,7 +22,7 @@ if (isset($currentUser -> coreAccess['notifications']) && $currentUser -> coreAc
 }
 !isset($currentUser -> coreAccess['notifications']) || $currentUser -> coreAccess['notifications'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
-$loadScripts[] = "administrator/digests";
+$loadScripts[] = "includes/digests";
  if (isset($_GET['add_default']) && $_GET['add_default'] == 1) {
   EfrontNotification::addDefaultNotifications();
  }
@@ -45,18 +45,33 @@ $loadScripts[] = "administrator/digests";
         exit;
     }
 
-    if (isset($_GET['delete_notification']) ) {
-        if (isset($_GET['event'])) {
-            EfrontNotification::deleteEventNotification($_GET['delete_notification']);
-        } else {
-            $notification = new EfrontNotification($_GET['delete_notification']);
-            $notification -> delete();
-        }
+    try {
+     if (isset($_GET['delete_notification']) ) {
+      if (isset($_GET['event'])) {
+       EfrontNotification::deleteEventNotification($_GET['delete_notification']);
+      } else {
+       $notification = new EfrontNotification($_GET['delete_notification']);
+       $notification -> delete();
+      }
 
-        $message = _NOTIFICATIONDELETEDSUCCESSFULLY;
-        $message_type = 'success';
-        eF_redirect("".$_SESSION['s_type'].".php?ctg=digests&message=". $message . "&message_type=" . $message_type);
-
+      if ($_GET['ajax']) {
+       echo json_encode(array('status' => 1));
+       exit;
+      } else {
+       eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=digests&message=".urlencode(_NOTIFICATIONDELETEDSUCCESSFULLY)."&message_type=success");
+      }
+     }
+     if (isset($_GET['delete_all_notifications'])) {
+      eF_deleteTableData("notifications");
+      echo json_encode(array('status' => 1));
+      exit;
+     }
+    } catch (Exception $e) {
+     if ($_GET['ajax']) {
+      handleAjaxExceptions($e);
+     } else {
+      handleNormalFlowExceptions($e);
+     }
     }
 
     if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
@@ -830,16 +845,7 @@ $loadScripts[] = "administrator/digests";
                             $sending_queue_msgs[$key]['recipients'] = _ALLUSERS;
                         }
                     } else {
-
-                        $user = eF_getTableData("users", "name, surname, email", "login = '".$sending_queue_msgs[$key]['recipient']."'");
-
-                        $sending_queue_msgs[$key]['recipients'] = $user[0]['name'] . " ". $user[0]['surname'];
-                        if ($user[0]['email'] != "") {
-                            $sending_queue_msgs[$key]['recipients'] .= " (".$user[0]['email'] . ")";
-                        } else {
-                            $sending_queue_msgs[$key]['recipients'] .= " ("._NOUSEREMAILFOUND . ")";
-                        }
-
+                        $sending_queue_msgs[$key]['recipients'] = formatLogin($sending_queue_msgs[$key]['recipient']);
                     }
                 }
             }

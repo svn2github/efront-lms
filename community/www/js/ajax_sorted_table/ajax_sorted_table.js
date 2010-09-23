@@ -255,7 +255,7 @@
        //loadingDiv.clonePosition(sortedTables[tableIndex]);
 
        if (el) {
-        if (currentOrder[tableIndex] == 'desc') { //Set the icons through the class to reflect the order, ascending or descending
+        if (currentOrder[tableIndex] == 'desc') { //Set the icons through the class to reflect the order, ascending or descending			
          document.getElementById(el.id).className = 'sortDescending';
          document.getElementById(el.id).setAttribute('order', 'asc');
          if (document.getElementById(el.id).up().select('img').length == 0) {
@@ -267,16 +267,18 @@
         } else {
          document.getElementById(el.id).className = 'sortAscending';
          document.getElementById(el.id).setAttribute('order', 'desc');
-         if (document.getElementById(el.id).up().select('img').length == 0) {
-          document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
-         } else {
-          document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.gif';
-          document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
+         if (currentSort[tableIndex] !== 'null') { // when sortby not set, don't display arrow
+          if (document.getElementById(el.id).up().select('img').length == 0) {
+           document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
+          } else {
+           document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.gif';
+           document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
+          }
          }
         }
        }
 
-       //eF_js_setChecked(tableIndex);
+       //eF_js_setChecked(tableIndex);f
        //table.rows[0].style.visibility = 'visible';
 
        if (window.onSortedTableComplete) {

@@ -93,8 +93,8 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
     $dayEvents = array();
 
     foreach ($events_per_day[$day_timestamp] as $key => $value) {
-     if (date("His",$key) == '0') {
-      $dayEvents[] = rawurlencode(implode(", ", strip_tags($value)));
+     if (date("His", $key) == '0') {
+      $dayEvents[] = rawurlencode(strip_tags(implode(", ", $value)));
      } else {
       $dayEvents[] = '#filter:timestamp_time_only_nosec-'.$key.'# '.rawurlencode(strip_tags(implode(", ", $value)));
      }

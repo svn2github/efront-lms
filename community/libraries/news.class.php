@@ -235,7 +235,7 @@ class news extends EfrontEntity
              'type' => $fields['lessons_ID'] ? 'lesson' : '',
              'foreign_ID' => $fields['lessons_ID'] ? $fields['lessons_ID'] : 0,
                          'users_LOGIN' => $_SESSION['s_login']);
-         calendar :: create($fields);
+         calendar :: create($calendarFields);
         }
     }
  /**

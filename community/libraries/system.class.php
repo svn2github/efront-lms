@@ -215,7 +215,13 @@ class EfrontSystem
       }
       if (strpos($file, 'sql.txt') === false && strpos($file, 'version.txt') === false) {
           $data = unserialize(file_get_contents($file));
-          eF_insertTableDataMultiple($tableName, $data);
+          $tableExists = false;
+          try {
+           $tableExists = eF_describeTable($tableName);
+          } catch (Exception $e) {}
+          if ($tableExists !== false) {
+           eF_insertTableDataMultiple($tableName, $data);
+          }
       }
   }
   //For each one of the tables that don't have backup data, simply recreate

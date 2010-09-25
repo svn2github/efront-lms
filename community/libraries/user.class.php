@@ -1286,13 +1286,13 @@ abstract class EfrontUser
   foreach ($this -> aspects as $aspect) {
    $aspect -> delete();
   }
+  calendar::deleteUserCalendarEvents($this -> user['login']);
   eF_updateTableData("f_forums", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("f_messages", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("f_topics", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("f_poll", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("chatrooms", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("chatmessages", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
-  eF_updateTableData("calendar", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("news", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("files", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("f_folders", "users_LOGIN='".$this -> user['login']."'");

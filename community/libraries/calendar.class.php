@@ -171,6 +171,21 @@ class calendar extends EfrontEntity
 
  }
 
+ /**
+	 * Get global calendar events
+	 *
+	 * @return array A list of calendar events
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function getGlobalCalendarEvents() {
+  $result = eF_getTableData("calendar c", "c.*", "private = 0 and type = '' and foreign_ID=0");
+  foreach ($result as $value) {
+   $globalEvents[$value['id']] = $value;
+  }
+  return $globalEvents;
+ }
 
  /**
 	 * Get the calendar events that this user has created
@@ -203,6 +218,18 @@ class calendar extends EfrontEntity
   return $userCalendarEvents;
  }
  /**
+	 * Delete the calendar events that this user has created
+	 *
+	 * @param mixed $user A user login or an EfrontUser object
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function deleteUserCalendarEvents($user) {
+  $user = EfrontUser::convertArgumentToUserLogin($user);
+  eF_deleteTableData("calendar", "users_LOGIN='$user'");
+ }
+ /**
 	 * Get the calendar events that have to do with the specified lesson
 	 *
 	 * @param mixed $lesson A lesson id or an EfrontLesson object
@@ -212,8 +239,37 @@ class calendar extends EfrontEntity
 	 * @static
 	 */
  public static function getLessonCalendarEvents($lesson) {
+  $lessonCalendarEvents = array();
   $lesson = EfrontLesson::convertArgumentToLessonId($lesson);
   $result = eF_getTableData("calendar", "*", "type = 'lesson' and foreign_ID=".$lesson);
+  foreach ($result as $value) {
+   $lessonCalendarEvents[$value['id']] = $value;
+  }
+  return $lessonCalendarEvents;
+ }
+ /**
+	 * Delete the calendar events related to the specified lesson
+	 *
+	 * @param mixed $lesson A lesson id or an EfrontLesson object
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function deleteLessonCalendarEvents($lesson) {
+  $lesson = EfrontLesson::convertArgumentToLessonId($lesson);
+  eF_deleteTableData("calendar", "type = 'lesson' and foreign_ID=".$lesson);
+ }
+ /**
+	 * Get all calendar events related to lessons
+	 *
+	 * @return array A list of calendar events
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function getCalendarEventsForAllLessons() {
+  $lessonCalendarEvents = array();
+  $result = eF_getTableData("calendar", "*", "type = 'lesson'");
   foreach ($result as $value) {
    $lessonCalendarEvents[$value['id']] = $value;
   }
@@ -237,6 +293,18 @@ class calendar extends EfrontEntity
   return $courseCalendarEvents;
  }
  /**
+	 * Delete the calendar events related to the specified course
+	 *
+	 * @param mixed $course A course id or an EfrontCourse object
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function deleteCourseCalendarEvents($course) {
+  $course = EfrontCourse::convertArgumentToCourseId($course);
+  eF_deleteTableData("calendar", "type = 'course' and foreign_ID=".$course);
+ }
+ /**
 	 * Get the calendar events that have to do with the specified branch
 	 *
 	 * @param int $branch A branch id
@@ -252,6 +320,19 @@ class calendar extends EfrontEntity
    $branchCalendarEvents[$value['id']] = $value;
   }
   return $branchCalendarEvents;
+ }
+ /**
+	 * Delete the calendar events related to the specified branch
+	 *
+	 * @param mixed $lesson A branch id
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function deleteBranchCalendarEvents($branch) {
+  if (eF_checkParameter($branch, 'id')) {
+   eF_deleteTableData("calendar", "type = 'branch' and foreign_ID=".$branch);
+  }
  }
  /**
 	 * Return a list of all calendar events that should be presented to the user

@@ -886,7 +886,7 @@ class EfrontLesson
         $this -> removeLessonChat();
         $this -> removeLessonForums();
         $this -> removeLessonSkills();
-        eF_deleteTableData("calendar", "type = 'lesson' and foreign_ID=".$this -> lesson['id']);
+        calendar::deleteLessonCalendarEvents($this -> lesson['id']);
         eF_deleteTableData("events", "lessons_ID=".$this -> lesson['id']);
         eF_deleteTableData("lessons_to_groups", "lessons_ID=".$this -> lesson['id']);
         eF_deleteTableData("lessons_timeline_topics", "lessons_ID=".$this -> lesson['id']);
@@ -2736,7 +2736,7 @@ class EfrontLesson
                  }
                  break;
                 case 'calendar':
-                    in_array('calendar', $deleteEntities) ? eF_deleteTableData("calendar", "type = 'lesson' and foreign_ID=".$this -> lesson['id']) : null;
+                    !in_array('calendar', $deleteEntities) OR calendar::deleteLessonCalendarEvents($this -> lesson['id']);
                     break;
                 case 'glossary':
                     in_array('glossary', $deleteEntities) ? eF_deleteTableData("glossary", "lessons_ID=".$this -> lesson['id']) : null;
@@ -4117,7 +4117,7 @@ class EfrontLesson
             }
         }
         if (isset($exportEntities['export_calendar'])) {
-            $calendar = eF_getTableData("calendar", "*", "lessons_ID=".$this -> lesson['id']);
+         $calendar = calendar::getLessonCalendarEvents($this);
             if (sizeof($calendar) > 0) {
                 $data['calendar'] = $calendar;
             }

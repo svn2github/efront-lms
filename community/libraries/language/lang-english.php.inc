@@ -3875,4 +3875,6 @@ define("_SHOWINGONLYINACTIVEENTITIES", "Showing only inactive entities");
 define("_SHOWINGALLENTITIES", "Showing both active and inactive entities");
 define("_EVENTDOESNOTEXIST", "This event no longer exists");
 define("_CLEARQUEUEMESSAGES", "Clear queue messages");
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Apply to users already belongs to this job position");
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","This can only add (not remove) a new selection to a user");
 ?>

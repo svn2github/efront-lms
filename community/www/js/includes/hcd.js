@@ -607,6 +607,20 @@ function applyToAllJobDescriptionsInfo(el, jobDescription) {
  $('lesson_changes_apply_to').checked = newValue;
  $('course_changes_apply_to').checked = newValue;
 }
+function applyToAllJobPositionUsers(el,position_id) {
+ var type;
+ if (el.id == 'course_changes_apply_to_users') {
+  type = 'course';
+ } else if( el.id == 'lesson_changes_apply_to_users') {
+  type = 'lesson';
+ }
+ var url = location.toString();
+ parameters = {applytoallusers:type, method: 'get'};
+ ajaxRequest(el, url, parameters, onapplyToAllJobPositionUsers);
+}
+function onapplyToAllJobPositionUsers(el,response) {
+ el.checked = false;
+}
 var __criteria_total_number = 0;
 //Function for inserting the new job row into the edit_user profile
 //The row argument denotes how many placements were initially present

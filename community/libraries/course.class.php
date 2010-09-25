@@ -2616,23 +2616,9 @@ class EfrontCourse
   $this -> deleteCourseInstances();
   $this -> removeCourseSkills();
   $this -> deleteUniqueLessons();
-  $this -> deleteCourseCalendarEvents();
+  calendar::deleteCourseCalendarEvents($this);
   eF_deleteTableData("courses", "id=".$this -> course['id']);
   EfrontSearch :: removeText('courses', $this -> course['id'], '');
- }
- /**
-
-	 * Delete course calendar events
-
-	 *
-
-	 * @since 3.6.7
-
-	 * @access private
-
-	 */
- private function deleteCourseCalendarEvents() {
-  eF_deleteTableData("calendar", "type = 'course' and foreign_ID=".$this -> course['id']);
  }
  /**
 

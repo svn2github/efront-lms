@@ -46,7 +46,6 @@ try {
      $file -> sendFile(false);
     }
 } catch (EfrontFileException $e) {
-    header('content-disposition: attachment; filename= "error.txt"');
-    pr($e);
+    echo EfrontSystem :: printErrorMessage($e -> getMessage());
 }
 ?>

@@ -114,7 +114,7 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
     $message = _EMAILSENDTOYOURADDRESS;
     $message_type = 'success';
    } else {
-    $message = _EMAILCOULDNOTBESENDBECAUSE.': '.mb_substr($result -> getMessage(), 0, mb_strpos($result -> getMessage(), ':'));
+    $message = $result -> getMessage();
     $message_type = 'failure';
    }
   }

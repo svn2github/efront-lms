@@ -20,7 +20,7 @@ try {
     }
     if (isset($_GET['postAjaxRequest'])) {
         try {
-            if (isset($_GET['skill'])) {
+   if (isset($_GET['skill'])) {
                 if ($_GET['insert'] == 'true') {
                     $currentJob -> assignSkill($_GET['add_skillID'], $_GET['apply_to_all_jd']);
                 } else if ($_GET['insert'] == 'false') {
@@ -203,7 +203,38 @@ try {
                 $skills = $currentJob -> getSkills();
                 // Get with ajax
                 if (isset($_GET['ajax'])) {
-                    if ($_GET['tab'] == 'lessons') {
+              if (isset($_GET['applytoallusers'])) {
+            try {
+                switch ($_GET['applytoallusers']) {
+                 case 'course':
+                  $result = eF_getTableDataFlat("module_hcd_course_to_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
+                  $jobcourses = $result['courses_ID'];
+                  $resultUsers = eF_getTableDataFlat("module_hcd_employee_has_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
+                  $jobusers = $resultUsers['users_login'];
+                  foreach ($jobcourses as $value) {
+                   $course = new EfrontCourse($value);
+                   $course -> addUsers($jobusers);
+                  }
+                  break;
+                 case 'lesson':
+                  $result = eF_getTableDataFlat("module_hcd_lesson_to_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
+                  $joblessons = $result['lessons_ID'];
+                  $resultUsers = eF_getTableDataFlat("module_hcd_employee_has_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
+                  $jobusers = $resultUsers['users_login'];
+                  foreach ($joblessons as $value) {
+                   $lesson = new EfrontLesson($value);
+                   $lesson -> addUsers($jobusers);
+                  }
+                  break;
+                }
+
+            } catch (Exception $e) {
+                handleAjaxExceptions($e);
+            }
+            exit;
+           }
+
+           if ($_GET['tab'] == 'lessons') {
                         isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
                         if (isset($_GET['sort'])) {
                             isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';

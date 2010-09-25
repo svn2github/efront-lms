@@ -143,7 +143,7 @@
 
        <table><tr><td>{$smarty.const._APPLYTOALLDESCRIPTIONSWITHDESCRIPTION|cat:$T_JOB_DESCRIPTION_NAME}</td>
             <td><input class = "inputCheckBox" type = "checkbox" id="skill_changes_apply_to" name = "skill_changes_apply_to" onclick= "applyToAllJobDescriptionsInfo(this, '{$T_JOB_DESCRIPTION_NAME}');"></td>
-           </tr>
+          </tr>
        </table>
       </td>
       {/if}
@@ -204,8 +204,9 @@
     {capture name = 't_job_to_lessons'}
      <table width="100%">
       <tr><td align ="right">
-       <table><tr><td>{$smarty.const._APPLYTOALLDESCRIPTIONSWITHDESCRIPTION|cat:$T_JOB_DESCRIPTION_NAME}</td>
-            <td><input class = "inputCheckBox" type = "checkbox" id="lesson_changes_apply_to" name = "lesson_changes_apply_to" onclick= "applyToAllJobDescriptionsInfo(this, '{$T_JOB_DESCRIPTION_NAME}');"></td>
+       <table><tr><td><img src = "images/16x16/help.png" alt = "{$smarty.const._INFO}" title = "{$smarty.const._INFO}" onclick = "eF_js_showHideDiv(this, 'lesson_help_info', event)"><div id = 'lesson_help_info' onclick = "eF_js_showHideDiv(this, 'lesson_help_info', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:300px;position:absolute;display:none">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITIONHELP}</div>{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</td>
+         <td><input class = "inputCheckBox" type = "hidden" id="lesson_changes_apply_to" name = "lesson_changes_apply_to" onclick= "applyToAllJobDescriptionsInfo(this, '{$T_JOB_DESCRIPTION_NAME}');"></td>
+            <td><input class = "inputCheckBox" type = "checkbox" id="lesson_changes_apply_to_users" name = "lesson_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');" /></td>
            </tr>
        </table>
       </td>
@@ -276,8 +277,9 @@
     {capture name = 't_job_to_courses'}
      <table width="100%">
       <tr><td align ="right">
-       <table><tr><td>{$smarty.const._APPLYTOALLDESCRIPTIONSWITHDESCRIPTION|cat:$T_JOB_DESCRIPTION_NAME}</td>
-            <td><input class = "inputCheckBox" type = "checkbox" id="course_changes_apply_to" name = "course_changes_apply_to" onclick= "applyToAllJobDescriptionsInfo(this, '{$T_JOB_DESCRIPTION_NAME}');" /></td>
+       <table><tr><td> <img src = "images/16x16/help.png" alt = "{$smarty.const._INFO}" title = "{$smarty.const._INFO}" onclick = "eF_js_showHideDiv(this, 'course_help_info', event)"><div id = 'course_help_info' onclick = "eF_js_showHideDiv(this, 'course_help_info', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:300px;position:absolute;display:none">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITIONHELP}</div>{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</td>
+         <td><input class = "inputCheckBox" type = "hidden" id="course_changes_apply_to" name = "course_changes_apply_to" onclick= "applyToAllJobDescriptionsInfo(this, '{$T_JOB_DESCRIPTION_NAME}');" /></td>
+        <td><input class = "inputCheckBox" type = "checkbox" id="course_changes_apply_to_users" name = "course_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');" /></td>
            </tr>
        </table>
       </td>

@@ -256,7 +256,11 @@ try {
 
         if ($layout_form -> isSubmitted() && $layout_form -> validate()) {
             $values = $layout_form -> exportValues();
-            $values['name'] = time(); //Use the timestamp as name
+            if (isset($_GET['edit_block'])) { // not rename blocks by editing. It created many unused files
+             $values['name'] = $customBlocks[$_GET['edit_block']]['name'];
+            } else {
+             $values['name'] = time(); //Use the timestamp as name
+            }
             $block = array('name' => $values['name'],
                      'title' => $values['title']);
             file_put_contents($basedir.$values['name'].'.tpl', $values['content']);

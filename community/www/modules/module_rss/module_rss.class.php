@@ -525,18 +525,16 @@ class module_rss extends EfrontModule
        break;
       case 'calendar':
        if ($mode == 'system') {
-        $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "c.active=1", "timestamp desc");
+        $events = calendar::getGlobalCalendarEvents();
        } elseif ($mode == 'lesson') {
         if ($lesson) {
-         $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "c.active=1 and l.id=".$lesson, "timestamp desc");
+         $events = calendar::getLessonCalendarEvents($lesson);
         } else {
-         $lessons = eF_getTableDataFlat("lessons", "id, name");
-         //$lessonNames = array_combine($lessons['id'], $lessons['name']);
-         $result = eF_getTableData("calendar c LEFT OUTER JOIN lessons l ON c.lessons_ID = l.ID", "c.id, c.timestamp, c.data, l.name, c.users_login", "c.active=1 and l.id in (".implode(",", $lessons['id']).")", "timestamp desc");
+         $events = calendar::getCalendarEventsForAllLessons();
         }
        }
 
-    foreach ($result as $value) {
+    foreach ($events as $value) {
      $value['name'] ? $title = formatTimestamp($value['timestamp']).' ('.$value['name'].')' : $title = formatTimestamp($value['timestamp']);
         $data[] = array('title' => $title,
               'link' => G_SERVERNAME.'userpage.php?ctg=calendar&amp;view_calendar='.$value['timestamp'].'&amp;type=0',

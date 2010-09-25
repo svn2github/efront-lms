@@ -69,7 +69,7 @@
    {/if}
    <span>
     <img src = {$T_RSS_MODULE_BASELINK|cat:'images/add.png'} alt = "{$smarty.const._RSS_PROVIDELESSONFEED}" title = "{$smarty.const._RSS_PROVIDELESSONFEED}">
-    <a href = "{$T_RSS_MODULE_BASEURL}&add_feed_provider=1&lesson=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._RSS_PROVIDELESSONFEED}', 0)">{$smarty.const._RSS_PROVIDELESSONFEED}</a>
+    <a href = "{$T_RSS_MODULE_BASEURL}&add_feed_provider=1&lesson=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._RSS_PROVIDELESSONFEED}', 1)">{$smarty.const._RSS_PROVIDELESSONFEED}</a>
    </span>
   </div>
         <table class = "sortedTable" style = "width:100%">

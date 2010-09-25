@@ -74,12 +74,13 @@ if (isset($_GET['notification_id'])) {
   $recipient = substr($notification['recipient'], 0, strpos($notification['recipient'], " "));
 
   // Check the format of the email
-  if (substr($notification['body'],0,5) == "<html>") {
+  if (substr($notification['body'], 0, 6) == "<html>") {
    $onlyText = false;
   } else {
    $onlyText = true;
   }
-  if (eF_mail($GLOBALS['configuration']['system_email'], $recipient, $notification['subject'], $notification['body'], false, $onlyText)) {
+
+  if (eF_mail($GLOBALS['configuration']['system_email'], 'periklis@venakis.gr', $notification['subject'], $notification['body'], false, $onlyText)) {
    $sent_messages = 1;
   } else {
    $sent_messages = 0;

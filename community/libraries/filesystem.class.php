@@ -2568,7 +2568,7 @@ class FileSystemTree extends EfrontTree
         }
         $filesArray = eF_multiSort($filesArray, 'name', 'asc');
         $fileArrays = array_merge($foldersArray, $filesArray);
-  //pr($fileArrays);  
+  //pr($fileArrays);
         isset($ajaxOptions['order']) && $ajaxOptions['order'] == 'asc' ? $ajaxOptions['order'] = 'asc' : $ajaxOptions['order'] = 'desc';
         !isset($ajaxOptions['sort']) ? $ajaxOptions['sort'] = 'name' : null;
         !isset($ajaxOptions['limit']) ? $ajaxOptions['limit'] = 20 : null;

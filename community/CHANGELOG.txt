@@ -1,4 +1,5 @@
 === Version 3.6.7 ===
+- Updated calendar to support for globals, private and various types of events
 - Fixed group assignment with common user type causing error when the group has courses
 - Fixed issue about editing popup parameters in scorm units
 - Fix for IE7 bug issuing false non-secure items warning under https when viewing the sorted table.
@@ -36,6 +37,7 @@
 - Fixed messages being set to "view" for custom user types
 - Fixed lesson users in lesson's administration menu not having custom user types selected by default
 - Added option in editing job position about applying new lessons/courses to users already belongs position
+
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

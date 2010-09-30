@@ -142,20 +142,14 @@ class EfrontIMS
       }
      }
     }
-    //$total_fields[$key]['data'] = eF_postProcess(str_replace("'","&#039;",$data));
-
-    //$total_fields$adl_seq_map_info[$item_key][$key]['target_objective_ID'[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS']. '" onload = "eF_js_setCorrectIframeSize()"></iframe><iframe name = "commitFrame" frameborder = "no" id = "commitFrame" width = "1" height = "1" style = "display:none"></iframe>';
-    //
-    //
-    //
 
     if ($parameters['embed_type'] == 'iframe') {
-     $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS']. '" onload = "if (window.eF_js_setCorrectIframeSize) eF_js_setCorrectIframeSize(); else setIframeSize = true;"></iframe>';
+     $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS']. '" onload = "if (window.eF_js_setCorrectIframeSize) eF_js_setCorrectIframeSize(); else setIframeSize = true;"></iframe>';
     } else {
      $total_fields[$key]['data'] = '
       <div style = "text-align:center;height:300px">
        <span>'._CLICKTOSTARTUNIT.'</span><br/>
-       <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS'].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
+       <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS'].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
       </div>';
     }
    }
@@ -494,17 +488,6 @@ class EfrontIMS
          */
     }
     public static function createUnitFromItem($item) {
-        /*
-
-         $scormSource = G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS'];
-
-         $scormData 	 = '
-
-         <iframe class = "scormFrame" name = "scormFrameName" id = "scormFrameID" src = "'.$scormSource.'" onload = "eF_js_setCorrectIframeSize()">Sorry, but your browser must support iframes to see this</iframe>
-
-         <iframe class = "scormCommitFrame" name = "commitFrame" id = "commitFrame">Sorry, but your browser must support iframes to see this</iframe>';
-
-         */
         $fields = array('name' => $item['name'],
                         'data' => '',
                         'parent_content_ID' => '',

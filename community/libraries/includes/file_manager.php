@@ -124,13 +124,14 @@ try {
         }
 
         $filesystem -> handleAjaxActions($currentUser);
-        !isset($filesystemIterator) ? $filesystemIterator = '' : null;
 
         if (!isset($options['table_id']) || !$options['table_id']) {
             $options['table_id'] = 'filesTable';
         }
+        isset($filesystemIterator) OR $filesystemIterator = '';
         isset($extraFileTools) OR $extraFileTools = array();
         isset($extraHeaderOptions) OR $extraHeaderOptions = array();
+        isset($extraColumns) OR $extraColumns = array();
 
         if (isset($_GET['ajax']) && $_GET['ajax'] == $options['table_id']) {
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
@@ -150,12 +151,12 @@ try {
 
             $ajaxOptions = array('sort' => $sort, 'order' => $order, 'limit' => $limit, 'offset' => $offset, 'filter' => $filter);
             //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
-            $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false);
+            $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false, $extraColumns);
             $smarty -> assign("T_DISPLAYCODE", $filesystemCode);
             $smarty -> display('display_code.tpl');
             exit;
         }
-        $smarty -> assign("T_FILE_MANAGER", $filesystem -> toHTML($url, false, false, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false));
+        $smarty -> assign("T_FILE_MANAGER", $filesystem -> toHTML($url, false, false, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false, $extraColumns));
     }
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);

@@ -37,6 +37,7 @@
 - Fixed messages being set to "view" for custom user types
 - Fixed lesson users in lesson's administration menu not having custom user types selected by default
 - Added option in editing job position about applying new lessons/courses to users already belongs position
+- Fixed unique lessons sharing arbitrary folder error
 
 
 === Version 3.6.6 8242 ===

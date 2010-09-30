@@ -16,7 +16,7 @@ function setAutoComplete(el) {
  ajaxRequest(el, url, parameters, onSetAutoComplete);
 }
 function onSetAutoComplete(el, response) {
- status = response.evalJSON(true).response;
+ var status = response.evalJSON(true).response;
 
  if (status == 0) {
   el.update(autocompleteno);
@@ -85,7 +85,7 @@ function onDeleteSchedule(el, response) {
 function saveQuestionTree(el) {
  parameters = {ajax:1, order:treeObj.getNodeOrders(), method: 'get'};
  var url = location.toString();
- ajaxRequest(el, url, parameters, onSetAutoComplete);
+ ajaxRequest(el, url, parameters);
 }
 
 Array.prototype.inArray = function (value)

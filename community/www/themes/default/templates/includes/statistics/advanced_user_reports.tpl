@@ -53,9 +53,25 @@
      {elseif $item.column == 'job_description'}
       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$user.job_description_ID}" class = "editLink">{$entry}</a>
      {elseif $item.column == 'course_status'}
-      {if $user.count_courses}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink">{$user.course_status}</a>{/if}
+      {if $user.count_courses}
+       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
+        {$user.course_status}
+        {if !$T_CONFIGURATION.disable_tooltip}
+         <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
+         <span class = "tooltipSpan"></span>
+        {/if}
+       </a>
+      {/if}
      {elseif $item.column == 'lesson_status'}
-      {if $user.count_lessons}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink">{$user.lesson_status}</a>{/if}
+      {if $user.count_lessons}
+       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'course_status');">
+        {$user.lesson_status}
+        {if !$T_CONFIGURATION.disable_tooltip}
+         <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
+         <span class = "tooltipSpan"></span>
+        {/if}
+       </a>
+      {/if}
      {elseif $item.column == 'certifications'}
       {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$user.certifications}</a>{/if}
      {elseif $item.column == 'certificate_status'}
@@ -161,7 +177,7 @@
    <form onsubmit = "location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&tab=builder&report='+$('reports_list_edit').options[$('reports_list_edit').options.selectedIndex].value;return false">
   <span>
    <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDREPORT}" title = "{$smarty.const._ADDREPORT}" />
-   <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWREPORT}', 0)">{$smarty.const._ADDREPORT}</a>
+   <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._REPORT}', 0)">{$smarty.const._ADDREPORT}</a>
   </span>
   {if $T_REPORT_NAMES}
   <span>
@@ -185,7 +201,7 @@
  {if $T_REPORT}
    <div class = "mediumHeader">
     <span>{$smarty.const._VIEWINGREPORT}: {$T_REPORT.name}</span>
-    <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWREPORT}', 0)">
+    <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._REPORT}', 0)">
      <img class = "handle" src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" onclick = ""/>
     </a>
    </div>
@@ -321,7 +337,7 @@
   {capture name = 't_new_report_code'}
    {eF_template_printForm form=$T_ADD_REPORTING_FORM}
   {/capture}
-  {eF_template_printBlock title = $smarty.const._NEWREPORT data = $smarty.capture.t_new_report_code image = '32x32/reports.png'}
+  {eF_template_printBlock title = $smarty.const._REPORT data = $smarty.capture.t_new_report_code image = '32x32/reports.png'}
 
   {if $T_MESSAGE_TYPE == 'success'}
      <script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$T_ADDED_REPORT}&tab=builder';</script>

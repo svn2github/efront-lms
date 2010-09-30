@@ -278,7 +278,7 @@ class EfrontEvent
           EfrontEvent::COURSE_CERTIFICATE_REVOKE => array("text" => _CERTIFICATEREVOKE, "category" => "courses"),
              EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC => array("text" => _NEW_POST_FOR_LESSON_TIMELINE_TOPIC, "category" => "social"),
              EfrontEvent::DELETE_POST_FROM_LESSON_TIMELINE => array("text" => _DELETE_POST_FROM_LESSON_TIMELINE, "category" => "social"),
-             EfrontEvent::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "lessons"),
+             EfrontEvent::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "tests"),
              //EfrontEvent::TEST_START => array("text" => _TEST_START, "category" => "tests"),
              EfrontEvent::TEST_COMPLETION => array("text" => _TEST_COMPLETION, "category" => "tests", "canBeNegated" => _TEST_NOT_COMPLETED),
              EfrontEvent::CONTENT_CREATION => array("text" => _CONTENT_CREATION, "category" => "content"),
@@ -681,6 +681,9 @@ class EfrontEvent
          }
         }
        }
+      }
+         if ($type['category'] == "tests") {
+       $subst_array['tests_name'] = $this -> event['entity_name'];
       }
       if ($type['category'] == "news") {
        $subst_array['announcement_title'] = $this -> event['entity_name'];

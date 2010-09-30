@@ -277,6 +277,7 @@ var enableMyJobSelect = false;
   </table>
  {/if}
  {/capture}
+ {*** User form ***}
 {/if}
 {if $T_OP == "dashboard"}
  {if $T_SOCIAL_INTERFACE}

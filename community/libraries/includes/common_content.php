@@ -170,7 +170,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                  $filesystem = new FileSystemTree(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
                  try {
                      $uploadedFile = $filesystem -> uploadFile('pdf_upload', $destinationDir);
-                     $values['data'] = '<iframe src="'.G_RELATIVELESSONSLINK.$_SESSION['s_lessons_ID'].'/'.$uploadedFile["physical_name"].'"  name="pdfaccept" width="100%" height="600"></iframe>';
+                     $values['data'] = '<iframe src="'.$currentLesson -> getDirectoryUrl().'/'.$uploadedFile["physical_name"].'"  name="pdfaccept" width="100%" height="600"></iframe>';
                  } catch (EfrontFileException $e) {
                      echo $e -> getMessage();
                  }

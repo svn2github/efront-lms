@@ -3878,4 +3878,5 @@ define("_CLEARQUEUEMESSAGES", "Διαγραφή λίστας μηνυμάτων"
 define("_APPLYTOUSERALLREADYTOJOBPOSITION","Εφαρμογή στους χρήστες που ανήκουν στη θέση εργασίας");
 define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Μπορεί μόνο να προσθέσει (όχι να αφαιρέσει) μια νέα επιλογή στον χρήστη");
 define("_SORTBY", "Ταξινόμηση ανά");
+define("_TRAINING", "Εκπαιδεύσεις");
 ?>

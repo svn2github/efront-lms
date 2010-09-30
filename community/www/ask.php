@@ -37,6 +37,7 @@ switch ($_GET['ask_type']) {
  case 'branches': askBranches(); break;
  //case 'information': askInformation(); break;
 
+
  default: break;
 }
 

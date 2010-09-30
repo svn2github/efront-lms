@@ -39,7 +39,7 @@ function updateInformation(el, login, type) {
 
  if (Element.extend(el).select('span.tooltipSpan')[0].empty()) {
   url = 'ask_information.php';
-  parameters = {users_LOGIN:login, method:'get'};
+  parameters = {users_LOGIN:login, type:type, method:'get'};
 
   s = el.select('span.tooltipSpan')[0];
   s.setStyle({height:'50px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url("themes/default/images/others/progress1.gif")'}));

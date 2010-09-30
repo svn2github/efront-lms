@@ -139,7 +139,7 @@
             if (sortBy && autoAjax[tableIndex]) {
                 eF_js_sortTable(sortBy);
             } else if (useAjax[tableIndex] && autoAjax[tableIndex]) {
-                eF_js_sortTable(anchor, other); //Ajax must be initialized some way, and sortBy is a convenient one.
+                eF_js_sortTable(null, other); //Ajax must be initialized some way, and sortBy is a convenient one.
             }
             sortBy = false;
 
@@ -267,7 +267,7 @@
         } else {
          document.getElementById(el.id).className = 'sortAscending';
          document.getElementById(el.id).setAttribute('order', 'desc');
-         if (currentSort[tableIndex] !== 'null') { // when sortby not set, don't display arrow
+         if (currentSort[tableIndex] !== 'null') { // when sortby not set, don't display arrow    						
           if (document.getElementById(el.id).up().select('img').length == 0) {
            document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
           } else {

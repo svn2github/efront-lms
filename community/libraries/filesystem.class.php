@@ -2422,7 +2422,7 @@ class FileSystemTree extends EfrontTree
      * @access public
 
      */
-    public function toHTML($url, $currentDirectory = '', $ajaxOptions = array(), $options, $extraFileTools = array(), $extraDirectoryTools = array(), $extraHeaderOptions = array(), $defaultIterator = false, $show_tooltip = true) {
+    public function toHTML($url, $currentDirectory = '', $ajaxOptions = array(), $options, $extraFileTools = array(), $extraDirectoryTools = array(), $extraHeaderOptions = array(), $defaultIterator = false, $show_tooltip = true, $extraColumns = array()) {
         //Set default options
         !isset($options['show_type']) ? $options['show_type'] = true : null;
         !isset($options['show_date']) ? $options['show_date'] = true : null;
@@ -2580,12 +2580,17 @@ class FileSystemTree extends EfrontTree
          $ajaxOptions['filter'] ? $fileArrays = eF_filterData($fileArrays, $ajaxOptions['filter']) : null;
          $fileArrays = array_slice($fileArrays, $ajaxOptions['offset'], $ajaxOptions['limit']);
         }
+        $extraColumnsString = '';
+        foreach ($extraColumns as $value) {
+   $extraColumnsString = '<td class = "topTitle" name = "'.$value.'">'.$value.'</td>';
+        }
         $filesCode = '
                         <table class = "sortedTable" style = "width:100%" size = "'.$size.'" id = "'.$tableId.'" useAjax = "1" rowsPerPage = "20" other = "'.urlencode($currentDirectory).'" url = "'.$url.'&" nomass = "1" currentDir = "'.(isset($currentDir['path']) ? $currentDir['path'] : '').'">
                       <tr>'.($options['show_type'] ? '<td class = "topTitle centerAlign" name = "extension">'._FILETYPE.'</td>' : '').'
                        '.($options['show_name'] ? '<td class = "topTitle" name = "name" id = "filename_'.$tableId.'">'._FILENAME.'</td>' : '').'
                        '.($options['show_size'] ? '<td class = "topTitle" name = "size">'._SIZE.'</td>' : '').'
                        '.($options['show_date'] ? '<td class = "topTitle" name = "timestamp">'._LASTMODIFIED.'</td>' : '').'
+        '.$extraColumnsString.'
                        '.($_SESSION['s_lessons_ID'] && $options['share'] ? '<td class = "topTitle centerAlign" name = "shared">'._SHARE.'</td>' : '').'
                        '.($options['show_tools'] ? '<td class = "topTitle centerAlign noSort">'._OPERATIONS.'</td>' : '').'
                        '.($options['delete'] || ($_SESSION['s_lessons_ID'] && $options['share']) ? '<td class = "topTitle centerAlign">'._SELECT.'</td>' : '').'
@@ -2694,8 +2699,13 @@ class FileSystemTree extends EfrontTree
                 }
                 $filesCode .= '<span id = "edit_'.urlencode($identifier).'" style = "display:none"><input type = "text" value = "'.$value['name'].'" onkeypress = "if (event.which == 13 || event.keyCode == 13) {Element.extend(this).next().down().onclick(); return false;}"/>&nbsp;<a href = "javascript:void(0)"><img id = "editImage_'.urlencode($identifier).'"src = "images/16x16/success.png" style = "vertical-align:middle" onclick = "editFile(this, $(\'span_'.urlencode($identifier).'\').innerHTML, Element.extend(this).up().previous().value, \''.$value['type'].'\',\''.$value['name'].'\')" border = "0"></a></span></td>';
             }
+            $extraColumnsString = '';
+            foreach ($extraColumns as $column) {
+             $extraColumnsString = '<td>'.$value[$column].'</td>';
+            }
             $filesCode .= ''.($options['show_size'] ? '<td>'.($value['type'] == 'file' ? $value['size'].' '._KB : '').'</td>' : '').'
                           '.($options['show_date'] ? '<td>'.formatTimestamp($value['timestamp'], 'time_nosec').'</td>' : '').'
+                          '.$extraColumnsString.'
                           '.($_SESSION['s_lessons_ID'] && $options['share'] ? '<td class = "centerAlign">'.$sharedString.'</td>' : '').'
                           '.($options['show_tools'] ? '<td class = "centerAlign">'.$toolsString.'</td>' : '').'
                            '.($options['delete'] || ($_SESSION['s_lessons_ID'] && $options['share']) ? '<td class = "centerAlign">'.($value['type'] == 'file' ? '<input type = "checkbox" id = "'.$identifier.'" value = "'.$identifier.'" />' : '').'</td>' : '').'

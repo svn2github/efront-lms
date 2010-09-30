@@ -258,6 +258,36 @@ class module_administrator_tools extends EfrontModule {
       } catch (Exception $e) {
        handleAjaxExceptions($e);
       }
+   $sqlForm = new HTML_QuickForm("sql_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=sql", "", null, true);
+   $sqlForm -> addElement('text', 'sql_command', _MODULE_ADMINISTRATOR_TOOLS_SQLCOMMAND, 'style = "width:600px"' );
+   $sqlForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+   if ($sqlForm -> isSubmitted() && $sqlForm -> validate()) {
+    try {
+     $values = $sqlForm -> exportValues();
+     try {
+      $result = array();
+      $recordSet = $GLOBALS['db'] -> Execute($values['sql_command']);
+      if (($affectedRows = $GLOBALS['db'] -> Affected_Rows()) !== false) {
+       $smarty -> assign("T_SQL_AFFECTED_ROWS", $affectedRows);
+      }
+      while (!$recordSet->EOF) {
+       if (empty($result)) {
+        $result[] = array_keys($recordSet -> fields);
+       }
+       $result[] = $recordSet->fields;
+       $recordSet->MoveNext();
+      }
+      $smarty -> assign("T_SQL_RESULT", $result);
+     } catch (Exception $e) {
+      pr($e);
+     }
+    } catch (Exception $e) {
+     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+     $message_type = 'failure';
+    }
+   }
+   $smarty -> assign("T_SQL_FORM", $sqlForm -> toArray());
      } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
             $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

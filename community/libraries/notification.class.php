@@ -1282,6 +1282,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
              $this -> notification['message'] .= _WROTEACOMMENTFORUNIT . " <b>" . $this -> notification['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
          } else if ($this -> notification['type'] == EfrontNotification::TEST_COMPLETION) {
              $this -> notification['message'] .= _COMPLETEDTEST . " <b>" . $this -> notification['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
+         } else if ($this -> notification['type'] == EfrontNotification::TEST_CREATION) {
+             $this -> notification['message'] .= _CREATEDTHETEST . " <b>" . $this -> notification['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
          } else if ($this -> notification['type'] == EfrontNotification::NEW_FORUM) {
              $this -> notification['message'] .= _CREATEDTHENEWFORUM . " <b>" . $this -> notification['entity_name'] ."</b> " . _FORTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
          } else if ($this -> notification['type'] == EfrontNotification::NEW_TOPIC) {

@@ -3878,4 +3878,5 @@ define("_CLEARQUEUEMESSAGES", "Clear queue messages");
 define("_APPLYTOUSERALLREADYTOJOBPOSITION","Apply to users already belongs to this job position");
 define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","This can only add (not remove) a new selection to a user");
 define("_SORTBY", "Sort by");
+define("_TRAINING", "Training");
 ?>

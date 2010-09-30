@@ -24,6 +24,7 @@ $loadScripts[] = 'includes/calendar';
 
 //Create shorthands for user access rights, to avoid long variable names
 !isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] == 'change' ? $_change_ = 1 : $_change_ = 0;
+$smarty -> assign("_change_", $_change_);
 
 if (eF_checkParameter($_GET['view_calendar'], 'timestamp')) { //If a specific calendar date is not defined in the GET, set as the current day to be today
  $viewCalendar = $_GET['view_calendar'];
@@ -34,7 +35,6 @@ if (eF_checkParameter($_GET['view_calendar'], 'timestamp')) { //If a specific ca
 isset($_GET['show_interval']) ? $showInterval = $_GET['show_interval'] : $showInterval = 'day';
 
 $events = calendar :: getCalendarEventsForUser($currentUser);
-
 $smarty -> assign("T_CALENDAR_TYPES", calendar :: $calendarTypes);
 
 if (isset($_GET['ajax']) && $_GET['ajax'] == "calendarTable") {

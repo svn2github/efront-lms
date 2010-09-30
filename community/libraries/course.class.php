@@ -1744,6 +1744,7 @@ class EfrontCourse
    $courseLessonsAutoAssignProjects[$value['lessons_ID']][] = $value['id'];
   }
   $newUsers = array();
+  $existingUsers = array();
   foreach ($users as $user) {
    if ($this -> course['max_users'] && $isStudentRoleInCourse && $this -> course['max_users'] <= $courseStudents++) {
     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
@@ -1769,6 +1770,7 @@ class EfrontCourse
     !$courseUsers[$user]['archive'] OR $fields['to_timestamp'] = 0;
     $where = "users_LOGIN='".$user."' and courses_ID=".$this -> course['id'];
     self::persistCourseUsers($fields, $where, $this -> course['id'], $user);
+    $existingUsers[] = $courseUsers[$user];
    }
    foreach ($courseLessons as $id) {
     if (!isset($courseLessonsToUsers[$id][$user])) {
@@ -1812,17 +1814,15 @@ class EfrontCourse
 
 */
   }
-/*
+ /*	if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
 
-		if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
-
-			foreach ($usersData as $value) {
+			foreach ($newLessonUsers as $value) {
 
 				$event = array("type" 		  => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
 
-						   "users_LOGIN"  => $value['login'],
+						   "users_LOGIN"  => $value['users_LOGIN'],
 
-						   "lessons_ID"   => $this -> lesson['id'],
+						   "lessons_ID"   => $value['lessons_ID'],
 
 						   "lessons_name" => $this -> lesson['name']);
 
@@ -1834,27 +1834,19 @@ class EfrontCourse
 
 
 
-
-
-		if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
-
-			foreach ($usersData as $value) {
-
-				$event = array("type" 		  => $this -> isStudentRole($value['role']) ? EfrontEvent::COURSE_ACQUISITION_AS_STUDENT : EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR,
-
-							   "users_LOGIN"  => $value['login'],
-
-							   "lessons_ID"   => $this -> course['id'],
-
-							   "lessons_name" => $this -> course['name']);
-
-				EfrontEvent::triggerEvent($event);
-
-			}
-
-		}
-
 */
+  !isset($newUsers) ? $newUsers = array() : null;
+  !isset($existingUsers) ? $existingUsers = array() : null;
+  $eventArray = array_merge($newUsers, $existingUsers);
+  if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
+   foreach ($eventArray as $value) {
+    $event = array("type" => $this -> isStudentRole($value['user_type']) ? EfrontEvent::COURSE_ACQUISITION_AS_STUDENT : EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR,
+          "users_LOGIN" => $value['users_LOGIN'],
+          "lessons_ID" => $this -> course['id'],
+          "lessons_name" => $this -> course['name']);
+    EfrontEvent::triggerEvent($event);
+   }
+  }
   //$this -> addUsersToCourse($usersToAddToCourse, $archivedCourseUsers);
   $this -> users = false; //Reset users cache
  }

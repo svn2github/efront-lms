@@ -350,15 +350,15 @@ class calendar extends EfrontEntity
   foreach ($result as $value) {
    $globalEvents[$value['id']] = $value;
   }
-  $result = eF_getTableData("lessons l, calendar ca, users_to_lessons ul", "ca.*, l.name as lesson_name", "ul.users_LOGIN='$user' and ca.foreign_ID=ul.lessons_ID and ul.lessons_ID=l.id and l.archive=0");
+  $result = eF_getTableData("lessons l, calendar ca, users_to_lessons ul", "ca.*, l.name", "ul.users_LOGIN='$user' and ca.foreign_ID=ul.lessons_ID and ul.lessons_ID=l.id and l.archive=0 and ul.archive=0");
   foreach ($result as $value) {
    $lessonEvents[$value['id']] = $value;
   }
-  $result = eF_getTableData("courses c, calendar ca, users_to_courses uc", "ca.*, c.name as course_name", "uc.users_LOGIN='$user' and ca.foreign_ID=uc.courses_ID and uc.courses_ID=c.id and c.archive=0");
+  $result = eF_getTableData("courses c, calendar ca, users_to_courses uc", "ca.*, c.name", "uc.users_LOGIN='$user' and ca.foreign_ID=uc.courses_ID and uc.courses_ID=c.id and c.archive=0 and uc.archive=0");
   foreach ($result as $value) {
    $courseEvents[$value['id']] = $value;
   }
-  $result = eF_getTableData("groups g, calendar ca, users_to_groups ug", "ca.*, g.name as group_name", "ug.users_LOGIN='$user' and ca.foreign_ID=ug.groups_ID and ug.groups_ID=g.id");
+  $result = eF_getTableData("groups g, calendar ca, users_to_groups ug", "ca.*, g.name", "ug.users_LOGIN='$user' and ca.foreign_ID=ug.groups_ID and ug.groups_ID=g.id");
   foreach ($result as $value) {
    $courseEvents[$value['id']] = $value;
   }

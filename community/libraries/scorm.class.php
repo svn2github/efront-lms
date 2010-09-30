@@ -353,12 +353,12 @@ class EfrontScorm
                     }
                     //$total_fields[$key]['data'] = eF_postProcess(str_replace("'","&#039;",$data));
                     if ($parameters['embed_type'] == 'iframe') {
-                        $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
+                        $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
                     } else {
                         $total_fields[$key]['data'] = '
                             <div style = "text-align:center;height:300px">
                              <span>'._CLICKTOSTARTUNIT.'</span><br/>
-                          <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
+                          <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
                          </div>';
                     }
                 }
@@ -710,17 +710,6 @@ class EfrontScorm
          */
     }
     public static function createUnitFromItem($item) {
-        /*
-
-         $scormSource = G_RELATIVELESSONSLINK.$lessons_ID."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS'];
-
-         $scormData 	 = '
-
-         <iframe class = "scormFrame" name = "scormFrameName" id = "scormFrameID" src = "'.$scormSource.'" onload = "eF_js_setCorrectIframeSize()">Sorry, but your browser must support iframes to see this</iframe>
-
-         <iframe class = "scormCommitFrame" name = "commitFrame" id = "commitFrame">Sorry, but your browser must support iframes to see this</iframe>';
-
-         */
         $fields = array('name' => $item['name'],
                         'data' => '',
                         'parent_content_ID' => '',

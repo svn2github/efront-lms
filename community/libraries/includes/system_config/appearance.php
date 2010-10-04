@@ -10,7 +10,7 @@ $loginRedirectArray = array();
 //pr($loadedModules);exit;
 foreach ($loadedModules as $module) {
  $className = $module -> className;
- if ($loadedModules[$className] -> getLandingPageModule()) {
+ if (isset($loadedModules[$className]) && $loadedModules[$className] -> getLandingPageModule()) {
   $loginRedirectArray[$className] = $className;
  }
 }

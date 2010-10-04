@@ -1090,3 +1090,15 @@ function showFormAdditionalDetails(el, id) {
  $('form_tr_'+id).down().visible() ? img = 'minus2' : img = 'plus2';
  setImageSrc(el, 16, img);
 }
+function ExpandCollapseFormRows() {
+ setFormRowsHidden = parseInt(readCookie("setFormRowsHidden"));
+ if (!setFormRowsHidden) {
+  $$('tr.form_additional_info').each(function(s) {s.down().show();setImageSrc($(s.id+'_previous').down().down(), 16, 'minus2');});
+  setFormRowsHidden = 1;
+ } else {
+  $$('tr.form_additional_info').each(function(s) {s.down().hide();setImageSrc($(s.id+'_previous').down().down(), 16, 'plus2');});
+  setFormRowsHidden = 0;
+ }
+ setCookie("setFormRowsHidden", setFormRowsHidden);
+}
+ExpandCollapseFormRows();ExpandCollapseFormRows(); //2 calls in order to set the expand status to the correct state (because 0 calls does nothing, 1 call reverts it)

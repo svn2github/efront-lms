@@ -31,14 +31,14 @@
  <fieldset class = "fieldsetSeparator">
   <legend>{$smarty.const._GENERALUSERINFO}</legend>
   <table>
-   <tr><td rowspan = "6" style = "padding-right:5px;width:1px;">
+   <tr><td rowspan = "7" style = "padding-right:5px;width:1px;">
      <img src = "{if ($T_AVATAR)}view_file.php?file={$T_AVATAR}{else}{$smarty.const.G_SYSTEMAVATARSPATH}unknown_small.{$globalImageExtension}{/if}" title="{$smarty.const._CURRENTAVATAR}" alt="{$smarty.const._CURRENTAVATAR}" />
     </td></tr>
    <tr><td >{$smarty.const._NAME}:&nbsp;</td>
     <td >#filter:login-{$T_EDITEDUSER->user.login}#</td></tr>
    {if $T_EMPLOYEE.birthday}
    <tr><td >{$smarty.const._BIRTHDAY}:&nbsp;</td>
-    <td >{$T_EMPLOYEE.birthday}</td></tr>
+    <td >#filter:timestamp-{$T_EMPLOYEE.birthday}#</td></tr>
    {/if}
    {if $T_EMPLOYEE.address}
    <tr><td >{$smarty.const._ADDRESS}:&nbsp;</td>
@@ -58,24 +58,10 @@
    {/if}
   </table>
  </fieldset>
+{if $T_USER_COURSES || $T_USER_LESSONS}
  <fieldset class = "fieldsetSeparator">
   <legend>{$smarty.const._TRAINING}</legend>
-{*
-   <table>
-    <tr>
-     <td>{$smarty.const._SORTBY}:</td>
-     <td class = "filter">
-      <select onchange = "reloadAjaxTab('{$T_TABBERAJAX.form}');setCookie('form_cookie', this.options[this.options.selectedIndex].value);">
-       <option {if $smarty.cookies.form_cookie == ''}selected{/if} value = ""></option>
-       <option {if $smarty.cookies.form_cookie == 'name'}selected{/if} value = "name">{$smarty.const._COURSENAME}</option>
-       <option {if $smarty.cookies.form_cookie == 'completion_date'}selected{/if} value = "completion_date">{$smarty.const._COMPLETIONDATE}</option>
-       <option {if $smarty.cookies.form_cookie == 'category'}selected{/if} value = "category">{$smarty.const._CATEGORY}</option>
-       <option {if $smarty.cookies.form_cookie == 'score'}selected{/if} value = "score">{$smarty.const._SCORE}</option>
-      </select>
-     </td>
-    </tr>
-   </table>
-*}
+  <div><a href = "javascript:void(0)" onclick = "ExpandCollapseFormRows()">{$smarty.const._EXPANDCOLLAPSE}</a></div>
    {if $T_USER_COURSES}
    <fieldset class = "fieldsetSeparator">
     <legend class = "smallLegend">{$smarty.const._COURSES}</legend>
@@ -144,44 +130,6 @@
       </fieldset>
      </td></tr>
     {/if}
-{*
-    {foreach name = 'course_lessons_list' item = 'lesson' from = $T_COURSE_LESSONS[$course.id]}
-     {if $smarty.foreach.course_lessons_list.first}
-     <tr style = "font-weight:bold;white-space:nowrap">
-      <td style = "padding-left:30px;">{$smarty.const._LESSONNAME}</td>
-      <td >{$smarty.const._CATEGORY}</td>
-      <td></td>
-      <td >{$smarty.const._COMPLETED}</td>
-      <td >{$smarty.const._SCORE}</td>
-     </tr>
-     {/if}
-     <tr>
-      <td style = "padding-left:30px;">{$lesson.name}</td>
-      <td>{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
-      <td></td>
-      <td>{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}{$smarty.const._NO}{/if}</td>
-      <td>{if $lesson.completed}#filter:score-{$lesson.score}#%{/if}</td>
-     </tr>
-     {foreach name = 'tests_list' item = 'test' from = $T_USER_TESTS[$lesson.id]}
-     {if $smarty.foreach.tests_list.first}
-     <tr style = "font-weight:bold;white-space:nowrap">
-      <td style = "padding-left:60px;">{$smarty.const._TESTNAME}</td>
-      <td></td>
-      <td></td>
-      <td >{$smarty.const._STATUS}</td>
-      <td >{$smarty.const._SCORE}</td>
-     </tr>
-     {/if}
-     <tr>
-      <td style = "padding-left:60px;">{$test.name}</td>
-      <td></td>
-      <td></td>
-      <td>{$test.status}</td>
-      <td>#filter:score-{$test.score}#%</td>
-     </tr>
-     {/foreach}
-    {/foreach}
-*}
    {/foreach}
     </table>
    </fieldset>
@@ -250,5 +198,6 @@
    </fieldset>
    {/if}
  </fieldset>
+{/if}
 {/capture}
 {/if}

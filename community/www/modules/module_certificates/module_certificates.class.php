@@ -257,7 +257,7 @@ class module_certificates extends EfrontModule {
                 $form -> addElement('file', 'file_upload', _CERTIFICATETEMPLATE, 'class = "inputText"');
                 $form -> addElement('select', 'existing_certificate', _ORSELECTONEFROMLIST, $existingCertificates, "id = 'select_certificate'");
                 $form -> addElement('button', 'preview', _PREVIEW,
-                'class = "flatButton" onclick = "javascript:window.open(\''.basename($_SERVER['PHP_SELF']).'?ctg=module&op=module_certificates&export=rtf&preview=1&certificate_tpl=\'+document.forms[0].existing_certificate.value)"
+                'class = "flatButton" onclick = "javascript:window.open(\''.basename($_SERVER['PHP_SELF']).'?ctg=module&op=module_certificates&export=rtf&preview=1&certificate_tpl=\'+document.getElementById(\'select_certificate\').value)"
                 title = "'._VIEWCERTIFICATE.'"');
                 $form -> addElement('submit', 'submit_certificate', _SAVE, 'class = "flatButton"');
                 $form -> setDefaults(array('existing_certificate' => $dname));

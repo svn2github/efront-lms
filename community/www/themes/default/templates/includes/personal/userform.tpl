@@ -3,9 +3,11 @@
 
 
 {capture name = 't_personal_form_data_code'}
+
  <table class = "statisticsTools statisticsSelectList">
   <tr>
-   <td class = "labelCell">{$smarty.const._SORTBY}:</td>
+{*
+   <td >{$smarty.const._SORTBY}:</td>
    <td class = "filter">
     <select onchange = "reloadAjaxTab('{$T_TABBERAJAX.form}');setCookie('form_cookie', this.options[this.options.selectedIndex].value);">
      <option {if $smarty.cookies.form_cookie == ''}selected{/if} value = ""></option>
@@ -15,6 +17,7 @@
      <option {if $smarty.cookies.form_cookie == 'score'}selected{/if} value = "score">{$smarty.const._SCORE}</option>
     </select>
    </td>
+*}
    <td id = "right">{$smarty.const._TOOLS}:&nbsp;
                         <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_EDITEDUSER->user.login}&op=status&print=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._PRINTEMPLOYEEFORM}', 2)" target = "POPUP_FRAME">
                             <img src = "images/16x16/printer.png" title = "{$smarty.const._PRINTEMPLOYEEFORM}" alt = "{$smarty.const._PRINTEMPLOYEEFORM}" />
@@ -27,328 +30,225 @@
  </table>
  <fieldset class = "fieldsetSeparator">
   <legend>{$smarty.const._GENERALUSERINFO}</legend>
-  <table style = "width:100%">
+  <table>
    <tr><td rowspan = "6" style = "padding-right:5px;width:1px;">
      <img src = "{if ($T_AVATAR)}view_file.php?file={$T_AVATAR}{else}{$smarty.const.G_SYSTEMAVATARSPATH}unknown_small.{$globalImageExtension}{/if}" title="{$smarty.const._CURRENTAVATAR}" alt="{$smarty.const._CURRENTAVATAR}" />
     </td></tr>
-   <tr><td class = "labelCell">{$smarty.const._NAME}:&nbsp;</td>
-    <td class = "elementCell">#filter:login-{$T_EDITEDUSER->user.login}#</td></tr>
+   <tr><td >{$smarty.const._NAME}:&nbsp;</td>
+    <td >#filter:login-{$T_EDITEDUSER->user.login}#</td></tr>
    {if $T_EMPLOYEE.birthday}
-   <tr><td class = "labelCell">{$smarty.const._BIRTHDAY}:&nbsp;</td>
-    <td class = "elementCell">{$T_EMPLOYEE.birthday}</td></tr>
+   <tr><td >{$smarty.const._BIRTHDAY}:&nbsp;</td>
+    <td >{$T_EMPLOYEE.birthday}</td></tr>
    {/if}
    {if $T_EMPLOYEE.address}
-   <tr><td class = "labelCell">{$smarty.const._ADDRESS}:&nbsp;</td>
-    <td class = "elementCell">{$T_EMPLOYEE.address}</td></tr>
+   <tr><td >{$smarty.const._ADDRESS}:&nbsp;</td>
+    <td >{$T_EMPLOYEE.address}</td></tr>
    {/if}
    {if $T_EMPLOYEE.city}
-   <tr><td class = "labelCell">{$smarty.const._CITY}:&nbsp;</td>
-    <td class = "elementCell">{$T_EMPLOYEE.city}</td></tr>
+   <tr><td >{$smarty.const._CITY}:&nbsp;</td>
+    <td >{$T_EMPLOYEE.city}</td></tr>
    {/if}
    {if $T_EMPLOYEE.hired_on}
-   <tr><td class = "labelCell">{$smarty.const._HIREDON}:&nbsp;</td>
-    <td class = "elementCell">#filter:timestamp-{$T_EMPLOYEE.hired_on}#</td></tr>
+   <tr><td >{$smarty.const._HIREDON}:&nbsp;</td>
+    <td >#filter:timestamp-{$T_EMPLOYEE.hired_on}#</td></tr>
    {/if}
    {if $T_EMPLOYEE.left_on}
-   <tr><td class = "labelCell">{$smarty.const._LEFTON}:&nbsp;</td>
-    <td class = "elementCell">#filter:timestamp-{$T_EMPLOYEE.left_on}#</td></tr>
+   <tr><td >{$smarty.const._LEFTON}:&nbsp;</td>
+    <td >#filter:timestamp-{$T_EMPLOYEE.left_on}#</td></tr>
    {/if}
   </table>
  </fieldset>
  <fieldset class = "fieldsetSeparator">
   <legend>{$smarty.const._TRAINING}</legend>
-   <fieldset class = "fieldsetSeparator">
-    <legend>{$smarty.const._OVERALL}</legend>
-    <table style = "width:100%">
-     {foreach name = 'averages_list' item = 'average' from = $T_AVERAGES}
-     <tr>
-      <td class = "labelCell">{$average.title}:&nbsp;<td>
-      <td class = "elementCell">#filter:score-{$average.avg}#%</td>
-     </tr>
-     {/foreach}
-    </table>
-   </fieldset>
-   <fieldset class = "fieldsetSeparator">
-    <legend>{$smarty.const._COURSES}</legend>
-    <table style = "width:100%">
-     {foreach name = 'courses_list' item = 'course' from = $T_COURSES}
-     <tr>
-      <td style = "width:50%;{if !$course.active}color:red{/if}" >{$course.name}</td>
-      <td style = "width:20%">#filter:timestamp-{$course.active_in_course}#</td>
-      <td style = "width:20%">{if $course.completed}#filter:timestamp-{$course.to_timestamp}#{else}{$smarty.const._NOTCOMPLETED}{/if}</td>
-      <td style = "width:10%">{if $course.completed}#filter:score-{$course.score}#%{/if}</td>
-     </tr>
 {*
-     <tr><td>
-       <span {if !$course.active}style = "color:red"{/if}>{$course.name}</span>
-       <span>(#filter:timestamp-{$course.active_in_course}#
-       {if $course.completed}
-        <span class = "success">#filter:timestamp-{$course.to_timestamp}# - {$course.score}%</span>
-       {else}
-        <span class = "failure">{$smarty.const._NOTCOMPLETED}</span>
-       {/if})
-       </span>
-      </td></tr>
+   <table>
+    <tr>
+     <td>{$smarty.const._SORTBY}:</td>
+     <td class = "filter">
+      <select onchange = "reloadAjaxTab('{$T_TABBERAJAX.form}');setCookie('form_cookie', this.options[this.options.selectedIndex].value);">
+       <option {if $smarty.cookies.form_cookie == ''}selected{/if} value = ""></option>
+       <option {if $smarty.cookies.form_cookie == 'name'}selected{/if} value = "name">{$smarty.const._COURSENAME}</option>
+       <option {if $smarty.cookies.form_cookie == 'completion_date'}selected{/if} value = "completion_date">{$smarty.const._COMPLETIONDATE}</option>
+       <option {if $smarty.cookies.form_cookie == 'category'}selected{/if} value = "category">{$smarty.const._CATEGORY}</option>
+       <option {if $smarty.cookies.form_cookie == 'score'}selected{/if} value = "score">{$smarty.const._SCORE}</option>
+      </select>
+     </td>
+    </tr>
+   </table>
 *}
-{*
-     <tr><td colspan = "2">
-       <table width="100%">
-      {foreach name = 'lessons_list' item = 'lesson' key = "key" from = $course.lessons}
-        <tr><td class="labelForm" style="font-weight:bold;">
-          {$lesson.name}<span style = "font-size:12px;font-weight:normal"> (#filter:timestamp-{$lesson.from_timestamp}# {if $lesson.completed}- <span class = "success">#filter:timestamp-{$lesson.to_timestamp}# - {$lesson.score}%</span>{else} - <span class = "failure">{$smarty.const._NOTCOMPLETED}</span>{/if})</span>
-         </td></tr>
-       {if $lesson.tests}
-        <tr><td><table width="100%">
-           {foreach name = 'tests_list' item = 'test' from = $lesson.tests}
-           <tr><td class = "labelFormCell">{$test.name}:</td><td><table><tr><td><table bgcolor = {if $test.score > 60} "#00FF00" {else}"#FF0000"{/if} border="1"><tr><td>{$test.score}%</td></tr></table></td></tr></table></td><td>(#filter:timestamp-{$test.timestamp}#)</td><td>{if $test.comments != ''}({$test.comments}){/if}</td></tr>
+   {if $T_USER_COURSES}
+   <fieldset class = "fieldsetSeparator">
+    <legend class = "smallLegend">{$smarty.const._COURSES}</legend>
+    <table class = "sortedTable" noFooter = "true">
+     <tr style = "font-weight:bold;white-space:nowrap">
+      <td style = "padding:0px 3px 0px 0px" onclick = "resetFormRows()">{$smarty.const._NAME}</td>
+      <td style = "padding:0px 3px 0px 3px">{$smarty.const._CATEGORY}</td>
+      <td style = "padding:0px 3px 0px 3px">{$smarty.const._REGISTRATIONDATE}</td>
+      <td style = "padding:0px 3px 0px 3px">{$smarty.const._COMPLETED}</td>
+      <td style = "padding:0px 0px 0px 3px">{$smarty.const._SCORE}</td>
+     </tr>
+   {foreach name = 'courses_list' key = 'key' item = 'course' from = $T_USER_COURSES}
+     <tr id = "form_tr_{$course.id}_previous">
+      <td style = "padding:0px 3px 0px 0px">
+      {if $T_COURSE_LESSONS[$course.id]}
+       <img class = "ajaxHandle" src = "images/16x16/plus2.png" onclick = "showFormAdditionalDetails(this, '{$course.id}')" alt = "{$smarty.const._SHOWDETAILS}" title = "{$smarty.const._SHOWDETAILS}"/>
+      {/if}
+       <a class = "{if !$course.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$course.id}">{$course.name}</a></td>
+      <td style = "padding:0px 3px 0px 3px">{$T_DIRECTIONS_TREE[$course.directions_ID]}</td>
+      <td style = "padding:0px 3px 0px 3px">#filter:timestamp-{$course.active_in_course}#</td>
+      <td style = "padding:0px 3px 0px 3px">{if $course.completed}#filter:timestamp-{$course.to_timestamp}#{else}-{/if}</td>
+      <td style = "padding:0px 0px 0px 3px">{if $course.completed}#filter:score-{$course.score}#%{else}-{/if}</td>
+     </tr>
+    {if $T_COURSE_LESSONS[$course.id]}
+     <tr id = "form_tr_{$course.id}" class = "form_additional_info" >
+      <td colspan = "100%" style = "display:none">
+      <fieldset class = "fieldsetSeparator">
+       <legend class = "smallLegend">{$smarty.const._LESSONSFORCOURSE} {$course.name}</legend>
+       <table style = "width:100%">
+        <tr style = "font-weight:bold;white-space:nowrap">
+         <td>{$smarty.const._LESSONNAME}</td>
+         <td>{$smarty.const._CATEGORY}</td>
+         <td>{$smarty.const._COMPLETED}</td>
+         <td>{$smarty.const._SCORE}</td>
+        </tr>
+       {foreach name = 'course_lessons_list' item = 'lesson' from = $T_COURSE_LESSONS[$course.id]}
+        <tr>
+         <td>{$lesson.name}</td>
+         <td>{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
+         <td>{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}{$smarty.const._NO}{/if}</td>
+         <td>{if $lesson.completed}#filter:score-{$lesson.score}#%{/if}</td>
+        </tr>
+        {if $T_USER_TESTS[$lesson.id]}
+        <tr><td colspan = "100%">
+         <fieldset class = "fieldsetSeparator">
+          <legend class = "smallLegend">{$smarty.const._TESTSFORLESSON} {$lesson.name}</legend>
+          <table style = "width:100%">
+           <tr style = "font-weight:bold;white-space:nowrap">
+            <td>{$smarty.const._TESTNAME}</td>
+            <td >{$smarty.const._STATUS}</td>
+            <td >{$smarty.const._SCORE}</td>
+           </tr>
+           {foreach name = 'tests_list' item = 'test' from = $T_USER_TESTS[$lesson.id]}
+           <tr>
+            <td>{$test.name}</td>
+            <td>{$test.status}</td>
+            <td>#filter:score-{$test.score}#%</td>
+           </tr>
            {/foreach}
-           {if $lesson.tests_count > 0}
-           <tr><td><b>{$smarty.const._AVERAGESCORE}:</b></td><td><table><tr><td><table bgcolor = {if $lesson.tests_average > 60} "#00FF00" {else}"#FF0000"{/if} border="1"><tr><td>{$lesson.tests_average}%</td></tr></table></td></tr></table></td></tr>
-           {/if}
           </table>
-         </td>
-        </tr>
-       {/if}
-      {/foreach}
+         </fieldset>
+        </tr></td>
+        {/if}
+       {/foreach}
        </table>
-      </td></tr>
+      </fieldset>
+     </td></tr>
+    {/if}
+{*
+    {foreach name = 'course_lessons_list' item = 'lesson' from = $T_COURSE_LESSONS[$course.id]}
+     {if $smarty.foreach.course_lessons_list.first}
+     <tr style = "font-weight:bold;white-space:nowrap">
+      <td style = "padding-left:30px;">{$smarty.const._LESSONNAME}</td>
+      <td >{$smarty.const._CATEGORY}</td>
+      <td></td>
+      <td >{$smarty.const._COMPLETED}</td>
+      <td >{$smarty.const._SCORE}</td>
+     </tr>
+     {/if}
+     <tr>
+      <td style = "padding-left:30px;">{$lesson.name}</td>
+      <td>{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
+      <td></td>
+      <td>{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}{$smarty.const._NO}{/if}</td>
+      <td>{if $lesson.completed}#filter:score-{$lesson.score}#%{/if}</td>
+     </tr>
+     {foreach name = 'tests_list' item = 'test' from = $T_USER_TESTS[$lesson.id]}
+     {if $smarty.foreach.tests_list.first}
+     <tr style = "font-weight:bold;white-space:nowrap">
+      <td style = "padding-left:60px;">{$smarty.const._TESTNAME}</td>
+      <td></td>
+      <td></td>
+      <td >{$smarty.const._STATUS}</td>
+      <td >{$smarty.const._SCORE}</td>
+     </tr>
+     {/if}
+     <tr>
+      <td style = "padding-left:60px;">{$test.name}</td>
+      <td></td>
+      <td></td>
+      <td>{$test.status}</td>
+      <td>#filter:score-{$test.score}#%</td>
+     </tr>
+     {/foreach}
+    {/foreach}
 *}
+   {/foreach}
+    </table>
+   </fieldset>
+   {/if}
+   {if $T_USER_LESSONS}
+   <fieldset class = "fieldsetSeparator">
+    <legend class = "smallLegend">{$smarty.const._LESSONS}</legend>
+    <table class = "sortedTable" noFooter = "true">
+     <tr style = "font-weight:bold;white-space:nowrap">
+      <td style = "padding:0px 3px 0px 0px">{$smarty.const._NAME}</td>
+      <td style = "padding:0px 3px 0px 3px">{$smarty.const._CATEGORY}</td>
+      <td style = "padding:0px 3px 0px 3px">{$smarty.const._REGISTRATIONDATE}</td>
+      <td style = "padding:0px 3px 0px 3px">{$smarty.const._COMPLETED}</td>
+      <td style = "padding:0px 0px 0px 3px">{$smarty.const._SCORE}</td>
+     </tr>
+     {foreach name = 'lessons_list' item = 'lesson' from = $T_USER_LESSONS}
+     <tr>
+      <td style = "padding:0px 3px 0px 0px" class = "{if !$lesson.active}deactivatedElement{/if}" >{$lesson.name}</td>
+      <td style = "padding:0px 3px 0px 3px">{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
+      <td style = "padding:0px 3px 0px 3px">#filter:timestamp-{$lesson.active_in_lesson}#</td>
+      <td style = "padding:0px 3px 0px 3px">{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}{$smarty.const._NO}{/if}</td>
+      <td style = "padding:0px 0px 0px 3px">{if $lesson.completed}#filter:score-{$lesson.score}#%{/if}</td>
+     </tr>
+     {if $T_USER_TESTS[$lesson.id]}
+     <tr><td colspan = "100%">
+      <fieldset class = "fieldsetSeparator">
+       <legend class = "smallLegend">{$smarty.const._TESTSFORLESSON} {$lesson.name}</legend>
+       <table style = "width:100%">
+        <tr style = "font-weight:bold;white-space:nowrap">
+         <td>{$smarty.const._TESTNAME}</td>
+         <td >{$smarty.const._STATUS}</td>
+         <td >{$smarty.const._SCORE}</td>
+        </tr>
+        {foreach name = 'tests_list' item = 'test' from = $T_USER_TESTS[$lesson.id]}
+        <tr>
+         <td>{$test.name}</td>
+         <td>{$test.status}</td>
+         <td>#filter:score-{$test.score}#%</td>
+        </tr>
+        {/foreach}
+       </table>
+      </fieldset>
+     </tr></td>
+     {/if}
      {/foreach}
     </table>
    </fieldset>
+   {/if}
+   {if $T_AVERAGES}
    <fieldset class = "fieldsetSeparator">
-    <legend>{$smarty.const._LESSONS}</legend>
-    <table style = "width:100%">
-     {foreach name = 'lessons_list' item = 'lesson' from = $T_LESSONS}
+    <legend class = "smallLegend">{$smarty.const._OVERALL}</legend>
+    <table>
+     {if $T_AVERAGES.courses}
      <tr>
-      <td style = "width:50%;{if !$lesson.active}color:red{/if}" >{$lesson.name}</td>
-      <td style = "width:20%">#filter:timestamp-{$lesson.from_timestamp}#</td>
-      <td style = "width:20%">{if $lesson.completed}#filter:timestamp-{$lesson.to_timestamp}#{else}{$smarty.const._NOTCOMPLETED}{/if}</td>
-      <td style = "width:10%">{if $lesson.completed}#filter:score-{$lesson.score}#%{/if}</td>
+      <td >{$smarty.const._COURSESAVERAGE}:&nbsp;<td>
+      <td >#filter:score-{$T_AVERAGES.courses}#%</td>
      </tr>
-{*
-     <tr><td>
-       <span {if !$lesson.active}style = "color:red"{/if}>{$lesson.name}</span>
-       <span>(#filter:timestamp-{$lesson.from_timestamp}#
-       {if $lesson.completed}
-        <span class = "success">#filter:timestamp-{$lesson.to_timestamp}# - {$lesson.score}%</span>
-       {else}
-        <span class = "failure">{$smarty.const._NOTCOMPLETED}</span>
-       {/if})
-       </span>
-      </td></tr>
-*}
-{*
-     <tr><td>
-       <table>
-        {foreach name = 'tests_list' key = 'key' item = 'test' from = $lesson.tests}
-        <tr><td class = "labelFormCell">{$test.name}:</td>
-         <td>
-          <table>
-           <tr><td>
-             <table bgcolor = {if $test.score > 60} "#00FF00" {else}"#FF0000"{/if} border="1">
-              <tr><td>{$test.score}%</td></tr>
-             </table>
-            </td></tr>
-          </table>
-         </td><td>(#filter:timestamp-{$test.timestamp}#)</td>
-           <td>{if $test.comments != ''}({$test.comments}){/if}</td></tr>
-        {/foreach}
-        {if $lesson.tests_count > 0}
-        <tr><td><b>{$smarty.const._AVERAGESCORE}:</b></td>
-         <td>
-          <table>
-           <tr><td>
-             <table bgcolor = {if $lesson.tests_average > 60} "#00FF00" {else}"#FF0000"{/if} border="1">
-              <tr><td>{$lesson.tests_average}%</td></tr>
-             </table>
-            </td></tr>
-          </table>
-         </td></tr>
-        {/if}
-       </table>
-      </td>
+     {/if}
+     {if $T_AVERAGES.lessons}
+     <tr>
+      <td >{$smarty.const._LESSONSAVERAGE}:&nbsp;<td>
+      <td >#filter:score-{$T_AVERAGES.lessons}#%</td>
      </tr>
-*}
-     {/foreach}
+     {/if}
+    </table>
    </fieldset>
+   {/if}
  </fieldset>
-{*
-  <table style="white-space:nowrap;">
-   <tr>
-    <td width = "30px">&nbsp</td>
-    <td width = "*">
-     <table width="100%">
-      <tr><td>
-       <table width = "100%">
-        <tr><td colspan=2 width="300px">&nbsp;</td></tr>
-        <tr><td width="35%" align = "center" style="min-width:100px;"><img src = "{if ($T_AVATAR)}view_file.php?file={$T_AVATAR}{else}{$smarty.const.G_SYSTEMAVATARSPATH}unknown_small.{$globalImageExtension}{/if}" title="{$smarty.const._CURRENTAVATAR}" alt="{$smarty.const._CURRENTAVATAR}" /></td>
-         <td width="*">
-          <table>
-           <tr><td class = "labelCell">{$T_PERSONAL_DATA_FORM.name.label}:&nbsp;</td><td class="elementCell">{$T_USERNAME}</td></tr>
-           {if $T_EMPLOYEE.birthday}<tr><td class = "labelCell">{$T_PERSONAL_DATA_FORM.birthday.label}:&nbsp;</td><td class="elementCell">{$T_EMPLOYEE.birthday}</td></tr>{/if}
-           {if $T_EMPLOYEE.address}<tr><td class = "labelCell">{$T_PERSONAL_DATA_FORM.address.label}:&nbsp;</td><td class="elementCell">{$T_EMPLOYEE.address}</td></tr>{/if}
-           {if $T_EMPLOYEE.city}<tr><td class = "labelCell">{$T_PERSONAL_DATA_FORM.city.label}:&nbsp;</td><td class="elementCell">{$T_EMPLOYEE.city}</td></tr>{/if}
-           {if $T_EMPLOYEE.hired_on}<tr><td class = "labelCell">{$T_PERSONAL_DATA_FORM.hired_on.label}:&nbsp;</td><td class="elementCell">#filter:timestamp-{$T_EMPLOYEE.hired_on}#</td></tr>{/if}
-           {if $T_EMPLOYEE.left_on}<tr><td class = "labelCell">{$T_PERSONAL_DATA_FORM.left_on.label}:&nbsp;</td><td class="elementCell">#filter:timestamp-{$T_EMPLOYEE.left_on}#</td></tr>{/if}
-          </table>
-         </td>
-        </tr>
-       </table>
-       </td>
-      </tr>
-      <tr><td>&nbsp;</td></tr>
-      {if $smarty.const.G_VERSIONTYPE == 'enterprise'}
-      <tr><td class="labelFormCellTitle">{$smarty.const._PLACEMENTS}</td><td></td></tr>
-      <tr><td>
-      <table width="100%" id = "JobsFormTable" class = "sortedTable" noFooter="true">
-      <tr display="style:none"><td class = "labelFormCell noSort" name="name"></td><td class = "elementCell noSort" name="description"></td><td class = "elementCell noSort" name="supervisor"></td></tr>
-      {foreach name = 'placements' item = 'placement' from = $T_FORM_PLACEMENTS}
-      <tr><td class = "userFormCellLabel" name="name">{$placement.name}:&nbsp;</td><td name="description">{$placement.description}&nbsp;{if $placement.supervisor}({$smarty.const._SUPERVISOR}){/if}</td><td class="elementCell" name="description" width="1%">&nbsp;</td></tr>
-      {foreachelse}
-      <tr><td colspan=3>{$smarty.const._NOPLACEMENTSASSIGNEDYET}</td></tr>
-      {/foreach}
-      </table>
-       </td>
-      </tr>
-      <tr><td>&nbsp;</td></tr>
-      <tr><td class="labelFormCellTitle">{$smarty.const._EVALUATIONS}</td></tr>
-      <tr><td><table width="100%">
-       {foreach name = 'evaluation' item = 'evaluation' from = $T_EVALUATIONS}
-         <tr><td class = "userFormCellLabel">#filter:timestamp-{$evaluation.timestamp}#:&nbsp;</td>
-          <td class = "elementCell">{$evaluation.specification}&nbsp;[#filter:login-{$evaluation.login}#]</td></tr>
-       {foreachelse}
-         <tr><td colspan=3>{$smarty.const._NOEVALUATIONSASSIGNEDYET}</td></tr>
-       {/foreach}
-        </table>
-       </td>
-      </tr>
-      <tr><td>&nbsp;</td></tr>
-      <tr><td class="labelFormCellTitle">{$smarty.const._SKILLS}</td></tr>
-      {foreach name = 'skill_categories' item = 'skill_category' from = $T_SKILL_CATEGORIES}
-      <tr><td>
-<!--ajax:{$skill_category.id}skillFormTable-->
-      <table {if $skill_category.size == 0}style="display:none"{/if} width="100%" size = "{$skill_category.size}" id = "{$skill_category.id}skillFormTable" class = "sortedTable" noFooter="true" {if $smarty.get.print != 1}useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$smarty.get.edit_user}&op={$smarty.get.op}&skills=1&op={$smarty.get.op}&tabberajax={$T_TABBERAJAX.form}&"{/if}>
-       <tr {if $skill_category.size == 0}style="display:none"{/if} ><td class = "labelFormCell noSort" style="font-weight:bold;">{$skill_category.description}</td><td></td></tr>
-       <tr {if $skill_category.size == 0}style="display:none"{/if} ><td>
-        <tr height="1px"><td class = "labelFormCell noSort" name="description"></td><td class = "elementCell noSort" name="specification"></td></tr>
-        {foreach name = 'skill_$skill_category.id' item = 'skill' from = $skill_category.skills}
-        <tr><td class = "userFormCellLabel" name="description">{$skill.description}:</td><td class="elementCell" name="specification">&nbsp;{$skill.specification}&nbsp;[{$skill.surname}&nbsp;{$skill.name}]</td></tr>
-        {foreachelse}
-        <tr><td>{$smarty.const._NOSKILLSASSIGNED}</td></tr>
-        {/foreach}
-       </td>
-      </tr>
-      <tr {if $skill_category.size == 0}style="display:none"{/if} ><td>&nbsp;</td></tr>
-      </table>
-      </td></tr>
-<!--/ajax:{$skill_category.id}skillFormTable-->
-      {foreachelse}
-      <tr><td>{$smarty.const._NOSKILLSHAVEBEENREGISTERED}</td></tr>
-      {/foreach}
-      {/if}
-      {if !isset($T_NOTRAINING)}
-      <tr><td class="labelFormCellTitle">{$smarty.const._TRAININGCAP}</td></tr>
-      <tr><td>{$smarty.const._SORTBY}:
-        <select onchange = "reloadAjaxTab('{$T_TABBERAJAX.form}');setCookie('form_cookie', this.options[this.options.selectedIndex].value);">
-         <option {if $smarty.cookies.form_cookie == ''}selected{/if} value = ""></option>
-         <option {if $smarty.cookies.form_cookie == 'name'}selected{/if} value = "name">{$smarty.const._COURSENAME}</option>
-         <option {if $smarty.cookies.form_cookie == 'completion_date'}selected{/if} value = "completion_date">{$smarty.const._COMPLETIONDATE}</option>
-         <option {if $smarty.cookies.form_cookie == 'category'}selected{/if} value = "category">{$smarty.const._CATEGORY}</option>
-         <option {if $smarty.cookies.form_cookie == 'score'}selected{/if} value = "score">{$smarty.const._SCORE}</option>
-        </select>
-       </td></tr>
-      <tr><td>
-        <table>
-         <tr><td colspan = "2">&nbsp;</td></tr>
-         {foreach name = 'courses_list' item = 'course' from = $T_COURSES}
-         <tr><td class="labelFormCellTitle">
-           {if !$course.active}<span style = "color:red">{$course.name}</span>{else}<span>{$course.name}</span>{/if} <span style = "font-size:12px;font-weight:normal">(#filter:timestamp-{$course.active_in_course}# {if $course.completed}- <span class = "success">#filter:timestamp-{$course.to_timestamp}# - {$course.score}%</span>{else} - <span class = "failure">{$smarty.const._NOTCOMPLETED}</span>{/if})</span>
-          </td></tr>
-         <tr><td colspan = "2">
-           <table width="100%">
-          {foreach name = 'lessons_list' item = 'lesson' key = "key" from = $course.lessons}
-            <tr><td class="labelForm" style="font-weight:bold;">
-              {$lesson.name}<span style = "font-size:12px;font-weight:normal"> (#filter:timestamp-{$lesson.from_timestamp}# {if $lesson.completed}- <span class = "success">#filter:timestamp-{$lesson.to_timestamp}# - {$lesson.score}%</span>{else} - <span class = "failure">{$smarty.const._NOTCOMPLETED}</span>{/if})</span>
-             </td></tr>
-           {if $lesson.tests}
-            <tr><td><table width="100%">
-               {foreach name = 'tests_list' item = 'test' from = $lesson.tests}
-               <tr><td class = "labelFormCell">{$test.name}:</td><td><table><tr><td><table bgcolor = {if $test.score > 60} "#00FF00" {else}"#FF0000"{/if} border="1"><tr><td>{$test.score}%</td></tr></table></td></tr></table></td><td>(#filter:timestamp-{$test.timestamp}#)</td><td>{if $test.comments != ''}({$test.comments}){/if}</td></tr>
-               {/foreach}
-               {if $lesson.tests_count > 0}
-               <tr><td><b>{$smarty.const._AVERAGESCORE}:</b></td><td><table><tr><td><table bgcolor = {if $lesson.tests_average > 60} "#00FF00" {else}"#FF0000"{/if} border="1"><tr><td>{$lesson.tests_average}%</td></tr></table></td></tr></table></td></tr>
-               {/if}
-              </table>
-             </td>
-            </tr>
-           {/if}
-          {/foreach}
-           </table>
-          </td></tr>
-          <tr><td>&nbsp;</td></tr>
-         {/foreach}
-          </table>
-       </td>
-      </tr>
-      <tr><td><table width="100%">
-       {foreach name = 'lessons_list' item = 'lesson' from = $T_LESSONS}
-         <tr><td class="labelFormCellTitle">
-           {$lesson.name}<span style = "font-size:12px;font-weight:normal"> (#filter:timestamp-{$lesson.from_timestamp}# {if $lesson.completed}- <span class = "success">#filter:timestamp-{$lesson.to_timestamp}# - {$lesson.score}%</span>{else} - <span class = "failure">{$smarty.const._NOTCOMPLETED}</span>{/if})</span>
-          </td></tr>
-         <tr><td>
-           <table>
-            {foreach name = 'tests_list' key = 'key' item = 'test' from = $lesson.tests}
-            <tr><td class = "labelFormCell">{$test.name}:</td>
-             <td>
-              <table>
-               <tr><td>
-                 <table bgcolor = {if $test.score > 60} "#00FF00" {else}"#FF0000"{/if} border="1">
-                  <tr><td>{$test.score}%</td></tr>
-                 </table>
-                </td></tr>
-              </table>
-             </td><td>(#filter:timestamp-{$test.timestamp}#)</td>
-               <td>{if $test.comments != ''}({$test.comments}){/if}</td></tr>
-            {/foreach}
-            {if $lesson.tests_count > 0}
-            <tr><td><b>{$smarty.const._AVERAGESCORE}:</b></td>
-             <td>
-              <table>
-               <tr><td>
-                 <table bgcolor = {if $lesson.tests_average > 60} "#00FF00" {else}"#FF0000"{/if} border="1">
-                  <tr><td>{$lesson.tests_average}%</td></tr>
-                 </table>
-                </td></tr>
-              </table>
-             </td></tr>
-            {/if}
-           </table>
-          </td>
-         </tr>
-         <tr><td>&nbsp;</td></tr>
-       {/foreach}
-        </table>
-       </td>
-      </tr>
-      <tr><td>&nbsp;</td></tr>
-      <tr>
-       <td>
-        <table>
-         {foreach name = 'averages_list' item = 'average' from = $T_AVERAGES}
-         <tr><td class="labelForm" style="font-weight:bold;">{$average.title}:&nbsp;<td><table bgcolor = {if $average.avg > 60} "#00FF00" {else}"#FF0000"{/if} border="1"><tr><td>{$average.avg}%</td></tr></table></td></tr>
-         {/foreach}
-        </table>
-       </td>
-      </tr>
-      {/if}
-     </table>
-    </td>
-    <td width="30px">&nbsp;</td>
-   </tr>
-  </table>
- </td>
-</tr>
-*}
 {/capture}
 {/if}

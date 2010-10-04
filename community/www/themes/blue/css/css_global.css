@@ -1404,6 +1404,7 @@ table.emptyLessonsList{width:100%;height:100%;text-align:center;}
 table.emptyLessonsList td.lessonListOption{padding-top:25px;}
 fieldset.fieldsetSeparator{border-width:0px;border-top:1px solid #999999;}
 fieldset.fieldsetSeparator legend{font-weight:bold;font-size:14px;}
+fieldset.fieldsetSeparator legend.smallLegend{font-weight:bold;font-size:12px;}
 div.lessonLayout{width:602px;margin-left:auto;margin-right:auto;}
 div.lessonLayout td{vertical-align:top;}
 div.lessonLayout ul *{vertical-align:middle;}

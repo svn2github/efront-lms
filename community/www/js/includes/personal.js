@@ -1081,3 +1081,12 @@ function onUpdateInformation(el, response) {
  //alert(el);alert(response);
  el.setStyle({height:'auto'}).update(response);
 }
+function resetFormRows() {
+ $$('tr.form_additional_info').each(function(s) {$(s.id+'_previous').insert({after:s.remove()});});
+}
+function showFormAdditionalDetails(el, id) {
+ Element.extend(el);
+ $('form_tr_'+id).down().toggle();
+ $('form_tr_'+id).down().visible() ? img = 'minus2' : img = 'plus2';
+ setImageSrc(el, 16, img);
+}

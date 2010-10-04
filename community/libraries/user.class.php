@@ -2486,13 +2486,17 @@ abstract class EfrontLessonUser extends EfrontUser
   return $userLessons;
  }
  //@TODO: REPLACE getLessons
- public function getUserLessons() {
+ public function getUserLessons($constraints = array()) {
   //if ($this -> lessons === false) {			//COMMENT-IN WHEN IT REPLACES getLessons()
   $this -> initializeLessons();
   //}
   $lessons = array();
   foreach ($this -> lessons as $key => $lesson) {
-   $lessons[$key] = new EfrontLesson($lesson);
+   if (!isset($constraints['return_objects']) || $constraints['return_objects']) {
+    $lessons[$key] = new EfrontLesson($lesson);
+   } else {
+    $lessons[$key] = $lesson;
+   }
   }
   return $lessons;
  }
@@ -2519,8 +2523,8 @@ abstract class EfrontLessonUser extends EfrontUser
    }
   }
  }
- public function getUserAutonomousLessons() {
-  $lessons = $this -> getUserLessons();
+ public function getUserAutonomousLessons($constraints = array()) {
+  $lessons = $this -> getUserLessons($constraints);
   foreach ($lessons as $key => $lesson) {
    if ($lesson -> lesson['instance_source']) {
     unset($lessons[$key]);

@@ -80,7 +80,7 @@ if (isset($_GET['notification_id'])) {
    $onlyText = true;
   }
 
-  if (eF_mail($GLOBALS['configuration']['system_email'], 'periklis@venakis.gr', $notification['subject'], $notification['body'], false, $onlyText)) {
+  if (eF_mail($GLOBALS['configuration']['system_email'], $recipient, $notification['subject'], $notification['body'], false, $onlyText)) {
    $sent_messages = 1;
   } else {
    $sent_messages = 0;

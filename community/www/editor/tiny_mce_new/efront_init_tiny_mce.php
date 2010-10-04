@@ -27,7 +27,7 @@ tinymceConfigs["simpleEditor"] = {
     convert_newlines_to_brs : false,
  plugins : "media",
  convert_urls : false,
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
+
  extended_valid_elements : "*[*]"
     };
 

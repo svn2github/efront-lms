@@ -131,6 +131,7 @@
 
             if (table.getAttribute('noFooter') == 'true') {
                 noFooter[tableIndex] = true;
+                rowsPerPage[tableIndex] = 100000;
             }
             tableSize[tableIndex] = Math.ceil(table.getAttribute('size') / rowsPerPage[tableIndex]);
 

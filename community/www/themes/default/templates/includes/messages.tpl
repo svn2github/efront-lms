@@ -281,6 +281,7 @@
                 {/if}
 *}
       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" onclick = "if (confirm('{$smarty.const._AREYOUSURETODELETEMESSAGE}')) deleteMessage(this, '{$message.id}');" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}"/>
+      <input style = "vertical-align:middle" class = "inputCheckbox" type = "checkbox" id = "check_{$message.id}" value = "{$message.id}"/>
                     </td>
                 </tr>
 {*
@@ -293,8 +294,12 @@
    {foreachelse}
                 <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{$smarty.const._NOMESSAGESINFOLDER}</td></tr>
    {/foreach}
-            </table>
+           </table>
 <!--/ajax:messagesTable-->
+          <div class = "horizontalSeparatorAbove">
+             <span style = "vertical-align:middle">{$smarty.const._WITHSELECTED}:</span>
+                <img src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETESELECTED}" alt = "{$smarty.const._DELETESELECTED}" class = "ajaxHandle" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteSelectedMessages(this)">
+             </div>
   {/capture}
   <table style = "width:100%;">
    <tr><td style = "vertical-align:top;width:50%;">{eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" navigation = $smarty.capture.t_folders_nav_code options = $T_FOLDERS_OPTIONS}</td>

@@ -117,6 +117,21 @@ try {
             echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
      }
         exit;
+ } elseif (isset($_GET['ajax']) && isset($_GET['delete_messages'])) {
+  try {
+   $messages = json_decode($_GET['delete_messages']);
+   foreach ($messages as $message) {
+    $result = eF_getTableData("f_personal_messages", "users_LOGIN, attachments, f_folders_ID", "id=".$message);
+          eF_deleteTableData("f_personal_messages", "id=".$message);
+          if ($result[0]['attachments'] != '') {
+              $attached_file = new EfrontFile($result[0]['attachments']);
+              $attached_file -> delete();
+          }
+   }
+     } catch (Exception $e) {
+           handleAjaxExceptions($e);
+     }
+        exit;
  } elseif (isset($_GET['move']) && in_array($_GET['move'], $legalValues) && isset($_GET['folder']) && in_array($_GET['folder'], $legalFolderValues)) {
      try {
       $message = $messages[$_GET['move']];
@@ -164,6 +179,7 @@ try {
         $smarty -> assign("T_COURSES", $courses);
         $form = new HTML_QuickForm("new_message_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=messages&add=1", "", "id = 'new_message_form'", true); //Build the form
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
+
         $form -> addElement('advcheckbox', 'bcc', _UNDISCLOSEDRECIPIENTS, null, 'class = "inputCheckbox"');
         $form -> addElement('radio', 'recipients', null, null, 'only_specific_users', 'onclick = "eF_js_selectRecipients(\'only_specific_users\')" id = "only_specific_users"');
         $form -> addElement('radio', 'recipients', null, null, 'active_users', 'onclick = "eF_js_selectRecipients(\'active_users\')" 	     id = "all_active_users"');

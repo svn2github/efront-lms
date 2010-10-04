@@ -38,6 +38,8 @@
 - Fixed lesson users in lesson's administration menu not having custom user types selected by default
 - Added option in editing job position about applying new lessons/courses to users already belongs position
 - Fixed unique lessons sharing arbitrary folder error
+- Fixed issue in statistics about role different from basic type
+- Added capability for mass deleting personal messages
 
 
 === Version 3.6.6 8242 ===

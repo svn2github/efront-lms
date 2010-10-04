@@ -10,6 +10,20 @@ function onDeleteMessage(el, response) {
   new Effect.Fade(el.up().up());
  }
 }
+function deleteSelectedMessages(el) {
+    var messagesToDelete = new Array();
+    $('messagesTable').select("input[type=checkbox]").each(function (s) {
+        if (s.checked && s.id) {
+            messagesToDelete.push(s.value)
+        }
+    });
+    parameters = {delete_messages:messagesToDelete.toJSON(), method: 'get'};
+    ajaxRequest(el, location.toString(), parameters, onDeleteSelectedMessages);
+}
+
+function onDeleteSelectedMessages(el, response) {
+ document.location.reload();
+}
 function deleteFolder(el, id) {
  parameters = {'delete':id, folders: true, method: 'get'};
  var url = location.toString();

@@ -120,7 +120,7 @@ class EfrontModuleException extends Exception
 
  * - getContentSmartyTpl()
 
- * - getContentSideTitle() 
+ * - getContentSideTitle()
 
  * - getControlPanelModule()
 
@@ -132,7 +132,7 @@ class EfrontModuleException extends Exception
 
  * - getCatalogModule()
 
- * - getCatalogSmartyTpl() 
+ * - getCatalogSmartyTpl()
 
  * - getLandingPageModule()
 
@@ -319,13 +319,13 @@ abstract class EfrontModule
 
      * Events should be UNIQUELY defined INSIDE the module
 
-     * 
+     *
 
      * All data required for the appearance of the log message (provided by the getEventMessage function)
 
      * should be defined in the second argument array.
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -335,7 +335,7 @@ abstract class EfrontModule
 
      * $module -> addEvent(NEW_MODULE_ENTITY_INSERTION, array("id" => $id, "title" => $title));
 
-     *  
+     *
 
      * </code>
 
@@ -345,11 +345,11 @@ abstract class EfrontModule
 
      * @param $data: array: information required by the getEventMessage function to display the related message
 
-     * for this event. 
+     * for this event.
 
-     * 
+     *
 
-     * Note: 
+     * Note:
 
      * Field timestamp is automatically completed
 
@@ -429,9 +429,9 @@ abstract class EfrontModule
 
      * returned.
 
-     * 
+     *
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -443,7 +443,7 @@ abstract class EfrontModule
 
      * $module -> addEvent(NEW_MODULE_ENTITY_INSERTION, $data_array);
 
-     * 
+     *
 
      * // Sample implementation
 
@@ -451,9 +451,9 @@ abstract class EfrontModule
 
      * 		if ($type == 1) {
 
-     * 			return "User ".$data['users_surname']." ".$data['users_name']." inserted <a href='student.php?entity_ID=".$data['id']."'>entity</a> with title: " . $data['title'];  
+     * 			return "User ".$data['users_surname']." ".$data['users_name']." inserted <a href='student.php?entity_ID=".$data['id']."'>entity</a> with title: " . $data['title'];
 
-     * 		}	
+     * 		}
 
      * 		return false;
 
@@ -467,11 +467,11 @@ abstract class EfrontModule
 
      * @param $data: array: information as provided by the addEvent method, needed to display this message
 
-     * for this event. 
+     * for this event.
 
-     * 
+     *
 
-     * Notes: 
+     * Notes:
 
      * Fields "timestamp", "users_LOGIN", "users_name" and "users_surname" are ALWAYS provided
 

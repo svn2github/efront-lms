@@ -12,8 +12,8 @@ $loadScripts[] = 'includes/statistics';
 $loadScripts[] = 'scriptaculous/canvastext';
 
 $smarty -> assign("T_CATEGORY", 'statistics');
-$smarty -> assign("T_BASIC_TYPE", $currentUser -> user['user_type']);
-
+//$smarty -> assign("T_BASIC_TYPE", $currentUser -> user['user_type']);
+$smarty -> assign("T_BASIC_TYPE", $_SESSION['s_lesson_user_type'] !="" ? $_SESSION['s_lesson_user_type'] : $currentUser -> user['user_type']);
 $isProfessor = 0;
 $isStudent = 0;
 

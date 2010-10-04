@@ -54,7 +54,7 @@
       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$user.job_description_ID}" class = "editLink">{$entry}</a>
      {elseif $item.column == 'course_status'}
       {if $user.count_courses}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
+       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'course_status');">
         {$user.course_status}
         {if !$T_CONFIGURATION.disable_tooltip}
          <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
@@ -313,7 +313,7 @@
      <td class = "centerAlign"><span style = "display:none">{$item.default_sort}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.default_sort}pin_green{else}pin_red{/if}.png" alt = "{$smarty.const._DEFAULTSORT}" title = "{$smarty.const._DEFAULTSORT}" onclick = "setDefaultSort(this, '{$key}')"/></td>
      <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setColumnStatus(this, '{$key}')"/></td>
      <td class = "centerAlign">
-      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_column={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOLUMN}', 3)">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_column={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._EDITCOLUMN}', 3)">
        <img class = "ajaxHandle" src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" onclick = "eF_js_showDivPopup();"/></a>
      </td>
     </tr>
@@ -407,7 +407,7 @@
   {capture name = 't_add_column_code'}
    {eF_template_printForm form=$T_ADD_COLUMN_FORM}
   {/capture}
-  {eF_template_printBlock title = $smarty.const._ADDCOLUMN data = $smarty.capture.t_add_column_code image = '32x32/add.png'}
+  {eF_template_printBlock title = $smarty.const._EDITCOLUMN data = $smarty.capture.t_add_column_code image = '32x32/add.png'}
 
   {if $smarty.get.message_type == 'success' && !$smarty.get.post_another}
      <script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&tab=builder';</script>

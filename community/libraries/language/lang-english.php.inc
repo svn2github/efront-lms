@@ -3879,10 +3879,10 @@ define("_APPLYTOUSERALLREADYTOJOBPOSITION","Apply to users already belongs to th
 define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","This can only add (not remove) a new selection to a user");
 define("_SORTBY", "Sort by");
 define("_TRAINING", "Training");
-define("_COMPLETEDLESSONS", "Incomplete lessons");
-define("_INCOMPLETELESSONS", "Completed lessons");
-define("_COMPLETEDCOURSES", "Incomplete courses");
-define("_INCOMPLETECOURSES", "Completed courses");
+define("_COMPLETEDLESSONS", "Completed lessons");
+define("_INCOMPLETELESSONS", "Incomplete lessons");
+define("_COMPLETEDCOURSES", "Completed courses");
+define("_INCOMPLETECOURSES", "Incomplete courses");
 define("_EDITCOLUMN", "Edit column");
 define("_LESSONSFORCOURSE", "Lessons for course");
 define("_TESTSFORLESSON", "Tests for lesson");

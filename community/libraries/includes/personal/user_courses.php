@@ -149,6 +149,7 @@ try {
   if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'active_in_course', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
+    $_GET['sort'] != 'null' OR $_GET['sort'] = 'has_course';
     $constraints = array('archive' => false, 'active' => true, 'instance' => false) + createConstraintsFromSortedTable();
     $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;

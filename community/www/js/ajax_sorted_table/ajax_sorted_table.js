@@ -66,8 +66,7 @@
                 anchor.onclick = function () {eF_js_sortTable(this, other);}; //Add the sorting function to the onclick event
                 anchor.innerHTML = table.rows[0].cells[i].innerHTML; //Copy the cells content inside the link
                 table.rows[0].cells[i].innerHTML = ''; //Remove the cell content, since it was copied to the link
-                table.rows[0].cells[i].appendChild(anchor); //Append the link to the cell
-
+                table.rows[0].cells[i].appendChild(anchor); //Append the link to the cell                
                 if (table.getAttribute('sortBy') && table.getAttribute('sortBy') == i) {
                     var sortBy = anchor; //Assign the element that will be initially sorted for
                     if (table.getAttribute('order') && table.getAttribute('order') == 'desc') {

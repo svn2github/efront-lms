@@ -57,6 +57,7 @@ if ($editedUser -> user['user_type'] != 'administrator') {
 }
 $smarty -> assign("T_EMPLOYEE_FORM_CAPTION", _USERFORM.":&nbsp;" . formatLogin($editedUser -> user['login']));
 
+
 if (isset($_GET['pdf'])) {
  $heightForHeaders = 10;
  $headerFont = 10;
@@ -71,18 +72,9 @@ if (isset($_GET['pdf'])) {
   list($halfPageWidth, $height) = array(200, 150);
  }
 
- //$editedEmployee -> printToPdf($editedUser, $evaluations, $skill_categories, $courses, $lessons, $all_average, $logo_fn);
- //$pdf = EfrontSystem::initializePdfExport();
  $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
  $pdf->SetCreator(PDF_CREATOR);
-/*
-	$pdf->SetHeaderData($logoFile['path'], $halfPageWidth*0.265, $GLOBALS['configuration']['site_name'], $GLOBALS['configuration']['site_motto']);
-	$pdf->setHeaderFont(Array($defaultFont, '', 16));
-	$pdf->setFooterFont(Array($defaultFont, '', 12));
-	$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-	$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-	$pdf->setLeftMargin(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-*/
+
  $pdf->setPrintHeader(false);
  $pdf->setPrintFooter(false);
 
@@ -125,6 +117,7 @@ if (isset($_GET['pdf'])) {
  !$editedEmployee -> employee['city'] OR $pdf->Cell(0, 0, _CITY.": ".$editedEmployee -> employee['city'], 0, 2);
  !$editedEmployee -> employee['hired_on'] OR $pdf->Cell(0, 0, _HIREDON.": ".formatTimestamp($editedEmployee -> employee['hired_on']), 0, 2);
  !$editedEmployee -> employee['left_on'] OR $pdf->Cell(0, 0, _LEFTON.": ".formatTimestamp($editedEmployee -> employee['left_on']), 0, 1);
+ $pdf->Ln(10); //separator
 
  $halfPageWidth = round($pdf -> GetPageWidth()/2)-5;
  if (isset($jobs) && sizeof($jobs) > 0) {

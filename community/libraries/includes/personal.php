@@ -964,5 +964,6 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
    $smarty -> assign("T_USER_TO_GROUP_FORM", $groups);
   }
  }
+ $smarty -> assign("T_STATISTICS_LINK", array(array('text' => _REPORTS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=user&sel_user=".$editedUser -> user['login'])));
 }
 ?>

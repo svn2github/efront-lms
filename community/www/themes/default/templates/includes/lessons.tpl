@@ -44,7 +44,7 @@
    {eF_template_printBlock tabber="lessons" title = "`$smarty.const._EDITLESSON`" data = $smarty.capture.t_edit_lesson_code image = '32x32/lessons.png'}
    {capture name = 't_users_to_lessons_code'}
 <!--ajax:usersTable-->
-   <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$smarty.get.edit_lesson}&">
+   <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" {if isset($T_BRANCHES_FILTER)}branchFilter="{$T_BRANCHES_FILTER}"{/if} {if isset($T_JOBS_FILTER)}jobFilter="{$T_JOBS_FILTER}"{/if} url = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$smarty.get.edit_lesson}&">
     <tr class = "topTitle">
      <td class = "topTitle" name = "login">{$smarty.const._LOGIN}</td>
      <td class = "topTitle" name = "name">{$smarty.const._NAME}</td>

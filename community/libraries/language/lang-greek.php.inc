@@ -3879,10 +3879,10 @@ define("_APPLYTOUSERALLREADYTOJOBPOSITION","Εφαρμογή στους χρήσ
 define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Μπορεί μόνο να προσθέσει (όχι να αφαιρέσει) μια νέα επιλογή στον χρήστη");
 define("_SORTBY", "Ταξινόμηση ανά");
 define("_TRAINING", "Εκπαιδεύσεις");
-define("_COMPLETEDLESSONS", "Ανολοκλήρωτα μαθήματα");
-define("_INCOMPLETELESSONS", "Ολοκληρωμένα μαθήματα");
-define("_COMPLETEDCOURSES", "Ανολοκλήρωτες δέσμες");
-define("_INCOMPLETECOURSES", "Ολοκληρωμένες δέσμες");
+define("_COMPLETEDLESSONS", "Ολοκληρωμένα μαθήματα");
+define("_INCOMPLETELESSONS", "Ανολοκλήρωτα μαθήματα");
+define("_COMPLETEDCOURSES", "Ολοκληρωμένες δέσμες");
+define("_INCOMPLETECOURSES", "Ανολοκλήρωτες δέσμες");
 define("_EDITCOLUMN", "Επεξεργασία στήλης");
 define("_LESSONSFORCOURSE", "Μαθήματα για τη δέσμη");
 define("_TESTSFORLESSON", "Αξιολογήσεις για το μάθημα");

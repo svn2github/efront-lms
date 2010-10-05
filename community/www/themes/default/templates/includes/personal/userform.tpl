@@ -99,7 +99,7 @@
         </tr>
        {foreach name = 'course_lessons_list' item = 'lesson' from = $T_COURSE_LESSONS[$course.id]}
         <tr>
-         <td>{$lesson.name}</td>
+         <td><a class = "{if !$lesson.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">{$lesson.name}</a></td>
          <td>{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
          <td>{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}{$smarty.const._NO}{/if}</td>
          <td>{if $lesson.completed}#filter:score-{$lesson.score}#%{/if}</td>
@@ -147,7 +147,7 @@
      </tr>
      {foreach name = 'lessons_list' item = 'lesson' from = $T_USER_LESSONS}
      <tr>
-      <td style = "padding:0px 3px 0px 0px" class = "{if !$lesson.active}deactivatedElement{/if}" >{$lesson.name}</td>
+      <td style = "padding:0px 3px 0px 0px"><a class = "{if !$lesson.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">{$lesson.name}</a></td>
       <td style = "padding:0px 3px 0px 3px">{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
       <td style = "padding:0px 3px 0px 3px">#filter:timestamp-{$lesson.active_in_lesson}#</td>
       <td style = "padding:0px 3px 0px 3px">{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}{$smarty.const._NO}{/if}</td>

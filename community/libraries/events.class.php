@@ -753,7 +753,7 @@ class EfrontEvent
        foreach ($conditions as $field => $value) {
         // A value of 0 means any* (any lesson, test, content etc)
         if ($value != 0) {
-         if ($this -> event[$field] != $value) {
+         if ($this -> event['lessons_ID'] != $value && $this -> event['entity_ID'] != $value) {
           $conditions_passed = false;
           break;
          }

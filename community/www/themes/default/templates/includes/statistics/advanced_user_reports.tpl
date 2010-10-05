@@ -238,6 +238,8 @@
        {$T_LESSONS[$item.option]}
       {elseif $item.condition == 'sex'}
        {if $entry == 0}{$smarty.const._MALE}{else}{$smarty.const._FEMALE}{/if}
+      {elseif $item.condition == 'category'}
+       {$T_CATEGORIES[$item.option]}
       {elseif $item.condition == 'course'}
        {$T_COURSES[$item.option]}
       {elseif $item.condition == 'group'}

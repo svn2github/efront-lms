@@ -40,6 +40,7 @@
 - Fixed unique lessons sharing arbitrary folder error
 - Fixed issue in statistics about role different from basic type
 - Added capability for mass deleting personal messages
+- Fixed issue about notifications for specific course event
 
 
 === Version 3.6.6 8242 ===

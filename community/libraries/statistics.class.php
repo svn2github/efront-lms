@@ -438,6 +438,7 @@ class EfrontStats
                                         'done_tests_ID' => $done_tests_ID,
                                         'tests_ID' => $test -> test['id'],
                                         'score' => $test -> completedTest['score'],
+                               'status' => $test -> completedTest['status'],
                                         'comments' => $test -> completedTest['feedback'],
                                         'users_LOGIN'=> $user,
                                         'timestamp' => $test -> time['end']);
@@ -457,6 +458,7 @@ class EfrontStats
                 } else {
                     $doneScormTest['score'] = $doneScormTest['score'];
                 }
+                $doneScormTest['status'] = $doneScormTest['lesson_status'];
                 $doneScormTest['scorm'] = true;
                 $doneTests[$doneScormTest['users_LOGIN']][$doneScormTest['content_ID']] = $doneScormTest;
             }

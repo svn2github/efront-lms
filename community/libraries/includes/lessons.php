@@ -172,7 +172,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  $form -> addElement('select', 'clone_lesson', _CLONELESSON, $lessonsList, 'id = "clone_lesson" onchange = "$(\'share_folder\').options.selectedIndex=0;this.options.selectedIndex ? $(\'share_folder\').disabled = \'disabled\' : $(\'share_folder\').disabled = \'\'"');
  $form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
  $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
-
  if (isset($_GET['edit_lesson'])) { //If we are editing a lesson, we set the default form values to the ones stored in the database
   $editLesson = new EfrontLesson($_GET['edit_lesson']);
   $form -> setDefaults(array('name' => $editLesson -> lesson['name'],
@@ -187,8 +186,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                    'price' => $editLesson -> lesson['price'],
                                    'recurring' => $editLesson -> options['recurring'],
   $editLesson -> options['recurring'].'_duration' => $editLesson -> options['recurring_duration']));
-
-
   $smarty -> assign("T_EDIT_LESSON", $editLesson);
  } else {
   //$form -> addElement('file', 'import_content', _UPLOADLESSONFILE, 'class = "inputText"');
@@ -198,12 +195,10 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                    'course_only' => 1,
                                    'languages_NAME' => $GLOBALS['configuration']['default_language']));
  }
-
  if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['lessons'] != 'change') {
   $form -> freeze();
  } else {
   $form -> addElement('submit', 'submit_lesson', _SUBMIT, 'class = "flatButton"');
-
   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
    $values = $form -> exportValues();
    if (!$values['share_folder'] || !is_numeric($values['share_folder']) || !is_dir(G_LESSONSPATH.$values['share_folder'])) {
@@ -222,8 +217,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                        'course_only' => $form -> exportValue('course_only') == '' ? 0 : $form -> exportValue('course_only'),
                         'created' => time(),
                         'price' => $form -> exportValue('price'));
-
-
     try {
      //If we asked to copy properties for another lesson, initialize it and get its properties (except for recurring options, which are already defined in the same page)
      if ($values['copy_properties']) {
@@ -232,7 +225,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
       unset($copyPropertiesLesson -> options['recurring_duration']);
       $fields_insert['options'] = serialize($copyPropertiesLesson -> options);
      }
-
      //Create the new lesson
      $newLesson = EfrontLesson :: createLesson($fields_insert);
      //If a recurring payment is set, set this up to the lesson properties
@@ -279,7 +271,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
             'show_catalog' => $form -> exportValue('show_catalog'),
                                        'course_only' => $form -> exportValue('course_only'),
                                        'price' => $form -> exportValue('price'));
-
     if ($values['copy_properties']) {
      $copyPropertiesLesson = new EfrontLesson($values['copy_properties']);
      unset($copyPropertiesLesson -> options['recurring']);
@@ -287,7 +278,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
      $editLesson -> options = $copyPropertiesLesson -> options;
     }
     $editLesson -> lesson = array_merge($editLesson -> lesson, $fields_update);
-
     if ($form -> exportValue('price') && $form -> exportValue('recurring') && in_array($form -> exportValue('recurring'), array_keys($recurringOptions))) {
      $editLesson -> options['recurring'] = $form -> exportValue('recurring');
      if ($editLesson -> options['recurring']) {
@@ -298,7 +288,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     }
     try {
      $editLesson -> persist();
-
      $lesson_forum = eF_getTableData("f_forums", "id", "lessons_ID=".$_GET['edit_lesson']); //update lesson's forum and chat names as well
      if (sizeof($lesson_forum) > 0) {
       eF_updateTableData("f_forums", array('title' => $form -> exportValue('name')), "id=".$lesson_forum[0]['id']);
@@ -316,7 +305,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
    }
   }
  }
-
  $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
  $renderer -> setRequiredTemplate (
            '{$html}{if $required}
@@ -327,11 +315,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
              <div class = "formError">{$error}</div>
          {/if}'
          );
-
          $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR); //Set javascript error messages
          $form -> setRequiredNote(_REQUIREDNOTE);
          $form -> accept($renderer); //Assign this form to the renderer, so that corresponding template code is created
-
          $smarty -> assign('T_LESSON_FORM', $renderer -> toArray()); //Assign the form to the template
          if (isset($_GET['edit_lesson'])) { //If we are editing a lesson, get the information needed to build the users to lesson list
           try {

@@ -87,6 +87,10 @@
      <img src = "images/16x16/autocomplete.png" title = "{$smarty.const._AUTOCOMPLETE}" alt = "{$smarty.const._AUTOCOMPLETE}"/>
      <a href = "javascript:void(0)" {if !$T_CURRENT_USER->coreAccess.course_settings == 'change' || $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "setAutoComplete(this)" {/if}>{$smarty.const._AUTOCOMPLETE}: {if $T_CURRENT_COURSE->options.auto_complete}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</a>
     </span>
+    <span>
+     <img src = "images/16x16/success.png" title = "{$smarty.const._SETALLUSERSSTATUSCOMPLETED}" alt = "{$smarty.const._SETALLUSERSSTATUSCOMPLETED}"/>
+     <a href = "javascript:void(0)" {if !$T_CURRENT_USER->coreAccess.course_settings == 'change' || $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "setAllUsersStatusCompleted(this)" {/if}>{$smarty.const._SETALLUSERSSTATUSCOMPLETED}</a>
+    </span>
    </div>
    {assign var = "courseUsers_url" value = "`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_certificates&"}
    {assign var = "_change_handles_" value = false}

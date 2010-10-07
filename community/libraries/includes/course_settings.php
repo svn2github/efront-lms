@@ -79,6 +79,11 @@ if ($_GET['op'] == 'course_info') {
 		$users = $users[$currentCourse -> course['id']];
 
 */
+  $rolesBasic = EfrontLessonUser :: getLessonsRoles();
+  $studentRoles = array();
+  foreach ($rolesBasic as $key => $role) {
+   $role != 'student' OR $studentRoles[] = $key;
+  }
   if (isset($_GET['edit_user']) && in_array($_GET['edit_user'], array_keys($users = $currentCourse -> getCourseUsers($defaultConstraints)))) {
    //$userStats = EfrontStats::getUsersCourseStatus($currentCourse, $_GET['edit_user']);
    $user = $users[$_GET['edit_user']];
@@ -193,15 +198,23 @@ if ($_GET['op'] == 'course_info') {
     handleAjaxExceptions($e);
    }
    exit;
+  } else if (isset($_GET['set_all_completed'])) {
+   try {
+    $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+    $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
+    $users = $currentCourse -> getCourseUsers($constraints);
+    foreach ($users as $user) {
+     $user -> completeCourse($currentCourse, 100);
+    }
+    echo json_encode(array('status' => true));
+   } catch (Exception $e) {
+    handleAjaxExceptions($e);
+   }
+   exit;
   }
 
-  $rolesBasic = EfrontLessonUser :: getLessonsRoles();
   $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
-   $studentRoles = array();
-   foreach ($rolesBasic as $key => $role) {
-    $role != 'student' OR $studentRoles[] = $key;
-   }
    //pr($studentRoles);
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
       $smarty -> assign("T_DATASOURCE_SORT_BY", 0);

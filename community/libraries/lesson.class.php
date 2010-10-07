@@ -262,7 +262,7 @@ class EfrontLesson
 
 	 */
  private function initializeDirectory() {
-  if ($this -> lesson['share_folder'] != $this -> lesson['instance_source']) {
+  if (isset($this -> lesson['share_folder']) && $this -> lesson['share_folder'] != $this -> lesson['instance_source']) {
    $this -> lesson['share_folder'] = $this -> lesson['instance_source'];
    //$this -> persist(); We don't use persist() because the object is not fully constructed yet and it will ruin it
    eF_updateTableData("lessons", array('share_folder' => $this -> lesson['share_folder']), "id=".$this -> lesson['id']);
@@ -1107,7 +1107,7 @@ class EfrontLesson
  public function getUsers($basicType = false, $refresh = false) {
   if ($this -> users === false || $refresh) { //Make a database query only if the variable is not initialized, or it is explicitly asked
    $this -> users = array();
-   $result = eF_getTableData("users u, users_to_lessons ul", "u.*, ul.user_type as role, ul.from_timestamp, ul.completed", "u.user_type != 'administrator' and ul.archive = 0 and u.archive = 0 and ul.users_LOGIN = login and lessons_ID=".$this -> lesson['id']);
+   $result = eF_getTableData("users u, users_to_lessons ul", "u.*, ul.user_type as role, ul.from_timestamp, ul.completed, ul.to_timestamp as timestamp_completed", "u.user_type != 'administrator' and ul.archive = 0 and u.archive = 0 and ul.users_LOGIN = login and lessons_ID=".$this -> lesson['id']);
    foreach ($result as $value) {
     $this -> users[$value['login']] = array('login' => $value['login'],
                                                         'email' => $value['email'],
@@ -1121,6 +1121,7 @@ class EfrontLesson
                                                         'active' => $value['active'],
                           'avatar' => $value['avatar'],
                           'completed' => $value['completed'],
+              'timestamp_completed' => $value['timestamp_completed'],
                                                         'partof' => 1);
    }
   }
@@ -2202,8 +2203,19 @@ class EfrontLesson
   return $lessonUsers;
  }
  private function getLessonTimeForUser($user) {
+  $scormTimes = eF_getTableData("scorm_data sd, content c", "sd.total_time", "c.id=sd.content_ID and users_LOGIN = '".$user['login']."' and c.lessons_ID=".$this -> lesson['id']);
+  $scormSeconds = 0;
+  foreach ($scormTimes as $value) {
+   $scormSeconds += convertTimeToSeconds($value['total_time']);
+  }
   $userTimes = EfrontStats :: getUsersTimeAll(false, false, array($this -> lesson['id'] => $this -> lesson['id']), array($user['login'] => $user['login']));
   $userTimes = $userTimes[$this -> lesson['id']][$user['login']];
+  if ($userTimes['total_seconds'] < $scormSeconds) {
+   $newTimes = convertSecondsToTime($scormSeconds);
+   $newTimes['total_seconds'] = $scormSeconds;
+   $newTimes['accesses'] = $userTimes['accesses'];
+   $userTimes = $newTimes;
+  }
   $userTimes['time_string'] = '';
   if ($userTimes['total_seconds']) {
    !$userTimes['hours'] OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';

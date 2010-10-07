@@ -41,7 +41,11 @@
 - Fixed issue in statistics about role different from basic type
 - Added capability for mass deleting personal messages
 - Fixed issue about notifications for specific course event
-
+- Added latest TCPDF libraries
+- Added bulk course completion option
+- Fixed issue in doing surveys for students when there not in lesson
+- 'All material' is now by default selected
+- Added checkbox in course/lessons reports to get users from subbranches as well (enterprise edition)
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

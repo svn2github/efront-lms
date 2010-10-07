@@ -657,10 +657,14 @@ function eF_js_sortTable(el, other) {
          } else {
           div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentFilter">' + currentFilter[tableIndex]+'</span>';
          }
+        } else {
+         input.setAttribute("value", sorted_translations["filter"]+'...');
+         input.onclick = function() {alert('f');}
         }
         //input.className = 'inputSearchText';
-        div.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["filter"]+':&nbsp;</span>';
+        //div.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["filter"]+':&nbsp;</span>';
         div.appendChild(input); //Append it to the footer cell
+        input.setAttribute('onclick', 'if (this.value.match("'+sorted_translations["filter"]+'...'+'")) this.value = "";');
         if (activeFilter[tableIndex]) {
          if (getCookie('toggle_active') == 1) {
           div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_green.png', alt:sorted_translations['_SHOWINGONLYACTIVEENTITIES'], title:sorted_translations['_SHOWINGONLYACTIVEENTITIES'], onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));

@@ -76,6 +76,7 @@ try {
           //$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
           $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
           $users = $infoLesson -> getLessonStatusForUsers($constraints);
+          pr($stats_filters);
           foreach ($users as $key => $value) {
            if ($value['user_type'] == 'professor' || $rolesBasic[$value['user_types_ID']] == 'professor') {
             $users[$key]['basic_user_type'] = 'professor';

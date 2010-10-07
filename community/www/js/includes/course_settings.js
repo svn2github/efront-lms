@@ -42,6 +42,20 @@ function onSetAutoCertificate(el, response) {
  }
 }
 
+function setAllUsersStatusCompleted(el) {
+ Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+ parameters = {set_all_completed:1, method: 'get'};
+ ajaxRequest(el, location.toString(), parameters, onSetAllUsersStatusCompleted);
+}
+function onSetAllUsersStatusCompleted(el, response) {
+ if (response.evalJSON(true).status) {
+  el.down().remove();
+  eF_js_redrawPage('courseUsersTable', true);
+ }
+}
+
+
 function showEdit(id) {
  $('add_schedule_link_'+id).hide();
  $('schedule_dates_'+id).hide();

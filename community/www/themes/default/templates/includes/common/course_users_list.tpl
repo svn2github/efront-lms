@@ -18,7 +18,7 @@ table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{widt
 {/literal}
 </style>
 <script>
-if (typeof(currentUserLogin) == 'undefined')) var currentUserLogin ='';
+if (typeof(currentUserLogin) == 'undefined') var currentUserLogin ='';
 </script>
   <tr class = "topTitle">
 {if in_array('login', $T_DATASOURCE_COLUMNS)} <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>{/if}

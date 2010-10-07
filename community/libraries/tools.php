@@ -2589,6 +2589,18 @@ function eF_getUserBasicType($login = false, $lessons_ID = false){
     }
     return $user_type;
 }
+function convertTimeToSeconds($time) {
+ $time_parts = explode(":", $time);
+ $seconds = round($time_parts[2] + $time_parts[1]*60 + $time_parts[0]*60*60);
+ return $seconds;
+}
+function convertSecondsToTime($time) {
+ $newTime = array();
+ $newTime['hours'] = floor($time / 3600);
+ $newTime['minutes'] = floor(($time % 3600) / 60);
+ $newTime['seconds'] = floor(($time % 3600) % 60);
+ return ($newTime);
+}
 /**
 
 * Add time

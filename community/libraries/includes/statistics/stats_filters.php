@@ -17,9 +17,22 @@ if (isset($_GET['user_filter'])) {
 }
 
 if (isset($_GET['branch_filter']) && $_GET['branch_filter'] != 0) {
- $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
+ if (!$_GET['subbranches']) {
+  $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
          "joinField" => "filter_eb.users_LOGIN",
          "condition" => "(filter_eb.branch_ID = " . $_GET['branch_filter'] . " AND filter_eb.assigned = 1)");
+ } else {
+  $branches = array($_GET['branch_filter']);
+  $branchesTree = new EfrontBranchesTree();
+  $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($branchesTree -> getNodeChildren($_GET['branch_filter'])), RecursiveIteratorIterator :: SELF_FIRST));
+  foreach($iterator as $key => $value) {
+   $branches[] = $key;
+  }
+
+  $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
+         "joinField" => "filter_eb.users_LOGIN",
+         "condition" => "(filter_eb.branch_ID in (" . implode(",", $branches) . ") AND filter_eb.assigned = 1)");
+ }
 }
 
 if (!isset($_GET['ajax'])) {
@@ -42,6 +55,9 @@ if (isset($_GET['group_filter']) && $_GET['group_filter'] != -1) {
 }
 if (isset($_GET['user_filter']) && $_GET['user_filter'] != 0) {
  $stats_url .= "&user_filter=". $_GET['user_filter'];
+}
+if (isset($_GET['subbranches'])) {
+ $stats_url .= "&subbranches=". $_GET['subbranches'];
 }
 $smarty -> assign("T_STATS_FILTERS_URL", $stats_url);
 ?>

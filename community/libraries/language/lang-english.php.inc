@@ -3886,4 +3886,5 @@ define("_INCOMPLETECOURSES", "Incomplete courses");
 define("_EDITCOLUMN", "Edit column");
 define("_LESSONSFORCOURSE", "Lessons for course");
 define("_TESTSFORLESSON", "Tests for lesson");
+define("_SETALLUSERSSTATUSCOMPLETED", "Complete for all users");
 ?>

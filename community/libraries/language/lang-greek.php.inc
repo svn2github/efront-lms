@@ -3886,4 +3886,5 @@ define("_INCOMPLETECOURSES", "Ανολοκλήρωτες δέσμες");
 define("_EDITCOLUMN", "Επεξεργασία στήλης");
 define("_LESSONSFORCOURSE", "Μαθήματα για τη δέσμη");
 define("_TESTSFORLESSON", "Αξιολογήσεις για το μάθημα");
+define("_SETALLUSERSSTATUSCOMPLETED", "Ολοκληρωσε για όλους τους χρήστες");
 ?>

@@ -39,16 +39,11 @@
  </div>
 {/capture}
 
-{capture name = 't_bulk_courses_code'}
-
-{/capture}
-
 {capture name = 't_administrator_tools_code'}
  <div class = "tabber">
   {eF_template_printBlock tabber = "change_login" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGELOGIN data = $smarty.capture.t_change_login_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "global_settings" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS data = $smarty.capture.t_global_settings_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
         {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
-        {eF_template_printBlock tabber = "bulk_completion" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_BULKCOMPLETECOURSES data = $smarty.capture.t_bulk_courses_code image='32x32/courses.png'}
  </div>
 {/capture}
 {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}

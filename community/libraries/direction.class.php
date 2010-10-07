@@ -811,7 +811,7 @@ class EfrontDirectionsTree extends EfrontTree
  }
  private function printTreeTools($options) {
   if (!isset($_COOKIE['display_all_courses'])) {
-   setcookie('display_all_courses', 0);
+   setcookie('display_all_courses', 1);
   }
   $treeString = '
     <div style = "padding-top:12px;padding-bottom:12px">

@@ -1223,6 +1223,37 @@ CREATE TABLE users_online (
   PRIMARY KEY (users_LOGIN)
 ) DEFAULT CHARSET=utf8;
 
+--
+-- Table 'user_times'
+--
+-- This table is used to store times for users inside the system, per session
+-- Fields:
+-- id (primary key): A numerical identifier
+-- session_timestamp: The time when this session started
+-- session_id: The id of the session
+-- session_expired: Whether this session has expired
+-- users_LOGIN: The login of the user
+-- timestamp_now: The timestamp of the latest action of the user. It is compared to autologout_time limit, and of it's less, the user is automatically logged out
+-- time: The total time the user spent on the specific entity, during this session
+-- lessons_ID: The lesson id, if any
+-- courses_ID: The courses id, if any
+-- entity: A string representing the place the user spent some time. For example, 'unit', 'lesson', 'system'
+-- entity_id: if applicable, the id of the entity the user spent time in, for example it can be a unit id
+CREATE TABLE user_times (
+  id mediumint(8) unsigned NOT NULL auto_increment,
+  session_timestamp int(10) unsigned NOT NULL,
+  session_id varchar(255) NOT NULL,
+  session_expired tinyint(1) NOT NULL default 0,
+  users_LOGIN varchar(100) NOT NULL,
+  timestamp_now int(10) unsigned NOT NULL,
+  time int(10) unsigned NOT NULL,
+  lessons_ID mediumint(8) unsigned default NULL,
+  courses_ID mediumint(8) unsigned default NULL,
+  entity varchar(100) NOT NULL,
+  entity_id mediumint(8) default 0,
+  PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;
+
 
 
 

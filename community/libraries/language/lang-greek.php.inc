@@ -3887,4 +3887,9 @@ define("_EDITCOLUMN", "Επεξεργασία στήλης");
 define("_LESSONSFORCOURSE", "Μαθήματα για τη δέσμη");
 define("_TESTSFORLESSON", "Αξιολογήσεις για το μάθημα");
 define("_SETALLUSERSSTATUSCOMPLETED", "Ολοκληρωσε για όλους τους χρήστες");
+define("_LESSONTIMES", "Χρόνοι μαθημάτων");
+define("_MINUTESPERDAY", "Λεπτά ανά ημέρα");
+define("_LOGOUTUSERAFTERMINUTES", "Αποσύνδεση χρήστη μετά από (λεπτά)");
+define("_UPDATERPERIODSECONDS", "Περίοδος ενημέρωσης (ms)");
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME", "Προτεινέμενες τιμές είναι τουλάχιστον 2000ms και το πολύ 360000ms. Πρέπει επίσης να είναι μικρότερη από το χρόνο αυτόματης αποσύνδεσης");
 ?>

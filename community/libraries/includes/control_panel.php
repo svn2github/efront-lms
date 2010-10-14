@@ -99,7 +99,13 @@ try {
                         $projects[$value['id']] = $value;
                     }
                 } else {
-                    $projects = $currentLesson -> getProjects(false, $currentUser -> user['login'], true);
+                    $projects = $currentLesson -> getProjects(false, $currentUser -> user['login']);
+                    $projectsInControlPanel = $projects;
+                    foreach ($projects as $key => $value) {
+                     if ($value['deadline'] < time()) {
+                      unset($projects[$key]); //We unset the expired projects, instead of not retrieving them in the first place, because we want them all to determine whether to show the 'projects' icon
+                     }
+                    }
                 }
                 $smarty -> assign("T_PROJECTS", $projects);
                 $projectOptions = array(array('text' => _GOTOPROJECTS, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects"));
@@ -196,15 +202,15 @@ try {
                     $headerOptions[] = array('text' => _LESSONCOMPLETE, 'image' => '32x32/success.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=progress&popup=1', 'onclick' => "eF_js_showDivPopup('"._LESSONINFORMATION."', 2)", 'target' => 'POPUP_FRAME');
                 }
                 if ($userProgress['current_unit']) { //If there exists a value within the 'current_unit' attribute, it means that the student was in the lesson before. Seek the first unit that he hasn't seen yet
-                    $firstUnseenUnit = $currentContent -> getFirstNode();
+                    $firstUnseenUnit = $currentContent -> getFirstNode($firstNodeIterator);
                     //Get to the first unseen unit
-                    while ($firstUnseenUnit && (!$firstUnseenUnit['active'] || in_array($firstUnseenUnit['id'], array_keys($seenContent)))) {
+                    while ($firstUnseenUnit && in_array($firstUnseenUnit['id'], array_keys($seenContent))) {
                         $firstUnseenUnit = $currentContent -> getNextNode($firstUnseenUnit, $firstNodeIterator);
                     }
                     if (!$firstUnseenUnit) {
-                        $firstUnseenUnit = $currentContent -> getFirstNode();
+                        $firstUnseenUnit = $currentContent -> getFirstNode($firstNodeIterator);
                     }
-                    if ($currentLesson -> options['start_resume']) {
+                    if ($currentLesson -> options['start_resume'] && $firstUnseenUnit) {
                         $headerOptions[] = array('text' => _RESUMELESSON, 'image' => '32x32/continue.png', 'href' => basename($_SERVER['PHP_SELF']).'?view_unit='.$firstUnseenUnit['id']);
                     }
                     $smarty -> assign("T_CURRENT_UNIT", $firstUnseenUnit);
@@ -386,7 +392,6 @@ try {
                 $controlPanelOptions[6] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
             }
             ksort($controlPanelOptions);
-//pr(array_keys($controlPanelOptions));
         } else {
             $controlPanelOptions = $headerOptions;
             if ($currentUser -> coreAccess['glossary'] != 'hidden' && $GLOBALS['configuration']['disable_glossary'] != 1 && $currentLesson -> options['glossary']) {
@@ -409,6 +414,9 @@ try {
                 $option = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
                 $controlPanelOptions[] = $option;
                 $headerOptions[] = $option;
+            }
+            if ($currentLesson -> options['projects'] && sizeof($projectsInControlPanel) > 0) {
+             $controlPanelOptions[] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects");
             }
             if ($currentLesson -> options['show_student_cpanel']) {
                 $headerOptions = array();

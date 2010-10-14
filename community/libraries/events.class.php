@@ -660,6 +660,9 @@ class EfrontEvent
      if ($this -> event['type'] == EfrontEvent::SYSTEM_NEW_PASSWORD_REQUEST) {
       $subst_array['new_password'] = $this -> event['entity_name'];
      }
+     if ($this -> event['type'] == EfrontEvent::SYSTEM_JOIN) {
+      $subst_array['new_password'] = $this -> event['entity_name'];
+     }
      if (isset($event_types[abs($this -> event['type'])])) {
       $type = $event_types[abs($this -> event['type'])];
       //echo $type . "***";

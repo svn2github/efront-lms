@@ -2236,12 +2236,27 @@ class EfrontStats
         foreach ($week_login_info as $login) {
             $week_logins[$login['id']] = $login;
         }
+        $timeReport = new EfrontTimes();
+        $mean_duration = round($timeReport -> getUserMeanSessionTime($user -> login)/60);
+        $timeReport = new EfrontTimes(array(time() - 2592000, time()));
+        $month_mean_duration = round($timeReport -> getUserMeanSessionTime($user -> login)/60);
+        $timeReport = new EfrontTimes(array(time() - 604800, time()));
+        $week_mean_duration = round($timeReport -> getUserMeanSessionTime($user -> login)/60);
+/*
+
         $temp = self :: getUserTimes($user -> login);
+
         sizeof($temp['duration']) > 0 ? $mean_duration = ceil((array_sum($temp['duration']) / sizeof($temp['duration'])) / 60) : $mean_duration = 0;
+
         $temp = self :: getUserTimes($user -> login, array('from' => time() - 2592000, 'to' => time()));
+
         sizeof($temp['duration']) > 0 ? $month_mean_duration = ceil((array_sum($temp['duration']) / sizeof($temp['duration']) / 60)) : $month_mean_duration = 0;
+
         $temp = self :: getUserTimes($user -> login, array('from' => time() - 604800, 'to' => time()));
+
         sizeof($temp['duration']) > 0 ? $week_mean_duration = ceil((array_sum($temp['duration']) / sizeof($temp['duration']) / 60)) : $week_mean_duration = 0;
+
+*/
         $info['logins'] = $logins;
         if (sizeof($info['logins']) > 0) {
             $info['last_login'] = current($info['logins']);

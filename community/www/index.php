@@ -16,7 +16,7 @@
  * @version 3.6.0
 
  */
-session_cache_limiter('none');
+session_cache_limiter('nocache');
 session_start(); //This causes the double-login problem, where the user needs to login twice when already logged in with the same browser
 $path = "../libraries/";
 //Automatically redirect to installation page if configuration file is missing
@@ -31,15 +31,12 @@ if ($GLOBALS['configuration']['webserver_auth']) {
  eval('$usernameVar='.$GLOBALS['configuration']['username_variable'].';');
  $currentUser = EfrontUser :: checkWebserverAuthentication();
  $currentUser -> login($currentUser -> user['password'], true);
- //pr($_SERVER);exit;
- //$_SESSION['s_login'] = $_SERVER['REMOTE_USER'];
 }
 //@todo:temporary here, should leave
 $cacheId = null;
 $message = $message_type = '';
 $benchmark = new EfrontBenchmark($debug_TimeStart);
 $benchmark -> set('init');
-
 //Set headers in order to eliminate browser cache (especially IE's)
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past

@@ -18,11 +18,13 @@ if ($editedUser -> user['user_type'] != 'administrator') {
 
  $constraints = array('archive' => false);
  $userCourses = $editedUser -> getUserCourses($constraints);
+ $constraints = array('archive' => false, 'active' => true, 'return_objects' => false);
  foreach ($userCourses as $key => $course) {
-  $courseLessons[$key] = $course -> getCourseLessons();
+  $courseLessons[$key] = $course -> getCourseLessons($constraints);
   $userCourses[$key] = $course -> course; //strip object, we don't need it
   $coursesScores[] = $course -> course['score'];
  }
+
  $smarty -> assign("T_USER_COURSES", $userCourses);
 
  $userLessons = $editedUser -> getUserStatusInLessons();
@@ -36,6 +38,8 @@ if ($editedUser -> user['user_type'] != 'administrator') {
    foreach($courseLessons as $courseId => $foo) {
     if (isset($courseLessons[$courseId][$key])) {
      $courseLessons[$courseId][$key] = $lesson -> lesson;
+    } else {
+     $courseLessons[$courseId][$key] = $foo -> lesson;
     }
    }
    unset($userLessons[$key]); //Remove course lesson from lessons list

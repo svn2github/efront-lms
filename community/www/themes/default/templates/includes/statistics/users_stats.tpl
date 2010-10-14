@@ -155,22 +155,16 @@
    <tr class = "oddRowColor">
     <td class = "labelCell">{$smarty.const._TOTALLOGINS}: </td>
     <td class = "elementCell">{$T_USER_TRAFFIC.total_logins}</td></tr>
-   {if $T_REPORTS_USER->user.user_type != 'administrator'}
-   <tr class = "evenRowColor">
-    <td class = "labelCell">{$smarty.const._LESSONACCESS}: </td>
-    <td class = "elementCell">{$T_USER_TRAFFIC.total_access}</td></tr>
-   {/if}
   </table>
 
   {if $T_REPORTS_USER->user.user_type != 'administrator'}
   <br/>
   <table class = "statisticsTools">
-   <tr><td>{$smarty.const._ACCESSPERLESSON}</td></tr>
+   <tr><td>{$smarty.const._LESSONTIMES}</td></tr>
   </table>
   <table class = "sortedTable" style = "width:100%">
    <tr>
     <td class = "topTitle">{$smarty.const._LESSON}</td>
-    <td class = "topTitle centerAlign">{$smarty.const._ACCESSNUMBER}</td>
     <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
     <td class = "topTitle centerAlign">{$smarty.const._COMPLETED}</td>
     <td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>
@@ -178,7 +172,6 @@
    {foreach name = 'lesson_traffic_list' key = "id" item = "lesson" from = $T_USER_TRAFFIC.lessons}
     <tr class = "{cycle name = 'lessontraffic' values = 'oddRowColor, evenRowColor'} {if !$lesson.active}deactivatedTableElement{/if}">
      <td>{$lesson.name}</td>
-     <td class = "centerAlign">{$lesson.accesses}</td>
      <td class = "centerAlign">
       <span style="display:none">{$lesson.total_seconds}</span>
       {if $lesson.total_seconds}

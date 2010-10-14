@@ -11,12 +11,14 @@ $generalSecurityForm -> addElement("static", "", _COMMASEPARATEDLISTASTERISKEXTE
 $generalSecurityForm -> addElement("text", "file_black_list", _DISALLOWEDEXTENSIONS, 'class = "inputText"');
 $generalSecurityForm -> addElement("static", "", _COMMASEPARATEDLISTASTERISKEXTENSIONEXAMPLE.' '._DENIALTAKESPRECEDENCE);
 $generalSecurityForm -> addElement("text", "password_length", _MINIMUMPASSWORDLENGTH,'size = "5"');
-$generalSecurityForm -> addElement("text", "autologout_time", _LOGOUTUSERAFTER, 'size = "5"');
+$generalSecurityForm -> addElement("text", "autologout_time", _LOGOUTUSERAFTERMINUTES, 'size = "5"');
+$generalSecurityForm -> addElement("text", "updater_period", _UPDATERPERIODSECONDS, 'size = "8"');
+$generalSecurityForm -> addElement("static", "", _RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME);
 $generalSecurityForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));
 //$generalSecurityForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"'); // Moved to appearance tab
 $generalSecurityForm -> setDefaults($GLOBALS['configuration']);
-$generalSecurityForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'uint');
+//$generalSecurityForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSecurityForm -> addRule('autologout_time', _THEFIELD.' '._LOGOUTUSERAFTER.' '._ISMANDATORY, 'required', null, 'client');
 $generalSecurityForm -> addRule('password_length', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSecurityForm -> addRule('password_length', _THEFIELD.' '._MINIMUMPASSWORDLENGTH.' '._ISMANDATORY, 'required', null, 'client');

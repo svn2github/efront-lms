@@ -82,13 +82,11 @@
                     <table class = "sortedTable">
                         <tr>
                             <td style = "width:40%;" class = "topTitle">{$smarty.const._LESSON}</td>
-                            <td style = "width:30%;" class = "topTitle centerAlign">{$smarty.const._ACCESSNUMBER}</td>
                             <td style = "width:30%;" class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
                          </tr>
                         {foreach name='active_lessons' key = "id" item = "info" from=$T_ACTIVE_LESSONS}
                             <tr class = "{cycle name = 'active_lessons' values = 'oddRowColor, evenRowColor'} {if !$info.active}deactivatedTableElement{/if}">
                                 <td>{$info.name}</td>
-                                <td class = "centerAlign">{$info.accesses}</td>
                                 <td class = "centerAlign">{strip}
                                  <span style = "display:none">{$info.seconds}&nbsp;</span>
                                     {if $info.seconds}

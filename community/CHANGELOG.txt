@@ -46,6 +46,10 @@
 - Fixed issue in doing surveys for students when there not in lesson
 - 'All material' is now by default selected
 - Added checkbox in course/lessons reports to get users from subbranches as well (enterprise edition)
+- Fixed issue with first unseen unit when first node of lesson was seen and inactive
+- New time reporting infrastructure
+- Added option in system settings for periodic updater period
+- Added projects icon on the student's control panel so he/she can access expired projects
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

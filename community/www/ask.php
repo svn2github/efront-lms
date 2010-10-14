@@ -580,7 +580,8 @@ function askChat() {
   $data = "";
   if ($_GET['chatrooms_ID'] == 0) {
    // @performance: 2DB
-   $all_users = eF_getTableDataFlat("users_online", "users_LOGIN");
+   //$all_users = eF_getTableDataFlat("users_online", "users_LOGIN");
+   $all_users = eF_getTableDataFlat("user_times", "users_LOGIN", "session_expired=0");
    $other_room_users = eF_getTableDataFlat("users_to_chatrooms", "users_LOGIN", "");
    if (empty($other_room_users)) {
     $efront_general_users = $all_users['users_LOGIN'];

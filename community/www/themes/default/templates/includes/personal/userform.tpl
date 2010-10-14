@@ -123,7 +123,7 @@
            {/foreach}
           </table>
          </fieldset>
-        </tr></td>
+         </td></tr>
         {/if}
        {/foreach}
        </table>

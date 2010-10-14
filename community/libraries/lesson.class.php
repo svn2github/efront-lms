@@ -249,6 +249,10 @@ class EfrontLesson
    }
    $this -> lesson = $lesson[0];
   }
+  if ($this -> lesson['publish'] == 0) {
+   eF_updateTableData("lessons", array("publish" => 1), "id=".$this -> lesson['id']);
+   $this -> lesson['publish'] = 1;
+  }
  }
  /**
 
@@ -2189,6 +2193,7 @@ class EfrontLesson
   foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($contentTree -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
    $totalUnits++;
   }
+  $usersTimes = $this -> getLessonTimesForUsers();
   foreach ($lessonUsers as $key => $user) {
    if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
     $user['different_role'] = 1;
@@ -2197,32 +2202,64 @@ class EfrontLesson
    if (!$onlyContent) {
     $lessonUsers[$key]['project_status'] = $this -> getLessonProjectsStatusForUser($user);
     $lessonUsers[$key]['test_status'] = $this -> getLessonTestsStatusForUser($user);
-    $lessonUsers[$key]['time_in_lesson'] = $this -> getLessonTimeForUser($user);
+    $lessonUsers[$key]['time_in_lesson'] = $usersTimes[$user['login']];
    }
   }
   return $lessonUsers;
  }
- private function getLessonTimeForUser($user) {
-  $scormTimes = eF_getTableData("scorm_data sd, content c", "sd.total_time", "c.id=sd.content_ID and users_LOGIN = '".$user['login']."' and c.lessons_ID=".$this -> lesson['id']);
-  $scormSeconds = 0;
-  foreach ($scormTimes as $value) {
-   $scormSeconds += convertTimeToSeconds($value['total_time']);
+ public function getLessonTimesForUsers() {
+/*
+
+		$scormTimes = eF_getTableData("scorm_data sd, content c", "sd.total_time", "c.id=sd.content_ID and users_LOGIN = '".$user['login']."' and c.lessons_ID=".$this -> lesson['id']);
+
+		$scormSeconds = 0;
+
+		foreach ($scormTimes as $value) {
+
+			$scormSeconds += convertTimeToSeconds($value['total_time']);
+
+		}
+
+		$userTimes = EfrontStats :: getUsersTimeAll(false, false, array($this -> lesson['id'] => $this -> lesson['id']), array($user['login'] => $user['login']));
+
+		$userTimes = $userTimes[$this -> lesson['id']][$user['login']];
+
+
+
+		if ($userTimes['total_seconds'] < $scormSeconds) {
+
+			$newTimes = convertSecondsToTime($scormSeconds);
+
+			$newTimes['total_seconds'] = $scormSeconds;
+
+			$newTimes['accesses']	   = $userTimes['accesses'];
+
+			$userTimes = $newTimes;
+
+		}
+
+
+
+		$userTimes['time_string'] = '';
+
+		if ($userTimes['total_seconds']) {
+
+			!$userTimes['hours']   OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
+
+			!$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
+
+			!$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
+
+		}
+
+*/
+  $usersTimes = array();
+  $timesReport = new EfrontTimes();
+  $result = $timesReport -> getLessonSessionTimesForUsers($this -> lesson['id']);
+  foreach ($result as $value) {
+   $usersTimes[$value['users_LOGIN']] = $timesReport -> formatTimeForReporting($value['time']);
   }
-  $userTimes = EfrontStats :: getUsersTimeAll(false, false, array($this -> lesson['id'] => $this -> lesson['id']), array($user['login'] => $user['login']));
-  $userTimes = $userTimes[$this -> lesson['id']][$user['login']];
-  if ($userTimes['total_seconds'] < $scormSeconds) {
-   $newTimes = convertSecondsToTime($scormSeconds);
-   $newTimes['total_seconds'] = $scormSeconds;
-   $newTimes['accesses'] = $userTimes['accesses'];
-   $userTimes = $newTimes;
-  }
-  $userTimes['time_string'] = '';
-  if ($userTimes['total_seconds']) {
-   !$userTimes['hours'] OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
-   !$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
-   !$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
-  }
-  return $userTimes;
+  return $usersTimes;
  }
  private function getLessonOverallProgressForUser($user, $totalUnits) {
   $completedUnits = 0;

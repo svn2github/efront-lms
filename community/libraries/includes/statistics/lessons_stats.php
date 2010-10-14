@@ -76,7 +76,6 @@ try {
           //$smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
           $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
           $users = $infoLesson -> getLessonStatusForUsers($constraints);
-          pr($stats_filters);
           foreach ($users as $key => $value) {
            if ($value['user_type'] == 'professor' || $rolesBasic[$value['user_types_ID']] == 'professor') {
             $users[$key]['basic_user_type'] = 'professor';
@@ -218,8 +217,7 @@ try {
             foreach ($filteredUsers as $user) {
              $users[$user['login']] = $user['active'];
             }
-            $traffic['users'] = EfrontStats :: getUsersTime($infoLesson -> lesson['id'], array_keys($users), $from, $to);
-
+            $traffic['users'] = $infoLesson -> getLessonTimesForUsers();
             foreach ($traffic['users'] as $key => $user) {
                 if (isset($groupUsers) && !in_array($key, $groupUsers['professor']) && !in_array($key, $groupUsers['student'])) {
                     unset($traffic['users'][$key]);
@@ -230,63 +228,71 @@ try {
 
             foreach ($traffic['users'] as $value) {
                 $traffic['total_seconds'] += $value['total_seconds'];
-                $traffic['total_access'] += $value['accesses'];
             }
             $traffic['total_time'] = eF_convertIntervalToTime($traffic['total_seconds']);
 
             try {
-             if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_access') {
-              $graph = new EfrontGraph();
-              $graph -> type = 'bar';
-              $count = 0;
-              foreach ($traffic['users'] as $key => $value) {
-               $graph -> data[] = array($count, $value['accesses']);
-               $graph -> xLabels[] = array($count++, formatLogin($key));
-              }
-              //pr($graph);
-              $graph -> xTitle = _USERS;
-              $graph -> yTitle = _ACCESSES;
-              $graph -> title = _ACCESSESPERUSER;
+/*
 
-              echo json_encode($graph);
-              exit;
-             } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_user_access') {
+            	if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_access') {
+
+            		$graph = new EfrontGraph();
+
+            		$graph -> type = 'bar';
+
+            		$count = 0;
+
+            		foreach ($traffic['users'] as $key => $value) {
+
+            			$graph -> data[]    = array($count, $value['accesses']);
+
+            			$graph -> xLabels[] = array($count++, formatLogin($key));
+
+            		}
+
+            		//pr($graph);
+
+            		$graph -> xTitle = _USERS;
+
+            		$graph -> yTitle = _ACCESSES;
+
+            		$graph -> title  = _ACCESSESPERUSER;
+
+
+
+            		echo json_encode($graph);
+
+            		exit;
+
+            	} else
+
+*/
+             if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_user_access') {
               $user = EfrontUserFactory :: factory($_GET['entity']);
-
-              $result = eF_getTableData("logs", "id, users_LOGIN, action, timestamp", "timestamp between $from and $to and lessons_id=".$infoLesson -> lesson['id']." and users_LOGIN = '".$user -> user['login']."' order by timestamp");
-     foreach ($result as $value) {
-      $cnt = 0;
-      for ($i = $from; $i <= $to; $i += 86400) {
-       $labels[$cnt] = $i;
-       isset($count[$cnt]) OR $count[$cnt] = 0;
-       if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
-        $count[$cnt]++;
-       }
-       $cnt++;
-      }
+     $timesReport = new EfrontTimes(array($from, $to));
+     $cnt=0;
+     $result = $timesReport -> getUserSessionTimeInSingleLessonPerDay($user -> user['login'], $infoLesson -> lesson['id']);
+     foreach ($result as $key => $value) {
+      $labels[$cnt] = $key;
+      $count[$cnt++] = ceil($value/60);
      }
-
      $graph = new EfrontGraph();
      $graph -> type = 'line';
      for ($i = 0; $i < sizeof($labels); $i++) {
       $graph -> data[] = array($i, $count[$i]);
       $graph -> xLabels[] = array($i, formatTimestamp($labels[$i]));
      }
-
      $graph -> xTitle = _DAY;
-     $graph -> yTitle = _ACCESSES;
-     $graph -> title = _USERACCESSESINLESSON;
-
+     $graph -> yTitle = _MINUTES;
+     $graph -> title = _MINUTESPERDAY;
      echo json_encode($graph);
      exit;
-
              } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_test_questions') {
               $test = new EfrontTest($_GET['entity']);
      $types = array();
               foreach ($test -> getQuestions() as $value) {
                isset($types[$value['type']]) ? $types[$value['type']]++ : $types[$value['type']] = 1;
               }
-
               $graph = new EfrontGraph();
      $graph -> type = 'pie';
      $count = 0;
@@ -294,28 +300,24 @@ try {
       $graph -> data[] = array(array($count, $value));
       $graph -> labels[] = array(Question :: $questionTypes[$key]);
      }
-
      echo json_encode($graph);
               exit;
              }
             } catch (Exception $e) {
              handleAjaxExceptions($e);
             }
-
             $smarty -> assign("T_LESSON_TRAFFIC", $traffic);
             $smarty -> assign('T_FROM_TIMESTAMP', $from);
             $smarty -> assign('T_TO_TIMESTAMP', $to);
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);
         }
-
         $groups = EfrontGroup :: getGroups();
         $smarty -> assign("T_GROUPS", $groups);
     }
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);
 }
-
 if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     // Get the associated group name
     if (isset($_GET['group_filter']) && $_GET['group_filter']) {
@@ -324,7 +326,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $groupname = str_replace(" ", "_" , $group -> group['name']);
         } catch (Exception $e) {
             $groupname = false;
-
         }
     }
     if (G_VERSIONTYPE == 'enterprise' && isset($_GET['branch_filter']) && $_GET['branch_filter']) {
@@ -336,11 +337,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         }
     }
     require_once 'Spreadsheet/Excel/Writer.php';
-
     $workBook = new Spreadsheet_Excel_Writer();
     $workBook -> setTempDir(G_UPLOADPATH);
     $workBook -> setVersion(8);
-
     $filename = 'export_'.$infoLesson -> lesson['name'];
     if ($groupname) {
         $filename .= '_group_'.str_replace(" ", "_" , $groupname);
@@ -349,8 +348,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $filename .= '_branch_'.str_replace(" ", "_" , $branchName);
     }
     $workBook -> send($filename.'.xls');
-
-
     $formatExcelHeaders = & $workBook -> addFormat(array('Size' => 14, 'Bold' => 1, 'HAlign' => 'left'));
     $headerFormat = & $workBook -> addFormat(array('border' => 0, 'bold' => '1', 'size' => '11', 'color' => 'black', 'fgcolor' => 22, 'align' => 'center'));
     $formatContent = & $workBook -> addFormat(array('HAlign' => 'left', 'Valign' => 'top', 'TextWrap' => 1));
@@ -362,11 +359,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $fieldCenterFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 10));
     $fieldLeftBoldFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 10, 'Bold' => 1));
     $fieldLeftItalicFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 10, 'Italic' => 1));
-
     //first tab
     $workSheet = & $workBook -> addWorksheet("General Lesson Info");
     $workSheet -> setInputEncoding('utf-8');
-
     $workSheet -> setColumn(0, 0, 5);
 
     //basic info

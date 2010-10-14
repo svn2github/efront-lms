@@ -43,6 +43,7 @@ class EfrontConfiguration
         'system_email' => 'admin@example.com',
      'logout_redirect' => '',
      'debug_mode' => '0',
+     'updater_period' => 100000,
         //System settings - security
      'file_black_list' => 'php,php3,jsp,asp,cgi,pl,exe,com,bat',
         'file_white_list' => '',

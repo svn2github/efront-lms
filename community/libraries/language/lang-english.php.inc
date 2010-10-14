@@ -3887,4 +3887,9 @@ define("_EDITCOLUMN", "Edit column");
 define("_LESSONSFORCOURSE", "Lessons for course");
 define("_TESTSFORLESSON", "Tests for lesson");
 define("_SETALLUSERSSTATUSCOMPLETED", "Complete for all users");
+define("_LESSONTIMES", "Lesson times");
+define("_MINUTESPERDAY", "Minutes per day");
+define("_LOGOUTUSERAFTERMINUTES", "Log out user after (minutes)");
+define("_UPDATERPERIODSECONDS", "Updater period (ms)");
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME", "Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.");
 ?>

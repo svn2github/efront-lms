@@ -110,11 +110,12 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 
     unset($userStats['done_tests']['average_score']);
 
-    //pr($userStats[$editedUser -> user['login']]);
-    $userTime = EfrontStats :: getUsersTime($currentLesson -> lesson['id'], $editedUser -> user['login']);
+    $timeReport = new EfrontTimes();
+    $userTime = $timeReport -> getUserSessionTimeInLesson($editedUser -> user['login'], $currentLesson -> lesson['id']);
+    $userTime = $timeReport -> formatTimeForReporting($userTime);
     $smarty -> assign("T_USER_LESSONS_INFO", $userStats);
 
-    $smarty -> assign("T_USER_TIME", $userTime[$editedUser -> user['login']]);
+    $smarty -> assign("T_USER_TIME", $userTime);
 
     $userProjects = EfrontStats :: getStudentsAssignedProjects($currentLesson -> lesson['id'], $editedUser -> user['login']);
     $smarty -> assign("T_USER_PROJECTS", $userProjects[$editedUser -> user['login']]);

@@ -18,8 +18,8 @@ try {
         $from = mktime($_GET['from_hour'], $_GET['from_min'], 0, $_GET['from_month'], $_GET['from_day'], $_GET['from_year']);
         $to = mktime($_GET['to_hour'], $_GET['to_min'], 0, $_GET['to_month'], $_GET['to_day'], $_GET['to_year']);
     } else {
-        $from = mktime(date("H"), date("i"), 0, date("m"), date("d") - 7, date("Y"));
-        $to = mktime(date("H"), date("i"), 0, date("m"), date("d"), date("Y"));
+        $from = mktime(date("H"), date("i"), date("s"), date("m"), date("d") - 7, date("Y"));
+        $to = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
     }
     $smarty -> assign('T_FROM_TIMESTAMP', $from);
     $smarty -> assign('T_TO_TIMESTAMP', $to);
@@ -54,14 +54,17 @@ try {
 
     $users = array();
     $result = eF_getTableData("logs, users", "users.name, users.surname, users.active, users_LOGIN, count(logs.id) as cnt ", "users.login=users_LOGIN and action = 'login' and logs.timestamp between $from and $to group by users_LOGIN order by count(logs.id) desc");
-    $userTimes = EfrontUser :: getLoginTime(false, array('from' => $from, 'to' => $to));
+//    $userTimes = EfrontUser :: getLoginTime(false, array('from' => $from, 'to' => $to));
+
+    $timesReport = new EfrontTimes(array($from, $to));
+    $userTimes = $timesReport -> getSystemSessionTimesForUsers();
 
     foreach($result as $value) {
         $users[$value['users_LOGIN']]['name'] = $value['name'];
         $users[$value['users_LOGIN']]['surname'] = $value['surname'];
         $users[$value['users_LOGIN']]['active'] = $value['active'];
         $users[$value['users_LOGIN']]['accesses'] = $value['cnt'];
-        $users[$value['users_LOGIN']]['seconds'] = $userTimes[$value['users_LOGIN']]['total_seconds'];
+        $users[$value['users_LOGIN']]['seconds'] = $userTimes[$value['users_LOGIN']];
     }
 
     $lessons = array();
@@ -79,9 +82,6 @@ try {
         $users[$key]['time'] = eF_convertIntervalToTime($user['seconds']);
         $totalUserAccesses += $user['accesses'];
         $totalUserTime += $user['seconds'];
-    }
-    foreach ($userTimes as $key => $value) {
-     $userTimes[$key] = $value['total_seconds'];
     }
 
     if (!isset($_GET['showusers'])) {
@@ -101,14 +101,10 @@ try {
     $lessonActive = array_combine($result['id'], $result['active']);
     $lessonCategory = array_combine($result['id'], $result['directions_ID']);
 
-    $allStats = EfrontStats :: getUsersTimeAll($from, $to);
+    $lessonTimes = $timesReport -> getSystemSessionTimesForLessons();
     foreach ($lessons as $key => $value) {
         try {
-            $stats = $allStats[$key];
-            foreach ($stats as $user => $info) {
-                $lessons[$key]['accesses'] += $info['accesses'];
-                $lessons[$key]['seconds'] += $info['total_seconds'];
-            }
+   $lessons[$key]['seconds']= $lessonTimes[$key];
             $lessons[$key]['name'] = $directionsTreePaths[$lessonCategory[$key]].'&nbsp;&rarr;&nbsp;'.$lessonNames[$key];
             $lessons[$key]['active'] = $lessonActive[$key];
         } catch (Exception $e) {} //Don't halt on a single error

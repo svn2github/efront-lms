@@ -487,6 +487,7 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
       file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
      }
     } catch (Exception $e) {}
+    EfrontTimes :: upgradeFromUsersOnline();
     Installation :: addModules(true);
                 if (!isset($_GET['unattended'])) {
      header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");

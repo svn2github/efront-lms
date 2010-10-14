@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Crossword</title>
+	<author>skippybosco</author>
+	<date>2010 10 10</date>
+	<version>1.2</version>
+	<description>Create Crossword Puzzles from Empty Space Questions</description>
+	<className>module_crossword</className>
+</module>

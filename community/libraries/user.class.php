@@ -406,7 +406,7 @@ abstract class EfrontUser
   if (!$currentUser) {
    $currentUser = $newUser;
   }
-  EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_JOIN, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname']));
+  EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_JOIN, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname'], "entity_name" => $passwordNonTransformed));
   ///MODULES1 - Module user add events
   // Get all modules (NOT only the ones that have to do with the user type)
   if (!$cached_modules) {
@@ -426,12 +426,18 @@ abstract class EfrontUser
   } else {
    throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
   }
+  if (!$user -> isLoggedIn()) {
+   throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
+  }
   if ($user -> user['timezone']) {
    date_default_timezone_set($user -> user['timezone']);
   }
   $user -> applyRoleOptions($user -> user['user_types_ID']); //Initialize user's role options for this lesson
   if ($type && $user -> user['user_type'] != $type) {
    throw new Exception(_YOUCANNOTACCESSTHISPAGE, EfrontUserException::INVALID_TYPE);
+  }
+  if (!$user -> isLoggedIn()) {
+   throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
   }
   return $user;
  }
@@ -970,7 +976,6 @@ abstract class EfrontUser
   }
   eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
   eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
-  eF_deleteTableData("users_online", "users_LOGIN='".$this -> user['login']."'");
   $result = eF_getTableData("logs", "action", "users_LOGIN = '".$this -> user['login']."'", "timestamp desc limit 1"); //?? ??? ????? ???????? ???, ????? ??? logs ??? ????? logout, ???? ?? ????? logout ??? ??? ??? ?? ???????
   if ($result[0]['action'] != 'logout') {
    $fields_insert = array('users_LOGIN' => $this -> user['login'],
@@ -980,7 +985,8 @@ abstract class EfrontUser
            'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
    eF_insertTableData("logs", $fields_insert);
   }
-  eF_deleteTableData('users_online', "users_LOGIN='".$this -> user['login']."'");
+  //eF_deleteTableData('users_online', "users_LOGIN='".$this -> user['login']."'");
+  eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
  }
  /**
 
@@ -1014,6 +1020,7 @@ abstract class EfrontUser
 
 	 */
  public function login($password, $encrypted = false) {
+  session_regenerate_id(); //If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
   unset($_SESSION['previousMainUrl']);
   unset($_SESSION['previousSideUrl']);
   unset($_SESSION['s_lesson_user_type']);
@@ -1065,14 +1072,33 @@ abstract class EfrontUser
            'comments' => session_id(),
            'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
-  $fields = array('users_LOGIN' => $this -> user['login'],
-       'timestamp' => time(),
-       'timestamp_now' => time(),
-       'session_ip' => $_SERVER['REMOTE_ADDR']);
-  if (!$this -> isLoggedIn()) {
-   eF_insertTableData("users_online", $fields);
+/*
+
+		$fields = array('users_LOGIN'   => $this -> user['login'],
+
+							'timestamp'	 => time(),
+
+							'timestamp_now' => time(),
+
+							'session_ip'	=> $_SERVER['REMOTE_ADDR']);
+
+*/
+  if ($this -> isLoggedIn()) {
+   //eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
+  }
+  $result = eF_getTableData("user_times", "id", "session_id = '".session_id()."' and users_LOGIN='".$this -> user['login']."'");
+  if (sizeof($result) > 0) {
+   eF_updateTableData("user_times", array("session_expired" => 0), "session_id = '".session_id()."' and users_LOGIN='".$this -> user['login']."'");
   } else {
-   eF_updateTableData("users_online", $fields, "users_LOGIN='".$this -> user['login']."'");
+   $fields = array("session_timestamp" => time(),
+       "session_id" => session_id(),
+       "session_expired" => 0,
+       "users_LOGIN" => $_SESSION['s_login'],
+       "timestamp_now" => time(),
+       "time" => 0,
+       "entity" => 'system',
+       "entity_id" => 0);
+   eF_insertTableData("user_times", $fields);
   }
   return true;
  }
@@ -1146,9 +1172,9 @@ abstract class EfrontUser
 
 	 */
  public function refreshLogin() {
-  $result = eF_getTableData('users_online', '*', "users_LOGIN='".$this -> user['login']."'");
+  $result = eF_getTableData('user_times', 'id', "session_expired=0 and users_LOGIN='".$this -> user['login']."'");
   if (sizeof($result) > 0) {
-   eF_updateTableData("users_online", array("timestamp_now" => time()), "users_LOGIN='".$this -> user['login']."'");
+   eF_updateTableData("user_times", array("timestamp_now" => time()), "id='".$result[0]['id']."'");
    return true;
   } else {
    return false;
@@ -1187,18 +1213,23 @@ abstract class EfrontUser
 	 */
  public static function getUsersOnline($interval = false) {
   $usersOnline = array();
-  $result = eF_getTableData("users_online uo, users u", "uo.*, uo.timestamp as login_time, u.*", "u.login = uo.users_LOGIN", "", "uo.users_LOGIN, uo.timestamp_now desc");
+  //A user may have multiple active entries on the user_times table, one for system, one for unit etc. Pick the most recent
+  $result = eF_getTableData("user_times", "users_LOGIN, timestamp_now, session_timestamp", "session_expired=0", "timestamp_now desc");
   foreach ($result as $value) {
-   if (time() - $value['timestamp_now'] < $interval || !$interval) {
-    $usersOnline[] = array('login' => $value['login'],
-            'name' => $value['name'],
-            'surname' => $value['surname'],
-            'formattedLogin'=> formatLogin(false, $value),
-            'user_type' => $value['user_type'],
-            'timestamp_now' => $value['timestamp_now'],
-            'time' => eF_convertIntervalToTime(time() - $value['login_time']));
-   } else {
-    EfrontUserFactory :: factory($value) -> logout();
+   if (!isset($parsedUsers[$value['users_LOGIN']])) {
+    //print("\ntime difference for user: ".$value['users_LOGIN'].' and interval '.$interval.' and time()='.time().' - '.$value['timestamp_now'].': '.(time() - $value['timestamp_now'])."\n");
+    if (time() - $value['timestamp_now'] < $interval || !$interval) {
+     $usersOnline[] = array('login' => $value['users_LOGIN'],
+             //'name'		   => $value['name'],
+             //'surname'	   => $value['surname'],
+             'formattedLogin'=> formatLogin(false, $value),
+             //'user_type'	 => $value['user_type'],
+             'timestamp_now' => $value['timestamp_now'],
+             'time' => eF_convertIntervalToTime(time() - $value['session_timestamp']));
+    } else {
+     EfrontUserFactory :: factory($value['users_LOGIN']) -> logout();
+    }
+    $parsedUsers[$value['users_LOGIN']] = true;
    }
   }
   return $usersOnline;
@@ -1231,8 +1262,8 @@ abstract class EfrontUser
 
 	 */
  public function isLoggedIn() {
-  //$result = eF_getTableData('logs', 'action', "users_LOGIN='".$this -> user['login']."'", "timestamp desc limit 1");
-  $result = eF_getTableData('users_online', '*', "users_LOGIN='".$this -> user['login']."'");
+  //$result = eF_getTableData('users_online', '*', "users_LOGIN='".$this -> user['login']."'");
+  $result = eF_getTableData('user_times', 'users_LOGIN', "session_expired=0 and users_LOGIN='".$this -> user['login']."'");
   if (sizeof($result) > 0) {
    return true;
   } else {
@@ -1302,7 +1333,8 @@ abstract class EfrontUser
   eF_deleteTableData("f_users_to_polls", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("logs", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("rules", "users_LOGIN='".$this -> user['login']."'");
-  eF_deleteTableData("users_online", "users_LOGIN='".$this -> user['login']."'");
+  //eF_deleteTableData("users_online", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("user_times", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("users_to_surveys", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("users_to_done_surveys", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("survey_questions_done", "users_LOGIN='".$this -> user['login']."'");
@@ -3052,14 +3084,28 @@ abstract class EfrontLessonUser extends EfrontUser
           "lessons_ID" => $lessonIds));
  }
  private function getUserTimeInLesson($lesson) {
-  $userTimes = EfrontStats :: getUsersTimeAll(false, false, array($lesson -> lesson['id'] => $lesson -> lesson['id']), array($this -> user['login'] => $this -> user['login']));
-  $userTimes = $userTimes[$lesson -> lesson['id']][$this -> user['login']];
-  $userTimes['time_string'] = '';
-  if ($userTimes['total_seconds']) {
-   !$userTimes['hours'] OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
-   !$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
-   !$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
-  }
+  $timeReport = new EfrontTimes();
+  $userTimes = $timeReport -> getUserSessionTimeInLesson($this -> user['login'], $lesson -> lesson['id']);
+  $userTimes = $timeReport -> formatTimeForReporting($userTimes);
+/*
+
+		$userTimes = EfrontStats :: getUsersTimeAll(false, false, array($lesson -> lesson['id'] => $lesson -> lesson['id']), array($this -> user['login'] => $this -> user['login']));
+
+		$userTimes = $userTimes[$lesson -> lesson['id']][$this -> user['login']];
+
+		$userTimes['time_string'] = '';
+
+		if ($userTimes['total_seconds']) {
+
+			!$userTimes['hours']   OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
+
+			!$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
+
+			!$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
+
+		}
+
+*/
   return $userTimes;
  }
  private function getUserOverallProgressInLesson($lesson) {

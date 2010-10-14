@@ -667,7 +667,7 @@ function checkDataType(parameter, data_model, type)
             break;
 
         case 'CMIString4096':
-            return match = /^.{0,4096}$/i.test(parameter); //Any character string with length at most 4096
+            return match = /^.{0,4096}$/mi.test(parameter); //Any character string with length at most 4096
             break;
 
         case 'CMITime':

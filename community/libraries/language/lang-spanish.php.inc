@@ -369,7 +369,7 @@ define("_RULES","Reglas");//Rules
 define("_SUMMARY","Resumen");//Summary
 define("_TEXTALIGN","Alineación del texto");//Text align
 define("_TOP","Top");//Top
-define("_ENTER","Usuario");//Login
+define("_ENTER","Entrar");//Login
 define("_HASBEENLOGGEDOUT","ha sido desconectado");//has been logged out
 define("_LOGOUT","Salir");//Logout
 define("_EACHFILESIZEMUSTBESMALLERTHAN","L tamañ de cada archivo debe ser menor que");//Each file must be smaller than

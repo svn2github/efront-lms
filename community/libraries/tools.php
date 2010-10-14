@@ -601,13 +601,17 @@ function checkPermissions($dir) {
  foreach (new RecursiveIteratorIterator($d, RecursiveIteratorIterator::SELF_FIRST) as $key => $path) {
   if (!$path -> isWritable()) {
    if ($path->isDir()) {
-    if (in_array($path -> getFilename(), $efrontDirectories)) {
-     $failedDirectories[] = $path -> getPathName();
-    }
+    foreach ($efrontDirectories as $key2 => $value2)
+     if (strpos($path -> getPathName(), $value2) !== false) {
+      $failedDirectories[] = $path -> getPathName();
+     }
    } else {
     $failedFiles[] = $path -> getPathName();
    }
   }
+ }
+ if (!is_writable(G_ROOTPATH)){
+  $failedDirectories[] = G_ROOTPATH;
  }
  return array($failedDirectories, $failedFiles);
 }
@@ -2658,6 +2662,31 @@ function addTime(&$a, $b) {
 
 
 	*/
+}
+function getUserTimeTarget($url) {
+ $urlParts = parse_url($url);
+ $queryParts = explode('&', $urlParts['query']);
+ if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID']) {
+  $entity = array($_SESSION['s_lessons_ID'] => 'lesson');
+ } else {
+  $entity = array(0 => 'system');
+ }
+ foreach($queryParts as $part) {
+  $result = explode("=", $part);
+  switch ($result[0]) {
+   case 'view_unit': $entity = array($result[1] => 'unit'); break;
+   default: break;
+  }
+ }
+ return $entity;
+}
+function getUserLastTimeInTarget($entity) {
+ $result = eF_getTableData("user_times", "time", "session_id = '".session_id()."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
+ if (sizeof($result) > 0) {
+  return $result[0]['time'];
+ } else {
+  return false;
+ }
 }
 /**
 

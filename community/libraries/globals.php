@@ -263,7 +263,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 8504;
+    $build = 8519;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -534,6 +534,8 @@ function __autoload($className) {
         require_once("project.class.php");
     } else if (strpos($className, "efrontstats") !== false) {
         require_once("statistics.class.php");
+    } else if (strpos($className, "efronttimes") !== false) {
+        require_once("times.class.php");
     } else if (strpos($className, "efrontsearch") !== false) {
         require_once("search.class.php");
     } else if (strpos($className, "efrontcourse") !== false) {

@@ -53,7 +53,6 @@ if (isset($_GET['sel_user'])) {
  $directionsTree = new EfrontDirectionsTree();
  $directionsTreePaths = $directionsTree -> toPathString();
 
-
  $smarty -> assign("T_USER_LOGIN", $infoUser -> user['login']);
  $smarty -> assign("T_REPORTS_USER", $infoUser);
  if ($_GET['specific_lesson_info'] && $_GET['lesson']) {
@@ -222,18 +221,12 @@ if (isset($_GET['sel_user'])) {
      exit;
     } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_lesson_access') {
      $lesson = new EfrontLesson($_GET['entity']);
-     $result = eF_getTableData("logs", "id, users_LOGIN, action, timestamp", "timestamp between $from and $to and lessons_id=".$lesson -> lesson['id']." and users_LOGIN = '".$infoUser -> user['login']."' order by timestamp");
-     //Assign the number of accesses to each week day
-     foreach ($result as $value) {
-      $cnt = 0;
-      for ($i = $from; $i <= $to; $i += 86400) {
-       $labels[$cnt] = $i;
-       isset($count[$cnt]) OR $count[$cnt] = 0;
-       if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
-        $count[$cnt]++;
-       }
-       $cnt++;
-      }
+     $timesReport = new EfrontTimes(array($from, $to));
+     $cnt=0;
+     $result = $timesReport -> getUserSessionTimeInSingleLessonPerDay($infoUser -> user['login'], $lesson -> lesson['id']);
+     foreach ($result as $key => $value) {
+      $labels[$cnt] = $key;
+      $count[$cnt++] = ceil($value/60);
      }
      $graph = new EfrontGraph();
      $graph -> type = 'line';
@@ -242,8 +235,8 @@ if (isset($_GET['sel_user'])) {
       $graph -> xLabels[] = array($i, '<span style = "white-space:nowrap">'.formatTimestamp($labels[$i]).'</span>');
      }
      $graph -> xTitle = _DAY;
-     $graph -> yTitle = _ACCESSES;
-     $graph -> title = _ACCESSESPERDAY;
+     $graph -> yTitle = _MINUTES;
+     $graph -> title = _MINUTESPERDAY;
      echo json_encode($graph);
      exit;
     }
@@ -269,14 +262,15 @@ if (isset($_GET['sel_user'])) {
     $smarty -> assign("T_USER_LOG", $result);
    }
    //pr($infoUser -> getUserStatusInLessons());
+   $timesReport = new EfrontTimes(array($from, $to));
+   $result = $timesReport -> getUserSessionTimeInLessons($infoUser -> user['login']);
+   foreach ($result as $value) {
+    $userTraffic[$value['lessons_ID']] = $value['time'];
+   }
    foreach ($userLessons as $id => $lesson) {
-    $userTraffic = EfrontStats :: getUsersTime($lesson, $infoUser -> user['login'], $from, $to);
-    if ($userTraffic[$infoUser -> user['login']]['accesses']) {
-     $traffic['lessons'][$id] = $userTraffic[$infoUser -> user['login']];
-     $traffic['lessons'][$id]['name'] = $lesson -> lesson['name'];
-     $traffic['lessons'][$id]['active'] = $lesson -> lesson['active'];
-     $traffic['total_access'] += $traffic['lessons'][$id]['accesses'];
-    }
+    $traffic['lessons'][$id] = $timesReport -> formatTimeForReporting($userTraffic[$id]);
+    $traffic['lessons'][$id]['name'] = $lesson -> lesson['name'];
+    $traffic['lessons'][$id]['active'] = $lesson -> lesson['active'];
    }
    $result = eF_getTableData("logs", "count(*)", "action = 'login' and timestamp between $from and $to and users_LOGIN='".$infoUser -> user['login']."' order by timestamp");
    $traffic['total_logins'] = $result[0]['count(*)'];

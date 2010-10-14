@@ -388,19 +388,16 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                  </table>
                  </form>
 
-                    {if $T_LESSON_TRAFFIC.total_access > 0}
+{*
                     <table class = "statisticsTools">
                         <tr><td id = "right">
         {$smarty.const._ACCESSSTATISTICS}: <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_access');"/>
        </td>
                         </tr>
                     </table>
+*}
                     <table class = "statisticsGeneralInfo">
                         <tr><td class = "topTitle" colspan = "2">{$smarty.const._LESSONTRAFFIC}</td></tr>
-                        <tr class = "oddRowColor">
-                            <td class = "labelCell">{$smarty.const._TOTALACCESS}:</td>
-                            <td class = "elementCell">{$T_LESSON_TRAFFIC.total_access}</td>
-                        </tr>
                         <tr class = "evenRowColor">
                             <td class = "labelCell">{$smarty.const._TOTALACCESSTIME}: </td>
                             <td class = "elementCell">
@@ -414,10 +411,10 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                             </td>
                         </tr>
                     </table>
-                    {/if}
+
      <br/>
                     <table class = "statisticsTools">
-                        <tr><td>{$smarty.const._ACCESSNUMBER}</td>
+                        <tr><td>{$smarty.const._LESSONTIMES}</td>
 {*
                     {if $T_LESSON_TRAFFIC.total_seconds > 0 }
                             <td id = "right">
@@ -431,15 +428,12 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                     <table class = "sortedTable">
                         <tr>
                             <td class = "topTitle">{$smarty.const._LOGIN}</td>
-                            <td class = "topTitle centerAlign">{$smarty.const._ACCESSNUMBER}</td>
                             <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
                             <td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>
                         </tr>
                         {foreach name = 'user_traffic_list' key = "login" item = "info" from = $T_LESSON_TRAFFIC.users}
-                         {if $info.accesses}
                             <tr class = "{cycle name = 'usertraffic' values = 'oddRowColor, evenRowColor'} {if !$info.active}deactivatedTableElement{/if}">
                                 <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$login}">#filter:login-{$login}#</a></td>
-                                <td class = "centerAlign">{$info.accesses}</td>
                                 <td class = "centerAlign">{strip}<span style = "display:none">{$info.total_seconds}&nbsp;</span>
                                     {if $info.total_seconds}
                                   {if $info.hours}{$info.hours}{$smarty.const._HOURSSHORTHAND} {/if}
@@ -453,7 +447,6 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                                     <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_user_access', '{$login}');"/>
                                 </td>
                             </tr>
-                            {/if}
                         {foreachelse}
                          <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
                         {/foreach}

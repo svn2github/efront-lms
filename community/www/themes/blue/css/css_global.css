@@ -1039,7 +1039,7 @@ table#layoutMenu td#left div.selectedLayout {background-color:#dbe5f1;}
 
 table#layoutMenu td#right{width:150px;}
 table#layoutMenu td#right div.layoutLabel {width:140px;}
-table#layoutMenu td#right div.layoutBlock{width:140px;height:80px;margin-left:auto;margin-right:auto;vertical-align:top;margin-top:10px}
+table#layoutMenu td#right div.layoutBlock{width:140px;min-height:80px;margin-left:auto;margin-right:auto;vertical-align:top;margin-top:10px}
 table#layoutMenu td#right div.layoutBlock img{margin-top:10px}
 
 table#layoutMenu td#center{}

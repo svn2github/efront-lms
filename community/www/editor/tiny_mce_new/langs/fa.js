@@ -156,6 +156,15 @@ no_mpell:"\u0647\u06CC\u0686 \u062E\u0637\u0627\u06CC \u0627\u0645\u0644\u0627\u
 pagebreak:{
 desc:"\u062F\u0631\u062C \u0642\u0637\u0639 \u0635\u0641\u062D\u0647."
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"Types",
 def:"Default",

@@ -64,7 +64,7 @@ function get_APIFunctions()
 
             // NOTE: LMSFinish will unload the current SCO.  All processing
             //       relative to the current page must be performed prior
-            //       to calling LMSFinish.   
+            //       to calling LMSFinish.
 
            result = doLMSFinish();
 
@@ -89,7 +89,7 @@ function get_APIFunctions()
            result = doLMSCommit();
             // NOTE: LMSFinish will unload the current SCO.  All processing
             //       relative to the current page must be performed prior
-            //       to calling LMSFinish.   
+            //       to calling LMSFinish.
 
            result = doLMSFinish();
 
@@ -108,7 +108,7 @@ function get_APIFunctions()
 
             // NOTE: LMSFinish will unload the current SCO.  All processing
             //       relative to the current page must be performed prior
-            //       to calling LMSFinish.   
+            //       to calling LMSFinish.
 
            result = doLMSFinish();
         }
@@ -878,7 +878,7 @@ function create_manifest($lessons_id, $lesson_entries, $filelist, $path)
 
 /**
 
-* H parakatw synarthsh analamvanei na metasxhmatisei tous kanones toy ma8hmatos se prerequisites katallhla 
+* H parakatw synarthsh analamvanei na metasxhmatisei tous kanones toy ma8hmatos se prerequisites katallhla
 
 * gia export se scorm.
 
@@ -1007,7 +1007,7 @@ function build_manifest_organizations($lessons_id, $prerequisites)
                 $tree[$j]["string"] = "\n<item identifier=\"item" . $tree[$j]["id"] . "\" identifierref=\"" . $tree[$j]["id"] . "\">\n\t<title>" . ($tree[$j]["name"]) . "</title>\n";
                 /*An to antikeimeno exei prerequisites, pros8ese tis katallhles grammes*/
                 if ($prerequisites[$tree[$j]["id"]]) {
-                    //echo "<br> A".$tree[$j]["id"]; 
+                    //echo "<br> A".$tree[$j]["id"];
                     $tree[$j]["string"] .= "\n<adlcp:prerequisites type=\"aicc_script\">item" . $prerequisites[$tree[$j]["id"]] . "</adlcp:prerequisites>";
                 }
 
@@ -1081,7 +1081,7 @@ function build_manifest_main($str)
 }
 /**
 
-* H synarthsh afth dhmiourgei to outline enos arxeiou html kai emvy8izei mesa to periexomeno. 
+* H synarthsh afth dhmiourgei to outline enos arxeiou html kai emvy8izei mesa to periexomeno.
 
 */
 function create_html_files($content)
@@ -1167,4 +1167,3 @@ function create_html_files($content)
 
     return $overall;
 }
-?>

@@ -307,4 +307,3 @@ abstract class EfrontEntity
      */
     public abstract function handleForm($form);
 }
-?>

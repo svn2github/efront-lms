@@ -36,6 +36,7 @@ class EfrontGroupException extends Exception
     const USER_NOT_EXISTS = 304;
     const USER_ALREADY_MEMBER = 305;
     const ASSIGNMENT_ERROR = 306;
+    const GROUPKEYEXISTS = 307;
 }
 /**
 
@@ -192,9 +193,14 @@ class EfrontGroup
     public static function create($fields) {
         $fields['name'] = trim($fields['name']);
         !isset($fields['name']) ? $fields['name'] = 'Default name' : null;
-        $group_id = eF_insertTableData("groups", $fields); //Insert the group to the database
-        $newGroup = new EfrontGroup($group_id);
-        return $newGroup;
+        $result = eF_getTableData("groups","id","unique_key != '' and unique_key is not null and unique_key='".$fields['unique_key']."'");
+        if (sizeof($result) == 0) {
+         $group_id = eF_insertTableData("groups", $fields); //Insert the group to the database
+         $newGroup = new EfrontGroup($group_id);
+         return $newGroup;
+        } else {
+         throw new EfrontGroupException(_GROUPKEYEXISTS, EfrontGroupException :: GROUPKEYEXISTS);
+        }
     }
     public static function createDynamicGroup($fields) {
      self :: deleteDynamicGroup();
@@ -1274,4 +1280,3 @@ class EfrontGroup
         return $lessons;
     }
 }
-?>

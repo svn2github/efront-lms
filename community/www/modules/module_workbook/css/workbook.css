@@ -1,0 +1,117 @@
+.separator{
+	clear: both;
+	display: block;
+	height: 15px;
+}
+
+.items_separator{
+	clear: both;
+	display: block;
+	height: 10px;
+}
+
+.options_separator{
+	display: inline;
+	border-right: 1px solid #333333;
+}
+
+#question_preview{
+	background-color: #F8F8F8;
+	border: 1px dotted #808080;
+	padding: 5px 10px 10px 10px;
+	width: 99%;
+}
+
+#copy_js{
+	width: 100px;
+	margin-top: 10px;
+	font-style: italic;
+}
+
+.workbook_item{
+	width: 98%;
+	float: left;
+	background-color: #F8F8F8;
+	border: 1px dotted #808080;
+	padding: 5px 10px;
+}
+
+.item_header{
+	float: left;
+	width: 100%;
+	border-bottom: 1px dotted #808080;
+	padding-bottom: 2px;
+}
+
+.item_actions{
+	float: left;
+}
+
+.item_actions a{
+	font-size: 11px;
+}
+
+.actions_separator{
+	display: inline;
+	border-right: 1px dotted #808080;
+}
+
+.unique_id{
+	float: right;
+	font-style: italic;
+}
+
+.item_title{
+	text-decoration: underline;
+}
+
+.item_question{
+	background-color: #EAEAEA;
+	border: 1px solid #AAAAAA;
+	padding: 5px 10px;
+}
+
+.item_check_answer{
+	font-style: italic;
+}
+
+.workbook_bar{
+	float: left;
+}
+
+#student_options_right{
+	float: right;
+}
+
+#reset_workbook{
+	float: left;
+	margin-left: 30px;
+}
+
+.item_header_student{
+	background-color: #EAEAEA;
+	border: 1px solid #AAAAAA;
+	padding: 2px;
+	font-weight: bold;
+}
+
+.item_question_student span.orderedList, .item_question span.orderedList, #question_preview span.orderedList{
+	display: none;
+}
+
+.wrong_answer{
+	display: none;
+	margin-left: 10px;
+	padding: 5px 30px 5px 30px;
+	border: 1px dotted #999999;
+	color: #FF0000;
+}
+
+.item_question_student input[type=radio], .item_question input[type=radio], #question_preview input[type=radio]{
+	border: none;
+}
+
+.item_question_student input[type=checkbox], .item_question input[type=checkbox],
+#question_preview input[type=checkbox], #check_answer_td input[type=checkbox]{
+	border: none;
+}

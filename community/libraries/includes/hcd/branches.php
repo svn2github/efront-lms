@@ -470,5 +470,3 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
  }
 
 }
-
-?>

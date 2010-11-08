@@ -481,5 +481,3 @@ try {
     eF_redirect("".basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=" . $message_type . "&tab=jobs");
     exit;
 }
-
-?>

@@ -390,6 +390,3 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
  }
 
 }
-
-
-?>

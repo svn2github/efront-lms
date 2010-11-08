@@ -50,6 +50,34 @@
 - New time reporting infrastructure
 - Added option in system settings for periodic updater period
 - Added projects icon on the student's control panel so he/she can access expired projects
+- Added new theme: bluehtml5
+- Added new module: workbook
+- Added new module: jobs manager
+- Added new module: crossword
+- Added new module: administrator tools
+- Added new module: journal
+- Removed ability to switch embed type for SCORM 2004 contents
+- Fixed not registering events for employee hire on/left on changes (Enterprise edition)
+- Extended payment notifications to include lesson/course information
+- Expand/collapse status in "My courses" list now remembers status via cookie
+- Lessons and courses now autocomplete by default
+- Upgraded tinymce editor to 3.3.9.2
+- Added an entry for phplivedocx_config.php in check status
+- Fixed completeCourse keeping completed date when it is set (when only score changed for example)
+- Fixed when updating a course's category, propagate the change to the course's instances as well
+- Fixed issue with ##EFRONTINNERLINK## when editing content (#690)
+- Added event for user deactivation
+- Fixed issue about system timelines and custom user types that had no access permissions
+- Fixed course notifications being sent out to archived users
+- Added code for checking if unique_key in groups is unique
+- Fixed issues in custom user type creation
+- Added supervisor approval for course enrollments functionality (Enterprise edition)
+- Fixed issue in event messages about link to work for different roles between lessons
+- Removed ability to switch course only / direct access to lessons that are part of courses / have already users enrolled
+- Files are optionally exported along with lesson
+- Fixed importing lesson not respecting share folder setting
+- Fixed issue about hired and left date in events
+- Fixed issue about displaying archived users in job positions
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)
@@ -82,6 +110,7 @@
 - Fixed archived users appearing in group's users list
 - Fixed average test score reporting for SCORM tests not matching actual mean score (a test may be skipped)
 - Fixed error while completing a test when accessing a lesson as student, having professor as default user type and on an horizontal theme
+- Restructured user form page and PDF export
 
 === Version 3.6.5 build 8086 ===
 - Fixed some course settings not being available to professors

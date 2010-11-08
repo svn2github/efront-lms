@@ -108,4 +108,3 @@ try {
     $message_type = 'failure';
 }
  if (isset($_GET['ajax'])) {exit;}
-?>

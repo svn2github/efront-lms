@@ -167,7 +167,9 @@
      {foreach name = 'lessons_list2' key = 'key' item = 'lesson' from = $T_LESSONS_DATA}
          <tr id = "row_{$lesson.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
           <td id = "column_{$lesson.id}" class = "editLink">
-          <a class="editLink" href= "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">{$lesson.name}</a>
+           <a class="editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?lessons_ID={$lesson.id}&type=lesson" href= "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">
+            {$lesson.name}
+           </a>
           <td>{$lesson.direction_name}</td>
           <td>{$lesson.languages_NAME}</td>
           <td class = "centerAlign">{if !$lesson.course_only}{if $lesson.max_users}{$lesson.students}/{$lesson.max_users}{else}{$lesson.students}{/if}{else}-{/if}</td>

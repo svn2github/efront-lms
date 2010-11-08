@@ -135,5 +135,3 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
 
 
 }
-
-?>

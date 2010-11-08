@@ -96,7 +96,11 @@ function createConstraintsFromSortedTable() {
 
 function handleAjaxExceptions($e) {
  header("HTTP/1.0 500");
- echo str_replace("<br>", ",", $e -> getMessage()).' ('.$e -> getCode().')';
+ $message = str_replace("<br>", ",", $e -> getMessage());
+ if ($e -> getCode()) {
+  $message .= ' ('.$e -> getCode().')';
+ }
+ echo $message;
  exit;
 }
 
@@ -2688,6 +2692,16 @@ function getUserLastTimeInTarget($entity) {
   return false;
  }
 }
+function getMainScripts() {
+ $mainScripts = array('EfrontScripts',
+       'scriptaculous/prototype',
+       'scriptaculous/scriptaculous',
+       'scriptaculous/effects',
+       'prototip/prototip',
+       'efront_ajax',
+                      'includes/events');
+ return $mainScripts;
+}
 /**
 
 * Clear templates cache
@@ -2722,4 +2736,3 @@ class AjaxResultObject
   }
  }
 }
-?>

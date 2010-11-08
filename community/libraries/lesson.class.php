@@ -164,7 +164,7 @@ class EfrontLesson
                             'glossary' => 1,
        'reports' => 1,
                             'tracking' => 1,
-                            'auto_complete' => 0,
+                            'auto_complete' => 1,
                             'content_tree' => 1,
                             'lesson_info' => 1,
        'bookmarking' => 1,
@@ -249,7 +249,7 @@ class EfrontLesson
    }
    $this -> lesson = $lesson[0];
   }
-  if ($this -> lesson['publish'] == 0) {
+  if (isset($this -> lesson['publish']) && $this -> lesson['publish'] == 0) {
    eF_updateTableData("lessons", array("publish" => 1), "id=".$this -> lesson['id']);
    $this -> lesson['publish'] = 1;
   }
@@ -266,7 +266,7 @@ class EfrontLesson
 
 	 */
  private function initializeDirectory() {
-  if (isset($this -> lesson['share_folder']) && $this -> lesson['share_folder'] != $this -> lesson['instance_source']) {
+  if ($this -> lesson['instance_source'] && isset($this -> lesson['share_folder']) && $this -> lesson['share_folder'] != $this -> lesson['instance_source']) {
    $this -> lesson['share_folder'] = $this -> lesson['instance_source'];
    //$this -> persist(); We don't use persist() because the object is not fully constructed yet and it will ruin it
    eF_updateTableData("lessons", array('share_folder' => $this -> lesson['share_folder']), "id=".$this -> lesson['id']);
@@ -1602,7 +1602,7 @@ class EfrontLesson
 
 	 */
  public function getCourses($returnObjects = false) {
-  $result = eF_getTableData("courses JOIN lessons_to_courses ON courses.id = courses_ID", "courses.*", "lessons_ID = ".$this -> lesson['id']);
+  $result = eF_getTableData("courses JOIN lessons_to_courses ON courses.id = courses_ID", "courses.*", "courses.archive=0 and lessons_ID = ".$this -> lesson['id']);
   $courses = array();
   foreach ($result as $value) {
    $returnObjects ? $courses[$value['id']] = new EfrontCourse($value['id']) : $courses[$value['id']] = $value;
@@ -1931,8 +1931,6 @@ class EfrontLesson
    }
   }
   return $userLessonCourses;
-  //pr($userCourses);
-  //pr($lessonCourses);
  }
  /**
 
@@ -2737,6 +2735,7 @@ class EfrontLesson
   }
   $content = eF_getTableDataFlat("content", "*", "lessons_ID=".$this -> lesson['id']); //Get the lesson units
   sizeof($content['id']) > 0 ? $content_list = implode(",", $content['id']) : $content_list = array(); //Create list of content ids, will come in handy later
+  $commonFolderLessons = eF_getTableData("lessons", "id", "share_folder=".$this -> lesson['id']);
   foreach ($deleteEntities as $value) {
    switch ($value) {
     case 'tests':
@@ -2783,7 +2782,7 @@ class EfrontLesson
      break;
     case 'files':
      //Only delete files if this lesson is not sharing its folder
-     if (!$this -> lesson['share_folder']) {
+     if (!$this -> lesson['share_folder'] && empty($commonFolderLessons)) {
       $directory = new EfrontDirectory($this -> directory);
       $directory -> delete();
       mkdir($this -> directory, 0755);
@@ -3672,7 +3671,7 @@ class EfrontLesson
    if (isset($data['files'][$i]['file'])) {
     $newName = str_replace(G_ROOTPATH, '', dirname($data['files'][$i]['file']).'/'.EfrontFile :: encode(basename($data['files'][$i]['file'])));
     $newName = preg_replace("#(.*)www/content/lessons/#", "www/content/lessons/", $newName);
-    $newName = preg_replace("#www/content/lessons/\d+/(.*)#", "www/content/lessons/".$this -> lesson['id']."/\$1", $newName);
+    $newName = preg_replace("#www/content/lessons/\d+/(.*)#", "www/content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id'])."/\$1", $newName);
     if ($data['files'][$i]['original_name'] != basename($data['files'][$i]['file'])) {
      if (is_file(G_ROOTPATH.$newName)) {
       $replaceString['/\/?(view_file.php\?file=)'.$data['files'][$i]['id'].'([^0-9])/'] = '${1}'.array_search(G_ROOTPATH.$newName, $fileList).'${2}'; //Replace old ids with new ids
@@ -3682,7 +3681,7 @@ class EfrontLesson
      }
     }
    } else {
-    $newName = preg_replace("#www/content/lessons/\d+/(.*)#", "www/content/lessons/".$this -> lesson['id']."/\$1", $data['files'][$i]['path']);
+    $newName = preg_replace("#www/content/lessons/\d+/(.*)#", "www/content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id'])."/\$1", $data['files'][$i]['path']);
     if (is_file(G_ROOTPATH.$newName)) {
      $replaceString['/\/?(view_file.php\?file=)'.$data['files'][$i]['id'].'([^0-9])/'] = '${1}'.array_search(G_ROOTPATH.$newName, $fileList).'${2}'; //Replace old ids with new ids
     }
@@ -3692,7 +3691,7 @@ class EfrontLesson
    if (isset($data['files'][$i]['file'])) {
     $newName = str_replace(G_ROOTPATH, '', dirname($data['files'][$i]['file']).'/'.EfrontFile :: encode(basename($data['files'][$i]['file'])));
     $newName = preg_replace("#(.*)www/content/lessons/#", "www/content/lessons/", $newName);
-    $newName = preg_replace("#www/content/lessons/\d+/(.*)#", "www/content/lessons/".$this -> lesson['id']."/\$1", $newName);
+    $newName = preg_replace("#www/content/lessons/\d+/(.*)#", "www/content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id'])."/\$1", $newName);
     if ($data['files'][$i]['original_name'] != basename($data['files'][$i]['file'])) {
      if (is_dir(G_ROOTPATH.$newName)) {
       $file = new EfrontDirectory(G_ROOTPATH.$newName);
@@ -3819,7 +3818,7 @@ class EfrontLesson
         if (($table == "content" AND $key == "data") || ($table == "questions" AND $key == "text") || ($table == "tests" AND $key == "description")) {
          $value = str_replace("##SERVERNAME##", "", $value);
          //$value = str_replace("/##LESSONSLINK##", "content/lessons/".$this -> lesson['id'], $value);
-         $value = str_replace("##LESSONSLINK##", "content/lessons/".$this -> lesson['id'], $value);
+         $value = str_replace("##LESSONSLINK##", "content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']), $value);
          $content_data = $value;
         } elseif ($key == "lessons_ID") {
          $value = $this -> lesson['id'];
@@ -4130,7 +4129,7 @@ class EfrontLesson
   if (sizeof($content) > 0) {
    for ($i = 0; $i < sizeof($content); $i++) {
     $content[$i]['data'] = str_replace(G_SERVERNAME, "##SERVERNAME##", $content[$i]['data']);
-    $content[$i]['data'] = str_replace("content/lessons/".$this -> lesson['id'], "##LESSONSLINK##", $content[$i]['data']);
+    $content[$i]['data'] = str_replace("content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']), "##LESSONSLINK##", $content[$i]['data']);
    }
    $content_list = implode(",", array_keys($content));
    $data['content'] = $content;
@@ -4138,7 +4137,7 @@ class EfrontLesson
    if (sizeof($questions) > 0) {
     for ($i = 0; $i < sizeof($questions); $i++) {
      $questions[$i]['text'] = str_replace(G_SERVERNAME, "##SERVERNAME##", $questions[$i]['text']);
-     $questions[$i]['text'] = str_replace("content/lessons/".$this -> lesson['id'], "##LESSONSLINK##", $questions[$i]['text']);
+     $questions[$i]['text'] = str_replace("content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']), "##LESSONSLINK##", $questions[$i]['text']);
     }
     $data['questions'] = $questions;
    }
@@ -4152,7 +4151,7 @@ class EfrontLesson
     $tests_to_questions = eF_getTableData("tests_to_questions", "*", "tests_ID IN ($tests_list)");
     for ($i = 0; $i < sizeof($tests); $i++) {
      $tests[$i]['description'] = str_replace(G_SERVERNAME, "##SERVERNAME##", $tests[$i]['description']);
-     $tests[$i]['description'] = str_replace("content/lessons/".$this -> lesson['id'], "##LESSONSLINK##", $tests[$i]['description']);
+     $tests[$i]['description'] = str_replace("content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']), "##LESSONSLINK##", $tests[$i]['description']);
     }
     $data['tests'] = $tests;
     $data['tests_to_questions'] = $tests_to_questions;
@@ -4207,7 +4206,7 @@ class EfrontLesson
   if (sizeof($projects) > 0) {
    $data['projects'] = $projects;
   }
-  $lesson_files = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, '', EfrontDirectory :: normalize($this -> directory))."%'");
+  $lesson_files = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, '', EfrontDirectory :: normalize($this -> getDirectory()))."%'");
   if (sizeof($lesson_files) > 0) {
    $data['files'] = $lesson_files;
   }
@@ -5321,4 +5320,3 @@ class EfrontLesson
   return $lesson;
  }
 }
-?>

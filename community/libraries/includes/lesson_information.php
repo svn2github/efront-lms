@@ -156,6 +156,3 @@ if ($_GET['edit_info'] && $_change_ && !$_student_) {
         $smarty -> assign("T_BASE_URL", "ctg=lessons&lesson_info=".$currentLesson -> lesson['id']);
     }
 }
-
-
-?>

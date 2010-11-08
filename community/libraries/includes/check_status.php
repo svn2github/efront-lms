@@ -177,7 +177,7 @@ $permissions['www/phplivedocx/samples/mail-merge/convert'] = array('writable' =>
 $permissions['libraries'] = array('writable' => is_writable($path),
                                                     'help' => 'libraries directory should be writable only during the installation process');
 $permissions['libraries/language'] = array('writable' => is_writable($path.'language'),
-                                                    'help' => 'This directory needs to writable, in order to be able to upload new language files or modify existing ones');
+                                                    'help' => 'This directory needs to be writable, in order to be able to upload new language files or modify existing ones');
 $permissions['libraries/smarty/themes_cache']= array('writable' => is_writable($path.'smarty/themes_cache'),
                                                     'help' => 'This directory needs to writable, in order for smarty to compile templates');
 $permissions['libraries/language/lang-english.php.inc'] = array('writable' => is_writable($path.'language/lang-english.php.inc'),
@@ -188,6 +188,10 @@ $permissions['upload'] = array('writable' => is_writable($path.'../upload'),
                                                     'help' => 'This is the directory where user related files are stored');
 $permissions['session path'] = array('writable' => is_writable($ini_settings['session.save_path']['local_value']),
               'help' => 'This is the directory where session variables are stored');
+if (file_exists($path.'phplivedocx_config.php')) {
+ $permissions['libraries/phplivedocx_config.php'] = array('writable' => is_writable($path.'phplivedocx_config.php'),
+                                                    'help' => 'This file needs to be writable, in order to save phplivedocx account');
+}
 
 foreach ($permissions as $key => $value) {
     if (isset($exclude_normal) && $exclude_normal && $value['writable']) { //Use $exclude_normal in order to not list sections without problem
@@ -347,4 +351,3 @@ function local_checkWritableRecursive($path) {
     }
     return $writable;
 }
-?>

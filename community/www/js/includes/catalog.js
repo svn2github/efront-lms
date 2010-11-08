@@ -69,17 +69,18 @@ function paypalSubmit() {
 //Direction tree functions
 function showAll() {
  $$('tr').each(function (tr) {tr.id.match(/subtree/) ? tr.show() : null;});
-  $$('table').each(function (table) {table.id.match(/direction_/) ? table.show() : null;});
-  $$('img').each(function (img) {if (img.id.match('subtree_img') && !img.hasClassName('visible')) {img.addClassName('visible');setImageSrc(img, 16, 'navigate_up');}});
+ $$('table').each(function (table) {table.id.match(/direction_/) ? table.show() : null;});
+ $$('img').each(function (img) {if (img.id.match('subtree_img') && !img.hasClassName('visible')) {img.addClassName('visible');setImageSrc(img, 16, 'navigate_up');}});
  $('catalog_hide_all').show();
  $('catalog_show_all').hide();
+ setCookie('collapse_catalog', 0);
 }
 function hideAll() {
  $$('tr').each(function (tr) {tr.id.match(/subtree/) ? tr.hide() : null;});
-  //$$('table').each(function (table) {table.id.match(/direction_/) ? table.hide() : null;});
-  $$('img').each(function (img) {if (img.id.match('subtree_img') && img.hasClassName('visible')) {img.removeClassName('visible');setImageSrc(img, 16, 'navigate_down');}});
-  $('catalog_hide_all').hide();
-  $('catalog_show_all').show();
+ $$('img').each(function (img) {if (img.id.match('subtree_img') && img.hasClassName('visible')) {img.removeClassName('visible');setImageSrc(img, 16, 'navigate_down');}});
+ $('catalog_hide_all').hide();
+ $('catalog_show_all').show();
+ setCookie('collapse_catalog', 1);
 }
 
 function showHideDirections(el, ids, id, mode) {
@@ -118,25 +119,21 @@ function showHideCourses(el, course) {
   el.addClassName('visible');
  }
 }
-function updateInformation(el, id, type, from_course) {
+
+function updateInformation2(el, id, type, from_course) {
  Element.extend(el);
- type == 'lesson' ? url = 'ask_information.php?lessons_ID='+id : url = 'ask_information.php?courses_ID='+id;
- if (from_course) {
-  url += '&from_course='+from_course;
- }
- el.select('span').each(function (s) {
-  if (s.hasClassName('tooltipSpan') && s.empty()) {
-   s.setStyle({height:'50px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url(\"images/others/progress1.gif\")'}));
-   new Ajax.Request(url, {
-    method:'get',
-    asynchronous:true,
-    onSuccess: function (transport) {
-     s.setStyle({height:'auto'}).update(transport.responseText);
-    }
-   });
-  }
-  });
+
+ var url = 'ask_information.php';
+ parameters = {method: 'get'};
+ type == 'lesson' ? Object.extend(parameters, {lessons_ID:id}) : Object.extend(parameters, {courses_ID:id});
+
+ ajaxRequest(el, url, parameters, onUpdateInformation2);
+
 }
+function onUpdateInformation2(el, response) {
+ alert(response);
+}
+
 function filterTree(el, url) {
  Element.extend(el);
  //$$('tr.directionEntry').each(function (s) {if(s.innerHTML.stripTags().toLowerCase().match(el.value.toLowerCase())) {s.show()} else {s.hide()}});

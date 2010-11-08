@@ -280,4 +280,3 @@ class comments extends EfrontEntity
   EfrontEvent::triggerEvent(array("type" => EfrontEvent::NEW_COMMENT_WRITING, "lessons_ID" => $sourceUnit['lessons_ID'], "entity_ID" => $this -> comments['content_ID'], "entity_name" => $sourceUnit['name']));
  }
 }
-?>

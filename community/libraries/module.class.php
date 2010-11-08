@@ -909,4 +909,3 @@ abstract class EfrontModule
         return false;
     }
 }
-?>

@@ -601,4 +601,3 @@ class f_poll extends EfrontEntity {
                    "entity_name" => $fields['title']));
     }
 }
-?>

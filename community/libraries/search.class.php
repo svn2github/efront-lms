@@ -519,4 +519,3 @@ class EfrontSearch
   }
  }
 }
-?>

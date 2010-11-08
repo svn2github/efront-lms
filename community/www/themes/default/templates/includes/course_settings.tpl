@@ -94,11 +94,16 @@
    </div>
    {assign var = "courseUsers_url" value = "`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_certificates&"}
    {assign var = "_change_handles_" value = false}
+   {assign var = "certificate_export_method" value = $T_CERTIFICATE_EXPORT_METHOD}
    {include file = "includes/common/course_users_list.tpl"}
   {/capture}
   {eF_template_printBlock title = "`$smarty.const._COMPLETION`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_COURSE->course.name`&quot;</span>" data = $smarty.capture.t_course_certificates_code image = '32x32/autocomplete.png' main_options = $T_TABLE_OPTIONS options = $T_COURSE_OPTIONS options = $T_COURSE_OPTIONS help='Course_actions'}
  {/if}
 {elseif $T_OP == 'format_certificate'}
+{elseif $T_OP == 'format_certificate_docx'}
+{elseif $T_OP == 'add_certificate_template' || $T_OP == 'edit_certificate_template'}
+{elseif $T_OP == 'rename_certificate_template'}
+{elseif $T_OP == 'clone_certificate_template'}
 {elseif $T_OP == 'course_rules'}
   <script>var dependson = '&nbsp;{$smarty.const._DEPENDSON}&nbsp;';var generallyavailable = '&nbsp;{$smarty.const._GENERALLYAVAILABLE}&nbsp;';</script>
   {capture name = 't_course_rules_code'}

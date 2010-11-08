@@ -51,7 +51,7 @@ class EfrontConfiguration
         'ip_white_list' => '*.*.*.*',
         'password_length' => '6',
      'password_reminder' => '1',
-  'autologout_time' => '30',
+  'autologout_time' => '5',
         'encrypt_url' => '0', //0: don't encrypt. 1: encrypt
         'eliminate_post_xss' => '1',
         //System settings - language
@@ -321,4 +321,3 @@ class EfrontConfiguration
         return $result;
     }
 }
-?>

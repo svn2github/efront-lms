@@ -506,18 +506,33 @@ try {
  $fields_log = array ('users_LOGIN' => $_SESSION['s_login'], //This is the log entry array
                       'timestamp' => time(),
                       'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
-    if (isset($log_comments)) { //If there is a $log_comments variable, it indicates the current action (i.e. the unit that the user saw)
-        $fields_log['action'] = $ctg;
+/*
+
+    if (isset($log_comments)) {                                         //If there is a $log_comments variable, it indicates the current action (i.e. the unit that the user saw)
+
+        $fields_log['action']   = $ctg;
+
         $fields_log['comments'] = $log_comments;
+
         ($_SESSION['s_lessons_ID']) ? $fields_log['lessons_ID'] = $_SESSION['s_lessons_ID'] : $fields_log['lessons_ID'] = 0;
+
         eF_insertTableData("logs", $fields_log);
-    } else { //Any other move, that has not set the $log_comments variable, is considered a 'lastmove' action
-        $fields_log['action'] = "lastmove";
+
+    } else {                                                            //Any other move, that has not set the $log_comments variable, is considered a 'lastmove' action
+
+        $fields_log['action']   = "lastmove";
+
         $fields_log['comments'] = "";
+
         ($_SESSION['s_lessons_ID']) ? $fields_log['lessons_ID'] = $_SESSION['s_lessons_ID'] : $fields_log['lessons_ID'] = 0;
+
         eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
+
         eF_insertTableData("logs", $fields_log);
+
     }
+
+*/
     $smarty -> assign("T_HEADER_EDITOR", $load_editor); //Specify whether we need to load the editor
  /*
 
@@ -547,12 +562,7 @@ foreach ($loadedModules as $module) {
     $loadScripts = array_merge($loadScripts, $module -> addScripts());
 }
 //Main scripts, such as prototype
-$mainScripts = array('EfrontScripts',
-      'scriptaculous/prototype',
-      'scriptaculous/scriptaculous',
-      'scriptaculous/effects',
-      'efront_ajax',
-                     'includes/events');
+$mainScripts = getMainScripts();
 $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
 //Operation/file specific scripts
 $loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates

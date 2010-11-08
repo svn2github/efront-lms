@@ -81,6 +81,7 @@ class EfrontNotification
  const LESSONUSERSNOTCOMPLETED = 7; // all users that haven't completed the lesson
  const COURSEPROFESSORS = 8; // all course professors
  const USERSUPERVISORS = 9; // all users that supervise the branches of the user
+ const ALLCOURSEUSERS = 10; // all course professors
     /**
 
      * The notification variable
@@ -216,7 +217,6 @@ class EfrontNotification
               EfrontEvent::CONTENT_MODIFICATION);
      $registered_events = eF_getTableDataFlat("event_notifications", "event_type", "event_type IN ('". implode("','", $predefined_events) ."')");
   $registered_events = $registered_events['event_type'];
-  //pr($registered_events);
   if (!in_array(EfrontEvent::SYSTEM_FORGOTTEN_PASSWORD, $registered_events)) {
    $default_notification = array("event_type" => EfrontEvent::SYSTEM_FORGOTTEN_PASSWORD,
                "send_conditions" => serialize(array()),
@@ -483,7 +483,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
 
      */
     public static function initializeEventNotification($event_notification) {
-        //pr($event_notification);
         $event_types = EfrontEvent::getEventTypes();
         // The same regardless whether $event_notification['after_time'] is positive (After Event)
         // or negative (Before Event): we will compare timestamps with past or future timestamps
@@ -536,7 +535,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
                 $extra_condition .= " lessons.id = " . $conditions['lessons_ID'] . " AND ";
             }
             if (EfrontEvent::LESSON_PROGRAMMED_START != abs($event_notification['event_type']) && EfrontEvent::LESSON_PROGRAMMED_EXPIRY != abs($event_notification['event_type'])) {
-                $users_to_notify = eF_getTableData("users_to_lessons JOIN users ON users_to_lessons.users_LOGIN = users.login JOIN lessons ON users_to_lessons.lessons_ID = lessons.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_lessons.lessons_ID, lessons.name as lessons_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
+    $users_to_notify = eF_getTableData("users_to_lessons JOIN users ON users_to_lessons.users_LOGIN = users.login JOIN lessons ON users_to_lessons.lessons_ID = lessons.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_lessons.lessons_ID, lessons.name as lessons_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff." and users.archive=0 and users_to_courses.archive=0");
             } else {
                 $users_to_notify = eF_getTableData("lessons", "lessons.id as lessons_ID, lessons.name as lessons_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
             }
@@ -570,7 +569,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
             $users_to_notify = eF_getTableData("projects JOIN lessons ON lessons.id = projects.lessons_ID", "projects.lessons_ID, lessons.name as lessons_name, ". $timestamp_column ." as timestamp, projects.id as entity_ID, projects.title as entity_name", $extra_condition . $timestamp_column . "> " . $timediff);
         } else if (EfrontEvent::COURSE_ACQUISITION_AS_STUDENT == $event_notification['event_type'] ||
                    EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR == $event_notification['event_type'] ||
-                   EfrontEvent::COURSE_COMPLETION == abs($event_notification['event_type'])) {
+                   EfrontEvent::COURSE_COMPLETION == abs($event_notification['event_type']) ||
+                   EfrontEvent::COURSE_PROGRAMMED_START == abs($event_notification['event_type']) || // for the corresponding BEFORE event
+                   EfrontEvent::COURSE_PROGRAMMED_EXPIRY == abs($event_notification['event_type'])) { // for the corresponding BEFORE event
             $conditions = unserialize($event_notification['send_conditions']);
             $extra_condition = "";
             if (EfrontEvent::COURSE_ACQUISITION_AS_STUDENT == $event_notification['event_type']) {
@@ -585,13 +586,21 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
             } else if (EfrontEvent::COURSE_COMPLETION == (-1) * $event_notification['event_type']) {
                 $extra_condition = "users_to_courses.completed = '0' AND ";
                 $timestamp_column = "users_to_courses.to_timestamp";
+            } else if (EfrontEvent::COURSE_PROGRAMMED_START == abs($event_notification['event_type'])) {
+                $timestamp_column = "courses.start_date";
+            } else if (EfrontEvent::COURSE_PROGRAMMED_EXPIRY == abs($event_notification['event_type'])) {
+                $timestamp_column = "courses.end_date";
             }
             if ($conditions['courses_ID'] != 0) {
                 $extra_condition .= " courses.id = " . $conditions['courses_ID'] . " AND ";
             }
-            $users_to_notify = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
+            if (EfrontEvent::COURSE_PROGRAMMED_START != abs($event_notification['event_type']) && EfrontEvent::COURSE_PROGRAMMED_EXPIRY != abs($event_notification['event_type'])) {
+                $users_to_notify = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff." and users.archive=0 and users_to_courses.archive=0");
+            } else {
+                $users_to_notify = eF_getTableData("courses", "courses.id as lessons_ID, courses.name as lessons_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
+            }
   } else if (EfrontEvent::COURSE_CERTIFICATE_ISSUE == $event_notification['event_type']) {
-   $users_result = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, users_to_courses.issued_certificate", "users_to_courses.completed = '1' AND users_to_courses.issued_certificate <> ''");
+   $users_result = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, users_to_courses.issued_certificate", "users_to_courses.completed = '1' AND users_to_courses.issued_certificate <> '' and users.archive=0 and users_to_courses.archive=0");
       $users_to_notify = array();
             foreach ($users_result as $key => $user) {
              $certificate = unserialize($user['issued_certificate']);
@@ -623,7 +632,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
             $timestamp_column = "surveys.start_date";
             $users_to_notify = eF_getTableData("surveys JOIN users ON surveys.author = users.login JOIN lessons ON lessons.id = surveys.lessons_ID", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, surveys.lessons_ID, lessons.name as lessons_name, surveys.id as entity_ID, surveys.name as entity_name, ". $timestamp_column ." as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
         }
-        //pr($users_to_notify);
         global $currentUser;
         if (sizeof($users_to_notify) > 0) {
             foreach ($users_to_notify as $user_event_fields) {
@@ -781,7 +789,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
       if ($this -> notification['send_conditions'] == "N;") {
     $recipients = eF_getTableData("users", "*", "");
     //sending_queue_msgs[$key]['recipients'] = _ALLUSERS;
-    //pr($recipients);
        foreach ($recipients as $recipient) {
         $recipients_list[$recipient['login']] = $recipient;
        }
@@ -790,11 +797,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     // it is defined in ....
     //digests.php during the definition of the event notification
     $this -> notification['send_conditions'] = unserialize($this -> notification['send_conditions']);
-    //echo $this -> notification['send_conditions'];
-    //pr($this -> notification['send_conditions']);
        if (is_array($this -> notification['send_conditions'])) {
               $this -> recipients = $this -> notification['send_conditions'];
-              //pr($this->recipients);
         // The recipients array definitely exists, due to constructor checks
         if (isset($this -> recipients["lessons_ID"]) && $this -> recipients["lessons_ID"]) {
          $lesson = new EfrontLesson($this -> recipients["lessons_ID"]);
@@ -809,7 +813,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
           $recipients = $lesson -> getUsers();
          }
         } else if (isset($this -> recipients["courses_ID"])) {
-         //pr($this->recipients);
          if ($this -> recipients['user_type'] == "professor") {
        $completed_condition = " AND uc.user_type = 'professor'";
          } else if ($this -> recipients['completed'] == "1") {
@@ -817,7 +820,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
          } else {
           $completed_condition = "";
          }
-         $recipients = eF_getTableData("users_to_courses uc, users u", "u.login, u.name, u.surname, u.email, u.user_type as basic_user_type, u.active, u.user_types_ID, uc.user_type as role", "uc.users_LOGIN = u.login and uc.courses_ID=". $this -> recipients["courses_ID"] . $completed_condition);
+         $recipients = eF_getTableData("users_to_courses uc, users u", "u.login, u.name, u.surname, u.email, u.user_type as basic_user_type, u.active, u.user_types_ID, uc.user_type as role", "u.archive=0 and uc.archive=0 and uc.users_LOGIN = u.login and uc.courses_ID=". $this -> recipients["courses_ID"] . $completed_condition);
         } else if (isset($this -> recipients['user_type'])) {
          $recipients = eF_getTableData("users", "*", "user_type = '". $this -> recipients['user_type']."'");
         } else if (isset($this -> recipients['entity_ID']) && isset($this -> recipients['entity_category'])) {
@@ -838,8 +841,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
          }
         } else if (isset($this -> recipients["groups_ID"])) {
          $recipients = eF_getTableData("users_to_groups JOIN users ON users_login = users.login", "users.*", "groups_ID = '".$this -> recipients["groups_ID"]."'");
-         //echo "masd";
-         //pr($recipients);
         } else if (isset($this -> recipients['users_login'])) {
           $recipients = $this -> recipients['users_login'];
         }
@@ -1027,15 +1028,12 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      }
      $init_limit = $limit;
      $result = eF_getTableData("notifications", "*", "active = 1 AND timestamp <" . time(), "timestamp ASC LIMIT $limit");
-     //pr($result);
      $notifications_to_send = array();
      foreach ($result as $next_notification) {
       $notification = new EfrontNotification($next_notification);
       // Try to send all messages of this notification
       // Get message recipients: one or more
       $recipients = $notification -> getRecipients();
-      //pr($recipients);
-      ////pr ($recipients);
       try {
        foreach ($recipients as $login => $recipient) {
         // Send message
@@ -1102,8 +1100,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     public static function clearSentMessages() {
   $all_stored_sent = EfrontNotification::getRecentlySent();
   $total_num = sizeof($all_stored_sent);
-  //pr($all_stored_sent);
-  //echo $total_num . "  " .$GLOBALS['configuration']['notifications_max_sent_messages']."<BR>";
   if ($total_num > $GLOBALS['configuration']['notifications_max_sent_messages']) {
    $sent_messages_to_delete = $total_num - $GLOBALS['configuration']['notifications_max_sent_messages'];
    // he list is sorted so delete the messages after the Nth entry
@@ -1111,7 +1107,6 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
    for ($i = $GLOBALS['configuration']['notifications_max_sent_messages']; isset($all_stored_sent[$i]); $i++) {
     $ids_to_delete[] = $all_stored_sent[$i]['id'];
    }
-   //pr($ids_to_delete);
    if (!empty($ids_to_delete)) {
     eF_deleteTableData("sent_notifications", "id in ('" . implode("','", $ids_to_delete) . "')");
    }
@@ -1204,6 +1199,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
        $event_notification_recipients = _LESSONUSERSNOTCOMPLETED;
    } else if ($notification['send_recipients'] == EfrontNotification::COURSEPROFESSORS) {
     $event_notification_recipients = _COURSEPROFESSORS;
+      } else if ($notification['send_recipients'] == EfrontNotification::ALLCOURSEUSERS) {
+    $event_notification_recipients = _ALLCOURSEUSERS;
    } else if ($notification['send_recipients'] == EfrontNotification::USERSUPERVISORS) {
     $event_notification_recipients = _USERSUPERVISORS;
       } else {
@@ -1387,4 +1384,3 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         }
     }
 }
-?>

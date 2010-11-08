@@ -3,9 +3,9 @@
 
 * Student content report
 
-* 
+*
 
-* This file is the page which enables content error reporting 
+* This file is the page which enables content error reporting
 
 * @package eFront
 
@@ -98,14 +98,9 @@ $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
 
 //Main scripts, such as prototype
-$mainScripts = array('EfrontScripts',
-      'scriptaculous/prototype',
-      'scriptaculous/scriptaculous',
-      'scriptaculous/effects',
-      'efront_ajax',
-                     'includes/events');
-
+$mainScripts = getMainScripts();
 $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
+
 $_GET['popup'] = 1; //In order to display correctly in horizontal themes
 $smarty -> display("content_report.tpl");
 

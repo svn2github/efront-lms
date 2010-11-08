@@ -813,24 +813,31 @@ class EfrontSystem
      ';
      return $str;
  }
- public static function exportToXls($data, $file = false) {
+ public static function exportToXls($data, $file = false, $alignments = array()) {
   require_once 'Spreadsheet/Excel/Writer.php';
   $workBook = new Spreadsheet_Excel_Writer($file);
   $workBook -> setTempDir(G_UPLOADPATH);
   $workBook -> setVersion(8);
   $workSheet = & $workBook -> addWorksheet('info');
   $workSheet -> setInputEncoding('utf-8');
-  $columnIndex = 1;
+  $columnIndex = 0;
   foreach (current($data) as $key => $value) {
-   $workSheet -> write(0, $columnIndex++, $key);
+   $maxColumnWidths[$columnIndex][] = mb_strlen($key);
+   $alignments[$columnIndex] ? $align = $alignments[$columnIndex] : $align = 'left';
+   $workSheet -> write(0, $columnIndex++, $key, $workBook -> addFormat(array('HAlign' => $align, 'Size' => 11, 'Bold' => 1)));
   }
   $rowIndex = 1;
   foreach ($data as $rowData) {
-   $columnIndex = 1;
+   $columnIndex = 0;
    foreach ($rowData as $cell) {
-    $workSheet -> write($rowIndex, $columnIndex++, $cell);
+    $maxColumnWidths[$columnIndex][] = mb_strlen($cell);
+    $alignments[$columnIndex] ? $align = $alignments[$columnIndex] : $align = 'left';
+    $workSheet -> write($rowIndex, $columnIndex++, $cell, $workBook -> addFormat(array('HAlign' => $align)));
    }
    $rowIndex++;
+  }
+  foreach ($maxColumnWidths as $columnIndex => $widths) {
+   $workSheet -> setColumn($columnIndex, $columnIndex, max($widths) + 2);
   }
   $workBook -> close();
   if (!$file) {
@@ -906,4 +913,3 @@ class EfrontSystem
         return $pdf;
  }
 }
-?>

@@ -16,7 +16,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -29,7 +29,7 @@ class glossary extends EfrontEntity
 
      * The glossary properties
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -43,7 +43,7 @@ class glossary extends EfrontEntity
 
      * Create glossary
 
-     * 
+     *
 
      * This function is used to create glossary
 
@@ -67,11 +67,11 @@ class glossary extends EfrontEntity
 
 	 * $glossary = glossary :: create($fields, 0));
 
-	 * 
+	 *
 
      * </code>
 
-     * 
+     *
 
      * @param $fields An array of data
 
@@ -101,7 +101,7 @@ class glossary extends EfrontEntity
 
      * Delete glossary terms
 
-     * 
+     *
 
      * This function is used to delete the current term.
 
@@ -115,7 +115,7 @@ class glossary extends EfrontEntity
 
      * </code>
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -131,9 +131,9 @@ class glossary extends EfrontEntity
 
      * Persist glossary properties
 
-     * 
+     *
 
-     * This function can be used to persist with the database 
+     * This function can be used to persist with the database
 
      * any changes made to the current glossary object.
 
@@ -147,7 +147,7 @@ class glossary extends EfrontEntity
 
      * </code>
 
-     * 
+     *
 
      * @since 3.6.0
 
@@ -207,7 +207,7 @@ class glossary extends EfrontEntity
 
  	 * glossary entries.
 
-     * 
+     *
 
      * @return array An array of words, divided in subarrays per letter
 
@@ -256,7 +256,7 @@ class glossary extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @param $text
 
@@ -289,7 +289,7 @@ class glossary extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @param $text
 
@@ -318,7 +318,7 @@ class glossary extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @param $matches
 
@@ -333,11 +333,11 @@ class glossary extends EfrontEntity
             $words[$key] = 'encode*()!768atyj'.$word;
         }
         $new_text = implode(' ',$words);
-        return $matches[1]."<a class = 'info glossary' href = 'javascript:void(0)'>".$new_text."<img class = 'tooltip' src = 'images/others/tooltip_arrow.gif'/><span class = 'tooltipSpan'><img class ='infoClose' src = 'images/16x16/close.png'/>yty656hgh".self::encodeWordsInner($matching_text)."</span></a>".$matches[3];
+        return $matches[1]."<a class = 'info glossary' href = 'javascript:void(0)'>".$new_text."<span class = 'tooltipSpan'>yty656hgh".self::encodeWordsInner($matching_text)."</span></a>".$matches[3];
     }
     /**
 
-     * 
+     *
 
      * @param $text
 
@@ -357,7 +357,7 @@ class glossary extends EfrontEntity
 
      * Clear duplicate glossary terms
 
-     * 
+     *
 
      * There are times that the system may end up with duplicate glossary terms, like when
 
@@ -371,7 +371,7 @@ class glossary extends EfrontEntity
 
      * </code>
 
-     * 
+     *
 
      * @param mixed $lesson a lesson id or an EfrontLesson object
 

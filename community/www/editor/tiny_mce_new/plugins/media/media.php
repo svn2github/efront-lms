@@ -16,7 +16,7 @@ if ($_SESSION['s_lessons_ID']) {
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="whitebg">
 <head>
  <title>{#media_dlg.title}</title>
  <script type="text/javascript" src="../../tiny_mce_popup.js"></script>
@@ -28,10 +28,10 @@ if ($_SESSION['s_lessons_ID']) {
  <link href="css/media.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="display: none">
-<div class="title">{#media_dlg.insert_media}</div>
+<table><tr><td valign="top">
 {#advanced_dlg.select_file}:<br>
-<iframe name="IMGPICK" src="<?php echo $iframeUrl?>" style="border: solid black 1px;  width: 450px; height:200px; z-index:1"></iframe>
-<br/><br/>
+<iframe name="IMGPICK" src="<?php echo $iframeUrl?>" style="border: solid black 1px;  width: 450px; height:435px; z-index:1"></iframe>
+</td><td valign="top">
     <form onsubmit="insertMedia();return false;" action="#">
   <div class="tabs">
    <ul>
@@ -834,5 +834,6 @@ if ($_SESSION['s_lessons_ID']) {
    <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
   </div>
  </form>
+</td></tr></table>
 </body>
 </html>

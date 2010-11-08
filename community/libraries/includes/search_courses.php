@@ -250,4 +250,3 @@ if ($currentUser -> getType() == "administrator") {
 
  $smarty -> assign("T_TABLE_OPTIONS", $options);
 }
-?>

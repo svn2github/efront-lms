@@ -2385,7 +2385,6 @@ interactionsObject = function()
             else
             {
                 value = param;
-                SCOState['score'] = value;
                 return "true";
             }
         }

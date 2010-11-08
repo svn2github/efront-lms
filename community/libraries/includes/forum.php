@@ -323,7 +323,17 @@ try {
 
             unset($forums[0]); //Unset node with id 0, since this refers to the root node (which does not exist)
             $forums = eF_multiSort($forums, 'title'); //Show forums in alphabetical order
+    //remove inactive and archived lessons
+            $result = eF_getTableDataFlat("lessons","id","active=0 OR archive!=''");
+      if (!empty($result['id'])) {
+       foreach($forums as $key => $value) {
+        if (in_array($value['lessons_ID'],$result['id']) !== false) {
+         unset($forums[$key]);
+        }
+       }
+      }
 
+            //pr($forums);
             $smarty -> assign("T_FORUMS", $forums);
 
             isset($_GET['forum']) && eF_checkParameter($_GET['forum'], 'id') ? $parent_forum = $_GET['forum'] : $parent_forum = 0;
@@ -379,4 +389,3 @@ try {
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
-?>

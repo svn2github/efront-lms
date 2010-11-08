@@ -171,6 +171,7 @@ $loadScripts[] = 'includes/groups';
                     } catch (Exception $e){
                         $message = $e -> getMessage();;
                         $message_type = 'failure';
+                        eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=user_groups&".$postTarget."&message=".urlencode($message)."&message_type=".$message_type);
                     }
                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=user_groups&edit_user_group=".$group -> group['id']."&tab=users&message=".urlencode(_SUCCESFULLYADDEDGROUP)."&message_type=success");
                 }
@@ -300,14 +301,19 @@ $loadScripts[] = 'includes/groups';
                echo "All lessons where deleted from group";
               } else if (isset($_GET['assign_to_all_users']) && $_GET['assign_to_all_users'] == "courses") {
                $groupUsers = $currentGroup -> getGroupUsers();
-               foreach ($groupUsers as $key => $user) {
-                if ($user -> user['user_type'] == 'administrator') {
-                 unset($groupUsers[$key]);
-                } else {
-                 $userRoles[$key] = $user -> user['user_type'];
+               if ($currentGroup -> group['user_types_ID'] == '0') {
+                foreach ($groupUsers as $key => $user) {
+                 if ($user -> user['user_type'] == 'administrator') {
+                  unset($groupUsers[$key]);
+                 } else {
+                  $user -> user['user_types_ID'] ? $userRoles[$key] = $user -> user['user_types_ID'] : $userRoles[$key] = $user -> user['user_type'];
+                 }
                 }
+               } else {
+                $userRoles = $currentGroup -> group['user_types_ID'];
                }
-               foreach ($currentGroup -> getGroupCourses() as $course) {
+
+               foreach ($currentGroup -> getGroupCourses() as $key => $course) {
                 $course -> addUsers($groupUsers, $userRoles, true);
                }
               } else if (isset($_GET['assign_to_all_users']) && $_GET['assign_to_all_users'] == "lessons") {
@@ -320,7 +326,8 @@ $loadScripts[] = 'includes/groups';
                 $user = EfrontUserFactory :: factory($user);
                 if ($user -> getType() != 'administrator') {
                  if ($_GET['assign_to_all_users'] == "lessons") {
-                  $user -> addLessons($lessonIds, $user -> getType(), 1); //active lessons
+                  $user -> user['user_types_ID'] ? $userType = $user -> user['user_types_ID'] : $userType = $user -> user['user_type'];
+                  $user -> addLessons($lessonIds, $userType, 1); //active lessons
                  }
                 }
                }
@@ -369,5 +376,3 @@ $loadScripts[] = 'includes/groups';
         $result = eF_getTableData("groups g LEFT OUTER JOIN (select ug.groups_ID from users_to_groups ug, users u where u.login=ug.users_LOGIN and u.archive=0) c ON g.id=c.groups_ID", "g.*, count(c.groups_ID) as num_users", "g.dynamic=0", "", "id");
         $smarty -> assign("T_USERGROUPS", $result);
     }
-
-?>

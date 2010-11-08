@@ -299,7 +299,7 @@ if (isset($_POST['search_text'])) {
 
                 $res1     = eF_getTableData("f_messages, f_topics, f_forums", "f_forums.id as category_id, f_forums.lessons_ID, f_messages.id, f_messages.title, f_messages.f_topics_ID, f_topics.title as topic_title", "f_topics_ID = f_topics.id and f_forums.id = f_forums_ID and f_topics.id=".$results[$i]['foreign_ID']);
 
-                $type_str = _MESSAGESATFORUM; 
+                $type_str = _MESSAGESATFORUM;
 
             }*/ elseif ($results[$i]['table_name'] == "f_forums") {
                 $res1 = eF_getTableData("f_forums", "f_forums.id as category_id,lessons_ID", "id=".$results[$i]['foreign_ID']);
@@ -517,7 +517,7 @@ if (isset($_POST['search_text'])) {
   $search_results_courses[$key] = eF_multiSort($search_results_courses[$key], 'score', 'asc', true);
  }
  $search_results_forum = eF_multiSort($search_results_forum, 'body', 'desc');
-//pr($search_results_lessons);	
+//pr($search_results_lessons);
  //highlight_search(word_limiter(substr($text,strpos($text, "Breathing"),1000), 20), $cr);
     $smarty -> assign("T_SEARCH_RESULTS_USERS", $results_users);
     $smarty -> assign("T_SEARCH_RESULTS", $search_results_data);
@@ -540,4 +540,3 @@ if (isset($_POST['search_text'])) {
         }
     }
 }
-?>

@@ -239,4 +239,3 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 
 */
 //$smarty -> assign("AUTO_COMPLETE", $currentLesson -> lesson['auto_complete']);
-?>

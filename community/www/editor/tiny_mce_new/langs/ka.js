@@ -159,6 +159,15 @@ no_mpell:"\u041E\u0448\u0438\u0431\u043E\u043A \u043D\u0435 \u043E\u0431\u043D\u
 pagebreak:{
 desc:"\u10D2\u10D5\u10D4\u10E0\u10D3\u10D8\u10E1 \u10D2\u10D0\u10DB\u10E7\u10DD\u10E4\u10D8\u10E1 \u10D3\u10D0\u10DB\u10D0\u10E2\u10D4\u10D1\u10D0"
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"\u10E1\u10D8\u10DB\u10D1\u10DD\u10DA\u10DD\u10D4\u10D1\u10D8",
 def:"\u10E1\u10E2\u10D0\u10DC\u10D3\u10D0\u10E0\u10E2\u10E3\u10DA\u10D8",

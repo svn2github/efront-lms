@@ -226,4 +226,3 @@ class coupons extends EfrontEntity
         }
     }
 }
-?>

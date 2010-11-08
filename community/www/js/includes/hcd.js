@@ -397,77 +397,8 @@ function branchJobsAjaxPost(id, el, table_id) {
     }
    }
   }
- },// on failure
- function (el, transport) {
-  // Administrators do not get job descriptions assigned
-  img.hide();
-  img.writeAttribute({src:'images/16x16/error_delete.png', title: transport.responseText}).hide();
-  img.onclick = function () {alert(transport.responseText);};
-  new Effect.Appear(img_id);
-  show_hide_job_selects(el.id.substr(9)); // strlen('check_row') = 9
-  el.checked = false;
  }
  );
- //    var position = eF_js_findPos(el);
- //    var img      = document.createElement("img");
- //
- //    img.style.position = 'absolute';
- //    img.style.top      = Element.positionedOffset(Element.extend(el)).top  + 'px';
- //    img.style.left     = Element.positionedOffset(Element.extend(el)).left + 6 + Element.getDimensions(Element.extend(el)).width + 'px';
- //
- //    img.setAttribute("id", img_id);
- //    img.setAttribute('src', 'images/others/progress1.gif');
- //
- //    el.parentNode.appendChild(img);
- //      new Ajax.Request(url, {
- //                method:'get',
- //                asynchronous:true,
- //                onFailure: function (transport) {
- //                	// Administrators do not get job descriptions assigned
- //                    img.hide();
- //                    img.writeAttribute({src:'images/16x16/error_delete.png', title: transport.responseText}).hide();
- //                    img.onclick = function () {alert(transport.responseText);};
- //                    new Effect.Appear(img_id);
- //                    show_hide_job_selects(el.id.substr(9));	// strlen('check_row') = 9
- //                    el.checked = false;
- //                },
- //                onSuccess: function (transport) {
- //
- //                    // Update all form tables
- //                    var tables = sortedTables.size();
- //                    var i;
- //                    for (i = 0; i < tables; i++) {
- //                        if (sortedTables[i].id == 'branchUsersTable') {
- //                            eF_js_rebuildTable(i, 0, 'null', 'desc');
- //                        }
- //                        
- //                        // Used to correct the not appearing selects
- //                        //if (massive_operation && sortedTables[i].id == 'branchJobsTable') {
- //                        //  eF_js_rebuildTable(i, 0, 'null', 'desc');
- //                        //}                                    
- //                    }
- //                    
- //                    
- //                    if (massive_operation) {
- //                    
- //                        var all_inputs = $('branchJobsTable').getElementsByTagName('input');
- //                        for (i = 0; i<all_inputs.length; i++) {
- //                        	// Check according to the naming convention for check boxes
- //                        	if (all_inputs[i].id.match("check_row")) {
- //								show_hide_job_selects(all_inputs[i].id.substr(9));	// strlen('check_row') = 9
- //                        	}
- //                        }
- //                    }
- //                    
- //
- //                    img.style.display = 'none';
- //                    img.setAttribute('src', 'images/16x16/success.png');
- //                    new Effect.Appear(img_id);
- //
- //                    window.setTimeout('Effect.Fade("'+img_id+'")', 2500);
- //
- //                }
- //            });
 }
 var _showingAllEmployees = 0;
 function ajaxShowAllSubbranches() {

@@ -119,6 +119,7 @@ class EfrontFile extends ArrayObject
         'asc' => 'text/plain',
         'css' => 'text/css',
         'etx' => 'text/x-setext',
+     'htc' => 'text/x-component',
         'htm' => 'text/html',
         'html' => 'text/html',
         'ics' => 'text/calendar',
@@ -2685,7 +2686,7 @@ class FileSystemTree extends EfrontTree
             if ($options['show_name']) {
                 $filesCode .= '<td><span id = "span_'.urlencode($identifier).'" style = "display:none;">'.urlencode($identifier).'</span>';
                 if ($value['type'] == 'file') {
-                    if ($show_tooltip) {
+                    if (!$show_tooltip) {
                         $filesCode .= $value -> toHTMLTooltipLink($link);
                     } else {
                         if (strpos($value['mime_type'], "image") !== false || strpos($value['mime_type'], "text") !== false || strpos($value['mime_type'], "pdf") !== false || strpos($value['mime_type'], "flash") !== false) {
@@ -3111,14 +3112,22 @@ class FileSystemTree extends EfrontTree
 
      */
     public static function checkFile($name) {
-        $blackList = explode(",", $GLOBALS['configuration']['file_black_list']);
+    if ($GLOBALS['configuration']['file_black_list'] != '') {
+         $blackList = explode(",", $GLOBALS['configuration']['file_black_list']);
+    } else {
+      $blackList = array();
+    }
         $extension = pathinfo($name, PATHINFO_EXTENSION);
         foreach ($blackList as $value) {
             if ($extension == trim(mb_strtolower($value))) {
                 throw new EfrontFileException(_YOUCANNOTUPLOADFILESWITHTHISEXTENSION.': '.$extension, EfrontFileException::FILE_IN_BLACK_LIST);
             }
         }
-        $whiteList = explode(",", $GLOBALS['configuration']['file_white_list']);
+      if ($GLOBALS['configuration']['file_white_list'] != '') {
+         $whiteList = explode(",", $GLOBALS['configuration']['file_white_list']);
+      } else {
+       $whiteList = array();
+      }
         foreach ($whiteList as $key => $value) {
             $value = trim(mb_strtolower($value));
             if ($value) {
@@ -3595,4 +3604,3 @@ class EfrontFileTypeFilterIterator extends FilterIterator
         return $return;
     }
 }
-?>

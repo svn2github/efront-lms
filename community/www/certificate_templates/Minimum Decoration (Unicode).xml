@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<certificates>
+	<certificate>
+		<organization text="eFront" font="Freeserif" weight="bold" size="60" color="#005b7f" x="120" y="13"></organization>
+		<student font="Freeserif" weight="" size="35" color="#000000" x="5" y="95" align="center"></student>
+		<course font="Freeserif" weight="" size="28" color="#000000" x="5" y="133" align="center"></course>
+		<grade font="Freeserif" weight="bold" size="28" color="#000000" x="160" y="150" align="center"></grade>
+		<date font="Freeserif" weight="" size="15" color="#575757" x="225" y="182"></date>
+		<serial font="Freeserif" weight="" size="14" color="#575757" x="107" y="182"></serial>
+		<logo file="default" x="14" y="14"></logo>
+		<creator name="eFront"></creator>
+		<author name="eFront"></author>
+		<subject name="Certificate for "></subject>
+		<keywords name="This is a list of keywords"></keywords>
+		<labels>
+			<label text="NOT JUST ANOTHER ELEARNING COMPANY" font="Freeserif" size="20" color="#000000" x="80" y="41"></label>
+			<label text="We Make e-Learning Special" font="Freeserif" weight="" size="18" color="#000000" x="110" y="51"></label>
+			<label text="Certificate of Achievement" font="Freeserif" weight="" size="35" color="#000000" x="80" y="67"></label>
+			<label text="This Certificate is Awarded to:" font="Freeserif" weight="" size="24" color="#000000" x="97" y="82"></label>
+			<label text="For the successful completion of:" font="Freeserif" weight="" size="22" color="#000000" x="95" y="120"></label>
+			<label text="With grade:" font="Freeserif" weight="" size="22" color="#000000" x="120" y="152"></label>
+			<label text="Instructor" font="Freeserif" weight="" size="10" color="#000000" x="20" y="192"></label>
+			<label text="Serial Number" font="Freeserif" weight="" size="10" color="#000000" x="110" y="192"></label>
+			<label text="Date" font="Freeserif" weight="" size="10" color="#000000" x="200" y="192"></label>
+		</labels>
+		<lines>
+			<line x1="5" y1="5" x2="292" y2="5" color="#005b7f" thickness="2" note="Top Thick"></line>
+			<line x1="292" y1="5" x2="292" y2="204" color="#005b7f" thickness="2" note="Right Thick"></line>
+			<line x1="5" y1="204" x2="292" y2="204" color="#005b7f" thickness="2" note="Bottom Thick"></line>
+			<line x1="5" y1="5" x2="5" y2="204" color="#005b7f" thickness="2" note="Left Thick"></line>
+			<line x1="7" y1="7" x2="290" y2="7" color="#005b7f" thickness=".25" note="Top Thin Border"></line>
+			<line x1="290" y1="7" x2="290" y2="202" color="#005b7f" thickness=".25" note="Right Thin Border"></line>
+			<line x1="7" y1="202" x2="290" y2="202" color="#005b7f" thickness=".25" note="Bottom Thin Border"></line>
+			<line x1="7" y1="7" x2="7" y2="202" color="#005b7f" thickness=".25" note="Left Thin"></line>
+			<line x1="17" y1="190" x2="97" y2="190" color="#000000" thickness=".25" note="Signature Line"></line>
+			<line x1="107" y1="190" x2="187" y2="190" color="#000000" thickness=".25" note="Serial Line"></line>
+			<line x1="197" y1="190" x2="277" y2="190" color="#000000" thickness=".25" note="Date Line"></line>
+		</lines>
+		<images>
+			<image file="certificate.gif" x="238" y="14"></image>
+			<image file="signature.gif" x="18" y="176"></image>
+		</images>
+	</certificate>
+</certificates>

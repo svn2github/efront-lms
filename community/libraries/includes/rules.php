@@ -311,4 +311,3 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
 
     $smarty -> assign('T_COMPLETE_LESSON_FORM', $renderer -> toArray());
 }
-?>

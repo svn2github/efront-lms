@@ -784,4 +784,3 @@ class EfrontNodeFilterIterator extends FilterIterator
         }
     }
 }
-?>

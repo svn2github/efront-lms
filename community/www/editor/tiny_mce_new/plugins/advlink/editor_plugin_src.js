@@ -27,8 +27,8 @@
      return;
     ed.windowManager.open({
      file : url + '/link.php',
-     width : 650 + parseInt(ed.getLang('advlink.delta_width', 0)),
-     height : 630 + parseInt(ed.getLang('advlink.delta_height', 0)),
+     width : 1030 + parseInt(ed.getLang('advlink.delta_width', 0)),
+     height : 500 + parseInt(ed.getLang('advlink.delta_height', 0)),
      inline : 1
     }, {
      plugin_url : url

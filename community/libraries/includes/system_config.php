@@ -28,5 +28,3 @@ if (!isset($_GET['op']) || $_GET['op'] == 'general') {
 } elseif ($_GET['op'] == 'customization') {
  require_once("system_config/customization.php");
 }
-
-?>

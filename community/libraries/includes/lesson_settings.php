@@ -161,6 +161,7 @@ if ($_GET['op'] == 'reset_lesson') {
 
     /* Export part */
     $form = new HTML_QuickForm("export_lesson_form", "post", basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=export_lesson', "", null, true);
+    $form -> addElement('checkbox', 'export_files', _EXPORTFILES, null, 'class = "inputCheckBox"');
     $form -> addElement('submit', 'submit_export_lesson', _EXPORT, 'class = "flatButton"');
 
     try {
@@ -170,14 +171,13 @@ if ($_GET['op'] == 'reset_lesson') {
 
     if ($form -> isSubmitted() && $form -> validate()) {
         try {
-            $file = $currentLesson -> export('all');
+            $file = $currentLesson -> export('all', true, $form -> exportValue('export_files'));
             $smarty -> assign("T_NEW_EXPORTED_FILE", $file);
 
             $message = _LESSONEXPORTEDSUCCESFULLY;
             $message_type = 'success';
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+         handleNormalFlowExceptions($e);
         }
     }
 
@@ -451,5 +451,3 @@ if ($_GET['op'] == 'reset_lesson') {
         }
     }
 }
-
-?>

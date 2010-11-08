@@ -2588,6 +2588,9 @@ class EfrontCompletedTest extends EfrontTest
         } else {
             $potentialTestScore = $this -> completedTest['score'];
         }
+        if ($potentialTestScore > 100) {
+         $potentialTestScore = 100;
+        }
         return $potentialTestScore;
     }
     /**
@@ -2874,7 +2877,11 @@ class EfrontCompletedTest extends EfrontTest
                         window.setTimeout(\'Effect.Fade("progress_img")\', 10000);
                     },
                     onSuccess: function (transport) {
-                        window.location = "'.basename($_SERVER['PHP_SELF']).'?ctg=tests&test_results='.$this -> test['id'].'";
+                     if (window.location.toString().match("show_solved_test")) {
+                         window.location = "'.basename($_SERVER['PHP_SELF']).'?ctg=tests&test_results='.$this -> test['id'].'";
+                        } else {
+                         parent.location.reload();
+                        }
                     }
                 });
             }
@@ -2900,13 +2907,16 @@ class EfrontCompletedTest extends EfrontTest
                         $("edit_test_score_span").hide();
                         if (transport.responseText == "passed") {
                              $("statusMessage").update("'._PASSED.'").className = "success";
-                             $("statusImage").src = "images/32x32/success.png";
+                             setImageSrc($("statusImage"), 32, "success");
+                             //$("statusImage").src = "images/32x32/success.png";
                         } else if (transport.responseText == "failed") {
                             $("statusMessage").update("'._FAILED.'").className = "failure";
-                            $("statusImage").src = "images/32x32/close.png";
+                            //$("statusImage").src = "images/32x32/close.png";
+                            setImageSrc($("statusImage"), 32, "close");
                         } else if (transport.responseText == "pending") {
                             $("statusMessage").update("'._OUTCOMEPENDING.'").className = "pending";
-                            $("statusImage").src = "images/32x32/exclamation.png";
+                            //$("statusImage").src = "images/32x32/exclamation.png";
+                            setImageSrc($("statusImage"), 32, "exclamation");
                         }
                         $("progress_img").hide();
                     }
@@ -3048,15 +3058,18 @@ class EfrontCompletedTest extends EfrontTest
       if (isset($_GET['test_score'])) {
        if (is_numeric($_GET['test_score']) && $_GET['test_score'] <= 100 && $_GET['test_score'] >= 0) {
         $this -> completedTest['score'] = $_GET['test_score'];
-        if ($this -> test['mastery_score'] && $this -> test['mastery_score'] > $this -> completedTest['score']) {
-         if ($this -> getPotentialScore() < $this -> test['mastery_score']) {
-          $this -> completedTest['status'] = 'failed';
-         } else {
-          $this -> completedTest['status'] = 'pending';
+        foreach ($this -> questions as $id => $question) {
+         if ($question -> pending) {
+          $this -> questions[$id] -> pending = 0;
+          $this -> questions[$id] -> score = $this -> completedTest['score'];
          }
+        }
+        if ($this -> test['mastery_score'] && $this -> test['mastery_score'] > $this -> completedTest['score']) {
+         $this -> completedTest['status'] = 'failed';
         } else if ($this -> test['mastery_score'] && $this -> test['mastery_score'] <= $this -> completedTest['score']) {
          $this -> completedTest['status'] = 'passed';
         }
+        $this -> completedTest['pending'] = 0;
         $this -> save();
         echo $this -> completedTest['status'];
        } else {
@@ -7027,4 +7040,3 @@ class analyseTestFilterIterator extends FilterIterator
         }
     }
 }
-?>

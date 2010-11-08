@@ -38,8 +38,3 @@ if ($InnertableHTML) {
 //pr($innertable_module);
 
 $smarty -> assign("T_INNERTABLE_MODULE", $innertable_module);
-
-
-
-
-?>

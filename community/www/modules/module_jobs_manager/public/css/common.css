@@ -1,0 +1,28 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	background: transparent;
+}
+
+body {
+	/*
+	 * Geneva,'Lucida Grande',Helvetica,Calibri,'Trebuchet MS',
+	 */
+	font-family:'Helvetica Neue',Geneva,'Lucida Grande','Trebuchet MS',Verdana,Tahoma,sans-serif;
+	font-size: 13px;
+	background:#F1FAFB;
+	margin:0px;
+	color:#333333;
+}
+
+strong {font-weight:bold;}

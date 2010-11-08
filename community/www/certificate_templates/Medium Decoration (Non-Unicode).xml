@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<certificates>
+	<certificate>
+		<student font="Times" weight="" size="35" color="#000000" x="5" y="100" align="center"></student>
+		<course font="Times" weight="" size="28" color="#000000" x="5" y="133" align="center"></course>
+		<grade font="Times" weight="bold" size="28" color="#000000" x="160" y="150" align="center"></grade>
+		<date font="Times" weight="" size="15" color="#575757" x="225" y="180"></date>
+		<serial font="Times" weight="" size="14" color="#575757" x="107" y="180"></serial>
+		<logo file="default" x="136" y="10"></logo>
+		<background file="medium.png"></background>
+		<creator name="eFront"></creator>
+		<author name="eFront"></author>
+		<subject name="Certificate for "></subject>
+		<keywords name="This is a list of keywords"></keywords>
+		<labels>
+			<label text="NOT JUST ANOTHER ELEARNING COMPANY" font="Times" size="20" color="#000000" x="80" y="41"></label>
+			<label text="We Make e-Learning Special" font="Times" weight="" size="18" color="#000000" x="110" y="51"></label>
+			<label text="Certificate of Achievement" font="Times" weight="" size="50" color="#000000" x="55" y="67"></label>
+			<label text="Awarded to:" font="Times" weight="" size="24" color="#000000" x="125" y="88"></label>
+			<label text="For the successful completion of:" font="Times" weight="" size="22" color="#000000" x="95" y="120"></label>
+			<label text="With grade:" font="Times" weight="" size="22" color="#000000" x="120" y="152"></label>
+			<label text="Instructor" font="Times" weight="" size="10" color="#000000" x="20" y="190"></label>
+			<label text="Serial Number" font="Times" weight="" size="10" color="#000000" x="110" y="190"></label>
+			<label text="Date" font="Times" weight="" size="10" color="#000000" x="200" y="190"></label>
+		</labels>
+		<lines>
+			<line x1="17" y1="188" x2="97" y2="188" color="#000000" thickness=".25" note="Signature Line"></line>
+			<line x1="107" y1="188" x2="187" y2="188" color="#000000" thickness=".25" note="Serial Line"></line>
+			<line x1="197" y1="188" x2="277" y2="188" color="#000000" thickness=".25" note="Date Line"></line>
+		</lines>
+		<images>
+			<image file="certificate.gif" x="238" y="14"></image>
+			<image file="signature.gif" x="18" y="175"></image>
+		</images>
+	</certificate>
+</certificates>

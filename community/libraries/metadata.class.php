@@ -725,4 +725,3 @@ class LearningObjectInformation extends EfrontInformation
         }
     }
 }
-?>

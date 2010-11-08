@@ -54,7 +54,9 @@
             if (!table.rows[0].cells[i].className.match('noSort')) { //If a column has the class \"noSort\" defined, make it non-sortable. Furthermore, if the table has only 1 or 2 rows, it is empty so disabled sorting features
                 var anchor = document.createElement('a'); //create the link that will be used to sort the table on this field
                 anchor.setAttribute('href', 'javascript:void(0)'); //Inactive link
-                anchor.setAttribute('id', tableIndex + '_' + table.rows[0].cells[i].getAttribute('name')); //The id corresponds to <current table>_<current link>, so that we know which table is sorted, if there are multiple paged tables, and which link was pressed
+                if (table.rows[0].cells[i].getAttribute('name')) {
+                 anchor.setAttribute('id', tableIndex + '_' + table.rows[0].cells[i].getAttribute('name')); //The id corresponds to <current table>_<current link>, so that we know which table is sorted, if there are multiple paged tables, and which link was pressed
+                }
                 anchor.setAttribute('tableIndex', tableIndex);
                 anchor.setAttribute('order', 'asc');
                 //anchor.style.paddingRight = '15px';
@@ -203,7 +205,7 @@
 
       if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
        //url = url + '&filter='+currentFilter[tableIndex]+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
-       url = url + '&filter='+currentFilter[tableIndex]+'||||'+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
+       url = url + '&filter='+encodeURI(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
       }
 
       var loadingDiv = $('loading_'+sortedTables[tableIndex].id);
@@ -256,34 +258,33 @@
 
        if (el) {
         if (currentOrder[tableIndex] == 'desc') { //Set the icons through the class to reflect the order, ascending or descending			
-         document.getElementById(el.id).className = 'sortDescending';
-         document.getElementById(el.id).setAttribute('order', 'asc');
-         if (document.getElementById(el.id).up().select('img').length == 0) {
-          document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({verticalAlign:'middle'}));
+         $(el.id).className = 'sortDescending';
+         $(el.id).setAttribute('order', 'asc');
+         if ($(el.id).up().select('img').length == 0) {
+          $(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-navigate_down').setStyle({verticalAlign:'middle'}));
          } else {
-          document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.gif';
-          document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_down');
+          $(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.gif';
+          $(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_down');
          }
         } else {
-         document.getElementById(el.id).className = 'sortAscending';
-         document.getElementById(el.id).setAttribute('order', 'desc');
+         $(el.id).className = 'sortAscending';
+         $(el.id).setAttribute('order', 'desc');
          if (currentSort[tableIndex] !== 'null') { // when sortby not set, don't display arrow    						
-          if (document.getElementById(el.id).up().select('img').length == 0) {
-           document.getElementById(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
+          if ($(el.id).up().select('img').length == 0) {
+           $(el.id).up().insert(new Element('img', {src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-navigate_up').setStyle({verticalAlign:'middle'}));
           } else {
-           document.getElementById(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.gif';
-           document.getElementById(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
+           $(el.id).up().select('img')[0].src = 'themes/default/images/others/transparent.gif';
+           $(el.id).up().select('img')[0].addClassName('sprite16').addClassName('sprite16-navigate_up');
           }
          }
         }
        }
-
-       //eF_js_setChecked(tableIndex);f
-       //table.rows[0].style.visibility = 'visible';
+       generateTips();
 
        if (window.onSortedTableComplete) {
         window.onSortedTableComplete();
        }
+
        if (sortedTables[tableIndex].hasClassName('subSection')) {
         onLoadSubSection(sortedTables[tableIndex]);
        }
@@ -322,7 +323,7 @@ function eF_js_sortTable(el, other) {
             var counter = 0; //counter is used in the search for the clicked column
             for (i = 0; i < parentTable.rows[0].cells.length; i++) { //Traverse through all table header cells
                 //if (parentTable.rows[0].childNodes[i].tagName == 'TD' || parentTable.rows[0].childNodes[i].tagName == 'TH') {   //filter out any non cell elements that are children of the top table row
-                    if (parentTable.rows[0].cells[i] == el.parentNode) { //If this node is the same as el (the clicked one), hold its index at 'pressed'
+                    if (el && parentTable.rows[0].cells[i] == el.parentNode) { //If this node is the same as el (the clicked one), hold its index at 'pressed'
                         var pressed = counter;
                     } else {
                         if (parentTable.rows[0].cells[i].getElementsByTagName('A').length > 0){
@@ -337,8 +338,11 @@ function eF_js_sortTable(el, other) {
             var tableRows = new Array(); //tableRows holds a copy of the table rows
 
             for (i = 0; i < parentTable.rows.length - 2; i++) {
-
-                tableRowIndex[i] = new Array(getText(parentTable.rows[i+1].cells[pressed]).toLowerCase(), i);
+             if (typeof(parentTable.rows[i+1].cells[pressed]) != 'undefined') {
+              tableRowIndex[i] = new Array(getText(parentTable.rows[i+1].cells[pressed]).toLowerCase(), i);
+             } else {
+              tableRowIndex[i] = new Array('', i);
+             }
                 //alert(getText(parentTable.rows[i+1].cells[pressed]).toLowerCase());
                 tableRows[i] = parentTable.rows[i+1].cloneNode(true);
 
@@ -407,6 +411,7 @@ function eF_js_sortTable(el, other) {
 
             eF_js_refreshPage(el.getAttribute('tableIndex')); //Refresh the current page so that it holds the correct data
         }
+
     }
 
 
@@ -659,7 +664,7 @@ function eF_js_sortTable(el, other) {
          }
         } else {
          input.setAttribute("value", sorted_translations["filter"]+'...');
-         input.onclick = function() {alert('f');}
+         //input.onclick = function() {}
         }
         //input.className = 'inputSearchText';
         //div.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["filter"]+':&nbsp;</span>';
@@ -1090,6 +1095,7 @@ function findSortedTableIndex(name) {
 }
 
 function toggleActive(el, tableIndex) {
+ Element.extend(el);
  if (getCookie('toggle_active') == 1) {
   el.writeAttribute({src:'js/ajax_sorted_table/images/trafficlight_red.png'});
   setCookie('toggle_active', -1);
@@ -1101,4 +1107,22 @@ function toggleActive(el, tableIndex) {
   setCookie('toggle_active', 1);
  }
  eF_js_rebuildTable(tableIndex, 0, 'null', 'desc');
+}
+
+
+if (typeof(readCookieForSortedTablePreset) != 'undefined' && readCookie(readCookieForSortedTablePreset)) {
+ var sort_id = readCookie(readCookieForSortedTablePreset).split('--')[0];
+ var sort_order = readCookie(readCookieForSortedTablePreset).split('--')[1]; //sort order
+
+ if ($(sort_id)) {
+  if (sort_order == 'asc') {
+   eF_js_sortTable($(sort_id));
+   eF_js_sortTable($(sort_id));
+  } else {
+   eF_js_sortTable($(sort_id));
+  }
+  if (window.resetFormRows) {
+   resetFormRows($(sort_id).up());
+  }
+ }
 }

@@ -90,6 +90,7 @@ function ajaxRequest(el, url, parameters, callbackSuccess, callbackFailure, asyn
     if (callbackSuccess) {
      callbackSuccess(el, transport.responseText);
     }
+    generateTips();
    }
  });
 }

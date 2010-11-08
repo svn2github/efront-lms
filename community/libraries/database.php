@@ -872,4 +872,3 @@ class EfrontDB
         $this -> db -> queries[$sql][] = microtime(true) - $this -> queryTime;
     }
 }
-?>

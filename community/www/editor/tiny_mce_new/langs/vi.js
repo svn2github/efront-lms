@@ -156,6 +156,15 @@ no_mpell:"Kh\u00F4ng c\u00F3 l\u1ED7i ch\u00EDnh t\u1EA3 \u0111\u01B0\u1EE3c t\u
 pagebreak:{
 desc:"Ch\u00E8n ng\u1EAFt trang."
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"Ki\u1EC3u",
 def:"M\u1EB7c \u0111\u1ECBnh",

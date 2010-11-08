@@ -40,13 +40,7 @@
   <tr id="row_{$user.login}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
    <td id="column_{$user.login}">
     {*<a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>*}
-    <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "{if $user.active == 1}editLink{/if} {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
-     #filter:login-{$user.login}#
-    {if !$T_CONFIGURATION.disable_tooltip}
-     <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
-     <span class = "tooltipSpan"></span>
-    {/if}
-    </a>
+    <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "{if $user.active == 1}editLink{/if} {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=user">#filter:login-{$user.login}#</a>
    </td>
    <td>{$T_LANGUAGES[$user.languages_NAME]}</td>
    <td>#filter:timestamp-{$user.timestamp}#</td>

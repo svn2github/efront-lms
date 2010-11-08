@@ -93,7 +93,8 @@ class EfrontEvent
     const SYSTEM_REGISTER = 5;
     const SYSTEM_ON_EMAIL_ACTIVATION = 6; // entity_name (=timestamp of activation email sending)
     const SYSTEM_NEW_PASSWORD_REQUEST = 7; // entity_name (=new password) ?extra-security-needed?
-    // Lesson codes: [25 - 49]
+ const SYSTEM_USER_DEACTIVATE = 8;
+ // Lesson codes: [25 - 49]
     const LESSON_ACQUISITION_AS_STUDENT = 25; // users_LOGIN, lessons_ID, lessons_name
     const LESSON_ACQUISITION_AS_PROFESSOR = 26; // users_LOGIN, lessons_ID, lessons_name
     const LESSON_VISITED = 27; // users_LOGIN, lessons_ID, lessons_name
@@ -112,7 +113,8 @@ class EfrontEvent
     const COURSE_REMOVAL = 53; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_COMPLETION = 54; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_CERTIFICATE_ISSUE = 55; // users_LOGIN, lessons_ID, lessons_name, entity_name (grade)
-    const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name
+    const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name	const COURSE_PROGRAMMED_START = 57;		 	// users_LOGIN, lessons_ID, lessons_name
+    const COURSE_PROGRAMMED_EXPIRY = 58;
     // Test codes: [75-99]
     const TEST_CREATION = 75;
     const TEST_START = 76;
@@ -259,6 +261,7 @@ class EfrontEvent
              EfrontEvent::SYSTEM_NEW_PASSWORD_REQUEST => array("text" => _SYSTEM_ON_NEW_PASSWORD_REQUEST, "category" => "system"),
              EfrontEvent::SYSTEM_REGISTER => array("text" => _SYSTEM_REGISTERED, "category" => "system"),
              EfrontEvent::SYSTEM_ON_EMAIL_ACTIVATION => array("text" => _SYSTEM_EMAIL_ACTIVATION, "category" => "system"),
+          EfrontEvent::SYSTEM_USER_DEACTIVATE => array("text" => _SYSTEM_USER_DEACTIVATED, "category" => "system"),
              EfrontEvent::LESSON_ACQUISITION_AS_STUDENT => array("text" => _LESSON_ACQUISITION_AS_STUDENT, "category" => "lessons", "priority" => 1, "afterEvent" => 1),
              EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR => array("text" => _LESSON_ACQUISITION_AS_PROFESSOR, "category" => "lessons", "priority" => 1, "afterEvent" => 1),
              EfrontEvent::LESSON_VISITED => array("text" => _LESSON_VISITED, "category" => "lessons", "canBeNegated" => _LESSON_NOT_VISITED, "afterEvent" => 1),
@@ -276,6 +279,8 @@ class EfrontEvent
              EfrontEvent::COURSE_COMPLETION => array("text" => _COURSE_COMPLETION, "category" => "courses", "canBeNegated" => _COURSE_NOT_COMPLETED, "afterEvent" => 1),
           EfrontEvent::COURSE_CERTIFICATE_ISSUE => array("text" => _CERTIFICATEISSUE, "category" => "courses", "afterEvent" => 1),
           EfrontEvent::COURSE_CERTIFICATE_REVOKE => array("text" => _CERTIFICATEREVOKE, "category" => "courses"),
+          EfrontEvent::COURSE_PROGRAMMED_START => array("text" => _PROGRAMMEDCOURSESTART, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
+          EfrontEvent::COURSE_PROGRAMMED_EXPIRY => array("text" => _PROGRAMMEDCOURSEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
              EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC => array("text" => _NEW_POST_FOR_LESSON_TIMELINE_TOPIC, "category" => "social"),
              EfrontEvent::DELETE_POST_FROM_LESSON_TIMELINE => array("text" => _DELETE_POST_FROM_LESSON_TIMELINE, "category" => "social"),
              EfrontEvent::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "tests"),
@@ -436,6 +441,51 @@ class EfrontEvent
             return $events;
         }
     }
+   /**
+
+     * Get events for all users
+
+     * from the most recent to the least recent ones
+
+     *
+
+     * Relevancy is dictated by common classes (or common branches in HCD)
+
+     *
+
+     * @param $returnObjects whether to return EfrontEvent objects or arrays of data from the databaes
+
+     * @param $max how many events to return from the database
+
+     * @return array of DB records or array of EfrontEvent objects
+
+     * @since 3.6.7
+
+     * @access public
+
+     * @static
+
+     */
+    public static function getEventsForAllUsers($returnObjects = false, $max = false) {
+     if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_EVENTS == 0) {
+      return array();
+     }
+        //@todo change de xreiazetai
+        if ($max) {
+            $events = eF_getTableData("events", "*", "", "timestamp DESC LIMIT $max");
+        } else {
+            $events = eF_getTableData("events", "*", "", "timestamp DESC");
+        }
+        if ($returnObjects) {
+            $eventObjects = array();
+            foreach ($events as $event) {
+                $eventObjects[] = new EfrontEvent($event);
+            }
+            return $eventObjects;
+        } else {
+            return $events;
+        }
+    }
     /**
 
      * Get all events related to forums visible to a user
@@ -530,7 +580,6 @@ class EfrontEvent
      */
     public static function triggerEvent($fields, $send_notification = true) {
   // Check and create all necessary fields
-        //pr($fields);
         if (!isset($fields['type'])) {
             throw new EfrontEventException(_NOEVENTCODEDEFINED, EfrontEventException::NOEVENTCODE_DEFINED);
         }
@@ -613,7 +662,6 @@ class EfrontEvent
      //if ((isset($GLOBALS['configuration']['social_modules_activated']) && $GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_EVENTS) != 0) {
       // Negative events like not visited, not completed etc are not to be logged
       if ($fields['type'] > 0 && (!isset($event_types[$fields['type']]['notToBeLogged']) || $event_types[$fields['type']]['notToBeLogged'] == 0)) {
-       //pr($fields);
        if (isset($fields['explicitly_selected'])) {
         $explicitly_selected = $fields['explicitly_selected'];
         unset($fields['explicitly_selected']);
@@ -626,7 +674,7 @@ class EfrontEvent
      //}
      // By default all notifications will be sent
      if ($send_notification) {
-      $event = new EfrontEvent($fields); // this should create an event instance for our class	
+      $event = new EfrontEvent($fields); // this should create an event instance for our class
       $event -> appendNewNotification($event_types); // append this notification to the email queue
      }
     }
@@ -669,6 +717,8 @@ class EfrontEvent
       // the $this -> event['lessons_name'] might refer to courses or lessons according to the category
       if ($type['category'] == "courses") {
        $subst_array['courses_name'] = $this -> event['lessons_name'];
+      } else if ($type['category'] == 'payments') {
+       $subst_array['lessons_name'] = $this -> event['lessons_name'];
       } else {
        if ($this -> event['lessons_ID'] == 0) {
         $subst_array['lessons_name'] = "###site_name### " . _SYSTEM;
@@ -800,6 +850,9 @@ class EfrontEvent
          $event_notification['send_conditions'] = serialize(array("courses_ID" => $this -> event['lessons_ID'],
                         "user_type" => "professor"));
          $event_notification['recipient'] = "";
+        } else if ($event_notification['send_recipients'] == EfrontNotification::ALLCOURSEUSERS) {
+         $event_notification['send_conditions'] = serialize(array("courses_ID" => $this -> event['lessons_ID']));
+         $event_notification['recipient'] = "";
         } else if ($event_notification['send_recipients'] == EfrontNotification::LESSONUSERSNOTCOMPLETED) {
          $event_notification['send_conditions'] = serialize(array("lessons_ID" => $this -> event['lessons_ID'],
                         "completed" => "0"));
@@ -897,7 +950,6 @@ class EfrontEvent
      if ($fields['type'] == EfrontEvent::PROJECT_EXPIRY) {
       eF_deleteTableData("events", "lessons_ID = ". $fields['lessons_ID'] . " AND type = ".EfrontEvent::PROJECT_EXPIRY . " AND entity_ID = " . $fields['entity_ID']);
      }
-        //pr($fields);
         if (!isset($fields['type'])) {
             throw new EfrontEventException(_NOEVENTCODEDEFINED, EfrontEventException::NOEVENTCODE_DEFINED);
         }
@@ -1007,7 +1059,8 @@ class EfrontEvent
       // Basic system event codes
       // All excluded events are not of the form: The user did sth. For example: Project X expired
       if ($this -> event['type'] != EfrontEvent::PROJECT_EXPIRY && $this -> event['type'] != EfrontEvent::LESSON_PROGRAMMED_EXPIRY && $this -> event['type'] != EfrontEvent::LESSON_PROGRAMMED_START ) {
-          $this -> event['message'] = _NAMEARTICLE . " <b><a  href = \"".$currentUser -> getType().".php?ctg=social&op=show_profile&user=".$this->event['users_LOGIN']. "&popup=1\" onclick = \"eF_js_showDivPopup('" . _USERPROFILE . "', 1)\"  target = \"POPUP_FRAME\"> ".formatLogin($this -> event['users_LOGIN'])."</a></b> ";
+          //changed to $_SESSION['s_type'] to work for different roles between lessons
+       $this -> event['message'] = _NAMEARTICLE . " <b><a  href = \"".$_SESSION['s_type'].".php?ctg=social&op=show_profile&user=".$this->event['users_LOGIN']. "&popup=1\" onclick = \"eF_js_showDivPopup('" . _USERPROFILE . "', 1)\"  target = \"POPUP_FRAME\"> ".formatLogin($this -> event['users_LOGIN'])."</a></b> ";
       }
          if ($this -> event['type'] == EfrontEvent::SYSTEM_JOIN) {
           $this -> event['message'] .= _HASJOINEDTHESYSTEM;
@@ -1045,6 +1098,8 @@ class EfrontEvent
     $this -> event['message'] .= _WASREGISTEREDINTOTHESYSTEM;
    } else if ($this -> event['type'] == EfrontEvent::SYSTEM_ON_EMAIL_ACTIVATION) {
     $this -> event['message'] .= _ACTIVATEDHISACCOUNTWITHEACTIVATIONMAIL;
+   } else if ($this -> event['type'] == EfrontEvent::SYSTEM_USER_DEACTIVATE) {
+    $this -> event['message'] .= _WASDEACTIVATEDFROMTHESYSTEM;
          // For courses we have lessons_name -> courses_name
          } else if ($this -> event['type'] == EfrontEvent::COURSE_ACQUISITION_AS_STUDENT) {
              $this -> event['message'] .= _WASASSIGNEDTHECOURSE . " <b>" . $this -> event['lessons_name'] ."</b>";
@@ -1054,6 +1109,10 @@ class EfrontEvent
              $this -> event['message'] .= _HASCOMPLETEDCOURSE . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::COURSE_REMOVAL) {
              $this -> event['message'] .= _NOLONGERATTENDSCOURSE . " <b>" . $this -> event['lessons_name'] ."</b>";
+         } else if ($this -> event['type'] == EfrontEvent::COURSE_PROGRAMMED_START) {
+             $this -> event['message'] .= _SCHEDULEDSTARTOFCOURSE . " <b>" . $this -> event['lessons_name'] ."</b>";
+         } else if ($this -> event['type'] == EfrontEvent::COURSE_PROGRAMMED_EXPIRY) {
+             $this -> event['message'] .= _SCHEDULEDEXPIRYOFCOURSE . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::TEST_CREATION) {
           $this -> event['message'] .= _CREATEDTHETEST . " <b>" . $this -> event['entity_name'] ."</b> " . _FORTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::CONTENT_MODIFICATION) {
@@ -1151,4 +1210,3 @@ class EfrontEvent
         return $this -> event['message'];
     }
 }
-?>

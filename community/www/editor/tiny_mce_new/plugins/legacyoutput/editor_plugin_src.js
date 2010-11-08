@@ -63,7 +63,7 @@
      },
      // Setup font elements for colors as well
      forecolor : {inline : 'font', styles : {color : '%value'}},
-     hilitecolor : {inline : 'font', styles : {backgroundColor : '%value'}},
+     hilitecolor : {inline : 'font', styles : {backgroundColor : '%value'}}
     });
     // Force parsing of the serializer rules
     serializer._setup();

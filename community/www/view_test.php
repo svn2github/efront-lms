@@ -10,12 +10,9 @@ $path = "../libraries/";
 require_once $path."configuration.php";
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-$loadScripts = array('scriptaculous/prototype', 'EfrontScripts');
-
-
 /*
 
- * 
+ *
 
  * URL: <url_to_test>?aicc_sid={CMI generated session ID}&aicc_url={URL to receive AU messages}&[AU specific launch parameters }
 
@@ -40,7 +37,7 @@ try {
         $test = new EfrontTest($result[0]['tests_ID']);
         $doneTests = eF_getTableData("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$result[0]['users_LOGIN']."' and tests_ID=".$test -> test['id']);
         $_GET['user'] = $result[0]['users_LOGIN'];
-        //        $test -> setDone($result[0]['users_LOGIN']);    
+        //        $test -> setDone($result[0]['users_LOGIN']);
     } else {
         throw new Exception(_INVALIDID);
     }
@@ -62,7 +59,7 @@ try {
 
     //Check if current user is eligible to see this test
     if ($_SESSION['s_type'] != 'administrator') {
-        //$currentUser = EfrontUserFactory :: factory($_SESSION['s_login'], false); 
+        //$currentUser = EfrontUserFactory :: factory($_SESSION['s_login'], false);
         $result = eF_getTableData("content", "lessons_ID", "id=".$test -> test['content_ID']);
         $testLesson = new EfrontLesson($result[0]['lessons_ID']);
         $lessonUsers = $testLesson -> getUsers();
@@ -117,7 +114,12 @@ try {
 }
 $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
-$smarty -> assign("T_HEADER_LOAD_SCRIPTS", array_unique($loadScripts));
+
+//Main scripts, such as prototype
+$mainScripts = getMainScripts();
+
+$smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
+
 $smarty -> display('view_test.tpl');
 
 

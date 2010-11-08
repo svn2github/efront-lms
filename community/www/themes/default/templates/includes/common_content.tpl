@@ -48,7 +48,7 @@
      {$T_ENTITY_FORM.javascript}
      <form {$T_ENTITY_FORM.attributes}>
       {$T_ENTITY_FORM.hidden}
-      <table class = "formElements">
+      <table class = "formElements" width="100%">
        <tr><td class = "labelCell">{$T_ENTITY_FORM.name.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.name.html}</td>
        </tr>
@@ -106,10 +106,12 @@
        <tr><td class = "labelCell">{$T_ENTITY_FORM.reentry_action.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.reentry_action.html}</td></tr>
        {if $T_ENTITY_FORM.reentry_action.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.reentry_action.error}</td></tr>{/if}
-       <tr><td class = "labelCell">{$T_ENTITY_FORM.embed_type.label}:
-       <td class = "elementCell">{$T_ENTITY_FORM.embed_type.html}</td></tr>
-       <tr><td class = "labelCell">{$T_ENTITY_FORM.popup_parameters.label}:
-       <td class = "elementCell">{$T_ENTITY_FORM.popup_parameters.html}</td></tr>
+       {if $T_ENTITY_FORM.embed_type}
+        <tr><td class = "labelCell">{$T_ENTITY_FORM.embed_type.label}:
+         <td class = "elementCell">{$T_ENTITY_FORM.embed_type.html}</td></tr>
+        <tr><td class = "labelCell">{$T_ENTITY_FORM.popup_parameters.label}:
+         <td class = "elementCell">{$T_ENTITY_FORM.popup_parameters.html}</td></tr>
+       {/if}
       {else}
        <tr id = "toggleTools"><td colspan = "2" id = "toggleeditor_cell1">
         <div class = "headerTools">
@@ -124,7 +126,7 @@
         </div>
         </td></tr>
        <tr><td colspan = "2" id = "filemanager_cell"></td></tr>
-       <tr id = "nonPdfTable"><td colspan = "2" class = "elementCell">{$T_ENTITY_FORM.data.html}</td></tr>
+       <tr id = "nonPdfTable" width="100%"><td width="100%" colspan = "2" class = "elementCell">{$T_ENTITY_FORM.data.html}</td></tr>
        {if $T_ENTITY_FORM.data.error}<tr><td colspan = "2" class = "formError">{$T_ENTITY_FORM.data.error}</td></tr>{/if}
       {/if}
        <tr><td colspan = "2" class = "submitCell">{$T_ENTITY_FORM.submit_insert_content.html}</td></tr>

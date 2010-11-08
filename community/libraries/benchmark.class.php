@@ -105,4 +105,3 @@ class EfrontBenchmark
   return $str;
  }
 }
-?>

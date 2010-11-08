@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+	<title>The jobs manager module</title>
+	<author>Athanasios Fotoglidis</author>
+	<date>2010-09-30</date>
+	<version>1.0.2</version>
+	<description>This module allows user to handle job announcements and applications.</description>
+	<className>module_jobs_manager</className>
+</module> 

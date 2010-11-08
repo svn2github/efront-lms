@@ -687,7 +687,7 @@ class EfrontStats
   }
      if ($users !== false) {
          if (is_array($users)) {
-             foreach ($users as $key => $user) {
+          foreach ($users as $key => $user) {
                  if (!eF_checkParameter($user, 'login')) {
                      unset($users[$key]);
                  }
@@ -3427,4 +3427,3 @@ class EfrontStats
   return $userQuestions;
  }
 }
-?>

@@ -75,6 +75,10 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  }
  try {
   $lesson = new EfrontLesson($_GET['unset_course_only']);
+  $lessonCourses = $lesson -> getCourses();
+  if (!empty($lessonCourses)) {
+   throw new Exception (_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE);
+  }
 
 
 
@@ -85,9 +89,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
   $lesson -> persist();
   echo "0";
  } catch (Exception $e) {
-  $message = _SOMEPROBLEMEMERGED.': '.$e -> getMessage().' ('.$e -> getCode().')';
-  header("HTTP/1.0 500 ");
-  echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+  handleAjaxExceptions($e);
  }
  exit;
 } elseif (isset($_GET['set_course_only']) && eF_checkParameter($_GET['set_course_only'], 'id')) { //The administrator asked to activate a lesson
@@ -97,6 +99,11 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  }
  try {
   $lesson = new EfrontLesson($_GET['set_course_only']);
+  $lessonUsers = $lesson -> getUsers();
+  if (!empty($lessonUsers)) {
+   throw new Exception (_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE);
+  }
+
   $lesson -> lesson['course_only'] = 1;
 
 
@@ -106,9 +113,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
   $lesson -> persist();
   echo "1";
  } catch (Exception $e) {
-  $message = _SOMEPROBLEMEMERGED.': '.$e -> getMessage().' ('.$e -> getCode().')';
-  header("HTTP/1.0 500 ");
-  echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+  handleAjaxExceptions($e);
  }
  exit;
 } elseif (isset($_GET['add_lesson']) || (isset($_GET['edit_lesson']) && eF_checkParameter($_GET['edit_lesson'], 'id'))) { //The administrator asked to add or edit a lesson
@@ -146,8 +151,8 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  $form -> addElement('text', 'price', _PRICE, 'class = "inputText" style = "width:50px"'); //Add the price, active and submit button to the form
  $form -> addElement('advcheckbox', 'active', _ACTIVENEUTRAL, null, null, array(0, 1));
  $form -> addElement('advcheckbox', 'show_catalog', _SHOWLESSONINCATALOG, null, null, array(0, 1));
- $form -> addElement('radio', 'course_only', _LESSONAVAILABLE, _COURSEONLY, 1, 'onclick = "$$(\'tr.only_lesson\').each(function(s) {s.hide()})"');
- $form -> addElement('radio', 'course_only', _LESSONAVAILABLE, _DIRECTLY, 0, 'onclick = "$$(\'tr.only_lesson\').each(function(s) {s.show()});if ($(\'recurring\').options[$(\'recurring\').selectedIndex].value == 0) {$(\'duration_row\').hide();}"');
+ $courseOnly = $form -> addElement('radio', 'course_only', _LESSONAVAILABLE, _COURSEONLY, 1, 'onclick = "$$(\'tr.only_lesson\').each(function(s) {s.hide()})"');
+ $directAccess = $form -> addElement('radio', 'course_only', _LESSONAVAILABLE, _DIRECTLY, 0, 'onclick = "$$(\'tr.only_lesson\').each(function(s) {s.show()});if ($(\'recurring\').options[$(\'recurring\').selectedIndex].value == 0) {$(\'duration_row\').hide();}"');
 
  $recurringOptions = array(0 => _NO, 'D' => _DAILY, 'W' => _WEEKLY, 'M' => _MONTHLY, 'Y' => _YEARLY);
  $recurringDurations = array('D' => array_combine(range(1, 90), range(1, 90)),
@@ -165,6 +170,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  foreach ($lessons as $value) {
   $lessonsList[$value['id']] = $value['name'];
  }
+ unset($lessonsList[$_GET['edit_lesson']]);
 
  $form -> addElement('text', 'max_users', _MAXIMUMUSERS, 'class = "inputText" style = "width:50px"');
  $form -> addElement('select', 'copy_properties', _COPYPROPERTIESFROM, $lessonsList);
@@ -186,6 +192,10 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                    'price' => $editLesson -> lesson['price'],
                                    'recurring' => $editLesson -> options['recurring'],
   $editLesson -> options['recurring'].'_duration' => $editLesson -> options['recurring_duration']));
+  if (($editLesson -> lesson['course_only'] && sizeof($editLesson -> getCourses()) > 0) || (!$editLesson -> lesson['course_only'] && sizeof($editLesson -> getUsers()) > 0)) {
+   $courseOnly -> freeze();
+   $directAccess -> freeze();
+  }
   $smarty -> assign("T_EDIT_LESSON", $editLesson);
  } else {
   //$form -> addElement('file', 'import_content', _UPLOADLESSONFILE, 'class = "inputText"');
@@ -505,4 +515,3 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
           exit;
          }
 }
-?>

@@ -169,6 +169,26 @@ var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
         {capture name = "t_directions_tree_code"}
       <table class = "lessonListOptions">
         <tr>
+      {if $T_SUPERVISOR_APPROVALS}
+                 <td class = "lessonListOption"><a href = "javascript:void(0)" title="{$smarty.const._SUPERVISORAPPROVAL}" onclick = "eF_js_showDivPopup('asd', 2, 'supervisor_approvals_list')"><img class = "handle" src = "images/32x32/success.png" title = "{$smarty.const._SUPERVISORAPPROVAL}" alt = "{$smarty.const._SUPERVISORAPPROVAL}"></a></td>
+                 <td>
+                  <script>translations['_SOMEPROBLEMOCCURED'] = '{$smarty.const._SOMEPROBLEMOCCURED}';</script>
+                  <a href = "javascript:void(0)" title="{$smarty.const._SUPERVISORAPPROVAL}" onclick = "eF_js_showDivPopup('asd', 1, 'supervisor_approvals_list')">{$smarty.const._SUPERVISORAPPROVAL}</a>
+                  <div id = "supervisor_approvals_list" style = "display:none">
+                   {capture name = "t_supervisor_approvals_code"}
+                   <table style = "width:100%">
+                  {foreach name = 'supervisor_approval_list' item = 'item' key = 'key' from = $T_SUPERVISOR_APPROVALS}
+                    <tr><td>{$item.name}</td>
+                     <td>#filter:login-{$item.users_LOGIN}#</td>
+                     <td><img src = "images/16x16/success.png" class = "ajaxHandle" alt = "{$smarty.const._APPROVE}" title = "{$smarty.const._APPROVE}" onclick = "approveCourseAssignment(this, '{$item.id}', '{$item.users_LOGIN}')" /></td>
+                     <td><img src = "images/16x16/forbidden.png" class = "ajaxHandle" alt = "{$smarty.const._CANCEL}" title = "{$smarty.const._CANCEL}" onclick = "cancelCourseAssignment(this, '{$item.id}', '{$item.users_LOGIN}')" /></td></tr>
+                  {/foreach}
+                   </table>
+                   {/capture}
+                   {eF_template_printBlock title = $smarty.const._SUPERVISORAPPROVAL data = $smarty.capture.t_supervisor_approvals_code image = '32x32/success.png'}
+                  </div>
+                 </td>
+      {/if}
       {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
                  <td class = "lessonListOption"><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}"><img class = "handle" src = "images/32x32/user.png" title = "{$smarty.const._MYACCOUNT}" alt = "{$smarty.const._MYACCOUNT}"></a></td>
                  <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}">{$smarty.const._MYACCOUNT}</a></td>

@@ -126,6 +126,3 @@ if (!isset($_GET['checkout'])) {
 
  $smarty -> assign("T_CART", cart :: prepareCart());
 }
-
-
-?>

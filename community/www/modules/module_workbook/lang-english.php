@@ -1,0 +1,50 @@
+<?php
+
+define("_WORKBOOK_NAME", "Workbook");
+define("_WORKBOOK_NOACCESS", "You do not have sufficient permissions for this action");
+define("_WORKBOOK_LESSON_NAME", "Workbook name");
+define("_WORKBOOK_ALLOW_PRINT", "Allow print");
+define("_WORKBOOK_ALLOW_EXPORT", "Allow export");
+define("_WORKBOOK_SETTINGS_SUCCESSFULLY_EDITED", "Settings successfully updated");
+define("_WORKBOOK_SETTINGS_EDIT_PROBLEM", "Problem while updating settings");
+define("_WORKBOOK_ADD_ITEM", "Add item");
+define("_WORKBOOK_EDIT_ITEM", "Edit item");
+define("_WORKBOOK_UPDATE_ITEM", "Update item");
+define("_WORKBOOK_ADD_ITEM_FORM", "Add item form");
+define("_WORKBOOK_EDIT_ITEM_FORM", "Edit item form");
+define("_WORKBOOK_OPEN_POPUP", "Open in pop-up");
+define("_WORKBOOK_POPUP_INFO", "How to open Workbook in the workflow of the lesson material");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP1", "In order to place a link in the logical flow of the lesson material, enabling students to open Workbook without visiting the control panel of a course, just follow the instructions below.");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP2", "At first, add the following piece of HTML code in the place where you want to have the link to Workbook module.");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP3", "As a second and final step, add the following Javascript code snippet.");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP4", "Note that, if for any reason, you as a professor, want to place a link to Workbook module, the HTML code needed is the following.");
+define("_WORKBOOK_COPY_TO_CLIPBOARD", "Copy to clipboard");
+define("_WORKBOOK_ITEM_TITLE", "Item title");
+define("_WORKBOOK_ITEM_TEXT", "Item text");
+define("_WORKBOOK_ITEM_QUESTION", "Item question");
+define("_WORKBOOK_ITEM_CHECK_ANSWER", "Check answer");
+define("_WORKBOOK_ITEM_GRADE_ANSWER", "Grade answer");
+define("_WORKBOOK_ITEM_EMPTY_FIELDS", "At least one of the fields (title, text, question) is required");
+define("_WORKBOOK_ITEM_SUCCESSFULLY_ADDED", "Item successfully added");
+define("_WORKBOOK_ITEM_SUCCESSFULLY_EDITED", "Item successfully updated");
+define("_WORKBOOK_ITEM_ADD_PROBLEM", "Problem while adding item");
+define("_WORKBOOK_ITEM_EDIT_PROBLEM", "Problem while updating item");
+define("_WORKBOOK_REUSE_ITEM", "Reuse item");
+define("_WORKBOOK_ITEM_ID", "Item id");
+define("_WORKBOOK_ITEM_ID2", "ID: ");
+define("_WORKBOOK_INVALID_UNIQUE_ID", "Invalid item id");
+define("_WORKBOOK_NO_ITEMS_FOUND", "No items found");
+define("_WORKBOOK_ITEMS_COUNT", "Item #");
+define("_WORKBOOK_MOVE_ITEM", "Move item");
+define("_WORKBOOK_CANNOT_MOVE_ITEM", "There is only one item, therefore you can not move it.");
+define("_WORKBOOK_ITEM_NEW_POSITION", "New position");
+define("_WORKBOOK_ITEM_SUCCESSFULLY_MOVED", "Item successfully moved");
+define("_WORKBOOK_SWITCH_TO", "Switch to");
+define("_WORKBOOK_DOWNLOAD_AS", "Download as");
+define("_WORKBOOK_QUESTION_NOT_ANSWERED", "You have not answered the question.");
+define("_WORKBOOK_INVALID_ANSWER", "Your answer is not correct. Please try again.");
+define("_WORKBOOK_SUCCESSFULLY_PUBLISHED", "Workbook successfully published");
+define("_WORKBOOK_PUBLISH_PROBLEM", "Problem while publishing workbook");
+define("_WORKBOOK_UNDER_DEVELOPMENT", "Under development");
+
+?>

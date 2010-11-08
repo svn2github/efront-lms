@@ -214,7 +214,13 @@ try {
                 $url = basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$layoutTheme -> {$layoutTheme -> entity}['id'].'&add_block=1';
             }
             $options = array('share' => false);
-            $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+            $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($filesystem -> tree)));
+            foreach ($filesystemIterator as $key => $value) {
+       $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id'];
+     $value -> offsetSet(_INSERT, '<img src = "images/16x16/arrow_right.png" alt = "'._INSERTEDITOR.'" title = "'._INSERTEDITOR.'" class = "ajaxHandle" onclick = "insert_editor(this, $(\'span_'.urlencode($identifier).'\').innerHTML)" />');
+   }
+   $extraColumns = array(_INSERT);
+            //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
             include "file_manager.php";
 
         } catch (Exception $e) {
@@ -497,7 +503,3 @@ try {
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);
 }
-
-
-
-?>

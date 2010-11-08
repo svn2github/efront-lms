@@ -244,7 +244,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
   /* Timeline for the 10 most recent system events */
   if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_SYSTEM_TIMELINES) {
-
+   $events = array();
    $myEvents = EfrontEvent::getEvents($all_related_users, true, 5);
    $allModules = eF_loadAllModules();
    $eventMessages = array();
@@ -877,22 +877,30 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   } else {
 
       /// Ajax getting lesson timeline events
-   $loadScripts = array_merge($loadScripts, array('scriptaculous/prototype'));
    if (isset($_GET['ajax'])) {
     isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = 10;
    }
 
-   $all_related_users = $currentUser ->getRelatedUsers();
-
-   if (isset($_GET['ajax'])) {
-    $result = eF_getTableData("users", "login, avatar", "login IN ('".implode("','", $all_related_users). "')");
-    $users_avatars = array();
-    foreach($result as $avatar) {
-     $users_avatars[$avatar['login']] = $avatar['avatar'];
+   if ($_SESSION['s_type'] != 'administrator') {
+    $all_related_users = $currentUser ->getRelatedUsers();
+    if (isset($_GET['ajax'])) {
+     $result = eF_getTableData("users", "login, avatar", "login IN ('".implode("','", $all_related_users). "')");
+     $users_avatars = array();
+     foreach($result as $avatar) {
+      $users_avatars[$avatar['login']] = $avatar['avatar'];
+     }
     }
+    $myEvents = EfrontEvent::getEvents($all_related_users, true, 1000);
+   } else {
+    if (isset($_GET['ajax'])) {
+     $result = eF_getTableData("users", "login, avatar");
+     $users_avatars = array();
+     foreach($result as $avatar) {
+      $users_avatars[$avatar['login']] = $avatar['avatar'];
+     }
+    }
+    $myEvents = EfrontEvent::getEventsForAllUsers(true, 1000);
    }
-
-   $myEvents = EfrontEvent::getEvents($all_related_users, true);
 
    $allModules = eF_loadAllModules();
    $eventMessages = array();
@@ -957,4 +965,3 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   }
 
  }
-?>

@@ -118,5 +118,3 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
  eF_redirect("" . $_SESSION['s_type'] . ".php?ctg=control_panel&message=".urlencode($message)."&message_type=$message_type");
  exit;
 }
-
-?>

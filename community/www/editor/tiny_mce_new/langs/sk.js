@@ -162,6 +162,15 @@ no_mpell:"Bez pravopisn\u00FDch ch\u00FDb."
 pagebreak:{
 desc:"Vlo\u017Ei\u0165 koniec str\u00E1nky."
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"Typ",
 def:"Predvolen\u00FD",

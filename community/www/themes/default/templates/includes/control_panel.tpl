@@ -75,7 +75,7 @@
                              {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&tab=attending">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a><br/>
                  {/section}
                  {foreach name = 'new_courses_list' item = "item" key = "key" from = $T_NEW_COURSES}
-                  {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item->course.id}&tab=users">#filter:login-{$item->course.users_LOGIN}# ({$item->course.name})</a> <br/>
+                  {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item.id}&tab=users">#filter:login-{$item.users_LOGIN}# ({$item.name}{if $item.supervisor_LOGIN} - {$smarty.const._SUPERVISORAPPROVAL}{/if})</a> <br/>
                  {/foreach}
              {/capture}
 
@@ -144,7 +144,11 @@
           {capture name='t_done_tests_code'}
               <table border = "0" width = "100%">
               {section name = 'completed_test' loop = $T_COMPLETED_TESTS max = 10}
-                  <tr><td><a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$T_COMPLETED_TESTS[completed_test].id}" style = "float:left">{$T_COMPLETED_TESTS[completed_test].name|eF_truncate:50}</a><span style = "float:right">#filter:user_login-{$T_COMPLETED_TESTS[completed_test].users_LOGIN}#, #filter:timestamp_interval-{$T_COMPLETED_TESTS[completed_test].timestamp}# {$smarty.const._AGO}</span></td></tr>
+                  <tr><td>
+                    <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$T_COMPLETED_TESTS[completed_test].id}" style = "float:left">
+         {$T_COMPLETED_TESTS[completed_test].name|eF_truncate:50}</a>
+        <span style = "float:right">#filter:user_login-{$T_COMPLETED_TESTS[completed_test].users_LOGIN}#, #filter:timestamp_interval-{$T_COMPLETED_TESTS[completed_test].timestamp}# {$smarty.const._AGO}</span>
+       </td></tr>
               {/section}
               </table>
           {/capture}
@@ -264,84 +268,84 @@
              <div style="float: right; width:49.5%;height: 100%;">
                  <ul class="sortable" id="secondlist" style="width:100%;">
  {foreach name=positions_first key=key item=module from=$T_POSITIONS_SECOND}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_{$module}">
+                     <li id="secondlist_{$module}">
                          <table class = "singleColumnData">
                              {$smarty.capture.$module}
                          </table>
                      </li>
  {/foreach}
  {if !in_array('modulePersonalMessages', $T_POSITIONS) && $smarty.capture.modulePersonalMessages}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_modulePersonalMessages">
+                     <li id="secondlist_modulePersonalMessages">
                          <table class = "singleColumnData">
                              {$smarty.capture.modulePersonalMessages}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleNewDirection', $T_POSITIONS) && $smarty.capture.moduleNewDirection}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleNewDirection">
+                     <li id="secondlist_moduleNewDirection">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleNewDirection}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleNewUsersApplications', $T_POSITIONS) && $smarty.capture.moduleNewUsersApplications}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleNewUsersApplications">
+                     <li id="secondlist_moduleNewUsersApplications">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleNewUsersApplications}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleNewLessonsApplications', $T_POSITIONS) && $smarty.capture.moduleNewLessonsApplications}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleNewLessonsApplications">
+                     <li id="secondlist_moduleNewLessonsApplications">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleNewLessonsApplications}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleNewLesson', $T_POSITIONS) && $smarty.capture.moduleNewLesson}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleNewLesson">
+                     <li id="secondlist_moduleNewLesson">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleNewLesson}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleNewsList', $T_POSITIONS) && $smarty.capture.moduleNewsList}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleNewsList">
+                     <li id="secondlist_moduleNewsList">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleNewsList}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleCalendar', $T_POSITIONS) && $smarty.capture.moduleCalendar && $T_CONFIGURATION.disable_calendar != 1}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleCalendar">
+                     <li id="secondlist_moduleCalendar">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleCalendar}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleForumList', $T_POSITIONS) && $smarty.capture.moduleForumList}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleForumList">
+                     <li id="secondlist_moduleForumList">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleForumList}
                          </table>
                      </li>
  {/if}
  {if !in_array('modulePersonalMessagesList', $T_POSITIONS) && $smarty.capture.modulePersonalMessagesList}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_modulePersonalMessagesList">
+                     <li id="secondlist_modulePersonalMessagesList">
                          <table class = "singleColumnData">
                              {$smarty.capture.modulePersonalMessagesList}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleDoneTests', $T_POSITIONS) && $smarty.capture.moduleDoneTests}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleDoneTests">
+                     <li id="secondlist_moduleDoneTests">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleDoneTests}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleCommentsList', $T_POSITIONS) && $smarty.capture.moduleCommentsList && $T_CONFIGURATION.disable_comments != 1}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleCommentsList">
+                     <li id="secondlist_moduleCommentsList">
                          <table class = "singleColumnData">
                           {$smarty.capture.moduleCommentsList}
                       </table>
@@ -356,14 +360,14 @@
                      </li>
  {/if}
  {if !in_array('moduleProjectsList', $T_POSITIONS) && $smarty.capture.moduleProjectsList && $T_CONFIGURATION.disable_projects != 1}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_moduleProjectsList">
+                     <li id="firstlist_moduleProjectsList">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleProjectsList}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleDigitalLibrary', $T_POSITIONS) && $smarty.capture.moduleDigitalLibrary}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleDigitalLibrary">
+                     <li id="secondlist_moduleDigitalLibrary">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleDigitalLibrary}
                          </table>
@@ -374,7 +378,7 @@
  {foreach name = 'module_inner_tables_list' key = key item = module from = $T_INNERTABLE_MODULES}
         {assign var = module_name value = $key|replace:"_":""}
         {if !in_array($module_name, $T_POSITIONS)}
-                        <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_{$module_name}">
+                        <li id="secondlist_{$module_name}">
                             <table class = "singleColumnData">
                                 {$smarty.capture.$module_name}
                             </table>
@@ -387,28 +391,28 @@
                 <div style="width:50%; height:100%;">
                     <ul class="sortable" id="firstlist" style="width:100%;">
     {foreach name=positions_first key=key item=module from=$T_POSITIONS_FIRST}
-                        <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_{$module}">
+                        <li id="firstlist_{$module}">
                             <table class = "singleColumnData">
                                 {$smarty.capture.$module}
                             </table>
                         </li>
     {/foreach}
     {if !in_array('moduleIconFunctions', $T_POSITIONS) && $smarty.capture.moduleIconFunctions}
-                        <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_moduleIconFunctions">
+                        <li id="firstlist_moduleIconFunctions">
                             <table class = "singleColumnData">
                                 {$smarty.capture.moduleIconFunctions}
                             </table>
                         </li>
     {/if}
  {if !in_array('moduleContentTree', $T_POSITIONS) && $smarty.capture.moduleContentTree}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_moduleContentTree">
+                     <li id="firstlist_moduleContentTree">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleContentTree}
                          </table>
                      </li>
  {/if}
     {if !in_array('moduleLessonSettings', $T_POSITIONS) && $smarty.capture.moduleLessonSettings}
-                        <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_moduleLessonSettings">
+                        <li id="firstlist_moduleLessonSettings">
                             <table class = "singleColumnData">
                                 {$smarty.capture.moduleLessonSettings}
                             </table>

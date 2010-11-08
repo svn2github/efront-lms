@@ -160,6 +160,8 @@
 
 
 
+
+
                                          </td></tr>
                                 {/capture}
                             {/if}
@@ -422,7 +424,6 @@
             <td style="display:none">
              {$user.timestamp}
             </td>
-            {*<td width="*" align="right" style="white-space:nowrap">{if $smarty.session.s_type != "administrator"}{$user.common_lessons} <a href="javascript:void(0)" class="info nonEmptyLesson" onmouseover="updatePeopleInformation(this, '{$smarty.session.s_login}', '{$user.login}')" >{if $user.common_lessons>1}{$smarty.const._COMMONLESSONS}{else}{$smarty.const._COMMONLESSON}{/if}<img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan" style="left:-80px;height:auto;{if $T_BROWSER == 'IE6'}width{else}min-width{/if}:140px;"});"></span></a>{/if}</td>*}
             <td width="*" align="right" style="white-space:nowrap">
             <div style="position: relative;">
         <div style="position: absolute;display: none;">
@@ -432,10 +433,8 @@
 
 
             {if $smarty.session.s_type != "administrator"}{$user.common_lessons}
-             <a href="javascript:void(0)" class="info nonEmptyLesson" onmouseover="updatePeopleInformation(this, '{$smarty.session.s_login}', '{$user.login}')" >
+             <a href="javascript:void(0)" class="info nonEmptyLesson" url = "ask_information.php?common_lessons=1&user1={$smarty.session.s_login}&user2={$user.login}" >
              {if $user.common_lessons>1}{$smarty.const._COMMONLESSONS}{else}{$smarty.const._COMMONLESSON}{/if}
-             <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/>
-             <span class = "tooltipSpan" style="left:-80px;height:auto;{if $T_BROWSER == 'IE6'}width{else}min-width{/if}:140px;"});"></span>
              </a>
             {/if}
             </td>
@@ -579,6 +578,8 @@
 
 
       {/capture}
+
+
 
 
 

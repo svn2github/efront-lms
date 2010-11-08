@@ -269,6 +269,7 @@ function changeTemplates(mode) {
  }
  if (mode == "courses") {
   addValueToSelect ("courses_name", courseNameConst, select_item);
+  addValueToSelect (allCourseEventRecipients, allCourseUsersConst, recipients_select_item);
   addValueToSelect (courseProf, courseProfessorsConst, recipients_select_item);
  }
  if (mode == "tests") {

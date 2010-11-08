@@ -234,8 +234,15 @@ if (isset($_GET['delete_direction']) && eF_checkParameter($_GET['delete_directio
    try {
     if (isset($_GET['id']) && eF_checkParameter($_GET['id'], 'id') && isset($_GET['directions_ID']) && eF_checkParameter($_GET['directions_ID'], 'id')) {
      $course = new EfrontCourse($_GET['id']);
+     if ($_GET['directions_ID'] != $course -> course['directions_ID']) {
+      $updateCourseInstancesCategory = true; //This means we need to update instances to match the course's new category
+     }
      $course -> course['directions_ID'] = $_GET['directions_ID'];
      $course -> persist();
+     if (isset($updateCourseInstancesCategory) && $updateCourseInstancesCategory) {
+      eF_updateTableData("courses", array("directions_ID" => $course -> course['directions_ID']), "instance_source=".$course -> course['id']);
+     }
+
     }
     exit;
    } catch (Exception $e) {
@@ -259,4 +266,3 @@ if (isset($_GET['delete_direction']) && eF_checkParameter($_GET['delete_directio
 
  $smarty -> assign("T_DIRECTIONS_DATA", $flatTree);
 }
-?>

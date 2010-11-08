@@ -878,4 +878,3 @@ class EfrontExportFactory
         return $factory;
     }
 }
-?>

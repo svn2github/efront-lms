@@ -1280,8 +1280,7 @@ function translate(spanclassAM) {
 }
 AMinitSymbols();
 if (isIE) { // avoid adding MathPlayer info explicitly to each webpage
-  document.write("<object id=\"mathplayer\"  classid=\"clsid:32F66A20-7614-11D4-BD11-00104BD3F987\"></object>");
-
+  document.write("<object width=\"0\" height=\"0\" id=\"mathplayer\"\classid=\"clsid:32F66A20-7614-11D4-BD11-00104BD3F987\"></object>");
   document.write("<?import namespace=\"m\" implementation=\"#mathplayer\"?>");
 }
 

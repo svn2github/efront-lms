@@ -1,9 +1,12 @@
+
 {*Closing template functions*}
 <script>
- {if $T_UNIT}var currentUnit = document.getElementById('node{$T_UNIT.id}');{else}var currentUnit = '';{/if}
+
+{if $T_UNIT}var currentUnit = document.getElementById('node{$T_UNIT.id}');{else}var currentUnit = '';{/if}
   var g_servername = '{$smarty.const.G_SERVERNAME}';
 </script>
 <script>var BOOKMARKTRANSLATION = '{$smarty.const._BOOKMARKS}';var NODATAFOUND = '{$smarty.const._NODATAFOUND}';</script>
+
 <script type = "text/javascript" src = "js/scripts.php?build={$smarty.const.G_BUILD}&load={$T_HEADER_MAIN_SCRIPTS}"> </script> {*Main scripts, such as prototype*}
 
 {if $T_HEADER_EDITOR}
@@ -20,6 +23,7 @@
 {foreach name = 'module_scripts_list' item = item key = key from = $T_MODULE_JS}
 <script type = "text/javascript" src = "{$item}"> </script> {*///MODULES LINK JAVASCRIPT CODE*}
 {/foreach}
+
 {*
 <script>
 $$('div.block').ancestors().each(function (s) {
@@ -118,7 +122,7 @@ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElement
  {if isset($T_FACEBOOK_SHOULD_UPDATE_STATUS) && $T_FACEBOOK_SHOULD_UPDATE_STATUS != 1}
   {literal}
   function onUpdateDone() {
-   top.location="{$smarty.session.s_type}page.php?fb_authenticated=1";
+   top.location='{/literal}{$smarty.session.s_type}{literal}page.php?fb_authenticated=1';
   }
   FB.ensureInit(function() { FB.Connect.showPermissionDialog("status_update", onUpdateDone); });
   {/literal}
@@ -164,6 +168,7 @@ if (!usingHorizontalInterface) {
  {/if}
 
 </script>
+
 {*
 {literal}
 <!-- Google Custom Search Element -->

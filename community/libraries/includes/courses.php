@@ -116,7 +116,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
          $rolesBasic = EfrontLessonUser :: getLessonsRoles();
          $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
-         $constraints = array('archive' => false) + createConstraintsFromSortedTable();
+         $constraints = array('archive' => false, 'active' => 1) + createConstraintsFromSortedTable();
 
    $users = $editCourse -> getCourseUsersIncludingUnassigned($constraints);
    $totalEntries = $editCourse -> countCourseUsersIncludingUnassigned($constraints);
@@ -127,37 +127,17 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    include("sorted_table.php");
   } else if ($_GET['ajax'] == 'instancesTable') {
 
+   $constraints = array('archive' => false) + createConstraintsFromSortedTable();
       if ($editCourse -> course['instance_source']) {
           $instanceSource = new EfrontCourse($editCourse -> course['instance_source']);
-          $courseInstances = $instanceSource -> getInstances();
+          $courseInstances = $instanceSource -> getInstances($constraints);
+          $totalEntries = $instanceSource -> countCourseInstances($constraints);
       } else {
-          $courseInstances = $editCourse -> getInstances();
+          $courseInstances = $editCourse -> getInstances($constraints);
+          $totalEntries = $editCourse -> countCourseInstances($constraints);
       }
       $courseInstances = EfrontCourse :: convertCourseObjectsToArrays($courseInstances);
-/*
 
-		    foreach ($courseInstances as $key => $instance) {
-
-		        $courseInstances[$key] -> course['num_students'] = sizeof($courseInstances[$key] -> getStudentUsers());
-
-		        $courseInstances[$key] -> course['num_lessons']  = $courseInstances[$key] -> countCourseLessons();
-
-#ifdef ENTERPRISE
-
-		            if ($instanceSkills = $instance -> getSkills(true)) {
-
-		                $courseInstances[$key] -> course['num_skills'] = sizeof($instanceSkills);
-
-		            }
-
-#endif
-
-		    }
-
-		    $courseInstances	 = EfrontCourse :: convertCourseObjectsToArrays($courseInstances);
-
-*/
-   $totalEntries = sizeof($courseInstances);
    $dataSource = $courseInstances;
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;
@@ -189,16 +169,19 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
      handleAjaxExceptions($e);
  }
  exit;
+
 } elseif (isset($_GET['add_course']) || isset($_GET['edit_course'])) {
  if (!$_change_) {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=courses&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
  }
+
  if (isset($_GET['add_course'])) {
   $post_target = 'add_course=1';
  } else {
   $post_target = 'edit_course='.$_GET['edit_course'];
   $smarty -> assign("T_COURSE_OPTIONS", array(array('text' => _COURSESETTINGS, 'image' => "16x16/generic.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=courses&course=".$_GET['edit_course']."&op=course_info")));
  }
+
  $form = new HTML_QuickForm("add_courses_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=courses&".$post_target, "", null, true);
  $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
  $form -> addElement('text', 'name', _COURSENAME, 'class = "inputText"');
@@ -214,15 +197,18 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
      handleNormalFlowExceptions($e);
  }
  $form -> addElement('select', 'directions_ID', _DIRECTION, $directions); //Append a directions select box to the form
+
  if ($GLOBALS['configuration']['onelanguage'] != true) {
   $languages = EfrontSystem :: getLanguages(true, true);
   $form -> addElement('select', 'languages_NAME', _LANGUAGE, $languages);
  }
+
  $form -> addElement('advcheckbox', 'active', _ACTIVEFEM, null, null, array(0, 1));
  $form -> addElement('advcheckbox', 'show_catalog', _SHOWCOURSEINCATALOG, null, null, array(0, 1));
  $form -> addElement('text', 'price', _PRICE, 'class = "inputText" style = "width:50px"');
  //$form -> addElement('text', 'course_code', _COURSECODE, 'class = "inputText" style = "width:50px"');
  $form -> addElement('text', 'training_hours', _TRAININGHOURS, 'class = "inputText" style = "width:50px"');
+
  $recurringOptions = array(0 => _NO, 'D' => _DAILY, 'W' => _WEEKLY, 'M' => _MONTHLY, 'Y' => _YEARLY);
  $recurringDurations = array('D' => array_combine(range(1, 90), range(1, 90)),
         'W' => array_combine(range(1, 52), range(1, 52)),
@@ -254,6 +240,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
  } else {
   $form -> addElement('submit', 'submit_course', _SUBMIT, 'class = "flatButton"');
   if ($form -> isSubmitted() && $form -> validate()) {
+   $values = $form -> exportValues();
    $fields = array('languages_NAME' => $GLOBALS['configuration']['onelanguage'] ? $GLOBALS['configuration']['default_language'] : $form -> exportValue('languages_NAME'),
        'show_catalog' => $form -> exportValue('show_catalog'),
        'directions_ID' => $form -> exportValue('directions_ID'),
@@ -262,8 +249,14 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
        //'duration'	   	 => $form -> exportValue('duration') ? $form -> exportValue('duration') : null,
        'max_users' => $form -> exportValue('max_users') ? $form -> exportValue('max_users') : null,
        'price' => $form -> exportValue('price'));
+   if ($values['supervisor_LOGIN']) {
+    $fields['supervisor_LOGIN'] = $values['supervisor_LOGIN'];
+   }
    try {
     if (isset($_GET['edit_course'])) {
+     if ($fields['directions_ID'] != $editCourse -> course['directions_ID']) {
+      $updateCourseInstancesCategory = true; //This means we need to update instances to match the course's new category
+     }
      $editCourse -> course = array_merge($editCourse -> course, $fields);
      if ($courseSk = $editCourse -> getCourseSkill()) {
       eF_updateTableData("module_hcd_skills", array("description" => _KNOWLEDGEOFCOURSE . " " .$form -> exportValue('name')), "skill_ID = " .$courseSk['skill_ID']) ;
@@ -291,13 +284,18 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
     //$editCourse -> options['duration'] = $form -> exportValue('duration');
     //$start_date = mktime(0, 0, 0, $_POST['date_Month'], $_POST['date_Day'], $_POST['date_Year']);
     $editCourse -> persist();
+    if (isset($updateCourseInstancesCategory) && $updateCourseInstancesCategory) {
+     eF_updateTableData("courses", array("directions_ID" => $editCourse -> course['directions_ID']), "instance_source=".$editCourse -> course['id']);
+    }
     if ($form -> exportValue('branches_ID') && eF_checkParameter($form -> exportValue('branches_ID'), 'id')) {
-     $result = eF_getTableData("module_hcd_course_to_branch", "branches_ID", "courses_ID=".$editCourse -> course['id']);
-     if (sizeof($result) == 0) {
+     $result = eF_getTableDataFlat("module_hcd_course_to_branch", "branches_ID", "courses_ID=".$editCourse -> course['id']);
+     if (sizeof($result['branches_ID']) == 0) {
       eF_insertTableData("module_hcd_course_to_branch", array("branches_ID" => $form -> exportValue('branches_ID'), "courses_ID" => $editCourse -> course['id']));
-     } else {
+     } elseif (sizeof($result) == 1) {
+      //Only one branch associated with this course, as a 'location'
       eF_updateTableData("module_hcd_course_to_branch", array("branches_ID" => $form -> exportValue('branches_ID')), "courses_ID=".$editCourse -> course['id']);
      }
+    } else {
     }
     !isset($redirect) OR eF_redirect($redirect);
    } catch (Exception $e) {
@@ -373,4 +371,3 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
   }
  }
 }
-?>

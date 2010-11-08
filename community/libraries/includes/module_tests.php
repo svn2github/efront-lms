@@ -390,6 +390,20 @@ try {
                 $questions[$key]['text'] = strip_tags($question['text']); //Strip tags from the question text, so they do not display in the list
                 $questions[$key]['estimate_interval'] = eF_convertIntervalToTime($questions[$key]['estimate']);
             }
+   //remove questions from inactive and archived lessons
+   if ($skillgap_tests) {
+     $questionsTemp = array();
+        //remove inactive and archived lessons
+        $result = eF_getTableDataFlat("lessons","id","active=0 OR archive!=''");
+        if (!empty($result['id'])) {
+         foreach($questions as $key => $value) {
+          if (in_array($value['lessons_ID'],$result['id']) === false) {
+           $questionsTemp[] = $questions[$key];
+          }
+         }
+        }
+      $questions = $questionsTemp;
+   }
             $questions = eF_multiSort($questions, $sort, $order);
             if (isset($_GET['filter'])) {
                 $questions = eF_filterData($questions, $_GET['filter']);
@@ -406,7 +420,7 @@ try {
         if (isset($_GET['ajax']) && $_GET['ajax'] == 'pendingTable') {
             if (!empty($testIds)) {
                 if (!$skillgap_tests) {
-                    $recentTests = eF_getTableData("completed_tests ct, tests t, users u", "t.name, u.name as username, u.surname, ct.id, ct.status, ct.tests_ID, ct.score, ct.time_end, ct.users_LOGIN, ct.pending", "ct.status != 'deleted' and ct.status != 'incomplete' and t.id = ct.tests_ID AND ct.users_login = u.login AND ct.tests_id IN ('". implode("','", $testIds) ."')", "ct.pending DESC");
+                    $recentTests = eF_getTableData("completed_tests ct, tests t, users u, users_to_lessons ul", "t.name, u.name as username, u.surname, ct.id, ct.status, ct.tests_ID, ct.score, ct.time_end, ct.users_LOGIN, ct.pending", "u.login=ul.users_login and ul.archive=0 and ul.lessons_ID=t.lessons_ID and ct.status != 'deleted' and ct.status != 'incomplete' and t.id = ct.tests_ID AND ct.users_login = u.login AND u.archive=0 and ct.tests_id IN ('". implode("','", $testIds) ."')", "ct.pending DESC");
                 } else {
                     $recentTests = eF_getTableData("completed_tests JOIN tests ON tests_id = tests.id JOIN users ON completed_tests.users_LOGIN = users.login JOIN users_to_skillgap_tests ON completed_tests.users_LOGIN = users_to_skillgap_tests.users_LOGIN AND users_to_skillgap_tests.tests_ID = tests.id AND users_to_skillgap_tests.solved = 1", "completed_tests.id, completed_tests.test, completed_tests.score, users.name as username, users.surname, completed_tests.tests_ID, tests.name, completed_tests.timestamp, completed_tests.users_LOGIN", "completed_tests.status != 'deleted' and completed_tests.tests_id IN ('". implode("','", $testIds) ."')", "timestamp DESC");
                 }
@@ -1017,4 +1031,3 @@ try {
     $message_type = 'failure';
 }
 }
-?>

@@ -104,11 +104,15 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
                 'metadata' => 0);
     }
     //Default url for the file manager
+/*  
+
     $url = basename($_SERVER['PHP_SELF']).'?ctg=content&'.(isset($_GET['edit']) ? 'edit='.$_GET['edit'] : 'add=1');
+
     $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
-    /**The file manager*/
+
     include "file_manager.php";
 
+*/
     //This page also needs an editor and ASCIIMathML
     $load_editor = true;
     if ($configuration['math_content'] && $configuration['math_images']) {
@@ -116,17 +120,13 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
     } elseif ($configuration['math_content']) {
         $loadScripts[] = 'ASCIIMathML';
     }
-
     $form = new HTML_QuickForm("create_project_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=projects".(isset($_GET['add_project']) ? '&add_project=1' : '&edit_project='.$_GET['edit_project']), "", null, true);
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-
     $form -> addElement('text', 'title', _PROJECTTITLE, 'class = "inputText"');
     $form -> addRule('title', _THEFIELD.' "'._TITLE.'" '._ISMANDATORY, 'required', null, 'client');
     $form -> addRule('title', _INVALIDFIELDDATA, 'checkParameter', 'text');
-
     $form -> addElement('checkbox', 'auto_assign', _AUTOASSIGNTONEWUSERS, null, 'class = "inputCheckBox"');
     $form -> addElement('textarea', 'data', _PROJECTDATA, 'id="editor_project_data" class = "inputProjectTextarea mceEditor" style = "width:100%;height:30em;"');
-
     if (isset($_GET['edit_project'])) {
         $currentProject = $projects[$_GET['edit_project']];
         $smarty -> assign("T_CURRENT_PROJECT", $currentProject);
@@ -271,7 +271,15 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         }
         //Default url for the file manager
         $url = basename($_SERVER['PHP_SELF']).'?ctg=projects&'.(isset($_GET['edit_project']) ? 'edit_project='.$_GET['edit_project'] : 'add_project=1');
-        $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+  $filesystem = new FileSystemTree($basedir, true);
+  $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($filesystem -> tree)));
+
+  foreach ($filesystemIterator as $key => $value) {
+      $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id'];
+    $value -> offsetSet(_INSERT, '<div style="text-align:center"><img src = "images/16x16/arrow_right.png" alt = "'._INSERTEDITOR.'" title = "'._INSERTEDITOR.'" class = "ajaxHandle" onclick = "insert_editor(this, $(\'span_'.urlencode($identifier).'\').innerHTML)" /></div>');
+  }
+  $extraColumns = array(_INSERT);
+        //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
         /**The file manager*/
         include "file_manager.php";
     } catch (Exception $e) {
@@ -465,5 +473,3 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
     $smarty -> assign("T_EXPIRED_PROJECTS", $passedProjects);
     $smarty -> assign("T_INACTIVE_COUNT", sizeof($passedProjects));
 }
-
-?>

@@ -30,6 +30,7 @@ function addLanguagesDB() {
  $langsArray[] = array('name' => 'indonesian', 'active' => (setlocale(LC_ALL, "indonesian") == "") ? 0:1, 'translation' => 'Indonesia');
  $langsArray[] = array('name' => 'italian', 'active' => (setlocale(LC_ALL, "italian") == "") ? 0:1, 'translation' => 'Italiano');
  $langsArray[] = array('name' => 'japanese', 'active' => (setlocale(LC_ALL, "japanese") == "") ? 0:1, 'translation' => '日本語');
+ $langsArray[] = array('name' => 'korean', 'active' => (setlocale(LC_ALL, "korean") == "") ? 0:1, 'translation' => '한국어');
  $langsArray[] = array('name' => 'latvian', 'active' => (setlocale(LC_ALL, "latvian") == "") ? 0:1, 'translation' => 'Latviešu');
  $langsArray[] = array('name' => 'lithuanian', 'active' => (setlocale(LC_ALL, "lithuanian") == "") ? 0:1, 'translation' => 'Lietuviškai');
  $langsArray[] = array('name' => 'norwegian', 'active' => (setlocale(LC_ALL, "norwegian") == "") ? 0:1, 'translation' => 'Norsk');

@@ -33,7 +33,11 @@ try {
  if (isset($_GET['server'])) {
   $urlParts = parse_url($_SERVER['REQUEST_URI']);
   $filePath = G_ROOTPATH.'www/'.str_replace(G_SERVERNAME, '', G_PROTOCOL.'://'.$_SERVER['HTTP_HOST'].$urlParts['path']);
-  $file = new EfrontFile(urldecode($filePath));
+  try {
+   $file = new EfrontFile(urldecode($filePath));
+  } catch (Exception $e) {
+   $file = new EfrontFile($filePath);
+  }
  } else {
      $file = new EfrontFile($_GET['file']);
  }

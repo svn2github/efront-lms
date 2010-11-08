@@ -437,6 +437,3 @@ class EfrontTimes
      return $dayLogs;
  }
 }
-
-
-?>

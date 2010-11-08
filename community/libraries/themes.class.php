@@ -401,4 +401,3 @@ class themes extends EfrontEntity
         return $themes;
     }
 }
-?>

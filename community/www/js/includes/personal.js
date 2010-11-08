@@ -540,7 +540,7 @@ function add_new_job_row(row) {
         if (isInfoToolDisabled) {
          newCellHTML = '<span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span>';
         } else {
-         newCellHTML = '<table><tr><td><span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span></td><td><a class = "info" onmouseover = "updateInformation(this, \''+row+'\', \'job_description\')" ><img class="sprite16 sprite16-help" src = "themes/default/images/others/transparent.gif" style="display:block" /><img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan" id="job_analytical_description_'+row+'"></span></a></td></tr></table>';
+         newCellHTML = '<table><tr><td><span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span></td><td><a class = "info" url = "ask_information.php?branch_ID='+$("branches_"+row)+'&job_description='+$("job_descriptions_"+row)+'&type=job_description" ><img class="sprite16 sprite16-help" src = "themes/default/images/others/transparent.gif" style="display:none" /><img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan" id="job_analytical_description_'+row+'"></span></a></td></tr></table>';
         }
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);
@@ -580,7 +580,7 @@ function testFileExtension()
     if (!file_name) {
         return true;
     }
-    var dots = file_name.split(".")
+    var dots = file_name.split(".");
     var file_type = "." + dots[dots.length-1];
     if (file_types.join("").indexOf(file_type) == -1) {
   alert(onlyImageFilesAreValid);
@@ -649,7 +649,7 @@ function change_branch(element,branch_link,jobs_select_id, defJob)
                     }
                     select_item.setAttribute("defaultVal", select_item.value);
                     if (msieBrowser == 1) {
-                     select_item.onfocus = function(){ this.selIndex = this.selectedIndex; }
+                     select_item.onfocus = function(){ this.selIndex = this.selectedIndex; };
                      emulateDisabledOptions(select_item);
      }
                 }
@@ -1064,25 +1064,9 @@ if (enableMyJobSelect) {
   emulateDisabledOptions(document.getElementById('jobs_main'));
  }
 }
-function updateInformation(el, id, type) {
- if (Element.extend(el).select('span.tooltipSpan')[0].empty()) {
-  url = 'ask_information.php';
-  if (type == "job_description") {
-   branch_ID = $("branches_"+id).value;
-   job_name = $("job_descriptions_"+id).value;
-   parameters = {branch_ID:branch_ID, job_description:job_name, method:'get'};
-   s = el.select('span.tooltipSpan')[0];
-   s.setStyle({height:'50px', width:'250px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url("themes/default/images/others/progress1.gif")'}));
-   ajaxRequest(s, url, parameters, onUpdateInformation);
-  }
- }
-}
-function onUpdateInformation(el, response) {
- //alert(el);alert(response);
- el.setStyle({height:'auto'}).update(response);
-}
-function resetFormRows() {
+function resetFormRows(el) {
  $$('tr.form_additional_info').each(function(s) {$(s.id+'_previous').insert({after:s.remove()});});
+ setCookie("setUserFormSelectedSort", el.down().id+'--'+(el.down().hasClassName('sortAscending') ? 'asc' : 'desc'));
 }
 function showFormAdditionalDetails(el, id) {
  Element.extend(el);
@@ -1102,3 +1086,4 @@ function ExpandCollapseFormRows() {
  setCookie("setFormRowsHidden", setFormRowsHidden);
 }
 ExpandCollapseFormRows();ExpandCollapseFormRows(); //2 calls in order to set the expand status to the correct state (because 0 calls does nothing, 1 call reverts it)
+readCookieForSortedTablePreset = 'setUserFormSelectedSort';

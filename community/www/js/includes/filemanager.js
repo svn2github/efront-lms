@@ -1,6 +1,6 @@
 function toggleEditBox(el, fileId) {
  Element.extend(el);
- if (el.className.match("edit")) {
+ if (el.hasClassName("sprite16-edit")) {
   setImageSrc(el, 16, 'error_delete.png');
  } else {
   setImageSrc(el, 16, 'edit.png');

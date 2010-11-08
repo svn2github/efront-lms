@@ -240,48 +240,13 @@ if (isset($_GET['fct'])) {
                            "timestamp" => time(),
                            "method" => "balance",
                                  "status" => "completed",
-                           "users_LOGIN" => $currentUser -> user['login']);
+                           "users_LOGIN" => $currentUser -> user['login'],
+                        "lessons" => $nonFreeLessons,
+                        "courses" => $nonFreeCourses);
                     $payment = payments :: create($fields);
                     if ($coupon) {
                      $coupon -> useCoupon($currentUser, $payment, array('lessons' => $nonFreeLessons, 'courses' => $nonFreeCourses));
                     }
-/*
-
-                } else if ($_POST['submit_checkout_paypal']) {
-
-                    if (sizeof($nonFreeLessons) > 0) {
-
-                        //$currentUser -> addLessons($nonFreeLessons, array_fill(0, sizeof($nonFreeLessons), 'student'), true);
-
-                    }
-
-                    if (sizeof($nonFreeCourses) > 0) {
-
-                        //$currentUser -> addCourses($nonFreeCourses, array_fill(0, sizeof($nonFreeCourses), 'student'), true);
-
-                    }
-
-
-
-                    $fields = array("amount"      => $totalPrice,
-
-			                        "timestamp"   => time(),
-
-			                        "method"	  => "paypal",
-
-	                                "status"	  => "pending",
-
-                    				"users_LOGIN" => $currentUser -> user['login']);
-
-                    $payment = payments :: create($fields);
-
-
-
-                    echo json_encode($payment -> payments);
-
-                    exit;
-
-*/
                 } else {
                     //Assign new lessons as inactive
                     if (sizeof($nonFreeLessons) > 0) {
@@ -309,4 +274,3 @@ if (isset($_GET['fct'])) {
 } else {
     //$smarty -> display("includes/catalog.tpl");
 }
-?>

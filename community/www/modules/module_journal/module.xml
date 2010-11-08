@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Journal</title>
+	<author>Andreas Makridakis</author>
+	<date>2010 08 30</date>
+	<version>1.0</version>
+	<description>A common Journal per student/professor</description>
+	<className>module_journal</className>
+</module>

@@ -60,7 +60,17 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         }
         //Default url for the file manager
         $url = basename($_SERVER['PHP_SELF']).'?ctg=content&'.(isset($_GET['edit']) ? 'edit='.$_GET['edit'] : 'add=1');
-        $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+
+  $filesystem = new FileSystemTree($basedir, true);
+  $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($filesystem -> tree)));
+
+  foreach ($filesystemIterator as $key => $value) {
+      $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id'];
+    $value -> offsetSet(_INSERT, '<div style="text-align:center"><img src = "images/16x16/arrow_right.png" alt = "'._INSERTEDITOR.'" title = "'._INSERTEDITOR.'" class = "ajaxHandle" onclick = "insert_editor(this, $(\'span_'.urlencode($identifier).'\').innerHTML)" /></div>');
+  }
+  $extraColumns = array(_INSERT);
+
+        //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
         /**The file manager*/
      include "file_manager.php";
 
@@ -93,9 +103,11 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      if (strpos($currentUnit['ctg_type'], 'scorm') !== false) {
          $form -> addElement('text', 'scorm_size', _EXPLICITIFRAMESIZE, 'class = "inputText" style = "width:50px"'); //Set an explicit size for the SCORM content
          $form -> addElement('select', 'reentry_action', _ACTIONONRENTRYCOMPLETED, array(0 => _LETCONTENTDECIDE, 1 => _DONTCHANGE), 'class = "inputText"'); //Set what action should be performed when a user re-enters a visited content
-         $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
-   $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
-   $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
+         if (!in_array($currentUnit['scorm_version'], EfrontContentTreeSCORM :: $scorm2004Versions)) {
+          $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
+          $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
+    $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
+         }
 
    if (strpos($currentUnit['data'], 'iframe') !== false) {
     $form -> setDefaults(array('embed_type' => 'iframe'));
@@ -146,8 +158,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
 
 
      //Check whether it is a pdf content and handle accordingly
-     if (strpos($currentUnit['data'], "<iframe") !== false && strpos($currentUnit['data'], "pdfaccept") !== false) {
-         $fileEnd = strpos($currentUnit['data'], ".pdf");
+     if (mb_strpos($currentUnit['data'], "<iframe") !== false && mb_strpos($currentUnit['data'], "pdfaccept") !== false) {
+         $fileEnd = mb_strpos($currentUnit['data'], ".pdf");
          $contentParts = explode("/", mb_substr($currentUnit['data'], 0, $fileEnd));
          $form -> setDefaults(array('pdf_content' => EfrontFile :: decode(htmlspecialchars_decode(urldecode($contentParts[sizeof($contentParts)-1].'.pdf')))));
          $form -> setDefaults(array('pdf_check' => 1));
@@ -535,4 +547,3 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
  $smarty -> assign("T_HORIZONTAL_BAR", 1);
 }
-?>

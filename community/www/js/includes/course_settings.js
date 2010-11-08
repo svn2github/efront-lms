@@ -217,6 +217,44 @@ function displayReset() {
  }
 }
 
+function setCertificateOperationsHref(defaultHref){
+
+ var templateID = document.edit_course_certificate_form.existing_certificate.value;
+ var tmp = templateID.split('-');
+ templateID = tmp[0];
+
+ document.getElementById("edit_certificate_template_href").setAttribute('href', defaultHref + templateID);
+ document.getElementById("rename_certificate_template_href").setAttribute('href', defaultHref + templateID);
+ document.getElementById("clone_certificate_template_href").setAttribute('href', defaultHref + templateID);
+ document.getElementById("delete_certificate_template_href").setAttribute('href', defaultHref + templateID);
+}
+
+function showHideMainTemplatesOperations(){
+
+ var templateType = document.edit_course_certificate_form.existing_certificate.value;
+ var tmp = templateType.split('-');
+ templateType = tmp[1];
+
+ if(templateType == 'main'){
+
+  document.getElementById('edit_certificate_template_href').style.display = 'none';
+  document.getElementById('edit_certificate_template_separator').style.display = 'none';
+  document.getElementById('rename_certificate_template_href').style.display = 'none';
+  document.getElementById('rename_certificate_template_separator').style.display = 'none';
+  document.getElementById('delete_certificate_template_href').style.display = 'none';
+  document.getElementById('clone_certificate_template_separator').style.display = 'none';
+ }
+ else if(templateType == 'course'){
+
+  document.getElementById('edit_certificate_template_href').style.display = 'inline';
+  document.getElementById('edit_certificate_template_separator').style.display = 'inline';
+  document.getElementById('rename_certificate_template_href').style.display = 'inline';
+  document.getElementById('rename_certificate_template_separator').style.display = 'inline';
+  document.getElementById('delete_certificate_template_href').style.display = 'inline';
+  document.getElementById('clone_certificate_template_separator').style.display = 'inline';
+ }
+}
+
 //Initialize display for existing course rules
 if (typeof(calls) != 'undefined') {
  calls.each(function (s) {eF_js_addCourseRule(s[0], s[1], s[2]);});

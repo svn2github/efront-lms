@@ -587,24 +587,28 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet = & $workBook -> addWorksheet('Tests Matrix');
         $workSheet -> setInputEncoding('utf-8');
 
-        $workSheet -> setColumn(0, 0, 40);
         $workSheet -> write(0, 0, _TESTSMATRIX, $headerFormat);
+        $workSheet -> setColumn(0, 0, 40);
+        $workSheet -> mergeCells(0, 0, 0, sizeof($testsInfo));
 
         $rows = array();
         $row = 2;
         $column = 0;
         foreach ($students as $login => $user) {
             $rows[$login] = $row;
-            $workSheet -> write($row++, $column, $login." (".$user['name']." ".$user['surname'].")", $fieldLeftFormat);
+            $workSheet -> write($row++, $column, formatLogin($login), $fieldLeftFormat);
         }
-        $row = 1;
+        //$row    = 1;
         $column = 1;
+        //pr($testsInfo['done']);exit;
         foreach ($testsInfo as $id => $info) {
             $row = 1;
             $workSheet -> setColumn($column, $column, 20);
-            $workSheet -> write($row++, $column, $info['general']['name'], $fieldCenterFormat);
+            $workSheet -> write($row, $column, $info['general']['name'], $fieldCenterFormat);
             foreach ($info['done'] as $results) {
-                $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['score'], 2))."%", $fieldCenterFormat);
+             if (isset($rows[$results['users_LOGIN']])) {
+                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['score'], 2))."%", $fieldCenterFormat);
+             }
             }
             $column++;
         }
@@ -670,6 +674,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $column++;
         }
     }
+
     //add a separate sheet for each distinct student of that lesson
     //$doneTests        = EfrontStats :: getStudentsDoneTests($infoLesson -> lesson['id']);
     $assignedProjects = EfrontStats :: getStudentsAssignedProjects($infoLesson -> lesson['id']);
@@ -1105,4 +1110,3 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $pdf -> Output();
     exit(0);
 }
-?>

@@ -38,6 +38,16 @@ try {
    }
   } catch (Exception $e) {};
 
+  if ($lesson -> lesson['course_only']) {
+   $lessonCourses = $lesson -> getCourses();
+   if (!empty($lessonCourses)) {
+    foreach ($lessonCourses as $value) {
+     $lessonInformation['lesson_courses'][] = $value['name'];
+    }
+    $lessonInformation['lesson_courses'] = implode(", ", $lessonInformation['lesson_courses']);
+   }
+  }
+
   foreach ($lessonInformation as $key => $value) {
    if ($value) {
     $value = str_replace ("\n","<br />", $value);
@@ -57,6 +67,7 @@ try {
      case 'resources' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._RESOURCES."</span><span>: $value</span></div>"; break;
      case 'other_info' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>"; break;
      case 'price_string' : !$lesson -> lesson['course_only'] ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>" : null; break;
+     case 'lesson_courses' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PARTOFCOURSES."</span><span>: $value</span></div>"; break;
      default: break;
     }
    }

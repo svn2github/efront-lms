@@ -17,6 +17,3 @@ class EfrontGraph
  public $label;
 
 }
-
-
-?>

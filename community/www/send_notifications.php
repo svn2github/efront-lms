@@ -32,13 +32,13 @@ header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 //debug();
 $lowest_possible_time = time() - 21600; // last acceptable time - pending 6 hours in the queue to be sent
-eF_deleteTableData("notifications", "timestamp != 0 AND timestamp <" . $lowest_possible_time);
+//eF_deleteTableData("notifications", "timestamp != 0 AND timestamp <" . $lowest_possible_time);
 
 //echo G_SERVERNAME;
 if (isset($_GET['notification_id'])) {
-
  try {
   $notification = new EfrontNotification($_GET['notification_id']);
+
 
      // Try to send all messages of this notification
 

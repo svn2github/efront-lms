@@ -1,25 +1,19 @@
 <?php
 /**
-
  * EfrontUser Class file
-
  *
-
  * @package eFront
-
  */
+
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
  exit;
 }
+
 /**
-
  * User exceptions class
-
  *
-
  * @package eFront
-
  */
 class EfrontUserException extends Exception
 {
@@ -43,197 +37,125 @@ class EfrontUserException extends Exception
  const USER_NOT_LOGGED_IN = 418;
  const GENERAL_ERROR = 499;
 }
+
+
 /**
-
  * Abstract class for users
-
  *
-
  * @package eFront
-
  * @abstract
-
  */
 abstract class EfrontUser
 {
  /**
-
 	 * A caching variable for user types
-
 	 *
-
 	 * @since 3.5.3
-
 	 * @var array
-
 	 * @access private
-
 	 * @static
-
 	 */
  private static $userRoles;
+
  /**
-
 	 * The basic user types.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var array
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static $basicUserTypes = array('student', 'professor', 'administrator');
+
  /**
-
 	 * The basic user types.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var array
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static $basicUserTypesTranslations = array('student' => _STUDENT, 'professor' => _PROFESSOR, 'administrator' => _ADMINISTRATOR);
+
  /**
-
 	 * The user array.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var array
-
 	 * @access public
-
 	 */
  public $user = array();
+
  /**
-
 	 * The user login.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var string
-
 	 * @access public
-
 	 */
  public $login = '';
+
  /**
-
 	 * The user groups.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var string
-
 	 * @access public
-
 	 */
  public $groups = array();
+
  /**
-
 	 * The user login.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var string
-
 	 * @access public
-
 	 */
  public $aspects = array();
+
  /**
-
 	 * Whether this user authenitactes through LDAP.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var boolean
-
 	 * @access public
-
 	 */
  public $isLdapUser = false;
+
  /**
-
 	 * The core_access sets where each user has access to
-
 	 * @var array
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public $core_access = array();
+
  /**
-
 	 * Cache for modules
-
 	 * @var array
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 */
  private static $cached_modules = false;
+
  /**
-
 	 * Instantiate class
-
 	 *
-
 	 * This function instantiates a new EfrontUser sibling object based on the given
-
 	 * login. If $password is set, then it verifies the given password against
-
 	 * the stored one. Either the EfrontUserFactory may be used, or directly the
-
 	 * EfrontX class.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');			//Use factory to instantiate user object with login 'jdoe'
-
 	 * $user = EfrontUserFactory :: factory('jdoe', 'mypass');  //Use factory to instantiate user object with login 'jdoe' and perform password verification
-
 	 * $user = new EfrontAdministrator('jdoe')				  //Instantiate administrator user object with login 'jdoe'
-
 	 * </code>
-
 	 *
-
 	 * @param string $login The user login
-
 	 * @param string $password An enrypted password to check for the user
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  function __construct($user, $password = false) {
   if (!eF_checkParameter($user['login'], 'login')) {
@@ -241,24 +163,24 @@ abstract class EfrontUser
   } else if ($password !== false && $password != $user['password']) {
    throw new EfrontUserException(_INVALIDPASSWORD.': '.$user, EfrontUserException :: INVALID_PASSWORD);
   }
+
   $this -> user = $user;
   $this -> login = $user['login'];
+
   $this -> user['directory'] = G_UPLOADPATH.$this -> user['login'];
   if (!is_dir($this -> user['directory'])) {
    $this -> createUserFolders();
   }
   $this -> user['password'] == 'ldap' ? $this -> isLdapUser = true : $this -> isLdapUser = false;
+
   //Initialize core access
   $this -> coreAccess = array();
  }
+
  /**
-
 	 * Creates user folders
-
 	 * @since 3.6.4
-
 	 * @access private
-
 	 */
  private function createUserFolders() {
   $user_dir = G_UPLOADPATH.$this -> user['login'].'/';
@@ -268,105 +190,75 @@ abstract class EfrontUser
   mkdir($user_dir.'message_attachments/Sent/', 0755);
   mkdir($user_dir.'message_attachments/Drafts/', 0755);
   mkdir($user_dir.'avatars/', 0755);
+
   try {
    //Create database representations for personal messages folders (it has nothing to do with filsystem database representation)
    eF_insertTableDataMultiple("f_folders", array(array('name' => 'Incoming', 'users_LOGIN' => $this -> user['login']),
    array('name' => 'Sent', 'users_LOGIN' => $this -> user['login']),
    array('name' => 'Drafts', 'users_LOGIN' => $this -> user['login'])));
   } catch(Exception $e) {}
+
  }
+
  /**
-
 	 * Get the user's upload directory
-
 	 *
-
 	 * This function returns the path to the user's upload directory. The path always has a trailing
-
 	 * slash at the end.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $path = $user -> getDirectory(); //returns something like /var/www/efront/upload/admin/
-
 	 * </code>
-
 	 *
-
 	 * @return string The path to the user directory
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function getDirectory() {
   return $this -> user['directory'].'/';
  }
+
  /**
-
 	 * Create new user
-
 	 *
-
 	 * This function is used to create a new user in the system
-
 	 * The user is created based on a a properties array, in which
-
 	 * the user login, name, surname and email must be present, otherwise
-
 	 * an EfrontUserException is thrown. Apart from these, all the other
-
 	 * user elements are optional, and defaults will be used if they are left
-
 	 * blank.
-
 	 * Once the database representation is created, the constructor tries to create the
-
 	 * user directories, G_UPLOADPATH.'login/' and message attachments subfolders. Finally
-
 	 * it assigns a default avatar to the user. The function instantiates the user based on
-
 	 * its type.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $properties = array('login' => 'jdoe', 'name' => 'john', 'surname' => 'doe', 'email' => 'jdoe@example.com');
-
 	 * $user = EfrontUser :: createUser($properties);
-
 	 * </code>
-
 	 *
-
 	 * @param array $userProperties The new user properties
-
 	 * @param array $users The list of existing users, with logins and active properties, in the form array($login => $active). It is handy to specify when creating massively users
-
 	 * @return array with new user settings if the new user was successfully created
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public static function createUser($userProperties, $users = array(), $addToDefaultGroup = true) {
   if (empty($users)) {
    $users = eF_getTableDataFlat("users", "login, active, archive");
   }
+
   $archived = array_combine($users['login'], $users['archive']);
   foreach ($archived as $key => $value) {
    if (!$value) {
     unset($archived[$key]);
    }
   }
+
   //$archived = array_filter($archived, create_function('$v', 'return $v;'));
   $users = array_combine($users['login'], $users['active']);
   $activatedUsers = array_sum($users); //not taking into account deactivated users in license users count
+
   //$versionDetails = eF_checkVersionKey($GLOBALS['configuration']['version_key']);
   if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {
    throw new EfrontUserException(_INVALIDLOGIN.': '.$userProperties['login'], EfrontUserException :: INVALID_LOGIN);
@@ -478,33 +370,19 @@ abstract class EfrontUser
   return $user;
  }
  /**
-
 	 * Get system users
-
 	 *
-
 	 * This function is used to return a list with all the users of the system
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $users = EFrontUser :: getUsers(false);
-
 	 * </code>
-
 	 *
-
 	 * @param boolean returnAdmins A flag to indicate whether to return system administrators
-
 	 * @return array The user list
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function getUsers($returnAdmins = true) {
   $users = array();
@@ -521,79 +399,46 @@ abstract class EfrontUser
   return $users;
  }
  /**
-
 	 * Add user profile field
-
 	 */
  public static function addUserField() {}
  /**
-
 	 * Remove user profile field
-
 	 */
  public static function removeUserField() {}
  /**
-
 	 * Get user type
-
 	 *
-
 	 * This function returns the user basic type, one of 'administrator', 'professor',
-
 	 * 'student'
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 *	  $user = EfrontUserFactory :: factory('admin');
-
 	 *	  echo $user -> getType();			//Returns 'administrator'
-
 	 * </code>
-
 	 *
-
 	 * @return string The user type
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getType() {
   return $this -> user['user_type'];
  }
  /**
-
 	 * Set user password
-
 	 *
-
 	 * This function is used to change the user password to something
-
 	 * new.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> setPassword('somepass');
-
 	 * </code>
-
 	 *
-
 	 * @param string $password The new password
-
 	 * @return boolean true if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function setPassword($password) {
   $password_encrypted = EfrontUser::createPassword($password);
@@ -605,77 +450,43 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Get user password
-
 	 *
-
 	 * This function returns the user password (MD5 encrypted)
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * echo $user -> getPassword();			 //echos something like '36f49e43c662986b838258ab099d0d5a'
-
 	 * </code>
-
 	 *
-
 	 * @return string The user password (encrypted)
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getPassword() {
   return $this -> user['password'];
  }
  /**
-
 	 * Set login type
-
 	 *
-
 	 * This function is used to set the login type for the user. Currently this
-
 	 * can be either 'normal' (default) or 'ldap'. Setting the login type to 'ldap'
-
 	 * erases the user password and forces authentication through ldap server
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> setLoginType('ldap');			   //Set login type to 'ldap'
-
 	 * $user -> setLoginType('normal', 'testpass'); //Set login type to 'normal' using password 'testpass'
-
 	 * $user -> setLoginType();					 //Set login type to 'normal' and use default password (the user's login)
-
 	 * </code>
-
 	 * If the user was an ldap user and is reverted back to normal, the password is either specified
-
 	 * or created by default to match the user's login
-
 	 *
-
 	 * @param string $loginType The new login type, one of 'ldap' or 'normal'
-
 	 * @param string $password The new password, only used when converting ldap to normal accounts
-
 	 * @return boolean True if everything is ok.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function setLoginType($loginType = 'normal', $password = '') {
   //The user login type is specified by the password. If the password is 'ldap', the the login type is also ldap. There is no chance to mistaken normal users for ldap users, since all normal users have passwords stored in md5 format, which can never be 'ldap' (or anything like it)
@@ -690,33 +501,19 @@ abstract class EfrontUser
   return true;
  }
  /**
-
 	 * Get the login type
-
 	 *
-
 	 * This function is used to check whether the user's login type
-
 	 * is 'normal' or 'ldap'
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> getLoginType();					 //Returns either 'normal' or 'ldap'
-
 	 * </code>
-
 	 *
-
 	 * @return string Either 'normal' or 'ldap'
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getLoginType() {
   if ($this -> user['password'] == 'ldap') {
@@ -726,31 +523,18 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Activate user
-
 	 *
-
 	 * This function is used to activate the user
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> activate();
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function activate() {
   $this -> user['active'] = 1;
@@ -759,65 +543,39 @@ abstract class EfrontUser
   return true;
  }
  /**
-
 	 * Deactivate user
-
 	 *
-
 	 * This function is used to deactivate the user
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> deactivate();
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function deactivate() {
   $this -> user['active'] = 0;
   $this -> persist();
+  EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_USER_DEACTIVATE, "users_LOGIN" => $this -> user['login'], "users_name" => $this -> user['name'], "users_surname" => $this -> user['surname']));
   return true;
  }
  /**
-
 	 * Set avatar image
-
 	 *
-
 	 * This function is used to set the user's avatar image.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $file = new EfrontFile(32);											 //This is a file uploaded -for example- in the filesystem.
-
 	 * $user -> setAvatar($file);
-
 	 * </code>
-
 	 *
-
 	 * @param EfrontFile $file The file that will be used as avatar
-
 	 * @return boolean True if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function setAvatar($file) {
   if (eF_updateTableData("users", array("avatar" => $file['id']), "login = '".$this -> user['login']."'")) {
@@ -828,31 +586,18 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Get avatar image
-
 	 *
-
 	 * This function returns the file object corresponding to the user avatar
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> getAvatar();	//Returns an EfrontFile object
-
 	 * </code>
-
 	 *
-
 	 * @return EfrontFile The avatar's file object
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function getAvatar() {
   if ($this -> user['avatar']) {
@@ -863,31 +608,18 @@ abstract class EfrontUser
   return $avatar;
  }
  /**
-
 	 * Set user status
-
 	 *
-
 	 * This function is used to set the user's status.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> setStatus("Carpe Diem!");
-
 	 * </code>
-
 	 *
-
 	 * @param string to be set as the new status - could be ""
-
 	 * @return boolean True if everything is ok
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function setStatus($status) {
   if (eF_updateTableData("users", array("status" => $status), "login = '".$this -> user['login']."'")) {
@@ -912,35 +644,20 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Logs out user
-
 	 *
-
 	 * To log out a user, the function deletes the session information and updates the database
-
 	 * tables.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> logout();
-
 	 * </code>
-
 	 *
-
 	 * @param $destroySession Whether to destroy session data as well
-
 	 * @return boolean True if the user was logged out succesfully
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function logout($destroySession = true) {
   // Delete FB-connect related cookies - without this code the "Session key invalid problem" appears
@@ -989,35 +706,20 @@ abstract class EfrontUser
   eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
  }
  /**
-
 	 * Login user
-
 	 *
-
 	 * This function logs the user in the system, using the specified password
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> login('mypass');
-
 	 * </code>
-
 	 *
-
 	 * @param string $password The password to login with
-
 	 * @param boolean $encrypted Whether the password is already encrypted
-
 	 * @return boolean True if the user logged in successfully
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function login($password, $encrypted = false) {
   session_regenerate_id(); //If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
@@ -1073,15 +775,10 @@ abstract class EfrontUser
            'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
 /*
-
 		$fields = array('users_LOGIN'   => $this -> user['login'],
-
 							'timestamp'	 => time(),
-
 							'timestamp_now' => time(),
-
 							'session_ip'	=> $_SERVER['REMOTE_ADDR']);
-
 */
   if ($this -> isLoggedIn()) {
    //eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
@@ -1103,23 +800,14 @@ abstract class EfrontUser
   return true;
  }
  /**
-
 	 * Check if this user is allowed to multiple logins
-
 	 *
-
 	 * This function checks the current system settings and returns true
-
 	 * if the current user is allowed to be logged in to the system more than once
-
 	 *
-
 	 * @return boolean true if the user is allowed to loggin more than once
-
 	 * @since 3.5.2
-
 	 * @access private
-
 	 */
  private function allowMultipleLogin() {
   $multipleLogins = unserialize($GLOBALS['configuration']['multiple_logins']);
@@ -1145,31 +833,18 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Check if the user is already logged in and update his timestamp
-
 	 *
-
 	 * This function examines the system database to decide whether the user is still logged in and updates current time
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> refreshLogin();							   //Returns true if the user is logged in
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if the user is logged in
-
 	 * @since 3.5.2
-
 	 * @access public
-
 	 */
  public function refreshLogin() {
   $result = eF_getTableData('user_times', 'id', "session_expired=0 and users_LOGIN='".$this -> user['login']."'");
@@ -1181,35 +856,20 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Get the list of users that are currently online
-
 	 *
-
 	 * This function is used to get a list of the users that are currently online
-
 	 * In addition, it logs out any inactive users, based on global setting
-
 	 * <br>Example:
-
 	 * <code>
-
 	 * $online = EfrontUser :: getUsersOnline();
-
 	 * </code>
-
 	 *
-
 	 * @param boolean $userType Return only users of the basic type $user_type
-
 	 * @param int $interval The idle interval above which a user is logged out. If it's not specified, no logging out takes place
-
 	 * @return array The list of online users
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public static function getUsersOnline($interval = false) {
   $usersOnline = array();
@@ -1235,31 +895,18 @@ abstract class EfrontUser
   return $usersOnline;
  }
  /**
-
 	 * Check if the user is already logged in
-
 	 *
-
 	 * This function examines the system logs to decide whether the user is still logged in
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> isLoggedIn();							   //Returns true if the user is logged in
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if the user is logged in
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function isLoggedIn() {
   //$result = eF_getTableData('users_online', '*', "users_LOGIN='".$this -> user['login']."'");
@@ -1271,33 +918,19 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Delete user
-
 	 *
-
 	 * This function is used to delete a user from the system.
-
 	 * The user cannot be deleted if he is the last system administrator.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> delete();
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if the user was deleted successfully
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function delete() {
   $this -> logout();
@@ -1349,19 +982,12 @@ abstract class EfrontUser
   return true;
  }
  /**
-
 	 * Set user type
-
 	 *
-
 	 * This function is used to change the basic user type
-
 	 * @param string The new user type
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function changeType($userType) {
   if (!in_array($userType, EfrontUser :: $basicUserTypes)) {
@@ -1381,31 +1007,18 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Persist user values
-
 	 *
-
 	 * This function is used to store user's changed values to the database.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> surname = 'doe';							//Change object's surname
-
 	 * $user -> persist();								  //Persist changed value
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function persist() {
   $fields = array('password' => $this -> user['password'],
@@ -1431,27 +1044,16 @@ abstract class EfrontUser
   return true;
  }
  /**
-
 	 * Get the user groups list
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $groupsList	= $user -> getGroups();						 //Returns an array with pairs [groups id] => [employee specification for this group]
-
 	 * </code>
-
 	 *
-
 	 * @return array An array of [group id] => [group ID] pairs, or an array of group objects
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getGroups() {
   if (! $this -> groups ) {
@@ -1464,35 +1066,20 @@ abstract class EfrontUser
   return $this -> groups;
  }
  /**
-
 	 * Assign a group to user.
-
 	 *
-
 	 * This function can be used to assign a group to a user
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontHcdUserFactory :: factory('jdoe');
-
 	 * $user -> addGroups(23);						 //Add a single group with id 23
-
 	 * $user -> addGroups(array(23,24,25));			//Add multiple groups using an array
-
 	 * </code>
-
 	 *
-
 	 * @return int The array of lesson ids.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo auto_projects
-
 	 */
  public function addGroups($groupIds) {
   if (!$this -> groups) {
@@ -1520,35 +1107,20 @@ abstract class EfrontUser
   return $this -> groups;
  }
  /**
-
 	 * Remove groups from employee.
-
 	 *
-
 	 * This function can be used to remove a group from the current employee.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $employee = EfrontHcdUserFactory :: factory('jdoe');
-
 	 * $employee -> removeGroups(23);						  //Remove a signle group with id 23
-
 	 * $employee -> removeGroups(array(23,24,25));			 //Remove multiple groups using an array
-
 	 * </code>
-
 	 *
-
 	 * @param int $groupIds Either a single group id, or an array if ids
-
 	 * @return int The array of group ids.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function removeGroups($groupIds) {
   if (!$this -> groups) {
@@ -1568,33 +1140,19 @@ abstract class EfrontUser
  }
  ///MODULE3
  /**
-
 	 * Get modules for this user (according to the user type).
-
 	 *
-
 	 * This function can is used to get the modules for the user
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $currentUser = EfrontUserFactory :: factory('jdoe');
-
 	 * $modules = $currentUser -> getModules();
-
 	 * </code>
-
 	 *
-
 	 * @param no parameter
-
 	 * @return int The array of modules for the user type of this user.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getModules() {
   $modulesDB = eF_getTableData("modules","*","active = 1");
@@ -1631,39 +1189,22 @@ abstract class EfrontUser
   return $modules;
  }
  /**
-
 	 * Get the login time for on e or all users in the specified time interval
-
 	 *
-
 	 * This function returns the login time for the specified user in the specified interval
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 *	  $interval['from'] = "00000000";
-
 	 *	  $interval['to']   = time();
-
 	 *	  $time  = EfrontUser :: getLoginTime('jdoe', $interval); //$time['jdoe'] now holds his times
-
 	 *	  $times = EfrontUser :: getLoginTime($interval); //$times now holds an array of times for all users
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $login The user to calulate times for, or false for all users
-
 	 * @param mixed An array of the form (from =>'', to=>'') or false (return the total login time)
-
 	 * @return the total login time as an array of hours, minutes, seconds
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public static function getLoginTime($login = false, $interval = false){
   if ($interval && eF_checkParameter($interval['from'], 'timestamp') && eF_checkParameter($interval['to'], 'timestamp')) {
@@ -1724,31 +1265,18 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Archive user
-
 	 *
-
 	 * This function is used to archive the user object, by setting its active status to 0 and its
-
 	 * archive status to 1
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> archive();	//Archives the user object
-
 	 * $user -> unarchive();	//Archives the user object and activates it as well
-
 	 * </code>
-
 	 *
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function archive() {
   $this -> user['archive'] = time();
@@ -1756,31 +1284,18 @@ abstract class EfrontUser
   $this -> deactivate();
  }
  /**
-
 	 * Unarchive user
-
 	 *
-
 	 * This function is used to unarchive the user object, by setting its active status to 1 and its
-
 	 * archive status to 0
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> archive();	//Archives the user object
-
 	 * $user -> unarchive();	//Archives the user object and activates it as well
-
 	 * </code>
-
 	 *
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function unarchive() {
   $this -> activate();
@@ -1788,31 +1303,18 @@ abstract class EfrontUser
   $this -> persist();
  }
  /**
-
 	 * Apply role options to object
-
 	 *
-
 	 * This function is used to apply role options, using the specified role
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> applyRoleOptions(4);						//Apply the role options for user type with id 4 to the $user object
-
 	 * </code>
-
 	 *
-
 	 * @param int $role The role id to apply options for
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function applyRoleOptions($role = false) {
   if (!$role) {
@@ -1825,41 +1327,23 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 * Get system roles
-
 	 *
-
 	 * This function is used to get all the roles in the system
-
 	 * It returns an array where keys are the role ids and values are:
-
 	 * - Either the role basic user types, if $getNames is false (the default)
-
 	 * - or the role Names if $getNames is true
-
 	 * The array is prepended with the 3 main roles, 'administrator', 'professor' and 'student'
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $roles = EfrontUser :: getRoles();
-
 	 * </code>
-
 	 *
-
 	 * @param boolean $getNames Whether to return id/basic user type pairs or id/name pairs
-
 	 * @return array The system roles
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function getRoles($getNames = false) {
   //Cache results in self :: $userRoles
@@ -1877,27 +1361,16 @@ abstract class EfrontUser
   return $roles;
  }
  /**
-
 	 * Get the user profile's comments list
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $commentsList	= $user -> getProfileComments();						 //Returns an array with pairs [groups id] => [employee specification for this group]
-
 	 * </code>
-
 	 *
-
 	 * @return array A sorted according to timestamp array of [comment id] => [timestamp, authors_LOGIN, authors_name, authors_surname, data] pairs, or an array of comments
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function getProfileComments() {
   if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_COMMENTS) {
@@ -1912,13 +1385,9 @@ abstract class EfrontUser
   }
  }
  /**
-
 	 *
-
 	 * @param $pwd
-
 	 * @return unknown_type
-
 	 */
  public static function createPassword($pwd, $mode = 'efront') {
   if ($mode == 'efront') {
@@ -1929,21 +1398,13 @@ abstract class EfrontUser
   return $encrypted;
  }
  /**
-
 	 * Convert the user argument to a user login
-
 	 *
-
 	 * @param mixed $login The argument to convert
-
 	 * @return string The user's login
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function convertArgumentToUserLogin($login) {
   if ($login instanceof EfrontUser) {
@@ -2029,46 +1490,27 @@ abstract class EfrontUser
  }
 }
 /**
-
  * Class for administrator users
-
  *
-
  * @package eFront
-
  */
 class EfrontAdministrator extends EfrontUser
 {
  /**
-
 	 * Get user information
-
 	 *
-
 	 * This function returns the user information in an array
-
 	 *
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $info = $user -> getInformation();		 //Get lesson information
-
 	 * </code>
-
 	 *
-
 	 * @param string $user The user login to customize lesson information for
-
 	 * @return array The user information
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getInformation() {
   $languages = EfrontSystem :: getLanguages(true);
@@ -2095,13 +1537,9 @@ class EfrontAdministrator extends EfrontUser
   return "administrator";
  }
  /*
-
 	 * Social eFront function
-
 	 *
-
 	 * For administrators it should return all users
-
 	 */
  public function getRelatedUsers() {
   $all_users = EfrontUser::getUsers(true);
@@ -2114,11 +1552,8 @@ class EfrontAdministrator extends EfrontUser
   return $all_users;
  }
  /**
-
 	 *
-
 	 * @return unknown_type
-
 	 */
  public function getLessons() {
   return array();
@@ -2128,90 +1563,51 @@ class EfrontAdministrator extends EfrontUser
  }
 }
 /**
-
  * Class for users that may have lessons
-
  *
-
  * @package eFront
-
  * @abstract
-
  */
 abstract class EfrontLessonUser extends EfrontUser
 {
  /**
-
 	 * A caching variable for user types
-
 	 *
-
 	 * @since 3.5.3
-
 	 * @var array
-
 	 * @access private
-
 	 * @static
-
 	 */
  private static $lessonRoles;
  /**
-
 	 * The user lessons array.
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var array
-
 	 * @access public
-
 	 */
  public $lessons = false;
  /**
-
 	 * Assign lessons to user.
-
 	 *
-
 	 * This function can be used to assign a lesson to the current user. If $userTypes
-
 	 * is specified, then the user is assigned to the lesson using the specified type.
-
 	 * By default, the user basic type is used.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> addLessons(23);						 //Add a signle lesson with id 23
-
 	 * $user -> addLessons(23, 'professor');			//Add a signle lesson with id 23 and set the user type to 'professor'
-
 	 * $user -> addLessons(array(23,24,25));			//Add multiple lessons using an array
-
 	 * $user -> addLessons(array(23,24,25), array('professor', 'student', 'professor'));			//Add multiple lessons using an array for lesson ids and another for corresponding user types
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $lessonIds Either a single lesson id, or an array if ids
-
 	 * @param mixed $userTypes The corresponding user types for the specified lessons
-
 	 * @param boolean $activate Lessons will be set as active or not
-
 	 * @return mixed The array of lesson ids or false if the lesson already exists.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function addLessons($lessonIds, $userTypes, $activate = 1) {
   if (sizeof($this -> lessons) == 0) {
@@ -2235,37 +1631,21 @@ abstract class EfrontLessonUser extends EfrontUser
   return $this -> getLessons();
  }
  /**
-
 	 * Confirm user's lessons
-
 	 *
-
 	 * This function can be used to set the "active" flag of a user's lesson to "true", so that
-
 	 * he can access the corresponding lessons.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> confirmLessons(23);						 //Confirms the lesson with id 23
-
 	 * $user -> addLessons(array(23,24,25));			//Confirms multiple lessons using an array
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $lessonIds Either a single lesson id, or an array if ids
-
 	 * @return array The array of lesson ids
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function confirmLessons($lessonIds) {
   if (sizeof($this -> lessons) == 0) {
@@ -2283,35 +1663,20 @@ abstract class EfrontLessonUser extends EfrontUser
   return $this -> getLessons();
  }
  /**
-
 	 * Remove lessons from user.
-
 	 *
-
 	 * This function can be used to remove a lesson from the current user.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> removeLessons(23);						  //Remove a signle lesson with id 23
-
 	 * $user -> removeLessons(array(23,24,25));			 //Remove multiple lessons using an array
-
 	 * </code>
-
 	 *
-
 	 * @param int $lessonIds Either a single lesson id, or an array if ids
-
 	 * @return int The array of lesson ids.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function removeLessons($lessonIds) {
   if (!is_array($lessonIds)) {
@@ -2334,17 +1699,11 @@ abstract class EfrontLessonUser extends EfrontUser
   return $this -> lessons;
  }
  /**
-
 	 * Reset the user's progress in the specified lesson
-
 	 *
-
 	 * @param mixed $lesson The lesson to reset
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function resetProgressInLesson($lesson) {
   if (!($lesson instanceOf EfrontLesson)) {
@@ -2376,19 +1735,12 @@ abstract class EfrontLessonUser extends EfrontUser
   eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."'");
  }
  /**
-
 	 * Reset the user's progress in the specified course
-
 	 *
-
 	 * @param mixed $course The course to reset
-
 	 * @param boolean $resetLessons whether to reset lesson progress as well
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function resetProgressInCourse($course, $resetLessons = false) {
   if (!($course instanceOf EfrontCourse)) {
@@ -2417,43 +1769,24 @@ abstract class EfrontLessonUser extends EfrontUser
   eF_updateTableData("users_to_courses", $tracking_info, "users_LOGIN='".$this -> user['login']."'");
  }
  /**
-
 	 * Get the users's lessons list
-
 	 *
-
 	 * This function is used to get a list of ids with the users's lessons.
-
 	 * If $returnObjects is set and true, then An array of lesson objects is returned
-
 	 * The list is returned using the object's cache (unless $returnObjects is true).
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $lessonsList	= $user -> getLessons();						 //Returns an array with pairs [lessons id] => [user type]
-
 	 * $lessonsObjects = $user -> getLessons(true);					 //Returns an array of lesson objects
-
 	 * </code>
-
 	 * If $returnObjects is specified, then each lesson in the lessons array will
-
 	 * contain an additional field holding information on the user's lesson status
-
 	 *
-
 	 * @param boolean $returnObjects Whether to return lesson objects
-
 	 * @param string $basicType If set, then return only lessons that the user has the specific basic role in them
-
 	 * @return array An array of [lesson id] => [user type] pairs, or an array of lesson objects
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getLessons($returnObjects = false, $basicType = false) {
   if ($this -> lessons && !$returnObjects) {
@@ -2533,15 +1866,10 @@ abstract class EfrontLessonUser extends EfrontUser
   return $lessons;
  }
  /**
-
 	 * Initialize user lessons
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access protected
-
 	 */
  private function initializeLessons() {
   $result = eF_getTableData("users_to_lessons ul, lessons l",
@@ -2565,35 +1893,20 @@ abstract class EfrontLessonUser extends EfrontUser
   return $lessons;
  }
  /**
-
 	 * Get user's eligible lessons
-
 	 *
-
 	 * This function is used to filter the user's lessons, excluding all the lessons
-
 	 * that he is enrolled to, but cannot access for some reason (rules, schedule, active, etc)
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $eligibleLessons = $user -> getEligibleLessons();						 //Returns an array of EfrontLesson objects
-
 	 * </code>
-
 	 *
-
 	 * @return array An array of lesson objects
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 * @see libraries/EfrontLessonUser#getLessons($returnObjects, $basicType)
-
 	 */
  public function getEligibleLessons() {
   $userCourses = $this -> getUserCourses();
@@ -2618,37 +1931,21 @@ abstract class EfrontLessonUser extends EfrontUser
   return $eligibleLessons;
  }
  /**
-
 	 * Get user potential lessons
-
 	 *
-
 	 * This function returns a list with the lessons that the user
-
 	 * may take, but doesn't have. The list may be either a list of ids
-
 	 * (faster) or a list of EfrontLesson objects.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> getNonLessons();			//Returns a list with potential lessons ids
-
 	 * $user -> getNonLessons(true);		//Returns a list of EfrontLesson objects
-
 	 * </code>
-
 	 *
-
 	 * @param boolean $returnObjects Whether to return a list of objects
-
 	 * @return array The list of ids or objects
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getNonLessons($returnObjects = false) {
   $userLessons = eF_getTableDataFlat("users_to_lessons", "lessons_ID", "archive=0 and users_LOGIN = '".$this -> user['login']."'");
@@ -2669,25 +1966,15 @@ abstract class EfrontLessonUser extends EfrontUser
   }
  }
  /**
-
 	 * Return only non lessons that can be selected by the student
-
 	 *
-
 	 * This function is similar to getNonLessons, the only difference being that it excludes lessons
-
 	 * that can't be directly assigned, for example inactive, unpublished etc
-
 	 *
-
 	 * @return array The eligible lessons
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 * @see EfrontLessonUser :: getNonLessons()
-
 	 */
  public function getEligibleNonLessons() {
   $lessons = $this -> getNonLessons(true);
@@ -2750,29 +2037,29 @@ abstract class EfrontLessonUser extends EfrontUser
   return $result[0]['count'];
  }
  /**
-
 	 * Get all courses, signifying those that the user already has, and aggregate instance results
-
 	 *
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return array An array of EfrontCourse objects
-
 	 * @since 3.6.2
-
 	 * @access public
-
 	 */
  public function getUserCoursesAggregatingResultsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  if (isset($constraints['active']) && $constraints['active']) {
+   $activeSql = 'and c1.active=1';
+  } else if (isset($constraints['active']) && !$constraints['active']) {
+   $activeSql = 'and c1.active=0';
+  } else {
+   $activeSql = '';
+  }
   $select['main'] = 'c.id';
   $select['user_type'] = "(select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id) as user_type";
-  $select['score'] = "(select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and c1.active=1 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as score";
-  $select['completed'] = "(select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and c1.active=1 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as completed";
-  $select['to_timestamp'] = "(select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and c1.active=1 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as to_timestamp";
-  $select['active_in_course'] = "(select max(from_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and c1.active=1 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as active_in_course";
-  $select['has_course'] = "(select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and c1.active=1 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as has_course";
+  $select['score'] = "(select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 $activeSql and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as score";
+  $select['completed'] = "(select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 $activeSql and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as completed";
+  $select['to_timestamp'] = "(select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 $activeSql and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as to_timestamp";
+  $select['active_in_course'] = "(select max(from_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 $activeSql and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as active_in_course";
+  $select['has_course'] = "(select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 $activeSql and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID) as has_course";
   $select['num_lessons'] = "(select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID) as num_lessons";
   $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
@@ -2800,15 +2087,10 @@ abstract class EfrontLessonUser extends EfrontUser
   return $result[0]['count'];
  }
  /**
-
 	 * The same as self::getUserCoursesAggregatingResultsIncludingUnassigned, only it has an addition "where" condition
-
 	 * @param array $constraints
-
 	 * @return array
-
 	 * @since 3.6.2
-
 	 */
  public function getUserCoursesAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -2823,7 +2105,14 @@ abstract class EfrontLessonUser extends EfrontUser
   $select['num_students'] = "(select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student') as num_students";
   $select = EfrontCourse :: convertCourseConstraintsToRequiredFields($constraints, $select);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
+  if (isset($constraints['active']) && $constraints['active']) {
+   $activeSql = 'and c1.active=1';
+  } else if (isset($constraints['active']) && !$constraints['active']) {
+   $activeSql = 'and c1.active=0';
+  } else {
+   $activeSql = '';
+  }
+  $where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 $activeSql and c1.archive = 0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
   //WITH THIS NEW QUERY, WE GET THE SLOW 'has_instances' PROPERTY AFTER FILTERING
   $sql = prepareGetTableData("courses c left outer join (select id from courses) r on c.id=r.id", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData(
@@ -2837,72 +2126,19 @@ abstract class EfrontLessonUser extends EfrontUser
   } else {
    return EfrontCourse :: convertDatabaseResultToCourseArray($result);
   }
-/*
-
-		list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-
-		$select  = "c.*,
-
-					  (select user_type from users_to_courses uc1 where users_login='".$this -> user['login']."' and uc1.courses_ID=c.id)
-
-					  		as user_type,
-
-					  (select max(score) 	 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-
-					  		as score,
-
-					  (select max(completed) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-
-					  		as completed,
-
-					  (select max(to_timestamp) from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-
-					  		as to_timestamp,
-
-					  (select count(*) > 0   from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)
-
-					  		as has_course,
-
-					  (select count( * ) 	 from courses c1 where c1.instance_source=c.id )
-
-					  		as has_instances,
-
-					  (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
-
-					  		as num_students,
-
-					  (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
-
-					  		as num_lessons";
-
-#ifdef ENTERPRISE
-
-			$select .= ",(select count( * ) from module_hcd_course_offers_skill s where courses_ID=c.id)
-
-					  		as num_skills,
-
-					  	(select b.name from module_hcd_branch b, module_hcd_course_to_branch cb where cb.branches_ID=b.branch_ID and cb.courses_ID=c.id limit 1)
-
-					  		as location";
-
-#endif
-
-
-
-		$where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
-
-		$result  = eF_getTableData("courses c left outer join (select id from courses) r on c.id=r.id", $select,
-
-				implode(" and ", $where), $orderby, false, $limit);
-
-		return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
-
-*/
  }
  public function countUserCoursesAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
-  $where[] = "d.id=c.directions_ID and (select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
+  $where[] = "d.id=c.directions_ID";
+  if (isset($constraints['active']) && $constraints['active']) {
+   $activeSql = 'and c1.active=1';
+  } else if (isset($constraints['active']) && !$constraints['active']) {
+   $activeSql = 'and c1.active=0';
+  } else {
+   $activeSql = '';
+  }
+  $where[] = "(select count(*) > 0 from users_to_courses uc1, courses c1 where uc1.users_login='".$this -> user['login']."' and uc1.archive=0 $activeSql and c1.archive = 0 and (c1.instance_source=c.id or c1.id=c.id) and c1.id=uc1.courses_ID)=1";
   $result = eF_countTableData("directions d,courses c left outer join (select id from courses) r on c.id=r.id", "c.id",
   implode(" and ", $where));
   return $result[0]['count'];
@@ -2918,13 +2154,9 @@ abstract class EfrontLessonUser extends EfrontUser
   return $courses;
  }
  /**
-
 	 * Return only regular courses, not instances.
-
 	 * Assign the completion and highest instance score to the parent course, from its instances.
-
 	 *
-
 	 */
  public function filterCoursesWithInstanceStatus($courses) {
   foreach ($courses as $key => $course) {
@@ -2988,13 +2220,14 @@ abstract class EfrontLessonUser extends EfrontUser
   return $userLessons;
  }
  private function checkUserAccessToLessonBasedOnDuration($lesson) {
-  if ($lesson -> lesson['duration'] && $lesson -> lesson['from_timestamp']) {
-   $lesson -> lesson['remaining'] = $lesson -> lesson['from_timestamp'] + $lesson -> lesson['duration']*3600*24 - time();
+  //pr($lesson);
+  if ($lesson -> lesson['duration'] && $lesson -> lesson['active_in_lesson']) {
+   $lesson -> lesson['remaining'] = $lesson -> lesson['active_in_lesson'] + $lesson -> lesson['duration']*3600*24 - time();
   } else {
    $lesson -> lesson['remaining'] = null;
   }
   //Check whether the lesson registration is expired. If so, set $value['from_timestamp'] to false, so that the effect is to appear disabled
-  if ($lesson -> lesson['duration'] && $lesson -> lesson['from_timestamp'] && $lesson -> lesson['duration'] * 3600 * 24 + $lesson -> lesson['from_timestamp'] < time()) {
+  if ($lesson -> lesson['duration'] && $lesson -> lesson['active_in_lesson'] && $lesson -> lesson['duration'] * 3600 * 24 + $lesson -> lesson['active_in_lesson'] < time()) {
    $lesson -> archiveLessonUsers($lesson -> lesson['users_LOGIN']);
   }
   return $lesson;
@@ -3088,23 +2321,14 @@ abstract class EfrontLessonUser extends EfrontUser
   $userTimes = $timeReport -> getUserSessionTimeInLesson($this -> user['login'], $lesson -> lesson['id']);
   $userTimes = $timeReport -> formatTimeForReporting($userTimes);
 /*
-
 		$userTimes = EfrontStats :: getUsersTimeAll(false, false, array($lesson -> lesson['id'] => $lesson -> lesson['id']), array($this -> user['login'] => $this -> user['login']));
-
 		$userTimes = $userTimes[$lesson -> lesson['id']][$this -> user['login']];
-
 		$userTimes['time_string'] = '';
-
 		if ($userTimes['total_seconds']) {
-
 			!$userTimes['hours']   OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
-
 			!$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
-
 			!$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
-
 		}
-
 */
   return $userTimes;
  }
@@ -3196,29 +2420,17 @@ abstract class EfrontLessonUser extends EfrontUser
   }
  }
  /**
-
 	 * Get user certificates
-
 	 *
-
 	 * This function gets all certificates that have been issued for the user
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> getIssuedCertificates();	   //Get an array with the information on the certificates
-
 	 * </code>
-
 	 *
-
 	 * @return an array of the format [] => [course name, certificate key, date issued, date expire, issuing authority]
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 */
  public function getIssuedCertificates() {
   $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != 0 or issued_certificate is not null');
@@ -3228,61 +2440,41 @@ abstract class EfrontLessonUser extends EfrontUser
   foreach ($courses as $course) {
    if ($certificateInfo = unserialize($course['issued_certificate'])) {
     $certificateInfo = unserialize($course['issued_certificate']);
+    $courseOptions = unserialize($course['options']);
     $certificates[] = array("courses_ID" => $course['id'],
           "course_name" => $course['name'],
           "serial_number" => $certificateInfo['serial_number'],
           "grade" => $certificateInfo['grade'],
           "issue_date" => $certificateInfo['date'],
           "active" => $course['active'],
+          "export_method" => $courseOptions['certificate_export_method'],
           "expiration_date"=> ($course['certificate_expiration']) ? ($certificateInfo['date'] + $course['certificate_expiration']) : _NEVER);
    }
   }
   return $certificates;
  }
  /**
-
 	 * Assign courses to user.
-
 	 *
-
 	 * This function can be used to assign a course to the current user. If $userTypes
-
 	 * is specified, then the user is assigned to the course using the specified type.
-
 	 * By default, the user asic type is used.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> addCourses(23);						 //Add a signle course with id 23
-
 	 * $user -> addCourses(23, 'professor');			//Add a signle course with id 23 and set the user type to 'professor'
-
 	 * $user -> addCourses(array(23,24,25));			//Add multiple courses using an array
-
 	 * $user -> addCourses(array(23,24,25), array('professor', 'student', 'professor'));			//Add multiple courses using an array for course ids and another for corresponding user types
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $courseIds Either a single course id, or an array if ids
-
 	 * @param mixed $userTypes The corresponding user types for the specified courses
-
 	 * @param boolean $activeate Courses will be set as active or not
-
 	 * @return mixed The array of course ids or false if the course already exists.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo auto_projects
-
 	 */
  public function addCourses($courses, $roles = 'student', $confirmed = true) {
   $courses = $this -> verifyCoursesList($courses);
@@ -3296,37 +2488,21 @@ abstract class EfrontLessonUser extends EfrontUser
   return $this -> getUserCourses();
  }
  /**
-
 	 * Confirm user's lessons
-
 	 *
-
 	 * This function can be used to set the "active" flag of a user's lesson to "true", so that
-
 	 * he can access the corresponding lessons.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> addCourses(23);						 //Confirm a signle course with id 23
-
 	 * $user -> addCourses(array(23,24,25));			//Confirm multiple courses using an array
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $courseIds Either a single course id, or an array if ids
-
 	 * @return array The array of course ids
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function confirmCourses($courses) {
   $courses = $this -> verifyCoursesList($courses);
@@ -3338,35 +2514,20 @@ abstract class EfrontLessonUser extends EfrontUser
   return $this -> getserUCourses();
  }
  /**
-
 	 * Remove courses from user.
-
 	 *
-
 	 * This function can be used to remove a course from the current user.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> removeCourses(23);						  //Remove a signle course with id 23
-
 	 * $user -> removeCourses(array(23,24,25));			 //Remove multiple courses using an array
-
 	 * </code>
-
 	 *
-
 	 * @param int $courseIds Either a single course id, or an array if ids
-
 	 * @return true.
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function removeCourses($courses) {
   $courseIds = $this -> verifyCoursesList($courses);
@@ -3395,39 +2556,22 @@ abstract class EfrontLessonUser extends EfrontUser
   return $true;
  }
  /**
-
 	 * Set user role
-
 	 *
-
 	 * This function is used to set the specific role of this user.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> setRole(23, 'simpleUser');		  //Set this user's role to 'simpleUser' for lesson with id 23
-
 	 * $user -> setRole(23);						//Set this user's role to the same as its basic type (for example 'student') for lesson with id 23
-
 	 * $user -> setRole(false, 'simpleUser');	   //Set this user's role to 'simpleUser' for all lessons
-
 	 * $user -> setRole();						  //Set this user's role to the same as its basic type (for example 'student') for all lessons
-
 	 * </code>
-
 	 *
-
 	 * @param int $lessonId The lesson id
-
 	 * @param string $userRole The new user role
-
 	 * @return boolean true if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function setRole($lessonId = false, $userRole = false) {
   if ($userRole) {
@@ -3444,31 +2588,18 @@ abstract class EfrontLessonUser extends EfrontUser
   }
  }
  /**
-
 	 * Get the user's role
-
 	 *
-
 	 * This function returns the user role for the specified lesson
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $this -> getRole(4);								 //Get the role for lesson with id 4
-
 	 * </code>
-
 	 *
-
 	 * @param int $lessonId The lesson id to get the role for
-
 	 * @return string The user role for the lesson
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getRole($lessonId) {
   $roles = EfrontLessonUser :: getLessonsRoles();
@@ -3483,41 +2614,23 @@ abstract class EfrontLessonUser extends EfrontUser
   }
  }
  /**
-
 	 * Get roles applicable to lessons
-
 	 *
-
 	 * This function is used to get the roles in the system, that derive from professor and student
-
 	 * It returns an array where keys are the role ids and values are:
-
 	 * - Either the role basic user types, if $getNames is false (the default)
-
 	 * - or the role Names if $getNames is true
-
 	 * The array is prepended with the 2 main roles, 'professor' and 'student'
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $roles = EfrontLessonUser :: getLessonsRoles();
-
 	 * </code>
-
 	 *
-
 	 * @param boolean $getNames Whether to return id/basic user type pairs or id/name pairs
-
 	 * @return array The lesson-oriented roles
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function getLessonsRoles($getNames = false) {
   //Cache results in self :: $lessonRoles
@@ -3535,31 +2648,18 @@ abstract class EfrontLessonUser extends EfrontUser
   return $roles;
  }
  /**
-
 	 * Get lesson users
-
 	 *
-
 	 * This function returns a list with the students of all the lessons in which the current user has a professor role
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 *	  $user = EfrontUserFactory :: factory('professor');
-
 	 *	  $students = $user -> getProfessorStudents();
-
 	 * </code>
-
 	 *
-
 	 * @return array A list of user logins
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getProfessorStudents(){
   $lessons = $this -> getLessons(true, 'professor');
@@ -3574,35 +2674,20 @@ abstract class EfrontLessonUser extends EfrontUser
   return array_unique($students);
  }
  /**
-
 	 * Get user information
-
 	 *
-
 	 * This function returns the user information in an array
-
 	 *
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $info = $user -> getInformation();		 //Get lesson information
-
 	 * </code>
-
 	 *
-
 	 * @param string $user The user login to customize lesson information for
-
 	 * @return array The user information
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getInformation() {
   $languages = EfrontSystem :: getLanguages(true);
@@ -3627,33 +2712,19 @@ abstract class EfrontLessonUser extends EfrontUser
   return $info;
  }
  /**
-
 	 * Get user related users
-
 	 *
-
 	 * This function returns all users that related to this user
-
 	 * The relation depends on common lessons
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $myRelatedUsers = $user -> getRelatedUsers();		 //Get related users
-
 	 * </code>
-
 	 *
-
 	 * @return array Of related users logins
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function getRelatedUsers() {
   $myLessons = $this ->getLessons();
@@ -3662,27 +2733,16 @@ abstract class EfrontLessonUser extends EfrontUser
   return $users;
  }
  /**
-
 	 * Get the common lessons with a particular user
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $common_lessons	= $user -> getCommonLessons('joe'); // find the common lessons between this user and 'joe'
-
 	 * </code>
-
 	 *
-
 	 * @return array with pairs [lessons_id] => [lessons_id, lessons_name] referring to the common lessons of this object's user and user with login=$login
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function getCommonLessons($login) {
   $result = eF_getTableData("users_to_lessons as ul1 JOIN users_to_lessons as ul2 ON ul1.lessons_ID = ul2.lessons_ID JOIN lessons ON ul1.lessons_ID = lessons.id", "lessons.id, lessons.name", "ul1.archive=0 and ul2.archive=0 and ul1.users_LOGIN = '".$this -> user['login']."' AND ul2.users_LOGIN = '".$login."'");
@@ -3693,31 +2753,18 @@ abstract class EfrontLessonUser extends EfrontUser
   return $common_lessons;
  }
  /**
-
 	 * Get skillgap tests to do
-
 	 *
-
 	 * This function returns an array with all skill gap tests assigned to the student
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> getSkillgapTests();						   //Set the unit with id 32 in lesson 2 as seen
-
 	 * </code>
-
 	 *
-
 	 * @param No parameters
-
 	 * @return Array of tests in the form [test_id] => [id, test_name]
-
 	 * @since 3.5.2
-
 	 * @access public
-
 	 */
  public function getSkillgapTests() {
   $skillgap_tests = array();
@@ -3749,101 +2796,60 @@ abstract class EfrontLessonUser extends EfrontUser
  }
 }
 /**
-
  * Class for professor users
-
  *
-
  * @package eFront
-
  */
 class EfrontProfessor extends EfrontLessonUser
 {
  /**
-
 	 * Delete user
-
 	 *
-
 	 * This function is used to delete a user from the system.
-
 	 * The user cannot be deleted if he is the last system administrator.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> delete();
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if the user was deleted successfully
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function delete() {
   parent :: delete();
   eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
 /*
-
 		foreach ($this -> getCourses() as $id => $value) {
-
 			$cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
-
 			Cache::resetCache($cacheKey);
-
 		}
-
 */
  }
 }
 /**
-
  * Class for student users
-
  *
-
  * @package eFront
-
  */
 class EfrontStudent extends EfrontLessonUser
 {
  /**
-
 	 * Delete user
-
 	 *
-
 	 * This function is used to delete a user from the system.
-
 	 * The user cannot be deleted if he is the last system administrator.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');
-
 	 * $user -> delete();
-
 	 * </code>
-
 	 *
-
 	 * @return boolean True if the user was deleted successfully
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function delete() {
   parent :: delete();
@@ -3855,50 +2861,30 @@ class EfrontStudent extends EfrontLessonUser
   eF_deleteTableData("users_to_lessons", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("users_to_courses", "users_LOGIN='".$this -> user['login']."'");
 /*
-
 		foreach ($this -> getCourses() as $id => $value) {
-
 			$cacheKey = "user_course_status:course:".$id."user:".$this -> user['login'];
-
 			Cache::resetCache($cacheKey);
-
 		}
-
 */
   eF_deleteTableData("users_to_projects", "users_LOGIN='".$this -> user['login']."'");
   //eF_deleteTableData("users_to_done_tests",   "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("completed_tests", "users_LOGIN='".$this -> user['login']."'");
  }
  /**
-
 	 * Complete lesson
-
 	 *
-
 	 * This function is used to set the designated lesson's status
-
 	 * to 'completed' for the current user.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> completeLesson(5, 87, 'Very good progress');									  //Complete lesson with id 5
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $lesson Either the lesson id, or an EfrontLesson object
-
 	 * @param array $fields Extra fields containing the user score and any comments
-
 	 * @return boolean true if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function completeLesson($lesson, $score = 100, $comments = '') {
   if (!($lesson instanceof EfrontLesson)) {
@@ -3954,43 +2940,31 @@ class EfrontStudent extends EfrontLessonUser
   }
  }
  /**
-
 	 * Complete course
-
 	 *
-
 	 * This function is used to set the course status to completed for
-
 	 * the current user. If the course is set to automatically issue a
-
 	 * certificate, the certificate is issued.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> completeCourse(5, 87, 'Very good progress');									  //Complete course with id 5
-
 	 * </code>
-
 	 *
-
 	 * @param Efrontmixed $course Either an EfrontCourse object or a course id
-
 	 * @param int $score The course score
-
 	 * @param string $comments Comments for the course completion
-
 	 * @return boolean True if everything is ok
-
 	 */
  public function completeCourse($course, $score, $comments) {
   if (!($course instanceof EfrontCourse)) {
    $course = new EfrontCourse($course);
   }
   if (in_array($course -> course['id'], array_keys($this -> getUserCourses()))) {
+   //keep completed date when it is set (when only score changed for example)
+   $result = eF_getTableData("users_to_courses","to_timestamp","users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id']);
+   $checkCompleted = $result[0]['to_timestamp'];
    $fields = array('completed' => 1,
-       'to_timestamp' => time(),
+       'to_timestamp' => $checkCompleted != "" ? $checkCompleted :time(),
        'score' => $score,
        'comments' => $comments);
    $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];
@@ -4007,47 +2981,26 @@ class EfrontStudent extends EfrontLessonUser
   }
  }
  /**
-
 	 * Set seen unit
-
 	 *
-
 	 * This function is used to set the designated unit as seen or not seen,
-
 	 * according to $seen parameter. It also sets current unit to be the seen
-
 	 * unit, if we are setting a unit as seen. Otherwise, the current unit is
-
 	 * either leaved unchanged, or, if it matches the unset unit, it points
-
 	 * to another seen unit.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $user -> setSeenUnit(32, 2, true);						   //Set the unit with id 32 in lesson 2 as seen
-
 	 * $user -> setSeenUnit(32, 2, false);						  //Set the unit with id 32 in lesson 2 as not seen
-
 	 * </code>
-
 	 * From version 3.5.2 and above, this function also sets the lesson as completed, if the conditions are met
-
 	 *
-
 	 * @param mixed $unit The unit to set status for, can be an id or an EfrontUnit object
-
 	 * @param mixed $lesson The lesson that the unit belongs to, can be an id or an EfrontLesson object
-
 	 * @param boolean $seen Whether to set the unit as seen or not
-
 	 * @return boolean true if the lesson was completed as well
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function setSeenUnit($unit, $lesson, $seen) {
   if (isset($this -> coreAccess['content']) && $this -> coreAccess['content'] != 'change') { //If user type is not plain 'student' and is not set to 'change' mode, do nothing
@@ -4104,21 +3057,13 @@ class EfrontStudent extends EfrontLessonUser
   return $completedLesson;
  }
  /**
-
 	 * Get the next lesson in row, or in the course, if specified
-
 	 *
-
 	 * @param EfrontLesson $lesson The lesson to account
-
 	 * @param mixed $course The course to regard, or false
-
 	 * @return int The id of the next lesson in row
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function getNextLesson($lesson, $course = false) {
   $nextLesson = false;
@@ -4147,76 +3092,42 @@ class EfrontStudent extends EfrontLessonUser
  }
 }
 /**
-
  * User Factory class
-
  *
-
  * This clas is used as a factory for user objects
-
  * <br/>Example:
-
  * <code>
-
  * $user = EfrontUserFactory :: factory('jdoe');
-
  * </code>
-
  *
-
  * @package eFront
-
  * @version 3.5.0
-
  */
 class EfrontUserFactory
 {
  /**
-
 	 * Construct user object
-
 	 *
-
 	 * This function is used to construct a user object, based on the user type.
-
 	 * Specifically, it creates an EfrontStudent, EfrontProfessor, EfrontAdministrator etc
-
 	 * An optional password verification may take place, if $password is specified
-
 	 * If $user is a login name, the function queries database. Alternatively, it may
-
 	 * use a prepared user array, which is mostly convenient when having to perform
-
 	 * multiple initializations
-
 	 * <br/>Example :
-
 	 * <code>
-
 	 * $user = EfrontUserFactory :: factory('jdoe');			//Use factory function to instantiate user object with login 'jdoe'
-
 	 * $userData = eF_getTableData("users", "*", "login='jdoe'");
-
 	 * $user = EfrontUserFactory :: factory($userData[0]);	  //Use factory function to instantiate user object using prepared data
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $user A user login or an array holding user data
-
 	 * @param string $password An optional password to check against
-
 	 * @param string $forceType Force the type to initialize the user, for example for when a professor accesses student.php as student
-
 	 * @return EfrontUser an object of a class extending EfrontUser
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function factory($user, $password = false, $forceType = false) {
   if ((is_string($user) || is_numeric($user)) && eF_checkParameter($user, 'login')) {
@@ -4240,4 +3151,3 @@ class EfrontUserFactory
   return $factory;
  }
 }
-?>

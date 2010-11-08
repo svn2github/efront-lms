@@ -156,6 +156,15 @@ no_mpell:"Nem tal\u00E1ltam helyes\u00EDr\u00E1si hib\u00E1t."
 pagebreak:{
 desc:"Oldalt\u00F6r\u00E9s besz\u00FAr\u00E1sa."
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"Types",
 def:"Default",

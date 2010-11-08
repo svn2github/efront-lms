@@ -31,7 +31,7 @@
      <tr><td></td>
       <td class = "submitCell">{$T_COURSE_FORM.submit_course.html}</td></tr>
     </table>
-   </form>
+    <div onclick = "eF_js_showHideDiv(this, 'course_branches_div', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:450px;position:absolute;z-index:100;display:none" id = "course_branches_div">{$smarty.const._BRANCHES}: {$T_MORE_LOCATIONS}</div> </form>
   {/capture}
   {capture name = 't_lessons_to_courses_code'}
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'lessonsTable'}
@@ -146,7 +146,7 @@
     {assign var = "skills_block_title" value = $smarty.const._SKILLSOFFERED}
     {assign var = "course_options_title" value = $smarty.const._COURSEOPTIONSFOR}
    {/if}
-   {if $T_COURSE_INSTANCES}
+   {if sizeof($T_COURSE_INSTANCES) > 1}
    <div class = "headerTools" style = "float:right">
     {$smarty.const._JUMPTO}:
     <select onchange = "if (sel = this.options[this.options.selectedIndex].value) location='{$smarty.server.PHP_SELF}?ctg=courses&edit_course='+sel">

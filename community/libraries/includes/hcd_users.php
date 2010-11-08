@@ -92,4 +92,3 @@ if ($_SESSION['s_type'] != "administrator" && $currentEmployee -> getType() != _
   include "module_hcd.php";
  }
 }
-?>

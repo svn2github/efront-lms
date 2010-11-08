@@ -2266,6 +2266,7 @@ class EfrontContentTree extends EfrontTree
     $linkClass[] = 'inactiveLink';
     $targetLink = 'javascript:void(0)';
    }
+   $showTools = true;
    if (isset($options['noclick']) && $options['noclick']) {
                 $targetLink = 'javascript:void(0)';
    }
@@ -2329,10 +2330,13 @@ class EfrontContentTree extends EfrontTree
                 $onclick = '';
    }
             //$toolsString = '<span class = "toolsDiv" style = "position:absolute">'.$activateLink.$editLink.$deleteLink.'</span>';
-            $toolsString = '<span>'.$activateLink.$startLink.$editLink.$deleteLink.$options['custom'][$current['id']].'</span>';
-   $treeString .= '
-                <li '.$display.' class = "'.implode(" ", $liClass).'" id = "node'.$current['id'].'" noDrag = "'.$nodrag.'" noRename = "true" noDelete = "true">
-                    <a onclick = "'.$onclick.'" class = "'.(!$current['active'] ? 'treeinactive' : '').' treeLink '.implode(" ", $linkClass).'" href = "'.$targetLink.'" title = "'.$fullName.' '.implode(" ", $tooltip).'" style = "white-space:nowrap">'.$unitName." </a>&nbsp;".$toolsString;
+   $toolsString = '<span>'.$activateLink.$startLink.$editLink.$deleteLink.$options['custom'][$current['id']].'</span>';
+   if (!$showTools) {
+    unset($toolsString);
+            }
+            $treeString .= '
+                <li style = "white-space:nowrap;'.$display.'" class = "'.implode(" ", $liClass).'" id = "node'.$current['id'].'" noDrag = "'.$nodrag.'" noRename = "true" noDelete = "true">
+                    <a onclick = "'.$onclick.'" class = "'.(!$current['active'] ? 'treeinactive' : '').' treeLink '.implode(" ", $linkClass).'" href = "'.$targetLink.'" title = "'.$fullName.' '.implode(" ", $tooltip).'">'.$unitName." </a>&nbsp;".$toolsString;
             $iterator -> getDepth() > $depth ? $treeString .= '<ul>' : $treeString .= '</li>';
             for ($i = $depth; $i > $iterator -> getDepth() && $i > $initDepth; $i--) {
                 $treeString .= '</ul></li>';
@@ -2961,4 +2965,3 @@ class EfrontInArrayFilterIterator extends FilterIterator
   return in_array($this -> key(), $this -> filter);
  }
 }
-?>

@@ -56,4 +56,3 @@ $load_editor = true;
 
      include("entity.php");
  }
-?>

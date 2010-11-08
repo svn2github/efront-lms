@@ -18,7 +18,7 @@ if ($_SESSION['s_lessons_ID']) {
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="whitebg">
 <head>
  <title>{#advimage_dlg.dialog_title}</title>
  <script type="text/javascript" src="../../tiny_mce_popup.js"></script>
@@ -31,9 +31,10 @@ if ($_SESSION['s_lessons_ID']) {
 </head>
 <body id="advimage" style="display: none">
 <!--- new stuff --->
+<table><tr><td valign="top">
 {#advanced_dlg.select_file}:<br>
-<iframe name="IMGPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px;  width: 500px; height:200px; z-index:1"></iframe>
-<br/><br/>
+<iframe name="IMGPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px;  width: 450px; height:365px; z-index:1"></iframe>
+</td><td valign="top">
     <form onsubmit="ImageDialog.insert();return false;" action="#">
   <div class="tabs">
    <ul>
@@ -251,5 +252,6 @@ if ($_SESSION['s_lessons_ID']) {
    <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
   </div>
     </form>
+</td></tr></table>
 </body>
 </html>

@@ -124,4 +124,3 @@ $CURRENCYNAMES = array('USD' => 'US Dollars',
        'VEF' => 'Bolivares Fuertes',
        '000' => 'No currency symbol');
 $smarty -> assign("T_CURRENCYSYMBOLS", $CURRENCYSYMBOLS);
-?>

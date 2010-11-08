@@ -817,7 +817,7 @@ class EfrontDirectionsTree extends EfrontTree
     <div style = "padding-top:12px;padding-bottom:12px">
      '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '');
   $hideCollapseAll = $hideExpandAll = '';
-  if (isset($options['collapse']) && $options['collapse']) {
+  if (isset($options['collapse']) && $options['collapse'] || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
    $hideCollapseAll = 'style = "display:none"';
   } else {
    $hideExpandAll = 'style = "display:none"';
@@ -940,10 +940,7 @@ class EfrontDirectionsTree extends EfrontTree
   if (!isset($treeCourse -> course['from_timestamp']) || $treeCourse -> course['from_timestamp']) { //from_timestamp in user status means that the user's status in the course is not 'pending'
    $classNames = array();
    if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
-    $treeString .= '<a href = "'.($courseLink ? $href : 'javascript:void(0)').'" class = "'.$hasInstancesClass.' info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$treeCourse -> course['id'].', \'course\')">'.$treeCourse -> course['name'].'
-          <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
-          <span class = "tooltipSpan"></span>
-         </a>';
+    $treeString .= '<a href = "'.($courseLink ? $href : 'javascript:void(0)').'" class = "'.$hasInstancesClass.' info '.implode(" ", $classNames).'" url = "ask_information.php?courses_ID='.$treeCourse -> course['id'].'">'.$treeCourse -> course['name'].'</a>';
    } else {
     $courseLink ? $treeString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> course['id'].'" class = "'.$hasInstancesClass.'">'.$treeCourse -> course['name'].'</a>' : $treeString .= $treeCourse -> course['name'];
    }
@@ -963,10 +960,7 @@ class EfrontDirectionsTree extends EfrontTree
     $classNames[] = 'inactiveLink';
    }
    if ($options['tooltip'] && $GLOBALS['configuration']['disable_tooltip'] != 1) {
-    $treeString .= '<a href = "'.($lessonLink ? str_replace("#user_type#", $roleBasicType, $lessonLink).$treeLesson -> lesson['id'] : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" onmouseover = "updateInformation(this, '.$treeLesson -> lesson['id'].', \'lesson\')">'.$treeLesson -> lesson['name'].'
-             <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
-             <span class = "tooltipSpan"></span>
-            </a>';
+    $treeString .= '<a href = "'.($lessonLink ? str_replace("#user_type#", $roleBasicType, $lessonLink).$treeLesson -> lesson['id'] : 'javascript:void(0)').'" class = "info '.implode(" ", $classNames).'" url = "ask_information.php?lessons_ID='.$treeLesson -> lesson['id'].'">'.$treeLesson -> lesson['name'].'</a>';
    } else {
     $lessonLink ? $treeString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $lessonLink).$treeLesson -> lesson['id'].'">'.$treeLesson -> lesson['name'].'</a>' : $treeString .= $treeLesson -> lesson['name'];
    }
@@ -1007,7 +1001,7 @@ class EfrontDirectionsTree extends EfrontTree
    $display_lessons = 'style = "display:none"';
    $imageString = 'down';
    $classString = '';
-  } elseif (isset($options['collapse']) && $options['collapse'] == 1) {
+  } elseif (isset($options['collapse']) && $options['collapse'] == 1 || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
    $display = 'style = "display:none"';
    $display_lessons = 'style = "display:none"';
    $imageString = 'down';
@@ -1417,4 +1411,3 @@ class EfrontDirectionsTree extends EfrontTree
   return $parentsString;
  }
 }
-?>

@@ -262,7 +262,7 @@ function onUpdateLayoutPostions(el, response) {
 
 */
 function addBlock(list, block) {
- var li = new Element('li', {id:list+'_'+block}).insert(new Element('div').addClassName('layoutBlock').insert(new Element('div').update(blocks.get(block))));
+ var li = new Element('li', {id:list+'_'+block}).insert(new Element('div').addClassName('layoutBlock').insert(new Element('div').update(blocks.get(block).substring(0,50))));
  li.observe('dblclick', function (event) {if (!this.descendantOf($('toolsList'))) {$('toolsList').insert(this.remove())}}); //On double click, remove blocks frmo layout and put them in the tools list
  if (!isNaN(parseInt(block))) { //This means that this is a custom block, since for custom blocks indexes are numeric (as opposed to default blocks, which are 'login', 'online' etc)
   currentPositions.get('enabled') && currentPositions.get('enabled')[block] ? toggleImg = 'success' : toggleImg = 'forbidden';

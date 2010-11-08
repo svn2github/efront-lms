@@ -95,8 +95,12 @@ foreach ($modulesList as $key => $module) {
 
                 if (class_exists($className)) {
                     $moduleInstance = new $className($user_type.".php?ctg=module&op=".$className, $folder);
-                    if (!$moduleInstance -> diagnose($error)) {
-                        $modulesList[$key]['errors'] = $error;
+                    try {
+                     if (!$moduleInstance -> diagnose($error)) {
+                      $modulesList[$key]['errors'] = $error;
+                     }
+                    } catch (Exception $e) {
+                     $modulesList[$key]['errors'] = $e -> getMessage();
                     }
                 } else {
                     $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
@@ -308,6 +312,3 @@ $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
 $upload_form -> accept($renderer);
 
 $smarty -> assign('T_UPLOAD_FILE_FORM', $renderer -> toArray());
-
-
-?>

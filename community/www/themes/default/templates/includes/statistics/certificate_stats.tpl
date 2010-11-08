@@ -18,8 +18,8 @@
        <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export=rtf&user={$item.login}&course={$smarty.post.course_id_certificated}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/search.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
+       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$smarty.post.course_id_certificated}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
                                                                         </a>
        </td>
       </tr>
@@ -67,8 +67,8 @@
        <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export=rtf&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/search.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
+       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
                                                                         </a>
        </td>
       </tr>
@@ -115,8 +115,8 @@
        <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export=rtf&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/search.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
+       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
                                                                         </a>
        </td>
       </tr>
@@ -149,8 +149,8 @@
        <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.issued_certificate.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export=rtf&user={$item.users_LOGIN}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/search.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
+       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.users_LOGIN}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
                                                                         </a>
        </td>
       </tr>

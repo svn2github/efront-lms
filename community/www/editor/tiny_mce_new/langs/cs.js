@@ -162,6 +162,15 @@ no_mpell:"Nebyly nalezeny \u017E\u00E1dn\u00E9 chyby."
 pagebreak:{
 desc:"Vlo\u017Eit konec str\u00E1nky"
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"Typ",
 def:"V\u00FDchoz\u00ED",

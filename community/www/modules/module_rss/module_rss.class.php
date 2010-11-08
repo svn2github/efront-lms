@@ -634,4 +634,3 @@ class module_rss extends EfrontModule
   exit;
  }
 }
-?>

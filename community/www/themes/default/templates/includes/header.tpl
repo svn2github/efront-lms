@@ -19,7 +19,9 @@
 
     <script type = "text/javascript">
         var ajaxObjects = new Array();
-        top.document.title = "{if $T_CONFIGURATION.site_name}{$T_CONFIGURATION.site_name}{else}{$smarty.const._EFRONTNAME}{/if} | {if $T_TITLE_BAR}{$T_TITLE_BAR}{else}{if $T_CONFIGURATION.site_motto}{$T_CONFIGURATION.site_motto}{else}{$smarty.const._THENEWFORMOFADDITIVELEARNING}{/if}{/if}";
+        {assign var='sitename' value=$T_CONFIGURATION.site_name|replace:'"':'\"'}
+  {assign var='sitemotto' value=$T_CONFIGURATION.site_motto|replace:'"':'\"'}
+        top.document.title = "{if $T_CONFIGURATION.site_name}{$sitename}{else}{$smarty.const._EFRONTNAME}{/if} | {if $T_TITLE_BAR}{$T_TITLE_BAR}{else}{if $T_CONFIGURATION.site_motto}{$sitemotto}{else}{$smarty.const._THENEWFORMOFADDITIVELEARNING}{/if}{/if}";
         if (window.name == 'POPUP_FRAME') var popup=1;
         {if $T_BROWSER == 'IE6'}var globalImageExtension = 'gif';{else}var globalImageExtension = 'png';{/if}
 
@@ -88,6 +90,8 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 }
 {/literal}
 var translations = new Array(); //used for passing language tags to js
+
+
 </script>
 {/if}
 

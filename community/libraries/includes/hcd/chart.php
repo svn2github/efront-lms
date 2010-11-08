@@ -24,5 +24,3 @@ pr(preg_replace(array("/<li.*>/U", "/<ul.*>/U"), array("&nbsp;", "&nbsp;"), $tre
   array('text' => _PRINT, 'image' => "16x16/printer.png", 'href' => $_SESSION['s_type'].".php?ctg=module_hcd&op=chart&print=1", "onClick" => "eF_js_showDivPopup('"._PRINTCHART."', 2)", "target" => "POPUP_FRAME"));
   $smarty -> assign("T_CHART_OPTIONS",$chart_options);
  }
-
-?>

@@ -175,7 +175,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
    <td class = "to_timestamp">{if $user.has_course}#filter:timestamp_time-{$user.to_timestamp}#{/if}</td>
 {/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
-         <td class = "score">{if $course.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}#filter:score-{$course.score}#%{/if}</td>
+         <td class = "score">{if $course.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$course.user_type] == 'student')}{if $course.completed}#filter:score-{$course.score}#%{else}-{/if}{/if}</td>
 {/if}
 {if in_array('operations', $T_DATASOURCE_COLUMNS)}
    <td class = "operations">{strip}
@@ -267,7 +267,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 {if in_array('completed', $T_DATASOURCE_COLUMNS)} <td class = "topTitle completed" name = "completed">{$smarty.const._COMPLETED}</td>{/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)} <td class = "topTitle score" name = "score">{$smarty.const._SCORE}</td>{/if}
 {if in_array('operations', $T_DATASOURCE_COLUMNS)} <td class = "topTitle operations noSort">{$smarty.const._OPERATIONS}</td>{/if}
-{if in_array('has_lesson', $T_DATASOURCE_COLUMNS)} <td class = "topTitle has_lesson">{$smarty.const._STATUS}</td>{/if}
+{if in_array('has_lesson', $T_DATASOURCE_COLUMNS)} <td class = "topTitle has_lesson" name = "has_lesson">{$smarty.const._STATUS}</td>{/if}
      </tr>
   {foreach name = 'users_to_lessons_list' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
@@ -341,7 +341,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
    <td class = "score">
    {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$lesson.user_type] == 'student')}
-    #filter:score-{$lesson.score}#%
+    {if $lesson.completed}#filter:score-{$lesson.score}#%{else}-{/if}
    {/if}
    </td>
 {/if}

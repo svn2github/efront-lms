@@ -1357,7 +1357,7 @@ define("_AREYOUSUREYOUWANTTODELETEUSERTYPE","Êtes-vous sûr de vouloir supprime
 define("_SUCCESFULLYUPDATEDUSERTYPE","Le type d&#39;utilisateur a été mis à jour avec succès");//User type was updated successfully
 define("_SUCCESFULLYADDEDUSERTYPE","Le type d&#39;utilisateur a été ajouté avec succès");//User type was added successfully
 define("_USERSMANAGEMENT","Gestion des utilisateurs");//Users management
-define("_AREYOUSUREYOUWANTTODELETEUSER","Êtes-vous sûr de vouloir supprimer l&#39;utilisateur?");//Are you sure you want to delete user?
+define("_AREYOUSUREYOUWANTTODELETEUSER","Êtes-vous sûr de vouloir supprimer l\'utilisateur?");//Are you sure you want to delete user?
 define("_USERTYPEDELETED","Le type d&#39;utilisateur a été supprimé");//User type deleted
 define("_EDITUSERSCOURSE","Utilisateurs du cours");//Course users
 define("_USERDEACTIVATED","Utilisateur désactivé");//User deactivated

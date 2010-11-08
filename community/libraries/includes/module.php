@@ -11,10 +11,10 @@
             $module_nav_links = "";
             foreach ($nav_links as $link) {
                 if (isset($link['onclick'])) {
-					$module_nav_links .= '<a class="titleLink" href ="javascript:void(0)" onclick="'.$link['onclick'].'">'.$link['title'].'</a>';
-				}else {
-					$module_nav_links .= '<a class="titleLink" href ="'.$link['link'].'">'.$link['title'].'</a>';
-				}
+     $module_nav_links .= '<a class="titleLink" href ="javascript:void(0)" onclick="'.$link['onclick'].'">'.$link['title'].'</a>';
+    }else {
+     $module_nav_links .= '<a class="titleLink" href ="'.$link['link'].'">'.$link['title'].'</a>';
+    }
                 $count++;
                 if ($count < $links_size) {
                     $module_nav_links .= '&nbsp;&raquo;&nbsp;';
@@ -48,5 +48,4 @@
     } else {
         $message = _ERRORLOADINGMODULE;
         $message_type = "failure";
-    }    
-?>
+    }

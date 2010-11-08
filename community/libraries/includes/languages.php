@@ -135,4 +135,3 @@ if (!isset($currentUser -> coreAccess['languages']) || $currentUser -> coreAcces
 }
 
 $smarty -> assign("T_LANGUAGES", $languages);
-?>

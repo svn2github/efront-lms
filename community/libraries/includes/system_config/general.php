@@ -175,4 +175,3 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  }
 }
 $smarty -> assign("T_GENERAL_PHP_FORM", $generalPHPForm -> toArray());
-?>

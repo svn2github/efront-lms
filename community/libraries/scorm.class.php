@@ -719,4 +719,3 @@ class EfrontScorm
         //pr($item);
     }
 }
-?>

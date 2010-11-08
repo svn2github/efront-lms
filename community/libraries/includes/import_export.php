@@ -167,4 +167,3 @@ if ($exportForm -> isSubmitted() && $exportForm -> validate()) {
 $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
 $exportForm -> accept($renderer);
 $smarty -> assign('T_EXPORT_FORM', $renderer -> toArray());
-?>

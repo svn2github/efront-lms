@@ -128,10 +128,15 @@ try {
    foreach ($lessons as $key => $value) {
     if ($value['course_only']) {
      unset($lessons[$key]);
+    } else if (!isset($value['completed'])) { //Populate missing fields in order for sorting to work correctly
+     $lessons[$key]['completed'] = '';
+     $lessons[$key]['score'] = '';
+     $lessons[$key]['active_in_lesson'] = '';
+     $lessons[$key]['has_lesson'] = 0;
+     $lessons[$key]['user_type'] = '';
     }
    }
    $dataSource = $lessons;
-
   }
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'completed', 'score'));
@@ -150,7 +155,7 @@ try {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'active_in_course', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
     $_GET['sort'] != 'null' OR $_GET['sort'] = 'has_course';
-    $constraints = array('archive' => false, 'active' => true, 'instance' => false) + createConstraintsFromSortedTable();
+    $constraints = array('archive' => false, 'instance' => false) + createConstraintsFromSortedTable();
     $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($showUnassigned) {
@@ -187,5 +192,3 @@ try {
 } catch (Exception $e) {
  handleAjaxExceptions($e);
 }
-
-?>

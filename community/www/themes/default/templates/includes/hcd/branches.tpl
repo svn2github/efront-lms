@@ -240,7 +240,7 @@
                     {foreach name = 'lessons_list2' key = 'key' item = 'lesson' from = $T_LESSONS_DATA}
                                     <tr id = "row_{$lesson.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
                                         <td id = "column_{$lesson.id}" class = "editLink">
-            <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" {*class = "info" onmouseover = "updateInformation(this, '{$lesson.id}', 'lesson')"*}>{$lesson.name}
+            <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" >{$lesson.name}
                                   {*
                                   <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/>
                                   <span class = "tooltipSpan"></span>

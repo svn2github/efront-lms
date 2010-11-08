@@ -13,26 +13,8 @@
       </table>
  {else}
     <tr>
-{*
-<td class = "labelCell">{$smarty.const._FILTERS}:</td>
-     <td class = "filter">
-                        <select style = "vertical-align:middle" name = "user_filter" onchange = "if (this.options[this.selectedIndex].value != '') document.location='{$smarty.server.PHP_SELF}?ctg=statistics&option=course&{if (isset($smarty.get.tab))}&tab={$smarty.get.tab}{else}&tab=users{/if}&sel_course={$T_COURSE_ID}{if (isset($smarty.get.branch_filter))}&branch_filter={$smarty.get.branch_filter}{/if}{if (isset($smarty.get.group_filter))}&group_filter={$smarty.get.group_filter}{/if}&user_filter='+this.options[this.selectedIndex].value;">
-                                <option value = "1"{if !$smarty.get.user_filter || $smarty.get.user_filter == 1}selected{/if}>{$smarty.const._ACTIVEUSERS}</option>
-                                <option value = "2"{if $smarty.get.user_filter == 2}selected{/if}>{$smarty.const._INACTIVEUSERS}</option>
-                                <option value = "3"{if $smarty.get.user_filter == 3}selected{/if}>{$smarty.const._ALLUSERS}</option>
-                        </select>
-                    </td>
-
-                    <td class = "filter">
-                        <select style = "vertical-align:middle" name = "group_filter" onchange = "if (this.options[this.selectedIndex].value != '') document.location='{$smarty.server.PHP_SELF}?ctg=statistics&option=course&{if (isset($smarty.get.tab))}&tab={$smarty.get.tab}{else}&tab=users{/if}&sel_course={$T_COURSE_ID}{if (isset($smarty.get.branch_filter))}&branch_filter={$smarty.get.branch_filter}{/if}{if (isset($smarty.get.user_filter))}&user_filter={$smarty.get.user_filter}{/if}&group_filter='+this.options[this.selectedIndex].value;">
-                                <option value = "-1" class = "inactiveElement" {if !$smarty.get.group_filter}selected{/if}>{$smarty.const._SELECTGROUP}</option>
-                            {foreach name = "group_options" from = $T_GROUPS item = 'group' key='id'}
-                                <option value = "{$group.id}" {if $smarty.get.group_filter == $group.id}selected{/if}>{$group.name}</option>
-                            {/foreach}
-                        </select>
-                    </td>
-*}
                   {include file = "includes/statistics/stats_filters.tpl"}
+
                  <td id = "right">
                         {$smarty.const._EXPORTSTATS}
                         <a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=course&sel_course={$smarty.get.sel_course}&excel=1&group_filter={$smarty.get.group_filter}&branch_filter={$smarty.get.branch_filter}">
@@ -42,21 +24,8 @@
                             <img src = "images/file_types/pdf.png" title = "{$smarty.const._PDFFORMAT}" alt = "{$smarty.const._PDFFORMAT}" />
                         </a>
                     </td></tr>
-{*
-         {if $T_COURSE_HAS_INSTANCES}
-    <tr><td class = "labelCell">{$smarty.const._INSTANCE}:</td>
-     <td class = "filter" colspan = "4">
-      <select onchange = "if (sel = this.options[this.options.selectedIndex].value) location='{$smarty.server.PHP_SELF}?ctg=statistics&option=course&sel_course='+sel">
-       <option value = "{if $T_CURRENT_COURSE->course.instance_source}{$T_CURRENT_COURSE->course.instance_source}{else}{$T_CURRENT_COURSE->course.id}{/if}">{$smarty.const._PARENTCOURSE}</option>
-       <option value = "">----------------</option>
-       {foreach name = 't_course_instances_list' item = "item" key = "key" from = $T_COURSE_INSTANCES}
-       <option value = "{$key}" {if $item->course.id==$T_EDIT_COURSE->course.id}selected{/if}>{$item->course.name}</option>
-       {/foreach}
-      </select>
-                    </td></tr>
-         {/if}
-*}
          </table>
+
       <br/>
             <table class = "statisticsGeneralInfo">
                 <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
@@ -80,6 +49,7 @@
                     <td class = "elementCell">{$T_CURRENT_COURSE->course.price_string}</td></tr>
                 </tr>
    </table>
+
    {assign var = "courseUsers_url" value = "`$smarty.server.PHP_SELF`?ctg=statistics&option=course&sel_course=`$smarty.get.sel_course``$T_STATS_FILTERS_URL`&"}
    {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=statistics&option=course&sel_course=`$smarty.get.sel_course``$T_STATS_FILTERS_URL`&"}
    {assign var = "_change_handles_" value = false}
@@ -89,11 +59,15 @@
    {capture name = "t_courses_list_code"}
     {include file = "includes/common/courses_list.tpl"}
    {/capture}
+
          <div class = "tabber">
    {eF_template_printBlock tabber = "users" title=$smarty.const._USERS data = $smarty.capture.t_course_users_list_code image = '32x32/users.png'}
    {eF_template_printBlock tabber = "instances" title=$smarty.const._COURSEINSTANCES data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
    </div>
+
+
     {/if}
+
 {*
     {if $T_COURSE_USERS_STATS|@sizeof > 0 || $T_COURSE_PROFESSORS_STATS|@sizeof > 0 || $T_COURSE_LESSON_STATS|@sizeof > 0}
         <div class = "tabber">
@@ -155,6 +129,7 @@
    {/if}
             </div>
         {/if}
+
         {if $T_COURSE_LESSON_STATS|@sizeof > 0}
             <div class = "statisticsDiv tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'lessons')} tabbertabdefault{/if}" title = "{$smarty.const._LESSONS}">
                 <table class = "sortedTable">
@@ -187,6 +162,7 @@
     {/if}
 *}
     {/capture}
+
     {if $T_CURRENT_COURSE}
   {eF_template_printBlock title = "`$smarty.const._REPORTSFORCOURSE` <span class='innerTableName'>&quot;`$T_CURRENT_COURSE->course.name`&quot;</span>" data = $smarty.capture.course_statistics image = '32x32/courses.png' help = 'Reports'}
     {else}

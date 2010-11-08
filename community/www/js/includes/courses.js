@@ -1,3 +1,17 @@
+function updateCourseBranchesInformation(el, login, type) {
+
+ if (Element.extend(el).select('span.tooltipSpan')[0].empty()) {
+  url = 'ask_information.php';
+  parameters = {users_LOGIN:login, type:type, method:'get'};
+
+  s = el.select('span.tooltipSpan')[0];
+  s.setStyle({height:'50px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url("themes/default/images/others/progress1.gif")'}));
+  ajaxRequest(s, url, parameters, onUpdateCourseBranchesInformation);
+ }
+}
+function onUpdateCourseBranchesInformation(el, response) {
+ el.setStyle({height:'auto'}).update(response);
+}
 function activateCourse(el, course) {
  if (el.className.match('red')) {
      parameters = {activate_course:course, method: 'get'};

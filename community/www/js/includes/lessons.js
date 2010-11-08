@@ -139,21 +139,7 @@ function show_hide_spec(i)
     var spec = $("spec_skill_" + i);
     spec.style.visibility == "hidden" ? spec.style.visibility = "visible" : spec.style.visibility = "hidden";
 }
-function updateInformation(el, id, type) {
 
- if (Element.extend(el).select('span.tooltipSpan')[0].empty()) {
-  url = 'ask_information.php';
-  parameters = {lessons_ID:id, method:'get'};
-
-  s = el.select('span.tooltipSpan')[0];
-  s.setStyle({height:'50px'}).insert(new Element('span').addClassName('progress').setStyle({margin:'auto',background:'url("themes/default/images/others/progress1.gif")'}));
-  ajaxRequest(s, url, parameters, onUpdateInformation);
- }
-}
-function onUpdateInformation(el, response) {
- //alert(el);alert(response);
- el.setStyle({height:'auto'}).update(response);
-}
 function archiveLesson(el, lesson) {
  parameters = {archive_lesson:lesson, method: 'get'};
  var url = location.toString();

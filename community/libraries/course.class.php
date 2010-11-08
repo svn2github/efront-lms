@@ -1,31 +1,23 @@
 <?php
 /**
-
  * File for courses
-
  *
-
  * @package eFront
-
  */
+
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
  exit;
 }
+
+
 /**
-
  * Course exceptions
-
  *
-
  * This class extends Exception to provide the exceptions related to courses
-
  * @package eFront
-
  * @since 3.5.0
-
  *
-
  */
 class EfrontCourseException extends Exception
 {
@@ -39,135 +31,94 @@ class EfrontCourseException extends Exception
  const GENERAL_ERROR = 299;
  const INVALID_LOGIN = 300;
 }
+
 /**
-
  * This class represents a course in eFront
-
  *
-
  * @package eFront
-
  * @since 3.5.0
-
  */
 class EfrontCourse
 {
  /**
-
 	 * The maximum length of a course name
-
 	 *
-
 	 * @var string
-
 	 * @since 3.6.1
-
 	 */
  const MAX_NAME_LENGTH = 150;
+
  /**
-
 	 * The limit for a mass operation, such as adding users to a course
-
 	 *
-
 	 * @var int
-
 	 * @since 3.6.3
-
 	 */
  const MAX_MASS_OPERATION_SIZE = 50;
+
  /**
-
 	 * The course variable
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var array
-
 	 * @access public
-
 	 */
  public static $course = array();
+
  /**
-
 	 * The course users
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var array
-
 	 * @access public
-
 	 */
  public $users = false;
+
  /**
-
 	 * The course rules
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @var array
-
 	 * @access public
-
 	 */
  public $rules = array();
- /**
 
+ /**
 	 * Default course options
-
 	 *
-
 	 * @since 3.5.2
-
 	 * @var array
-
 	 * @access public
-
 	 */
- public $options = array('recurring' => 0,
-                            'recurring_duration' => 0,
-          'auto_complete' => 0,
-          'auto_certificate' => 0,
-          'certificate' => '',
-          'certificate_tpl_id' => 0,
- //'course_code'		 => '',
-          'duration' => 0,
-          'training_hours' => '',
-          'start_date' => '',
-       'end_date' => '');
+ public $options = array(
+    'recurring' => 0,
+    'recurring_duration' => 0,
+        'auto_complete' => 1,
+        'auto_certificate' => 0,
+        'certificate' => '',
+        'certificate_tpl_id' => 0,
+        'certificate_tpl_id_rtf' => 0,
+        'certificate_export_method' => 'xml',
+    //'course_code' => '',
+        'duration' => 0,
+        'training_hours' => '',
+        'start_date' => '',
+    'end_date' => ''
+   );
+
  /**
-
 	 * Initialize course
-
 	 *
-
 	 * This function creates the course instance based on the
-
 	 * given course id.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course = new EfrontCourse(5);       //create object for course with id 5
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $course The course id or the course array
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  function __construct($source) {
   $this -> initializeDataFromSource($source);
@@ -175,22 +126,15 @@ class EfrontCourse
   $this -> initializeOptions();
   $this -> buildPriceString();
  }
+
  /**
-
 	 * Initialize course data based on the passed parameter. If the parameter is an id, then
-
 	 * a db query takes place in order to retrive course values. Otherwise, if it's an array
-
 	 * it is used for the course values.
-
 	 *
-
 	 * @param mixed $course A course id or an array with course values
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function initializeDataFromSource($source) {
   if (is_array($source)) {
@@ -204,24 +148,19 @@ class EfrontCourse
    }
    $this -> course = $source[0];
   }
+
   if (!$this -> course['directions_ID']) {
    $this -> setCategoryId();
   }
  }
+
  /**
-
 	 * Set a category (direction) id, in case it's missing.
-
 	 * If this course is an instance, set it to be the same as the originating course. Otherwise,
-
 	 * set it to be the first active category
-
 	 *
-
 	 * @since 3.6.3
-
 	 * @access private
-
 	 */
  private function setCategoryId() {
   if ($this -> course['instance_source']) {
@@ -238,31 +177,23 @@ class EfrontCourse
    }
   }
  }
+
  /**
-
 	 * Initialize course rules, by unserializing the stored rules array
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function initializeRules() {
   $this -> validateSerializedArray($this -> course['rules']) OR $this -> course['rules'] = $this -> sanitizeSerialized($this -> course['rules']);
   $this -> rules = unserialize($this -> course['rules']);
  }
+
  /**
-
 	 * Initialize course options, by unserializing the stored options array
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function initializeOptions() {
   $this -> validateSerializedArray($this -> course['options']) OR $this -> course['options'] = $this -> sanitizeSerialized($this -> course['options']);
@@ -270,20 +201,14 @@ class EfrontCourse
   $newOptions = array_diff_key($this -> options, $options); //$newOptions are course options that were added to the EfrontCourse object AFTER the lesson options serialization took place
   $this -> options = $options + $newOptions; //Set course options
  }
+
  /**
-
 	 * Build the price string. This function takes the course price and
-
 	 * creates a human-readable version, based on whether it is a one-time
-
 	 * or a recurring price
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function buildPriceString() {
   if ($this -> validateFloat($this -> course['price'])) { //Create the string representing the course price
@@ -293,24 +218,16 @@ class EfrontCourse
    $this -> course['price_string'] = formatPrice(0);
   }
  }
+
  /**
-
 	 * Check whether the course should display in the catalog
-
 	 *
-
 	 * This function returns false if this course should not appear in the catalog at all.
-
 	 * Otherwise, it returns the id to which the catalog entry should point
-
 	 *
-
 	 * @return mixed Either false or the id of the course that the catalog entry points to
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function shouldDisplayInCatalog() {
   if ($this -> course['show_catalog']) {
@@ -327,191 +244,160 @@ class EfrontCourse
     return false;
    }
   }
+
  }
+
  /**
-
 	 * Return an array of EfrontLesson objects that belong to this course, based
-
 	 * on the specified constraints
-
 	 *
-
 	 * @param array $constraints Database constraints
-
 	 * @return array The course lessons
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function getCourseLessons($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
+
   $from = "lessons_to_courses lc, lessons l";
   $where[] = "l.archive = 0 and l.course_only=1 and l.id=lc.lessons_ID and courses_ID=".$this -> course['id'];
   $result = eF_getTableData($from, "lc.start_date, lc.end_date, lc.previous_lessons_ID, l.*",
   implode(" and ", $where), $orderby, false, $limit);
+
   $result = $this -> sortLessons($result);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
   } else {
    return EfrontCourse :: convertDatabaseResultToLessonArray($result);
   }
+
  }
+
  /**
-
 	 * Count the number of lessosn in the course, based on the specified constraings
-
 	 *
-
 	 * @param array $constraints Database constraints
-
 	 * @return int The total course lessons
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function countCourseLessons($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
   $from = "lessons_to_courses lc, lessons l";
   $where[] = "l.archive = 0 and l.id=lc.lessons_ID and courses_ID=".$this -> course['id'];
   $result = eF_countTableData($from, "l.id",
   implode(" and ", $where));
+
   return $result[0]['count'];
  }
+
  /**
-
 	 * Experimental addition based on sorted table
-
 	 */
  public function addCourseLessons($constraints = array()) {
   $lessons = $this -> getCourseLessonsIncludingUnassigned($constraints);
   $this -> addLessons($lessons);
  }
+
  /**
-
 	 * Experimental removal based on sorted table
-
 	 */
  public function removeCourseLessons($constraints = array()) {
   $lessons = $this -> getCourseLessons($constraints);
   $this -> removeLessons($lessons);
  }
+
  /**
-
 	 * Return an array of EfrontLesson objects, based on the specified constraints. If any of the lessons
-
 	 * is part of the course, then it has an extra field 'has_lesson' set to 1
-
 	 *
-
 	 * @param array $constraints Database constraints
-
 	 * @return array All the lessons, with course lessons having has_lesson=1
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function getCourseLessonsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
+
   $from = "lessons l left outer join (select lessons_ID from lessons_to_courses where courses_ID='".$this -> course['id']."') r on l.id=r.lessons_ID ";
   $select = "l.*, r.lessons_ID is not null as has_lesson";
   $where[] = "l.course_only=1";
   $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
+
   return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
  }
+
  public function countCourseLessonsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
+
   $from = "lessons l left outer join (select lessons_ID from lessons_to_courses where courses_ID='".$this -> course['id']."') r on l.id=r.lessons_ID ";
   $select = "l.id";
   $where[] = "l.course_only=1";
   $result = eF_countTableData($from, $select, implode(" and ", $where));
+
   return $result[0]['count'];
  }
+
+
  /**
-
 	 * Get the schedule for this lesson, in this course
-
 	 *
-
 	 * @param mixed $lesson The lesson to get the schedule for
-
 	 * @return array The lesson's schedule in the course
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function getLessonScheduleInCourse($lesson) {
   $lesson = EfrontLesson::convertArgumentToLessonObject($lesson);
+
   $result = eF_getTableData("lessons_to_courses", "start_date, end_date", "courses_ID=".$this -> course['id']." and lessons_ID=".$lesson -> lesson['id']);
   return $result[0];
  }
+
  /**
-
 	 * Set the schedule for this lesson, in this course.
-
 	 *
-
 	 * @param mixed $lesson The lesson to set schedule for
-
 	 * @param int $fromTimestamp A timestamp indicating when the lesson starts
-
 	 * @param int $toTimestamp A timestamp indicating when the lesson ends
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function setLessonScheduleInCourse($lesson, $fromTimestamp, $toTimestamp) {
   $lesson = EfrontLesson::convertArgumentToLessonObject($lesson);
+
   $fields = array("start_date" => $fromTimestamp, "end_date" => $toTimestamp);
   $where = "courses_ID=".$this -> course['id']." and lessons_ID=".$lesson -> lesson['id'];
   self::persistCourseLessons($fields, $where);
  }
+
  /** Unset any schedule set for this lesson, in this course
-
 	 *
-
 	 * @param mixed $lesson The lesson to get the schedule for
-
 	 * @return array The lesson's schedule in the course
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function unsetLessonScheduleInCourse($lesson) {
   $lesson = EfrontLesson::convertArgumentToLessonObject($lesson);
+
   $fields = array("start_date" => null, "end_date" => null);
   $where = "courses_ID=".$this -> course['id']." and lessons_ID=".$lesson -> lesson['id'];
   self::persistCourseLessons($fields, $where);
  }
+
  /**
-
 	 * Sort course lessons, based on the succession built-in the database, if any
-
 	 *
-
 	 * @param array $result The course lessons array, as retrieved from the database
-
 	 * @return array The course lessons array, sorted accordingly and with lesson ids as keys
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function sortLessons($result) {
   $previous = 0; //Previous is only used when no previous_lessons_ID is set
@@ -522,6 +408,7 @@ class EfrontCourse
    $value['previous_lessons_ID'] !== false ? $previousLessons[$value['previous_lessons_ID']] = $value : $previousLessons[$previous] = $value;
    $previous = $value['id'];
   }
+
   if (array_sum($previousValues)) { //The special case where all previous values are 0, which is checked by array_sum, means that there is no specific ordering
    //Sorting algorithm, based on previous_lessons_ID. The algorithm is copied from EfrontContentTree :: reset() and is the same with the one applied for content. It is also used in questions order
    $node = $count = 0;
@@ -534,6 +421,7 @@ class EfrontCourse
    }
    if (sizeof($nodes) != sizeof($courseLessons)) { //If the ordering is messed up for some reason.
     $nodes = $courseLessons;
+
     $fields = array("previous_lessons_ID" => 0);
     $where = "courses_ID=".$this -> course['id'];
     self::persistCourseLessons($fields, $where);
@@ -543,39 +431,28 @@ class EfrontCourse
   }
   return $nodes;
  }
+
  /**
-
 	 * Add lessons to course
-
 	 *
-
 	 * This function is used to add lessons to the current course
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> addLessons(4);                        //Add lesson with id 4
-
 	 * $course -> addLessons(array(4,5,6));             //Add lessons with ids 4,5,6
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $lessons Either a single lesson id, or an array of ids
-
 	 * @return array The new list of course lessons
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function addLessons($lessons) {
+
   $lessonObjects = $this -> verifyLessonsList($lessons);
   $lastLessonId = $this -> getCourseLastLesson();
   $courseUsers = $this -> getUsers();
+
   $result = eF_getTableDataFlat("lessons_to_courses", "lessons_ID", "courses_ID=".$this -> course['id']); //We don't call getCourseLessons() because we need all and every lesson, so this is faster
   foreach ($lessonObjects as $key => $lesson) {
    if (!in_array($key, $result['lessons_ID'])) {
@@ -583,80 +460,82 @@ class EfrontCourse
                                     'lessons_ID' => $key,
                   'previous_lessons_ID' => $lastLessonId));
     $this -> addCourseUsersToLesson($lesson, $courseUsers);
+
+
+
+
+
     $lastLessonId = $key;
    }
   }
+
   return EfrontCourse::convertLessonObjectsToArrays($this -> getCourseLessons());
  }
+
  /**
-
 	 * Remove lessons from course
-
 	 *
-
 	 * This function is used to reove lessons from the current course
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> removeLessons(4);                         //Remove lesson with id 4
-
 	 * $course -> removeLessons(array(4,5,6));              //Remove lessons with ids 4,5,6
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $lessons Either a single lesson id, or an array of ids
-
 	 * @return array The new list of course lessons
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function removeLessons($lessons) {
+
   $lessonObjects = $this -> verifyLessonsList($lessons);
   $previousLessons = $this -> getPreviousLessonsInCourse();
   $lessonsToCourses = $this -> countLessonsOccurencesInCourses();
+
   foreach ($lessonObjects as $key => $lesson) {
+
    $this -> removeLessonFromCourseRules($lesson);
+
    if ($lessonsToCourses[$key] == 1) { //Meaning that this lesson was only related to this course
     $lesson -> archiveLessonUsers(array_keys($this -> getUsers()));
    }
+
+
+
+
+
    eF_deleteTableData("lessons_to_courses", "courses_ID=".$this -> course['id']." and lessons_ID=".$key);
+
    $fields = array("previous_lessons_ID" => $previousLessons[$key]);
    $where = "courses_ID=".$this -> course['id']." and previous_lessons_ID=$key";
    self::persistCourseLessons($fields, $where);
   }
+
   return EfrontCourse::convertLessonObjectsToArrays($this -> getCourseLessons());
  }
+
  /**
-
 	 * This function removes a lesson from the course's rules, which are rather complicated
-
 	 *
-
 	 * @param mixed $lesson The lesson to remove from course rules
-
 	 * @since 3.6.3
-
 	 * @access private
-
 	 * @todo: Simplify course rules implementation
-
 	 */
  private function removeLessonFromCourseRules($lesson) {
   $lesson = EfrontLesson::convertArgumentToLessonObject($lesson);
+
   unset($this -> rules[$lesson]); //Unset rules that have this lesson as source
+
   foreach ($this -> rules as $id => $rule) {
    foreach ($rule['lesson'] as $key => $value) {
+
     if ($value == $lesson) {
      unset($rule['lesson'][$key]);
      unset($rule['condition'][$key+1]);
     }
+
     if (sizeof($rule['lesson']) == 0) {
      unset($this -> rules[$id]);
     } else {
@@ -681,18 +560,13 @@ class EfrontCourse
   }
   $this -> persist();
  }
+
  /**
-
 	 * For each of the course's lesson, get its previous
-
 	 *
-
 	 * @return array The id of the previous lesson, for each lesson in the course
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function getPreviousLessonsInCourse() {
   $courseLessons = $this -> getCourseLessons();
@@ -701,36 +575,28 @@ class EfrontCourse
   }
   return $previousLessons;
  }
+
  /**
-
 	 * Count how many occurences each lesson has in courses
-
 	 *
-
 	 * @return array The number of occurences in courses for each lesson
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function countLessonsOccurencesInCourses() {
   $result = eF_getTableDataFlat("lessons_to_courses lc", "lc.lessons_ID, count(lc.lessons_ID)", "", "", "lc.lessons_ID");
   $lessonsToCourses = array_combine($result['lessons_ID'], $result['count(lc.lessons_ID)']);
   return $lessonsToCourses;
  }
+
+
+
  /**
-
 	 * Get the id of the last lesson in the course
-
 	 *
-
 	 * @return int The last lesson id
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function getCourseLastLesson() {
   $lastLesson = end($this -> getCourseLessons());
@@ -741,27 +607,20 @@ class EfrontCourse
   }
   return $lastLessonId;
  }
+
  /**
-
 	 * Verify the integrity of the lessons list and convert each one to
-
 	 * an object, if it isn't already. The returned array has the lesson ids
-
 	 * as keys.
-
 	 *
-
 	 * @param mixed $lessons An array of lesson objects or lesson ids, or a single lesson, or a single lesson object
-
 	 * @return array The array of lesson objects, where keys are ids
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function verifyLessonsList($lessonsList) {
   is_array($lessonsList) OR $lessonsList = array($lessonsList);
+
   $newLessonsList = array();
   foreach ($lessonsList as $lesson) {
    ($lesson instanceof EfrontLesson) OR $lesson = new EfrontLesson($lesson);
@@ -769,29 +628,21 @@ class EfrontCourse
   }
   return $newLessonsList;
  }
+
  /**
-
 	 * Verify the integrity of the course list and convert each one to
-
 	 * an object, if it isn't already. The returned array has the courses ids
-
 	 * as keys.
-
 	 *
-
 	 * @param mixed $courses An array of course objects, course ids, or arrays with course values (or single versions of all these)
-
 	 * @return array The array of course objects, where keys are ids
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function verifyCoursesList($coursesList) {
   is_array($coursesList) OR $coursesList = array($coursesList);
+
   $newCoursesList = array();
   foreach ($coursesList as $course) {
    ($course instanceof EfrontCourse) OR $course = new EfrontCourse($course);
@@ -799,61 +650,48 @@ class EfrontCourse
   }
   return $newCoursesList;
  }
+
  /**
-
 	 * Add this course's users to the specified lesson
-
 	 *
-
 	 * @param EfrontLesson $lesson The lesson to add users to
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function addCourseUsersToLesson($lesson, $usersToAdd = false, $confirmed = true) {
   if (!$usersToAdd) {
    $usersToAdd = $this -> getUsers();
   }
   $users = $roles = array();
+
   foreach ($usersToAdd as $login => $user) {
    if ($user['user_type'] != 'administrator') {
     $users[] = $login;
     $roles[] = $user['role'];
    }
   }
+
   $lesson -> addUsers($users, $roles, $confirmed);
  }
+
  /**
-
 	 * Insert the skill corresponding to this course: Every course is mapped to a skill like "Knowledge of that course"
-
 	 * This insertion takes place when a course is changed from course_only to regular course
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> insertCourseSkill();
-
 	 * </code>
-
 	 *
-
 	 * @return the id of the newly created record in the module_hcd_course_offers_skill table or false if something went wrong
-
 	 * @since 3.6.2
-
 	 * @access public
-
 	 */
  public function insertCourseSkill() {
   // If insertion of a self-contained course add the corresponding skill
   // Insert the corresponding course skill to the skill and course_offers_skill tables
   $courseSkillId = eF_insertTableData("module_hcd_skills", array("description" => _KNOWLEDGEOFCOURSE . " ". $this -> course['name'], "categories_ID" => -1));
+
   // Insert question to course skill records for all course questions
   $questions = eF_getTableData("questions", "id", "lessons_ID in ('". implode("','", array_keys($this->getCourseLessons())) . "')");
   $insert_string = "";
@@ -864,49 +702,36 @@ class EfrontCourse
     $insert_string .= "('".$question['id']."','".$courseSkillId."',2)";
    }
   }
+
+
   if ($insert_string != "") {
    eF_executeNew("INSERT INTO questions_to_skills VALUES " . $insert_string);
   }
+
   return eF_insertTableData("module_hcd_course_offers_skill", array("courses_ID" => $this -> course['id'], "skill_ID" => $courseSkillId));
  }
+
  /**
-
 	 * Get the skill corresponding to this course: Every course is mapped to a skill like "Knowledge of that course"
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course_skill = $course -> getcourseSkill();
-
 	 * </code>
-
 	 *
-
 	 * @return An array of the form [skill_ID] => [courses_ID, description, specification,skill_ID,categories_ID]
-
 	 * @since 3.5.2
-
 	 * @access public
-
 	 */
  public function getCourseSkill() {
   return false;
  }
  /**
-
 	 * Add the lesson's questions to the course's skill
-
 	 *
-
 	 * @param EfrontLesson $lesson The lesson to retrieve questions for
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function addLessonQuestionsToCourseSkill($lesson) {
   $lessonQuestions = eF_getTableDataFlat("questions", "id", "lessons_ID = ". $lesson ->lesson['id']);
@@ -920,17 +745,11 @@ class EfrontCourse
   eF_insertTableDataMultiple("questions_to_skills", $fields);
  }
  /**
-
 	 * Remove the lesson's questions from the course's skill
-
 	 *
-
 	 * @param EfrontLesson $lesson The lesson to retrieve questions for
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function removeLessonQuestionsFromCourseSkill($lesson) {
   $lessonQuestions = eF_getTableDataFlat("questions", "id", "lessons_ID = ". $lesson ->lesson['id']);
@@ -940,35 +759,20 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Get course users
-
 	 *
-
 	 * This function is used to retrieve a list with the users
-
 	 * that have this course, along with their declared type
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> getUsers();
-
 	 * </code>
-
 	 *
-
 	 * @param boolean $returnObjects Whether to return EfrontUser Objects
-
 	 * @return array An array of users or EfrontUser objects
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo: Replace with getCourseUsersXXX()
-
 	 */
  public function getUsers($returnObjects = false, $constraints = array()) {
   if ($this -> users === false) {
@@ -987,25 +791,15 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Get the course users that are students
-
 	 *
-
 	 * This function returns all the course users that their role is a student role
-
 	 *
-
 	 * @param boolean $returnObjects Whether to return objects
-
 	 * @return mixed An array of users or EfrontUser objects
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 * @todo: Replace with getCourseUsersXXX()
-
 	 */
  public function getStudentUsers($returnObjects = false, $constraints = array()) {
   $courseUsers = $this -> getUsers($returnObjects, $constraints) OR $courseUsers = array();
@@ -1020,25 +814,15 @@ class EfrontCourse
   return $courseUsers;
  }
  /**
-
 	 * Get the course users that are professors
-
 	 *
-
 	 * This function returns all the course users that their role is a professor role
-
 	 *
-
 	 * @param boolean $returnObjects Whether to return objects
-
 	 * @return mixed An array of users or EfrontUser objects
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 * @todo: Replace with getCourseUsersXXX()
-
 	 */
  public function getProfessorUsers($returnObjects = false, $constraints = array()) {
   $courseUsers = $this -> getUsers($returnObjects, $constraints) OR $courseUsers = array();
@@ -1053,21 +837,13 @@ class EfrontCourse
   return $courseUsers;
  }
  /**
-
 	 * Check if the specified user has a 'student' role in the course
-
 	 *
-
 	 * @param mixed $user a login or an EfrontUser object
-
 	 * @return boolean True if the user's role in the course is 'student'
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 * @todo: Replace with getCourseUsersXXX()
-
 	 */
  public function isStudentInCourse($user) {
   if ($user instanceOf EfrontUser) {
@@ -1082,21 +858,13 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Check if the specified user has a 'professor' role in the course
-
 	 *
-
 	 * @param mixed $user a login or an EfrontUser object
-
 	 * @return boolean True if the user's role in the course is 'professor'
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 * @todo Implement using getCourseUsersXXX()
-
 	 */
  public function isProfessorInCourse($user) {
   if ($user instanceOf EfrontUser) {
@@ -1111,19 +879,12 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Get course users based on the specified constraints, but display results for the mother course only, in case the course has instances
-
 	 *
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return array An array of EfrontUser objects
-
 	 * @since 3.6.2
-
 	 * @access public
-
 	 */
  public function getCourseUsersAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -1134,17 +895,11 @@ class EfrontCourse
   $select = "u.*, max(score) as score, max(completed) as completed, max(to_timestamp) as to_timestamp, max(role) as role, 1 as has_course, max(active_in_course) as active_in_course, max(enrolled_on) as enrolled_on";
   $groupby = "r.users_LOGIN";
 /*
-
 #ifdef ENTERPRISE
-
 			$from   .= " left outer join module_hcd_employees e on e.users_LOGIN=u.login";
-
 			//$where[] = "e.users_LOGIN=u.login";
-
 			$select .= ",e.*, e.users_LOGIN as has_hcd";
-
 #endif
-
 */
   $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, $groupby, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
@@ -1154,19 +909,12 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Count course users based on the specified constraints, but display results for the mother course only, in case the course has instances
-
 	 *
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return int Total entries
-
 	 * @since 3.6.2
-
 	 * @access public
-
 	 */
  public function countCourseUsersAggregatingResults($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -1180,19 +928,12 @@ class EfrontCourse
   return $result[0]['count'];
  }
  /**
-
 	 * Get course users based on the specified constraints
-
 	 *
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return array An array of EfrontUser objects
-
 	 * @since 3.6.2
-
 	 * @access public
-
 	 */
  public function getCourseUsers($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -1208,17 +949,11 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Count course users based on the specified constraints
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return int Total entries
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function countCourseUsers($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -1229,21 +964,13 @@ class EfrontCourse
   return $result[0]['count'];
  }
  /**
-
 	 * Get course users based on the specified constraints, but include unassigned users as well.
-
 	 * Assigned users have the flag 'has_course' set to 1
-
 	 *
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return array An array of EfrontUser objects
-
 	 * @since 3.6.2
-
 	 * @access public
-
 	 */
  public function getCourseUsersIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -1260,17 +987,11 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Count course users based on the specified constraints, including unassigned
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return array An array of EfrontUser objects
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function countCourseUsersIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -1282,21 +1003,13 @@ class EfrontCourse
   return $result[0]['count'];
  }
  /**
-
 	 * Get course users based on the specified constraints, but include unassigned users as well. If the course
-
 	 * has instances, then propagate user status in the mother course
-
 	 *
-
 	 * @param array $constraints The constraints for the query
-
 	 * @return array An array of EfrontUser objects
-
 	 * @since 3.6.2
-
 	 * @access public
-
 	 */
  public function getCourseUsersAggregatingResultsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
@@ -1314,19 +1027,12 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Get the possible roles for a user in a course. This function caches EfrontLessonUser :: getLessonsRoles() results
-
 	 * for improved efficiency
-
 	 *
-
 	 * @return array the possible users' roles in the course
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function getPossibleCourseRoles() {
   if (!isset($this -> roles) || !$this -> roles) {
@@ -1342,17 +1048,11 @@ class EfrontCourse
   return array($where, $limit, $order);
  }
  /**
-
 	 * Initialize course users
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 * @todo remove when not needed
-
 	 */
  private function initializeUsers($constraints = array()) {
   $this -> course['total_students'] = $this -> course['total_professors'] = 0;
@@ -1374,35 +1074,20 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Get non course users
-
 	 *
-
 	 * This function is used to retrieve a list with the users
-
 	 * that can, but don't have this course
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> getNonUsers();
-
 	 * </code>
-
 	 *
-
 	 * @param boolean $returnObjects Whether to return EfrontUser Objects
-
 	 * @return array An array with user logins
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo deprecated
-
 	 */
  public function getNonUsers($returnObjects = false) {
   $subquery = "select u.*, u.user_type as basic_user_type,uc.courses_ID as has_course from users u left outer join users_to_courses uc on (uc.users_login=u.login and courses_id=".$this -> course['id']." and uc.archive != 0) where u.archive = 0 and u.active=1 and u.user_type != 'administrator'";
@@ -1415,21 +1100,13 @@ class EfrontCourse
   return $users;
  }
  /**
-
 	 * This function parses an array of users and verifies that they are
-
 	 * correct and converts it to an array if it's a single entry
-
 	 *
-
 	 * @param mixed $users The users to verify
-
 	 * @return array The array of verified users
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function verifyUsersList($users) {
   if (!is_array($users)) {
@@ -1445,27 +1122,16 @@ class EfrontCourse
   return array_values(array_unique($users)); //array_values() to reindex array
  }
  /**
-
 	 * This function parses an array of roles and verifies that they are
-
 	 * correct, converts it to an array if it's a single entry and
-
 	 * pads the array with extra values, if its length is less than the
-
 	 * desired
-
 	 *
-
 	 * @param mixed $roles The roles to verify
-
 	 * @param int $length The desired length of the roles array
-
 	 * @return array The array of verified roles
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function verifyRolesList($roles, $length) {
   if (!is_array($roles)) {
@@ -1477,19 +1143,12 @@ class EfrontCourse
   return array_values($roles); //array_values() to reindex array
  }
  /**
-
 	 * Check whether the specified role is of type 'student'
-
 	 *
-
 	 * @param mixed $role The role to check
-
 	 * @return boolean Whether it's a 'student' role
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function isStudentRole($role) {
   $courseRoles = $this -> getPossibleCourseRoles();
@@ -1500,19 +1159,12 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Check whether the specified role is of type 'professor'
-
 	 *
-
 	 * @param mixed $role The role to check
-
 	 * @return boolean Whether it's a 'professor' role
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function isProfessorRole($role) {
   $courseRoles = $this -> getPossibleCourseRoles();
@@ -1523,19 +1175,12 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Add the user in the course having the specified role
-
 	 *
-
 	 * @param string $user The user's login
-
 	 * @param mixed $roleInCourse the user's role in the course
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function addUsersToCourse($usersData, $archivedCourseUsers = false) {
   if (!$archivedCourseUsers) {
@@ -1591,19 +1236,12 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Set the user's role in the course
-
 	 *
-
 	 * @param $user The user to set the role for
-
 	 * @param $roleInCourse The role in the course
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function setUserRolesInCourse($usersData) {
   $courseUsers = $this -> getUsers();
@@ -1618,43 +1256,24 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Add users to course
-
 	 *
-
 	 * This function is used to register one or more users to the current course. A single login
-
 	 * or an array of logins may be specified
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> addUsers('joe', 'professor');         //Add the user with login 'joe' as a professor to this course
-
 	 * $users = array('joe', 'mary', 'mike');
-
 	 * $types = array('student', 'student', 'professor');
-
 	 * $course -> addUsers($users, $types);             //Add the users in the array $users with roles $types
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $login The user login name
-
 	 * @param mixed $role The user role for this course, defaults to 'student'
-
 	 * @param boolean $confirmed If false, then the registration is set to 'pending' mode and the administration must confirm it
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo deprecated
-
 	 */
  public function addUsers2($users, $roles = 'student', $confirmed = true) {
   $users = $this -> verifyUsersList($users);
@@ -1685,6 +1304,9 @@ class EfrontCourse
   return $this -> getUsers();
  }
  public function addUsers($users, $roleInCourse = 'student', $confirmed = true) {
+  if ($this -> course['supervisor_LOGIN']) {
+   $confirmed = false;
+  }
   $users = $this -> verifyUsersList($users);
   if (is_array($roleInCourse)) {
    $roleInCourse = 'student';
@@ -1707,25 +1329,15 @@ class EfrontCourse
    throw new Exception (_INVALIDUSERTYPE.': '.$roleInCourse, EfrontCourseException::INVALID_USER_TYPE);
   }
   /*This query returns an array like:
-
 +------------+------------+-------------+-----------+----------------+---------+
-
 | courses_ID | lessons_ID | users_login | user_type | from_timestamp | archive |
-
 +------------+------------+-------------+-----------+----------------+---------+
-
 |          1 |          3 | professor   | professor |     1233140503 |       0 |
-
 |          1 |          3 | elpapath    | professor |     1233140503 |       0 |
-
 |          1 |         19 | periklis3   | student   |     1280488977 |       0 |
-
 |          1 |         20 | NULL        | NULL      |           NULL |    NULL |
-
 +------------+------------+-------------+-----------+----------------+---------+
-
 		So that it contains all the course's lessons and NULL for any lesson that does not have a user assigned
-
 		*/
   $result = eF_getTableData("lessons_to_courses lc left outer join users_to_lessons ul on lc.lessons_ID=ul.lessons_ID",
           "lc.lessons_ID, ul.users_LOGIN, ul.user_type, ul.from_timestamp, ul.archive, ul.to_timestamp",
@@ -1803,36 +1415,21 @@ class EfrontCourse
   if (!empty($newLessonUsers)) {
    eF_insertTableDataMultiple("users_to_lessons", $newLessonUsers);
 /*
-
 						//$autoAssignedProjects = $this -> getAutoAssignProjects();
-
 			foreach ($autoAssignedProjects as $project) {
-
 				$project -> addUsers($newUsers);
-
 			}
-
 */
   }
  /*	if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
-
 			foreach ($newLessonUsers as $value) {
-
 				$event = array("type" 		  => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
-
 						   "users_LOGIN"  => $value['users_LOGIN'],
-
 						   "lessons_ID"   => $value['lessons_ID'],
-
 						   "lessons_name" => $this -> lesson['name']);
-
 				EfrontEvent::triggerEvent($event);
-
 			}
-
 		}
-
-
 
 */
   !isset($newUsers) ? $newUsers = array() : null;
@@ -1851,33 +1448,19 @@ class EfrontCourse
   $this -> users = false; //Reset users cache
  }
  /**
-
 	 * Remove user from course
-
 	 *
-
 	 * This function is used to remove a user from the current course
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> removeUsers('jdoe');   //Remove user with login 'jdoe'
-
 	 * </code>
-
 	 *
-
 	 * @param array $user the user login to remove
-
 	 * @return array The new list of course users
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo rename to removeUsersFromCourse
-
 	 */
  public function removeUsers($users) {
   $users = $this -> verifyUsersList($users);
@@ -1892,17 +1475,11 @@ class EfrontCourse
   return $this -> getUsers();
  }
  /**
-
 	 * This function removes users from the course lessons
-
 	 *
-
 	 * @param array $users the users to remove
-
 	 * @since 3.6.3
-
 	 * @access private
-
 	 */
  private function removeUsersFromCourseLessons($users) {
   if (sizeof($users) == 1) {
@@ -1922,33 +1499,19 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Archive user in course
-
 	 *
-
 	 * This function is used to archive a user in the current course. It's similar to removing,
-
 	 * only the user relation to the tracking data is not lost but retained
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> archiveCourseUsers('jdoe');   //Archive user with login 'jdoe'
-
 	 * </code>
-
 	 *
-
 	 * @param array $user the user login to archive
-
 	 * @return array The new list of course users
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function archiveCourseUsers($users) {
   $users = $this -> verifyUsersList($users);
@@ -1963,17 +1526,11 @@ class EfrontCourse
   return $this -> getUsers();
  }
  /**
-
 	 * This function archives the specified users in course's lessons
-
 	 *
-
 	 * @param array $users The users to archive
-
 	 * @since 3.6.3
-
 	 * @access private
-
 	 */
  private function archiveUsersInCourseLessons($users) {
   if (sizeof($users) == 1) {
@@ -1993,17 +1550,11 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Send a notification to each user that has been removed from the course
-
 	 *
-
 	 * @param array $users The users to send notification to
-
 	 * @since 3.6.3
-
 	 * @access private
-
 	 */
  private function sendNotificationsRemoveCourseUsers($users) {
   foreach ($users as $user) {
@@ -2014,33 +1565,19 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Confirm user registration
-
 	 *
-
 	 * This function is used to set the specified user's status for the current course
-
 	 * to 'available', if it was previously set to 'pending'
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course = new EfrontCourse(32);
-
 	 * $course -> confirm('jdoe');
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $login Either the user login, or an EfrontLessonUser object
-
 	 * @since 3.5.2
-
 	 * @access public
-
 	 */
  public function confirm($login) {
   $login = EfrontUser::convertArgumentToUserLogin($login);
@@ -2052,27 +1589,16 @@ class EfrontCourse
   self::persistCourseUsers($fields, $where, $this -> course['id'], $login);
  }
  /** This function is used to set the specified user's status for the current course
-
 	 * to 'pending'
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course = new EfrontCourse(32);
-
 	 * $course -> unconfirm('jdoe');
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $login Either the user login, or an EfrontLessonUser object
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function unConfirm($login) {
   $login = EfrontUser::convertArgumentToUserLogin($login);
@@ -2084,17 +1610,11 @@ class EfrontCourse
   self::persistCourseUsers($fields, $where, $this -> course['id'], $login);
  }
  /**
-
 	 * Convert the group argument to a group id
-
 	 *
-
 	 * @param mixed $group The argument to convert
-
 	 * @return int The group's id
-
 	 * @since 3.6.3
-
 	 */
  private static function convertArgumentToGroupId($group) {
   if ($group instanceof EfrontGroup) {
@@ -2105,35 +1625,20 @@ class EfrontCourse
   return $group;
  }
  /**
-
 	 * Set user roles in course
-
 	 *
-
 	 * This function sets the role for the specified user in the course
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> addUsers('jdoe', 'student');              //Added the user 'jdoe' in the lesson, having the role 'student'
-
 	 * $course -> setRoles('jdoe', 'professor');                //Updated jdoe's role to be 'professor'
-
 	 * </code>
-
 	 * Multiple values can be set if arguments are arrays
-
 	 *
-
 	 * @param mixed $users The user login name
-
 	 * @param mixed $roles The user role for this course
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function setRoles($users, $roles) {
   $users = $this -> verifyUsersList($users);
@@ -2149,29 +1654,17 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Persist stored value
-
 	 *
-
 	 * This function is used to store course values to the database
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> perist();
-
 	 * </code>
-
 	 *
-
 	 * @return boolean true if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function persist() {
   $this -> rules ? $this -> course['rules'] = serialize($this -> rules) : $this -> course['rules'] = null;
@@ -2186,17 +1679,11 @@ class EfrontCourse
   return true;
  }
  /**
-
 	 * Make sure that the course fields are valid, and sanitize properly if not
-
 	 * @param array $courseFields The course fields
-
 	 * @return array The sanitized fields
-
 	 * @since 3.6.3
-
 	 * @access private
-
 	 */
  private static function validateAndSanitizeCourseFields($courseFields) {
   $courseFields = self :: setDefaultCourseValues($courseFields);
@@ -2219,17 +1706,14 @@ class EfrontCourse
                         'certificate_expiration' => self :: validateAndSanitize($courseFields['certificate_expiration'], 'integer'),
                         'max_users' => self :: validateAndSanitize($courseFields['max_users'], 'integer'),
                         'rules' => self :: validateAndSanitize($courseFields['rules'], 'serialized'),
-            'instance_source' => self :: validateAndSanitize($courseFields['instance_source'], 'courses_foreign_key'));
+                        'supervisor_LOGIN' => self :: validateAndSanitize($courseFields['supervisor_LOGIN'], 'text'),
+      'instance_source' => self :: validateAndSanitize($courseFields['instance_source'], 'courses_foreign_key'));
   return $fields;
  }
  /**
-
 	 * Set default values for course fields
-
 	 * @param array $courseFields The current course fields
-
 	 * @return array The course fields, with default values where missing
-
 	 */
  private static function setDefaultCourseValues($courseFields) {
   $defaultValues = array('name' => '',
@@ -2251,43 +1735,27 @@ class EfrontCourse
                          'certificate_expiration' => 0,
                          'max_users' => 0,
                          'rules' => '',
+          'supervisor_LOGIN' => '',
                 'instance_source' => 0);
   return array_merge($defaultValues, $courseFields);
  }
  /**
-
 	 * Validate and sanitize parameters
-
 	 *
-
 	 * This function is used to validate and sanitize the passed parameter.
-
 	 * It accepts the $field argument and its type and validates the field argument against the
-
 	 * desired type.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> validateAndSanitize(32, 'float');	//returns 32
-
 	 * $course -> validateAndSanitize('32asd', 'integer');	//returns 32
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $field The field to validate and optionally sanitize
-
 	 * @param string $type The desired parameter type
-
 	 * @return mixed The original passed parameter, sanitized
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 */
  public static function validateAndSanitize($field, $type) {
   try {
@@ -2302,37 +1770,21 @@ class EfrontCourse
   return $field;
  }
  /**
-
 	 * Validate input based on the specified type
-
 	 *
-
 	 * This function validates the parameter value against the specified
-
 	 * type. If it does not match, an exception is thrown.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> validate(32, 'float');	//returns true
-
 	 * $course -> validate('32asd', 'integer');	//throws exception.
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $field The field to validate
-
 	 * @param string $type The desired parameter type
-
 	 * @return boolean Whether the passed parameter is valid
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 */
  public static function validate($field, $type) {
   $validParameter = true;
@@ -2418,37 +1870,21 @@ class EfrontCourse
   return $returnValue;
  }
  /**
-
 	 * Sanitize parameter
-
 	 *
-
 	 * This function is used to sanitize the passed parameter, based on the type
-
 	 * specified
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> sanitize(32, 'float');	//returns 32
-
 	 * $course -> sanitize('32asd', 'integer');	//returns 32
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $field The field to sanitize
-
 	 * @param string $type The desired parameter type
-
 	 * @return mixed The sanitized passed parameter
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 */
  public static function sanitize($field, $type) {
   switch ($type) {
@@ -2496,67 +1932,42 @@ class EfrontCourse
   return $field;
  }
  /**
-
 	 * Archive course
-
 	 *
-
 	 * This function is used to archive the course object, by setting its active status to 0 and its
-
 	 * archive status to 1. It also deactivates its instances
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> archive();	//Archives the course object
-
 	 * $course -> unarchive();	//Archives the course object and activates it as well
-
 	 * </code>
-
 	 *
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function archive() {
   $this -> course['archive'] = time();
   $this -> course['active'] = 0;
-  foreach ($this -> getInstances() as $value) {
+  foreach ($this -> getInstances(array('archive' => false)) as $value) {
    $value -> course['active'] = 0;
+   $value -> course['archive'] = time();
    $value -> persist();
   }
   $this -> persist();
  }
  /**
-
 	 * Unarchive course
-
 	 *
-
 	 * This function is used to unarchive the course object, by setting its active status to 1 and its
-
 	 * archive status to 0
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> archive();	//Archives the course object
-
 	 * $course -> unarchive();	//Archives the course object and activates it as well
-
 	 * </code>
-
 	 *
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function unarchive() {
   $this -> course['archive'] = 0;
@@ -2573,33 +1984,19 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Delete course
-
 	 *
-
 	 * This function is used to delete the current course. It also
-
 	 * removes the course from the succession information of other
-
 	 * courses
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> delete();
-
 	 * </code>
-
 	 *
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo remove from other courses succession
-
 	 */
  public function delete() {
   $this -> removeLessons(array_keys($this -> getCourseLessons()));
@@ -2613,15 +2010,10 @@ class EfrontCourse
   EfrontSearch :: removeText('courses', $this -> course['id'], '');
  }
  /**
-
 	 * Delete course instances
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function deleteCourseInstances() {
   $result = eF_getTableData("courses", "*", "instance_source=".$this -> course['id']);
@@ -2631,15 +2023,10 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Delete course lessons that where created especially for it
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function deleteUniqueLessons() {
   $result = eF_getTableData("lessons", "*", "originating_course=".$this -> course['id']);
@@ -2649,46 +2036,27 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Remove skills from course
-
 	 *
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  public function removeCourseSkills() {
  }
  /**
-
 	 * Create course instance
-
 	 *
-
 	 * This function is used to create a course instance, from the specified course source
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $instance = EfrontCourse :: createInstance(43);
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $instanceSource Either a course id or an EfrontCourse object.
-
 	 * @return EfrontCourse The new course instance
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function createInstance($instanceSource) {
   if (!($instanceSource instanceof EfrontCourse)) {
@@ -2739,33 +2107,19 @@ class EfrontCourse
  private static function assignSourceBranchToInstance($instanceSource, $instance) {
  }
  /**
-
 	 * Revoke sertificate
-
 	 *
-
 	 * This function is used to revoke the certificate for the
-
 	 * specified user.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> revokeCertificate($login);
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $login The user to revoke certificate for, either a login string or an EfrontUser object
-
 	 * @return boolean Whether the certificate was revoked successfully
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function revokeCertificate($login) {
   $login = EfrontUser::convertArgumentToUserLogin($login);
@@ -2779,35 +2133,20 @@ class EfrontCourse
   return true;
  }
  /**
-
 	 * Issue certificate for the specified user
-
 	 *
-
 	 * This function is used to issue a certificate for
-
 	 * the specified user.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $certificate = $course -> prepareCertificate('jdoe');            //Prepare the certificate for user 'jdoe'
-
 	 * $course -> issueCertificate('jdoe', $certificate);               //Issue certificate for user 'jdoe'
-
 	 * </code>
-
 	 *
-
 	 * @param string $login The login of the user to issue certificate for
-
 	 * @return boolean true if the certificate was issued successfully
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function issueCertificate($login, $certificate) {
   $login = EfrontUser::convertArgumentToUserLogin($login);
@@ -2824,33 +2163,19 @@ class EfrontCourse
   return true;
  }
  /**
-
 	 * Prepare certificate for user
-
 	 *
-
 	 * This function is used to prepare the certificate that
-
 	 * will be issued to the specified user. It returns an array with the certificate data
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $certificate = $course -> prepareCertificate('jdoe');
-
 	 * </code>
-
 	 *
-
 	 * @param string $login The user to prepare a certificate for
-
 	 * @return string The certificate data
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function prepareCertificate($login) {
   $login = EfrontUser::convertArgumentToUserLogin($login);
@@ -2867,31 +2192,18 @@ class EfrontCourse
   return $data;
  }
  /**
-
 	 * Get the course certificate
-
 	 *
-
 	 * This function is used to retrieve the certificate template
-
 	 * used in the course
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> getCertificate();                             //Retuns the lesson certificate template
-
 	 * </code>
-
 	 *
-
 	 * @return string The course certificate
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getCertificate() {
   if (!$this -> options['certificate'] && is_file(G_CURRENTTHEMEPATH."templates/certificate-".$this -> course['languages_NAME'].".tpl")) {
@@ -2904,70 +2216,40 @@ class EfrontCourse
   return $certificate;
  }
  /**
-
 	 * Set the course certificate
-
 	 *
-
 	 * This function is used to set the course certificate
-
 	 * template.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> setCertificate($certificate);
-
 	 * </code>
-
 	 *
-
 	 * @param string $certificate The course certificate template
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo check parameter
-
 	 */
  public function setCertificate($certificate) {
   $this -> options['certificate'] = $certificate;
   $this -> persist();
  }
  /**
-
 	 * Convert course to HTML list
-
 	 *
-
 	 * This function converts the course to an HTML list
-
 	 * with the lessons it contains.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> toHTML();
-
 	 * </code>
-
 	 *
-
 	 * @param array $userInfo User information to customize data for
-
 	 * @param $options Specific display options
-
 	 * @return string The HTML code of the course list
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo convert to smarty template
-
 	 */
  public function toHTML($lessons = false, $options = array()) {
   !isset($options['courses_link']) ? $options['courses_link'] = false : null;
@@ -3026,10 +2308,8 @@ class EfrontCourse
    if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
     if ($options['tooltip']) {
      $courseString .= '
-          <a href = "'.($options['courses_link'] ? str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'] : 'javascript:void(0)').'" class = "info" onmouseover = "updateInformation(this, '.$this -> course['id'].', \'course\')" >
+          <a href = "'.($options['courses_link'] ? str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'] : 'javascript:void(0)').'" class = "info" url = "ask_information.php?courses_ID='.$this -> course['id'].'" >
            <span class = "listName">'.$this -> course['name'].'</span>
-           <img class = "tooltip" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
-           <span class = "tooltipSpan"></span>
           </a>';
     } else {
      $options['courses_link'] ? $courseString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'].'">'.$courseString .= $this -> course['name'].'</a>' : $courseString .= $this -> course['name'];
@@ -3088,6 +2368,7 @@ class EfrontCourse
                                                 <img class = "handle" src = "images/16x16/success.png" title = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'" alt = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'">';
     if ($this -> course['issued_certificate']) {
      $dateTable = unserialize($this -> course['issued_certificate']);
+     $certificateExportMethod = $this->options['certificate_export_method'];
     }
    }
   }
@@ -3138,10 +2419,8 @@ class EfrontCourse
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
       $courseString .= '
        <td>
-                             <a href = "javascript:void(0)" title = "" class = "inactiveLink info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\', \''.$this -> course['id'].'\')">
+                             <a href = "javascript:void(0)" title = "" class = "inactiveLink info" url = "ask_information.php?lessons_ID='.$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'">
                               '.$lesson -> lesson['name'].'
-                              <img class = "tooltip" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
-                              <span class = "tooltipSpan"></span>
                              </a>
                             <td>';
      } else {
@@ -3180,7 +2459,7 @@ class EfrontCourse
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
       $courseString .= '
                       <td>
-                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" onmouseover = "updateInformation(this, '.$lesson -> lesson['id'].', \'lesson\', \''.$this -> course['id'].'\')" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'<img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/><span class = "tooltipSpan"></span></a>' : $lesson -> lesson['name']).'
+                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" url = "ask_information.php?lessons_ID='.$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'</a>' : $lesson -> lesson['name']).'
                                 </td>';
      } else {
       $courseString .= '
@@ -3201,31 +2480,18 @@ class EfrontCourse
   return $courseString;
  }
  /**
-
 	 * Get all branches: for the branches this course offers the course_ID value will be filled
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $branchesOfCourse = $course -> getBranches();
-
 	 * </code>
-
 	 *
-
 	 * @param $only_own set true if only the branches of this course are to be returned and not all branches
-
 	 * @return an array with branches where each record has the form [branch_ID] => [course_ID]
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 * @todo refactor
-
 	 */
  public function getBranches($only_own = false) {
   if (!isset($this -> branches) || !$this -> branches) {
@@ -3243,53 +2509,29 @@ class EfrontCourse
   return $this -> branches;
  }
  /* Return an array to be inputed as the contents of a select item
-
 	 *
-
 	 * This function is used to create a select with directions, lessons and courses
-
 	 * categorized properly under a select item
-
 	 *
-
 	 * The values of the select are:
-
 	 * course_<course_ID>		Course name
-
 	 * lesson_<course_ID>_<lesson_ID>		Lesson name
-
 	 *
-
 	 * The categorization display is the following
-
 	 * course C
-
 	 * -- lesson in C
-
 	 * -- lesson in C
-
 	 *
-
 	 * print an HTML representation of the HTML tree
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> toSelect();
-
 	 * </code>
-
 	 *
-
 	 * @return an array for inputing a categorized select for courses
-
 	 * @since 3.5.2
-
 	 * @access public
-
 	 * @todo refactor
-
 	 */
  public function toSelect() {
   $courseLessons = EfrontCourse::convertLessonObjectsToArrays($this->getCourseLessons());
@@ -3311,39 +2553,22 @@ class EfrontCourse
   return $courseArray;
  }
  /**
-
 	 * Get course information
-
 	 *
-
 	 * This function returns the course information in an array
-
 	 * with attributes: 'general_description', 'assessment',
-
 	 * 'objectives', 'lesson_topics', 'resources', 'other_info',
-
 	 * as well as other information, including professors, lessons, etc.
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $info = $course -> getInformation();         //Get course information
-
 	 * </code>
-
 	 *
-
 	 * @return array The lesson information
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo refactor
-
 	 */
  public function getInformation() {
   $information = array();
@@ -3374,35 +2599,20 @@ class EfrontCourse
   return $information;
  }
  /**
-
 	 * Export course
-
 	 *
-
 	 * This function is used to export the current course.
-
 	 * The function recurively exports() the course's lessons, and
-
 	 * then stores the course's data as well.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course = new EfrontCourse(13);						//Instantiate course with id 13
-
 	 * $exportedFile = $course -> export();					//Export course
-
 	 * </code>
-
 	 *
-
 	 * @return EfrontFile The exported file
-
 	 * @since 3.5.2
-
 	 * @access public
-
 	 */
  public function export() {
   $courseTempDir = $this -> createCourseTempDirectory();
@@ -3462,43 +2672,24 @@ class EfrontCourse
   return $file;
  }
  /**
-
 	 * Import course
-
 	 *
-
 	 * This function is used to import a previously exported course
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course = new EfrontCourse(23);					//Instantiate course with id 23
-
 	 * $file = $course -> export();						//Export course to a file
-
 	 * $newCourse = new EfrontCourse(43);				//Instantiate course with id 43
-
 	 * $newCourse -> import($file);						//Import course data from file, deleting existing lessons
-
 	 * $newCourse -> import($file, false);				//Import course data from file, retaining existing lessons
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $file An EfrontFile object or a path to a file to uncompress
-
 	 * @param boolean $removeLessons Whether to remove existing lessons from course prior to importing data
-
 	 * @param boolean $courseProperties Whether to import course properties as well
-
 	 * @return EfrontCourse The course itself
-
 	 * @since 3.5.2
-
 	 * @access public
-
 	 */
  public function import($courseFile, $removeLessons = true, $courseProperties = false) {
   $data = $this -> getCourseDataFromExportedFile($courseFile);
@@ -3513,25 +2704,15 @@ class EfrontCourse
   return $course;
  }
  /**
-
 	 * Uncompress exported file and get data
-
 	 *
-
 	 * This function uncompresses the exported course file and reads the serialized database
-
 	 * data into an array
-
 	 *
-
 	 * @param EfrontFile $file The exported file
-
 	 * @return array The serialized course data
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function getCourseDataFromExportedFile($file) {
   $fileList = $file -> uncompress();
@@ -3545,17 +2726,11 @@ class EfrontCourse
   return $data;
  }
  /**
-
 	 * Merge current course properties with exported course properties
-
 	 *
-
 	 * @param array $data The exported course data
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function mergeCourseProperties($data) {
   unset($data['courses'][0]['directions_ID']);
@@ -3566,19 +2741,12 @@ class EfrontCourse
   $this -> persist();
  }
  /**
-
 	 * Import exported lessons to course
-
 	 *
-
 	 * @param array $data The exported course data
-
 	 * @param EfrontFile $courseFile The file of the exported course
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function importLessonsToCourse($data, $courseFile) {
   $data['lessons_to_courses'] = $this -> setCorrectLessonOrder($data['lessons_to_courses']);
@@ -3611,37 +2779,21 @@ class EfrontCourse
   return $orderedLessons;
  }
  /**
-
 	 * Print a link with tooltip
-
 	 *
-
 	 * This function is used to print a course link with a popup tooltip
-
 	 * containing information on this lesson. The link must be provided
-
 	 * and optionally the information.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * echo $course -> toHTMLTooltipLink('javascript:void(0)');
-
 	 * </code>
-
 	 *
-
 	 * @param string $link The link to print
-
 	 * @param array $courseInformation The information to display (According to the EfrontCourse :: getInformation() format)
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @todo refactor
-
 	 */
  public function toHTMLTooltipLink($link, $courseInformation = false) {
   if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
@@ -3680,7 +2832,6 @@ class EfrontCourse
     $tooltipString = '
      <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
       '.$this -> course['name'].'
-      <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif" height = "15" width = "15"/>
       <span class = "tooltipSpan">'.implode("", $tooltipInfo).'</span></a>';
    } else {
     $tooltipString = '
@@ -3695,33 +2846,19 @@ class EfrontCourse
   return $tooltipString;
  }
  /**
-
 	 * Create new course
-
 	 *
-
 	 * Create a new course based on the specified $fields
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $fields = array('name' => 'new course', 'languages_NAME' => 'english');
-
 	 * $course = EfrontCourse :: createCourse($fields);
-
 	 * </code>
-
 	 *
-
 	 * @param array $fields The new fields
-
 	 * @return EfrontCourse the new course
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public static function createCourse($fields) {
   $fields['metadata'] = self::createCourseMetadata($fields);
@@ -3733,19 +2870,12 @@ class EfrontCourse
   return $course;
  }
  /**
-
 	 * Create course metadata
-
 	 *
-
 	 * @param array $fields Course properties
-
 	 * @return string Serialized representation of metadata array
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private static function createCourseMetadata($fields) {
   $languages = EfrontSystem :: getLanguages(true);
@@ -3760,53 +2890,29 @@ class EfrontCourse
   return $metadata;
  }
  /**
-
 	 * Delete course (statically)
-
 	 *
-
 	 * This function is used to delete an existing course. In order to do
-
 	 * this, it caclulates all the course dependendant elements, deletes them
-
 	 * and finally deletes the course itself. This function is the same as
-
 	 * Efrontcourse :: delete(), except that it is called statically, so it
-
 	 * instatiates first the course objects and then calls delete() on it.
-
 	 * Alternatively, $course may be already a course object.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * try {
-
 	 *   EfrontCourse :: delete(32);                     //32 is the course id
-
 	 * } catch (Exception $e) {
-
 	 *   echo $e -> getMessage();
-
 	 * }
-
 	 * </code>
-
 	 *
-
 	 * @param mixed $course The course id or a course object
-
 	 * @return boolean True if everything is ok
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @static
-
 	 * @todo remove - deprecated
-
 	 */
  public static function deleteCourse($course) {
   if (!($course instanceof EfrontCourse)) {
@@ -3815,37 +2921,21 @@ class EfrontCourse
   return $course -> delete();
  }
  /**
-
 	 * Get system courses
-
 	 *
-
 	 * This function is used used to return a list with all the system
-
 	 * lessons.
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $lessons = EFrontCourse :: getCourses();
-
 	 * </code>
-
 	 *
-
 	 * @param boolean $returnObjects whether to return EfrontCourse objects
-
 	 * @return array The lessons list
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 * @static
-
 	 * @todo deprecated
-
 	 */
  public static function getCourses($returnObjects = false) {
   //$result = eF_getTableData("courses c, directions d", "c.*, d.name as direction_name, (select count( * ) from courses l where instance_source=c.id) as has_instances", "c.directions_ID=d.id and archive=0 and instance_source=0");
@@ -3860,12 +2950,19 @@ class EfrontCourse
   $where[] = "uc.courses_ID=c.id and uc.from_timestamp=0";
   $where[] = "uc.users_LOGIN=u.login and u.archive=0";
   $result = eF_getTableData("users u, courses c, users_to_courses uc", "c.*, uc.users_LOGIN", implode(" and ", $where), $orderby, $groupby, $limit);
-  return self :: convertDatabaseResultToCourseObjects($result);
+  return $result;
+ }
+ public static function getCoursesWithPendingUsersForSupervisor($constraints = array(), $supervisor) {
+  $supervisor = EfrontUser::convertArgumentToUserLogin($supervisor);
+  list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
+  $where[] = "uc.courses_ID=c.id and uc.from_timestamp=0";
+  $where[] = "uc.users_LOGIN=u.login and u.archive=0";
+  $where[] = "c.supervisor_LOGIN='$supervisor'";
+  $result = eF_getTableData("users u, courses c, users_to_courses uc", "c.*, uc.users_LOGIN", implode(" and ", $where), $orderby, $groupby, $limit);
+  return $result;
  }
  /**
-
 	 * @todo: Return num_lessons
-
 	 */
  public static function getCoursesWithSpecificUserParticipation($constraints = array(), $login) {
   $login = EfrontUser::convertArgumentToUserLogin($login);
@@ -4004,9 +3101,7 @@ class EfrontCourse
   return $where;
  }
  /*
-
 	 * Append the tables that are used from the statistics filters to the FROM table list
-
 	 */
  public static function appendTableFiltersUserConstraints($from, $constraints) {
   if (isset($constraints['table_filters'])) {
@@ -4087,29 +3182,17 @@ class EfrontCourse
   return $limit;
  }
  /**
-
 	 * Get all skills: for the skills this course offers the courses_ID value will be filled
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $skillsOffered = $course -> getSkills();
-
 	 * </code>
-
 	 *
-
 	 * @param $only_own set true if only the skills of this course are to be returned and not all skills
-
 	 * @return an array with skills where each record has the form [skill_ID] => [courses_ID, description, specification,skill_ID,categories_ID]
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function getSkills($only_own = false) {
   if (!isset($this -> skills) || !$this -> skills) {
@@ -4127,35 +3210,20 @@ class EfrontCourse
   return $this -> skills;
  }
  /**
-
 	 * Assign a skill to this course or update an existing skill description
-
 	 *
-
 	 * This function is used to correlate a skill to the course - if the
-
 	 * course is completed then this skill is assigned to the user that completed it
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> assignSkill(2, "Beginner PHP knowledge");   // The course will offer skill with id 2 and "Beginner PHP knowledge"
-
 	 * </code>
-
 	 *
-
 	 * @param $skill_ID the id of the skill to be assigned
-
 	 * @return boolean true/false
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function assignSkill($skill_ID, $specification) {
   $this -> getSkills();
@@ -4171,35 +3239,20 @@ class EfrontCourse
   return true;
  }
  /**
-
 	 * Remove a skill that is offered from this course
-
 	 *
-
 	 * This function is used to stop the correlation of a skill to the course - if the
-
 	 * course is completed then this skill is assigned to the user that completed it
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> removeSkill(2);   // The course will stop offering skill with id 2
-
 	 * </code>
-
 	 *
-
 	 * @param $skill_ID the id of the skill to be removed from the skills to be offered list
-
 	 * @return boolean true/false
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function removeSkill($skill_ID) {
   $this -> getSkills();
@@ -4212,35 +3265,20 @@ class EfrontCourse
   return true;
  }
  /**
-
 	 * Assign a branch to this course
-
 	 *
-
 	 * This function is used to correlate a branch to the course
-
 	 * All users of the branch should be assigned to this course
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> assignBranch(2);   // The course will be assigned to branch with id 2
-
 	 * </code>
-
 	 *
-
 	 * @param $branch_ID the id of the branch to be assigned
-
 	 * @return boolean true/false
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function assignBranch($branch_ID) {
   $this -> getBranches();
@@ -4255,33 +3293,19 @@ class EfrontCourse
   return true;
  }
  /**
-
 	 * Remove association of a branch with this course
-
 	 *
-
 	 * This function is used to stop the correlation of a branch to the course
-
 	 *
-
 	 * <br/>Example:
-
 	 * <code>
-
 	 * $course -> removeBranch(2);   // The course will stop offering branch with id 2
-
 	 * </code>
-
 	 *
-
 	 * @param $branch_ID the id of the branch to be removed from the course
-
 	 * @return boolean true/false
-
 	 * @since 3.6.0
-
 	 * @access public
-
 	 */
  public function removeBranch($branch_ID) {
   $this -> getBranches();
@@ -4293,106 +3317,82 @@ class EfrontCourse
   return true;
  }
  /**
-
 	 * Get course instances
-
 	 *
-
 	 * This function is used to return the course instances, which are special courses that
-
 	 * derive from a parent course
-
 	 * <br>Example:
-
 	 * <code>
-
 	 * $course = new EfrontCourse(43);
-
 	 * $instances = $course -> getInstances();	//Return an array of EfrontCourse objects, where keys are the ids
-
 	 * </code>
-
 	 *
-
 	 * @return array An array of EfrontCourse objects
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 */
  public function getInstances($constraints = array()) {
-  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  !empty($constraints) OR $constraints = array('archive' => false);
   $constraints['instance'] = $this -> course['id'];
   $constraints['required_fields'] = array('num_students', 'num_lessons', 'num_skills', 'location');
   $courseInstances = self :: getAllCourses($constraints);
 /*
-
 #ifdef ENTERPRISE
-
 			$result 	  = eF_getTableData("module_hcd_course_to_branch cb, module_hcd_branch b", "cb.branches_ID, cb.courses_ID, b.name", "b.branch_ID=cb.branches_ID");
-
 			$branchResult = array();
-
 			foreach ($result as $value) {
-
 				$branchResult[$value['courses_ID']][$value['branches_ID']] = $value['name'];
-
 			}
-
 			foreach ($courseInstances as $key => $course) {
-
 				$courseInstances[$key] -> branches = $branchResult[$course -> course['id']];
-
 				$courseInstances[$key] -> course['branch_name'] = implode(",", $courseInstances[$key] -> branches);
-
 			}
-
 #endif
-
 */
   return $courseInstances;
  }
  /**
-
-	 * Set the lesson mode to "unique" or "shared" to the course
-
+	 * Get course instances
 	 *
-
-	 * Algorithm explanation:
-
-	 * A lesson in a course may either be "shared" or "unique".
-
-	 * "Shared" means that the very same lesson is shared across all courses that it's part of. If the lesson with id '35'
-
-	 * is part of courses A, B and C, then all of them reference the id 35.
-
-	 * "Unique" means that as soon as the lesson is set to this mode, the original lesson, with id 35, is cloned (instance) and a new lesson
-
-	 * is created, for example with id 246. This lesson is then assigned to the course. The only common with the "parent" lesson, 35,
-
-	 * is that it shares the same folder. Other than that, it's completely separated
-
-	 * When a "unique" lesson is created, then two additional fields are populated: "instance_source" and "originating_course".
-
-	 * The former indicates the lesson from which this instance was derived. The latter indicates which course it was created for.
-
-	 * This way, if we continuously change the lesson mode from shared to unique, there will not be new instances created, but the existing one
-
-	 * will be used instead
-
+	 * This function is used to return the course instances, which are special courses that
+	 * derive from a parent course
+	 * <br>Example:
+	 * <code>
+	 * $course = new EfrontCourse(43);
+	 * $instances = $course -> getInstances();	//Return an array of EfrontCourse objects, where keys are the ids
+	 * </code>
 	 *
-
-	 *
-
-	 * @param mixed $lesson An EfrontLesson or a lesson id
-
-	 * @param string $mode 'unique' or 'shared'
-
+	 * @return array An array of EfrontCourse objects
 	 * @since 3.6.1
-
 	 * @access public
-
+	 */
+ public function countCourseInstances($constraints = array()) {
+  !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
+  $constraints['instance'] = $this -> course['id'];
+  //$constraints['required_fields'] = array('num_students', 'num_lessons', 'num_skills', 'location');
+  $courseInstancesNum = self :: countAllCourses($constraints);
+  return $courseInstancesNum;
+ }
+ /**
+	 * Set the lesson mode to "unique" or "shared" to the course
+	 *
+	 * Algorithm explanation:
+	 * A lesson in a course may either be "shared" or "unique".
+	 * "Shared" means that the very same lesson is shared across all courses that it's part of. If the lesson with id '35'
+	 * is part of courses A, B and C, then all of them reference the id 35.
+	 * "Unique" means that as soon as the lesson is set to this mode, the original lesson, with id 35, is cloned (instance) and a new lesson
+	 * is created, for example with id 246. This lesson is then assigned to the course. The only common with the "parent" lesson, 35,
+	 * is that it shares the same folder. Other than that, it's completely separated
+	 * When a "unique" lesson is created, then two additional fields are populated: "instance_source" and "originating_course".
+	 * The former indicates the lesson from which this instance was derived. The latter indicates which course it was created for.
+	 * This way, if we continuously change the lesson mode from shared to unique, there will not be new instances created, but the existing one
+	 * will be used instead
+	 *
+	 *
+	 * @param mixed $lesson An EfrontLesson or a lesson id
+	 * @param string $mode 'unique' or 'shared'
+	 * @since 3.6.1
+	 * @access public
 	 */
  public function setLessonMode($lesson, $mode) {
   ($lesson instanceof EfrontLesson) OR $lesson = new EfrontLesson($lesson);
@@ -4403,17 +3403,11 @@ class EfrontCourse
   }
  }
  /**
-
 	 * Set the lesson mode to 'unique' in the course
-
 	 *
-
 	 * @param EfrontLesson $lesson The lesson to set the mode for
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function setUniqueLessonMode($lesson) {
   //First, search for any instances that where already defined for this lesson and course in the past
@@ -4430,17 +3424,11 @@ class EfrontCourse
   $this -> removeLessons($lesson);
  }
  /**
-
 	 * Set the lesson mode to 'shared' in the course
-
 	 *
-
 	 * @param EfrontLesson $lesson The lesson to set the mode for
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function setSharedLessonMode($lesson) {
   $this -> addLessons($lesson -> lesson['instance_source']);
@@ -4449,19 +3437,12 @@ class EfrontCourse
   $this -> removeLessons($lesson);
  }
  /**
-
 	 * Replace a lesson reference in rules for another lesson
-
 	 *
-
 	 * @param EfrontLesson $oldLesson The lesson to replace
-
 	 * @param EfrontLesson $newLesson The new lesson to put
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function replaceLessonInCourseRules($oldLesson, $newLesson) {
   $oldLesson = EfrontLesson::convertArgumentToLessonId($oldLesson);
@@ -4482,19 +3463,12 @@ class EfrontCourse
   $this -> persist();
  }
  /**
-
 	 * Replace a lesson reference in rules for another lesson
-
 	 *
-
 	 * @param EfrontLesson $oldLesson The lesson to replace
-
 	 * @param EfrontLesson $newLesson The new lesson to put
-
 	 * @since 3.6.1
-
 	 * @access private
-
 	 */
  private function replaceLessonInCourseOrder($oldLesson, $newLesson) {
   $oldLesson = EfrontLesson::convertArgumentToLessonId($oldLesson);
@@ -4510,21 +3484,13 @@ class EfrontCourse
   self::persistCourseLessons($fields, $where);
  }
  /**
-
 	 * Convert a course argument to a course id
-
 	 *
-
 	 * @param mixed $course The course argument, can be an id or an EfrontCourse object
-
 	 * @return int The course id
-
 	 * @since 3.6.1
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function convertArgumentToCourseId($course) {
   if ($course instanceOf EfrontCourse) {
@@ -4535,49 +3501,27 @@ class EfrontCourse
   return $course;
  }
  /**
-
 	 * Check succession rules for user
-
 	 *
-
 	 * This function checks the user's eligibility for the course lessons,
-
 	 * based on the course rules and the user's completed lessons, as well as
-
 	 * the dates that each lesson is available on.
-
 	 * <br/>Eaample:
-
 	 * <code>
-
 	 * $course = new EfrontCourse(23);
-
 	 * $eligibility = $course -> checkRules('jdoe');
-
 	 * </code>
-
 	 * In the above example, let's suppose that the course 23 has 3 lessons, with ids 1,2 and 3. Let's suppose that in order to access
-
 	 * lesson 2, the user must have completed lesson 1, and for accessing lesson 3, the user must have completed both lessons 1 and 2.
-
 	 * Then, if the user has completed lesson 1, the above example will return:
-
 	 * <code>array(2 => 1, 3 => 0);</code>
-
 	 * where if he has completed both 2 and 3 it will return:
-
 	 * <code>array(2 => 1, 3 => 1);</code>
-
 	 *
-
 	 * @param mixed $user A user login or an EfrontUser object
-
 	 * @return array The eligibility array, holding lessons ids as keys and true/false (or 0/1) as values
-
 	 * @since 3.5.0
-
 	 * @access public
-
 	 */
  public function checkRules($user, $courseLessons = false) {
   $user = EfrontUser::convertArgumentToUserLogin($user);
@@ -4620,17 +3564,11 @@ class EfrontCourse
   return $allowed;
  }
  /**
-
 	 * Check whether a lesson is part of a course
-
 	 *
-
 	 * @param mixed lesson A lesson id or an EfrontLesson object
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 */
  public function isCourseLesson($lesson) {
   $lesson = EfrontLesson::convertArgumentToLessonObject($lesson);
@@ -4638,23 +3576,14 @@ class EfrontCourse
   return !empty($result);
  }
  /**
-
 	 * Store relationship of courses to users. This function serves as a single entry point for the database,
-
 	 * to simplify caching manipulation
-
 	 *
-
 	 * @param array $fields The fields to store to the database table
-
 	 * @param string $where The WHERE clause of the query
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function persistCourseUsers($fields, $where, $courseId, $userLogin) {
   eF_updateTableData("users_to_courses", $fields, $where);
@@ -4662,23 +3591,14 @@ class EfrontCourse
   //Cache::resetCache($cacheKey);
  }
  /**
-
 	 * Store relationship of courses to lessons. This function serves as a single entry point for the database,
-
 	 * to simplify caching manipulation
-
 	 *
-
 	 * @param array $fields The fields to store to the database table
-
 	 * @param string $where The WHERE clause of the query
-
 	 * @since 3.6.3
-
 	 * @access public
-
 	 * @static
-
 	 */
  public static function persistCourseLessons($fields, $where) {
   eF_updateTableData("lessons_to_courses", $fields, $where);
@@ -4691,23 +3611,14 @@ class EfrontCourse
    unset($constraints['limit']);//This way, we preserve filter, but the operation still applies to all entries
    $this -> addCourseLessons($constraints);
    /*
-
 			 $courseLessons = $this -> getCourseLessons();
-
 			 $result = eF_getTableData("lessons", "*", "archive=0 and active=1 and course_only=1");
-
 			 $lessons = array();
-
 			 foreach ($result as $lesson) {
-
 			 $lessons[$lesson['id']] = $lesson;
-
 			 }
-
 			 isset($_GET['filter']) ? $lessons = eF_filterData($lessons, $_GET['filter']) : null;
-
 			 $this -> addLessons(array_diff(array_keys($lessons), array_keys($courseLessons)));
-
 			 */
   } else if (isset($_GET['removeAll'])) {
    //$constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
@@ -4786,4 +3697,3 @@ class EfrontCourse
   $this -> archiveCourseUsers(array_keys($users));
  }
 }
-?>

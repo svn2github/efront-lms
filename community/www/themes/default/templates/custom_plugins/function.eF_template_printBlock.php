@@ -152,9 +152,11 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
        }
       }
       //If the icons where not a factor of $params[columns'], then there are some gaps left in the table. We must fill these gaps with empty table cells
-         for ($i = $params['columns']; $i > $counter % $params['columns']; $i--) {
-             $linksString[$groupId] .= '<td></td>';
-         }
+      if ($counter % $params['columns'] > 0) {
+          for ($i = $params['columns']; $i > $counter % $params['columns']; $i--) {
+              $linksString[$groupId] .= '<td></td>';
+          }
+      }
             $linksString[$groupId] .= '</table>';
          $groupId ? $linksString[$groupId] .= '</fieldset>' : null;
      }
@@ -214,10 +216,12 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     $str = '
     <div class = "block" style = "'.$params['style'].';" id = "'.urlencode($params['title']).'" >
         <div class = "blockContents">
+         <div class = "blockHeaderTitle" onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" >
     <span class = "handles">'.$optionsString.$handleString.'</span>
           <span class = "title">'.$image.''.$params['title'].'</span>
           <span class = "subtitle">'.$params['sub_title'].'</span>
           '.$mainOptions.'
+         </div>
           <div class = "content" style = "'.$showContent.'" id = "'.urlencode($params['title']).'_content">
      '.$params['content'].'
     </div>

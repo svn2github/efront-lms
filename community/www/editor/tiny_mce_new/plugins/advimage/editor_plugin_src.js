@@ -25,8 +25,8 @@
      return;
     ed.windowManager.open({
      file : url + '/image.php',
-     width : 520 + parseInt(ed.getLang('advimage.delta_width', 0)),
-     height : 640 + parseInt(ed.getLang('advimage.delta_height', 0)),
+     width : 950 + parseInt(ed.getLang('advimage.delta_width', 0)),
+     height : 400 + parseInt(ed.getLang('advimage.delta_height', 0)),
      inline : 1
     }, {
      plugin_url : url

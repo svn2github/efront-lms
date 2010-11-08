@@ -44,13 +44,18 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == "calendarTable") {
 }
 
 
+$entityName = 'calendar';
+if ($user -> user['user_type'] == 'administrator') { //admins can edit all events
+ $legalValues = array_keys($events);
+} else {
+ $legalValues = array_keys(calendar :: getUserCalendarEvents($currentUser));
+}
+
+include("entity.php");
+
 $events = calendar :: sortCalendarEventsByTimestamp($events);
 $smarty -> assign("T_SORTED_CALENDAR_EVENTS", $events);
 
-$entityName = 'calendar';
-$legalValues = array_keys(calendar :: getUserCalendarEvents($currentUser));
-
-include("entity.php");
 
 $smarty -> assign("T_VIEW_CALENDAR", $viewCalendar);
 
@@ -59,5 +64,3 @@ $options = array(array('image' => '16x16/calendar_selection_day.png', 'title' =>
      array('image' => '16x16/calendar_selection_month.png', 'title' => _SHOWMONTHEVENTS, 'link' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&view_calendar=$viewCalendar&show_interval=month", 'selected' => ($showInterval == 'month' ? true : false)),
      array('image' => '16x16/calendar_selection_all.png', 'title' => _SHOWALLEVENTS, 'link' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&view_calendar=$viewCalendar&show_interval=all", 'selected' => ($showInterval == 'all' ? true : false)));
 $smarty -> assign("T_CALENDAR_OPTIONS", $options);
-
-?>

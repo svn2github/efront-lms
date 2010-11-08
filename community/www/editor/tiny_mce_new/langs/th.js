@@ -156,6 +156,15 @@ no_mpell:"\u0E44\u0E21\u0E48\u0E1E\u0E1A\u0E23\u0E30\u0E1A\u0E1A\u0E2A\u0E30\u0E
 pagebreak:{
 desc:"\u0E43\u0E2A\u0E48\u0E40\u0E2A\u0E49\u0E19\u0E41\u0E1A\u0E48\u0E07\u0E2B\u0E19\u0E49\u0E32"
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"Types",
 def:"Default",

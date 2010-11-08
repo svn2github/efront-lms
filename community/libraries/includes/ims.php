@@ -160,7 +160,3 @@ $smarty -> assign("T_TABLE_OPTIONS", $options);
     $smarty -> assign('T_EXPORT_IMS_FORM', $renderer -> toArray());
 
 }
-
-
-
-?>

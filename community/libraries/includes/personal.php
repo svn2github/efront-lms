@@ -171,14 +171,8 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
  } else if (isset($_GET['edit_user'])) {
   // The $editedUser object will be set here if a user is changing his own data. Otherwise, it will be created here for the user under edition
   if (!isset($editedUser)) {
-   try {
     $editedUser = EfrontUserFactory :: factory($_GET['edit_user']); //new EfrontUser();
     $editedEmployee = $editedUser -> aspects['hcd'];
-   } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
-   }
   }
  }
  $smarty -> assign("T_LOGIN", $_GET['edit_user']);
@@ -204,11 +198,19 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
    $index++;
   }
-  if ($GLOBALS['configuration']['lesson_enroll']) {
-   $tabberajaxes_array['form'] = 3;//$index++; //hard-coded
-  } else {
-   $tabberajaxes_array['form'] = 2;//$index++; //hard-coded
-  }
+/*
+
+		if ($GLOBALS['configuration']['lesson_enroll']) {
+
+			$tabberajaxes_array['form'] = 3;//$index++; //hard-coded
+
+		} else {
+
+			$tabberajaxes_array['form'] = 2;//$index++; //hard-coded
+
+		}
+
+*/
   //$tabberajaxes_array['form'] = 3;
  //pr($tabberajaxes_array);
  $smarty -> assign ("T_TABBERAJAX", $tabberajaxes_array);
@@ -966,4 +968,3 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
  }
  $smarty -> assign("T_STATISTICS_LINK", array(array('text' => _REPORTS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=user&sel_user=".$editedUser -> user['login'])));
 }
-?>

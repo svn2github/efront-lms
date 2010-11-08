@@ -42,11 +42,11 @@
     <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}">
      {assign var = "entry" value = $user[$item.column]}
      {if $item.column == $T_EDIT_LINK}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=user">
      {/if}
      {if $item.column == 'branch'}
       {if !$T_EDIT_LINK}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$user.branch_ID}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'user');">{$entry} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}
+       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$user.branch_ID}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=user">{$entry} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}
       {else}
        <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$user.branch_ID}" class = "editLink">{$entry} {if $user.sum_branch > 1}({$user.sum_branch-1} {$smarty.const._MORE}){/if}</a>
       {/if}
@@ -54,7 +54,7 @@
       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$user.job_description_ID}" class = "editLink">{$entry}</a>
      {elseif $item.column == 'course_status'}
       {if $user.count_courses}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'course_status');">
+       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.course_status}
         {if !$T_CONFIGURATION.disable_tooltip}
          <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
@@ -64,7 +64,7 @@
       {/if}
      {elseif $item.column == 'lesson_status'}
       {if $user.count_lessons}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" onmouseover = "updateInformation(this, '{$user.login}', 'course_status');">
+       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.lesson_status}
         {if !$T_CONFIGURATION.disable_tooltip}
          <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
@@ -223,8 +223,8 @@
      {*<td class = "noSort" name = "index" class = "centerAlign">{$smarty.const._INDEX}</td>*}
      <td class = "noSort" name = "condition">{$smarty.const._CONDITIONTYPE}</td>
      <td class = "noSort" name = "option">{$smarty.const._CONDITIONSPECIFICATION}</td>
-     <td class = "noSort" name = "relation">{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
-     <td class = "noSort" name = "status" class = "centerAlign">{$smarty.const._STATUS}</td>
+     <td class = "centerAlign noSort" name = "relation">{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
+     <td class = "centerAlign noSort" name = "status" class = "centerAlign">{$smarty.const._STATUS}</td>
      <td class = "centerAlign noSort">{$smarty.const._TOOLS}</td>
     </tr>
     {foreach name = 'conditions_list' item = "item" key = "key" from = $T_DATA_SOURCE}
@@ -254,12 +254,14 @@
        {$T_SKILLS[$item.option]}
       {elseif $item.condition == 'job_description'}
        {$T_JOBS[$item.option]}
+      {elseif $item.condition == 'user_type'}
+       {$T_ROLE_NAMES[$item.option]}
       {else}
        {$item.option}
       {/if}
       {if $item.from}#filter:timestamp-{$item.from}# {$smarty.const._AND} #filter:timestamp-{$item.to}#{/if}
      </td>
-     <td>{$item.relation}</td>
+     <td class = "centerAlign">{$item.relation}</td>
      <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setConditionStatus(this, '{$key}')"/></td>
      <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_condition={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCONDITION}', 3)">

@@ -32,9 +32,9 @@
    // Register commands
    ed.addCommand('mceMedia', function() {
     ed.windowManager.open({
-     file : url + '/media.htm',
-     width : 520 + parseInt(ed.getLang('media.delta_width', 0)),
-     height : 640 + parseInt(ed.getLang('media.delta_height', 0)),
+     file : url + '/media.php',
+     width : 950 + parseInt(ed.getLang('media.delta_width', 0)),
+     height : 475 + parseInt(ed.getLang('media.delta_height', 0)),
      inline : 1
     }, {
      plugin_url : url

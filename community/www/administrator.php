@@ -301,27 +301,32 @@ try {
      require_once "module.php";
  }
 
+/*
 
-    $fields_log = array ('users_LOGIN' => $_SESSION['s_login'], //This is the log entry array
-                     'timestamp' => time(),
-                     'action' => 'lastmove',
-                     'comments' => 0,
-                     'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
-//debug();
+    $fields_log = array ('users_LOGIN' => $_SESSION['s_login'],                                 //This is the log entry array
+
+                     'timestamp'   => time(),
+
+                     'action'      => 'lastmove',
+
+                     'comments'    => 0,
+
+                     'session_ip'  => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+
     eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
+
     eF_insertTableData("logs", $fields_log);
-//debug(false);
+
+*/
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
 $smarty -> assign("T_HEADER_EDITOR", $load_editor); //Specify whether we need to load the editor
-
 if (isset($_GET['refresh']) || isset($_GET['refresh_side'])) {
     $smarty -> assign("T_REFRESH_SIDE","true");
 }
-
 /*
 
  * Check if you should input the JS code to
@@ -342,29 +347,19 @@ foreach ($loadedModules as $module) {
     $loadScripts = array_merge($loadScripts, $module -> addScripts());
 }
 //Main scripts, such as prototype
-$mainScripts = array('scriptaculous/prototype',
-      'scriptaculous/scriptaculous',
-      'scriptaculous/effects',
-      'EfrontScripts',
-      'efront_ajax',
-                     'includes/events');
+$mainScripts = getMainScripts();
 $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
 //Operation/file specific scripts
 $loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates
 $smarty -> assign("T_HEADER_LOAD_SCRIPTS", implode(",", array_unique($loadScripts))); //array_unique, so it doesn't send duplicate entries
-
 $smarty -> assign("T_CURRENT_CTG", $ctg);
 $smarty -> assign("T_MENUCTG", $ctg);
 //$smarty -> assign("T_MENU", eF_getMenu());
-
 //$smarty -> assign("T_QUERIES", $numberOfQueries);
-
 $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
 $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
-
 $smarty -> assign("T_TEST_MESSAGE", 'Test Message');
-
 
 $benchmark -> set('script');
 $smarty -> display('administrator.tpl');

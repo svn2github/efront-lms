@@ -100,4 +100,3 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
 }
 
 $smarty -> assign("T_USER_WEBSERVER_AUTHENTICATION_FORM", $userWebserverAuthenticationForm -> toArray());
-?>

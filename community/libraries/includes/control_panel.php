@@ -8,14 +8,25 @@ $loadScripts[] = 'includes/control_panel';
 try {
     // Insert a record into the logs table, if a lesson has been selected
     if (!$_admin_ && isset($_SESSION['s_lessons_ID'])) {
-        $fields_log = array ('users_LOGIN' => $_SESSION['s_login'], //This is the log entry array
-                          'timestamp' => time(),
-                          'action' => 'lesson',
-                          'comments' => 0,
-                          'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']),
-                          'lessons_ID' => $_SESSION['s_lessons_ID']);
+/*
+
+        $fields_log = array ('users_LOGIN' => $_SESSION['s_login'],                                 //This is the log entry array
+
+	                         'timestamp'   => time(),
+
+	                         'action'      => 'lesson',
+
+	                         'comments'    => 0,
+
+	                         'session_ip'  => eF_encodeIP($_SERVER['REMOTE_ADDR']),
+
+	                         'lessons_ID'  => $_SESSION['s_lessons_ID']);
+
         eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
+
         eF_insertTableData("logs", $fields_log);
+
+*/
     }
     if (isset($_GET['op']) && $_GET['op'] == 'search') {
         /**Functions to perform searches*/
@@ -32,6 +43,7 @@ try {
         if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
             $personal_messages = eF_getTableData("f_personal_messages pm, f_folders ff", "pm.title, pm.id, pm.timestamp, pm.sender", "pm.users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=ff.id and ff.name='Incoming' and viewed='no'", "pm.timestamp desc limit 10"); //Get unseen messages in Incoming folder
             $smarty -> assign("T_PERSONAL_MESSAGES", $personal_messages);
+
             $personal_message_options = array(
             array('text' => _MESSAGES, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._NEWMESSAGE."', 2)", 'target' => 'POPUP_FRAME'),
             array('text' => _GOTOINBOX, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages")
@@ -54,24 +66,30 @@ try {
             $smarty -> assign("T_NEWS_OPTIONS", $newsOptions);
             $smarty -> assign("T_NEWS_LINK", basename($_SERVER['PHP_SELF'])."?ctg=news");
         }
+
         //Calendar block (Common block)
         if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden') {
             $today = getdate(time()); //Get current time in an array
             $today = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']); //Create a timestamp that is today, 00:00. this will be used in calendar for displaying today
             isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp') ? $view_calendar = $_GET['view_calendar'] : $view_calendar = $today; //If a specific calendar date is not defined in the GET, set as the current day to be today
+
             $calendarOptions = array();
             if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] == 'change') {
-                $calendarOptions[] = array('text' => _ADDCALENDAR, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&add=1&view_calendar=".$view_calendar."&popup=1", "onClick" => "eF_js_showDivPopup('"._ADDCALENDAR."', 2)", "target" => "POPUP_FRAME");
+                $calendarOptions[] = array('text' => _ADDCALENDAR, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&add=1&view_calendar=".$view_calendar."&popup=1", "onClick" => "eF_js_showDivPopup('"._ADDCALENDAR."', 3)", "target" => "POPUP_FRAME");
             }
             $calendarOptions[] = array('text' => _GOTOCALENDAR, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
+
             $smarty -> assign("T_CALENDAR_OPTIONS", $calendarOptions);
             $smarty -> assign("T_CALENDAR_LINK", basename($_SERVER['PHP_SELF'])."?ctg=calendar");
             isset($_GET['add_another']) ? $smarty -> assign('T_ADD_ANOTHER', "1") : null;
+
             $events = calendar :: getCalendarEventsForUser($currentUser);
    $events = calendar :: sortCalendarEventsByTimestamp($events);
+
             $smarty -> assign("T_CALENDAR_EVENTS", $events); //Assign events and specific day timestamp to smarty, to be used from calendar
             $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
         }
+
         //Admin specific blocks
         if ($_admin_) {
             //New users block (Admin block)
@@ -84,15 +102,17 @@ try {
             if (!isset($currentUser -> coreAccess['lessons']) || $currentUser -> coreAccess['lessons'] != 'hidden') {
                 $lessons = eF_getTableData("users_to_lessons ul, lessons l, users u", "DISTINCT users_LOGIN,  count(lessons_ID) AS count", "ul.users_LOGIN=u.login and u.archive=0 and ul.archive=0 and l.archive=0 and ul.lessons_ID = l.id and l.course_only = 0 and ul.from_timestamp=0", "", "users_LOGIN"); //Get the new lesson registrations
                 $smarty -> assign("T_NEW_LESSONS", $lessons); //Assign the list to smarty, to be displayed at the first page
+
                 $constraints = array('archive' => false, 'active' => true);
                 $courses = EfrontCourse :: getCoursesWithPendingUsers($constraints);
                 $smarty -> assign("T_NEW_COURSES", $courses); //Assign the list to smarty, to be displayed at the first page
             }
         }
+
         //Professor and student common blocks
         if ($_professor_ || $_student_) {
             //Projects block
-            if ($currentLesson -> options['projects']) {
+            if ($currentLesson -> options['projects'] && $GLOBALS['configuration']['disable_projects'] != 1) {
                 if ($_professor_) {
                     $result = eF_getTableData("users_to_projects as up,projects as p", "p.title,p.id,up.users_LOGIN,up.upload_timestamp", "p.lessons_ID=".$_SESSION['s_lessons_ID']." and p.id=up.projects_ID and filename!=''","up.upload_timestamp desc");
                     foreach ($result as $value) {
@@ -112,6 +132,7 @@ try {
                 $smarty -> assign("T_PROJECTS_OPTIONS",$projectOptions);
                 $smarty -> assign("T_PROJECTS_LINK",basename($_SERVER['PHP_SELF'])."?ctg=projects");
             }
+
             //New forum messages block
             if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
                 //changed  l.name as show_lessons_name to l.name as lessons_name
@@ -119,6 +140,7 @@ try {
                 $forum_lessons_ID = eF_getTableData("f_forums", "id", "lessons_ID=".$_SESSION['s_lessons_ID']);
                 $smarty -> assign("T_FORUM_MESSAGES", $forum_messages);
                 $smarty -> assign("T_FORUM_LESSONS_ID", $forum_lessons_ID[0]['id']);
+
                 $forumOptions = array();
                 if ($forum_lessons_ID[0]['id']) {
                     if (!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] == 'change') {
@@ -126,9 +148,11 @@ try {
                     }
                 }
                 $forumOptions[] = (array('text' => _GOTOFORUM, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum"));
+
                 $smarty -> assign("T_FORUM_OPTIONS", $forumOptions);
                 $smarty -> assign("T_FORUM_LINK", basename($_SERVER['PHP_SELF'])."?ctg=forum&forum=".$forum_lessons_ID[0]['id']);
             }
+
             //Comments block
             if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] != 'hidden') {
                 $comments = comments :: getComments(false, false, false, 5);
@@ -141,7 +165,7 @@ try {
             if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] != 'hidden') {
                 $testIds = $currentLesson -> getTests(false, true);
                 if (sizeof($testIds) > 0) {
-                    $result = eF_getTableData("completed_tests ct, tests t", "ct.*, ct.id, ct.users_LOGIN, ct.timestamp, ct.status, t.name", "ct.status != 'deleted' and ct.pending=1 and ct.status != 'incomplete' and ct.archive = 0 and ct.tests_ID = t.id and ct.tests_ID in (".implode(",", $testIds).")", "", "ct.timestamp DESC limit 10");
+                    $result = eF_getTableData("completed_tests ct, tests t", "ct.id, ct.users_LOGIN, ct.timestamp, ct.status, t.name", "ct.status != 'deleted' and ct.pending=1 and ct.status != 'incomplete' and ct.archive = 0 and ct.tests_ID = t.id and ct.tests_ID in (".implode(",", $testIds).")", "", "ct.timestamp DESC limit 10");
                     $smarty -> assign("T_COMPLETED_TESTS", $result);
                 }
             }
@@ -360,8 +384,8 @@ try {
                 ($currentLesson -> options['projects'] && $GLOBALS['configuration']['disable_projects'] != 1) ? $controlPanelOptions[2] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects") : null;
                 ($currentLesson -> options['tests'] && $GLOBALS['configuration']['disable_tests'] != 1) ? $controlPanelOptions[3] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=tests") : null;
                 $currentLesson -> options['rules'] ? $controlPanelOptions[10] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=rules") : null;
-    $currentLesson -> options['scorm'] ? $controlPanelOptions[18] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scorm") : null;
-                $currentLesson -> options ? $controlPanelOptions[22] = array('text' => _IMS, 'image' => "32x32/autocomplete.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=ims") : null;
+    $currentLesson -> options['scorm'] ? $controlPanelOptions[19] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scorm") : null;
+                $currentLesson -> options ? $controlPanelOptions[21] = array('text' => _IMS, 'image' => "32x32/autocomplete.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=ims") : null;
             }
             if ($currentUser -> coreAccess['glossary'] != 'hidden' && $GLOBALS['configuration']['disable_glossary'] != 1) {
                 $currentLesson -> options['glossary'] ? $controlPanelOptions[11] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=glossary") : null;
@@ -376,7 +400,7 @@ try {
                 $controlPanelOptions[17] = array('text' => _FILES, 'image' => "32x32/file_explorer.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=file_manager");
             }
             if ($currentUser -> coreAccess['settings'] != 'hidden') {
-                $controlPanelOptions[20] = array('text' => _LESSONSETTINGS, 'image' => "32x32/tools.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=settings");
+                $controlPanelOptions[23] = array('text' => _LESSONSETTINGS, 'image' => "32x32/tools.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=settings");
             }
    if ($currentUser -> coreAccess['feedback'] != 'hidden' && $GLOBALS['configuration']['disable_feedback'] != 1) {
                     $currentLesson -> options['feedback'] ? $controlPanelOptions[9] = array('text' => _FEEDBACK, 'image' => "32x32/feedback.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=feedback") : null;
@@ -386,7 +410,7 @@ try {
             }
             if ($currentUser -> coreAccess['forum'] != 'hidden' && $GLOBALS['configuration']['disable_forum'] != 1) {
                 $resultForum = eF_getTableData("f_forums","id","lessons_ID=".$_SESSION['s_lessons_ID']);
-                $currentLesson -> options['forum'] ? $controlPanelOptions[19] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum&forum=".$resultForum[0]['id']) : null;
+                $currentLesson -> options['forum'] ? $controlPanelOptions[18] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum&forum=".$resultForum[0]['id']) : null;
             }
             if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
                 $controlPanelOptions[6] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
@@ -415,7 +439,7 @@ try {
                 $controlPanelOptions[] = $option;
                 $headerOptions[] = $option;
             }
-            if ($currentLesson -> options['projects'] && sizeof($projectsInControlPanel) > 0) {
+            if ($currentLesson -> options['projects'] && $GLOBALS['configuration']['disable_projects'] != 1 && sizeof($projectsInControlPanel) > 0) {
              $controlPanelOptions[] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects");
             }
             if ($currentLesson -> options['show_student_cpanel']) {

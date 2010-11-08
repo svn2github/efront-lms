@@ -24,7 +24,7 @@
   init : function(ed, url) {
    var t = this, last = 0;
    t.countre = ed.getParam('wordcount_countregex', /\S\s+/g);
-   t.cleanre = ed.getParam('wordcount_cleanregex', /[0-9.(),;:!?%#$¿'"_+=\\/-]*/g);
+   t.cleanre = ed.getParam('wordcount_cleanregex', /[0-9.(),;:!?%#$¿'"_+=\\\/-]*/g);
    t.id = ed.id + '-word-count';
    ed.onPostRender.add(function(ed, cm) {
     var row, id;

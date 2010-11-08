@@ -46,13 +46,16 @@
                                         {$T_EXPORT_LESSON_FORM.javascript}
                                         <form {$T_EXPORT_LESSON_FORM.attributes}>
                                             {$T_EXPORT_LESSON_FORM.hidden}
-                                            <table class = "formElements" style = "margin-left:0px"> {if $T_NEW_EXPORTED_FILE}
+                                            <table class = "formElements" style = "margin-left:0px">
+          {if $T_NEW_EXPORTED_FILE}
                                                 <tr><td colspan = "2">{$smarty.const._DOWNLOADEXPORTED}:&nbsp; <a href = "view_file.php?file={$T_NEW_EXPORTED_FILE.id}&action=download">{$T_NEW_EXPORTED_FILE.name}</a> ({$T_NEW_EXPORTED_FILE.size} {$smarty.const.KB}, #filter:timestamp-{$T_NEW_EXPORTED_FILE.timestamp}#)</td></tr>
                                         {elseif $T_EXPORTED_FILE}
                                                 <tr><td colspan = "2">{$smarty.const._EXISTINGFILE}:&nbsp;<a href = "view_file.php?file={$T_EXPORTED_FILE.id}&action=download">{$T_EXPORTED_FILE.name}</a> ({$T_EXPORTED_FILE.size} {$smarty.const.KB}, #filter:timestamp-{$T_EXPORTED_FILE.timestamp}#)</td></tr>
                                         {/if}
+                                                <tr><td class = "labelCell">{$T_EXPORT_LESSON_FORM.export_files.label}:&nbsp;</td>
+                                                 <td class = "elementCell">{$T_EXPORT_LESSON_FORM.export_files.html}</td></tr>
                                                 <tr><td class = "labelCell">{$smarty.const._CLICKTOEXPORT}:&nbsp;</td>
-                                                    <td class = "elementCell">{$T_EXPORT_LESSON_FORM.submit_export_lesson.html}</td></tr>
+                                                    <td class = "submitCell">{$T_EXPORT_LESSON_FORM.submit_export_lesson.html}</td></tr>
                                             </table>
                                         </form>
                                         </fieldset>

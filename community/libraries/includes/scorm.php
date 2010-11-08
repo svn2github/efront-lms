@@ -279,6 +279,3 @@ if ($_GET['scorm_review']) {
 //$scormOptions[] = array('text' => _SCORMEXPORT,       'image' => "32x32/export.png",         'href' => "scorm_export.php?lessons_ID=".$_SESSION['s_lessons_ID'], 'onClick' => "eF_js_showDivPopup('"._SCORMEXPORT."',     2)", 'target' => 'POPUP_FRAME');
 //$scormOptions[] = array('text' => _SCORMIMPORT,       'image' => "32x32/import.png",         'href' => "scorm_import.php?lessons_ID=".$_SESSION['s_lessons_ID'], 'onClick' => "eF_js_showDivPopup('"._SCORMIMPORT."',     2)", 'target' => 'POPUP_FRAME');
 //$scormOptions[] = array('text' => _REVIEWSCORMDATA,   'image' => "32x32/unit.png",   'href' => "scorm_review.php?lessons_ID=".$_SESSION['s_lessons_ID'], 'onClick' => "eF_js_showDivPopup('"._REVIEWSCORMDATA."', 2)", 'target' => 'POPUP_FRAME');
-
-
-?>

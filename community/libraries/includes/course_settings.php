@@ -11,7 +11,7 @@ if (isset($currentUser -> coreAccess['course_settings']) && $currentUser -> core
 $loadScripts[] = 'includes/course_settings';
 
 $options = array(array('image' => '16x16/information.png', 'title' => _INFORMATION, 'link' => $_GET['op'] != 'course_info' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_info' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_info' ? false : true));
-$options[] = array('image' => '16x16/autocomplete.png', 'title' => _COMPLETION, 'link' => $_GET['op'] != 'course_certificate' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_certificates' ? false : true);
+$options[] = array('image' => '16x16/autocomplete.png', 'title' => _COMPLETION, 'link' => $_GET['op'] != 'course_certificate' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates' : 'javascript:void(0)', 'selected' => ($_GET['op'] != 'course_certificates' && $_GET['op'] != 'format_certificate' && $_GET['op'] != 'format_certificate_docx') ? false : true);
 $options[] = array('image' => '16x16/rules.png', 'title' => _RULES, 'link' => $_GET['op'] != 'course_rules' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_rules' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_rules' ? false : true);
 $options[] = array('image' => '16x16/order.png', 'title' => _ORDER, 'link' => $_GET['op'] != 'course_order' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_order' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_order' ? false : true);
 $options[] = array('image' => '16x16/calendar.png', 'title' => _SCHEDULING, 'link' => $_GET['op'] != 'course_scheduling' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_scheduling' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_scheduling' ? false : true);
@@ -72,12 +72,10 @@ if ($_GET['op'] == 'course_info') {
   $defaultConstraints = array('active' => true, 'instance' => false);
   //$users = $currentCourse -> getCourseUsers($constraints);
 
+  $smarty->assign('T_CERTIFICATE_EXPORT_METHOD', $currentCourse->options['certificate_export_method']);
 /*
-
 		$users = EfrontStats::getUsersCourseStatus($currentCourse);
-
 		$users = $users[$currentCourse -> course['id']];
-
 */
   $rolesBasic = EfrontLessonUser :: getLessonsRoles();
   $studentRoles = array();
@@ -90,13 +88,16 @@ if ($_GET['op'] == 'course_info') {
    //pr($user -> getUserLessons());exit;
    $form = new HTML_QuickForm("edit_user_complete_course_form", "post", basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates&edit_user='.$_GET['edit_user'].'&popup=1', "", null, true);
    $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
+
    $form -> addElement('advcheckbox', 'completed', _COMPLETED, null, 'class = "inputCheckbox"'); //Whether the user has completed the course
    $form -> addElement('text', 'score', _SCORE, 'class = "inputTextScore"'); //The user course score
    $form -> addRule('score', _THEFIELD.' "'._SCORE.'" '._ISMANDATORY, 'required', null, 'client');
    $form -> addRule('score', _THEFIELD.' "'._SCORE.'" '._MUSTBENUMERIC, 'numeric', null, 'client'); //The score must be numeric
    $form -> addRule('score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
+
    $form -> addElement('textarea', 'comments', _COMMENTS, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:5em;"'); //Comments on student's performance
    $form -> addElement('submit', 'submit_course_complete', _SUBMIT, 'class = "flatButton"'); //The submit button
+
    //pr($currentCourse -> getCourseLessons());exit;
    $userCourseLessonsStatus = $user -> getUserStatusInCourseLessons($currentCourse);
    $totalScore = 0;
@@ -261,11 +262,11 @@ if ($_GET['op'] == 'course_info') {
    if (sizeof($result) == 1 || isset($_GET['preview'])) {
     $course = new EfrontCourse($_GET['course']);
     if (!isset($_GET['preview'])){
-     $certificate_tpl_id = $course -> options['certificate_tpl_id'];
-     if ($certificate_tpl_id <= 0) {
+     $certificate_tpl_id_rtf = $course -> options['certificate_tpl_id_rtf'];
+     if ($certificate_tpl_id_rtf <= 0) {
       $cfile = new EfrontFile(G_CERTIFICATETEMPLATEPATH."certificate1.rtf");
      } else {
-      $cfile = new EfrontFile($certificate_tpl_id);
+      $cfile = new EfrontFile($certificate_tpl_id_rtf);
      }
      $template_data = file_get_contents($cfile['path']);
      $issued_data = unserialize($result[0]['issued_certificate']);
@@ -304,7 +305,7 @@ if ($_GET['op'] == 'course_info') {
     }
     if ($retValues[0] == "true") {
      header("Content-type: application/pdf");
-     header("Content-disposition: inline; filename=$filename");
+     header("Content-disposition: inline; filename=$filenamePdf");
      $filePdf = file_get_contents($filenamePdf);
      header("Content-length: " . strlen($filePdf));
      echo $filePdf;
@@ -318,8 +319,136 @@ if ($_GET['op'] == 'course_info') {
     }
    }
   }
+   if(isset($_GET['export']) && $_GET['export'] == 'xml'){
 
-} else if ($_GET['op'] == 'format_certificate') {
+  $result = eF_getTableData("users_to_courses", "*", "users_LOGIN='".$_GET['user']."' and courses_ID='".$_GET['course']."' limit 1");
+
+  if(sizeof($result) == 1 || isset($_GET['preview'])){
+
+   $course = new EfrontCourse($_GET['course']);
+
+   if(!isset($_GET['preview'])){
+
+    $certificate_tpl_id = $course->options['certificate_tpl_id'];
+
+    if($certificate_tpl_id <= 0){
+
+     $mainTemplate = eF_getTableData("certificate_templates", "id",
+          "certificate_name='".CERTIFICATES_MAIN_TEMPLATE_NAME."'"); // XXX
+     $certificate_tpl_id = $mainTemplate[0]['id'];
+    }
+
+    $issued_data = unserialize($result[0]['issued_certificate']);
+    $templateData = eF_getTableData("certificate_templates", "certificate_xml", "id=".$certificate_tpl_id);
+    $userName = $issued_data['user_name'];
+    $userSurName = $issued_data['user_surname'];
+    $courseName = $issued_data['course_name'];
+    $courseGrade = $issued_data['grade'];
+    $serialNumber = $issued_data['serial_number'];
+
+    if(eF_checkParameter($issued_data['date'], 'timestamp'))
+     $issued_data['date'] = formatTimestamp($issued_data['date']);
+
+    $certificateDate = $issued_data['date'];
+
+    $xmlExport = new XMLExport($templateData[0]['certificate_xml']);
+    $creator = $xmlExport->getCreator();
+    $author = $xmlExport->getAuthor();
+    $subjct = $xmlExport->getSubject($userName.' '.$userSurName);
+    $keywrd = $xmlExport->getKeywords();
+
+    $pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $pdf->SetCreator($creator);
+    $pdf->SetAuthor($author);
+    $pdf->SetTitle($subjct);
+    $pdf->SetSubject($subjct);
+    $pdf->SetKeywords($keywrd);
+
+    $xmlExport->setBackground($pdf);
+
+    $pdf->SetAutoPageBreak(false);
+    $pdf->setFontSubsetting(false);
+    $pdf->AddPage();
+
+//				$pdf->AddFont('Garamond','', K_PATH_FONTS.'gara.php');
+//				$pdf->AddFont('Garamond','B', K_PATH_FONTS.'garabd.php');
+
+    $xmlExport->drawLines($pdf);
+    $xmlExport->showLabels($pdf);
+    $xmlExport->showImages($pdf);
+    $xmlExport->showLogo($pdf);
+    $xmlExport->showOrganization($pdf);
+    $xmlExport->showDate($pdf, $certificateDate);
+    $xmlExport->showSerialNumber($pdf, $serialNumber);
+    $xmlExport->showStudentName($pdf, $userName.' '.$userSurName);
+    $xmlExport->showCourseName($pdf, $courseName);
+    $xmlExport->showGrade($pdf, $courseGrade);
+
+//				$fileNamePdf = "certificate_".$_GET['user'].".pdf";
+//				$pdf->Output($fileNamePdf, 'D');
+
+    $fileNamePdf = "certificate_".$_GET['user'].".pdf";
+    header("Content-type: application/pdf");
+    header("Content-disposition: attachment; filename=".$fileNamePdf);
+    echo $pdf->Output('', 'S');
+    exit(0);
+   }
+   else{
+    $tmp = explode('-', $_GET['certificate_tpl']);
+    $certificate_tpl_id = $tmp[0];
+    $templateData = eF_getTableData("certificate_templates", "certificate_xml", "id=".$certificate_tpl_id);
+
+    $xmlExport = new XMLExport($templateData[0]['certificate_xml']);
+    $creator = $xmlExport->getCreator();
+    $author = $xmlExport->getAuthor();
+    $subjct = $xmlExport->getSubject();
+    $keywrd = $xmlExport->getKeywords();
+
+    $pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $pdf->SetCreator($creator);
+    $pdf->SetAuthor($author);
+    $pdf->SetTitle($subjct);
+    $pdf->SetSubject($subjct);
+    $pdf->SetKeywords($keywrd);
+
+    $xmlExport->setBackground($pdf);
+
+    $pdf->SetAutoPageBreak(false);
+    $pdf->setFontSubsetting(false);
+    $pdf->AddPage();
+
+    $xmlExport->drawLines($pdf);
+    $xmlExport->showLabels($pdf);
+    $xmlExport->showImages($pdf);
+    $xmlExport->showLogo($pdf);
+    $xmlExport->showOrganization($pdf);
+    $xmlExport->showDate($pdf, formatTimestamp(time()));
+    $xmlExport->showSerialNumber($pdf, 'Serial Number');
+    $xmlExport->showStudentName($pdf, 'Student Name');
+    $xmlExport->showCourseName($pdf, 'Course Name');
+    $xmlExport->showGrade($pdf, 'Grade');
+
+//				$fileNamePdf = "certificate_preview.pdf";
+//				$pdf->Output($fileNamePdf, 'D');
+
+    $fileNamePdf = "certificate_preview.pdf";
+    header("Content-type: application/pdf");
+    header("Content-disposition: attachment; filename=".$fileNamePdf);
+    echo $pdf->Output('', 'S');
+    exit(0);
+   }
+  }
+ }
+
+} else if ($_GET['op'] == 'format_certificate'){
+
+ if($currentCourse->options['certificate_export_method'] == 'rtf' && !isset($_GET['switch']))
+  eF_redirect(basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=format_certificate_docx");
+} else if ($_GET['op'] == 'format_certificate_docx') {
+} else if($_GET['op'] == 'add_certificate_template' || $_GET['op'] == 'edit_certificate_template'){
+} else if($_GET['op'] == 'rename_certificate_template'){
+} else if($_GET['op'] == 'clone_certificate_template'){
+} else if($_GET['op'] == 'delete_certificate_template'){
 } else if ($_GET['op'] == 'course_rules') {
     $courseLessons = $currentCourse -> getCourseLessons();
     $rules_form = new HTML_QuickForm("course_rules_form", "post", basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=course_rules", "", null, true);
@@ -390,25 +519,15 @@ if ($_GET['op'] == 'course_info') {
       if ($fromTimestamp < $toTimestamp) {
        $currentCourse -> setLessonScheduleInCourse($lesson, $fromTimestamp, $toTimestamp);
 /*
-
     			$lesson -> lesson['from_timestamp'] = $fromTimestamp;
-
     			$lesson -> lesson['to_timestamp']   = $toTimestamp;
-
     			$lesson -> persist();
 
-
-
     			eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::LESSON_PROGRAMMED_START . "_" . $lesson -> lesson['id']. "'");
-
     			eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::LESSON_PROGRAMMED_EXPIRY . "_" . $lesson -> lesson['id']. "'");
 
-
-
     			EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_PROGRAMMED_START,  "timestamp" => $lesson -> lesson['from_timestamp'], "lessons_ID" => $lesson -> lesson['id'], "lessons_name" => $lesson -> lesson['name']));
-
     			EfrontEvent::triggerEvent(array("type" => EfrontEvent::LESSON_PROGRAMMED_EXPIRY, "timestamp" => $lesson -> lesson['to_timestamp'],   "lessons_ID" => $lesson -> lesson['id'], "lessons_name" => $lesson -> lesson['name']));
-
 */
        echo _FROM.' '.formatTimestamp($fromTimestamp, 'time_nosec').' '._TO.' '.formatTimestamp($toTimestamp, 'time_nosec').'&nbsp;';
       } else {
@@ -420,27 +539,16 @@ if ($_GET['op'] == 'course_info') {
       $lesson = new EfrontLesson($_GET['delete_schedule']);
       $currentCourse -> unsetLessonScheduleInCourse($lesson);
 /*
-
     		$lesson = new EfrontLesson($_GET['delete_schedule']);
-
     		$lesson -> lesson['from_timestamp'] = null;
-
     		$lesson -> lesson['to_timestamp']   = null;
-
     		$lesson -> lesson['shift']          = 0;
-
-
 
     		$lesson -> persist();
 
-
-
     		// @TODO maybe proper class internal invalidation
-
     		eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::LESSON_PROGRAMMED_START . "_" . $lesson -> lesson['id']. "'");
-
     		eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::LESSON_PROGRAMMED_EXPIRY . "_" . $lesson -> lesson['id']. "'");
-
 */
       exit;
      } else if (isset($_GET['set_schedule']) && $_GET['set_schedule'] == 0) {
@@ -450,6 +558,10 @@ if ($_GET['op'] == 'course_info') {
        $currentCourse -> course['start_date'] = $fromTimestamp;
        $currentCourse -> course['end_date'] = $toTimestamp;
        $currentCourse -> persist();
+       eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_START . "_" . $currentCourse -> course['id']. "'");
+       eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_EXPIRY . "_" . $currentCourse -> course['id']. "'");
+       EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_START, "timestamp" => $currentCourse -> course['start_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
+       EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_EXPIRY, "timestamp" => $currentCourse -> course['end_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
        echo _FROM.' '.formatTimestamp($fromTimestamp, 'time_nosec').' '._TO.' '.formatTimestamp($toTimestamp, 'time_nosec').'&nbsp;';
       } else {
        header("HTTP/1.0 500");
@@ -460,6 +572,8 @@ if ($_GET['op'] == 'course_info') {
       $currentCourse -> course['start_date'] = '';
       $currentCourse -> course['end_date'] = '';
       $currentCourse -> persist();
+      eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_START . "_" . $currentCourse -> course['id']. "'");
+      eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_EXPIRY . "_" . $currentCourse -> course['id']. "'");
      }
     } catch (Exception $e) {
      handleAjaxExceptions($e);
@@ -524,4 +638,3 @@ if ($_GET['op'] == 'course_info') {
     $form -> accept($renderer);
     $smarty -> assign('T_IMPORT_COURSE_FORM', $renderer -> toArray());
 }
-?>

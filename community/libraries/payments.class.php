@@ -103,7 +103,15 @@ class payments extends EfrontEntity
 
      */
     public static function create($fields = array()) {
-        $fields = array('timestamp' => isset($fields['timestamp']) && eF_checkParameter($fields['timestamp'], 'timestamp') ? $fields['timestamp'] : time(),
+     $fields['lessons'] = array_filter($fields['lessons'], 'is_numeric');
+     if (isset($fields['lessons']) && sizeof($fields['lessons']) > 0) {
+      $lessonNames = eF_getTableDataFlat("lessons", "name", "id in (".implode(",", $fields['lessons']).")");
+     }
+     $fields['courses'] = array_filter($fields['courses'], 'is_numeric');
+     if (isset($fields['courses']) && sizeof($fields['courses']) > 0) {
+      $courseNames = eF_getTableDataFlat("courses", "name", "id in (".implode(",", $fields['courses']).")");
+     }
+     $fields = array('timestamp' => isset($fields['timestamp']) && eF_checkParameter($fields['timestamp'], 'timestamp') ? $fields['timestamp'] : time(),
                         'users_LOGIN' => isset($fields['users_LOGIN']) && eF_checkParameter($fields['users_LOGIN'], 'login') ? $fields['users_LOGIN'] : $_SESSION['s_login'],
                         'amount' => isset($fields['amount']) && is_numeric($fields['amount']) && $fields['amount'] > 0 ? $fields['amount'] : 0,
                         'status' => isset($fields['status']) && $fields['status'] ? $fields['status'] : 'completed',
@@ -128,6 +136,12 @@ class payments extends EfrontEntity
           "users_name" => $user -> user['name'],
           "users_surname" => $user -> user['surname'],
           "entity_ID" => $newId);
+         if (isset($lessonNames) && !empty($lessonNames)) {
+          $event['lessons_name'] = _LESSONS.': '.implode(",", $lessonNames['name']).'<br>';
+         }
+         if (isset($courseNames) && !empty($courseNames)) {
+          $event['lessons_name'] .= _COURSES.': '.implode(",", $courseNames['name']);
+         }
    EfrontEvent::triggerEvent($event);
         }
         return $payment;
@@ -323,4 +337,3 @@ class cart
         return $cart;
     }
 }
-?>

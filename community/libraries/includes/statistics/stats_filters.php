@@ -60,4 +60,3 @@ if (isset($_GET['subbranches'])) {
  $stats_url .= "&subbranches=". $_GET['subbranches'];
 }
 $smarty -> assign("T_STATS_FILTERS_URL", $stats_url);
-?>

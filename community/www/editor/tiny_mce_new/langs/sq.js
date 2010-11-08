@@ -156,6 +156,15 @@ no_mpell:"Nuk u gjet asnj\u00EB gabim."
 pagebreak:{
 desc:"Fut thyerje faqeje."
 },
+save_template_dlg:{
+save_template_title : 'Save as template',
+save_template_name : 'File name',
+save : 'Save',
+save_template_desc : 'Save editor\'s content as template file',
+fileexists : 'This filename already exists',
+filesaved : 'Template was saved successfully',
+problem : 'Problem in saving template'
+},
 advlist:{
 types:"Types",
 def:"Default",

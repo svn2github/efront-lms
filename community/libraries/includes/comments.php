@@ -37,4 +37,3 @@ $entityForm = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_S
 $entityName = 'comments';
 
 include("entity.php");
-?>

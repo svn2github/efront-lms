@@ -1,50 +1,44 @@
 <?php
 /**
-
 $LastChangedRevision$
-
 * File includes and configuration options
-
 *
-
 * This file is used to perform configuration and inclusion tasks.
-
 * @package eFront
-
 */
+
+
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
+
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
+
 /**
-
  * Set debugging level:
-
  * 0: no error reporting
-
  * 1: E_WARNING
-
  * 2: E_ALL
-
  * 4: verbose database
-
  * 8: time panel
-
  * 16: override system setting
-
  */
 $debugMode = 0;
+
 //Set the default content type to be utf-8, as everything in the system
 header('Content-Type: text/html; charset=utf-8');
+
 error_reporting( E_ERROR );
 //error_reporting( E_ALL );ini_set("display_errors", true);define("NO_OUTPUT_BUFFERING", true);        //Uncomment this to get a full list of errors
+
 //Prepend the include path with efront folders
 set_include_path($path.'../PEAR/'
                 . PATH_SEPARATOR . $path.'includes/'
                 . PATH_SEPARATOR . $path
                 . PATH_SEPARATOR . get_include_path());
+
 //Set global defines for the system
 setDefines();
 //Fix IIS bug by setting the request URI
@@ -52,12 +46,14 @@ setRequestURI();
 //Set default exception handler to be defaultExceptionHandler() function
 set_exception_handler('defaultExceptionHandler');
 register_shutdown_function('shutdownFunction');
+
 /** General tools for system */
 require_once("tools.php");
 /** Database manipulation functions*/
 require_once("database.php");
 /** General class representing an entity*/
 require_once("entity.class.php");
+
 //Get configuration values
 $configuration = EfrontConfiguration :: getValues();
 //Set debugging parameter
@@ -70,13 +66,16 @@ if (isset($_GET['debug']) && $configuration['debug_mode']) {
 } else {
  define("G_DEBUG", 0);
 }
+
 //Turn on compressed output buffering, unless NO_OUTPUT_BUFFERING is defined or it's turned off from the configuration
 !defined('NO_OUTPUT_BUFFERING') && $configuration['gz_handler'] ? ob_start ("ob_gzhandler") : null;
+
 //Set the memory_limit and max_execution_time PHP settings, but only if system-specific values are greater than global
 isset($configuration['memory_limit']) && $configuration['memory_limit'] && str_replace("M", "", ini_get('memory_limit')) < $configuration['memory_limit'] ? ini_set('memory_limit', $configuration['memory_limit'].'M') : null;
 isset($configuration['max_execution_time']) && $configuration['max_execution_time'] && ini_get('max_execution_time') < $configuration['max_execution_time'] ? ini_set('max_execution_time', $configuration['max_execution_time']) : null;
 //Set the time zone
 isset($GLOBALS['configuration']['time_zone']) && isset($GLOBALS['configuration']['time_zone']) ? date_default_timezone_set($GLOBALS['configuration']['time_zone']) : null;
+
 ini_set('magic_quotes_runtime', false); // check http://www.smarty.net/forums/viewtopic.php?t=4936
 //handleSEO();
 
@@ -157,7 +156,6 @@ try {
     $smarty -> assign("T_FAVICON", "images/favicon.png");
 }
 /**Initialize valid currencies
-
  * @todo: remove from here, move to a function or class*/
 require_once $path."includes/currencies.php";
 //Load filters if smarty is set
@@ -213,19 +211,12 @@ $MODULE_HCD_EVENTS['FIRED'] = 7;
 $MODULE_HCD_EVENTS['LEFT'] = 8;
 $loadScripts = array();
 /**
-
  * Setup version
-
  *
-
  * This function sets up the version, unlocking specific
-
  * functionality
-
  *
-
  * @since 3.6.0
-
  */
 function setupVersion() {
  define("G_VERSIONTYPE_CODEBASE", 'community');
@@ -246,24 +237,17 @@ function setupVersion() {
     }
 }
 /**
-
  * Setup constants
-
  *
-
  * This function serves only as a convenient bundle for
-
  * all the required defines that must be made during initialization
-
  *
-
  * @since 3.6.0
-
  */
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 8519;
+    $build = 8707;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -319,21 +303,16 @@ function setDefines() {
     define("G_QUOTA_KB", 102400);
     /** @deprecated*/
     define("G_DEFAULT_TABLE_SIZE", "20"); //Default table size for sorted table
+    define("G_TINYMCE","Tinymce 3.2.1.1");
+    define("G_NEWTINYMCE", "Tinymce 3.3.9.2");
 }
 /**
-
  * Setup themes
-
  *
-
  * This function sets up all the required constants and initiates objects
-
  * accordingly, to initialize the current theme
-
  *
-
  * @since 3.6.0
-
  */
 function setupThemes() {
     /** The default theme path*/
@@ -415,25 +394,15 @@ function setupThemes() {
     define("G_LOGOPATH", G_DEFAULTIMAGESPATH."logo/");
 }
 /**
-
  * Default exception handler
-
  *
-
  * This function serves as the default exception handler,
-
  * called automatically when an exception is not caught.
-
  * The default behaviour is set to display the exception's
-
  * error message in a message box, at the index page.
-
  *
-
  * @param $e The uncaught exception
-
  * @since 3.5.4
-
  */
 function defaultExceptionHandler($e) {
     //@todo: Database exceptions are not caught if thrown before smarty
@@ -447,19 +416,12 @@ function defaultExceptionHandler($e) {
     }
 }
 /**
-
  * Shutdown function
-
  * This function gets executed whenever the script ends, normally or unexpectedly.
-
  * We implement this in order to catch fatal errors (E_ERROR) level and display
-
  * an appropriate message
-
  *
-
  * @since 3.6.6
-
  */
 function shutDownFunction() {
  if (function_exists('error_get_last')) {
@@ -470,15 +432,10 @@ function shutDownFunction() {
  }
 }
 /**
-
  * This function sets the REQUEST_URI in the $_SERVER variable,
-
  * which may not be set when using IIS
-
  *
-
  * @since 3.5
-
  */
 function setRequestURI() {
     //Sets $_SERVER['REQUEST_URI'] for IIS
@@ -504,19 +461,12 @@ function handleSEO() {
     }
 }
 /**
-
  * Autoload files
-
  *
-
  * This function includes files on-demand, based on the class name that we tried to access
-
  *
-
  * @param string $className the name of the class requested
-
  * @since 3.5.4
-
  */
 function __autoload($className) {
     $className = strtolower($className);
@@ -657,5 +607,6 @@ function __autoload($className) {
         require_once "calendar.class.php";
     } else if (strpos($className, "efrontfacebook") !== false) {
     }
+    else if (strpos($className, "xmlexport") !== false) {
+    }
 }
-?>

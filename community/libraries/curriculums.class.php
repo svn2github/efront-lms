@@ -231,4 +231,3 @@ class curriculums extends EfrontEntity
         }
     }
 }
-?>

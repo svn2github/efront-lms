@@ -24,9 +24,6 @@ function smarty_outputfilter_eF_template_includeScripts($compiled, &$smarty) {
             sorted_translations["_SHOWINGALLENTITIES"] = "'._SHOWINGALLENTITIES.'";
             </script>';
     }
-    if (preg_match('/tooltipSpan/', $compiled) || preg_match('/class = "calendar"/', $compiled)) {
-        $basicScripts[] = 'wz_tooltip';
-    }
     if (preg_match('/dhtmlgoodies_tree/', $compiled) || preg_match('/class = "calendar"/', $compiled)) {
         $basicScripts[] = 'drag-drop-folder-tree';
     }

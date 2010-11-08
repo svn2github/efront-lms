@@ -310,4 +310,3 @@ $group_form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
 $group_form -> setRequiredNote(_REQUIREDNOTE);
 $group_form -> accept($renderer);
 $smarty -> assign('T_INSERT_INTO_GROUP_POPUP_FORM', $renderer -> toArray());
-?>

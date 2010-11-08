@@ -1,0 +1,160 @@
+.separator{
+	clear: both;
+	display: block;
+	height: 15px;
+}
+
+.options_separator{
+	display: inline;
+	border-right: 1px solid #333333;
+}
+
+a.module_journal, a.module_journal:visited, a.module_journal:active, a.module_journal:link, a.module_journal:focus {
+	color: #aa6622;
+	text-decoration: none;
+	outline: none;
+}
+
+a.module_journal:hover {
+	text-decoration: underline;
+}
+
+.print_separator{
+	margin-bottom: 10px;
+	border-bottom: 1px solid #333333;
+}
+
+.rule_title{
+	text-align: center;
+	color: #aa6622;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.rule_description{
+	padding-bottom: 5px;
+	border-bottom: 1px dotted #aa6622;
+}
+
+#copy_js{
+	width: 100px;
+	margin-top: 10px;
+	font-style: italic;
+}
+
+/* ******************************          SMALL JOURNAL          ****************************** */
+
+#journal_small{
+	background: url(../images/journal_left700x495.png) no-repeat top left;
+	width: 700px;
+	height: 495px;
+	float: left;
+	font-family: arial, tahoma, sans-serif;
+	font-size: 12px;
+	color: #aa6622;
+}
+
+#left_small{
+	width: 640px;
+	height: 495px;
+	float: left;
+	position: relative;
+}
+
+#right_small{
+	width: 60px;
+	height: 495px;
+	float: left;
+	position: relative;
+}
+
+#editor_small{
+	width: 588px;
+	float: left;
+	margin: 108px 27px 0px 25px;
+}
+
+#right_show_hide_small{
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin: 17px 0px 0px 12px;
+}
+
+/* ******************************          MEDIUM JOURNAL          ****************************** */
+
+#journal_medium{
+	background: url(../images/journal_left800x565.png) no-repeat top left;
+	width: 800px;
+	height: 565px;
+	float: left;
+	font-family: arial, tahoma, sans-serif;
+	font-size: 12px;
+	color: #aa6622;
+}
+
+#left_medium{
+	width: 735px;
+	height: 565px;
+	float: left;
+	position: relative;
+}
+
+#right_medium{
+	width: 65px;
+	height: 565px;
+	float: left;
+	position: relative;
+}
+
+#editor_medium{
+	width: 673px;
+	float: left;
+	margin: 120px 34px 0px 28px;
+}
+
+#right_show_hide_medium{
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin: 19px 0px 0px 12px;
+}
+
+/* ******************************          LARGE JOURNAL          ****************************** */
+
+#journal_large{
+	background: url(../images/journal_left900x636.png) no-repeat top left;
+	width: 900px;
+	height: 636px;
+	float: left;
+	font-family: arial, tahoma, sans-serif;
+	font-size: 12px;
+	color: #aa6622;
+}
+
+#left_large{
+	width: 825px;
+	height: 636px;
+	float: left;
+	position: relative;
+}
+
+#right_large{
+	width: 75px;
+	height: 636px;
+	float: left;
+	position: relative;
+}
+
+#editor_large{
+	width: 759px;
+	float: left;
+	margin: 135px 35px 0px 31px;
+}
+
+#right_show_hide_large{
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin: 21px 0px 0px 18px;
+}

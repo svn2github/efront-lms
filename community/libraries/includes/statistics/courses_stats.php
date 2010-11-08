@@ -457,4 +457,3 @@ if (isset($_GET['excel'])) {
     $pdf -> Output();
     exit(0);
 }
-?>

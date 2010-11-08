@@ -144,9 +144,9 @@ if (!$_student_) {
 
         $form -> addElement('hidden', 'time_start', $timeStart); //This element holds the time the test started, so we know the remaining time even if the user left the system
         if ($currentUnit['ctg_type'] !== 'feedback') {
-   $form -> addElement('submit', 'submit_test', _SUBMITTEST, 'class = "flatButton" onclick = "return checkQuestions()"');
+   $form -> addElement('submit', 'submit_test', _SUBMITTEST, 'class = "flatButton" onclick = "this.disabled=true;return checkQuestions()"');
   } else {
-   $form -> addElement('submit', 'submit_test', _SUBMITFEEDBACK, 'class = "flatButton" onclick = "return checkQuestions()"');
+   $form -> addElement('submit', 'submit_test', _SUBMITFEEDBACK, 'class = "flatButton" onclick = "this.disabled=true;return checkQuestions()"');
   }
         if ($testInstance -> options['pause_test']) {
             $form -> addElement('submit', 'pause_test', _PAUSETEST, 'class = "flatButton"');
@@ -181,5 +181,3 @@ if (!$_student_) {
         $smarty -> assign('T_TEST_FORM', $renderer -> toArray());
     }
 }
-
-?>

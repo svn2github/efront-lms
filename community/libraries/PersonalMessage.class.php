@@ -659,4 +659,3 @@ class f_folders extends EfrontEntity
         eF_insertTableData("f_folders", $fields);
     }
 }
-?>

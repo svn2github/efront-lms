@@ -518,4 +518,3 @@ class EfrontProject {
      return true;
     }
 }
-?>

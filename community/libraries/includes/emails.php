@@ -121,4 +121,3 @@ $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
 $form -> setRequiredNote(_REQUIREDNOTE);
 $form -> accept($renderer);
 $smarty -> assign('T_EMAIL_FORM', $renderer -> toArray());
-?>

@@ -529,13 +529,25 @@ try {
      /***/
      require_once("progress.php");
  }
- $fields_log = array ('users_LOGIN' => $_SESSION['s_login'], //This is the log entry array
-                      'timestamp' => time(),
-                      'action' => 'lastmove',
-                      'comments' => 0,
-                      'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
- eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
- eF_insertTableData("logs", $fields_log);
+/*
+
+	$fields_log = array ('users_LOGIN' => $_SESSION['s_login'],                                 //This is the log entry array
+
+	                     'timestamp'   => time(),
+
+	                     'action'      => 'lastmove',
+
+	                     'comments'    => 0,
+
+	                     'session_ip'  => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+
+
+
+	eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
+
+	eF_insertTableData("logs", $fields_log);
+
+*/
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
@@ -565,12 +577,7 @@ foreach ($loadedModules as $module) {
     $loadScripts = array_merge($loadScripts, $module -> addScripts());
 }
 //Main scripts, such as prototype
-$mainScripts = array('EfrontScripts',
-      'scriptaculous/prototype',
-      'scriptaculous/scriptaculous',
-      'scriptaculous/effects',
-      'efront_ajax',
-                     'includes/events');
+$mainScripts = getMainScripts();
 $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
 //Operation/file specific scripts
 $loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates
@@ -596,7 +603,7 @@ if (isset($currentLesson)) {
   $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse->course['id']);
  }
 }
-if (!isset($_GET['edit_unit']) && !isset($_GET['edit_project']) && !isset($_GET['edit_question']) && !isset($_GET['edit_test'])) { // when updating a unit we must preserve the innerlink
+if ((!isset($_GET['edit']) && $_GET['ctg'] == 'content') && !isset($_GET['edit_project']) && !isset($_GET['edit_question']) && !isset($_GET['edit_test'])) { // when updating a unit we must preserve the innerlink
  $smarty -> load_filter('output', 'eF_template_setInnerLinks');
 }
 $benchmark -> set('script');

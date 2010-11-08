@@ -88,6 +88,3 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         handleNormalFlowExceptions($e);
     }
 }
-
-
-?>

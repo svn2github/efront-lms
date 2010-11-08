@@ -17,7 +17,7 @@ if ($_SESSION['s_lessons_ID']) {
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="whitebg">
 <head>
  <title>{#advlink_dlg.title}</title>
  <script type="text/javascript" src="../../tiny_mce_popup.js"></script>
@@ -28,19 +28,20 @@ if ($_SESSION['s_lessons_ID']) {
  <link href="css/advlink.css" rel="stylesheet" type="text/css" />
 </head>
 <body id="advlink" style="display: none">
+<table><tr><td valign="top">
 <table border="0" style="width: 100%;">
 <TR>
     <TD style = "vertical-align:top;width:50%">{#advanced_dlg.file}: <span class="help">{#advlink_dlg.selectonewantaslink}.</span><br>
-        <iframe name="LNKPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px; width: 300px; height:240px; z-index:1"></iframe>
+        <iframe name="LNKPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px; width: 320px; height:450px; z-index:1"></iframe>
     </TD>
 <?php if ($_SESSION['s_lessons_ID']) {?>
     <TD style = "vertical-align:top;width:50%">{#advanced_dlg.unit}: <span class="help">{#advlink_dlg.selectonewantaslink}.</span><br>
-        <iframe name="LNKPICKCONTENT" src="<?php echo $contentIframeUrl;?>" style="border: solid black 1px; width: 300px; height:240px; z-index:1"></iframe>
+        <iframe name="LNKPICKCONTENT" src="<?php echo $contentIframeUrl;?>" style="border: solid black 1px; width: 290px; height:450px; z-index:1"></iframe>
     </TD>
 <?php }?>
 </TR>
 </table>
-
+</td><td valign="top">
     <form onsubmit="insertAction();return false;" action="#">
   <div class="tabs">
    <ul>
@@ -360,5 +361,6 @@ if ($_SESSION['s_lessons_ID']) {
    <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
   </div>
     </form>
+</td></tr></table>
 </body>
 </html>

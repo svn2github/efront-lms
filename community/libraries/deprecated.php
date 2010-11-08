@@ -1,7 +1,7 @@
 <?php
 /**
 
- * 
+ *
 
  */
 //This file cannot be called directly, only included.
@@ -18,19 +18,20 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 * of a multidimensional array, where each value represents a unit. If a unit has children,
 
-* these children exist as sub-arrays of the unit. This way, the array created closely matches 
+* these children exist as sub-arrays of the unit. This way, the array created closely matches
 
 * the tree structure
 
-* 
+*
 
 * @param int $content_ID The content id to build the tree for
 
 * @param int $lessons_ID The lesson to build the tree for, defaults to session value
 
-* @param bool $only_active Whether it should return only active values, defaults to true* 
-* 
-* @deprecated 
+* @param bool $only_active Whether it should return only active values, defaults to true*
+
+*
+* @deprecated
 
 *
 
@@ -41,7 +42,7 @@ function eF_createContentStructure($content_ID = 0, $lessons_ID = '', $only_acti
     }
     $units = eF_getTableData("content", "id, name, parent_content_ID, ctg_type, active, previous_content_ID, data", "lessons_ID=".$lessons_ID, "parent_content_ID, previous_content_ID"); //Get all the lesson units
     for ($i = 0; $i < sizeof($units); $i++) { //Initialize the nodes array
-        $units[$i]['data'] == '' ? $units[$i]['data'] = false : $units[$i]['data'] = true; //Set data bit, if the node has data.        
+        $units[$i]['data'] == '' ? $units[$i]['data'] = false : $units[$i]['data'] = true; //Set data bit, if the node has data.
         $nodes[$units[$i]['id']] = $units[$i];
         $nodes[$units[$i]['id']]['children'] = array();
     }
@@ -65,14 +66,13 @@ function eF_createContentStructure($content_ID = 0, $lessons_ID = '', $only_acti
     return $tree;
 }
 
-
 /**
 
 * Convert primitive content tree to eFront-compatible tree
 
 *
 
-* This recursive function will convert the given (multidimensional) units array to the corresponding (flat) 
+* This recursive function will convert the given (multidimensional) units array to the corresponding (flat)
 
 * efront content tree. It starts with an empty array as input.
 
@@ -111,7 +111,7 @@ function eF_makeCompatibleTree(&$tree, $nodes, $level = 0) {
 
 *
 
-* This function is used to reorder the tree array, so that the array values succession 
+* This function is used to reorder the tree array, so that the array values succession
 
 * match the content sucession. The reordering is done based on array indexes, as returned
 
@@ -127,7 +127,7 @@ function eF_makeCompatibleTree(&$tree, $nodes, $level = 0) {
 
 * @version 1.1
 
-* @deprecated 
+* @deprecated
 
 * Changes from version 1.0 to 1.1 (2007/06/18 - venakis):
 
@@ -172,7 +172,7 @@ function eF_putInCorrectOrder($tree, $only_active) {
 
 * @version 1.0
 
-* @deprecated 
+* @deprecated
 
 */
 function eF_getSeenContent($login, $lessons_ID)
@@ -192,7 +192,7 @@ function eF_getSeenContent($login, $lessons_ID)
 
 *
 
-* This function is used to create an array with all the lesson's units, sorted the right way, so that 
+* This function is used to create an array with all the lesson's units, sorted the right way, so that
 
 * parent-children and previous-next relationships are preserved. Each element of the array is another array,
 
@@ -214,9 +214,9 @@ function eF_getSeenContent($login, $lessons_ID)
 
 * If a content id is specified, then only the tree under and including the specified unit is returned. content id
 
-* defaults to 0, which means the entire lesson tree. We may also specify the content type, using the $ctg parameter. 
+* defaults to 0, which means the entire lesson tree. We may also specify the content type, using the $ctg parameter.
 
-* This will result in returning a tree containing only units of the specified type. The $ctg_in_tree variable is 
+* This will result in returning a tree containing only units of the specified type. The $ctg_in_tree variable is
 
 * only used when $only_current or $only_done variables are set to true. It is an array that, after the function
 
@@ -236,7 +236,7 @@ function eF_getSeenContent($login, $lessons_ID)
 
 * </code>
 
-* 
+*
 
 * @param array $ctg_in_tree Lists the unit types present in the list.
 
@@ -252,13 +252,13 @@ function eF_getSeenContent($login, $lessons_ID)
 
 * @param bool $only_done Shows only units done so far
 
-* @param mixed $only_period If true, then it shows only units that belong to a currently active period. Otherwise, 
+* @param mixed $only_period If true, then it shows only units that belong to a currently active period. Otherwise,
 
 *                            if set to a number, then it shows only units assigned to the period with this id
 
 * @param string $only_unseen Gets only units that the student with the specified login hasn't seen
 
-* @deprecated 
+* @deprecated
 
 * @return array The content tree
 
@@ -270,7 +270,7 @@ function eF_getSeenContent($login, $lessons_ID)
 
 * Changes from version 1.1 to 1.2 (18/11/2005):
 
-* - Moved the part that examines the $ctg at the end of the function body, in order to exclude units from the student theory / examples etc tree. 
+* - Moved the part that examines the $ctg at the end of the function body, in order to exclude units from the student theory / examples etc tree.
 
 *   Before that, parent units were appearing, of units not in the current period
 
@@ -347,7 +347,7 @@ function eF_getContentTree(&$ctg_in_tree, $lessons_ID = false, $content_ID = 0, 
             }
         }
     }
-//print_r($tree);    
+//print_r($tree);
     $keep = array();
     if ($only_done) {
         $counter = 0;
@@ -567,7 +567,7 @@ function eF_getContentTree(&$ctg_in_tree, $lessons_ID = false, $content_ID = 0, 
 
 *
 
-* This function returns an array containing the parents of a unit. 
+* This function returns an array containing the parents of a unit.
 
 * For example, for the unit 3.2.1, the array will hold the ids of the units 3.2.1,
 
@@ -599,7 +599,7 @@ function eF_getContentTree(&$ctg_in_tree, $lessons_ID = false, $content_ID = 0, 
 
 * </code>
 
-* 
+*
 
 * @param int $content_ID The id of the unit
 
@@ -609,7 +609,7 @@ function eF_getContentTree(&$ctg_in_tree, $lessons_ID = false, $content_ID = 0, 
 
 * @version 2.0
 
-* @deprecated 
+* @deprecated
 
 * Changes from version 1.0 to version 2.0 (2007/05/15 - venakis):
 
@@ -655,9 +655,9 @@ function eF_getParents($content_ID, $tree = null, $tree_indexes = null)
 
 *
 
-* This functions is used to add an offset to all dates concerning a student that has 
+* This functions is used to add an offset to all dates concerning a student that has
 
-* enrolled late to the system. The amount of time he enrolled after the first period 
+* enrolled late to the system. The amount of time he enrolled after the first period
 
 * started is added to the current time, in order to normalize the content flow per period
 
@@ -671,7 +671,7 @@ function eF_getParents($content_ID, $tree = null, $tree_indexes = null)
 
 * - Fixed bug: it always reported offset.
 
-* @deprecated 
+* @deprecated
 
 */
 function eF_getOffset()
@@ -699,7 +699,7 @@ function eF_getOffset()
 
 * 18_1_2007 add case for periods...makriria.. now, in lessons_list op, it appears only current content numbers
 
-* @deprecated 
+* @deprecated
 
 */
 function getLessonContentUnits($lessons_ID = false, $nonempty = false) {
@@ -733,10 +733,10 @@ function getLessonContentUnits($lessons_ID = false, $nonempty = false) {
 function eF_printHeader($editor = false)
 {
     global $path, $COLOR, $ctg;
-    //$marginstr = isset($_POST['standalone'])? "" : " style = 'margin-left: -5px;'"; 
+    //$marginstr = isset($_POST['standalone'])? "" : " style = 'margin-left: -5px;'";
     //$marginstr = "style = 'margin-left: -5px;'";
     $marginstr = "style = 'margin-left:0px; margin-right:2px; margin-top:4px; margin-bottom:0px'";
-    print ' 
+    print '
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 transitional//EN">
       <HTML><HEAD>
       <meta http-equiv="Content-Language" content="'._HEADERLANGUAGETAG.'" />
@@ -761,7 +761,6 @@ function eF_printHeader($editor = false)
     }
     print '<LINK rel="stylesheet" type="text/css" href="slashfiles/menu.css" />
     <LINK rel="stylesheet" type="text/css" href="css/drag-drop-folder-tree.css" />
-    <LINK rel="stylesheet" type="text/css" href="css/context-menu.css" />
     <LINK rel="stylesheet" type="text/css" href="css/tabber.css" />';
     if($editor == true) {
         print '
@@ -798,7 +797,7 @@ function eF_printHeader($editor = false)
                 print 'language : \'en\',';
                 break;
         }
-        print ' 
+        print '
         editor_selector : "mceEditor",
         theme : "advanced",
         //height : "550",
@@ -863,7 +862,7 @@ function eF_printHeader($editor = false)
                 print 'language : \'en\',';
                 break;
         }
-        print ' 
+        print '
         editor_selector : "intermediateEditor",
         theme : "advanced",
         theme_advanced_resizing : true,
@@ -889,7 +888,6 @@ function eF_printHeader($editor = false)
     print '<script type="text/javascript" src="js/mathml.js"> </script>
         <script type="text/javascript" src="js/ASCIIMathML.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
-    <script type="text/javascript" src="js/context-menu.js"></script>
     <script type="text/javascript" src="js/drag-drop-folder-tree.js"></script>
     <script type="text/javascript" src="js/statists_tabber.js"></script>
     <script type="text/javascript" src="js/calendar3.js"></script>
@@ -907,7 +905,7 @@ function eF_printHeader($editor = false)
             var url = "saveNodes.php?saveString=" + saveString;
             ajaxObjects[ajaxIndex].requestFile = url; // Specifying which file to get
             ajaxObjects[ajaxIndex].onCompletion = function() { saveComplete(ajaxIndex); };// Specify function that will be executed after file has been found
-            ajaxObjects[ajaxIndex].runAJAX(); // Execute AJAX function            
+            ajaxObjects[ajaxIndex].runAJAX(); // Execute AJAX function
     }
     function saveComplete(index)
     {
@@ -937,7 +935,7 @@ function eF_printHeader($editor = false)
             .top_title {
                 BACKGROUND-COLOR: '.$COLOR[$ctg].';
             }
-            </style>';           
+            </style>';
 print'        </HEAD>
             <BODY id = "body_'.$ctg.'" onload = "jeF_initialize()" '.$marginstr.'>
         <script type="text/javascript" src="js/PieNG.js"></script>
@@ -1087,4 +1085,3 @@ function eF_deleteFolder($folder)
         return true;
     }
 }
-?>

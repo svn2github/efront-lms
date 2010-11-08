@@ -818,6 +818,15 @@ general : 'Im Allgemeinen',
 codebase : 'Codebase',
 insert_java: 'Java-Datei einfugen'
 },
+save_template_dlg:{
+save_template_title : 'Als Vorlage abspeichern',
+save_template_name : 'Dateiname',
+save : 'Speichern',
+save_template_desc : 'Inhalt als Vorlage abspeichern',
+fileexists : 'Dieser Dateiname existiert bereits',
+filesaved : 'Vorlage wurde erfolgreich abgespeichert',
+problem : 'Beim Speichern ist ein Problem aufgetreten'
+},
 java:{
 title : 'Einfugen / bearbeiten Java',
 image_desc : 'Einfugen / bearbeiten Java'

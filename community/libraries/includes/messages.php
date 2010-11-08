@@ -346,7 +346,7 @@ try {
                         $and_completed_criterium = " AND users_to_courses.completed = 0 ";
                         $values['body'] = _THISPMISSENTCOURSEUSERS.' '.$course->course['name'].'<br />'.$values['body'];
                     }
-                    $result = eF_getTableDataFlat("users, users_to_courses", "login", "users.active=1 AND users_to_courses.active=1 AND users.login=users_to_courses.users_LOGIN " . $and_completed_criterium . " AND users_to_courses.courses_ID=".($form -> exportValue('specific_course')));
+                    $result = eF_getTableDataFlat("users, users_to_courses", "login", "users.active=1 AND users_to_courses.active=1 AND users_to_courses.archive=0 AND users.login=users_to_courses.users_LOGIN " . $and_completed_criterium . " AND users_to_courses.courses_ID=".($form -> exportValue('specific_course')));
                     break;
                 case 'specific_lesson_professor':
                      $result = eF_getTableDataFlat("users, users_to_lessons,lessons", "login", "users_to_lessons.archive=0 and lessons.archive=0 and users.active=1 AND users_to_lessons.active=1 AND users_to_lessons.user_type = 'professor' AND users.login=users_to_lessons.users_LOGIN AND users_to_lessons.lessons_ID=lessons.id  AND users_to_lessons.lessons_ID=".($form -> exportValue('professor')));
@@ -737,4 +737,3 @@ try {
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
-?>

@@ -76,12 +76,11 @@ try {
                                       //"surveys"           => _SURVEYS,
                                       "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
-           "dashboard" => _DASHBOARD,
-           "social" => _SOCIAL);
-  $GLOBALS['configuration']['disable_calendar'] != 1 ? $professorOptions["calendar"] = _CALENDAR : null;
-  $GLOBALS['configuration']['disable_surveys'] != 1 ? $professorOptions["surveys"] = _SURVEYS : null;
-  $GLOBALS['configuration']['disable_news'] != 1 ? $professorOptions["news"] = _ANNOUNCEMENTS : null;
-  $GLOBALS['configuration']['disable_forum'] != 1 ? $professorOptions["forum"] = _FORUM : null;
+           "dashboard" => _DASHBOARD);
+  $GLOBALS['configuration']['disable_calendar'] != 1 ? $studentOptions["calendar"] = _CALENDAR : null;
+  $GLOBALS['configuration']['disable_surveys'] != 1 ? $studentOptions["surveys"] = _SURVEYS : null;
+  $GLOBALS['configuration']['disable_news'] != 1 ? $studentOptions["news"] = _ANNOUNCEMENTS : null;
+  $GLOBALS['configuration']['disable_forum'] != 1 ? $studentOptions["forum"] = _FORUM : null;
         $professorOptions = array("settings" => _LESSONOPTIONS,
                                       "users" => _LESSONUSERS,
                                       "content" => _CONTENT,
@@ -97,8 +96,10 @@ try {
                                       "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
            "dashboard" => _DASHBOARD,
-           "social" => _SOCIAL,
            "course_settings" => _COURSEOPTIONS);
+
+
+
   $GLOBALS['configuration']['disable_glossary'] != 1 ? $professorOptions["glossary"] = _GLOSSARY : null;
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $professorOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_surveys'] != 1 ? $professorOptions["surveys"] = _SURVEYS : null;
@@ -125,8 +126,8 @@ try {
                                       "chat" => _CHAT,
                                       "notifications" => _EMAILDIGESTS,
                                       "control_panel" => _CONTROLPANEL,
-           "dashboard" => _DASHBOARD,
-           "social" => _SOCIAL);
+           "dashboard" => _DASHBOARD);
+
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $administratorOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_news'] != 1 ? $administratorOptions["news"] = _ANNOUNCEMENTS : null;
   $GLOBALS['configuration']['disable_forum'] != 1 ? $administratorOptions["forum"] = _FORUM : null;
@@ -220,4 +221,3 @@ try {
     $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
-?>

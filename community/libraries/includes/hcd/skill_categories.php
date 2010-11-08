@@ -93,5 +93,3 @@ try{
 } catch (EfrontSkillException $e) {
  $message = $e -> getMessage().' ('.$e -> getCode().')';
 }
-
-?>

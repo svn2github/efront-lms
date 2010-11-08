@@ -13,6 +13,9 @@ try {
  } elseif (isset($_GET['export']) && $_GET['export'] == 'rtf') {
   require_once("rtf_export.php");
 
+ } elseif (isset($_GET['export']) && $_GET['export'] == 'xml') {
+  require_once("xml_export.php");
+
  } elseif (isset($_GET['course'])) {
   $currentCourse = new EfrontCourse($_GET['course']);
   $result = eF_getTableData("users_to_courses", "user_type", "users_LOGIN='".$currentUser -> user['login']."' and courses_ID=".$currentCourse -> course['id']);
@@ -44,14 +47,9 @@ try {
   }
 
   /*
-
 		 $userLessonProgress = EfrontStats :: getUsersLessonStatus($userLessons, $currentUser -> user['login'], $options);
-
 		 $userLessons        = array_intersect_key($userLessons, $userLessonProgress); //Needed because EfrontStats :: getUsersLessonStatus might remove automatically lessons, based on time constraints
-
 		 */
-
-
   $constraints = array('archive' => false, 'active' => true, 'sort' => 'name');
   $userCourses = $currentUser -> getUserCourses($constraints);
   foreach ($userCourses as $key => $course) {
@@ -85,29 +83,17 @@ try {
   //$userCourses        = array_intersect_key($userCourses, $userCourseProgress); //Needed because EfrontStats :: getUsersCourseStatus might remove automatically courses, based on time constraints
   //debug(false);exit;
   /*
-
 		 $temp = array();
-
 		 foreach ($userLessonProgress as $lessonId => $user) {
-
 		 $temp[$lessonId] = $user[$currentUser -> user['login']];
-
 		 }
-
 		 $userProgress['lessons'] = $temp;
 
-
-
 		 $temp = array();
-
 		 foreach ($userCourseProgress as $courseId => $user) {
-
 		 $temp[$courseId] = $user[$currentUser -> user['login']];
-
 		 }
-
 		 $userProgress['courses'] = $temp;
-
 		 */
   $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
                               'courses_link' => false,
@@ -144,4 +130,3 @@ try {
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);
 }
-?>

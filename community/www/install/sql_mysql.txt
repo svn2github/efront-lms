@@ -80,13 +80,13 @@ CREATE TABLE cache (
 -- private: Whether this calendar event is private (appears only in submitting user)
 -- users_LOGIN: The user that posted this event, matching the 'login' field at the 'users' table
 -- foreign_ID: The id of the entity that the event is related to. The value matches the 'id' field in the respective entity table (defined at the 'type' field). If it's 0, it means that this event is not associated to any entity, making it in effect 'global' (if it's not set as private of course)
--- type: The entity that this event is related to, for example 'course' or 'lesson'. If it's not related to anything, and the event is not private, then it's considered 'global'
+-- type: The entity that this event is related to. see calendar class for possible values
 CREATE TABLE calendar (
   id mediumint(8) unsigned NOT NULL auto_increment,
   data text,
   timestamp int(10) unsigned NOT NULL,
   active tinyint(1) NOT NULL default '1',
-  private tinyint(1) NOT NULL default '0',
+-- private tinyint(1) NOT NULL default '0',
   users_LOGIN varchar(100) NOT NULL,
   foreign_ID mediumint(8) unsigned default '0',
   type varchar(50) NOT NULL default '',
@@ -234,6 +234,7 @@ CREATE TABLE content (
 -- max_users: The maximum number of users a lesson is allowed to have
 -- rules: A serialized array that corresponds to the succession rules applied among lessons in the course
 -- instance_source: If set, this course is an instance, and the field points to the original course id
+-- supervisor_LOGIN: A user that is responsible for authorizing course assignements
 CREATE TABLE courses (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
@@ -256,6 +257,7 @@ CREATE TABLE courses (
   max_users int(10) unsigned default NULL,
   rules text,
   instance_source mediumint(8) unsigned default '0',
+  supervisor_LOGIN varchar(100) default NULL,
 -- FOREIGN KEY (directions_ID) REFERENCES directions (id),
 -- FOREIGN KEY (languages_ID) REFERENCES languages (id),
   PRIMARY KEY (id),
@@ -1215,13 +1217,6 @@ CREATE TABLE users_to_groups (
   PRIMARY KEY (groups_ID,users_LOGIN)
 ) DEFAULT CHARSET=utf8;
 
-CREATE TABLE users_online (
-  users_LOGIN varchar(100) NOT NULL,
-  timestamp int(10) unsigned NOT NULL,
-  timestamp_now int(10) unsigned NOT NULL,
-  session_ip varchar(255) NOT NULL,
-  PRIMARY KEY (users_LOGIN)
-) DEFAULT CHARSET=utf8;
 
 --
 -- Table 'user_times'

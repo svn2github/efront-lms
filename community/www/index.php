@@ -1,23 +1,17 @@
 <?php
 /**
-
  * Platform index page
-
  *
-
  * This is the index page, allowing for logging in, registering new users,
-
  * contacting and resetting password
-
  *
-
  * @package eFront
-
  * @version 3.6.0
-
  */
+
 session_cache_limiter('nocache');
 session_start(); //This causes the double-login problem, where the user needs to login twice when already logged in with the same browser
+
 $path = "../libraries/";
 //Automatically redirect to installation page if configuration file is missing
 if (!is_file($path."configuration.php")) { //If the configuration file does not exist, this is a fresh installation, so redirect to installation page
@@ -27,16 +21,22 @@ if (!is_file($path."configuration.php")) { //If the configuration file does not 
  /** Configuration file */
  require_once $path."configuration.php";
 }
+
 if ($GLOBALS['configuration']['webserver_auth']) {
  eval('$usernameVar='.$GLOBALS['configuration']['username_variable'].';');
  $currentUser = EfrontUser :: checkWebserverAuthentication();
  $currentUser -> login($currentUser -> user['password'], true);
 }
+
+
 //@todo:temporary here, should leave
 $cacheId = null;
+
 $message = $message_type = '';
+
 $benchmark = new EfrontBenchmark($debug_TimeStart);
 $benchmark -> set('init');
+
 //Set headers in order to eliminate browser cache (especially IE's)
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
@@ -100,13 +100,9 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  }
 }
 /*
-
  * Check if you should input the JS code to
-
  * trigger sending the next notificatoin emails
-
  * Since 3.6.0
-
  */
 if (EfrontNotification::shouldSendNextNotifications()) {
  $smarty -> assign("T_TRIGGER_NEXT_NOTIFICATIONS_SEND", 1);
@@ -212,15 +208,10 @@ if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
  } catch (EfrontUserException $e) {}
 }
 /*
-
  * Make sure that if a user has registered lessons without being logged in,
-
  * after he logs in he will be redirected to the "complete registration" page
-
  * In addition, set "login_mode" to 1, meaning that the user pressed the "continue"
-
  * button in his cart, so the next step should be loging in
-
  */
 if (isset($_GET['register_lessons'])) {
  if (!$_SESSION['s_login']) {
@@ -799,12 +790,7 @@ if (isset($search_message)) {
 }
 if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
  //Main scripts, such as prototype
- $mainScripts = array('scriptaculous/prototype',
-       'scriptaculous/scriptaculous',
-       'scriptaculous/effects',
-                      'EfrontScripts',
-       'efront_ajax',
-                      'includes/events');
+ $mainScripts = getMainScripts();
  $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
  //Operation/file specific scripts
  $loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates

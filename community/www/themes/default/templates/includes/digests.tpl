@@ -14,8 +14,8 @@
  var theFieldConst = "{$smarty.const._THEFIELD}";
  var subjectConst = "{$smarty.const._SUBJECT}";
  var isMandatoryConst = "{$smarty.const._ISMANDATORY}";
- var basicTemplated = {$T_BASIC_TEMPLATED};
- var basicEventRecipients = {$T_BASIC_EVENT_RECIPIENTS};
+ var basicTemplated = '{$T_BASIC_TEMPLATED}';
+ var basicEventRecipients = '{$T_BASIC_EVENT_RECIPIENTS}';
 
  var allLessonEventRecipients = "{$T_LESSON_EVENT_RECIPIENTS.alllesson}";
  var allLessonUsersConst = "{$smarty.const._ALLLESSONUSERS}";
@@ -28,6 +28,8 @@
 
  var courseProf = "{$T_COURSE_EVENT_RECIPIENTS.courseprof}";
  var courseProfessorsConst = "{$smarty.const._COURSEPROFESSORS}";
+ var allCourseEventRecipients = "{$T_COURSE_EVENT_RECIPIENTS.allcourse}";
+ var allCourseUsersConst = "{$smarty.const._ALLCOURSEUSERS}";
 
  var lessonsNameConst = "{$smarty.const._LESSONNAME}";
  var courseNameConst = "{$smarty.const._COURSENAME}";
@@ -162,7 +164,7 @@
                     <td >{$notification.event}</td>
                     <td >{if $notification.event_notification_recipients != ""}{$notification.recipients}{/if}</td>
                     <td >{if $notification.event_notification_recipients != ""}{$notification.event_notification_recipients}{else}{$notification.recipients}{/if}</td>
-                    <td class = centerAlign">
+                    <td class = "centerAlign">
                      <span id = "notification_status_{$notification.id}_{if isset($notification.is_event)}1{else}0{/if}" style="display:none">
                       {if $notification.active == 1}1{else}0{/if}</span>
          <a href = "javascript:void(0);" {if $_change_ && $notification.event_type != 7 && $notification.event_type != 4}onclick = "activateNotification(this, '{$notification.id}', '{$notification.is_event}')"{/if}>
@@ -175,7 +177,7 @@
      </td>
                     {*<td >{$notification.subject|eF_truncate:40}</td>*}
                     {if $_change_}
-                    <td class = centerAlign">
+                    <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=digests&edit_notification={$notification.id}{if isset($notification.is_event)}&event=1{/if}" class = "editLink"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
       {if $notification.event_type != 7 && $notification.event_type != 4}
                          <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if(confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATNOTIFICATION}')) deleteNotification(this, '{$notification.id}', '{$notification.is_event}')"/>

@@ -133,5 +133,3 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
 $smarty -> assign("T_APPEARANCE_FAVICON_FORM", $appearanceFaviconForm -> toArray());
 
 $smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
-
-?>

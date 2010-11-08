@@ -1,6 +1,5 @@
 function toggleAutoComplete(selection) {
- if (selection) {
-  $('private').checked = false;
+ if (selection != 'global' && selection != 'private') {
   $('autocomplete').disabled = false;
   $('autocomplete').removeClassName('inactiveElement');
   switch (selection) {
@@ -11,7 +10,7 @@ function toggleAutoComplete(selection) {
   }
 
  } else {
-  $('select_type').options.selectedIndex = 0;
+  //$('select_type').options.selectedIndex = 0;
   $('autocomplete').disabled = true;
   $('autocomplete').addClassName('inactiveElement');
  }

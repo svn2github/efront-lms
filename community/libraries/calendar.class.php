@@ -34,7 +34,8 @@ class calendar extends EfrontEntity
 	 * @since 3.6.7
 	 * @access public
 	 */
- public static $calendarTypes = array('' => _GLOBAL,
+ public static $calendarTypes = array('private' => _PRIVATE,
+           'global' => _GLOBAL,
               'course' => _COURSE,
                                          'lesson' => _LESSON,
                                          'group' => _GROUP,
@@ -55,7 +56,6 @@ class calendar extends EfrontEntity
   $fields = array('data' => $fields['data'],
                         'timestamp' => $fields['timestamp'] ? $fields['timestamp'] : time(),
                         'active' => isset($fields['active']) && $fields['active'] ? 1 : 0,
-            'private' => $fields['private'] ? 1 : 0,
             'type' => $fields['type'],
             'foreign_ID' => $fields['foreign_ID'],
                         'users_LOGIN' => $fields['users_LOGIN']);
@@ -74,9 +74,7 @@ class calendar extends EfrontEntity
 	 * @see libraries/EfrontEntity#getForm($form)
 	 */
  public function getForm($form) {
-
-   unset(self::$calendarTypes['branch']);
-
+  $calendarTypes = $this -> filterCalendarTypes(EfrontUserFactory::factory($_SESSION['s_login']));
 
   $sidenote = '<a href = "javascript:void(0)" onclick = "Element.extend(this).up().select(\'select\').each(function (s) {if (s.name.match(/\[H\]/) || s.name.match(/\[i\]/)) {s.options.selectedIndex=0;}})">'._ALLDAY.'</a>';
 
@@ -84,10 +82,7 @@ class calendar extends EfrontEntity
   $form -> addElement($this -> createDateElement($form, 'timestamp', _DATE, array('addEmptyOption' => array('H' => true, 'i' => true))));
   $form -> addElement('static', 'toggle_editor_code', 'toggleeditor_link');
   $form -> addElement('textarea', 'data', _EVENT, 'class = "simpleEditor inputTextarea" style = "width:98%;height:200px;"');
-  //$form -> addRule('data', _THEFIELD.' "'._EVENT.'" '._ISMANDATORY, 'required', null, 'client');
-  if ($_SESSION['s_lesson_user_type'] != 'student') {
-   $form -> addElement('advcheckbox', 'private', _PRIVATE, null, 'class = "inputCheckBox" id = "private" onclick = "toggleAutoComplete(\'\')"', array(0, 1));
-   $form -> addElement('select', 'type', _EVENTTYPE, self::$calendarTypes, 'id = "select_type" onChange = "toggleAutoComplete(this.options[this.options.selectedIndex].value)"');
+   $form -> addElement('select', 'type', _EVENTTYPE, $calendarTypes, 'id = "select_type" onChange = "toggleAutoComplete(this.options[this.options.selectedIndex].value)"');
    $form -> addElement('static', 'sidenote', '<img id = "busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
    if ($this -> calendar['type'] || isset($_GET['course'])) {
     $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" class = "autoCompleteTextBox" style = "width:400px"' );
@@ -104,7 +99,7 @@ class calendar extends EfrontEntity
    }
    $form -> addElement('static', 'autocomplete_note', _STARTTYPINGFORRELEVENTMATCHES);
    $form -> addElement('hidden', 'foreign_ID', '' , 'id="foreign_ID"');
-  }
+
   $form -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
   if (!isset($_GET['edit'])) {
    $form -> addElement('submit', 'submit_another', _SUBMITANDADDANOTHER, 'class = "flatButton"');
@@ -113,9 +108,15 @@ class calendar extends EfrontEntity
   $form -> setDefaults(array('data' => $this -> calendar['data'],
               'type' => $this -> calendar['type'],
               'foreign_ID' => $this -> calendar['foreign_ID'],
-              'private' => $_SESSION['s_lesson_user_type'] != 'student' ? $this -> calendar['private'] : 1,
-              'selection' => $selection[0]['name'],
-              'timestamp' => $this -> calendar['timestamp'] ? $this -> calendar['timestamp'] : time()));
+              'selection' => $selection[0]['name']));
+  if ($this -> calendar['timestamp']) {
+   $form -> setDefaults(array('timestamp' => $this -> calendar['timestamp']));
+  } elseif (isset($_GET['view_calendar']) && $_GET['view_calendar']) {
+   $form -> setDefaults(array('timestamp' => $_GET['view_calendar']));
+  } else {
+   $form -> setDefaults(array('timestamp' => time()));
+  }
+
 
   if (isset($_GET['add']) && isset($_GET['course']) && eF_checkParameter($_GET['course'], 'id')) {
    $course = new EfrontCourse($_GET['course']);
@@ -123,7 +124,6 @@ class calendar extends EfrontEntity
    $form -> setDefaults(array('data' => 'The course "'.$course -> course['name'].'" begins on '.formatTimestamp($course -> course['start_date'], 'time'),
                'type' => 'course',
                'foreign_ID' => $course -> course['id'],
-               'private' => 0,
                'selection' => $course -> course['name'],
                'timestamp' => $course -> course['start_date']));
   }
@@ -147,21 +147,18 @@ class calendar extends EfrontEntity
        $values['timestamp']['Y']);
 
   eF_checkParameter($values['foreign_ID'], 'id') OR $values['foreign_ID'] = 0;
-  $_SESSION['s_lesson_user_type'] != 'student' OR $values['private'] = 1;
 
   if (isset($_GET['edit'])) {
    $this -> calendar["data"] = $values['data'];
    $this -> calendar["timestamp"] = $timestamp;
-   $this -> calendar["private"] = $values['private'] ? 1 : 0;
-   $this -> calendar["type"] = $values['type'] ? $values['type'] : '';
+   $this -> calendar["type"] = $values['type'] ? $values['type'] : 'global';
    $this -> calendar["foreign_ID"] = $values['foreign_ID'];
 
    $this -> persist();
   } else {
    $fields = array("data" => $values['data'],
                             "timestamp" => $timestamp,
-                "private" => $values['private'] ? 1 : 0,
-                "type" => $values['type'] ? $values['type'] : '',
+                "type" => $values['type'] ? $values['type'] : 'global',
                 "foreign_ID" => $values['foreign_ID'],
                             "users_LOGIN" => $_SESSION['s_login']);
 
@@ -169,6 +166,33 @@ class calendar extends EfrontEntity
    $this -> calendar = $calendar;
   }
 
+ }
+
+ public function filterCalendarTypes($user) {
+  $calendarTypes = self::$calendarTypes;
+
+
+   $user -> aspects['hcd'] -> isSupervisor() ? $supervisor = true : $supervisor = false;
+
+
+
+
+  if (!$supervisor && ((isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_lesson_user_type'] == 'student') || (!isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_type'] == 'student'))) {
+   unset($calendarTypes['course']);
+   unset($calendarTypes['lesson']);
+   unset($calendarTypes['branch']);
+  }
+
+  if ($user -> user['user_type'] != 'administrator') {
+   unset($calendarTypes['global']);
+  }
+
+  if ($user -> user['user_type'] != 'administrator' && sizeof($user -> getGroups()) == 0) {
+   unset($calendarTypes['group']);
+  }
+
+
+  return $calendarTypes;
  }
 
  /**
@@ -180,7 +204,7 @@ class calendar extends EfrontEntity
 	 * @static
 	 */
  public static function getGlobalCalendarEvents() {
-  $result = eF_getTableData("calendar c", "c.*", "private = 0 and type = '' and foreign_ID=0");
+  $result = eF_getTableData("calendar c", "c.*", "type = 'global' and foreign_ID=0");
   foreach ($result as $value) {
    $globalEvents[$value['id']] = $value;
   }
@@ -336,6 +360,7 @@ class calendar extends EfrontEntity
  }
  /**
 	 * Return a list of all calendar events that should be presented to the user
+	 * Administrators view all events, except for private events for other users
 	 *
 	 * @param mixed $user A user login or an EfrontUser object
 	 * @return array A list of calendar events
@@ -344,9 +369,50 @@ class calendar extends EfrontEntity
 	 * @static
 	 */
  public static function getCalendarEventsForUser($user) {
+  if (!($user instanceOf EfrontUser)) {
+   $user = EfrontUserFactory::factory($user);
+  }
+  if ($user -> user['user_type'] == 'administrator') {
+   $events = self :: getCalendarEventsForAdministrator($user);
+  } else {
+   $events = self :: getCalendarEventsForNonAdmnistrator($user);
+  }
+  return $events;
+ }
+ /**
+	 * Return a list of all public events, plus the private events for the user
+	 *
+	 * @param mixed $user A user login or an EfrontUser object
+	 * @return array A list of calendar events
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function getCalendarEventsForAdministrator($user) {
   $user = EfrontUser::convertArgumentToUserLogin($user);
-  $personalEvents = $globalEvents = $lessonEvents = $courseEvents = $branchEvents = array();
-  $result = eF_getTableData("calendar c", "c.*", "private = 0 and type = '' and foreign_ID=0");
+  $personalEvents = $allEvents = array();
+  $result = eF_getTableData("calendar c", "c.*", "type != 'private'");
+  foreach ($result as $value) {
+   $allEvents[$value['id']] = $value;
+  }
+  $personalEvents = self :: getUserCalendarEvents($user);
+  $userEvents = $personalEvents + $allEvents;
+  return $userEvents;
+ }
+ /**
+	 * Return a list of all calendar events that should be presented to a user
+	 * that is not an administrator
+	 *
+	 * @param mixed $user A user login or an EfrontUser object
+	 * @return array A list of calendar events
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function getCalendarEventsForNonAdmnistrator($user) {
+  $user = EfrontUser::convertArgumentToUserLogin($user);
+  $personalEvents = $globalEvents = $lessonEvents = $courseEvents = $groupEvents = $branchEvents = array();
+  $result = eF_getTableData("calendar c", "c.*", "type = 'global' and foreign_ID=0");
   foreach ($result as $value) {
    $globalEvents[$value['id']] = $value;
   }
@@ -360,10 +426,10 @@ class calendar extends EfrontEntity
   }
   $result = eF_getTableData("groups g, calendar ca, users_to_groups ug", "ca.*, g.name", "ug.users_LOGIN='$user' and ca.foreign_ID=ug.groups_ID and ug.groups_ID=g.id");
   foreach ($result as $value) {
-   $courseEvents[$value['id']] = $value;
+   $groupEvents[$value['id']] = $value;
   }
   $personalEvents = self :: getUserCalendarEvents($user);
-  $userEvents = $personalEvents + $globalEvents + $lessonEvents + $courseEvents + $branchEvents;
+  $userEvents = $personalEvents + $globalEvents + $lessonEvents + $courseEvents + $groupEvents + $branchEvents;
   return $userEvents;
  }
  /**

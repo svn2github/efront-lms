@@ -497,4 +497,3 @@ class EfrontIMS
         //pr($item);
     }
 }
-?>

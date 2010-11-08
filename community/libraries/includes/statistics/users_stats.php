@@ -47,7 +47,9 @@ if (isset($_GET['sel_user'])) {
  if (in_array($_GET['sel_user'], array_keys($validUsers))) {
   $infoUser = EfrontUserFactory :: factory($_GET['sel_user']);
  } else {
-  throw new EfrontUserException(_USERISNOTVALIDORYOUCANNOTSEEUSER.": ".$_GET['sel_user'], EfrontUserException :: INVALID_LOGIN);
+  eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=statistics&option=user&message='.urlencode(_USERISNOTVALIDORYOUCANNOTSEEUSER.": ".$_GET['sel_user']));
+  exit;
+  //throw new EfrontUserException(_USERISNOTVALIDORYOUCANNOTSEEUSER.": ".$_GET['sel_user'], EfrontUserException :: INVALID_LOGIN);
  }
 
  $directionsTree = new EfrontDirectionsTree();
@@ -963,4 +965,3 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $pdf -> Output();
  exit(0);
 }
-?>

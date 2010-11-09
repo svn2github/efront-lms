@@ -357,7 +357,7 @@
     {if $smarty.get.add_user_group}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_groups&add_user_group=1">'|cat:$smarty.const._NEWGROUP|cat:'</a>'}
     {elseif $smarty.get.edit_user_group}
-        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_groups&edit_user_group='|cat:$smarty.get.edit_user_group|cat:'">'|cat:$smarty.const._EDITGROUP|cat:'&nbsp;<span class="innerTableName">&quot;'|cat:$T_USERGROUPS_FORM_R.name.value|cat:'&quot;</span></a>'}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_groups&edit_user_group='|cat:$smarty.get.edit_user_group|cat:'">'|cat:$smarty.const._EDITGROUP|cat:'&nbsp;<span class="innerTableName">&quot;'|cat:$T_CURRENT_GROUP->group.name|cat:'&quot;</span></a>'}
     {/if}
 
     {include file = "includes/groups.tpl"}

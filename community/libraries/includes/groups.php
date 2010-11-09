@@ -56,71 +56,42 @@ $loadScripts[] = 'includes/groups';
         exit;
     } elseif (isset($_GET['add_user_group']) || ( isset($_GET['edit_user_group']) && eF_checkParameter($_GET['edit_user_group'], 'id')) ) {
 
+        if (isset($_GET['edit_user_group'])) {
+         $currentGroup = new EfrontGroup($_GET['edit_user_group']);
+         $smarty -> assign("T_CURRENT_GROUP", $currentGroup);
+   $smarty -> assign ("T_STATS_LINK", array(array('text' => _STATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF']).".php?ctg=statistics&option=groups&sel_group=" . $_GET['edit_user_group'], 'target' => '_self')));
+         if ($currentGroup -> group['key_max_usage'] > 0) {
+          $remainingKeyUsagesLabel = '('._REMAINING.' '.($currentGroup -> group['key_max_usage'] - $currentGroup -> group['key_current_usage']).'/'.$currentGroup -> group['key_max_usage'].')';
+         }
+        }
+
         isset($_GET['add_user_group']) ? $postTarget = 'add_user_group=1' : $postTarget = "edit_user_group=".$_GET['edit_user_group'];
         $form = new HTML_QuickForm("add_group_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=user_groups&$postTarget", "", null, true);
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-        $form -> registerRule('checkNotExist', 'callback', 'eF_checkNotExist');
+
+        $roles = EfrontLessonUser :: getStudentRoles(true);
+  array_unshift($roles, _DONTUSEDEFAULTGROUP);
 
         $form -> addElement('text', 'name', _NAME, 'class = "inputText"');
-
         $form -> addElement('text', 'description', _DESCRIPTION, 'class = "inputText"');
+        $form -> addElement('static', 'sidenote', '<img src = "images/16x16/wizard.png" class = "ajaxHandle" alt = "'._AUTOMATICALLYGENERATEGROUPKEY.'" title = "'._AUTOMATICALLYGENERATEGROUPKEY.'" onclick = "$(\'unique_key_id\').value = \''.md5(time()).'\';"/>');// timestamp guarantess uniqueness
+        $form -> addElement('text', 'unique_key', _UNIQUEGROUPKEY, 'class = "inputText" id="unique_key_id"');
+        $form -> addElement('static', 'note', _UNIQUEGROUPKEYINFO);
+        $form -> addElement('text', 'key_max_usage', _MAXGROUPKEYUSAGE, 'class = "inputText"');
+        $form -> addElement('static', 'note', _MAXGROUPKEYUSAGEINFO.' '.$remainingKeyUsagesLabel);
+        $form -> addElement('select', 'user_types_ID' , _DEFAULTGROUPTYPE, $roles, 'class = "inputText"');
+        $form -> addElement('static', 'note', _DEFAULTGROUPTYPEINFO.' '.$remainingKeyUsagesLabel);
+        $form -> addElement('advcheckbox', 'is_default', _ISTHEDEFAULTEFRONTSYSTEMGROUP, null, 'class = "inputCheckBox"', array(0, 1));
+        $form -> addElement('static', 'note', _ISTHEDEFAULTEFRONTSYSTEMGROUPINFO);
+
         $form -> addRule('name', _THEFIELD.' '._TYPENAME.' '._ISMANDATORY, 'required', null, 'client');
         $form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
-
-        $form -> addElement('text', 'group_key', _UNIQUEGROUPKEY, 'class = "inputText" id="group_key_id"');
-        $smarty -> assign("T_NEW_UNIQUE_KEY", md5(time())); // timestamp guarantess uniqueness
-
-        $form -> addElement('text', 'key_max_usage', _MAXGROUPKEYUSAGE, 'class = "inputText"');
-
-        $form -> registerRule('onlydigits','regex','/^\d+/');
-        $form -> addRule('key_max_usage',_INVALIDFIELDDATAFORFIELD.' "'._MAXGROUPKEYUSAGE,'onlydigits');
-        $form -> addRule('key_max_usage', _INVALIDFIELDDATAFORFIELD.' "'._MAXGROUPKEYUSAGE, 'callback', create_function('$a', 'return ($a >= 0);'));
-
-
-        $form -> addElement('select', 'group_status' , _GROUPUSERSTATUS, array("0" => _NOCOMMONGROUPUSERSTATUS, "1" => _ACTIVE, "2" => _NOTACTIVE),'class = "inputText"');
-
-        if ($GLOBALS['configuration']['onelanguage']) {
-            $form -> addElement('hidden', 'group_languages_NAME', $GLOBALS['configuration']['default_language']);
-        } else {
-            $form -> addElement('select', 'group_languages_NAME', _GROUPLANGUAGE, array_merge(array("0" => _NOCOMMONGROUPLANGUAGE) ,EfrontSystem :: getLanguages(true)));
-        }
-
-        $roles = EfrontLessonUser :: getLessonsRoles(true);
-  $roles[0] = _NOCOMMONGROUPUSERTYPE;
-  ksort($roles);
-        $form -> addElement('select', 'group_usertype' , _GROUPUSERTYPE, $roles, 'class = "inputText"');
-        $form -> addElement('advcheckbox', 'assign_to_all_new', _ASSIGNLESSONSTOALLNEWMEMBERS, null, 'class = "inputCheckBox"', array(0, 1));
-        $form -> addElement('advcheckbox', 'is_default', _ISTHEDEFAULTEFRONTSYSTEMGROUP, null, 'class = "inputCheckBox"', array(0, 1));
+        $form -> addRule('unique_key', _INVALIDFIELDDATA, 'checkParameter', 'alnum_general');
+        $form -> addRule('key_max_usage',_INVALIDFIELDDATAFORFIELD.' "'._MAXGROUPKEYUSAGE.'"','numeric');
+        $form -> addRule('key_max_usage', _INVALIDFIELDDATAFORFIELD.' "'._MAXGROUPKEYUSAGE.'"', 'callback', create_function('$a', 'return ($a >= 0);'));
 
         if (isset($_GET['edit_user_group'])) {
-            try {
-                $currentGroup = new EfrontGroup($_GET['edit_user_group']);
-            } catch (Exception $e) {
-                $message = $e -> getMessage();
-                $message_type = 'failure';
-            }
-
-   $stats_link = array(
-   array('text' => _STATISTICS, 'image' => "16x16/reports.png", 'href' => $_SESSION['s_type'].".php?ctg=statistics&option=groups&sel_group=" . $_GET['edit_user_group'], 'target' => '_self')
-   );
-
-   $smarty -> assign ("T_STATS_LINK", $stats_link);
-            $form -> setDefaults(array('name' => $currentGroup -> group['name'],
-                                       'description' => $currentGroup -> group['description'],
-                                       'group_status' => $currentGroup -> group['users_active'],
-                                       'group_languages_NAME' => $currentGroup -> group['languages_NAME'],
-                                       'group_usertype' => $currentGroup -> group['user_types_ID'],
-                                       'assign_to_all_new' => $currentGroup -> group['assign_profile_to_new'],
-                                       'group_key' => $currentGroup -> group['unique_key'],
-                                       'is_default' => $currentGroup -> group['is_default'],
-                                       'key_max_usage' => isset($currentGroup -> group['key_max_usage']) ? $currentGroup -> group['key_max_usage'] : 0));
-
-
-            //$smarty -> assign("T_USERGROUP_NAME", $currentGroup -> group['name']);
-            // To report the remaining key uses
-            if ($currentGroup -> group['key_max_usage'] > 0) {
-                $smarty -> assign("T_LIMITED_KEY_USES", (($currentGroup -> group['key_max_usage'] - $currentGroup -> group['key_current_usage'] > 0)?$currentGroup -> group['key_max_usage'] - $currentGroup -> group['key_current_usage']:0) . " / " .$currentGroup -> group['key_max_usage']);
-            }
+            $form -> setDefaults($currentGroup -> group);
         }
 
         if (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') {
@@ -129,60 +100,38 @@ $loadScripts[] = 'includes/groups';
             $form -> addElement('submit', 'submit_type', _SUBMIT, 'class = "flatButton"');
 
             if ($form -> isSubmitted() && $form -> validate()) {
-                if (isset($_GET['edit_user_group'])) {
-                    try {
-                        $currentGroup -> group['name'] = $form -> exportValue('name');
-                        $currentGroup -> group['description'] = $form -> exportValue('description');
+             try {
+              $values = $form -> exportValues();
+              if (isset($_GET['edit_user_group'])) {
+               $currentGroup -> group['name'] = $values['name'];
+               $currentGroup -> group['description'] = $values['description'];
+               $currentGroup -> group['user_types_ID'] = $values['user_types_ID'];
+               $currentGroup -> group['unique_key'] = $values['unique_key'];
+               $currentGroup -> group['is_default'] = $values['is_default'];
+               $currentGroup -> group['key_max_usage'] = $values['key_max_usage'] ? $values['key_max_usage'] : 0;
+               if (!$currentGroup -> group['key_max_usage']) {
+                $currentGroup -> group['key_current_usage'] = 0;
+               }
+               $currentGroup -> persist();
+               eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=user_groups&message=".urlencode(_SUCCESFULLYUPDATEDGROUP)."&message_type=success");
+               //$currentGroup -> updateUsers();
+              } else {
+               $fields['name'] = $values['name'];
+               $fields['description'] = $values['description'];
+               $fields['user_types_ID'] = $values['user_types_ID'];
+               $fields['unique_key'] = $values['unique_key'];
+               $fields['is_default'] = $values['is_default'];
+               $fields['key_max_usage'] = $values['key_max_usage'] ? $values['key_max_usage'] : 0;
+               $group = EfrontGroup::create($fields);
 
-                        //if ($currentGroup -> group['users_active']  != $form -> exportValue('group_status') || $currentGroup -> group['languages_NAME'] != $form -> exportValue('group_languages_NAME') || $currentGroup -> group['user_types_ID'] != $form -> exportValue('group_usertype')) {
-                            $currentGroup -> group['users_active'] = $form -> exportValue('group_status');
-                            $currentGroup -> group['languages_NAME'] = $form -> exportValue('group_languages_NAME');
-                            $currentGroup -> group['user_types_ID'] = $form -> exportValue('group_usertype');
-
-                            $currentGroup -> updateUsers();
-                        //}
-
-                        $currentGroup -> group['assign_profile_to_new'] = $form -> exportValue('assign_to_all_new');
-                        $currentGroup -> group['unique_key'] = $form -> exportValue('group_key');
-                        $currentGroup -> group['is_default'] = $form -> exportValue('is_default');
-                        $currentGroup -> group['key_max_usage'] = $form -> exportValue('key_max_usage');
-                        if ($currentGroup -> group['key_max_usage'] == 0) {
-                            $currentGroup -> group['key_current_usage'] = 0;
-                        }
-                        $currentGroup -> persist();
-                        eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=user_groups&message=".urlencode(_SUCCESFULLYUPDATEDGROUP)."&message_type=success");
-                    } catch (Exception $e){
-                     $e->getTraceAsString();
-                        $message = _SOMEPROBLEMEMERGED;
-                        $message_type = 'failure';
-                    }
-                } else {
-                    $content['name'] = $form -> exportValue('name');
-                    $content['description'] = $form -> exportValue('description');
-                    $content['users_active'] = $form -> exportValue('group_status');
-                    $content['languages_NAME'] = $form -> exportValue('group_languages_NAME');
-                    $content['user_types_ID'] = $form -> exportValue('group_usertype');
-                    $content['assign_profile_to_new'] = $form -> exportValue('assign_to_all_new');
-                    $content['unique_key'] = $form -> exportValue('group_key');
-                    $content['is_default'] = $form -> exportValue('is_default');
-                    $content['key_max_usage'] = $form -> exportValue('key_max_usage') ? $form -> exportValue('key_max_usage') : 0;
-                    try {
-                        $group = EfrontGroup::create($content);
-                    } catch (Exception $e){
-                        $message = $e -> getMessage();;
-                        $message_type = 'failure';
-                        eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=user_groups&".$postTarget."&message=".urlencode($message)."&message_type=".$message_type);
-                    }
-                    eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=user_groups&edit_user_group=".$group -> group['id']."&tab=users&message=".urlencode(_SUCCESFULLYADDEDGROUP)."&message_type=success");
-                }
+               eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=user_groups&edit_user_group=".$group -> group['id']."&tab=users&message=".urlencode(_SUCCESFULLYADDEDGROUP)."&message_type=success");
+              }
+             } catch (Exception $e){
+              handleNormalFlowExceptions($e);
+             }
             }
         }
-        $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-
-        $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
-        $form -> setRequiredNote(_REQUIREDNOTE);
-        $form -> accept($renderer);
-        $smarty -> assign('T_USERGROUPS_FORM_R', $renderer -> toArray());
+        $smarty -> assign('T_USERGROUPS_FORM', $form -> toArray());
 
         if (isset($_GET['edit_user_group'])) {
             $groupUsers = $currentGroup -> getUsers();

@@ -205,15 +205,15 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     }
     if (!$nohandle) {
         if ($cookieValue == 'hidden' || (!$cookieValue && isset($expand) && !$expand)) {
-            $handleString .= '<img class = "close" src = "images/16x16/navigate_down.png" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';
+            $handleString .= '<img class = "close" src = "images/16x16/navigate_down.png" alt = "'._EXPANDCOLLAPSEBLOCK.'" title = "'._EXPANDCOLLAPSEBLOCK.'" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';
             $showContent = 'display:none';
         } else {
-            $handleString .= '<img class = "open" src = "images/16x16/navigate_up.png" onclick = "toggleBlock(this, \''.$cookieString.'\')"  id = "'.urlencode($params['title']).'_image">';
+            $handleString .= '<img class = "open" src = "images/16x16/navigate_up.png" alt = "'._EXPANDCOLLAPSEBLOCK.'" title = "'._EXPANDCOLLAPSEBLOCK.'" onclick = "toggleBlock(this, \''.$cookieString.'\')"  id = "'.urlencode($params['title']).'_image">';
             $showContent = '';
         }
     }
     //This is hidden (css) unless it's inside a sortable ul
- $handleString .= '<img class = "blockMoveHandle" src = "images/16x16/attachment.png" onmousedown = "createSortable(\'firstlist\');createSortable(\'secondlist\');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)">';
+ $handleString .= '<img class = "blockMoveHandle" src = "images/16x16/attachment.png" alt = "'._MOVEBLOCK.'" title = "'._MOVEBLOCK.'" onmousedown = "createSortable(\'firstlist\');createSortable(\'secondlist\');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)">';
     $str = '
     <div class = "block" style = "'.$params['style'].';" id = "'.urlencode($params['title']).'" >
         <div class = "blockContents" >
@@ -221,7 +221,7 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
           <span class = "title">'.$image.''.$params['title'].'</span>
           <span class = "subtitle">'.$params['sub_title'].'</span>
           '.$mainOptions.'
-          <div class = "content" style = "'.$showContent.';" id = "'.urlencode($params['title']).'_content" onmousedown = "Sortable.destroy(\'firstlist\');Sortable.destroy(\'secondlist\');">
+          <div class = "content" style = "'.$showContent.';" id = "'.urlencode($params['title']).'_content" onmousedown = "if ($(\'firstlist\')) Sortable.destroy(\'firstlist\');if ($(\'secondlist\')) Sortable.destroy(\'secondlist\');">
      '.$params['content'].'
     </div>
           <span style = "display:none">&nbsp;</span>

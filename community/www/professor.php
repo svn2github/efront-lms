@@ -164,65 +164,16 @@ try {
 }
 /*Ajax call to enter group and get group lessons */
  if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
-     // Assuming just one group due to checks in insertion
-        $group = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
-        //pr($group);
-        if (sizeof($group)) {
-         if ($group[0]['active'] == "1") {
-             if ($group[0]['key_max_usage'] == 0 || $group[0]['key_max_usage'] > $group[0]['key_current_usage']) {
-              $group = new EfrontGroup($group[0]);
-           $groupLessons = $group -> getLessons();
-           $groupCourses = $group -> getCourses();
-           if (sizeof($groupLessons) || sizeof($groupCourses)) {
-               $currentLessonIds = array_keys($currentUser -> getLessons()); // get ids of current user lessons
-               $lessonIds = array();
-            $lessonTypes = array();
-            foreach ($groupLessons as $lesson_ID => $lesson) {
-                if (! in_array($lesson_ID, $currentLessonIds)) { // check if user already has the lessons
-                 $lessonIds[] = $lesson_ID;
-                 $lessonTypes[] = $lesson['user_type'];
-                }
-            }
-            $currentCourseIds = array_keys($currentUser -> getUserCourses()); // get ids of current user courses
-            $courseIds = array();
-            $courseTypes = array();
-            foreach ($groupCourses as $course_ID => $course) {
-                if (! in_array($course_ID, $currentCourseIds)) { // check if user already has the courses
-                 $courseIds[] = $course_ID;
-                 $courseTypes[] = $course['user_type'];
-                }
-            }
-            // If at least one new lesson
-            if (sizeof($lessonIds)) {
-                $currentUser ->addLessons($lessonIds,$lessonTypes);
-            }
-            if (sizeof($courseIds)) {
-                $currentUser ->addCourses($courseIds,$courseTypes);
-            }
-            $sum = sizeof($lessonIds) + sizeof($courseIds);
-            // Only after the lessons have actually been assigned
-            $group -> addUsers($currentUser -> user['login']);
-            if ($sum == 0) {
-                echo "0"; //if no new assignments return zero
-            } else {
-          if ($group -> group['key_max_usage'] != 0) {
-                       $group -> group['key_current_usage']++;
-                       $group -> persist();
-                   }
-                echo sizeof($lessonIds) . "_" . sizeof($courseIds); // else divide new lessons from new courses with "_"
-            }
-           } else {
-               echo "NL"; // no lessons
-           }
-             } else {
-                 echo "KE"; //key expired- no remaining uses
-             }
-         } else {
-             echo "NA";
-         }
-        } else {
-            echo "WK"; //wrong key
-        }
+  try {
+   if (!eF_checkParameter($_GET['group_key'], 'alnum_general')) {
+    throw new Exception(_INVALIDDATA.': '.$_GET['group_key']);
+   }
+   $result = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
+   $group = new EfrontGroup($result[0]);
+   $group -> useKeyForUser($currentUser);
+  } catch (Exception $e) {
+   handleAjaxExceptions($e);
+  }
   exit;
  }
 ///MODULE1: Import

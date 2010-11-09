@@ -39,7 +39,7 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
    {if !$_student_ && $_change_}
              <div class = "headerTools">
                  <img src = "images/16x16/add.png" title = "{$smarty.const._ANNOUNCEMENTADD}" alt = "{$smarty.const._ANNOUNCEMENTADD}"/>
-                 <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&add=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDDEFINITION}', 1)" title = "{$smarty.const._ADDDEFINITION}" target = "POPUP_FRAME">{$smarty.const._ADDDEFINITION}</a>
+                 <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&add=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDDEFINITION}', 2)" title = "{$smarty.const._ADDDEFINITION}" target = "POPUP_FRAME">{$smarty.const._ADDDEFINITION}</a>
              </div>
             {/if}
 

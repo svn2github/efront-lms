@@ -37,6 +37,7 @@ class EfrontGroupException extends Exception
     const USER_ALREADY_MEMBER = 305;
     const ASSIGNMENT_ERROR = 306;
     const GROUPKEYEXISTS = 307;
+    const INVALID_TYPE = 308;
 }
 /**
 
@@ -363,113 +364,67 @@ class EfrontGroup
      * @access public
 
      */
-    public function addUsers($users) {
-        if (!is_array($users)) {
-            if ($users instanceof EfrontUser) {
-                $users = $users -> user['login'];
-            }
-            $users = array($users);
-        }
-        $allUsers = eF_getTableDataFlat("users", "login", "archive=0"); //TODO: removed here the "active = 1 AND "
-        // Optimization - get the lesson info extraciton out of the loop if you are to assign
-        // them to new group users
-        if ($this -> group['assign_profile_to_new']) {
-            $groupLessons = $this -> getLessons();
-            $lessonIds = array_keys($groupLessons);
-            /*
-
-            $lessonTypes = array();
-
-            foreach ($groupLessons as $lesson) {
-
-                $lessonTypes[] = $lesson['user_type'];
-
-            }
-
-			*/
-            $groupCourses = $this -> getCourses(true, true);
-            //$courseI = array_keys($groupCourses);
-            /*
-
-            $courseTypes = array();
-
-            foreach ($groupCourses as $course) {
-
-                $courseTypes[] = $course['user_type'];
-
-            }
-
-			*/
+    public function addUsers($users, $userTypeInCourses = false) {
+        $result = eF_getTableData("users", "login, user_type, user_types_ID", "archive=0");
+        foreach ($result as $value) {
+         $allUsers[$value['login']] = $value;
         }
         $errors = array();
+        is_array($users) OR $users = array($users);
         foreach ($users as $key => $user) {
             if ($user instanceof EfrontUser) {
-                $user = $user -> user['login'];
+                $users[$key] = $user -> user['login'];
             }
-            if (in_array($user, $allUsers['login'])) {
-                $fields = array('groups_ID' => $this -> group['id'],
-                                'users_LOGIN' => $user);
-                try {
-                 eF_insertTableData("users_to_groups", $fields);
-                 if ($this -> group['assign_profile_to_new']) {
-                  $userObject = EfrontUserFactory::factory($user);
-                  $userObjects[$user] = $userObject;
-                  $fields = array();
-                  if ($userObject -> getType() != 'administrator') {
-                   // Update the user profile
-                   if ($this -> group['user_types_ID']) {
-                    if ($this -> group['user_types_ID'] != 'student' && $this -> group['user_types_ID'] != 'professor') {
-                     $basic_type = eF_getTableData("user_types", "basic_user_type", "id = '" . $this -> group['user_types_ID']. "'");
-                     if (sizeof($basic_type)) {
-                      $fields["user_type"] = $basic_type[0]['basic_user_type'];
-                      $fields["user_types_ID"] = $this -> group['user_types_ID'];
-                     } else {
-                      throw new EfrontGroupException(_INVALIDID, EfrontGroupException :: INVALID_ID);
-                     }
-                    } else {
-                     // basic user type
-                     $fields["user_type"] = $this -> group['user_types_ID'];
-                     $fields["user_types_ID"] = 0;
-                    }
-                   }
-                  }
-                  if ($this -> group['languages_NAME']) {
-                   $fields["languages_NAME"] = $this -> group['languages_NAME'];
-                  }
-                  if ($this -> group['users_active']) {
-                   $fields["active"] = ($this -> group['users_active'] == 1)? 1:0;
-                  }
-                  if (sizeof($fields)) {
-                   eF_updateTableData("users", $fields, "login = '". $user ."'");
-                  }
-                  // Add lessons - info acquired before entering the new user assignment loop
-                  if ($userObject -> getType() != 'administrator') {
-                   if (isset($fields["user_types_ID"]) && $fields["user_types_ID"]) {
-                    $userTypeInCourses = $fields["user_types_ID"];
-                   } elseif (isset($fields["user_type"])) {
-                    $userTypeInCourses = $fields["user_type"];
-                   } else {
-                    $userTypeInCourses = $userObject -> getType();
-                   }
-                   if (!empty($lessonIds)) {
-                    $userObject -> addLessons($lessonIds, $userTypeInCourses, 1); //active lessons
-                   }
-                  }
-                 }
-                } catch (Exception $e) {
-                 // Don't throw here, so that mass assignments can continue to the next user
-                 $errors[] = _USERALREADYEXISTSINGROUP.": $user";
-                }
-            } else {
-             $errors[] = _USERDOESNOTEXIST.": $user";
-             //throw new EfrontGroupException(_USERDOESNOTEXIST.": $user", EfrontGroupException :: USER_NOT_EXISTS);
+            if (!in_array($users[$key], array_keys($allUsers))) {
+             unset($users[$key]);
+             $errors[] = _USERDOESNOTEXIST.": ".$users[$key];
             }
         }
-//pr($groupCourses);exit;
-        if (!empty($groupCourses)) {
-         foreach ($groupCourses as $course) {
-          $course -> addUsers($userObjects, $userTypeInCourses, 1);
-         }
+        foreach ($users as $key => $user) {
+          $fields = array('groups_ID' => $this -> group['id'],
+                             'users_LOGIN' => $user);
+          eF_insertTableData("users_to_groups", $fields);
+/*
+
+
+
+        		if ($allUsers[$user]['user_type'] != 'administrator') {
+
+        			if ($this -> group['is_default'] && $this -> group['user_types_ID']) {
+
+        				if ($this -> group['user_types_ID'] != 'student' && $this -> group['user_types_ID'] != 'professor') {
+
+        					$basic_type = eF_getTableData("user_types", "basic_user_type", "id = '" . $this -> group['user_types_ID']. "'");
+
+        					if (sizeof($basic_type) > 0) {
+
+        						$fields	 = array("user_type" => $basic_type[0]['basic_user_type'], "user_types_ID" => $this -> group['user_types_ID']);
+
+        					} else {
+
+        						throw new EfrontGroupException(_INVALIDTYPE.': '.$this -> group['user_types_ID'], EfrontGroupException :: INVALID_TYPE);
+
+        					}
+
+        				} else {
+
+        					$fields	 = array("user_type" => $this -> group['user_types_ID']);
+
+        				}
+
+        				eF_updateTableData("users", $fields, "login='".$user."'");
+
+        			}
+
+        		}
+
+*/
+        }
+        foreach ($this -> getCourses(true, true) as $course) {
+         $course -> addUsers($users, $userTypeInCourses, 1);
+        }
+        foreach ($this -> getLessons(true, true) as $lesson) {
+         $lesson -> addUsers($users, $userTypeInCourses, 1);
         }
         if (!empty($errors)) {
          throw new EfrontGroupException(implode("<br>", $errors), EfrontGroupException :: ASSIGNMENT_ERROR);
@@ -594,6 +549,43 @@ class EfrontGroup
     }
     /**
 
+     * Add a user to the group using the group key
+
+     *
+
+     * This function is used to add a user to the group, using the group's key
+
+     * The courses and lessons of the group are assigned to the user using either the group's group_usertype,
+
+     * or the user's own type if none is set
+
+     *
+
+     * @param mixed $user an EfrontUser object or a user login
+
+     * @since 3.6.7
+
+     * @access public
+
+     */
+    public function useKeyForUser($user) {
+     if ($user instanceOf EfrontUser) {
+      $user = $user -> user['login'];
+     }
+     if (!$this -> group['active']) {
+      throw new Exception(_THISGROUPISINACTIVE, EfrontGroupException::ASSIGNMENT_ERROR);
+     }
+  if ($this -> group['key_max_usage'] && $this -> group['key_max_usage'] <= $this -> group['key_current_usage']) {
+   throw new Exception(_MAXIMUMKEYUSAGESREACHED, EfrontGroupException::ASSIGNMENT_ERROR);
+  }
+  $this -> addUsers($user, $this -> group['user_types_ID']);
+  if ($group -> group['key_max_usage']) {
+   $group -> group['key_current_usage']++;
+   $group -> persist();
+  }
+    }
+    /**
+
      * Get group lessons
 
      *
@@ -639,12 +631,16 @@ class EfrontGroup
      * @access public
 
      */
-    public function getLessons() {
-        if ($this -> lessons === false) { //Make a database query only if the variable is not initialized, or it is explicitly asked
-            $result = eF_getTableData("lessons_to_groups lg, lessons l", "lg.*, l.name, l.active", "lg.lessons_ID = l.id and lg.groups_ID=".$this -> group['id']);
+    public function getLessons($returnObjects = false, $refresh = false) {
+        if ($this -> lessons === false || $refresh) { //Make a database query only if the variable is not initialized, or it is explicitly asked
+            $result = eF_getTableData("lessons_to_groups lg, lessons l", "lg.*, l.name, l.active", "l.archive=0 and lg.lessons_ID = l.id and lg.groups_ID=".$this -> group['id']);
             $this -> lessons = array();
             foreach ($result as $value) {
-                $this -> lessons[$value['lessons_ID']] = array("lessons_ID" => $value['lessons_ID'], "lessons_name" => $value['name'], "user_type" => $this -> group['user_types_ID'], "active" => $value['active']);
+             if ($returnObjects) {
+                 $this -> lessons[$value['lessons_ID']] = new EfrontLesson($value);
+             } else {
+                 $this -> lessons[$value['lessons_ID']] = array("lessons_ID" => $value['lessons_ID'], "lessons_name" => $value['name'], "user_type" => $this -> group['user_types_ID'], "active" => $value['active']);
+             }
             }
          }
         return $this -> lessons;
@@ -801,7 +797,7 @@ class EfrontGroup
      */
     public function getCourses($returnObjects = false, $refresh = false) {
         if ($this -> courses === false || $refresh) { //Make a database query only if the variable is not initialized, or it is explicitly asked
-            $result = eF_getTableData("courses_to_groups lg, courses l", "lg.*, l.*", "lg.courses_ID = l.id and lg.groups_ID=".$this -> group['id']);
+            $result = eF_getTableData("courses_to_groups cg, courses c", "cg.*, c.*", "c.archive=0 and cg.courses_ID = c.id and cg.groups_ID=".$this -> group['id']);
             $this -> courses = array();
             foreach ($result as $value) {
              if ($returnObjects) {
@@ -1081,103 +1077,35 @@ class EfrontGroup
      * @access public
 
      */
-   private static $default_group = false;
-   public static function addToDefaultGroup($user) {
-    if (!($user instanceof EfrontUser)) {
-     $login = $user['login'];
-    } else {
-     $login = $user -> user['login'];
-    }
-    // Get the default eFront group
-    if (!$default_group) {
-     $default_group = eF_getTableData("groups", "*", "is_default = 1 AND active = 1");
-     if (sizeof($default_group)) {
-      $default_group = $default_group[0];
-     } else {
-      $default_group = true;
-      return;
+    private static $default_group = false;
+    public static function addToDefaultGroup($user) {
+     // Get the default eFront group
+     if (!$default_group) {
+      $default_group = eF_getTableData("groups", "*", "is_default = 1 AND active = 1");
+      if (sizeof($default_group)) {
+       $default_group = $default_group[0];
+      } else {
+       $default_group = true;
+       return;
+      }
      }
+     try {
+      $roles = EfrontUser::getRoles();
+      $group = new EfrontGroup($default_group);
+      if ($group -> group['user_types_ID']) {
+       if ($group -> group['user_types_ID'] == 'student' || $group -> group['user_types_ID'] == 'professor') {
+        $user -> user['user_type'] = $group -> group['user_types_ID'];
+        $user -> user['user_types_ID'] = 0;
+       } else if (is_numeric($group -> group['user_types_ID'])) {
+        $user -> user['user_type'] = $roles[$group -> group['user_types_ID']];
+        $user -> user['user_types_ID'] = $group -> group['user_types_ID'];
+       }
+       $user -> persist();
+      }
+      $group -> addUsers($user);
+     } catch (Exception $e) {/*otherwise no default group has been defined*/}
+     return true;
     }
-    // pr($default_group);
-    try {
-     $group = new EfrontGroup($default_group);
-     $group -> addUsers($login);
-/*
-
-   		$group -> updateUsers($login);
-
-
-
-   		// Get updated version of user
-
-   		try {
-
-   			$updatedUser = EfrontUserFactory::factory($login);
-
-   		} catch (Exception $e) {
-
-   			throw $e;
-
-   		}
-
-
-
-   		// Assign default group type
-
-   		$groupLessons = $group -> getLessons();
-
-   		$lessonIds = array_keys($groupLessons);
-
-   		if(!empty($lessonIds)) {
-
-   			if ($updatedUser -> user['user_types_ID'] != 0) {
-
-   				$user_type = $updatedUser -> user['user_types_ID'];
-
-   			} else {
-
-   				$user_type = $updatedUser -> user['user_type'];
-
-   			}
-
-
-
-   			$user_types = array();
-
-   			foreach($lessonIds as $lesson) {
-
-   				$user_types[] = $user_type;
-
-   			}
-
-   			$user -> addLessons($lessonIds, $user_types, 1);
-
-   		}
-
-   		$groupCourses = $group -> getCourses();
-
-   		$courseIds = array_keys($groupCourses);
-
-   		if(!empty($courseIds)) {
-
-   			$user_types = array();
-
-   			foreach($courseIds as $course) {
-
-   				$user_types[] = $user_type;
-
-   			}
-
-   			$user -> addCourses($courseIds, $user_types, 1);
-
-   		}
-
-*/
-    } catch (Exception $e) {
-     // otherwise no default group has been defined
-    }
-    return true;
-   }
    /**
 
      * Returns the existing groups

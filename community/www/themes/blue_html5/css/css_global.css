@@ -376,12 +376,15 @@ border-bottom: 1px solid #2a4562;
 }
 table.sortedTable td a{vertical-align:middle;color:#333333;}
 table.sortedTable td a img{vertical-align:middle;border-width:0px;}
+
 table.sortedTable tr.subSection td:first-child{padding-left:18px;} 
-table.subSection {background-color:#C8B560;border:1px solid #C8B560;}
-table.subSection td.topTitle{background:#C8B560;}
-table.subSection td.sortedTableFooter{background:#C8B560;text-align:right;}
-table.subSection tr.oddRowColor{background:#C9C299;border:1px dotted #D0D0D0;}
-table.subSection tr.evenRowColor{background:#ECE5B6;border:1px dotted #D0D0D0;}
+table.subSection {background-color:#BBBBBB;border:1px solid #BBBBBB;}
+table.subSection td.topTitle{background:#BBBBBB;}
+table.subSection td.sortedTableFooter{background:#CCCCCC;text-align:right;}
+table.subSection tr.oddRowColor{background:#f1f1f1;border-bottom:1px solid #D0D0D0;border-top:1px solid #D0D0D0;}
+table.subscriton tr.evenRowColor{background:#f8f8f8;}
+/*table.subSection tr.oddRowColor{background:#C9C299;border:1px dotted #D0D0D0;}
+table.subSection tr.evenRowColor{background:#ECE5B6;border:1px dotted #D0D0D0;}*/
 table.subSection tr.oddRowColor:hover,table.subSection tr.evenRowColor:hover{background:#C7D7F3;}
 
 /*Main header for tables*/

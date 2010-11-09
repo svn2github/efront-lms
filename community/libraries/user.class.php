@@ -2648,6 +2648,33 @@ abstract class EfrontLessonUser extends EfrontUser
   return $roles;
  }
  /**
+	 * Get student roles
+	 *
+	 * This function returns an array with student roles, like EfrontLessonUser::getLessonsRoles
+	 *
+	 * @param boolean $getNames Whether to return id/basic user type pairs or id/name pairs
+	 * @return array The lesson-oriented roles
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 * @see EfrontLessonUser::getLessonsRoles
+	 */
+ public static function getStudentRoles($getNames = false) {
+  $roles = self::getLessonsRoles();
+  $roleNames = self::getLessonsRoles(true);
+  foreach ($roles as $key => $value) {
+   if ($value != 'student') {
+    unset($roles[$key]);
+    unset($roleNames[$key]);
+   }
+  }
+  if ($getNames) {
+   return $roleNames;
+  } else {
+   return $roles;
+  }
+ }
+ /**
 	 * Get lesson users
 	 *
 	 * This function returns a list with the students of all the lessons in which the current user has a professor role

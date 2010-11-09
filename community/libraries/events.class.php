@@ -113,7 +113,8 @@ class EfrontEvent
     const COURSE_REMOVAL = 53; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_COMPLETION = 54; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_CERTIFICATE_ISSUE = 55; // users_LOGIN, lessons_ID, lessons_name, entity_name (grade)
-    const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name	const COURSE_PROGRAMMED_START = 57;		 	// users_LOGIN, lessons_ID, lessons_name
+    const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name
+ const COURSE_PROGRAMMED_START = 57; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_PROGRAMMED_EXPIRY = 58;
     // Test codes: [75-99]
     const TEST_CREATION = 75;

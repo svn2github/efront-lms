@@ -228,7 +228,7 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
         } else {
             $month_name = '"' . $prefix . 'Month'.$instance.'"';
         }
-        $month_result .= $month_name . "' id = '". $month_name ."' ";
+        $month_result .= $month_name . " id = ". $month_name ." ";
 
         if (null !== $month_size){
             $month_result .= ' size="' . $month_size . '"';
@@ -266,7 +266,7 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
         } else {
             $day_name = '"' . $prefix . 'Day'.$instance.'"';
         }
-        $day_result .= $day_name . "' id = '". $day_name ."' ";
+        $day_result .= $day_name . " id = ". $day_name ." ";
         if (null !== $day_size){
             $day_result .= ' size="' . $day_size . '"';
         }

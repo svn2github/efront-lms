@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","レッスン材料");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","定義されて質問はありません。");//There are no questions defined
 define("_ADDQUESTION","追加の質問");//Add question
 define("_PREVIEW","プレビュー");//Preview
+define("_RENAME","名前の変更");//Rename (New)
+define("_CLONE","クローン");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","のテストが見つかりました");//No tests found
 define("_ADDTEST","追加テスト");//Add test
 define("_UNITANDSUBUNITSTESTS","ユニットとサブユニットテスト");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","レッスンを再開する");//Resume lesson
 define("_STARTLESSON","スタート]ボタンを教訓");//Start lesson
 define("_TRACKING","トラッキング");//Tracking
 define("_FORMATCERTIFICATE","形式の証明書");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","形式の証明書テンプレート");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","設定証明書の有効期限");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","認証を作成するためのLiveDocXメソッドを使用します");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","認証を作成するためのXMLメソッドを使用します");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","追加証明書テンプレート（xml形式）");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","（xml形式）証明書テンプレートを編集する");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","名前を変更する証明書テンプレート");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","クローン証明書テンプレート");//Clone certificate template (New)
+define("_CERTIFICATENAME","証明書の名前");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","証明書の説明");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XMLの記述が空にすることはできません");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","証明書を既存のテンプレート");//Existing certificate templates (New)
 define("_TRAFFIC","トラフィック");//Traffic
 define("_LESSONTRAFFIC","レッスンのトラフィック");//Lesson traffic
 define("_EDITTEST","編集テスト");//Edit test
 define("_EDITQUESTION","編集の質問");//Edit question
 define("_CERTIFICATE","証明書");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","正常に更新済みの証明書");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","正常に更新済みの証明書");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","証明書テンプレートが正常に追加された");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","証明書テンプレートを追加するときに問題があった");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","証明書テンプレートが正常に更新されました");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","証明書テンプレートを更新している間に問題があった");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","証明書テンプレートが正常に変更されました");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","証明書テンプレートの名前を変更するときに問題があった");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","証明書テンプレートが正常にクローン化された");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","証明書テンプレートのクローンを作成中に問題があった");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","証明書テンプレートが正常に削除された");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","証明書テンプレートを削除中に問題があった");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","あなたは、この証明書テンプレートを変更する権限を持っていない");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","編集条件");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTPサーバーの構成");//SMTP server configuration
 define("_SMTPSERVER","SMTPサーバー");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","csvファイル�
 define("_IFEMPTYNEWPASSWORD","赤のフィールドは必須項目です。与えられたパスワードがない場合は、最初のパスワードは同じに設定してログインしてください。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","確認してください。 csvファイルの形式をして");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","＃ ＃ user_nameに使用するユーザーの名前、 ＃ ＃ user_surnameのユーザーの姓、 ＃ ＃ forコースのcourse_nameの名前を、 ＃グレード＃ ＃日付＃日付等級とします。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","テンプレートでは、組織の名前の使用&lt;organization&gt;の未満/組織&gt;、未満級コースの名前、&lt;grade&gt;未満/グレードへ&gt;学生の氏名、&lt;course&gt;未満/コースへ&gt; &lt;student&gt;未満/学生&gt;シリアル&gt;の未満/シリアル番号のシリアル&gt;、日付の&lt;日付未満/日付&gt;、背景にロゴと&lt;background&gt;未満/背景へ&gt; &lt;logo&gt;未満/ロゴ&gt;。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","投票");//Votes
 define("_PERCENTAGE","割合");//Percentage
 define("_CERTIFICATEISSUED","証明書の発行");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","とどまる");//Remain
 define("_WEEKS","週");//weeks
 define("_WEEKs","週間以内に");//week
 define("_DAYS","日中");//days
+define("_DAYSCAPITAL","日");//Days (New)
 define("_DAY","日");//Day
 define("_EVALUATIONDATAUPDATED","評価データを更新しました");//Evaluation data updated successfully
 define("_EVALUATION","評価");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","ユーザーのレッスンカタログ");//User's les
 define("_USERDASHBOARD","ユーザーのダッシュボード");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","タイトルなしは、ジョブの説明のために提供");//No title provided for job description
 define("_EDITORTYPE","エディタの種類");//Editor type
-define("_TINYMCE","TinyMCEは3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCEは3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","テストを提出した後だけを表示するメッセージ");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","このテストは正常に送信さ");//This test was successfully submitted
 define("_LEARNINGSTATUS","学習状況");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","それ以外の場合は、 <button onclick =
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","君がいたが、無料レッスンやコースに入学。してください非無料レッスンやコースの選択のレビューを以下の");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","監視");//Supervisors
 define("_COURSEOPTIONS","コースオプション");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","すべてのユーザーのリセットの実行");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","ユーザーのレポート生成");//Users reports generator (New)
-define("_ADDTOGROUP","グループに追加");//Add to group (New)
-define("_ASSIGNCOURSE","割り当てますコース");//Assign course (New)
-define("_ASSIGNLESSON","割り当てのレッスン");//Assign lesson (New)
-define("_REMOVECOURSE","削除コース");//Remove course (New)
-define("_REMOVELESSON","削除レッスン");//Remove lesson (New)
-define("_REMOVEFROMGROUP","グループから削除");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","リセットの学習進捗状況");//Reset learning progress (New)
-define("_BUILDER","ビルダー");//Builder (New)
-define("_ADDREPORT","追加新しいレポート");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","すべてのユーザーのリセットの実行");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","ユーザーのレポート生成");//Users reports generator
+define("_ADDTOGROUP","グループに追加");//Add to group
+define("_ASSIGNCOURSE","割り当てますコース");//Assign course
+define("_ASSIGNLESSON","割り当てのレッスン");//Assign lesson
+define("_REMOVECOURSE","削除コース");//Remove course
+define("_REMOVELESSON","削除レッスン");//Remove lesson
+define("_REMOVEFROMGROUP","グループから削除");//Remove from group
+define("_RESETLEARNINGPROGRESS","リセットの学習進捗状況");//Reset learning progress
+define("_BUILDER","ビルダー");//Builder
+define("_ADDREPORT","追加新しいレポート");//Add new report
 define("_CONDITIONTYPE","条件の種類");//Condition type
-define("_CONDITIONSPECIFICATION","条件仕様");//Condition specification (New)
-define("_ADDCOLUMN","追加の列");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","との関係、次の");//Relation with next (New)
-define("_COLUMNTYPE","カラムタイプ");//Column type (New)
-define("_GRIDNAME","グリッド名");//Grid name (New)
-define("_ALIGNED","沿磁力線");//Aligned (New)
-define("_SELECTREPORT","選択してレポート");//Select report (New)
-define("_AVAILABLEREPORTS","利用可能なレポート");//Available reports (New)
-define("_EDITREPORT","[編集]レポート");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","ないレポートは、システムで定義されています。てください。");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","を作成する");//create one (New)
-define("_NEWREPORT","新しいレポート");//New report (New)
-define("_REPORTNAME","レポート名");//Report name (New)
-define("_SELECTCONDITION","選択条件");//Select condition (New)
-define("_ISNOT","されていません");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","持っては、すべてのレッスンを割り当て完了");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","持ってはすべてのコースを割り当て完了");//Has completed all assigned courses (New)
-define("_HAS","あり");//Has (New)
-define("_HASNOT","はあり");//Has not (New)
-define("_ENROLLEDTO","に入学");//Enrolled to (New)
-define("_BETWEEN","の間に");//Between (New)
-define("_ISASSIGNED","割り当てられます");//Is assigned (New)
-define("_ISNOTASSIGNED","割り当てられていないか");//Is not assigned (New)
-define("_DURINGLASTDAY","最後の24時間");//last 24h (New)
-define("_DURINGLASTWEEK","先週");//last week (New)
-define("_DURINGLASTMONTH","先月");//last month (New)
-define("_COLUMN","列");//Column (New)
-define("_SELECTCOLUMN","選択列");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","空自動幅調整を残す");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","空白の名前の列を使用してコメントを残す");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","幅（％）");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","ご列を選択する");//Please select a column (New)
-define("_CHANGECOLUMNORDER","変更列は順序");//Change the columns order (New)
-define("_VIEWINGREPORT","表示レポート");//Viewing report (New)
-define("_PLEASESELECTACONDITION","ご条件を選択");//Please select a condition (New)
-define("_BASIC","基本的な");//Basic (New)
-define("_LEARNING","学習");//Learning (New)
-define("_ENTERPRISE","エンタープライズ");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","項目をドラッグ順序を変更する");//Drag items to change order (New)
-define("_CUSTOMFIELDS","カスタムフィールド");//Custom fields (New)
-define("_FORMATTEDLOGIN","フォーマットログイン");//Formatted login (New)
-define("_DEFAULTSORT","既定の並べ替え");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot;演算子が優先されます");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","現在のページの操作");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","または追加するために新しいグループを指定する");//Or specify a new group to add to (New)
-define("_ADDTO","に追加");//Add to (New)
-define("_REMOVEFROM","から削除");//Remove from (New)
-define("_GROUPOPERATIONS","グループの操作");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","証明書の操作");//Certificate operations (New)
-define("_LESSONOPERATIONS","レッスンの操作");//Lesson operations (New)
-define("_COURSEOPERATIONS","コース操作");//Course operations (New)
-define("_EXPORTTOCSV","エクスポートcsvファイル");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","いいえイベントコードが定義され");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","ファイルをインポートしました");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","ネストされた階層に変換するフォルダ");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","解凍のzipファイル（s）と輸入の内容");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","テーマはロックされて");//The theme is locked (New)
-define("_BLANKREPORT","空白のレポート");//Blank report (New)
-define("_CUSTOMREPORTS","カスタムレポート");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","システム管理者が確認し、あなたの入学を有効にする");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","リフレッシュテーブル");//Refresh table (New)
-define("_REMOVEFROMSET","削除セットから");//Remove from set (New)
-define("_BRANCHTREE","ブランチツリー");//Branch tree (New)
-define("_CHANGECONDITIONORDER","変更条件命令");//Change condition order (New)
-define("_INDEX","インデックス");//Index (New)
-define("_EVENTDATETIME","イベントの日付と時刻");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","証明書ファイルが存在しないか破損していたため、リセットされた");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","条件仕様");//Condition specification
+define("_ADDCOLUMN","追加の列");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","との関係、次の");//Relation with next
+define("_COLUMNTYPE","カラムタイプ");//Column type
+define("_GRIDNAME","グリッド名");//Grid name
+define("_ALIGNED","沿磁力線");//Aligned
+define("_SELECTREPORT","選択してレポート");//Select report
+define("_AVAILABLEREPORTS","利用可能なレポート");//Available reports
+define("_EDITREPORT","[編集]レポート");//Edit report
+define("_NOREPORTSINTHESYSTEM","ないレポートは、システムで定義されています。てください。");//There are no reports defined in the system. Please 
+define("_CREATEONE","を作成する");//create one
+define("_NEWREPORT","新しいレポート");//New report
+define("_REPORTNAME","レポート名");//Report name
+define("_SELECTCONDITION","選択条件");//Select condition
+define("_ISNOT","されていません");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","持っては、すべてのレッスンを割り当て完了");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","持ってはすべてのコースを割り当て完了");//Has completed all assigned courses
+define("_HAS","あり");//Has
+define("_HASNOT","はあり");//Has not
+define("_ENROLLEDTO","に入学");//Enrolled to
+define("_BETWEEN","の間に");//Between
+define("_ISASSIGNED","割り当てられます");//Is assigned
+define("_ISNOTASSIGNED","割り当てられていないか");//Is not assigned
+define("_DURINGLASTDAY","最後の24時間");//last 24h
+define("_DURINGLASTWEEK","先週");//last week
+define("_DURINGLASTMONTH","先月");//last month
+define("_COLUMN","列");//Column
+define("_SELECTCOLUMN","選択列");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","空自動幅調整を残す");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","空白の名前の列を使用してコメントを残す");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","幅（％）");//Width (%)
+define("_PLEASESELECTACOLUMN","ご列を選択する");//Please select a column
+define("_CHANGECOLUMNORDER","変更列は順序");//Change the columns order
+define("_VIEWINGREPORT","表示レポート");//Viewing report
+define("_PLEASESELECTACONDITION","ご条件を選択");//Please select a condition
+define("_BASIC","基本的な");//Basic
+define("_LEARNING","学習");//Learning
+define("_ENTERPRISE","エンタープライズ");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","項目をドラッグ順序を変更する");//Drag items to change order
+define("_CUSTOMFIELDS","カスタムフィールド");//Custom fields
+define("_FORMATTEDLOGIN","フォーマットログイン");//Formatted login
+define("_DEFAULTSORT","既定の並べ替え");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot;演算子が優先されます");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","現在のページの操作");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","または追加するために新しいグループを指定する");//Or specify a new group to add to
+define("_ADDTO","に追加");//Add to
+define("_REMOVEFROM","から削除");//Remove from
+define("_GROUPOPERATIONS","グループの操作");//Group operations
+define("_CERTIFICATEOPERATIONS","証明書の操作");//Certificate operations
+define("_LESSONOPERATIONS","レッスンの操作");//Lesson operations
+define("_COURSEOPERATIONS","コース操作");//Course operations
+define("_EXPORTTOCSV","エクスポートcsvファイル");//Export to csv
+define("_NOEVENTCODEDEFINED","いいえイベントコードが定義され");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","ファイルをインポートしました");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","ネストされた階層に変換するフォルダ");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","解凍のzipファイル（s）と輸入の内容");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","テーマはロックされて");//The theme is locked
+define("_BLANKREPORT","空白のレポート");//Blank report
+define("_CUSTOMREPORTS","カスタムレポート");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","システム管理者が確認し、あなたの入学を有効にする");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","リフレッシュテーブル");//Refresh table
+define("_REMOVEFROMSET","削除セットから");//Remove from set
+define("_BRANCHTREE","ブランチツリー");//Branch tree
+define("_CHANGECONDITIONORDER","変更条件命令");//Change condition order
+define("_INDEX","インデックス");//Index
+define("_EVENTDATETIME","イベントの日付と時刻");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","証明書ファイルが存在しないか破損していたため、リセットされた");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","からの可視");//Visible from (New)
+define("_EXPIRESAT","有効期限で");//Expires at (New)
+define("_CALENDARDISPLAYDATE","カレンダー表示の日付");//Calendar display date (New)
+define("_GLOBAL","グローバル");//Global (New)
+define("_ALLDAY","終日");//All day (New)
+define("_CREATECALENDAREVENT","カレンダーイベントを作成します。");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","上書き既存のフォルダ");//Overwrite existing folder (New)
+define("_LANDINGPAGE","リンク先ページ");//Landing page (New)
+define("_EXPORTTOXLS","エクスポートxlsファイルに");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","調査では、公開に失敗しました");//Survey failed to be published (New)
+define("_PRINTCHART","プリントグラフ");//Print chart (New)
+define("_RESPONSEDETAILS","応答の詳細");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","アクティブなエンティティのみを表示しています");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","のみ非エンティティを表示しています");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","両方のアクティブおよび非アクティブエンティティを表示しています");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","このイベントは、もはや存在しない");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","クリアキューのメッセージ");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","適用のユーザーは既にこのジョブの位置に属している");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","これは、ユーザに（削除されません）新しい選択範囲を追加することができます");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","並べ替え");//Sort by (New)
+define("_TRAINING","トレーニング");//Training (New)
+define("_COMPLETEDLESSONS","完成レッスン");//Completed lessons (New)
+define("_INCOMPLETELESSONS","不完全なレッスン");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","完成コース");//Completed courses (New)
+define("_INCOMPLETECOURSES","不完全なコース");//Incomplete courses (New)
+define("_EDITCOLUMN","列を編集する");//Edit column (New)
+define("_LESSONSFORCOURSE","コースレッスン");//Lessons for course (New)
+define("_TESTSFORLESSON","レッスンのテスト");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","すべてのユーザーのための完全な");//Complete for all users (New)
+define("_LESSONTIMES","レッスン時間");//Lesson times (New)
+define("_MINUTESPERDAY","日あたりの分");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","（分）後にログアウトユーザー");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","アップ期間（ミリ秒）");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","推奨値は、以上の360000msなく10000ms未満です。また、自動ログアウト時間未満に設定する必要があります。");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","を示すこのコースに関連付けられている以上の1枝（場所）は、最初の");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","挿入");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","割り当ては、承認");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","従業員の直属の上司");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","ユーザーの非アクティブ化");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","システムから非アクティブになった");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","スーパーバイザの承認");//Supervisor approval (New)
+define("_APPROVE","承認");//Approve (New)
+define("_GROUPKEYEXISTS","ユニークキーが既に存在する");//Unique key already exists (New)
+define("_PARTOFCOURSES","コースの一部");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","このレッスンでは、1つ以上のコースの一部ですので、モードを変更することはできません。");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","ユーザーはこのレッスンに在籍している。モードを切り替える前に、それらの割り当てを解除してください");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","コース（不完全/合計）");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","エクスポートファイルの");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","コースには有効期限をスケジュール");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","コースが始まる予定");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","もちろん、スケジュール開始");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","もちろん、スケジュールされた有効期限");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","すべてのコースユーザー");//All course users (New)
 ?>

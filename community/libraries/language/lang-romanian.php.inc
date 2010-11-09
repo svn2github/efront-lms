@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Lectia de material");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Nu există întrebări definite");//There are no questions defined
 define("_ADDQUESTION","Adauga intrebare");//Add question
 define("_PREVIEW","Previzualizare");//Preview
+define("_RENAME","Redenumire");//Rename (New)
+define("_CLONE","Clone");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Nr teste găsit");//No tests found
 define("_ADDTEST","Adăugare de test");//Add test
 define("_UNITANDSUBUNITSTESTS","Unitatea de subunitati si teste");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","CV lectie");//Resume lesson
 define("_STARTLESSON","Start lectie");//Start lesson
 define("_TRACKING","Urmărire");//Tracking
 define("_FORMATCERTIFICATE","Formatul certificatului");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Format certificat şablon");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Set certificat de expirare");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Utilizaţi metoda LiveDocX pentru crearea de certificari");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Utilizaţi metoda XML pentru crearea de certificari");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Adăugaţi şablon certificat (format xml)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Editare şablon certificat (format xml)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Redenumire certificat şablon");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Clone certificat şablon");//Clone certificate template (New)
+define("_CERTIFICATENAME","Certificat de nume");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Certificat descriere");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","Descrierea XML nu poate fi gol");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Certificat de template-uri existente");//Existing certificate templates (New)
 define("_TRAFFIC","Trafic");//Traffic
 define("_LESSONTRAFFIC","Lectia de trafic");//Lesson traffic
 define("_EDITTEST","Editare de test");//Edit test
 define("_EDITQUESTION","Editare întrebare");//Edit question
 define("_CERTIFICATE","Certificat");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Au fost actualizate cu succes certificat de");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Au fost actualizate cu succes certificat de");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Certificat şablon a fost adăugat cu succes");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Nu a fost o problemă în timp ce adăugarea de şablon certificat");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Certificat şablon a fost actualizat cu succes");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Nu a fost o problemă în timp ce actualizarea şablon certificat");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Certificat şablon a fost redenumit cu succes");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Nu a fost o problemă în timp ce redenumire şablon certificat");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Certificat şablon a fost clonat cu succes");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Nu a fost o problemă în timp ce clonare şablon certificat");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certificat şablon a fost şters cu succes");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Nu a fost o problemă în timp ce ştergerea şablon certificat");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Nu aveţi dreptul de a modifica acest şablon certificat");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Editare condiţie");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Serverul SMTP de configurare");//SMTP server configuration
 define("_SMTPSERVER","Server SMTP");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Câmpurile din fi
 define("_IFEMPTYNEWPASSWORD","Domenii cu rosu sunt obligatorii. Dacă nu există nici o parolă dat, parola initiala va fi stabilit la fel ca login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Vă rugăm să verificaţi formatul de fişier CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Folosiţi # USER_NAME # pentru nume de utilizator, # # user_surname pentru utilizator prenume, # # course_name pentru curs numele, # # pentru clasa a gradului şi data # # pentru data de.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","În şablon, &lt;organization&gt; utilizarea &lt;/ organizaţie&gt; pentru numele organizaţiei, &lt;student&gt; &lt;/ student&gt; pentru numele complet al studentului, &lt;/ curs&gt; &lt;course&gt; pentru numele cursului, &lt;/ grad&gt; &lt;grade&gt; pentru clasa, &lt; &lt;serial&gt; /&gt; serial pentru numărul de serie, &lt;data&gt; &lt;/&gt; data pentru data, &lt;logo&gt; &lt;/&gt; pentru logo-ul &lt;logo şi &lt;background&gt; /&gt; fundal pentru fundal.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Voturi");//Votes
 define("_PERCENTAGE","Procente");//Percentage
 define("_CERTIFICATEISSUED","Certificat eliberat");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Rămâne");//Remain
 define("_WEEKS","săptămâni");//weeks
 define("_WEEKs","săptămâni");//week
 define("_DAYS","zi");//days
+define("_DAYSCAPITAL","De zile");//Days (New)
 define("_DAY","Zi");//Day
 define("_EVALUATIONDATAUPDATED","Evaluarea de date actualizate cu succes");//Evaluation data updated successfully
 define("_EVALUATION","Evaluare");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","");//User's lesson catalog
 define("_USERDASHBOARD","");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","");//No title provided for job description
 define("_EDITORTYPE","");//Editor type
-define("_TINYMCE","");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","");//This test was successfully submitted
 define("_LEARNINGSTATUS","");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","În caz contrar, puteţi crea un <button oncl
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ai fost înscrişi la cursuri şi lecţii gratuite. Vă rugăm să citiţi mai jos selecţia dumneavoastră de lecţii non libere şi cursuri");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Inspectorilor");//Supervisors
 define("_COURSEOPTIONS","Curs de opţiuni");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","execuţii Resetare pentru toţi utilizatorii");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Utilizatorii Generator de rapoarte");//Users reports generator (New)
-define("_ADDTOGROUP","Adauga la grup");//Add to group (New)
-define("_ASSIGNCOURSE","Alocaţi curs");//Assign course (New)
-define("_ASSIGNLESSON","Alocaţi lecţie");//Assign lesson (New)
-define("_REMOVECOURSE","Scoateţi curs");//Remove course (New)
-define("_REMOVELESSON","Scoateţi lecţie");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Ştergere din grup");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Resetare de învăţare progres");//Reset learning progress (New)
-define("_BUILDER","Constructor");//Builder (New)
-define("_ADDREPORT","Adauga nou raport");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","execuţii Resetare pentru toţi utilizatorii");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Utilizatorii Generator de rapoarte");//Users reports generator
+define("_ADDTOGROUP","Adauga la grup");//Add to group
+define("_ASSIGNCOURSE","Alocaţi curs");//Assign course
+define("_ASSIGNLESSON","Alocaţi lecţie");//Assign lesson
+define("_REMOVECOURSE","Scoateţi curs");//Remove course
+define("_REMOVELESSON","Scoateţi lecţie");//Remove lesson
+define("_REMOVEFROMGROUP","Ştergere din grup");//Remove from group
+define("_RESETLEARNINGPROGRESS","Resetare de învăţare progres");//Reset learning progress
+define("_BUILDER","Constructor");//Builder
+define("_ADDREPORT","Adauga nou raport");//Add new report
 define("_CONDITIONTYPE","Stare de tip");//Condition type
-define("_CONDITIONSPECIFICATION","Starea caietul de sarcini");//Condition specification (New)
-define("_ADDCOLUMN","Adăugaţi coloana");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relaţia cu următoarea");//Relation with next (New)
-define("_COLUMNTYPE","Coloana de tip");//Column type (New)
-define("_GRIDNAME","Grila de nume");//Grid name (New)
-define("_ALIGNED","Aliniat");//Aligned (New)
-define("_SELECTREPORT","Selectaţi raport");//Select report (New)
-define("_AVAILABLEREPORTS","Rapoartele disponibile");//Available reports (New)
-define("_EDITREPORT","Editare raport");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Nu există rapoarte definite în sistem. Vă rog");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","a crea unul");//create one (New)
-define("_NEWREPORT","Nou raport al");//New report (New)
-define("_REPORTNAME","Nume raport");//Report name (New)
-define("_SELECTCONDITION","Selectaţi condiţie");//Select condition (New)
-define("_ISNOT","nu este");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","A finalizat toate alocate lecţii");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","A finalizat toate cursurile atribuite");//Has completed all assigned courses (New)
-define("_HAS","A");//Has (New)
-define("_HASNOT","Nu a");//Has not (New)
-define("_ENROLLEDTO","Înscrişi la");//Enrolled to (New)
-define("_BETWEEN","Între");//Between (New)
-define("_ISASSIGNED","Este atribuită");//Is assigned (New)
-define("_ISNOTASSIGNED","Nu este alocat");//Is not assigned (New)
-define("_DURINGLASTDAY","24 ultima");//last 24h (New)
-define("_DURINGLASTWEEK","săptămâna trecută");//last week (New)
-define("_DURINGLASTMONTH","Luna trecuta");//last month (New)
-define("_COLUMN","Coloană");//Column (New)
-define("_SELECTCOLUMN","Selectaţi coloana");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Lăsaţi necompletat pentru a auto-ajusta lăţimea");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Lăsaţi necompletat pentru a utiliza numele de coloană");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Latime (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Vă rugăm să selectaţi o coloană");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Schimbarea coloane pentru");//Change the columns order (New)
-define("_VIEWINGREPORT","Vizualizare raport");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Vă rugăm să selectaţi o condiţie");//Please select a condition (New)
-define("_BASIC","De bază");//Basic (New)
-define("_LEARNING","Învăţare");//Learning (New)
-define("_ENTERPRISE","Întreprindere");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Glisaţi elemente pentru a schimba ordinea");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Custom Domenii");//Custom fields (New)
-define("_FORMATTEDLOGIN","Formatat login");//Formatted login (New)
-define("_DEFAULTSORT","Implicit sortare");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator are întâietate");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Pagina de operaţiuni curente");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Sau specifica un grup nou pentru a adăuga la");//Or specify a new group to add to (New)
-define("_ADDTO","Adăuga la");//Add to (New)
-define("_REMOVEFROM","Eliminaţi de la");//Remove from (New)
-define("_GROUPOPERATIONS","Grup de operaţiuni");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Certificat de operaţiuni");//Certificate operations (New)
-define("_LESSONOPERATIONS","Lectia operaţiuni");//Lesson operations (New)
-define("_COURSEOPERATIONS","Curs de operaţiuni");//Course operations (New)
-define("_EXPORTTOCSV","Export pentru a csv");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Nici un cod de eveniment definit");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Fişiere importat cu succes");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Conversia dosare la ierarhie imbricate");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Decomprima fişierul zip (e) şi conţinutul de import");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Tema este blocat");//The theme is locked (New)
-define("_BLANKREPORT","Gol raport");//Blank report (New)
-define("_CUSTOMREPORTS","Rapoarte personalizate");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Administratorul de sistem va revizui şi înscrieri vă activa");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Actualizează tabel");//Refresh table (New)
-define("_REMOVEFROMSET","Eliminaţi din setul de");//Remove from set (New)
-define("_BRANCHTREE","Creanga");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Schimbarea condiţie pentru");//Change condition order (New)
-define("_INDEX","Index");//Index (New)
-define("_EVENTDATETIME","Eveniment data şi ora");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Dosarul a fost certificat de lipsă sau corupte şi, astfel, a fost resetat");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Starea caietul de sarcini");//Condition specification
+define("_ADDCOLUMN","Adăugaţi coloana");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relaţia cu următoarea");//Relation with next
+define("_COLUMNTYPE","Coloana de tip");//Column type
+define("_GRIDNAME","Grila de nume");//Grid name
+define("_ALIGNED","Aliniat");//Aligned
+define("_SELECTREPORT","Selectaţi raport");//Select report
+define("_AVAILABLEREPORTS","Rapoartele disponibile");//Available reports
+define("_EDITREPORT","Editare raport");//Edit report
+define("_NOREPORTSINTHESYSTEM","Nu există rapoarte definite în sistem. Vă rog");//There are no reports defined in the system. Please 
+define("_CREATEONE","a crea unul");//create one
+define("_NEWREPORT","Nou raport al");//New report
+define("_REPORTNAME","Nume raport");//Report name
+define("_SELECTCONDITION","Selectaţi condiţie");//Select condition
+define("_ISNOT","nu este");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","A finalizat toate alocate lecţii");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","A finalizat toate cursurile atribuite");//Has completed all assigned courses
+define("_HAS","A");//Has
+define("_HASNOT","Nu a");//Has not
+define("_ENROLLEDTO","Înscrişi la");//Enrolled to
+define("_BETWEEN","Între");//Between
+define("_ISASSIGNED","Este atribuită");//Is assigned
+define("_ISNOTASSIGNED","Nu este alocat");//Is not assigned
+define("_DURINGLASTDAY","24 ultima");//last 24h
+define("_DURINGLASTWEEK","săptămâna trecută");//last week
+define("_DURINGLASTMONTH","Luna trecuta");//last month
+define("_COLUMN","Coloană");//Column
+define("_SELECTCOLUMN","Selectaţi coloana");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Lăsaţi necompletat pentru a auto-ajusta lăţimea");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Lăsaţi necompletat pentru a utiliza numele de coloană");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Latime (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Vă rugăm să selectaţi o coloană");//Please select a column
+define("_CHANGECOLUMNORDER","Schimbarea coloane pentru");//Change the columns order
+define("_VIEWINGREPORT","Vizualizare raport");//Viewing report
+define("_PLEASESELECTACONDITION","Vă rugăm să selectaţi o condiţie");//Please select a condition
+define("_BASIC","De bază");//Basic
+define("_LEARNING","Învăţare");//Learning
+define("_ENTERPRISE","Întreprindere");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Glisaţi elemente pentru a schimba ordinea");//Drag items to change order
+define("_CUSTOMFIELDS","Custom Domenii");//Custom fields
+define("_FORMATTEDLOGIN","Formatat login");//Formatted login
+define("_DEFAULTSORT","Implicit sortare");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator are întâietate");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Pagina de operaţiuni curente");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Sau specifica un grup nou pentru a adăuga la");//Or specify a new group to add to
+define("_ADDTO","Adăuga la");//Add to
+define("_REMOVEFROM","Eliminaţi de la");//Remove from
+define("_GROUPOPERATIONS","Grup de operaţiuni");//Group operations
+define("_CERTIFICATEOPERATIONS","Certificat de operaţiuni");//Certificate operations
+define("_LESSONOPERATIONS","Lectia operaţiuni");//Lesson operations
+define("_COURSEOPERATIONS","Curs de operaţiuni");//Course operations
+define("_EXPORTTOCSV","Export pentru a csv");//Export to csv
+define("_NOEVENTCODEDEFINED","Nici un cod de eveniment definit");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Fişiere importat cu succes");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Conversia dosare la ierarhie imbricate");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Decomprima fişierul zip (e) şi conţinutul de import");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Tema este blocat");//The theme is locked
+define("_BLANKREPORT","Gol raport");//Blank report
+define("_CUSTOMREPORTS","Rapoarte personalizate");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Administratorul de sistem va revizui şi înscrieri vă activa");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Actualizează tabel");//Refresh table
+define("_REMOVEFROMSET","Eliminaţi din setul de");//Remove from set
+define("_BRANCHTREE","Creanga");//Branch tree
+define("_CHANGECONDITIONORDER","Schimbarea condiţie pentru");//Change condition order
+define("_INDEX","Index");//Index
+define("_EVENTDATETIME","Eveniment data şi ora");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Dosarul a fost certificat de lipsă sau corupte şi, astfel, a fost resetat");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Vizibil din");//Visible from (New)
+define("_EXPIRESAT","Expiră la");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Calendar afişare a datei");//Calendar display date (New)
+define("_GLOBAL","Global");//Global (New)
+define("_ALLDAY","Toată ziua");//All day (New)
+define("_CREATECALENDAREVENT","Creaţi eveniment din calendar");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Suprascrierea existente folder");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Paginii de destinaţie");//Landing page (New)
+define("_EXPORTTOXLS","Export pentru a xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Ancheta nu a reuşit să fie publicate");//Survey failed to be published (New)
+define("_PRINTCHART","Imprimare diagramă");//Print chart (New)
+define("_RESPONSEDETAILS","Răspuns detalii");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Rezultate numai entităţilor active");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Se afişează numai entităţile inactive");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Rezultate ambele entităţi active şi inactive");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Acest eveniment nu mai există");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Coada de mesaje clare");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Se aplică pentru utilizatorii deja face parte din această poziţie de locuri de muncă");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Acest lucru poate adăuga numai (nu elimina), o nouă selecţie la un utilizator");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Sortare după");//Sort by (New)
+define("_TRAINING","De formare");//Training (New)
+define("_COMPLETEDLESSONS","lecţii Finalizat");//Completed lessons (New)
+define("_INCOMPLETELESSONS","lecţii incomplete");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Cursuri finalizate");//Completed courses (New)
+define("_INCOMPLETECOURSES","Cursuri incomplete");//Incomplete courses (New)
+define("_EDITCOLUMN","Editare coloană");//Edit column (New)
+define("_LESSONSFORCOURSE","Lecţii pentru curs");//Lessons for course (New)
+define("_TESTSFORLESSON","Teste pentru lecţie");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Complete pentru toţi utilizatorii");//Complete for all users (New)
+define("_LESSONTIMES","Lecţia ori");//Lesson times (New)
+define("_MINUTESPERDAY","Minute pe zi");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Log utilizator după (minute)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Updater perioadă (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Valorile recomandate sunt nu mai puţin de 10000ms şi nu mai mult de 360000ms. De asemenea, trebuie să fie mai mic decât termenul logout auto.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Mai mult de 1 sucursale (locaţii) asociate cu acest curs, arătând prima");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Insera");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Cesiunea aprobat de");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Imediată a angajat supraveghetor");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Utilizator dezactivare");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","a fost dezactivat din sistem");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Datelor aprobare");//Supervisor approval (New)
+define("_APPROVE","Aproba");//Approve (New)
+define("_GROUPKEYEXISTS","cheie unice există deja");//Unique key already exists (New)
+define("_PARTOFCOURSES","O parte din cursuri");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Această lecţie este parte din unul sau mai multe cursuri, astfel încât nu se poate schimba modul de");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Există utilizatori înscrişi la această lecţie. Vă rugăm să unassign-le înainte de moduri de comutare");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Cursuri (incomplete / total)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Exportul fişierelor");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Curs programate expirare");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Curs programată la începutul");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","programată pentru începerea cursului de");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","expirarea programate de curs");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Toţi utilizatorii curs");//All course users (New)
 ?>

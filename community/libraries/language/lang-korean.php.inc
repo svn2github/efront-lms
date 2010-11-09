@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","수업 자료");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","아무 질문에 정의되어있다");//There are no questions defined
 define("_ADDQUESTION","추가 질문");//Add question
 define("_PREVIEW","미리보기");//Preview
+define("_RENAME","이름 바꾸기");//Rename (New)
+define("_CLONE","클론");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","아니 시험 발견");//No tests found
 define("_ADDTEST","추가 시험");//Add test
 define("_UNITANDSUBUNITSTESTS","단위 및 subunits 테스트");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","이력서 강의");//Resume lesson
 define("_STARTLESSON","수업 시작");//Start lesson
 define("_TRACKING","현황");//Tracking
 define("_FORMATCERTIFICATE","형식 인증");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","형식 인증서 템플릿");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","설정 인증서 만료");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","인증을 만들기위한 LiveDocX 메서드를 사용하여");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","인증을 만드는에 대한 XML 메서드를 사용하여");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","추가 인증서 템플릿 (XML 형식)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","(XML 형식) 인증서 템플릿 수정");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","이름 바꾸기 인증서 템플릿");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","클론 인증서 템플릿");//Clone certificate template (New)
+define("_CERTIFICATENAME","인증서 이름");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","인증서 설명");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","의 XML 설명은 비워둘 수 없습니다");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","인증서를 기존 템플릿");//Existing certificate templates (New)
 define("_TRAFFIC","교통");//Traffic
 define("_LESSONTRAFFIC","수업 트래픽");//Lesson traffic
 define("_EDITTEST","편집 테스트");//Edit test
 define("_EDITQUESTION","질문 수정");//Edit question
 define("_CERTIFICATE","인증서");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","인증서가 성공적으로 업데이 트");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","인증서가 성공적으로 업데이 트");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 추가되었습니다");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","인증서 템플릿을 추가하는 동안 문제가 발생했습니다");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 업데이 트되었습니다");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","인증서 템플릿을 업데이 트하는 동안 문제가 발생했습니다");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 이름이 바뀌었습니다");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","인증서 템플릿 이름을 변경하는 동안 문제가 발생했습니다");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 복제되었다");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","인증서 템플릿을 복제하는 동안 문제가 발생했습니다");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","인증서 템플릿이 삭제되었습니다");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","인증서 템플릿을 삭제하는 동안 문제가 발생했습니다");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","이 인증서 템플릿을 수정할 수있는 권한이 없습니다");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","편집 상태");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP 서버를 구성");//SMTP server configuration
 define("_SMTPSERVER","SMTP 서버");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","CSV 파일에있�
 define("_IFEMPTYNEWPASSWORD","필드가 빨간색으로 의무가없습니다. 경우에는 비밀 번호가 부여되면, 초기 비밀 번호 로그인과 같은 설정됩니다.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","CSV 파일의 형식을 확인하십시오");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","에있는 템플릿, 단체의 이름은 #, 사용자의 이름 # USER_NAME이 #, 대한 사용자의 성씨 # user_surname #, # 날짜 학년 # course_name # # 학년 과정의 이름과 날짜를 # # # 조직을 사용합니다.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","템플릿에, 조직의 이름에 사용 &lt;organization&gt;의 &lt;/ 조직&gt;, &lt;학년을위한 과정의 이름, &lt;grade&gt; &lt;/ 학년&gt;에 대한 학생의 전체 이름, &lt;course&gt; &lt;/ 코스&gt;에 대한 &lt;student&gt; &lt;/ 학생&gt; 시리얼&gt;의 &lt;/ 일련 번호에 대한 시리얼&gt;, 날짜에 대해 &lt;date&gt; &lt;/ 날짜&gt;, 배경에 대한 로고 및 &lt;background&gt; &lt;/ 배경&gt;에 대한 &lt;logo&gt; &lt;/ 로고&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","투표수");//Votes
 define("_PERCENTAGE","비율");//Percentage
 define("_CERTIFICATEISSUED","인증서 발급");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","남아있다");//Remain
 define("_WEEKS","주");//weeks
 define("_WEEKs","주");//week
 define("_DAYS","일");//days
+define("_DAYSCAPITAL","일");//Days (New)
 define("_DAY","일");//Day
 define("_EVALUATIONDATAUPDATED","평가 데이터를 성공적으로 업데이 트되었습니다");//Evaluation data updated successfully
 define("_EVALUATION","평가");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","사용자의 레슨 카탈로그");//User's lesson cat
 define("_USERDASHBOARD","사용자 대시보드");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","제목 없음 직업 설명을 위해 제공");//No title provided for job description
 define("_EDITORTYPE","편집기 유형");//Editor type
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","테스트를 제출한 후에는 만 표시 메시지");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","이 테스트가 성공적으로 제출되었습니다");//This test was successfully submitted
 define("_LEARNINGSTATUS","학습 상태");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","그렇지 않으면, 당신은 <button onclic
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","당신이 있었는 무료 레슨과 코스에 등록됩니다. 제발 비 무료 레슨과 코스를 선택, 아래 리뷰");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","감독자");//Supervisors
 define("_COURSEOPTIONS","코스 옵션");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","모든 사용자에 대해 재설정 사형 집행");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","사용자는 보고서 생성기");//Users reports generator (New)
-define("_ADDTOGROUP","그룹에 추가");//Add to group (New)
-define("_ASSIGNCOURSE","할당 과정");//Assign course (New)
-define("_ASSIGNLESSON","할당 레슨");//Assign lesson (New)
-define("_REMOVECOURSE","제거 과정");//Remove course (New)
-define("_REMOVELESSON","삭제 레슨");//Remove lesson (New)
-define("_REMOVEFROMGROUP","그룹에서 제거");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","재설정 학습 진행");//Reset learning progress (New)
-define("_BUILDER","건축업자");//Builder (New)
-define("_ADDREPORT","새 보고서 추가");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","모든 사용자에 대해 재설정 사형 집행");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","사용자는 보고서 생성기");//Users reports generator
+define("_ADDTOGROUP","그룹에 추가");//Add to group
+define("_ASSIGNCOURSE","할당 과정");//Assign course
+define("_ASSIGNLESSON","할당 레슨");//Assign lesson
+define("_REMOVECOURSE","제거 과정");//Remove course
+define("_REMOVELESSON","삭제 레슨");//Remove lesson
+define("_REMOVEFROMGROUP","그룹에서 제거");//Remove from group
+define("_RESETLEARNINGPROGRESS","재설정 학습 진행");//Reset learning progress
+define("_BUILDER","건축업자");//Builder
+define("_ADDREPORT","새 보고서 추가");//Add new report
 define("_CONDITIONTYPE","조건을 입력합니다");//Condition type
-define("_CONDITIONSPECIFICATION","조건 사양");//Condition specification (New)
-define("_ADDCOLUMN","추가 열");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","다음과 관계");//Relation with next (New)
-define("_COLUMNTYPE","열 유형");//Column type (New)
-define("_GRIDNAME","그리드 이름");//Grid name (New)
-define("_ALIGNED","정렬");//Aligned (New)
-define("_SELECTREPORT","선택 보고서");//Select report (New)
-define("_AVAILABLEREPORTS","사용 가능한 리포트");//Available reports (New)
-define("_EDITREPORT","수정 보고서");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","거기에 대한보고가 시스템에 정의되어 있습니다. 제발");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","하나를 만들");//create one (New)
-define("_NEWREPORT","새 보고서");//New report (New)
-define("_REPORTNAME","리포트 이름");//Report name (New)
-define("_SELECTCONDITION","선택 조건");//Select condition (New)
-define("_ISNOT","아니");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","있다는 모든 수업을 배정 완료");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","있다이 모든 과정을 배정 완료");//Has completed all assigned courses (New)
-define("_HAS","있다");//Has (New)
-define("_HASNOT","아니라고");//Has not (New)
-define("_ENROLLEDTO","에 등록한");//Enrolled to (New)
-define("_BETWEEN","사이에");//Between (New)
-define("_ISASSIGNED","할당됩니다");//Is assigned (New)
-define("_ISNOTASSIGNED","할당되지 않은");//Is not assigned (New)
-define("_DURINGLASTDAY","지난 24 시간");//last 24h (New)
-define("_DURINGLASTWEEK","지난 주");//last week (New)
-define("_DURINGLASTMONTH","지난 달");//last month (New)
-define("_COLUMN","칼럼");//Column (New)
-define("_SELECTCOLUMN","선택 열");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","에 빈 자동 폭 조정 남겨주세요");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","이름은 공백으로 컬럼을 사용하도록 맡겨");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","폭 (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","제발 열을 선택합니다");//Please select a column (New)
-define("_CHANGECOLUMNORDER","변경 항목 순서");//Change the columns order (New)
-define("_VIEWINGREPORT","보고서보기");//Viewing report (New)
-define("_PLEASESELECTACONDITION","제발 조건을 선택하십시오");//Please select a condition (New)
-define("_BASIC","기본");//Basic (New)
-define("_LEARNING","배우기");//Learning (New)
-define("_ENTERPRISE","기업");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","항목을 드래그하여 순서를 변경하려면");//Drag items to change order (New)
-define("_CUSTOMFIELDS","사용자 정의 필드");//Custom fields (New)
-define("_FORMATTEDLOGIN","포맷된 로그인");//Formatted login (New)
-define("_DEFAULTSORT","기본 정렬");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; 연산자를 우선합니다");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","현재 페이지 작업");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","또는 추가할 새 그룹을 지정");//Or specify a new group to add to (New)
-define("_ADDTO","에 추가");//Add to (New)
-define("_REMOVEFROM","제거에서");//Remove from (New)
-define("_GROUPOPERATIONS","그룹 작업");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","인증서 작업");//Certificate operations (New)
-define("_LESSONOPERATIONS","수업 운영");//Lesson operations (New)
-define("_COURSEOPERATIONS","과정 운영");//Course operations (New)
-define("_EXPORTTOCSV","csv로 내보내기");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","없음 이벤트 코드 정의");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","파일을 성공적으로 가져왔습니다");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","중첩된 계층 구조로 변환 폴더");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","압축 프로그램 zip 파일 (들) 및 수입 내용");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","테마가 잠겨있다");//The theme is locked (New)
-define("_BLANKREPORT","빈 보고서");//Blank report (New)
-define("_CUSTOMREPORTS","사용자 정의 리포트");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","시스템 관리자는 검토하고 enrollments를 활성화");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","새로고침 테이블");//Refresh table (New)
-define("_REMOVEFROMSET","집합에서 제거");//Remove from set (New)
-define("_BRANCHTREE","지점의 나무");//Branch tree (New)
-define("_CHANGECONDITIONORDER","변경 조건 주문");//Change condition order (New)
-define("_INDEX","색인");//Index (New)
-define("_EVENTDATETIME","이벤트 날짜 및 시간");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","인증서 파일이 없거나 손상되어 있었는데 이렇게 재설정되었습니다");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","조건 사양");//Condition specification
+define("_ADDCOLUMN","추가 열");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","다음과 관계");//Relation with next
+define("_COLUMNTYPE","열 유형");//Column type
+define("_GRIDNAME","그리드 이름");//Grid name
+define("_ALIGNED","정렬");//Aligned
+define("_SELECTREPORT","선택 보고서");//Select report
+define("_AVAILABLEREPORTS","사용 가능한 리포트");//Available reports
+define("_EDITREPORT","수정 보고서");//Edit report
+define("_NOREPORTSINTHESYSTEM","거기에 대한보고가 시스템에 정의되어 있습니다. 제발");//There are no reports defined in the system. Please 
+define("_CREATEONE","하나를 만들");//create one
+define("_NEWREPORT","새 보고서");//New report
+define("_REPORTNAME","리포트 이름");//Report name
+define("_SELECTCONDITION","선택 조건");//Select condition
+define("_ISNOT","아니");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","있다는 모든 수업을 배정 완료");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","있다이 모든 과정을 배정 완료");//Has completed all assigned courses
+define("_HAS","있다");//Has
+define("_HASNOT","아니라고");//Has not
+define("_ENROLLEDTO","에 등록한");//Enrolled to
+define("_BETWEEN","사이에");//Between
+define("_ISASSIGNED","할당됩니다");//Is assigned
+define("_ISNOTASSIGNED","할당되지 않은");//Is not assigned
+define("_DURINGLASTDAY","지난 24 시간");//last 24h
+define("_DURINGLASTWEEK","지난 주");//last week
+define("_DURINGLASTMONTH","지난 달");//last month
+define("_COLUMN","칼럼");//Column
+define("_SELECTCOLUMN","선택 열");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","에 빈 자동 폭 조정 남겨주세요");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","이름은 공백으로 컬럼을 사용하도록 맡겨");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","폭 (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","제발 열을 선택합니다");//Please select a column
+define("_CHANGECOLUMNORDER","변경 항목 순서");//Change the columns order
+define("_VIEWINGREPORT","보고서보기");//Viewing report
+define("_PLEASESELECTACONDITION","제발 조건을 선택하십시오");//Please select a condition
+define("_BASIC","기본");//Basic
+define("_LEARNING","배우기");//Learning
+define("_ENTERPRISE","기업");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","항목을 드래그하여 순서를 변경하려면");//Drag items to change order
+define("_CUSTOMFIELDS","사용자 정의 필드");//Custom fields
+define("_FORMATTEDLOGIN","포맷된 로그인");//Formatted login
+define("_DEFAULTSORT","기본 정렬");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; 연산자를 우선합니다");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","현재 페이지 작업");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","또는 추가할 새 그룹을 지정");//Or specify a new group to add to
+define("_ADDTO","에 추가");//Add to
+define("_REMOVEFROM","제거에서");//Remove from
+define("_GROUPOPERATIONS","그룹 작업");//Group operations
+define("_CERTIFICATEOPERATIONS","인증서 작업");//Certificate operations
+define("_LESSONOPERATIONS","수업 운영");//Lesson operations
+define("_COURSEOPERATIONS","과정 운영");//Course operations
+define("_EXPORTTOCSV","csv로 내보내기");//Export to csv
+define("_NOEVENTCODEDEFINED","없음 이벤트 코드 정의");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","파일을 성공적으로 가져왔습니다");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","중첩된 계층 구조로 변환 폴더");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","압축 프로그램 zip 파일 (들) 및 수입 내용");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","테마가 잠겨있다");//The theme is locked
+define("_BLANKREPORT","빈 보고서");//Blank report
+define("_CUSTOMREPORTS","사용자 정의 리포트");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","시스템 관리자는 검토하고 enrollments를 활성화");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","새로고침 테이블");//Refresh table
+define("_REMOVEFROMSET","집합에서 제거");//Remove from set
+define("_BRANCHTREE","지점의 나무");//Branch tree
+define("_CHANGECONDITIONORDER","변경 조건 주문");//Change condition order
+define("_INDEX","색인");//Index
+define("_EVENTDATETIME","이벤트 날짜 및 시간");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","인증서 파일이 없거나 손상되어 있었는데 이렇게 재설정되었습니다");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","에서 볼 수");//Visible from (New)
+define("_EXPIRESAT","만료시");//Expires at (New)
+define("_CALENDARDISPLAYDATE","캘린더 표시 날짜");//Calendar display date (New)
+define("_GLOBAL","글로벌");//Global (New)
+define("_ALLDAY","하루 종일");//All day (New)
+define("_CREATECALENDAREVENT","캘린더 이벤트를 만듭니다");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","덮어쓰기 기존 폴더");//Overwrite existing folder (New)
+define("_LANDINGPAGE","방문 페이지");//Landing page (New)
+define("_EXPORTTOXLS","xls로 내보내기");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","설문 조사는 출판되어야하지 못했습니다");//Survey failed to be published (New)
+define("_PRINTCHART","인쇄 차트");//Print chart (New)
+define("_RESPONSEDETAILS","응답 내용");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","만 활성 엔티티보기");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","단지 비활성 개체보기");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","모두 운영중 및 운영 중지 엔티티보기");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","이 이벤트가 더 이상 존재");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","지우기 대기열 메시지");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","적용 사용자에게 이미이 직급에 속해");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","이것은 사용자에게 (삭제하지 않음) 새로운 선택을 추가할 수 있습니다");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","정렬");//Sort by (New)
+define("_TRAINING","훈련");//Training (New)
+define("_COMPLETEDLESSONS","완료 레슨");//Completed lessons (New)
+define("_INCOMPLETELESSONS","불완전 레슨");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","수료 과정");//Completed courses (New)
+define("_INCOMPLETECOURSES","불완전 코스");//Incomplete courses (New)
+define("_EDITCOLUMN","열 편집");//Edit column (New)
+define("_LESSONSFORCOURSE","코스 수업");//Lessons for course (New)
+define("_TESTSFORLESSON","수업을위한 테스트");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","모든 사용자에 대해 완료");//Complete for all users (New)
+define("_LESSONTIMES","수업 시간");//Lesson times (New)
+define("_MINUTESPERDAY","하루 분");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","(분) 후에 로그아웃 사용자");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","업데 이터 기간 (석사)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","권장 값은 더 이상 360000ms없고 10000ms 미만입니다. 그것은 또한 자동 로그아웃 시간보다 적게 설정해야합니다.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","보여주는이 과정과 관련된 이상 한 지점 (위치), 첫번째");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","삽입");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","임무는 승인");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","직원의 즉각 감독관");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","사용자 비활성화");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","시스템에서 비활성화되었습니다");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","관리자 승인");//Supervisor approval (New)
+define("_APPROVE","승인");//Approve (New)
+define("_GROUPKEYEXISTS","고유 키가 이미 존재합니다");//Unique key already exists (New)
+define("_PARTOFCOURSES","일부 과목");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","이 강의는 하나 이상의 과정의 일부이므로 모드를 변경할 수 없습니다");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","사용자가이 수업에 등록이 있습니다. 모드를 전환하기 전에 그들을 할당 해제하십시오");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","코스 (불완전한 / 총)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","내보내기 파일");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","코스 만료 예정");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","코스 시작 예정");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","물론 예약 시작");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","물론 예약 만료");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","물론 모든 사용자");//All course users (New)
 ?>

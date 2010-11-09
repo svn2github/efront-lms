@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Bài học vật liệu");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Không có câu hỏi xác định");//There are no questions defined
 define("_ADDQUESTION","Thêm câu hỏi");//Add question
 define("_PREVIEW","Xem trước");//Preview
+define("_RENAME","Đổi tên");//Rename (New)
+define("_CLONE","Clone");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Không có bài thi được tìm thấy");//No tests found
 define("_ADDTEST","Thêm bài kiểm tra");//Add test
 define("_UNITANDSUBUNITSTESTS","Đơn vị và các bài kiểm tra subunits");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Tiếp tục lại bài học");//Resume lesson
 define("_STARTLESSON","Bắt đầu bài học");//Start lesson
 define("_TRACKING","Theo dõi");//Tracking
 define("_FORMATCERTIFICATE","Định dạng cấp giấy chứng nhận");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Định dạng mẫu giấy chứng nhận");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Đặt giấy chứng nhận hết hạn");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Sử dụng các phương pháp LiveDocX để tạo chứng nhận");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Sử dụng các phương pháp XML để tạo chứng nhận");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Thêm giấy chứng nhận mẫu (định dạng xml)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Chỉnh sửa mẫu chứng chỉ (xml định dạng)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Đổi tên giấy chứng nhận mẫu");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Clone Giấy chứng nhận mẫu");//Clone certificate template (New)
+define("_CERTIFICATENAME","Giấy chứng nhận tên");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Giấy chứng nhận mô tả");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML mô tả không thể để trống");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Hiện tại các mẫu giấy chứng nhận");//Existing certificate templates (New)
 define("_TRAFFIC","Giao thông");//Traffic
 define("_LESSONTRAFFIC","Bài Học lưu lượng truy cập");//Lesson traffic
 define("_EDITTEST","Hiệu chỉnh thử nghiệm");//Edit test
 define("_EDITQUESTION","Chỉnh sửa câu hỏi");//Edit question
 define("_CERTIFICATE","Giấy chứng nhận");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Cấp giấy chứng nhận đã cập nhật thành công");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Cấp giấy chứng nhận đã cập nhật thành công");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được thêm thành công");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Có một vấn đề trong khi thêm mẫu chứng chỉ");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được cập nhật thành công");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Có vấn đề khi cập nhật mẫu chứng chỉ");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được đổi tên thành công");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Có một vấn đề trong khi đổi tên mẫu chứng chỉ");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được nhân bản vô tính thành công");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Có một vấn đề trong khi sao chép mẫu chứng chỉ");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được xoá");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Có một vấn đề trong khi xóa mẫu chứng chỉ");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Bạn không có quyền sửa đổi mẫu chứng chỉ");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Sửa đổi điều kiện");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Cấu hình máy chủ SMTP");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Các lĩnh vực 
 define("_IFEMPTYNEWPASSWORD","Các trường trong màu đỏ là bắt buộc. Nếu không có mật khẩu đã cho, ban đầu sẽ được thiết lập mật khẩu giống như đăng nhập.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Xin vui lòng kiểm tra định dạng của tập tin CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Trong bản mẫu, hãy sử dụng # # cho các tổ chức của tổ chức tên, USER_NAME # # cho người sử dụng tên của người, # # user_surname cho Họ của người sử dụng, # # course_name cho các khóa học của họ tên, lớp # # # cho các lớp và ngày cho ngày #.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","Trong các mẫu, sử dụng &lt;organization&gt; &lt;/ tổ chức&gt; cho tên của tổ chức, &lt;student&gt; &lt;/ học sinh&gt; tên đầy đủ của học sinh, &lt;khóa học /&gt; &lt;course&gt; tên của khóa học, &lt;grade&gt; &lt;/ lớp&gt; lớp, &lt; &lt;&gt; nối tiếp /&gt; nối tiếp cho số, &lt;date&gt; &lt;/&gt; ngày cho ngày, &lt;logo&gt; &lt;/&gt; logo cho logo và &lt;background&gt; &lt;/&gt; nền cho nền.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Phiếu bầu");//Votes
 define("_PERCENTAGE","Tỷ lệ phần trăm");//Percentage
 define("_CERTIFICATEISSUED","Giấy chứng nhận ban hành");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Còn lại");//Remain
 define("_WEEKS","tuần");//weeks
 define("_WEEKs","tuần");//week
 define("_DAYS","ngày");//days
+define("_DAYSCAPITAL","Ngày");//Days (New)
 define("_DAY","Ngày");//Day
 define("_EVALUATIONDATAUPDATED","Đánh giá các dữ liệu cập nhật thành công");//Evaluation data updated successfully
 define("_EVALUATION","Đánh giá");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Bài học của người sử dụng cập nhật và
 define("_USERDASHBOARD","Bảng điều khiển của người sử dụng");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Không có tiêu đề quy mô tả công việc");//No title provided for job description
 define("_EDITORTYPE","Editor loại");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Chỉ một tin nhắn sau khi gửi bài kiểm tra");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Thử nghiệm này đã được gửi thành công");//This test was successfully submitted
 define("_LEARNINGSTATUS","Tình trạng học tập");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","Nếu không, bạn có thể tạo một <bu
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Bạn đã được ghi danh vào các bài học miễn phí và các khóa học. Vui lòng xem dưới đây lựa chọn của bạn các bài học miễn phí và các khóa học không");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Giám sát");//Supervisors
 define("_COURSEOPTIONS","Khóa học lựa chọn");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","Thiết lập lại án tử hình cho tất cả người dùng");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Người sử dụng báo cáo phát điện");//Users reports generator (New)
-define("_ADDTOGROUP","Thêm vào nhóm");//Add to group (New)
-define("_ASSIGNCOURSE","Chỉ định khóa học");//Assign course (New)
-define("_ASSIGNLESSON","Chỉ định bài học");//Assign lesson (New)
-define("_REMOVECOURSE","Hủy bỏ khóa học");//Remove course (New)
-define("_REMOVELESSON","Hủy bỏ bài học");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Hủy bỏ từ nhóm");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Thiết lập lại tiến độ học tập");//Reset learning progress (New)
-define("_BUILDER","Builder");//Builder (New)
-define("_ADDREPORT","Thêm mới báo cáo");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","Thiết lập lại án tử hình cho tất cả người dùng");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Người sử dụng báo cáo phát điện");//Users reports generator
+define("_ADDTOGROUP","Thêm vào nhóm");//Add to group
+define("_ASSIGNCOURSE","Chỉ định khóa học");//Assign course
+define("_ASSIGNLESSON","Chỉ định bài học");//Assign lesson
+define("_REMOVECOURSE","Hủy bỏ khóa học");//Remove course
+define("_REMOVELESSON","Hủy bỏ bài học");//Remove lesson
+define("_REMOVEFROMGROUP","Hủy bỏ từ nhóm");//Remove from group
+define("_RESETLEARNINGPROGRESS","Thiết lập lại tiến độ học tập");//Reset learning progress
+define("_BUILDER","Builder");//Builder
+define("_ADDREPORT","Thêm mới báo cáo");//Add new report
 define("_CONDITIONTYPE","Điều kiện loại");//Condition type
-define("_CONDITIONSPECIFICATION","Điều kiện đặc điểm kỹ thuật");//Condition specification (New)
-define("_ADDCOLUMN","Thêm cột");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Quan hệ với tiếp theo");//Relation with next (New)
-define("_COLUMNTYPE","Cột loại");//Column type (New)
-define("_GRIDNAME","Grid tên");//Grid name (New)
-define("_ALIGNED","Liên kết");//Aligned (New)
-define("_SELECTREPORT","Chọn báo cáo");//Select report (New)
-define("_AVAILABLEREPORTS","Sẵn các báo cáo");//Available reports (New)
-define("_EDITREPORT","Hiệu chỉnh báo cáo");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Không có báo cáo xác định trong hệ thống. Xin");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","tạo ra một");//create one (New)
-define("_NEWREPORT","Báo cáo mới");//New report (New)
-define("_REPORTNAME","Tên báo cáo");//Report name (New)
-define("_SELECTCONDITION","Chọn điều kiện");//Select condition (New)
-define("_ISNOT","không");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Đã hoàn thành tất cả các bài học được giao");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Đã hoàn thành tất cả các khóa học được giao");//Has completed all assigned courses (New)
-define("_HAS","Có");//Has (New)
-define("_HASNOT","Không");//Has not (New)
-define("_ENROLLEDTO","Ghi danh cho");//Enrolled to (New)
-define("_BETWEEN","Giữa");//Between (New)
-define("_ISASSIGNED","Được phân công");//Is assigned (New)
-define("_ISNOTASSIGNED","Không được phân định");//Is not assigned (New)
-define("_DURINGLASTDAY","24h cuối");//last 24h (New)
-define("_DURINGLASTWEEK","cuối tuần");//last week (New)
-define("_DURINGLASTMONTH","tháng trước");//last month (New)
-define("_COLUMN","Cột");//Column (New)
-define("_SELECTCOLUMN","Chọn cột");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Để trống để tự động điều chỉnh độ rộng");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Để trống để sử dụng tên cột");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Chiều rộng (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Hãy chọn một cột");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Thay đổi thứ tự các cột");//Change the columns order (New)
-define("_VIEWINGREPORT","Xem thông tin báo cáo");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Hãy chọn một điều kiện");//Please select a condition (New)
-define("_BASIC","Cơ bản");//Basic (New)
-define("_LEARNING","Học tập");//Learning (New)
-define("_ENTERPRISE","Doanh nghiệp");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Kéo mục để thay đổi thứ tự");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Tuỳ chỉnh lĩnh vực");//Custom fields (New)
-define("_FORMATTEDLOGIN","Định dạng đăng nhập");//Formatted login (New)
-define("_DEFAULTSORT","Sắp xếp mặc định");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; nhà điều hành có ưu tiên");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Trang hiện tại hoạt động");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Hoặc chỉ định một nhóm mới để thêm vào");//Or specify a new group to add to (New)
-define("_ADDTO","Thêm vào");//Add to (New)
-define("_REMOVEFROM","Hủy bỏ từ");//Remove from (New)
-define("_GROUPOPERATIONS","Nhóm hoạt động");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Giấy chứng nhận hoạt động");//Certificate operations (New)
-define("_LESSONOPERATIONS","Bài học hoạt động");//Lesson operations (New)
-define("_COURSEOPERATIONS","Tất nhiên hoạt động");//Course operations (New)
-define("_EXPORTTOCSV","Xuất khẩu sang csv");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Không có sự kiện được xác định mã");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Tập tin nhập thành công");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Chuyển đổi thư mục để phân cấp lồng nhau");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Giải nén file zip (s) và nội dung nhập khẩu");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Chủ đề này đã bị khoá");//The theme is locked (New)
-define("_BLANKREPORT","Blank báo cáo");//Blank report (New)
-define("_CUSTOMREPORTS","Tuỳ chỉnh báo cáo");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Quản trị hệ thống sẽ xem xét và kích hoạt ghi danh của bạn");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Làm mới bảng");//Refresh table (New)
-define("_REMOVEFROMSET","Hủy bỏ từ thiết lập");//Remove from set (New)
-define("_BRANCHTREE","Chi nhánh cây");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Thay đổi điều kiện tự");//Change condition order (New)
-define("_INDEX","Index");//Index (New)
-define("_EVENTDATETIME","Sự kiện ngày và thời gian");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Giấy chứng nhận tập tin bị mất hoặc bị hỏng và do đó được đặt lại");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Điều kiện đặc điểm kỹ thuật");//Condition specification
+define("_ADDCOLUMN","Thêm cột");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Quan hệ với tiếp theo");//Relation with next
+define("_COLUMNTYPE","Cột loại");//Column type
+define("_GRIDNAME","Grid tên");//Grid name
+define("_ALIGNED","Liên kết");//Aligned
+define("_SELECTREPORT","Chọn báo cáo");//Select report
+define("_AVAILABLEREPORTS","Sẵn các báo cáo");//Available reports
+define("_EDITREPORT","Hiệu chỉnh báo cáo");//Edit report
+define("_NOREPORTSINTHESYSTEM","Không có báo cáo xác định trong hệ thống. Xin");//There are no reports defined in the system. Please 
+define("_CREATEONE","tạo ra một");//create one
+define("_NEWREPORT","Báo cáo mới");//New report
+define("_REPORTNAME","Tên báo cáo");//Report name
+define("_SELECTCONDITION","Chọn điều kiện");//Select condition
+define("_ISNOT","không");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Đã hoàn thành tất cả các bài học được giao");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Đã hoàn thành tất cả các khóa học được giao");//Has completed all assigned courses
+define("_HAS","Có");//Has
+define("_HASNOT","Không");//Has not
+define("_ENROLLEDTO","Ghi danh cho");//Enrolled to
+define("_BETWEEN","Giữa");//Between
+define("_ISASSIGNED","Được phân công");//Is assigned
+define("_ISNOTASSIGNED","Không được phân định");//Is not assigned
+define("_DURINGLASTDAY","24h cuối");//last 24h
+define("_DURINGLASTWEEK","cuối tuần");//last week
+define("_DURINGLASTMONTH","tháng trước");//last month
+define("_COLUMN","Cột");//Column
+define("_SELECTCOLUMN","Chọn cột");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Để trống để tự động điều chỉnh độ rộng");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Để trống để sử dụng tên cột");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Chiều rộng (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Hãy chọn một cột");//Please select a column
+define("_CHANGECOLUMNORDER","Thay đổi thứ tự các cột");//Change the columns order
+define("_VIEWINGREPORT","Xem thông tin báo cáo");//Viewing report
+define("_PLEASESELECTACONDITION","Hãy chọn một điều kiện");//Please select a condition
+define("_BASIC","Cơ bản");//Basic
+define("_LEARNING","Học tập");//Learning
+define("_ENTERPRISE","Doanh nghiệp");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Kéo mục để thay đổi thứ tự");//Drag items to change order
+define("_CUSTOMFIELDS","Tuỳ chỉnh lĩnh vực");//Custom fields
+define("_FORMATTEDLOGIN","Định dạng đăng nhập");//Formatted login
+define("_DEFAULTSORT","Sắp xếp mặc định");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; nhà điều hành có ưu tiên");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Trang hiện tại hoạt động");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Hoặc chỉ định một nhóm mới để thêm vào");//Or specify a new group to add to
+define("_ADDTO","Thêm vào");//Add to
+define("_REMOVEFROM","Hủy bỏ từ");//Remove from
+define("_GROUPOPERATIONS","Nhóm hoạt động");//Group operations
+define("_CERTIFICATEOPERATIONS","Giấy chứng nhận hoạt động");//Certificate operations
+define("_LESSONOPERATIONS","Bài học hoạt động");//Lesson operations
+define("_COURSEOPERATIONS","Tất nhiên hoạt động");//Course operations
+define("_EXPORTTOCSV","Xuất khẩu sang csv");//Export to csv
+define("_NOEVENTCODEDEFINED","Không có sự kiện được xác định mã");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Tập tin nhập thành công");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Chuyển đổi thư mục để phân cấp lồng nhau");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Giải nén file zip (s) và nội dung nhập khẩu");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Chủ đề này đã bị khoá");//The theme is locked
+define("_BLANKREPORT","Blank báo cáo");//Blank report
+define("_CUSTOMREPORTS","Tuỳ chỉnh báo cáo");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Quản trị hệ thống sẽ xem xét và kích hoạt ghi danh của bạn");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Làm mới bảng");//Refresh table
+define("_REMOVEFROMSET","Hủy bỏ từ thiết lập");//Remove from set
+define("_BRANCHTREE","Chi nhánh cây");//Branch tree
+define("_CHANGECONDITIONORDER","Thay đổi điều kiện tự");//Change condition order
+define("_INDEX","Index");//Index
+define("_EVENTDATETIME","Sự kiện ngày và thời gian");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Giấy chứng nhận tập tin bị mất hoặc bị hỏng và do đó được đặt lại");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Nhìn từ");//Visible from (New)
+define("_EXPIRESAT","Hết hạn tại");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Lịch hiển thị ngày");//Calendar display date (New)
+define("_GLOBAL","Toàn cầu");//Global (New)
+define("_ALLDAY","Tất cả các ngày");//All day (New)
+define("_CREATECALENDAREVENT","Tạo sự kiện lịch");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Ghi đè lên thư mục hiện tại");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Trang đích");//Landing page (New)
+define("_EXPORTTOXLS","Xuất khẩu sang xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Điều tra không được công bố");//Survey failed to be published (New)
+define("_PRINTCHART","In biểu đồ");//Print chart (New)
+define("_RESPONSEDETAILS","Đáp ứng các chi tiết");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Chỉ hiển thị các thực thể đang hoạt động");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Chỉ hiển thị các thực thể không hoạt động");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Hiện cả hai thực thể đang hoạt động và không hoạt động");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Sự kiện này không còn tồn tại");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Hàng đợi thông điệp rõ ràng");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Áp dụng đối với người sử dụng đã thuộc về vị trí công việc này");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Điều này chỉ có thể thêm (không loại bỏ) một lựa chọn mới cho người dùng");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Sắp xếp theo");//Sort by (New)
+define("_TRAINING","Đào tạo");//Training (New)
+define("_COMPLETEDLESSONS","Hoàn thành các bài học");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Chưa hoàn tất bài học");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Hoàn thành các khóa học");//Completed courses (New)
+define("_INCOMPLETECOURSES","Chưa hoàn tất các khóa học");//Incomplete courses (New)
+define("_EDITCOLUMN","Hiệu chỉnh cột");//Edit column (New)
+define("_LESSONSFORCOURSE","Bài học cho các khóa học");//Lessons for course (New)
+define("_TESTSFORLESSON","Các xét nghiệm cho bài học");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Hoàn chỉnh cho tất cả người dùng");//Complete for all users (New)
+define("_LESSONTIMES","Bài học lần");//Lesson times (New)
+define("_MINUTESPERDAY","Phút mỗi ngày");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Đăng xuất người dùng sau (phút)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Cập nhật thời gian (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Được giới thiệu các giá trị không kém hơn so với 10000ms và không quá 360000ms. Nó cũng phải được đặt ít hơn thời gian tự động đăng xuất.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Hơn 1 chi nhánh (địa điểm) liên quan đến khóa học này, hiển thị đầu tiên");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Chèn");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Phân phê duyệt");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Nhân viên giám sát trực tiếp");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Chấm dứt hoạt người dùng");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","đã ngừng hoạt động từ hệ thống");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Giám sát phê duyệt");//Supervisor approval (New)
+define("_APPROVE","Chấp thuận");//Approve (New)
+define("_GROUPKEYEXISTS","Chính duy nhất đã tồn tại");//Unique key already exists (New)
+define("_PARTOFCOURSES","Một phần của các khóa học");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Bài học này là một phần của các khóa học một hoặc nhiều hơn, vì vậy nó không thể thay đổi chế độ");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Có người dùng đăng ký cho bài học này. Xin vui lòng unassign chúng trước khi chuyển đổi phương thức");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Các khóa học (không đầy đủ / tổng số)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Xuất các tập tin");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Khóa học dự kiến hết hạn");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Khóa học dự kiến bắt đầu");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Dự kiến bắt đầu của khóa học");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Dự kiến kết thúc khóa học");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Tất cả các khóa học người dùng");//All course users (New)
 ?>

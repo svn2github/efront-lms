@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","課程資料");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","沒有定義測驗題");//There are no questions defined
 define("_ADDQUESTION","新增題目");//Add question
 define("_PREVIEW","預覽");//Preview
+define("_RENAME","重命名");//Rename (New)
+define("_CLONE","克隆");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","沒有發現試卷");//No tests found
 define("_ADDTEST","新增測驗");//Add test
 define("_UNITANDSUBUNITSTESTS","單元與子單元測驗");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","課程繼續");//Resume lesson
 define("_STARTLESSON","課程開始");//Start lesson
 define("_TRACKING","追蹤");//Tracking
 define("_FORMATCERTIFICATE","格式證書");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","格式的證書模板");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","設置證書過期");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","使用LiveDocX方法建立認證");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","使用XML方法建立認證");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","添加證書模板（XML格式）");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","編輯證書模板（XML格式）");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","重命名證書模板");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","克隆證書模板");//Clone certificate template (New)
+define("_CERTIFICATENAME","證書名稱");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","證書的說明");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML描述不能為空");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","現有證書模板");//Existing certificate templates (New)
 define("_TRAFFIC","流量");//Traffic
 define("_LESSONTRAFFIC","課程流量");//Lesson traffic
 define("_EDITTEST","編輯測試");//Edit test
 define("_EDITQUESTION","編輯問題");//Edit question
 define("_CERTIFICATE","證書");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","成功更新證書");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","成功更新證書");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","已成功添加證書模板");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","有一個問題，同時增加的證書模板");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","證書模板已成功更新");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","有一個問題，同時更新證書模板");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","證書模板成功更名");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","有一個問題，同時重新命名證書模板");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","證書模板成功地克隆");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","有一個問題，同時克隆證書模板");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","已成功刪除證書模板");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","有一個問題，同時刪除證書模板");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","您沒有權利修改此證書模板");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","編輯條件");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP伺服器設定");//SMTP server configuration
 define("_SMTPSERVER","SMTP伺服器");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","該領域在您�
 define("_IFEMPTYNEWPASSWORD","在紅色領域是強制性的。如果沒有密碼，給出初始密碼將被設置相同的登錄。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","請檢查格式的CSV文件");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","使用使用者名＃ ＃為使用者的名稱，編號user_surname ＃為使用者的姓， ＃ course_name ＃課程的名稱，編號＃級，一級和＃日期＃日期。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","在模板，使用&lt;organization&gt; &lt;/組織&gt;為組織的名稱，&lt;student&gt; &lt;/學生&gt;學生的姓名，&lt;course&gt; &lt;/課程&gt;的課程的名稱，&lt;grade&gt; &lt;/職系&gt;甲級，&lt;串行&gt; &lt;/串行&gt;的序列號，日期&gt; &lt;/日期&gt;日期，&lt;logo&gt; &lt;/標誌&gt;為標誌，&lt;background&gt; &lt;/背景“&gt;的背景。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","票");//Votes
 define("_PERCENTAGE","百分比");//Percentage
 define("_CERTIFICATEISSUED","頒發證書");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","保持");//Remain
 define("_WEEKS","週");//weeks
 define("_WEEKs","週");//week
 define("_DAYS","天");//days
+define("_DAYSCAPITAL","天");//Days (New)
 define("_DAY","天");//Day
 define("_EVALUATIONDATAUPDATED","評價資料更新成功");//Evaluation data updated successfully
 define("_EVALUATION","評價");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","用戶的教訓目錄");//User's lesson catalog
 define("_USERDASHBOARD","用戶的儀表板");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","無標題為工作說明");//No title provided for job description
 define("_EDITORTYPE","編輯器類型");//Editor type
-define("_TINYMCE","TinyMCE的3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE的3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","只顯示一個消息後，提交測試");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","這次試驗是成功提交");//This test was successfully submitted
 define("_LEARNINGSTATUS","學習現狀");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","否則，你可能會創建一個<button oncl
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","你是來參加免費課程和課程。請檢閱以下的非自由選擇課程和課程");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","監事");//Supervisors
 define("_COURSEOPTIONS","課程選擇");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","為所有用戶重置處決");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","用戶報告生成");//Users reports generator (New)
-define("_ADDTOGROUP","添加到組");//Add to group (New)
-define("_ASSIGNCOURSE","分配過程");//Assign course (New)
-define("_ASSIGNLESSON","分配教訓");//Assign lesson (New)
-define("_REMOVECOURSE","刪除過程");//Remove course (New)
-define("_REMOVELESSON","刪除教訓");//Remove lesson (New)
-define("_REMOVEFROMGROUP","從組中刪除");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","復位的學習進度");//Reset learning progress (New)
-define("_BUILDER","生成器");//Builder (New)
-define("_ADDREPORT","添加新的報告");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","為所有用戶重置處決");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","用戶報告生成");//Users reports generator
+define("_ADDTOGROUP","添加到組");//Add to group
+define("_ASSIGNCOURSE","分配過程");//Assign course
+define("_ASSIGNLESSON","分配教訓");//Assign lesson
+define("_REMOVECOURSE","刪除過程");//Remove course
+define("_REMOVELESSON","刪除教訓");//Remove lesson
+define("_REMOVEFROMGROUP","從組中刪除");//Remove from group
+define("_RESETLEARNINGPROGRESS","復位的學習進度");//Reset learning progress
+define("_BUILDER","生成器");//Builder
+define("_ADDREPORT","添加新的報告");//Add new report
 define("_CONDITIONTYPE","條件類型");//Condition type
-define("_CONDITIONSPECIFICATION","條件規範");//Condition specification (New)
-define("_ADDCOLUMN","地址欄");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","與未來的關係");//Relation with next (New)
-define("_COLUMNTYPE","列類型");//Column type (New)
-define("_GRIDNAME","電網名稱");//Grid name (New)
-define("_ALIGNED","不結盟");//Aligned (New)
-define("_SELECTREPORT","選擇報告");//Select report (New)
-define("_AVAILABLEREPORTS","可用的報告");//Available reports (New)
-define("_EDITREPORT","編輯報告");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","有沒有在系統中定義的報告。請");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","創建一個");//create one (New)
-define("_NEWREPORT","新報告");//New report (New)
-define("_REPORTNAME","報告名稱");//Report name (New)
-define("_SELECTCONDITION","選擇條件");//Select condition (New)
-define("_ISNOT","不");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","已完成了所有指定的教訓");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","已完成了所有指定課程");//Has completed all assigned courses (New)
-define("_HAS","已");//Has (New)
-define("_HASNOT","沒有");//Has not (New)
-define("_ENROLLEDTO","登記到");//Enrolled to (New)
-define("_BETWEEN","之間");//Between (New)
-define("_ISASSIGNED","分配");//Is assigned (New)
-define("_ISNOTASSIGNED","未分配");//Is not assigned (New)
-define("_DURINGLASTDAY","最後 24小時");//last 24h (New)
-define("_DURINGLASTWEEK","上星期");//last week (New)
-define("_DURINGLASTMONTH","上個月");//last month (New)
-define("_COLUMN","柱");//Column (New)
-define("_SELECTCOLUMN","選擇列");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","留空將自動調整寬度");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","留空使用列名");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","寬度（％）");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","請選擇一列");//Please select a column (New)
-define("_CHANGECOLUMNORDER","更改列的順序");//Change the columns order (New)
-define("_VIEWINGREPORT","檢視報告");//Viewing report (New)
-define("_PLEASESELECTACONDITION","請選擇一個條件");//Please select a condition (New)
-define("_BASIC","基本的");//Basic (New)
-define("_LEARNING","學習");//Learning (New)
-define("_ENTERPRISE","企業");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","拖動項目變更單");//Drag items to change order (New)
-define("_CUSTOMFIELDS","自定義字段");//Custom fields (New)
-define("_FORMATTEDLOGIN","格式化登錄");//Formatted login (New)
-define("_DEFAULTSORT","默認的排序");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; 經營者優先");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","當前頁面操作");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","或指定一個新的小組，增加");//Or specify a new group to add to (New)
-define("_ADDTO","增加");//Add to (New)
-define("_REMOVEFROM","刪除");//Remove from (New)
-define("_GROUPOPERATIONS","集團業務");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","證書業務");//Certificate operations (New)
-define("_LESSONOPERATIONS","業務課");//Lesson operations (New)
-define("_COURSEOPERATIONS","當然行動");//Course operations (New)
-define("_EXPORTTOCSV","導出為 CSV");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","沒有事件代碼中定義");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","文件導入成功");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","轉換文件夾嵌套層次結構");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","解壓縮 zip文件（s）和進口內容");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","該主題已被鎖定");//The theme is locked (New)
-define("_BLANKREPORT","空白報告");//Blank report (New)
-define("_CUSTOMREPORTS","自定義報告");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","系統管理員將審查並啟動招生");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","刷新表");//Refresh table (New)
-define("_REMOVEFROMSET","從集合中刪除");//Remove from set (New)
-define("_BRANCHTREE","科樹");//Branch tree (New)
-define("_CHANGECONDITIONORDER","更改條件順序");//Change condition order (New)
-define("_INDEX","指數");//Index (New)
-define("_EVENTDATETIME","事件的日期和時間");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","該證書文件丟失或損壞，因此被重置");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","條件規範");//Condition specification
+define("_ADDCOLUMN","地址欄");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","與未來的關係");//Relation with next
+define("_COLUMNTYPE","列類型");//Column type
+define("_GRIDNAME","電網名稱");//Grid name
+define("_ALIGNED","不結盟");//Aligned
+define("_SELECTREPORT","選擇報告");//Select report
+define("_AVAILABLEREPORTS","可用的報告");//Available reports
+define("_EDITREPORT","編輯報告");//Edit report
+define("_NOREPORTSINTHESYSTEM","有沒有在系統中定義的報告。請");//There are no reports defined in the system. Please 
+define("_CREATEONE","創建一個");//create one
+define("_NEWREPORT","新報告");//New report
+define("_REPORTNAME","報告名稱");//Report name
+define("_SELECTCONDITION","選擇條件");//Select condition
+define("_ISNOT","不");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","已完成了所有指定的教訓");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","已完成了所有指定課程");//Has completed all assigned courses
+define("_HAS","已");//Has
+define("_HASNOT","沒有");//Has not
+define("_ENROLLEDTO","登記到");//Enrolled to
+define("_BETWEEN","之間");//Between
+define("_ISASSIGNED","分配");//Is assigned
+define("_ISNOTASSIGNED","未分配");//Is not assigned
+define("_DURINGLASTDAY","最後 24小時");//last 24h
+define("_DURINGLASTWEEK","上星期");//last week
+define("_DURINGLASTMONTH","上個月");//last month
+define("_COLUMN","柱");//Column
+define("_SELECTCOLUMN","選擇列");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","留空將自動調整寬度");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","留空使用列名");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","寬度（％）");//Width (%)
+define("_PLEASESELECTACOLUMN","請選擇一列");//Please select a column
+define("_CHANGECOLUMNORDER","更改列的順序");//Change the columns order
+define("_VIEWINGREPORT","檢視報告");//Viewing report
+define("_PLEASESELECTACONDITION","請選擇一個條件");//Please select a condition
+define("_BASIC","基本的");//Basic
+define("_LEARNING","學習");//Learning
+define("_ENTERPRISE","企業");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","拖動項目變更單");//Drag items to change order
+define("_CUSTOMFIELDS","自定義字段");//Custom fields
+define("_FORMATTEDLOGIN","格式化登錄");//Formatted login
+define("_DEFAULTSORT","默認的排序");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; 經營者優先");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","當前頁面操作");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","或指定一個新的小組，增加");//Or specify a new group to add to
+define("_ADDTO","增加");//Add to
+define("_REMOVEFROM","刪除");//Remove from
+define("_GROUPOPERATIONS","集團業務");//Group operations
+define("_CERTIFICATEOPERATIONS","證書業務");//Certificate operations
+define("_LESSONOPERATIONS","業務課");//Lesson operations
+define("_COURSEOPERATIONS","當然行動");//Course operations
+define("_EXPORTTOCSV","導出為 CSV");//Export to csv
+define("_NOEVENTCODEDEFINED","沒有事件代碼中定義");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","文件導入成功");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","轉換文件夾嵌套層次結構");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","解壓縮 zip文件（s）和進口內容");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","該主題已被鎖定");//The theme is locked
+define("_BLANKREPORT","空白報告");//Blank report
+define("_CUSTOMREPORTS","自定義報告");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","系統管理員將審查並啟動招生");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","刷新表");//Refresh table
+define("_REMOVEFROMSET","從集合中刪除");//Remove from set
+define("_BRANCHTREE","科樹");//Branch tree
+define("_CHANGECONDITIONORDER","更改條件順序");//Change condition order
+define("_INDEX","指數");//Index
+define("_EVENTDATETIME","事件的日期和時間");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","該證書文件丟失或損壞，因此被重置");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","可見的");//Visible from (New)
+define("_EXPIRESAT","到期日");//Expires at (New)
+define("_CALENDARDISPLAYDATE","日曆顯示日期");//Calendar display date (New)
+define("_GLOBAL","全球");//Global (New)
+define("_ALLDAY","整天");//All day (New)
+define("_CREATECALENDAREVENT","創建日曆事件");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","覆蓋現有的文件夾");//Overwrite existing folder (New)
+define("_LANDINGPAGE","著陸頁");//Landing page (New)
+define("_EXPORTTOXLS","導出到XLS");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","調查也沒有將出版");//Survey failed to be published (New)
+define("_PRINTCHART","打印圖表");//Print chart (New)
+define("_RESPONSEDETAILS","響應的詳細信息");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","僅顯示活性體");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","僅顯示無效實體");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","顯示實體都有效和無效");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","此事件已不存在");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","清除隊列中的消息");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","應用到用戶已經屬於此職務");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","這只能增加（不是刪除）一個新的選擇給用戶");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","排序方式");//Sort by (New)
+define("_TRAINING","培訓");//Training (New)
+define("_COMPLETEDLESSONS","填妥的教訓");//Completed lessons (New)
+define("_INCOMPLETELESSONS","不完整的教訓");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","完成的課程");//Completed courses (New)
+define("_INCOMPLETECOURSES","不完整的課程");//Incomplete courses (New)
+define("_EDITCOLUMN","編輯欄");//Edit column (New)
+define("_LESSONSFORCOURSE","當然教訓");//Lessons for course (New)
+define("_TESTSFORLESSON","試驗的教訓");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","全面地對所有用戶");//Complete for all users (New)
+define("_LESSONTIMES","上課時間");//Lesson times (New)
+define("_MINUTESPERDAY","每天紀要");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","註銷用戶後（分鐘）");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","更新程序週期（ms）");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","推薦值不低於 10000ms和不超過 360000ms。它還必須設置少於自動註銷時間。");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","超過 1家分行（處）與此相關的課程，顯示了第一個");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","插入");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","批准轉讓");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","員工的頂頭上司");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","用戶停用");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","從系統被停用");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","監的批准");//Supervisor approval (New)
+define("_APPROVE","批准");//Approve (New)
+define("_GROUPKEYEXISTS","獨特的鍵已經存在");//Unique key already exists (New)
+define("_PARTOFCOURSES","部分課程");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","這一教訓是一個或多個部分的課程，所以它不能改變模式");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","有網友參加這一課。他們之前，請取消指定切換模式");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","課程（完整/總數）");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","導出文件");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","課程期滿");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","課程開始預定");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","預定開始當然");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","期滿當然");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","所有課程的用戶");//All course users (New)
 ?>

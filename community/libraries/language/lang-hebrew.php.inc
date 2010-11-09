@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","שיעור החומר");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","ישנן שאלות לא מוגדר");//There are no questions defined
 define("_ADDQUESTION","הוסף שאלה");//Add question
 define("_PREVIEW","תצוגה מקדימה");//Preview
+define("_RENAME","שינוי שם");//Rename (New)
+define("_CLONE","שיבוט");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","בדיקות לא נמצאה");//No tests found
 define("_ADDTEST","הוסף הבדיקה");//Add test
 define("_UNITANDSUBUNITSTESTS","בדיקות יחידה ו subunits");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","שיעור חדש");//Resume lesson
 define("_STARTLESSON","התחל שיעור");//Start lesson
 define("_TRACKING","מעקב");//Tracking
 define("_FORMATCERTIFICATE","עיצוב תעודה");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","עיצוב תבנית תעודה");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","הגדרת תפוגה תעודת");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","השתמש בשיטה LiveDocX ליצירת הסמכות");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","השתמש בשיטת ה-XML ליצירת הסמכות");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","הוסף תבנית תעודה (בפורמט XML)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","ערוך תבנית תעודה (בפורמט XML)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","שינוי שם התבנית תעודה");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","שיבוט תבנית תעודה");//Clone certificate template (New)
+define("_CERTIFICATENAME","תעודת שם");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","תעודת תיאור");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","תיאור XML לא יכול להיות ריק");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","קיימת תעודת תבניות");//Existing certificate templates (New)
 define("_TRAFFIC","תנועה");//Traffic
 define("_LESSONTRAFFIC","שיעור תנועה");//Lesson traffic
 define("_EDITTEST","עריכת הבדיקה");//Edit test
 define("_EDITQUESTION","עריכת השאלה");//Edit question
 define("_CERTIFICATE","תעודה");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","עודכנו בהצלחה תעודה");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","עודכנו בהצלחה תעודה");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","תבנית תעודת נוספה בהצלחה");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","היתה בעיה בזמן הוספת תבנית תעודה");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","תבנית תעודת עודכנה בהצלחה");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","היתה בעיה בעת עדכון תבנית תעודה");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","תבנית תעודת הוחלף בהצלחה");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","היתה בעיה בעת שינוי תבנית תעודה");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","תבנית תעודת שוכפלה בהצלחה");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","היתה בעיה בעת שיבוט תבנית תעודה");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","תבנית תעודת נמחק בהצלחה");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","הייתה בעיה, למרות שמחיקת תבנית תעודה");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","אין לך את הזכות לשנות תבנית זו תעודת");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","מצב עריכה");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","תצורת שרת SMTP");//SMTP server configuration
 define("_SMTPSERVER","שרת SMTP");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","השדות בקו
 define("_IFEMPTYNEWPASSWORD","השדות באדום הם שדות חובה. אם אין נתון סיסמא, את הסיסמא הראשונית יוגדר זהה הכניסה.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","אנא בדוק את הפורמט של קובץ CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","בתבנית, השתמש הארגון # # עבור הארגון שם, USER_NAME # # עבור שם המשתמש, user_surname # # עבור המשתמש שם משפחה, course_name # # עבור קורס שם, כיתה # # עבור כיתה ו # # עבור התאריך היום.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","בתבנית, &lt;organization&gt; להשתמש &lt;/ ארגון&gt; השם של הארגון, &lt;student&gt; &lt;/ סטודנט&gt; עבור השם המלא של הסטודנט, &lt;course&gt; &lt;/ כמובן&gt; השם של הקורס, &lt;grade&gt; &lt;/ כיתה&gt; לכיתה, &lt; &lt;&lt;סדרתי /&gt; הסידורי של המספר הסידורי, &lt;תאריך&gt; &lt;/&gt; תאריך לפגישה, &lt;logo&gt; &lt;/&gt; הלוגו &lt;הלוגו &lt;background&gt; /&gt; רקע רקע.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","הצבעות");//Votes
 define("_PERCENTAGE","אחוז");//Percentage
 define("_CERTIFICATEISSUED","האישור שהוצאו");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","להישאר");//Remain
 define("_WEEKS","שבועות");//weeks
 define("_WEEKs","שבוע");//week
 define("_DAYS","ימים");//days
+define("_DAYSCAPITAL","ימים");//Days (New)
 define("_DAY","יום");//Day
 define("_EVALUATIONDATAUPDATED","הערכת הנתונים המעודכנים בהצלחה");//Evaluation data updated successfully
 define("_EVALUATION","הערכה");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","שיעור קטלוג למשתמש");//User's lesson c
 define("_USERDASHBOARD","משתמש של לוח המחוונים");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","הכותרת לא סיפק תיאור העבודה");//No title provided for job description
 define("_EDITORTYPE","עורך סוג");//Editor type
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","הצג רק הודעה לאחר הגשת המבחן");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","בדיקה זו הוגשה בהצלחה");//This test was successfully submitted
 define("_LEARNINGSTATUS","הלמידה סטטוס");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","אחרת, אתה יכול ליצור <button 
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","היית נרשם לשיעורים וקורסים חינם. נא עיין להלן הבחירה של שיעורים חופשיים קורסים שאינם");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","רוטמן");//Supervisors
 define("_COURSEOPTIONS","קורס אופציות");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","איפוס להורג עבור כל המשתמשים");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","משתמשים מחולל דוחות");//Users reports generator (New)
-define("_ADDTOGROUP","הוסף לקבוצה");//Add to group (New)
-define("_ASSIGNCOURSE","הקצאת כמובן");//Assign course (New)
-define("_ASSIGNLESSON","הקצאת השיעור");//Assign lesson (New)
-define("_REMOVECOURSE","הסר כמובן");//Remove course (New)
-define("_REMOVELESSON","הסר את הלקח");//Remove lesson (New)
-define("_REMOVEFROMGROUP","הסר מהקבוצה");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","אפס למידה התקדמות");//Reset learning progress (New)
-define("_BUILDER","בונה");//Builder (New)
-define("_ADDREPORT","הוסף דוח חדש");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","איפוס להורג עבור כל המשתמשים");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","משתמשים מחולל דוחות");//Users reports generator
+define("_ADDTOGROUP","הוסף לקבוצה");//Add to group
+define("_ASSIGNCOURSE","הקצאת כמובן");//Assign course
+define("_ASSIGNLESSON","הקצאת השיעור");//Assign lesson
+define("_REMOVECOURSE","הסר כמובן");//Remove course
+define("_REMOVELESSON","הסר את הלקח");//Remove lesson
+define("_REMOVEFROMGROUP","הסר מהקבוצה");//Remove from group
+define("_RESETLEARNINGPROGRESS","אפס למידה התקדמות");//Reset learning progress
+define("_BUILDER","בונה");//Builder
+define("_ADDREPORT","הוסף דוח חדש");//Add new report
 define("_CONDITIONTYPE","סוג מצב");//Condition type
-define("_CONDITIONSPECIFICATION","תנאי המפרט");//Condition specification (New)
-define("_ADDCOLUMN","הוסף עמודה");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","הקשר עם הבא");//Relation with next (New)
-define("_COLUMNTYPE","טור סוג");//Column type (New)
-define("_GRIDNAME","Grid שם");//Grid name (New)
-define("_ALIGNED","מסודרים");//Aligned (New)
-define("_SELECTREPORT","בחר לדווח");//Select report (New)
-define("_AVAILABLEREPORTS","דוחות זמינים");//Available reports (New)
-define("_EDITREPORT","עריכת דוח");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","אין דוחות שהוגדרו במערכת. בבקשה");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","צור אחד");//create one (New)
-define("_NEWREPORT","דוח חדש");//New report (New)
-define("_REPORTNAME","דווח שם");//Report name (New)
-define("_SELECTCONDITION","בחר במצב");//Select condition (New)
-define("_ISNOT","לא");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","השלים את כל השיעורים שהוקצו");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","השלים את כל הקורסים שהוקצו");//Has completed all assigned courses (New)
-define("_HAS","האם");//Has (New)
-define("_HASNOT","האם לא");//Has not (New)
-define("_ENROLLEDTO","נרשם ל");//Enrolled to (New)
-define("_BETWEEN","בין");//Between (New)
-define("_ISASSIGNED","מוקצה");//Is assigned (New)
-define("_ISNOTASSIGNED","האם לא מוקצה");//Is not assigned (New)
-define("_DURINGLASTDAY","לאחרונה 24 שעות");//last 24h (New)
-define("_DURINGLASTWEEK","בשבוע שעבר");//last week (New)
-define("_DURINGLASTMONTH","בחודש שעבר");//last month (New)
-define("_COLUMN","טור");//Column (New)
-define("_SELECTCOLUMN","בחר עמודה");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","השאר ריק כדי להתאים את רוחב אוטומטי");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","השאר ריק כדי להשתמש בעמודה שם");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","רוחב (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","אנא בחר עמודה");//Please select a column (New)
-define("_CHANGECOLUMNORDER","שינוי סדר העמודות");//Change the columns order (New)
-define("_VIEWINGREPORT","הצגת דוח");//Viewing report (New)
-define("_PLEASESELECTACONDITION","נא לבחור מצב");//Please select a condition (New)
-define("_BASIC","בסיסי");//Basic (New)
-define("_LEARNING","למידה");//Learning (New)
-define("_ENTERPRISE","מפעל");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","גרור פריטים כדי לשנות את סדר");//Drag items to change order (New)
-define("_CUSTOMFIELDS","שדות מותאמים אישית");//Custom fields (New)
-define("_FORMATTEDLOGIN","כניסה מעוצב");//Formatted login (New)
-define("_DEFAULTSORT","ברירת המחדל של מיון");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; מפעיל קדימות");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","פעולות דף נוכחי");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","או להגדיר קבוצה חדשה כדי להוסיף");//Or specify a new group to add to (New)
-define("_ADDTO","הוסף");//Add to (New)
-define("_REMOVEFROM","הסר");//Remove from (New)
-define("_GROUPOPERATIONS","קבוצת פעולות");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","אישור פעולות");//Certificate operations (New)
-define("_LESSONOPERATIONS","שיעור המבצעים");//Lesson operations (New)
-define("_COURSEOPERATIONS","קורס מבצעים");//Course operations (New)
-define("_EXPORTTOCSV","יצוא ל-CSV");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","אין קוד אירוע שהוגדר");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","קבצים יובאו בהצלחה");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","המרת תיקיות היררכיה מקוננות");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","הדחיסה של קובץ zip (ים) ותכנים לייבא");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","הנושא נעול");//The theme is locked (New)
-define("_BLANKREPORT","ריק דוח");//Blank report (New)
-define("_CUSTOMREPORTS","דוחות מותאמים אישית");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","מנהל המערכת תבחן ולהפעיל הרשמות שלך");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","רענן השולחן");//Refresh table (New)
-define("_REMOVEFROMSET","הסר להגדיר");//Remove from set (New)
-define("_BRANCHTREE","סניף עץ");//Branch tree (New)
-define("_CHANGECONDITIONORDER","שינוי סדר במצב");//Change condition order (New)
-define("_INDEX","מדד");//Index (New)
-define("_EVENTDATETIME","אירוע התאריך והשעה");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","קובץ האישור היה חסר או פגום, ולכן היה לאפס");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","תנאי המפרט");//Condition specification
+define("_ADDCOLUMN","הוסף עמודה");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","הקשר עם הבא");//Relation with next
+define("_COLUMNTYPE","טור סוג");//Column type
+define("_GRIDNAME","Grid שם");//Grid name
+define("_ALIGNED","מסודרים");//Aligned
+define("_SELECTREPORT","בחר לדווח");//Select report
+define("_AVAILABLEREPORTS","דוחות זמינים");//Available reports
+define("_EDITREPORT","עריכת דוח");//Edit report
+define("_NOREPORTSINTHESYSTEM","אין דוחות שהוגדרו במערכת. בבקשה");//There are no reports defined in the system. Please 
+define("_CREATEONE","צור אחד");//create one
+define("_NEWREPORT","דוח חדש");//New report
+define("_REPORTNAME","דווח שם");//Report name
+define("_SELECTCONDITION","בחר במצב");//Select condition
+define("_ISNOT","לא");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","השלים את כל השיעורים שהוקצו");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","השלים את כל הקורסים שהוקצו");//Has completed all assigned courses
+define("_HAS","האם");//Has
+define("_HASNOT","האם לא");//Has not
+define("_ENROLLEDTO","נרשם ל");//Enrolled to
+define("_BETWEEN","בין");//Between
+define("_ISASSIGNED","מוקצה");//Is assigned
+define("_ISNOTASSIGNED","האם לא מוקצה");//Is not assigned
+define("_DURINGLASTDAY","לאחרונה 24 שעות");//last 24h
+define("_DURINGLASTWEEK","בשבוע שעבר");//last week
+define("_DURINGLASTMONTH","בחודש שעבר");//last month
+define("_COLUMN","טור");//Column
+define("_SELECTCOLUMN","בחר עמודה");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","השאר ריק כדי להתאים את רוחב אוטומטי");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","השאר ריק כדי להשתמש בעמודה שם");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","רוחב (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","אנא בחר עמודה");//Please select a column
+define("_CHANGECOLUMNORDER","שינוי סדר העמודות");//Change the columns order
+define("_VIEWINGREPORT","הצגת דוח");//Viewing report
+define("_PLEASESELECTACONDITION","נא לבחור מצב");//Please select a condition
+define("_BASIC","בסיסי");//Basic
+define("_LEARNING","למידה");//Learning
+define("_ENTERPRISE","מפעל");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","גרור פריטים כדי לשנות את סדר");//Drag items to change order
+define("_CUSTOMFIELDS","שדות מותאמים אישית");//Custom fields
+define("_FORMATTEDLOGIN","כניסה מעוצב");//Formatted login
+define("_DEFAULTSORT","ברירת המחדל של מיון");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; מפעיל קדימות");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","פעולות דף נוכחי");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","או להגדיר קבוצה חדשה כדי להוסיף");//Or specify a new group to add to
+define("_ADDTO","הוסף");//Add to
+define("_REMOVEFROM","הסר");//Remove from
+define("_GROUPOPERATIONS","קבוצת פעולות");//Group operations
+define("_CERTIFICATEOPERATIONS","אישור פעולות");//Certificate operations
+define("_LESSONOPERATIONS","שיעור המבצעים");//Lesson operations
+define("_COURSEOPERATIONS","קורס מבצעים");//Course operations
+define("_EXPORTTOCSV","יצוא ל-CSV");//Export to csv
+define("_NOEVENTCODEDEFINED","אין קוד אירוע שהוגדר");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","קבצים יובאו בהצלחה");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","המרת תיקיות היררכיה מקוננות");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","הדחיסה של קובץ zip (ים) ותכנים לייבא");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","הנושא נעול");//The theme is locked
+define("_BLANKREPORT","ריק דוח");//Blank report
+define("_CUSTOMREPORTS","דוחות מותאמים אישית");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","מנהל המערכת תבחן ולהפעיל הרשמות שלך");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","רענן השולחן");//Refresh table
+define("_REMOVEFROMSET","הסר להגדיר");//Remove from set
+define("_BRANCHTREE","סניף עץ");//Branch tree
+define("_CHANGECONDITIONORDER","שינוי סדר במצב");//Change condition order
+define("_INDEX","מדד");//Index
+define("_EVENTDATETIME","אירוע התאריך והשעה");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","קובץ האישור היה חסר או פגום, ולכן היה לאפס");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","גלוי מ");//Visible from (New)
+define("_EXPIRESAT","יפוג ב");//Expires at (New)
+define("_CALENDARDISPLAYDATE","לוח שנה תאריך לתצוגה");//Calendar display date (New)
+define("_GLOBAL","עולמי");//Global (New)
+define("_ALLDAY","כל יום");//All day (New)
+define("_CREATECALENDAREVENT","יצירת אירוע בלוח השנה");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","החלף הקיים בתיקיה");//Overwrite existing folder (New)
+define("_LANDINGPAGE","דף נחיתה");//Landing page (New)
+define("_EXPORTTOXLS","יצוא ל-xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","סקר לא יפורסם");//Survey failed to be published (New)
+define("_PRINTCHART","הדפסת תרשים");//Print chart (New)
+define("_RESPONSEDETAILS","בתגובה פרטי");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","מציג רק גופים פעילים");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","מציג רק גופים פעילים");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","מציג שני גופים פעילים ולא פעילים");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","אירוע זה כבר לא קיים");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","נקה הודעות תור");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","לחול על משתמשים כבר שייך עמדה זו עבודה");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","זה יכול רק להוסיף (לא להסיר) מבחר חדש למשתמש");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","מיין לפי");//Sort by (New)
+define("_TRAINING","הכשרה");//Training (New)
+define("_COMPLETEDLESSONS","השלמת שיעורים");//Completed lessons (New)
+define("_INCOMPLETELESSONS","הושלמה שיעורים");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","השלמת הקורסים");//Completed courses (New)
+define("_INCOMPLETECOURSES","הושלמה קורסים");//Incomplete courses (New)
+define("_EDITCOLUMN","עריכת עמודה");//Edit column (New)
+define("_LESSONSFORCOURSE","שיעורים עבור קורס");//Lessons for course (New)
+define("_TESTSFORLESSON","בדיקות לשיעור");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","השלם עבור כל המשתמשים");//Complete for all users (New)
+define("_LESSONTIMES","שיעור פעמים");//Lesson times (New)
+define("_MINUTESPERDAY","דקות ביום");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","היכנס המשתמש לאחר (דקות)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","תקופת Updater (MS)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","ערכים מומלצים הם לא פחות מאשר 10000ms ולא יותר מ 360000ms. כמו כן, יש להגדיר פחות זמן להתנתקות אוטומטי.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","יותר מ 1 ענפים (מיקומים) הקשורים בקורס זה, מציג את הראשון");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","להכניס");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","ההקצאה אושרה על ידי");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","לממונה הישיר של העובד");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","משתמש שחרור משרות");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","היה מנוטרל מן המערכת");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","המפקח לאישור");//Supervisor approval (New)
+define("_APPROVE","לאשר");//Approve (New)
+define("_GROUPKEYEXISTS","מפתח ייחודי כבר קיים");//Unique key already exists (New)
+define("_PARTOFCOURSES","חלק מהקורסים");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","שיעור זה הוא חלק בקורסים אחד או יותר, כך שזה לא יכול לשנות את מצב");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","ישנם משתמשים נרשמו לשיעור זה. אנא unassign אותם לפני המעבר מצבי");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","קורסים (שלם / סהכ)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","ייצוא קבצים");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","הקורס אמור תפוגה");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","הקורס מתוכנן בתחילת");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","להתחיל מתוזמנת כמובן");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","פקיעת מתוזמנת כמובן");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","כל כמובן משתמשים");//All course users (New)
 ?>

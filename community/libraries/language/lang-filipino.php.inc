@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Aralin ng materyal na");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Walang mga katanungan na tinukoy");//There are no questions defined
 define("_ADDQUESTION","Magdagdag ng tanong");//Add question
 define("_PREVIEW","Preview");//Preview
+define("_RENAME","Palitan ang pangalan");//Rename (New)
+define("_CLONE","I-clone ang");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Walang nahanap na mga pagsusulit");//No tests found
 define("_ADDTEST","Magdagdag ng pagsubok");//Add test
 define("_UNITANDSUBUNITSTESTS","Unit at subunits pagsusulit");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Ipagpatuloy aral");//Resume lesson
 define("_STARTLESSON","Simulan ang aral");//Start lesson
 define("_TRACKING","Tracking");//Tracking
 define("_FORMATCERTIFICATE","Format ng sertipiko");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Format certificate template");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Itakda certificate expiration");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Gamitin ang LiveDocX pamamaraan para sa paglikha ng certifications");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Gamitin ang XML na pamamaraan para sa paglikha ng certifications");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Magdagdag ng certificate template (xml format)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","I-edit ang template ng sertipiko (xml format)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Palitan ang pangalan ng certificate template");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","I-clone ang certificate template");//Clone certificate template (New)
+define("_CERTIFICATENAME","Sertipiko pangalan");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Sertipiko ng paglalarawan");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML paglalarawan hindi maaaring walang laman");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Umiiral na mga template ng sertipiko");//Existing certificate templates (New)
 define("_TRAFFIC","Trapiko");//Traffic
 define("_LESSONTRAFFIC","Lesson trapiko");//Lesson traffic
 define("_EDITTEST","I-edit ang pagsubok");//Edit test
 define("_EDITQUESTION","I-edit ang tanong");//Edit question
 define("_CERTIFICATE","Sertipiko");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Matagumpay na na-update na sertipiko");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Matagumpay na na-update na sertipiko");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertipiko ng template ay matagumpay na naidagdag");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Nagkaroon ng problema habang idinadagdag certificate template");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertipiko ng template ay matagumpay na nai-update");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Nagkaroon ng problema habang ina-update certificate template");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertipiko ng template ay matagumpay na pinalitan ng pangalan");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Nagkaroon ng problema habang pinapangalanan ang certificate template");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertipiko ng template ay matagumpay cloned");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Nagkaroon ng problema habang cloning certificate template");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertipiko ng template ay matagumpay na natanggal");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Nagkaroon ng problema habang tinatanggal certificate template");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Ikaw ay walang mga karapatan na baguhin ito certificate template");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","I-edit ang kalagayan");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP server Configuration");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Ang mga patlang s
 define("_IFEMPTYNEWPASSWORD","Patlang sa pula ay sapilitan. Kapag walang password na binigay, ang unang password ay itakda ang parehong bilang ng mga pag-login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Paki-check ang format ng iyong CSV file");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Sa template, gamitin # # organisasyon para sa mga organisasyon ng pangalan, USER_NAME # # para sa user na ang pangalan, user_surname # # para sa user na apelyido, course_name # # para sa kurso ng pangalan, grade # # para sa grade at petsa # # para sa petsa.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","Sa template, gamitin &lt;organization&gt; &lt;/ organisasyon&gt; para sa pangalan ng organisasyon, &lt;student&gt; &lt;/ mag-aaral&gt; para sa buong pangalan ng mag-aaral, &lt;course&gt; &lt;/ siyempre&gt; para sa mga pangalan ng kurso&#39;s, &lt;grade&gt; &lt;/ grade&gt; para sa grade, &lt; serial&gt; &lt;/ serial&gt; para sa mga serial number, &lt;date&gt; &lt;/ date&gt; para sa petsa, &lt;logo&gt; &lt;/ si&gt; para sa mga logo at &lt;background&gt; &lt;/ background&gt; para sa background.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Votes");//Votes
 define("_PERCENTAGE","Porsiyento");//Percentage
 define("_CERTIFICATEISSUED","Sertipiko na inisyu");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Nananatiling");//Remain
 define("_WEEKS","linggo");//weeks
 define("_WEEKs","linggo");//week
 define("_DAYS","araw");//days
+define("_DAYSCAPITAL","Araw");//Days (New)
 define("_DAY","Araw");//Day
 define("_EVALUATIONDATAUPDATED","Pagsusuri ng data-update matagumpay");//Evaluation data updated successfully
 define("_EVALUATION","Pagsusuri");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","aral ng catalog User&#39;s");//User's lesson catalog
 define("_USERDASHBOARD","User&#39;s dashboard");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Walang pamagat na ibinigay para sa mga description ng trabaho");//No title provided for job description
 define("_EDITORTYPE","Editor uri");//Editor type
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Ipakita lamang ng isang mensahe ay matapos na isumite sa pagsubok");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","pagsubok na ito ay matagumpay na naisumite");//This test was successfully submitted
 define("_LEARNINGSTATUS","Katayuan sa Pag-aaral");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","Kung hindi, maaari kang lumikha ng isang <but
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ikaw ay nakatala sa libreng mga aralin at mga kurso. Maaring suriin muli sa ibaba ng iyong pagpili ng mga hindi libreng mga aralin at mga kurso");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Supervisors");//Supervisors
 define("_COURSEOPTIONS","Course opsyon");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","I-reset ang executions para sa lahat ng mga gumagamit");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Ang mga gumagamit na ulat dyeneretor");//Users reports generator (New)
-define("_ADDTOGROUP","Idagdag sa grupo");//Add to group (New)
-define("_ASSIGNCOURSE","Magtalaga ng mga kurso");//Assign course (New)
-define("_ASSIGNLESSON","Magtalaga ng aral");//Assign lesson (New)
-define("_REMOVECOURSE","Tanggalin ang kurso");//Remove course (New)
-define("_REMOVELESSON","Alisin ang aral");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Alisin mula sa grupo");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","I-reset ang pag-aaral ng pag-unlad");//Reset learning progress (New)
-define("_BUILDER","Ang nagpapagawa");//Builder (New)
-define("_ADDREPORT","Magdagdag ng bagong ulat");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","I-reset ang executions para sa lahat ng mga gumagamit");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Ang mga gumagamit na ulat dyeneretor");//Users reports generator
+define("_ADDTOGROUP","Idagdag sa grupo");//Add to group
+define("_ASSIGNCOURSE","Magtalaga ng mga kurso");//Assign course
+define("_ASSIGNLESSON","Magtalaga ng aral");//Assign lesson
+define("_REMOVECOURSE","Tanggalin ang kurso");//Remove course
+define("_REMOVELESSON","Alisin ang aral");//Remove lesson
+define("_REMOVEFROMGROUP","Alisin mula sa grupo");//Remove from group
+define("_RESETLEARNINGPROGRESS","I-reset ang pag-aaral ng pag-unlad");//Reset learning progress
+define("_BUILDER","Ang nagpapagawa");//Builder
+define("_ADDREPORT","Magdagdag ng bagong ulat");//Add new report
 define("_CONDITIONTYPE","Kondisyon uri");//Condition type
-define("_CONDITIONSPECIFICATION","Kondisyon detalye");//Condition specification (New)
-define("_ADDCOLUMN","Magdagdag ng mga haligi");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Kinalaman sa susunod");//Relation with next (New)
-define("_COLUMNTYPE","Haligi uri");//Column type (New)
-define("_GRIDNAME","Parilya pangalan");//Grid name (New)
-define("_ALIGNED","Hanay-hanay");//Aligned (New)
-define("_SELECTREPORT","Piliin ang ulat");//Select report (New)
-define("_AVAILABLEREPORTS","Magagamit na mga ulat");//Available reports (New)
-define("_EDITREPORT","I-edit ang ulat");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Walang mga ulat na tinukoy sa sistema. Masiyahan");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","Lumikha ng isa");//create one (New)
-define("_NEWREPORT","Bagong ulat");//New report (New)
-define("_REPORTNAME","Ulat ng pangalan");//Report name (New)
-define("_SELECTCONDITION","Piliin ang kalagayan");//Select condition (New)
-define("_ISNOT","ay hindi");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Natapos ang lahat ng mga itinalaga lessons");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Natapos ang lahat ng mga itinalaga kurso");//Has completed all assigned courses (New)
-define("_HAS","May");//Has (New)
-define("_HASNOT","Ay hindi");//Has not (New)
-define("_ENROLLEDTO","Nakatala sa");//Enrolled to (New)
-define("_BETWEEN","Sa pagitan ng");//Between (New)
-define("_ISASSIGNED","Ay itinalaga");//Is assigned (New)
-define("_ISNOTASSIGNED","Ay hindi itinalaga");//Is not assigned (New)
-define("_DURINGLASTDAY","huling 24h");//last 24h (New)
-define("_DURINGLASTWEEK","huling linggo");//last week (New)
-define("_DURINGLASTMONTH","nakaraang buwan");//last month (New)
-define("_COLUMN","Haligi");//Column (New)
-define("_SELECTCOLUMN","Pumili ng haligi");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Iwanang blangko upang awtomatikong ayusin ang lapad");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Iwanang blangko upang gamitin ang pangalan ng haligi");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Lapad (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Mangyaring pumili ng isang haligi");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Baguhin ang haligi order");//Change the columns order (New)
-define("_VIEWINGREPORT","Pagtingin sa mga ulat");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Mangyaring pumili ng isang kondisyon");//Please select a condition (New)
-define("_BASIC","Batayan");//Basic (New)
-define("_LEARNING","Pag-aaral");//Learning (New)
-define("_ENTERPRISE","Pangangalakal");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","I-drag bagay na baguhin ang pagkakasunud-sunod");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Pasadyang patlang");//Custom fields (New)
-define("_FORMATTEDLOGIN","Formatted na login");//Formatted login (New)
-define("_DEFAULTSORT","Default na uri-uriin");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator tumatagal ng higit na kahalagahan");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Ang kasalukuyang pahina operasyon");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","O tukuyin ang isang bagong grupo upang idagdag sa");//Or specify a new group to add to (New)
-define("_ADDTO","Idagdag sa");//Add to (New)
-define("_REMOVEFROM","Alisin mula sa");//Remove from (New)
-define("_GROUPOPERATIONS","Grupo ng mga operasyon");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Sertipiko ng operasyon");//Certificate operations (New)
-define("_LESSONOPERATIONS","Lesson operasyon");//Lesson operations (New)
-define("_COURSEOPERATIONS","Course na operasyon");//Course operations (New)
-define("_EXPORTTOCSV","I-export sa csv");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Walang mga kaganapan code na tinukoy");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Mga file import matagumpay");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Palitan ang mga folder sa nakapugad na pamunuan ng simbahan");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress zip file (s) at import ng mga nilalaman");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Ang tema ay naka-lock");//The theme is locked (New)
-define("_BLANKREPORT","Blangko ulat");//Blank report (New)
-define("_CUSTOMREPORTS","Pasadyang mga ulat");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Ang mga system administrator ay repasuhin at i-activate ang inyong enrollments");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","I-refresh ang mesa");//Refresh table (New)
-define("_REMOVEFROMSET","Alisin mula sa set");//Remove from set (New)
-define("_BRANCHTREE","Sangay ng puno");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Baguhin ang kalagayan order");//Change condition order (New)
-define("_INDEX","Talatuntunan");//Index (New)
-define("_EVENTDATETIME","Kaganapan petsa at oras");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Ang sertipiko na file ay nawawala o sira at kaya ay i-reset");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Kondisyon detalye");//Condition specification
+define("_ADDCOLUMN","Magdagdag ng mga haligi");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Kinalaman sa susunod");//Relation with next
+define("_COLUMNTYPE","Haligi uri");//Column type
+define("_GRIDNAME","Parilya pangalan");//Grid name
+define("_ALIGNED","Hanay-hanay");//Aligned
+define("_SELECTREPORT","Piliin ang ulat");//Select report
+define("_AVAILABLEREPORTS","Magagamit na mga ulat");//Available reports
+define("_EDITREPORT","I-edit ang ulat");//Edit report
+define("_NOREPORTSINTHESYSTEM","Walang mga ulat na tinukoy sa sistema. Masiyahan");//There are no reports defined in the system. Please 
+define("_CREATEONE","Lumikha ng isa");//create one
+define("_NEWREPORT","Bagong ulat");//New report
+define("_REPORTNAME","Ulat ng pangalan");//Report name
+define("_SELECTCONDITION","Piliin ang kalagayan");//Select condition
+define("_ISNOT","ay hindi");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Natapos ang lahat ng mga itinalaga lessons");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Natapos ang lahat ng mga itinalaga kurso");//Has completed all assigned courses
+define("_HAS","May");//Has
+define("_HASNOT","Ay hindi");//Has not
+define("_ENROLLEDTO","Nakatala sa");//Enrolled to
+define("_BETWEEN","Sa pagitan ng");//Between
+define("_ISASSIGNED","Ay itinalaga");//Is assigned
+define("_ISNOTASSIGNED","Ay hindi itinalaga");//Is not assigned
+define("_DURINGLASTDAY","huling 24h");//last 24h
+define("_DURINGLASTWEEK","huling linggo");//last week
+define("_DURINGLASTMONTH","nakaraang buwan");//last month
+define("_COLUMN","Haligi");//Column
+define("_SELECTCOLUMN","Pumili ng haligi");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Iwanang blangko upang awtomatikong ayusin ang lapad");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Iwanang blangko upang gamitin ang pangalan ng haligi");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Lapad (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Mangyaring pumili ng isang haligi");//Please select a column
+define("_CHANGECOLUMNORDER","Baguhin ang haligi order");//Change the columns order
+define("_VIEWINGREPORT","Pagtingin sa mga ulat");//Viewing report
+define("_PLEASESELECTACONDITION","Mangyaring pumili ng isang kondisyon");//Please select a condition
+define("_BASIC","Batayan");//Basic
+define("_LEARNING","Pag-aaral");//Learning
+define("_ENTERPRISE","Pangangalakal");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","I-drag bagay na baguhin ang pagkakasunud-sunod");//Drag items to change order
+define("_CUSTOMFIELDS","Pasadyang patlang");//Custom fields
+define("_FORMATTEDLOGIN","Formatted na login");//Formatted login
+define("_DEFAULTSORT","Default na uri-uriin");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator tumatagal ng higit na kahalagahan");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Ang kasalukuyang pahina operasyon");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","O tukuyin ang isang bagong grupo upang idagdag sa");//Or specify a new group to add to
+define("_ADDTO","Idagdag sa");//Add to
+define("_REMOVEFROM","Alisin mula sa");//Remove from
+define("_GROUPOPERATIONS","Grupo ng mga operasyon");//Group operations
+define("_CERTIFICATEOPERATIONS","Sertipiko ng operasyon");//Certificate operations
+define("_LESSONOPERATIONS","Lesson operasyon");//Lesson operations
+define("_COURSEOPERATIONS","Course na operasyon");//Course operations
+define("_EXPORTTOCSV","I-export sa csv");//Export to csv
+define("_NOEVENTCODEDEFINED","Walang mga kaganapan code na tinukoy");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Mga file import matagumpay");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Palitan ang mga folder sa nakapugad na pamunuan ng simbahan");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress zip file (s) at import ng mga nilalaman");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Ang tema ay naka-lock");//The theme is locked
+define("_BLANKREPORT","Blangko ulat");//Blank report
+define("_CUSTOMREPORTS","Pasadyang mga ulat");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Ang mga system administrator ay repasuhin at i-activate ang inyong enrollments");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","I-refresh ang mesa");//Refresh table
+define("_REMOVEFROMSET","Alisin mula sa set");//Remove from set
+define("_BRANCHTREE","Sangay ng puno");//Branch tree
+define("_CHANGECONDITIONORDER","Baguhin ang kalagayan order");//Change condition order
+define("_INDEX","Talatuntunan");//Index
+define("_EVENTDATETIME","Kaganapan petsa at oras");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Ang sertipiko na file ay nawawala o sira at kaya ay i-reset");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Makikita mula");//Visible from (New)
+define("_EXPIRESAT","Matatapos sa");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Kalendaryo display petsa");//Calendar display date (New)
+define("_GLOBAL","Global");//Global (New)
+define("_ALLDAY","Lahat ng araw");//All day (New)
+define("_CREATECALENDAREVENT","Gumawa ng kalendaryo kaganapan");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Patungan ang mga umiiral na folder");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Pambungad na pahina");//Landing page (New)
+define("_EXPORTTOXLS","I-export sa xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Survey bigo na i-publish");//Survey failed to be published (New)
+define("_PRINTCHART","Print tsart");//Print chart (New)
+define("_RESPONSEDETAILS","Response detalye");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Ipinapakita lamang ang aktibo entidad");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Ipinapakita lamang ang hindi aktibo entidad");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Ipinapakita ang parehong aktibo at di-aktibo entidad");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Ang kaganapan na ito ay hindi na umiiral");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Malinaw pila ng mga mensahe");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Mag-apply sa mga gumagamit na nauukol sa posisyon na ito trabaho");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Ito ay maaari lamang idagdag (hindi tatanggalin) ng isang bagong pagpili para sa isang gumagamit");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Ayusin ayon sa");//Sort by (New)
+define("_TRAINING","Pagsasanay");//Training (New)
+define("_COMPLETEDLESSONS","Nakumpleto ang mga aralin");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Hindi kumpleto ang mga aralin");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Nakumpleto na kurso");//Completed courses (New)
+define("_INCOMPLETECOURSES","Hindi kumpleto ang mga kurso");//Incomplete courses (New)
+define("_EDITCOLUMN","I-edit ang haligi");//Edit column (New)
+define("_LESSONSFORCOURSE","Lessons para sa mga kurso");//Lessons for course (New)
+define("_TESTSFORLESSON","Pagsusulit para sa lesson");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Kumpletuhin para sa lahat ng mga gumagamit");//Complete for all users (New)
+define("_LESSONTIMES","Lesson beses");//Lesson times (New)
+define("_MINUTESPERDAY","Minuto bawat araw");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Mag-log out user pagkatapos (minuto)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Updater panahon (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Inirekomendang mga halaga ay walang mas mababa kaysa sa 10000ms at hindi higit sa 360000ms. Ito rin ay dapat itakda mas mababa kaysa sa oras auto logout.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Higit sa 1 sanga (lokasyon) na nauugnay sa kursong ito, na ipinapakita ang unang isa");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Isingit");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Assignment na inaprobahan ng");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","kagyat na superbisor Employee&#39;s");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","User pagbubuwag");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","ay deactivated mula sa sistema");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Supervisor apruba");//Supervisor approval (New)
+define("_APPROVE","Aprobahan");//Approve (New)
+define("_GROUPKEYEXISTS","Natatanging key ay mayroon na");//Unique key already exists (New)
+define("_PARTOFCOURSES","Bahagi ng kurso");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","aral na ito ay bahagi ng isa o higit pang mga kurso, kaya hindi ito maaaring baguhin ang mode");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","May mga gumagamit nakatala sa araling ito. Mangyaring unassign ang mga ito bago lumipat mode");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Kurso (hindi kumpleto / total)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Ilipat ang mga file");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Kurso scheduled expiration");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Siyempre naka-iskedyul na simula");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Naka-schedule simulan ng kurso");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Naka-iskedyul na pagtatapos ng kurso");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Lahat ng kurso gumagamit");//All course users (New)
 ?>

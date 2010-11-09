@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Pamoka medžiagos");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Nėra klausimų, apibrėžtų");//There are no questions defined
 define("_ADDQUESTION","Pridėti klausimą");//Add question
 define("_PREVIEW","Peržiūrėti");//Preview
+define("_RENAME","Pervadinti");//Rename (New)
+define("_CLONE","Klonas");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Nr bandymus rasti");//No tests found
 define("_ADDTEST","Pridėti testą");//Add test
 define("_UNITANDSUBUNITSTESTS","Vienetas ir padaliniai testai");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Atnaujinti pamoka");//Resume lesson
 define("_STARTLESSON","Pradėti pamokos");//Start lesson
 define("_TRACKING","Sekti");//Tracking
 define("_FORMATCERTIFICATE","Formatas sertifikatas");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Formatas pažymos formą");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Nustatyti sertifikato galiojimo");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Naudokite LiveDocX metodas sukurti sertifikatai");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Naudoti XML metodas sukurti sertifikatai");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Pridėti pažymos formą (XML formatu)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Redaguoti pažymos formą (XML formatu)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Pervardyti pažymos formą");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Klonas pažymos formą");//Clone certificate template (New)
+define("_CERTIFICATENAME","Pažymėjimas pavadinimas");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Pažymėjimas aprašymas");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML aprašymas negali būti tuščias");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Esamas sertifikatas šablonai");//Existing certificate templates (New)
 define("_TRAFFIC","Eismas");//Traffic
 define("_LESSONTRAFFIC","Pamoka eismo");//Lesson traffic
 define("_EDITTEST","Redaguoti bandymas");//Edit test
 define("_EDITQUESTION","Edit question");//Edit question
 define("_CERTIFICATE","Pažymėjimas");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Sėkmingai atnaujintas sertifikatas");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Sėkmingai atnaujintas sertifikatas");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Pažymėjimas šablonas buvo sėkmingai pridėta");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Iškilo problema, o pridedant sertifikato šabloną");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Pažymėjimas šablonas buvo sėkmingai atnaujintas");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Iškilo problema, o atnaujinant sertifikatą šabloną");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Pažymėjimas šablonas buvo sėkmingai pervadintas");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Iškilo problema, kai buvo pervadinamas pažymos formą");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Pažymėjimas šablonas buvo sėkmingai klonuoti");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Iškilo problema, o klonavimą pažymos formą");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Pažymėjimas šablonas buvo sėkmingai ištrintas");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Iškilo problema, nors ištrynus pažymos formą");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Jūs neturite teisių keisti šios pažymos formą");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Redaguoti sąlyga");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP serverio konfigūracija");//SMTP server configuration
 define("_SMTPSERVER","SMTP serveris");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Laukai Jūsų Csv
 define("_IFEMPTYNEWPASSWORD","Laukai, pažymėti raudona yra privalomi. Jei nėra slaptažodį pateikta, pirminis slaptažodis bus nustatyti tokie patys, kaip prisijungti.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Prašome patikrinti formato failą CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Į šabloną, naudokite # organizavimo # organizacijos pavadinimas, # # vartotojo_vardas vartotojo vardą, # user_surname # naudotojo pavardė, # # course_name už kurso pavadinimą, # laipsnių # klasės ir # # data ir data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","Į šabloną, naudokite &lt;organization&gt; &lt;/ organizavimas&gt; už organizacijos pavadinimas, &lt;student&gt; &lt;/ studentas&gt; dėl studento vardas, pavardė, &lt;course&gt; &lt;/ kursas&gt; kursui pavadinimą, &lt;grade&gt; &lt;/ rangas&gt; klasės, &lt; serijos&gt; &lt;/ serijinis&gt; serijos numeris, &lt;data&gt; &lt;/ data&gt; datos, &lt;logo&gt; &lt;/ logotipo&gt; už logotipą ir &lt;background&gt; &lt;/ fonas&gt; fono.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Balsavimas");//Votes
 define("_PERCENTAGE","Procentas");//Percentage
 define("_CERTIFICATEISSUED","Pažymėjimas išduodamas");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Išlikti");//Remain
 define("_WEEKS","savaites");//weeks
 define("_WEEKs","savaitę");//week
 define("_DAYS","dienų");//days
+define("_DAYSCAPITAL","Dienos");//Days (New)
 define("_DAY","Diena");//Day
 define("_EVALUATIONDATAUPDATED","Vertinimo duomenys sėkmingai atnaujinti");//Evaluation data updated successfully
 define("_EVALUATION","Vertinimas");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Vartotojo pamoka katalogas");//User's lesson catalog
 define("_USERDASHBOARD","Vartotojo valdymo skydelis");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","No title numatytos pareigybės aprašyme");//No title provided for job description
 define("_EDITORTYPE","Redaktorius tipas");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Rodyti tik po pateikimo bandymas pranešimas");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Šis bandymas buvo sėkmingai pateiktas");//This test was successfully submitted
 define("_LEARNINGSTATUS","Mokymai statusas");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","Priešingu atveju, galite sukurti <button onc
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs, buvo įtraukti į laisvas pamokas ir paskaitas. Prašome peržiūrėti žemiau savo pasirinkimą ne laisvas pamokas ir kursai");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Priežiūros");//Supervisors
 define("_COURSEOPTIONS","Modulio puslapį");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","Atstatyti bausmė visiems vartotojams");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Vartotojai ataskaitų generatorius");//Users reports generator (New)
-define("_ADDTOGROUP","Įtraukti į grupę");//Add to group (New)
-define("_ASSIGNCOURSE","Priskirti kursą");//Assign course (New)
-define("_ASSIGNLESSON","Priskirti pamoka");//Assign lesson (New)
-define("_REMOVECOURSE","Pašalinti kursai");//Remove course (New)
-define("_REMOVELESSON","Pašalinti pamoka");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Pašalinti iš grupės");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Atstatyti mokymosi pažangą");//Reset learning progress (New)
-define("_BUILDER","Statybininkas");//Builder (New)
-define("_ADDREPORT","Pridėti naują pranešimą");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","Atstatyti bausmė visiems vartotojams");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Vartotojai ataskaitų generatorius");//Users reports generator
+define("_ADDTOGROUP","Įtraukti į grupę");//Add to group
+define("_ASSIGNCOURSE","Priskirti kursą");//Assign course
+define("_ASSIGNLESSON","Priskirti pamoka");//Assign lesson
+define("_REMOVECOURSE","Pašalinti kursai");//Remove course
+define("_REMOVELESSON","Pašalinti pamoka");//Remove lesson
+define("_REMOVEFROMGROUP","Pašalinti iš grupės");//Remove from group
+define("_RESETLEARNINGPROGRESS","Atstatyti mokymosi pažangą");//Reset learning progress
+define("_BUILDER","Statybininkas");//Builder
+define("_ADDREPORT","Pridėti naują pranešimą");//Add new report
 define("_CONDITIONTYPE","Būklė tipas");//Condition type
-define("_CONDITIONSPECIFICATION","Būklė specifikacija");//Condition specification (New)
-define("_ADDCOLUMN","Pridėti stulpelį");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Santykis su šalia");//Relation with next (New)
-define("_COLUMNTYPE","Tipas stulpelio");//Column type (New)
-define("_GRIDNAME","Tinklelis pavadinimas");//Grid name (New)
-define("_ALIGNED","Aligned");//Aligned (New)
-define("_SELECTREPORT","Pasirinkite pranešimą");//Select report (New)
-define("_AVAILABLEREPORTS","Galimos ataskaitos");//Available reports (New)
-define("_EDITREPORT","Redaguoti pranešimą");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Nėra pranešimų, apibrėžtų šioje sistemoje. Prašom");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","sukurti vieną");//create one (New)
-define("_NEWREPORT","Naujas pranešimas");//New report (New)
-define("_REPORTNAME","Ataskaitos pavadinimas");//Report name (New)
-define("_SELECTCONDITION","Pasirinkite sąlyga");//Select condition (New)
-define("_ISNOT","nėra");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Baigė visas priskiriamas pamokos");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Baigė visas priskiriamas kursai");//Has completed all assigned courses (New)
-define("_HAS","Ar");//Has (New)
-define("_HASNOT","Ar ne");//Has not (New)
-define("_ENROLLEDTO","DC į");//Enrolled to (New)
-define("_BETWEEN","Tarp");//Between (New)
-define("_ISASSIGNED","Priskiriama");//Is assigned (New)
-define("_ISNOTASSIGNED","Nėra priskirta");//Is not assigned (New)
-define("_DURINGLASTDAY","per paskutines 24 valandas");//last 24h (New)
-define("_DURINGLASTWEEK","praėjusią savaitę");//last week (New)
-define("_DURINGLASTMONTH","praėjusį mėnesį");//last month (New)
-define("_COLUMN","Skiltis");//Column (New)
-define("_SELECTCOLUMN","Pasirinkite stulpelį");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Palikite tuščią, kad auto-adjust plotis");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Palikite tuščią, kad naudoti stulpelio pavadinimo");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Plotis (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Pasirinkite stulpelį");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Pakeisti stulpelių tvarka");//Change the columns order (New)
-define("_VIEWINGREPORT","Peržiūri pranešimą");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Pasirinkite sąlyga");//Please select a condition (New)
-define("_BASIC","Pagrindinis");//Basic (New)
-define("_LEARNING","Mokymasis");//Learning (New)
-define("_ENTERPRISE","Įmonė");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Vilkite elementus pakeisti siekiant");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Vartotojo sukurti laukai");//Custom fields (New)
-define("_FORMATTEDLOGIN","Formatinio prisijungti");//Formatted login (New)
-define("_DEFAULTSORT","Numatytoji rūšiavimo");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; naudotojas turi viršenybę");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Current page operacijos");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Arba nurodykite naują grupę įtraukti į");//Or specify a new group to add to (New)
-define("_ADDTO","Pridėti į");//Add to (New)
-define("_REMOVEFROM","Pašalinti iš");//Remove from (New)
-define("_GROUPOPERATIONS","Grupės veikla");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Pažymėjimas operacijos");//Certificate operations (New)
-define("_LESSONOPERATIONS","Pamoka operacijos");//Lesson operations (New)
-define("_COURSEOPERATIONS","Modulio operacijos");//Course operations (New)
-define("_EXPORTTOCSV","Eksportuoti į CSV");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Jokiu kodu, apibrėžtu");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Failai sėkmingai importuotas");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Konvertuoti aplankus lizdinė struktūra");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Rozpakuj zip failas (-ai) ir importo kiekis");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Ši tema yra uždaryta");//The theme is locked (New)
-define("_BLANKREPORT","Tuščia ataskaita");//Blank report (New)
-define("_CUSTOMREPORTS","Kliento ataskaitos");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Sistemos administratorius peržiūrės ir aktyvuoti savo mokinių");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Atnaujinti lentelė");//Refresh table (New)
-define("_REMOVEFROMSET","Pašalinti iš nustatytų");//Remove from set (New)
-define("_BRANCHTREE","Skyrius medis");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Keisti sąlyga, kad");//Change condition order (New)
-define("_INDEX","Rodyklė");//Index (New)
-define("_EVENTDATETIME","Įvykio data ir laikas");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikato byla arba jis sugadintas ir taip buvo iš naujo");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Būklė specifikacija");//Condition specification
+define("_ADDCOLUMN","Pridėti stulpelį");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Santykis su šalia");//Relation with next
+define("_COLUMNTYPE","Tipas stulpelio");//Column type
+define("_GRIDNAME","Tinklelis pavadinimas");//Grid name
+define("_ALIGNED","Aligned");//Aligned
+define("_SELECTREPORT","Pasirinkite pranešimą");//Select report
+define("_AVAILABLEREPORTS","Galimos ataskaitos");//Available reports
+define("_EDITREPORT","Redaguoti pranešimą");//Edit report
+define("_NOREPORTSINTHESYSTEM","Nėra pranešimų, apibrėžtų šioje sistemoje. Prašom");//There are no reports defined in the system. Please 
+define("_CREATEONE","sukurti vieną");//create one
+define("_NEWREPORT","Naujas pranešimas");//New report
+define("_REPORTNAME","Ataskaitos pavadinimas");//Report name
+define("_SELECTCONDITION","Pasirinkite sąlyga");//Select condition
+define("_ISNOT","nėra");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Baigė visas priskiriamas pamokos");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Baigė visas priskiriamas kursai");//Has completed all assigned courses
+define("_HAS","Ar");//Has
+define("_HASNOT","Ar ne");//Has not
+define("_ENROLLEDTO","DC į");//Enrolled to
+define("_BETWEEN","Tarp");//Between
+define("_ISASSIGNED","Priskiriama");//Is assigned
+define("_ISNOTASSIGNED","Nėra priskirta");//Is not assigned
+define("_DURINGLASTDAY","per paskutines 24 valandas");//last 24h
+define("_DURINGLASTWEEK","praėjusią savaitę");//last week
+define("_DURINGLASTMONTH","praėjusį mėnesį");//last month
+define("_COLUMN","Skiltis");//Column
+define("_SELECTCOLUMN","Pasirinkite stulpelį");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Palikite tuščią, kad auto-adjust plotis");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Palikite tuščią, kad naudoti stulpelio pavadinimo");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Plotis (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Pasirinkite stulpelį");//Please select a column
+define("_CHANGECOLUMNORDER","Pakeisti stulpelių tvarka");//Change the columns order
+define("_VIEWINGREPORT","Peržiūri pranešimą");//Viewing report
+define("_PLEASESELECTACONDITION","Pasirinkite sąlyga");//Please select a condition
+define("_BASIC","Pagrindinis");//Basic
+define("_LEARNING","Mokymasis");//Learning
+define("_ENTERPRISE","Įmonė");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Vilkite elementus pakeisti siekiant");//Drag items to change order
+define("_CUSTOMFIELDS","Vartotojo sukurti laukai");//Custom fields
+define("_FORMATTEDLOGIN","Formatinio prisijungti");//Formatted login
+define("_DEFAULTSORT","Numatytoji rūšiavimo");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; naudotojas turi viršenybę");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Current page operacijos");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Arba nurodykite naują grupę įtraukti į");//Or specify a new group to add to
+define("_ADDTO","Pridėti į");//Add to
+define("_REMOVEFROM","Pašalinti iš");//Remove from
+define("_GROUPOPERATIONS","Grupės veikla");//Group operations
+define("_CERTIFICATEOPERATIONS","Pažymėjimas operacijos");//Certificate operations
+define("_LESSONOPERATIONS","Pamoka operacijos");//Lesson operations
+define("_COURSEOPERATIONS","Modulio operacijos");//Course operations
+define("_EXPORTTOCSV","Eksportuoti į CSV");//Export to csv
+define("_NOEVENTCODEDEFINED","Jokiu kodu, apibrėžtu");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Failai sėkmingai importuotas");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Konvertuoti aplankus lizdinė struktūra");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Rozpakuj zip failas (-ai) ir importo kiekis");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Ši tema yra uždaryta");//The theme is locked
+define("_BLANKREPORT","Tuščia ataskaita");//Blank report
+define("_CUSTOMREPORTS","Kliento ataskaitos");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Sistemos administratorius peržiūrės ir aktyvuoti savo mokinių");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Atnaujinti lentelė");//Refresh table
+define("_REMOVEFROMSET","Pašalinti iš nustatytų");//Remove from set
+define("_BRANCHTREE","Skyrius medis");//Branch tree
+define("_CHANGECONDITIONORDER","Keisti sąlyga, kad");//Change condition order
+define("_INDEX","Rodyklė");//Index
+define("_EVENTDATETIME","Įvykio data ir laikas");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikato byla arba jis sugadintas ir taip buvo iš naujo");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Matoma iš");//Visible from (New)
+define("_EXPIRESAT","Baigiasi");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Kalendorius rodyti data");//Calendar display date (New)
+define("_GLOBAL","Global");//Global (New)
+define("_ALLDAY","Visą dieną");//All day (New)
+define("_CREATECALENDAREVENT","Sukurti įvykį kalendoriuje");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Perrašyti egzistuojantį aplanką");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Nukreipimo puslapis");//Landing page (New)
+define("_EXPORTTOXLS","Eksportas į xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Apklausa nepavyko kurie turi būti paskelbti");//Survey failed to be published (New)
+define("_PRINTCHART","Spausdinti diagramos");//Print chart (New)
+define("_RESPONSEDETAILS","Atsakymo informacija");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Rodomi tik aktyvūs subjektai");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Rodomi tik neveikiančią subjektai");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Rodoma aktyvios ir neaktyvios subjektai");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Šis renginys jau nebėra");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Išvalyti eilėje pranešimų");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Taikyti vartotojų jau priklauso šis darbas pozicija");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Tai galima pridėti tik (ne pašalinti) naują atrankos į vartotojo");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Rūšiuoti pagal");//Sort by (New)
+define("_TRAINING","Mokymas");//Training (New)
+define("_COMPLETEDLESSONS","Baigta pamokos");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Neišsami pamokos");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Baigė kursus");//Completed courses (New)
+define("_INCOMPLETECOURSES","Neišsami kursai");//Incomplete courses (New)
+define("_EDITCOLUMN","Stulpelyje Redaguoti");//Edit column (New)
+define("_LESSONSFORCOURSE","Pamokos metu");//Lessons for course (New)
+define("_TESTSFORLESSON","Testai pamoka");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Užbaigti visiems vartotojams");//Complete for all users (New)
+define("_LESSONTIMES","Pamokų laikas");//Lesson times (New)
+define("_MINUTESPERDAY","Minučių per dieną");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Atsijungti naudotojo (min.)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Atnaujinimo laikotarpis (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Rekomenduojama vertybės yra ne mažesni kaip 10000ms ir ne daugiau kaip 360000ms. Ji taip pat turi būti nustatytas mažesnis nei automatinio atsijungimo metu.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Daugiau nei 1 filialų (vietovių), susijusius su šio kurso, kuriame pirmasis");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Įterpti");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Užduotis patvirtinta");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Darbuotojo nedelsiant vadovas");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Vartotojo deaktyvuotas");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","buvo išimtas iš sistemos");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Priežiūros patvirtinimo");//Supervisor approval (New)
+define("_APPROVE","Patvirtinti");//Approve (New)
+define("_GROUPKEYEXISTS","Unikalūs raktas jau yra");//Unique key already exists (New)
+define("_PARTOFCOURSES","Dalis kursai");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ši pamoka yra dalis iš vieno ar daugiau kursų, todėl ji negali pakeisti režimą");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Yra vartotojai įtraukti į šią pamoką. Prašome unassign juos prieš įjungiant transporto rūšių");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Kursai (nepilno / iš viso)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Eksporto failai");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Modulio reguliaraus pabaigos");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Modulio reguliaraus pradžioje");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Numatoma pradėti žinoma");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Numatoma galiojimo žinoma");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Visi Žinoma, vartotojai");//All course users (New)
 ?>

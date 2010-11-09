@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Materiál lekce");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Žádné otázky nejsou definovány");//There are no questions defined
 define("_ADDQUESTION","Přidat otázku");//Add question
 define("_PREVIEW","Náhled");//Preview
+define("_RENAME","Přejmenovat");//Rename (New)
+define("_CLONE","Klon");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Nebyl nalezen žádný test");//No tests found
 define("_ADDTEST","Přidat test");//Add test
 define("_UNITANDSUBUNITSTESTS","Jednotky a podjednotky testů");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Obnovit lekci");//Resume lesson
 define("_STARTLESSON","Začátek lekce");//Start lesson
 define("_TRACKING","Sledování");//Tracking
 define("_FORMATCERTIFICATE","Formát osvědčení");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Formát šablony certifikátu");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Nastavit osvědčení platnosti");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Pomocí metody LiveDocX pro vytváření certifikací");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Pomocí metody XML pro vytváření certifikací");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Přidat šablonu certifikátu (formát XML)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Úpravy šablony certifikátu (formát XML)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Přejmenování šablony certifikátu");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Klon šablony certifikátu");//Clone certificate template (New)
+define("_CERTIFICATENAME","Název certifikátu");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Certifikát popis");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML popis nemůže být prázdný");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Stávající šablon certifikátů");//Existing certificate templates (New)
 define("_TRAFFIC","Provoz");//Traffic
 define("_LESSONTRAFFIC","Provoz lekce");//Lesson traffic
 define("_EDITTEST","Editovat test");//Edit test
 define("_EDITQUESTION","Upravit dotaz");//Edit question
 define("_CERTIFICATE","Certifikát");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Úspěšně aktualizováno osvědčení");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Úspěšně aktualizováno osvědčení");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Šablony certifikátu byl úspěšně přidán");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Tam byl problém při přidávání šablony certifikátu");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Šablony certifikátu byl úspěšně aktualizován");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Tam byl problém při aktualizaci šablony certifikátu");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Šablony certifikátu byl úspěšně přejmenován");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Tam byl problém při přejmenování šablony certifikátu");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Šablony certifikátu byl úspěšně klonován");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Tam byl problém při klonování šablony certifikátu");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Šablony certifikátu byl úspěšně odstraněn");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Tam byl problém při mazání šablony certifikátu");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Nemáte právo změnit tento certifikát šablonu");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Upravit podmínku");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP server pro konfiguraci");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Pole v CSV soubor
 define("_IFEMPTYNEWPASSWORD","Oblasti načerveno jsou povinné. Neexistuje-li heslo, puvodní heslo bude nastaveno stejně jako login..");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Prosím zkontrolujte formát vašeho CSV souboru");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Použijte # # uživatelské_jméno na jméno uživatele, # # user_surname pro uživatele příjmení, # # course_name pro jméno kurzu, # # třídy pro třídu a datum # # pro data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","V šabloně, použijte &lt;organization&gt; &lt;/ organizace&gt; pro název organizace, &lt;student&gt; &lt;/ student&gt; pro studenta celé jméno, &lt;course&gt; &lt;/ kurz&gt; pro předmět jméno, &lt;grade&gt; &lt;/ třídy&gt; pro třídy, &lt; sériový&gt; &lt;/ sériové&gt; pro pořadové číslo, &lt;datum&gt; &lt;/ data&gt; pro datum, &lt;logo&gt; &lt;/ logo&gt; pro logo a &lt;background&gt; &lt;/ pozadí&gt; na pozadí.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Hlasování");//Votes
 define("_PERCENTAGE","Procento");//Percentage
 define("_CERTIFICATEISSUED","Certifikát vydaný");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Zůstává");//Remain
 define("_WEEKS","týdny");//weeks
 define("_WEEKs","týden");//week
 define("_DAYS","dnů");//days
+define("_DAYSCAPITAL","Dny");//Days (New)
 define("_DAY","Den");//Day
 define("_EVALUATIONDATAUPDATED","Vyhodnocení dat úspěšně aktualizováno");//Evaluation data updated successfully
 define("_EVALUATION","Hodnocení");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Uživatelská lekce katalogu");//User's lesson catalog
 define("_USERDASHBOARD","Uživatel přístrojové desce");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Bez názvu podle popisu práce");//No title provided for job description
 define("_EDITORTYPE","Editor typu");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Zobrazit pouze zprávy po předložení test");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Tento test byl úspěšně odeslán");//This test was successfully submitted
 define("_LEARNINGSTATUS","Učení Status");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","V opačném případě můžete vytvořit <bu
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ty byly zařazeny do volné lekce a kurzy. Přečtěte si prosím níže svůj výběr zákazu volného lekce a kurzy");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Orgány dohledu");//Supervisors
 define("_COURSEOPTIONS","Předmět volby");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","Reset provedeních pro všechny uživatele");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Uživatelské zprávy generátor");//Users reports generator (New)
-define("_ADDTOGROUP","Přidat do skupiny");//Add to group (New)
-define("_ASSIGNCOURSE","Přiřadit kurz");//Assign course (New)
-define("_ASSIGNLESSON","Přiřadit lekce");//Assign lesson (New)
-define("_REMOVECOURSE","Odstranit kurz");//Remove course (New)
-define("_REMOVELESSON","Odstranit lekce");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Odebrat ze skupiny");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Reset pokroku v učení");//Reset learning progress (New)
-define("_BUILDER","Stavitel");//Builder (New)
-define("_ADDREPORT","Přidat nové zprávy");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","Reset provedeních pro všechny uživatele");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Uživatelské zprávy generátor");//Users reports generator
+define("_ADDTOGROUP","Přidat do skupiny");//Add to group
+define("_ASSIGNCOURSE","Přiřadit kurz");//Assign course
+define("_ASSIGNLESSON","Přiřadit lekce");//Assign lesson
+define("_REMOVECOURSE","Odstranit kurz");//Remove course
+define("_REMOVELESSON","Odstranit lekce");//Remove lesson
+define("_REMOVEFROMGROUP","Odebrat ze skupiny");//Remove from group
+define("_RESETLEARNINGPROGRESS","Reset pokroku v učení");//Reset learning progress
+define("_BUILDER","Stavitel");//Builder
+define("_ADDREPORT","Přidat nové zprávy");//Add new report
 define("_CONDITIONTYPE","Podmínka typu");//Condition type
-define("_CONDITIONSPECIFICATION","Stav specifikace");//Condition specification (New)
-define("_ADDCOLUMN","Přidat sloupec");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Vztah k dalším");//Relation with next (New)
-define("_COLUMNTYPE","Typ sloupce");//Column type (New)
-define("_GRIDNAME","Mřížka jméno");//Grid name (New)
-define("_ALIGNED","Sladěny");//Aligned (New)
-define("_SELECTREPORT","Vybrat zprávu");//Select report (New)
-define("_AVAILABLEREPORTS","Dostupné zprávy");//Available reports (New)
-define("_EDITREPORT","Upravit zprávu");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Nejsou žádné zprávy v systému definovány. Prosím");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","vytvořit jednu");//create one (New)
-define("_NEWREPORT","Nová zpráva");//New report (New)
-define("_REPORTNAME","Zpráva jméno");//Report name (New)
-define("_SELECTCONDITION","Vyberte podmínku");//Select condition (New)
-define("_ISNOT","není");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Splnění všech assigned lekce");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Splnění všech účelově kurzy");//Has completed all assigned courses (New)
-define("_HAS","Má");//Has (New)
-define("_HASNOT","Není");//Has not (New)
-define("_ENROLLEDTO","Zapsaných na");//Enrolled to (New)
-define("_BETWEEN","Mezi");//Between (New)
-define("_ISASSIGNED","Je přiřazen");//Is assigned (New)
-define("_ISNOTASSIGNED","Není přiřazen");//Is not assigned (New)
-define("_DURINGLASTDAY","poslední 24h");//last 24h (New)
-define("_DURINGLASTWEEK","minulý týden");//last week (New)
-define("_DURINGLASTMONTH","poslední měsíc");//last month (New)
-define("_COLUMN","Sloupec");//Column (New)
-define("_SELECTCOLUMN","Vyberte sloupce");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Pokud ponecháte prázdné, auto-nastavení šířky");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Ponechte prázdné pro názvu sloupce");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Šířka (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Prosím, vyberte sloupec");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Změna sloupců, aby");//Change the columns order (New)
-define("_VIEWINGREPORT","Informace o zprávě");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Prosím, vyberte podmínku");//Please select a condition (New)
-define("_BASIC","Základní");//Basic (New)
-define("_LEARNING","Studium");//Learning (New)
-define("_ENTERPRISE","Podnik");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Přetáhněte položky, měnit pořadí");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Vlastní pole");//Custom fields (New)
-define("_FORMATTEDLOGIN","Formátovaný přihlášení");//Formatted login (New)
-define("_DEFAULTSORT","Výchozí řazení");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; provozovatel má přednost");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Aktuální stránka provozu");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Nebo zadat novou skupinu, aby do");//Or specify a new group to add to (New)
-define("_ADDTO","Přidat do");//Add to (New)
-define("_REMOVEFROM","Odstranit z");//Remove from (New)
-define("_GROUPOPERATIONS","Skupina operace");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Certifikát operace");//Certificate operations (New)
-define("_LESSONOPERATIONS","Lekce operace");//Lesson operations (New)
-define("_COURSEOPERATIONS","Předmět činnosti");//Course operations (New)
-define("_EXPORTTOCSV","Export do formátu CSV");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Žádná událost kód definována");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Soubory úspěšně importován");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Převést složky vnořené hierarchie");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Rozbalte zip soubor (y) a import obsah");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Téma je uzamčeno");//The theme is locked (New)
-define("_BLANKREPORT","Prázdné zprávu");//Blank report (New)
-define("_CUSTOMREPORTS","Vlastní zprávy");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Správce systému bude revize a aktivovat zápisy");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Aktualizovat tabulku");//Refresh table (New)
-define("_REMOVEFROMSET","Odstranit z nastavení");//Remove from set (New)
-define("_BRANCHTREE","Větev stromu");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Změna stavu, aby");//Change condition order (New)
-define("_INDEX","Index");//Index (New)
-define("_EVENTDATETIME","Událost Datum a čas");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Certifikát byl soubor poškozen nebo nebyl nalezen, a tak byl reset");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Stav specifikace");//Condition specification
+define("_ADDCOLUMN","Přidat sloupec");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Vztah k dalším");//Relation with next
+define("_COLUMNTYPE","Typ sloupce");//Column type
+define("_GRIDNAME","Mřížka jméno");//Grid name
+define("_ALIGNED","Sladěny");//Aligned
+define("_SELECTREPORT","Vybrat zprávu");//Select report
+define("_AVAILABLEREPORTS","Dostupné zprávy");//Available reports
+define("_EDITREPORT","Upravit zprávu");//Edit report
+define("_NOREPORTSINTHESYSTEM","Nejsou žádné zprávy v systému definovány. Prosím");//There are no reports defined in the system. Please 
+define("_CREATEONE","vytvořit jednu");//create one
+define("_NEWREPORT","Nová zpráva");//New report
+define("_REPORTNAME","Zpráva jméno");//Report name
+define("_SELECTCONDITION","Vyberte podmínku");//Select condition
+define("_ISNOT","není");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Splnění všech assigned lekce");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Splnění všech účelově kurzy");//Has completed all assigned courses
+define("_HAS","Má");//Has
+define("_HASNOT","Není");//Has not
+define("_ENROLLEDTO","Zapsaných na");//Enrolled to
+define("_BETWEEN","Mezi");//Between
+define("_ISASSIGNED","Je přiřazen");//Is assigned
+define("_ISNOTASSIGNED","Není přiřazen");//Is not assigned
+define("_DURINGLASTDAY","poslední 24h");//last 24h
+define("_DURINGLASTWEEK","minulý týden");//last week
+define("_DURINGLASTMONTH","poslední měsíc");//last month
+define("_COLUMN","Sloupec");//Column
+define("_SELECTCOLUMN","Vyberte sloupce");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Pokud ponecháte prázdné, auto-nastavení šířky");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Ponechte prázdné pro názvu sloupce");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Šířka (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Prosím, vyberte sloupec");//Please select a column
+define("_CHANGECOLUMNORDER","Změna sloupců, aby");//Change the columns order
+define("_VIEWINGREPORT","Informace o zprávě");//Viewing report
+define("_PLEASESELECTACONDITION","Prosím, vyberte podmínku");//Please select a condition
+define("_BASIC","Základní");//Basic
+define("_LEARNING","Studium");//Learning
+define("_ENTERPRISE","Podnik");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Přetáhněte položky, měnit pořadí");//Drag items to change order
+define("_CUSTOMFIELDS","Vlastní pole");//Custom fields
+define("_FORMATTEDLOGIN","Formátovaný přihlášení");//Formatted login
+define("_DEFAULTSORT","Výchozí řazení");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; provozovatel má přednost");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Aktuální stránka provozu");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Nebo zadat novou skupinu, aby do");//Or specify a new group to add to
+define("_ADDTO","Přidat do");//Add to
+define("_REMOVEFROM","Odstranit z");//Remove from
+define("_GROUPOPERATIONS","Skupina operace");//Group operations
+define("_CERTIFICATEOPERATIONS","Certifikát operace");//Certificate operations
+define("_LESSONOPERATIONS","Lekce operace");//Lesson operations
+define("_COURSEOPERATIONS","Předmět činnosti");//Course operations
+define("_EXPORTTOCSV","Export do formátu CSV");//Export to csv
+define("_NOEVENTCODEDEFINED","Žádná událost kód definována");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Soubory úspěšně importován");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Převést složky vnořené hierarchie");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Rozbalte zip soubor (y) a import obsah");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Téma je uzamčeno");//The theme is locked
+define("_BLANKREPORT","Prázdné zprávu");//Blank report
+define("_CUSTOMREPORTS","Vlastní zprávy");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Správce systému bude revize a aktivovat zápisy");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Aktualizovat tabulku");//Refresh table
+define("_REMOVEFROMSET","Odstranit z nastavení");//Remove from set
+define("_BRANCHTREE","Větev stromu");//Branch tree
+define("_CHANGECONDITIONORDER","Změna stavu, aby");//Change condition order
+define("_INDEX","Index");//Index
+define("_EVENTDATETIME","Událost Datum a čas");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Certifikát byl soubor poškozen nebo nebyl nalezen, a tak byl reset");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Viditelné");//Visible from (New)
+define("_EXPIRESAT","Uplyne na");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Kalendář zobrazení data");//Calendar display date (New)
+define("_GLOBAL","Globální");//Global (New)
+define("_ALLDAY","Celý den");//All day (New)
+define("_CREATECALENDAREVENT","Vytvořit kalendář událostí");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Přepsat existující složku");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Vstupní stránky");//Landing page (New)
+define("_EXPORTTOXLS","Export do xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Průzkum se nepodařilo která mají být zveřejněna");//Survey failed to be published (New)
+define("_PRINTCHART","Tisk grafu");//Print chart (New)
+define("_RESPONSEDETAILS","Odpověď podrobnosti");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Ukázat jen aktivní subjekty");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Zobrazují se pouze neaktivní osoby");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Ukázat aktivní i neaktivní osoby");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Tato akce se již neexistuje");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Zřejmé, fronty zpráv");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Platí pro uživatele již patří do této pracovní pozice");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","To může přidat pouze (ne odstranit) nový výběr, aby uživatel");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Řadit podle");//Sort by (New)
+define("_TRAINING","Školení");//Training (New)
+define("_COMPLETEDLESSONS","Dokončeny lekce");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Neúplné lekce");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Absolvovaných předmětů");//Completed courses (New)
+define("_INCOMPLETECOURSES","Neúplné kurzy");//Incomplete courses (New)
+define("_EDITCOLUMN","Upravit sloupce");//Edit column (New)
+define("_LESSONSFORCOURSE","Poučení o kurzu");//Lessons for course (New)
+define("_TESTSFORLESSON","Testy na lekce");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Kompletní pro všechny uživatele");//Complete for all users (New)
+define("_LESSONTIMES","Vyučovacích hodin,");//Lesson times (New)
+define("_MINUTESPERDAY","Minut denně");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Odhlásit uživatele po (minuty)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Updater období (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Doporučené hodnoty nejsou o nic méně než 10000ms a ne více než 360000ms. Je také třeba nastavit kratší než doba auto odhlásit.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Více než 1 poboček (míst), spojené s tímto samozřejmě, ukazovat první");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Vložit");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Přiřazení schválen");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Zaměstnance přímého nadřízeného");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Uživatel deaktivace");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","byl deaktivován ze systému");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Vedoucí schválení");//Supervisor approval (New)
+define("_APPROVE","Schválení");//Approve (New)
+define("_GROUPKEYEXISTS","Unikátní klíč již existuje");//Unique key already exists (New)
+define("_PARTOFCOURSES","Část předmětů");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Tato lekce je součástí jednoho nebo více kurzů, tak to nemůže změnit režim");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Tam jsou uživatelé zapsaní na této lekci. Prosím, přiřazení je před přepínání režimů");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Kurzy (neúplný / celkem)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Export souborů");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Samozřejmě plánované konce");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Samozřejmě plánovaným začátkem");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Plánované zahájení kurzu");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Plánované konce samozřejmě");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Všechny samozřejmě uživatelé");//All course users (New)
 ?>

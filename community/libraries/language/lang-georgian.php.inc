@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","გაკვეთილის მასალა");//
 define("_NOQUESTIONSSETFORTHISUNIT","შეკითხვები არ განსაზღვრულა");//There are no questions defined
 define("_ADDQUESTION","შეკითხვის დამატება");//Add question
 define("_PREVIEW","ესკიზი");//Preview
+define("_RENAME","");//Rename (New)
+define("_CLONE","");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","ტესტები ვერ მოიძებნა");//No tests found
 define("_ADDTEST","ტესტის დამატება");//Add test
 define("_UNITANDSUBUNITSTESTS","ბლოკებისა და ქვებლოკების ტესტები");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","გაკვეთილის გაგრძელე�
 define("_STARTLESSON","გაკვეთილის დაწყება");//Start lesson
 define("_TRACKING","თვალმიდევნება");//Tracking
 define("_FORMATCERTIFICATE","სერთიფიკატის ფორმატი");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","");//Clone certificate template (New)
+define("_CERTIFICATENAME","");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","");//Existing certificate templates (New)
 define("_TRAFFIC","აქტიობა");//Traffic
 define("_LESSONTRAFFIC","აქტიობა გაკვეთილზე");//Lesson traffic
 define("_EDITTEST","ტესტის რედაქტირება");//Edit test
 define("_EDITQUESTION","შეკითხვის რედაქტირება");//Edit question
 define("_CERTIFICATE","სერთიფიკატი");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","სერთიფიკატი განახლდა");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","სერთიფიკატი განახლდა");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","პირობის რედაქტირება");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP სერვერის კონფიგურაცია");//SMTP server configuration
 define("_SMTPSERVER","SMTP სერვერი");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","თქვენ�
 define("_IFEMPTYNEWPASSWORD","წითელი ფერით გამოყოფილი ველები სავალდებულოა. თუ პაროლი არ მითითებულა, იგი იქნება იგივე, რაც სახელი.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","გთხოვთ გადაამოწმოთ თქვენი CSV ფაილის ფორმატი");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","თარგებში ისარგებლეთ ცვლადებით #user_name# - მონაწილის სახელი, #user_surname# - გვარი, #course_name# - კურსის დასახელება, #grade# - შეფასება და #date# - თარიღი.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","ხმები");//Votes
 define("_PERCENTAGE","პროცენტი");//Percentage
 define("_CERTIFICATEISSUED","სერთიფიკატი გაიცა");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","დარჩა");//Remain
 define("_WEEKS","კვირა");//weeks
 define("_WEEKs","კვირა");//week
 define("_DAYS","დღე");//days
+define("_DAYSCAPITAL","");//Days (New)
 define("_DAY","დღე");//Day
 define("_EVALUATIONDATAUPDATED","შეფასების მონაცემები განახლდა");//Evaluation data updated successfully
 define("_EVALUATION","შეფასება");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","მომხმარებლის გაკვე�
 define("_USERDASHBOARD","მომხმარებლის პარამეტრების პანელი");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","No title გათვალისწინებული ვაკანსიის აღწერილობა");//No title provided for job description
 define("_EDITORTYPE","რედაქტორის ტიპი");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","აჩვენეთ მხოლოდ გაგზავნა შემდეგ წარდგენის ტესტი");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","ამ ტესტირების წარმატებით წარმოადგინა");//This test was successfully submitted
 define("_LEARNINGSTATUS","სწავლის სტატუსი");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","");//Otherwise, you may create a <button oncl
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","");//Supervisors
 define("_COURSEOPTIONS","");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","");//Users reports generator (New)
-define("_ADDTOGROUP","");//Add to group (New)
-define("_ASSIGNCOURSE","");//Assign course (New)
-define("_ASSIGNLESSON","");//Assign lesson (New)
-define("_REMOVECOURSE","");//Remove course (New)
-define("_REMOVELESSON","");//Remove lesson (New)
-define("_REMOVEFROMGROUP","");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","");//Reset learning progress (New)
-define("_BUILDER","");//Builder (New)
-define("_ADDREPORT","");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","");//Users reports generator
+define("_ADDTOGROUP","");//Add to group
+define("_ASSIGNCOURSE","");//Assign course
+define("_ASSIGNLESSON","");//Assign lesson
+define("_REMOVECOURSE","");//Remove course
+define("_REMOVELESSON","");//Remove lesson
+define("_REMOVEFROMGROUP","");//Remove from group
+define("_RESETLEARNINGPROGRESS","");//Reset learning progress
+define("_BUILDER","");//Builder
+define("_ADDREPORT","");//Add new report
 define("_CONDITIONTYPE","პირობის ტიპი");//Condition type
-define("_CONDITIONSPECIFICATION","");//Condition specification (New)
-define("_ADDCOLUMN","");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","");//Relation with next (New)
-define("_COLUMNTYPE","");//Column type (New)
-define("_GRIDNAME","");//Grid name (New)
-define("_ALIGNED","");//Aligned (New)
-define("_SELECTREPORT","");//Select report (New)
-define("_AVAILABLEREPORTS","");//Available reports (New)
-define("_EDITREPORT","");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","");//create one (New)
-define("_NEWREPORT","");//New report (New)
-define("_REPORTNAME","");//Report name (New)
-define("_SELECTCONDITION","");//Select condition (New)
-define("_ISNOT","");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","");//Has completed all assigned courses (New)
-define("_HAS","");//Has (New)
-define("_HASNOT","");//Has not (New)
-define("_ENROLLEDTO","");//Enrolled to (New)
-define("_BETWEEN","");//Between (New)
-define("_ISASSIGNED","");//Is assigned (New)
-define("_ISNOTASSIGNED","");//Is not assigned (New)
-define("_DURINGLASTDAY","");//last 24h (New)
-define("_DURINGLASTWEEK","");//last week (New)
-define("_DURINGLASTMONTH","");//last month (New)
-define("_COLUMN","");//Column (New)
-define("_SELECTCOLUMN","");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","");//Please select a column (New)
-define("_CHANGECOLUMNORDER","");//Change the columns order (New)
-define("_VIEWINGREPORT","");//Viewing report (New)
-define("_PLEASESELECTACONDITION","");//Please select a condition (New)
-define("_BASIC","");//Basic (New)
-define("_LEARNING","");//Learning (New)
-define("_ENTERPRISE","");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","");//Drag items to change order (New)
-define("_CUSTOMFIELDS","");//Custom fields (New)
-define("_FORMATTEDLOGIN","");//Formatted login (New)
-define("_DEFAULTSORT","");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","");//Or specify a new group to add to (New)
-define("_ADDTO","");//Add to (New)
-define("_REMOVEFROM","");//Remove from (New)
-define("_GROUPOPERATIONS","");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","");//Certificate operations (New)
-define("_LESSONOPERATIONS","");//Lesson operations (New)
-define("_COURSEOPERATIONS","");//Course operations (New)
-define("_EXPORTTOCSV","");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","");//The theme is locked (New)
-define("_BLANKREPORT","");//Blank report (New)
-define("_CUSTOMREPORTS","");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","");//Refresh table (New)
-define("_REMOVEFROMSET","");//Remove from set (New)
-define("_BRANCHTREE","");//Branch tree (New)
-define("_CHANGECONDITIONORDER","");//Change condition order (New)
-define("_INDEX","");//Index (New)
-define("_EVENTDATETIME","");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","");//Condition specification
+define("_ADDCOLUMN","");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","");//Relation with next
+define("_COLUMNTYPE","");//Column type
+define("_GRIDNAME","");//Grid name
+define("_ALIGNED","");//Aligned
+define("_SELECTREPORT","");//Select report
+define("_AVAILABLEREPORTS","");//Available reports
+define("_EDITREPORT","");//Edit report
+define("_NOREPORTSINTHESYSTEM","");//There are no reports defined in the system. Please 
+define("_CREATEONE","");//create one
+define("_NEWREPORT","");//New report
+define("_REPORTNAME","");//Report name
+define("_SELECTCONDITION","");//Select condition
+define("_ISNOT","");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","");//Has completed all assigned courses
+define("_HAS","");//Has
+define("_HASNOT","");//Has not
+define("_ENROLLEDTO","");//Enrolled to
+define("_BETWEEN","");//Between
+define("_ISASSIGNED","");//Is assigned
+define("_ISNOTASSIGNED","");//Is not assigned
+define("_DURINGLASTDAY","");//last 24h
+define("_DURINGLASTWEEK","");//last week
+define("_DURINGLASTMONTH","");//last month
+define("_COLUMN","");//Column
+define("_SELECTCOLUMN","");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","");//Width (%)
+define("_PLEASESELECTACOLUMN","");//Please select a column
+define("_CHANGECOLUMNORDER","");//Change the columns order
+define("_VIEWINGREPORT","");//Viewing report
+define("_PLEASESELECTACONDITION","");//Please select a condition
+define("_BASIC","");//Basic
+define("_LEARNING","");//Learning
+define("_ENTERPRISE","");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","");//Drag items to change order
+define("_CUSTOMFIELDS","");//Custom fields
+define("_FORMATTEDLOGIN","");//Formatted login
+define("_DEFAULTSORT","");//Default sort
+define("_ANDTAKESPRECEDENCE","");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","");//Or specify a new group to add to
+define("_ADDTO","");//Add to
+define("_REMOVEFROM","");//Remove from
+define("_GROUPOPERATIONS","");//Group operations
+define("_CERTIFICATEOPERATIONS","");//Certificate operations
+define("_LESSONOPERATIONS","");//Lesson operations
+define("_COURSEOPERATIONS","");//Course operations
+define("_EXPORTTOCSV","");//Export to csv
+define("_NOEVENTCODEDEFINED","");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","");//The theme is locked
+define("_BLANKREPORT","");//Blank report
+define("_CUSTOMREPORTS","");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","");//Refresh table
+define("_REMOVEFROMSET","");//Remove from set
+define("_BRANCHTREE","");//Branch tree
+define("_CHANGECONDITIONORDER","");//Change condition order
+define("_INDEX","");//Index
+define("_EVENTDATETIME","");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","");//Visible from (New)
+define("_EXPIRESAT","");//Expires at (New)
+define("_CALENDARDISPLAYDATE","");//Calendar display date (New)
+define("_GLOBAL","");//Global (New)
+define("_ALLDAY","");//All day (New)
+define("_CREATECALENDAREVENT","");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","");//Overwrite existing folder (New)
+define("_LANDINGPAGE","");//Landing page (New)
+define("_EXPORTTOXLS","");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","");//Survey failed to be published (New)
+define("_PRINTCHART","");//Print chart (New)
+define("_RESPONSEDETAILS","");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","");//Sort by (New)
+define("_TRAINING","");//Training (New)
+define("_COMPLETEDLESSONS","");//Completed lessons (New)
+define("_INCOMPLETELESSONS","");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","");//Completed courses (New)
+define("_INCOMPLETECOURSES","");//Incomplete courses (New)
+define("_EDITCOLUMN","");//Edit column (New)
+define("_LESSONSFORCOURSE","");//Lessons for course (New)
+define("_TESTSFORLESSON","");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","");//Complete for all users (New)
+define("_LESSONTIMES","");//Lesson times (New)
+define("_MINUTESPERDAY","");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","");//Supervisor approval (New)
+define("_APPROVE","");//Approve (New)
+define("_GROUPKEYEXISTS","");//Unique key already exists (New)
+define("_PARTOFCOURSES","");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","");//All course users (New)
 ?>

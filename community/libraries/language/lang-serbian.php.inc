@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Образовни материјал");//Lesson mater
 define("_NOQUESTIONSSETFORTHISUNIT","Нема питања дефинисана");//There are no questions defined
 define("_ADDQUESTION","Додај питање");//Add question
 define("_PREVIEW","Превиеу");//Preview
+define("_RENAME","Преименуј");//Rename (New)
+define("_CLONE","Клон");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Није пронађен тестови");//No tests found
 define("_ADDTEST","Додај тест");//Add test
 define("_UNITANDSUBUNITSTESTS","Јединица субунитс и тестови");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Наставите поново сат");//Resume lesson
 define("_STARTLESSON","Крените сат");//Start lesson
 define("_TRACKING","Праћење");//Tracking
 define("_FORMATCERTIFICATE","Форма потврде");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Обликовање сертификат Темплате");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Постави сертификат истека");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Користите ЛивеДоцКс метод за стварање сертификације");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Коришћење КСМЛ метод за стварање сертификације");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Додај сертификат шаблона (КСМЛ формату)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Измени шаблон сертификат (КСМЛ формату)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Преименуј сертификат Темплате");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Цлоне сертификат Темплате");//Clone certificate template (New)
+define("_CERTIFICATENAME","Сертификат име");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Сертификат опис");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","КСМЛ опис не може бити празно");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Постојеће шаблоне сертификат");//Existing certificate templates (New)
 define("_TRAFFIC","Промет");//Traffic
 define("_LESSONTRAFFIC","Сат промет");//Lesson traffic
 define("_EDITTEST","Уреди тест");//Edit test
 define("_EDITQUESTION","Уреди питање");//Edit question
 define("_CERTIFICATE","Систем");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Успешно ажуриран цертификат");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Успешно ажуриран цертификат");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Сертификат Шаблон је успешно додата");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Дошло је до проблема приликом додавања сертификат Темплате");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Сертификат је успешно ажуриран шаблон");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Дошло је до проблема приликом ажурирања предлошка сертификат");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Сертификат Шаблон је успешно преименована");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Дошло је до проблема приликом преименовања сертификат Темплате");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Сертификат је успешно клониран шаблон");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Дошло је до проблема приликом клонирања сертификат Темплате");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Сертификат Шаблон је успешно обрисан");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Дошло је до проблема приликом брисања сертификат Темплате");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Немате право да измени овај шаблон сертификата");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Уреди услов");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","СМТП сервер конфигурацију");//SMTP server configuration
 define("_SMTPSERVER","СМТП сервер");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Поља у ЦС�
 define("_IFEMPTYNEWPASSWORD","Поља означена црвеним су обавезна. Ако се не може дати лозинку, почетне лозинке ће бити постављена иста као пријаву.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Молимо проверите формат ЦСВ датотеку");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","У шаблону, користите # # организације за организацију име, # корисничко_име # за сарадника име, # усер_сурнаме # за сарадника Презиме, # цоурсе_наме # за курс име, разред # # # за оцену и датум # за датум.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","У предложак, употребите &lt;организатион&gt; &lt;/ организација&gt; за име организације, &lt;студент&gt; &lt;/ студентске&gt; за име и презиме студента, &lt;цоурсе&gt; &lt;/ курс&gt; за назив курса је, &lt;граде&gt; &lt;/ оцена&gt; за разред, &lt; серијски&gt; &lt;/ серијски&gt; за серијски број, &lt;датум&gt; &lt;/ датум&gt; за датум, &lt;лого&gt; &lt;/ Лого&gt; за лого и &lt;бацкгроунд&gt; &lt;/ позадина&gt; за позадину.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Гласова");//Votes
 define("_PERCENTAGE","Проценат");//Percentage
 define("_CERTIFICATEISSUED","Систем издаје");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Остати");//Remain
 define("_WEEKS","недеље");//weeks
 define("_WEEKs","седмица");//week
 define("_DAYS","дана");//days
+define("_DAYSCAPITAL","Дана");//Days (New)
 define("_DAY","Дан");//Day
 define("_EVALUATIONDATAUPDATED","Евалуација података успешно ажуриран");//Evaluation data updated successfully
 define("_EVALUATION","Евалуација");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Корисников лекција каталог");/
 define("_USERDASHBOARD","Корисника инструмент табли");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Но титле предвиђено опис посла");//No title provided for job description
 define("_EDITORTYPE","Едитор типа");//Editor type
-define("_TINYMCE","Тинимце 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","Тинимце 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Прикажи само поруке након слања теста");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Овај тест је успешно послат");//This test was successfully submitted
 define("_LEARNINGSTATUS","Учење статус");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","У супротном, можете напр�
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Сте били уписани на бесплатне часове и курсеве. Молимо Вас да прегледате испод избор нису бесплатне часове и курсеве");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Супервизора");//Supervisors
 define("_COURSEOPTIONS","Наравно, опција");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","Ресетуј погубљења за све кориснике");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Корисници извештаја Генератор");//Users reports generator (New)
-define("_ADDTOGROUP","Додај групи");//Add to group (New)
-define("_ASSIGNCOURSE","Додели курс");//Assign course (New)
-define("_ASSIGNLESSON","Додели лекција");//Assign lesson (New)
-define("_REMOVECOURSE","Уклони курс");//Remove course (New)
-define("_REMOVELESSON","Уклони лекција");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Уклони из групе");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Ресет учење напредак");//Reset learning progress (New)
-define("_BUILDER","Градитељ");//Builder (New)
-define("_ADDREPORT","Додај нови извештај");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","Ресетуј погубљења за све кориснике");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Корисници извештаја Генератор");//Users reports generator
+define("_ADDTOGROUP","Додај групи");//Add to group
+define("_ASSIGNCOURSE","Додели курс");//Assign course
+define("_ASSIGNLESSON","Додели лекција");//Assign lesson
+define("_REMOVECOURSE","Уклони курс");//Remove course
+define("_REMOVELESSON","Уклони лекција");//Remove lesson
+define("_REMOVEFROMGROUP","Уклони из групе");//Remove from group
+define("_RESETLEARNINGPROGRESS","Ресет учење напредак");//Reset learning progress
+define("_BUILDER","Градитељ");//Builder
+define("_ADDREPORT","Додај нови извештај");//Add new report
 define("_CONDITIONTYPE","Стање тыпе");//Condition type
-define("_CONDITIONSPECIFICATION","Стање спецификацији");//Condition specification (New)
-define("_ADDCOLUMN","Додај колону");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Однос према следећем");//Relation with next (New)
-define("_COLUMNTYPE","Колона тип");//Column type (New)
-define("_GRIDNAME","Мрежа име");//Grid name (New)
-define("_ALIGNED","Усклађени");//Aligned (New)
-define("_SELECTREPORT","Изаберите извештај");//Select report (New)
-define("_AVAILABLEREPORTS","Доступни извештаји");//Available reports (New)
-define("_EDITREPORT","Измени извештај");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Не постоје извештаји дефинисана у систему. Молим");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","направите један");//create one (New)
-define("_NEWREPORT","Нови извештај");//New report (New)
-define("_REPORTNAME","Име извештаја");//Report name (New)
-define("_SELECTCONDITION","Изаберите услов");//Select condition (New)
-define("_ISNOT","није");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Је завршио све додељене лекције");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Је завршио све курсеве додељена");//Has completed all assigned courses (New)
-define("_HAS","Има");//Has (New)
-define("_HASNOT","Није");//Has not (New)
-define("_ENROLLEDTO","Уписани на");//Enrolled to (New)
-define("_BETWEEN","Између");//Between (New)
-define("_ISASSIGNED","Се додељује");//Is assigned (New)
-define("_ISNOTASSIGNED","Није додељена");//Is not assigned (New)
-define("_DURINGLASTDAY","Последња 24х");//last 24h (New)
-define("_DURINGLASTWEEK","прошле недеље");//last week (New)
-define("_DURINGLASTMONTH","прошлог месеца");//last month (New)
-define("_COLUMN","Колона");//Column (New)
-define("_SELECTCOLUMN","Изаберите колону");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Оставите бланко за аутоматско подешавање ширине");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Оставите празно да бисте користили име колоне");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Ширина (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Молимо Вас да изаберете колону");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Промените редослед колона");//Change the columns order (New)
-define("_VIEWINGREPORT","Преглед извештаја");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Молимо Вас да изаберете један услов");//Please select a condition (New)
-define("_BASIC","Основни");//Basic (New)
-define("_LEARNING","Учење");//Learning (New)
-define("_ENTERPRISE","Предузеће");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Превуците да бисте променили редослед ставки");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Прилагођена поља");//Custom fields (New)
-define("_FORMATTEDLOGIN","Обликовани пријава");//Formatted login (New)
-define("_DEFAULTSORT","Подразумевано сортирање");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; оператер има предност");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Тренутна страница операције");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Или да наведете нову групу да додате");//Or specify a new group to add to (New)
-define("_ADDTO","Додати");//Add to (New)
-define("_REMOVEFROM","Уклони из");//Remove from (New)
-define("_GROUPOPERATIONS","Група операције");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Сертификат операције");//Certificate operations (New)
-define("_LESSONOPERATIONS","Лекција операције");//Lesson operations (New)
-define("_COURSEOPERATIONS","Наравно, операције");//Course operations (New)
-define("_EXPORTTOCSV","Извоз у ЦСВ");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Нема догађаја код дефинисана");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Датотека успешно увезена");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Конвертовање фасцикле за угњеждене хијерархији");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Декомпримује зип датотеку (е) и увоз садржаја");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Тема је закључана");//The theme is locked (New)
-define("_BLANKREPORT","Празан извештај");//Blank report (New)
-define("_CUSTOMREPORTS","Прилагођене извештаје");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Администратор система ће прегледати и активирате свој упису");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Освежи табелу");//Refresh table (New)
-define("_REMOVEFROMSET","Уклони из скупа");//Remove from set (New)
-define("_BRANCHTREE","Филијала дрво");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Промена стања како");//Change condition order (New)
-define("_INDEX","Индекс");//Index (New)
-define("_EVENTDATETIME","Датум и време");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Сертификат датотека недостаје или је оштећена и тако је поново");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Стање спецификацији");//Condition specification
+define("_ADDCOLUMN","Додај колону");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Однос према следећем");//Relation with next
+define("_COLUMNTYPE","Колона тип");//Column type
+define("_GRIDNAME","Мрежа име");//Grid name
+define("_ALIGNED","Усклађени");//Aligned
+define("_SELECTREPORT","Изаберите извештај");//Select report
+define("_AVAILABLEREPORTS","Доступни извештаји");//Available reports
+define("_EDITREPORT","Измени извештај");//Edit report
+define("_NOREPORTSINTHESYSTEM","Не постоје извештаји дефинисана у систему. Молим");//There are no reports defined in the system. Please 
+define("_CREATEONE","направите један");//create one
+define("_NEWREPORT","Нови извештај");//New report
+define("_REPORTNAME","Име извештаја");//Report name
+define("_SELECTCONDITION","Изаберите услов");//Select condition
+define("_ISNOT","није");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Је завршио све додељене лекције");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Је завршио све курсеве додељена");//Has completed all assigned courses
+define("_HAS","Има");//Has
+define("_HASNOT","Није");//Has not
+define("_ENROLLEDTO","Уписани на");//Enrolled to
+define("_BETWEEN","Између");//Between
+define("_ISASSIGNED","Се додељује");//Is assigned
+define("_ISNOTASSIGNED","Није додељена");//Is not assigned
+define("_DURINGLASTDAY","Последња 24х");//last 24h
+define("_DURINGLASTWEEK","прошле недеље");//last week
+define("_DURINGLASTMONTH","прошлог месеца");//last month
+define("_COLUMN","Колона");//Column
+define("_SELECTCOLUMN","Изаберите колону");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Оставите бланко за аутоматско подешавање ширине");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Оставите празно да бисте користили име колоне");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Ширина (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Молимо Вас да изаберете колону");//Please select a column
+define("_CHANGECOLUMNORDER","Промените редослед колона");//Change the columns order
+define("_VIEWINGREPORT","Преглед извештаја");//Viewing report
+define("_PLEASESELECTACONDITION","Молимо Вас да изаберете један услов");//Please select a condition
+define("_BASIC","Основни");//Basic
+define("_LEARNING","Учење");//Learning
+define("_ENTERPRISE","Предузеће");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Превуците да бисте променили редослед ставки");//Drag items to change order
+define("_CUSTOMFIELDS","Прилагођена поља");//Custom fields
+define("_FORMATTEDLOGIN","Обликовани пријава");//Formatted login
+define("_DEFAULTSORT","Подразумевано сортирање");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; оператер има предност");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Тренутна страница операције");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Или да наведете нову групу да додате");//Or specify a new group to add to
+define("_ADDTO","Додати");//Add to
+define("_REMOVEFROM","Уклони из");//Remove from
+define("_GROUPOPERATIONS","Група операције");//Group operations
+define("_CERTIFICATEOPERATIONS","Сертификат операције");//Certificate operations
+define("_LESSONOPERATIONS","Лекција операције");//Lesson operations
+define("_COURSEOPERATIONS","Наравно, операције");//Course operations
+define("_EXPORTTOCSV","Извоз у ЦСВ");//Export to csv
+define("_NOEVENTCODEDEFINED","Нема догађаја код дефинисана");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Датотека успешно увезена");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Конвертовање фасцикле за угњеждене хијерархији");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Декомпримује зип датотеку (е) и увоз садржаја");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Тема је закључана");//The theme is locked
+define("_BLANKREPORT","Празан извештај");//Blank report
+define("_CUSTOMREPORTS","Прилагођене извештаје");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Администратор система ће прегледати и активирате свој упису");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Освежи табелу");//Refresh table
+define("_REMOVEFROMSET","Уклони из скупа");//Remove from set
+define("_BRANCHTREE","Филијала дрво");//Branch tree
+define("_CHANGECONDITIONORDER","Промена стања како");//Change condition order
+define("_INDEX","Индекс");//Index
+define("_EVENTDATETIME","Датум и време");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Сертификат датотека недостаје или је оштећена и тако је поново");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Видљива из");//Visible from (New)
+define("_EXPIRESAT","Истиче у");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Календар приказ датума");//Calendar display date (New)
+define("_GLOBAL","Глобални");//Global (New)
+define("_ALLDAY","Цео дан");//All day (New)
+define("_CREATECALENDAREVENT","Креирање Евент Цалендар");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Замени постојећу фасциклу");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Одредишне странице");//Landing page (New)
+define("_EXPORTTOXLS","Извоз у клс");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Анкета није се објављује");//Survey failed to be published (New)
+define("_PRINTCHART","Принт графикону");//Print chart (New)
+define("_RESPONSEDETAILS","Одговор детаљи");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Приказ само активне лица");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Приказане су само неактивна лица");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Приказивање и активне и неактивне лица");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Овај догађај више не постоји");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Слободан ред поруке");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Примени на корисници већ припада овом радном месту");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","То може само додати (не уклони) нову селекцију за корисника");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Сортирај по");//Sort by (New)
+define("_TRAINING","Обука");//Training (New)
+define("_COMPLETEDLESSONS","Комплетиран лекције");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Непотпуне лекције");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Комплетиран курсеви");//Completed courses (New)
+define("_INCOMPLETECOURSES","Непотпуне курсеви");//Incomplete courses (New)
+define("_EDITCOLUMN","Уређивање колону");//Edit column (New)
+define("_LESSONSFORCOURSE","Лекције за курс");//Lessons for course (New)
+define("_TESTSFORLESSON","Тестови за лекцију");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Комплетан за све кориснике");//Complete for all users (New)
+define("_LESSONTIMES","Лекција пута");//Lesson times (New)
+define("_MINUTESPERDAY","Минута дневно");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Одјава корисника након (мин)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Упдатер периода (МС)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Препоручене вредности су не мање од 10000мс и не више од 360000мс. Такође се мора подесити мање од времена Ауто Одјава.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Више од 1 гране (локација) у вези са овим, наравно, показује први");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Инсерт");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Задатак одобрен од стране");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Запосленима непосредног руководиоца");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Корисник деактивацију");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","је деактивиран од система");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Супервизор одобрења");//Supervisor approval (New)
+define("_APPROVE","Одобрити");//Approve (New)
+define("_GROUPKEYEXISTS","Јединственог кључа већ постоји");//Unique key already exists (New)
+define("_PARTOFCOURSES","Део курсеви");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ова лекција је део једног или више предмета, тако да не може да промени режим");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Постоје корисници уписани на ову лекцију. Молимо вас да унассигн их пред пребацивање режима");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Курсеви (непотпуна / укупно)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Извоз датотеке");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Курс заказано истека");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Курс заказан почетак");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Предвиђеног почетка курса");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Планирано истека наравно");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Сви курсеви");//All course users (New)
 ?>

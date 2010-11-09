@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","درس المواد");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","لا توجد اسءله محددة");//There are no questions defined
 define("_ADDQUESTION","اضافة سؤال");//Add question
 define("_PREVIEW","العرض الاولي");//Preview
+define("_RENAME","إعادة تسمية");//Rename (New)
+define("_CLONE","استنساخ");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","ولا وجدت التجارب");//No tests found
 define("_ADDTEST","اضافة للتجارب");//Add test
 define("_UNITANDSUBUNITSTESTS","ومفارز وحدة التجارب");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","استئناف الدرس");//Resume lesson
 define("_STARTLESSON","بداية الدرس");//Start lesson
 define("_TRACKING","تتبع");//Tracking
 define("_FORMATCERTIFICATE","نموذج شهادة");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","شكل شهادة قالب");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","تعيين شهادة انتهاء");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","استخدام الأسلوب LiveDocX لخلق شهادات");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","استخدام الأسلوب إكس إم إل لخلق شهادات");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","إضافة قالب الشهادة (شكل أكس أم أل)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","تحرير قالب الشهادة (شكل أكس أم أل)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","إعادة تسمية الشهادة قالب");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","استنساخ شهادة قالب");//Clone certificate template (New)
+define("_CERTIFICATENAME","اسم الشهادة");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","وصف الشهادة");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","يمكن إكس إم إل الوصف لا يكون فارغا");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","القائمة قوالب الشهادات");//Existing certificate templates (New)
 define("_TRAFFIC","المرور");//Traffic
 define("_LESSONTRAFFIC","درس حركة المرور");//Lesson traffic
 define("_EDITTEST","تحرير اختبار");//Edit test
 define("_EDITQUESTION","مسألة تحرير");//Edit question
 define("_CERTIFICATE","شهادة");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","نجحت عملية تحديث الشهاده");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","نجحت عملية تحديث الشهاده");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","تمت إضافة القالب بنجاح شهادة");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","كانت هناك مشكلة مع إضافة قالب الشهادة");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","تم تحديثها بنجاح شهادة قالب");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","كانت هناك مشكلة أثناء تحديث قالب الشهادة");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","تم تغيير اسمها بنجاح شهادة قالب");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","كانت هناك مشكلة أثناء إعادة تسمية قالب الشهادة");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","تم استنساخ بنجاح شهادة قالب");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","كانت هناك مشكلة في حين الاستنساخ قالب الشهادة");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","تم حذف بنجاح شهادة قالب");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","كانت هناك مشكلة أثناء حذف قالب الشهادة");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","ليس لديك الحق في تعديل هذا القالب شهادة");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","تحرير الشرط");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","مركز خدمة بروتوكول نقل البريد الالكتروني");//SMTP server configuration
 define("_SMTPSERVER","خادم بروتوكول نقل البريد الالكتروني");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","الميادين 
 define("_IFEMPTYNEWPASSWORD","الأحمر في مجالات الزاميه. واذا لم يكن هناك كلمة سر ونظرا ل، الاولى سيتم تحديد كلمة السر نفس تسجيل الدخول.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","يرجى التحقق من الشكل الخاص بك من ملف CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","# # USER_NAME استخدام لاسم المستخدم ، # # user_surname المستخدم للقب ، course_name # # لاسم وبطبيعة الحال ، ل# # الدرجة والرتبه و# # للتاريخ حتى الآن.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","في القالب ، استخدم &lt;organization&gt;&lt;منظمة /&gt; لاسم المنظمة ، &lt;student&gt;&lt;الطالب /&gt; عن اسم الطالب الكامل ، &lt;course&gt;&lt;طبعا /&gt; الاسم بالطبع ، و&lt;grade&gt;&lt;/ الصف&gt; للصف ، &lt; &lt;مسلسل /&gt; مسلسل عن الرقم التسلسلي ، &lt;date&gt;&lt;/ التاريخ للتاريخ ، &lt;logo&gt;&lt;شعار / ل&lt;الشعار و&lt;background&gt;/&gt; خلفية عن الخلفية.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","الاصوات");//Votes
 define("_PERCENTAGE","النسبه المءويه");//Percentage
 define("_CERTIFICATEISSUED","اصدار شهادة");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","يظل");//Remain
 define("_WEEKS","اسابيع");//weeks
 define("_WEEKs","الاسبوع");//week
 define("_DAYS","ايام");//days
+define("_DAYSCAPITAL","أيام");//Days (New)
 define("_DAY","يوم");//Day
 define("_EVALUATIONDATAUPDATED","نجح تحديث بيانات التقييم");//Evaluation data updated successfully
 define("_EVALUATION","تقييم");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","فهرس الدرس المستخدم");//User's lesson
 define("_USERDASHBOARD","مستخدم لوحة القيادة");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","اي عنوان المنصوص عليها الوصف الوظيفي");//No title provided for job description
 define("_EDITORTYPE","محرر نوع");//Editor type
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","تظهر إلا بعد تقديم رسالة اختبار");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","وقدم هذا الاختبار بنجاح");//This test was successfully submitted
 define("_LEARNINGSTATUS","مركز التعلم");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","خلاف ذلك ، قد إنشاء <button on
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","التحق كنت لالدروس والدورات مجانا. الرجاء مراجعة أدناه اختيارك للدروس ودورات غير مجانية");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","المشرفون");//Supervisors
 define("_COURSEOPTIONS","خيارات الدورة");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","الإعدام لكافة المستخدمين إعادة تعيين");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","شاهد تقارير مولد");//Users reports generator (New)
-define("_ADDTOGROUP","أضف الى المجموعة");//Add to group (New)
-define("_ASSIGNCOURSE","تعيين الدراسي");//Assign course (New)
-define("_ASSIGNLESSON","تعيين الدرس");//Assign lesson (New)
-define("_REMOVECOURSE","إزالة البرنامج الدراسي");//Remove course (New)
-define("_REMOVELESSON","إزالة الدرس");//Remove lesson (New)
-define("_REMOVEFROMGROUP","إزالة من مجموعة");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","إعادة التقدم التعلم");//Reset learning progress (New)
-define("_BUILDER","منشئ");//Builder (New)
-define("_ADDREPORT","تقرير جديد صادر عن إضافة");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","الإعدام لكافة المستخدمين إعادة تعيين");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","شاهد تقارير مولد");//Users reports generator
+define("_ADDTOGROUP","أضف الى المجموعة");//Add to group
+define("_ASSIGNCOURSE","تعيين الدراسي");//Assign course
+define("_ASSIGNLESSON","تعيين الدرس");//Assign lesson
+define("_REMOVECOURSE","إزالة البرنامج الدراسي");//Remove course
+define("_REMOVELESSON","إزالة الدرس");//Remove lesson
+define("_REMOVEFROMGROUP","إزالة من مجموعة");//Remove from group
+define("_RESETLEARNINGPROGRESS","إعادة التقدم التعلم");//Reset learning progress
+define("_BUILDER","منشئ");//Builder
+define("_ADDREPORT","تقرير جديد صادر عن إضافة");//Add new report
 define("_CONDITIONTYPE","نوع شرطا");//Condition type
-define("_CONDITIONSPECIFICATION","حالة المواصفة");//Condition specification (New)
-define("_ADDCOLUMN","إضافة عمود");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","العلاقة مع القادم");//Relation with next (New)
-define("_COLUMNTYPE","نوع العمود");//Column type (New)
-define("_GRIDNAME","اسم الشبكة");//Grid name (New)
-define("_ALIGNED","الانحياز");//Aligned (New)
-define("_SELECTREPORT","حدد تقرير");//Select report (New)
-define("_AVAILABLEREPORTS","التقارير المتاحة");//Available reports (New)
-define("_EDITREPORT","تحرير التقرير");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","ولم ترد تقارير عن المعرفة في النظام. من فضلك");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","إنشاء واحد");//create one (New)
-define("_NEWREPORT","تقرير جديد");//New report (New)
-define("_REPORTNAME","اسم التقرير");//Report name (New)
-define("_SELECTCONDITION","حدد الشرط");//Select condition (New)
-define("_ISNOT","لا");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","الانتهاء من جميع المحال الدروس");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","الانتهاء من جميع المحال المقررات");//Has completed all assigned courses (New)
-define("_HAS","وقد");//Has (New)
-define("_HASNOT","لم");//Has not (New)
-define("_ENROLLEDTO","المسجلين في");//Enrolled to (New)
-define("_BETWEEN","بين");//Between (New)
-define("_ISASSIGNED","يتم تعيين");//Is assigned (New)
-define("_ISNOTASSIGNED","لم يتم تعيين");//Is not assigned (New)
-define("_DURINGLASTDAY","آخر 24h");//last 24h (New)
-define("_DURINGLASTWEEK","الاسبوع الماضي");//last week (New)
-define("_DURINGLASTMONTH","الشهر الماضي");//last month (New)
-define("_COLUMN","عمود");//Column (New)
-define("_SELECTCOLUMN","حدد العمود");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","يترك فارغا لصناعة السيارات في ضبط العرض");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","ترك فارغا لاستخدام اسم العمود");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","عرض (٪)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","يرجى تحديد عمود");//Please select a column (New)
-define("_CHANGECOLUMNORDER","تغيير ترتيب الأعمدة");//Change the columns order (New)
-define("_VIEWINGREPORT","عرض التقرير");//Viewing report (New)
-define("_PLEASESELECTACONDITION","الرجاء تحديد شرط");//Please select a condition (New)
-define("_BASIC","الأساسية");//Basic (New)
-define("_LEARNING","تعلم");//Learning (New)
-define("_ENTERPRISE","مشروع");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","سحب العناصر لتغيير النظام");//Drag items to change order (New)
-define("_CUSTOMFIELDS","الحقول المخصصة");//Custom fields (New)
-define("_FORMATTEDLOGIN","تنسيق الدخول");//Formatted login (New)
-define("_DEFAULTSORT","الفرز الافتراضي");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; عامل الأسبقية");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","صفحة العمليات الحالية");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","أو تحديد مجموعة جديدة إضافة إلى");//Or specify a new group to add to (New)
-define("_ADDTO","إضافة إلى");//Add to (New)
-define("_REMOVEFROM","من إزالة");//Remove from (New)
-define("_GROUPOPERATIONS","مجموعة العمليات");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","عمليات شهادة");//Certificate operations (New)
-define("_LESSONOPERATIONS","درس عمليات");//Lesson operations (New)
-define("_COURSEOPERATIONS","عمليات دورة");//Course operations (New)
-define("_EXPORTTOCSV","تصدير إلى كسف");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","لا يعرف رمز الحدث");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","ملفات استيرادها بنجاح");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","التسلسل الهرمي للمجلدات تحويل المتداخلة");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","إلغاء ضغط ملف مضغوط (ق) واستيراد محتويات");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","مؤمن الموضوع");//The theme is locked (New)
-define("_BLANKREPORT","تقرير فارغ");//Blank report (New)
-define("_CUSTOMREPORTS","تقارير مخصص");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","وسيكون المسؤول عن النظام وتفعيل استعراض الالتحاق الخاص");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","تحديث الجدول");//Refresh table (New)
-define("_REMOVEFROMSET","إزالة من مجموعة");//Remove from set (New)
-define("_BRANCHTREE","فرع شجرة");//Branch tree (New)
-define("_CHANGECONDITIONORDER","تغيير حالة النظام");//Change condition order (New)
-define("_INDEX","مؤشر");//Index (New)
-define("_EVENTDATETIME","الحدث التاريخ والوقت");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","وكان ملف الشهادة مفقود أو معطوب وبالتالي تم إعادة تعيين");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","حالة المواصفة");//Condition specification
+define("_ADDCOLUMN","إضافة عمود");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","العلاقة مع القادم");//Relation with next
+define("_COLUMNTYPE","نوع العمود");//Column type
+define("_GRIDNAME","اسم الشبكة");//Grid name
+define("_ALIGNED","الانحياز");//Aligned
+define("_SELECTREPORT","حدد تقرير");//Select report
+define("_AVAILABLEREPORTS","التقارير المتاحة");//Available reports
+define("_EDITREPORT","تحرير التقرير");//Edit report
+define("_NOREPORTSINTHESYSTEM","ولم ترد تقارير عن المعرفة في النظام. من فضلك");//There are no reports defined in the system. Please 
+define("_CREATEONE","إنشاء واحد");//create one
+define("_NEWREPORT","تقرير جديد");//New report
+define("_REPORTNAME","اسم التقرير");//Report name
+define("_SELECTCONDITION","حدد الشرط");//Select condition
+define("_ISNOT","لا");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","الانتهاء من جميع المحال الدروس");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","الانتهاء من جميع المحال المقررات");//Has completed all assigned courses
+define("_HAS","وقد");//Has
+define("_HASNOT","لم");//Has not
+define("_ENROLLEDTO","المسجلين في");//Enrolled to
+define("_BETWEEN","بين");//Between
+define("_ISASSIGNED","يتم تعيين");//Is assigned
+define("_ISNOTASSIGNED","لم يتم تعيين");//Is not assigned
+define("_DURINGLASTDAY","آخر 24h");//last 24h
+define("_DURINGLASTWEEK","الاسبوع الماضي");//last week
+define("_DURINGLASTMONTH","الشهر الماضي");//last month
+define("_COLUMN","عمود");//Column
+define("_SELECTCOLUMN","حدد العمود");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","يترك فارغا لصناعة السيارات في ضبط العرض");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","ترك فارغا لاستخدام اسم العمود");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","عرض (٪)");//Width (%)
+define("_PLEASESELECTACOLUMN","يرجى تحديد عمود");//Please select a column
+define("_CHANGECOLUMNORDER","تغيير ترتيب الأعمدة");//Change the columns order
+define("_VIEWINGREPORT","عرض التقرير");//Viewing report
+define("_PLEASESELECTACONDITION","الرجاء تحديد شرط");//Please select a condition
+define("_BASIC","الأساسية");//Basic
+define("_LEARNING","تعلم");//Learning
+define("_ENTERPRISE","مشروع");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","سحب العناصر لتغيير النظام");//Drag items to change order
+define("_CUSTOMFIELDS","الحقول المخصصة");//Custom fields
+define("_FORMATTEDLOGIN","تنسيق الدخول");//Formatted login
+define("_DEFAULTSORT","الفرز الافتراضي");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; عامل الأسبقية");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","صفحة العمليات الحالية");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","أو تحديد مجموعة جديدة إضافة إلى");//Or specify a new group to add to
+define("_ADDTO","إضافة إلى");//Add to
+define("_REMOVEFROM","من إزالة");//Remove from
+define("_GROUPOPERATIONS","مجموعة العمليات");//Group operations
+define("_CERTIFICATEOPERATIONS","عمليات شهادة");//Certificate operations
+define("_LESSONOPERATIONS","درس عمليات");//Lesson operations
+define("_COURSEOPERATIONS","عمليات دورة");//Course operations
+define("_EXPORTTOCSV","تصدير إلى كسف");//Export to csv
+define("_NOEVENTCODEDEFINED","لا يعرف رمز الحدث");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","ملفات استيرادها بنجاح");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","التسلسل الهرمي للمجلدات تحويل المتداخلة");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","إلغاء ضغط ملف مضغوط (ق) واستيراد محتويات");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","مؤمن الموضوع");//The theme is locked
+define("_BLANKREPORT","تقرير فارغ");//Blank report
+define("_CUSTOMREPORTS","تقارير مخصص");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","وسيكون المسؤول عن النظام وتفعيل استعراض الالتحاق الخاص");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","تحديث الجدول");//Refresh table
+define("_REMOVEFROMSET","إزالة من مجموعة");//Remove from set
+define("_BRANCHTREE","فرع شجرة");//Branch tree
+define("_CHANGECONDITIONORDER","تغيير حالة النظام");//Change condition order
+define("_INDEX","مؤشر");//Index
+define("_EVENTDATETIME","الحدث التاريخ والوقت");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","وكان ملف الشهادة مفقود أو معطوب وبالتالي تم إعادة تعيين");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","مرئية من");//Visible from (New)
+define("_EXPIRESAT","تنتهي في");//Expires at (New)
+define("_CALENDARDISPLAYDATE","التقويم عرض التاريخ");//Calendar display date (New)
+define("_GLOBAL","العالمية");//Global (New)
+define("_ALLDAY","كل يوم");//All day (New)
+define("_CREATECALENDAREVENT","خلق الحدث التقويم");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","الكتابة فوق مجلد موجود");//Overwrite existing folder (New)
+define("_LANDINGPAGE","الصفحة المقصودة");//Landing page (New)
+define("_EXPORTTOXLS","التصدير إلى إكسلس");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","فشل المسح أن ينشر");//Survey failed to be published (New)
+define("_PRINTCHART","طباعة المخطط");//Print chart (New)
+define("_RESPONSEDETAILS","تفاصيل الرد");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","عرض الكيانات النشطة فقط");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","عرض الكيانات الوحيدة غير نشط");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","عرض كلا الكيانين نشطة وغير نشطة");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","هذا الحدث لم يعد موجودا");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","رسائل واضحة قائمة الانتظار");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","تطبق على المستخدمين ينتمي بالفعل لهذا المنصب وظيفة");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","هذا يمكن إضافة فقط (وليس إزالة) مجموعة جديدة لمستخدم");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","الترتيب حسب");//Sort by (New)
+define("_TRAINING","التدريب");//Training (New)
+define("_COMPLETEDLESSONS","أكمل الدروس");//Completed lessons (New)
+define("_INCOMPLETELESSONS","دروس غير مكتملة");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","استكملت المقررات");//Completed courses (New)
+define("_INCOMPLETECOURSES","غير مكتملة المقررات");//Incomplete courses (New)
+define("_EDITCOLUMN","تحرير عمود");//Edit column (New)
+define("_LESSONSFORCOURSE","دروس للدورة");//Lessons for course (New)
+define("_TESTSFORLESSON","اختبارات عن الدرس");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","الكامل لجميع المستخدمين");//Complete for all users (New)
+define("_LESSONTIMES","الدرس مرات");//Lesson times (New)
+define("_MINUTESPERDAY","دقيقة يوميا");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","سجل المستخدم الخروج بعد (دقيقة)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","المحدث الفترة (ماجستير)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","القيم الموصى بها ليست أقل من 10000ms وليس أكثر من 360000ms. كما يجب تعيين أقل من السيارات وقت الخروج.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","أكثر من 1 فروع (المواقع) المرتبط بهذه الدورة ، عرض أول واحد");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","إدراج");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","وافق الاحالة");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","الموظف المشرف المباشر");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","مستخدم التعطيل");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","والمعطلة من نظام");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","موافقة المشرف");//Supervisor approval (New)
+define("_APPROVE","الموافقة على");//Approve (New)
+define("_GROUPKEYEXISTS","فريد المفتاح موجود بالفعل");//Unique key already exists (New)
+define("_PARTOFCOURSES","جزء من الدورات");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","هذا الدرس هو جزء من المقررات واحد أو أكثر ، لذلك فإنه لا يمكن تغيير وضع");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","هناك المستخدمين المسجلين لهذا الدرس. يرجى إلغاء تعيين لهم قبل التبديل وسائط");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","الدورات (غير مكتملة / المجموع)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","تصدير ملفات");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","بالطبع من المقرر انقضاء");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","بالطبع المقرر بداية");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","من المقرر بدء البرنامج الدراسي");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","من المقرر انتهاء بالطبع");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","بالطبع جميع المستخدمين");//All course users (New)
 ?>

@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Leksjon materiale");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Det er ingen spørsmål definert");//There are no questions defined
 define("_ADDQUESTION","Legg til spørsmålet");//Add question
 define("_PREVIEW","Forhåndsvisning");//Preview
+define("_RENAME","Gi nytt navn");//Rename (New)
+define("_CLONE","Klone");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Ingen tester funnet");//No tests found
 define("_ADDTEST","Legg til test");//Add test
 define("_UNITANDSUBUNITSTESTS","Gruppeleder og subunits testene");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Fortsett leksjon");//Resume lesson
 define("_STARTLESSON","Start leksjon");//Start lesson
 define("_TRACKING","Sporing");//Tracking
 define("_FORMATCERTIFICATE","Format sertifikat");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Format sertifikatmal");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Set sertifikat utløpet");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Bruk LiveDocX metode for å lage sertifiseringer");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Bruk XML metode for å lage sertifiseringer");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Legg sertifikatet mal (xml-format)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Rediger sertifikat mal (xml-format)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Gi nytt navn sertifikatmal");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Clone sertifikatmal");//Clone certificate template (New)
+define("_CERTIFICATENAME","Sertifikatnavn");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Sertifikat beskrivelse");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML beskrivelsen kan ikke være tomt");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Eksisterende sertifikat maler");//Existing certificate templates (New)
 define("_TRAFFIC","Trafikk");//Traffic
 define("_LESSONTRAFFIC","Leksjon trafikk");//Lesson traffic
 define("_EDITTEST","Rediger test");//Edit test
 define("_EDITQUESTION","Rediger spørsmål");//Edit question
 define("_CERTIFICATE","Sertifikat");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Oppdatert sertifikat");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Oppdatert sertifikat");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertifikat malen ble lagt");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Det oppstod et problem samtidig legge sertifikatmal");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertifikat malen ble oppdatert");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Det oppstod et problem ved oppdatering sertifikatmal");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertifikat malen var vellykket omdøpt");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Det oppstod et problem ved endring av navn sertifikatmal");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertifikat malen ble vellykket klonet");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Det oppstod et problem mens kloning sertifikatmal");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifikat malen ble slettet");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Det oppstod et problem under sletting sertifikatmal");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Du har ikke rettighetene til å endre dette sertifikatet malen");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Rediger tilstand");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP server konfigurasjon");//SMTP server configuration
 define("_SMTPSERVER","SMTP-server");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Feltene i CSV-fil
 define("_IFEMPTYNEWPASSWORD","Felt i rødt er obligatorisk. Hvis det ikke er noen passord gitt, den første passord vil bli satt de samme som pålogging.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kontroller formatet i CSV-filen din");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Bruk brukernavn # # for brukerens navn, # user_surname # for brukeren etternavn, # course_name # for kurset navn, # # klasse for klasse og dato # # for dato.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","I malen, bruker &lt;organization&gt; &lt;/ organisasjon&gt; for organisasjonens navn, &lt;student&gt; &lt;/ student&gt; for studentens fulle navn, &lt;course&gt; &lt;/ kurs&gt; for kurset navn, &lt;grade&gt; &lt;/ klasse&gt; for karakteren, &lt; seriell&gt; &lt;/ seriell&gt; for serienummer, &lt;dato&gt; &lt;/ dato&gt; for dato, &lt;logo&gt; &lt;/ logo&gt; for logo og &lt;background&gt; &lt;/ bakgrunnen&gt; for bakgrunnen.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Stemmer");//Votes
 define("_PERCENTAGE","Prosentvis");//Percentage
 define("_CERTIFICATEISSUED","Vitnemål utstedes");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Forbli");//Remain
 define("_WEEKS","uker");//weeks
 define("_WEEKs","uke");//week
 define("_DAYS","dager");//days
+define("_DAYSCAPITAL","Dager");//Days (New)
 define("_DAY","Dag");//Day
 define("_EVALUATIONDATAUPDATED","Evaluering data oppdatert");//Evaluation data updated successfully
 define("_EVALUATION","Evaluering");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Brukerens leksjon katalog");//User's lesson catalog
 define("_USERDASHBOARD","Bruker-oversikten");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Ingen tittel fastsatt stillingsbeskrivelse");//No title provided for job description
 define("_EDITORTYPE","Redaktør type");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Viser bare en melding etter å ha sendt test");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Denne testen ble sendt inn");//This test was successfully submitted
 define("_LEARNINGSTATUS","Læring Status");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","Ellers kan du opprette en <button onclick = \
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du var meldt til gratis leksjoner og kurs. Se gjennom under valget av ikke gratis leksjoner og kurs");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Veiledere");//Supervisors
 define("_COURSEOPTIONS","Emnevalg");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","Reset henrettelser for alle brukere");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Brukere rapporter generator");//Users reports generator (New)
-define("_ADDTOGROUP","Legg til i gruppe");//Add to group (New)
-define("_ASSIGNCOURSE","Tilordne kurs");//Assign course (New)
-define("_ASSIGNLESSON","Tilordne leksjon");//Assign lesson (New)
-define("_REMOVECOURSE","Fjern kurs");//Remove course (New)
-define("_REMOVELESSON","Fjern leksjon");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Fjern fra gruppe");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Tilbakestill læring framgang");//Reset learning progress (New)
-define("_BUILDER","Builder");//Builder (New)
-define("_ADDREPORT","Legg til ny rapport");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","Reset henrettelser for alle brukere");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Brukere rapporter generator");//Users reports generator
+define("_ADDTOGROUP","Legg til i gruppe");//Add to group
+define("_ASSIGNCOURSE","Tilordne kurs");//Assign course
+define("_ASSIGNLESSON","Tilordne leksjon");//Assign lesson
+define("_REMOVECOURSE","Fjern kurs");//Remove course
+define("_REMOVELESSON","Fjern leksjon");//Remove lesson
+define("_REMOVEFROMGROUP","Fjern fra gruppe");//Remove from group
+define("_RESETLEARNINGPROGRESS","Tilbakestill læring framgang");//Reset learning progress
+define("_BUILDER","Builder");//Builder
+define("_ADDREPORT","Legg til ny rapport");//Add new report
 define("_CONDITIONTYPE","Tilstand type");//Condition type
-define("_CONDITIONSPECIFICATION","");//Condition specification (New)
-define("_ADDCOLUMN","Legg kolonne");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relasjon med neste");//Relation with next (New)
-define("_COLUMNTYPE","Kolonnetype");//Column type (New)
-define("_GRIDNAME","Grid navnet");//Grid name (New)
-define("_ALIGNED","Justerte");//Aligned (New)
-define("_SELECTREPORT","Velg rapport");//Select report (New)
-define("_AVAILABLEREPORTS","Tilgjengelige rapporter");//Available reports (New)
-define("_EDITREPORT","Rediger rapport");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Det er ingen rapporter definert i systemet. Vennligst");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","opprette en");//create one (New)
-define("_NEWREPORT","Ny rapport");//New report (New)
-define("_REPORTNAME","Rapportnavn");//Report name (New)
-define("_SELECTCONDITION","Velg tilstand");//Select condition (New)
-define("_ISNOT","er ikke");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Har fullført alle tildelte timer");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Har fullført alle tildelt kurs");//Has completed all assigned courses (New)
-define("_HAS","Har");//Has (New)
-define("_HASNOT","Har ikke");//Has not (New)
-define("_ENROLLEDTO","Programmers til å");//Enrolled to (New)
-define("_BETWEEN","Mellom");//Between (New)
-define("_ISASSIGNED","Er tildelt");//Is assigned (New)
-define("_ISNOTASSIGNED","Er ikke tildelt");//Is not assigned (New)
-define("_DURINGLASTDAY","siste Resepsjon åpen 24");//last 24h (New)
-define("_DURINGLASTWEEK","siste uke");//last week (New)
-define("_DURINGLASTMONTH","siste måned");//last month (New)
-define("_COLUMN","Kolonne");//Column (New)
-define("_SELECTCOLUMN","Velg kolonnen");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","La tomt for auto-justere bredde");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","La stå tom for å bruke kolonnenavn");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Bredde (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Velg en kolonne");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Endre kolonnene rekkefølgen");//Change the columns order (New)
-define("_VIEWINGREPORT","Vise rapporten");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Velg en tilstand");//Please select a condition (New)
-define("_BASIC","Grunnleggende");//Basic (New)
-define("_LEARNING","Læring");//Learning (New)
-define("_ENTERPRISE","Enterprise");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Dra elementer for å endre rekkefølgen");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Egendefinerte felt");//Custom fields (New)
-define("_FORMATTEDLOGIN","Formatert login");//Formatted login (New)
-define("_DEFAULTSORT","Standard sortering");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; operatøren går foran");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Gjeldende side operasjoner");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Eller angi en ny gruppe for å legge til");//Or specify a new group to add to (New)
-define("_ADDTO","Legg til");//Add to (New)
-define("_REMOVEFROM","Fjern fra");//Remove from (New)
-define("_GROUPOPERATIONS","Gruppe operasjoner");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Sertifikat operasjoner");//Certificate operations (New)
-define("_LESSONOPERATIONS","Leksjon operasjoner");//Lesson operations (New)
-define("_COURSEOPERATIONS","Kurs operasjoner");//Course operations (New)
-define("_EXPORTTOCSV","Eksporter til CSV");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Ingen hendelsen kode definert");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Filer importert");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Konverter mapper til nestede hierarki");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Pakke zip-fil (er) og importere innhold");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Temaet er låst");//The theme is locked (New)
-define("_BLANKREPORT","Blank rapport");//Blank report (New)
-define("_CUSTOMREPORTS","Egendefinerte rapporter");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Systemadministrator vil gjennomgå og aktivere din påmeldingene");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Oppdater tabellen");//Refresh table (New)
-define("_REMOVEFROMSET","Fjern fra sett");//Remove from set (New)
-define("_BRANCHTREE","Branch treet");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Endre tilstand bestilling");//Change condition order (New)
-define("_INDEX","Indeks");//Index (New)
-define("_EVENTDATETIME","Event dato og klokkeslett");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikatet filen ble mangler eller er skadet og dermed ble nullstilt");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","");//Condition specification
+define("_ADDCOLUMN","Legg kolonne");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relasjon med neste");//Relation with next
+define("_COLUMNTYPE","Kolonnetype");//Column type
+define("_GRIDNAME","Grid navnet");//Grid name
+define("_ALIGNED","Justerte");//Aligned
+define("_SELECTREPORT","Velg rapport");//Select report
+define("_AVAILABLEREPORTS","Tilgjengelige rapporter");//Available reports
+define("_EDITREPORT","Rediger rapport");//Edit report
+define("_NOREPORTSINTHESYSTEM","Det er ingen rapporter definert i systemet. Vennligst");//There are no reports defined in the system. Please 
+define("_CREATEONE","opprette en");//create one
+define("_NEWREPORT","Ny rapport");//New report
+define("_REPORTNAME","Rapportnavn");//Report name
+define("_SELECTCONDITION","Velg tilstand");//Select condition
+define("_ISNOT","er ikke");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Har fullført alle tildelte timer");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Har fullført alle tildelt kurs");//Has completed all assigned courses
+define("_HAS","Har");//Has
+define("_HASNOT","Har ikke");//Has not
+define("_ENROLLEDTO","Programmers til å");//Enrolled to
+define("_BETWEEN","Mellom");//Between
+define("_ISASSIGNED","Er tildelt");//Is assigned
+define("_ISNOTASSIGNED","Er ikke tildelt");//Is not assigned
+define("_DURINGLASTDAY","siste Resepsjon åpen 24");//last 24h
+define("_DURINGLASTWEEK","siste uke");//last week
+define("_DURINGLASTMONTH","siste måned");//last month
+define("_COLUMN","Kolonne");//Column
+define("_SELECTCOLUMN","Velg kolonnen");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","La tomt for auto-justere bredde");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","La stå tom for å bruke kolonnenavn");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Bredde (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Velg en kolonne");//Please select a column
+define("_CHANGECOLUMNORDER","Endre kolonnene rekkefølgen");//Change the columns order
+define("_VIEWINGREPORT","Vise rapporten");//Viewing report
+define("_PLEASESELECTACONDITION","Velg en tilstand");//Please select a condition
+define("_BASIC","Grunnleggende");//Basic
+define("_LEARNING","Læring");//Learning
+define("_ENTERPRISE","Enterprise");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Dra elementer for å endre rekkefølgen");//Drag items to change order
+define("_CUSTOMFIELDS","Egendefinerte felt");//Custom fields
+define("_FORMATTEDLOGIN","Formatert login");//Formatted login
+define("_DEFAULTSORT","Standard sortering");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operatøren går foran");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Gjeldende side operasjoner");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Eller angi en ny gruppe for å legge til");//Or specify a new group to add to
+define("_ADDTO","Legg til");//Add to
+define("_REMOVEFROM","Fjern fra");//Remove from
+define("_GROUPOPERATIONS","Gruppe operasjoner");//Group operations
+define("_CERTIFICATEOPERATIONS","Sertifikat operasjoner");//Certificate operations
+define("_LESSONOPERATIONS","Leksjon operasjoner");//Lesson operations
+define("_COURSEOPERATIONS","Kurs operasjoner");//Course operations
+define("_EXPORTTOCSV","Eksporter til CSV");//Export to csv
+define("_NOEVENTCODEDEFINED","Ingen hendelsen kode definert");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Filer importert");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Konverter mapper til nestede hierarki");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Pakke zip-fil (er) og importere innhold");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Temaet er låst");//The theme is locked
+define("_BLANKREPORT","Blank rapport");//Blank report
+define("_CUSTOMREPORTS","Egendefinerte rapporter");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Systemadministrator vil gjennomgå og aktivere din påmeldingene");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Oppdater tabellen");//Refresh table
+define("_REMOVEFROMSET","Fjern fra sett");//Remove from set
+define("_BRANCHTREE","Branch treet");//Branch tree
+define("_CHANGECONDITIONORDER","Endre tilstand bestilling");//Change condition order
+define("_INDEX","Indeks");//Index
+define("_EVENTDATETIME","Event dato og klokkeslett");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikatet filen ble mangler eller er skadet og dermed ble nullstilt");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Synlig fra");//Visible from (New)
+define("_EXPIRESAT","Utløper ved");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Kalender vise dato");//Calendar display date (New)
+define("_GLOBAL","Global");//Global (New)
+define("_ALLDAY","Hele dagen");//All day (New)
+define("_CREATECALENDAREVENT","Opprett kalenderhendelse");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Overskriv eksisterende mappe");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Landing siden");//Landing page (New)
+define("_EXPORTTOXLS","Eksporter til xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Survey klarte ikke å bli publisert");//Survey failed to be published (New)
+define("_PRINTCHART","Skriv diagram");//Print chart (New)
+define("_RESPONSEDETAILS","Response detaljer");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Viser kun aktive enheter");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Viser bare inaktive enheter");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Viser både aktive og inaktive enheter");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Denne hendelsen eksisterer ikke lenger");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Klar kø meldinger");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Gjelder for brukere tilhører allerede denne stilling");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Dette kan bare legge til (ikke fjern) et nytt utvalg til en bruker");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Sorter etter");//Sort by (New)
+define("_TRAINING","Opplæring");//Training (New)
+define("_COMPLETEDLESSONS","Fullført leksjoner");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Ufullstendig leksjoner");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Fullført kurs");//Completed courses (New)
+define("_INCOMPLETECOURSES","Ufullstendig kurs");//Incomplete courses (New)
+define("_EDITCOLUMN","Rediger kolonne");//Edit column (New)
+define("_LESSONSFORCOURSE","Lessons for kurset");//Lessons for course (New)
+define("_TESTSFORLESSON","Tester for leksjon");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Komplett for alle brukere");//Complete for all users (New)
+define("_LESSONTIMES","Leksjon ganger");//Lesson times (New)
+define("_MINUTESPERDAY","Minutter per dag");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Logg ut bruker etter (minutter)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Oppdateringsprogrammet periode (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Anbefalte verdier er ikke mindre enn 10000ms og ikke mer enn 360000ms. Det må også settes lavere enn den auto utlogging tiden.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Mer enn 1 filialer (steder) forbundet med dette kurset, viser den første");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Sett inn");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Oppdrag godkjent av");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Ansattes nærmeste overordnede");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Bruker deaktivering");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","ble deaktivert av system");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Supervisor godkjenning");//Supervisor approval (New)
+define("_APPROVE","Godkjenn");//Approve (New)
+define("_GROUPKEYEXISTS","Unik nøkkel finnes allerede");//Unique key already exists (New)
+define("_PARTOFCOURSES","Del av kurs");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Denne leksjonen er en del av ett eller flere kurs, slik at den ikke kan endre modus");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Det er brukere meldt til denne leksjonen. Vennligst oppheve tilordningen dem før du bytter modus");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Kurs (ufullstendig / totalt)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Eksportere filer");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Kurs planlagte utløpet");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Kurs planlagte begynnelse");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Planlagt kursstart");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Planlagt utløpet selvfølgelig");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Alle kurs brukere");//All course users (New)
 ?>

@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Nodarbība materiāls");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Nav jautājumiem definēts");//There are no questions defined
 define("_ADDQUESTION","Pievienot jautājumu");//Add question
 define("_PREVIEW","Preview");//Preview
+define("_RENAME","Pārdēvēt");//Rename (New)
+define("_CLONE","Klons");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Nr testu atrasts");//No tests found
 define("_ADDTEST","Pievienot tests");//Add test
 define("_UNITANDSUBUNITSTESTS","Nodaļa un apakšvienībās testi");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Resume stunda");//Resume lesson
 define("_STARTLESSON","Sākums stunda");//Start lesson
 define("_TRACKING","Izsekošana");//Tracking
 define("_FORMATCERTIFICATE","Format sertifikāts");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Formāts sertifikātu veidnes");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Iestatīt sertifikāta derīguma");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Izmantojiet LiveDocX metodi, lai radītu sertifikāciju");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Izmantot XML metodi, lai radītu sertifikāciju");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Pievienot sertifikāta paraugu (XML formātā)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Edit sertifikāta paraugu (XML formātā)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Pārdēvēt sertifikātu veidnes");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Klons sertifikātu veidnes");//Clone certificate template (New)
+define("_CERTIFICATENAME","Sertifikāta nosaukums");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Sertifikāta apraksts");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML aprakstu nevar būt tukšs");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Esošās apliecības veidnes");//Existing certificate templates (New)
 define("_TRAFFIC","Traffic");//Traffic
 define("_LESSONTRAFFIC","Nodarbība satiksmes");//Lesson traffic
 define("_EDITTEST","Edit tests");//Edit test
 define("_EDITQUESTION","Edit jautājums");//Edit question
 define("_CERTIFICATE","Certificate");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Veiksmīgi atjaunināti sertifikāts");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Veiksmīgi atjaunināti sertifikāts");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi pievienots");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Radās problēma, vienlaikus pievienojot apliecības paraugu");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi atjaunināts");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Radās problēma, kamēr atjaunināt apliecību veidnes");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi pārdēvēta");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Radās problēma, pārdēvējot sertifikātu veidnes");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi klonēta");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Radās problēma, klonēšanas sertifikātu veidnes");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi izdzēsts");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Radās problēma, dzēšot sertifikātu veidnes");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Jums nav tiesību mainīt šo sertifikātu veidni");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Edit nosacījums");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP servera konfigurēšana");//SMTP server configuration
 define("_SMTPSERVER","SMTP serveris");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Laukus jūsu csv 
 define("_IFEMPTYNEWPASSWORD","Lauki, ar sarkanu ir obligāta. Ja nav parole, ņemot vērā, sākotnējā parole tiks noteikta tāda pati kā pieteikumvārdu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Lūdzu pārbaudiet formātu jūsu CSV fails");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Tā kā veidni, izmantojiet # organizācija # par organizācijas nosaukums, # Lietotāja_vārds # lietotāja vārdu, # # user_surname lietotāja uzvārds, # course_name # par kursa nosaukumu, # grade # kategorijas un # datuma # par datumu.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","Šajā veidnē, izmantojiet &lt;organization&gt; &lt;/ organizācijas&gt; par organizācijas nosaukumu, &lt;student&gt; &lt;/ students&gt; studenta vārdu un uzvārdu, &lt;course&gt; &lt;/ kursu&gt; par kursa nosaukums, &lt;grade&gt; &lt;/ kategorijas&gt; A kategorijas, &lt; sērijas&gt; &lt;/ sērijas&gt; kārtas numuram, &lt;datums&gt; &lt;/ datums&gt; datuma, &lt;logo&gt; &lt;/ logo&gt; par logo un &lt;background&gt; &lt;/ fona&gt; fona.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Balsis");//Votes
 define("_PERCENTAGE","Procenti");//Percentage
 define("_CERTIFICATEISSUED","Sertifikāts, kas izdots");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Palikt");//Remain
 define("_WEEKS","nedēļas");//weeks
 define("_WEEKs","nedēļu");//week
 define("_DAYS","dienas");//days
+define("_DAYSCAPITAL","Dienas");//Days (New)
 define("_DAY","Diena");//Day
 define("_EVALUATIONDATAUPDATED","Novērtēšanas datu atjaunošana veiksmīgi");//Evaluation data updated successfully
 define("_EVALUATION","Evaluation");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Lietotāja stunda katalogs");//User's lesson catalog
 define("_USERDASHBOARD","Lietotāja paneļa");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Nav nosaukuma paredzēts darba apraksts");//No title provided for job description
 define("_EDITORTYPE","Redaktors tips");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Rādīt tikai ziņu pēc iesniegšanas testa");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Šis tests ir iesniegta veiksmīgi");//This test was successfully submitted
 define("_LEARNINGSTATUS","Mācības statuss");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","Pretējā gadījumā jūs varat izveidot <but
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Jūs tika iekļauti, lai bezmaksas nodarbības un kursus. Lūdzu, pārskatiet tālāk savu izvēli nav bezmaksas nodarbības un kursi");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Uzraudzītājiem");//Supervisors
 define("_COURSEOPTIONS","Protams iespējas");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","Reset izpildei attiecībā uz visiem lietotājiem");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Lietotāji ziņojumi ģenerators");//Users reports generator (New)
-define("_ADDTOGROUP","Pievienot grupai");//Add to group (New)
-define("_ASSIGNCOURSE","Piešķirt laikā");//Assign course (New)
-define("_ASSIGNLESSON","Piešķirt nodarbība");//Assign lesson (New)
-define("_REMOVECOURSE","Noņemt kurss");//Remove course (New)
-define("_REMOVELESSON","Noņemt nodarbība");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Noņemt no grupas");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Reset mācīšanās panākumus");//Reset learning progress (New)
-define("_BUILDER","Celtnieks");//Builder (New)
-define("_ADDREPORT","Pievienot jaunu ziņojumu");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","Reset izpildei attiecībā uz visiem lietotājiem");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Lietotāji ziņojumi ģenerators");//Users reports generator
+define("_ADDTOGROUP","Pievienot grupai");//Add to group
+define("_ASSIGNCOURSE","Piešķirt laikā");//Assign course
+define("_ASSIGNLESSON","Piešķirt nodarbība");//Assign lesson
+define("_REMOVECOURSE","Noņemt kurss");//Remove course
+define("_REMOVELESSON","Noņemt nodarbība");//Remove lesson
+define("_REMOVEFROMGROUP","Noņemt no grupas");//Remove from group
+define("_RESETLEARNINGPROGRESS","Reset mācīšanās panākumus");//Reset learning progress
+define("_BUILDER","Celtnieks");//Builder
+define("_ADDREPORT","Pievienot jaunu ziņojumu");//Add new report
 define("_CONDITIONTYPE","Stāvoklis tips");//Condition type
-define("_CONDITIONSPECIFICATION","Stāvoklis specifikācija");//Condition specification (New)
-define("_ADDCOLUMN","Pievienot kolonnu");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Saistība ar nākamo");//Relation with next (New)
-define("_COLUMNTYPE","Kolonnas tips");//Column type (New)
-define("_GRIDNAME","Grid nosaukums");//Grid name (New)
-define("_ALIGNED","Saskaņota");//Aligned (New)
-define("_SELECTREPORT","Izvēlēties ziņojumu");//Select report (New)
-define("_AVAILABLEREPORTS","Pieejamajos ziņojumos");//Available reports (New)
-define("_EDITREPORT","Labot ziņojumu");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Nav ziņojumi definēti sistēmā. Lūdzu");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","izveidot vienu");//create one (New)
-define("_NEWREPORT","Jauns ziņojums");//New report (New)
-define("_REPORTNAME","Ziņojuma nosaukums");//Report name (New)
-define("_SELECTCONDITION","Izvēlēties stāvoklī");//Select condition (New)
-define("_ISNOT","nav");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Ir pabeidzis visus piešķirtos nodarbības");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Ir pabeidzis visus piešķirtos kursi");//Has completed all assigned courses (New)
-define("_HAS","Ir");//Has (New)
-define("_HASNOT","Nav");//Has not (New)
-define("_ENROLLEDTO","Uzņemti ar");//Enrolled to (New)
-define("_BETWEEN","Starp");//Between (New)
-define("_ISASSIGNED","Tiek piešķirts");//Is assigned (New)
-define("_ISNOTASSIGNED","Nav piešķirta");//Is not assigned (New)
-define("_DURINGLASTDAY","pēdējās 24h");//last 24h (New)
-define("_DURINGLASTWEEK","pēdējās nedēļas laikā");//last week (New)
-define("_DURINGLASTMONTH","pēdējā mēneša laikā");//last month (New)
-define("_COLUMN","Kolonna");//Column (New)
-define("_SELECTCOLUMN","Izvēlēties kolonnas");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Atstājiet tukšu, lai auto-regulēt platumu");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Atstājiet tukšu, lai izmantotu kolonnas nosaukuma");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Platums (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Lūdzu, izvēlieties kolonnu");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Mainīt kolonnu, lai");//Change the columns order (New)
-define("_VIEWINGREPORT","Apskatot ziņojumu");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Lūdzu, izvēlieties nosacījumu");//Please select a condition (New)
-define("_BASIC","Pamata");//Basic (New)
-define("_LEARNING","Mācīšanās");//Learning (New)
-define("_ENTERPRISE","Uzņēmums");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Velciet vienumus mainīt, lai");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Muitas jomās");//Custom fields (New)
-define("_FORMATTEDLOGIN","Formatēts login");//Formatted login (New)
-define("_DEFAULTSORT","Noklusējuma kārtošanas");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; uzņēmējs spēks");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Pašreizējā lapa operācijas");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Vai norādīt jaunu grupu, pievienot");//Or specify a new group to add to (New)
-define("_ADDTO","Pievienot");//Add to (New)
-define("_REMOVEFROM","Izņemt no");//Remove from (New)
-define("_GROUPOPERATIONS","Grupu darbības");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Sertifikāta darbības");//Certificate operations (New)
-define("_LESSONOPERATIONS","Nodarbība operācijas");//Lesson operations (New)
-define("_COURSEOPERATIONS","Protams operācijas");//Course operations (New)
-define("_EXPORTTOCSV","Eksports uz CSV");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Nekādā gadījumā kods, kas noteikts");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Failu ieved veiksmīgi");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Convert mapes ligzdotu hierarhija");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Atspiest zip failu (s) un importa saturu");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Tēma ir slēgta");//The theme is locked (New)
-define("_BLANKREPORT","Tukšu ziņojumu");//Blank report (New)
-define("_CUSTOMREPORTS","Custom ziņojumus");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Sistēmas administrators pārskatīs un aktivizēt savu iesaistīšanos");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Atsvaidzināt tabula");//Refresh table (New)
-define("_REMOVEFROMSET","Izņemt no noteikta");//Remove from set (New)
-define("_BRANCHTREE","Filiāle koks");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Mainīt nosacījums, lai");//Change condition order (New)
-define("_INDEX","Indekss");//Index (New)
-define("_EVENTDATETIME","Notikuma datums un laiks");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikāts fails ir pazudis vai bojāts un tāpēc bija reset");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Stāvoklis specifikācija");//Condition specification
+define("_ADDCOLUMN","Pievienot kolonnu");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Saistība ar nākamo");//Relation with next
+define("_COLUMNTYPE","Kolonnas tips");//Column type
+define("_GRIDNAME","Grid nosaukums");//Grid name
+define("_ALIGNED","Saskaņota");//Aligned
+define("_SELECTREPORT","Izvēlēties ziņojumu");//Select report
+define("_AVAILABLEREPORTS","Pieejamajos ziņojumos");//Available reports
+define("_EDITREPORT","Labot ziņojumu");//Edit report
+define("_NOREPORTSINTHESYSTEM","Nav ziņojumi definēti sistēmā. Lūdzu");//There are no reports defined in the system. Please 
+define("_CREATEONE","izveidot vienu");//create one
+define("_NEWREPORT","Jauns ziņojums");//New report
+define("_REPORTNAME","Ziņojuma nosaukums");//Report name
+define("_SELECTCONDITION","Izvēlēties stāvoklī");//Select condition
+define("_ISNOT","nav");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Ir pabeidzis visus piešķirtos nodarbības");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Ir pabeidzis visus piešķirtos kursi");//Has completed all assigned courses
+define("_HAS","Ir");//Has
+define("_HASNOT","Nav");//Has not
+define("_ENROLLEDTO","Uzņemti ar");//Enrolled to
+define("_BETWEEN","Starp");//Between
+define("_ISASSIGNED","Tiek piešķirts");//Is assigned
+define("_ISNOTASSIGNED","Nav piešķirta");//Is not assigned
+define("_DURINGLASTDAY","pēdējās 24h");//last 24h
+define("_DURINGLASTWEEK","pēdējās nedēļas laikā");//last week
+define("_DURINGLASTMONTH","pēdējā mēneša laikā");//last month
+define("_COLUMN","Kolonna");//Column
+define("_SELECTCOLUMN","Izvēlēties kolonnas");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Atstājiet tukšu, lai auto-regulēt platumu");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Atstājiet tukšu, lai izmantotu kolonnas nosaukuma");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Platums (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Lūdzu, izvēlieties kolonnu");//Please select a column
+define("_CHANGECOLUMNORDER","Mainīt kolonnu, lai");//Change the columns order
+define("_VIEWINGREPORT","Apskatot ziņojumu");//Viewing report
+define("_PLEASESELECTACONDITION","Lūdzu, izvēlieties nosacījumu");//Please select a condition
+define("_BASIC","Pamata");//Basic
+define("_LEARNING","Mācīšanās");//Learning
+define("_ENTERPRISE","Uzņēmums");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Velciet vienumus mainīt, lai");//Drag items to change order
+define("_CUSTOMFIELDS","Muitas jomās");//Custom fields
+define("_FORMATTEDLOGIN","Formatēts login");//Formatted login
+define("_DEFAULTSORT","Noklusējuma kārtošanas");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; uzņēmējs spēks");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Pašreizējā lapa operācijas");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Vai norādīt jaunu grupu, pievienot");//Or specify a new group to add to
+define("_ADDTO","Pievienot");//Add to
+define("_REMOVEFROM","Izņemt no");//Remove from
+define("_GROUPOPERATIONS","Grupu darbības");//Group operations
+define("_CERTIFICATEOPERATIONS","Sertifikāta darbības");//Certificate operations
+define("_LESSONOPERATIONS","Nodarbība operācijas");//Lesson operations
+define("_COURSEOPERATIONS","Protams operācijas");//Course operations
+define("_EXPORTTOCSV","Eksports uz CSV");//Export to csv
+define("_NOEVENTCODEDEFINED","Nekādā gadījumā kods, kas noteikts");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Failu ieved veiksmīgi");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Convert mapes ligzdotu hierarhija");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Atspiest zip failu (s) un importa saturu");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Tēma ir slēgta");//The theme is locked
+define("_BLANKREPORT","Tukšu ziņojumu");//Blank report
+define("_CUSTOMREPORTS","Custom ziņojumus");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Sistēmas administrators pārskatīs un aktivizēt savu iesaistīšanos");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Atsvaidzināt tabula");//Refresh table
+define("_REMOVEFROMSET","Izņemt no noteikta");//Remove from set
+define("_BRANCHTREE","Filiāle koks");//Branch tree
+define("_CHANGECONDITIONORDER","Mainīt nosacījums, lai");//Change condition order
+define("_INDEX","Indekss");//Index
+define("_EVENTDATETIME","Notikuma datums un laiks");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikāts fails ir pazudis vai bojāts un tāpēc bija reset");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Redzama no");//Visible from (New)
+define("_EXPIRESAT","Beidzas");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Kalendāra ekrāns dienas");//Calendar display date (New)
+define("_GLOBAL","Pasaules");//Global (New)
+define("_ALLDAY","Visu dienu");//All day (New)
+define("_CREATECALENDAREVENT","Izveidot kalendāra notikumu");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Pārrakstīt esošās mapes");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Galamērķa lapas");//Landing page (New)
+define("_EXPORTTOXLS","Eksports uz xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Pētījums nav publicēts");//Survey failed to be published (New)
+define("_PRINTCHART","Drukāt diagramma");//Print chart (New)
+define("_RESPONSEDETAILS","Atbildot informācija");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Rāda tikai aktīvās vienības");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Rāda tikai neaktīva vienībām");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Rāda gan aktīvo, gan neaktīvo vienību");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Šis notikums vairs nepastāv");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Notīrīt rindas ziņas");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Piesakies uz lietotājiem, kas jau pieder šo darbu nostāju");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Tas var tikai pievienot (nav atcelt) jaunu atlases lietotājam");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Kārtot pēc");//Sort by (New)
+define("_TRAINING","Apmācība");//Training (New)
+define("_COMPLETEDLESSONS","Pabeigts nodarbības");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Nepilnīga nodarbības");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Studiju kursu");//Completed courses (New)
+define("_INCOMPLETECOURSES","Nepilnīga kursi");//Incomplete courses (New)
+define("_EDITCOLUMN","Kolonnā Rediģēt");//Edit column (New)
+define("_LESSONSFORCOURSE","Nodarbības laikā");//Lessons for course (New)
+define("_TESTSFORLESSON","Testi nodarbība");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Complete visiem lietotājiem");//Complete for all users (New)
+define("_LESSONTIMES","Nodarbība reizes");//Lesson times (New)
+define("_MINUTESPERDAY","Minūtes dienā");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Iziet lietotājam pēc (minūtes)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Updater periods (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Ieteicams vērtības ir ne mazāk kā 10000ms un ne vairāk kā 360000ms. Tā arī ir jānosaka mazāka par auto logout laiks.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Vairāk nekā 1 filiāles (atrašanās vietas), kas saistīti ar šo kursu, kurā viena pirmā");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Ievietot");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Pielietojums apstiprināts ar");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Darbinieka tiešo vadītāju");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Lietotāju atslēgšanu");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","bija deaktivēta no sistēmas");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Vadītāja apstiprinājums");//Supervisor approval (New)
+define("_APPROVE","Apstiprina");//Approve (New)
+define("_GROUPKEYEXISTS","Atslēgas jau pastāv");//Unique key already exists (New)
+define("_PARTOFCOURSES","Daļa no kursiem");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Šī mācība ir daļa no viena vai vairākiem kursiem, tāpēc nevar mainīt režīmu");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Ir lietotājiem uzņemti ar šo stundu. Lūdzu unassign tos pirms pārslēgšanas režīmi");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Kursi (nepilnīga / kopā)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Eksportēt failus");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Protams, plānots beigām");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Protams, plānots sākumā");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Plānotais pasākuma sākuma, protams,");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Plānotais beigām, protams,");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Visiem kursu lietotājiem");//All course users (New)
 ?>

@@ -258,6 +258,8 @@ define("_LESSONMATERIAL"," <center>ลำดับเนื้อหาและ
 define("_NOQUESTIONSSETFORTHISUNIT","ยังไม่มีการตั้งข้อคำถาม");//There are no questions defined
 define("_ADDQUESTION","ตั้งคำถาม");//Add question
 define("_PREVIEW","ดูตัวอย่าง");//Preview
+define("_RENAME","ตั้งชื่อใหม่");//Rename (New)
+define("_CLONE","โคลน");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","ไม่พบแบบทดสอบ");//No tests found
 define("_ADDTEST","สร้างแบบทดสอบ");//Add test
 define("_UNITANDSUBUNITSTESTS","แบบทดสอบประจำเนื้อหา-หน่วยเรียน");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","ให้ย้อนกลับไปเริ่ม�
 define("_STARTLESSON","เริ่มเรียนเนื้อหา-หน่วยเรียน");//Start lesson
 define("_TRACKING","การติดตาม");//Tracking
 define("_FORMATCERTIFICATE","รูปแบบใบประกาศนียบัตร");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองการจัดรูปแบบ");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","ใบรับรองหมดอายุตั้ง");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","ใช้วิธีการที่ LiveDocX สำหรับการสร้างการรับรอง");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","ใช้วิธีการที่ XML สำหรับการสร้างการรับรอง");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองเพิ่ม (รูปแบบ XML)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","แก้ไขแม่แบบใบรับรอง (รูปแบบ XML)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองการเปลี่ยนชื่อ");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองโคลน");//Clone certificate template (New)
+define("_CERTIFICATENAME","ชื่อหนังสือรับรอง");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","รายละเอียดหนังสือรับรอง");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","รายละเอียดของ XML ต้องไม่ว่างเปล่า");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","ใบรับรองแม่แบบที่มีอยู่");//Existing certificate templates (New)
 define("_TRAFFIC","ภาพรวมทางสถิติทั้งหมด");//Traffic
 define("_LESSONTRAFFIC","การเข้าใช้งานในเนื้อหา-หน่วยเรียน");//Lesson traffic
 define("_EDITTEST","แก้ไขแบบทดสอบ");//Edit test
 define("_EDITQUESTION","แก้ไขคำถาม");//Edit question
 define("_CERTIFICATE","ใบประกาศนียบัตร");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","ได้ปรับปรุงใบประกาศเรียบร้อยแล้ว");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","ได้ปรับปรุงใบประกาศเรียบร้อยแล้ว");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองถูกบันทึกเรียบร้อยแล้ว");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","เกิดปัญหาในขณะที่เพิ่มแม่แบบหนังสือรับรองได้");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองได้รับการปรับปรุงเรียบร้อยแล้ว");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","เกิดปัญหาขณะอัปเดตแม่แบบหนังสือรับรองได้");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองได้เปลี่ยนชื่อเรียบร้อยแล้ว");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","มีปัญหาในการเปลี่ยนชื่อแม่แบบหนังสือรับรองได้");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองเดิมใช้การโคลนสำเร็จ");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","มีปัญหาในขณะที่การโคลนแม่แบบหนังสือรับรองได้");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองถูกลบแล้ว");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","ในขณะที่เกิดปัญหาในการลบแม่แบบหนังสือรับรองได้");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","คุณไม่ได้รับสิทธิ์ในการปรับเปลี่ยนแม่แบบใบรับรองนี้");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","แก้ไขเกณฑ์:เงื่อนไข");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","การตั้งค่าเครื่องแม่ข่ายบริการ SMTP");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","รูปแบ�
 define("_IFEMPTYNEWPASSWORD","เขตข้อมูลกรอบสีแดงคือค่าบังคับใช้. หากไม่ตั้งรหัสผ่านไว้ ระบบจะตั้งให้อัตโนมัติเหมือนกับชื่อเข้าระบบ.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","กรุณาตรวจสอบรูปแบบไฟล์ CSV ของคุณว่าถูกต้องหรือไม่");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","รูปแบบไฟล์ต้นแบบที่กำหนดให้คือ, ใช้ #organization# สำหรับ organization&#039;s name, #user_name# สำหรับ user&#039;s name, #user_surname# สำหรับ user&#039;s surname, #course_name# สำหรับ course&#039;s name, #grade# สำหรับ grade and #date# สำหรับ date.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","ในแม่แบบ, &lt;organization&gt; ใช้ &lt;/ องค์กร&gt; สำหรับชื่อขององค์กร, &lt;student&gt; &lt;/ นักศึกษา&gt; สำหรับชื่อเต็มของนักเรียน, &lt;course&gt; &lt;/ หลักสูตร&gt; สำหรับชื่อหลักสูตรของ &lt;grade&gt; &lt;/ เกรด&gt; สำหรับชั้นประถมศึกษาปี, &lt; &lt;&gt; Serial /&gt; serial สำหรับหมายเลขประจำเครื่อง &lt;date&gt; &lt;/&gt; วันที่สำหรับวันที่ &lt;logo&gt; &lt;/&gt; โลโก้สำหรับ &lt;โลโก้และ &lt;background&gt; /&gt; พื้นหลังสำหรับพื้นหลัง");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","ผู้ตอบ");//Votes
 define("_PERCENTAGE","ค่าร้อยละ");//Percentage
 define("_CERTIFICATEISSUED","ใบประกาศนียบัตรที่ออกให้แล้ว");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","คงเหลือ");//Remain
 define("_WEEKS","สัหดาห์");//weeks
 define("_WEEKs","สัปดาห์");//week
 define("_DAYS","วัน");//days
+define("_DAYSCAPITAL","วัน");//Days (New)
 define("_DAY","วัน");//Day
 define("_EVALUATIONDATAUPDATED","ปรับข้อมูลการประเมินผลเรียบร้อยแล้ว");//Evaluation data updated successfully
 define("_EVALUATION","การประเมินผล");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","รายการบทเรียนของผู
 define("_USERDASHBOARD","แผงควบคุมของผู้ใช้");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","ไม่มีชื่อเรื่องให้สำหรับรายละเอียดงาน");//No title provided for job description
 define("_EDITORTYPE","ประเภท Editor");//Editor type
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","แสดงเฉพาะข้อความหลังจากที่ส่งทดสอบ");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","การทดสอบนี้ถูกส่งเรียบร้อยแล้ว");//This test was successfully submitted
 define("_LEARNINGSTATUS","สถานะการเรียนรู้");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","<button onclick = \"location='index.php?ctg=s
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","คุณได้ลงทะเบียนเพื่อเรียนฟรีและหลักสูตร โปรดอ่านด้านล่างเลือกของการเรียนฟรีไม่และหลักสูตร");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","ผู้บังคับบัญชา");//Supervisors
 define("_COURSEOPTIONS","ตัวเลือกหลักสูตร");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","executions Reset สำหรับผู้ใช้ทั้งหมด");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","รายงานผู้ใช้เครื่องกำเนิดไฟฟ้า");//Users reports generator (New)
-define("_ADDTOGROUP","เพิ่มกลุ่ม");//Add to group (New)
-define("_ASSIGNCOURSE","หลักสูตรกำหนด");//Assign course (New)
-define("_ASSIGNLESSON","บทเรียนกำหนด");//Assign lesson (New)
-define("_REMOVECOURSE","หลักสูตร Remove");//Remove course (New)
-define("_REMOVELESSON","บทเรียนออก");//Remove lesson (New)
-define("_REMOVEFROMGROUP","ออกจากกลุ่ม");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Reset ความคืบหน้าการเรียนรู้");//Reset learning progress (New)
-define("_BUILDER","ผู้ก่อสร้าง");//Builder (New)
-define("_ADDREPORT","รายงานใหม่เพิ่ม");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","executions Reset สำหรับผู้ใช้ทั้งหมด");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","รายงานผู้ใช้เครื่องกำเนิดไฟฟ้า");//Users reports generator
+define("_ADDTOGROUP","เพิ่มกลุ่ม");//Add to group
+define("_ASSIGNCOURSE","หลักสูตรกำหนด");//Assign course
+define("_ASSIGNLESSON","บทเรียนกำหนด");//Assign lesson
+define("_REMOVECOURSE","หลักสูตร Remove");//Remove course
+define("_REMOVELESSON","บทเรียนออก");//Remove lesson
+define("_REMOVEFROMGROUP","ออกจากกลุ่ม");//Remove from group
+define("_RESETLEARNINGPROGRESS","Reset ความคืบหน้าการเรียนรู้");//Reset learning progress
+define("_BUILDER","ผู้ก่อสร้าง");//Builder
+define("_ADDREPORT","รายงานใหม่เพิ่ม");//Add new report
 define("_CONDITIONTYPE","ประเภทเกณฑ์:เงื่อนไขการเรียน");//Condition type
-define("_CONDITIONSPECIFICATION","กำหนดเงื่อนไข");//Condition specification (New)
-define("_ADDCOLUMN","คอลัมน์เพิ่ม");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","ความสัมพันธ์กับหน้า");//Relation with next (New)
-define("_COLUMNTYPE","ชนิดคอลัมน์");//Column type (New)
-define("_GRIDNAME","ชื่อตาราง");//Grid name (New)
-define("_ALIGNED","ชิด");//Aligned (New)
-define("_SELECTREPORT","รายงานเลือก");//Select report (New)
-define("_AVAILABLEREPORTS","รายงานการจำหน่าย");//Available reports (New)
-define("_EDITREPORT","รายงานแก้ไข");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","มีรายงานที่ไม่กำหนดไว้ในระบบได้ กรุณา");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","สร้างหนึ่ง");//create one (New)
-define("_NEWREPORT","รายงานใหม่");//New report (New)
-define("_REPORTNAME","ชื่อรายงาน");//Report name (New)
-define("_SELECTCONDITION","สภาพเลือก");//Select condition (New)
-define("_ISNOT","ไม่ใช่");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","ทั้งหมดมีกำหนดเสร็จสิ้นบทเรียน");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","ทั้งหมดมีกำหนดเสร็จสิ้นหลักสูตร");//Has completed all assigned courses (New)
-define("_HAS","ได้");//Has (New)
-define("_HASNOT","ยังไม่ได้");//Has not (New)
-define("_ENROLLEDTO","ลงทะเบียนเพื่อ");//Enrolled to (New)
-define("_BETWEEN","ระหว่าง");//Between (New)
-define("_ISASSIGNED","มีการกำหนด");//Is assigned (New)
-define("_ISNOTASSIGNED","ยังไม่ได้กำหนด");//Is not assigned (New)
-define("_DURINGLASTDAY","24 ชั่วโมงล่าสุด");//last 24h (New)
-define("_DURINGLASTWEEK","สัปดาห์สุดท้าย");//last week (New)
-define("_DURINGLASTMONTH","เมื่อเดือนที่แล้ว");//last month (New)
-define("_COLUMN","คอลัมน์");//Column (New)
-define("_SELECTCOLUMN","คอลัมน์เลือก");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","เว้นว่างไว้เพื่อปรับความกว้างอัตโนมัติ");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","เว้นว่างไว้เพื่อใช้คอลัมน์ชื่อ");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","กว้าง (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","โปรดเลือกคอลัมน์");//Please select a column (New)
-define("_CHANGECOLUMNORDER","เปลี่ยนคอลัมน์ลำดับ");//Change the columns order (New)
-define("_VIEWINGREPORT","รายงานการดู");//Viewing report (New)
-define("_PLEASESELECTACONDITION","โปรดเลือกเงื่อนไข");//Please select a condition (New)
-define("_BASIC","ขั้นพื้นฐาน");//Basic (New)
-define("_LEARNING","การเรียนรู้");//Learning (New)
-define("_ENTERPRISE","บริษัท");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","ลากรายการเพื่อเปลี่ยนลำดับ");//Drag items to change order (New)
-define("_CUSTOMFIELDS","เขต Custom");//Custom fields (New)
-define("_FORMATTEDLOGIN","เข้าสู่ระบบที่จัดรูปแบบ");//Formatted login (New)
-define("_DEFAULTSORT","เรียง Default");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; ผู้ประกอบการจะสำคัญ");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","การดำเนินงานหน้าปัจจุบัน");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","หรือระบุกลุ่มใหม่เพื่อเพิ่ม");//Or specify a new group to add to (New)
-define("_ADDTO","สั่ง");//Add to (New)
-define("_REMOVEFROM","ลบออกจาก");//Remove from (New)
-define("_GROUPOPERATIONS","การดำเนินงานของกลุ่ม");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","การรับรอง");//Certificate operations (New)
-define("_LESSONOPERATIONS","บทเรียนการดำเนินงาน");//Lesson operations (New)
-define("_COURSEOPERATIONS","การดำเนินการหลักสูตร");//Course operations (New)
-define("_EXPORTTOCSV","csv ส่งออก");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","รหัสไม่มีเหตุการณ์ที่กำหนด");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","ไฟล์ที่นำเข้าสำเร็จแล้ว");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","โฟลเดอร์แปลงเป็นลำดับชั้นซ้อนกัน");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","ยกเลิกการบีบอัดไฟล์ซิป (s) และเนื้อหานำเข้า");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","theme ถูกล็อค");//The theme is locked (New)
-define("_BLANKREPORT","รายงานเปล่า");//Blank report (New)
-define("_CUSTOMREPORTS","รายงาน Custom");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","ผู้ดูแลระบบจะตรวจสอบและเปิดใช้สมัครเรียนของคุณ");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","ตาราง Refresh");//Refresh table (New)
-define("_REMOVEFROMSET","ออกจากชุด");//Remove from set (New)
-define("_BRANCHTREE","ต้นไม้สาขา");//Branch tree (New)
-define("_CHANGECONDITIONORDER","เงื่อนไขการเปลี่ยนสินค้า");//Change condition order (New)
-define("_INDEX","ดัชนี");//Index (New)
-define("_EVENTDATETIME","กิจกรรมวันที่และเวลา");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","ไฟล์ใบรับรองหายไปหรือเสียหายจึงได้ตั้ง");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","กำหนดเงื่อนไข");//Condition specification
+define("_ADDCOLUMN","คอลัมน์เพิ่ม");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","ความสัมพันธ์กับหน้า");//Relation with next
+define("_COLUMNTYPE","ชนิดคอลัมน์");//Column type
+define("_GRIDNAME","ชื่อตาราง");//Grid name
+define("_ALIGNED","ชิด");//Aligned
+define("_SELECTREPORT","รายงานเลือก");//Select report
+define("_AVAILABLEREPORTS","รายงานการจำหน่าย");//Available reports
+define("_EDITREPORT","รายงานแก้ไข");//Edit report
+define("_NOREPORTSINTHESYSTEM","มีรายงานที่ไม่กำหนดไว้ในระบบได้ กรุณา");//There are no reports defined in the system. Please 
+define("_CREATEONE","สร้างหนึ่ง");//create one
+define("_NEWREPORT","รายงานใหม่");//New report
+define("_REPORTNAME","ชื่อรายงาน");//Report name
+define("_SELECTCONDITION","สภาพเลือก");//Select condition
+define("_ISNOT","ไม่ใช่");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","ทั้งหมดมีกำหนดเสร็จสิ้นบทเรียน");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","ทั้งหมดมีกำหนดเสร็จสิ้นหลักสูตร");//Has completed all assigned courses
+define("_HAS","ได้");//Has
+define("_HASNOT","ยังไม่ได้");//Has not
+define("_ENROLLEDTO","ลงทะเบียนเพื่อ");//Enrolled to
+define("_BETWEEN","ระหว่าง");//Between
+define("_ISASSIGNED","มีการกำหนด");//Is assigned
+define("_ISNOTASSIGNED","ยังไม่ได้กำหนด");//Is not assigned
+define("_DURINGLASTDAY","24 ชั่วโมงล่าสุด");//last 24h
+define("_DURINGLASTWEEK","สัปดาห์สุดท้าย");//last week
+define("_DURINGLASTMONTH","เมื่อเดือนที่แล้ว");//last month
+define("_COLUMN","คอลัมน์");//Column
+define("_SELECTCOLUMN","คอลัมน์เลือก");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","เว้นว่างไว้เพื่อปรับความกว้างอัตโนมัติ");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","เว้นว่างไว้เพื่อใช้คอลัมน์ชื่อ");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","กว้าง (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","โปรดเลือกคอลัมน์");//Please select a column
+define("_CHANGECOLUMNORDER","เปลี่ยนคอลัมน์ลำดับ");//Change the columns order
+define("_VIEWINGREPORT","รายงานการดู");//Viewing report
+define("_PLEASESELECTACONDITION","โปรดเลือกเงื่อนไข");//Please select a condition
+define("_BASIC","ขั้นพื้นฐาน");//Basic
+define("_LEARNING","การเรียนรู้");//Learning
+define("_ENTERPRISE","บริษัท");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","ลากรายการเพื่อเปลี่ยนลำดับ");//Drag items to change order
+define("_CUSTOMFIELDS","เขต Custom");//Custom fields
+define("_FORMATTEDLOGIN","เข้าสู่ระบบที่จัดรูปแบบ");//Formatted login
+define("_DEFAULTSORT","เรียง Default");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; ผู้ประกอบการจะสำคัญ");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","การดำเนินงานหน้าปัจจุบัน");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","หรือระบุกลุ่มใหม่เพื่อเพิ่ม");//Or specify a new group to add to
+define("_ADDTO","สั่ง");//Add to
+define("_REMOVEFROM","ลบออกจาก");//Remove from
+define("_GROUPOPERATIONS","การดำเนินงานของกลุ่ม");//Group operations
+define("_CERTIFICATEOPERATIONS","การรับรอง");//Certificate operations
+define("_LESSONOPERATIONS","บทเรียนการดำเนินงาน");//Lesson operations
+define("_COURSEOPERATIONS","การดำเนินการหลักสูตร");//Course operations
+define("_EXPORTTOCSV","csv ส่งออก");//Export to csv
+define("_NOEVENTCODEDEFINED","รหัสไม่มีเหตุการณ์ที่กำหนด");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","ไฟล์ที่นำเข้าสำเร็จแล้ว");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","โฟลเดอร์แปลงเป็นลำดับชั้นซ้อนกัน");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","ยกเลิกการบีบอัดไฟล์ซิป (s) และเนื้อหานำเข้า");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","theme ถูกล็อค");//The theme is locked
+define("_BLANKREPORT","รายงานเปล่า");//Blank report
+define("_CUSTOMREPORTS","รายงาน Custom");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","ผู้ดูแลระบบจะตรวจสอบและเปิดใช้สมัครเรียนของคุณ");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","ตาราง Refresh");//Refresh table
+define("_REMOVEFROMSET","ออกจากชุด");//Remove from set
+define("_BRANCHTREE","ต้นไม้สาขา");//Branch tree
+define("_CHANGECONDITIONORDER","เงื่อนไขการเปลี่ยนสินค้า");//Change condition order
+define("_INDEX","ดัชนี");//Index
+define("_EVENTDATETIME","กิจกรรมวันที่และเวลา");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","ไฟล์ใบรับรองหายไปหรือเสียหายจึงได้ตั้ง");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","มองเห็นได้จาก");//Visible from (New)
+define("_EXPIRESAT","หมดอายุวันที่");//Expires at (New)
+define("_CALENDARDISPLAYDATE","วันที่แสดงปฏิทิน");//Calendar display date (New)
+define("_GLOBAL","ทั่วโลก");//Global (New)
+define("_ALLDAY","ตลอดทั้งวัน");//All day (New)
+define("_CREATECALENDAREVENT","สร้างปฏิทินกิจกรรม");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","เขียนทับโฟลเดอร์ที่มีอยู่");//Overwrite existing folder (New)
+define("_LANDINGPAGE","หน้าที่เชื่อมโยงไป");//Landing page (New)
+define("_EXPORTTOXLS","ส่งออกไปยัง xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","การสำรวจล้มเหลวในการได้รับการเผยแพร่");//Survey failed to be published (New)
+define("_PRINTCHART","แผนภูมิการพิมพ์");//Print chart (New)
+define("_RESPONSEDETAILS","รายละเอียดการตอบสนอง");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","แสดงหน่วยงานที่ทำงานอยู่เท่านั้น");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","แสดงกิจการที่ไม่ได้ใช้งานเท่านั้น");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","แสดงหน่วยงานที่ใช้งานอยู่และไม่ได้ใช้งานทั้ง");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","เหตุการณ์นี้ไม่มีแล้ว");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","ลบข้อความคิว");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","นำไปใช้กับผู้ใช้แล้วอยู่ในตำแหน่งงานนี้");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","นี้สามารถเพิ่ม (ไม่เอา) เลือกใหม่ให้กับผู้ใช้");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","เรียงลำดับตาม");//Sort by (New)
+define("_TRAINING","การอบรม");//Training (New)
+define("_COMPLETEDLESSONS","บทเรียนเสร็จสมบูรณ์");//Completed lessons (New)
+define("_INCOMPLETELESSONS","บทเรียนที่ไม่สมบูรณ์");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","มาเฟีย");//Completed courses (New)
+define("_INCOMPLETECOURSES","หลักสูตรที่ไม่สมบูรณ์");//Incomplete courses (New)
+define("_EDITCOLUMN","แก้ไขคอลัมน์");//Edit column (New)
+define("_LESSONSFORCOURSE","บทเรียนสำหรับหลักสูตร");//Lessons for course (New)
+define("_TESTSFORLESSON","การทดสอบบทเรียน");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","เสร็จสมบูรณ์สำหรับผู้ใช้ทั้งหมด");//Complete for all users (New)
+define("_LESSONTIMES","เวลาบทเรียน");//Lesson times (New)
+define("_MINUTESPERDAY","นาทีต่อวัน");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","หลังจากที่ผู้ใช้ออกจากระบบ (นาที)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","ระยะเวลา Updater (MS)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","ค่าที่แนะนำจะไม่ต่ำกว่า 10000ms และไม่เกิน 360000ms นอกจากนี้ยังจะต้องตั้งค่าน้อยกว่าเวลาออกจากระบบอัตโนมัติ");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","มากกว่า 1 สาขา (สถานที่) ที่เชื่อมโยงกับหลักสูตรนี้แสดงเป็นคนแรก");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","แทรก");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","กำหนดรับการอนุมัติจาก");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","ผู้บังคับบัญชาของพนักงานได้ทันที");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","การเสื่อมของผู้ใช้");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","ถูกปิดการใช้งานจากระบบ");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","อนุมัติ Supervisor");//Supervisor approval (New)
+define("_APPROVE","อนุมัติ");//Approve (New)
+define("_GROUPKEYEXISTS","คีย์ที่ไม่ซ้ำกันอยู่แล้ว");//Unique key already exists (New)
+define("_PARTOFCOURSES","บางส่วนของหลักสูตร");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","บทเรียนนี้เป็นส่วนหนึ่งของหลักสูตรอย่างน้อยหนึ่งจึงไม่สามารถเปลี่ยนโหมด");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","มีผู้ใช้ที่ลงทะเบียนเรียนกับบทเรียนนี้ กรุณา unassign พวกเขาก่อนที่จะเปลี่ยนโหมด");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","หลักสูตร (ไม่สมบูรณ์ / รวมทั้งหมด)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","ส่งออกไฟล์");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","หลักสูตรกำหนดวันหมดอายุ");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","หลักสูตรกำหนดเวลาเริ่มต้น");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","เริ่มต้นที่กำหนดเวลาไว้แน่นอน");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","หมดอายุที่กำหนดเวลาไว้แน่นอน");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","ผู้ใช้ทุกรายแน่นอน");//All course users (New)
 ?>

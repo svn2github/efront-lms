@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Materi pelajaran");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Tidak ada pertanyaan yang ditetapkan");//There are no questions defined
 define("_ADDQUESTION","Menambahkan pertanyaan");//Add question
 define("_PREVIEW","Preview");//Preview
+define("_RENAME","Ubah nama");//Rename (New)
+define("_CLONE","Klon");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Tidak ditemukan tes");//No tests found
 define("_ADDTEST","Tambahkan uji");//Add test
 define("_UNITANDSUBUNITSTESTS","Unit dan tes subunits");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Melanjutkan pelajaran");//Resume lesson
 define("_STARTLESSON","Mulai pelajaran");//Start lesson
 define("_TRACKING","Pelacakan");//Tracking
 define("_FORMATCERTIFICATE","Format sertifikat");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Format sertifikat template");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Mengatur sertifikat kadaluwarsa");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Gunakan metode LiveDocX untuk membuat sertifikasi");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Gunakan metode XML untuk membuat sertifikasi");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Tambahkan sertifikat template (format xml)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Edit template sertifikat (format xml)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Ubah nama sertifikat template");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Clone sertifikat template");//Clone certificate template (New)
+define("_CERTIFICATENAME","Nama Sertifikat");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Sertifikat deskripsi");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","deskripsi XML tidak boleh kosong");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Ada sertifikat template");//Existing certificate templates (New)
 define("_TRAFFIC","Lalu lintas");//Traffic
 define("_LESSONTRAFFIC","Pelajaran lalu lintas");//Lesson traffic
 define("_EDITTEST","Edit tes");//Edit test
 define("_EDITQUESTION","Edit pertanyaan");//Edit question
 define("_CERTIFICATE","Sertifikat");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Berhasil diperbarui sertifikat");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Berhasil diperbarui sertifikat");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertifikat template telah berhasil ditambahkan");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Ada masalah ketika menambahkan template sertifikat");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertifikat template telah berhasil diperbarui");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Ada masalah saat memperbarui template sertifikat");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertifikat template berhasil namanya");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Ada masalah saat mengganti nama template sertifikat");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertifikat template berhasil diklon");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Ada masalah saat kloning template sertifikat");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifikat template berhasil dihapus");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Ada masalah saat menghapus template sertifikat");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Anda tidak memiliki hak untuk memodifikasi template sertifikat");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Edit kondisi");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Konfigurasi Server SMTP");//SMTP server configuration
 define("_SMTPSERVER","Server SMTP");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Kolom di csv haru
 define("_IFEMPTYNEWPASSWORD","Kolom merah adalah wajib. Jika tidak ada kata sandi diberikan, pada awalnya akan menetapkan sandi yang sama sebagai login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Silakan cek format file CSV Anda");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Dalam template, gunakan # organisasi # untuk nama organisasi, # # user_name nama pengguna, # user_surname # untuk pengguna surname, # # untuk course_name nama saja, # # untuk grade grade dan # # untuk tanggal tanggal.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","Dalam template, gunakan &lt;organization&gt; &lt;organisasi /&gt; untuk nama organisasi, &lt;student&gt; &lt;siswa /&gt; untuk nama lengkap siswa, &lt;/ program&gt; &lt;course&gt; untuk nama kursus itu, &lt;/ grade&gt; &lt;grade&gt; untuk kelas, &lt; &lt;&gt; serial /&gt; serial untuk nomor seri, &lt;date&gt; &lt;&gt; tanggal / untuk tanggal, &lt;logo&gt; &lt;&gt; logo / untuk &lt;logo dan &lt;background&gt; /&gt; latar belakang untuk latar belakang.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Dinilai");//Votes
 define("_PERCENTAGE","Persentase");//Percentage
 define("_CERTIFICATEISSUED","Sertifikat yang dikeluarkan");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Sisa");//Remain
 define("_WEEKS","bulan");//weeks
 define("_WEEKs","minggu");//week
 define("_DAYS","bulan");//days
+define("_DAYSCAPITAL","Hari");//Days (New)
 define("_DAY","Hari");//Day
 define("_EVALUATIONDATAUPDATED","Evaluasi data berhasil diubah");//Evaluation data updated successfully
 define("_EVALUATION","Evaluasi");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Pengguna pelajaran katalog");//User's lesson catalog
 define("_USERDASHBOARD","Pengguna dashboard");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Tidak ada judul diberikan untuk deskripsi pekerjaan");//No title provided for job description
 define("_EDITORTYPE","Editor jenis");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Tampilkan hanya setelah mengirim pesan uji");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Tes ini telah berhasil diajukan");//This test was successfully submitted
 define("_LEARNINGSTATUS","Belajar Status");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","Jika tidak, Anda dapat membuat <button onclic
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Anda bebas mendaftarkan diri untuk pelajaran dan program. Silakan tinjau di bawah pilihan Anda bebas non pelajaran dan program");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Pengawas");//Supervisors
 define("_COURSEOPTIONS","Kursus Pilihan");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","Reset eksekusi untuk semua pengguna");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Pengguna laporan generator");//Users reports generator (New)
-define("_ADDTOGROUP","Tambahkan ke grup");//Add to group (New)
-define("_ASSIGNCOURSE","Menetapkan program");//Assign course (New)
-define("_ASSIGNLESSON","Menetapkan pelajaran");//Assign lesson (New)
-define("_REMOVECOURSE","Hapus saja");//Remove course (New)
-define("_REMOVELESSON","Hapus pelajaran");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Hapus dari grup");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Reset kemajuan belajar");//Reset learning progress (New)
-define("_BUILDER","Pembangun");//Builder (New)
-define("_ADDREPORT","Tambah baru laporan");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","Reset eksekusi untuk semua pengguna");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Pengguna laporan generator");//Users reports generator
+define("_ADDTOGROUP","Tambahkan ke grup");//Add to group
+define("_ASSIGNCOURSE","Menetapkan program");//Assign course
+define("_ASSIGNLESSON","Menetapkan pelajaran");//Assign lesson
+define("_REMOVECOURSE","Hapus saja");//Remove course
+define("_REMOVELESSON","Hapus pelajaran");//Remove lesson
+define("_REMOVEFROMGROUP","Hapus dari grup");//Remove from group
+define("_RESETLEARNINGPROGRESS","Reset kemajuan belajar");//Reset learning progress
+define("_BUILDER","Pembangun");//Builder
+define("_ADDREPORT","Tambah baru laporan");//Add new report
 define("_CONDITIONTYPE","Kondisi jenis");//Condition type
-define("_CONDITIONSPECIFICATION","Kondisi spesifikasi");//Condition specification (New)
-define("_ADDCOLUMN","Tambahkan kolom");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Hubungan dengan berikutnya");//Relation with next (New)
-define("_COLUMNTYPE","Kolom jenis");//Column type (New)
-define("_GRIDNAME","Grid nama");//Grid name (New)
-define("_ALIGNED","Blok");//Aligned (New)
-define("_SELECTREPORT","Pilih laporan");//Select report (New)
-define("_AVAILABLEREPORTS","Tersedia laporan");//Available reports (New)
-define("_EDITREPORT","Edit Laporan");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Tidak ada laporan didefinisikan dalam sistem. Silahkan");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","membuat satu");//create one (New)
-define("_NEWREPORT","Laporan Baru");//New report (New)
-define("_REPORTNAME","Nama laporan");//Report name (New)
-define("_SELECTCONDITION","Pilih kondisi");//Select condition (New)
-define("_ISNOT","tidak");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Telah menyelesaikan semua pelajaran yang ditugaskan");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Telah menyelesaikan semua program yang ditugaskan");//Has completed all assigned courses (New)
-define("_HAS","Memiliki");//Has (New)
-define("_HASNOT","Belum");//Has not (New)
-define("_ENROLLEDTO","Mendaftarkan diri untuk");//Enrolled to (New)
-define("_BETWEEN","Antara");//Between (New)
-define("_ISASSIGNED","Apakah yang ditugaskan");//Is assigned (New)
-define("_ISNOTASSIGNED","Apakah tidak ditugaskan");//Is not assigned (New)
-define("_DURINGLASTDAY","terakhir 24h");//last 24h (New)
-define("_DURINGLASTWEEK","minggu lalu");//last week (New)
-define("_DURINGLASTMONTH","bulan lalu");//last month (New)
-define("_COLUMN","Kolom");//Column (New)
-define("_SELECTCOLUMN","Pilih kolom");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Biarkan kosong untuk otomatis menyesuaikan lebar");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Biarkan kosong untuk menggunakan kolom nama");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Lebar (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Silakan pilih kolom");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Mengubah urutan kolom");//Change the columns order (New)
-define("_VIEWINGREPORT","Melihat laporan");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Silakan pilih kondisi");//Please select a condition (New)
-define("_BASIC","Dasar");//Basic (New)
-define("_LEARNING","Belajar");//Learning (New)
-define("_ENTERPRISE","Perusahaan");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Tarik item untuk mengubah urutan");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Bidang Kustom");//Custom fields (New)
-define("_FORMATTEDLOGIN","Diformat login");//Formatted login (New)
-define("_DEFAULTSORT","Default semacam");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator diutamakan");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Halaman Lancar operasi");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Atau menentukan grup baru untuk ditambahkan ke");//Or specify a new group to add to (New)
-define("_ADDTO","Tambahkan ke");//Add to (New)
-define("_REMOVEFROM","Hapus dari");//Remove from (New)
-define("_GROUPOPERATIONS","Operasi Kelompok");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Sertifikat operasi");//Certificate operations (New)
-define("_LESSONOPERATIONS","Pelajaran operasi");//Lesson operations (New)
-define("_COURSEOPERATIONS","Kursus operasi");//Course operations (New)
-define("_EXPORTTOCSV","Ekspor ke csv");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Tidak ada kode event didefinisikan");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","File berhasil diimpor");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Mengkonversi nested hirarki folder ke");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress zip file (s) dan isinya impor");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","Tema ini terkunci");//The theme is locked (New)
-define("_BLANKREPORT","Blank laporan");//Blank report (New)
-define("_CUSTOMREPORTS","Laporan kustom");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","Administrator sistem akan meninjau dan mahasiswa, Anda mengaktifkan");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","Refresh tabel");//Refresh table (New)
-define("_REMOVEFROMSET","Hapus dari set");//Remove from set (New)
-define("_BRANCHTREE","Cabang pohon");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Ubah urutan kondisi");//Change condition order (New)
-define("_INDEX","Indeks");//Index (New)
-define("_EVENTDATETIME","Acara tanggal dan waktu");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","File sertifikat yang hilang atau rusak dan oleh karena itu ulang");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","Kondisi spesifikasi");//Condition specification
+define("_ADDCOLUMN","Tambahkan kolom");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Hubungan dengan berikutnya");//Relation with next
+define("_COLUMNTYPE","Kolom jenis");//Column type
+define("_GRIDNAME","Grid nama");//Grid name
+define("_ALIGNED","Blok");//Aligned
+define("_SELECTREPORT","Pilih laporan");//Select report
+define("_AVAILABLEREPORTS","Tersedia laporan");//Available reports
+define("_EDITREPORT","Edit Laporan");//Edit report
+define("_NOREPORTSINTHESYSTEM","Tidak ada laporan didefinisikan dalam sistem. Silahkan");//There are no reports defined in the system. Please 
+define("_CREATEONE","membuat satu");//create one
+define("_NEWREPORT","Laporan Baru");//New report
+define("_REPORTNAME","Nama laporan");//Report name
+define("_SELECTCONDITION","Pilih kondisi");//Select condition
+define("_ISNOT","tidak");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Telah menyelesaikan semua pelajaran yang ditugaskan");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Telah menyelesaikan semua program yang ditugaskan");//Has completed all assigned courses
+define("_HAS","Memiliki");//Has
+define("_HASNOT","Belum");//Has not
+define("_ENROLLEDTO","Mendaftarkan diri untuk");//Enrolled to
+define("_BETWEEN","Antara");//Between
+define("_ISASSIGNED","Apakah yang ditugaskan");//Is assigned
+define("_ISNOTASSIGNED","Apakah tidak ditugaskan");//Is not assigned
+define("_DURINGLASTDAY","terakhir 24h");//last 24h
+define("_DURINGLASTWEEK","minggu lalu");//last week
+define("_DURINGLASTMONTH","bulan lalu");//last month
+define("_COLUMN","Kolom");//Column
+define("_SELECTCOLUMN","Pilih kolom");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Biarkan kosong untuk otomatis menyesuaikan lebar");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Biarkan kosong untuk menggunakan kolom nama");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Lebar (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Silakan pilih kolom");//Please select a column
+define("_CHANGECOLUMNORDER","Mengubah urutan kolom");//Change the columns order
+define("_VIEWINGREPORT","Melihat laporan");//Viewing report
+define("_PLEASESELECTACONDITION","Silakan pilih kondisi");//Please select a condition
+define("_BASIC","Dasar");//Basic
+define("_LEARNING","Belajar");//Learning
+define("_ENTERPRISE","Perusahaan");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Tarik item untuk mengubah urutan");//Drag items to change order
+define("_CUSTOMFIELDS","Bidang Kustom");//Custom fields
+define("_FORMATTEDLOGIN","Diformat login");//Formatted login
+define("_DEFAULTSORT","Default semacam");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator diutamakan");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Halaman Lancar operasi");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Atau menentukan grup baru untuk ditambahkan ke");//Or specify a new group to add to
+define("_ADDTO","Tambahkan ke");//Add to
+define("_REMOVEFROM","Hapus dari");//Remove from
+define("_GROUPOPERATIONS","Operasi Kelompok");//Group operations
+define("_CERTIFICATEOPERATIONS","Sertifikat operasi");//Certificate operations
+define("_LESSONOPERATIONS","Pelajaran operasi");//Lesson operations
+define("_COURSEOPERATIONS","Kursus operasi");//Course operations
+define("_EXPORTTOCSV","Ekspor ke csv");//Export to csv
+define("_NOEVENTCODEDEFINED","Tidak ada kode event didefinisikan");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","File berhasil diimpor");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Mengkonversi nested hirarki folder ke");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Uncompress zip file (s) dan isinya impor");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","Tema ini terkunci");//The theme is locked
+define("_BLANKREPORT","Blank laporan");//Blank report
+define("_CUSTOMREPORTS","Laporan kustom");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","Administrator sistem akan meninjau dan mahasiswa, Anda mengaktifkan");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Refresh tabel");//Refresh table
+define("_REMOVEFROMSET","Hapus dari set");//Remove from set
+define("_BRANCHTREE","Cabang pohon");//Branch tree
+define("_CHANGECONDITIONORDER","Ubah urutan kondisi");//Change condition order
+define("_INDEX","Indeks");//Index
+define("_EVENTDATETIME","Acara tanggal dan waktu");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","File sertifikat yang hilang atau rusak dan oleh karena itu ulang");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Tampak dari");//Visible from (New)
+define("_EXPIRESAT","Berakhir pada");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Kalender menampilkan tanggal");//Calendar display date (New)
+define("_GLOBAL","Global");//Global (New)
+define("_ALLDAY","Sepanjang hari");//All day (New)
+define("_CREATECALENDAREVENT","Buat acara kalender");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Timpa folder yang ada");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Halaman arahan");//Landing page (New)
+define("_EXPORTTOXLS","Ekspor ke xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Survei gagal dipublikasikan");//Survey failed to be published (New)
+define("_PRINTCHART","Cetak bagan");//Print chart (New)
+define("_RESPONSEDETAILS","Respon rincian");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Menampilkan hanya entitas aktif");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Menampilkan hanya entitas tidak aktif");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Menampilkan baik entitas aktif dan tidak aktif");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Acara ini tidak ada lagi");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Hapus pesan antrian");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Terapkan untuk pengguna sudah dimiliki posisi ini pekerjaan");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Ini hanya dapat menambahkan (bukan menghapus) pilihan baru untuk pengguna");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Urut berdasarkan");//Sort by (New)
+define("_TRAINING","Pelatihan");//Training (New)
+define("_COMPLETEDLESSONS","Selesai pelajaran");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Lengkap pelajaran");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Menyelesaikan program");//Completed courses (New)
+define("_INCOMPLETECOURSES","Program lengkap");//Incomplete courses (New)
+define("_EDITCOLUMN","Edit kolom");//Edit column (New)
+define("_LESSONSFORCOURSE","Pelajaran untuk kursus");//Lessons for course (New)
+define("_TESTSFORLESSON","Tes untuk pelajaran");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Lengkap untuk semua pengguna");//Complete for all users (New)
+define("_LESSONTIMES","Pelajaran kali");//Lesson times (New)
+define("_MINUTESPERDAY","Menit per hari");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Logout pengguna setelah (menit)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Periode Updater (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Nilai yang disarankan tidak kurang dari 10000ms dan tidak lebih dari 360000ms. Hal ini juga harus diset lebih kecil dari waktu logout otomatis.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Lebih dari 1 cabang (lokasi) yang berhubungan dengan kursus ini, menunjukkan yang pertama");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Menyisipkan");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Penugasan disetujui oleh");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Karyawan langsung pengawas");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Pengguna penonaktifan");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","telah dinonaktifkan dari sistem");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Supervisor persetujuan");//Supervisor approval (New)
+define("_APPROVE","Menyetujui");//Approve (New)
+define("_GROUPKEYEXISTS","Unik kunci sudah ada");//Unique key already exists (New)
+define("_PARTOFCOURSES","Bagian dari program");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Pelajaran ini merupakan bagian dari program satu atau lebih, sehingga tidak dapat mengubah modus");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Ada pengguna terdaftar untuk pelajaran ini. Harap Unassign mereka sebelum beralih mode");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Kursus (tidak lengkap / total)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Ekspor file");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Kursus dijadwalkan kedaluwarsa");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Kursus dijadwalkan awal");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Dijadwalkan mulai kursus");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Dijadwalkan berakhirnya program");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Semua pengguna program");//All course users (New)
 ?>

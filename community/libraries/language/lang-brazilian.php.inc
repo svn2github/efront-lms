@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Material da lição");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Não há perguntas definidas");//There are no questions defined
 define("_ADDQUESTION","Adicionar pergunta");//Add question
 define("_PREVIEW","Previsão");//Preview
+define("_RENAME","Renomear");//Rename (New)
+define("_CLONE","Clone");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Nenhuma prova encontrada");//No tests found
 define("_ADDTEST","Adicionar teste");//Add test
 define("_UNITANDSUBUNITSTESTS","Testes da lição e das subliçãos");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Retomar lição");//Resume lesson
 define("_STARTLESSON","Começe a lição");//Start lesson
 define("_TRACKING","Rastreamento");//Tracking
 define("_FORMATCERTIFICATE","Formatar certificado");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Formato modelo de certificado");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Conjunto de expiração do certificado");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Use o método LiveDocX para a criação de certificações");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Use o método de XML para a criação de certificações");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Adicionar modelo de certificado (formato xml)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Editar modelo de certificado (formato xml)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Renomear modelo de certificado");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Clone modelo de certificado");//Clone certificate template (New)
+define("_CERTIFICATENAME","Nome do certificado");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","descrição Certificado");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","descrição em XML não pode ser vazio");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Existentes modelos de certificado");//Existing certificate templates (New)
 define("_TRAFFIC","Tráfego");//Traffic
 define("_LESSONTRAFFIC","Tráfego da lição");//Lesson traffic
 define("_EDITTEST","Editar teste");//Edit test
 define("_EDITQUESTION","Editar pergunta");//Edit question
 define("_CERTIFICATE","Certificado");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Certificado atualizado com sucesso");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Certificado atualizado com sucesso");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","modelo de certificado foi adicionado com sucesso");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Houve um problema, acrescentando modelo de certificado");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","modelo de certificado foi atualizado com sucesso");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Houve um problema durante a atualização do modelo de certificado");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","modelo de certificado foi renomeado com sucesso");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Houve um problema ao renomear modelo de certificado");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","modelo de certificado foi clonado com sucesso");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Houve um problema, enquanto a clonagem modelo de certificado");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","modelo de certificado foi excluído com êxito");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Houve um problema, embora a exclusão do modelo de certificado");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Você não tem o direito de modificar este modelo de certificado");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Editar condição");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Configuração do servidor SMTP");//SMTP server configuration
 define("_SMTPSERVER","Servidor SMTP");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Os campos em seu 
 define("_IFEMPTYNEWPASSWORD","Campos em vermelho são de preenchimento obrigatório. Se não houver nenhuma senha dada, a senha inicial será fixada a mesma, que o login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Por favor verifique o formato de arquivo CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Use # # user_name para nome do usuário, # # user_surname do usuário para o sobrenome, course_name # # para o nome do curso, # # nota de nota e # # data para a data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","No modelo, &lt;Organization&gt; usar &lt;/ organização&gt; para o nome da organização, &lt;Student&gt; &lt;/ estudante&gt; o nome completo do aluno, &lt;course&gt; &lt;/ curso&gt; para o nome do curso, &lt;/ grau&gt; &lt;grade&gt; para a classe, &lt; &lt;&gt; serial /&gt; série de número de série, &lt;data&gt;&gt; &lt;/ a data para a data, &lt;LOGO&gt;&gt; &lt;/ logotipo para logotipo e &lt;background&gt; &lt;/ fundo&gt; para o fundo.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Votos");//Votes
 define("_PERCENTAGE","Percentagem");//Percentage
 define("_CERTIFICATEISSUED","Certificado emitido");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Permanecer");//Remain
 define("_WEEKS","semanas");//weeks
 define("_WEEKs","semana");//week
 define("_DAYS","dias");//days
+define("_DAYSCAPITAL","Dias");//Days (New)
 define("_DAY","Dia");//Day
 define("_EVALUATIONDATAUPDATED","Dados da avaliação atualizados com sucesso");//Evaluation data updated successfully
 define("_EVALUATION","Avaliação");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Catálogo das lições do usuário");//User's lesson c
 define("_USERDASHBOARD","Dashboard do usuário");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Nenhum nome providenciado para descrição do trabalho");//No title provided for job description
 define("_EDITORTYPE","Tipo Editor");//Editor type
-define("_TINYMCE","Tinymce 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","Tinymce 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Somente apresente uma mensagem apos amarzenagem do teste");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Esse teste foi armazenado com sucesso");//This test was successfully submitted
 define("_LEARNINGSTATUS","Estodo de aprendizagem");//Learning Status
@@ -3779,83 +3804,136 @@ define("_OTHERWISEPLEASEREGISTER","Caso contrário, você pode criar uma <button
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Vocês foram inscritos para aulas livres e cursos. Por favor, reveja abaixo a sua selecção de non aulas gratuitas e cursos");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
 define("_SUPERVISORS","Supervisores");//Supervisors
 define("_COURSEOPTIONS","opções de curso");//Course options
-define("_RESETEXECUTIONSFORALLUSERS","execuções Reset para todos os usuários");//Reset executions for all users (New)
-define("_ADVANCEDUSERREPORTS","Usuários gerador de relatórios");//Users reports generator (New)
-define("_ADDTOGROUP","Adicionar a um grupo");//Add to group (New)
-define("_ASSIGNCOURSE","Atribuir curso");//Assign course (New)
-define("_ASSIGNLESSON","Atribuir lição");//Assign lesson (New)
-define("_REMOVECOURSE","Remover curso");//Remove course (New)
-define("_REMOVELESSON","Remover lição");//Remove lesson (New)
-define("_REMOVEFROMGROUP","Remover do grupo");//Remove from group (New)
-define("_RESETLEARNINGPROGRESS","Redefinir o progresso de aprendizagem");//Reset learning progress (New)
-define("_BUILDER","Construtor");//Builder (New)
-define("_ADDREPORT","Adicionar novo relatório");//Add new report (New)
+define("_RESETEXECUTIONSFORALLUSERS","execuções Reset para todos os usuários");//Reset executions for all users
+define("_ADVANCEDUSERREPORTS","Usuários gerador de relatórios");//Users reports generator
+define("_ADDTOGROUP","Adicionar a um grupo");//Add to group
+define("_ASSIGNCOURSE","Atribuir curso");//Assign course
+define("_ASSIGNLESSON","Atribuir lição");//Assign lesson
+define("_REMOVECOURSE","Remover curso");//Remove course
+define("_REMOVELESSON","Remover lição");//Remove lesson
+define("_REMOVEFROMGROUP","Remover do grupo");//Remove from group
+define("_RESETLEARNINGPROGRESS","Redefinir o progresso de aprendizagem");//Reset learning progress
+define("_BUILDER","Construtor");//Builder
+define("_ADDREPORT","Adicionar novo relatório");//Add new report
 define("_CONDITIONTYPE","Tipo de condição");//Condition type
-define("_CONDITIONSPECIFICATION","especificação Condição");//Condition specification (New)
-define("_ADDCOLUMN","coluna Adicionar");//Add column (New)
-define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relação com o próximo");//Relation with next (New)
-define("_COLUMNTYPE","O tipo da coluna");//Column type (New)
-define("_GRIDNAME","Nome Grid");//Grid name (New)
-define("_ALIGNED","Alinhado");//Aligned (New)
-define("_SELECTREPORT","Selecione um relatório");//Select report (New)
-define("_AVAILABLEREPORTS","Os relatórios disponíveis");//Available reports (New)
-define("_EDITREPORT","relatório de Edite");//Edit report (New)
-define("_NOREPORTSINTHESYSTEM","Não há relatórios definidos no sistema. Por favor");//There are no reports defined in the system. Please  (New)
-define("_CREATEONE","Crie uma");//create one (New)
-define("_NEWREPORT","Novo relatório");//New report (New)
-define("_REPORTNAME","Nome do relatório");//Report name (New)
-define("_SELECTCONDITION","Selecione condição");//Select condition (New)
-define("_ISNOT","não é");//is not (New)
-define("_HASCOMPLETEDALLASSIGNEDLESSONS","Concluiu todas as aulas atribuídas");//Has completed all assigned lessons (New)
-define("_HASCOMPLETEDALLASSIGNEDCOURSES","Tenha concluído todos os cursos designados");//Has completed all assigned courses (New)
-define("_HAS","Tem");//Has (New)
-define("_HASNOT","Não");//Has not (New)
-define("_ENROLLEDTO","Matriculados ao");//Enrolled to (New)
-define("_BETWEEN","Entre");//Between (New)
-define("_ISASSIGNED","É atribuído");//Is assigned (New)
-define("_ISNOTASSIGNED","Não é atribuída");//Is not assigned (New)
-define("_DURINGLASTDAY","Últimas 24h");//last 24h (New)
-define("_DURINGLASTWEEK","semana passada");//last week (New)
-define("_DURINGLASTMONTH","mês passado");//last month (New)
-define("_COLUMN","Coluna");//Column (New)
-define("_SELECTCOLUMN","Selecione coluna");//Select column (New)
-define("_LEAVEBLANKTOAUTOADJUST","Deixe em branco para auto-ajustar a largura");//Leave blank to auto-adjust width (New)
-define("_LEAVEBLANKTOUSECOLUMNNAME","Deixe em branco para usar nome da coluna");//Leave blank to use column name (New)
-define("_WIDTHPERCENTAGE","Width (%)");//Width (%) (New)
-define("_PLEASESELECTACOLUMN","Por favor, selecione uma coluna");//Please select a column (New)
-define("_CHANGECOLUMNORDER","Alterar a ordem das colunas");//Change the columns order (New)
-define("_VIEWINGREPORT","Visualizando relatório");//Viewing report (New)
-define("_PLEASESELECTACONDITION","Por favor, selecione uma condição");//Please select a condition (New)
-define("_BASIC","Básico");//Basic (New)
-define("_LEARNING","Aprendizagem");//Learning (New)
-define("_ENTERPRISE","Empresa");//Enterprise (New)
-define("_DRAGITEMSTOCHANGEORDER","Arraste os itens para mudar a ordem");//Drag items to change order (New)
-define("_CUSTOMFIELDS","Os campos personalizados");//Custom fields (New)
-define("_FORMATTEDLOGIN","Formatado login");//Formatted login (New)
-define("_DEFAULTSORT","classificação padrão");//Default sort (New)
-define("_ANDTAKESPRECEDENCE","&quot;and&quot; operador tem precedência");//&quot;and&quot; operator takes precedence (New)
-define("_CURREPAGEOPERATIONS","Atuais operações página");//Current page operations (New)
-define("_ORSPECIFYANEWGROUPTOADDTO","Ou especificar um novo grupo para adicionar");//Or specify a new group to add to (New)
-define("_ADDTO","Adicionar ao");//Add to (New)
-define("_REMOVEFROM","Retire do");//Remove from (New)
-define("_GROUPOPERATIONS","operações do Grupo");//Group operations (New)
-define("_CERTIFICATEOPERATIONS","Certificado de operações");//Certificate operations (New)
-define("_LESSONOPERATIONS","Lição operações");//Lesson operations (New)
-define("_COURSEOPERATIONS","Curso de operações");//Course operations (New)
-define("_EXPORTTOCSV","Exportar para CSV");//Export to csv (New)
-define("_NOEVENTCODEDEFINED","Nenhum código de evento definido");//No event code defined (New)
-define("_FILESIMPORTEDSUCCESSFULLY","Arquivos importados com sucesso");//Files imported successfully (New)
-define("_CONVERTFOLDERSTOHIERARCHY","Converta pastas a hierarquia aninhada");//Convert folders to nested hierarchy (New)
-define("_UNCOMPRESSRECURSIVELYIMPORT","Descompacte o arquivo zip (s) e conteúdo de importação");//Uncompress zip file(s) and import contents (New)
-define("_THEMELOCKED","O tema é bloqueado");//The theme is locked (New)
-define("_BLANKREPORT","relatório em branco");//Blank report (New)
-define("_CUSTOMREPORTS","Os relatórios personalizados");//Custom reports (New)
-define("_ADMINISTRATORCONFIRMENROLLED","O administrador do sistema irá ativar a sua revisão e matrículas");//The system administrator will review and activate your enrollments (New)
-define("_REFRESHTABLE","tabela de atualização");//Refresh table (New)
-define("_REMOVEFROMSET","Retire do conjunto");//Remove from set (New)
-define("_BRANCHTREE","Ramo de árvore");//Branch tree (New)
-define("_CHANGECONDITIONORDER","Alterar a ordem condição");//Change condition order (New)
-define("_INDEX","Índice");//Index (New)
-define("_EVENTDATETIME","Evento data e hora");//Event date and time (New)
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","O arquivo de certificado foi ausente ou corrompido e, portanto, foi reposto");//The certificate file was missing or corrupt and thus was reset (New)
+define("_CONDITIONSPECIFICATION","especificação Condição");//Condition specification
+define("_ADDCOLUMN","coluna Adicionar");//Add column
+define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relação com o próximo");//Relation with next
+define("_COLUMNTYPE","O tipo da coluna");//Column type
+define("_GRIDNAME","Nome Grid");//Grid name
+define("_ALIGNED","Alinhado");//Aligned
+define("_SELECTREPORT","Selecione um relatório");//Select report
+define("_AVAILABLEREPORTS","Os relatórios disponíveis");//Available reports
+define("_EDITREPORT","relatório de Edite");//Edit report
+define("_NOREPORTSINTHESYSTEM","Não há relatórios definidos no sistema. Por favor");//There are no reports defined in the system. Please 
+define("_CREATEONE","Crie uma");//create one
+define("_NEWREPORT","Novo relatório");//New report
+define("_REPORTNAME","Nome do relatório");//Report name
+define("_SELECTCONDITION","Selecione condição");//Select condition
+define("_ISNOT","não é");//is not
+define("_HASCOMPLETEDALLASSIGNEDLESSONS","Concluiu todas as aulas atribuídas");//Has completed all assigned lessons
+define("_HASCOMPLETEDALLASSIGNEDCOURSES","Tenha concluído todos os cursos designados");//Has completed all assigned courses
+define("_HAS","Tem");//Has
+define("_HASNOT","Não");//Has not
+define("_ENROLLEDTO","Matriculados ao");//Enrolled to
+define("_BETWEEN","Entre");//Between
+define("_ISASSIGNED","É atribuído");//Is assigned
+define("_ISNOTASSIGNED","Não é atribuída");//Is not assigned
+define("_DURINGLASTDAY","Últimas 24h");//last 24h
+define("_DURINGLASTWEEK","semana passada");//last week
+define("_DURINGLASTMONTH","mês passado");//last month
+define("_COLUMN","Coluna");//Column
+define("_SELECTCOLUMN","Selecione coluna");//Select column
+define("_LEAVEBLANKTOAUTOADJUST","Deixe em branco para auto-ajustar a largura");//Leave blank to auto-adjust width
+define("_LEAVEBLANKTOUSECOLUMNNAME","Deixe em branco para usar nome da coluna");//Leave blank to use column name
+define("_WIDTHPERCENTAGE","Width (%)");//Width (%)
+define("_PLEASESELECTACOLUMN","Por favor, selecione uma coluna");//Please select a column
+define("_CHANGECOLUMNORDER","Alterar a ordem das colunas");//Change the columns order
+define("_VIEWINGREPORT","Visualizando relatório");//Viewing report
+define("_PLEASESELECTACONDITION","Por favor, selecione uma condição");//Please select a condition
+define("_BASIC","Básico");//Basic
+define("_LEARNING","Aprendizagem");//Learning
+define("_ENTERPRISE","Empresa");//Enterprise
+define("_DRAGITEMSTOCHANGEORDER","Arraste os itens para mudar a ordem");//Drag items to change order
+define("_CUSTOMFIELDS","Os campos personalizados");//Custom fields
+define("_FORMATTEDLOGIN","Formatado login");//Formatted login
+define("_DEFAULTSORT","classificação padrão");//Default sort
+define("_ANDTAKESPRECEDENCE","&quot;and&quot; operador tem precedência");//&quot;and&quot; operator takes precedence
+define("_CURREPAGEOPERATIONS","Atuais operações página");//Current page operations
+define("_ORSPECIFYANEWGROUPTOADDTO","Ou especificar um novo grupo para adicionar");//Or specify a new group to add to
+define("_ADDTO","Adicionar ao");//Add to
+define("_REMOVEFROM","Retire do");//Remove from
+define("_GROUPOPERATIONS","operações do Grupo");//Group operations
+define("_CERTIFICATEOPERATIONS","Certificado de operações");//Certificate operations
+define("_LESSONOPERATIONS","Lição operações");//Lesson operations
+define("_COURSEOPERATIONS","Curso de operações");//Course operations
+define("_EXPORTTOCSV","Exportar para CSV");//Export to csv
+define("_NOEVENTCODEDEFINED","Nenhum código de evento definido");//No event code defined
+define("_FILESIMPORTEDSUCCESSFULLY","Arquivos importados com sucesso");//Files imported successfully
+define("_CONVERTFOLDERSTOHIERARCHY","Converta pastas a hierarquia aninhada");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Descompacte o arquivo zip (s) e conteúdo de importação");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","O tema é bloqueado");//The theme is locked
+define("_BLANKREPORT","relatório em branco");//Blank report
+define("_CUSTOMREPORTS","Os relatórios personalizados");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","O administrador do sistema irá ativar a sua revisão e matrículas");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","tabela de atualização");//Refresh table
+define("_REMOVEFROMSET","Retire do conjunto");//Remove from set
+define("_BRANCHTREE","Ramo de árvore");//Branch tree
+define("_CHANGECONDITIONORDER","Alterar a ordem condição");//Change condition order
+define("_INDEX","Índice");//Index
+define("_EVENTDATETIME","Evento data e hora");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","O arquivo de certificado foi ausente ou corrompido e, portanto, foi reposto");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Visível a partir de");//Visible from (New)
+define("_EXPIRESAT","Expira em");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Calendário da data de exibição");//Calendar display date (New)
+define("_GLOBAL","Global");//Global (New)
+define("_ALLDAY","Todos os dias");//All day (New)
+define("_CREATECALENDAREVENT","Criar um calendário de eventos");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Substituir pasta existente");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Landing page");//Landing page (New)
+define("_EXPORTTOXLS","Exportar para xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Inquérito não será publicado");//Survey failed to be published (New)
+define("_PRINTCHART","gráfico de impressão");//Print chart (New)
+define("_RESPONSEDETAILS","detalhes da resposta");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Mostrando somente entidades ativas");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Mostrando somente entidades inativos");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Mostrando ambas as entidades ativas e inativas");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Este evento não existe mais");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","fila de mensagens claras");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Aplicar para usuários já pertence a este cargo");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Isso só pode adicionar (não remover) uma nova seleção para um usuário");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Classificar por");//Sort by (New)
+define("_TRAINING","Formação");//Training (New)
+define("_COMPLETEDLESSONS","Terminado aulas");//Completed lessons (New)
+define("_INCOMPLETELESSONS","aulas incompleta");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","cursos concluídos");//Completed courses (New)
+define("_INCOMPLETECOURSES","cursos incompletos");//Incomplete courses (New)
+define("_EDITCOLUMN","Na coluna Editar");//Edit column (New)
+define("_LESSONSFORCOURSE","Lições para o curso");//Lessons for course (New)
+define("_TESTSFORLESSON","Testes para a aula");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Completa para todos os usuários");//Complete for all users (New)
+define("_LESSONTIMES","Lição vezes");//Lesson times (New)
+define("_MINUTESPERDAY","Minutos por dia");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Log usuário para fora depois (minutos)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Updater período (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Os valores recomendados são nada menos do que 10000ms e não mais de 360000ms. Também deve ser definido inferior ao tempo de logout automático.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Mais de 1 ramos (locais) associado a este curso, mostrando a primeira");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Inserir");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Atribuição aprovado pelo");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","supervisor imediato do empregado");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","desativação do usuário");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","foi desativada a partir do sistema");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Supervisor de aprovação");//Supervisor approval (New)
+define("_APPROVE","Aprovar");//Approve (New)
+define("_GROUPKEYEXISTS","Chave única já existe");//Unique key already exists (New)
+define("_PARTOFCOURSES","Parte dos cursos");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Essa aula faz parte dos cursos de um ou mais, por isso não pode mudar o modo de");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Existem usuários se inscreveram para esta lição. Por favor, não atribuir-los antes de alternar os modos");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Cursos (incompleto / total)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Exportar arquivos");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Curso de validade previsto");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Curso programado início");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","início agendado de curso");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","validade prevista de curso");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Todos os utilizadores da disciplina");//All course users (New)
 ?>

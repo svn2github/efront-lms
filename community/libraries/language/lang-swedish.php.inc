@@ -258,6 +258,8 @@ define("_LESSONMATERIAL","Lektionsmaterial");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Det finns inga frågor definierade");//There are no questions defined
 define("_ADDQUESTION","Lägg till fråga");//Add question
 define("_PREVIEW","Förhandsgranska");//Preview
+define("_RENAME","Byt namn");//Rename (New)
+define("_CLONE","Klon");//Clone (New)
 define("_NOTESTSSETFORTHISUNIT","Inga tester funna");//No tests found
 define("_ADDTEST","Lägg till test");//Add test
 define("_UNITANDSUBUNITSTESTS","Tester i avsnitt och delavsnitt");//Unit and subunits tests
@@ -1013,12 +1015,35 @@ define("_RESUMELESSON","Återgå till lektionen");//Resume lesson
 define("_STARTLESSON","Börja lektionen");//Start lesson
 define("_TRACKING","Spåra");//Tracking
 define("_FORMATCERTIFICATE","Formatera intyg");//Format certificate
+define("_FORMATCERTIFICATETEMPLATE","Format certifikatmall");//Format certificate template (New)
+define("_SETCERTIFICATEEXPIRATION","Ställ intyg utgångsdatum");//Set certificate expiration (New)
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Använd LiveDocX metod för att skapa certifieringar");//Use the LiveDocX method for creating certifications (New)
+define("_FORMATCERTIFICATEFPDFMETHOD","Använd XML-metod för att skapa certifieringar");//Use the XML method for creating certifications (New)
+define("_ADDCERTIFICATETEMPLATEXML","Lägg certifikatmall (xml-format)");//Add certificate template (xml format) (New)
+define("_EDITCERTIFICATETEMPLATEXML","Redigera certifikatmall (xml-format)");//Edit certificate template (xml format) (New)
+define("_RENAMECERTIFICATETEMPLATEXML","Byt namn certifikatmall");//Rename certificate template (New)
+define("_CLONECERTIFICATETEMPLATEXML","Clone certifikatmall");//Clone certificate template (New)
+define("_CERTIFICATENAME","Intyg namn");//Certificate name (New)
+define("_CERTIFICATEDESCRIPTION","Intyg beskrivning");//Certificate description (New)
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML-beskrivning kan inte vara tom");//XML description cannot be empty (New)
+define("_EXISTINGCERTIFICATETEMPLATESXML","Befintliga certifikatmallar");//Existing certificate templates (New)
 define("_TRAFFIC","Trafik");//Traffic
 define("_LESSONTRAFFIC","Lektionstrafik");//Lesson traffic
 define("_EDITTEST","Redigera test");//Edit test
 define("_EDITQUESTION","Redigera fråga");//Edit question
 define("_CERTIFICATE","Intyg");//Certificate
-define("_SUCCESFULLYUPDATEDCERTIFICATE","Har uppdaterat intyg");//Successfully updated certificate
+define("_SUCCESFULLYUPDATEDCERTIFICATE","Har uppdaterat intyg");//Certificate was successfully updated
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Certifikatmall har lagts");//Certificate template was successfully added (New)
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Det uppstod ett problem samtidigt som du lägger certifikatmallen");//There was a problem while adding certificate template (New)
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Certifikatmall har uppdaterats");//Certificate template was successfully updated (New)
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Det uppstod ett problem vid uppdatering certifikatmallen");//There was a problem while updating certificate template (New)
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Certifikatmall framgångsrikt namn");//Certificate template was successfully renamed (New)
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Det uppstod ett problem när namnet certifikatmallen");//There was a problem while renaming certificate template (New)
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Certifikatmall framgångsrikt klonade");//Certificate template was successfully cloned (New)
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Det uppstod ett problem när kloning certifikatmallen");//There was a problem while cloning certificate template (New)
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certifikatmall har tagits bort");//Certificate template was successfully deleted (New)
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Det uppstod ett problem vid radering certifikatmallen");//There was a problem while deleting certificate template (New)
+define("_CERTIFICATETEMPLATENOACCESS","Du har inte rätt att ändra detta certifikatmallen");//You don't have the rights to modify this certificate template (New)
 define("_EDITCONDITION","Redigera villkor");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Konfiguration av SMTP-server");//SMTP server configuration
 define("_SMTPSERVER","SMTP-server");//SMTP server
@@ -1186,6 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Fälten i CSV-fil
 define("_IFEMPTYNEWPASSWORD","Fält i rött är obligatoriska. Om det inte finns ett angivet lösenord, kommer samma lösenord som vid inloggningen att användas.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kontrollera formatet av din CSV-fil");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Använd # user_name # för användarens namn, # user_surname # för användarens efternamn, # course_name # för kursen namn, # # klass för klass och datum # # för dagen.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONSXML","I mallen, använd &lt;organization&gt; &lt;/ organisation&gt; för organisations namn, &lt;student&gt; &lt;/ student&gt; för elevens fullständiga namn, &lt;course&gt; &lt;/ kurs&gt; för kursens namn, &lt;grade&gt; &lt;/ grad&gt; för betyg, &lt; seriell&gt; &lt;/ seriell&gt; för löpnummer, &lt;datum&gt; &lt;/ datum&gt; för datum, &lt;logo&gt; &lt;/ logo&gt; för logotyp och &lt;background&gt; &lt;/&gt; bakgrund för bakgrund.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
 define("_VOTES","Omröstningar");//Votes
 define("_PERCENTAGE","Procent");//Percentage
 define("_CERTIFICATEISSUED","Intyg utfärdat");//Certificate issued
@@ -1627,6 +1653,7 @@ define("_TIMEREMAIN","Återstående tid");//Remain
 define("_WEEKS","veckor");//weeks
 define("_WEEKs","vecka");//week
 define("_DAYS","dagar");//days
+define("_DAYSCAPITAL","Dagar");//Days (New)
 define("_DAY","Dag");//Day
 define("_EVALUATIONDATAUPDATED","Omdöme uppdaterades");//Evaluation data updated successfully
 define("_EVALUATION","Omdöme");//Evaluation
@@ -3650,8 +3677,6 @@ define("_LESSONSCATALOG","Användarens lektionskatalog");//User's lesson catalog
 define("_USERDASHBOARD","Användarens anslagstavla");//User's dashboard
 define("_NOTITLEPROVIDEDFORNEWJOB","Ingen titel försedd till befattningsbeskrivningen");//No title provided for job description
 define("_EDITORTYPE","Redigerningstyp");//Editor type
-define("_TINYMCE","TinyMCE 3.2.1.1");//Tinymce 3.2.1.1
-define("_NEWTINYMCE","TinyMCE 3.3.3");//Tinymce 3.3.3
 define("_DONOTSHOWTESTAFTERSUBMITTING","Visa endast ett meddelande efter inlämning av test");//Show only a message after submitting test
 define("_TESTSUCCESSFULLYSUBMITTED","Inlämning av test lyckad");//This test was successfully submitted
 define("_LEARNINGSTATUS","Inlärningsstatus");//Learning Status
@@ -3857,5 +3882,58 @@ define("_BRANCHTREE","Branchträd");//Branch tree
 define("_CHANGECONDITIONORDER","Ändra villkor för");//Change condition order
 define("_INDEX","Index");//Index
 define("_EVENTDATETIME","Datum och tid för händelse");//Event date and time
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET", "Intygsfilen saknas eller är skadad och har därför återställts");//The certificate file was missing or corrupt and thus was reset
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Intygsfilen saknas eller är skadad och har därför återställts");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Synlig från");//Visible from (New)
+define("_EXPIRESAT","Löper ut vid");//Expires at (New)
+define("_CALENDARDISPLAYDATE","Kalender visa datum");//Calendar display date (New)
+define("_GLOBAL","Global");//Global (New)
+define("_ALLDAY","Hela dagen");//All day (New)
+define("_CREATECALENDAREVENT","Skapa kalenderhändelse");//Create calendar event (New)
+define("_OVERWRITEIFFOLDEREXISTS","Skriv över befintlig mapp");//Overwrite existing folder (New)
+define("_LANDINGPAGE","Målsidans");//Landing page (New)
+define("_EXPORTTOXLS","Exportera till xls");//Export to xls (New)
+define("_SURVEYFAILEDTOBEPUBLISHED","Undersökning inte skall offentliggöras");//Survey failed to be published (New)
+define("_PRINTCHART","Skriv ut diagram");//Print chart (New)
+define("_RESPONSEDETAILS","Response detaljer");//Response details (New)
+define("_SHOWINGONLYACTIVEENTITIES","Visar endast aktiva enheter");//Showing only active entities (New)
+define("_SHOWINGONLYINACTIVEENTITIES","Visar endast inaktiva enheter");//Showing only inactive entities (New)
+define("_SHOWINGALLENTITIES","Visar både aktiva och inaktiva enheter");//Showing both active and inactive entities (New)
+define("_EVENTDOESNOTEXIST","Denna händelse finns inte längre");//This event no longer exists (New)
+define("_CLEARQUEUEMESSAGES","Töm meddelanden");//Clear queue messages (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Ansök till användare som redan tillhör denna befattning");//Apply to users already belongs to this job position (New)
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Detta kan bara lägga till (inte bort) ett nytt val till en användare");//This can only add (not remove) a new selection to a user (New)
+define("_SORTBY","Sortera efter");//Sort by (New)
+define("_TRAINING","Utbildning");//Training (New)
+define("_COMPLETEDLESSONS","Genomförda lektioner");//Completed lessons (New)
+define("_INCOMPLETELESSONS","Ofullständig lektioner");//Incomplete lessons (New)
+define("_COMPLETEDCOURSES","Avslutade kurser");//Completed courses (New)
+define("_INCOMPLETECOURSES","Ofullständig kurser");//Incomplete courses (New)
+define("_EDITCOLUMN","Redigera kolumnen");//Edit column (New)
+define("_LESSONSFORCOURSE","Lektioner för kurs");//Lessons for course (New)
+define("_TESTSFORLESSON","Tester för lektionen");//Tests for lesson (New)
+define("_SETALLUSERSSTATUSCOMPLETED","Komplett för alla användare");//Complete for all users (New)
+define("_LESSONTIMES","Lektion gånger");//Lesson times (New)
+define("_MINUTESPERDAY","Minuter per dag");//Minutes per day (New)
+define("_LOGOUTUSERAFTERMINUTES","Logga ut användare efter (minuter)");//Log out user after (minutes) (New)
+define("_UPDATERPERIODSECONDS","Updater period (ms)");//Updater period (ms) (New)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Rekommenderade värden är inte mindre än 10000ms och högst 360000ms. Den måste också sättas lägre än för automatisk utloggning tiden.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Mer än 1 kontor (platser) i samband med denna kurs, som visar den första");//More than 1 branches (locations) associated with this course, showing the first one (New)
+define("_INSERT","Infoga");//Insert (New)
+define("_ASSIGNMENTAPPROVEDBY","Uppdrag som godkänts av");//Assignment approved by (New)
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Arbetstagarens närmaste chef");//Employee's immediate supervisor (New)
+define("_SYSTEM_USER_DEACTIVATED","Användare avaktivering");//User deactivation (New)
+define("_WASDEACTIVATEDFROMTHESYSTEM","var deaktiverat från systemet");//was deactivated from system (New)
+define("_SUPERVISORAPPROVAL","Handledare godkännande");//Supervisor approval (New)
+define("_APPROVE","Godkänn");//Approve (New)
+define("_GROUPKEYEXISTS","Unik nyckel finns redan");//Unique key already exists (New)
+define("_PARTOFCOURSES","En del av kurserna");//Part of courses (New)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Denna lektion är en del av en eller flera kurser, så det inte kan ändra läge");//This lesson is part of one or more courses, so it cannot change mode (New)
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Det finns användare inskrivna här lektionen. Vänligen unassign dem innan man byter funktion");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
+define("_COURSESINCOMPLETETOTAL","Kurser (ofullständig / totalt)");//Courses (incomplete/total) (New)
+define("_EXPORTFILES","Exportera filer");//Export files (New)
+define("_PROGRAMMEDCOURSEEXPIRY","Kurs schemalagda utgångsdatum");//Course scheduled expiration (New)
+define("_PROGRAMMEDCOURSESTART","Kurs planerna inleds");//Course scheduled beginning (New)
+define("_SCHEDULEDSTARTOFCOURSE","Schemalagd kursstart");//Scheduled start of course (New)
+define("_SCHEDULEDEXPIRYOFCOURSE","Schemalagd utgången naturligtvis");//Scheduled expiration of course (New)
+define("_ALLCOURSEUSERS","Alla användare av kursen");//All course users (New)
 ?>

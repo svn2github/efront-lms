@@ -61,17 +61,7 @@ function onResetUser() {
   }
  }
 }
-function onSortedTableComplete() {
- var heightValue;
- if (sortedTables[tableIndex].getDimensions().height != 0) {
-  heightValue = parseInt(sortedTables[tableIndex].getDimensions().height+50);
- } else {
-  heightValue = 0;
- }
- if (sortedTables[tableIndex].id == 'filesTable') {
-  $('filemanager_cell').setStyle({width:sortedTables[tableIndex].getDimensions().width+'px', height:heightValue+'px', verticalAlign:'top'});
- }
-}
+
 
 function insertatcursor(myField, myValue) {
         if (document.selection) {

@@ -26,7 +26,7 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
 
      * settings are:
 
-     * - nohandle: Will not display an open/close handle, the block will be always bisible
+     * - nohandle: Will not display an open/close handle, the block will be always visible
 
      */
     if (isset($params['settings'])) {
@@ -212,17 +212,16 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
             $showContent = '';
         }
     }
- //$handleString .= '<img class = "removePopupIcon" '.($_GET['popup'] ? '' : 'style = "display:none"').' src = "images/16x16/close.png" alt = "'._CLOSE.'" title = "'._CLOSE.'" onclick = "closePopup()">';
+    //This is hidden (css) unless it's inside a sortable ul
+ $handleString .= '<img class = "blockMoveHandle" src = "images/16x16/attachment.png" onmousedown = "createSortable(\'firstlist\');createSortable(\'secondlist\');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)">';
     $str = '
     <div class = "block" style = "'.$params['style'].';" id = "'.urlencode($params['title']).'" >
-        <div class = "blockContents">
-         <div class = "blockHeaderTitle" onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" >
-    <span class = "handles">'.$optionsString.$handleString.'</span>
+        <div class = "blockContents" >
+          <span class = "handles">'.$optionsString.$handleString.'</span>
           <span class = "title">'.$image.''.$params['title'].'</span>
           <span class = "subtitle">'.$params['sub_title'].'</span>
           '.$mainOptions.'
-         </div>
-          <div class = "content" style = "'.$showContent.'" id = "'.urlencode($params['title']).'_content">
+          <div class = "content" style = "'.$showContent.';" id = "'.urlencode($params['title']).'_content" onmousedown = "Sortable.destroy(\'firstlist\');Sortable.destroy(\'secondlist\');">
      '.$params['content'].'
     </div>
           <span style = "display:none">&nbsp;</span>

@@ -5,6 +5,9 @@ function showBorders(event) {
   if (Math.abs(event.pointerX() - s.pointerX()) > 10) {
    $('first_empty').show();
    $('second_empty').show();
+//			$('first_empty').clonePosition(el.up().up(), {setLeft:false, setTop:false}).show();
+//			$('second_empty').clonePosition(el.up().up(), {setLeft:false, setTop:false}).show();
+
    Event.stopObserving(el, 'mousemove');
   }
  });
@@ -19,17 +22,20 @@ function hideBorders(event) {
 
 function createSortable(list) {
  Sortable.create(list, {
-  handles: $$('#'+list+' div.block div.blockHeaderTitle'),
+  //handles: $$('#'+list+' div.block img.blockHeaderTitle1'),
   containment:["firstlist", "secondlist"], constraint:false,
   onUpdate: function() {
+  //alert(Sortable.serialize('firstlist'));alert(Sortable.serialize('secondlist'));alert(123);
    new Ajax.Request('set_positions.php', {
     method:'post',
     asynchronous:true,
     parameters: { firstlist: Sortable.serialize('firstlist'), secondlist: Sortable.serialize('secondlist') },
-    onSuccess: function (transport) {},
-    onFailure: function (transport) {alert(decodeURIComponent(transport.responseText));}
+    onSuccess: function (transport) {Sortable.destroy('firstlist');Sortable.destroy('secondlist');},
+    onFailure: function (transport) {Sortable.destroy('firstlist');Sortable.destroy('secondlist');alert(decodeURIComponent(transport.responseText));}
    });
- }});
+   //Sortable.destroy('firstlist');Sortable.destroy('secondlist');
+ }
+ });
 }
-createSortable('firstlist');
-createSortable('secondlist');
+//createSortable('firstlist');
+//createSortable('secondlist');

@@ -385,7 +385,7 @@
                         </li>
      {/if}
     {/foreach}
-      <li id = "second_empty" style = "display:none;height:5px;border:1px dashed gray"></li>
+      <li id = "second_empty" style = "display:none;"></li>
      </ul>
                 </div>
                 <div style="width:50%; height:100%;">
@@ -419,7 +419,7 @@
                         </li>
     {/if}
 
-                        <li id = "first_empty" style = "display:none;height:5px;border:1px dashed gray"></li>
+                        <li id = "first_empty" style = "display:none;"></li>
                     </ul>
                 </div>
    </div>

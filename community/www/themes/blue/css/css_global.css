@@ -1123,6 +1123,8 @@ border: 1px solid #2A4562;
 padding:5px;
 background:#1E3247 url('../images/css_images/gradient.gif') repeat-x top;
 }
+img.blockMoveHandle{display:none}
+ul.sortable img.blockMoveHandle{cursor:move;display:inline}
 div.block table.iconTable{
 width:100%;
 }

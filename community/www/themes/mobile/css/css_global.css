@@ -1100,6 +1100,9 @@ border: 1px solid #CCCCCC;
 padding:5px;
 background:#FAFAFA url('../images/css_images/gradient_medium.jpg') repeat-x top;
 }
+img.blockMoveHandle{display:none}
+ul.sortable img.blockMoveHandle{cursor:move;display:inline}
+
 div.block table.iconTable{
 width:100%;
 }

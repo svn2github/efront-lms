@@ -25,12 +25,33 @@ function onLoadRss(el, response) {
 
 function scrollFeeds() {
  elements = $('rss_list').select('li');
- $('rss_list').setStyle({height:$('rss_list').getDimensions().height+'px'});
- new Effect.Fade(elements[0], {afterFinish: function (s) {$('rss_list').insert(elements[0].remove())} });
+ var height = $('rss_list').getHeight();
+
+ //$('rss_list').setStyle({height:$('rss_list').getHeight()+'px'});
+
+ new Effect.Fade(elements[0], {afterFinish: function (s) {$('rss_list').insert(elements[0].remove());} });
  if (elements.length > 10) {
   new Effect.Appear(elements[11]);
  } else {
   new Effect.Appear(elements[elements.length-1]);
+ }
+ setRssHeight(elements);
+}
+
+function setRssHeight(elements) {
+ height = 0;
+ if (elements.length > 10) {
+  for (var i = 0; i <= 11; i++) {
+   height = height+elements[i].getHeight();
+  }
+ } else {
+  for (var i = 0; i <= elements.length; i++) {
+   height = height+elements[i].getHeight();
+  }
+ }
+
+ if (height > $('rss_list').getHeight()) {
+  $('rss_list').setStyle({height:height+'px'});
  }
 }
 

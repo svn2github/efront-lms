@@ -493,17 +493,6 @@ function toggleHorizontalSidebar(el, cookie) {
   $('logout_link').insert($('tab_handles').remove());
  }
 }
-function onSortedTableComplete() {
- var heightValue;
- if (sortedTables[tableIndex].getDimensions().height != 0) {
-     heightValue = parseInt(sortedTables[tableIndex].getDimensions().height+50);
- } else {
-     heightValue = 0;
- }
- if (sortedTables[tableIndex].id == 'filesTable') {
-     $('filemanager_cell').setStyle({width:sortedTables[tableIndex].getDimensions().width+'px', height:heightValue+'px', verticalAlign:'top'});
- }
-}
 function setImageSrc(el, dim, img) {
  if (1) {
   re = new RegExp('sprite'+dim+'-(.*)');

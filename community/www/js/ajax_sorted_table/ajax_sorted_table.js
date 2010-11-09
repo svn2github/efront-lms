@@ -279,7 +279,9 @@
          }
         }
        }
+
        generateTips();
+       repositionFileManager(sortedTables[tableIndex]);
 
        if (window.onSortedTableComplete) {
         window.onSortedTableComplete();
@@ -288,7 +290,6 @@
        if (sortedTables[tableIndex].hasClassName('subSection')) {
         onLoadSubSection(sortedTables[tableIndex]);
        }
-
       }
       });
      } catch (e) {
@@ -475,9 +476,7 @@ function eF_js_sortTable(el, other) {
     function eF_js_selectAll (el, tableIndex) {
      try {
       var table = sortedTables[tableIndex]; //Get the table to perform paging on
-      if (window.ajaxPost && !table.getAttribute('nomass')) {
-       ajaxPost('', el, sortedTables[tableIndex].id);
-      }
+
       var inputs = table.getElementsByTagName('input'); //Get all the \"input\" elements on the table
 
       for (var i = 0; i < inputs.length; i++) {
@@ -540,6 +539,9 @@ function eF_js_sortTable(el, other) {
          }
         }
        }
+      }
+   if (window.ajaxPost && !table.getAttribute('nomass')) {
+       ajaxPost('', el, sortedTables[tableIndex].id);
       }
      } catch (e) {alert(e);}
 
@@ -1109,6 +1111,17 @@ function toggleActive(el, tableIndex) {
  eF_js_rebuildTable(tableIndex, 0, 'null', 'desc');
 }
 
+function repositionFileManager(table) {
+ if (table.id == 'filesTable') {
+  var heightValue;
+  if (table.getDimensions().height != 0) {
+   heightValue = parseInt(table.getDimensions().height+50);
+  } else {
+   heightValue = 0;
+  }
+  $('filemanager_cell').setStyle({width:table.getDimensions().width+'px', height:heightValue+'px', verticalAlign:'top'});
+ }
+}
 
 if (typeof(readCookieForSortedTablePreset) != 'undefined' && readCookie(readCookieForSortedTablePreset)) {
  var sort_id = readCookie(readCookieForSortedTablePreset).split('--')[0];

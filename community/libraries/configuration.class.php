@@ -89,6 +89,7 @@ class EfrontConfiguration
         'display_empty_blocks' => '1', //0 means 'no', 1 means 'yes'
   'login_redirect_page' => 'lesson_catalog', // possilbe values 'lesson_catalog', 'user_dashboard'
   'editor_type' => 'tinymce', // possible values 'tinymce', 'tinymce_new'
+  'show_footer' => '1',
         //LDAP
         'activate_ldap' => '0',
         'only_ldap' => '0',

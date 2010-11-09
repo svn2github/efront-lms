@@ -970,7 +970,7 @@ class EfrontFile extends ArrayObject
      * @access public
 
      */
-    public function toHTMLTooltipLink($link, $preview = true) {
+    public function toHTMLTooltipLink($link, $preview = true, $tableId = 'filesTable') {
         $classes[] = 'info'; //This array holds the link css classes
         if (!$link) {
             $link = 'javascript:void(0)';
@@ -979,7 +979,7 @@ class EfrontFile extends ArrayObject
         $tooltipString = '
             <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;" '.($preview ? 'onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\')" target = "PREVIEW_FRAME"' : '').'>
                 '.$this -> offsetGet('name').'
-                <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/><span class = "tooltipSpan">';
+                <span class = "tooltipSpan">';
         foreach ($this as $key => $value) {
             if ($value) {
                 switch ($key) {
@@ -2687,7 +2687,7 @@ class FileSystemTree extends EfrontTree
                 $filesCode .= '<td><span id = "span_'.urlencode($identifier).'" style = "display:none;">'.urlencode($identifier).'</span>';
                 if ($value['type'] == 'file') {
                     if (!$show_tooltip) {
-                        $filesCode .= $value -> toHTMLTooltipLink($link);
+                        $filesCode .= $value -> toHTMLTooltipLink($link, true, $tableId);
                     } else {
                         if (strpos($value['mime_type'], "image") !== false || strpos($value['mime_type'], "text") !== false || strpos($value['mime_type'], "pdf") !== false || strpos($value['mime_type'], "flash") !== false) {
                             $filesCode .= '<a class="editLink" href = "'.$link.'" target = "PREVIEW_FRAME" onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\');">'.$value['name'].'</a>';

@@ -17,7 +17,7 @@ if (!$_student_) {
 } else {
     $test = new EfrontTest($currentUnit['id'], true);
     $status = $test -> getStatus($currentUser, $_GET['show_solved_test']);
-    $form = new HTML_QuickForm("test_form", "post", basename($_SERVER['PHP_SELF']).'?view_unit='.$_GET['view_unit'], "", null, true);
+    $form = new HTML_QuickForm("test_form", "post", basename($_SERVER['PHP_SELF']).'?view_unit='.$_GET['view_unit'], "", 'onsubmit = "$(\'submit_test\').disabled=true;"', true);
  switch ($status['status']) {
         case 'incomplete':
             if (!$testInstance = unserialize($status['completedTest']['test'])) {
@@ -144,9 +144,9 @@ if (!$_student_) {
 
         $form -> addElement('hidden', 'time_start', $timeStart); //This element holds the time the test started, so we know the remaining time even if the user left the system
         if ($currentUnit['ctg_type'] !== 'feedback') {
-   $form -> addElement('submit', 'submit_test', _SUBMITTEST, 'class = "flatButton" onclick = "this.disabled=true;return checkQuestions()"');
+   $form -> addElement('submit', 'submit_test', _SUBMITTEST, 'class = "flatButton" id = "submit_test" onclick = "return checkQuestions()"');
   } else {
-   $form -> addElement('submit', 'submit_test', _SUBMITFEEDBACK, 'class = "flatButton" onclick = "this.disabled=true;return checkQuestions()"');
+   $form -> addElement('submit', 'submit_test', _SUBMITFEEDBACK, 'class = "flatButton"  id = "submit_test" onclick = "return checkQuestions()"');
   }
         if ($testInstance -> options['pause_test']) {
             $form -> addElement('submit', 'pause_test', _PAUSETEST, 'class = "flatButton"');

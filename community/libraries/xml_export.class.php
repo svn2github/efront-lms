@@ -64,8 +64,11 @@ class XMLExport{
 
    if($start == 'http://')
     $backgroundUrl = $background['file'];
-   else
-    $backgroundUrl = G_SERVERNAME.'themes/default/images/certificate_logos/'.$background['file'];
+   else{
+    //$backgroundUrl = G_SERVERNAME.'themes/default/images/certificate_logos/'.$background['file'];
+    $backgroundFile = new EfrontFile(G_DEFAULTIMAGESPATH."certificate_logos/".$background['file']);
+    $backgroundUrl = $backgroundFile['path'];
+   }
 
    $pdf->setMargins(0);
    $pdf->SetHeaderData($backgroundUrl);
@@ -95,8 +98,11 @@ class XMLExport{
 
    if($start == 'http://')
     $imgUrl = $img['file'];
-   else
-    $imgUrl = G_SERVERNAME.'themes/default/images/certificate_logos/'.$img['file'];
+   else{
+    //$imgUrl = G_SERVERNAME.'themes/default/images/certificate_logos/'.$img['file'];
+    $imgFile = new EfrontFile(G_DEFAULTIMAGESPATH."certificate_logos/".$img['file']);
+    $imgUrl = $imgFile['path'];
+   }
 
    $this->showImage($pdf, $imgUrl, $img['x'], $img['y']);
   }
@@ -113,21 +119,24 @@ class XMLExport{
    if($start == 'http://')
     $logoUrl = $logo['file'];
    else{
-    try{
-     try{
-      $configuration = EfrontConfiguration::getValues();
-      $logoFile = new EfrontFile($configuration['logo']);
-      $logoUrl = G_SERVERNAME.'themes/default/images/logo/'.$logoFile['physical_name'];
-     }
-     catch(EfrontFileException $e){
-      $currentTheme = new themes(G_CURRENTTHEME);
-      $logoFile = new EfrontFile($currentTheme->options['logo']);
-      $logoUrl = G_SERVERNAME.'themes/default/images/'.$logoFile['physical_name'];
-     }
-    }
-    catch(EfrontFileException $e){
-     $logoUrl = G_SERVERNAME.'themes/default/images/logo.png';
-    }
+    /*try{
+					try{
+						$configuration = EfrontConfiguration::getValues();
+						$logoFile = new EfrontFile($configuration['logo']);
+						$logoUrl = G_SERVERNAME.'themes/default/images/logo/'.$logoFile['physical_name'];
+					}
+					catch(EfrontFileException $e){
+						$currentTheme = new themes(G_CURRENTTHEME);
+						$logoFile = new EfrontFile($currentTheme->options['logo']);
+						$logoUrl = G_SERVERNAME.'themes/default/images/'.$logoFile['physical_name'];
+					}
+				}
+				catch(EfrontFileException $e){
+					$logoUrl = G_SERVERNAME.'themes/default/images/logo.png';
+				}*/
+
+    $logoFile = EfrontSystem::getSystemLogo();
+    $logoUrl = $logoFile['path'];
    }
 
    $this->showImage($pdf, $logoUrl, $logo['x'], $logo['y']);

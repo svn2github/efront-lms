@@ -127,12 +127,9 @@
           </div>
           {$smarty.capture.t_buy_course_code}
           {foreach name = 'course_lessons_list' item = "lesson" key = "id" from = $T_COURSE_LESSONS}
-           <div style = "border-left:1px solid grey;border-right:1px solid grey;border-bottom:1px solid grey;margin-top:10px;">
+          <div class = "courseLessonInfo">
            <div class = "topTitle" >
             <a href = "javascript:scroll(0,0)" name = "{$lesson->lesson.id}" >{$lesson->lesson.name}</a>
-            {if $lesson->lesson.start_date}
-            <a href = "javascript:void(0)" style = "text-decoration:none;cursor:default;margin-left:30px">(#filter:timestamp_time_nosec-{$lesson->lesson.start_date}# - #filter:timestamp_time_nosec-{$lesson->lesson.end_date}#)</a>
-            {/if}
            </div>
            {foreach name = 'info_list' item = "item" key = "key" from = $T_COURSE_LESSON_INFO[$id]->metadataArray}
             <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_LESSON_INFO[$id]->metadataAttributes.$key}:</span> {$item}</div>
@@ -149,7 +146,7 @@
                 {$T_CONTENT_TREE[$id]}
             </fieldset>
            {/if}
-           </div>
+          </div>
           {/foreach}
          {/if}
 

@@ -54,8 +54,9 @@ if ($_SESSION['s_lessons_ID']) {
         <td class="column1"><label id="srclabel" for="src">{#advimage_dlg.src}</label></td>
         <td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
          <tr>
-           <td><input name="src" type="text" id="src" value="" class="mceFocus" onchange="ImageDialog.showPreviewImage(this.value);" /></td>
+           <td><input name="src" type="text" id="src" value="" class="mceFocus" onblur="ImageDialog.showPreviewImage(this.value);" onchange="ImageDialog.showPreviewImage(this.value);" /></td>
            <td id="srcbrowsercontainer">&nbsp;</td>
+           <td><button style="width:25px;height:20px" type="button" onclick = "ImageDialog.showPreviewImage(src.value);">&rarr;</button></td>
          </tr>
           </table></td>
        </tr>

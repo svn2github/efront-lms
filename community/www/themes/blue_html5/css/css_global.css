@@ -10,8 +10,8 @@ font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 background:#FFFFFF;/*#1F3349/* /*url('../images/css_images/gradient_large.gif') repeat-x top*/;  /* moved here to avoid scrolling issue in editor*/
 height:99%;
 margin:0px auto 0px auto;
-width:95%;
-max-width: 1180px;
+width:96%;
+max-width: 1100px;
 min-width: 750px;
 text-align: left;
 padding:0px;
@@ -122,11 +122,11 @@ table.pageLayout td.header #site_name{font-size:26px;}
 table.pageLayout td.header #logout_link{padding-right:2px}
 table.pageLayout td.header #logout_link a img{border-width:0px}
 table.pageLayout td.header #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
-table.pageLayout td.header #path{clear:left;padding-top:5px;padding-bottom:3px; -moz-box-shadow:  2px 2px 2px #888; -webkit-box-shadow:  2px 2px 2px #888;background:url('../images/css_images/gradient.gif') repeat-x top;height:25px;border-top: 0px solid #1f3349;border-bottom: 0px solid #1f3349}
+table.pageLayout td.header #path{clear:left;padding-top:5px;padding-bottom:3px;background:url('../images/css_images/gradient.gif') repeat-x top;height:25px;border-top: 0px solid #1f3349;border-bottom: 0px solid #1f3349}
 table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right; padding-right:4px;}
 
-table.pageLayout td.footer{color:#FFFFFF;height:15px;font-size:12px;text-shadow: 2px 2px 2px #000;-moz-box-shadow:  3px 3px 3px #888;-webkit-box-shadow:  3px 3px 3px #888; -moz-border-radius: 5px;-webkit-border-radius: 5px;border-top: 0px solid #1f3349;border-bottom: 0px solid #1f3349;padding:5px;text-align: right;background:url('../images/css_images/gradient.gif') repeat-x top;}
+table.pageLayout td.footer{color:#FFFFFF;height:15px;font-size:12px;text-shadow: 1px 1px 1px #000;border-top: 0px solid #1f3349;border-bottom: 0px solid #1f3349;padding:5px;text-align: right;background:url('../images/css_images/gradient.gif') repeat-x top;}
 table.pageLayout td.headerHidden{height:26px;border-bottom: 0px solid #999999;padding:0px;vertical-align:top;background:#FAFAFA;}
 table.pageLayout td.headerHidden #logo{display:none}
 table.pageLayout td.headerHidden #info{display:none}
@@ -153,8 +153,8 @@ table.calendar{
 background:#4A8CC6;
 color:#2F4F4F;
 width:100%;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
 }
 table.calendarHeader tr{
 background:#2959A5;
@@ -240,12 +240,12 @@ tr.lessonsList{
 	height:30px;
 } 
 tr.lessonsList td{
-	border-top: 1px solid #2a4562;
-	border-bottom: 1px solid #2a4562;
+	border-top: 0px solid #2a4562;
+	border-bottom: 0px solid #2a4562;
 	background:#A1B6C8;
 	padding:4px!important;
 }
-tr.lessonsList td.listPadding{border-width:1px;background:#A1B6C8;}
+tr.lessonsList td.listPadding{border-width:0px;background:#A1B6C8;}
 tr.lessonsList td.listIcon{border-left: 0px solid #AAAAAA;width:1px;}
 tr.lessonsList td.listTitle{width:100%;}
 tr.lessonsList td.listToggle{border-right: 0px solid #AAAAAA;width:1px;}
@@ -270,8 +270,8 @@ background:/*#DAE2E9*/ #FFFFFF;
 font-size:12px;
 font-weight:bold;
 font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
 }
 .inputText{width:250px;}
 .inputTextScore{width:30px;}
@@ -288,10 +288,10 @@ input.flatButton,button.flatButton{
 padding:5px 30px 5px 30px;
 font-weight:bold;
 background:#A1B6C8 url('../images/css_images/gradient.gif') repeat-x top;
-border:1px solid #2a4562;
+border:0px solid #2a4562;
 color:#FFFFFF;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
 text-shadow: 2px 2px 2px #000;
 
 }
@@ -369,7 +369,7 @@ white-space: nowrap;
 vertical-align: middle;
 }
 td.sortedTableFooter{
-background:#CCCCCC;
+background:#DDD;
 text-align:right;
 border-top: 1px solid #2a4562;
 border-bottom: 1px solid #2a4562;
@@ -391,11 +391,10 @@ table.subSection tr.oddRowColor:hover,table.subSection tr.evenRowColor:hover{bac
 .topTitle{
 font-weight:bold;
 color: #000;
-background:#CCCCCC; /*url('../images/css_images/gradient.gif') repeat-x bottom;*/
+background:#DDD;/* url('../images/css_images/gradient.gif') repeat-x bottom;*/
 border-top: 1px solid #2a4562;
 border-bottom: 1px solid #2a4562;
 padding:3px;
-text-shadow: 1px 1px 1px #999;
 }
 td#path{height:25px;}
 
@@ -573,10 +572,10 @@ border-bottom:none;
 margin-left:3px;
 padding:3px 0.5em;
 text-decoration:none;
--moz-border-radius-topleft: 5px;
--moz-border-radius-topright: 5px;
--webkit-border-radius-topleft: 5px;
--webkit-border-radius-topright: 5px;
+-moz-border-radius-topleft: 4px;
+-moz-border-radius-topright: 4px;
+-webkit-border-radius-topleft: 4px;
+-webkit-border-radius-topright: 4px;
 }
 ul.tabbernav li a:link{color:#448;}
 ul.tabbernav li a:visited{color:#667;}
@@ -669,7 +668,7 @@ color:#555555;
 font-size:16px;
 }
 
-table.horizontalBlock {color:#FFFFFF;vertical-align:middle;-moz-border-radius: 10px;-webkit-border-radius: 10px;text-shadow: 2px 2px 2px #000;background: url('../images/css_images/gradient_large.gif') repeat-x top;padding:0px;margin:0px;font-size:20px;font-weight:bold;width:100%;}
+table.horizontalBlock {color:#FFFFFF;vertical-align:middle;-moz-border-radius: 6px;-webkit-border-radius: 6px;text-shadow: 1px 1px 1px #000;background: url('../images/css_images/gradient_large.gif') repeat-x top;padding:0px;margin:0px;font-size:20px;font-weight:bold;width:100%;}
 table.horizontalBlock  a{color:#FFFFFF;}
 table.horizontalBlock td{vertical-align:middle;padding:5px 0px 5px 0px;white-space:nowrap;}
 table.horizontalBlock .rightOption{float:right;margin-left:10px;}
@@ -1040,6 +1039,7 @@ table.hideLayoutBoth td.layoutLeft{visibility:hidden}
 
 .lessonInfo{font-size:14px;padding:5px;}
 .lessonInfo .infoTitle{font-weight:bold;}
+div.courseLessonInfo {border-left:1px solid grey;border-right:1px solid grey;border-bottom:1px solid grey;margin-top:10px;}
 div#buy{text-align:right;}
 div#buy *{vertical-align:middle;border-width:0px;}
 table.pageLayout div .formRow {
@@ -1142,8 +1142,8 @@ margin-bottom:0px;
 div.blockContents{   
 border: 1px solid #FFFFFF;/*#2A4562;*/
 padding-top:6px;
--moz-border-radius: 10px;
--webkit-border-radius: 10px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
 /*background:#d00102 url('../images/css_images/gradient.gif') repeat-x top;*/
 background:#FFFFFF url('../images/css_images/gradient.gif') repeat-x top;
 }
@@ -1159,8 +1159,8 @@ padding:4px;
 div.block table.iconTable td.iconData:hover{
 background-color:#A1B6C8;
 border: 0px solid #2A4562;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
 -moz-box-shadow:  3px 3px 3px #888;
 -webkit-box-shadow:  3px 3px 3px #888;
 }
@@ -1175,7 +1175,6 @@ padding:10px;
 font-size:15px;
 font-weight:bold;
 color:#FFFFFF;
-text-shadow: 2px 2px 2px #000;
 }
 div.block .title img{
 vertical-align:middle;
@@ -1206,10 +1205,10 @@ margin-left:10px;
 }
 div.block .content {
 border:solid 1px #CCCCCC;
--moz-border-radius-bottomleft: 5px;
--moz-border-radius-bottomright: 5px;
--webkit-border-radius-bottomleft: 5px;
--webkit-border-radius-bottomright: 5px;
+-moz-border-radius-bottomleft: 2px;
+-moz-border-radius-bottomright: 2px;
+-webkit-border-radius-bottomleft: 2px;
+-webkit-border-radius-bottomright: 2px;
 padding:6px;
 background:#EEEEEE;
 }
@@ -1513,125 +1512,128 @@ table.navigationTable td.nextUnitHandle{width:27%;text-align:right;ertical-align
 .sprite16-branch { background-position: 0 -136px; width: 16px; height: 16px; } 
 .sprite16-calendar { background-position: 0 -153px; width: 16px; height: 16px; } 
 .sprite16-calendar_selection_all { background-position: 0 -170px; width: 16px; height: 16px; } 
-.sprite16-calendar_selection_day { background-position: 0 -187px; width: 24px; height: 24px; } 
-.sprite16-calendar_selection_month { background-position: 0 -212px; width: 16px; height: 16px; } 
-.sprite16-calendar_selection_week { background-position: 0 -229px; width: 16px; height: 16px; } 
-.sprite16-categories { background-position: 0 -246px; width: 16px; height: 16px; } 
-.sprite16-certificate { background-position: 0 -263px; width: 16px; height: 16px; } 
-.sprite16-chat { background-position: 0 -280px; width: 16px; height: 16px; } 
-.sprite16-clock { background-position: 0 -297px; width: 16px; height: 16px; } 
-.sprite16-close { background-position: 0 -314px; width: 16px; height: 16px; } 
-.sprite16-comment_add { background-position: 0 -331px; width: 16px; height: 16px; } 
-.sprite16-content { background-position: 0 -348px; width: 16px; height: 16px; } 
-.sprite16-continue { background-position: 0 -365px; width: 16px; height: 16px; } 
-.sprite16-copy { background-position: 0 -382px; width: 16px; height: 16px; } 
-.sprite16-courses { background-position: 0 -399px; width: 16px; height: 16px; } 
-.sprite16-edit { background-position: 0 -416px; width: 16px; height: 16px; } 
-.sprite16-enterprise { background-position: 0 -433px; width: 16px; height: 16px; } 
-.sprite16-error_delete { background-position: 0 -450px; width: 16px; height: 16px; } 
-.sprite16-examples { background-position: 0 -467px; width: 16px; height: 16px; } 
-.sprite16-examples_failed { background-position: 0 -484px; width: 16px; height: 16px; } 
-.sprite16-examples_incomplete { background-position: 0 -501px; width: 16px; height: 16px; } 
-.sprite16-examples_passed { background-position: 0 -518px; width: 16px; height: 16px; } 
-.sprite16-export { background-position: 0 -535px; width: 16px; height: 16px; } 
-.sprite16-facebook { background-position: 0 -552px; width: 16px; height: 16px; } 
-.sprite16-feedback { background-position: 0 -569px; width: 16px; height: 16px; } 
-.sprite16-feedback_failed { background-position: 0 -586px; width: 16px; height: 16px; } 
-.sprite16-feedback_incomplete { background-position: 0 -603px; width: 16px; height: 16px; } 
-.sprite16-feedback_passed { background-position: 0 -620px; width: 16px; height: 16px; } 
-.sprite16-file_explorer { background-position: 0 -637px; width: 16px; height: 16px; } 
-.sprite16-flag_blue { background-position: 0 -654px; width: 16px; height: 16px; } 
-.sprite16-flag_green { background-position: 0 -671px; width: 16px; height: 16px; } 
-.sprite16-flag_red { background-position: 0 -688px; width: 16px; height: 16px; } 
-.sprite16-flag_yellow { background-position: 0 -705px; width: 16px; height: 16px; } 
-.sprite16-folder { background-position: 0 -722px; width: 16px; height: 16px; } 
-.sprite16-folder_add { background-position: 0 -739px; width: 16px; height: 16px; } 
-.sprite16-folder_up { background-position: 0 -756px; width: 16px; height: 16px; } 
-.sprite16-forbidden { background-position: 0 -773px; width: 16px; height: 16px; } 
-.sprite16-forums { background-position: 0 -790px; width: 16px; height: 16px; } 
-.sprite16-generic { background-position: 0 -807px; width: 16px; height: 16px; } 
-.sprite16-glossary { background-position: 0 -824px; width: 16px; height: 16px; } 
-.sprite16-go_back { background-position: 0 -841px; width: 16px; height: 16px; } 
-.sprite16-go_into { background-position: 0 -858px; width: 16px; height: 16px; } 
-.sprite16-goto_admin { background-position: 0 -875px; width: 16px; height: 16px; } 
-.sprite16-goto_professor { background-position: 0 -892px; width: 16px; height: 16px; } 
-.sprite16-goto_student { background-position: 0 -909px; width: 16px; height: 16px; } 
-.sprite16-help { background-position: 0 -926px; width: 16px; height: 16px; } 
-.sprite16-home { background-position: 0 -943px; width: 16px; height: 16px; } 
-.sprite16-import { background-position: 0 -960px; width: 16px; height: 16px; } 
-.sprite16-import_export { background-position: 0 -977px; width: 16px; height: 16px; } 
-.sprite16-information { background-position: 0 -994px; width: 16px; height: 16px; } 
-.sprite16-job_descriptions { background-position: 0 -1011px; width: 16px; height: 16px; } 
-.sprite16-layout { background-position: 0 -1028px; width: 16px; height: 16px; } 
-.sprite16-lessons { background-position: 0 -1045px; width: 16px; height: 16px; } 
-.sprite16-lock { background-position: 0 -1062px; width: 16px; height: 16px; } 
-.sprite16-logout { background-position: 0 -1079px; width: 16px; height: 16px; } 
-.sprite16-mail { background-position: 0 -1096px; width: 16px; height: 16px; } 
-.sprite16-message { background-position: 0 -1113px; width: 16px; height: 16px; } 
-.sprite16-minus { background-position: 0 -1130px; width: 16px; height: 16px; } 
-.sprite16-minus2 { background-position: 0 -1147px; width: 16px; height: 16px; } 
-.sprite16-navigate_down { background-position: 0 -1164px; width: 16px; height: 16px; } 
-.sprite16-navigate_left { background-position: 0 -1181px; width: 16px; height: 16px; } 
-.sprite16-navigate_right { background-position: 0 -1198px; width: 16px; height: 16px; } 
-.sprite16-navigate_up { background-position: 0 -1215px; width: 16px; height: 16px; } 
-.sprite16-order { background-position: 0 -1232px; width: 16px; height: 16px; } 
-.sprite16-organization { background-position: 0 -1249px; width: 16px; height: 16px; } 
-.sprite16-out { background-position: 0 -1266px; width: 16px; height: 16px; } 
-.sprite16-paperclip { background-position: 0 -1283px; width: 16px; height: 16px; } 
-.sprite16-paste { background-position: 0 -1300px; width: 16px; height: 16px; } 
-.sprite16-pause { background-position: 0 -1317px; width: 16px; height: 16px; } 
-.sprite16-php { background-position: 0 -1334px; width: 16px; height: 16px; } 
-.sprite16-pin_green { background-position: 0 -1351px; width: 16px; height: 16px; } 
-.sprite16-pin_red { background-position: 0 -1368px; width: 16px; height: 16px; } 
-.sprite16-plus { background-position: 0 -1385px; width: 16px; height: 16px; } 
-.sprite16-plus2 { background-position: 0 -1402px; width: 16px; height: 16px; } 
-.sprite16-printer { background-position: 0 -1419px; width: 16px; height: 16px; } 
-.sprite16-projects { background-position: 0 -1436px; width: 16px; height: 16px; } 
-.sprite16-projects_failed { background-position: 0 -1453px; width: 16px; height: 16px; } 
-.sprite16-projects_incomplete { background-position: 0 -1470px; width: 16px; height: 16px; } 
-.sprite16-projects_passed { background-position: 0 -1487px; width: 16px; height: 16px; } 
-.sprite16-question_type_free_text { background-position: 0 -1504px; width: 16px; height: 16px; } 
-.sprite16-question_type_match { background-position: 0 -1521px; width: 16px; height: 16px; } 
-.sprite16-question_type_multiple_correct { background-position: 0 -1538px; width: 16px; height: 16px; } 
-.sprite16-question_type_one_correct { background-position: 0 -1555px; width: 16px; height: 16px; } 
-.sprite16-question_type_true_false { background-position: 0 -1572px; width: 16px; height: 16px; } 
-.sprite16-refresh { background-position: 0 -1589px; width: 16px; height: 16px; } 
-.sprite16-reports { background-position: 0 -1606px; width: 16px; height: 16px; } 
-.sprite16-rules { background-position: 0 -1623px; width: 16px; height: 16px; } 
-.sprite16-scorm { background-position: 0 -1640px; width: 16px; height: 16px; } 
-.sprite16-search { background-position: 0 -1657px; width: 16px; height: 16px; } 
-.sprite16-semi_success { background-position: 0 -1674px; width: 16px; height: 16px; } 
-.sprite16-shopping_basket_add { background-position: 0 -1691px; width: 16px; height: 16px; } 
-.sprite16-skill_gap { background-position: 0 -1708px; width: 16px; height: 16px; } 
-.sprite16-skills { background-position: 0 -1725px; width: 16px; height: 16px; } 
-.sprite16-social { background-position: 0 -1742px; width: 16px; height: 16px; } 
-.sprite16-start { background-position: 0 -1759px; width: 16px; height: 16px; } 
-.sprite16-stop { background-position: 0 -1776px; width: 16px; height: 16px; } 
-.sprite16-stop_red { background-position: 0 -1793px; width: 16px; height: 16px; } 
-.sprite16-success { background-position: 0 -1810px; width: 16px; height: 16px; } 
-.sprite16-surveys { background-position: 0 -1827px; width: 16px; height: 16px; } 
-.sprite16-tests { background-position: 0 -1844px; width: 16px; height: 16px; } 
-.sprite16-tests_failed { background-position: 0 -1861px; width: 16px; height: 16px; } 
-.sprite16-tests_incomplete { background-position: 0 -1878px; width: 16px; height: 16px; } 
-.sprite16-tests_passed { background-position: 0 -1895px; width: 16px; height: 16px; } 
-.sprite16-theory { background-position: 0 -1912px; width: 16px; height: 16px; } 
-.sprite16-theory_failed { background-position: 0 -1929px; width: 16px; height: 16px; } 
-.sprite16-theory_incomplete { background-position: 0 -1946px; width: 16px; height: 16px; } 
-.sprite16-theory_passed { background-position: 0 -1963px; width: 16px; height: 16px; } 
-.sprite16-tools { background-position: 0 -1980px; width: 16px; height: 16px; } 
-.sprite16-trafficlight_green { background-position: 0 -1997px; width: 16px; height: 16px; } 
-.sprite16-trafficlight_red { background-position: 0 -2014px; width: 16px; height: 16px; } 
-.sprite16-tree_indicator { background-position: 0 -2031px; width: 16px; height: 16px; } 
-.sprite16-uncompress { background-position: 0 -2048px; width: 16px; height: 16px; } 
-.sprite16-undo { background-position: 0 -2065px; width: 16px; height: 16px; } 
-.sprite16-unit { background-position: 0 -2082px; width: 16px; height: 16px; } 
-.sprite16-unlocked { background-position: 0 -2099px; width: 16px; height: 16px; } 
-.sprite16-user { background-position: 0 -2116px; width: 16px; height: 16px; } 
-.sprite16-user_timeline { background-position: 0 -2133px; width: 16px; height: 16px; } 
-.sprite16-user_types { background-position: 0 -2150px; width: 16px; height: 16px; } 
-.sprite16-users { background-position: 0 -2167px; width: 16px; height: 16px; } 
-.sprite16-warning { background-position: 0 -2184px; width: 16px; height: 16px; } 
-.sprite16-wizard { background-position: 0 -2201px; width: 16px; height: 16px; } 
+.sprite16-calendar_selection_day { background-position: 0 -187px; width: 16px; height: 16px; } 
+.sprite16-calendar_selection_month { background-position: 0 -204px; width: 16px; height: 16px; } 
+.sprite16-calendar_selection_week { background-position: 0 -221px; width: 16px; height: 16px; } 
+.sprite16-categories { background-position: 0 -238px; width: 16px; height: 16px; } 
+.sprite16-certificate { background-position: 0 -255px; width: 16px; height: 16px; } 
+.sprite16-chat { background-position: 0 -272px; width: 16px; height: 16px; } 
+.sprite16-clock { background-position: 0 -289px; width: 16px; height: 16px; } 
+.sprite16-close { background-position: 0 -306px; width: 16px; height: 16px; } 
+.sprite16-comment_add { background-position: 0 -323px; width: 16px; height: 16px; } 
+.sprite16-content { background-position: 0 -340px; width: 16px; height: 16px; } 
+.sprite16-continue { background-position: 0 -357px; width: 16px; height: 16px; } 
+.sprite16-copy { background-position: 0 -374px; width: 16px; height: 16px; } 
+.sprite16-courses { background-position: 0 -391px; width: 16px; height: 16px; } 
+.sprite16-edit { background-position: 0 -408px; width: 16px; height: 16px; } 
+.sprite16-enterprise { background-position: 0 -425px; width: 16px; height: 16px; } 
+.sprite16-error_delete { background-position: 0 -442px; width: 16px; height: 16px; } 
+.sprite16-examples { background-position: 0 -459px; width: 16px; height: 16px; } 
+.sprite16-examples_failed { background-position: 0 -476px; width: 16px; height: 16px; } 
+.sprite16-examples_incomplete { background-position: 0 -493px; width: 16px; height: 16px; } 
+.sprite16-examples_passed { background-position: 0 -510px; width: 16px; height: 16px; } 
+.sprite16-export { background-position: 0 -527px; width: 16px; height: 16px; } 
+.sprite16-facebook { background-position: 0 -544px; width: 16px; height: 16px; } 
+.sprite16-feedback { background-position: 0 -561px; width: 16px; height: 16px; } 
+.sprite16-feedback_failed { background-position: 0 -578px; width: 16px; height: 16px; } 
+.sprite16-feedback_incomplete { background-position: 0 -595px; width: 16px; height: 16px; } 
+.sprite16-feedback_passed { background-position: 0 -612px; width: 16px; height: 16px; } 
+.sprite16-file_explorer { background-position: 0 -629px; width: 16px; height: 16px; } 
+.sprite16-flag_blue { background-position: 0 -646px; width: 16px; height: 16px; } 
+.sprite16-flag_green { background-position: 0 -663px; width: 16px; height: 16px; } 
+.sprite16-flag_red { background-position: 0 -680px; width: 16px; height: 16px; } 
+.sprite16-flag_yellow { background-position: 0 -697px; width: 16px; height: 16px; } 
+.sprite16-folder { background-position: 0 -714px; width: 16px; height: 16px; } 
+.sprite16-folder_add { background-position: 0 -731px; width: 16px; height: 16px; } 
+.sprite16-folder_up { background-position: 0 -748px; width: 16px; height: 16px; } 
+.sprite16-forbidden { background-position: 0 -765px; width: 16px; height: 16px; } 
+.sprite16-forums { background-position: 0 -782px; width: 16px; height: 16px; } 
+.sprite16-generic { background-position: 0 -799px; width: 16px; height: 16px; } 
+.sprite16-glossary { background-position: 0 -816px; width: 16px; height: 16px; } 
+.sprite16-go_back { background-position: 0 -833px; width: 16px; height: 16px; } 
+.sprite16-go_into { background-position: 0 -850px; width: 16px; height: 16px; } 
+.sprite16-goto_admin { background-position: 0 -867px; width: 16px; height: 16px; } 
+.sprite16-goto_professor { background-position: 0 -884px; width: 16px; height: 16px; } 
+.sprite16-goto_student { background-position: 0 -901px; width: 16px; height: 16px; } 
+.sprite16-help { background-position: 0 -918px; width: 16px; height: 16px; } 
+.sprite16-home { background-position: 0 -935px; width: 16px; height: 16px; } 
+.sprite16-import { background-position: 0 -952px; width: 16px; height: 16px; } 
+.sprite16-import_export { background-position: 0 -969px; width: 16px; height: 16px; } 
+.sprite16-information { background-position: 0 -986px; width: 16px; height: 16px; } 
+.sprite16-job_descriptions { background-position: 0 -1003px; width: 16px; height: 16px; } 
+.sprite16-layout { background-position: 0 -1020px; width: 16px; height: 16px; } 
+.sprite16-lessons { background-position: 0 -1037px; width: 16px; height: 16px; } 
+.sprite16-lock { background-position: 0 -1054px; width: 16px; height: 16px; } 
+.sprite16-logout { background-position: 0 -1071px; width: 16px; height: 16px; } 
+.sprite16-mail { background-position: 0 -1088px; width: 16px; height: 16px; } 
+.sprite16-message { background-position: 0 -1105px; width: 16px; height: 16px; } 
+.sprite16-minus { background-position: 0 -1122px; width: 16px; height: 16px; } 
+.sprite16-minus2 { background-position: 0 -1139px; width: 16px; height: 16px; } 
+.sprite16-navigate_down { background-position: 0 -1156px; width: 16px; height: 16px; } 
+.sprite16-navigate_left { background-position: 0 -1173px; width: 16px; height: 16px; } 
+.sprite16-navigate_right { background-position: 0 -1190px; width: 16px; height: 16px; } 
+.sprite16-navigate_up { background-position: 0 -1207px; width: 16px; height: 16px; } 
+.sprite16-order { background-position: 0 -1224px; width: 16px; height: 16px; } 
+.sprite16-organization { background-position: 0 -1241px; width: 16px; height: 16px; } 
+.sprite16-out { background-position: 0 -1258px; width: 16px; height: 16px; } 
+.sprite16-paperclip { background-position: 0 -1275px; width: 16px; height: 16px; } 
+.sprite16-paste { background-position: 0 -1292px; width: 16px; height: 16px; } 
+.sprite16-pause { background-position: 0 -1309px; width: 16px; height: 16px; } 
+.sprite16-php { background-position: 0 -1326px; width: 16px; height: 16px; } 
+.sprite16-pin_green { background-position: 0 -1343px; width: 16px; height: 16px; } 
+.sprite16-pin_red { background-position: 0 -1360px; width: 16px; height: 16px; } 
+.sprite16-plus { background-position: 0 -1377px; width: 16px; height: 16px; } 
+.sprite16-plus2 { background-position: 0 -1394px; width: 16px; height: 16px; } 
+.sprite16-printer { background-position: 0 -1411px; width: 16px; height: 16px; } 
+.sprite16-projects { background-position: 0 -1428px; width: 16px; height: 16px; } 
+.sprite16-projects_failed { background-position: 0 -1445px; width: 16px; height: 16px; } 
+.sprite16-projects_incomplete { background-position: 0 -1462px; width: 16px; height: 16px; } 
+.sprite16-projects_passed { background-position: 0 -1479px; width: 16px; height: 16px; } 
+.sprite16-question_type_drag_drop { background-position: 0 -1496px; width: 16px; height: 16px; } 
+.sprite16-question_type_empty_spaces { background-position: 0 -1513px; width: 16px; height: 16px; } 
+.sprite16-question_type_free_text { background-position: 0 -1530px; width: 16px; height: 16px; } 
+.sprite16-question_type_match { background-position: 0 -1547px; width: 16px; height: 16px; } 
+.sprite16-question_type_multiple_correct { background-position: 0 -1564px; width: 16px; height: 16px; } 
+.sprite16-question_type_one_correct { background-position: 0 -1581px; width: 16px; height: 16px; } 
+.sprite16-question_type_true_false { background-position: 0 -1598px; width: 16px; height: 16px; } 
+.sprite16-refresh { background-position: 0 -1615px; width: 16px; height: 16px; } 
+.sprite16-reports { background-position: 0 -1632px; width: 16px; height: 16px; } 
+.sprite16-rules { background-position: 0 -1649px; width: 16px; height: 16px; } 
+.sprite16-scorm { background-position: 0 -1666px; width: 16px; height: 16px; } 
+.sprite16-search { background-position: 0 -1683px; width: 16px; height: 16px; } 
+.sprite16-semi_success { background-position: 0 -1700px; width: 16px; height: 16px; } 
+.sprite16-shopping_basket_add { background-position: 0 -1717px; width: 16px; height: 16px; } 
+.sprite16-skill_gap { background-position: 0 -1734px; width: 16px; height: 16px; } 
+.sprite16-skills { background-position: 0 -1751px; width: 16px; height: 16px; } 
+.sprite16-social { background-position: 0 -1768px; width: 16px; height: 16px; } 
+.sprite16-start { background-position: 0 -1785px; width: 16px; height: 16px; } 
+.sprite16-stop { background-position: 0 -1802px; width: 16px; height: 16px; } 
+.sprite16-stop_red { background-position: 0 -1819px; width: 16px; height: 16px; } 
+.sprite16-success { background-position: 0 -1836px; width: 16px; height: 16px; } 
+.sprite16-surveys { background-position: 0 -1853px; width: 16px; height: 16px; } 
+.sprite16-tests { background-position: 0 -1870px; width: 16px; height: 16px; } 
+.sprite16-tests_failed { background-position: 0 -1887px; width: 16px; height: 16px; } 
+.sprite16-tests_incomplete { background-position: 0 -1904px; width: 16px; height: 16px; } 
+.sprite16-tests_passed { background-position: 0 -1921px; width: 16px; height: 16px; } 
+.sprite16-theory { background-position: 0 -1938px; width: 16px; height: 16px; } 
+.sprite16-theory_failed { background-position: 0 -1955px; width: 16px; height: 16px; } 
+.sprite16-theory_incomplete { background-position: 0 -1972px; width: 16px; height: 16px; } 
+.sprite16-theory_passed { background-position: 0 -1989px; width: 16px; height: 16px; } 
+.sprite16-tools { background-position: 0 -2006px; width: 16px; height: 16px; } 
+.sprite16-trafficlight_green { background-position: 0 -2023px; width: 16px; height: 16px; } 
+.sprite16-trafficlight_red { background-position: 0 -2040px; width: 16px; height: 16px; } 
+.sprite16-tree_indicator { background-position: 0 -2057px; width: 16px; height: 16px; } 
+.sprite16-uncompress { background-position: 0 -2074px; width: 16px; height: 16px; } 
+.sprite16-undo { background-position: 0 -2091px; width: 16px; height: 16px; } 
+.sprite16-unit { background-position: 0 -2108px; width: 16px; height: 16px; } 
+.sprite16-unlocked { background-position: 0 -2125px; width: 16px; height: 16px; } 
+.sprite16-user { background-position: 0 -2142px; width: 16px; height: 16px; } 
+.sprite16-user_timeline { background-position: 0 -2159px; width: 16px; height: 16px; } 
+.sprite16-user_types { background-position: 0 -2176px; width: 16px; height: 16px; } 
+.sprite16-users { background-position: 0 -2193px; width: 16px; height: 16px; } 
+.sprite16-warning { background-position: 0 -2210px; width: 16px; height: 16px; } 
+.sprite16-wizard { background-position: 0 -2227px; width: 16px; height: 16px; } 
+
 
 .sprite32-add { background-position: 0 0; width: 32px; height: 32px; } 
 .sprite32-addons { background-position: 0 -33px; width: 32px; height: 32px; } 
@@ -1741,4 +1743,3 @@ table.navigationTable td.nextUnitHandle{width:27%;text-align:right;ertical-align
 .sprite32-users { background-position: 0 -3434px; width: 32px; height: 32px; } 
 .sprite32-warning { background-position: 0 -3467px; width: 32px; height: 32px; } 
 .sprite32-wizard { background-position: 0 -3500px; width: 32px; height: 32px; } 
-

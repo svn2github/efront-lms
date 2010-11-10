@@ -565,6 +565,7 @@ padding:0px;
 }
 ul.sortable li{list-style-type:none;}
 ul.sortable li table .handle{cursor:move;}
+ul.sortable li#first_empty, ul.sortable li#second_empty {height:5px;border-top:2px solid gray}
 
 /*The title bar link*/
 .titleLink,a.titleLink,a.titleLink:link,a.titleLink:visited,a.titleLink:hover{color:#222222;}
@@ -1004,6 +1005,7 @@ table.hideCenter td.center{display:none}
 
 .lessonInfo{font-size:14px;padding:5px;}
 .lessonInfo .infoTitle{font-weight:bold;}
+div.courseLessonInfo {border-left:1px solid grey;border-right:1px solid grey;border-bottom:1px solid grey;margin-top:10px;}
 div#buy{text-align:right;}
 div#buy *{vertical-align:middle;border-width:0px;}
 table.pageLayout form.indexForm .formRow {

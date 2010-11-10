@@ -66,6 +66,7 @@ if ($_SESSION['s_lessons_ID']) {
            <tr>
           <td><input id="src" name="src" type="text" value="" class="mceFocus" onchange="switchType(this.value);generatePreview();" /></td>
           <td id="filebrowsercontainer">&nbsp;</td>
+          <td><button style="width:25px;height:20px;" type="button" onclick = "generatePreview();">&rarr;</button></td>
            </tr>
          </table>
         </td>

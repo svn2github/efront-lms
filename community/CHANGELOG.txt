@@ -50,7 +50,7 @@
 - New time reporting infrastructure
 - Added option in system settings for periodic updater period
 - Added projects icon on the student's control panel so he/she can access expired projects
-- Added new theme: bluehtml5
+- Added new theme: blue_html5 and made it default
 - Added new module: workbook
 - Added new module: jobs manager
 - Added new module: crossword
@@ -78,6 +78,9 @@
 - Fixed importing lesson not respecting share folder setting
 - Fixed issue about hired and left date in events
 - Fixed issue about displaying archived users in job positions
+- Added handle to move blocks in control panel and dashboard
+- Added brand new PDF certificates
+
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

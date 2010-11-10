@@ -104,9 +104,11 @@
   <img class = "ajaxHandle" src = "images/16x16/refresh.png" alt = "{$smarty.const._REFRESHTABLE}" title = "{$smarty.const._REFRESHTABLE}" onclick = "eF_js_rebuildTable('usersTable', 0, 'null', 'desc');"/>
   <img class = "ajaxHandle" src = "images/file_types/xls.png" alt = "{$smarty.const._EXPORTTOXLS}" title = "{$smarty.const._EXPORTTOXLS}" onclick = "exportXls(this);"/>
   <img class = "ajaxHandle" src = "images/file_types/txt.png" alt = "{$smarty.const._EXPORTTOCSV}" title = "{$smarty.const._EXPORTTOCSV}" onclick = "exportCsv(this);"/>
-  <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'activate');"/>
-  <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'deactivate');"/>
-  <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._ARCHIVE}" title = "{$smarty.const._ARCHIVE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'archive');"/>
+  {if $smarty.session.s_type == 'administrator'}
+   <img class = "ajaxHandle" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'activate');"/>
+   <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'deactivate');"/>
+   <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._ARCHIVE}" title = "{$smarty.const._ARCHIVE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'archive');"/>
+  {/if}
   <img class = "ajaxHandle" src = "images/16x16/undo.png" alt = "{$smarty.const._RESETLEARNINGPROGRESS}" title = "{$smarty.const._RESETLEARNINGPROGRESS}"onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) applyOperation(this, 'reset');"/>
   <img class = "ajaxHandle" src = "images/16x16/users.png" alt = "{$smarty.const._GROUPOPERATIONS}" title = "{$smarty.const._GROUPOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._GROUPOPERATIONS}', 0, 'add_group_table')"/>
   <img class = "ajaxHandle" src = "images/16x16/courses.png" alt = "{$smarty.const._COURSEOPERATIONS}" title = "{$smarty.const._COURSEOPERATIONS}" onclick = "eF_js_showDivPopup('{$smarty.const._COURSEOPERATIONS}', 0, 'add_course_table')"/>

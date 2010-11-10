@@ -653,7 +653,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   $smarty -> assign("T_REGISTRATION_DATE", $editedUser -> user['timestamp']);
   try {
    $avatar = new EfrontFile($editedUser -> user['avatar']);
-   $smarty -> assign ("T_AVATAR", $editedUser -> user['avatar']);
+   $smarty -> assign ("T_AVATAR", urlencode($editedUser -> user['avatar']));
    //echo $editedUser -> user['avatar']."<BR>";
    //pr($avatar);
    // Get current dimensions
@@ -666,7 +666,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
     $smarty -> assign("T_NEWHEIGHT", $newheight);
    }
   } catch (Exception $e) {
-   $smarty -> assign ("T_AVATAR", G_SYSTEMAVATARSPATH."unknown_small.png");
+   $smarty -> assign ("T_AVATAR", urlencode(G_SYSTEMAVATARSPATH."unknown_small.png"));
   }
  }
  $form -> addElement('text', 'name', _NAME, 'class = "inputText"');

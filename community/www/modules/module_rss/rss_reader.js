@@ -31,11 +31,11 @@ function scrollFeeds() {
 
  new Effect.Fade(elements[0], {afterFinish: function (s) {$('rss_list').insert(elements[0].remove());} });
  if (elements.length > 10) {
-  new Effect.Appear(elements[11]);
+  new Effect.Appear(elements[11], {beforeStart:setRssHeight(elements)});
  } else {
-  new Effect.Appear(elements[elements.length-1]);
+  new Effect.Appear(elements[elements.length-1], {beforeStart:setRssHeight(elements)});
  }
- setRssHeight(elements);
+
 }
 
 function setRssHeight(elements) {

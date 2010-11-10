@@ -22,11 +22,24 @@ class module_journal extends EfrontModule{
 
   if($currentUser->getRole($this->getCurrentLesson()) == 'professor' || $currentUser->getRole($this->getCurrentLesson()) == 'student'){
 
-   if(!isset($_SESSION['module_journal_dimension']) || count($_GET) == 2)
-    $_SESSION['module_journal_dimension'] = 'small';
+   $currentLesson = $this->getCurrentLesson();
+   $currentLessonID = $currentLesson->lesson['id'];
 
-   if(!isset($_SESSION['module_journal_entries_from']) || count($_GET) == 2)
+   if(!isset($_SESSION['module_journal_dimension']) ||
+    (count($_GET) == 2 && $_GET['ctg'] == 'module' && $_GET['op'] == 'module_journal') ||
+    (count($_GET) == 3 && $_GET['ctg'] == 'module' && $_GET['op'] == 'module_journal' &&
+    $_GET['new_lesson_id'] == $currentLessonID)){
+
+    $_SESSION['module_journal_dimension'] = 'small';
+   }
+
+   if(!isset($_SESSION['module_journal_entries_from']) ||
+    (count($_GET) == 2 && $_GET['ctg'] == 'module' && $_GET['op'] == 'module_journal') ||
+    (count($_GET) == 3 && $_GET['ctg'] == 'module' && $_GET['op'] == 'module_journal' &&
+    $_GET['new_lesson_id'] == $currentLessonID)){
+
     $_SESSION['module_journal_entries_from'] = '-1';
+   }
 
    if(isset($_SESSION['module_journal_scroll_position']))
     $smarty->assign("T_JOURNAL_SCROLL_POSITION", $_SESSION['module_journal_scroll_position']);
@@ -34,9 +47,6 @@ class module_journal extends EfrontModule{
    $smarty->assign("T_JOURNAL_DIMENSIONS", $_SESSION['module_journal_dimension']);
    $smarty->assign("T_JOURNAL_ENTRIES_FROM", $_SESSION['module_journal_entries_from']);
    $entries = $this->getEntries($currentUser->user['login'], $_SESSION['module_journal_entries_from']);
-
-   $currentLesson = $this->getCurrentLesson();
-   $currentLessonID = $currentLesson->lesson['id'];
 
    global $popup;
    (isset($popup) && $popup == 1) ? $popup_ = '&popup=1' : $popup_ = '';

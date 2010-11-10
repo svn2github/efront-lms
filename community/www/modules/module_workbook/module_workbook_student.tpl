@@ -357,12 +357,17 @@
 
   for(var i = 0; i < forms.length; i++){
 
-   var form_id = forms[i].id;
-   var form_obj = document.getElementById(form_id);
-   var tmp = form_id.split('_');
-   var item_id = tmp[3];
+   var form_action = forms[i].action;
 
-   submitFormAutoSave(form_obj, item_id);
+   if(form_action.search('submitForm') != -1){
+
+    var form_id = forms[i].id;
+    var form_obj = document.getElementById(form_id);
+    var tmp = form_id.split('_');
+    var item_id = tmp[3];
+
+    submitFormAutoSave(form_obj, item_id);
+   }
   }
  }
 

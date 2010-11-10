@@ -163,19 +163,19 @@ try {
     $message_type = 'failure';
 }
 /*Ajax call to enter group and get group lessons */
- if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
-  try {
-   if (!eF_checkParameter($_GET['group_key'], 'alnum_general')) {
-    throw new Exception(_INVALIDDATA.': '.$_GET['group_key']);
-   }
-   $result = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
-   $group = new EfrontGroup($result[0]);
-   $group -> useKeyForUser($currentUser);
-  } catch (Exception $e) {
-   handleAjaxExceptions($e);
+if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
+ try {
+  if (!eF_checkParameter($_GET['group_key'], 'alnum_general')) {
+   throw new Exception(_INVALIDDATA.': '.$_GET['group_key']);
   }
-  exit;
+  $result = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
+  $group = new EfrontGroup($result[0]);
+  $group -> useKeyForUser($currentUser);
+ } catch (Exception $e) {
+  handleAjaxExceptions($e);
  }
+ exit;
+}
 ///MODULE1: Import
 $loadedModules = $currentUser -> getModules();
 $module_css_array = array();
@@ -480,25 +480,6 @@ try {
      /***/
      require_once("progress.php");
  }
-/*
-
-	$fields_log = array ('users_LOGIN' => $_SESSION['s_login'],                                 //This is the log entry array
-
-	                     'timestamp'   => time(),
-
-	                     'action'      => 'lastmove',
-
-	                     'comments'    => 0,
-
-	                     'session_ip'  => eF_encodeIP($_SERVER['REMOTE_ADDR']));
-
-
-
-	eF_deleteTableData("logs", "users_LOGIN='".$_SESSION['s_login']."' AND action='lastmove'"); //Only one lastmove action interests us, so delete any other
-
-	eF_insertTableData("logs", $fields_log);
-
-*/
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

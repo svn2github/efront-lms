@@ -116,11 +116,10 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
          $rolesBasic = EfrontLessonUser :: getLessonsRoles();
          $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
-         $constraints = array('archive' => false, 'active' => 1) + createConstraintsFromSortedTable();
-
+         $constraints = array('archive' => false, 'active' => 1, 'return_objects' => false) + createConstraintsFromSortedTable();
    $users = $editCourse -> getCourseUsersIncludingUnassigned($constraints);
    $totalEntries = $editCourse -> countCourseUsersIncludingUnassigned($constraints);
-   $dataSource = EfrontUser :: convertUserObjectsToArrays($users);
+   $dataSource = $users;
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);
@@ -248,10 +247,8 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
        'active' => $form -> exportValue('active'),
        //'duration'	   	 => $form -> exportValue('duration') ? $form -> exportValue('duration') : null,
        'max_users' => $form -> exportValue('max_users') ? $form -> exportValue('max_users') : null,
-       'price' => $form -> exportValue('price'));
-   if ($values['supervisor_LOGIN']) {
-    $fields['supervisor_LOGIN'] = $values['supervisor_LOGIN'];
-   }
+       'price' => $form -> exportValue('price'),
+       'supervisor_LOGIN' => $values['supervisor_LOGIN'] ? $values['supervisor_LOGIN'] : null);
    try {
     if (isset($_GET['edit_course'])) {
      if ($fields['directions_ID'] != $editCourse -> course['directions_ID']) {

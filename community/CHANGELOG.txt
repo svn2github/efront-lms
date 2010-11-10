@@ -80,7 +80,7 @@
 - Fixed issue about displaying archived users in job positions
 - Added handle to move blocks in control panel and dashboard
 - Added brand new PDF certificates
-
+- Simplified advanced group properties (enterprise edition)
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

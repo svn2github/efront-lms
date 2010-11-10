@@ -86,7 +86,7 @@
     {if $_change_}
       <select name="type_{$user.login}" id = "type_{$user.login}" onchange = "$('checked_{$user.login}').checked=true;usersAjaxPost('{$user.login}', this);">
      {foreach name = 'roles_list' key = 'role_key' item = 'role_item' from = $T_ROLES}
-       <option value="{$role_key}" {if !$user.role && $user.user_type == $role_key}selected{elseif ($user.role == $role_key)}selected{/if} {if $user.user_types_ID == $role_key || $user.user_type == $role_key}style = "font-weight:bold"{/if}>{$role_item}</option>
+       <option value="{$role_key}" {if !$user.role}{if $user.user_types_ID && $user.user_types_ID == $role_key}selected{elseif !$user.user_types_ID && $user.user_type == $role_key}selected{/if}{elseif ($user.role == $role_key)}selected{/if} {if $user.user_types_ID == $role_key || $user.user_type == $role_key}style = "font-weight:bold"{/if}>{$role_item}</option>
      {/foreach}
       </select>
     {else}

@@ -221,7 +221,7 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
           <span class = "title">'.$image.''.$params['title'].'</span>
           <span class = "subtitle">'.$params['sub_title'].'</span>
           '.$mainOptions.'
-          <div class = "content" style = "'.$showContent.';" id = "'.urlencode($params['title']).'_content" onmousedown = "if ($(\'firstlist\')) Sortable.destroy(\'firstlist\');if ($(\'secondlist\')) Sortable.destroy(\'secondlist\');">
+          <div class = "content" style = "'.$showContent.';" id = "'.urlencode($params['title']).'_content" onmousedown = "if ($(\'firstlist\')) {Sortable.destroy(\'firstlist\');}if ($(\'secondlist\')) {Sortable.destroy(\'secondlist\');}">
      '.$params['content'].'
     </div>
           <span style = "display:none">&nbsp;</span>

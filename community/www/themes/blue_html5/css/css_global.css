@@ -18,7 +18,7 @@ padding:0px;
 }
 
 /*The title bar link*/
-.titleLink,a.titleLink,a.titleLink:link,a.titleLink:visited,a.titleLink:hover{color:#FFFFFF;text-shadow: 1px 1px 1px #000;}
+.titleLink,a.titleLink,a.titleLink:link,a.titleLink:visited,a.titleLink:hover{font-size:13px;color:#FFFFFF;text-shadow: 1px 1px 1px #555;}
 
 
 /*The popup div Classes*/
@@ -367,12 +367,13 @@ width: 10%;
 float: left;
 white-space: nowrap;
 vertical-align: middle;
+font-style:italic;
 }
 td.sortedTableFooter{
 background:#DDD;
 text-align:right;
-border-top: 1px solid #2a4562;
-border-bottom: 1px solid #2a4562;
+border-top: 0px solid #2a4562;
+border-bottom: 0px solid #2a4562;
 }
 table.sortedTable td a{vertical-align:middle;color:#333333;}
 table.sortedTable td a img{vertical-align:middle;border-width:0px;}
@@ -392,9 +393,9 @@ table.subSection tr.oddRowColor:hover,table.subSection tr.evenRowColor:hover{bac
 font-weight:bold;
 color: #000;
 background:#DDD;/* url('../images/css_images/gradient.gif') repeat-x bottom;*/
-border-top: 1px solid #2a4562;
-border-bottom: 1px solid #2a4562;
-padding:3px;
+border-top: 0px solid #2a4562;
+border-bottom: 1px solid #AAA;
+padding:5px;
 }
 td#path{height:25px;}
 
@@ -1039,7 +1040,7 @@ table.hideLayoutBoth td.layoutLeft{visibility:hidden}
 
 .lessonInfo{font-size:14px;padding:5px;}
 .lessonInfo .infoTitle{font-weight:bold;}
-div.courseLessonInfo {border-left:1px solid grey;border-right:1px solid grey;border-bottom:1px solid grey;margin-top:10px;}
+div.courseLessonInfo {border-left:0px solid grey;border-right:0px solid grey;border-bottom:0px solid grey;margin-top:10px;}
 div#buy{text-align:right;}
 div#buy *{vertical-align:middle;border-width:0px;}
 table.pageLayout div .formRow {
@@ -1140,12 +1141,12 @@ margin-top:5px;
 margin-bottom:0px;
 }
 div.blockContents{   
-border: 1px solid #FFFFFF;/*#2A4562;*/
-padding-top:6px;
--moz-border-radius: 6px;
--webkit-border-radius: 6px;
+border: 0px solid #CCC;/*#2A4562;*/
+padding-top:7px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
 /*background:#d00102 url('../images/css_images/gradient.gif') repeat-x top;*/
-background:#FFFFFF url('../images/css_images/gradient.gif') repeat-x top;
+background:#FFFFFF url('../images/css_images/gradient_large.gif') repeat-x top;
 }
 img.blockMoveHandle{display:none}
 ul.sortable img.blockMoveHandle{cursor:move;display:inline}
@@ -1210,18 +1211,18 @@ border:solid 1px #CCCCCC;
 -webkit-border-radius-bottomleft: 2px;
 -webkit-border-radius-bottomright: 2px;
 padding:6px;
-background:#EEEEEE;
+background:#EEE;
 }
 div.block .toolbar {
-border-top:solid 1px #2a4562;
-border-bottom:1px solid #2a4562; 
+border-top:solid 0px #2a4562;
+border-bottom:0px solid #2a4562; 
 padding:5px 0px 5px 0px;
 white-space:nowrap;
 background-color:#dae2e9;
 }
 div.block .toolbar span {
 padding:5px;
-border-right:1px solid #2a4562; 
+border-right:1px solid #CCC; 
 }
 div.block .toolbar span:last-child{
 border-right:0px solid #2a4562;

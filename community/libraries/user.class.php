@@ -310,6 +310,85 @@ abstract class EfrontUser
   }
   return $newUser;
  }
+ /**
+	 * This function parses an array of users and verifies that they are
+	 * correct and converts it to an array if it's a single entry
+	 *
+	 * @param mixed $users The users to verify
+	 * @return array The array of verified users
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function verifyUsersList($users) {
+  if (!is_array($users)) {
+   $users = array($users);
+  }
+  foreach ($users as $key => $value) {
+   if ($value instanceOf EfrontUser) {
+    $users[$key] = $value -> user['login'];
+   } elseif (!eF_checkParameter($value, 'login')) {
+    unset($users[$key]);
+   }
+  }
+  return array_values(array_unique($users)); //array_values() to reindex array
+ }
+ /**
+	 * This function parses an array of roles and verifies that they are
+	 * correct, converts it to an array if it's a single entry and
+	 * pads the array with extra values, if its length is less than the
+	 * desired
+	 *
+	 * @param mixed $roles The roles to verify
+	 * @param int $length The desired length of the roles array
+	 * @return array The array of verified roles
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function verifyRolesList($roles, $length) {
+  if (!is_array($roles)) {
+   $roles = array($roles);
+  }
+  if (sizeof($roles) < $length) {
+   $roles = array_pad($roles, $length, $roles[0]);
+  }
+  return array_values($roles); //array_values() to reindex array
+ }
+ /**
+	 * Check whether the specified role is of type 'student'
+	 *
+	 * @param mixed $role The role to check
+	 * @return boolean Whether it's a 'student' role
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function isStudentRole($role) {
+  $courseRoles = $this -> getPossibleCourseRoles();
+  if ($courseRoles[$role] == 'student') {
+   return true;
+  } else {
+   return false;
+  }
+ }
+ /**
+	 * Check whether the specified role is of type 'professor'
+	 *
+	 * @param mixed $role The role to check
+	 * @return boolean Whether it's a 'professor' role
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function isProfessorRole($role) {
+  $courseRoles = $this -> getPossibleCourseRoles();
+  if ($courseRoles[$role] == 'professor') {
+   return true;
+  } else {
+   return false;
+  }
+ }
  public static function checkUserAccess($type = false, $forceType = false) {
   if ($GLOBALS['configuration']['webserver_auth']) {
    $user = EfrontUser :: checkWebserverAuthentication();
@@ -2254,15 +2333,6 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   return array_values(array_unique($courses)); //array_values() to reindex array
  }
- private function verifyRolesList($roles, $length) {
-  if (!is_array($roles)) {
-   $roles = array($roles);
-  }
-  if (sizeof($roles) < $length) {
-   $roles = array_pad($roles, $length, $roles[0]);
-  }
-  return array_values($roles); //array_values() to reindex array
- }
  private function sendNotificationsRemoveUserCourses($courses) {
   foreach ($courses as $key => $course) {
    $courseIds[] = $key;
@@ -2478,7 +2548,7 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  public function addCourses($courses, $roles = 'student', $confirmed = true) {
   $courses = $this -> verifyCoursesList($courses);
-  $roles = $this -> verifyRolesList($roles, sizeof($courses));
+  $roles = EfrontUser::verifyRolesList($roles, sizeof($courses));
   $courses = eF_getTableData("courses", "*", "id in (".implode(",", $courses).")");
   foreach ($courses as $key => $course) {
    $course = new EfrontCourse($course);

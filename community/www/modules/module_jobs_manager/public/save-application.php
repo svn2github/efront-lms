@@ -152,7 +152,6 @@ if (isset($_POST) && isset($_FILES)) {
      $params = array('html_charset'=>'utf-8', 'text_charset'=>'utf-8', 'head_charset'=>'utf-8', 'html_encoding'=>'base64', 'text_encoding'=>'base64');
      $reply_body = $mime->get($params);
      $reply_hdrs = $mime->headers($reply_hdrs);
-     var_dump($reply_body); die();
      $options = array();
      $options ['auth'] = ($GLOBALS['configuration']['smtp_auth'] ? true : false);
      $options ['host'] = $GLOBALS['configuration']['smtp_host'];

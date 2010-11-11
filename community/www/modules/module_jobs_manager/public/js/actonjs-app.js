@@ -260,7 +260,6 @@ Actonjs.app = function () {
    jQuery("#new_application_upload_iframe").unbind('load', eventHandler);
    try {
     var response = jQuery('#new_application_upload_iframe').contents().find('body').html();
-    console.log(response);
     eval('var response='+response);
     if (response.success) {
      alert(i18n_thanks);

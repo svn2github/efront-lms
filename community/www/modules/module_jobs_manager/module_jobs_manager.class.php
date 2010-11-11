@@ -23,7 +23,6 @@ class module_jobs_manager extends EfrontModule {
 
  public function getControlPanelModule() {
   $html = false;
-  //$html = '<table cellpadding="0" cellspacing="0" style="background: #bbb; width:100%;"><tr><td><h1>ALERT FOR NEW JOB APPLICATIONS HERE</h1></td></tr></table>';
   return $html;
  }
 
@@ -94,6 +93,10 @@ class module_jobs_manager extends EfrontModule {
 
  public function getSmartyTpl() {
   //error_reporting(E_ALL);
+
+  global $load_editor;
+  $load_editor = true;
+
   $template = false;
   $smarty = $this->getSmartyVar();
   $smarty->assign("MOD_JOBS_MANAGER_BASEURL", $this->moduleBaseUrl);

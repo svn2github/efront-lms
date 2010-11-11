@@ -13,19 +13,21 @@
   {capture name = "t_group_users_code"}
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'usersTable'}
 <!--ajax:usersTable-->
-  <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "1" order="desc" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=user_groups&edit_user_group={$smarty.get.edit_user_group}&">
+  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" order="desc" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=user_groups&edit_user_group={$smarty.get.edit_user_group}&">
    <tr class = "topTitle">
     <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
-    <td class = "topTitle centerAlign" name = "in_group">{$smarty.const._CHECK}</td>
+    <td class = "topTitle" name = "user_type">{$smarty.const._USER}</td>
+    <td class = "topTitle centerAlign" name = "has_group">{$smarty.const._CHECK}</td>
    </tr>
   {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
    <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
     <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink" {if ($user.pending == 1)}style="color:red;"{/if}><span id="column_{$user.login}" {if !$user.active}style="color:red;"{/if}>#filter:login-{$user.login}#</span></a></td>
+    <td>{$T_ROLES[$user.user_type]}</td>
     <td class = "centerAlign">
    {if $_change_}
-     <input class = "inputCheckbox" type = "checkbox" id = "checked_{$user.login}" name = "checked_{$user.login}" onclick = "ajaxPost('{$user.login}', this, 'usersTable');" {if $user.in_group == 1}checked = "checked"{/if} />
+     <input class = "inputCheckbox" type = "checkbox" id = "checked_{$user.login}" name = "checked_{$user.login}" onclick = "ajaxPost('{$user.login}', this, 'usersTable');" {if $user.has_group}checked = "checked"{/if} />
    {else}
-     {if $user.in_group == 1}<img src = "images/16x16/success.png" alt = "{$smarty.const._GROUPUSER}" title = "{$smarty.const._GROUPUSER}">{/if}
+     {if $user.has_group}<img src = "images/16x16/success.png" alt = "{$smarty.const._GROUPUSER}" title = "{$smarty.const._GROUPUSER}">{/if}
    {/if}
     </td>
    </tr>

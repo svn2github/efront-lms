@@ -3938,7 +3938,7 @@ define("_SCHEDULEDEXPIRYOFCOURSE", "Scheduled expiration of course");
 define("_ALLCOURSEUSERS", "All course users");
 define("_MOVEBLOCK", "Move block");
 define("_EXPANDCOLLAPSEBLOCK", "Expand/collapse block");
-define("_DEFAULTGROUPTYPE", "Default group type");
-define("_DEFAULTGROUPTYPEINFO", "If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be created having this type");
+define("_DEFAULTLEARNERTYPE", "Default learner type");
+define("_DEFAULTLEARNERTYPEINFO", "If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type");
 define("_DONTUSEDEFAULTGROUP", "Don't use default group");
 ?>

@@ -1292,7 +1292,7 @@ class EfrontLesson
    if ($value instanceOf EfrontUser) {
     $value = $value -> user;
    }
-   if (!$this -> isStudentRole($value['role'])) {
+   if (!EfrontUser::isStudentRole($value['role'])) {
     unset($lessonUsers[$key]);
    }
   }
@@ -1357,91 +1357,6 @@ class EfrontLesson
   $roles = $this -> getPossibleLessonRoles();
   $courseUsers = $this -> getUsers();
   if (in_array($user, array_keys($courseUsers)) && $roles[$courseUsers[$user]['role']] == 'professor') {
-   return true;
-  } else {
-   return false;
-  }
- }
- /**
-
-	 * This function parses an array of users and verifies that they are
-
-	 * correct and converts it to an array if it's a single entry
-
-	 *
-
-	 * @param mixed $users The users to verify
-
-	 * @return array The array of verified users
-
-	 * @since 3.6.1
-
-	 * @access protected
-
-	 */
- private function verifyUsersList($users) {
-  if (!is_array($users)) {
-   $users = array($users);
-  }
-  foreach ($users as $key => $value) {
-   if ($value instanceOf EfrontUser) {
-    $users[$key] = $value['login'];
-   } elseif (!eF_checkParameter($value, 'login')) {
-    unset($users[$key]);
-   }
-  }
-  return array_values(array_unique($users)); //array_values() to reindex array
- }
- /**
-
-	 * This function parses an array of roles and verifies that they are
-
-	 * correct, converts it to an array if it's a single entry and
-
-	 * pads the array with extra values, if its length is less than the
-
-	 * desired
-
-	 *
-
-	 * @param mixed $roles The roles to verify
-
-	 * @param int $length The desired length of the roles array
-
-	 * @return array The array of verified roles
-
-	 * @since 3.6.1
-
-	 * @access protected
-
-	 */
- private function verifyRolesList($roles, $length) {
-  if (!is_array($roles)) {
-   $roles = array($roles);
-  }
-  if (sizeof($roles) < $length) {
-   $roles = array_pad($roles, $length, $roles[0]);
-  }
-  return array_values($roles); //array_values() to reindex array
- }
- /**
-
-	 * Check whether the specified role is of type 'student'
-
-	 *
-
-	 * @param mixed $role The role to check
-
-	 * @return boolean Whether it's a 'student' role
-
-	 * @since 3.6.1
-
-	 * @access protected
-
-	 */
- private function isStudentRole($role) {
-  $courseRoles = $this -> getPossibleLessonRoles();
-  if ($courseRoles[$role] == 'student') {
    return true;
   } else {
    return false;
@@ -1649,16 +1564,16 @@ class EfrontLesson
 
 	 */
  public function addUsers($users, $roles = 'student', $confirmed = true) {
-  $users = $this -> verifyUsersList($users);
+  $users = EfrontUser::verifyUsersList($users);
   $users = $this -> filterOutArchivedUsers($users);
-  $roles = $this -> verifyRolesList($roles, sizeof($users));
+  $roles = EfrontUser::verifyRolesList($roles, sizeof($users));
   $lessonUsers = array_keys($this -> getUsers());
   $count = sizeof($this -> getStudentUsers());
   $usersToAddToLesson = $usersToSetRoleToLesson = array();
   foreach ($users as $key => $user) {
    $roleInLesson = $roles[$key];
    if ($roleInLesson != 'administrator') {
-    if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && $this -> isStudentRole($roleInLesson)) {
+    if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && EfrontUser::isStudentRole($roleInLesson)) {
      throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
     }
     if (!in_array($user, $lessonUsers)) { //added this to avoid adding existing user when admin changes his role
@@ -1749,7 +1664,7 @@ class EfrontLesson
   }
   if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
    foreach ($usersData as $value) {
-    $event = array("type" => $this -> isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
+    $event = array("type" => EfrontUser::isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
          "users_LOGIN" => $value['login'],
          "lessons_ID" => $this -> lesson['id'],
          "lessons_name" => $this -> lesson['name']);
@@ -1826,7 +1741,7 @@ class EfrontLesson
 
 	 */
  public function removeUsers($users) {
-  $users = $this -> verifyUsersList($users);
+  $users = EfrontUser::verifyUsersList($users);
   $this -> deleteUserTests($users);
   $this -> sendNotificationsRemoveLessonUsers($users);
   foreach ($users as $user) {
@@ -1883,7 +1798,7 @@ class EfrontLesson
 
 	 */
  public function archiveLessonUsers($users) {
-  $users = $this -> verifyUsersList($users);
+  $users = EfrontUser::verifyUsersList($users);
   $this -> sendNotificationsRemoveLessonUsers($users);
   foreach ($users as $user) {
    eF_updateTableData("users_to_lessons", array("archive" => time()), "users_LOGIN='$user' and lessons_ID=".$this -> lesson['id']);
@@ -2015,8 +1930,8 @@ class EfrontLesson
 
 	 */
  public function setRoles($users, $roles) {
-  $users = $this -> verifyUsersList($users);
-  $roles = $this -> verifyRolesList($roles, sizeof($users));
+  $users = EfrontUser::verifyUsersList($users);
+  $roles = EfrontUser::verifyRolesList($roles, sizeof($users));
   foreach ($users as $key => $value) {
    eF_updateTableData("users_to_lessons", array('archive' => 0, 'user_type' => $roles[$key]), "users_LOGIN='".$value."' and lessons_ID=".$this -> lesson['id']);
    //$cacheKey = "user_lesson_status:lesson:".$this -> lesson['id']."user:".$value;

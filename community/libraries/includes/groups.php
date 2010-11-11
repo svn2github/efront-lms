@@ -79,8 +79,8 @@ $loadScripts[] = 'includes/groups';
         $form -> addElement('static', 'note', _UNIQUEGROUPKEYINFO);
         $form -> addElement('text', 'key_max_usage', _MAXGROUPKEYUSAGE, 'class = "inputText"');
         $form -> addElement('static', 'note', _MAXGROUPKEYUSAGEINFO.' '.$remainingKeyUsagesLabel);
-        $form -> addElement('select', 'user_types_ID' , _DEFAULTGROUPTYPE, $roles, 'class = "inputText"');
-        $form -> addElement('static', 'note', _DEFAULTGROUPTYPEINFO.' '.$remainingKeyUsagesLabel);
+        $form -> addElement('select', 'user_types_ID' , _DEFAULTLEARNERTYPE, $roles, 'class = "inputText"');
+        $form -> addElement('static', 'note', _DEFAULTLEARNERTYPEINFO.' '.$remainingKeyUsagesLabel);
         $form -> addElement('advcheckbox', 'is_default', _ISTHEDEFAULTEFRONTSYSTEMGROUP, null, 'class = "inputCheckBox"', array(0, 1));
         $form -> addElement('static', 'note', _ISTHEDEFAULTEFRONTSYSTEMGROUPINFO);
 
@@ -134,25 +134,12 @@ $loadScripts[] = 'includes/groups';
         $smarty -> assign('T_USERGROUPS_FORM', $form -> toArray());
 
         if (isset($_GET['edit_user_group'])) {
-            $groupUsers = $currentGroup -> getUsers();
 
-            $result = eF_getTableData("users", "*", "archive=0");
-            $users = array();
-            foreach ($result as $user) {
-                $user['in_group'] = false;
-                if (in_array($user['login'], $groupUsers[$user['user_type']])) {
-                    $user['in_group'] = true;
-                    $users[$user['login']] = $user;
-                } else if ($user['active']) {
-                    $users[$user['login']] = $user;
-                }
-            }
 
             // Group lessons
             $groupLessons = $currentGroup -> getLessons();
             $result = EfrontLesson::getStandAloneLessons(true);
-            // roles already defined
-            $smarty -> assign("T_ROLES_ARRAY", $roles);
+
 
             $lessons = array();
             foreach ($result as $value) {
@@ -190,20 +177,21 @@ $loadScripts[] = 'includes/groups';
 
              if (isset($_GET['postAjaxRequest'])) {
               if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
+               $user = EfrontUserFactory::factory($_GET['login']);
                if ($users[$_GET['login']]['in_group']) {
-                $currentGroup -> removeUsers($_GET['login']);
+                $currentGroup -> removeUsers($user);
                 echo "Deleted user ".$_GET['login']." from group";
                } else {
-                $currentGroup -> addUsers($_GET['login']);
+                $currentGroup -> addUsers($user, $user -> user['user_types_ID'] ? $user -> user['user_types_ID'] : $user -> user['user_type']);
                 echo "Added user ".$_GET['login']." to group";
                }
               } else if (isset($_GET['addAll']) && $_GET['table'] == "usersTable") {
                isset($_GET['filter']) ? $users = eF_filterData($users, $_GET['filter']) : null;
-               foreach ($users as $user) {
-                if (!$user['in_group']) {
-                 $currentGroup -> addUsers($user['login']);
-                 echo "Added user ".$user['login']." to group";
+               foreach ($users as $key => $user) {
+                if ($user['in_group']) {
+                 unset($users[$key]);
                 }
+                $currentGroup -> addUsers($users, $userTypes);
                }
               } else if (isset($_GET['removeAll']) && $_GET['table'] == "usersTable") {
                //isset($_GET['filter']) ? $users = eF_filterData($users, $_GET['filter']) : null;
@@ -290,13 +278,16 @@ $loadScripts[] = 'includes/groups';
               include("sorted_table.php");
              }
              if (isset($_GET['ajax']) && $_GET['ajax'] == "usersTable") {
-              $smarty -> assign("T_USERS_SIZE", sizeof($users));
+              $roles = EfrontUser :: getRoles(true);
+              $smarty -> assign("T_ROLES", $roles);
 
+              $constraints = array('archive' => false, 'return_objects' => false) + createConstraintsFromSortedTable();
+              $users = $currentGroup -> getGroupUsersIncludingUnassigned($constraints);
+              $totalEntries = $currentGroup -> countGroupUsersIncludingUnassigned($constraints);
               $dataSource = $users;
               $tableName = $_GET['ajax'];
-
-     $basicTypes = EfrontUser :: $basicUserTypesTranslations;
-     $smarty -> assign("T_BASIC_USER_TYPES", EfrontUser :: $basicUserTypesTranslations);
+              $alreadySorted = 1;
+              $smarty -> assign("T_TABLE_SIZE", $totalEntries);
               include("sorted_table.php");
              }
              if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {
@@ -316,7 +307,6 @@ $loadScripts[] = 'includes/groups';
               include("sorted_table.php");
              }
             } catch (Exception $e) {
-             //pr($e);
              handleAjaxExceptions($e);
             }
         }

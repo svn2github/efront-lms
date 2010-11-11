@@ -633,7 +633,7 @@ position:absolute;
 z-index:3;
 white-space:normal;
 overflow:auto;
-height:400px;
+max-height:400px;
 }
 div.autocomplete ul{
 list-style-type:none;

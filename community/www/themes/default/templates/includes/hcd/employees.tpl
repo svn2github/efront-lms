@@ -21,7 +21,7 @@
  <table style = "width:100%" class = "sortedTable" sortBy = "0" size = "{$T_TABLE_SIZE}" id = "usersTable" useAjax = "1" branchFilter="{$T_BRANCHES_FILTER}" jobFilter="{$T_JOBS_FILTER}" activeFilter = 1 rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=users&">
   <tr class = "topTitle">
    <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
-   <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
+   <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
    <td class = "topTitle" name = "timestamp">{$smarty.const._REGISTRATIONDATE}</td>
    <td class = "topTitle" name = "last_login">{$smarty.const._LASTLOGIN}</td>
         {if $T_CURRENT_USER->user.user_type != 'administrator'}
@@ -42,7 +42,7 @@
     {*<a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>*}
     <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "{if $user.active == 1}editLink{/if} {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=user">#filter:login-{$user.login}#</a>
    </td>
-   <td>{$T_LANGUAGES[$user.languages_NAME]}</td>
+   <td>{if $user.user_types_ID}{$T_ROLES[$user.user_types_ID]}{else}{$T_ROLES[$user.user_type]}{/if}</td>
    <td>#filter:timestamp-{$user.timestamp}#</td>
    <td>{if $user.last_login}#filter:timestamp_time_nosec-{$user.last_login}#{else}{$smarty.const._NEVER}{/if}</td>
         {if $T_CURRENT_USER->user.user_type != 'administrator'}

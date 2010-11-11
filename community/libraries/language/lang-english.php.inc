@@ -3940,5 +3940,8 @@ define("_MOVEBLOCK", "Move block");
 define("_EXPANDCOLLAPSEBLOCK", "Expand/collapse block");
 define("_DEFAULTLEARNERTYPE", "Default learner type");
 define("_DEFAULTLEARNERTYPEINFO", "If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type");
-define("_DONTUSEDEFAULTGROUP", "Don't use default group");
+define("_DONTUSEDEFAULTGROUP", "Don't use default type");
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP", "You have been successfully added to the group");
+define("_THISGROUPISINACTIVE", "This group is inactive");
+define("_MAXIMUMKEYUSAGESREACHED", "The key cannot be used any more times");
 ?>

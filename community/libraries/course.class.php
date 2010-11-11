@@ -1200,51 +1200,18 @@ class EfrontCourse
 	 * @access public
 	 * @todo deprecated
 	 */
- public function addUsers2($users, $roles = 'student', $confirmed = true) {
-  $users = EfrontUser::verifyUsersList($users);
-  $roles = EfrontUser::verifyRolesList($roles, sizeof($users));
-  $courseUsers = array_keys($this -> getUsers());
-  $count = sizeof($this -> getStudentUsers());
-  $usersToAddToCourse = $usersToSetRoleToCourse = array();
-  foreach ($users as $key => $user) {
-   $roleInCourse = $roles[$key];
-   if ($roleInCourse != 'administrator') {
-    if ($this -> course['max_users'] && $this -> course['max_users'] <= $count++ && EfrontUser::isStudentRole($roleInCourse)) {
-     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
-    }
-    if (!in_array($user, $courseUsers)) { //added this to avoid adding existing user when admin changes his role
-     $usersToAddToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
-    } else {
-     $usersToSetRoleToCourse[$user] = array('login' => $user, 'role' => $roleInCourse, 'confirmed' => $confirmed);
-    }
-   }
-  }
-  $this -> addUsersToCourse($usersToAddToCourse);
-  $this -> setUserRolesInCourse($usersToSetRoleToCourse);
-  $this -> users = false; //Reset users cache
-  $courseLessons = $this -> getCourseLessons();
-  foreach ($courseLessons as $lesson) {
-   $this -> addCourseUsersToLesson($lesson, $usersToAddToCourse, $confirmed);
-  }
-  return $this -> getUsers();
- }
  public function addUsers($users, $userRoles = 'student', $confirmed = true) {
   if ($this -> course['supervisor_LOGIN']) {
    $confirmed = false;
   }
   $roles = EfrontUser :: getRoles();
   $users = EfrontUser::verifyUsersList($users);
-  $roleInCourse = EfrontUser::verifyRolesList($userRoles, sizeof($users));
+  $userRoles = EfrontUser::verifyRolesList($userRoles, sizeof($users));
   foreach ($userRoles as $key => $value) {
    if (!EfrontUser::isStudentRole($value) && !EfrontUser::isProfessorRole($value)) {
-    throw new Exception (_INVALIDUSERTYPE.': '.$value, EfrontCourseException::INVALID_USER_TYPE);
+    unset($userRoles[$key]);unset($users[$key]);
    }
   }
-/*
-		if (is_array($roleInCourse)) {
-			$roleInCourse =  'student';
-		}
-*/
   if (empty($users)) {
    return false;
   }
@@ -1258,12 +1225,6 @@ class EfrontCourse
     $courseStudents++;
    }
   }
-/*
-		$isStudentRoleInCourse = EfrontUser::isStudentRole($roleInCourse);
-		if (!$isStudentRoleInCourse && !EfrontUser::isProfessorRole($roleInCourse)) {
-			throw new Exception (_INVALIDUSERTYPE.': '.$roleInCourse, EfrontCourseException::INVALID_USER_TYPE);
-		}
-*/
   /*This query returns an array like:
 +------------+------------+-------------+-----------+----------------+---------+
 | courses_ID | lessons_ID | users_login | user_type | from_timestamp | archive |
@@ -1300,8 +1261,6 @@ class EfrontCourse
     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
    }
    if (!isset($courseUsers[$user])) {
-    //$usersToAddToCourse[$user] 	   = array('login' => $user, 'role' => , 'confirmed' => $confirmed);
-    //$newUsers[] = $value['login'];
     $newUsers[] = array('users_LOGIN' => $user,
          'courses_ID' => $this -> course['id'],
          'active' => 1,
@@ -1352,24 +1311,7 @@ class EfrontCourse
   }
   if (!empty($newLessonUsers)) {
    eF_insertTableDataMultiple("users_to_lessons", $newLessonUsers);
-/*
-						//$autoAssignedProjects = $this -> getAutoAssignProjects();
-			foreach ($autoAssignedProjects as $project) {
-				$project -> addUsers($newUsers);
-			}
-*/
   }
- /*	if (!defined(_DISABLE_EVENTS) || _DISABLE_EVENTS !== true) {
-			foreach ($newLessonUsers as $value) {
-				$event = array("type" 		  => EfrontUser::isStudentRole($value['role']) ? EfrontEvent::LESSON_ACQUISITION_AS_STUDENT : EfrontEvent::LESSON_ACQUISITION_AS_PROFESSOR,
-						   "users_LOGIN"  => $value['users_LOGIN'],
-						   "lessons_ID"   => $value['lessons_ID'],
-						   "lessons_name" => $this -> lesson['name']);
-				EfrontEvent::triggerEvent($event);
-			}
-		}
-
-*/
   !isset($newUsers) ? $newUsers = array() : null;
   !isset($existingUsers) ? $existingUsers = array() : null;
   $eventArray = array_merge($newUsers, $existingUsers);
@@ -1382,7 +1324,6 @@ class EfrontCourse
     EfrontEvent::triggerEvent($event);
    }
   }
-  //$this -> addUsersToCourse($usersToAddToCourse, $archivedCourseUsers);
   $this -> users = false; //Reset users cache
  }
  /**

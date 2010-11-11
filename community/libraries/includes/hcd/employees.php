@@ -106,6 +106,8 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 
 
    $tableName = "usersTable";
+   $smarty -> assign("T_ROLES", EfrontUser :: getRoles(true));
+
    $dataSource = $employees;
 
    include ("sorted_table.php");

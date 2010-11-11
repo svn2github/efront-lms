@@ -327,6 +327,10 @@ abstract class EfrontUser
   foreach ($users as $key => $value) {
    if ($value instanceOf EfrontUser) {
     $users[$key] = $value -> user['login'];
+   } elseif (is_array($value) && isset($value['login'])) {
+    $users[$key] = $value['login'];
+   } elseif (is_array($value) && isset($value['users_LOGIN'])) {
+    $users[$key] = $value['users_LOGIN'];
    } elseif (!eF_checkParameter($value, 'login')) {
     unset($users[$key]);
    }
@@ -365,7 +369,7 @@ abstract class EfrontUser
 	 * @static
 	 */
  public static function isStudentRole($role) {
-  $courseRoles = $this -> getPossibleCourseRoles();
+  $courseRoles = EfrontLessonUser :: getLessonsRoles();
   if ($courseRoles[$role] == 'student') {
    return true;
   } else {
@@ -382,7 +386,7 @@ abstract class EfrontUser
 	 * @static
 	 */
  public static function isProfessorRole($role) {
-  $courseRoles = $this -> getPossibleCourseRoles();
+  $courseRoles = EfrontLessonUser :: getLessonsRoles();
   if ($courseRoles[$role] == 'professor') {
    return true;
   } else {

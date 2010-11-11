@@ -292,6 +292,7 @@ class module_rss extends EfrontModule
     }
 
     private function getRssFeeds($refresh = false) {
+     session_write_close();
      $feedTitle = '';
      $feeds = $this -> getFeeds(true);
      foreach ($feeds as $key => $feed) {

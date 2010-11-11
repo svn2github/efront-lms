@@ -40,7 +40,6 @@
                                     <tr class = "topTitle">
                                         <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
                                         <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
-                                        <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
                                         <td class = "topTitle centerAlign" name = "lessons_num">{$smarty.const._LESSONS}</td>
                                         <td class = "topTitle centerAlign" name = "courses_num">{$smarty.const._COURSES}</td>
                                         <td class = "topTitle centerAlign" name = "groups_num">{$smarty.const._GROUPS}</td>
@@ -57,7 +56,6 @@
                                     <tr id="row_{$user.login}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
                                             <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink" {if ($user.pending == 1)}style="color:red;"{/if}><span id="column_{$user.login}" {if !$user.active}style="color:red;"{/if}>#filter:login-{$user.login}#</span></a></td>
                                             <td>{if $user.user_types_ID}{$T_ROLES[$user.user_types_ID]}{else}{$T_ROLES[$user.user_type]}{/if}</td>
-                                            <td>{$T_LANGUAGES[$user.languages_NAME]}</td>
                                             <td class = "centerAlign">{$user.lessons_num}</td>
                                             <td class = "centerAlign">{$user.courses_num}</td>
                                             <td class = "centerAlign">{$user.groups_num}</td>

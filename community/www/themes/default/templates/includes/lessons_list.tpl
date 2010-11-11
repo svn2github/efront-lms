@@ -1,14 +1,5 @@
 <script>
-var wrongGroupLessonKey ='{$smarty.const._WRONGGROUPLESSONKEY}';
-var theGroupHasnotLessons ='{$smarty.const._THEGROUPHASNOLESSONS}';
-var theGroupisnotActive ='{$smarty.const._THEGROUPISNOTACTIVE}';
-var theGroupKeyhasExpired ='{$smarty.const._THEGROUPKEYHASEXPIRED}';
-var alreadyAttend ='{$smarty.const._YOUALREADYATTENDALLLESSONSOFTHISGROUP}';
-var youHaveAssigned ='{$smarty.const._YOUHAVEBEENASSIGNEDWITH}';
-var lcNewLessons ='{$smarty.const._LCNEWLESSONS}';
-var and ='{$smarty.const._AND}';
-var lcNewCourses ='{$smarty.const._LCNEWCOURSES}';
-var pleaseFillGroupKey ='{$smarty.const._PLEASEFILLINTHEGROUPSKEY}';
+translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP}';
 </script>
 
 {if $T_OP == 'tests'}

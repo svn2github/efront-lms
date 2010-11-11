@@ -194,7 +194,7 @@ class EfrontGroup
     public static function create($fields) {
         $fields['name'] = trim($fields['name']);
         !isset($fields['name']) ? $fields['name'] = 'Default name' : null;
-        $result = eF_getTableData("groups","id","unique_key != '' and unique_key is not null and unique_key='".$fields['unique_key']."'");
+        $result = eF_getTableData("groups", "id", "unique_key != '' and unique_key is not null and unique_key='".$fields['unique_key']."'");
         if (sizeof($result) == 0) {
          $group_id = eF_insertTableData("groups", $fields); //Insert the group to the database
          $newGroup = new EfrontGroup($group_id);
@@ -203,11 +203,45 @@ class EfrontGroup
          throw new EfrontGroupException(_GROUPKEYEXISTS, EfrontGroupException :: GROUPKEYEXISTS);
         }
     }
+    /**
+
+     * Create a dynamic group
+
+     * This function creates a dynamic group, which is an unnammed group with limited lifespan and hidden from users
+
+     * @param array $fields the fields for the group
+
+     * @return EfrontGroup The EfrontGroup object of the newly created dynamic group
+
+     * @since 3.6.6
+
+     * @access public
+
+     * @static
+
+     */
     public static function createDynamicGroup($fields) {
      self :: deleteDynamicGroup();
         $group = self::create($fields); //Insert the group to the database
         return $group;
     }
+    /**
+
+     * Delete a dynamic group
+
+     * This function deletes a dynamic group
+
+     * @param array $fields the fields for the group
+
+     * @since 3.6.6
+
+     * @access public
+
+     * @static
+
+     * @see EfrontGroup::createDynamicGroup
+
+     */
     public static function deleteDynamicGroup($group = false) {
      if ($group) {
       eF_deleteTableData("groups", "id=".$_SESSION['dynamic_group']);
@@ -365,12 +399,17 @@ class EfrontGroup
 
      */
     public function addUsers($users, $userTypeInCourses = 'student') {
+     if (empty($users)) {
+      return true;
+     }
   $users = EfrontUser::verifyUsersList($users);
+  $groupUsers = eF_getTableDataFlat("users_to_groups", "users_LOGIN", "groups_ID=".$this -> group['id']);
         $errors = array();
         foreach ($users as $key => $user) {
+         if (!in_array($user, $groupUsers['users_LOGIN'])) {
           $fields[] = array('groups_ID' => $this -> group['id'],
                                'users_LOGIN' => $user);
-          //eF_insertTableData("users_to_groups", $fields);
+         }
         }
   eF_insertTableDataMultiple("users_to_groups", $fields);
         foreach ($this -> getCourses(true, true) as $course) {
@@ -382,6 +421,7 @@ class EfrontGroup
         if (!empty($errors)) {
          throw new EfrontGroupException(implode("<br>", $errors), EfrontGroupException :: ASSIGNMENT_ERROR);
         }
+  return true;
     }
     /**
 
@@ -418,6 +458,20 @@ class EfrontGroup
          eF_deleteTableData("users_to_groups", "users_LOGIN='".$user."' and groups_ID=".$this -> group['id']);
         }
         return true;
+    }
+    /**
+
+     * Remove all users from the group
+
+     *
+
+     * @since 3.6.7
+
+     * @access public
+
+     */
+    public function removeAllUsers() {
+     eF_deleteTableData("users_to_groups", "groups_ID=".$this -> group['id']);
     }
     /**
 
@@ -522,9 +576,9 @@ class EfrontGroup
    throw new Exception(_MAXIMUMKEYUSAGESREACHED, EfrontGroupException::ASSIGNMENT_ERROR);
   }
   $this -> addUsers($user, $this -> group['user_types_ID']);
-  if ($group -> group['key_max_usage']) {
-   $group -> group['key_current_usage']++;
-   $group -> persist();
+  if ($this -> group['key_max_usage']) {
+   $this -> group['key_current_usage']++;
+   $this -> persist();
   }
     }
     /**
@@ -576,7 +630,7 @@ class EfrontGroup
      */
     public function getLessons($returnObjects = false, $refresh = false) {
         if ($this -> lessons === false || $refresh) { //Make a database query only if the variable is not initialized, or it is explicitly asked
-            $result = eF_getTableData("lessons_to_groups lg, lessons l", "lg.*, l.name, l.active", "l.archive=0 and lg.lessons_ID = l.id and lg.groups_ID=".$this -> group['id']);
+            $result = eF_getTableData("lessons_to_groups lg, lessons l", "lg.*, l.id, l.name, l.active", "l.archive=0 and lg.lessons_ID = l.id and lg.groups_ID=".$this -> group['id']);
             $this -> lessons = array();
             foreach ($result as $value) {
              if ($returnObjects) {
@@ -752,10 +806,28 @@ class EfrontGroup
          }
         return $this -> courses;
     }
+ /**
+
+	 * Get group users based on the specified constraints, but include unassigned users as well.
+
+	 * Assigned users have the flag 'has_group' set to 1
+
+	 *
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontUser objects or user arrays
+
+	 * @since 3.6.2
+
+	 * @access public
+
+	 */
     public function getGroupUsers($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "ug.users_LOGIN=u.login";
+  $where[] = "ug.groups_ID=".$this -> group['id'];
   $result = eF_getTableData("users u, users_to_groups ug", "u.*, 1 as has_group", implode(" and ", $where), $orderby, "", $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
@@ -763,13 +835,72 @@ class EfrontGroup
    return $result;
   }
     }
+ /**
+
+	 * Count group users based on the specified constraints, including unassigned
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return int the number of entries in the result set
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
     public function countGroupUsers($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "ug.users_LOGIN=u.login";
-  $result = eF_countTableData("users u, users_to_groups ug", "u.*, 1 as has_group", implode(" and ", $where), $orderby, "", $limit);
+  $where[] = "ug.groups_ID=".$this -> group['id'];
+  $result = eF_countTableData("users u, users_to_groups ug", "u.login, 1 as has_group", implode(" and ", $where), $orderby, "", $limit);
   return $result[0]['count'];
     }
+    /**
+
+     * Check if a user is part of the group
+
+     *
+
+     * @param mixed $userToCheck An EfrontUser object or a user login
+
+     * @return boolean true if the user is part of the group
+
+     * @since 3.6.7
+
+     * @access public
+
+     */
+    public function hasUser($userToCheck) {
+     if ($userToCheck instanceOf EfrontUser) {
+      $userToCheck = $userToCheck -> user['login'];
+     } elseif (!eF_checkParameter($userToCheck, 'login')) {
+      throw new Exception(_INVALIDUSER.': '.$userToCheck, EfrontGroupException::INVALID_USER);
+     }
+     $result = eF_getTableData("users_to_groups", "users_LOGIN", "users_LOGIN='".$userToCheck."' and groups_ID=".$this -> group['id']);
+     if (sizeof($result) > 0) {
+      return true;
+     } else {
+      return false;
+     }
+    }
+ /**
+
+	 * Get group users based on the specified constraints, but include unassigned users as well.
+
+	 * Assigned users have the flag 'has_group' set to 1
+
+	 *
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontUser objects or user arrays
+
+	 * @since 3.6.2
+
+	 * @access public
+
+	 */
     public function getGroupUsersIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
@@ -780,6 +911,19 @@ class EfrontGroup
       return $result;
      }
     }
+ /**
+
+	 * Count group users based on the specified constraints, including unassigned
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return int the number of entries in the result set
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
     public function countGroupUsersIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
@@ -808,11 +952,25 @@ class EfrontGroup
    return $result;
   }
  }
-    /*
+ /**
 
-     * Returns the courses of the group users only plus any unassigned courses
+	 * Get group courses
 
-     */
+	 *
+
+	 * This function returns the list of courses that are part of this group
+
+	 *
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontCourse objects or course arrays
+
+	 * @since 3.6.2
+
+	 * @access public
+
+	 */
     public function getGroupCourses($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
@@ -824,18 +982,52 @@ class EfrontGroup
        (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
          as num_students";
   $where[] = "c.id=cg.courses_ID and cg.groups_ID=".$this -> group['id'];
-     $result = eF_getTableData("courses c, courses_to_groups cg", $select,
-         implode(" and ", $where), $orderby, $groupby, $limit);
-  return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+     $result = eF_getTableData("courses c, courses_to_groups cg", $select, implode(" and ", $where), $orderby, $groupby, $limit);
+     if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+      return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
+     } else {
+      return $result;
+     }
     }
+ /**
+
+	 * Count group courses based on the specified constraints
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return int the number of entries in the result set
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
     public function countGroupCourses($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
      list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $where[] = "c.id=cg.courses_ID and cg.groups_ID=".$this -> group['id'];
-     $result = eF_countTableData("courses c, courses_to_groups cg", "c.id",
-         implode(" and ", $where));
+     $result = eF_countTableData("courses c, courses_to_groups cg", "c.id", implode(" and ", $where));
   return $result[0]['count'];
     }
+ /**
+
+	 * Get group courses
+
+	 *
+
+	 * This function returns the list of courses that are part of this group, including unassigned
+
+	 *
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return array An array of EfrontCourse objects or course arrays
+
+	 * @since 3.6.2
+
+	 * @access public
+
+	 */
     public function getGroupCoursesIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
@@ -846,11 +1038,23 @@ class EfrontGroup
          as num_lessons,
        (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
          as num_students";
-  //$where[] = "d.id=c.directions_ID";
      $result = eF_getTableData("courses c left outer join (select courses_ID from courses_to_groups where groups_ID=".$this -> group['id'].") r on c.id=r.courses_ID", $select,
          implode(" and ", $where), $orderby, $groupby, $limit);
   return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
     }
+ /**
+
+	 * Count group courses based on the specified constraints, including unassigned
+
+	 * @param array $constraints The constraints for the query
+
+	 * @return int the number of entries in the result set
+
+	 * @since 3.6.3
+
+	 * @access public
+
+	 */
     public function countGroupCoursesIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
      list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
@@ -1055,7 +1259,7 @@ class EfrontGroup
      try {
       $roles = EfrontUser::getRoles();
       $group = new EfrontGroup($default_group);
-      $group -> addUsers($user);
+      $group -> addUsers($user, $group -> group['user_types_ID']);
      } catch (Exception $e) {/*otherwise no default group has been defined*/}
      return true;
     }

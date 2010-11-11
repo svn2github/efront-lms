@@ -10,11 +10,12 @@ header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 
 try {
+ $languages = EfrontSystem::getLanguages(true);
+
  if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
   $lesson = new EfrontLesson($_GET['lessons_ID']);
   $lessonInformation = $lesson -> getInformation();
 
-  $languages = EfrontSystem::getLanguages(true);
 
   //$lessonInformation['language'] = $languages[$lesson -> lesson['languages_NAME']];
   if ($lessonInformation['professors']) {
@@ -83,7 +84,6 @@ try {
  if (isset($_GET['courses_ID']) && eF_checkParameter($_GET['courses_ID'], 'id')) {
   $course = new EfrontCourse($_GET['courses_ID']);
   $courseInformation = $course -> getInformation();
-  $languages = EfrontSystem::getLanguages(true);
 
   if ($courseInformation['professors']) {
    foreach ($courseInformation['professors'] as $value) {

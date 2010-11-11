@@ -17,9 +17,7 @@ $loadScripts[] = 'includes/groups';
             $group = new EfrontGroup($_GET['delete_user_group']);
             $group -> delete();
         } catch (Exception $e) {
-            $message = $e -> getMessage();
-            header("HTTP/1.0 500 ");
-            echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     } elseif (isset($_GET['deactivate_user_group']) && eF_checkParameter($_GET['deactivate_user_group'], 'id')) {
@@ -33,9 +31,7 @@ $loadScripts[] = 'includes/groups';
             $group -> persist();
             echo "0";
         } catch (Exception $e) {
-            $message = $e -> getMessage();
-            header("HTTP/1.0 500 ");
-            echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     } elseif (isset($_GET['activate_user_group']) && eF_checkParameter($_GET['activate_user_group'], 'id')) {
@@ -49,9 +45,7 @@ $loadScripts[] = 'includes/groups';
             $group -> persist();
             echo "1";
         } catch (Exception $e) {
-            $message = $e -> getMessage();
-            header("HTTP/1.0 500 ");
-            echo urlencode($e -> getMessage()).' ('.$e -> getCode().')';
+         handleAjaxExceptions($e);
         }
         exit;
     } elseif (isset($_GET['add_user_group']) || ( isset($_GET['edit_user_group']) && eF_checkParameter($_GET['edit_user_group'], 'id')) ) {
@@ -59,7 +53,7 @@ $loadScripts[] = 'includes/groups';
         if (isset($_GET['edit_user_group'])) {
          $currentGroup = new EfrontGroup($_GET['edit_user_group']);
          $smarty -> assign("T_CURRENT_GROUP", $currentGroup);
-   $smarty -> assign ("T_STATS_LINK", array(array('text' => _STATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF']).".php?ctg=statistics&option=groups&sel_group=" . $_GET['edit_user_group'], 'target' => '_self')));
+   $smarty -> assign ("T_STATS_LINK", array(array('text' => _STATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=groups&sel_group=" . $_GET['edit_user_group'], 'target' => '_self')));
          if ($currentGroup -> group['key_max_usage'] > 0) {
           $remainingKeyUsagesLabel = '('._REMAINING.' '.($currentGroup -> group['key_max_usage'] - $currentGroup -> group['key_current_usage']).'/'.$currentGroup -> group['key_max_usage'].')';
          }
@@ -102,30 +96,20 @@ $loadScripts[] = 'includes/groups';
             if ($form -> isSubmitted() && $form -> validate()) {
              try {
               $values = $form -> exportValues();
+              $fields['name'] = $values['name'];
+              $fields['description'] = $values['description'];
+              $fields['user_types_ID'] = $values['user_types_ID'];
+              $fields['unique_key'] = $values['unique_key'];
+              $fields['is_default'] = $values['is_default'];
+              $fields['key_max_usage'] = $values['key_max_usage'] ? $values['key_max_usage'] : 0;
               if (isset($_GET['edit_user_group'])) {
-               $currentGroup -> group['name'] = $values['name'];
-               $currentGroup -> group['description'] = $values['description'];
-               $currentGroup -> group['user_types_ID'] = $values['user_types_ID'];
-               $currentGroup -> group['unique_key'] = $values['unique_key'];
-               $currentGroup -> group['is_default'] = $values['is_default'];
-               $currentGroup -> group['key_max_usage'] = $values['key_max_usage'] ? $values['key_max_usage'] : 0;
-               if (!$currentGroup -> group['key_max_usage']) {
-                $currentGroup -> group['key_current_usage'] = 0;
-               }
+               $values['key_max_usage'] OR $fields['key_current_usage'] = 0;
+               $currentGroup -> group = array_merge($currentGroup -> group, $fields);
                $currentGroup -> persist();
-               eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=user_groups&message=".urlencode(_SUCCESFULLYUPDATEDGROUP)."&message_type=success");
-               //$currentGroup -> updateUsers();
               } else {
-               $fields['name'] = $values['name'];
-               $fields['description'] = $values['description'];
-               $fields['user_types_ID'] = $values['user_types_ID'];
-               $fields['unique_key'] = $values['unique_key'];
-               $fields['is_default'] = $values['is_default'];
-               $fields['key_max_usage'] = $values['key_max_usage'] ? $values['key_max_usage'] : 0;
-               $group = EfrontGroup::create($fields);
-
-               eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=user_groups&edit_user_group=".$group -> group['id']."&tab=users&message=".urlencode(_SUCCESFULLYADDEDGROUP)."&message_type=success");
+               $currentGroup = EfrontGroup::create($fields);
               }
+              eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=user_groups&edit_user_group=".$currentGroup -> group['id']."&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success");
              } catch (Exception $e){
               handleNormalFlowExceptions($e);
              }
@@ -135,68 +119,82 @@ $loadScripts[] = 'includes/groups';
 
         if (isset($_GET['edit_user_group'])) {
 
-
-            // Group lessons
-            $groupLessons = $currentGroup -> getLessons();
-            $result = EfrontLesson::getStandAloneLessons(true);
-
-
-            $lessons = array();
-            foreach ($result as $value) {
-                $lesson = $value -> lesson;
-                $lesson['in_group'] = false;
-                $lesson['user_type'] = 'student';
-                if (in_array($lesson['id'], array_keys($groupLessons))) {
-                    $lesson['in_group'] = true;
-                    $lessons[$lesson['id']] = $lesson;
-                    $lessons[$lesson['id']]['user_type'] = $groupLessons[$lesson['id']]['user_type'];
-                } else if ($lesson['active']) {
-                    $lessons[$lesson['id']] = $lesson;
-                }
-
-            }
-
-            // Group courses
-            $groupCourses = $currentGroup -> getCourses();
-            $result = EfrontCourse::getAllCourses();
-            $courses = array();
-            foreach ($result as $value) {
-                $course = $value -> course;
-                $course['has_course'] = false;
-                $course['user_type'] = 'student';
-                if (in_array($course['id'], array_keys($groupCourses))) {
-                    $course['has_course'] = true;
-                    $courses[$course['id']] = $course;
-                    $courses[$course['id']]['user_type'] = $groupCourses[$course['id']]['user_type'];
-                } else if ($course['active']) {
-                    $courses[$course['id']] = $course;
-                }
-            }
-
             try {
+             if (isset($_GET['ajax']) && $_GET['ajax'] == "usersTable") {
+              $roles = EfrontUser :: getRoles(true);
+              $smarty -> assign("T_ROLES", $roles);
+
+              $constraints = array('archive' => false, 'return_objects' => false) + createConstraintsFromSortedTable();
+              $users = $currentGroup -> getGroupUsersIncludingUnassigned($constraints);
+              $totalEntries = $currentGroup -> countGroupUsersIncludingUnassigned($constraints);
+              $dataSource = $users;
+              $tableName = $_GET['ajax'];
+              $alreadySorted = 1;
+              $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+              include("sorted_table.php");
+             }
+             if (isset($_GET['ajax']) && $_GET['ajax'] == "lessonsTable") {
+              $groupLessons = $currentGroup -> getLessons();
+              $result = EfrontLesson::getStandAloneLessons(true);
+
+              $lessons = array();
+              foreach ($result as $value) {
+               $lesson = $value -> lesson;
+               $lesson['in_group'] = false;
+               $lesson['user_type'] = 'student';
+               if (in_array($lesson['id'], array_keys($groupLessons))) {
+                $lesson['in_group'] = true;
+                $lessons[$lesson['id']] = $lesson;
+                $lessons[$lesson['id']]['user_type'] = $groupLessons[$lesson['id']]['user_type'];
+               } else if ($lesson['active']) {
+                $lessons[$lesson['id']] = $lesson;
+               }
+
+              }
+
+              $dataSource = $lessons;
+              $tableName = $_GET['ajax'];
+              include("sorted_table.php");
+             }
+             if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {
+     $_GET['sort'] != 'null' OR $_GET['sort'] = 'has_course';
+              if ($_GET['ajax'] == 'coursesTable') {
+               $constraints = array('archive' => false, 'instance' => false) + createConstraintsFromSortedTable();
+              }
+              if ($_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
+               $constraints = array('archive' => false, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
+              }
+              $courses = $currentGroup -> getGroupCoursesIncludingUnassigned($constraints);
+              $totalEntries = $currentGroup -> countGroupCoursesIncludingUnassigned($constraints);
+              $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);
+              $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'num_students', 'num_lessons', 'num_skills', 'has_course'));
+              $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+              $alreadySorted = 1;
+              $tableName = $_GET['ajax'];
+              include("sorted_table.php");
+             }
 
              if (isset($_GET['postAjaxRequest'])) {
               if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
                $user = EfrontUserFactory::factory($_GET['login']);
-               if ($users[$_GET['login']]['in_group']) {
+               if ($currentGroup -> hasUser($user)) {
                 $currentGroup -> removeUsers($user);
-                echo "Deleted user ".$_GET['login']." from group";
                } else {
                 $currentGroup -> addUsers($user, $user -> user['user_types_ID'] ? $user -> user['user_types_ID'] : $user -> user['user_type']);
-                echo "Added user ".$_GET['login']." to group";
                }
               } else if (isset($_GET['addAll']) && $_GET['table'] == "usersTable") {
-               isset($_GET['filter']) ? $users = eF_filterData($users, $_GET['filter']) : null;
-               foreach ($users as $key => $user) {
-                if ($user['in_group']) {
-                 unset($users[$key]);
+               $constraints = array('archive' => false, 'return_objects' => false);// + createConstraintsFromSortedTable();
+               $usersToAdd = array();
+               foreach ($currentGroup -> getGroupUsersIncludingUnassigned($constraints) as $key => $user) {
+                if (!$user['has_group']) {
+                 $usersToAdd[] = $user;
+                 $user['user_types_ID'] ? $userTypes[] = $user['user_types_ID'] : $userTypes[] = $user['user_type'];
                 }
-                $currentGroup -> addUsers($users, $userTypes);
+
                }
-              } else if (isset($_GET['removeAll']) && $_GET['table'] == "usersTable") {
-               //isset($_GET['filter']) ? $users = eF_filterData($users, $_GET['filter']) : null;
-               eF_deleteTableData("users_to_groups", "groups_ID=".$_GET['edit_user_group']);
-               echo "All users where deleted from group";
+               $currentGroup -> addUsers($usersToAdd, $userTypes);
+              } else if (isset($_GET['removeAll'])) {
+               $currentGroup -> removeAllUsers();
 
               } else if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
                if ($_GET['insert'] == "1") {
@@ -271,42 +269,7 @@ $loadScripts[] = 'includes/groups';
               }
               exit;
              }
-
-             if (isset($_GET['ajax']) && $_GET['ajax'] == "lessonsTable") {
-              $dataSource = $lessons;
-              $tableName = $_GET['ajax'];
-              include("sorted_table.php");
-             }
-             if (isset($_GET['ajax']) && $_GET['ajax'] == "usersTable") {
-              $roles = EfrontUser :: getRoles(true);
-              $smarty -> assign("T_ROLES", $roles);
-
-              $constraints = array('archive' => false, 'return_objects' => false) + createConstraintsFromSortedTable();
-              $users = $currentGroup -> getGroupUsersIncludingUnassigned($constraints);
-              $totalEntries = $currentGroup -> countGroupUsersIncludingUnassigned($constraints);
-              $dataSource = $users;
-              $tableName = $_GET['ajax'];
-              $alreadySorted = 1;
-              $smarty -> assign("T_TABLE_SIZE", $totalEntries);
-              include("sorted_table.php");
-             }
-             if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {
-              if ($_GET['ajax'] == 'coursesTable') {
-               $constraints = array('archive' => false, 'instance' => false) + createConstraintsFromSortedTable();
-              }
-              if ($_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
-               $constraints = array('archive' => false, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
-              }
-              $courses = $currentGroup -> getGroupCoursesIncludingUnassigned($constraints);
-              $totalEntries = $currentGroup -> countGroupCoursesIncludingUnassigned($constraints);
-              $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);
-              $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'num_students', 'num_lessons', 'num_skills', 'has_course'));
-     $smarty -> assign("T_TABLE_SIZE", $totalEntries);
-     $alreadySorted = 1;
-              $tableName = $_GET['ajax'];
-              include("sorted_table.php");
-             }
-            } catch (Exception $e) {
+            } catch (Exception $e) {pr($e);
              handleAjaxExceptions($e);
             }
         }

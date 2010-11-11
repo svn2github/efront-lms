@@ -16,13 +16,13 @@
   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" order="desc" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=user_groups&edit_user_group={$smarty.get.edit_user_group}&">
    <tr class = "topTitle">
     <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
-    <td class = "topTitle" name = "user_type">{$smarty.const._USER}</td>
+    <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
     <td class = "topTitle centerAlign" name = "has_group">{$smarty.const._CHECK}</td>
    </tr>
   {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
    <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
     <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink" {if ($user.pending == 1)}style="color:red;"{/if}><span id="column_{$user.login}" {if !$user.active}style="color:red;"{/if}>#filter:login-{$user.login}#</span></a></td>
-    <td>{$T_ROLES[$user.user_type]}</td>
+    <td>{if $user.user_types_ID}{$T_ROLES[$user.user_types_ID]}{else}{$T_ROLES[$user.user_type]}{/if}</td>
     <td class = "centerAlign">
    {if $_change_}
      <input class = "inputCheckbox" type = "checkbox" id = "checked_{$user.login}" name = "checked_{$user.login}" onclick = "ajaxPost('{$user.login}', this, 'usersTable');" {if $user.has_group}checked = "checked"{/if} />
@@ -45,7 +45,7 @@
    </span>
   </div>
 <!--ajax:lessonsTable-->
-  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "lessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=user_groups&edit_user_group={$smarty.get.edit_user_group}&">
+  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" id = "lessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=user_groups&edit_user_group={$smarty.get.edit_user_group}&">
    <tr class = "topTitle">
     <td name = "name" class = "topTitle">{$smarty.const._NAME}</td>
     <td name = "directions_ID" class = "topTitle">{$smarty.const._PARENTDIRECTIONS}</td>
@@ -58,7 +58,7 @@
    </tr>
   {foreach name = 'users_to_lessons_list' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
    <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
-    <td>{$lesson.name}</td>
+    <td><a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" class = "editLink">{$lesson.name}</a></td>
     <td>{$lesson.direction_name}</td>
 
     <td class = "centerAlign">{if $course.price == 0}{$smarty.const._FREECOURSE}{else}{$course.price_string}{/if}</td>

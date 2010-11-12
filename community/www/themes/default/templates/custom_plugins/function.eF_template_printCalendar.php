@@ -91,16 +91,19 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
    if (!empty($events_per_day[$day_timestamp])) {
     $className = 'eventCalendar';
     $dayEvents = array();
-
     foreach ($events_per_day[$day_timestamp] as $key => $value) {
-     if (date("His", $key) == '0') {
-      $dayEvents[] = '<b>'._ALLDAY.'</b> '.(strip_tags(implode(", ", $value)));
-     } else {
-      $dayEvents[] = '<b>#filter:timestamp_time_only_nosec-'.$key.'#</b> '.(strip_tags(implode(", ", $value)));
+     foreach ($value as $event) {
+      if (date("His", $key) == '0') {
+       $dayEvents[] = '<b>'._ALLDAY.'</b> '.(strip_tags($event));
+      } else {
+       $dayEvents[] = '<b>#filter:timestamp_time_only_nosec-'.$key.'#</b> '.(strip_tags($event));
+      }
      }
     }
+    sort($dayEvents);
+
     $dayEvents = implode("<br>", $dayEvents);
-//This requires wz_tooltip.js See outputfilter.eF_template_includeScripts.php for when this gets loaded
+
     $day_str = '
                  <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.'" class = "info" >
                   <span class = "tooltipSpan">'.$dayEvents.'</span>

@@ -30,14 +30,10 @@ switch ($_GET['ask_type']) {
  case 'tests': askTests(); break;
  case 'feedback': askFeedback(); break;
  case 'projects': askProjects(); break;
- case 'lessons': askLessons(); break;
- case 'groups': askGroups(); break;
- case 'courses': askCourses(); break;
- //case 'chat': 		askChat();		  break;
- case 'branches': askBranches(); break;
- //case 'information': askInformation(); break;
-
-
+ case 'lesson': case 'lessons': askLessons(); break;
+ case 'group' : case 'groups': askGroups(); break;
+ case 'course': case 'courses': askCourses(); break;
+ case 'branch': case 'branches': askBranches(); break;
  default: break;
 }
 
@@ -473,12 +469,17 @@ function askGroups() {
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
  if($_SESSION['s_type'] == "administrator"){
   $result = eF_getTableData("groups LEFT JOIN users_to_groups ON groups.id = users_to_groups.groups_ID", "id, name, description, count(users_LOGIN) as users_count","active=1 AND (name like '%$preffix%' OR description like '%$preffix%')", "", "groups_ID");
+ } else {
+  $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
+  $result = array_values($currentUser -> getGroups());
  }
  for ($i = 0 ; $i < sizeof($result) ; $i ++) {
   if ($result[$i]['description']) {
-   $result[$i]['name'] .= "&nbsp;-" .$result[$i]['description'];
+   $result[$i]['name'] .= "&nbsp;- ".$result[$i]['description'];
   }
-  $result[$i]['name'] .= "&nbsp;(" . $result[$i]['users_count'] . ")";
+  if (isset($result[$i]['users_count'])) {
+   $result[$i]['name'] .= "&nbsp;(" . $result[$i]['users_count'] . ")";
+  }
   $hiname = highlightSearch($result[$i]['name'] , $preffix);
   $groups[$i] = array('id' => $result[$i]['id'],
           'name' => $result[$i]['name'],

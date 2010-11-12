@@ -82,23 +82,23 @@ class calendar extends EfrontEntity
   $form -> addElement($this -> createDateElement($form, 'timestamp', _DATE, array('addEmptyOption' => array('H' => true, 'i' => true))));
   $form -> addElement('static', 'toggle_editor_code', 'toggleeditor_link');
   $form -> addElement('textarea', 'data', _EVENT, 'class = "simpleEditor inputTextarea" style = "width:98%;height:200px;"');
-   $form -> addElement('select', 'type', _EVENTTYPE, $calendarTypes, 'id = "select_type" onChange = "toggleAutoComplete(this.options[this.options.selectedIndex].value)"');
-   $form -> addElement('static', 'sidenote', '<img id = "busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
-   if ($this -> calendar['type'] || isset($_GET['course'])) {
-    $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" class = "autoCompleteTextBox" style = "width:400px"' );
-    if ($this -> calendar['foreign_ID'] && eF_checkParameter($this -> calendar['foreign_ID'], 'id')) {
-     switch($this -> calendar['type']) {
-      case 'lesson': $selection = eF_getTableData("lessons", "name", "id=".$this -> calendar['foreign_ID']); break;
-      case 'course': $selection = eF_getTableData("courses", "name", "id=".$this -> calendar['foreign_ID']); break;
-      case 'group' : $selection = eF_getTableData("groups", "name", "id=".$this -> calendar['foreign_ID']); break;
-      case 'branch': $selection = eF_getTableData("module_hcd_branch", "name", "branch_ID=".$this -> calendar['foreign_ID']); break;
-     }
+  $form -> addElement('select', 'type', _EVENTTYPE, $calendarTypes, 'id = "select_type" onChange = "toggleAutoComplete(this.options[this.options.selectedIndex].value)"');
+  $form -> addElement('static', 'sidenote', '<img id = "busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
+  if ($this -> calendar['type'] || isset($_GET['course'])) {
+   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" class = "autoCompleteTextBox" style = "width:400px"' );
+   if ($this -> calendar['foreign_ID'] && eF_checkParameter($this -> calendar['foreign_ID'], 'id')) {
+    switch($this -> calendar['type']) {
+     case 'lesson': $selection = eF_getTableData("lessons", "name", "id=".$this -> calendar['foreign_ID']); break;
+     case 'course': $selection = eF_getTableData("courses", "name", "id=".$this -> calendar['foreign_ID']); break;
+     case 'group' : $selection = eF_getTableData("groups", "name", "id=".$this -> calendar['foreign_ID']); break;
+     case 'branch': $selection = eF_getTableData("module_hcd_branch", "name", "branch_ID=".$this -> calendar['foreign_ID']); break;
     }
-   } else {
-    $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" class = "autoCompleteTextBox inactiveElement" style = "width:400px" disabled' );
    }
-   $form -> addElement('static', 'autocomplete_note', _STARTTYPINGFORRELEVENTMATCHES);
-   $form -> addElement('hidden', 'foreign_ID', '' , 'id="foreign_ID"');
+  } else {
+   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" class = "autoCompleteTextBox inactiveElement" style = "width:400px" disabled' );
+  }
+  $form -> addElement('static', 'autocomplete_note', _STARTTYPINGFORRELEVENTMATCHES);
+  $form -> addElement('hidden', 'foreign_ID', '' , 'id="foreign_ID"');
 
   $form -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
   if (!isset($_GET['edit'])) {
@@ -148,6 +148,8 @@ class calendar extends EfrontEntity
 
   eF_checkParameter($values['foreign_ID'], 'id') OR $values['foreign_ID'] = 0;
 
+  $this -> checkCalendarValues($values);
+
   if (isset($_GET['edit'])) {
    $this -> calendar["data"] = $values['data'];
    $this -> calendar["timestamp"] = $timestamp;
@@ -168,6 +170,16 @@ class calendar extends EfrontEntity
 
  }
 
+ public function checkCalendarValues($values) {
+  switch ($values['type']) {
+   case 'course': new EfrontCourse($values['foreign_ID']); break;
+   case 'lesson': new EfrontLesson($values['foreign_ID']); break;
+   case 'group': new EfrontGroup($values['foreign_ID']); break;
+   case 'branch': new EfrontBranch($values['foreign_ID']); break;
+   default: break;
+  }
+ }
+
  public function filterCalendarTypes($user) {
   $calendarTypes = self::$calendarTypes;
 
@@ -177,20 +189,19 @@ class calendar extends EfrontEntity
 
 
 
+  if (!$supervisor) {
+   unset($calendarTypes['branch']);
+  }
   if (!$supervisor && ((isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_lesson_user_type'] == 'student') || (!isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_type'] == 'student'))) {
    unset($calendarTypes['course']);
    unset($calendarTypes['lesson']);
-   unset($calendarTypes['branch']);
   }
-
   if ($user -> user['user_type'] != 'administrator') {
    unset($calendarTypes['global']);
   }
-
   if ($user -> user['user_type'] != 'administrator' && sizeof($user -> getGroups()) == 0) {
    unset($calendarTypes['group']);
   }
-
 
   return $calendarTypes;
  }

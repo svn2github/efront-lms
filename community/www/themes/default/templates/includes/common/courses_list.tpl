@@ -272,7 +272,13 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
   {foreach name = 'users_to_lessons_list' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
 {if in_array('name', $T_DATASOURCE_COLUMNS)}
-   <td class = "name">{$lesson.name}{* ({$T_ROLES[$lesson.user_type]})*}</td>
+   <td class = "name">
+    {if $_change_handles_}
+    <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" class = "editLink" title = "{$smarty.const._EDIT}">{$lesson.name}</a>
+    {else}
+    <span>{$lesson.name}</span>
+    {/if}
+   </td>
 {/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)}
          <td class = "user_type">

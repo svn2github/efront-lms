@@ -37,10 +37,33 @@ isset($_GET['show_interval']) ? $showInterval = $_GET['show_interval'] : $showIn
 $events = calendar :: getCalendarEventsForUser($currentUser);
 $smarty -> assign("T_CALENDAR_TYPES", calendar :: $calendarTypes);
 
-if (isset($_GET['ajax']) && $_GET['ajax'] == "calendarTable") {
- $dataSource = calendar :: filterCalendarEvents($events, $showInterval, $viewCalendar);
- $tableName = $_GET['ajax'];
- include("sorted_table.php");
+if (isset($_GET['ajax'])) {
+ try {
+  if ($_GET['ajax'] == "calendarTable") {
+   $dataSource = calendar :: filterCalendarEvents($events, $showInterval, $viewCalendar);
+   $tableName = $_GET['ajax'];
+   include("sorted_table.php");
+  } else if ($_GET['set_default_course']) {
+   if ($_SESSION['s_courses_ID']) {
+    $course = new EfrontCourse($_SESSION['s_courses_ID']);
+    echo json_encode(array('status' => true, 'foreign_ID' => $course -> course['id'], 'name' => $course -> course['name']));
+   }
+  } else if ($_GET['set_default_lesson']) {
+   if ($_SESSION['s_lessons_ID']) {
+    $lesson = new EfrontLesson($_SESSION['s_lessons_ID']);
+    echo json_encode(array('status' => true, 'foreign_ID' => $lesson -> lesson['id'], 'name' => $lesson -> lesson['name']));
+   }
+  } else if ($_GET['set_default_group']) {
+   $groups = $currentUser -> getGroups();
+   if (sizeof($groups) > 0) {
+    $group = new EfrontGroup(current($groups));
+    echo json_encode(array('status' => true, 'foreign_ID' => $group -> group['id'], 'name' => $group -> group['name']));
+   }
+  }
+ } catch (Exception $e) {
+  handleAjaxExceptions($e);
+ }
+ exit;
 }
 
 

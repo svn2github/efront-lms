@@ -809,6 +809,7 @@ abstract class EfrontUser
   unset($_SESSION['previousMainUrl']);
   unset($_SESSION['previousSideUrl']);
   unset($_SESSION['s_lesson_user_type']);
+  unset($_SESSION['supervises_branches']);
   if ($this -> user['pending']) {
    throw new EfrontUserException(_USERPENDING, EfrontUserException :: USER_PENDING);
   }

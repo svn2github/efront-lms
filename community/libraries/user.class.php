@@ -1140,10 +1140,9 @@ abstract class EfrontUser
 	 */
  public function getGroups() {
   if (! $this -> groups ) {
-   $result = eF_getTableData("users_to_groups ug, groups g", "ug.groups_ID", "ug.users_LOGIN = '".$this -> login."' and g.id=ug.groups_ID and g.active=1");
+   $result = eF_getTableData("users_to_groups ug, groups g", "g.*", "ug.users_LOGIN = '".$this -> login."' and g.id=ug.groups_ID and g.active=1");
    foreach ($result as $group) {
-    $id = $group['groups_ID'];
-    $this -> groups[$id] = $group;
+    $this -> groups[$group['id']] = $group;
    }
   }
   return $this -> groups;
@@ -1165,26 +1164,16 @@ abstract class EfrontUser
 	 * @todo auto_projects
 	 */
  public function addGroups($groupIds) {
-  if (!$this -> groups) {
-   $this -> getGroups();
-  }
+  $this -> groups OR $this -> getGroups(); //Populate $this -> groups if it is not already filled in
   if (!is_array($groupIds)) {
    $groupIds = array($groupIds);
   }
-  // Info needed for log keeping
   foreach ($groupIds as $key => $groupId) {
-   if (eF_checkParameter($groupId, 'id')) {
-    // Check if the group is already assigned, if so, complement the existing specification
-    if (!isset($this -> groups[$groupId])) {
-     // Register group assignment into the event log - event log only available in HCD
-     try {
-      $group = new EfrontGroup($groupId);
-      $group->addUsers($this -> user['login']);
-      $this -> groups[$groupId] = $groupId;
-     } catch (Exception $e) {
-      throw new EfrontUserException(_OPERATIONWASNOTCOMPLETEDSUCCESFULLY.': '.$ok . $e->getTraceAsString(), EfrontUserException :: DATABASE_ERROR);
-     }
-    }
+   if (eF_checkParameter($groupId, 'id') && !isset($this -> groups[$groupId])) {
+    $group = new EfrontGroup($groupId);
+    $group -> addUsers($this -> user['login'], $this -> user['user_types_ID'] ? $this -> user['user_types_ID'] : $this -> user['user_type']);
+    $this -> groups[$groupId] = $groupId;
+    // Register group assignment into the event log - event log only available in HCD
    }
   }
   return $this -> groups;
@@ -1206,19 +1195,18 @@ abstract class EfrontUser
 	 * @access public
 	 */
  public function removeGroups($groupIds) {
-  if (!$this -> groups) {
-   $this -> getGroups();
-  }
+  $this -> groups OR $this -> getGroups(); //Populate $this -> groups if it is not already filled in
   if (!is_array($groupIds)) {
    $groupIds = array($groupIds);
   }
   foreach ($groupIds as $key => $groupId) {
-   if (!eF_checkParameter($groupId, 'id')) {
-    unset($groupIds[$key]); //Remove illegal vaues from groups array.
+   if (eF_checkParameter($groupId, 'id') && isset($this -> groups[$groupId])) {
+    $group = new EfrontGroup($groupId);
+    $group -> removeUsers($this -> user['login']);
+    unset($this -> groups[$key]); //Remove groups from cache array."
+    // Register group assignment into the event log - event log only available in HCD
    }
   }
-  eF_deleteTableData("users_to_groups", "users_login = '".$this -> login."' and groups_ID in (".implode(",", $groupIds).")"); //delete groups from list
-  // Register group assignment into the event log - event log only available in HCD
   return $this -> groups;
  }
  ///MODULE3

@@ -31,5 +31,5 @@ function onAddGroupKey(el, response) {
   w = window;
  }
 
- w.location = w.location.toString() + (w.location.toString().match('&') ? '&' : '?') + 'message='+(translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'])+'&message_type=success';
+ w.location = w.location.toString() + (window.location.pathname.toString() ? '&' : '?') + 'message='+(translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'])+'&message_type=success';
 }

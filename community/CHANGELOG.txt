@@ -81,6 +81,7 @@
 - Added handle to move blocks in control panel and dashboard
 - Added brand new PDF certificates
 - Simplified advanced group properties (enterprise edition)
+- Fixed issue about iis 7.x and setting header Content-length in certificates creation
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

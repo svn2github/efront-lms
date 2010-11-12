@@ -865,25 +865,16 @@ function ajaxUserPost(type, id, el, table_id) {
                          }
                    });
 }
-// History
-    // Ajaxed history deletion
-    function deleteHistory(el, event_id) {
-        if (confirm(areYouSureYouWantToDeleteHist)) {
-            var url = sessionType + ".php?ctg=users&edit_user=" + editUserLogin + "&delete_evaluation=" + event_id + "&ajax=1";
-      parameters = {method: 'get'};
-   ajaxRequest(el, url, parameters, function(el, transport) {
-                    // Update all form tables
-                    tables = sortedTables.size();
-                    var i;
-                    for (i = 0; i < tables; i++) {
-                        if (sortedTables[i].id.match('historyFormTable')) {
-                            eF_js_rebuildTable(i, 0, 'timestamp', 'asc');
-                        }
-                    }
-                }
-            );
-        }
-    }
+function deleteHistory(el, event_id) {
+    var url = location.toString();
+    parameters = {delete_evaluation:event_id, ajax:1, method: 'get'};
+ ajaxRequest(el, url, parameters, function(el, transport) {new Effect.Fade(el.up().up());});
+}
+function deleteEvaluation(el, evaluation_id) {
+    var url = location.toString();
+    parameters = {delete_evaluation:evaluation_id, ajax:1, method: 'get'};
+ ajaxRequest(el, url, parameters, function(el, transport) {new Effect.Fade(el.up().up());});
+}
 function confirmUser(el, id, type) {
  parameters = {ajax:'confirm_user', type: type, id: id, method: 'get'};
  var url = location.toString();

@@ -269,7 +269,7 @@ $loadScripts[] = 'includes/groups';
               }
               exit;
              }
-            } catch (Exception $e) {pr($e);
+            } catch (Exception $e) {
              handleAjaxExceptions($e);
             }
         }

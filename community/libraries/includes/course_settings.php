@@ -298,7 +298,8 @@ if ($_GET['op'] == 'course_info') {
 
     $filenamePdf = G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".pdf";
     file_put_contents(G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".rtf", $certificate);
-    if (stristr($webserver_type[0], "IIS") === false) { //because of note here http://php.net/manual/en/function.file.php
+
+    if (mb_stripos($webserver_type[0], "IIS") === false) { //because of note here http://php.net/manual/en/function.file.php
      $retValues = file(G_SERVERNAME."phplivedocx/samples/mail-merge/convert/convert-document.php?filename=certificate_".$_GET['user']);
     } else {
      $retValues[0] == "false";
@@ -313,7 +314,9 @@ if ($_GET['op'] == 'course_info') {
     } else {
      header("Content-type: application/rtf");
      header("Content-disposition: inline; filename=$filenameRtf");
-     header("Content-length: " . strlen($certificate));
+     if (stristr($webserver_type[0], "IIS") === false) { //for IIS 7.x
+      header("Content-length: " . strlen($certificate));
+     }
      echo $certificate;
      exit(0);
     }

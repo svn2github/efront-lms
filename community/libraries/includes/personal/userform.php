@@ -4,6 +4,7 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
  exit;
 }
+session_write_close();
 
 
 
@@ -86,7 +87,7 @@ if ($editedUser -> user['user_type'] != 'administrator') {
  }
  $smarty -> assign("T_AVERAGES", $averages);
 }
-$smarty -> assign("T_EMPLOYEE_FORM_CAPTION", _USERFORM.":&nbsp;" . formatLogin($editedUser -> user['login']));
+$smarty -> assign("T_EMPLOYEE_FORM_CAPTION", _USERFORM.": " . formatLogin($editedUser -> user['login']));
 
 
 

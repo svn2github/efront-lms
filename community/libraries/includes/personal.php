@@ -188,43 +188,6 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
   $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
  }
- /************************************************* Tabberajax calculation *************************************************/
- $tabberajaxes_array = array();
-  if ($currentUser -> getType() == "administrator" && $_GET['edit_user'] == $currentUser -> user['login']) {
-   $index = 2; // The initial index for skills	- from 3.6 on
-  } else {
-   $index = 1; // The initial index for skills	- from 3.6 on
-  }
-  if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
-   $index++;
-  }
-/*
-
-		if ($GLOBALS['configuration']['lesson_enroll']) {
-
-			$tabberajaxes_array['form'] = 3;//$index++; //hard-coded
-
-		} else {
-
-			$tabberajaxes_array['form'] = 2;//$index++; //hard-coded
-
-		}
-
-*/
-  //$tabberajaxes_array['form'] = 3;
- //pr($tabberajaxes_array);
- $smarty -> assign ("T_TABBERAJAX", $tabberajaxes_array);
- if (isset($_GET['tabberajax'])) {
-  foreach ($tabberajaxes_array as $category => $value) {
-   if ($value == $_GET['tabberajax']) {
-    if ($category == 'skills' || $category == 'history' ) {
-     $_GET['op'] = 'account';
-    } else {
-     $_GET['op'] = 'status';
-    }
-   }
-  }
- }
  /**
 
 	 * The avatar form has changed since 3.6.0.
@@ -489,11 +452,11 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
     } else if ($_GET['insert'] == "false") {
      $editedUser -> removeGroups($_GET['add_group']);
     } else if (isset($_GET['addAll'])) {
-     $groups = eF_getTableDataFlat("groups","id","");
+     $groups = eF_getTableDataFlat("groups", "id", "active=1");
      isset($_GET['filter']) ? $groups = eF_filterData($groups, $_GET['filter']) : null;
      $editedUser -> addGroups($groups['id']);
     } else if (isset($_GET['removeAll'])) {
-     $groups = eF_getTableDataFlat("groups","id","");
+     $groups = eF_getTableDataFlat("groups", "id", "active=1");
      isset($_GET['filter']) ? $groups = eF_filterData($groups, $_GET['filter']) : null;
      $editedUser -> removeGroups($groups['id']);
     }
@@ -503,9 +466,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
     exit;
    }
   } catch (Exception $e) {
-   header("HTTP/1.0 500");
-   echo $e -> getMessage().' ('.$e -> getCode().')';
-   exit;
+   handleAjaxExceptions($e);
   }
  }
  /** Get the skill list by ajax **/
@@ -950,20 +911,25 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   if (!empty($certificates)) {
    $smarty -> assign("T_USER_TO_CERTIFICATES", $certificates);
   }
-  /** Get groups **/
-  $groups = eF_getTableData("groups", "*", "active=1");
-  $user_groups = $editedUser -> getGroups();
-  $groups_size = sizeof($groups);
-  for ($k = 0; $k < $groups_size; $k++) {
-   $groups[$k]['partof'] = 0;
-   if (in_array($groups[$k]['id'], array_keys($user_groups))) {
-    $groups[$k]['partof'] = 1;
-   } else if (!$groups[$k]['active'] || $currentUser -> getType() != "administrator") {
-    unset($groups[$k]);
+  try {
+   if (isset($_GET['ajax']) && $_GET['ajax'] == "groupsTable") {
+    /** Get groups **/
+    $groups = eF_getTableData("groups", "*", "active=1");
+    $user_groups = $editedUser -> getGroups();
+    for ($k = 0; $k < sizeof($groups); $k++) {
+     $groups[$k]['partof'] = 0;
+     if (in_array($groups[$k]['id'], array_keys($user_groups))) {
+      $groups[$k]['partof'] = 1;
+     } else if (!$groups[$k]['active'] || $currentUser -> getType() != "administrator") {
+      unset($groups[$k]);
+     }
+    }
+    $dataSource = $groups;
+    $tableName = 'groupsTable';
+    include("sorted_table.php");
    }
-  }
-  if (!empty($groups)) {
-   $smarty -> assign("T_USER_TO_GROUP_FORM", $groups);
+  } catch (Exception $e) {
+   handleAjaxExceptions($e);
   }
  }
  $smarty -> assign("T_STATISTICS_LINK", array(array('text' => _REPORTS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=user&sel_user=".$editedUser -> user['login'])));

@@ -292,7 +292,7 @@
   <div class="item_actions">
    <b>{$smarty.const._WORKBOOK_ITEMS_COUNT}{$item.position}</b>&nbsp;&nbsp;
 {if $T_WORKBOOK_IS_PUBLISHED == 0}
-   <img src="{$T_WORKBOOK_BASELINK|cat:'images/delete.png'}" alt="{$smarty.const._DELETE}" title="{$smarty.const._DELETE}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&delete_item={$item.id}" onclick="return confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}');">{$smarty.const._DELETE}</a>
+   <img src="{$T_WORKBOOK_BASELINK|cat:'images/delete.png'}" alt="{$smarty.const._REMOVE}" title="{$smarty.const._REMOVE}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&delete_item={$item.id}" onclick="return confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}');">{$smarty.const._REMOVE}</a>
    &nbsp;<div class="actions_separator"></div>&nbsp;
 {/if}
    <img src="{$T_WORKBOOK_BASELINK|cat:'images/move.png'}" alt="{$smarty.const._MOVE}" title="{$smarty.const._MOVE}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&move_item={$item.id}&popup=1" onclick="eF_js_showDivPopup('{$smarty.const._WORKBOOK_MOVE_ITEM}', 0)" target="POPUP_FRAME">{$smarty.const._MOVE}</a>

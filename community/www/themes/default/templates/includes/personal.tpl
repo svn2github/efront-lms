@@ -10,7 +10,7 @@
  var jobDoesNotExistConst ='{$smarty.const._JOBDOESNOTEXIST}';
  var noPlacementsAssigned ='{$smarty.const._NOPLACEMENTSASSIGNEDYET}';
  var onlyImageFilesAreValid ='{$smarty.const._ONLYIMAGEFILESAREVALID}';
- var areYouSureYouWantToDeleteHist ='{$smarty.const._AREYOUSUREYOUWANTTODELETETHEHISOTYRECORD}';
+
  var userHasLesson ='{$smarty.const._USERHASTHELESSON}';
  var serverName ='{$smarty.const.G_SERVERNAME}';
 
@@ -242,40 +242,38 @@ var enableMyJobSelect = false;
  {/capture}
  {*** User groups ***}
  {capture name = 't_users_to_groups_code'}
-    {if isset($T_USER_TO_GROUP_FORM)}
-    <table border = "0" width = "100%" id = "groupsTable" class = "sortedTable" sortBy = "0">
-     <tr class = "topTitle">
-      <td class = "topTitle" width="30%">{$smarty.const._NAME}</td>
-      <td class = "topTitle" width="50%">{$smarty.const._DESCRIPTION}</td>
-      <td class = "topTitle centerAlign" width="20%">{$smarty.const._CHECK}</td>
-     </tr>
-    {foreach name = 'users_to_groups_list' key = 'key' item = 'group' from = $T_USER_TO_GROUP_FORM}
-     {strip}
-     <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$group.active}deactivatedTableElement{/if}">
-      <td width="30%">{$group.name}</td>
-      <td width="50%">{$group.description}</td>
-      <td align = "center" width="20%">
-       {if ($smarty.get.ctg == "personal" && $smarty.session.s_type != 'administrator') || (isset($T_CURRENT_USER->coreAccess.users) && $T_CURRENT_USER->coreAccess.users != 'change')}
-       {if $group.partof == 1}
-        <img src = "images/16x16/success.png" alt = "{$smarty.const._PARTOFTHISGROUP}" title = "{$smarty.const._PARTOFTHISGROUP}" />
-       {/if}
-      {else}
-       {if $group.partof == 1}
-        <input class = "inputCheckBox" type = "checkbox" id = "group_{$group.id}" name = "{$group.id}" onclick ="ajaxUserPost('group', '{$group.id}', this);" checked>
-       {else}
-        <input class = "inputCheckBox" type = "checkbox" id = "group_{$group.id}" name = "{$group.id}" onclick ="ajaxUserPost('group', '{$group.id}', this);">
-       {/if}
-      {/if}
-      </td>
-     </tr>
-     {/strip}
-    {/foreach}
-    </table>
- {else}
-  <table width = "100%">
-   <tr><td class = "emptyCategory">{$smarty.const._NOGROUPSAREDEFINED}</td></tr>
+<!--ajax:groupsTable-->
+  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "groupsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?{if $T_CTG != 'personal' || $smarty.session.s_type == "administrator"}ctg=users&edit_user={$smarty.get.edit_user}{else}ctg=personal{/if}&op=status&">
+   <tr class = "topTitle">
+    <td class = "topTitle" name = "name" width="30%">{$smarty.const._NAME}</td>
+    <td class = "topTitle" name = "description" width="50%">{$smarty.const._DESCRIPTION}</td>
+    <td class = "topTitle centerAlign" name = "partof" width="20%">{$smarty.const._CHECK}</td>
+   </tr>
+  {foreach name = 'users_to_groups_list' key = 'key' item = 'group' from = $T_DATA_SOURCE}
+   <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$group.active}deactivatedTableElement{/if}">
+    <td>
+     {if $_admin_}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=user_groups&edit_user_group={$group.id}" class = "editLink">{$group.name}</a>
+     {else}
+      {$group.name}
+     {/if}
+    </td>
+    <td>{$group.description}</td>
+    <td class = "centerAlign">
+    {if ($smarty.get.ctg == "personal" && $smarty.session.s_type != 'administrator') || (isset($T_CURRENT_USER->coreAccess.users) && $T_CURRENT_USER->coreAccess.users != 'change')}
+     {if $group.partof == 1}
+      <img src = "images/16x16/success.png" alt = "{$smarty.const._PARTOFTHISGROUP}" title = "{$smarty.const._PARTOFTHISGROUP}" />
+     {/if}
+    {else}
+     <input class = "inputCheckBox" type = "checkbox" id = "group_{$group.id}" name = "{$group.id}" onclick ="ajaxUserPost('group', '{$group.id}', this);" {if $group.partof == 1}checked{/if}>
+    {/if}
+    </td>
+   </tr>
+  {foreachelse}
+   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "3">{$smarty.const._NODATAFOUND}</td></tr>
+  {/foreach}
   </table>
- {/if}
+<!--/ajax:groupsTable-->
  {/capture}
  {*** User form ***}
 {/if}
@@ -367,11 +365,7 @@ var enableMyJobSelect = false;
      {eF_template_printBlock tabber="lessons" title = $T_TITLES.status.lessons data = $smarty.capture.t_lessons_code image = '32x32/lessons.png'}
     {/if}
    {/if}
-    {if isset($T_USER_TO_GROUP_FORM)}
-    <div class="tabbertab" title="{$T_TITLES.status.groups}">
-     {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
-    </div>
-    {/if}
+   {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
     {if ($T_SHOW_USER_FORM)}
     <div class="tabbertab {if $smarty.get.tab=='user_form'}tabbertabdefault{/if}" title="{$smarty.const._MYEMPLOYEEFORM}">
      {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
@@ -384,24 +378,19 @@ var enableMyJobSelect = false;
   {*** Account ***}
   {if $T_OP == "account"}
   <div class="tabber">
-   <div class="tabbertab" title="{$T_TITLES.account.edituser}">
-    {eF_template_printBlock title = $T_TITLES.account.edituser data = $smarty.capture.t_personal_data_code image = '32x32/profile.png'}
-   </div>
+   {eF_template_printBlock tabber = "personal" title = $T_TITLES.account.edituser data = $smarty.capture.t_personal_data_code image = '32x32/profile.png'}
+  </div>
   {*** Status ***}
   {elseif $T_OP == "status"}
-   <div class="tabber">
+  <div class="tabber">
    {if $T_EDITEDUSER->user.user_type != 'administrator'}
-     {eF_template_printBlock tabber="courses" title = $T_TITLES.status.courses data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
-   {if $T_CONFIGURATION.lesson_enroll}
+    {eF_template_printBlock tabber="courses" title = $T_TITLES.status.courses data = $smarty.capture.t_courses_list_code image = '32x32/courses.png'}
+    {if $T_CONFIGURATION.lesson_enroll}
      {eF_template_printBlock tabber="lessons" title = $T_TITLES.status.lessons data = $smarty.capture.t_lessons_code image = '32x32/lessons.png'}
-   {/if}
-   {/if}
-    {if isset($T_USER_TO_GROUP_FORM)}
-    <div class="tabbertab" title="{$T_TITLES.status.groups}">
-     {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
-    </div>
     {/if}
-   </div>
+   {/if}
+   {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
+  </div>
   {/if}
  {/if}
 {/capture}

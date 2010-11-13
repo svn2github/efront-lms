@@ -195,7 +195,7 @@ var enableMyJobSelect = false;
    <legend>{$smarty.const._ADDITIONALACCOUNTS}</legend>
    <table id = "additional_accounts">
    {foreach name = 'additional_accounts_list' item = "item" key = "key" from = $T_ADDITIONAL_ACCOUNTS}
-    <tr><td>{$item}</td>
+    <tr><td>#filter:login-{$item}#&nbsp;</td>
      <td><img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEACCOUNT}" title = "{$smarty.const._DELETEACCOUNT}" onclick = "deleteAccount(this, '{$item}')"></td>
    {foreachelse}
    <tr id = "empty_accounts"><td class = "emptyCategory">{$smarty.const._YOUHAVENTSETADDITIONALACCOUNTS}</td></tr>

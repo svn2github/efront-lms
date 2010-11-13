@@ -74,6 +74,7 @@ class calendar extends EfrontEntity
 	 * @see libraries/EfrontEntity#getForm($form)
 	 */
  public function getForm($form) {
+  $GLOBALS['load_editor'] = true;
   $calendarTypes = $this -> filterCalendarTypes(EfrontUserFactory::factory($_SESSION['s_login']));
 
   $sidenote = '<a href = "javascript:void(0)" onclick = "Element.extend(this).up().select(\'select\').each(function (s) {if (s.name.match(/\[H\]/) || s.name.match(/\[i\]/)) {s.options.selectedIndex=0;}})">'._ALLDAY.'</a>';
@@ -85,7 +86,7 @@ class calendar extends EfrontEntity
   $form -> addElement('select', 'type', _EVENTTYPE, $calendarTypes, 'id = "select_type" onChange = "toggleAutoComplete(this.options[this.options.selectedIndex].value)"');
   $form -> addElement('static', 'sidenote', '<img id = "busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
   if ($this -> calendar['type'] || isset($_GET['course'])) {
-   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" class = "autoCompleteTextBox" style = "width:400px"' );
+   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" onkeypress = "$(\'foreign_ID\').value = \'\'" class = "autoCompleteTextBox" style = "width:400px"' );
    if ($this -> calendar['foreign_ID'] && eF_checkParameter($this -> calendar['foreign_ID'], 'id')) {
     switch($this -> calendar['type']) {
      case 'lesson': $selection = eF_getTableData("lessons", "name", "id=".$this -> calendar['foreign_ID']); break;
@@ -95,7 +96,7 @@ class calendar extends EfrontEntity
     }
    }
   } else {
-   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" class = "autoCompleteTextBox inactiveElement" style = "width:400px" disabled' );
+   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" onkeypress = "$(\'foreign_ID\').value = \'\'" class = "autoCompleteTextBox inactiveElement" style = "width:400px" disabled' );
   }
   $form -> addElement('static', 'autocomplete_note', _STARTTYPINGFORRELEVENTMATCHES);
   $form -> addElement('hidden', 'foreign_ID', '' , 'id="foreign_ID"');
@@ -171,12 +172,16 @@ class calendar extends EfrontEntity
  }
 
  public function checkCalendarValues($values) {
+  try {
   switch ($values['type']) {
    case 'course': new EfrontCourse($values['foreign_ID']); break;
    case 'lesson': new EfrontLesson($values['foreign_ID']); break;
    case 'group': new EfrontGroup($values['foreign_ID']); break;
    case 'branch': new EfrontBranch($values['foreign_ID']); break;
    default: break;
+  }
+  } catch (Exception $e) {
+   throw new Exception (_INVALIDSELECTIONPLEASEPICKFROMLIST);
   }
  }
 
@@ -238,8 +243,21 @@ class calendar extends EfrontEntity
                   left outer join groups g on ca.foreign_ID=g.id",
               "ca.*, l.name as lesson_name, c.name as course_name, g.name as group_name",
               "users_LOGIN='".$user."'");
+  $userCalendarEvents = self::functionCalculateEventTypeName($result);
+  return $userCalendarEvents;
+ }
+ /**
+	 * Populate the 'name' attribute depending on whether the event is of type lesson,course,group or branch
+	 *
+	 * @param array $events An events array
+	 * @return array The same events array, augmented with the 'name' key/value
+	 * @since 3.6.7
+	 * @access private
+	 * @static
+	 */
+ private static function functionCalculateEventTypeName($events) {
   $userCalendarEvents = array();
-  foreach ($result as $value) {
+  foreach ($events as $value) {
    $value['name'] = '';
    switch($value['type']){
     case 'lesson': $value['name'] = self::$calendarTypes[$value['type']].': '.$value['lesson_name']; break;
@@ -274,12 +292,9 @@ class calendar extends EfrontEntity
 	 * @static
 	 */
  public static function getLessonCalendarEvents($lesson) {
-  $lessonCalendarEvents = array();
   $lesson = EfrontLesson::convertArgumentToLessonId($lesson);
-  $result = eF_getTableData("calendar", "*", "type = 'lesson' and foreign_ID=".$lesson);
-  foreach ($result as $value) {
-   $lessonCalendarEvents[$value['id']] = $value;
-  }
+  $result = eF_getTableData("calendar ca left outer join lessons l on ca.foreign_ID=l.id", "ca.*, l.name as lesson_name", "type = 'lesson' and foreign_ID=".$lesson);
+  $lessonCalendarEvents = self::functionCalculateEventTypeName($result);
   return $lessonCalendarEvents;
  }
  /**
@@ -303,11 +318,8 @@ class calendar extends EfrontEntity
 	 * @static
 	 */
  public static function getCalendarEventsForAllLessons() {
-  $lessonCalendarEvents = array();
-  $result = eF_getTableData("calendar", "*", "type = 'lesson'");
-  foreach ($result as $value) {
-   $lessonCalendarEvents[$value['id']] = $value;
-  }
+  $result = eF_getTableData("calendar ca left outer join lessons l on ca.foreign_ID=l.id", "ca.*, l.name as lesson_name", "type = 'lesson'");
+  $lessonCalendarEvents = self::functionCalculateEventTypeName($result);
   return $lessonCalendarEvents;
  }
  /**
@@ -321,10 +333,8 @@ class calendar extends EfrontEntity
 	 */
  public static function getCourseCalendarEvents($course) {
   $course = EfrontCourse::convertArgumentToCourseId($course);
-  $result = eF_getTableData("calendar", "*", "type = 'course' and foreign_ID=".$course);
-  foreach ($result as $value) {
-   $courseCalendarEvents[$value['id']] = $value;
-  }
+  $result = eF_getTableData("calendar ca left outer join coursers c on ca.foreign_ID=c.id", "ca.*, c.name as course_name", "type = 'course' and foreign_ID=".$course);
+  $courseCalendarEvents = self::functionCalculateEventTypeName($result);
   return $courseCalendarEvents;
  }
  /**
@@ -340,6 +350,33 @@ class calendar extends EfrontEntity
   eF_deleteTableData("calendar", "type = 'course' and foreign_ID=".$course);
  }
  /**
+	 * Get the calendar events that have to do with the specified group
+	 *
+	 * @param mixed $group A group id or an EfrontGroup object
+	 * @return array A list of calendar events
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function getGroupCalendarEvents($group) {
+  $group = EfrontGroup::convertArgumentToGroupId($group);
+  $result = eF_getTableData("calendar ca left outer join grouprs c on ca.foreign_ID=c.id", "ca.*, c.name as group_name", "type = 'group' and foreign_ID=".$group);
+  $groupCalendarEvents = self::functionCalculateEventTypeName($result);
+  return $groupCalendarEvents;
+ }
+ /**
+	 * Delete the calendar events related to the specified group
+	 *
+	 * @param mixed $group A group id or an EfrontGroup object
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 */
+ public static function deleteGroupCalendarEvents($group) {
+  $group = EfrontGroup::convertArgumentToGroupId($group);
+  eF_deleteTableData("calendar", "type = 'group' and foreign_ID=".$group);
+ }
+ /**
 	 * Get the calendar events that have to do with the specified branch
 	 *
 	 * @param int $branch A branch id
@@ -349,11 +386,8 @@ class calendar extends EfrontEntity
 	 * @static
 	 */
  public static function getBranchCalendarEvents($branch) {
-  //$lesson = EfrontLesson::convertArgumentToLessonId($lesson);
-  $result = eF_getTableData("calendar", "*", "type = 'branch' and foreign_ID=".$branch);
-  foreach ($result as $value) {
-   $branchCalendarEvents[$value['id']] = $value;
-  }
+  $result = eF_getTableData("left outer join module_hcd_branch b on ca.foreign_ID=b.branch_ID", "ca.*, b.name as branch_name", "type = 'branch' and foreign_ID=".$branch);
+  $branchCalendarEvents = self::functionCalculateEventTypeName($result);
   return $branchCalendarEvents;
  }
  /**
@@ -402,10 +436,11 @@ class calendar extends EfrontEntity
  public static function getCalendarEventsForAdministrator($user) {
   $user = EfrontUser::convertArgumentToUserLogin($user);
   $personalEvents = $allEvents = array();
-  $result = eF_getTableData("calendar c", "c.*", "type != 'private'");
-  foreach ($result as $value) {
-   $allEvents[$value['id']] = $value;
-  }
+   $result = eF_getTableData("calendar ca left outer join lessons l on ca.foreign_ID=l.id
+                  left outer join courses c on ca.foreign_ID=c.id
+                  left outer join groups g on ca.foreign_ID=g.id",
+              "ca.*, l.name as lesson_name, c.name as course_name, g.name as group_name", "type != 'private'");
+  $allEvents = self::functionCalculateEventTypeName($result);
   $personalEvents = self :: getUserCalendarEvents($user);
   $userEvents = $personalEvents + $allEvents;
   return $userEvents;
@@ -427,15 +462,15 @@ class calendar extends EfrontEntity
   foreach ($result as $value) {
    $globalEvents[$value['id']] = $value;
   }
-  $result = eF_getTableData("lessons l, calendar ca, users_to_lessons ul", "ca.*, l.name", "ul.users_LOGIN='$user' and ca.foreign_ID=ul.lessons_ID and ul.lessons_ID=l.id and l.archive=0 and ul.archive=0");
+  $result = eF_getTableData("lessons l, calendar ca, users_to_lessons ul", "ca.*, l.name", "ul.users_LOGIN='$user' and ca.foreign_ID=ul.lessons_ID and ul.lessons_ID=l.id and l.archive=0 and ul.archive=0 and ca.type = 'lesson'");
   foreach ($result as $value) {
    $lessonEvents[$value['id']] = $value;
   }
-  $result = eF_getTableData("courses c, calendar ca, users_to_courses uc", "ca.*, c.name", "uc.users_LOGIN='$user' and ca.foreign_ID=uc.courses_ID and uc.courses_ID=c.id and c.archive=0 and uc.archive=0");
+  $result = eF_getTableData("courses c, calendar ca, users_to_courses uc", "ca.*, c.name", "uc.users_LOGIN='$user' and ca.foreign_ID=uc.courses_ID and uc.courses_ID=c.id and c.archive=0 and uc.archive=0 and ca.type = 'course'");
   foreach ($result as $value) {
    $courseEvents[$value['id']] = $value;
   }
-  $result = eF_getTableData("groups g, calendar ca, users_to_groups ug", "ca.*, g.name", "ug.users_LOGIN='$user' and ca.foreign_ID=ug.groups_ID and ug.groups_ID=g.id");
+  $result = eF_getTableData("groups g, calendar ca, users_to_groups ug", "ca.*, g.name", "ug.users_LOGIN='$user' and ca.foreign_ID=ug.groups_ID and ug.groups_ID=g.id and ca.type = 'group'");
   foreach ($result as $value) {
    $groupEvents[$value['id']] = $value;
   }

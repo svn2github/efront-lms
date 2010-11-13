@@ -18,7 +18,7 @@ if ($GLOBALS['configuration']['disable_calendar'] == 1 || (isset($currentUser ->
  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 }
 
-$load_editor = true;
+
 $loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/calendar';
 
@@ -43,32 +43,41 @@ if (isset($_GET['ajax'])) {
    $dataSource = calendar :: filterCalendarEvents($events, $showInterval, $viewCalendar);
    $tableName = $_GET['ajax'];
    include("sorted_table.php");
+   exit;
   } else if ($_GET['set_default_course']) {
    if ($_SESSION['s_courses_ID']) {
     $course = new EfrontCourse($_SESSION['s_courses_ID']);
     echo json_encode(array('status' => true, 'foreign_ID' => $course -> course['id'], 'name' => $course -> course['name']));
    }
+   exit;
   } else if ($_GET['set_default_lesson']) {
    if ($_SESSION['s_lessons_ID']) {
     $lesson = new EfrontLesson($_SESSION['s_lessons_ID']);
     echo json_encode(array('status' => true, 'foreign_ID' => $lesson -> lesson['id'], 'name' => $lesson -> lesson['name']));
    }
+   exit;
   } else if ($_GET['set_default_group']) {
    $groups = $currentUser -> getGroups();
    if (sizeof($groups) > 0) {
     $group = new EfrontGroup(current($groups));
     echo json_encode(array('status' => true, 'foreign_ID' => $group -> group['id'], 'name' => $group -> group['name']));
    }
+   exit;
+  } else if ($_GET['set_default_branch']) {
+   if (sizeof($branches = explode(",", $_SESSION['supervises_branches'])) > 0) {
+    $branch = new EfrontBranch($branches[0]);
+    echo json_encode(array('status' => true, 'foreign_ID' => $branch -> branch['branch_ID'], 'name' => $branch -> branch['name']));
+   }
+   exit;
   }
  } catch (Exception $e) {
   handleAjaxExceptions($e);
  }
- exit;
 }
 
 
 $entityName = 'calendar';
-if ($user -> user['user_type'] == 'administrator') { //admins can edit all events
+if ($currentUser -> user['user_type'] == 'administrator') { //admins can edit all events
  $legalValues = array_keys($events);
 } else {
  $legalValues = array_keys(calendar :: getUserCalendarEvents($currentUser));

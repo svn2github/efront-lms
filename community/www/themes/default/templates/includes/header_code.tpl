@@ -36,7 +36,7 @@
             {/if}
 
    {* Logout *}
-     | <a class = "headerText" href = "index.php?logout=true"> {$smarty.const._LOGOUT}</a>
+     <span class = "headerText">&nbsp;|</span><a class = "headerText" href = "index.php?logout=true"> {$smarty.const._LOGOUT}</a>
 
   {elseif $smarty.server.PHP_SELF|basename == 'index.php'}
    <span class = "headerText">{$smarty.const._YOUARECURRENTLYLOGGEDINAS}: </span><a href = "{$smarty.session.s_type}page.php?dashboard={$smarty.session.s_login}" class = "headerText">#filter:login-{$smarty.session.s_login}#</a>

@@ -526,14 +526,15 @@ class module_workbook extends EfrontModule{
    $pdf->SetAuthor(PDF_AUTHOR);
    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+   $pdf->setFontSubsetting(false);
    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-   $pdf->setHeaderFont(Array('Times', 'I', 11));
-   $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+   $pdf->setHeaderFont(Array('Freeserif', 'I', 11));
+   $pdf->setFooterFont(Array('Freeserif', '', 8));
    $pdf->setHeaderData('', '', '', $workbookLessonName);
    $pdf->AliasNbPages();
    $pdf->AddPage();
-   $pdf->SetFont('Times', '', 10);
+   $pdf->SetFont('Freeserif', '', 10);
    $pdf->SetTextColor(0, 0, 0);
 
    $workbookAnswers = $this->getWorkbookAnswers($currentUser->user['login'], array_keys($workbookItems));
@@ -566,10 +567,45 @@ class module_workbook extends EfrontModule{
 
    $pdf->writeHTML($workbookHTML, true, false, true, false, '');
 
-   $fileName = _WORKBOOK_NAME.'_'.$this->getWorkbookLessonName($currentLessonID).'.pdf';
-   $pdf->Output($fileName, 'D');
-
+   $fileName = _WORKBOOK_NAME.'_'.str_replace(' ', '_', $this->getWorkbookLessonName($currentLessonID)).'.pdf';
+   header("Content-type: application/pdf");
+   header("Content-disposition: attachment; filename=".$fileName);
+   echo $pdf->Output('', 'S');
    exit(0);
+  }
+
+  if(isset($_GET['check_workbook_progress']) && $_GET['check_workbook_progress'] == '1'){
+
+   $lessonStudents = $currentLesson->getUsers('student');
+   $workbookStudents = array();
+
+   foreach($lessonStudents as $userLogin => $value){
+
+    if($nonOptionalQuestionsNr != 0){
+
+     $studentProgress = $this->getStudentProgress($userLogin, $currentLessonID);
+     $studentProgress .= '%';
+    }
+    else{
+     $studentProgress = '-';
+    }
+
+    $workbookStudents[$userLogin] = array('login' => $userLogin, 'progress' => $studentProgress);
+   }
+
+   $smarty->assign("T_WORKBOOK_STUDENTS", $workbookStudents);
+  }
+
+  if(isset($_GET['preview_workbook']) && $_GET['preview_workbook'] == '1' &&
+   isset($_GET['student']) && eF_checkParameter($_GET['student'], 'login')){
+
+   $userLogin = $_GET['student'];
+
+   $studentProgress = $this->getStudentProgress($userLogin, $currentLessonID);
+   $smarty->assign("T_WORKBOOK_PREVIEW_STUDENT_PROGRESS", $studentProgress);
+
+   $workbookAnswers = $this->getWorkbookAnswers($userLogin, array_keys($workbookItems));
+   $smarty->assign("T_WORKBOOK_PREVIEW_ANSWERS", $workbookAnswers);
   }
 
   if(isset($_GET['item_submitted'])){
@@ -643,6 +679,8 @@ class module_workbook extends EfrontModule{
 
     $isWorkbookPublished = $this->isWorkbookPublished($currentLessonID);
     $smarty->assign("T_WORKBOOK_IS_PUBLISHED", $isWorkbookPublished);
+
+    $smarty->assign("T_WORKBOOK_NON_OPTIONAL_QUESTIONS_NR", $nonOptionalQuestionsNr);
    }
 
    if($currentUser->getRole($this->getCurrentLesson()) == 'professor'){
@@ -680,8 +718,6 @@ class module_workbook extends EfrontModule{
 
     $isWorkbookCompleted = $this->isWorkbookCompleted($currentUser->user['login'], $currentLessonID);
     $smarty->assign("T_WORKBOOK_IS_COMPLETED", $isWorkbookCompleted);
-
-    $smarty->assign("T_WORKBOOK_NON_OPTIONAL_QUESTIONS_NR", $nonOptionalQuestionsNr);
    }
   }
 
@@ -823,6 +859,15 @@ class module_workbook extends EfrontModule{
     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
     array('title' => _WORKBOOK_NAME, 'link' => $this->moduleBaseUrl),
     array('title' => _WORKBOOK_EDIT_ITEM, 'link' => $_SERVER['REQUEST_URI'])
+   );
+  }
+  else if(isset($_GET['check_workbook_progress'])){
+
+   return array(
+    array('title' => _MYCOURSES, 'onclick' => $onClick),
+    array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
+    array('title' => _WORKBOOK_NAME, 'link' => $this->moduleBaseUrl),
+    array('title' => _WORKBOOK_CHECK_PROGRESS, 'link' => $_SERVER['REQUEST_URI'])
    );
   }
   else{

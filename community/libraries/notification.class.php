@@ -535,7 +535,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
                 $extra_condition .= " lessons.id = " . $conditions['lessons_ID'] . " AND ";
             }
             if (EfrontEvent::LESSON_PROGRAMMED_START != abs($event_notification['event_type']) && EfrontEvent::LESSON_PROGRAMMED_EXPIRY != abs($event_notification['event_type'])) {
-    $users_to_notify = eF_getTableData("users_to_lessons JOIN users ON users_to_lessons.users_LOGIN = users.login JOIN lessons ON users_to_lessons.lessons_ID = lessons.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_lessons.lessons_ID, lessons.name as lessons_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff." and users.archive=0 and users_to_courses.archive=0");
+    $users_to_notify = eF_getTableData("users_to_lessons JOIN users ON users_to_lessons.users_LOGIN = users.login JOIN lessons ON users_to_lessons.lessons_ID = lessons.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_lessons.lessons_ID, lessons.name as lessons_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff." and users.archive=0 and users_to_lessons.archive=0");
             } else {
                 $users_to_notify = eF_getTableData("lessons", "lessons.id as lessons_ID, lessons.name as lessons_name, " . $timestamp_column . " as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
             }

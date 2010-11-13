@@ -21,9 +21,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $message_type = 'success';
                 }
             } catch (Exception $e) {
-                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message = _ERRORRESTORINGFILE.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-                $message_type = 'failure';
+             handleNormalFlowExceptions($e);
                 if ($e -> getCode() == EfrontSystemException::INCOMPATIBLE_VERSIONS) {
                     $message .= ' - <a href = "javascript:void(0)" onclick = "location=location+\'&force=1\'">Force restore</a>';
                 }

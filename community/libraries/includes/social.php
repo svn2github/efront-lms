@@ -425,13 +425,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  /********************* PEOPLE PAGE ******************/
  } else if ($_GET['op'] == "people") {
 
-  if ($loadScripts) {
-   $loadScripts = array_merge($loadScripts, array('scriptaculous/prototype'));
-   $loadScripts = array_merge($loadScripts, array('scriptaculous/effects'));
-  } else {
-   $loadScripts = array('scriptaculous/prototype', 'scriptaculous/scriptaculous', 'scriptaculous/effects');
-  }
-
   if (isset($_GET['ajax'])) {
    isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = 10;
 
@@ -455,6 +448,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
    } else {
     $all_related_users = $currentUser ->getRelatedUsers();
    }
+
    $temp_related_users = eF_getTableData("users", "login, name, surname, avatar, status", "login IN ('".implode("','", $all_related_users)."')");
    $my_related_users = array();
    foreach ($temp_related_users as $user) {

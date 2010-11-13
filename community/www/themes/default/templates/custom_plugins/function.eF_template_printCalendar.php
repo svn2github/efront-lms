@@ -113,7 +113,7 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
                     <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$day_timestamp.'">'.$day.'</a>';
    }
 
-   if ($day_timestamp == $today) {
+   if ($day_timestamp == $today && !$className) {
     $className = 'todayCalendar';
    }
 

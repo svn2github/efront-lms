@@ -106,7 +106,10 @@ function handleAjaxExceptions($e) {
 
 function handleNormalFlowExceptions($e) {
  $GLOBALS['smarty'] -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
- $GLOBALS['message'] = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+ $GLOBALS['message'] = $e -> getMessage();
+ if ($e -> getCode()) {
+  $GLOBALS['message'] .= ' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+ }
  $GLOBALS['message_type'] = 'failure';
 }
 

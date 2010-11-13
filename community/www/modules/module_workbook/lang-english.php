@@ -46,5 +46,8 @@ define("_WORKBOOK_INVALID_ANSWER", "Your answer is not correct. Please try again
 define("_WORKBOOK_SUCCESSFULLY_PUBLISHED", "Workbook successfully published");
 define("_WORKBOOK_PUBLISH_PROBLEM", "Problem while publishing workbook");
 define("_WORKBOOK_UNDER_DEVELOPMENT", "Under development");
+define("_WORKBOOK_CHECK_PROGRESS", "Check progress");
+define("_WORKBOOK_STUDENT_NAME", "Student Name");
+define("_WORKBOOK_NO_STUDENTS_FOUND", "No students found");
 
 ?>

@@ -17,6 +17,7 @@ function toggleAutoComplete(selection) {
    break;
    case 'branch':
     autocompleter.url = "ask.php?ask_type=branches";
+    ajaxRequest($('autocomplete'), location.toString(), {set_default_branch:1, method:'get'}, onSetDefaultValue);
    break;
   }
 
@@ -33,6 +34,16 @@ function onSetDefaultValue(el, response) {
   $('foreign_ID').value = response.evalJSON(true).foreign_ID;
  }
 }
+function toggleAutoCompleteStatus() {
+ selection = $('select_type').options[$('select_type').options.selectedIndex].value;
+ if (selection != 'global' && selection != 'private') {
+  $('autocomplete').disabled = false;
+  $('autocomplete').removeClassName('inactiveElement');
+ } else {
+  $('autocomplete').disabled = true;
+  $('autocomplete').addClassName('inactiveElement');
+ }
+}
 
 if ($('autocomplete_calendar')) {
  autocompleter =
@@ -41,4 +52,5 @@ if ($('autocomplete_calendar')) {
                            "ask.php?ask_type="+$('select_type').options[$('select_type').options.selectedIndex].value, {paramName: "preffix",
                                                afterUpdateElement : function (t, li) {$('foreign_ID').value = li.id;},
                                                indicator : "busy"});
+ toggleAutoCompleteStatus();
 }

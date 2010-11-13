@@ -469,7 +469,7 @@ abstract class EfrontUser
 	 */
  public static function getUsers($returnAdmins = true) {
   $users = array();
-  $result = eF_getTableData("users", "LOGIN, user_type");
+  $result = eF_getTableData("users", "LOGIN, user_type", "archive=0");
   foreach ($result as $value) {
    if ($value['user_type'] == 'administrator'){
     if ($returnAdmins){
@@ -2818,13 +2818,13 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  public function getRelatedUsers() {
   $myLessons = $this ->getLessons();
-  $other_users = eF_getTableDataFlat("users_to_lessons", "distinct users_LOGIN" , "archive=0 and lessons_ID IN ('" . implode("','", array_keys($myLessons)) . "') AND users_LOGIN <> '" . $this -> user['login'] . "'");
+  $other_users = eF_getTableDataFlat("users_to_lessons ul, users u", "distinct users_LOGIN" , "u.archive=0 and u.active=1 and ul.users_LOGIN=u.login and ul.archive=0 and lessons_ID IN ('" . implode("','", array_keys($myLessons)) . "') AND users_LOGIN <> '" . $this -> user['login'] . "'");
   $users = $other_users['users_LOGIN'];
   return $users;
  }
  /**
 	 * Get the common lessons with a particular user
-	 *
+	 *getUsers(
 	 * <br/>Example:
 	 * <code>
 	 * $common_lessons	= $user -> getCommonLessons('joe'); // find the common lessons between this user and 'joe'

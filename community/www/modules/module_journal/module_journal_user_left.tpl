@@ -14,7 +14,7 @@
  </tr>
 {foreach name = 'entries_loop' key = "id" item = "entry" from = $T_JOURNAL_ENTRIES}
  <tr>
-  <td>{$entry.entry_date}</td>
+  <td>{$entry.entry_date_formatted}</td>
  </tr>
  <tr>
   <td>{$entry.entry_body}</td>

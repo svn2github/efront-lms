@@ -125,26 +125,30 @@ class module_journal extends EfrontModule{
    $pdf->SetAuthor(PDF_AUTHOR);
    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+   $pdf->setFontSubsetting(false);
    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-   $pdf->setHeaderFont(Array('Times', 'I', 11));
-   $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+   $pdf->setHeaderFont(Array('Freeserif', 'I', 11));
+   $pdf->setFooterFont(Array('Freeserif', '', 8));
    $pdf->setHeaderData('', '', '', _JOURNAL_NAME);
    $pdf->AliasNbPages();
    $pdf->AddPage();
-   $pdf->SetFont('Times', '', 10);
+   $pdf->SetFont('Freeserif', '', 10);
    $pdf->SetTextColor(0, 0, 0);
 
    foreach($entries as $entry){
 
-    $pdf->Cell(0, 0, $entry['entry_date'], 0, 1, L, 0);
+    $pdf->Cell(0, 0, $entry['entry_date_formatted'], 0, 1, L, 0);
     $pdf->writeHTML('<br/>', true, false, true, false, '');
     $pdf->writeHTML($entry['entry_body'], true, false, true, false, '');
     $pdf->writeHTML('<div style="height: 5px;"></div>', true, false, true, false, '');
     $pdf->writeHTML('<hr>', true, false, true, false, '');
    }
 
-   $pdf->Output();
+   $fileNamePdf = "journal.pdf";
+   header("Content-type: application/pdf");
+   header("Content-disposition: attachment; filename=".$fileNamePdf);
+   echo $pdf->Output('', 'S');
    exit(0);
   }
 
@@ -156,7 +160,7 @@ class module_journal extends EfrontModule{
 
    foreach($entries as $entry){
 
-    $entriesHTML .= $entry['entry_date'];
+    $entriesHTML .= $entry['entry_date_formatted'];
     $entriesHTML .= $entry['entry_body'];
     $entriesHTML .= '<hr><br/>';
    }
@@ -178,7 +182,7 @@ class module_journal extends EfrontModule{
 
    foreach($entries as $entry){
 
-    $entriesHTML .= $entry['entry_date'];
+    $entriesHTML .= $entry['entry_date_formatted'];
     $entriesHTML .= $entry['entry_body'];
     $entriesHTML .= '<p></p>';
     $entriesHTML .= '_______________________________________________________';
@@ -684,6 +688,10 @@ class module_journal extends EfrontModule{
    $datestamp = $date_[0];
    $timestamp = $date_[1];
    $datestamp = explode('-', $datestamp);
+   $timestampMktime = explode(':', $timestamp);
+   $dateFormatted = formatTimestamp(mktime($timestampMktime[0], $timestampMktime[1], $timestampMktime[2],
+            $datestamp[1], $datestamp[2], $datestamp[0]), 'time');
+   $datestampFormatted = formatTimestamp(mktime(0, 0, 0, $datestamp[1], $datestamp[2], $datestamp[0]), 'date');
    $datestamp = $datestamp[2].'/'.$datestamp[1].'/'.$datestamp[0];
 
    if($prev_datestamp == '' || $prev_datestamp != $datestamp)
@@ -692,7 +700,9 @@ class module_journal extends EfrontModule{
     $value['date_first'] = 0;
 
    $value['entry_date'] = $datestamp.' '.$timestamp;
+   $value['entry_date_formatted'] = $dateFormatted;
    $value['entry_datestamp'] = $datestamp;
+   $value['entry_datestamp_formatted'] = $datestampFormatted;
    $value['entry_timestamp'] = $timestamp;
    $entries[$value['id']] = $value;
 

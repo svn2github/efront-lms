@@ -224,6 +224,8 @@ class EfrontSystem
           }
       }
   }
+  //Turn off foreign key checks in order to be able to run "drop table" queries
+  eF_executeNew("SET FOREIGN_KEY_CHECKS = 0;");
   //For each one of the tables that don't have backup data, simply recreate
   foreach ($sql as $tableName => $query) {
       try {
@@ -231,6 +233,7 @@ class EfrontSystem
       } catch (Exception $e) {/*Don't halt for missing tables that can't be deleted*/}
       eF_executeNew($query[1]);
   }
+  eF_executeNew("SET FOREIGN_KEY_CHECKS = 1;");
   if (is_dir(G_BACKUPPATH.'temp/upload')) {
       $dir = new EfrontDirectory(G_BACKUPPATH.'temp/upload');
       $dir -> copy(G_ROOTPATH.'upload', true);
@@ -375,6 +378,7 @@ class EfrontSystem
                  }
                 }
                 try {
+
 
 
 

@@ -3944,4 +3944,5 @@ define("_DONTUSEDEFAULTGROUP", "Don't use default type");
 define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP", "You have been successfully added to the group");
 define("_THISGROUPISINACTIVE", "This group is inactive");
 define("_MAXIMUMKEYUSAGESREACHED", "The key cannot be used any more times");
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST", "The selection you made is not valid. Please pick an option from the list");
 ?>

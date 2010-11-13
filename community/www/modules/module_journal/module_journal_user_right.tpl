@@ -14,7 +14,7 @@
  </tr>
 {foreach name = 'entries_loop' key = "id" item = "entry" from = $T_JOURNAL_ENTRIES}
  <tr>
-  <td>{$entry.entry_date}</td>
+  <td>{$entry.entry_date_formatted}</td>
  </tr>
  <tr>
   <td>{$entry.entry_body}</td>
@@ -177,7 +177,9 @@
      <div id="entries_{$T_JOURNAL_DIMENSIONS}" onscroll="saveScrollPosition();">
 {foreach name = 'entries_loop' key = "id" item = "entry" from = $T_JOURNAL_ENTRIES}
 {if $entry.date_first == 1}
-      <div class="datestamp">{$entry.entry_datestamp}</div>
+      <div class="separator" style="height: 1px;"></div>
+      <div class="datestamp">{$entry.entry_datestamp_formatted}</div>
+      <div class="separator" style="height: 1px;"></div>
 {/if}
       <div class="entry_{$T_JOURNAL_DIMENSIONS}">
        <div class="entry_date">{$entry.entry_timestamp}</div>

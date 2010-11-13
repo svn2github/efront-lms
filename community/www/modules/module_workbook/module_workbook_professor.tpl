@@ -248,6 +248,80 @@
 {/capture}
 {eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_popup_info image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
 
+{elseif isset($smarty.get.check_workbook_progress)}
+
+{capture name = 't_check_workbook_progress_info'}
+
+<table class="sortedTable" style="width:100%">
+ <tr>
+  <td class="topTitle">{$smarty.const._WORKBOOK_STUDENT_NAME}</td>
+  <td class="topTitle">{$smarty.const._PROGRESS}</td>
+  <td class="topTitle centerAlign noSort">{$smarty.const._PREVIEW}</td>
+ </tr>
+{foreach name = "students_loop" key = "login" item = "student" from = $T_WORKBOOK_STUDENTS}
+ <tr id="row_{$student.login}" class="{cycle values = "oddRowColor, evenRowColor"}">
+  <td>#filter:login-{$student.login}#</td>
+  <td>{$student.progress}</td>
+  <td class="centerAlign"><a href="{$T_WORKBOOK_BASEURL}&preview_workbook=1&student={$student.login}&popup=1" onclick="eF_js_showDivPopup('{$smarty.const._PREVIEW}', 3)" target="POPUP_FRAME"><img src="{$T_WORKBOOK_BASELINK|cat:'images/info.png'}" alt="{$smarty.const._PREVIEW}" title="{$smarty.const._PREVIEW}" style="vertical-align:middle" /></a></td>
+ </tr>
+{foreachelse}
+ <tr class="defaultRowHeight oddRowColor">
+  <td class="emptyCategory" colspan="100%">{$smarty.const._WORKBOOK_NO_STUDENTS_FOUND}</td>
+ </tr>
+{/foreach}
+</table>
+
+{/capture}
+{eF_template_printBlock title=$T_WORKBOOK_LESSON_NAME data=$smarty.capture.t_check_workbook_progress_info image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+
+{elseif isset($smarty.get.preview_workbook)}
+
+{capture name = 't_preview_workbook_code'}
+
+{if $T_WORKBOOK_NON_OPTIONAL_QUESTIONS_NR != 0}
+<table style="width:100%">
+ <tr>
+  <td>
+   <div id="progress_bar" class="workbook_bar">
+    {$smarty.const._COMPLETED}:&nbsp;
+    <span class="progressNumber" id="progressNumberWorkbook">{$T_WORKBOOK_PREVIEW_STUDENT_PROGRESS}%</span>
+    <span class="progressBar" id="progressBarWorkbook" style="width:{$T_WORKBOOK_PREVIEW_STUDENT_PROGRESS}px;">&nbsp;</span>&nbsp;
+   </div>
+  </td>
+ </tr>
+</table>
+{/if}
+
+<div class="separator"></div>
+
+{foreach name = 'items_loop' key = "id" item = "item" from = $T_WORKBOOK_ITEMS}
+{assign var='html_solved' value=$T_WORKBOOK_PREVIEW_ANSWERS.$id}
+<div class="workbook_item">
+ <div class="item_header_student">
+  <img src="{$T_WORKBOOK_BASELINK|cat:'images/item_logo.png'}" alt="{$item.item_title}" title="{$item.item_title}" style="vertical-align:middle; border: 0px;" />&nbsp;
+  {$smarty.const._WORKBOOK_ITEMS_COUNT}{$item.position}{if $item.item_title != ''}&nbsp;-&nbsp;{$item.item_title}{/if}
+ </div>
+ <div class="separator" style="height: 5px;"></div>
+{if $item.item_text != ''}
+ <div class="item_text_student">{$item.item_text}</div>
+ <div class="separator" style="height: 5px;"></div>
+{/if}
+{if $item.item_question != -1}
+{if $html_solved == ''}
+ <div class="item_question_student" id="item_{$id}">{$item.question_text}</div>
+{else}
+ <div class="item_question_student" id="item_{$id}">{$html_solved}</div>
+{/if}
+{/if}
+</div>
+<div class="items_separator"></div>
+{foreachelse}
+<img src="{$T_WORKBOOK_BASELINK|cat:'images/warning.png'}" alt="{$smarty.const._WORKBOOK_NO_ITEMS_FOUND}" title="{$smarty.const._WORKBOOK_NO_ITEMS_FOUND}" style="vertical-align:middle" />&nbsp;<div style="display: inline; font-style: italic;">{$smarty.const._WORKBOOK_NO_ITEMS_FOUND}</div>
+{/foreach}
+
+{/capture}
+{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_preview_workbook_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+
 {else}
 {capture name = 't_workbook_professor_code'}
 <table>
@@ -272,9 +346,11 @@
    &nbsp;<div class="options_separator"></div>&nbsp;
    <img src="{$T_WORKBOOK_BASELINK|cat:'images/success.png'}" alt="{$smarty.const._PUBLISH}" title="{$smarty.const._PUBLISH}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&publish_workbook=1" >{$smarty.const._PUBLISH}</a>
 {else}
-   {if sizeof($T_WORKBOOK_LESSONS) != 1}&nbsp;<div class="options_separator"></div>&nbsp;{/if}
+   {if sizeof($T_WORKBOOK_LESSONS) != 2}&nbsp;<div class="options_separator"></div>&nbsp;{/if}
    <img src="{$T_WORKBOOK_BASELINK|cat:'images/forbidden.png'}" alt="{$smarty.const._RESET}" title="{$smarty.const._RESET}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&reset_workbook_professor=1" onclick="return confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}');">{$smarty.const._RESET}</a>
 {/if}
+   &nbsp;<div class="options_separator"></div>&nbsp;
+   <img src="{$T_WORKBOOK_BASELINK|cat:'images/analysis.png'}" alt="{$smarty.const._WORKBOOK_CHECK_PROGRESS}" title="{$smarty.const._WORKBOOK_CHECK_PROGRESS}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&check_workbook_progress=1">{$smarty.const._WORKBOOK_CHECK_PROGRESS}</a>
 {/if}
 {if $T_POPUP_MODE == false}
    &nbsp;<div class="options_separator"></div>&nbsp;

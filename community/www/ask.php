@@ -468,7 +468,7 @@ function askLessons() {
 function askGroups() {
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
  if($_SESSION['s_type'] == "administrator"){
-  $result = eF_getTableData("groups LEFT JOIN users_to_groups ON groups.id = users_to_groups.groups_ID", "id, name, description, count(users_LOGIN) as users_count","active=1 AND (name like '%$preffix%' OR description like '%$preffix%')", "", "groups_ID");
+  $result = array_values(EfrontGroup::getGroups());
  } else {
   $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
   $result = array_values($currentUser -> getGroups());
@@ -714,34 +714,37 @@ function askChat() {
  echo $data;
 }
 function askBranches() {
- include_once $path."module_hcd_tools.php";
- eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
- if ($_SESSION['s_type'] == "administrator") {
-  $result = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.branch_ID, module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees, branch1.branch_ID as father_ID, branch1.name as father, supervisor","");
- } else {
-  $result = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID WHERE module_hcd_branch.branch_ID IN (".$_SESSION['supervises_branches'].") GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees,  module_hcd_branch.branch_ID, branch1.branch_ID as father_ID, branch1.name as father","");
- }
- $branches = array();
- foreach ($result as $value) {
-  $branches[$value['branch_ID']] = $value;
- }
- $tree = new EfrontBranchesTree();
- foreach ($tree -> toPathString() as $key => $branch) {
-  if (in_array($key, array_keys($branches))) {
-   if ($preffix == '%' || stripos($branch, $preffix) !== false) {
-    $hiname = highlightSearch(eF_truncatePath($branch, 80, 6, "...", "&nbsp;&rarr;&nbsp;"), $preffix);
-    $branches[$key] = array('branch_ID' => $key,
+ try {
+  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
+  if ($_SESSION['s_type'] == "administrator") {
+   $result = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.branch_ID, module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees, branch1.branch_ID as father_ID, branch1.name as father, supervisor","");
+  } else {
+   $result = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID WHERE module_hcd_branch.branch_ID IN (".$_SESSION['supervises_branches'].") GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees,  module_hcd_branch.branch_ID, branch1.branch_ID as father_ID, branch1.name as father","");
+  }
+  $branches = array();
+  foreach ($result as $value) {
+   $branches[$value['branch_ID']] = $value;
+  }
+  $tree = new EfrontBranchesTree();
+  foreach ($tree -> toPathString() as $key => $branch) {
+   if (in_array($key, array_keys($branches))) {
+    if ($preffix == '%' || stripos($branch, $preffix) !== false) {
+     $hiname = highlightSearch(eF_truncatePath($branch, 80, 6, "...", "&nbsp;&rarr;&nbsp;"), $preffix);
+     $branches[$key] = array('branch_ID' => $key,
             'name' => $branch,
             'path_string' => $hiname);
+    }
    }
   }
+  $str = '<ul>';
+  foreach ($branches as $key => $branch) {
+   $str = $str.'<li id='.$key.'>'.$branch['path_string'].'</li>';
+  }
+  $str .= '</ul>';
+  echo $str;
+ } catch (Exception $e) {pr($e);
+  handleAjaxExceptions($e);
  }
- $str = '<ul>';
- foreach ($branches as $key => $branch) {
-  $str = $str.'<li id='.$key.'>'.$branch['path_string'].'</li>';
- }
- $str .= '</ul>';
- echo $str;
 }
 function askInformation() {
  try {
@@ -854,8 +857,7 @@ function askInformation() {
    }
   }
  } catch (Exception $e) {
-  header("HTTP/1.0 500");
-  echo $e -> getMessage().' ('.$e -> getCode().')';
+  handleAjaxExceptions($e);
  }
 }
 ?>

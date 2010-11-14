@@ -137,7 +137,7 @@
        var calls = new Array();
       {foreach name = 'lessons_list' item = 'lesson' key = 'key' from = $T_COURSE_LESSONS} {*Create javascript arrays*}
        lessonsIds.push('{$lesson.id}');
-       lessonsNames.push('{$lesson.name}');
+       lessonsNames.push('{$lesson.name|@addSlashes}');
       {/foreach}
       {foreach name = 'course_rules_list' item = "rule" key = "key" from = $T_COURSE_RULES}
        {foreach name = 'lesson_rules' item = "lesson_id" key = "index" from = $rule.lesson}

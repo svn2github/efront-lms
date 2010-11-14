@@ -44,51 +44,36 @@ try {
                 }
             } else if (isset($_GET['lesson'])) {
                 if ($_GET['insert'] == 'true') {
-                    $currentJob -> associateLesson($_GET['add_lessonID'], $_GET['apply_to_all_jd']);
+                    $currentJob -> associateLessonsToJob($_GET['add_lessonID'], $_GET['apply_to_all_jd']);
                 } else if ($_GET['insert'] == 'false') {
-                    $currentJob -> removeLesson($_GET['add_lessonID'], $_GET['apply_to_all_jd']);
+                    $currentJob -> removeLessonsFromJob($_GET['add_lessonID'], $_GET['apply_to_all_jd']);
                 } else if (isset($_GET['addAll'] )) {
-                    $lessons = $currentJob -> getLessons();
+                 $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+                    $lessons = $currentJob -> getJobLessons($constraints);
                     isset($_GET['filter']) ? $lessons = eF_filterData($lessons,$_GET['filter']) : null;
-
-                    foreach ($lessons as $lesson) {
-                        if ($lesson['job_description_ID'] == "") {
-                            $currentJob -> associateLesson($lesson['id'], $_GET['apply_to_all_jd']);
-                        }
-                    }
+                    $currentJob -> associateLessonsToJob($lessons, $_GET['apply_to_all_jd']);
                 } else if (isset($_GET['removeAll'] )) {
-                    $lessons = $currentJob -> getLessons();
+                 $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+                    $lessons = $currentJob -> getJobLessons($constraints);
                     isset($_GET['filter']) ? $lessons = eF_filterData($lessons,$_GET['filter']) : null;
-
-                    foreach ($lessons as $lesson) {
-                        if ($lesson['job_description_ID'] != "") {
-                            $currentJob -> removeLesson($lesson['id'], $_GET['apply_to_all_jd']);
-                        }
-                    }
+                    $currentJob -> removeLessonsFromJob($lessons, $_GET['apply_to_all_jd']);
                 }
             } else if (isset($_GET['course'])) {
                 if ($_GET['insert'] == 'true') {
-                    $currentJob -> associateCourse($_GET['add_courseID'], $_GET['apply_to_all_jd']);
+                    $currentJob -> associateCoursesToJob($_GET['add_courseID'], $_GET['apply_to_all_jd']);
                 } else if ($_GET['insert'] == 'false') {
-                    $currentJob -> removeCourse($_GET['add_courseID'], $_GET['apply_to_all_jd']);
+                    $currentJob -> removeCoursesFromJob($_GET['add_courseID'], $_GET['apply_to_all_jd']);
                 } else if (isset($_GET['addAll'] )) {
-                    $courses = $currentJob -> getCourses();
+                 $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+                    $courses = $currentJob -> getJobCourses($constraints);
                     isset($_GET['filter']) ? $courses = eF_filterData($courses,$_GET['filter']) : null;
+                    $currentJob -> associateCoursesToJob($courses, $_GET['apply_to_all_jd']);
 
-                    foreach ($courses as $course) {
-                        if ($course['job_description_ID'] == "") {
-                            $currentJob -> associateCourse($course['id'], $_GET['apply_to_all_jd']);
-                        }
-                    }
                 } else if (isset($_GET['removeAll'] )) {
-                    $courses = $currentJob -> getCourses();
+                 $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+                    $courses = $currentJob -> getJobCourses($constraints);
                     isset($_GET['filter']) ? $courses = eF_filterData($courses,$_GET['filter']) : null;
-
-                    foreach ($courses as $course) {
-                        if ($course['job_description_ID'] != "") {
-                            $currentJob -> removeCourse($course['id'], $_GET['apply_to_all_jd']);
-                        }
-                    }
+                    $currentJob -> removeCoursesFromJob($courses, $_GET['apply_to_all_jd']);
                 }
             } else if (isset($_GET['training'])) {
              $currentJob -> setRequiredTraining($_GET['training'], $_GET['apply_to_all']);
@@ -192,14 +177,6 @@ try {
             }
             /* Administrators can associate lessons or courses to job descriptions - every employee with that job description will have the lessons */
             if ($currentUser -> getType() == "administrator" || $currentEmployee -> getType() == _SUPERVISOR) {
-                $lessons = $currentJob -> getLessons();
-                // Remove all course_only lessons
-                foreach ($lessons as $lid => $lesson) {
-                    if ($lesson['course_only']) {
-                         unset($lessons[$lid]);
-                    }
-                }
-                $courses = $currentJob -> getCourses();
                 $skills = $currentJob -> getSkills();
                 // Get with ajax
                 if (isset($_GET['ajax'])) {
@@ -234,27 +211,20 @@ try {
             exit;
            }
 
-           if ($_GET['tab'] == 'lessons') {
-                        isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-                        if (isset($_GET['sort'])) {
-                            isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
-                            $lessons = eF_multiSort($lessons, $_GET['sort'], $order);
-                        }
-                        if (isset($_GET['filter'])) {
-                            $lessons = eF_filterData($lessons, $_GET['filter']);
-                        }
-
-                        $smarty -> assign("T_LESSONS_SIZE", sizeof($lessons));
-                        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
-                            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-                            $lessons = array_slice($lessons, $offset, $limit);
-                        }
-                        $smarty -> assign("T_LESSONS_DATA", $lessons);
-
-                        $smarty -> display($_SESSION['s_type'].'.tpl');
-                        exit;
-                    }
-
+           if ($_GET['ajax'] == 'lessonsTable') {
+                  try {
+                   $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'active' => true);
+                   $lessons = $currentJob -> getJobLessonsIncludingUnassigned($constraints);
+       $totalEntries = $currentJob -> countJobLessonsIncludingUnassigned($constraints);
+       $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+                   $dataSource = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+                   $tableName = $_GET['ajax'];
+                   $alreadySorted = 1;
+                   include("sorted_table.php");
+                  } catch (Exception $e) {
+                   handleAjaxExceptions($e);
+                  }
+                 }
                  $smarty -> assign("T_DATASOURCE_SORT_BY", 5);
                  $smarty -> assign("T_DATASOURCE_SORT_ORDER", 'desc');
                  $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'directions_name', 'num_lessons', 'has_course'));
@@ -277,51 +247,10 @@ try {
                    handleAjaxExceptions($e);
                   }
                  }
-/*
 
-                    if ($_GET['tab'] == 'courses') {
-
-                        isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-
-                        if (isset($_GET['sort'])) {
-
-                            isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
-
-                            $courses = eF_multiSort($courses, $_GET['sort'], $order);
-
-                        }
-
-                        if (isset($_GET['filter'])) {
-
-                            $courses = eF_filterData($courses, $_GET['filter']);
-
-                        }
-
-
-
-                        $smarty -> assign("T_COURSES_SIZE", sizeof($courses));
-
-                        if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
-
-                            isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-
-                            $courses = array_slice($courses, $offset, $limit);
-
-                        }
-
-                        $smarty -> assign("T_COURSES_DATA", $courses);
-
-
-
-                        $smarty -> display($_SESSION['s_type'].'.tpl');
-
-                        exit;
-
-                    }
-
-*/
                     if ($_GET['tab'] == 'skills') {
                         isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+
                         if (isset($_GET['sort'])) {
                             isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
                             $skills = eF_multiSort($skills, $_GET['sort'], $order);
@@ -329,30 +258,25 @@ try {
                         if (isset($_GET['filter'])) {
                             $skills = eF_filterData($skills, $_GET['filter']);
                         }
+
                         $smarty -> assign("T_SKILLS_SIZE", sizeof($skills));
                         if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
                             isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
                             $skills = array_slice($skills, $offset, $limit);
                         }
                         $smarty -> assign("T_SKILLS", $skills);
+
                         $smarty -> display($_SESSION['s_type'].'.tpl');
                         exit;
                     }
                 } else {
-                    // Conventional get
-                    $smarty -> assign("T_LESSONS_SIZE", sizeof($lessons));
-                    if (!empty($lessons)) {
-                        $smarty -> assign("T_LESSONS_DATA", $lessons);
-                    }
-                    $smarty -> assign("T_COURSES_SIZE", sizeof($courses));
-                    if (!empty($courses)) {
-                        $smarty -> assign("T_COURSES_DATA", $courses);
-                    }
+
                     $smarty -> assign("T_SKILLS_SIZE", sizeof($skills));
                     if (!empty($skills)) {
                         $smarty -> assign("T_SKILLS", $skills);
                     }
                 }
+
                 // Job prerequisites handling
                 $allCourses = EfrontCourse::getAllCourses(array("return_objects" => false, "instance" => false, "sort" => "name"));
                 if (!empty($allCourses)) {
@@ -360,10 +284,13 @@ try {
                  foreach ($allCourses as $course) {
                   $trainingCourses[$course['id']] = $course['name'];
                  }
+
                  $form -> addElement('select', 'prerequisites_row_col', null, $trainingCourses, 'id = "prerequisites_row_col" class = "inputSelect" onChange="updateSelectedValue(this);ajaxPostRequiredTraining();"');
                  //    $form -> addElement('select', 'search_skill_template' , null, $skills_list ,'id="search_skill_row" class = "inputSelectMed"  onchange="javascript:refreshResults();"');
                 }
+
                 //$training_courses = $currentJob -> getRequiredTraining();
+
                 $training_condition = $currentJob -> job['required_training'];
                 if ($training_condition) {
                  $training_condition = explode(";", $training_condition);
@@ -377,6 +304,7 @@ try {
                   foreach ($orCondition as $condition) {
                    $form -> addElement('select', 'prerequisites_'.$row.'_'. $column, null, $trainingCourses, 'id = "prerequisites_'.$row.'_'.$column.'" class = "inputSelect" onChange="updateSelectedValue(this);ajaxPostRequiredTraining();"');
                    $form -> setDefaults(array('prerequisites_'.$row.'_'. $column => $condition));
+
                    $training_index[$row][] = 'prerequisites_'.$row.'_'. $column;
                    if ($column) {
                     $or_spans_index['prerequisites_'.$row.'_'. $column] = 1;
@@ -385,18 +313,23 @@ try {
                   }
                   $row++;
                  }
+
                  if (!empty($training_index[1])) {
                   $smarty -> assign ("T_PREREQUISITES", $training_index);
                   $smarty -> assign ("T_OR_SPANS", $or_spans_index);
                  }
                 }
             }
+
         } else {
             $details_link = "";
         }
+
         /* The details link has the html code for the "view branch details" lense icon on the right of the branches drop down */
         $smarty -> assign("T_BRANCH_INFO", $details_link);
+
         $form -> addElement('submit', 'submit_job_description_details', _SUBMIT, 'class = "flatButton"');
+
         /* Set default values */
         if (isset($_GET['edit_job_description'])) {
             $form -> setDefaults(array( 'job_description_name' => $currentJob -> job['description'],
@@ -405,9 +338,12 @@ try {
         } else {
          $details_link = "";
         }
+
         $smarty -> assign("T_BRANCH_ID", $currentJob -> job['branch_ID']);
+
         /* If add_branch request coming from another branch subbranches menu, pre-enter the fatherBranch form */
         if (isset($_GET['add_job_description'])) {
+
          if (isset($_GET['add_to_branch'])) {
              $form -> setDefaults(array( 'branch' => $_GET['add_to_branch']));
              $details_link = "href=\"" . $_SESSION['s_type']. ".php?ctg=module_hcd&op=branches&edit_branch=" . $_GET['add_to_branch'] . "\"";
@@ -421,6 +357,7 @@ try {
           }
          }
         }
+
         /* Hidden for maintaining the previous_url value, so that you can immediately return after the insertion of a new job description */
         $form -> addElement('hidden', 'previous_url', null, 'id="previous_url"');
         $previous_url = getenv('HTTP_REFERER');
@@ -428,8 +365,10 @@ try {
             $previous_url = substr($previous_url, 0, $position);
         }
         $form -> setDefaults(array( 'previous_url' => $previous_url));
+
         /* Needed for title */
         $smarty -> assign("T_JOB_DESCRIPTION_NAME", $currentJob -> job['description']);
+
         /*****************************************************
 
          JOB_DESCRIPTION DATA SUBMISSION

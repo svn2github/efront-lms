@@ -1526,6 +1526,34 @@ class EfrontLesson
  }
  /**
 
+	 * Verify the integrity of the lessons list and convert each one to
+
+	 * an object, if it isn't already. The returned array has the lesson ids
+
+	 * as keys.
+
+	 *
+
+	 * @param mixed $lessons An array of lesson objects or lesson ids, or a single lesson, or a single lesson object
+
+	 * @return array The array of lesson objects, where keys are ids
+
+	 * @since 3.6.7
+
+	 * @access public
+
+	 */
+ public function verifyLessonsList($lessonsList) {
+  is_array($lessonsList) OR $lessonsList = array($lessonsList);
+  $newLessonsList = array();
+  foreach ($lessonsList as $lesson) {
+   ($lesson instanceof EfrontLesson) OR $lesson = new EfrontLesson($lesson);
+   $newLessonsList[$lesson -> lesson['id']] = $lesson;
+  }
+  return $newLessonsList;
+ }
+ /**
+
 	 * Add users to lesson
 
 	 *

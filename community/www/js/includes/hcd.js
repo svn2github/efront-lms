@@ -480,7 +480,7 @@ function globalAjaxPost(id, el, table_id) {
   type = el.name;
  }
  if (type == "skill" || type == "lesson" || type == "course") {
-  var baseUrl = sessionType + '.php?ctg=module_hcd&op=job_descriptions&edit_job_description='+editJobDescription+'&postAjaxRequest=1&'+type+'=1&apply_to_all_jd=' + document.getElementById(type + '_changes_apply_to').checked;
+  var baseUrl = sessionType + '.php?ctg=module_hcd&op=job_descriptions&edit_job_description='+editJobDescription+'&postAjaxRequest=1&'+type+'=1';
   if (id) {
    var checked = $(type+'_'+id).checked;
    var url = baseUrl + '&add_'+type+'ID=' + id + '&insert='+checked;
@@ -526,31 +526,21 @@ function globalAjaxPost(id, el, table_id) {
   return false;
  }
 }
-function applyToAllJobDescriptionsInfo(el, jobDescription) {
- if (el.checked) {
-  newValue = "checked";
-  alert(futureAssignmentsWill + jobDescription);
- } else {
-  newValue = "";
-  alert(futureAssignmentsWillNot + jobDescription);
- }
- $('skill_changes_apply_to').checked = newValue;
- $('lesson_changes_apply_to').checked = newValue;
- $('course_changes_apply_to').checked = newValue;
-}
-function applyToAllJobPositionUsers(el,position_id) {
- var type;
+function applyToAllJobPositionUsers(el, position_id) {
+ Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
  if (el.id == 'course_changes_apply_to_users') {
-  type = 'course';
+  var type = 'course';
  } else if( el.id == 'lesson_changes_apply_to_users') {
-  type = 'lesson';
+  var type = 'lesson';
  }
  var url = location.toString();
  parameters = {applytoallusers:type, method: 'get'};
- ajaxRequest(el, url, parameters, onapplyToAllJobPositionUsers);
+ ajaxRequest(el, url, parameters, onApplyToAllJobPositionUsers);
 }
-function onapplyToAllJobPositionUsers(el,response) {
- el.checked = false;
+function onApplyToAllJobPositionUsers(el, response) {
+ el.down().src='themes/default/images/others/transparent.gif';
+ setImageSrc(el.down(), 16, 'success');
+ new Effect.Fade(el.down());
 }
 var __criteria_total_number = 0;
 //Function for inserting the new job row into the edit_user profile

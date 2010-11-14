@@ -200,101 +200,60 @@
    {/capture}
 
 
-   {if $smarty.session.s_type == "administrator"}
-    {capture name = 't_job_to_lessons'}
-     <table width="100%">
-      <tr><td align ="right">
-       <table><tr><td><img src = "images/16x16/help.png" alt = "{$smarty.const._INFO}" title = "{$smarty.const._INFO}" onclick = "eF_js_showHideDiv(this, 'lesson_help_info', event)"><div id = 'lesson_help_info' onclick = "eF_js_showHideDiv(this, 'lesson_help_info', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:300px;position:absolute;display:none">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITIONHELP}</div>{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</td>
-         <td><input class = "inputCheckBox" type = "hidden" id="lesson_changes_apply_to" name = "lesson_changes_apply_to" onclick= "applyToAllJobDescriptionsInfo(this, '{$T_JOB_DESCRIPTION_NAME}');"></td>
-            <td><input class = "inputCheckBox" type = "checkbox" id="lesson_changes_apply_to_users" name = "lesson_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');" /></td>
-           </tr>
-       </table>
-      </td>
-      </tr>
-     </table>
+{if $smarty.session.s_type == "administrator"}
+ {capture name = 't_job_to_lessons'}
+ <div class = "headerTools">
+  <span>
+   <img src = "images/16x16/go_into.png" title = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" alt = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" />
+      <a href="javascript:void(0);" id="lesson_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</a>
+     </span>
+ </div>
 <!--ajax:lessonsTable-->
 
-             <table style = "width:100%" class = "sortedTable" size = "{$T_LESSONS_SIZE}" sortBy = "0" id = "lessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$smarty.get.edit_job_description}&tab=lessons&">
-              <tr class = "topTitle">
-               <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
-               <td class = "topTitle" name = "direction_name">{$smarty.const._DIRECTION}</td>
-               <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
+ <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "lessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$smarty.get.edit_job_description}&tab=lessons&">
+  <tr class = "topTitle">
+   <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
 
 
+   <td class = "topTitle" name = "price">{$smarty.const._PRICE}</td>
 
-
-
-
-               <td class = "topTitle" name = "price">{$smarty.const._PRICE}</td>
-
-
-               <td class = "topTitle" name = "job_description_ID" style = "text-align:center">{$smarty.const._CHECK}</td>
-              </tr>
-
-          {foreach name = 'lessons_list2' key = 'key' item = 'lesson' from = $T_LESSONS_DATA}
-              <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-               <td>
-            {if ($lesson.info)}
-                <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" class = "info nonEmptyLesson">
-                 {$lesson.name}
-                 <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/>
-                 <span class="tooltipSpan">
-                  {if isset($lesson.info.general_description)}<strong>{$smarty.const._GENERALDESCRIPTION|cat:'</strong>:&nbsp;'|cat:$lesson.info.general_description}<br/>{/if}
-                  {if isset($lesson.info.assessment)} <strong>{$smarty.const._ASSESSMENT|cat:'</strong>:&nbsp;'|cat:$lesson.info.assessment}<br/> {/if}
-                  {if isset($lesson.info.objectives)} <strong>{$smarty.const._OBJECTIVES|cat:'</strong>:&nbsp;'|cat:$lesson.info.objectives}<br/> {/if}
-                  {if isset($lesson.info.lesson_topics)} <strong>{$smarty.const._LESSONTOPICS|cat:'</strong>:&nbsp;'|cat:$lesson.info.lesson_topics}<br/> {/if}
-                  {if isset($lesson.info.resources)} <strong>{$smarty.const._RESOURCES|cat:'</strong>:&nbsp;'|cat:$lesson.info.resources}<br/> {/if}
-                  {if isset($lesson.info.other_info)} <strong>{$smarty.const._OTHERINFO|cat:'</strong>:&nbsp;'|cat:$lesson.info.other_info}<br/> {/if}
-                 </span>
-                </a>
-            {else}
-                <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" class = "editLink">{$lesson.name}</a>
-            {/if}
-               </td>
-               <td>{$lesson.direction_name}</td>
-               <td>{$lesson.languages_NAME}</td>
-
-              {* enterprise version: Prices are replaced by the number of skills offered *}
-               {*<td align ="center">{if $lesson.skills_offered == 0}{$smarty.const._NOSKILLSOFFERED}{else}{$lesson.skills_offered}{/if}</td>*}
-
-              <td align="center">
-               <input class = "inputCheckBox" type = "checkbox" id="lesson_{$lesson.id}" name = "lesson" onclick = "ajaxPost('{$lesson.id}', this);"
-               {if $lesson.job_description_ID == $smarty.get.edit_job_description}
-                checked
-               {/if}
-               >
-              </td>
-              </tr>
-          {foreachelse}
-             <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NOLESSONSFOUND}</td></tr>
-          {/foreach}
-             </table>
+   <td class = "topTitle centerAlign" name = "job_description_ID">{$smarty.const._CHECK}</td>
+  </tr>
+ {foreach name = 'lessons_list2' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
+  <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+   <td>
+    <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" url = "ask_information.php?lessons_ID={$lesson.id}&type=lesson" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if} nonEmptyLesson">
+     {$lesson.name}
+    </a>
+   </td>
+  <td class = "centerAlign">
+   <input class = "inputCheckBox" type = "checkbox" id="lesson_{$lesson.id}" name = "lesson" onclick = "ajaxPost('{$lesson.id}', this);"
+   {if $lesson.has_lesson}
+    checked
+   {/if}
+   >
+  </td>
+  </tr>
+ {foreachelse}
+  <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "6">{$smarty.const._NODATAFOUND}</td></tr>
+ {/foreach}
+ </table>
 <!--/ajax:lessonsTable-->
+ {/capture}
 
-    {/capture}
-
-
-    {capture name = 't_job_to_courses'}
-     <table width="100%">
-      <tr><td align ="right">
-       <table><tr><td> <img src = "images/16x16/help.png" alt = "{$smarty.const._INFO}" title = "{$smarty.const._INFO}" onclick = "eF_js_showHideDiv(this, 'course_help_info', event)"><div id = 'course_help_info' onclick = "eF_js_showHideDiv(this, 'course_help_info', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:300px;position:absolute;display:none">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITIONHELP}</div>{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</td>
-         <td><input class = "inputCheckBox" type = "hidden" id="course_changes_apply_to" name = "course_changes_apply_to" onclick= "applyToAllJobDescriptionsInfo(this, '{$T_JOB_DESCRIPTION_NAME}');" /></td>
-        <td><input class = "inputCheckBox" type = "checkbox" id="course_changes_apply_to_users" name = "course_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');" /></td>
-           </tr>
-       </table>
-      </td>
-      </tr>
-     </table>
+ {capture name = 't_job_to_courses'}
+ <div class = "headerTools">
+  <span>
+   <img src = "images/16x16/go_into.png" title = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" alt = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" />
+      <a href="javascript:void(0);" id="course_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</a>
+     </span>
+ </div>
   {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=module_hcd&op=job_descriptions&edit_job_description=`$smarty.get.edit_job_description`&"}
   {assign var = "_change_handles_" value = true}
+  {include file = "includes/common/courses_list.tpl"}
+ {/capture}
 
-   {include file = "includes/common/courses_list.tpl"}
-
-
-    {/capture}
-
-
-    {capture name = 't_job_prerequisites'}
+ {capture name = 't_job_prerequisites'}
      <script>
      var newTrainingCondition = '{$T_JOB_DESCRIPTIONS_FORM.prerequisites_row_col.html|replace:"\n":""|replace:"'":"\'"}';
      var noTrainingDefinedYet = '{$smarty.const._NOREQUIREDTRAININGSETYET}';

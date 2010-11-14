@@ -275,7 +275,7 @@ class EfrontCourse
  }
 
  /**
-	 * Count the number of lessosn in the course, based on the specified constraings
+	 * Count the number of lessons in the course, based on the specified constraints
 	 *
 	 * @param array $constraints Database constraints
 	 * @return int The total course lessons
@@ -287,7 +287,7 @@ class EfrontCourse
 
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);
   $from = "lessons_to_courses lc, lessons l";
-  $where[] = "l.archive = 0 and l.id=lc.lessons_ID and courses_ID=".$this -> course['id'];
+  $where[] = "l.archive = 0 and l.course_only=1 and l.id=lc.lessons_ID and courses_ID=".$this -> course['id'];
   $result = eF_countTableData($from, "l.id",
   implode(" and ", $where));
 
@@ -328,9 +328,22 @@ class EfrontCourse
   $where[] = "l.course_only=1";
   $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
 
-  return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
+  if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
+   return EfrontCourse :: convertDatabaseResultToLessonObjects($result);
+  } else {
+   return EfrontCourse :: convertDatabaseResultToLessonArray($result);
+  }
+
  }
 
+ /**
+	 * Count the number of lessons in the course, based on the specified constraints, including unassigned
+	 *
+	 * @param array $constraints Database constraints
+	 * @return int The total course lessons
+	 * @since 3.6.3
+	 * @access public
+	 */
  public function countCourseLessonsIncludingUnassigned($constraints = array()) {
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontCourse :: convertLessonConstraintsToSqlParameters($constraints);

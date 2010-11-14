@@ -221,7 +221,9 @@ class module_certificates extends EfrontModule {
     } else {
      header("Content-type: application/rtf");
      header("Content-disposition: inline; filename=$filenameRtf");
-     header("Content-length: " . strlen($certificate));
+     if (stristr($webserver_type[0], "IIS") === false) { //for IIS 7.x
+      header("Content-length: " . strlen($certificate));
+     }
      echo $certificate;
      exit(0);
     }

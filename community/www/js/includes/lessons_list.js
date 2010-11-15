@@ -27,9 +27,10 @@ function addGroupKey(el) {
  ajaxRequest(el, url, parameters, onAddGroupKey);
 }
 function onAddGroupKey(el, response) {
+
  if (!(w = findFrame(top, 'mainframe'))) {
   w = window;
  }
 
- w.location = w.location.toString() + (window.location.pathname.toString() ? '&' : '?') + 'message='+(translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'])+'&message_type=success';
+ w.location = w.location.toString() + (window.location.search.toString() ? '&' : '?') + 'message='+(translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'])+'&message_type=success';
 }

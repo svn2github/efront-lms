@@ -569,7 +569,11 @@ class EfrontGroup
      if ($user instanceOf EfrontUser) {
       $user = $user -> user['login'];
      }
-     if (!$this -> group['active']) {
+  $groupUsers = $this -> getUsers();
+  if (in_array($user, $groupUsers['student']) || in_array($user, $groupUsers['professor'])) {
+//			throw new Exception(_YOUAREALREADYMEMBEROFTHISGROUP, EfrontGroupException::USER_ALREADY_MEMBER);
+  }
+  if (!$this -> group['active']) {
       throw new Exception(_THISGROUPISINACTIVE, EfrontGroupException::ASSIGNMENT_ERROR);
      }
   if ($this -> group['key_max_usage'] && $this -> group['key_max_usage'] <= $this -> group['key_current_usage']) {

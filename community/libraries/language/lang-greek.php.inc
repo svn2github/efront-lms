@@ -3945,4 +3945,5 @@ define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP", "Εγγραφήκατε στη
 define("_THISGROUPISINACTIVE", "Η ομάδα αυτή δεν είναι ενεργή");
 define("_MAXIMUMKEYUSAGESREACHED", "Το κλειδί αυτό δεν μπορεί να χρησιμοποιηθεί ξανά");
 define("_INVALIDSELECTIONPLEASEPICKFROMLIST", "TΗ επιλογή που κάνατε δεν είναι έγκυρη. Παρακαλούμε κάντε μία επιλογή από τη λίστα");
+define("_YOUAREALREADYMEMBEROFTHISGROUP", "Είστε ήδη μέλος αυτής της ομάδας");
 ?>

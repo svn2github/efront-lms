@@ -3945,4 +3945,5 @@ define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP", "You have been successfully ad
 define("_THISGROUPISINACTIVE", "This group is inactive");
 define("_MAXIMUMKEYUSAGESREACHED", "The key cannot be used any more times");
 define("_INVALIDSELECTIONPLEASEPICKFROMLIST", "The selection you made is not valid. Please pick an option from the list");
+define("_YOUAREALREADYMEMBEROFTHISGROUP", "You are already member of this group");
 ?>

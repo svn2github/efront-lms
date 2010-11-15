@@ -2474,7 +2474,8 @@ function eF_mail($sender, $recipient, $subject, $body, $attachments = false, $on
     }
     $hdrs = array('From' => $sender,
                   'Subject' => $subject,
-                  $toField => $recipient);
+                  $toField => $recipient,
+                  'Date' => date("r"));
     $params = array("text_charset" => "UTF-8",
                     "html_charset" => "UTF-8",
                     "head_charset" => "UTF-8");

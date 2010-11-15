@@ -14,6 +14,7 @@ try {
     $courseUser -> archiveUserLessons($_GET['add_lesson']);
    } else if (isset($_GET['addAll'])) {
     $userNonLessons = $courseUser -> getNonLessons(true);
+
     $lessons = array();
     foreach ($userNonLessons as $key => $lesson) {
      if (!$lesson -> lesson['course_only']) {
@@ -22,7 +23,7 @@ try {
     }
 
     isset($_GET['filter']) ? $lessons = eF_filterData($lessons, $_GET['filter']) : null;
-    $courseUser -> addLessons(array_keys($lessons), 0, 1);
+    $courseUser -> addLessons(array_keys($lessons), $courseUser -> user['user_types_ID'] ? $courseUser -> user['user_types_ID'] : $courseUser -> user['user_type'], 1);
    } else if (isset($_GET['removeAll'])) {
     $userLessons = $courseUser -> getLessons(true);
     $lessons = array();

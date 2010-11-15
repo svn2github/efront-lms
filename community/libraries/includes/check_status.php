@@ -222,59 +222,6 @@ foreach ($pear as $key => $value) {
 }
 $smarty -> assign("T_PEAR", $pear);
 
-//    $languages = array_values(array_filter(scandir($path.'language/'), create_function('$a', 'return strpos($a, "lang") !== false;')));     //Get the language files that reside inside the 'language' directory
-
-/*   $greek_tags = array('greek', 'el_EL', 'el_el', 'Greek', 'gr_gr', 'el_gr', 'el-el', 'el-EL', 'el-gr', 'gr-gr', 'en_US.utf8');
-
- while (!setlocale(LC_ALL, $tag = $greek_tags[0])) {
-
- array_shift($greek_tags);
-
- }
-
- $locale['greek']   = array('language' => 'greek',                               //To see the system installed locales, type locale-a in command prompt (linux/unix).
-
- 'locale'   => sizeof($greek_tags) > 0 ? (setlocale(LC_ALL, $tag)) : '',
-
- 'help'     => 'Your system should support Greek language in order to use Greek language in the system');
-
- if ($tag) {
-
- $file = file_get_contents($path."language/lang-greek.php.inc");
-
- $file = preg_replace("/(define\(\"_HEADERLANGUAGETAG\",\").*(\"\);)/", '$1'.$tag.'$2', $file);
-
- file_put_contents($path."language/lang-greek.php.inc", $file);
-
- }
-
-
-
- $english_tags = array('english', 'en_US', 'en_us', 'English', 'en_EN', 'en_en', 'en-us', 'en-US', 'en-en', 'en-EN', 'en_US.utf8');
-
- while (!setlocale(LC_ALL, $tag = $english_tags[0])) {
-
- array_shift($english_tags);
-
- }
-
- $locale['english'] = array('language' => 'english',
-
- 'locale'   => sizeof($english_tags) > 0 ? (setlocale(LC_ALL, $tag)) : '',
-
- 'help'     => 'Your system should support English language in order to use the system');
-
- if ($tag) {
-
- $file = file_get_contents($path."language/lang-english.php.inc");
-
- $file = preg_replace("/(define\(\"_HEADERLANGUAGETAG\",\").*(\"\);)/", '$1'.$tag.'$2', $file);
-
- file_put_contents($path."language/lang-english.php.inc", $file);
-
- }
-
- */
 $languages = array("english","arabic","bulgarian","chinese_traditional","chinese_simplified","croatian","czech","danish","dutch","finnish","french","german","greek","hindi","italian","japanese","norwegian","polish","portuguese","romanian","russian","spanish","swedish",
        "albanian","catalan","brazilian","filipino","galician","georgian","hebrew","hungarian","indonesian","latvian","lithuanian","persian","serbian","slovak","slovenian","thai","turkish","vietnamese");
 sort($languages);
@@ -289,21 +236,25 @@ foreach ($languages as $value){
   $languagesArray[$value] = $value;
  }
 }
+
 foreach ($languagesArray as $key => $value) {
-    $locale[$key] = array('language' => $key, //To see the system installed locales, type locale-a in command prompt (linux/unix).
+ $languageFileContents = file_get_contents($path."language/lang-$key.php.inc");
+ preg_match('/.*"_HEADERLANGUAGETAG","(.*)".*/', $languageFileContents, $matches);
+ $value = $matches[1];
+
+ $locale[$key] = array('language' => $key, //To see the system installed locales, type locale-a in command prompt (linux/unix).
        'locale' => (setlocale(LC_ALL, $value)),
        'help' => (setlocale(LC_ALL, $value) === false) ? _YOUSHOULDCHANGEHEADERLANGUAGETAG.'&nbsp;'. $key.'&nbsp;'._LANGUAGEFILE : _YOURSYSTEMSUPPORTS .'&nbsp;'.$key);
 }
 setlocale(LC_ALL, _HEADERLANGUAGETAG);
+
 $correctLocale = $incorrectLocale = array();
 foreach ($locale as $key => $value) {
     $value['locale'] ? $correctLocale[$key] = $locale[$key] : $incorrectLocale[$key] = $locale[$key];
-    //if ($exclude_normal && $value['locale']) {                //Use $exclude_normal in order to not list sections without problem
-    //}
 }
-//var_dump($locale);var_dump($correctLocale);
 $smarty -> assign("T_CORRECT_LOCALE", $correctLocale);
 $smarty -> assign("T_INCORRECT_LOCALE", $incorrectLocale);
+
 $install = true; //The install variable will be used to check whether any mandatory setting is not met.
 foreach ($mandatory as $key => $value) { //Check mandatory PHP extensions
     if (!$value['enabled']) {
@@ -323,6 +274,8 @@ foreach ($pear as $key => $value) { //Check PEAR packages
 if ($php_version[0] <= 4) { //PHP 4 will not run
     $install = false;
 }
+
+
 function local_checkThemesWritable() {
     $writable = true;
     if (class_exists('FileSystemTree')) {
@@ -335,6 +288,7 @@ function local_checkThemesWritable() {
     }
     return $writable;
 }
+
 function local_checkWritableRecursive($path) {
     $writable = true;
     if (!is_writable($path)) {

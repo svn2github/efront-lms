@@ -1694,12 +1694,14 @@ abstract class EfrontLessonUser extends EfrontUser
   if (sizeof($userTypes) < sizeof($lessonIds)) {
     $userTypes = array_pad($userTypes, sizeof($lessonIds), $userTypes[0]);
   }
-  $lessons = eF_getTableData("lessons", "*", "id in (".implode(",", $lessonIds).")");
-  foreach ($lessons as $key => $lesson) {
-   $lesson = new EfrontLesson($lesson);
-   $lesson -> addUsers($this -> user['login'], $userTypes[$key], $activate);
+  if (sizeof($lessonIds) > 0) {
+   $lessons = eF_getTableData("lessons", "*", "id in (".implode(",", $lessonIds).")");
+   foreach ($lessons as $key => $lesson) {
+    $lesson = new EfrontLesson($lesson);
+    $lesson -> addUsers($this -> user['login'], $userTypes[$key], $activate);
+   }
+   $this -> lessons = false; //Reset lessons information
   }
-  $this -> lessons = false; //Reset lessons information
   return $this -> getLessons();
  }
  /**
@@ -2542,12 +2544,14 @@ abstract class EfrontLessonUser extends EfrontUser
  public function addCourses($courses, $roles = 'student', $confirmed = true) {
   $courses = $this -> verifyCoursesList($courses);
   $roles = EfrontUser::verifyRolesList($roles, sizeof($courses));
-  $courses = eF_getTableData("courses", "*", "id in (".implode(",", $courses).")");
-  foreach ($courses as $key => $course) {
-   $course = new EfrontCourse($course);
-   $course -> addUsers($this -> user['login'], $roles[$key], $confirmed);
+  if (sizeof($courses) > 0) {
+   $courses = eF_getTableData("courses", "*", "id in (".implode(",", $courses).")");
+   foreach ($courses as $key => $course) {
+    $course = new EfrontCourse($course);
+    $course -> addUsers($this -> user['login'], $roles[$key], $confirmed);
+   }
+   $this -> courses = false; //Reset courses information
   }
-  $this -> courses = false; //Reset courses information
   return $this -> getUserCourses();
  }
  /**

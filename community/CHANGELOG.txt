@@ -83,6 +83,7 @@
 - Simplified advanced group properties (enterprise edition)
 - Fixed issue about IIS 7.x and setting header Content-length in certificates creation
 - Fixed job descriptions not assigning associated courses/lessons to all users (enterprise edition)
+- Fixed issue about Date field in e-mail headers that could result in spam marked e-mails (http://pear.php.net/manual/en/package.mail.mail.send.php) 
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

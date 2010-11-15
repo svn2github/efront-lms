@@ -48,9 +48,10 @@ try {
                 } else if ($_GET['insert'] == 'false') {
                     $currentJob -> removeLessonsFromJob($_GET['add_lessonID'], $_GET['apply_to_all_jd']);
                 } else if (isset($_GET['addAll'] )) {
-                 $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
-                    $lessons = $currentJob -> getJobLessons($constraints);
+                 $constraints = array('archive' => false, 'active' => true, 'condition' => 'r.lessons_ID is null') + createConstraintsFromSortedTable();
+                    $lessons = $currentJob -> getJobLessonsIncludingUnassigned($constraints);
                     isset($_GET['filter']) ? $lessons = eF_filterData($lessons,$_GET['filter']) : null;
+
                     $currentJob -> associateLessonsToJob($lessons, $_GET['apply_to_all_jd']);
                 } else if (isset($_GET['removeAll'] )) {
                  $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
@@ -64,8 +65,8 @@ try {
                 } else if ($_GET['insert'] == 'false') {
                     $currentJob -> removeCoursesFromJob($_GET['add_courseID'], $_GET['apply_to_all_jd']);
                 } else if (isset($_GET['addAll'] )) {
-                 $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
-                    $courses = $currentJob -> getJobCourses($constraints);
+                 $constraints = array('archive' => false, 'active' => true, 'condition' => 'r.courses_ID is null') + createConstraintsFromSortedTable();
+                    $courses = $currentJob -> getJobCoursesIncludingUnassigned($constraints);
                     isset($_GET['filter']) ? $courses = eF_filterData($courses,$_GET['filter']) : null;
                     $currentJob -> associateCoursesToJob($courses, $_GET['apply_to_all_jd']);
 

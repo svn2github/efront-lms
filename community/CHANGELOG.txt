@@ -83,6 +83,7 @@
 - Simplified advanced group properties (enterprise edition)
 - Fixed issue about IIS 7.x and setting header Content-length in certificates creation
 - Fixed job descriptions not assigning associated courses/lessons to all users (enterprise edition)
+- Fixed status report not updating missing language even after changing _HEADERLANGUAGETAG
 - Fixed issue about Date field in e-mail headers that could result in spam marked e-mails (http://pear.php.net/manual/en/package.mail.mail.send.php) 
 
 === Version 3.6.6 8242 ===
@@ -385,6 +386,7 @@ to be used throughout the system (EF-496)
 - Fixed bug about new message link for user types with only view permissions in messages
 - Added object{position: relative; z-index: 0} in css for properly display videos and tooltips together.
 Objects also need <param name="wmode" value="transparent">
+
 - Added events in lesson initialization list
 - Fixed SCORM 1.2 detected as 2004 in enterprise edition
 - Fixed requesting sidebar in horizontal themes

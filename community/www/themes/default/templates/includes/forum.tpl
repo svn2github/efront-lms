@@ -209,7 +209,7 @@
      </span>
     </div>
                 {/if}
-    <table class = "forumMessageTable">
+    <table class = "forumMessageTable" style = "width:100%">
                 {section name = 'messages_list' loop = $T_POSTS}
                     {assign var = "message_user" value = $T_POSTS[messages_list].users_LOGIN}
      <tr class = "{cycle values = "oddRowColorNoHover, evenRowColorNoHover"}">
@@ -231,7 +231,7 @@
                   {/if}
                      </td>
                      <td class = "forumMessageCreator">
-                      <div><img src = {if $T_POSTS[messages_list].avatar}"view_file.php?file={$T_POSTS[messages_list].avatar}"{else}"images/avatars/system_avatars/unknown_small.png"{/if} title = "{$T_POSTS[messages_list].users_LOGIN}" alt = "{$T_POSTS[messages_list].users_LOGIN}"/></div>
+                      <div><img src = "view_file.php?file={$T_POSTS[messages_list].avatar}" title="{$smarty.const._CURRENTAVATAR}" alt="{$smarty.const._CURRENTAVATAR}" width = "{$T_POSTS[messages_list].avatar_width}" height = "{$T_POSTS[messages_list].avatar_height}" /></div>
                          <div>#filter:user_loginNoIcon-{$T_POSTS[messages_list].users_LOGIN}#</div>
        {assign var = "current_userrole" value = $T_POSTS[messages_list].user_type}
                          <div>{$smarty.const._POSITION}: {$T_USERROLES.$current_userrole}</div>

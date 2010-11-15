@@ -429,12 +429,12 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
    $filesystem = new FileSystemTree($newLesson -> getDirectory(), true);
    $file = $filesystem -> uploadFile('import_content', $newLesson -> getDirectory());
    $exportedFile = $file;
-   $newLesson -> import($exportedFile, false, true);
+   $newLesson -> import($exportedFile, false, true, true);
+   $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
+   $message_type = 'success';
   }
  } catch (EfrontFileException $e) {
-  $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-  $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-  $message_type = 'failure';
+  handleNormalFlowExceptions($e);
  }
  $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
  $renderer -> setRequiredTemplate (

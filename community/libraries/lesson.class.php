@@ -3696,6 +3696,8 @@ class EfrontLesson
     }
     if ($keepName) {
      eF_updateTableData("lessons", array("name" => $data['lessons']['name']), "id=".$this -> lesson['id']);
+     eF_updateTableData("f_forums", array("title" => $data['lessons']['name']), "lessons_ID=".$this -> lesson['id']);
+     eF_updateTableData("chatrooms", array("name" => $data['lessons']['name']), "lessons_ID=".$this -> lesson['id']);
     }
    } else {
     if ($table == "questions") {

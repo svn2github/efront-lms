@@ -1131,19 +1131,26 @@ class EfrontFile extends ArrayObject
 
      */
     public function sendFile($attachment = false) {
-     header("content-type:".$this['mime_type']);
      if ($attachment) {
-      if (stripos($_SERVER['HTTP_USER_AGENT'], 'firefox') === false) {
-       header('content-disposition: attachment; filename= "'.urlencode($this['name']).'"');
-      } else {
-       header('content-disposition: attachment; filename= "'.($this['name']).'"');
+      if (stripos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
+       $this['name'] = urlencode($this['name']);
       }
-      header("Content-Transfer-Encoding: binary");
+   header("Content-Description: File Transfer");
+   header("Content-Type: application/octet-stream");
+   header('Content-Disposition: attachment; filename='.($this['name']));
+   header("Content-Transfer-Encoding: binary");
+   header('Expires: 0');
+   header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+   header('Pragma: public');
+   header("Content-Type: application/force-download");
+   header("Content-Type: application/download");
+      //header("content-type:".$this['mime_type']);
       if (!$GLOBALS['configuration']['gz_handler']) {
        //This does not cooperate well with gzhandler
        header("Content-Length: ".filesize($this['path']));
       }
      } else {
+      header("content-type:".$this['mime_type']);
       header('content-disposition: inline; filename= "'.$this['name'].'"');
      }
      readfile($this['path']);
@@ -2569,7 +2576,6 @@ class FileSystemTree extends EfrontTree
         }
         $filesArray = eF_multiSort($filesArray, 'name', 'asc');
         $fileArrays = array_merge($foldersArray, $filesArray);
-  //pr($fileArrays);
         isset($ajaxOptions['order']) && $ajaxOptions['order'] == 'asc' ? $ajaxOptions['order'] = 'asc' : $ajaxOptions['order'] = 'desc';
         !isset($ajaxOptions['sort']) ? $ajaxOptions['sort'] = 'name' : null;
         !isset($ajaxOptions['limit']) ? $ajaxOptions['limit'] = 20 : null;
@@ -2835,40 +2841,25 @@ class FileSystemTree extends EfrontTree
         if (isset($_GET['delete']) && (eF_checkParameter($_GET['delete'], 'id') || strpos(urldecode($_GET['delete']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['delete']));
-                //if ($file['users_LOGIN'] == $currentUser -> user['login']) {
                 $file -> delete();
-                //} else {
-                //    throw new EfrontFileException(_YOUDONTHAVEPERMISSION.': '.$file['file'], EfrontFileException :: UNAUTHORIZED_ACTION);
-                //}
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         } else if (isset($_GET['share']) && (eF_checkParameter($_GET['share'], 'id') || strpos(urldecode($_GET['share']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['share']));
-                //if ($file['users_LOGIN'] == $currentUser -> user['login']) {
                 $file -> share();
-                //} else {
-                //    throw new EfrontFileException(_YOUDONTHAVEPERMISSION.': '.$file['file'], EfrontFileException :: UNAUTHORIZED_ACTION);
-                //}
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         } else if (isset($_GET['unshare']) && (eF_checkParameter($_GET['unshare'], 'id') || strpos(urldecode($_GET['unshare']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['unshare']));
-                //if ($file['users_LOGIN'] == $currentUser -> user['login']) {
                 $file -> unshare();
-                //} else {
-                //    throw new EfrontFileException(_YOUDONTHAVEPERMISSION.': '.$file['file'], EfrontFileException :: UNAUTHORIZED_ACTION);
-                //}
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         } else if (isset($_GET['uncompress']) && (eF_checkParameter($_GET['uncompress'], 'id') || strpos(urldecode($_GET['uncompress']), $this -> dir['path']) !== false)) {
@@ -2876,72 +2867,43 @@ class FileSystemTree extends EfrontTree
                 $file = new EfrontFile(urldecode($_GET['uncompress']));
                 $file -> uncompress();
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         } elseif (isset($_GET['delete_folder']) && (eF_checkParameter($_GET['delete_folder'], 'id') || strpos(urldecode($_GET['delete_folder']), $this -> dir['path']) !== false)) {
             try {
                 $directory = new EfrontDirectory(urldecode($_GET['delete_folder']));
-                //if ($directory['users_LOGIN'] == $currentUser -> user['login']) {
                 $directory -> delete();
-                //} else {
-                //    throw new EfrontFileException(_YOUDONTHAVEPERMISSION.': '.$directory['file'], EfrontFileException :: UNAUTHORIZED_ACTION);
-                //}
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         } elseif (isset($_GET['download']) && (eF_checkParameter($_GET['download'], 'id') || strpos(urldecode($_GET['download']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['download']));
-                //if ($file['users_LOGIN'] == $currentUser -> user['login'] || $file['access'] != 0) {
-                header("content-type:".$file['mime_type']);
-                if (stripos($_SERVER['HTTP_USER_AGENT'], 'firefox') === false) {
-                    header('content-disposition: attachment; filename= "'.urlencode($file['name']).'"');
-                } else {
-                    header('content-disposition: attachment; filename= "'.($file['name']).'"');
-                }
-                readfile($file['path']);
-                //} else {
-                //    throw new EfrontFileException(_YOUDONTHAVEPERMISSION.': '.$file['file'], EfrontFileException :: UNAUTHORIZED_ACTION);
-                //}
+                $file -> sendFile(true);
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         } elseif (isset($_GET['view']) && (eF_checkParameter($_GET['view'], 'id') || strpos(urldecode($_GET['view']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['view']));
-                //if ($file['users_LOGIN'] == $currentUser -> user['login'] || $file['access'] != 0) {
-                header("content-type:".$file['mime_type']);
-                header('content-disposition: inline; filename= "'.urlencode($file['name']).'"');
-                readfile($file['path']);
-                //} else {
-                //    throw new EfrontFileException(_YOUDONTHAVEPERMISSION.': '.$file['file'], EfrontFileException :: UNAUTHORIZED_ACTION);
-                //}
+                $file -> sendFile(false);
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         } elseif (isset($_GET['update']) && (eF_checkParameter($_GET['update'], 'id') || strpos(urldecode($_GET['update']), $this -> dir['path']) !== false)) {
             try {
                 $_GET['type'] == 'file' ? $file = new EfrontFile(urldecode($_GET['update'])) : $file = new EfrontDirectory(urldecode($_GET['update']));
-                //if ($file['users_LOGIN'] == $currentUser -> user['login'] || $file['access'] != 0) {
                 $previousName = $file['name'];
                 if ($file['name'] != $_GET['name']) {
                     $file -> rename(dirname($file['path']).'/'.EfrontFile :: encode(urldecode($_GET['name'])));
                 }
                 echo json_encode(array('previousName' => $previousName, 'name' => $file['name']));
-                //} else {
-                //    throw new EfrontFileException(_YOUDONTHAVEPERMISSION.': '.$file['file'], EfrontFileException :: UNAUTHORIZED_ACTION);
-                //}
             } catch (Exception $e) {
-                header("HTTP/1.0 500");
-                echo $e -> getMessage().' ('.$e -> getCode().')';
+             handleAjaxExceptions($e);
             }
             exit;
         }

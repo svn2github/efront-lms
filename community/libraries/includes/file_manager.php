@@ -134,27 +134,31 @@ try {
         isset($extraColumns) OR $extraColumns = array();
 
         if (isset($_GET['ajax']) && $_GET['ajax'] == $options['table_id']) {
-            isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+         try {
+          isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
-            if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
-                $sort = $_GET['sort'];
-                isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
-            } else {
-                $sort = 'login';
-            }
+          if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
+           $sort = $_GET['sort'];
+           isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
+          } else {
+           $sort = 'login';
+          }
 
-            if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
-                isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-            }
-            isset($_GET['filter']) ? $filter = $_GET['filter'] : $filter = false;
-            isset($_GET['other']) ? $other = $_GET['other'] : $other = '';
+          if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+           isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+          }
+          isset($_GET['filter']) ? $filter = $_GET['filter'] : $filter = false;
+          isset($_GET['other']) ? $other = $_GET['other'] : $other = '';
 
-            $ajaxOptions = array('sort' => $sort, 'order' => $order, 'limit' => $limit, 'offset' => $offset, 'filter' => $filter);
-            //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
-            $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false, $extraColumns);
-            $smarty -> assign("T_DISPLAYCODE", $filesystemCode);
-            $smarty -> display('display_code.tpl');
-            exit;
+          $ajaxOptions = array('sort' => $sort, 'order' => $order, 'limit' => $limit, 'offset' => $offset, 'filter' => $filter);
+          //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+          $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false, $extraColumns);
+          $smarty -> assign("T_DISPLAYCODE", $filesystemCode);
+          $smarty -> display('display_code.tpl');
+          exit;
+         } catch (Exception $e) {
+          handleAjaxExceptions($e);
+         }
         }
         $smarty -> assign("T_FILE_MANAGER", $filesystem -> toHTML($url, false, false, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false, $extraColumns));
     }

@@ -202,8 +202,16 @@ try {
             $user_posts = array_combine($user_posts['login'], $user_posts['num']);
             $posts = eF_getTableData("f_messages, users", "users.avatar, users.user_type, f_messages.*", "users.login = f_messages.users_LOGIN and f_topics_ID=".$_GET['topic'], "timestamp");
 
-            foreach ($posts as &$post) {
-                $post['body'] = preg_replace("/\[quote\](.*)\[\/quote\]/", "<div class = 'quote'><b>"._QUOTE.":</b><div class = 'quoteBody'>\$1</div></div>", $post['body']);
+            foreach ($posts as $key => $post) {
+             $posts[$key]['body'] = preg_replace("/\[quote\](.*)\[\/quote\]/", "<div class = 'quote'><b>"._QUOTE.":</b><div class = 'quoteBody'>\$1</div></div>", $post['body']);
+             try {
+              $file = new EfrontFile($post['avatar']);
+              list($posts[$key]['avatar_width'], $posts[$key]['avatar_height']) = eF_getNormalizedDims($file['path'], 150, 150);
+             } catch (EfrontFileException $e) {
+              $posts[$key]['avatar'] = G_SYSTEMAVATARSPATH."unknown_small.png";
+              $posts[$key]['avatar_width'] = 150;
+              $posts[$key]['avatar_height'] = 150;
+             }
             }
             //    $forum      = eF_getTableData("f_forums", "*", "id=".$topic[0]['f_forums_ID']);
 

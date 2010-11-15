@@ -142,7 +142,7 @@ try {
         $form -> addElement('text', 'job_description_name', _JOBDESCRIPTION, 'class = "inputText"');
         $form -> addElement('textarea', 'job_role_description', _JOBANALYTICALDESCRIPTION, 'class = "inputText"');
         $form -> addRule('job_description_name', _THEFIELD.' '._JOBDESCRIPTION.' '._ISMANDATORY, 'required', null, 'client');
-        $form -> addRule('job_description_name', _INVALIDFIELDDATA, 'checkParameter', 'job_description_name'); /*mandatory me if*/
+        $form -> addRule('job_description_name', _INVALIDFIELDDATA, 'checkParameter', 'text');
         $form -> addElement('text', 'placements', _VACANCIES, 'class = "inputText"');
         /* Create the branches drop down menu - all for admin, branches you can manage for supervisor */
         $branches = $currentEmployee -> getSupervisedBranches();

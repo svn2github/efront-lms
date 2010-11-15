@@ -84,28 +84,20 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     } else if (isset($_GET['add_course'])) {
      /* Find all employees having this skill */
      if ($_GET['insert'] == "true") {
-      echo $currentBranch -> assignCourse($_GET['add_course']);
-     } else if ($_GET['insert'] == "false") {
-      echo $currentBranch -> removeCourse($_GET['add_course']);
+      echo $currentBranch -> addCoursesToBranch($_GET['add_course']);
+     } else if ($_GET['insert'] == "false") {echo "A";debug();
+      echo $currentBranch -> removeCoursesFromBranch($_GET['add_course']);
      } else if (isset($_GET['addAll'])) {
-      $courses = $currentBranch -> getAllCourses();
-      isset($_GET['filter']) ? $courses = eF_filterData($courses, $_GET['filter']) : null;
-
-      foreach ($courses as $course) {
-       if ($course['branches_ID'] == "") {
-        $currentBranch -> assignCourse($course['id']);
-       }
-      }
-      echo "-1";
+      $constraints = array('archive' => false, 'active' => true, 'condition' => 'r.courses_ID is null') + createConstraintsFromSortedTable();
+      $courses = $currentBranch -> getBranchCoursesIncludingUnassigned($constraints);
+      isset($_GET['filter']) ? $courses = eF_filterData($courses,$_GET['filter']) : null;
+      $currentBranch -> addCoursesToBranch($courses);
      } else if (isset($_GET['removeAll'])) {
-      $courses = $currentBranch -> getAllCourses();
-      isset($_GET['filter']) ? $courses = eF_filterData($courses, $_GET['filter']) : null;
-      foreach ($courses as $course) {
-       if ($course['branches_ID'] == $currentBranch -> branch['branch_ID']) {
-        $currentBranch -> removeCourse($course['id']);
-       }
-      }
-      echo "-1"; // reload
+      $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+      $courses = $currentBranch -> getBranchCoursesIncludingUnassigned($constraints);
+
+      isset($_GET['filter']) ? $courses = eF_filterData($courses,$_GET['filter']) : null;
+      $currentBranch -> removeCoursesFromBranch($courses);
      }
      exit;
 
@@ -113,9 +105,9 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
      $subBranches = $currentBranch -> getAllSubbranches(true);
      foreach ($subBranches as $branch) {
       if ($_GET['selected']) {
-       $branch -> assignCourse($_GET['propagate']);
+       $branch -> addCoursesToBranch($_GET['propagate']);
       } else {
-       $branch -> removeCourse($_GET['propagate']);
+       $branch -> removeCoursesFromBranch($_GET['propagate']);
       }
      }
      exit;
@@ -332,6 +324,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
   $form -> addElement('text', 'branch_name', _BRANCHNAME, 'class = "inputText"');
   $form -> addRule('branch_name', _THEFIELD.' "'._BRANCHNAME.'" '._ISMANDATORY, 'required', null, 'client');
+  $form -> addRule('branch_name', _INVALIDFIELDDATA, 'checkParameter', 'text'); /*mandatory me if*/
   $form -> addElement('text', 'address', _ADDRESS, 'class = "inputText"');
   $form -> addElement('text', 'city', _CITY, 'class = "inputText"');
   $form -> addElement('text', 'country', _COUNTRY, 'class = "inputText"');

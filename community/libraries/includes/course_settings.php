@@ -10,8 +10,12 @@ if (isset($currentUser -> coreAccess['course_settings']) && $currentUser -> core
 
 $loadScripts[] = 'includes/course_settings';
 
+$autocompleteImage = '16x16/certificate.png';
+
+ $autocompleteImage = '16x16/autocomplete.png';
+
 $options = array(array('image' => '16x16/information.png', 'title' => _INFORMATION, 'link' => $_GET['op'] != 'course_info' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_info' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_info' ? false : true));
-$options[] = array('image' => '16x16/autocomplete.png', 'title' => _COMPLETION, 'link' => $_GET['op'] != 'course_certificate' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates' : 'javascript:void(0)', 'selected' => ($_GET['op'] != 'course_certificates' && $_GET['op'] != 'format_certificate' && $_GET['op'] != 'format_certificate_docx') ? false : true);
+$options[] = array('image' => $autocompleteImage, 'title' => _COMPLETION, 'link' => $_GET['op'] != 'course_certificate' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates' : 'javascript:void(0)', 'selected' => ($_GET['op'] != 'course_certificates' && $_GET['op'] != 'format_certificate' && $_GET['op'] != 'format_certificate_docx') ? false : true);
 $options[] = array('image' => '16x16/rules.png', 'title' => _RULES, 'link' => $_GET['op'] != 'course_rules' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_rules' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_rules' ? false : true);
 $options[] = array('image' => '16x16/order.png', 'title' => _ORDER, 'link' => $_GET['op'] != 'course_order' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_order' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_order' ? false : true);
 $options[] = array('image' => '16x16/calendar.png', 'title' => _SCHEDULING, 'link' => $_GET['op'] != 'course_scheduling' ? basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_scheduling' : 'javascript:void(0)', 'selected' => $_GET['op'] != 'course_scheduling' ? false : true);
@@ -222,7 +226,6 @@ if ($_GET['op'] == 'course_info') {
       $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
       $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
       $users = $currentCourse -> getCourseUsers($constraints);
-
    $totalEntries = $currentCourse -> countCourseUsers($constraints);
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);
 

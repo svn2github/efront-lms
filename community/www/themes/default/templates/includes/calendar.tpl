@@ -42,7 +42,8 @@
        <script>parent.location = parent.location;</script>
    {/if}
   {/capture}
-  {eF_template_printBlock title = $smarty.const._ADDCALENDAR data = $smarty.capture.t_add_code image = '32x32/calendar.png' help ='calendar'}
+  {if $smarty.get.add}{assign var = "block_title" value = $smarty.const._ADDEVENT}{else}{assign var = "block_title" value = $smarty.const._EDITEVENT}{/if}
+  {eF_template_printBlock title = $block_title data = $smarty.capture.t_add_code image = '32x32/calendar.png' help ='calendar'}
   <div id = "autocomplete_calendar" class = "autocomplete"></div>
  {else}
   {capture name = 't_calendar_page_code'}

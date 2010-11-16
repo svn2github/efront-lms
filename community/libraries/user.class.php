@@ -1503,7 +1503,7 @@ abstract class EfrontUser
  public static function convertDatabaseResultToUserObjects($result) {
   $userObjects = array();
   foreach ($result as $value) {
-   $userObjects[$value['login']] = EfrontUserFactory::factory($value);
+   $userObjects[$value['login']] = EfrontUserFactory::factory($value, false, ($value['role'] ? $value['role'] : false));
   }
   return $userObjects;
  }

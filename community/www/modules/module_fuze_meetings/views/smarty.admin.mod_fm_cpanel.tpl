@@ -248,14 +248,15 @@
   var id = $('mod_fm_admin_account_select').getValue();
   if (id != 0) {
    var user_login_url = $('mod_fm_account_data_login_url').getValue();
-   var Popup = {open: function(options){
-             this.options = {url: '#',width: 600,height: 600}
-             Object.extend(this.options, options || {});
-                window.open(this.options.url, '', 'width='+this.options.width+',height='+this.options.height);
-               }
-   }
-   Popup.open({url:user_login_url});
+   popupCenter(user_login_url, '', 600, 600);
+   return false;
   }
+ }
+
+ function popupCenter(url, title, w, h) {
+  var left = (screen.width/2) - (w/2);
+  var top = (screen.height/2) - (h/2);
+  var target = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
  }
 
  function _mod_fm_register() {

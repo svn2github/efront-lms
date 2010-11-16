@@ -33,7 +33,7 @@
         </td>
        </tr>
        <tr>
-        <td colspan="2" style="padding:2px; border:solid 1px #888; background:#F0F0F0;">
+        <td colspan="2" style="padding:2px; background:#F0F0F0;">
          <table cellpadding="2" cellspacing="0" style="width:100%;">
           <tr style="font-weight:bold; background:#CCCCCC;">
            <td style="width:270px;">
@@ -115,13 +115,7 @@
      if (response.success) {
       _mod_fm_prof_mask_off(); // Mask off
       var meeting_url = response.url;
-      var Popup = {open: function(options){
-           this.options = {url: '#',width: 600,height: 600}
-           Object.extend(this.options, options || {});
-              window.open(this.options.url, '', 'width='+this.options.width+',height='+this.options.height);
-              }
-         }
-      Popup.open({url:meeting_url});
+      popupCenter(meeting_url, '', 750, 600);
       return false;
      }
      else {
@@ -131,6 +125,12 @@
     }
    });
   }
+ }
+
+ function popupCenter(url, title, w, h) {
+  var left = (screen.width/2) - (w/2);
+  var top = (screen.height/2) - (h/2);
+  var target = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
  }
 
 {/literal}

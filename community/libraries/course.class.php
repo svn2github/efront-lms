@@ -2235,11 +2235,13 @@ class EfrontCourse
   }
   if ($roleBasicType == 'professor') {
    if (!isset($GLOBALS['currentUser'] -> coreAccess['course_settings']) || $GLOBALS['currentUser'] -> coreAccess['course_settings'] != 'hidden') {
+    $autocompleteImage = '16x16/certificate.png';
+     $autocompleteImage = '16x16/autocomplete.png';
     $courseString .= '<span class = "courseActions">&nbsp;('._COURSEACTIONS.':</span>
                                                 <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_info" >
                                                     <img src = "images/16x16/information.png" title = "'._COURSEINFORMATION.'" alt = "'._COURSEINFORMATION.'" class = "handle"></a>';
     $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_certificates">
-                                                    <img src = "images/16x16/autocomplete.png" title = "'._COMPLETION.'" alt = "'._COMPLETION.'" class = "handle"></a>';
+                                                    <img src = "images/'.$autocompleteImage.'" title = "'._COMPLETION.'" alt = "'._COMPLETION.'" class = "handle"></a>';
     $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_rules">
                                                     <img src = "images/16x16/rules.png" title = "'._COURSERULES.'" alt = "'._COURSERULES.'" class = "handle"></a>
                                                 <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_order">

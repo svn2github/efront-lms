@@ -149,16 +149,20 @@ class FUZE_Tools {
   return $temp_array[$tuple];
  }
  public static function send_email ($sender, $recipients, $html, $text, $subject) {
-  require_once ('../../libraries/configuration.php');
-  set_include_path('../../libraries/../PEAR/' . PATH_SEPARATOR .
-       '../../libraries/includes/' . PATH_SEPARATOR .
-       '../../libraries/' . PATH_SEPARATOR .
-        '.' . PATH_SEPARATOR .
-        '/usr/lib/php' . PATH_SEPARATOR .
+  include ('../../../../../libraries/configuration.php');
+  include ('../../../../libraries/configuration.php');
+  include ('../../../libraries/configuration.php');
+  include ('../../libraries/configuration.php');
+  include ('../libraries/configuration.php');
+  set_include_path('../../../../../libraries/../PEAR/' . PATH_SEPARATOR .
+       '../../../../libraries/../PEAR/' . PATH_SEPARATOR .
+       '../../../libraries/../PEAR/' . PATH_SEPARATOR .
+       '../../libraries/../PEAR/' . PATH_SEPARATOR .
+       '../libraries/../PEAR/' . PATH_SEPARATOR .
+       '/usr/lib/php' . PATH_SEPARATOR .
         '/usr/local/lib/php' . PATH_SEPARATOR .
         get_include_path());
   $crlf = "\n";
-  //$hdrs = array('From' => $GLOBALS['configuration']['system_email'], 'Subject' => $subject);
   $hdrs = array('From' => $sender, 'Subject' => $subject);
   $mime = new Mail_mime($crlf);
   $mime->setTXTBody($text);

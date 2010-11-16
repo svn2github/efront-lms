@@ -113,10 +113,35 @@
   }
  }
 
- function _mod_fm_prof_launch(meeting_id) {
-  if (meeting_id) {
+ function _mod_fm_prof_launch(meetingid) {
+  if (meetingid) {
    _mod_fm_prof_mask_on();
+   var url = '{/literal}{$MOD_FM_BASEURL}{literal}&action=meeting_start&meetingid='+meetingid;
+   new Ajax.Request(url, {
+    method: 'get',
+    aynchronous: true,
+    onFailure: function() {},
+    onSuccess: function(response) {
+     var response = response.responseText.evalJSON();
+     if (response.success) {
+      _mod_fm_prof_mask_off(); // Mask off
+      var meeting_url = response.url;
+      popupCenter(meeting_url, '', 750, 600);
+      return false;
+     }
+     else {
+      alert(response.error_msg);
+      _mod_fm_prof_mask_off(); // Mask off
+     }
+    }
+   });
   }
+ }
+
+ function popupCenter(url, title, w, h) {
+  var left = (screen.width/2) - (w/2);
+  var top = (screen.height/2) - (h/2);
+  var target = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
  }
 
 {/literal}

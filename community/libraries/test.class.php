@@ -2445,11 +2445,13 @@ class EfrontCompletedTest extends EfrontTest
         //Correct each question and handle uploaded files, if any (@todo)
   $this -> completedTest['score'] = 0; //Added to check EC-73
         foreach ($this -> questions as $id => $question) {
-         $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
-   if ($question -> question['type'] == 'raw_text') {
+         $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers		
+         if ($question -> question['type'] == 'raw_text') {
     if ($question -> settings['force_correct'] != 1) {
-     $this -> completedTest['pending'] = 1;
-     $question -> pending = 1;
+     if ($recentlyCompleted -> redoOnlyWrong != 1) {
+      $this -> completedTest['pending'] = 1;
+      $question -> pending = 1;
+     }
      $question -> handleQuestionFiles($this -> getDirectory());
     } else {
      $results['score'] = 1;
@@ -5829,7 +5831,7 @@ class RawTextQuestion extends Question implements iQuestion
      */
     public function correct() {
         if ($this -> score) {
-            $results = array('correct' => '', 'score' => $this -> score);
+            $results = array('correct' => '', 'score' => round($this -> score /100,2));
         } else {
             $results = array('correct' => '', 'score' => 0);
         }

@@ -85,6 +85,8 @@
 - Fixed job descriptions not assigning associated courses/lessons to all users (enterprise edition)
 - Fixed status report not updating missing language even after changing _HEADERLANGUAGETAG
 - Fixed issue about Date field in e-mail headers that could result in spam marked e-mails (http://pear.php.net/manual/en/package.mail.mail.send.php) 
+- Fixed issue about score 10000 in raw text questions when redo only wrong (ticket 709)
+
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

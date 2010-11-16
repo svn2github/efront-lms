@@ -3948,4 +3948,6 @@ define("_INVALIDSELECTIONPLEASEPICKFROMLIST", "The selection you made is not val
 define("_YOUAREALREADYMEMBEROFTHISGROUP", "You are already member of this group");
 define("_AVERAGESCORES", "Average scores");
 define("_PROJECTSAVERAGE", "Average score in all projects");
+define("_SWITCHTOTREEVIEW", "Switch to tree view");
+define("_SWITCHTOSIMPLEVIEW", "Switch to simple view");
 ?>

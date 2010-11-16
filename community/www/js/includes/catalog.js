@@ -70,14 +70,24 @@ function paypalSubmit() {
 function showAll() {
  $$('tr').each(function (tr) {tr.id.match(/subtree/) ? tr.show() : null;});
  $$('table').each(function (table) {table.id.match(/direction_/) ? table.show() : null;});
- $$('img').each(function (img) {if (img.id.match('subtree_img') && !img.hasClassName('visible')) {img.addClassName('visible');setImageSrc(img, 16, 'navigate_up');}});
+ $$('img').each(function (img) {
+  if (img.id.match('subtree_img') && !img.hasClassName('visible')) {
+   setImageSrc(img, 16, 'navigate_up');
+   img.addClassName('visible');
+  }
+ });
  $('catalog_hide_all').show();
  $('catalog_show_all').hide();
  setCookie('collapse_catalog', 0);
 }
 function hideAll() {
  $$('tr').each(function (tr) {tr.id.match(/subtree/) ? tr.hide() : null;});
- $$('img').each(function (img) {if (img.id.match('subtree_img') && img.hasClassName('visible')) {img.removeClassName('visible');setImageSrc(img, 16, 'navigate_down');}});
+ $$('img').each(function (img) {
+  if (img.id.match('subtree_img') && img.hasClassName('visible')) {
+   img.removeClassName('visible');
+   setImageSrc(img, 16, 'navigate_down');
+  }
+ });
  $('catalog_hide_all').hide();
  $('catalog_show_all').show();
  setCookie('collapse_catalog', 1);

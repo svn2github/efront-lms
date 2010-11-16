@@ -1,6 +1,13 @@
+function toggleOrgChartMode(el) {
+ Element.extend(el);
+ var orgChartMode = parseInt(readCookie("orgChartMode"));
+ orgChartMode ? orgChartMode = 0 : orgChartMode = 1;
+ setCookie("orgChartMode", orgChartMode);
+ location.reload();
+}
 function removeUserFromBranch(el, user, job, job_at_branch, supervises_branch, father_ID) {
- parameters = {method: "get", edit_user:user, delete_job_employee:user, delete_job:job, delete_job_at_branch:job_at_branch, supervises_branch:supervises_branch, father_ID:father_ID};
- url = 'administrator.php?ctg=users';
+ parameters = {method: "get", ctg:'users', edit_user:user, delete_job_employee:user, delete_job:job, delete_job_at_branch:job_at_branch, supervises_branch:supervises_branch, father_ID:father_ID};
+ url = location.pathname.toString();
  ajaxRequest(el, url, parameters, onRemoveUserFromBranch);
 }
 function onRemoveUserFromBranch(el, response) {

@@ -11,9 +11,9 @@
  *
  * Type:     modifier<br>
  * Name:     eF_formatTitlePath<br>
- * Purpose:  Format the top tilebar path using an algorithm to 
- *			 cut each inner link if necessary.           
- * 
+ * Purpose:  Format the top tilebar path using an algorithm to
+ *			 cut each inner link if necessary.
+ *
  * @param string
  * @param integer
  * @param integer
@@ -22,14 +22,16 @@
  */
 function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 6, $etc = '...')
 {
- $piecesStart = explode("&raquo;&nbsp;", $string); // with tags 
+ $piecesStart = explode("&raquo;&nbsp;", $string); // with tags
  $stripped = strip_tags($string); //remove tags to count characters
  $piecesStripped = explode("&raquo;&nbsp;", $stripped);
 
  array_walk($piecesStripped, create_function('&$v, $k', '$v = str_replace("&nbsp;", "", $v);'));
 
  if (mb_strlen($stripped) <= $length) {
-  return $string;
+  $finalString = implode("<span>&raquo;&nbsp;</span>", $piecesStart); // with tags
+  $finalString = str_replace(" </a>", "</a>", $finalString);
+  return $finalString;
  }
 
  $piecesLength = $piecesStripped;
@@ -69,7 +71,7 @@ function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 
 
  }
 
- $finalString = implode("&raquo;&nbsp;", $piecesFinal); // with tags 
+ $finalString = implode("&raquo;&nbsp;", $piecesFinal); // with tags
  $finalString = str_replace(" </a>", "</a>", $finalString);
  return $finalString;
 }

@@ -3948,4 +3948,6 @@ define("_INVALIDSELECTIONPLEASEPICKFROMLIST", "TΗ επιλογή που κάν�
 define("_YOUAREALREADYMEMBEROFTHISGROUP", "Είστε ήδη μέλος αυτής της ομάδας");
 define("_AVERAGESCORES", "Μέσες βαθμολογίες");
 define("_PROJECTSAVERAGE", "Μέση βαθμολογία σε όλες τις εργασίες");
+define("_SWITCHTOTREEVIEW", "Εναλλαγή σε προβολή δέντρου");
+define("_SWITCHTOSIMPLEVIEW", "Εναλλαγή σε απλή προβολή");
 ?>

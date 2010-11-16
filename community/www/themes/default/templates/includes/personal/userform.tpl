@@ -69,7 +69,11 @@
       {if $T_COURSE_LESSONS[$course.id]}
        <img class = "ajaxHandle" src = "images/16x16/plus2.png" onclick = "showFormAdditionalDetails(this, '{$course.id}')" alt = "{$smarty.const._SHOWDETAILS}" title = "{$smarty.const._SHOWDETAILS}"/>
       {/if}
+      {if $_change_handles_ && !$T_IS_SUPERVISOR}
        <a class = "{if !$course.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$course.id}">{$course.name}</a></td>
+      {else}
+       {$course.name}
+      {/if}
       <td style = "padding:0px 3px 0px 3px">{$T_DIRECTIONS_TREE[$course.directions_ID]}</td>
       <td style = "padding:0px 3px 0px 3px;text-align:center"><span style = "display:none">{$course.active_in_course}</span>#filter:timestamp-{$course.active_in_course}#</td>
       <td style = "padding:0px 3px 0px 3px;white-space:nowrap;text-align:center"><span style = "display:none">{$course.to_timestamp}</span>{if $course.completed}#filter:timestamp-{$course.to_timestamp}#{else}-{/if}</td>
@@ -88,7 +92,13 @@
         </tr>
        {foreach name = 'course_lessons_list' item = 'lesson' from = $T_COURSE_LESSONS[$course.id]}
         <tr>
-         <td><a class = "{if !$lesson.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">{$lesson.name}</a></td>
+         <td>
+         {if $_change_handles_ && !$T_IS_SUPERVISOR}
+          <a class = "{if !$lesson.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">{$lesson.name}</a>
+         {else}
+          {$lesson.name}
+         {/if}
+         </td>
          <td style = "white-space:nowrap;text-align:center">{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}-{/if}</td>
          <td style = "white-space:nowrap;text-align:center">{if $lesson.completed}#filter:score-{$lesson.score}#%{/if}</td>
         </tr>
@@ -135,7 +145,13 @@
      </tr>
      {foreach name = 'lessons_list' item = 'lesson' from = $T_USER_LESSONS}
      <tr>
-      <td style = "padding:0px 3px 0px 0px"><a class = "{if !$lesson.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">{$lesson.name}</a></td>
+      <td style = "padding:0px 3px 0px 0px">
+      {if $_change_handles_ && !$T_IS_SUPERVISOR}
+       <a class = "{if !$lesson.active}deactivatedElement{else}editLink{/if}" href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}">{$lesson.name}</a>
+      {else}
+       {$lesson.name}
+      {/if}
+      </td>
       <td style = "padding:0px 3px 0px 3px">{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
       <td style = "padding:0px 3px 0px 3px"><span style = "display:none">{$lesson.active_in_lesson}</span>#filter:timestamp-{$lesson.active_in_lesson}#</td>
       <td style = "text-align:center;padding:0px 3px 0px 3px"><span style = "display:none">{$lesson.timestamp_completed}</span>{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}-{/if}</td>

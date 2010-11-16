@@ -68,7 +68,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
     {elseif $course.num_lessons && $T_SHOW_COURSE_LESSONS}
      <img src = "images/16x16/plus2.png" class = "ajaxHandle" alt = "{$smarty.const._COURSELESSONS}" title = "{$smarty.const._COURSELESSONS}" onclick = "toggleSubSection(this, '{$course.id}', 'courseLessonsTable')"/>
     {/if}
-    {if $_change_handles_}
+    {if $_change_handles_ && !$T_IS_SUPERVISOR}
     <a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$course.id}" class = "editLink" title = "{$smarty.const._EDIT}">{$course.name}</a>
     {else}
     <span>{$course.name}</span>
@@ -273,7 +273,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
 {if in_array('name', $T_DATASOURCE_COLUMNS)}
    <td class = "name">
-    {if $_change_handles_}
+    {if $_change_handles_ && !$T_IS_SUPERVISOR}
     <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" class = "editLink" title = "{$smarty.const._EDIT}">{$lesson.name}</a>
     {else}
     <span>{$lesson.name}</span>

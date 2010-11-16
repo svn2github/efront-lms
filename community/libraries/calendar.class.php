@@ -189,9 +189,9 @@ class calendar extends EfrontEntity
   $calendarTypes = self::$calendarTypes;
 
 
-   $user -> aspects['hcd'] -> isSupervisor() ? $supervisor = true : $supervisor = false;
 
 
+   unset($calendarTypes['branch']);
 
 
   if (!$supervisor) {

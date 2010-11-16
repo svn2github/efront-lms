@@ -490,7 +490,7 @@ class module_workbook extends EfrontModule{
 
     $workbookHTML .= '<div style="width:98%;float:left;border:1px dotted #808080;padding: 5px 10px;">';
     $workbookHTML .= '<div style="background-color: #EAEAEA;border: 1px solid #AAAAAA;padding: 2px;font-weight: bold;">';
-    $workbookHTML .= '<img src="'.$this->moduleBaseLink.'images/item_logo.png"/>&nbsp;'._WORKBOOK_ITEMS_COUNT.$value['position'];
+    $workbookHTML .= _WORKBOOK_ITEMS_COUNT.$value['position'];
 
     if($value['item_title'] != '')
      $workbookHTML .= '&nbsp;-&nbsp;'.$value['item_title'];
@@ -540,11 +540,14 @@ class module_workbook extends EfrontModule{
    $workbookAnswers = $this->getWorkbookAnswers($currentUser->user['login'], array_keys($workbookItems));
    $workbookHTML = '';
 
+   $itemLogo = new EfrontFile(G_DEFAULTIMAGESPATH."32x32/unit.png");
+   $itemLogoUrl = $itemLogo['path'];
+
    foreach($workbookItems as $key => $value){
 
     $workbookHTML .= '<div style="width:98%;float:left;border:1px dotted #808080;">';
     $workbookHTML .= '<div style="background-color: #EAEAEA;font-weight: bold;">';
-    $workbookHTML .= '<img src="'.$this->moduleBaseLink.'images/item_logo.png"/>&nbsp;'._WORKBOOK_ITEMS_COUNT.$value['position'];
+    $workbookHTML .= '<img src="'.$itemLogoUrl.'"/>&nbsp;'._WORKBOOK_ITEMS_COUNT.$value['position'];
 
     if($value['item_title'] != '')
      $workbookHTML .= '&nbsp;-&nbsp;'.$value['item_title'];

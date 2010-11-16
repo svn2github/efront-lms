@@ -1278,62 +1278,16 @@ abstract class EfrontUser
 	 * @since 3.5.0
 	 * @access public
 	 */
- public static function getLoginTime($login = false, $interval = false){
-  if ($interval && eF_checkParameter($interval['from'], 'timestamp') && eF_checkParameter($interval['to'], 'timestamp')) {
-   $from = $interval['from'];
-   $to = $interval['to'];
-  } else {
-   $from = "00000000";
-   $to = time();
-  }
-  if ($login && eF_checkParameter($login, 'login')) {
-   $result = eF_getTableData("logs", "users_LOGIN, id, timestamp, action", "users_LOGIN = '$login' and timestamp between $from and $to", "id");
-  } else {
-   $result = eF_getTableData("logs", "users_LOGIN, id, timestamp, action", "timestamp between $from and $to", "id");
-  }
-  $userTimes = array();
-  foreach ($result as $value) {
-   $logs[$value['users_LOGIN']][] = $value;
-  }
-  foreach ($logs as $user => $result) {
-   $totalTime = 0;
-   $start = 0;
-   $inlogin = 0;
-   foreach ($result as $value) {
-    if ($inlogin) {
-     if ($value['action'] != 'logout' && $value['action'] != 'login'){
-      if ($value['timestamp'] < ($start + 1800)) { //if it is inactive more than half an hour, we don't consider it
-       $totalTime += $value['timestamp'] - $start;
-       $start = $value['timestamp'];
-      } else {
-       //$totalTime += 900;   // we could consider half of this period or enitre in the future
-       $start = $value['timestamp']; // It is needed to refresh start time even if time period was more half an hour. It was missing
-      }
-     } else if ($value['action'] == 'logout') {
-      if ($value['timestamp'] < ($start + 1800)) { //if it is inactive more than half an hour, we don't consider it
-       $totalTime += $value['timestamp'] - $start;
-      } else {
-       //$totalTime += 900; // we could consider half of this period or enitre in the future
-      }
-      $inlogin = 0;
-     } else if ($value['action'] == 'login') {
-      $inlogin = 1;
-      $start = $value['timestamp'];
-     }
-    } else {
-     if ($value['action'] == 'login') {
-      $inlogin = 1;
-      $start = $value['timestamp'];
-     }
-    }
-   }
-   $userTimes[$user] = eF_convertIntervalToTime($totalTime);
-   $userTimes[$user]['total_seconds'] = $totalTime;
-  }
+ public static function getLoginTime($login = false, $interval = array()) {
+  $times = new EfrontTimes($interval);
   if ($login) {
-   return $userTimes[$login];
+   $result = $times -> getUserTotalSessionTime($login);
+   return $times -> formatTimeForReporting($result);
   } else {
-   return $userTimes;
+   foreach ($times -> getSystemSessionTimesForUsers() as $login => $result) {
+    $userTimes[$login] = $times -> formatTimeForReporting($result);
+    return $userTimes;
+   }
   }
  }
  /**

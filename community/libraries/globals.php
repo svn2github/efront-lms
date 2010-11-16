@@ -247,7 +247,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 8846;
+    $build = 8867;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -605,6 +605,8 @@ function __autoload($className) {
         require_once "versions/sso/sumtotal.class.php";
     } else if (strpos($className, "calendar") !== false) {
         require_once "calendar.class.php";
+    } else if (strpos($className, "efrontpdf") !== false) {
+     require_once "pdf.class.php";
     } else if (strpos($className, "efrontfacebook") !== false) {
     }
     else if (strpos($className, "xmlexport") !== false) {

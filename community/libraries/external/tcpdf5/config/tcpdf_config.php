@@ -129,7 +129,7 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
  /**
 	 * header description string
 	 */
- define ('PDF_HEADER_STRING', "eFront");
+ define ('PDF_HEADER_STRING', "LMS");
 
  /**
 	 * image logo

@@ -437,7 +437,7 @@
  {elseif $smarty.get.specific_course_info}
   {eF_template_printBlock title = $smarty.const._DETAILS data = $smarty.capture.t_specific_course_info_code image = '32x32/courses.png' help = 'Reports'}
  {elseif $T_REPORTS_USER}
-  {eF_template_printBlock title = "`$smarty.const._REPORTSFORUSER` <span class='innerTableName'>&quot;#filter:login-`$T_REPORTS_USER->user.login`#&quot;</span>" data = $smarty.capture.user_statistics image = '32x32/users.png' help = 'Reports'}
+  {eF_template_printBlock title = "`$smarty.const._REPORTSFORUSER` <span class='innerTableName'>&quot;#filter:login-`$T_REPORTS_USER->user.login`#&quot;</span>" data = $smarty.capture.user_statistics image = '32x32/users.png' help = 'Reports' options=$T_EDIT_USER_LINK}
  {else}
   {eF_template_printBlock title = $smarty.const._USERSTATISTICS data = $smarty.capture.user_statistics image = '32x32/users.png' help = 'Reports'}
  {/if}

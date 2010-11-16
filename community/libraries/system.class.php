@@ -878,42 +878,4 @@ class EfrontSystem
   }
   return $logoFile;
  }
- public static function initializePdfExport() {
-  // create new PDF document
-  $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-  // set document information
-  $pdf->SetCreator(PDF_CREATOR);
-  $logoFile = EfrontSystem::getSystemLogo();
-  try {
-   list($width, $height) = getimagesize($logoFile['path']);
-  } catch (Exception $e) {
-   list($width, $height) = array(200, 150);
-  }
-  // set default header data
-  $pdf->SetHeaderData($logoFile['path'], $width*0.265, $GLOBALS['configuration']['site_name'], $GLOBALS['configuration']['site_motto']);
-  // set header and footer fonts
-  $pdf->setHeaderFont(Array('dejavusans', '', 16));
-  $pdf->setFooterFont(Array('dejavusans', '', 12));
-  // set default monospaced font
-  $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-  //set margins
-  $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-  $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-  $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-  //set auto page breaks
-  $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-  //set image scale factor
-  $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-  //set some language-dependent strings
-  //$pdf->setLanguageArray($l);
-  // ---------------------------------------------------------
-  // set default font subsetting mode
-  $pdf->setFontSubsetting(true);
-  // Set font
-  // dejavusans is a UTF-8 Unicode font, if you only need to
-  // print standard ASCII chars, you can use core fonts like
-  // helvetica or times to reduce file size.
-  $pdf->SetFont('dejavusans', '', 14, '', true);
-        return $pdf;
- }
 }

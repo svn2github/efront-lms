@@ -52,6 +52,10 @@ if (isset($_GET['sel_user'])) {
   //throw new EfrontUserException(_USERISNOTVALIDORYOUCANNOTSEEUSER.": ".$_GET['sel_user'], EfrontUserException :: INVALID_LOGIN);
  }
 
+ if ($isSupervisor || $currentUser -> user['user_type'] == 'administrator') {
+  $smarty -> assign("T_EDIT_USER_LINK", array(array('text' => _EDITUSER, 'image' => "16x16/edit.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['sel_user'])));
+ }
+
  $directionsTree = new EfrontDirectionsTree();
  $directionsTreePaths = $directionsTree -> toPathString();
 
@@ -650,318 +654,187 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $workBook -> close();
  exit();
 } else if (isset($_GET['pdf']) && $_GET['pdf'] == 'user') {
- $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true);
- $pdf -> SetCreator(PDF_CREATOR);
- $pdf -> SetAuthor(PDF_AUTHOR);
- //set margins
- $pdf -> SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
- //set auto page breaks
- $pdf -> SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
- $pdf -> SetHeaderMargin(PDF_MARGIN_HEADER);
- $pdf -> SetFooterMargin(PDF_MARGIN_FOOTER);
- $pdf -> setImageScale(PDF_IMAGE_SCALE_RATIO); //set image scale factor
- $pdf -> setHeaderFont(Array('FreeSerif', 'I', 11));
- $pdf -> setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
- $pdf -> setHeaderData('','','', _STATISTICSFORUSER.": ".$infoUser -> user['name'].' '.$infoUser -> user['surname'].' ('.$infoUser -> user['login'].')');
- //initialize document
- $pdf -> AliasNbPages();
- $pdf -> AddPage();
- $pdf -> SetFont("FreeSerif", "B", 12);
- $pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(100, 10, _GENERALUSERINFO, 0, 1, L, 0);
- $roles = EfrontUser :: getRoles(true);
- $pdf -> SetFont("FreeSerif", "", 10);
- $pdf -> Cell(70, 5, _HUMANNAME, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['general']['name']." ".$userInfo['general']['surname'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(70, 5, _USERTYPE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $roles[$userInfo['general']['user_type']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(70, 5, _USERROLE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $roles[$userInfo['general']['user_types_ID']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(70, 5, _LANGUAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['general']['language'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(70, 5, _ACTIVE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['general']['active'] ? _YES : _NO, 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(70, 5, _JOINED, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['general']['joined_str'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> SetFont("FreeSerif", "B", 12);
- $pdf -> SetTextColor(0,0,0);
- $pdf -> Cell(100, 10, _USERCOMMUNICATIONINFO, 0, 1, L, 0);
- $pdf -> SetFont("FreeSerif", "", 10);
- if ($GLOBALS['configuration']['disable_forum'] != 1) {
-  $pdf -> Cell(70, 5, _FORUMPOSTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['forum_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-  $pdf -> Cell(70, 5, _FORUMLASTMESSAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['forum_last_message'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+ $pdf = new EfrontPdf(_REPORT.": ".formatLogin($infoUser -> user['login']));
+ try {
+  $avatarFile = new EfrontFile($infoUser -> user['avatar']);
+ } catch(Exception $e) {
+  $avatarFile = new EfrontFile(G_SYSTEMAVATARSPATH."unknown_small.png");
  }
- if ($GLOBALS['configuration']['disable_messages'] != 1) {
-  $pdf -> Cell(70, 5, _PERSONALMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-  $pdf -> Cell(70, 5, _MESSAGESFOLDERS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_folders']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+ $info = array(_USERNAME => $userInfo['general']['fullname'],
+      _USERTYPE => $userInfo['general']['user_types_ID'] ? $userInfo['general']['user_types_ID'] : $roles[$userInfo['general']['user_type']],
+      _ACTIVE => $userInfo['general']['active'] ? _YES : _NO,
+      _JOINED => $userInfo['general']['joined_str'],
+      _TOTALLOGINTIME => $userInfo['general']['total_login_time']['time_string']);
+ $pdf -> printInformationSection(_GENERALUSERINFO, $info, $avatarFile);
+ $info = array(_FORUMPOSTS => sizeof($userInfo['communication']['forum_messages']),
+      _FORUMLASTMESSAGE => formatTimestamp($userInfo['communication']['last_message']['timestamp']),
+      _PERSONALMESSAGES => sizeof($userInfo['communication']['personal_messages']),
+      _MESSAGESFOLDERS => sizeof($userInfo['communication']['personal_folders']),
+      _FILES => sizeof($userInfo['communication']['files']),
+      _FOLDERS => sizeof($userInfo['communication']['folders']),
+      _TOTALSIZE => $userInfo['communication']['total_size']._KB,
+      _CHATMESSAGES => sizeof($userInfo['communication']['chat_messages']),
+      _CHATLASTMESSAGE => formatTimestamp($userInfo['communication']['last_chat']['timestamp']),
+      _COMMENTS => sizeof($userInfo['communication']['comments']));
+ if ($GLOBALS['configuration']['disable_forum']) {
+  unset($info[_FORUMPOSTS]);
+  unset($info[_FORUMLASTMESSAGE]);
  }
- $pdf -> Cell(70, 5, _FILES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['files']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(70, 5, _FOLDERS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['personal_folders']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(70, 5, _TOTALSIZE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['total_size'].' '._KB, 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- if ($GLOBALS['configuration']['chat_enabled']) {
-  $pdf -> Cell(70, 5, _CHATMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['chat_messages']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-  $pdf -> Cell(70, 5, _CHATLASTMESSAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $userInfo['communication']['chat_last_message'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+ if ($GLOBALS['configuration']['disable_messages']) {
+  unset($info[_PERSONALMESSAGES]);
+  unset($info[_MESSAGESFOLDERS]);
  }
- if ($GLOBALS['configuration']['disable_comments'] != 1) {
-  $pdf -> Cell(70, 5, _COMMENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($userInfo['communication']['comments']).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+ if (@$GLOBALS['configuration']['chat_enabled']) {
+  unset($info[_CHATMESSAGES]);
+  unset($info[_CHATLASTMESSAGE]);
  }
- $pdf -> SetFont("FreeSerif", "B", 12);
- $pdf -> SetTextColor(0,0,0);
- $pdf -> Cell(100, 10, _USERUSAGEINFO, 0, 1, L, 0);
- $pdf -> SetFont("FreeSerif", "", 10);
- $pdf -> Cell(90, 5, _LASTLOGIN, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, formatTimestamp($userInfo['usage']['last_login']['timestamp'], 'time'), 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(90, 5, _TOTALLOGINS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, sizeof($userInfo['usage']['logins']), 0, 1, L, 0).' ';$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(90, 5, _MONTHLOGINS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, sizeof($userInfo['usage']['month_logins']), 0, 1, L, 0).' ';$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(90, 5, _WEEKLOGINS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, sizeof($userInfo['usage']['week_logins']), 0, 1, L, 0).' ';$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(90, 5, _MEANDURATION, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $userInfo['usage']['mean_duration']."'", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(90, 5, _MONTHMEANDURATION, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $userInfo['usage']['month_mean_duration']."'", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
- $pdf -> Cell(90, 5, _WEEKMEANDURATION, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $userInfo['usage']['week_mean_duration']."'", 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+ if ($GLOBALS['configuration']['disable_messages']) {
+  unset($info[_COMMENTS]);
+ }
+ $pdf -> printInformationSection(_USERCOMMUNICATIONINFO, $info);
+ $info = array(_LASTLOGIN => formatTimestamp($userInfo['usage']['last_login']['timestamp']),
+      _TOTALLOGINS => sizeof($userInfo['usage']['logins']),
+      _MONTHLOGINS => sizeof($userInfo['usage']['month_logins']),
+      _WEEKLOGINS => sizeof($userInfo['usage']['week_logins']),
+      _MEANDURATION => $userInfo['usage']['mean_duration']._MINUTESSHORTHAND,
+      _MONTHMEANDURATION => $userInfo['usage']['month_mean_duration']._MINUTESSHORTHAND,
+      _WEEKMEANDURATION => $userInfo['usage']['week_mean_duration']._MINUTESSHORTHAND,
+      _LASTIPUSED => $userInfo['usage']['last_ip']);
+ $pdf -> printInformationSection(_USERUSAGEINFO, $info);
  if ($infoUser -> user['user_type'] != 'administrator') {
+  $result = eF_getTableDataFlat("lessons", "id, name, active");
+  $lessonNames = array_combine($result['id'], $result['name']);
+  $coursesAvgScore = $lessonsAvgScore = $projectsAvgScore = $testsAvgScore = 0;
+  $data = array();
   $constraints = array('instance' => false, 'archive' => false, 'active' => true);
   $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
   $constraints['return_objects'] = false;
   $userCourses = $infoUser -> getUserCoursesAggregatingResults($constraints);
-  if (sizeof($userCourses) > 0) {
-   $pdf -> SetTextColor(0, 0, 0);
-   $pdf -> AddPage('L');
-   $pdf -> SetFont("FreeSerif", "B", 12);
-   $pdf -> Cell(60, 12, _COURSES, 0, 1, L, 0);
-   $pdf -> SetFont("FreeSerif", "B", 10);
-   $pdf -> Cell(100, 7, _COURSE, 0, 0, L, 0);
-   $pdf -> Cell(50, 7, _COMPLETED, 0, 0, L, 0);
-   $pdf -> Cell(50, 7, _SCORE, 0, 0, L, 0);
-   $pdf -> Cell(50, 7, _COMPLETEDON, 0, 1, L, 0);
-   $pdf -> SetFont("FreeSerif", "", 10);
-   $pdf -> SetTextColor(0, 0, 255);
-   foreach ($userCourses as $id => $course) {
-    $pdf -> Cell(100, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $course['name']), 0, 0, L, 0);
-    $pdf -> Cell(50, 5, $course['completed'] ? _YES : _NO, 0, 0, L, 0);
-    $pdf -> Cell(50, 5, formatScore($course['score'])."%", 0, 0, L, 0);
-    $pdf -> Cell(50, 5, formatTimestamp($course['to_timestamp']), 0, 1, L, 0);
-   }
+  foreach ($userCourses as $key => $value) {
+   $data[$key] = array(_NAME => $value['name'],
+        _COMPLETED => $value['completed'] ? _YES : _NO,
+        _SCORE => formatScore($value['score'])."%",
+        _COMPLETEDON => formatTimestamp($value['to_timestamp']));
+   $coursesAvgScore += $value['score'];
   }
-  //lessons page
+  $pdf -> printDataSection(_COURSES, $data);
+  $data = array();
   $userLessons = $infoUser -> getUserStatusInLessons();
-  if (sizeof($userLessons) > 0 && $GLOBALS['configuration']['lesson_enroll']) {
-   $pdf -> SetTextColor(0, 0, 0);
-   $pdf -> AddPage('L');
-   $pdf -> SetFont("FreeSerif", "B", 12);
-   $pdf -> Cell(60, 12, _LESSONS, 0, 1, L, 0);
-   $pdf -> SetFont("FreeSerif", "B", 10);
-   $pdf -> Cell(70, 7, _LESSON, 0, 0, L, 0);
-   $pdf -> Cell(30, 7, _TIMEINLESSON, 0, 0, L, 0);
-   $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
-   if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
-    $pdf -> Cell(40, 7, _OVERALL, 0, 0, C, 0);
-    $pdf -> Cell(40, 7, _TESTS, 0, 0, C, 0);
-    $pdf -> Cell(40, 7, _PROJECTS, 0, 1, C, 0);
-   } elseif($GLOBALS['configuration']['disable_projects'] != 1) {
-    $pdf -> Cell(40, 7, _OVERALL, 0, 0, C, 0);
-    $pdf -> Cell(40, 7, _PROJECTS, 0, 1, C, 0);
-   } elseif($GLOBALS['configuration']['disable_tests'] != 1) {
-    $pdf -> Cell(40, 7, _OVERALL, 0, 0, C, 0);
-    $pdf -> Cell(40, 7, _TESTS, 0, 1, C, 0);
-   } else {
-    $pdf -> Cell(40, 7, _OVERALL, 0, 1, C, 0);
-   }
-   $pdf -> SetFont("FreeSerif", "", 10);
-   $pdf -> SetTextColor(0, 0, 255);
-   foreach ($userLessons as $id => $lesson) {
-    $lesson = $lesson -> lesson;
-    if ($lesson['active']) {
-     $pdf -> Cell(70, 5, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $lesson['name']), 0, 0, L, 0);
-     $pdf -> Cell(30, 5, $lesson['time_in_lesson']['time_string'], 0, 0, L, 0);
-     $pdf -> Cell(40, 5, $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO, 0, 0, L, 0);
-     if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
-      $pdf -> Cell(40, 5, formatScore($lesson['overall_progress']['percentage'])."%", 0, 0, C, 0);
-      $pdf -> Cell(40, 5, formatScore($lesson['test_status']['mean_score'])."%", 0, 0, C, 0);
-      $pdf -> Cell(40, 5, formatScore($lesson['project_status']['mean_score'])."%", 0, 1, C, 0);
-     } elseif($GLOBALS['configuration']['disable_projects'] != 1) {
-      $pdf -> Cell(40, 5, formatScore($lesson['overall_progress']['percentage'])."%", 0, 0, C, 0);
-      $pdf -> Cell(40, 5, formatScore($lesson['project_status']['mean_score'])."%", 0, 1, C, 0);
-     } elseif($GLOBALS['configuration']['disable_tests'] != 1) {
-      $pdf -> Cell(40, 5, formatScore($lesson['overall_progress']['percentage'])."%", 0, 0, C, 0);
-      $pdf -> Cell(40, 5, formatScore($lesson['test_status']['mean_score'])."%", 0, 1, C, 0);
-     } else {
-      $pdf -> Cell(40, 5, formatScore($lesson['overall_progress']['percentage'])."%", 1, 0, C, 0);
-     }
+  foreach ($userLessons as $key => $lesson) {
+   $lesson = $lesson -> lesson;
+   if ($lesson['active']) {
+    $data[$key] = array(_NAME => $lesson['name'],
+         _TIMEINLESSON => $lesson['time_in_lesson']['time_string'],
+         _COMPLETED => $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO,
+         _OVERALL => formatScore($lesson['overall_progress']['percentage'])."%",
+         _TESTS => formatScore($lesson['test_status']['mean_score'])."%",
+         _PROJECTS => formatScore($lesson['project_status']['mean_score'])."%");
+    if ($GLOBALS['configuration']['disable_tests']) {
+     unset($data[$key][_TESTS]);
     }
+    if ($GLOBALS['configuration']['disable_projects']) {
+     unset($data[$key][_PROJECTS]);
+    }
+    $lessonsAvgScore += $lesson['score'];
    }
   }
-  $result = eF_getTableDataFlat("lessons", "id, name, active");
-  $lessonNames = array_combine($result['id'], $result['name']);
-  //tests page
-  if ($GLOBALS['configuration']['disable_tests'] != 1) {
+  $pdf -> printDataSection(_LESSONS, $data);
+  if (!$GLOBALS['configuration']['disable_tests']) {
+   $data = array();
    $doneTests = EfrontStats :: getStudentsDoneTests(false, $infoUser -> user['login']);
-   if (sizeof($doneTests[$infoUser -> user['login']]) > 0) {
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> AddPage('L');
-    $pdf -> SetFont("FreeSerif", "B", 12);
-    $pdf -> Cell(60, 12, _TESTS, 0, 1, L, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(100, 7, _LESSON, 0, 0, L, 0);
-    $pdf -> Cell(100, 7, _TESTNAME, 0, 0, L, 0);
-    $pdf -> Cell(40, 7, _SCORE, 0, 0, C, 0);
-    $pdf -> Cell(40, 7, _DATE, 0, 1, C, 0);
-    $pdf -> SetFont("FreeSerif", "", 10);
-    $pdf -> SetTextColor(0, 0, 255);
-    $avgScore = 0;
-    foreach ($doneTests[$infoUser -> user['login']] as $test) {
-     $pdf -> Cell(100, 5, $lessonNames[$test['lessons_ID']], 0, 0, L, 0);
-     $pdf -> Cell(100, 5, $test['name'], 0, 0, L, 0);
-     $pdf -> Cell(40, 5, formatScore($test['score'])."%", 0, 0, C, 0);
-     $pdf -> Cell(40, 5, formatTimestamp($test['timestamp'], 'time_nosec'), 0, 1, C, 0);
-     $avgScore += $test['score'];
-    }
-    $pdf -> Cell(100, 5, '', 0, 1, L, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(100, 5, '', 0, 0, L, 0);
-    $pdf -> Cell(100, 5, _AVERAGESCORE, 0, 0, L, 0);
-    $pdf -> Cell(40, 5, formatScore($avgScore / sizeof($doneTests[$infoUser -> user['login']]))."%", 0, 1, C, 0);
+   foreach ($doneTests[$infoUser -> user['login']] as $key => $test) {
+    $data[$key] = array(_LESSON => $lessonNames[$test['lessons_ID']],
+         _TESTNAME => $test['name'],
+         _SCORE => formatScore($test['score'])."%",
+         _DATE => formatTimestamp($test['timestamp'], 'time_nosec'));
+    $testsAvgScore += $test['score'];
    }
+   $pdf -> printDataSection(_TESTS, $data);
+   //transpose tests array, from (login => array(test id => test)) to array(lesson id => array(login => array(test id => test)))
+   $temp = array();
+   foreach ($doneTests as $login => $userTests) {
+    foreach ($userTests as $contentId => $test) {
+     $temp[$test['lessons_ID']][$login][$contentId] = $test;
+    }
+   }
+   $doneTests = $temp;
   }
-  //projects page
-  if($GLOBALS['configuration']['disable_projects'] != 1) {
+  if (!$GLOBALS['configuration']['disable_projects']) {
+   $data = array();
    $assignedProjects = EfrontStats :: getStudentsAssignedProjects(false, $infoUser -> user['login']);
-   if (sizeof($assignedProjects[$infoUser -> user['login']]) > 0) {
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> AddPage('L');
-    $pdf -> SetFont("FreeSerif", "B", 12);
-    $pdf -> Cell(60, 12, _PROJECTS, 0, 1, L, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(100, 7, _LESSON, 0, 0, L, 0);
-    $pdf -> Cell(100, 7, _TITLE, 0, 0, L, 0);
-    $pdf -> Cell(40, 7, _GRADE, 0, 1, C, 0);
-    $pdf -> SetFont("FreeSerif", "", 10);
-    $pdf -> SetTextColor(0, 0, 255);
-    $avgScore = 0;
-    foreach ($assignedProjects[$infoUser -> user['login']] as $project) {
-     $pdf -> Cell(100, 5, $lessonNames[$project['lessons_ID']], 0, 0, L, 0);
-     $pdf -> Cell(100, 5, $project['title'], 0, 0, L, 0);
-     $pdf -> Cell(40, 5, formatScore($project['grade'])."%", 0, 1, C, 0);
-     $avgScore += $project['grade'];
+   foreach ($assignedProjects[$infoUser -> user['login']] as $key => $project) {
+    $data[$key] = array(_LESSON => $lessonNames[$project['lessons_ID']],
+         _TITLE => $project['title'],
+         _SCORE => formatScore($project['grade'])."%");
+    $projectsAvgScore += $project['grade'];
+   }
+   $pdf -> printDataSection(_PROJECTS, $data);
+   //transpose projects array, from (login => array(project id => project)) to array(lesson id => array(login => array(project id => project)))
+   $temp = array();
+   foreach ($assignedProjects as $login => $userProjects) {
+    foreach ($userProjects as $projectId => $project) {
+     $temp[$project['lessons_ID']][$login][$projectId] = $project;
     }
-    $pdf -> Cell(100, 5, '', 0, 1, L, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(100, 5, '', 0, 0, L, 0);
-    $pdf -> Cell(100, 5, _AVERAGESCORE, 0, 0, L, 0);
-    $pdf -> Cell(40, 5, formatScore($avgScore / sizeof($assignedProjects[$infoUser -> user['login']]))."%", 0, 1, C, 0);
    }
+   $assignedProjects = $temp;
   }
-  //transpose tests array, from (login => array(test id => test)) to array(lesson id => array(login => array(test id => test)))
-  $temp = array();
-  foreach ($doneTests as $login => $userTests) {
-   foreach ($userTests as $contentId => $test) {
-    $temp[$test['lessons_ID']][$login][$contentId] = $test;
-   }
-  }
-  $doneTests = $temp;
-  //transpose projects array, from (login => array(project id => project)) to array(lesson id => array(login => array(project id => project)))
-  $temp = array();
-  foreach ($assignedProjects as $login => $userProjects) {
-   foreach ($userProjects as $projectId => $project) {
-    $temp[$project['lessons_ID']][$login][$projectId] = $project;
-   }
-  }
-  $assignedProjects = $temp;
-  //add a separate sheet for each distinct course of that user
+  $info = array(_COURSESAVERAGE => formatScore($coursesAvgScore).'%',
+       _LESSONSAVERAGE => formatScore($lessonsAvgScore).'%',
+       _TESTSAVERAGE => formatScore($testsAvgScore).'%',
+       _PROJECTSAVERAGE => formatScore($projectsAvgScore).'%');
+  $pdf -> printInformationSection(_AVERAGESCORES, $info);
   foreach ($userCourses as $id => $course) {
+   $info = array(_COMPLETED => $course['completed'] ? _YES.', '._ON.' '.formatTimestamp($course['to_timestamp']) : _NO,
+        _SCORE => formatScore($course['score'])."%");
+   $pdf -> printInformationSection($course['name'], $info);
    $constraints = array('instance' => $id, 'archive' => false, 'active' => true);
    $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
-   //$constraints['return_objects']  = false;
    $instances = $infoUser -> getUserCourses($constraints);
-   $pdf -> SetTextColor(0, 0, 0);
-   $pdf -> AddPage('L');
-   $pdf -> SetFont("FreeSerif", "B", 12);
-   $pdf -> Cell(60, 12, $course['name'], 0, 1, L, 0);
-   $pdf -> SetFont("FreeSerif", "B", 10);
-   $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
-   $pdf -> Cell(40, 7, _GRADE, 0, 1, C, 0);
-   $pdf -> SetFont("FreeSerif", "", 10);
-   $pdf -> SetTextColor(0, 0, 255);
-   $pdf -> Cell(40, 7, $course['completed'] ? _YES.', '._ON.' '.formatTimestamp($course['to_timestamp']) : _NO, 0, 0, L, 0);
-   $pdf -> Cell(40, 7, formatScore($course['score'])."%", 0, 1, C, 0);
    if (sizeof($instances) > 1) {
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(60, 12, '', 0, 1, L, 0);
-    $pdf -> Cell(60, 7, _COURSEINSTANCES, 0, 1, L, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(80, 7, _INSTANCE, 0, 0, L, 0);
-    $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
-    $pdf -> Cell(40, 7, _GRADE, 0, 1, C, 0);
-    $pdf -> SetTextColor(0, 0, 255);
-    foreach ($instances as $instance) {
-     $pdf -> Cell(80, 7, $instance -> course['name'], 0, 0, L, 0);
-     $pdf -> Cell(40, 7, $instance -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($instance -> course['to_timestamp']) : _NO, 0, 0, L, 0);
-     $pdf -> Cell(40, 7, formatScore($instance -> course['score'])."%", 0, 1, C, 0);
+    $data = array();
+    foreach ($instances as $key => $value) {
+     $data[$key] = array(_INSTANCE => $value -> course['name'],
+          _COMPLETED => $value -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($value -> course['to_timestamp']) : _NO,
+          _SCORE => formatScore($value -> course['score'])."%");
     }
+    $pdf -> printDataSection(_COURSEINSTANCES, $data);
    }
    foreach ($instances as $instance) {
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(60, 12, '', 0, 1, L, 0);
-    $pdf -> Cell(60, 7, _LESSONS, 0, 1, L, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(80, 7, _NAME, 0, 0, L, 0);
-    $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
-    $pdf -> Cell(40, 7, _GRADE, 0, 1, C, 0);
-    $pdf -> SetTextColor(0, 0, 255);
+    $data = array();
     $lessons = $infoUser -> getUserStatusInCourseLessons($instance);
-    foreach ($lessons as $lesson) {
-     $pdf -> Cell(80, 7, $lesson -> lesson['name'], 0, 0, L, 0);
-     $pdf -> Cell(40, 7, $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['timestamp_completed']) : _NO, 0, 0, L, 0);
-     $pdf -> Cell(40, 7, formatScore($lesson -> lesson['score'])."%", 0, 1, C, 0);
+    foreach ($lessons as $key => $lesson) {
+     $data[$key] = array(_NAME => $lesson -> lesson['name'],
+          _COMPLETED => $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['timestamp_completed']) : _NO,
+          _SCORE => formatScore($lesson -> lesson['score'])."%");
     }
+    $pdf -> printDataSection(_LESSONS, $data);
    }
   }
-  //add a separate sheet for each distinct lesson of that user
   foreach ($userLessons as $id => $lesson) {
    $lesson = $lesson -> lesson;
-   $pdf -> SetTextColor(0, 0, 0);
-   $pdf -> AddPage('L');
-   $pdf -> SetFont("FreeSerif", "B", 12);
-   $pdf -> Cell(60, 12, $lesson['name'], 0, 1, L, 0);
-   $pdf -> SetFont("FreeSerif", "B", 10);
-   $pdf -> Cell(40, 7, _TIMEINLESSON, 0, 0, L, 0);
-   $pdf -> Cell(40, 7, _COMPLETED, 0, 0, L, 0);
-   $pdf -> Cell(40, 7, _GRADE, 0, 0, C, 0);
-   $pdf -> Cell(40, 7, _CONTENT, 0, 1, C, 0);
-   $pdf -> SetFont("FreeSerif", "", 10);
-   $pdf -> SetTextColor(0, 0, 255);
-   $pdf -> Cell(40, 7, $lesson['time_in_lesson']['time_string'], 0, 0, L, 0);
-   $pdf -> Cell(40, 7, $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO, 0, 0, L, 0);
-   $pdf -> Cell(40, 7, formatScore($lesson['score'])."%", 0, 0, C, 0);
-   $pdf -> Cell(40, 7, formatScore($lesson['overall_progress']['percentage'])."%", 0, 1, C, 0);
+   $info = array(_TIMEINLESSON => $lesson['time_in_lesson']['time_string'],
+        _COMPLETED => $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO,
+        _SCORE => formatScore($lesson['score'])."%",
+        _CONTENT => formatScore($lesson['overall_progress']['percentage'])."%" );
+   $pdf -> printInformationSection($lesson['name'], $info);
    if (sizeof($doneTests[$id][$infoUser -> user['login']]) > 0 && $GLOBALS['configuration']['disable_tests'] != 1) {
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(60, 12, '', 0, 1, L, 0);
-    $pdf -> Cell(60, 7, _TESTS, 0, 1, L, 0);
-    $pdf -> SetTextColor(0, 0, 255);
-    $avgScore = 0;
-    foreach ($doneTests[$id][$infoUser -> user['login']] as $test) {
-     $pdf -> Cell(60, 7, $test['name'], 0, 0, L, 0);
-     $pdf -> Cell(60, 7, formatScore($test['score'])."%", 0, 0, C, 0);
-     $pdf -> Cell(60, 7, formatTimestamp($test['timestamp']), 0, 1, C, 0);
-     $avgScore += $test['score'];
+    $data = array();
+    foreach ($doneTests[$id][$infoUser -> user['login']] as $key => $test) {
+     $data[$key] = array(_NAME => $test['name'],
+          _SCORE => formatScore($test['score'])."%",
+          _COMPLETEDON => formatTimestamp($test['timestamp']));
     }
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(60, 7, _AVERAGESCORE, 0, 0, L, 0);
-    $pdf -> Cell(60, 7, formatScore($avgScore / sizeof($doneTests[$id][$infoUser -> user['login']]))."%", 0, 1, C, 0);
+    $pdf -> printDataSection(_TESTS, $data);
    }
    if (sizeof($assignedProjects[$id][$infoUser -> user['login']]) > 0 && $GLOBALS['configuration']['disable_projects'] != 1) {
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(60, 12, '', 0, 1, L, 0);
-    $pdf -> Cell(60, 7, _PROJECTS, 0, 1, L, 0);
-    $pdf -> SetTextColor(0, 0, 255);
-    $avgScore = 0;
-    foreach ($assignedProjects[$id][$infoUser -> user['login']] as $project) {
-     $pdf -> Cell(60, 7, $project['title'], 0, 0, L, 0);
-     $pdf -> Cell(60, 7, formatScore($project['grade'])."%", 0, 1, C, 0);
-     $avgScore += $project['grade'];
+    $data = array();
+    foreach ($assignedProjects[$id][$infoUser -> user['login']] as $key => $project) {
+     $data[$key] = array(_NAME => $project['title'],
+          _SCORE => formatScore($project['grade'])."%");
     }
-    $pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(60, 7, _AVERAGESCORE, 0, 0, L, 0);
-    $pdf -> Cell(60, 7, formatScore($avgScore / sizeof($assignedProjects[$id][$infoUser -> user['login']]))."%", 0, 1, C, 0);
+    $pdf -> printDataSection(_PROJECTS, $data);
    }
   }
  }
- $pdf -> Output();
- exit(0);
+ $pdf -> OutputPdf('report_'.formatLogin($infoUser -> user['login']));
 }

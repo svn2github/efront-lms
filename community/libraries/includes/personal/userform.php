@@ -93,6 +93,25 @@ $smarty -> assign("T_EMPLOYEE_FORM_CAPTION", _USERFORM.": " . formatLogin($edite
 
 
 if (isset($_GET['pdf']) && $currentUser -> user['login'] != $editedUser -> user['login']) {
+/*
+	$pdf = new EfrontPdf(_EMPLOYEEFORM . ": " . formatLogin($editedUser -> user['login']));
+	try {
+		$avatarFile = new EfrontFile($infoUser -> user['avatar']);
+	} catch(Exception $e) {
+		$avatarFile = new EfrontFile(G_SYSTEMAVATARSPATH."unknown_small.png");
+	}
+	$info = array(_NAME		=> formatLogin($editedUser -> user['login']),
+				  _BIRTHDAY	=> formatTimestamp($editedEmployee -> employee['birthday']),
+				  _ADDRESS	=> $editedEmployee -> employee['address'],
+				  _CITY		=> $editedEmployee -> employee['city'],
+				  _HIREDON  => formatTimestamp($editedEmployee -> employee['hired_on']),
+				  _LEFTON   => formatTimestamp($editedEmployee -> employee['left_on']));
+	$pdf -> printInformationSection(_GENERALUSERINFO, $info, $avatarFile);
+
+
+	$pdf -> OutputPdf('user_form_'.$editedUser -> user['login'].'.pdf');
+	exit;
+*/
  $heightForHeaders = 10;
  $headerFont = 10;
  $smallHeaderFont = 8;
@@ -117,6 +136,7 @@ if (isset($_GET['pdf']) && $currentUser -> user['login'] != $editedUser -> user[
  $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
  $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
  $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+ $pdf->setFontSubsetting(false);
 
  $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
  $pdf->SetAuthor(formatLogin($currentUser -> user['login']));

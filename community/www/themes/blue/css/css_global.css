@@ -1350,7 +1350,7 @@ div.proto_graph{background-color:white;height:500px;}
 /*Various classes*/
 .horizontalSeparator{border-bottom:1px solid #888888}
 .horizontalSeparatorAbove{border-top:1px solid #555555;}
-.inactiveElement{color:#555555;}
+.inactiveElement{color:#aaaaaa!important;}
 .inactiveImage, .inactiveImage img{opacity:0.2;filter:alpha(opacity=20);}
 input.inactiveElement{background-color:#eeeeee;border-color:#eeeeee}
 span.counter{font-weight:normal;}

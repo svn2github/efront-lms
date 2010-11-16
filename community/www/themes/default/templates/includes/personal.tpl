@@ -221,7 +221,7 @@ var enableMyJobSelect = false;
 {*---------------------------------- My Status ----------------------------------*}
 {*------- contains: my Lessons, my Courses, my Groups, my Certifications -------*}
 {if $T_OP == "status"}
- {if ($smarty.session.s_type == "administrator") || ($smarty.const.G_VERSIONTYPE == 'enterprise' && $smarty.session.employee_type == "Supervisor")}
+ {if ($smarty.session.s_type == "administrator") || $T_IS_SUPERVISOR}
   {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=users&edit_user=`$smarty.get.edit_user`&op=`$smarty.get.op`&lessons=1&"}
   {assign var = "_change_handles_" value = $_change_}
  {else}
@@ -368,7 +368,7 @@ var enableMyJobSelect = false;
    {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
     {if ($T_SHOW_USER_FORM)}
     <div class="tabbertab {if $smarty.get.tab=='user_form'}tabbertabdefault{/if}" title="{$smarty.const._MYEMPLOYEEFORM}">
-     {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
+     {eF_template_printBlock alt= $T_USERNAME title = $smarty.const._USERFORM titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
     </div>
     {/if}
    </div>

@@ -134,13 +134,14 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
        echo (_ADMINISTRATORSNOJOBDESCRIPTIONS);
        exit;
       }
+      exit;
      } else if ($_GET['insert'] == "false") {
 
       $editedUser = EfrontUserFactory :: factory($_GET['add_employee']);
       $editedEmployee = $editedUser -> aspects['hcd'];
       $old_job_description_ID = eF_getJobDescriptionId($_GET['add_job'], $_GET['edit_branch']);
       $editedEmployee = $editedEmployee -> removeJob ($old_job_description_ID);
-
+      exit;
      } else if (isset($_GET['addAll'] )) {
 
       $employees = $currentBranch -> getEmployeesWithJobs();
@@ -158,6 +159,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 
        }
       }
+      exit;
      } else if (isset($_GET['removeAll'] )) {
       $employees = $currentBranch -> getEmployeesWithJobs();
       isset($_GET['filter']) ? $employees = eF_filterData($employees,$_GET['filter']) : null;
@@ -178,6 +180,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
 
        }
       }
+      exit;
      }
      $_GET['ajax'] = 1;
     }

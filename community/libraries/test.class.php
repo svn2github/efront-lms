@@ -186,7 +186,7 @@ class EfrontTest
         } elseif (!eF_checkParameter($test, 'id')) {
             throw new EfrontTestException(_INVALIDID.': '.$test, EfrontTestException :: INVALID_ID);
         } else {
-            if ($isContentId){
+            if ($isContentId) {
                 $result = eF_getTableData("tests t, content c", "t.*, c.name", "c.id = t.content_ID and content_ID=".$test);
             } else {
                 $result = eF_getTableData("tests t, content c", "t.*, c.name", "c.id=t.content_ID and t.id=".$test);

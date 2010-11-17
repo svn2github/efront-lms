@@ -29,6 +29,8 @@ class module_fuze_meetings extends EfrontModule {
  private $_current_user_login;
  private $_current_user_role;
  private $_current_user_timezone;
+ private $_current_user_fullname;
+ private $_current_user_email;
  private $_current_user_lessons_as_student;
  private $_current_user_lessons_as_professor;
  private $_current_lesson;
@@ -55,6 +57,8 @@ class module_fuze_meetings extends EfrontModule {
    $this->_current_user_id = $this->_current_user->user['id'];
    $this->_current_user_timezone = $this->_current_user->user['timezone'];
    $this->_current_user_login = $this->_current_user->user['login'];
+   $this->_current_user_fullname = $this->_current_user->user ['name'] . ' ' . $this->_current_user->user ['surname'];
+   $this->_current_user_email = $this->_current_user->user ['email'];
    $this->_current_lesson = $this->getCurrentLesson();
    if ($this->_current_lesson) {
     $this->_current_lesson_id = $this->_current_lesson->lesson['id'];
@@ -92,7 +96,7 @@ class module_fuze_meetings extends EfrontModule {
   catch (Exception $e) { /* DO NOTHING, WE'RE INSTALLING MODULE HERE */ }
  }
  public function getName() {
-  return _FUZE_MEETINGS; // 'The Jobs Manager';
+  return _FUZE_MEETINGS;
  }
  public function getPermittedRoles() {
   return array('administrator','professor','student');
@@ -139,6 +143,21 @@ class module_fuze_meetings extends EfrontModule {
   return 'mod_fuze_meetings_id1';
  }
 
+ /**
+
+	 * Takes care of the navigation links on the top of the page. Different 
+
+	 * for different users, depending on their role in regard to the given 
+
+	 * current course or lesson.
+
+	 * 
+
+	 * @see libraries/EfrontModule#getNavigationLinks()
+
+	 * @access public
+
+	 */
  public function getNavigationLinks() {
   $home_link = '';
   if ($this->_current_user->getType() == 'administrator') {
@@ -153,9 +172,12 @@ class module_fuze_meetings extends EfrontModule {
   $navigation_links = array();
   $navigation_links [] = array('title' => 'Home', 'link' => $home_link);
   $navigation_links [] = array('title' => _FUZE_MEETINGS, 'link' => $this->moduleBaseUrl);
-
   $action = (isset($_GET['action']) ? strtolower($_GET['action']) : false);
   if ($this->_current_user_role == 'professor') {
+   $navigation_links = array();
+   $navigation_links [] = array ('title' => _MYCOURSES, 'link' => 'professor.php?ctg=lessons');
+   $navigation_links [] = array ('title' => $this->_current_lesson -> lesson['name'], 'link' => 'professor.php?ctg=control_panel');
+   $navigation_links [] = array ('title' => _FUZE_MEETINGS, 'link' => $this->moduleBaseUrl);
    if ($action == 'meeting_schedule_prep') {
     $title = _FUZE_MEETINGS_NAV_TITLE_SCHEDULE;
     $link = $this->moduleBaseUrl . '&action=meeting_schedule_prep';
@@ -172,10 +194,8 @@ class module_fuze_meetings extends EfrontModule {
     $navigation_links [] = array('title' => $title, 'link' => $link);
    }
   }
-
   return $navigation_links;
  }
-
  public function getCenterLinkInfo(){
   $center_link_info = false;
   if ($this->_current_user->getType() == 'administrator') {}
@@ -186,10 +206,8 @@ class module_fuze_meetings extends EfrontModule {
          'link' => $this->moduleBaseUrl
         );
   }
-
   return $center_link_info;
  }
-
  public function getLessonCenterLinkInfo() {
   $center_link_info = false;
   if ($this->_current_user_role == 'professor') {
@@ -199,18 +217,12 @@ class module_fuze_meetings extends EfrontModule {
          'link' => $this->moduleBaseUrl
         );
   }
-
   return $center_link_info;
  }
 
+ public function getModule() { return true; }
 
- public function getModule() {
-  return true;
- }
-
- public function getLessonModule() {
-  return true;
- }
+ public function getLessonModule() { return true; }
 
  public function getLessonSmartyTpl() {
   return $this->getControlPanelSmartyTpl();
@@ -350,7 +362,6 @@ class module_fuze_meetings extends EfrontModule {
    }
    elseif ($controller_action == 'meeting_schedule') {
     // This is to save the newly scheduled meeting
-    //$template = $this->_prof_internal_schedule($smarty);
     $response = $this->_prof_internal_schedule();
     die(json_encode($response));
    }
@@ -419,7 +430,7 @@ class module_fuze_meetings extends EfrontModule {
   ## frame on their control panel.
 
   if ($this->_current_user_role == 'student' && $this->_f_account->isRegistered()) {
-
+   /* NOTHING DEFINED AS DEFAULT VIEW FOR STUDENTS */
   }
 
   ## Functionality available to students ends here ######################
@@ -598,7 +609,6 @@ class module_fuze_meetings extends EfrontModule {
  protected function _prof_default_cpanel($smarty, $fuze_user) {
   ## Taking the next 5 meetings for this user and lesson
   $meetings = $fuze_user->getMeetingsByLessonPage(0, 5, $this->_current_lesson_id);
-  //var_dump($meetings);
   $time_description = false;
   $latest_meetings = array();
   if (count($meetings)) {
@@ -952,6 +962,17 @@ class module_fuze_meetings extends EfrontModule {
   return $response;
  }
 
+ /**
+
+	 * Shows all meetings that are to be held in a future time.
+
+	 * 
+
+	 * @param unknown_type $smarty
+
+	 * @access protected
+
+	 */
  protected function _prof_internal_all_meetings($smarty) {
   $template = false;
   ## Instantiating the FUZE account user here.
@@ -964,10 +985,19 @@ class module_fuze_meetings extends EfrontModule {
   if ($fuze_user && !$fuze_user->isSuspended()) {
    $template = $this->moduleBaseDir . 'views/smarty.professor.mod_fm_all_meetings.tpl';
   }
-
   return $template;
  }
+ /**
 
+	 * Retrieves a subset of the current user/lesson meetings, according to 
+
+	 * certain given sorting criteria.
+
+	 * 
+
+	 * @access protected
+
+	 */
  protected function _prof_fetch_meetings() {
   ## Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
@@ -1007,7 +1037,6 @@ class module_fuze_meetings extends EfrontModule {
      }
     }
    }
-   //var_dump($meeting_array); die();
    $smarty = $this->getSmartyVar();
    $smarty->assign('T_TABLE_SIZE',$fuze_user->getFutureMeetingsCount());
    $dataSource = $meeting_array;
@@ -1023,10 +1052,21 @@ class module_fuze_meetings extends EfrontModule {
     $smarty -> assign("T_SORTED_TABLE", $tableName);
    }
   }
-
   return $this->moduleBaseDir . 'views/smarty.professor.mod_fm_all_meetings.tpl';
  }
+ /**
 
+	 * Carries out the logic for canceling a scheduled meeting. No interaction 
+
+	 * with the FUZE API is initiated by this operation, it has local effect 
+
+	 * only.
+
+	 * 
+
+	 * @access protected
+
+	 */
  protected function _prof_meeting_cancel() {
   $response = array('success' => false);
   ## Instantiating the FUZE account user here.
@@ -1072,10 +1112,8 @@ class module_fuze_meetings extends EfrontModule {
   else {
    $response ['error_msg'] = _FUZE_PROF_VIEW_ALL_REMOVE_FAILURE;
   }
-
   return $response;
  }
-
  /**
 
 	 * Prepares a meeting to be edited.
@@ -1158,6 +1196,15 @@ class module_fuze_meetings extends EfrontModule {
   }
   return $template;
  }
+ /**
+
+	 * Carries out the logc for editing a scheduled meeting.
+
+	 * 
+
+	 * @access protected
+
+	 */
  protected function _prof_meeting_edit() {
   $response = array('success' => false);
   $args = array();
@@ -1261,6 +1308,7 @@ class module_fuze_meetings extends EfrontModule {
 
 	 */
  protected function _prof_internal_default($smarty, $fuze_user) {
+  /* NOTHING HERE. THIS IS IN EFFECT CARRID OUT BY 'all_meetings' ACTION */
  }
  ///////////////////////////////////////////////////////////////////////////
  // STUDENT PROCEDURES BELOW
@@ -1288,7 +1336,8 @@ class module_fuze_meetings extends EfrontModule {
     if ($meeting->isHappeningNow()) {
      $latest_meetings [$meeting_id]['starttime'] = _FUZE_TIME_CPANEL_NOW;
      $latest_meetings [$meeting_id]['link'] = _FUZE_STUDENT_CPANEL_GO_TO_MEETING;
-     $latest_meetings [$meeting_id]['url'] = $meeting->getAttendUrl();
+     $attendee_email = urlencode($this->_current_user_email);
+     $latest_meetings [$meeting_id]['url'] = $meeting->getAttendUrl() . "?ae={$this->_current_user_email}&an={$attendee_email}";
     }
     else {
      $latest_meetings [$meeting_id]['link'] = 0;
@@ -1342,6 +1391,19 @@ class module_fuze_meetings extends EfrontModule {
   }
   return $tmp_data;
  }
+ /**
+
+	 * Determines the current role of the current user, depending on 
+
+	 * the course/lesson that is currently selected.
+
+	 * 
+
+	 * @return string The role of the current user.
+
+	 * @access private
+
+	 */
  private function _getCurrentUserRole() {
   $role = 'student';
   if ($this->_current_user->getType() == 'professor') {
@@ -1381,7 +1443,6 @@ class module_fuze_meetings extends EfrontModule {
   return $this->_f_account;
  }
  private function _get_rough_time_description ($time_parts) {
-  //print_r($time_parts);
   if ($time_parts['now'] || (!$time_parts['year'] && !$time_parts['month'] && !$time_parts['week'] && !$time_parts['day'] && !$time_parts['hour'] && !$time_parts['minute'])) {
    return _FUZE_TIME_NEXT_MEETING . ' ' . _FUZE_TIME_IN_IS . ' ' . _FUZE_TIME_NOW;
   }
@@ -1475,6 +1536,15 @@ class module_fuze_meetings extends EfrontModule {
  ///////////////////////////////////////////////////////////////////////////
  // INSTALL & UNINSTALL PROCEDURES BELOW
  ///////////////////////////////////////////////////////////////////////////
+ /**
+
+	 * Build the database and initialise default values during installation.
+
+	 * 
+
+	 * @access public
+
+	 */
  public function onInstall() {
   $sql = 'SET FOREIGN_KEY_CHECKS=0;';
   eF_executeNew($sql);
@@ -1528,6 +1598,11 @@ class module_fuze_meetings extends EfrontModule {
   eF_executeNew($sql);
   return true;
  }
+ /**
+
+	 * Drop DB tables related to this modle during uninstall.
+
+	 */
  public function onUninstall() {
   eF_executeNew('DROP TABLE IF EXISTS `_mod_fm_account`');
   eF_executeNew('DROP TABLE IF EXISTS `_mod_fm_user`');

@@ -144,8 +144,8 @@ define("_FUZE_PROF_MEETING_EDIT_ERROR", "You are not permitted to edit this meet
 $email_site_name = trim($GLOBALS['configuration']['site_name']);
 $email_site_motto = trim($GLOBALS['configuration']['site_motto']);
 $email_timestamp = date('r', time());
-$email_host = $GLOBALS['HTTP_ENV_VARS']['HTTP_HOST'];
-$email_host_address = 'http://' . $email_host . '/www/';
+$email_host = G_SERVERNAME; //$GLOBALS['HTTP_ENV_VARS']['HTTP_HOST'];
+$email_host_address = $email_host; //'http://' . $email_host . '/www/';
 $email_contact_address = $email_host_address . 'index.php?ctg=contact';
 $html_wrapper_prefix = '<HTML><HEAD></HEAD><BODY>';
 $html_wrapper_suffix = '</BODY></HTML>';

@@ -44,17 +44,17 @@
  </tr>
  <tr>
   <td style="padding:1px;">
-   <input type="button" class="flatButton" id="mod_fm_admin_user_create_btn" value="{$smarty.const._FUZE_ADMIN_USER_CREATE_BTN}" onclick="javascript:_mod_fm_user_create();" disabled/>
+   <input type="button" class="flatButton inactiveElement" id="mod_fm_admin_user_create_btn" value="{$smarty.const._FUZE_ADMIN_USER_CREATE_BTN}" onclick="javascript:_mod_fm_user_create();" disabled/>
   </td>
  </tr>
  <tr>
   <td style="padding:1px;">
-   <input type="button" class="flatButton" id="mod_fm_admin_user_remove_btn" value="{$smarty.const._FUZE_ADMIN_USER_SUSPEND_BTN}" onclick="javascript:_mod_fm_user_suspend();" disabled/>
+   <input type="button" class="flatButton inactiveElement" id="mod_fm_admin_user_remove_btn" value="{$smarty.const._FUZE_ADMIN_USER_SUSPEND_BTN}" onclick="javascript:_mod_fm_user_suspend();" disabled/>
   </td>
  </tr>
  <tr>
   <td style="padding:1px;">
-   <input type="button" class="flatButton" id="mod_fm_admin_user_login_btn" value="{$smarty.const._FUZE_ADMIN_USER_LOGIN_BTN}" onclick="javascript:_mod_fm_user_login();" disabled/>
+   <input type="button" class="flatButton inactiveElement" id="mod_fm_admin_user_login_btn" value="{$smarty.const._FUZE_ADMIN_USER_LOGIN_BTN}" onclick="javascript:_mod_fm_user_login();" disabled/>
   </td>
  </tr>
 </table>
